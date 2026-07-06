@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The name of the consumer group.
+    // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

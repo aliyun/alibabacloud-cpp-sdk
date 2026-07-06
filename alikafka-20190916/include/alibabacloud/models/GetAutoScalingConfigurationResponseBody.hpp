@@ -333,15 +333,15 @@ namespace Models
 
 
   protected:
-    // The response code. The value 200 indicates that the request was successful.
+    // Status code. A return value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
-    // The returned data.
+    // Return result.
     shared_ptr<GetAutoScalingConfigurationResponseBody::Data> data_ {};
-    // The returned message.
+    // Return message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

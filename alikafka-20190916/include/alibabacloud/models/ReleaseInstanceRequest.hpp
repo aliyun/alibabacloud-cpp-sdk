@@ -59,10 +59,11 @@ namespace Models
   protected:
     // Specifies whether to immediately release the physical resources of the instance. Valid values:
     // 
-    // *   **true**: The physical resources of the instance are immediately released.
-    // *   **false**: The physical resources of the instance are retained for a period of time before they are released.
+    // - **true**: Immediately releases the physical resources of the instance.
+    // 
+    // - **false**: The physical resources of the instance are retained for a period of time before they are released.
     shared_ptr<bool> forceDeleteInstance_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The groups that subscribe to the topic.
+      // List of Groups that subscribe to this topic.
       shared_ptr<vector<string>> consumerGroups_ {};
-      // The topic name.
+      // Topic name.
       shared_ptr<string> topic_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // HTTP return code.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // Return message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The subscription details.
+    // Subscription details
     shared_ptr<GetTopicSubscribeStatusResponseBody::TopicSubscribeStatus> topicSubscribeStatus_ {};
   };
 

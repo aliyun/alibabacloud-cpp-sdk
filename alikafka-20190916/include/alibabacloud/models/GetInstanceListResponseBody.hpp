@@ -1239,14 +1239,14 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the call is successful.
+    // The status code. A value of 200 indicates that the request is successful.
     shared_ptr<int32_t> code_ {};
     shared_ptr<GetInstanceListResponseBody::InstanceList> instanceList_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the region.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates if the request was successful.
     shared_ptr<bool> success_ {};
   };
 

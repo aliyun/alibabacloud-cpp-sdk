@@ -66,16 +66,23 @@ namespace Models
 
 
   protected:
-    // The subscription duration. Unit: months. Valid values:
+    // The subscription duration in months. The default value is 1. Valid values:
     // 
-    // *   **1~12**
-    // *   **24**
-    // *   **36**
+    // - 1 to **12**
+    // 
+    // - **24**
+    // 
+    // - **36**
     shared_ptr<int32_t> duration_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The billing method. Valid values:
+    // 
+    // - **0**: subscription
+    // 
+    // - **4**: Confluent series subscription
     shared_ptr<int32_t> paidType_ {};
     // The region ID of the instance.
     // 

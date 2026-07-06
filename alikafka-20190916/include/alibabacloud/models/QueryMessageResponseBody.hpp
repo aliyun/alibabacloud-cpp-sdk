@@ -186,33 +186,33 @@ namespace Models
 
 
     protected:
-      // The check value of the chaincode.
+      // The chaincode checksum.
       shared_ptr<int64_t> checksum_ {};
       // The message key.
       shared_ptr<string> key_ {};
       // Indicates whether the key is truncated.
       shared_ptr<bool> keyTruncated_ {};
-      // The consumer offset of the partition.
+      // The partition offset.
       shared_ptr<int64_t> offset_ {};
       // The partition ID.
       shared_ptr<int64_t> partition_ {};
-      // The size of the key after serialization. Unit: bytes.
+      // The size of the serialized key. Unit: bytes.
       shared_ptr<int32_t> serializedKeySize_ {};
-      // The size of the value after serialization. Unit: bytes.
+      // The size of the serialized value. Unit: bytes.
       shared_ptr<int32_t> serializedValueSize_ {};
-      // The time when the message was created. The value of this parameter is a UNIX timestamp in milliseconds.
+      // The message creation time. Represented as a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
-      // The time type.
+      // The timestamp type.
       shared_ptr<string> timestampType_ {};
       // The topic name.
       shared_ptr<string> topic_ {};
-      // The truncated size of the message key. Unit: bytes.
+      // The size of the truncated key message. Value: bytes.
       // 
-      // >  A maximum of 1 KB of content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/document_detail/113172.html).
+      // > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
       shared_ptr<int32_t> truncatedKeySize_ {};
-      // The truncated size of the message value. Unit: bytes.
+      // The size of the truncated value message. Unit: bytes.
       // 
-      // >  A maximum of 1 KB of content can be displayed for each message. Content that exceeds 1 KB is automatically truncated. For more information, see [Query messages](https://help.aliyun.com/document_detail/113172.html).
+      // > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
       shared_ptr<int32_t> truncatedValueSize_ {};
       // The message value.
       shared_ptr<string> value_ {};
@@ -260,18 +260,19 @@ namespace Models
 
 
   protected:
-    // The returned HTTP status code. If the request is successful, 200 is returned.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // The messages.
+    // The query message results.
     shared_ptr<vector<QueryMessageResponseBody::MessageList>> messageList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call was successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -173,11 +173,11 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // Status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // Response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSaslUsersResponseBody::SaslUserList> saslUserList_ {};
     // Indicates whether the request is successful.

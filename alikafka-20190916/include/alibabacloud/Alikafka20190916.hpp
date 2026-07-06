@@ -38,7 +38,7 @@ namespace Alikafka20190916
       Models::AddUserDefinedSgResponse addUserDefinedSg(const Models::AddUserDefinedSgRequest &request);
 
       /**
-       * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
+       * @summary Moves a resource to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Alikafka20190916
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
+       * @summary Moves a resource to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -55,7 +55,7 @@ namespace Alikafka20190916
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+       * @summary Converts a pay-as-you-go instance to a subscription instance.
        *
        * @param request ConvertPostPayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Alikafka20190916
       Models::ConvertPostPayOrderResponse convertPostPayOrderWithOptions(const Models::ConvertPostPayOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+       * @summary Converts a pay-as-you-go instance to a subscription instance.
        *
        * @param request ConvertPostPayOrderRequest
        * @return ConvertPostPayOrderResponse
@@ -72,7 +72,7 @@ namespace Alikafka20190916
       Models::ConvertPostPayOrderResponse convertPostPayOrder(const Models::ConvertPostPayOrderRequest &request);
 
       /**
-       * @summary Creates an access control list (ACL).
+       * @summary This operation is used to create an access control list (ACL).
        *
        * @param request CreateAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Alikafka20190916
       Models::CreateAclResponse createAclWithOptions(const Models::CreateAclRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an access control list (ACL).
+       * @summary This operation is used to create an access control list (ACL).
        *
        * @param request CreateAclRequest
        * @return CreateAclResponse
@@ -89,7 +89,7 @@ namespace Alikafka20190916
       Models::CreateAclResponse createAcl(const Models::CreateAclRequest &request);
 
       /**
-       * @summary Creates a consumer group.
+       * @summary You can call CreateConsumerGroup to create a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Alikafka20190916
       Models::CreateConsumerGroupResponse createConsumerGroupWithOptions(const Models::CreateConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a consumer group.
+       * @summary You can call CreateConsumerGroup to create a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @return CreateConsumerGroupResponse
@@ -106,7 +106,7 @@ namespace Alikafka20190916
       Models::CreateConsumerGroupResponse createConsumerGroup(const Models::CreateConsumerGroupRequest &request);
 
       /**
-       * @summary Creates a pay-as-you-go instance and returns the instance ID and order ID.
+       * @summary This operation creates a pay-as-you-go instance and returns the instance ID and order ID.
        *
        * @param tmpReq CreatePostPayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Alikafka20190916
       Models::CreatePostPayInstanceResponse createPostPayInstanceWithOptions(const Models::CreatePostPayInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pay-as-you-go instance and returns the instance ID and order ID.
+       * @summary This operation creates a pay-as-you-go instance and returns the instance ID and order ID.
        *
        * @param request CreatePostPayInstanceRequest
        * @return CreatePostPayInstanceResponse
@@ -123,9 +123,9 @@ namespace Alikafka20190916
       Models::CreatePostPayInstanceResponse createPostPayInstance(const Models::CreatePostPayInstanceRequest &request);
 
       /**
-       * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+       * @summary Pay-as-you-go instances are billed based on actual usage. This billing method is ideal for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure you understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq CreatePostPayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -134,9 +134,9 @@ namespace Alikafka20190916
       Models::CreatePostPayOrderResponse createPostPayOrderWithOptions(const Models::CreatePostPayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+       * @summary Pay-as-you-go instances are billed based on actual usage. This billing method is ideal for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure you understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request CreatePostPayOrderRequest
        * @return CreatePostPayOrderResponse
@@ -145,6 +145,9 @@ namespace Alikafka20190916
 
       /**
        * @summary Creates a subscription instance and returns the instance ID and order ID.
+       *
+       * @description - Before calling this operation, ensure you understand the billing methods and pricing of subscription instances. For more information, see [billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * - By default, a subscription instance created using this operation has a one-month subscription period and is set to auto-renew monthly. To change the renewal period or disable auto-renewal, go to the [renewal management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Set up auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param tmpReq CreatePrePayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -155,16 +158,19 @@ namespace Alikafka20190916
       /**
        * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
+       * @description - Before calling this operation, ensure you understand the billing methods and pricing of subscription instances. For more information, see [billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * - By default, a subscription instance created using this operation has a one-month subscription period and is set to auto-renew monthly. To change the renewal period or disable auto-renewal, go to the [renewal management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Set up auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       *
        * @param request CreatePrePayInstanceRequest
        * @return CreatePrePayInstanceResponse
        */
       Models::CreatePrePayInstanceResponse createPrePayInstance(const Models::CreatePrePayInstanceRequest &request);
 
       /**
-       * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+       * @summary Subscription instances require prepayment for resources and are ideal for long-term, stable business scenarios. This topic describes how to call the CreatePrePayOrder operation to create a subscription instance.
        *
-       * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+       * @description - Before you call this operation, ensure that you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - By default, when you call this operation, the subscription duration is one month and auto-renewal is enabled with a Unified Auto Renewal Cycle of one month. To modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param tmpReq CreatePrePayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -173,10 +179,10 @@ namespace Alikafka20190916
       Models::CreatePrePayOrderResponse createPrePayOrderWithOptions(const Models::CreatePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+       * @summary Subscription instances require prepayment for resources and are ideal for long-term, stable business scenarios. This topic describes how to call the CreatePrePayOrder operation to create a subscription instance.
        *
-       * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+       * @description - Before you call this operation, ensure that you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - By default, when you call this operation, the subscription duration is one month and auto-renewal is enabled with a Unified Auto Renewal Cycle of one month. To modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param request CreatePrePayOrderRequest
        * @return CreatePrePayOrderResponse
@@ -184,7 +190,7 @@ namespace Alikafka20190916
       Models::CreatePrePayOrderResponse createPrePayOrder(const Models::CreatePrePayOrderRequest &request);
 
       /**
-       * @summary Creates a Simple Authentication and Security Layer (SASL) user.
+       * @summary This operation creates a SASL user.
        *
        * @param request CreateSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +199,7 @@ namespace Alikafka20190916
       Models::CreateSaslUserResponse createSaslUserWithOptions(const Models::CreateSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Simple Authentication and Security Layer (SASL) user.
+       * @summary This operation creates a SASL user.
        *
        * @param request CreateSaslUserRequest
        * @return CreateSaslUserResponse
@@ -201,9 +207,9 @@ namespace Alikafka20190916
       Models::CreateSaslUserResponse createSaslUser(const Models::CreateSaslUserRequest &request);
 
       /**
-       * @summary Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+       * @summary After you deploy a serverless instance, you can use this API to create a scheduled scaling rule for the instance.
        *
-       * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+       * @description ###### This operation supports only serverless instances.
        *
        * @param tmpReq CreateScheduledScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -212,9 +218,9 @@ namespace Alikafka20190916
       Models::CreateScheduledScalingRuleResponse createScheduledScalingRuleWithOptions(const Models::CreateScheduledScalingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+       * @summary After you deploy a serverless instance, you can use this API to create a scheduled scaling rule for the instance.
        *
-       * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+       * @description ###### This operation supports only serverless instances.
        *
        * @param request CreateScheduledScalingRuleRequest
        * @return CreateScheduledScalingRuleResponse
@@ -224,8 +230,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a topic.
        *
-       * @description *   Each Alibaba Cloud account can call this operation up to once per second.
-       * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+       * @description - Each user can send up to 20 queries per second (QPS).
+       * - The maximum number of topics for an instance depends on its instance type.
        *
        * @param request CreateTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -236,8 +242,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a topic.
        *
-       * @description *   Each Alibaba Cloud account can call this operation up to once per second.
-       * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+       * @description - Each user can send up to 20 queries per second (QPS).
+       * - The maximum number of topics for an instance depends on its instance type.
        *
        * @param request CreateTopicRequest
        * @return CreateTopicResponse
@@ -262,7 +268,7 @@ namespace Alikafka20190916
       Models::DeleteAclResponse deleteAcl(const Models::DeleteAclRequest &request);
 
       /**
-       * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+       * @summary Deletes a Group.
        *
        * @param request DeleteConsumerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -271,7 +277,7 @@ namespace Alikafka20190916
       Models::DeleteConsumerGroupResponse deleteConsumerGroupWithOptions(const Models::DeleteConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+       * @summary Deletes a Group.
        *
        * @param request DeleteConsumerGroupRequest
        * @return DeleteConsumerGroupResponse
@@ -279,7 +285,7 @@ namespace Alikafka20190916
       Models::DeleteConsumerGroupResponse deleteConsumerGroup(const Models::DeleteConsumerGroupRequest &request);
 
       /**
-       * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+       * @summary The DeleteInstance operation deletes an instance after a subscription instance or a pay-as-you-go instance is released.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,7 +294,7 @@ namespace Alikafka20190916
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+       * @summary The DeleteInstance operation deletes an instance after a subscription instance or a pay-as-you-go instance is released.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -296,7 +302,7 @@ namespace Alikafka20190916
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
+       * @summary You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
        *
        * @param request DeleteSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -305,7 +311,7 @@ namespace Alikafka20190916
       Models::DeleteSaslUserResponse deleteSaslUserWithOptions(const Models::DeleteSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
+       * @summary You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
        *
        * @param request DeleteSaslUserRequest
        * @return DeleteSaslUserResponse
@@ -313,9 +319,9 @@ namespace Alikafka20190916
       Models::DeleteSaslUserResponse deleteSaslUser(const Models::DeleteSaslUserRequest &request);
 
       /**
-       * @summary Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+       * @summary After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
        *
-       * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+       * @description ###### This operation applies only to Serverless instances.
        *
        * @param request DeleteScheduledScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -324,9 +330,9 @@ namespace Alikafka20190916
       Models::DeleteScheduledScalingRuleResponse deleteScheduledScalingRuleWithOptions(const Models::DeleteScheduledScalingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+       * @summary After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
        *
-       * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+       * @description ###### This operation applies only to Serverless instances.
        *
        * @param request DeleteScheduledScalingRuleRequest
        * @return DeleteScheduledScalingRuleResponse
@@ -368,7 +374,7 @@ namespace Alikafka20190916
       Models::DeleteUserDefinedSgResponse deleteUserDefinedSg(const Models::DeleteUserDefinedSgRequest &request);
 
       /**
-       * @summary Queries the name of the resource with which an access control list (ACL) is associated.
+       * @summary Queries access control list (ACL) resource names.
        *
        * @param request DescribeAclResourceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +383,7 @@ namespace Alikafka20190916
       Models::DescribeAclResourceNameResponse describeAclResourceNameWithOptions(const Models::DescribeAclResourceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the name of the resource with which an access control list (ACL) is associated.
+       * @summary Queries access control list (ACL) resource names.
        *
        * @param request DescribeAclResourceNameRequest
        * @return DescribeAclResourceNameResponse
@@ -402,7 +408,7 @@ namespace Alikafka20190916
       Models::DescribeAclsResponse describeAcls(const Models::DescribeAclsRequest &request);
 
       /**
-       * @summary Queries Simple Authentication and Security Layer (SASL) users.
+       * @summary You can call DescribeSaslUsers to query SASL users.
        *
        * @param request DescribeSaslUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +417,7 @@ namespace Alikafka20190916
       Models::DescribeSaslUsersResponse describeSaslUsersWithOptions(const Models::DescribeSaslUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Simple Authentication and Security Layer (SASL) users.
+       * @summary You can call DescribeSaslUsers to query SASL users.
        *
        * @param request DescribeSaslUsersRequest
        * @return DescribeSaslUsersResponse
@@ -453,7 +459,10 @@ namespace Alikafka20190916
       Models::DowngradePrePayOrderResponse downgradePrePayOrder(const Models::DowngradePrePayOrderRequest &request);
 
       /**
-       * @summary Enables and disables the flexible group creation feature.
+       * @summary This topic describes how to call EnableAutoGroupCreation to enable or disable the free use of Groups.
+       *
+       * @description Currently, only reserved instances support this API.
+       * Serverless instances are not supported at this time.
        *
        * @param request EnableAutoGroupCreationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -462,7 +471,10 @@ namespace Alikafka20190916
       Models::EnableAutoGroupCreationResponse enableAutoGroupCreationWithOptions(const Models::EnableAutoGroupCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables and disables the flexible group creation feature.
+       * @summary This topic describes how to call EnableAutoGroupCreation to enable or disable the free use of Groups.
+       *
+       * @description Currently, only reserved instances support this API.
+       * Serverless instances are not supported at this time.
        *
        * @param request EnableAutoGroupCreationRequest
        * @return EnableAutoGroupCreationResponse
@@ -470,7 +482,7 @@ namespace Alikafka20190916
       Models::EnableAutoGroupCreationResponse enableAutoGroupCreation(const Models::EnableAutoGroupCreationRequest &request);
 
       /**
-       * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+       * @summary This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
        *
        * @param request EnableAutoTopicCreationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -479,7 +491,7 @@ namespace Alikafka20190916
       Models::EnableAutoTopicCreationResponse enableAutoTopicCreationWithOptions(const Models::EnableAutoTopicCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+       * @summary This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
        *
        * @param request EnableAutoTopicCreationRequest
        * @return EnableAutoTopicCreationResponse
@@ -521,7 +533,7 @@ namespace Alikafka20190916
       Models::GetAllInstanceIdListResponse getAllInstanceIdList(const Models::GetAllInstanceIdListRequest &request);
 
       /**
-       * @summary Queries the IP address whitelist.
+       * @summary The GetAllowedIpList operation retrieves the IP address allowlist.
        *
        * @param request GetAllowedIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +542,7 @@ namespace Alikafka20190916
       Models::GetAllowedIpListResponse getAllowedIpListWithOptions(const Models::GetAllowedIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP address whitelist.
+       * @summary The GetAllowedIpList operation retrieves the IP address allowlist.
        *
        * @param request GetAllowedIpListRequest
        * @return GetAllowedIpListResponse
@@ -538,9 +550,9 @@ namespace Alikafka20190916
       Models::GetAllowedIpListResponse getAllowedIpList(const Models::GetAllowedIpListRequest &request);
 
       /**
-       * @summary Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+       * @summary After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
        *
-       * @description ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
+       * @description ###### **This operation applies only to Serverless instances.**
        *
        * @param request GetAutoScalingConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -549,9 +561,9 @@ namespace Alikafka20190916
       Models::GetAutoScalingConfigurationResponse getAutoScalingConfigurationWithOptions(const Models::GetAutoScalingConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+       * @summary After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
        *
-       * @description ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
+       * @description ###### **This operation applies only to Serverless instances.**
        *
        * @param request GetAutoScalingConfigurationRequest
        * @return GetAutoScalingConfigurationResponse
@@ -559,7 +571,7 @@ namespace Alikafka20190916
       Models::GetAutoScalingConfigurationResponse getAutoScalingConfiguration(const Models::GetAutoScalingConfigurationRequest &request);
 
       /**
-       * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+       * @summary Retrieves a list of consumer groups.
        *
        * @param request GetConsumerListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -568,7 +580,7 @@ namespace Alikafka20190916
       Models::GetConsumerListResponse getConsumerListWithOptions(const Models::GetConsumerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+       * @summary Retrieves a list of consumer groups.
        *
        * @param request GetConsumerListRequest
        * @return GetConsumerListResponse
@@ -576,7 +588,7 @@ namespace Alikafka20190916
       Models::GetConsumerListResponse getConsumerList(const Models::GetConsumerListRequest &request);
 
       /**
-       * @summary Queries the consumer progress of a consumer group.
+       * @summary Queries the consumption status of a consumer group.
        *
        * @param request GetConsumerProgressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -585,7 +597,7 @@ namespace Alikafka20190916
       Models::GetConsumerProgressResponse getConsumerProgressWithOptions(const Models::GetConsumerProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the consumer progress of a consumer group.
+       * @summary Queries the consumption status of a consumer group.
        *
        * @param request GetConsumerProgressRequest
        * @return GetConsumerProgressResponse
@@ -593,7 +605,7 @@ namespace Alikafka20190916
       Models::GetConsumerProgressResponse getConsumerProgress(const Models::GetConsumerProgressRequest &request);
 
       /**
-       * @summary Queries the information about instances in a specified region.
+       * @summary Queries information about instances in a specified region.
        *
        * @param request GetInstanceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -602,7 +614,7 @@ namespace Alikafka20190916
       Models::GetInstanceListResponse getInstanceListWithOptions(const Models::GetInstanceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about instances in a specified region.
+       * @summary Queries information about instances in a specified region.
        *
        * @param request GetInstanceListRequest
        * @return GetInstanceListResponse
@@ -610,11 +622,11 @@ namespace Alikafka20190916
       Models::GetInstanceListResponse getInstanceList(const Models::GetInstanceListRequest &request);
 
       /**
-       * @summary Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+       * @summary Retrieves the IP addresses of Kafka clients.
        *
-       * @description *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
-       * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
-       * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
+       * @description - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
+       * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
+       * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
        *
        * @param request GetKafkaClientIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -623,11 +635,11 @@ namespace Alikafka20190916
       Models::GetKafkaClientIpResponse getKafkaClientIpWithOptions(const Models::GetKafkaClientIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+       * @summary Retrieves the IP addresses of Kafka clients.
        *
-       * @description *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
-       * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
-       * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
+       * @description - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
+       * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
+       * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
        *
        * @param request GetKafkaClientIpRequest
        * @return GetKafkaClientIpResponse
@@ -635,7 +647,7 @@ namespace Alikafka20190916
       Models::GetKafkaClientIpResponse getKafkaClientIp(const Models::GetKafkaClientIpRequest &request);
 
       /**
-       * @summary Queries the used quota of topics and partitions.
+       * @summary Retrieves the usage quotas for topics and partitions.
        *
        * @param request GetQuotaTipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -644,7 +656,7 @@ namespace Alikafka20190916
       Models::GetQuotaTipResponse getQuotaTipWithOptions(const Models::GetQuotaTipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the used quota of topics and partitions.
+       * @summary Retrieves the usage quotas for topics and partitions.
        *
        * @param request GetQuotaTipRequest
        * @return GetQuotaTipResponse
@@ -652,7 +664,7 @@ namespace Alikafka20190916
       Models::GetQuotaTipResponse getQuotaTip(const Models::GetQuotaTipRequest &request);
 
       /**
-       * @summary 查询实例风险列表
+       * @summary Queries the list of threats on an instance.
        *
        * @param request GetRiskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +673,7 @@ namespace Alikafka20190916
       Models::GetRiskListResponse getRiskListWithOptions(const Models::GetRiskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例风险列表
+       * @summary Queries the list of threats on an instance.
        *
        * @param request GetRiskListRequest
        * @return GetRiskListResponse
@@ -669,7 +681,7 @@ namespace Alikafka20190916
       Models::GetRiskListResponse getRiskList(const Models::GetRiskListRequest &request);
 
       /**
-       * @summary Queries the information about a topic.
+       * @summary Retrieves information about topics.
        *
        * @param request GetTopicListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -678,7 +690,7 @@ namespace Alikafka20190916
       Models::GetTopicListResponse getTopicListWithOptions(const Models::GetTopicListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a topic.
+       * @summary Retrieves information about topics.
        *
        * @param request GetTopicListRequest
        * @return GetTopicListResponse
@@ -686,7 +698,7 @@ namespace Alikafka20190916
       Models::GetTopicListResponse getTopicList(const Models::GetTopicListRequest &request);
 
       /**
-       * @summary Queries the messaging status of a topic.
+       * @summary Retrieves the message sending and receiving status of a topic.
        *
        * @param request GetTopicStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -695,7 +707,7 @@ namespace Alikafka20190916
       Models::GetTopicStatusResponse getTopicStatusWithOptions(const Models::GetTopicStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the messaging status of a topic.
+       * @summary Retrieves the message sending and receiving status of a topic.
        *
        * @param request GetTopicStatusRequest
        * @return GetTopicStatusResponse
@@ -703,7 +715,7 @@ namespace Alikafka20190916
       Models::GetTopicStatusResponse getTopicStatus(const Models::GetTopicStatusRequest &request);
 
       /**
-       * @summary Queries the information about the groups that subscribe to a topic.
+       * @summary Retrieves the subscription status of Groups for a topic.
        *
        * @param request GetTopicSubscribeStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -712,7 +724,7 @@ namespace Alikafka20190916
       Models::GetTopicSubscribeStatusResponse getTopicSubscribeStatusWithOptions(const Models::GetTopicSubscribeStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the groups that subscribe to a topic.
+       * @summary Retrieves the subscription status of Groups for a topic.
        *
        * @param request GetTopicSubscribeStatusRequest
        * @return GetTopicSubscribeStatusResponse
@@ -720,7 +732,7 @@ namespace Alikafka20190916
       Models::GetTopicSubscribeStatusResponse getTopicSubscribeStatus(const Models::GetTopicSubscribeStatusRequest &request);
 
       /**
-       * @summary Obtains the rebalance details of a consumer group.
+       * @summary Queries the details of rebalancing tasks.
        *
        * @param request ListRebalanceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -729,7 +741,7 @@ namespace Alikafka20190916
       Models::ListRebalanceInfoResponse listRebalanceInfoWithOptions(const Models::ListRebalanceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the rebalance details of a consumer group.
+       * @summary Queries the details of rebalancing tasks.
        *
        * @param request ListRebalanceInfoRequest
        * @return ListRebalanceInfoResponse
@@ -737,7 +749,7 @@ namespace Alikafka20190916
       Models::ListRebalanceInfoResponse listRebalanceInfo(const Models::ListRebalanceInfoRequest &request);
 
       /**
-       * @summary Queries the tags that are attached to a specified resource.
+       * @summary Queries the list of tags that are attached to resources.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -746,7 +758,7 @@ namespace Alikafka20190916
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are attached to a specified resource.
+       * @summary Queries the list of tags that are attached to resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -754,7 +766,7 @@ namespace Alikafka20190916
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+       * @summary You can modify the name of an ApsaraMQ for Kafka instance after it is deployed. This topic describes how to call the ModifyInstanceName operation.
        *
        * @param request ModifyInstanceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -763,7 +775,7 @@ namespace Alikafka20190916
       Models::ModifyInstanceNameResponse modifyInstanceNameWithOptions(const Models::ModifyInstanceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+       * @summary You can modify the name of an ApsaraMQ for Kafka instance after it is deployed. This topic describes how to call the ModifyInstanceName operation.
        *
        * @param request ModifyInstanceNameRequest
        * @return ModifyInstanceNameResponse
@@ -771,7 +783,7 @@ namespace Alikafka20190916
       Models::ModifyInstanceNameResponse modifyInstanceName(const Models::ModifyInstanceNameRequest &request);
 
       /**
-       * @summary Changes the number of partitions in a topic.
+       * @summary This operation modifies the number of partitions in a topic.
        *
        * @param request ModifyPartitionNumRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -780,7 +792,7 @@ namespace Alikafka20190916
       Models::ModifyPartitionNumResponse modifyPartitionNumWithOptions(const Models::ModifyPartitionNumRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the number of partitions in a topic.
+       * @summary This operation modifies the number of partitions in a topic.
        *
        * @param request ModifyPartitionNumRequest
        * @return ModifyPartitionNumResponse
@@ -788,9 +800,9 @@ namespace Alikafka20190916
       Models::ModifyPartitionNumResponse modifyPartitionNum(const Models::ModifyPartitionNumRequest &request);
 
       /**
-       * @summary Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+       * @summary After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
        *
-       * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+       * @description ###### This operation applies only to Serverless instances.
        *
        * @param request ModifyScheduledScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -799,9 +811,9 @@ namespace Alikafka20190916
       Models::ModifyScheduledScalingRuleResponse modifyScheduledScalingRuleWithOptions(const Models::ModifyScheduledScalingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
+       * @summary After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
        *
-       * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+       * @description ###### This operation applies only to Serverless instances.
        *
        * @param request ModifyScheduledScalingRuleRequest
        * @return ModifyScheduledScalingRuleResponse
@@ -809,7 +821,7 @@ namespace Alikafka20190916
       Models::ModifyScheduledScalingRuleResponse modifyScheduledScalingRule(const Models::ModifyScheduledScalingRuleRequest &request);
 
       /**
-       * @summary Modifies the description of a topic.
+       * @summary Modifies the remark of a topic.
        *
        * @param request ModifyTopicRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -818,7 +830,7 @@ namespace Alikafka20190916
       Models::ModifyTopicRemarkResponse modifyTopicRemarkWithOptions(const Models::ModifyTopicRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of a topic.
+       * @summary Modifies the remark of a topic.
        *
        * @param request ModifyTopicRemarkRequest
        * @return ModifyTopicRemarkResponse
@@ -843,7 +855,7 @@ namespace Alikafka20190916
       Models::ModifyUserDefinedSgResponse modifyUserDefinedSg(const Models::ModifyUserDefinedSgRequest &request);
 
       /**
-       * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
+       * @summary This operation queries messages stored in a topic by message creation time or offset.
        *
        * @param request QueryMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -852,7 +864,7 @@ namespace Alikafka20190916
       Models::QueryMessageResponse queryMessageWithOptions(const Models::QueryMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
+       * @summary This operation queries messages stored in a topic by message creation time or offset.
        *
        * @param request QueryMessageRequest
        * @return QueryMessageResponse
@@ -862,7 +874,7 @@ namespace Alikafka20190916
       /**
        * @summary Releases a pay-as-you-go instance.
        *
-       * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+       * @description You cannot use this operation to release subscription instances.
        *
        * @param request ReleaseInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -873,7 +885,7 @@ namespace Alikafka20190916
       /**
        * @summary Releases a pay-as-you-go instance.
        *
-       * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+       * @description You cannot use this operation to release subscription instances.
        *
        * @param request ReleaseInstanceRequest
        * @return ReleaseInstanceResponse
@@ -881,9 +893,9 @@ namespace Alikafka20190916
       Models::ReleaseInstanceResponse releaseInstance(const Models::ReleaseInstanceRequest &request);
 
       /**
-       * @summary Enables an ApsaraMQ for Kafka instance.
+       * @summary Starts an instance.
        *
-       * @description You can call this operation only if your instance is in the Stopped state.
+       * @description You can call this operation only when the instance is in the Stopped state.
        *
        * @param request ReopenInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -892,9 +904,9 @@ namespace Alikafka20190916
       Models::ReopenInstanceResponse reopenInstanceWithOptions(const Models::ReopenInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables an ApsaraMQ for Kafka instance.
+       * @summary Starts an instance.
        *
-       * @description You can call this operation only if your instance is in the Stopped state.
+       * @description You can call this operation only when the instance is in the Stopped state.
        *
        * @param request ReopenInstanceRequest
        * @return ReopenInstanceResponse
@@ -902,9 +914,9 @@ namespace Alikafka20190916
       Models::ReopenInstanceResponse reopenInstance(const Models::ReopenInstanceRequest &request);
 
       /**
-       * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+       * @summary You must purchase and deploy an ApsaraMQ for Kafka instance before you can send and receive messages. This topic describes how to deploy an instance by calling the StartInstance operation.
        *
-       * @description >  You can call this operation up to twice per second.
+       * @description > The request frequency is limited to 2 queries per second (QPS) for each user.
        *
        * @param request StartInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -913,9 +925,9 @@ namespace Alikafka20190916
       Models::StartInstanceResponse startInstanceWithOptions(const Models::StartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+       * @summary You must purchase and deploy an ApsaraMQ for Kafka instance before you can send and receive messages. This topic describes how to deploy an instance by calling the StartInstance operation.
        *
-       * @description >  You can call this operation up to twice per second.
+       * @description > The request frequency is limited to 2 queries per second (QPS) for each user.
        *
        * @param request StartInstanceRequest
        * @return StartInstanceResponse
@@ -923,9 +935,9 @@ namespace Alikafka20190916
       Models::StartInstanceResponse startInstance(const Models::StartInstanceRequest &request);
 
       /**
-       * @summary Stops an ApsaraMQ for Kafka instance.
+       * @summary Stops an instance.
        *
-       * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+       * @description Stopping subscription instances is not currently supported. To stop a subscription instance, submit a ticket.
        *
        * @param request StopInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -934,9 +946,9 @@ namespace Alikafka20190916
       Models::StopInstanceResponse stopInstanceWithOptions(const Models::StopInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops an ApsaraMQ for Kafka instance.
+       * @summary Stops an instance.
        *
-       * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+       * @description Stopping subscription instances is not currently supported. To stop a subscription instance, submit a ticket.
        *
        * @param request StopInstanceRequest
        * @return StopInstanceResponse
@@ -944,7 +956,7 @@ namespace Alikafka20190916
       Models::StopInstanceResponse stopInstance(const Models::StopInstanceRequest &request);
 
       /**
-       * @summary Attaches a tag to a resource.
+       * @summary You can call the TagResources operation to attach tags to resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -953,7 +965,7 @@ namespace Alikafka20190916
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches a tag to a resource.
+       * @summary You can call the TagResources operation to attach tags to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -961,7 +973,7 @@ namespace Alikafka20190916
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Detaches tags from a specified resource.
+       * @summary You can call UntagResources to detach tags from resources.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -970,7 +982,7 @@ namespace Alikafka20190916
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches tags from a specified resource.
+       * @summary You can call UntagResources to detach tags from resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -978,7 +990,7 @@ namespace Alikafka20190916
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+       * @summary You can call the UpdateAllowedIp operation to edit the IP whitelist for an ApsaraMQ for Kafka instance. The whitelist specifies the IP addresses and ports that are allowed to access the instance.
        *
        * @param request UpdateAllowedIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -987,7 +999,7 @@ namespace Alikafka20190916
       Models::UpdateAllowedIpResponse updateAllowedIpWithOptions(const Models::UpdateAllowedIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+       * @summary You can call the UpdateAllowedIp operation to edit the IP whitelist for an ApsaraMQ for Kafka instance. The whitelist specifies the IP addresses and ports that are allowed to access the instance.
        *
        * @param request UpdateAllowedIpRequest
        * @return UpdateAllowedIpResponse
@@ -995,12 +1007,12 @@ namespace Alikafka20190916
       Models::UpdateAllowedIpResponse updateAllowedIp(const Models::UpdateAllowedIpRequest &request);
 
       /**
-       * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
+       * @summary The UpdateConsumerOffset operation resets the consumer offset of a consumer group.
        *
-       * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-       * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-       * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-       * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+       * @description This operation resets the consumer offset of a specified consumer group. You can reset the consumer offset by timestamp or by a specific offset value. Using different parameter combinations, you can perform the following tasks:
+       * - Consume messages from the latest offset by setting the consumer offset to the latest position. This is supported for a single topic or all topics.
+       * - Consume messages from the offset of a specified time point by providing a timestamp. This is supported for a single topic or all topics.
+       * - Reset the consumer offset for a specific partition by providing the target partition ID and consumer offset. This is supported only for a single topic.
        *
        * @param tmpReq UpdateConsumerOffsetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1009,12 +1021,12 @@ namespace Alikafka20190916
       Models::UpdateConsumerOffsetResponse updateConsumerOffsetWithOptions(const Models::UpdateConsumerOffsetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
+       * @summary The UpdateConsumerOffset operation resets the consumer offset of a consumer group.
        *
-       * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-       * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-       * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-       * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+       * @description This operation resets the consumer offset of a specified consumer group. You can reset the consumer offset by timestamp or by a specific offset value. Using different parameter combinations, you can perform the following tasks:
+       * - Consume messages from the latest offset by setting the consumer offset to the latest position. This is supported for a single topic or all topics.
+       * - Consume messages from the offset of a specified time point by providing a timestamp. This is supported for a single topic or all topics.
+       * - Reset the consumer offset for a specific partition by providing the target partition ID and consumer offset. This is supported only for a single topic.
        *
        * @param request UpdateConsumerOffsetRequest
        * @return UpdateConsumerOffsetResponse
@@ -1022,13 +1034,13 @@ namespace Alikafka20190916
       Models::UpdateConsumerOffsetResponse updateConsumerOffset(const Models::UpdateConsumerOffsetRequest &request);
 
       /**
-       * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+       * @summary After an instance is deployed, you can modify configurations such as enabling Access Control List (ACL) and SSL, the message retention period, and the maximum message size. This topic describes how to call the UpdateInstanceConfig operation to modify the configuration of an instance.
        *
-       * @description ## **Permissions**
-       * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-       * |API|Action|Resource|
-       * |---|---|---|
-       * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+       * @description ## **Permission information**
+       * RAM users must obtain authorization before they can call the **UpdateInstanceConfig** operation. For more information, see [RAM access policies](https://help.aliyun.com/document_detail/185815.html).
+       * | API                  | Action                   | Resource                      |
+       * | -------------------- | ------------------------ | ----------------------------- |
+       * | UpdateInstanceConfig | alikafka: UpdateInstance | acs:alikafka:*:*:{instanceId} |
        *
        * @param request UpdateInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1037,13 +1049,13 @@ namespace Alikafka20190916
       Models::UpdateInstanceConfigResponse updateInstanceConfigWithOptions(const Models::UpdateInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+       * @summary After an instance is deployed, you can modify configurations such as enabling Access Control List (ACL) and SSL, the message retention period, and the maximum message size. This topic describes how to call the UpdateInstanceConfig operation to modify the configuration of an instance.
        *
-       * @description ## **Permissions**
-       * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-       * |API|Action|Resource|
-       * |---|---|---|
-       * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+       * @description ## **Permission information**
+       * RAM users must obtain authorization before they can call the **UpdateInstanceConfig** operation. For more information, see [RAM access policies](https://help.aliyun.com/document_detail/185815.html).
+       * | API                  | Action                   | Resource                      |
+       * | -------------------- | ------------------------ | ----------------------------- |
+       * | UpdateInstanceConfig | alikafka: UpdateInstance | acs:alikafka:*:*:{instanceId} |
        *
        * @param request UpdateInstanceConfigRequest
        * @return UpdateInstanceConfigResponse
@@ -1051,7 +1063,7 @@ namespace Alikafka20190916
       Models::UpdateInstanceConfigResponse updateInstanceConfig(const Models::UpdateInstanceConfigRequest &request);
 
       /**
-       * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+       * @summary After a topic is created, you can modify its configurations, such as the message retention period and maximum message size. This topic describes how to call this API operation to modify topic configurations.
        *
        * @param request UpdateTopicConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1060,7 +1072,7 @@ namespace Alikafka20190916
       Models::UpdateTopicConfigResponse updateTopicConfigWithOptions(const Models::UpdateTopicConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+       * @summary After a topic is created, you can modify its configurations, such as the message retention period and maximum message size. This topic describes how to call this API operation to modify topic configurations.
        *
        * @param request UpdateTopicConfigRequest
        * @return UpdateTopicConfigResponse
@@ -1068,15 +1080,15 @@ namespace Alikafka20190916
       Models::UpdateTopicConfigResponse updateTopicConfig(const Models::UpdateTopicConfigRequest &request);
 
       /**
-       * @summary Updates the version of an instance.
+       * @summary Upgrades the version of an instance.
        *
-       * @description ## **Permissions**
-       * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-       * |API|Action|Resource|
-       * |---|---|---|
-       * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+       * @description ## **Permission description**
+       * RAM users must be authorized before they can call the **UpgradeInstanceVersion** API. For more information about authorization, see [RAM access policy](https://help.aliyun.com/document_detail/185815.html).
+       * | API                    | Action         | Resource                      |
+       * | ---------------------- | -------------- | ----------------------------- |
+       * | UpgradeInstanceVersion | UpdateInstance | acs:alikafka:*:*:{instanceId} |
        * ## **QPS limits**
-       * You can send a maximum of two queries per second (QPS).
+       * The request frequency is limited to 2 queries per second (QPS) for a single user.
        *
        * @param request UpgradeInstanceVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1085,15 +1097,15 @@ namespace Alikafka20190916
       Models::UpgradeInstanceVersionResponse upgradeInstanceVersionWithOptions(const Models::UpgradeInstanceVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the version of an instance.
+       * @summary Upgrades the version of an instance.
        *
-       * @description ## **Permissions**
-       * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
-       * |API|Action|Resource|
-       * |---|---|---|
-       * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+       * @description ## **Permission description**
+       * RAM users must be authorized before they can call the **UpgradeInstanceVersion** API. For more information about authorization, see [RAM access policy](https://help.aliyun.com/document_detail/185815.html).
+       * | API                    | Action         | Resource                      |
+       * | ---------------------- | -------------- | ----------------------------- |
+       * | UpgradeInstanceVersion | UpdateInstance | acs:alikafka:*:*:{instanceId} |
        * ## **QPS limits**
-       * You can send a maximum of two queries per second (QPS).
+       * The request frequency is limited to 2 queries per second (QPS) for a single user.
        *
        * @param request UpgradeInstanceVersionRequest
        * @return UpgradeInstanceVersionResponse
@@ -1101,9 +1113,9 @@ namespace Alikafka20190916
       Models::UpgradeInstanceVersionResponse upgradeInstanceVersion(const Models::UpgradeInstanceVersionRequest &request);
 
       /**
-       * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+       * @summary Upgrades a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing method and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq UpgradePostPayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1112,9 +1124,9 @@ namespace Alikafka20190916
       Models::UpgradePostPayOrderResponse upgradePostPayOrderWithOptions(const Models::UpgradePostPayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+       * @summary Upgrades a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing method and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request UpgradePostPayOrderRequest
        * @return UpgradePostPayOrderResponse
@@ -1122,9 +1134,9 @@ namespace Alikafka20190916
       Models::UpgradePostPayOrderResponse upgradePostPayOrder(const Models::UpgradePostPayOrderRequest &request);
 
       /**
-       * @summary Upgrade Prepaid Instance
+       * @summary Upgrades a subscription instance.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq UpgradePrePayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1133,9 +1145,9 @@ namespace Alikafka20190916
       Models::UpgradePrePayOrderResponse upgradePrePayOrderWithOptions(const Models::UpgradePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrade Prepaid Instance
+       * @summary Upgrades a subscription instance.
        *
-       * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request UpgradePrePayOrderRequest
        * @return UpgradePrePayOrderResponse

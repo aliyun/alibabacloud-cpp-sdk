@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The token that determines the start point of the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };

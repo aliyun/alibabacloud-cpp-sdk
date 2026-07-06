@@ -157,30 +157,31 @@ namespace Models
 
 
     protected:
-      // The number of available groups.
+      // Remaining Group quota.
       shared_ptr<int32_t> groupLeft_ {};
-      // The number of used groups.
+      // Used Group quota.
       shared_ptr<int32_t> groupUsed_ {};
-      // The method that you use to purchase partitions. Valid values:
+      // Partition purchase method distinction, with the following values:
       // 
-      // *   0: indicates that the instance is purchased based on topics.
-      // *   1: indicates that the instance is purchased based on partitions.
+      // - 0: indicates that the instance uses the topic model for purchase.
+      // 
+      // - 1: indicates partition model purchase.
       shared_ptr<int32_t> isPartitionBuy_ {};
-      // The number of available partitions.
+      // Remaining partition quota.
       shared_ptr<int32_t> partitionLeft_ {};
-      // The number of purchased partitions.
+      // Number of purchased partitions.
       shared_ptr<int32_t> partitionNumOfBuy_ {};
-      // The quota of partitions.
+      // Partition quota.
       shared_ptr<int32_t> partitionQuota_ {};
-      // The number of used partitions.
+      // Used partition quota.
       shared_ptr<int32_t> partitionUsed_ {};
-      // The number of available topics.
+      // Remaining topic quota.
       shared_ptr<int32_t> topicLeft_ {};
-      // The number of purchased topics.
+      // Number of purchased topics.
       shared_ptr<int32_t> topicNumOfBuy_ {};
-      // The quota of topics.
+      // Topic quota.
       shared_ptr<int32_t> topicQuota_ {};
-      // The number of used topics.
+      // Used topic quota.
       shared_ptr<int32_t> topicUsed_ {};
     };
 
@@ -224,13 +225,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // Status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The additional message. This message is typically used to describe API call failures for troubleshooting.
+    // Additional information. In typical scenarios, it provides a brief description of failed calls to help the caller locate the problem
     shared_ptr<string> message_ {};
-    // The quota.
+    // Quota information.
     shared_ptr<GetQuotaTipResponseBody::QuotaData> quotaData_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

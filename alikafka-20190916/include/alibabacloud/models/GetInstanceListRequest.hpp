@@ -80,13 +80,15 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // *   If you leave this parameter empty, the keys of all tags are matched.
-      // *   The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
+      // - If you do not specify this parameter, all tag keys are matched.
+      // 
+      // - The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // *   If you leave Key empty, you must also leave this parameter empty. If you leave this parameter empty, the values of all tags are matched.
-      // *   The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
+      // - If you do not specify the `Key` parameter, you do not need to specify this parameter. If you leave this parameter empty, all tag values are matched.
+      // 
+      // - The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -139,23 +141,27 @@ namespace Models
 
 
   protected:
-    // The IDs of instances.
+    // A list of instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
-    // The ID of the order. You can obtain the order ID on the [Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\\&pageSize=20\\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in Alibaba Cloud User Center.
+    // The order ID. You can find the order ID on the <props="china">[Orders](https://usercenter2.aliyun.com/order/list?pageIndex=1\\&pageSize=20) page in the Billing Management console.
+    // <props="intl">[Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\\&pageSize=20\\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in the Billing Management console.
+    // >Notice: You cannot use an order ID to query Serverless instances.
     shared_ptr<string> orderId_ {};
-    // The ID of the region where the instance resides.
+    // The ID of the region where the instance is located.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. You can obtain this ID on the Resource Group page in the Resource Management console.
+    // The ID of the resource group. You can view the resource group ID in the Resource Group console.
     shared_ptr<string> resourceGroupId_ {};
-    // The instance version. You can use instance versions to filter different versions of instances. Valid values:
+    // The instance series. You can use this parameter to filter instances. Valid values:
     // 
-    // *   v2
-    // *   v3
-    // *   confluent
+    // - v2
+    // 
+    // - v3
+    // 
+    // - confluent
     shared_ptr<string> series_ {};
-    // The tags.
+    // A list of tags.
     shared_ptr<vector<GetInstanceListRequest::Tag>> tag_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The ID of the order.
     shared_ptr<string> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -370,20 +370,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // The return code. A value of 200 indicates that the call was successful.
     shared_ptr<int32_t> code_ {};
-    // The page number of the returned page.
+    // The number of the page returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The number of entries returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
     shared_ptr<GetTopicListResponseBody::TopicList> topicList_ {};
-    // The number of topics.
+    // The total number of topics.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The description of the topic.
+    // Remark.
     shared_ptr<string> remark_ {};
     // The name of the topic.
     // 

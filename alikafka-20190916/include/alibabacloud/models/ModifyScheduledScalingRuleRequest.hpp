@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the scheduled scaling rule. Valid values:
+    // Enable or disable the scheduled task policy. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enable.
     // 
-    // >  If the scaling task is scheduled to execute only once and you want to enable the scheduled scaling rule, make sure that the value of this parameter is at least 30 minutes later than the current point in time.
+    // - **false**: Disable.
+    // 
+    // > For a one-time scheduling policy type, the start execution time must be more than 30 minutes later than the current time for the policy to be enabled.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
@@ -79,11 +80,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region where the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the scheduled scaling rule.
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

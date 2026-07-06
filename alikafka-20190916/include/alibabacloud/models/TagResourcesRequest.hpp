@@ -78,15 +78,17 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // *   You must specify this parameter.
-      // *   The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+      // - The tag key cannot be an empty string.
+      // 
+      // - The tag key can be up to 128 characters long. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // *   You can leave this parameter empty.
-      // *   The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs: or aliyun.
+      // - The tag value can be an empty string.
+      // 
+      // - The tag value can be up to 128 characters long. It cannot start with aliyun or acs: and cannot contain http\\:// or https\\://.
       shared_ptr<string> value_ {};
     };
 
@@ -132,27 +134,29 @@ namespace Models
 
 
   protected:
-    // The ID of the Message Queue for Apache RocketMQ instance which contains the resource to which you want to attach tags.
+    // The ID of the instance that contains the specified resources.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region in which the resource is deployed.
+    // The region ID of the resources.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs.
+    // A list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resources. The value is an enumerated value. Valid values:
+    // The resource type. Valid values:
     // 
-    // *   **INSTANCE**
-    // *   **TOPIC**
-    // *   **CONSUMERGROUP**
+    // - **INSTANCE**
     // 
-    // >  The value of this parameter is not case-sensitive.
+    // - **TOPIC**
+    // 
+    // - **CONSUMERGROUP**
+    // 
+    // > The value is case-insensitive.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // A list of tags.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

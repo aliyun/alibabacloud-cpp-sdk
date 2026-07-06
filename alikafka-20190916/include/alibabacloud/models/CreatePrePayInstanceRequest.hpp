@@ -92,8 +92,23 @@ namespace Models
 
 
     protected:
+      // The tag key.
+      // 
+      // -
+      // 
+      // -
+      // 
+      // - The key must be 1 to 128 characters long. It cannot start with aliyun or acs:, nor can it contain http\\:// or https\\://.
+      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
+      // The tag value.
+      // 
+      // -
+      // 
+      // -
+      // 
+      // - The value can be 0 to 128 characters long. It cannot start with aliyun or acs:, nor can it contain http\\:// or https\\://.
       shared_ptr<string> value_ {};
     };
 
@@ -365,24 +380,42 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores for Connect.
       shared_ptr<int32_t> connectCU_ {};
+      // The number of replicas for Connect.
       shared_ptr<int32_t> connectReplica_ {};
+      // The number of CPU cores for Control Center.
       shared_ptr<int32_t> controlCenterCU_ {};
+      // The number of replicas for Control Center.
       shared_ptr<int32_t> controlCenterReplica_ {};
+      // The disk capacity for Control Center, in GB.
       shared_ptr<int32_t> controlCenterStorage_ {};
+      // The number of CPU cores for the Kafka broker.
       shared_ptr<int32_t> kafkaCU_ {};
+      // The number of replicas for the Kafka broker.
       shared_ptr<int32_t> kafkaReplica_ {};
+      // The number of CPU cores for Kafka REST Proxy.
       shared_ptr<int32_t> kafkaRestProxyCU_ {};
+      // The number of replicas for Kafka REST Proxy.
       shared_ptr<int32_t> kafkaRestProxyReplica_ {};
+      // The disk capacity for the Kafka broker, in GB.
       shared_ptr<int32_t> kafkaStorage_ {};
+      // The number of CPU cores for ksqlDB.
       shared_ptr<int32_t> ksqlCU_ {};
       shared_ptr<vector<ConfluentConfig::KsqlList>> ksqlList_ {};
+      // The number of replicas for ksqlDB.
       shared_ptr<int32_t> ksqlReplica_ {};
+      // The disk capacity for ksqlDB, in GB.
       shared_ptr<int32_t> ksqlStorage_ {};
+      // The number of CPU cores for Schema Registry.
       shared_ptr<int32_t> schemaRegistryCU_ {};
+      // The number of replicas for Schema Registry.
       shared_ptr<int32_t> schemaRegistryReplica_ {};
+      // The number of CPU cores for ZooKeeper.
       shared_ptr<int32_t> zooKeeperCU_ {};
+      // The number of replicas for ZooKeeper.
       shared_ptr<int32_t> zooKeeperReplica_ {};
+      // The disk capacity for ZooKeeper, in GB.
       shared_ptr<int32_t> zooKeeperStorage_ {};
     };
 
@@ -486,19 +519,91 @@ namespace Models
 
 
   protected:
+    // The configurations of the Confluent components.
+    // 
+    // > This parameter is required if you create a Confluent instance.
     shared_ptr<CreatePrePayInstanceRequest::ConfluentConfig> confluentConfig_ {};
+    // The deployment type. Valid values:
+    // 
+    // - **4**: an instance accessible from the internet and a VPC
+    // 
+    // - **5**: an instance accessible from a VPC only
+    // 
+    // > If you create a Confluent instance, you cannot specify the deployment type and must set this parameter to 5. After the instance is created, you can configure internet access for each component.
     shared_ptr<int32_t> deployType_ {};
+    // The disk capacity, in GB.
+    // 
+    // For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > This parameter is not required if you create a Confluent instance.
     shared_ptr<int32_t> diskSize_ {};
+    // The disk type. Valid values:
+    // 
+    // - **0**: ultra disk
+    // 
+    // - **1**: SSD
+    // 
+    // > This parameter is not required if you create a Confluent instance.
     shared_ptr<string> diskType_ {};
+    // The subscription duration, in months. Default value: 1. Valid values:
+    // 
+    // - Confluent instances: **1** and **12**
+    // 
+    // - Kafka instances: **1**
     shared_ptr<int32_t> duration_ {};
+    // The peak internet bandwidth.
+    // 
+    // - This parameter is required if you set **DeployType** to **4**.
+    // 
+    // - For the value range, see [pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+    // 
+    // > This parameter is not required if you create a Confluent instance.
     shared_ptr<int32_t> eipMax_ {};
+    // The I/O specification.
+    // 
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > This parameter is not required if you create a Confluent instance.
     shared_ptr<string> ioMaxSpec_ {};
+    // The billing method. Valid values:
+    // 
+    // - **0**: subscription
+    // 
+    // - **4**: subscription for Confluent instances
     shared_ptr<int32_t> paidType_ {};
+    // The number of partitions.
+    // 
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > This parameter is not required if you create a Confluent instance.
     shared_ptr<int32_t> partitionNum_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
+    // 
+    // If you do not specify this parameter, the instance is placed in the default resource group. You can find the resource group ID in the Resource Group console.
     shared_ptr<string> resourceGroupId_ {};
+    // The specification type.
+    // 
+    // Valid values for Kafka instances:
+    // 
+    // - **normal**: Standard Edition (High-write)
+    // 
+    // - **professional**: Professional Edition (High-write)
+    // 
+    // - **professionalForHighRead**: Professional Edition (High-read)
+    // 
+    // Valid values for Confluent instances:
+    // 
+    // - **professional**: Professional Edition
+    // 
+    // - **enterprise**: Enterprise Edition
+    // 
+    // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     shared_ptr<string> specType_ {};
+    // The tags to attach to the instance. You can specify up to 20 tags.
     shared_ptr<vector<CreatePrePayInstanceRequest::Tag>> tag_ {};
   };
 

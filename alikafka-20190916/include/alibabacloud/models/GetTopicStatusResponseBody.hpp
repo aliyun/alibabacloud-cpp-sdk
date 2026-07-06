@@ -192,10 +192,10 @@ namespace Models
 
 
     protected:
-      // The time when the last consumed message was generated.
+      // Generation time of the last consumed message. Unit: ms.
       shared_ptr<int64_t> lastTimeStamp_ {};
       shared_ptr<TopicStatus::OffsetTable> offsetTable_ {};
-      // The number of messages in the topic.
+      // Total number of messages.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -239,15 +239,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // Status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // Response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // The status information about messages in the topic.
+    // Topic status.
     shared_ptr<GetTopicStatusResponseBody::TopicStatus> topicStatus_ {};
   };
 

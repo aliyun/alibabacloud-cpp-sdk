@@ -154,17 +154,21 @@ namespace Models
 
 
       protected:
-        // The group to which the IP address whitelist belongs.
+        // The IP address allowlist group.
         shared_ptr<map<string, string>> allowedIpGroup_ {};
-        // The information about the IP address whitelist.
+        // The IP address allowlists.
         shared_ptr<vector<string>> allowedIpList_ {};
+        // The IP address blocklists.
         shared_ptr<vector<string>> blackIPList_ {};
+        // The IP address blocklist group.
         shared_ptr<map<string, string>> blackIPMap_ {};
-        // The port range. Valid value:
+        // The port range. Valid values:
         // 
         // **9092/9092**.
         shared_ptr<string> portRange_ {};
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
+        // Indicates whether it is a shared security group.
         shared_ptr<bool> userDefinedSharedSecurityGroup_ {};
       };
 
@@ -260,17 +264,21 @@ namespace Models
 
 
       protected:
-        // The group to which the IP address whitelist belongs.
+        // The Internet IP address allowlist group.
         shared_ptr<map<string, string>> allowedIpGroup_ {};
-        // The information about the IP address whitelist.
+        // The Internet IP address allowlists.
         shared_ptr<vector<string>> allowedIpList_ {};
+        // The Internet IP address blocklists.
         shared_ptr<vector<string>> blackIPList_ {};
+        // The Internet IP address blocklist group.
         shared_ptr<map<string, string>> blackIPMap_ {};
-        // The port range. Valid value:
+        // The port range. Valid values:
         // 
         // **9093/9093**.
         shared_ptr<string> portRange_ {};
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
+        // Indicates whether it is a shared security group.
         shared_ptr<bool> userDefinedSharedSecurityGroup_ {};
       };
 
@@ -302,16 +310,17 @@ namespace Models
 
 
     protected:
-      // The deployment mode of the instance. Valid values:
+      // The deployment type. Valid values:
       // 
-      // *   **4**: allows access from the Internet and a virtual private cloud (VPC).
-      // *   **5**: allows access from a VPC.
+      // - **4**: Internet/VPC
       // 
-      // >  Only integrators need to concern themselves with the value of this parameter.
+      // - **5**: VPC
+      // 
+      // > This field is not relevant for regular users and is intended for integration partners.
       shared_ptr<int32_t> deployType_ {};
-      // The whitelist for access from the Internet.
+      // The Internet allowlists.
       shared_ptr<vector<AllowedList::InternetList>> internetList_ {};
-      // The whitelist for access from a virtual private cloud (VPC).
+      // The VPC allowlists.
       shared_ptr<vector<AllowedList::VpcList>> vpcList_ {};
     };
 
@@ -355,13 +364,13 @@ namespace Models
 
 
   protected:
-    // The IP address whitelist.
+    // The allowlist.
     shared_ptr<GetAllowedIpListResponseBody::AllowedList> allowedList_ {};
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // The return code. A value of 200 indicates that the request is successful.
     shared_ptr<int32_t> code_ {};
-    // The message returned.
+    // The return message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

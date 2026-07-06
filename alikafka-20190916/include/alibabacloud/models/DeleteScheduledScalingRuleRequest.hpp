@@ -61,13 +61,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the region where the instance resides.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the scheduled scaling rule.
+    // The policy name.
     // 
-    // >  You can delete only rules that are disabled and rules that are scheduled only once and have been executed.
+    // > Only policies that are disabled or one-time policies that have been executed can be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

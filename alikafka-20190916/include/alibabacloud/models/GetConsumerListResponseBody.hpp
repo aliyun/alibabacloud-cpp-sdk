@@ -309,20 +309,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+    // The return code. A value of 200 indicates that the call is successful.
     shared_ptr<int32_t> code_ {};
     shared_ptr<GetConsumerListResponseBody::ConsumerList> consumerList_ {};
-    // The number of the page to return. Pages start from page 1.
+    // The page number of the returned page. The minimum value is 1.
     shared_ptr<int32_t> currentPage_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

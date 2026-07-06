@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1
+    // The number of the page to return. Default value: 1.
     shared_ptr<string> currentPage_ {};
-    // The ID of the instance.
+    // The ID of the instance to which the topic belongs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The number of entries to return on each page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // The region ID of the instance to which the topics that you want to query belong.
+    // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
-    // The name of the topic that you want to query.
+    // The name of the topic whose information you want to query.
     shared_ptr<string> topic_ {};
   };
 

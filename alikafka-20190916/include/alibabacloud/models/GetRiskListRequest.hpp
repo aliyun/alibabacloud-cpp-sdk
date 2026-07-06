@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The region ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start index for paging.
     shared_ptr<int64_t> startIndex_ {};
   };
 

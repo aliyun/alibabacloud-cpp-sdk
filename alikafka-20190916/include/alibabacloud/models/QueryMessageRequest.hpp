@@ -94,24 +94,25 @@ namespace Models
 
 
   protected:
-    // The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+    // The start timestamp of the query range. Unit: milliseconds.
     shared_ptr<int64_t> beginTime_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The consumer offset of the partition.
+    // The partition offset.
     shared_ptr<string> offset_ {};
     // The partition ID.
     shared_ptr<string> partition_ {};
     // The query type. Valid values:
     // 
-    // *   byOffset: queries messages by offset. If you select this value, you must configure Partition and Offset.
-    // *   byTimestamp: queries messages by time. If you select this value, you must configure BeginTime.
+    // - byOffset: Query by offset. When selecting offset query, you need to fill in the partition ID and partition offset parameters.
+    // 
+    // - byTimestamp: Query by time. When selecting time query, you need to fill in the BeginTime parameter.
     // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};
-    // The ID of the region where the resource resides.
+    // The region ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

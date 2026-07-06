@@ -96,25 +96,30 @@ namespace Models
 
 
     protected:
-      // The key of tag N.
+      // The tag key of the resource.
       // 
-      // *   Valid values of N: 1 to 20.
-      // *   If this parameter is left empty, the keys of all tags are matched.
-      // *   The tag key can be up to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+      // - N ranges from 1 to 20.
+      // 
+      // - If this parameter is empty, all tag keys are matched.
+      // 
+      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of tag N.
+      // The tag value of the resource.
       // 
-      // *   Valid values of N: 1 to 20.
-      // *   This parameter can be left empty.
-      // *   The tag value can be 1 to 128 characters in length and cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+      // - N ranges from 1 to 20.
+      // 
+      // - This parameter can be empty.
+      // 
+      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
       shared_ptr<string> value_ {};
     };
 
     class ConfluentConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ConfluentConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfluentVersion, confluentVersion_);
         DARABONBA_PTR_TO_JSON(ConnectCU, connectCU_);
         DARABONBA_PTR_TO_JSON(ConnectReplica, connectReplica_);
         DARABONBA_PTR_TO_JSON(ControlCenterCU, controlCenterCU_);
@@ -125,6 +130,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KafkaRestProxyCU, kafkaRestProxyCU_);
         DARABONBA_PTR_TO_JSON(KafkaRestProxyReplica, kafkaRestProxyReplica_);
         DARABONBA_PTR_TO_JSON(KafkaStorage, kafkaStorage_);
+        DARABONBA_PTR_TO_JSON(KraftControllerCU, kraftControllerCU_);
+        DARABONBA_PTR_TO_JSON(KraftControllerReplica, kraftControllerReplica_);
+        DARABONBA_PTR_TO_JSON(KraftControllerStorage, kraftControllerStorage_);
         DARABONBA_PTR_TO_JSON(KsqlCU, ksqlCU_);
         DARABONBA_PTR_TO_JSON(KsqlList, ksqlList_);
         DARABONBA_PTR_TO_JSON(KsqlReplica, ksqlReplica_);
@@ -136,6 +144,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ZooKeeperStorage, zooKeeperStorage_);
       };
       friend void from_json(const Darabonba::Json& j, ConfluentConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfluentVersion, confluentVersion_);
         DARABONBA_PTR_FROM_JSON(ConnectCU, connectCU_);
         DARABONBA_PTR_FROM_JSON(ConnectReplica, connectReplica_);
         DARABONBA_PTR_FROM_JSON(ControlCenterCU, controlCenterCU_);
@@ -146,6 +155,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KafkaRestProxyCU, kafkaRestProxyCU_);
         DARABONBA_PTR_FROM_JSON(KafkaRestProxyReplica, kafkaRestProxyReplica_);
         DARABONBA_PTR_FROM_JSON(KafkaStorage, kafkaStorage_);
+        DARABONBA_PTR_FROM_JSON(KraftControllerCU, kraftControllerCU_);
+        DARABONBA_PTR_FROM_JSON(KraftControllerReplica, kraftControllerReplica_);
+        DARABONBA_PTR_FROM_JSON(KraftControllerStorage, kraftControllerStorage_);
         DARABONBA_PTR_FROM_JSON(KsqlCU, ksqlCU_);
         DARABONBA_PTR_FROM_JSON(KsqlList, ksqlList_);
         DARABONBA_PTR_FROM_JSON(KsqlReplica, ksqlReplica_);
@@ -239,11 +251,19 @@ namespace Models
         shared_ptr<string> type_ {};
       };
 
-      virtual bool empty() const override { return this->connectCU_ == nullptr
-        && this->connectReplica_ == nullptr && this->controlCenterCU_ == nullptr && this->controlCenterReplica_ == nullptr && this->controlCenterStorage_ == nullptr && this->kafkaCU_ == nullptr
-        && this->kafkaReplica_ == nullptr && this->kafkaRestProxyCU_ == nullptr && this->kafkaRestProxyReplica_ == nullptr && this->kafkaStorage_ == nullptr && this->ksqlCU_ == nullptr
-        && this->ksqlList_ == nullptr && this->ksqlReplica_ == nullptr && this->ksqlStorage_ == nullptr && this->schemaRegistryCU_ == nullptr && this->schemaRegistryReplica_ == nullptr
-        && this->zooKeeperCU_ == nullptr && this->zooKeeperReplica_ == nullptr && this->zooKeeperStorage_ == nullptr; };
+      virtual bool empty() const override { return this->confluentVersion_ == nullptr
+        && this->connectCU_ == nullptr && this->connectReplica_ == nullptr && this->controlCenterCU_ == nullptr && this->controlCenterReplica_ == nullptr && this->controlCenterStorage_ == nullptr
+        && this->kafkaCU_ == nullptr && this->kafkaReplica_ == nullptr && this->kafkaRestProxyCU_ == nullptr && this->kafkaRestProxyReplica_ == nullptr && this->kafkaStorage_ == nullptr
+        && this->kraftControllerCU_ == nullptr && this->kraftControllerReplica_ == nullptr && this->kraftControllerStorage_ == nullptr && this->ksqlCU_ == nullptr && this->ksqlList_ == nullptr
+        && this->ksqlReplica_ == nullptr && this->ksqlStorage_ == nullptr && this->schemaRegistryCU_ == nullptr && this->schemaRegistryReplica_ == nullptr && this->zooKeeperCU_ == nullptr
+        && this->zooKeeperReplica_ == nullptr && this->zooKeeperStorage_ == nullptr; };
+      // confluentVersion Field Functions 
+      bool hasConfluentVersion() const { return this->confluentVersion_ != nullptr;};
+      void deleteConfluentVersion() { this->confluentVersion_ = nullptr;};
+      inline string getConfluentVersion() const { DARABONBA_PTR_GET_DEFAULT(confluentVersion_, "") };
+      inline ConfluentConfig& setConfluentVersion(string confluentVersion) { DARABONBA_PTR_SET_VALUE(confluentVersion_, confluentVersion) };
+
+
       // connectCU Field Functions 
       bool hasConnectCU() const { return this->connectCU_ != nullptr;};
       void deleteConnectCU() { this->connectCU_ = nullptr;};
@@ -314,6 +334,27 @@ namespace Models
       inline ConfluentConfig& setKafkaStorage(int32_t kafkaStorage) { DARABONBA_PTR_SET_VALUE(kafkaStorage_, kafkaStorage) };
 
 
+      // kraftControllerCU Field Functions 
+      bool hasKraftControllerCU() const { return this->kraftControllerCU_ != nullptr;};
+      void deleteKraftControllerCU() { this->kraftControllerCU_ = nullptr;};
+      inline int32_t getKraftControllerCU() const { DARABONBA_PTR_GET_DEFAULT(kraftControllerCU_, 0) };
+      inline ConfluentConfig& setKraftControllerCU(int32_t kraftControllerCU) { DARABONBA_PTR_SET_VALUE(kraftControllerCU_, kraftControllerCU) };
+
+
+      // kraftControllerReplica Field Functions 
+      bool hasKraftControllerReplica() const { return this->kraftControllerReplica_ != nullptr;};
+      void deleteKraftControllerReplica() { this->kraftControllerReplica_ = nullptr;};
+      inline int32_t getKraftControllerReplica() const { DARABONBA_PTR_GET_DEFAULT(kraftControllerReplica_, 0) };
+      inline ConfluentConfig& setKraftControllerReplica(int32_t kraftControllerReplica) { DARABONBA_PTR_SET_VALUE(kraftControllerReplica_, kraftControllerReplica) };
+
+
+      // kraftControllerStorage Field Functions 
+      bool hasKraftControllerStorage() const { return this->kraftControllerStorage_ != nullptr;};
+      void deleteKraftControllerStorage() { this->kraftControllerStorage_ = nullptr;};
+      inline int32_t getKraftControllerStorage() const { DARABONBA_PTR_GET_DEFAULT(kraftControllerStorage_, 0) };
+      inline ConfluentConfig& setKraftControllerStorage(int32_t kraftControllerStorage) { DARABONBA_PTR_SET_VALUE(kraftControllerStorage_, kraftControllerStorage) };
+
+
       // ksqlCU Field Functions 
       bool hasKsqlCU() const { return this->ksqlCU_ != nullptr;};
       void deleteKsqlCU() { this->ksqlCU_ = nullptr;};
@@ -380,42 +421,46 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores of Connect.
+      shared_ptr<string> confluentVersion_ {};
+      // The number of CPU cores for Connect component.
       shared_ptr<int32_t> connectCU_ {};
-      // The number of replicas of Connect.
+      // The number of replicas for Connect component.
       shared_ptr<int32_t> connectReplica_ {};
-      // The number of CPU cores of Control Center.
+      // The number of CPU cores for ControlCenter component.
       shared_ptr<int32_t> controlCenterCU_ {};
-      // The number of replicas of Control Center.
+      // The number of replicas for ControlCenter component.
       shared_ptr<int32_t> controlCenterReplica_ {};
-      // The disk capacity of Control Center. Unit: GB
+      // The disk capacity of ControlCenter component. Unit: GB.
       shared_ptr<int32_t> controlCenterStorage_ {};
-      // The number of CPU cores of the Kafka broker.
+      // The number of CPU cores for Kafka broker.
       shared_ptr<int32_t> kafkaCU_ {};
-      // The number of replicas of the Kafka broker.
+      // The number of replicas for Kafka broker.
       shared_ptr<int32_t> kafkaReplica_ {};
-      // The number of CPU cores of Kafka Rest Proxy.
+      // The number of CPU cores for KafkaRestProxy component.
       shared_ptr<int32_t> kafkaRestProxyCU_ {};
-      // The number of replicas of Kafka Rest Proxy.
+      // The number of replicas for KafkaRestProxy component.
       shared_ptr<int32_t> kafkaRestProxyReplica_ {};
-      // The disk capacity of the Kafka broker. Unit: GB
+      // The disk capacity of Kafka broker. Unit: GB.
       shared_ptr<int32_t> kafkaStorage_ {};
-      // The number of CPU cores of ksqIDB.
+      shared_ptr<int32_t> kraftControllerCU_ {};
+      shared_ptr<int32_t> kraftControllerReplica_ {};
+      shared_ptr<int32_t> kraftControllerStorage_ {};
+      // The number of CPU cores for KsqlDB component.
       shared_ptr<int32_t> ksqlCU_ {};
       shared_ptr<vector<ConfluentConfig::KsqlList>> ksqlList_ {};
-      // The number of replicas of ksqlDB.
+      // The number of replicas for KsqlDB component.
       shared_ptr<int32_t> ksqlReplica_ {};
-      // The disk capacity of ksqlDB. Unit: GB
+      // The disk capacity of KsqlDB component. Unit: GB.
       shared_ptr<int32_t> ksqlStorage_ {};
-      // The number of CPU cores of Schema Registry.
+      // The number of CPU cores for SchemaRegistry component.
       shared_ptr<int32_t> schemaRegistryCU_ {};
-      // The number of replicas of Schema Registry.
+      // The number of replicas for SchemaRegistry component.
       shared_ptr<int32_t> schemaRegistryReplica_ {};
-      // The number of CPU cores of ZooKeeper.
+      // The number of CPU cores for ZooKeeper component.
       shared_ptr<int32_t> zooKeeperCU_ {};
-      // The number of replicas of ZooKeeper.
+      // The number of replicas for ZooKeeper component.
       shared_ptr<int32_t> zooKeeperReplica_ {};
-      // The disk capacity of ZooKeeper. Unit: GB
+      // The disk capacity of ZooKeeper component. Unit: GB.
       shared_ptr<int32_t> zooKeeperStorage_ {};
     };
 
@@ -533,96 +578,117 @@ namespace Models
 
 
   protected:
-    // The configurations of Confluent.
+    // The configuration of Confluent components.
     // 
-    // >  When you create an ApsaraMQ for Confluent instance, you must configure this parameter.
+    // > This parameter is required when you create a Confluent series instance.
     shared_ptr<CreatePrePayOrderRequest::ConfluentConfig> confluentConfig_ {};
-    // The type of the network in which the instance is deployed. Valid values:
+    // The deployment type. Valid values:
     // 
-    // *   **4**: Internet and virtual private cloud (VPC)
-    // *   **5**: VPC
+    // - **4**: Internet/VPC instance
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, set the value to 5. After the instance is created, you can specify whether to enable each component.
+    // - **5**: VPC instance
+    // 
+    // > If you are creating a Confluent series instance, you cannot select the deployment type. You can only set the value to 5. After the purchase, you can adjust whether each component is open to the Internet.
     shared_ptr<int32_t> deployType_ {};
-    // The disk size. Unit: GB
+    // The disk capacity. Unit: GB.
     // 
-    // For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<int32_t> diskSize_ {};
     // The disk type. Valid values:
     // 
-    // *   **0**: ultra disk
-    // *   **1**: standard SSD
+    // - **0**: ultra disk
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // - **1**: SSD
+    // 
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<string> diskType_ {};
-    // The subscription duration. Unit: months. Default value: 1. Valid values:
+    // The subscription duration. Unit: month. Default value: 1. Valid values:
     // 
-    // *   **1 to 12**
+    // - **Confluent instances: 1 or 12**
+    // 
+    // - **Kafka instances: 1**
     shared_ptr<int32_t> duration_ {};
-    // The maximum Internet traffic in the instance.
+    // The Internet traffic.
     // 
-    // *   If you set **DeployType** to **4**, you must configure this parameter.
-    // *   For information about the valid values, see [Pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+    // - If **DeployType** is set to **4**, you must specify this parameter.
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // - For the valid values, see [pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+    // 
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<int32_t> eipMax_ {};
-    // The maximum traffic in the instance. We recommend that you do not configure this parameter.
+    // The traffic peak (not recommended).
     // 
-    // *   You must set one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
-    // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - You must specify either **IoMax** or **IoMaxSpec**. If you specify both parameters, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<int32_t> ioMax_ {};
-    // The traffic specification of the instance. We recommend that you configure this parameter.
+    // The traffic specification (recommended).
     // 
-    // *   You must configure one of **IoMax** and **IoMaxSpec**. If both parameters are configured, the value of **IoMaxSpec** is used. We recommend that you configure only **IoMaxSpec**.
-    // *   For more information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - You must specify either **IoMax** or **IoMaxSpec**. If you specify both parameters, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<string> ioMaxSpec_ {};
-    // The billing method of the instance. Valid values:
+    // The billing method. Valid values:
     // 
-    // *   **0**: the subscription billing method
-    // *   **4**: the subscription billing method for ApsaraMQ for Confluent instances
+    // - **0**: subscription
+    // 
+    // - **4**: Confluent series subscription
     shared_ptr<int32_t> paidType_ {};
-    // The number of partitions. We recommend that you configure this parameter.
+    // The number of partitions (recommended).
     // 
-    // *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
-    // *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-    // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions is equivalent to the topic specification based on the old topic sales model. If they are not equivalent, the system returns a failure. If they are equivalent, the system makes the purchase based on the number of partitions.
+    // 
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     // 
-    // If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
+    // If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Group console.
     shared_ptr<string> resourceGroupId_ {};
-    // The instance edition. Valid values:
+    // The specification type.
     // 
-    // *   **normal**: Standard Edition (High Write)
-    // *   **professional**: Professional Edition (High Write)
-    // *   **professionalForHighRead**: Professional Edition (High Read)
+    // Valid values for Kafka instances:
+    // 
+    // - **normal**: Standard Edition (high write)
+    // 
+    // - **professional**: Professional Edition (high write)
+    // 
+    // - **professionalForHighRead**: Professional Edition (high read)
+    // 
+    // Valid values for Confluent instances:
+    // 
+    // - **professional**: Professional Edition
+    // 
+    // - **enterprise**: Enterprise Edition
     // 
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
     shared_ptr<string> specType_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreatePrePayOrderRequest::Tag>> tag_ {};
-    // The number of topics. We recommend that you do not configure this parameter.
+    // The number of topics (not recommended).
     // 
-    // *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only PartitionNum.
-    // *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-    // *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you use exceeds the default value, you are charged additional fees.
-    // *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
     // 
-    // >  If you create an ApsaraMQ for Confluent instance, you do not need to configure this parameter.
+    // - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions is equivalent to the topic specification based on the old topic sales model. If they are not equivalent, the system returns a failure. If they are equivalent, the system makes the purchase based on the number of partitions.
+    // 
+    // - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
+    // 
+    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // 
+    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
     shared_ptr<int32_t> topicQuota_ {};
   };
 
