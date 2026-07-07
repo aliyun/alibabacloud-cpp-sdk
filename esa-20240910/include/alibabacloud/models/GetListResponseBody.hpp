@@ -99,11 +99,11 @@ namespace Models
   protected:
     // The description of the custom list.
     shared_ptr<string> description_ {};
-    // The ID of the custom list.[](~~2850217~~)
+    // The ID of the custom list. You can obtain the ID by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
     shared_ptr<int64_t> id_ {};
-    // The items in the custom list, which are displayed as an array.
+    // The items of the custom list, displayed as an array.
     shared_ptr<vector<string>> items_ {};
-    // The type of the custom list.
+    // The kind of the custom list.
     shared_ptr<string> kind_ {};
     // The name of the custom list.
     // 
@@ -111,7 +111,11 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the custom list was last modified.
+    // The last update time of the custom list.
+    // 
+    // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+    // 
+    // Example: 2026-06-10T14:23:45Z
     shared_ptr<string> updateTime_ {};
   };
 

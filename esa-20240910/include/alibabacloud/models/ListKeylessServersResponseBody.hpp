@@ -153,25 +153,25 @@ namespace Models
 
 
     protected:
-      // The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when `Verify` is set to `true`.
+      // The CA certificate used to verify the Keyless server certificate. This parameter takes effect only when Verify is set to true.
       shared_ptr<string> caCertificate_ {};
-      // The client certificate. This parameter must be provided with `ClientPrivateKey`.
+      // The client certificate. This parameter must be used together with the client private key.
       shared_ptr<string> clientCertificate_ {};
-      // The client private key. This parameter must be provided with `ClientCertificate`.
+      // The client private key. This parameter must be used together with the client certificate.
       shared_ptr<string> clientPrivateKey_ {};
-      // The creation time.
+      // The creation time. The time follows the format YYYY-MM-DDTHH:MM:SS+08:00 in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
-      // The keyless server host name.
+      // The Keyless server hostname.
       shared_ptr<string> host_ {};
-      // The keyless server ID.
+      // Keyless server ID。
       shared_ptr<string> id_ {};
-      // The keyless server name.
+      // The Keyless server name.
       shared_ptr<string> name_ {};
-      // The keyless server port. Valid values: 1 to 65535.
+      // The Keyless server port. Valid values: 1 to 65535.
       shared_ptr<int64_t> port_ {};
-      // The update time.
+      // The update time. The time follows the format YYYY-MM-DDTHH:MM:SS+08:00 in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
-      // Specifies whether to verify the server certificate of the keyless server. Defaults to false.
+      // Indicates whether to verify the Keyless server certificate. Default value: false.
       shared_ptr<bool> verify_ {};
     };
 
@@ -236,13 +236,13 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of keyless server configurations.
+    // The result array.
     shared_ptr<vector<ListKeylessServersResponseBody::Result>> result_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};
     // The site name.
     shared_ptr<string> siteName_ {};
-    // The total count.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

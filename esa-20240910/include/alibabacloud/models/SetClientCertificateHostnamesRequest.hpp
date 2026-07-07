@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The hostnames to bind.
+    // The list of domain names to associate.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> hostnames_ {};
-    // The ID of the client CA certificate.
+    // The client CA certificate ID.
     shared_ptr<string> id_ {};
-    // The ID of the site.
+    // The site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

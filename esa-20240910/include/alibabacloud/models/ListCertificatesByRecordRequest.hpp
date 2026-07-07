@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return certificate details. A value of `1` includes certificate details, whereas a value of `0` excludes them.
+    // Specifies whether to return certificate details.
     shared_ptr<bool> detail_ {};
     // The record name.
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The site ID. To obtain this ID, call the [ListSites](~~ListSites~~) operation.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Specifies whether to return only valid certificates. A value of `1` returns only valid certificates, whereas `0` returns all matching certificates.
+    // Specifies whether to return only valid certificates.
     shared_ptr<bool> validOnly_ {};
   };
 

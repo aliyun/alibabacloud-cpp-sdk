@@ -71,9 +71,11 @@ namespace Models
 
 
     protected:
-      // Filters the custom response pages by content type.
+      // The Content-Type field in the HTTP header. Example values:
+      // * text/html
+      // * application/json
       shared_ptr<string> contentType_ {};
-      // A keyword for a fuzzy search on the name or description of custom response pages.
+      // The keyword used for fuzzy matching against the name or description of custom pages.
       shared_ptr<string> nameDescriptionLike_ {};
     };
 
@@ -107,7 +109,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The query filters, specified as a JSON object.
+    // The query parameters passed in JSON format, which contain various filter conditions.
     shared_ptr<ListPagesRequest::QueryArgs> queryArgs_ {};
   };
 

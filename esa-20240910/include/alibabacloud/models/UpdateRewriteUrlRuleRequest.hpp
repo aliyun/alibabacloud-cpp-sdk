@@ -121,45 +121,37 @@ namespace Models
 
 
   protected:
-    // The configuration ID. You can get this ID by calling the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) API.
+    // The configuration ID. You can call the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) operation to obtain the configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The query string after the rewrite.
+    // The query string after rewriting.
     shared_ptr<string> queryString_ {};
-    // The query string rewrite type. Valid values:
-    // 
-    // - static: Static Mode.
-    // 
-    // - dynamic: Dynamic Mode.
+    // The query character string rewrite type. Valid values:
+    // - static: static pattern.
+    // - dynamic: dynamic pattern.
     shared_ptr<string> rewriteQueryStringType_ {};
-    // The URI rewrite type. Valid values:
-    // 
-    // - static: Static Mode.
-    // 
-    // - dynamic: Dynamic Mode.
+    // The path rewrite type. Valid values:
+    // - static: static pattern.
+    // - dynamic: dynamic pattern.
     shared_ptr<string> rewriteUriType_ {};
-    // The content of the rule, a conditional expression that matches user requests. This parameter is not required for a Global Configuration. Two use cases are supported:
-    // 
-    // - To match all incoming requests, set the value to true.
-    // 
-    // - To match specific requests, set the value to a custom expression, for example, (http.host eq "video.example.com").
+    // The rule content. A conditional expression is used to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+    // - Match all incoming requests: Set the value to true.
+    // - Match specified requests: Set the value to a custom expression, for example, (http.host eq \\"video.example.com\\").
     shared_ptr<string> rule_ {};
-    // Specifies whether the rule is enabled. This parameter is not required for a Global Configuration. Valid values:
-    // 
-    // - on: The rule is enabled.
-    // 
-    // - off: The rule is disabled.
+    // The rule switch. This parameter is not required when you add a global configuration. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. This parameter is not required for a Global Configuration.
+    // The rule name. This parameter is not required when you add a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The execution priority of the rule. A smaller value indicates a higher priority.
+    // The rule execution order. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The destination URI after the rewrite.
+    // The target URI after rewriting.
     shared_ptr<string> uri_ {};
   };
 

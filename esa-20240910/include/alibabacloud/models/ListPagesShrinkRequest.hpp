@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The query filters, specified as a JSON object.
+    // The query parameters passed in JSON format, which contain various filter conditions.
     shared_ptr<string> queryArgsShrink_ {};
   };
 

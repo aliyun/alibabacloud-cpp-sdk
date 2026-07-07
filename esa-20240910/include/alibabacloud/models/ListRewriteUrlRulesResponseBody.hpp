@@ -160,37 +160,39 @@ namespace Models
 
 
     protected:
-      // Configuration ID.
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // Configuration type. Value range:
-      // - global: Global configuration;
-      // - rule: Rule configuration;
+      // The configuration type. Valid values:
+      // - global: global configuration.
+      // - rule: rule configuration.
       shared_ptr<string> configType_ {};
-      // The rewritten query string.
+      // The query string after rewriting.
       shared_ptr<string> queryString_ {};
-      // Query string rewrite type. Value range:
-      // - static: Static mode.
-      // - dynamic: Dynamic mode.
+      // The query string rewrite type. Valid values:
+      // 
+      // - static: static pattern.
+      // - dynamic: dynamic schema.
       shared_ptr<string> rewriteQueryStringType_ {};
-      // URI rewrite type. Value range:
-      // - static: Static mode.
-      // - dynamic: Dynamic mode.
+      // The path rewrite type. Valid values:
+      // 
+      // - static: static pattern.
+      // - dynamic: dynamic schema.
       shared_ptr<string> rewriteUriType_ {};
-      // Rule content, using conditional expressions to match user requests. Not required when adding a global configuration. There are two usage scenarios:
-      // - Match all incoming requests: Set the value to true
-      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+      // The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+      // - Match all incoming requests: set the value to true.
+      // - Match specified requests: set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
-      // Rule switch. Not required when adding a global configuration. Value range:
-      // - on: Enabled.
-      // - off: Disabled.
+      // The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. Not required when adding a global configuration.
+      // The rule name. You do not need to set this parameter when adding a global configuration.
       shared_ptr<string> ruleName_ {};
-      // Rule execution order. The smaller the value, the higher the priority.
+      // The rule execution order. A smaller value indicates a higher priority.
       shared_ptr<int32_t> sequence_ {};
-      // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
+      // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
       shared_ptr<int32_t> siteVersion_ {};
-      // Target URI after rewriting.
+      // The target URI after rewriting.
       shared_ptr<string> uri_ {};
     };
 
@@ -241,17 +243,17 @@ namespace Models
 
 
   protected:
-    // List of rewrite URL configurations.
+    // The list of URL rewrite configurations.
     shared_ptr<vector<ListRewriteUrlRulesResponseBody::Configs>> configs_ {};
-    // The current page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The size of the page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

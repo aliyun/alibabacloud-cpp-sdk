@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the Server Load Balancer.
+    // The load balancer ID.
     shared_ptr<int64_t> id_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

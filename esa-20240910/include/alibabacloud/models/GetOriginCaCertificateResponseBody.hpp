@@ -196,35 +196,35 @@ namespace Models
 
 
     protected:
-      // The common name.
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The time when the certificate was created.
+      // The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
       // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
       // The certificate ID.
       shared_ptr<string> id_ {};
-      // The issuer of the certificate.
+      // The certificate issuer.
       shared_ptr<string> issuer_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The time when the certificate expires.
+      // The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> notAfter_ {};
-      // The time when the certificate becomes valid.
+      // The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> notBefore_ {};
-      // The algorithm used for the certificate\\"s public key.
+      // The public key algorithm of the certificate.
       shared_ptr<string> pubkeyAlgorithm_ {};
-      // The Subject Alternative Name (SAN), which lists the host names protected by the certificate.
+      // The Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
-      // The serial number of the certificate.
+      // The certificate serial number.
       shared_ptr<string> serialNumber_ {};
-      // The algorithm used to sign the certificate.
+      // The signature algorithm of the certificate.
       shared_ptr<string> signatureAlgorithm_ {};
       // The certificate status.
       shared_ptr<string> status_ {};
       // The certificate type.
       shared_ptr<string> type_ {};
-      // The time when the certificate was last updated.
+      // The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
     };
 

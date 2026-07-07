@@ -198,7 +198,7 @@ namespace Models
       // - USD: US Dollar.
       // - CNY: Chinese Yuan.
       shared_ptr<string> currency_ {};
-      // The order discount amount.
+      // The discount amount of the order.
       shared_ptr<float> discountPrice_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

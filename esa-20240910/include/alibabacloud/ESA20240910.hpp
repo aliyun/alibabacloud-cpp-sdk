@@ -120,7 +120,7 @@ namespace ESA20240910
       Models::BatchCreateRecordsResponse batchCreateRecords(const Models::BatchCreateRecordsRequest &request);
 
       /**
-       * @summary This operation creates multiple WAF rules and configures their shared settings in a single request.
+       * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
        *
        * @param tmpReq BatchCreateWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -129,7 +129,7 @@ namespace ESA20240910
       Models::BatchCreateWafRulesResponse batchCreateWafRulesWithOptions(const Models::BatchCreateWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation creates multiple WAF rules and configures their shared settings in a single request.
+       * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
        *
        * @param request BatchCreateWafRulesRequest
        * @return BatchCreateWafRulesResponse
@@ -394,7 +394,7 @@ namespace ESA20240910
       Models::BatchPutKvWithHighCapacityResponse batchPutKvWithHighCapacityAdvance(const Models::BatchPutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of multiple rules in a specified WAF ruleset.
+       * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
        *
        * @param tmpReq BatchUpdateWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -403,7 +403,7 @@ namespace ESA20240910
       Models::BatchUpdateWafRulesResponse batchUpdateWafRulesWithOptions(const Models::BatchUpdateWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of multiple rules in a specified WAF ruleset.
+       * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
        *
        * @param request BatchUpdateWafRulesRequest
        * @return BatchUpdateWafRulesResponse
@@ -494,7 +494,8 @@ namespace ESA20240910
       Models::CheckUserProjectNameResponse checkUserProjectName(const Models::CheckUserProjectNameRequest &request);
 
       /**
-       * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
+       * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
+       * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -503,7 +504,8 @@ namespace ESA20240910
       Models::CommitRoutineStagingCodeResponse commitRoutineStagingCodeWithOptions(const Models::CommitRoutineStagingCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
+       * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
+       * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @return CommitRoutineStagingCodeResponse
@@ -528,7 +530,7 @@ namespace ESA20240910
       Models::CreateCacheRuleResponse createCacheRule(const Models::CreateCacheRuleRequest &request);
 
       /**
-       * @summary Uses the ESA-managed certificate authority (CA) to issue client certificates.
+       * @summary Issues a client certificate by using the ESA certificate authority (CA).
        *
        * @param request CreateClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +539,7 @@ namespace ESA20240910
       Models::CreateClientCertificateResponse createClientCertificateWithOptions(const Models::CreateClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uses the ESA-managed certificate authority (CA) to issue client certificates.
+       * @summary Issues a client certificate by using the ESA certificate authority (CA).
        *
        * @param request CreateClientCertificateRequest
        * @return CreateClientCertificateResponse
@@ -827,7 +829,7 @@ namespace ESA20240910
       Models::CreateKvNamespaceResponse createKvNamespace(const Models::CreateKvNamespaceRequest &request);
 
       /**
-       * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+       * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
        *
        * @param tmpReq CreateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -836,7 +838,7 @@ namespace ESA20240910
       Models::CreateListResponse createListWithOptions(const Models::CreateListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+       * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
        *
        * @param request CreateListRequest
        * @return CreateListResponse
@@ -844,9 +846,10 @@ namespace ESA20240910
       Models::CreateListResponse createList(const Models::CreateListRequest &request);
 
       /**
-       * @summary Creates a new Server Load Balancer instance with advanced features, including custom routing, session persistence, and health check configuration.
+       * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
        *
-       * @description Use this API to configure Server Load Balancer features for effective traffic management and optimization, such as adaptive routing, weighted round-robin, rule matching, and health checks.
+       * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
+       * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
        *
        * @param tmpReq CreateLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -855,9 +858,10 @@ namespace ESA20240910
       Models::CreateLoadBalancerResponse createLoadBalancerWithOptions(const Models::CreateLoadBalancerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new Server Load Balancer instance with advanced features, including custom routing, session persistence, and health check configuration.
+       * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
        *
-       * @description Use this API to configure Server Load Balancer features for effective traffic management and optimization, such as adaptive routing, weighted round-robin, rule matching, and health checks.
+       * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
+       * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
        *
        * @param request CreateLoadBalancerRequest
        * @return CreateLoadBalancerResponse
@@ -941,7 +945,7 @@ namespace ESA20240910
       Models::CreateOriginRuleResponse createOriginRule(const Models::CreateOriginRuleRequest &request);
 
       /**
-       * @summary Creates a custom error page. This page appears when the web application firewall (WAF) blocks a user request. You can configure the page\\"s HTML content, content type, and description, and submit the page content using BASE64 encoding.
+       * @summary Creates a custom error response page. When a user request is blocked by Web Application Firewall (WAF), these custom error pages can be displayed. You can configure the page HTML content, page type, description, and other information, and submit the page content in BASE64 encoding.
        *
        * @param tmpReq CreatePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -950,7 +954,7 @@ namespace ESA20240910
       Models::CreatePageResponse createPageWithOptions(const Models::CreatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom error page. This page appears when the web application firewall (WAF) blocks a user request. You can configure the page\\"s HTML content, content type, and description, and submit the page content using BASE64 encoding.
+       * @summary Creates a custom error response page. When a user request is blocked by Web Application Firewall (WAF), these custom error pages can be displayed. You can configure the page HTML content, page type, description, and other information, and submit the page content in BASE64 encoding.
        *
        * @param request CreatePageRequest
        * @return CreatePageResponse
@@ -1293,17 +1297,17 @@ namespace ESA20240910
       Models::CreateUserDeliveryTaskResponse createUserDeliveryTask(const Models::CreateUserDeliveryTaskRequest &request);
 
       /**
-       * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports various types of protection rules.
+       * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports multiple types of protection rules.
        *
-       * @description ## Description
-       * - You can use this API to create a Web Application Firewall (WAF) ruleset for a specific instance.
-       * - The required `InstanceId` parameter specifies the instance for which to create the ruleset.
-       * - The `Phase` parameter defines the execution phase of the ruleset, such as a custom rule or rate limiting.
-       * - The required `Name` and `Expression` parameters specify the ruleset\\"s name and match expression.
-       * - The optional `Description` parameter describes the purpose of the ruleset.
-       * - The `Status` parameter controls whether the ruleset is immediately enabled (`on`) or disabled (`off`).
-       * - Use the `Rules` parameter to configure a detailed rule list. Each rule includes properties such as name, position, expression, and action.
-       * - A successful response returns the unique ID of the new ruleset in `Id` and a list of associated rule IDs in `RuleIds`.
+       * @description ## Operation description
+       * - This API operation allows you to create a WAF ruleset for a specified instance.
+       * - InstanceId is a required parameter that specifies the instance for which you want to create the ruleset.
+       * - The Phase parameter defines the phase in which the ruleset is applied, such as custom rules or rate limiting.
+       * - Name and Expression are required parameters that specify the ruleset name and the match expression.
+       * - The optional Description parameter provides a text description of the ruleset function or purpose.
+       * - Status controls whether the ruleset takes effect immediately (`on`) or is disabled (`off`).
+       * - Use the Rules parameter to configure a detailed list of rules. Each rule contains properties such as name, position, expression, and action.
+       * - A successful response returns the unique identifier Id of the newly created ruleset and the RuleIds list of all associated rule IDs.
        *
        * @param tmpReq CreateUserWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1312,17 +1316,17 @@ namespace ESA20240910
       Models::CreateUserWafRulesetResponse createUserWafRulesetWithOptions(const Models::CreateUserWafRulesetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports various types of protection rules.
+       * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports multiple types of protection rules.
        *
-       * @description ## Description
-       * - You can use this API to create a Web Application Firewall (WAF) ruleset for a specific instance.
-       * - The required `InstanceId` parameter specifies the instance for which to create the ruleset.
-       * - The `Phase` parameter defines the execution phase of the ruleset, such as a custom rule or rate limiting.
-       * - The required `Name` and `Expression` parameters specify the ruleset\\"s name and match expression.
-       * - The optional `Description` parameter describes the purpose of the ruleset.
-       * - The `Status` parameter controls whether the ruleset is immediately enabled (`on`) or disabled (`off`).
-       * - Use the `Rules` parameter to configure a detailed rule list. Each rule includes properties such as name, position, expression, and action.
-       * - A successful response returns the unique ID of the new ruleset in `Id` and a list of associated rule IDs in `RuleIds`.
+       * @description ## Operation description
+       * - This API operation allows you to create a WAF ruleset for a specified instance.
+       * - InstanceId is a required parameter that specifies the instance for which you want to create the ruleset.
+       * - The Phase parameter defines the phase in which the ruleset is applied, such as custom rules or rate limiting.
+       * - Name and Expression are required parameters that specify the ruleset name and the match expression.
+       * - The optional Description parameter provides a text description of the ruleset function or purpose.
+       * - Status controls whether the ruleset takes effect immediately (`on`) or is disabled (`off`).
+       * - Use the Rules parameter to configure a detailed list of rules. Each rule contains properties such as name, position, expression, and action.
+       * - A successful response returns the unique identifier Id of the newly created ruleset and the RuleIds list of all associated rule IDs.
        *
        * @param request CreateUserWafRulesetRequest
        * @return CreateUserWafRulesetResponse
@@ -1347,7 +1351,7 @@ namespace ESA20240910
       Models::CreateVideoProcessingResponse createVideoProcessing(const Models::CreateVideoProcessingRequest &request);
 
       /**
-       * @summary Creates a new rule in the Web Application Firewall (WAF). Use this operation to fine-tune firewall behavior and improve the security of your site or application.
+       * @summary Creates a rule in Web Application Firewall (WAF). You can use this operation to refine firewall behavior and improve the security of your website or application.
        *
        * @param tmpReq CreateWafRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1356,7 +1360,7 @@ namespace ESA20240910
       Models::CreateWafRuleResponse createWafRuleWithOptions(const Models::CreateWafRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new rule in the Web Application Firewall (WAF). Use this operation to fine-tune firewall behavior and improve the security of your site or application.
+       * @summary Creates a rule in Web Application Firewall (WAF). You can use this operation to refine firewall behavior and improve the security of your website or application.
        *
        * @param request CreateWafRuleRequest
        * @return CreateWafRuleResponse
@@ -2720,7 +2724,7 @@ namespace ESA20240910
       Models::DescribePreloadTasksResponse describePreloadTasks(const Models::DescribePreloadTasksRequest &request);
 
       /**
-       * @summary Queries the execution status of a refresh task.
+       * @summary Queries the execution status of refresh tasks.
        *
        * @param request DescribePurgeTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2729,7 +2733,7 @@ namespace ESA20240910
       Models::DescribePurgeTasksResponse describePurgeTasksWithOptions(const Models::DescribePurgeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution status of a refresh task.
+       * @summary Queries the execution status of refresh tasks.
        *
        * @param request DescribePurgeTasksRequest
        * @return DescribePurgeTasksResponse
@@ -2781,7 +2785,7 @@ namespace ESA20240910
       /**
        * @summary Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
        *
-       * @description The plan name and plan code can be obtained from the DescribeRatePlanPrice operation.
+       * @description The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
        *
        * @param request DescribeRatePlanPriceGapRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2792,7 +2796,7 @@ namespace ESA20240910
       /**
        * @summary Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
        *
-       * @description The plan name and plan code can be obtained from the DescribeRatePlanPrice operation.
+       * @description The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
        *
        * @param request DescribeRatePlanPriceGapRequest
        * @return DescribeRatePlanPriceGapResponse
@@ -2885,9 +2889,67 @@ namespace ESA20240910
       Models::DescribeSiteTopDataResponse describeSiteTopData(const Models::DescribeSiteTopDataRequest &request);
 
       /**
-       * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+       * @summary Retrieves time series data for WAF event analysis of a website.
        *
-       * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+       * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
+       *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
+       *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
+       *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
+       *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
+       *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
+       * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+       *
+       * @param tmpReq DescribeSiteWafTimeSeriesDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSiteWafTimeSeriesDataResponse
+       */
+      Models::DescribeSiteWafTimeSeriesDataResponse describeSiteWafTimeSeriesDataWithOptions(const Models::DescribeSiteWafTimeSeriesDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves time series data for WAF event analysis of a website.
+       *
+       * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
+       *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
+       *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
+       *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
+       *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
+       *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
+       * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+       *
+       * @param request DescribeSiteWafTimeSeriesDataRequest
+       * @return DescribeSiteWafTimeSeriesDataResponse
+       */
+      Models::DescribeSiteWafTimeSeriesDataResponse describeSiteWafTimeSeriesData(const Models::DescribeSiteWafTimeSeriesDataRequest &request);
+
+      /**
+       * @summary Retrieves the top data from WAF event analysis for a website.
+       *
+       * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+       *
+       * @param tmpReq DescribeSiteWafTopDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSiteWafTopDataResponse
+       */
+      Models::DescribeSiteWafTopDataResponse describeSiteWafTopDataWithOptions(const Models::DescribeSiteWafTopDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the top data from WAF event analysis for a website.
+       *
+       * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+       *
+       * @param request DescribeSiteWafTopDataRequest
+       * @return DescribeSiteWafTopDataResponse
+       */
+      Models::DescribeSiteWafTopDataResponse describeSiteWafTopData(const Models::DescribeSiteWafTopDataRequest &request);
+
+      /**
+       * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+       *
+       * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
        *
        * @param request DescribeTraceDiagnoseReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2896,9 +2958,9 @@ namespace ESA20240910
       Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReportWithOptions(const Models::DescribeTraceDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+       * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
        *
-       * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+       * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
        *
        * @param request DescribeTraceDiagnoseReportRequest
        * @return DescribeTraceDiagnoseReportResponse
@@ -2921,6 +2983,33 @@ namespace ESA20240910
        * @return DescribeUrlObservationDataResponse
        */
       Models::DescribeUrlObservationDataResponse describeUrlObservationData(const Models::DescribeUrlObservationDataRequest &request);
+
+      /**
+       * @summary Queries the usage data of WAF by calling DescribeWafUsageData.
+       *
+       * @description * Maximum storage duration: 93 days.
+       * * Maximum query time range: 31 days.
+       * * Default time range: 24 hours.
+       * All times are expressed in UTC+0.
+       *
+       * @param request DescribeWafUsageDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWafUsageDataResponse
+       */
+      Models::DescribeWafUsageDataResponse describeWafUsageDataWithOptions(const Models::DescribeWafUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the usage data of WAF by calling DescribeWafUsageData.
+       *
+       * @description * Maximum storage duration: 93 days.
+       * * Maximum query time range: 31 days.
+       * * Default time range: 24 hours.
+       * All times are expressed in UTC+0.
+       *
+       * @param request DescribeWafUsageDataRequest
+       * @return DescribeWafUsageDataResponse
+       */
+      Models::DescribeWafUsageDataResponse describeWafUsageData(const Models::DescribeWafUsageDataRequest &request);
 
       /**
        * @summary Disables a scenario-specific policy.
@@ -3091,7 +3180,7 @@ namespace ESA20240910
       Models::GetCacheTagResponse getCacheTag(const Models::GetCacheTagRequest &request);
 
       /**
-       * @summary Retrieves a specified certificate for a site.
+       * @summary Retrieves information about a specified certificate for a site.
        *
        * @param request GetCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3100,7 +3189,7 @@ namespace ESA20240910
       Models::GetCertificateResponse getCertificateWithOptions(const Models::GetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a specified certificate for a site.
+       * @summary Retrieves information about a specified certificate for a site.
        *
        * @param request GetCertificateRequest
        * @return GetCertificateResponse
@@ -3125,7 +3214,7 @@ namespace ESA20240910
       Models::GetCertificateQuotaResponse getCertificateQuota(const Models::GetCertificateQuotaRequest &request);
 
       /**
-       * @summary Gets the specified client CA certificate.
+       * @summary Retrieves a specified client CA certificate.
        *
        * @param request GetClientCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3134,7 +3223,7 @@ namespace ESA20240910
       Models::GetClientCaCertificateResponse getClientCaCertificateWithOptions(const Models::GetClientCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the specified client CA certificate.
+       * @summary Retrieves a specified client CA certificate.
        *
        * @param request GetClientCaCertificateRequest
        * @return GetClientCaCertificateResponse
@@ -3159,7 +3248,7 @@ namespace ESA20240910
       Models::GetClientCaCertificateHostnamesResponse getClientCaCertificateHostnames(const Models::GetClientCaCertificateHostnamesRequest &request);
 
       /**
-       * @summary Retrieves the details of a specified client certificate.
+       * @summary Retrieves information about a specified client certificate.
        *
        * @param request GetClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3168,7 +3257,7 @@ namespace ESA20240910
       Models::GetClientCertificateResponse getClientCertificateWithOptions(const Models::GetClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specified client certificate.
+       * @summary Retrieves information about a specified client certificate.
        *
        * @param request GetClientCertificateRequest
        * @return GetClientCertificateResponse
@@ -3533,7 +3622,7 @@ namespace ESA20240910
       Models::GetErServiceResponse getErService(const Models::GetErServiceRequest &request);
 
       /**
-       * @summary Downloads a failed file.
+       * @summary Downloads the failed file for a specified upload task.
        *
        * @param request GetFailFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3542,7 +3631,7 @@ namespace ESA20240910
       Models::GetFailFileResponse getFailFileWithOptions(const Models::GetFailFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Downloads a failed file.
+       * @summary Downloads the failed file for a specified upload task.
        *
        * @param request GetFailFileRequest
        * @return GetFailFileResponse
@@ -3686,7 +3775,7 @@ namespace ESA20240910
       Models::GetImageTransformResponse getImageTransform(const Models::GetImageTransformRequest &request);
 
       /**
-       * @summary Retrieves the configuration of a keyless server.
+       * @summary Retrieves the configuration of a Keyless server.
        *
        * @param request GetKeylessServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3695,7 +3784,7 @@ namespace ESA20240910
       Models::GetKeylessServerResponse getKeylessServerWithOptions(const Models::GetKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configuration of a keyless server.
+       * @summary Retrieves the configuration of a Keyless server.
        *
        * @param request GetKeylessServerRequest
        * @return GetKeylessServerResponse
@@ -3769,7 +3858,7 @@ namespace ESA20240910
       Models::GetKvNamespaceResponse getKvNamespace(const Models::GetKvNamespaceRequest &request);
 
       /**
-       * @summary Queries a custom list, such as the name, description, type, and content.
+       * @summary Retrieves the details of a specific custom list. You can use this operation to query the properties of a specific list, including the name, description, kind, and list items.
        *
        * @param request GetListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3778,7 +3867,7 @@ namespace ESA20240910
       Models::GetListResponse getListWithOptions(const Models::GetListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a custom list, such as the name, description, type, and content.
+       * @summary Retrieves the details of a specific custom list. You can use this operation to query the properties of a specific list, including the name, description, kind, and list items.
        *
        * @param request GetListRequest
        * @return GetListResponse
@@ -3786,9 +3875,9 @@ namespace ESA20240910
       Models::GetListResponse getList(const Models::GetListRequest &request);
 
       /**
-       * @summary Retrieves the details of a load balancer by its site ID and load balancer ID.
+       * @summary Retrieves the details of a specific load balancer based on the specified site ID and load balancer ID.
        *
-       * @description Use this API to query the configuration details of a load balancer, such as its name, session persistence policy, and routing policy, by providing its resource identifier and authentication information.
+       * @description This API allows you to query the configuration details of a specific load balancer by providing the required authentication information and resource identity. The details include but are not limited to the name, session persistence policy, and load balancing policy.
        *
        * @param request GetLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3797,9 +3886,9 @@ namespace ESA20240910
       Models::GetLoadBalancerResponse getLoadBalancerWithOptions(const Models::GetLoadBalancerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a load balancer by its site ID and load balancer ID.
+       * @summary Retrieves the details of a specific load balancer based on the specified site ID and load balancer ID.
        *
-       * @description Use this API to query the configuration details of a load balancer, such as its name, session persistence policy, and routing policy, by providing its resource identifier and authentication information.
+       * @description This API allows you to query the configuration details of a specific load balancer by providing the required authentication information and resource identity. The details include but are not limited to the name, session persistence policy, and load balancing policy.
        *
        * @param request GetLoadBalancerRequest
        * @return GetLoadBalancerResponse
@@ -3841,7 +3930,7 @@ namespace ESA20240910
       Models::GetNetworkOptimizationResponse getNetworkOptimization(const Models::GetNetworkOptimizationRequest &request);
 
       /**
-       * @summary Get the CA certificate of the source server.
+       * @summary Retrieves the CA certificate information of an origin server.
        *
        * @param request GetOriginCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3850,7 +3939,7 @@ namespace ESA20240910
       Models::GetOriginCaCertificateResponse getOriginCaCertificateWithOptions(const Models::GetOriginCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the CA certificate of the source server.
+       * @summary Retrieves the CA certificate information of an origin server.
        *
        * @param request GetOriginCaCertificateRequest
        * @return GetOriginCaCertificateResponse
@@ -3858,7 +3947,7 @@ namespace ESA20240910
       Models::GetOriginCaCertificateResponse getOriginCaCertificate(const Models::GetOriginCaCertificateRequest &request);
 
       /**
-       * @summary Retrieves origin-pull client certificate information for a domain.
+       * @summary Retrieves the back-to-origin client certificate information at the domain name granularity.
        *
        * @param request GetOriginClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3867,7 +3956,7 @@ namespace ESA20240910
       Models::GetOriginClientCertificateResponse getOriginClientCertificateWithOptions(const Models::GetOriginClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves origin-pull client certificate information for a domain.
+       * @summary Retrieves the back-to-origin client certificate information at the domain name granularity.
        *
        * @param request GetOriginClientCertificateRequest
        * @return GetOriginClientCertificateResponse
@@ -3943,7 +4032,7 @@ namespace ESA20240910
       Models::GetOriginRuleResponse getOriginRule(const Models::GetOriginRuleRequest &request);
 
       /**
-       * @summary Gets the details of a custom response page by its ID.
+       * @summary Retrieves the details of a custom response page by its ID.
        *
        * @param request GetPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3952,7 +4041,7 @@ namespace ESA20240910
       Models::GetPageResponse getPageWithOptions(const Models::GetPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a custom response page by its ID.
+       * @summary Retrieves the details of a custom response page by its ID.
        *
        * @param request GetPageRequest
        * @return GetPageResponse
@@ -4113,10 +4202,10 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionResponse getRoutineCodeVersion(const Models::GetRoutineCodeVersionRequest &request);
 
       /**
-       * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+       * @summary Queries the status and other information of a specific code version of a specified Routine.
        *
        * @description ## Operation description
-       * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+       * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
        *
        * @param request GetRoutineCodeVersionInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4125,10 +4214,10 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionInfoResponse getRoutineCodeVersionInfoWithOptions(const Models::GetRoutineCodeVersionInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+       * @summary Queries the status and other information of a specific code version of a specified Routine.
        *
        * @description ## Operation description
-       * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+       * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
        *
        * @param request GetRoutineCodeVersionInfoRequest
        * @return GetRoutineCodeVersionInfoResponse
@@ -4136,7 +4225,7 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionInfoResponse getRoutineCodeVersionInfo(const Models::GetRoutineCodeVersionInfoRequest &request);
 
       /**
-       * @summary Retrieves a specific edge function route configuration.
+       * @summary Queries the configuration of a single Edge Routine route.
        *
        * @param request GetRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4145,7 +4234,7 @@ namespace ESA20240910
       Models::GetRoutineRouteResponse getRoutineRouteWithOptions(const Models::GetRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a specific edge function route configuration.
+       * @summary Queries the configuration of a single Edge Routine route.
        *
        * @param request GetRoutineRouteRequest
        * @return GetRoutineRouteResponse
@@ -4366,7 +4455,7 @@ namespace ESA20240910
       Models::GetSiteNameExclusiveResponse getSiteNameExclusive(const Models::GetSiteNameExclusiveRequest &request);
 
       /**
-       * @summary Retrieves origin-pull client certificate information at the site level.
+       * @summary Retrieves the back-to-origin client certificate information at the site level.
        *
        * @param request GetSiteOriginClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4375,7 +4464,7 @@ namespace ESA20240910
       Models::GetSiteOriginClientCertificateResponse getSiteOriginClientCertificateWithOptions(const Models::GetSiteOriginClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves origin-pull client certificate information at the site level.
+       * @summary Retrieves the back-to-origin client certificate information at the site level.
        *
        * @param request GetSiteOriginClientCertificateRequest
        * @return GetSiteOriginClientCertificateResponse
@@ -4516,10 +4605,10 @@ namespace ESA20240910
       Models::GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuota(const Models::GetUserLogDeliveryQuotaRequest &request);
 
       /**
-       * @summary This API retrieves the details of the WAF rule set for a specified instance.
+       * @summary Queries the details of a WAF ruleset for a specified instance.
        *
-       * @description ## Request
-       * `GetUserWafRuleset` retrieves the details of a specific Web Application Firewall (WAF) ruleset, identified by its instance ID and ruleset ID. The response includes details such as the ruleset\\"s location, name, description, status, and its rules. Specify all required parameters correctly to prevent request failures.
+       * @description ## Operation description
+       * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
        *
        * @param request GetUserWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4528,10 +4617,10 @@ namespace ESA20240910
       Models::GetUserWafRulesetResponse getUserWafRulesetWithOptions(const Models::GetUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API retrieves the details of the WAF rule set for a specified instance.
+       * @summary Queries the details of a WAF ruleset for a specified instance.
        *
-       * @description ## Request
-       * `GetUserWafRuleset` retrieves the details of a specific Web Application Firewall (WAF) ruleset, identified by its instance ID and ruleset ID. The response includes details such as the ruleset\\"s location, name, description, status, and its rules. Specify all required parameters correctly to prevent request failures.
+       * @description ## Operation description
+       * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
        *
        * @param request GetUserWafRulesetRequest
        * @return GetUserWafRulesetResponse
@@ -4588,7 +4677,7 @@ namespace ESA20240910
       Models::GetWafFilterResponse getWafFilter(const Models::GetWafFilterRequest &request);
 
       /**
-       * @summary Web Application Firewall (WAF) quotas define the maximum number of resources a customer can use, including managed rule groups, custom lists, custom response pages, and scenario-based protection rules.
+       * @summary Retrieves quota details for Web Application Firewall (WAF) resources. These quotas define the quantity limits of corresponding resources that a customer can use, such as managed rule groups, custom lists, custom response pages, and scenario-specific protection rules.
        *
        * @param request GetWafQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4597,7 +4686,7 @@ namespace ESA20240910
       Models::GetWafQuotaResponse getWafQuotaWithOptions(const Models::GetWafQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Web Application Firewall (WAF) quotas define the maximum number of resources a customer can use, including managed rule groups, custom lists, custom response pages, and scenario-based protection rules.
+       * @summary Retrieves quota details for Web Application Firewall (WAF) resources. These quotas define the quantity limits of corresponding resources that a customer can use, such as managed rule groups, custom lists, custom response pages, and scenario-specific protection rules.
        *
        * @param request GetWafQuotaRequest
        * @return GetWafQuotaResponse
@@ -4605,7 +4694,7 @@ namespace ESA20240910
       Models::GetWafQuotaResponse getWafQuota(const Models::GetWafQuotaRequest &request);
 
       /**
-       * @summary Retrieves the details of a specific WAF rule, including its configuration and status.
+       * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
        *
        * @param request GetWafRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4614,7 +4703,7 @@ namespace ESA20240910
       Models::GetWafRuleResponse getWafRuleWithOptions(const Models::GetWafRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specific WAF rule, including its configuration and status.
+       * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
        *
        * @param request GetWafRuleRequest
        * @return GetWafRuleResponse
@@ -4622,7 +4711,7 @@ namespace ESA20240910
       Models::GetWafRuleResponse getWafRule(const Models::GetWafRuleRequest &request);
 
       /**
-       * @summary Retrieves the details of a specified WAF ruleset, including its configuration and status.
+       * @summary Retrieves the details of a specified WAF ruleset. You can call this operation to query the configuration and status information of a specific ruleset.
        *
        * @param request GetWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4631,7 +4720,7 @@ namespace ESA20240910
       Models::GetWafRulesetResponse getWafRulesetWithOptions(const Models::GetWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specified WAF ruleset, including its configuration and status.
+       * @summary Retrieves the details of a specified WAF ruleset. You can call this operation to query the configuration and status information of a specific ruleset.
        *
        * @param request GetWafRulesetRequest
        * @return GetWafRulesetResponse
@@ -4690,7 +4779,7 @@ namespace ESA20240910
       Models::ListCasCertificatesResponse listCasCertificates(const Models::ListCasCertificatesRequest &request);
 
       /**
-       * @summary Lists the certificates for a given site.
+       * @summary Queries the certificate list for a specific site.
        *
        * @param request ListCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4699,7 +4788,7 @@ namespace ESA20240910
       Models::ListCertificatesResponse listCertificatesWithOptions(const Models::ListCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the certificates for a given site.
+       * @summary Queries the certificate list for a specific site.
        *
        * @param request ListCertificatesRequest
        * @return ListCertificatesResponse
@@ -4707,7 +4796,7 @@ namespace ESA20240910
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
-       * @summary Retrieves site certificates for multiple matching records.
+       * @summary Queries the list of site certificates that match records. Batch record matching is supported.
        *
        * @param request ListCertificatesByRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4716,7 +4805,7 @@ namespace ESA20240910
       Models::ListCertificatesByRecordResponse listCertificatesByRecordWithOptions(const Models::ListCertificatesByRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves site certificates for multiple matching records.
+       * @summary Queries the list of site certificates that match records. Batch record matching is supported.
        *
        * @param request ListCertificatesByRecordRequest
        * @return ListCertificatesByRecordResponse
@@ -4741,7 +4830,7 @@ namespace ESA20240910
       Models::ListCiphersResponse listCiphers(const Models::ListCiphersRequest &request);
 
       /**
-       * @summary Retrieves the client CA certificates for a specified site.
+       * @summary Retrieves the list of client CA certificates for a specified site.
        *
        * @param request ListClientCaCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4750,7 +4839,7 @@ namespace ESA20240910
       Models::ListClientCaCertificatesResponse listClientCaCertificatesWithOptions(const Models::ListClientCaCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the client CA certificates for a specified site.
+       * @summary Retrieves the list of client CA certificates for a specified site.
        *
        * @param request ListClientCaCertificatesRequest
        * @return ListClientCaCertificatesResponse
@@ -4758,7 +4847,7 @@ namespace ESA20240910
       Models::ListClientCaCertificatesResponse listClientCaCertificates(const Models::ListClientCaCertificatesRequest &request);
 
       /**
-       * @summary Retrieves a list of client certificates for a specified site.
+       * @summary Retrieves the list of client certificates for a specified site.
        *
        * @param request ListClientCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4767,7 +4856,7 @@ namespace ESA20240910
       Models::ListClientCertificatesResponse listClientCertificatesWithOptions(const Models::ListClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of client certificates for a specified site.
+       * @summary Retrieves the list of client certificates for a specified site.
        *
        * @param request ListClientCertificatesRequest
        * @return ListClientCertificatesResponse
@@ -5138,7 +5227,7 @@ namespace ESA20240910
       Models::ListInstanceQuotasWithUsageResponse listInstanceQuotasWithUsage(const Models::ListInstanceQuotasWithUsageRequest &request);
 
       /**
-       * @summary Retrieves keyless server configurations for a site.
+       * @summary Retrieves the list of Keyless server configurations for a site.
        *
        * @param request ListKeylessServersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5147,7 +5236,7 @@ namespace ESA20240910
       Models::ListKeylessServersResponse listKeylessServersWithOptions(const Models::ListKeylessServersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves keyless server configurations for a site.
+       * @summary Retrieves the list of Keyless server configurations for a site.
        *
        * @param request ListKeylessServersRequest
        * @return ListKeylessServersResponse
@@ -5172,7 +5261,7 @@ namespace ESA20240910
       Models::ListKvsResponse listKvs(const Models::ListKvsRequest &request);
 
       /**
-       * @summary Lists all custom lists and their details for an account. Use query parameters to filter the results and pagination to navigate the list collection.
+       * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
        *
        * @param tmpReq ListListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5181,7 +5270,7 @@ namespace ESA20240910
       Models::ListListsResponse listListsWithOptions(const Models::ListListsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom lists and their details for an account. Use query parameters to filter the results and pagination to navigate the list collection.
+       * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
        *
        * @param request ListListsRequest
        * @return ListListsResponse
@@ -5239,7 +5328,7 @@ namespace ESA20240910
       Models::ListLoadBalancerRegionsResponse listLoadBalancerRegions(const Models::ListLoadBalancerRegionsRequest &request);
 
       /**
-       * @summary Retrieves a paged list of load balancers in a specific site, returning their details. You can filter the list by load balancer name.
+       * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
        *
        * @param request ListLoadBalancersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5248,7 +5337,7 @@ namespace ESA20240910
       Models::ListLoadBalancersResponse listLoadBalancersWithOptions(const Models::ListLoadBalancersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paged list of load balancers in a specific site, returning their details. You can filter the list by load balancer name.
+       * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
        *
        * @param request ListLoadBalancersRequest
        * @return ListLoadBalancersResponse
@@ -5290,7 +5379,7 @@ namespace ESA20240910
       Models::ListNetworkOptimizationsResponse listNetworkOptimizations(const Models::ListNetworkOptimizationsRequest &request);
 
       /**
-       * @summary Retrieves the CA certificates for the source server.
+       * @summary Queries the list of origin server CA certificates.
        *
        * @param request ListOriginCaCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5299,7 +5388,7 @@ namespace ESA20240910
       Models::ListOriginCaCertificatesResponse listOriginCaCertificatesWithOptions(const Models::ListOriginCaCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the CA certificates for the source server.
+       * @summary Queries the list of origin server CA certificates.
        *
        * @param request ListOriginCaCertificatesRequest
        * @return ListOriginCaCertificatesResponse
@@ -5307,7 +5396,7 @@ namespace ESA20240910
       Models::ListOriginCaCertificatesResponse listOriginCaCertificates(const Models::ListOriginCaCertificatesRequest &request);
 
       /**
-       * @summary Lists back-to-source client certificates for a domain name.
+       * @summary Queries the list of back-to-origin client certificates at the domain name granularity.
        *
        * @param request ListOriginClientCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5316,7 +5405,7 @@ namespace ESA20240910
       Models::ListOriginClientCertificatesResponse listOriginClientCertificatesWithOptions(const Models::ListOriginClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists back-to-source client certificates for a domain name.
+       * @summary Queries the list of back-to-origin client certificates at the domain name granularity.
        *
        * @param request ListOriginClientCertificatesRequest
        * @return ListOriginClientCertificatesResponse
@@ -5358,7 +5447,7 @@ namespace ESA20240910
       Models::ListOriginRulesResponse listOriginRules(const Models::ListOriginRulesRequest &request);
 
       /**
-       * @summary Retrieves a list of your custom response pages. This operation supports pagination, allowing you to control the results by specifying a page number and a page size.
+       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
        *
        * @param tmpReq ListPagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5367,7 +5456,7 @@ namespace ESA20240910
       Models::ListPagesResponse listPagesWithOptions(const Models::ListPagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of your custom response pages. This operation supports pagination, allowing you to control the results by specifying a page number and a page size.
+       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
        *
        * @param request ListPagesRequest
        * @return ListPagesResponse
@@ -5434,7 +5523,7 @@ namespace ESA20240910
       Models::ListRedirectRulesResponse listRedirectRules(const Models::ListRedirectRulesRequest &request);
 
       /**
-       * @summary List of Rewrite URL Rules
+       * @summary Queries the list of URL rewrite configurations for a site.
        *
        * @param request ListRewriteUrlRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5443,7 +5532,7 @@ namespace ESA20240910
       Models::ListRewriteUrlRulesResponse listRewriteUrlRulesWithOptions(const Models::ListRewriteUrlRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List of Rewrite URL Rules
+       * @summary Queries the list of URL rewrite configurations for a site.
        *
        * @param request ListRewriteUrlRulesRequest
        * @return ListRewriteUrlRulesResponse
@@ -5578,7 +5667,7 @@ namespace ESA20240910
       Models::ListSiteDeliveryTasksResponse listSiteDeliveryTasks(const Models::ListSiteDeliveryTasksRequest &request);
 
       /**
-       * @summary Lists the back-to-origin client certificates for a site.
+       * @summary Queries the list of back-to-origin client certificates at the site level.
        *
        * @param request ListSiteOriginClientCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5587,7 +5676,7 @@ namespace ESA20240910
       Models::ListSiteOriginClientCertificatesResponse listSiteOriginClientCertificatesWithOptions(const Models::ListSiteOriginClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the back-to-origin client certificates for a site.
+       * @summary Queries the list of back-to-origin client certificates at the site level.
        *
        * @param request ListSiteOriginClientCertificatesRequest
        * @return ListSiteOriginClientCertificatesResponse
@@ -5595,7 +5684,7 @@ namespace ESA20240910
       Models::ListSiteOriginClientCertificatesResponse listSiteOriginClientCertificates(const Models::ListSiteOriginClientCertificatesRequest &request);
 
       /**
-       * @summary Retrieves the function routes for a site.
+       * @summary Queries the list of Edge Routine routes for a site.
        *
        * @param request ListSiteRoutesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5604,7 +5693,7 @@ namespace ESA20240910
       Models::ListSiteRoutesResponse listSiteRoutesWithOptions(const Models::ListSiteRoutesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the function routes for a site.
+       * @summary Queries the list of Edge Routine routes for a site.
        *
        * @param request ListSiteRoutesRequest
        * @return ListSiteRoutesResponse
@@ -5697,7 +5786,7 @@ namespace ESA20240910
       Models::ListUploadTasksResponse listUploadTasks(const Models::ListUploadTasksRequest &request);
 
       /**
-       * @summary Queries the list of page monitoring configurations.
+       * @summary Queries the list of web page observation configurations.
        *
        * @param request ListUrlObservationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5706,7 +5795,7 @@ namespace ESA20240910
       Models::ListUrlObservationsResponse listUrlObservationsWithOptions(const Models::ListUrlObservationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of page monitoring configurations.
+       * @summary Queries the list of web page observation configurations.
        *
        * @param request ListUrlObservationsRequest
        * @return ListUrlObservationsResponse
@@ -5851,7 +5940,7 @@ namespace ESA20240910
       Models::ListWafPhasesResponse listWafPhases(const Models::ListWafPhasesRequest &request);
 
       /**
-       * @summary This API retrieves a paginated list of detailed WAF rules, which can be filtered by specific conditions.
+       * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
        *
        * @param tmpReq ListWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5860,7 +5949,7 @@ namespace ESA20240910
       Models::ListWafRulesResponse listWafRulesWithOptions(const Models::ListWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API retrieves a paginated list of detailed WAF rules, which can be filtered by specific conditions.
+       * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
        *
        * @param request ListWafRulesRequest
        * @return ListWafRulesResponse
@@ -5868,7 +5957,7 @@ namespace ESA20240910
       Models::ListWafRulesResponse listWafRules(const Models::ListWafRulesRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of rule sets in the current WAF runtime phase, returning their basic information and status.
+       * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
        *
        * @param tmpReq ListWafRulesetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5877,7 +5966,7 @@ namespace ESA20240910
       Models::ListWafRulesetsResponse listWafRulesetsWithOptions(const Models::ListWafRulesetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of rule sets in the current WAF runtime phase, returning their basic information and status.
+       * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
        *
        * @param request ListWafRulesetsRequest
        * @return ListWafRulesetsResponse
@@ -6067,7 +6156,24 @@ namespace ESA20240910
       Models::PublishRoutineCodeVersionResponse publishRoutineCodeVersion(const Models::PublishRoutineCodeVersionRequest &request);
 
       /**
-       * @summary New Purchase of Cache Retention
+       * @summary Purchases a new bot instance.
+       *
+       * @param request PurchaseBotInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PurchaseBotInstanceResponse
+       */
+      Models::PurchaseBotInstanceResponse purchaseBotInstanceWithOptions(const Models::PurchaseBotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Purchases a new bot instance.
+       *
+       * @param request PurchaseBotInstanceRequest
+       * @return PurchaseBotInstanceResponse
+       */
+      Models::PurchaseBotInstanceResponse purchaseBotInstance(const Models::PurchaseBotInstanceRequest &request);
+
+      /**
+       * @summary Purchases a cache reserve instance.
        *
        * @param request PurchaseCacheReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6076,7 +6182,7 @@ namespace ESA20240910
       Models::PurchaseCacheReserveResponse purchaseCacheReserveWithOptions(const Models::PurchaseCacheReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary New Purchase of Cache Retention
+       * @summary Purchases a cache reserve instance.
        *
        * @param request PurchaseCacheReserveRequest
        * @return PurchaseCacheReserveResponse
@@ -6374,7 +6480,7 @@ namespace ESA20240910
       Models::SetClientCaCertificateHostnamesResponse setClientCaCertificateHostnames(const Models::SetClientCaCertificateHostnamesRequest &request);
 
       /**
-       * @summary Binds one or more hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+       * @summary Associates domain names with a specified client CA certificate. If no certificate is specified, the domain names are associated with the ESA CA certificate. This API is deprecated. Use SetClientCaCertificateHostnames instead.
        *
        * @param tmpReq SetClientCertificateHostnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6383,7 +6489,7 @@ namespace ESA20240910
       Models::SetClientCertificateHostnamesResponse setClientCertificateHostnamesWithOptions(const Models::SetClientCertificateHostnamesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds one or more hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+       * @summary Associates domain names with a specified client CA certificate. If no certificate is specified, the domain names are associated with the ESA CA certificate. This API is deprecated. Use SetClientCaCertificateHostnames instead.
        *
        * @param request SetClientCertificateHostnamesRequest
        * @return SetClientCertificateHostnamesResponse
@@ -7081,7 +7187,7 @@ namespace ESA20240910
       Models::UpdateOriginRuleResponse updateOriginRule(const Models::UpdateOriginRuleRequest &request);
 
       /**
-       * @summary Updates a user-created custom response page. Use this API to modify the page name, description, content type, and content.
+       * @summary Updates a custom response page that the user has created. You can use this operation to modify the page name, description, content type, and content.
        *
        * @param tmpReq UpdatePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7090,7 +7196,7 @@ namespace ESA20240910
       Models::UpdatePageResponse updatePageWithOptions(const Models::UpdatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a user-created custom response page. Use this API to modify the page name, description, content type, and content.
+       * @summary Updates a custom response page that the user has created. You can use this operation to modify the page name, description, content type, and content.
        *
        * @param request UpdatePageRequest
        * @return UpdatePageResponse
@@ -7165,7 +7271,7 @@ namespace ESA20240910
       Models::UpdateRecordResponse updateRecord(const Models::UpdateRecordRequest &request);
 
       /**
-       * @summary Updates the redirection configuration of a site.
+       * @summary Modifies the redirect configuration of a site.
        *
        * @param request UpdateRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7174,7 +7280,7 @@ namespace ESA20240910
       Models::UpdateRedirectRuleResponse updateRedirectRuleWithOptions(const Models::UpdateRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the redirection configuration of a site.
+       * @summary Modifies the redirect configuration of a site.
        *
        * @param request UpdateRedirectRuleRequest
        * @return UpdateRedirectRuleResponse
@@ -7182,7 +7288,7 @@ namespace ESA20240910
       Models::UpdateRedirectRuleResponse updateRedirectRule(const Models::UpdateRedirectRuleRequest &request);
 
       /**
-       * @summary Update a Site\\"s URL Rewrite Configuration
+       * @summary Modifies the URL rewrite configuration of a site.
        *
        * @param request UpdateRewriteUrlRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7191,7 +7297,7 @@ namespace ESA20240910
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRuleWithOptions(const Models::UpdateRewriteUrlRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a Site\\"s URL Rewrite Configuration
+       * @summary Modifies the URL rewrite configuration of a site.
        *
        * @param request UpdateRewriteUrlRuleRequest
        * @return UpdateRewriteUrlRuleResponse
@@ -7459,7 +7565,7 @@ namespace ESA20240910
       Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplication(const Models::UpdateTransportLayerApplicationRequest &request);
 
       /**
-       * @summary Updates the webpage monitoring configuration.
+       * @summary Updates the URL observation configuration.
        *
        * @param request UpdateUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7468,7 +7574,7 @@ namespace ESA20240910
       Models::UpdateUrlObservationResponse updateUrlObservationWithOptions(const Models::UpdateUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the webpage monitoring configuration.
+       * @summary Updates the URL observation configuration.
        *
        * @param request UpdateUrlObservationRequest
        * @return UpdateUrlObservationResponse
@@ -7649,7 +7755,7 @@ namespace ESA20240910
       Models::UpdateWaitingRoomRuleResponse updateWaitingRoomRule(const Models::UpdateWaitingRoomRuleRequest &request);
 
       /**
-       * @summary Uploads a client certificate authority (CA) certificate.
+       * @summary Uploads a client CA certificate.
        *
        * @param request UploadClientCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7658,7 +7764,7 @@ namespace ESA20240910
       Models::UploadClientCaCertificateResponse uploadClientCaCertificateWithOptions(const Models::UploadClientCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a client certificate authority (CA) certificate.
+       * @summary Uploads a client CA certificate.
        *
        * @param request UploadClientCaCertificateRequest
        * @return UploadClientCaCertificateResponse

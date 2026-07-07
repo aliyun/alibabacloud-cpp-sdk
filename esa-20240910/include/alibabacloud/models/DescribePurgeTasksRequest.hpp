@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The query content. Exact match is used.
     shared_ptr<string> content_ {};
-    // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     // 
     // 
     // > The end time must be later than the start time.
@@ -115,22 +115,23 @@ namespace Models
     // The number of entries per page. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // >Notice: You must always specify SiteId. An error is reported if SiteId is not specified.</notice>
     shared_ptr<int64_t> siteId_ {};
-    // The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
     // The task execution status. Valid values:
     // 
-    // - **Complete**: The task is complete.
-    // - **Refreshing**: The task is in progress.
-    // - **Failed**: The task failed.
+    // - **Complete**: Completed.
+    // - **Refreshing**: Refreshing.
+    // - **Failed**: Refresh failed.
     shared_ptr<string> status_ {};
     // The task type. Valid values:
     // - **file** (default): file refresh.
     // - **cachetag**: cache tag refresh.
     // - **directory**: directory refresh.
-    // - **ignoreParams**: parameter-stripped refresh.
+    // - **ignoreParams**: ignore parameters refresh.
     // - **hostname**: hostname refresh.
-    // - **purgeall**: refresh all cached content of the site.
+    // - **purgeall**: purge all cache under the site.
     shared_ptr<string> type_ {};
   };
 

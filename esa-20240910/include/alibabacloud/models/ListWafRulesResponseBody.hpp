@@ -211,59 +211,51 @@ namespace Models
 
 
     protected:
-      // The action to take when a rule matches.
-      // 
-      // - `deny`: Block the request.
-      // 
-      // - `monitor`: Log the request without blocking it.
-      // 
-      // - `js`: Issue a JS challenge.
-      // 
-      // - `captcha`: Issue a CAPTCHA challenge.
+      // The action associated with the rule. Valid values:
+      // - deny: Block.
+      // - monitor: Monitor.
+      // - js: JavaScript Challenge.
+      // - captcha: Slider challenge.
       shared_ptr<string> action_ {};
-      // A list of tracking characteristics for rate limit rules.
+      // The list of statistical objects for frequency control rules.
       shared_ptr<vector<string>> characteristicsFields_ {};
-      // The rule configuration object.
+      // The rule configuration.
       shared_ptr<WafRuleConfig> config_ {};
-      // An array of match fields for the rule.
+      // The list of matching fields for the rule.
       shared_ptr<vector<string>> fields_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> name_ {};
-      // The WAF rule\\"s execution phase.
-      // 
-      // - `http_whitelist`: Whitelist rule.
-      // 
-      // - `http_custom`: Custom rule.
-      // 
-      // - `http_managed`: Managed rule.
-      // 
-      // - `http_anti_scan`: Scan protection rule.
-      // 
-      // - `http_ratelimit`: Rate limit rule.
-      // 
-      // - `ip_access_rule`: IP access rule.
-      // 
-      // - `http_bot`: Advanced bot management rule.
-      // 
-      // - `http_security_level_rule`: Security level rule.
+      // The WAF rule execution phase. Valid values:
+      // - http_whitelist: whitelist rule
+      // - http_custom: custom rule
+      // - http_managed: managed rule
+      // - http_anti_scan: scan protection rule
+      // - http_ratelimit: frequency control rule
+      // - ip_access_rule: IP access rule
+      // - http_bot: advanced mode bots
+      // - http_security_level_rule: security rule
       shared_ptr<string> phase_ {};
-      // The position of the rule within the ruleset.
+      // The position of the rule in the corresponding ruleset.
       shared_ptr<int64_t> position_ {};
-      // The ID of the ruleset.
+      // The ruleset ID.
       shared_ptr<int64_t> rulesetId_ {};
-      // The skip behavior for whitelist rules.
+      // The skip property for whitelist rules.
       shared_ptr<string> skip_ {};
-      // The status of the rule.
+      // The rule status.
       shared_ptr<string> status_ {};
-      // An array of WAF phases to skip when the whitelist rule matches.
+      // The list of WAF phases to skip for whitelist rules.
       shared_ptr<vector<string>> tags_ {};
-      // The effective time configuration for the rule.
+      // The effective period configuration of the rule.
       shared_ptr<WafTimer> timer_ {};
-      // The type of the rule.
+      // The rule type.
       shared_ptr<string> type_ {};
-      // When the rule was last updated.
+      // The last modification time of the rule.
+      // 
+      // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+      // 
+      // Example: 2026-06-10T14:23:45Z
       shared_ptr<string> updateTime_ {};
     };
 
@@ -322,19 +314,19 @@ namespace Models
 
 
   protected:
-    // The number of rules used in this WAF phase for the site\\"s instance.
+    // The number of rules used in the WAF phase for the instance associated with the site.
     shared_ptr<int64_t> instanceUsage_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of items per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of rule objects.
+    // The list of rules returned.
     shared_ptr<vector<ListWafRulesResponseBody::Rules>> rules_ {};
-    // The number of rules used by the site.
+    // The site usage.
     shared_ptr<int64_t> siteUsage_ {};
-    // The total number of filtered rules.
+    // The total number of rules after filtering.
     shared_ptr<int64_t> totalCount_ {};
   };
 

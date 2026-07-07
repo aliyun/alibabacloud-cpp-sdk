@@ -225,57 +225,46 @@ namespace Models
 
 
       protected:
-        // The action for the rule. Valid values:
-        // 
-        // - `deny`: Blocks the request.
-        // 
-        // - `monitor`: Monitors the request.
-        // 
-        // - `js`: Triggers a JS challenge.
-        // 
-        // - `captcha`: Triggers a CAPTCHA challenge.
+        // The action of the rule. Valid values:
+        // - deny: Block.
+        // - monitor: Monitor.
+        // - js: JavaScript Challenge.
+        // - captcha: Slider challenge.
         shared_ptr<string> action_ {};
-        // A list of WAF rule statistics fields.
+        // The list of statistics fields for the WAF rule.
         shared_ptr<vector<string>> characteristicsFields_ {};
-        // The WAF rule configuration.
+        // The configuration of the WAF rule.
         shared_ptr<WafRuleConfig> config_ {};
-        // A list of WAF rule match fields.
+        // The list of match fields for the WAF rule.
         shared_ptr<vector<string>> fields_ {};
-        // The ID of the WAF rule.
+        // The WAF rule ID.
         shared_ptr<int64_t> id_ {};
         // The name of the WAF rule.
         shared_ptr<string> name_ {};
-        // The evaluation phase of the WAF rule. Valid values:
-        // 
-        // - `http_whitelist`: A whitelist rule.
-        // 
-        // - `http_custom`: A custom rule.
-        // 
-        // - `http_managed`: A managed rule.
-        // 
-        // - `http_anti_scan`: A scan protection rule.
-        // 
-        // - `http_ratelimit`: A rate limiting rule.
-        // 
-        // - `ip_access_rule`: An IP access rule.
-        // 
-        // - `http_bot`: A bot management rule.
-        // 
-        // - `http_security_level_rule`: A security level rule.
+        // The phase in which the WAF rule runs. Valid values:
+        // - http_whitelist: whitelist rule
+        // - http_custom: custom rule
+        // - http_managed: managed rule
+        // - http_anti_scan: scan protection rule
+        // - http_ratelimit: frequency control rule
         shared_ptr<string> phase_ {};
         // The position of the WAF rule.
         shared_ptr<int64_t> position_ {};
-        // The ID of the WAF rule set.
+        // The WAF ruleset ID.
         shared_ptr<int64_t> rulesetId_ {};
-        // The skip mode for the WAF rule.
+        // The skip mode of the WAF rule.
         shared_ptr<string> skip_ {};
         // The status of the WAF rule.
         shared_ptr<string> status_ {};
-        // The phases that the rule skips.
+        // The list of phases to skip for the WAF rule.
         shared_ptr<vector<string>> tags_ {};
         // The type of the WAF rule.
         shared_ptr<string> type_ {};
-        // The time the WAF rule was last updated.
+        // The time when the WAF rule was last updated.
+        // 
+        // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+        // 
+        // Example: 2025-07-07T15:00:00Z
         shared_ptr<string> updateTime_ {};
       };
 
@@ -350,39 +339,28 @@ namespace Models
 
 
     protected:
-      // The description of the WAF rule set.
+      // The description of the WAF ruleset.
       shared_ptr<string> description_ {};
-      // The expression of the WAF rule set.
+      // The expression of the WAF ruleset.
       shared_ptr<string> expression_ {};
-      // The ID of the WAF rule set.
+      // The WAF ruleset ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the WAF rule set.
+      // The name of the WAF ruleset.
       shared_ptr<string> name_ {};
-      // The evaluation phase of the WAF rule set. Valid values:
-      // 
-      // - `http_whitelist`: A whitelist rule.
-      // 
-      // - `http_custom`: A custom rule.
-      // 
-      // - `http_managed`: A managed rule.
-      // 
-      // - `http_anti_scan`: A scan protection rule.
-      // 
-      // - `http_ratelimit`: A rate limiting rule.
-      // 
-      // - `ip_access_rule`: An IP access rule.
-      // 
-      // - `http_bot`: A bot management rule.
-      // 
-      // - `http_security_level_rule`: A security level rule.
+      // The phase in which the WAF rule runs. Valid values:
+      // - http_whitelist: whitelist rule
+      // - http_custom: custom rule
+      // - http_managed: managed rule
+      // - http_anti_scan: scan protection rule
+      // - http_ratelimit: frequency control rule
       shared_ptr<string> phase_ {};
-      // The position of the WAF rule set.
+      // The position of the WAF ruleset.
       shared_ptr<int64_t> position_ {};
-      // A list of rules in the WAF rule set.
+      // The list of rule configurations in the WAF ruleset.
       shared_ptr<vector<Ruleset::Rules>> rules_ {};
-      // The shared configuration of the WAF rule set.
+      // The shared configuration of the WAF ruleset.
       shared_ptr<WafBatchRuleShared> shared_ {};
-      // The status of the WAF rule set.
+      // The status of the WAF ruleset.
       shared_ptr<string> status_ {};
     };
 
@@ -407,7 +385,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The WAF rule set.
+    // The WAF ruleset.
     shared_ptr<GetUserWafRulesetResponseBody::Ruleset> ruleset_ {};
   };
 

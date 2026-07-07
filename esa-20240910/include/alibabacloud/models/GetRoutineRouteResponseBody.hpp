@@ -150,49 +150,41 @@ namespace Models
 
   protected:
     // The bypass mode. Valid values:
-    // 
-    // - `on`: Enabled.
-    // 
-    // - `off`: Disabled.
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> bypass_ {};
     // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type. Valid values:
+    // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
     // 
-    // - `global`: Queries the global configuration.
-    // 
-    // - `rule`: Queries the rule configuration.
+    // - global: queries global configurations.
+    // - rule: queries rule configurations.
     shared_ptr<string> configType_ {};
-    // Specifies whether to enable fallback to origin. If this feature is enabled, requests are sent to the origin server when the function encounters an exception, such as exceeding its CPU limit. Valid values:
-    // 
-    // - `on`: Enabled.
-    // 
-    // - `off`: Disabled.
+    // The back-to-origin on exception switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> fallback_ {};
     // The configuration mode. Valid values:
-    // 
-    // - `simple`: simple mode.
-    // 
-    // - `custom`: custom mode.
+    // - simple: simple mode.
+    // - custom: custom mode.
     shared_ptr<string> mode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The route status. Valid values:
-    // 
-    // - `on`: Enabled.
-    // 
-    // - `off`: Disabled.
+    // The route switch. Valid values:
+    // - on: enabled.
+    // - off: disabled.
     shared_ptr<string> routeEnable_ {};
     // The route name.
     shared_ptr<string> routeName_ {};
-    // The name of the edge function routine.
+    // The Edge Routine name.
     shared_ptr<string> routineName_ {};
-    // The rule expression.
+    // The rule content.
     shared_ptr<string> rule_ {};
     // The rule execution order.
     shared_ptr<int32_t> sequence_ {};
     // The version number of the site.
     shared_ptr<int32_t> siteVersion_ {};
+    // The Edge Routine timeout period. Valid values: 5 to 60. Unit: seconds.
     shared_ptr<string> timeout_ {};
   };
 

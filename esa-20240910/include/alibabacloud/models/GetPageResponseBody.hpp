@@ -115,17 +115,17 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded content of the custom response page.
+    // The Base64-encoded response page content corresponding to the Content-Type.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The value for the page\\"s Content-Type HTTP header.
+    // The Content-Type field in the HTTP header.
     // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
     // The description of the custom response page.
     shared_ptr<string> description_ {};
-    // The ID of the custom response page.
+    // The ID of the custom response page. You can obtain this value by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
     shared_ptr<int64_t> id_ {};
     // The type of the custom response page.
     shared_ptr<string> kind_ {};
@@ -135,9 +135,13 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sites to which the page is applied.
+    // The list of associated site IDs.
     shared_ptr<vector<int64_t>> siteIds_ {};
-    // The time the custom response page was last modified.
+    // The last modification time of the custom response page.
+    // 
+    // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+    // 
+    // Example: 2026-06-10T14:23:45Z
     shared_ptr<string> updateTime_ {};
   };
 

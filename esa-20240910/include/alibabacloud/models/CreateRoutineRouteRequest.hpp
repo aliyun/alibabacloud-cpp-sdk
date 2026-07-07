@@ -114,15 +114,15 @@ namespace Models
   protected:
     // The bypass mode. Valid values:
     // - on: enabled
-    // - off: disabled.
+    // - off: disabled
     shared_ptr<string> bypass_ {};
-    // The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin server. Valid values:
+    // The back-to-origin on exception switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request falls back to the origin server. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> fallback_ {};
     // The route switch. Valid values:
     // - on: enabled
-    // - off: disabled.
+    // - off: disabled
     // 
     // This parameter is required.
     shared_ptr<string> routeEnable_ {};
@@ -144,7 +144,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The Edge Routine timeout period. Valid values: 5 to 60.
+    // The Edge Routine timeout period. Valid values: 5 to 60. Unit: seconds.
     shared_ptr<string> timeout_ {};
   };
 

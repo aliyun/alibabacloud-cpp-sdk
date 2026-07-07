@@ -154,11 +154,11 @@ namespace Models
     shared_ptr<string> codeVersion_ {};
     // The list of configuration items for the code version.
     shared_ptr<GetRoutineCodeVersionInfoResponseBody::ConfOptions> confOptions_ {};
-    // The time when the code version was created.
+    // The time when the code version was created. The time follows the RFC 3339 standard in the UTC time zone.
     shared_ptr<string> createTime_ {};
-    // The additional information about the code version. The value is in JSON string format.
+    // The extra information of the code version. The value is in JSON string format.
     shared_ptr<string> extraInfo_ {};
-    // Indicates whether the code version contains asset files.
+    // Indicates whether the code version contains Assets files.
     shared_ptr<bool> hasAssets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

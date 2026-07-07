@@ -196,27 +196,27 @@ namespace Models
 
 
     protected:
-      // The common name (CN) of the certificate.
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The time of the certificate\\"s creation.
+      // The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
       // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
       // The certificate ID.
       shared_ptr<string> id_ {};
-      // The issuer of the certificate.
+      // The certificate issuer.
       shared_ptr<string> issuer_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The expiration date of the certificate.
+      // The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> notAfter_ {};
-      // The start of the certificate\\"s validity period.
+      // The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> notBefore_ {};
       // The public key algorithm of the certificate.
       shared_ptr<string> pubkeyAlgorithm_ {};
       // The Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
-      // The serial number of the certificate.
+      // The certificate serial number.
       shared_ptr<string> serialNumber_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> signatureAlgorithm_ {};
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The certificate type.
       shared_ptr<string> type_ {};
-      // The time of the certificate\\"s last update.
+      // The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
     };
 

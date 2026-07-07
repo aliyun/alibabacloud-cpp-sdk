@@ -170,49 +170,40 @@ namespace Models
 
 
     protected:
-      // Whether bypass mode is enabled. Valid values:
-      // 
+      // The bypass mode. Valid values:
       // - on: Enabled.
-      // 
       // - off: Disabled.
       shared_ptr<string> bypass_ {};
       // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The configuration type. Valid values:
+      // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
       // 
-      // - global: Global configuration.
-      // 
-      // - rule: Rule-based configuration.
+      // - global: Queries global configurations.
+      // - rule: Queries rule configurations.
       shared_ptr<string> configType_ {};
-      // Whether CDN fallback is enabled. Valid values:
-      // 
+      // The CDN fallback. Valid values:
       // - on: Enabled.
-      // 
       // - off: Disabled.
       shared_ptr<string> fallback_ {};
       // The configuration mode. Valid values:
-      // 
       // - simple: Simple mode.
-      // 
       // - custom: Custom mode.
       shared_ptr<string> mode_ {};
-      // Whether the route is enabled. Valid values:
-      // 
+      // The route switch. Valid values:
       // - on: Enabled.
-      // 
       // - off: Disabled.
       shared_ptr<string> routeEnable_ {};
       // The route name.
       shared_ptr<string> routeName_ {};
-      // The routine name.
+      // The Edge Routine name.
       shared_ptr<string> routineName_ {};
       // The rule content.
       shared_ptr<string> rule_ {};
-      // The rule execution sequence.
+      // The execution order of the rule.
       shared_ptr<int32_t> sequence_ {};
-      // The site version.
+      // The version number of the site.
       shared_ptr<int32_t> siteVersion_ {};
-      // The ER timeout.
+      // The Edge Routine timeout period, in seconds.
       shared_ptr<string> timeout_ {};
     };
 
@@ -263,15 +254,15 @@ namespace Models
 
 
   protected:
-    // The list of returned configs.
+    // The configuration list in the response.
     shared_ptr<vector<ListSiteRoutesResponseBody::Configs>> configs_ {};
-    // The current page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Diagnostic task ID.
+    // The diagnostic task ID. You must specify at least one of TraceId and TaskId. If neither is specified, the API returns an error.
     shared_ptr<string> taskId_ {};
-    // Diagnostic trace ID.
+    // The diagnostic trace ID. You must specify at least one of TraceId and TaskId. If neither is specified, the API returns an error.
     shared_ptr<string> traceId_ {};
   };
 

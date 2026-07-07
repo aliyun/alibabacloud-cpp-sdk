@@ -166,15 +166,15 @@ namespace Models
 
 
       protected:
-        // The DCV ID.
+        // DCV ID。
         shared_ptr<string> id_ {};
-        // The DCV name. For DNS, this is the TXT record name. For HTTP, this is the URL.
+        // The DCV name. For the DNS type, this is the TXT record name. For the HTTP type, this is the URL.
         shared_ptr<string> key_ {};
-        // The status of the DCV check.
+        // The validation status.
         shared_ptr<string> status_ {};
-        // The DCV type. Valid values: `DNS` and `HTTP`.
+        // The DCV type. Valid values: DNS and HTTP.
         shared_ptr<string> type_ {};
-        // The value required for the DCV check. For a DNS check, this is the TXT record value. For an HTTP check, this is the content of the validation file.
+        // The DCV content.
         shared_ptr<string> value_ {};
       };
 
@@ -341,15 +341,15 @@ namespace Models
 
 
     protected:
-      // The error code for the certificate application process.
+      // The error code of the certificate application.
       shared_ptr<int64_t> applyCode_ {};
-      // The error message for the certificate application process.
+      // The error message of the certificate application.
       shared_ptr<string> applyMessage_ {};
-      // The ID of the CAS certificate.
+      // The cloud certificate ID.
       shared_ptr<string> casId_ {};
       // The Common Name (CN) field of the certificate.
       shared_ptr<string> commonName_ {};
-      // The time when the certificate record was created.
+      // The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
       // The Domain Control Validation (DCV) information.
       shared_ptr<vector<Result::DCV>> DCV_ {};
@@ -359,31 +359,31 @@ namespace Models
       shared_ptr<string> id_ {};
       // The certificate issuer.
       shared_ptr<string> issuer_ {};
-      // The issuer\\"s Common Name (CN).
+      // The certification authority.
       shared_ptr<string> issuerCN_ {};
-      // The Keyless server ID. This parameter is returned only when the value of `Type` is `keyless`.
+      // The Keyless server ID. This parameter is valid only when Type is set to keyless.
       shared_ptr<string> keyServerId_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The end of the certificate\\"s validity period.
+      // The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> notAfter_ {};
-      // The start of the certificate\\"s validity period.
+      // The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> notBefore_ {};
-      // The algorithm of the certificate\\"s public key.
+      // The public key algorithm of the certificate.
       shared_ptr<string> pubAlg_ {};
-      // The region where the certificate is stored.
+      // The region.
       shared_ptr<string> region_ {};
-      // The Subject Alternative Name (SAN) field, which specifies the host names covered by the certificate.
+      // The Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
-      // The unique serial number assigned to the certificate by the issuer.
+      // The certificate serial number.
       shared_ptr<string> serialNumber_ {};
-      // The algorithm used to sign the certificate.
+      // The signature algorithm of the certificate.
       shared_ptr<string> sigAlg_ {};
       // The certificate status.
       shared_ptr<string> status_ {};
       // The certificate type.
       shared_ptr<string> type_ {};
-      // The time when the certificate record was last updated.
+      // The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -434,11 +434,11 @@ namespace Models
 
 
   protected:
-    // The certificate content in PEM format.
+    // The certificate content.
     shared_ptr<string> certificate_ {};
-    // The unique ID for the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Detailed certificate information.
+    // The certificate information.
     shared_ptr<GetCertificateResponseBody::Result> result_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};

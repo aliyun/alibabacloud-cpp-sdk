@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate.
+    // The certificate ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to get this value.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

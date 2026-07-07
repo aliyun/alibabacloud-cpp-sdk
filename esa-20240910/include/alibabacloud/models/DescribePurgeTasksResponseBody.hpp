@@ -124,19 +124,19 @@ namespace Models
     protected:
       // The refresh object.
       shared_ptr<string> content_ {};
-      // The creation time, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+      // The creation time in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
       shared_ptr<string> createTime_ {};
       // The error description returned when the refresh task fails.
       shared_ptr<string> description_ {};
       // The task completion progress in percentage.
       shared_ptr<string> process_ {};
-      // The task status. Valid values:
+      // The status. Valid values:
       // 
-      // - **Complete**: The task is complete.
+      // - **Complete**: Completed.
       // 
-      // - **Refreshing**: The task is in progress.
+      // - **Refreshing**: Refreshing.
       // 
-      // - **Failed**: The task failed.
+      // - **Failed**: Refresh failed.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -144,9 +144,9 @@ namespace Models
       // - **file** (default): file refresh.
       // - **cachetag**: cache tag refresh.
       // - **directory**: directory refresh.
-      // - **ignoreParams**: parameter-stripped refresh.
+      // - **ignoreParams**: ignore parameters refresh.
       // - **hostname**: hostname refresh.
-      // - **purgeall**: refresh all cached content of the site.
+      // - **purgeall**: purge all cache under the site.
       shared_ptr<string> type_ {};
     };
 

@@ -124,23 +124,27 @@ namespace Models
 
 
     protected:
-      // The Base64-encoded content of the custom response page.
+      // The Base64-encoded response page content corresponding to the Content-Type.
       // 
       // This parameter is required.
       shared_ptr<string> content_ {};
-      // The value of the Content-Type header in the HTTP response.
+      // The Content-Type field in the HTTP header.
       // 
       // This parameter is required.
       shared_ptr<string> contentType_ {};
-      // A custom description for the response page.
+      // The description of the custom response page.
       shared_ptr<string> description_ {};
-      // The ID of the custom response page.[](~~2850223~~)
+      // The ID of the custom response page. You can call the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation to obtain the ID.
       shared_ptr<int64_t> id_ {};
       // The type of the custom response page.
       shared_ptr<string> kind_ {};
       // The name of the custom response page.
       shared_ptr<string> name_ {};
-      // The time the custom response page was last updated.
+      // The time when the custom response page was last modified.
+      // 
+      // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+      // 
+      // Example: 2026-06-10T14:23:45Z
       shared_ptr<string> updateTime_ {};
     };
 
@@ -193,15 +197,15 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // A list of custom response pages.
+    // The array of custom response pages. Each object in the array contains the details of a page.
     shared_ptr<vector<ListPagesResponseBody::Pages>> pages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of custom response pages that match the filter criteria.
+    // The number of custom response pages after filtering.
     shared_ptr<int32_t> totalCount_ {};
-    // The number of custom response pages that you have created.
+    // The number of custom response pages created by the user.
     shared_ptr<int64_t> usage_ {};
   };
 

@@ -119,13 +119,13 @@ namespace Models
 
 
     protected:
-      // Client information.
+      // The client information.
       shared_ptr<string> clientInfo_ {};
-      // Diagnostic result.
+      // The diagnostic result.
       shared_ptr<string> diagnoseResult_ {};
-      // Client request response header.
+      // The response header of the client request.
       shared_ptr<string> responseHeader_ {};
-      // Static snapshot page.
+      // The static snapshot page.
       shared_ptr<string> staticHtml_ {};
     };
 
@@ -176,11 +176,11 @@ namespace Models
 
 
     protected:
-      // Browser.
+      // The browser.
       shared_ptr<string> browserInfo_ {};
-      // Operating system name.
+      // The operating system name.
       shared_ptr<string> os_ {};
-      // Version.
+      // The version.
       shared_ptr<string> uaString_ {};
     };
 
@@ -320,50 +320,50 @@ namespace Models
 
 
   protected:
-    // IP address of the local DNS server.
+    // The IP address of the local DNS server.
     shared_ptr<string> clientAddr_ {};
-    // Client information.
+    // The client information.
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::ClientInfo> clientInfo_ {};
-    // Client IP.
+    // The client IP address.
     shared_ptr<string> clientIp_ {};
-    // Creation time. Format: yyyy-MM-dd HH:mm:ss. Time zone: +08:00.
+    // The creation time. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
     shared_ptr<string> createTime_ {};
-    // Diagnostic ID.
+    // The diagnostic ID.
     shared_ptr<string> diagnoseId_ {};
-    // Diagnostic report link.
+    // The diagnostic report link.
     shared_ptr<string> diagnoseReportLink_ {};
-    // Diagnostic link.
+    // The diagnostic link.
     shared_ptr<string> diagnoseUrl_ {};
     // The diagnosed domain name.
     shared_ptr<string> domain_ {};
-    // Expiration time. Timestamp in seconds.
+    // The expiration time. Unit: seconds. The value is a UNIX timestamp.
     shared_ptr<int64_t> expireTime_ {};
-    // Remaining available diagnostic attempts.
+    // The remaining number of available diagnostic attempts.
     shared_ptr<int64_t> remainDiagnoseTimes_ {};
-    // Diagnostic report details.
+    // The diagnostic report details.
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::Report> report_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Report generation status.
+    // The report generation status. Valid values:
     // 
-    // 0: Successful.
-    // 1: Failed.
-    // 2: Timed out.
-    // 3: Running.
-    // 4: Waiting.
+    // 0: succeeded.
+    // 1: failed.
+    // 2: timed out.
+    // 3: running.
+    // 4: waiting.
     shared_ptr<string> state_ {};
-    // Status of the diagnostic link.
+    // The status of the diagnostic link. Valid values:
     // 
-    // 1: Active.
-    // 0: Expired.
+    // 1: active.
+    // 0: expired.
     shared_ptr<int64_t> status_ {};
-    // Task ID.
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // Time consumed for report generation, in seconds.
+    // The time consumed to generate the report. Unit: seconds.
     shared_ptr<int64_t> timeConsuming_ {};
-    // Trace display link.
+    // The trace display link.
     shared_ptr<string> traceDisplayLink_ {};
-    // Diagnostic trace ID.
+    // The diagnostic trace ID.
     shared_ptr<string> traceId_ {};
   };
 

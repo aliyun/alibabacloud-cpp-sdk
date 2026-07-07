@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The security level.
+      // The security level value.
       shared_ptr<string> value_ {};
     };
 
@@ -123,11 +123,21 @@ namespace Models
 
 
     protected:
-      // The action to perform when the request body size exceeds the limit.
+      // The action to take when the request body size exceeds SizeLimit.
+      // 
+      // Common valid values (the complete list is determined by the server-side configuration):
+      // - allow: allows the request without performing deep packet inspection on the portion that exceeds the limit.
+      // 
+      // > The complete enumeration is determined by the WAF server-side configuration.
       shared_ptr<string> action_ {};
-      // The rule ID for request body inspection.
+      // The request body inspection rule ID, which is the unique identifier of the built-in rule. When request body inspection is enabled, the server uses this ID to associate the matching logic of the built-in inspection rule. The valid values are based on the built-in rule list of WAF.
       shared_ptr<int64_t> id_ {};
-      // The size limit, in bytes, for inspecting the request body.
+      // The maximum size of the request body to inspect, in bytes.
+      // 
+      // - If the request body is less than or equal to this value, the entire content is subject to WAF matching.
+      // - If the request body exceeds this value, the action specified in the Action field is taken, such as inspecting only the first N bytes, rejecting the request, or allowing the request.
+      // 
+      // > The valid value range and default value are determined by the WAF server-side configuration.
       shared_ptr<string> sizeLimit_ {};
     };
 
@@ -159,7 +169,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to disable the security module. Set to `on` to disable.
+      // The status switch for disabling the security module.
       shared_ptr<string> status_ {};
     };
 
@@ -203,7 +213,7 @@ namespace Models
 
 
     protected:
-      // An array of headers to check for the client IP address.
+      // The specified headers.
       shared_ptr<vector<string>> headers_ {};
       // The identification mode.
       shared_ptr<string> mode_ {};
@@ -274,7 +284,7 @@ namespace Models
 
 
       protected:
-        // The action to perform.
+        // The action.
         shared_ptr<string> action_ {};
         // The rule ID.
         shared_ptr<int64_t> id_ {};
@@ -318,7 +328,7 @@ namespace Models
 
 
       protected:
-        // The action to perform.
+        // The action.
         shared_ptr<string> action_ {};
         // The rule ID.
         shared_ptr<int64_t> id_ {};
@@ -352,7 +362,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable JavaScript detection.
+        // The switch.
         shared_ptr<bool> enable_ {};
       };
 
@@ -384,7 +394,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to apply bot management to static resource requests.
+        // The switch.
         shared_ptr<bool> enable_ {};
       };
 
@@ -426,7 +436,7 @@ namespace Models
 
 
       protected:
-        // The action to perform.
+        // The action.
         shared_ptr<string> action_ {};
         // The rule ID.
         shared_ptr<int64_t> id_ {};
@@ -480,15 +490,15 @@ namespace Models
 
 
     protected:
-      // Configuration for traffic identified as a definite bot.
+      // The definite bots.
       shared_ptr<BotManagement::DefiniteBots> definiteBots_ {};
-      // Configuration to apply bot management to static resource requests.
+      // Specifies whether the rule applies to static resource requests.
       shared_ptr<BotManagement::EffectOnStatic> effectOnStatic_ {};
-      // The JavaScript detection settings.
+      // The JavaScript detection.
       shared_ptr<BotManagement::JSDetection> JSDetection_ {};
-      // Configuration for traffic identified as a likely bot.
+      // The likely bots.
       shared_ptr<BotManagement::LikelyBots> likelyBots_ {};
-      // Configuration for traffic identified as a verified bot.
+      // The verified bots.
       shared_ptr<BotManagement::VerifiedBots> verifiedBots_ {};
     };
 
@@ -539,11 +549,11 @@ namespace Models
 
 
     protected:
-      // The action to perform for the bandwidth abuse protection rule.
+      // The action of the bandwidth abuse protection rule.
       shared_ptr<string> action_ {};
-      // The rule ID for bandwidth abuse protection.
+      // The ID of the bandwidth abuse protection rule.
       shared_ptr<int64_t> id_ {};
-      // The status of the bandwidth abuse protection rule. Valid values: `on` and `off`.
+      // The status of the bandwidth abuse protection rule.
       shared_ptr<string> status_ {};
     };
 
@@ -575,7 +585,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to add security headers.
+      // The switch.
       shared_ptr<bool> enable_ {};
     };
 
@@ -607,7 +617,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to add bot protection headers.
+      // The switch.
       shared_ptr<bool> enable_ {};
     };
 
@@ -687,21 +697,26 @@ namespace Models
 
 
   protected:
-    // Configuration for adding bot protection headers.
+    // The bot protection headers.
     shared_ptr<WafSiteSettings::AddBotProtectionHeaders> addBotProtectionHeaders_ {};
-    // Configuration for adding security headers.
+    // The security headers.
     shared_ptr<WafSiteSettings::AddSecurityHeaders> addSecurityHeaders_ {};
-    // The bandwidth abuse protection settings.
+    // The bandwidth abuse protection.
     shared_ptr<WafSiteSettings::BandwidthAbuseProtection> bandwidthAbuseProtection_ {};
-    // The bot management settings.
+    // The bot management.
     shared_ptr<WafSiteSettings::BotManagement> botManagement_ {};
-    // Configuration for client IP identification.
+    // The client IP identification.
     shared_ptr<WafSiteSettings::ClientIpIdentifier> clientIpIdentifier_ {};
-    // Configuration for disabling the security module.
+    // The configuration for disabling the security module.
     shared_ptr<WafSiteSettings::DisableSecurityModule> disableSecurityModule_ {};
-    // Configuration for request body inspection.
+    // The request body inspection configuration. Controls the deep packet inspection behavior of WAF for HTTP request bodies. After this feature is enabled, content-based matching rules such as SQL injection and XSS detection take effect on request bodies.
+    // 
+    // This structure can contain the following fields:
+    // - Id: The unique identifier of the built-in inspection rule.
+    // - SizeLimit: The maximum size of the request body to inspect.
+    // - Action: The action to take when the request body exceeds the size limit.
     shared_ptr<WafSiteSettings::RequestBodyInspection> requestBodyInspection_ {};
-    // The security level settings.
+    // The security level.
     shared_ptr<WafSiteSettings::SecurityLevel> securityLevel_ {};
   };
 

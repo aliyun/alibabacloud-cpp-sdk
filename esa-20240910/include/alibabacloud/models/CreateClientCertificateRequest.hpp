@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The certificate signing request (CSR).
+    // The certificate signing request (CSR) content.
     shared_ptr<string> CSR_ {};
-    // The type of the private key algorithm.
+    // The private key algorithm type. This parameter is required if CSR is not provided.
     shared_ptr<string> pkeyType_ {};
-    // The website ID.
+    // The site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The validity period of the certificate. Unit: day.
+    // The validity period of the certificate. Unit: days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> validityDays_ {};

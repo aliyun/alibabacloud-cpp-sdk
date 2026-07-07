@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The site ID. You can get this ID by calling the [ListSites](~~ListSites~~) interface.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

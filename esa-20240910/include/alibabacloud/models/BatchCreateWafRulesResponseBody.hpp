@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // An array of IDs for the newly created WAF rules. You can call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation to obtain the details of a specific rule.
+    // The IDs of the WAF rules. You can call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation to obtain the rule IDs.
     shared_ptr<vector<int64_t>> ids_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain this ID.
+    // The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ruleset ID.
     shared_ptr<int64_t> rulesetId_ {};
   };
 

@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Whether the item type is enabled.
+    // Indicates whether the corresponding custom list item type is enabled.
     shared_ptr<bool> enable_ {};
-    // The format constraints for the item type.
+    // The format restriction for the corresponding item type in custom lists.
     shared_ptr<WafQuotaString> value_ {};
   };
 

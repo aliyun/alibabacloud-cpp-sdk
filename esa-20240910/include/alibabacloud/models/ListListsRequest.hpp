@@ -126,21 +126,21 @@ namespace Models
 
 
     protected:
-      // If true, sorts the results in descending order.
+      // Specifies whether to sort the results in descending order.
       shared_ptr<bool> desc_ {};
-      // Filters by a partial match on the list description.
+      // The value used to fuzzy match list descriptions.
       shared_ptr<string> descriptionLike_ {};
-      // Filters by a partial match on the list ID.
+      // The value used to fuzzy match list IDs.
       shared_ptr<string> idLike_ {};
-      // Filters by a partial match on a list item.
+      // The value used to fuzzy match list content.
       shared_ptr<string> itemLike_ {};
-      // Filters by the list kind.
+      // The kind of the custom list.
       shared_ptr<string> kind_ {};
-      // Filters by a partial match on both the list name and list items.
+      // The value used to fuzzy match both list content and list names simultaneously.
       shared_ptr<string> nameItemLike_ {};
-      // Filters by a partial match on the list name.
+      // The value used to fuzzy match list names.
       shared_ptr<string> nameLike_ {};
-      // Specifies the sort field.
+      // The column by which to sort the results.
       shared_ptr<string> orderBy_ {};
     };
 
@@ -170,11 +170,11 @@ namespace Models
 
 
   protected:
-    // Specifies the page number for paginated results.
+    // The page number for paging.
     shared_ptr<int32_t> pageNumber_ {};
-    // Specifies the number of results to return per page.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};
-    // A JSON object containing query parameters to filter the results.
+    // The query parameters passed in JSON format, which contain various filter conditions.
     shared_ptr<ListListsRequest::QueryArgs> queryArgs_ {};
   };
 

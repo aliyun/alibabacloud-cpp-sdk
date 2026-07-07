@@ -72,9 +72,7 @@ namespace Models
     // - DOWNGRADE: downgrade.
     // - UPGRADE: upgrade.
     shared_ptr<string> orderType_ {};
-    // The specification change type. Valid values:
-    // - DOWNGRADE: downgrade.
-    // - UPGRADE: upgrade.
+    // The code of the target plan for the specification change.
     shared_ptr<string> targetPlanCode_ {};
     // The name of the target plan for the specification change.
     shared_ptr<string> targetPlanName_ {};

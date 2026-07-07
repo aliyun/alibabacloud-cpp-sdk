@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The page number. The default value is **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The site ID.
     // 

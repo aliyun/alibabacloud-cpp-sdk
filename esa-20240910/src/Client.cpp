@@ -368,7 +368,7 @@ BatchCreateRecordsResponse Client::batchCreateRecords(const BatchCreateRecordsRe
 }
 
 /**
- * @summary This operation creates multiple WAF rules and configures their shared settings in a single request.
+ * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
  *
  * @param tmpReq BatchCreateWafRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -431,7 +431,7 @@ BatchCreateWafRulesResponse Client::batchCreateWafRulesWithOptions(const BatchCr
 }
 
 /**
- * @summary This operation creates multiple WAF rules and configures their shared settings in a single request.
+ * @summary Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
  *
  * @param request BatchCreateWafRulesRequest
  * @return BatchCreateWafRulesResponse
@@ -1052,7 +1052,7 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityAdvance(con
 }
 
 /**
- * @summary Updates the configurations of multiple rules in a specified WAF ruleset.
+ * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
  *
  * @param tmpReq BatchUpdateWafRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1115,7 +1115,7 @@ BatchUpdateWafRulesResponse Client::batchUpdateWafRulesWithOptions(const BatchUp
 }
 
 /**
- * @summary Updates the configurations of multiple rules in a specified WAF ruleset.
+ * @summary Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
  *
  * @param request BatchUpdateWafRulesRequest
  * @return BatchUpdateWafRulesResponse
@@ -1336,7 +1336,8 @@ CheckUserProjectNameResponse Client::checkUserProjectName(const CheckUserProject
 }
 
 /**
- * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
+ * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
+ * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
  *
  * @param request CommitRoutineStagingCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1375,7 +1376,8 @@ CommitRoutineStagingCodeResponse Client::commitRoutineStagingCodeWithOptions(con
 }
 
 /**
- * @summary Submits the test version (unstable) code of an Edge Routine and generates a production version.
+ * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
+ * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
  *
  * @param request CommitRoutineStagingCodeRequest
  * @return CommitRoutineStagingCodeResponse
@@ -1540,7 +1542,7 @@ CreateCacheRuleResponse Client::createCacheRule(const CreateCacheRuleRequest &re
 }
 
 /**
- * @summary Uses the ESA-managed certificate authority (CA) to issue client certificates.
+ * @summary Issues a client certificate by using the ESA certificate authority (CA).
  *
  * @param request CreateClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1585,7 +1587,7 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
 }
 
 /**
- * @summary Uses the ESA-managed certificate authority (CA) to issue client certificates.
+ * @summary Issues a client certificate by using the ESA certificate authority (CA).
  *
  * @param request CreateClientCertificateRequest
  * @return CreateClientCertificateResponse
@@ -2764,7 +2766,7 @@ CreateKvNamespaceResponse Client::createKvNamespace(const CreateKvNamespaceReque
 }
 
 /**
- * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+ * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
  *
  * @param tmpReq CreateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2813,7 +2815,7 @@ CreateListResponse Client::createListWithOptions(const CreateListRequest &tmpReq
 }
 
 /**
- * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+ * @summary Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
  *
  * @param request CreateListRequest
  * @return CreateListResponse
@@ -2824,9 +2826,10 @@ CreateListResponse Client::createList(const CreateListRequest &request) {
 }
 
 /**
- * @summary Creates a new Server Load Balancer instance with advanced features, including custom routing, session persistence, and health check configuration.
+ * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
  *
- * @description Use this API to configure Server Load Balancer features for effective traffic management and optimization, such as adaptive routing, weighted round-robin, rule matching, and health checks.
+ * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
+ * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
  *
  * @param tmpReq CreateLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2935,9 +2938,10 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
 }
 
 /**
- * @summary Creates a new Server Load Balancer instance with advanced features, including custom routing, session persistence, and health check configuration.
+ * @summary Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
  *
- * @description Use this API to configure Server Load Balancer features for effective traffic management and optimization, such as adaptive routing, weighted round-robin, rule matching, and health checks.
+ * @description Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
+ * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
  *
  * @param request CreateLoadBalancerRequest
  * @return CreateLoadBalancerResponse
@@ -3270,7 +3274,7 @@ CreateOriginRuleResponse Client::createOriginRule(const CreateOriginRuleRequest 
 }
 
 /**
- * @summary Creates a custom error page. This page appears when the web application firewall (WAF) blocks a user request. You can configure the page\\"s HTML content, content type, and description, and submit the page content using BASE64 encoding.
+ * @summary Creates a custom error response page. When a user request is blocked by Web Application Firewall (WAF), these custom error pages can be displayed. You can configure the page HTML content, page type, description, and other information, and submit the page content in BASE64 encoding.
  *
  * @param tmpReq CreatePageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3323,7 +3327,7 @@ CreatePageResponse Client::createPageWithOptions(const CreatePageRequest &tmpReq
 }
 
 /**
- * @summary Creates a custom error page. This page appears when the web application firewall (WAF) blocks a user request. You can configure the page\\"s HTML content, content type, and description, and submit the page content using BASE64 encoding.
+ * @summary Creates a custom error response page. When a user request is blocked by Web Application Firewall (WAF), these custom error pages can be displayed. You can configure the page HTML content, page type, description, and other information, and submit the page content in BASE64 encoding.
  *
  * @param request CreatePageRequest
  * @return CreatePageResponse
@@ -4560,17 +4564,17 @@ CreateUserDeliveryTaskResponse Client::createUserDeliveryTask(const CreateUserDe
 }
 
 /**
- * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports various types of protection rules.
+ * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports multiple types of protection rules.
  *
- * @description ## Description
- * - You can use this API to create a Web Application Firewall (WAF) ruleset for a specific instance.
- * - The required `InstanceId` parameter specifies the instance for which to create the ruleset.
- * - The `Phase` parameter defines the execution phase of the ruleset, such as a custom rule or rate limiting.
- * - The required `Name` and `Expression` parameters specify the ruleset\\"s name and match expression.
- * - The optional `Description` parameter describes the purpose of the ruleset.
- * - The `Status` parameter controls whether the ruleset is immediately enabled (`on`) or disabled (`off`).
- * - Use the `Rules` parameter to configure a detailed rule list. Each rule includes properties such as name, position, expression, and action.
- * - A successful response returns the unique ID of the new ruleset in `Id` and a list of associated rule IDs in `RuleIds`.
+ * @description ## Operation description
+ * - This API operation allows you to create a WAF ruleset for a specified instance.
+ * - InstanceId is a required parameter that specifies the instance for which you want to create the ruleset.
+ * - The Phase parameter defines the phase in which the ruleset is applied, such as custom rules or rate limiting.
+ * - Name and Expression are required parameters that specify the ruleset name and the match expression.
+ * - The optional Description parameter provides a text description of the ruleset function or purpose.
+ * - Status controls whether the ruleset takes effect immediately (`on`) or is disabled (`off`).
+ * - Use the Rules parameter to configure a detailed list of rules. Each rule contains properties such as name, position, expression, and action.
+ * - A successful response returns the unique identifier Id of the newly created ruleset and the RuleIds list of all associated rule IDs.
  *
  * @param tmpReq CreateUserWafRulesetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4641,17 +4645,17 @@ CreateUserWafRulesetResponse Client::createUserWafRulesetWithOptions(const Creat
 }
 
 /**
- * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports various types of protection rules.
+ * @summary Creates an instance-level Web Application Firewall (WAF) ruleset that supports multiple types of protection rules.
  *
- * @description ## Description
- * - You can use this API to create a Web Application Firewall (WAF) ruleset for a specific instance.
- * - The required `InstanceId` parameter specifies the instance for which to create the ruleset.
- * - The `Phase` parameter defines the execution phase of the ruleset, such as a custom rule or rate limiting.
- * - The required `Name` and `Expression` parameters specify the ruleset\\"s name and match expression.
- * - The optional `Description` parameter describes the purpose of the ruleset.
- * - The `Status` parameter controls whether the ruleset is immediately enabled (`on`) or disabled (`off`).
- * - Use the `Rules` parameter to configure a detailed rule list. Each rule includes properties such as name, position, expression, and action.
- * - A successful response returns the unique ID of the new ruleset in `Id` and a list of associated rule IDs in `RuleIds`.
+ * @description ## Operation description
+ * - This API operation allows you to create a WAF ruleset for a specified instance.
+ * - InstanceId is a required parameter that specifies the instance for which you want to create the ruleset.
+ * - The Phase parameter defines the phase in which the ruleset is applied, such as custom rules or rate limiting.
+ * - Name and Expression are required parameters that specify the ruleset name and the match expression.
+ * - The optional Description parameter provides a text description of the ruleset function or purpose.
+ * - Status controls whether the ruleset takes effect immediately (`on`) or is disabled (`off`).
+ * - Use the Rules parameter to configure a detailed list of rules. Each rule contains properties such as name, position, expression, and action.
+ * - A successful response returns the unique identifier Id of the newly created ruleset and the RuleIds list of all associated rule IDs.
  *
  * @param request CreateUserWafRulesetRequest
  * @return CreateUserWafRulesetResponse
@@ -4748,7 +4752,7 @@ CreateVideoProcessingResponse Client::createVideoProcessing(const CreateVideoPro
 }
 
 /**
- * @summary Creates a new rule in the Web Application Firewall (WAF). Use this operation to fine-tune firewall behavior and improve the security of your site or application.
+ * @summary Creates a rule in Web Application Firewall (WAF). You can use this operation to refine firewall behavior and improve the security of your website or application.
  *
  * @param tmpReq CreateWafRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4803,7 +4807,7 @@ CreateWafRuleResponse Client::createWafRuleWithOptions(const CreateWafRuleReques
 }
 
 /**
- * @summary Creates a new rule in the Web Application Firewall (WAF). Use this operation to fine-tune firewall behavior and improve the security of your site or application.
+ * @summary Creates a rule in Web Application Firewall (WAF). You can use this operation to refine firewall behavior and improve the security of your website or application.
  *
  * @param request CreateWafRuleRequest
  * @return CreateWafRuleResponse
@@ -8508,7 +8512,7 @@ DescribePreloadTasksResponse Client::describePreloadTasks(const DescribePreloadT
 }
 
 /**
- * @summary Queries the execution status of a refresh task.
+ * @summary Queries the execution status of refresh tasks.
  *
  * @param request DescribePurgeTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8535,7 +8539,7 @@ DescribePurgeTasksResponse Client::describePurgeTasksWithOptions(const DescribeP
 }
 
 /**
- * @summary Queries the execution status of a refresh task.
+ * @summary Queries the execution status of refresh tasks.
  *
  * @param request DescribePurgeTasksRequest
  * @return DescribePurgeTasksResponse
@@ -8648,7 +8652,7 @@ DescribeRatePlanPriceResponse Client::describeRatePlanPrice(const DescribeRatePl
 /**
  * @summary Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
  *
- * @description The plan name and plan code can be obtained from the DescribeRatePlanPrice operation.
+ * @description The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
  *
  * @param request DescribeRatePlanPriceGapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8693,7 +8697,7 @@ DescribeRatePlanPriceGapResponse Client::describeRatePlanPriceGapWithOptions(con
 /**
  * @summary Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
  *
- * @description The plan name and plan code can be obtained from the DescribeRatePlanPrice operation.
+ * @description The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
  *
  * @param request DescribeRatePlanPriceGapRequest
  * @return DescribeRatePlanPriceGapResponse
@@ -8928,9 +8932,165 @@ DescribeSiteTopDataResponse Client::describeSiteTopData(const DescribeSiteTopDat
 }
 
 /**
- * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+ * @summary Retrieves time series data for WAF event analysis of a website.
  *
- * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+ * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
+ *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
+ *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
+ *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
+ *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
+ *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
+ * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+ *
+ * @param tmpReq DescribeSiteWafTimeSeriesDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSiteWafTimeSeriesDataResponse
+ */
+DescribeSiteWafTimeSeriesDataResponse Client::describeSiteWafTimeSeriesDataWithOptions(const DescribeSiteWafTimeSeriesDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeSiteWafTimeSeriesDataShrinkRequest request = DescribeSiteWafTimeSeriesDataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFields()) {
+    request.setFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFields(), "Fields", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasFieldsShrink()) {
+    query["Fields"] = request.getFieldsShrink();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSiteWafTimeSeriesData"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSiteWafTimeSeriesDataResponse>();
+}
+
+/**
+ * @summary Retrieves time series data for WAF event analysis of a website.
+ *
+ * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
+ *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
+ *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
+ *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
+ *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
+ *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
+ * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+ *
+ * @param request DescribeSiteWafTimeSeriesDataRequest
+ * @return DescribeSiteWafTimeSeriesDataResponse
+ */
+DescribeSiteWafTimeSeriesDataResponse Client::describeSiteWafTimeSeriesData(const DescribeSiteWafTimeSeriesDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSiteWafTimeSeriesDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the top data from WAF event analysis for a website.
+ *
+ * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+ *
+ * @param tmpReq DescribeSiteWafTopDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSiteWafTopDataResponse
+ */
+DescribeSiteWafTopDataResponse Client::describeSiteWafTopDataWithOptions(const DescribeSiteWafTopDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeSiteWafTopDataShrinkRequest request = DescribeSiteWafTopDataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFields()) {
+    request.setFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFields(), "Fields", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasFieldsShrink()) {
+    query["Fields"] = request.getFieldsShrink();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSiteWafTopData"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSiteWafTopDataResponse>();
+}
+
+/**
+ * @summary Retrieves the top data from WAF event analysis for a website.
+ *
+ * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+ *
+ * @param request DescribeSiteWafTopDataRequest
+ * @return DescribeSiteWafTopDataResponse
+ */
+DescribeSiteWafTopDataResponse Client::describeSiteWafTopData(const DescribeSiteWafTopDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSiteWafTopDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+ *
+ * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
  *
  * @param request DescribeTraceDiagnoseReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8965,9 +9125,9 @@ DescribeTraceDiagnoseReportResponse Client::describeTraceDiagnoseReportWithOptio
 }
 
 /**
- * @summary Get diagnostic report details. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+ * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
  *
- * @description >Notice: Make sure you have activated the Layer 4 acceleration service before using this API.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this API to get the report.
+ * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
  *
  * @param request DescribeTraceDiagnoseReportRequest
  * @return DescribeTraceDiagnoseReportResponse
@@ -9037,6 +9197,78 @@ DescribeUrlObservationDataResponse Client::describeUrlObservationDataWithOptions
 DescribeUrlObservationDataResponse Client::describeUrlObservationData(const DescribeUrlObservationDataRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUrlObservationDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the usage data of WAF by calling DescribeWafUsageData.
+ *
+ * @description * Maximum storage duration: 93 days.
+ * * Maximum query time range: 31 days.
+ * * Default time range: 24 hours.
+ * All times are expressed in UTC+0.
+ *
+ * @param request DescribeWafUsageDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWafUsageDataResponse
+ */
+DescribeWafUsageDataResponse Client::describeWafUsageDataWithOptions(const DescribeWafUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasRecordName()) {
+    query["RecordName"] = request.getRecordName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSplitBy()) {
+    query["SplitBy"] = request.getSplitBy();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeWafUsageData"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWafUsageDataResponse>();
+}
+
+/**
+ * @summary Queries the usage data of WAF by calling DescribeWafUsageData.
+ *
+ * @description * Maximum storage duration: 93 days.
+ * * Maximum query time range: 31 days.
+ * * Default time range: 24 hours.
+ * All times are expressed in UTC+0.
+ *
+ * @param request DescribeWafUsageDataRequest
+ * @return DescribeWafUsageDataResponse
+ */
+DescribeWafUsageDataResponse Client::describeWafUsageData(const DescribeWafUsageDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeWafUsageDataWithOptions(request, runtime);
 }
 
 /**
@@ -9466,7 +9698,7 @@ GetCacheTagResponse Client::getCacheTag(const GetCacheTagRequest &request) {
 }
 
 /**
- * @summary Retrieves a specified certificate for a site.
+ * @summary Retrieves information about a specified certificate for a site.
  *
  * @param request GetCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9501,7 +9733,7 @@ GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateReq
 }
 
 /**
- * @summary Retrieves a specified certificate for a site.
+ * @summary Retrieves information about a specified certificate for a site.
  *
  * @param request GetCertificateRequest
  * @return GetCertificateResponse
@@ -9550,7 +9782,7 @@ GetCertificateQuotaResponse Client::getCertificateQuota(const GetCertificateQuot
 }
 
 /**
- * @summary Gets the specified client CA certificate.
+ * @summary Retrieves a specified client CA certificate.
  *
  * @param request GetClientCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9577,7 +9809,7 @@ GetClientCaCertificateResponse Client::getClientCaCertificateWithOptions(const G
 }
 
 /**
- * @summary Gets the specified client CA certificate.
+ * @summary Retrieves a specified client CA certificate.
  *
  * @param request GetClientCaCertificateRequest
  * @return GetClientCaCertificateResponse
@@ -9634,7 +9866,7 @@ GetClientCaCertificateHostnamesResponse Client::getClientCaCertificateHostnames(
 }
 
 /**
- * @summary Retrieves the details of a specified client certificate.
+ * @summary Retrieves information about a specified client certificate.
  *
  * @param request GetClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9661,7 +9893,7 @@ GetClientCertificateResponse Client::getClientCertificateWithOptions(const GetCl
 }
 
 /**
- * @summary Retrieves the details of a specified client certificate.
+ * @summary Retrieves information about a specified client certificate.
  *
  * @param request GetClientCertificateRequest
  * @return GetClientCertificateResponse
@@ -10514,7 +10746,7 @@ GetErServiceResponse Client::getErService(const GetErServiceRequest &request) {
 }
 
 /**
- * @summary Downloads a failed file.
+ * @summary Downloads the failed file for a specified upload task.
  *
  * @param request GetFailFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10541,7 +10773,7 @@ GetFailFileResponse Client::getFailFileWithOptions(const GetFailFileRequest &req
 }
 
 /**
- * @summary Downloads a failed file.
+ * @summary Downloads the failed file for a specified upload task.
  *
  * @param request GetFailFileRequest
  * @return GetFailFileResponse
@@ -10856,7 +11088,7 @@ GetImageTransformResponse Client::getImageTransform(const GetImageTransformReque
 }
 
 /**
- * @summary Retrieves the configuration of a keyless server.
+ * @summary Retrieves the configuration of a Keyless server.
  *
  * @param request GetKeylessServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10891,7 +11123,7 @@ GetKeylessServerResponse Client::getKeylessServerWithOptions(const GetKeylessSer
 }
 
 /**
- * @summary Retrieves the configuration of a keyless server.
+ * @summary Retrieves the configuration of a Keyless server.
  *
  * @param request GetKeylessServerRequest
  * @return GetKeylessServerResponse
@@ -11056,7 +11288,7 @@ GetKvNamespaceResponse Client::getKvNamespace(const GetKvNamespaceRequest &reque
 }
 
 /**
- * @summary Queries a custom list, such as the name, description, type, and content.
+ * @summary Retrieves the details of a specific custom list. You can use this operation to query the properties of a specific list, including the name, description, kind, and list items.
  *
  * @param request GetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11087,7 +11319,7 @@ GetListResponse Client::getListWithOptions(const GetListRequest &request, const 
 }
 
 /**
- * @summary Queries a custom list, such as the name, description, type, and content.
+ * @summary Retrieves the details of a specific custom list. You can use this operation to query the properties of a specific list, including the name, description, kind, and list items.
  *
  * @param request GetListRequest
  * @return GetListResponse
@@ -11098,9 +11330,9 @@ GetListResponse Client::getList(const GetListRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a load balancer by its site ID and load balancer ID.
+ * @summary Retrieves the details of a specific load balancer based on the specified site ID and load balancer ID.
  *
- * @description Use this API to query the configuration details of a load balancer, such as its name, session persistence policy, and routing policy, by providing its resource identifier and authentication information.
+ * @description This API allows you to query the configuration details of a specific load balancer by providing the required authentication information and resource identity. The details include but are not limited to the name, session persistence policy, and load balancing policy.
  *
  * @param request GetLoadBalancerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11127,9 +11359,9 @@ GetLoadBalancerResponse Client::getLoadBalancerWithOptions(const GetLoadBalancer
 }
 
 /**
- * @summary Retrieves the details of a load balancer by its site ID and load balancer ID.
+ * @summary Retrieves the details of a specific load balancer based on the specified site ID and load balancer ID.
  *
- * @description Use this API to query the configuration details of a load balancer, such as its name, session persistence policy, and routing policy, by providing its resource identifier and authentication information.
+ * @description This API allows you to query the configuration details of a specific load balancer by providing the required authentication information and resource identity. The details include but are not limited to the name, session persistence policy, and load balancing policy.
  *
  * @param request GetLoadBalancerRequest
  * @return GetLoadBalancerResponse
@@ -11216,7 +11448,7 @@ GetNetworkOptimizationResponse Client::getNetworkOptimization(const GetNetworkOp
 }
 
 /**
- * @summary Get the CA certificate of the source server.
+ * @summary Retrieves the CA certificate information of an origin server.
  *
  * @param request GetOriginCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11243,7 +11475,7 @@ GetOriginCaCertificateResponse Client::getOriginCaCertificateWithOptions(const G
 }
 
 /**
- * @summary Get the CA certificate of the source server.
+ * @summary Retrieves the CA certificate information of an origin server.
  *
  * @param request GetOriginCaCertificateRequest
  * @return GetOriginCaCertificateResponse
@@ -11254,7 +11486,7 @@ GetOriginCaCertificateResponse Client::getOriginCaCertificate(const GetOriginCaC
 }
 
 /**
- * @summary Retrieves origin-pull client certificate information for a domain.
+ * @summary Retrieves the back-to-origin client certificate information at the domain name granularity.
  *
  * @param request GetOriginClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11281,7 +11513,7 @@ GetOriginClientCertificateResponse Client::getOriginClientCertificateWithOptions
 }
 
 /**
- * @summary Retrieves origin-pull client certificate information for a domain.
+ * @summary Retrieves the back-to-origin client certificate information at the domain name granularity.
  *
  * @param request GetOriginClientCertificateRequest
  * @return GetOriginClientCertificateResponse
@@ -11444,7 +11676,7 @@ GetOriginRuleResponse Client::getOriginRule(const GetOriginRuleRequest &request)
 }
 
 /**
- * @summary Gets the details of a custom response page by its ID.
+ * @summary Retrieves the details of a custom response page by its ID.
  *
  * @param request GetPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11475,7 +11707,7 @@ GetPageResponse Client::getPageWithOptions(const GetPageRequest &request, const 
 }
 
 /**
- * @summary Gets the details of a custom response page by its ID.
+ * @summary Retrieves the details of a custom response page by its ID.
  *
  * @param request GetPageRequest
  * @return GetPageResponse
@@ -11856,10 +12088,10 @@ GetRoutineCodeVersionResponse Client::getRoutineCodeVersion(const GetRoutineCode
 }
 
 /**
- * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+ * @summary Queries the status and other information of a specific code version of a specified Routine.
  *
  * @description ## Operation description
- * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+ * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
  *
  * @param request GetRoutineCodeVersionInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11894,10 +12126,10 @@ GetRoutineCodeVersionInfoResponse Client::getRoutineCodeVersionInfoWithOptions(c
 }
 
 /**
- * @summary Queries the status and other information of a specific code version of a specified Edge Routine.
+ * @summary Queries the status and other information of a specific code version of a specified Routine.
  *
  * @description ## Operation description
- * By calling this API operation, you can retrieve detailed information about a specific Edge Routine at a specified version, including but not limited to the version status, creation time, and whether the version contains asset resource files. You must provide the Edge Routine name and the specific code version number as request parameters.
+ * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
  *
  * @param request GetRoutineCodeVersionInfoRequest
  * @return GetRoutineCodeVersionInfoResponse
@@ -11908,7 +12140,7 @@ GetRoutineCodeVersionInfoResponse Client::getRoutineCodeVersionInfo(const GetRou
 }
 
 /**
- * @summary Retrieves a specific edge function route configuration.
+ * @summary Queries the configuration of a single Edge Routine route.
  *
  * @param request GetRoutineRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11943,7 +12175,7 @@ GetRoutineRouteResponse Client::getRoutineRouteWithOptions(const GetRoutineRoute
 }
 
 /**
- * @summary Retrieves a specific edge function route configuration.
+ * @summary Queries the configuration of a single Edge Routine route.
  *
  * @param request GetRoutineRouteRequest
  * @return GetRoutineRouteResponse
@@ -12398,7 +12630,7 @@ GetSiteNameExclusiveResponse Client::getSiteNameExclusive(const GetSiteNameExclu
 }
 
 /**
- * @summary Retrieves origin-pull client certificate information at the site level.
+ * @summary Retrieves the back-to-origin client certificate information at the site level.
  *
  * @param request GetSiteOriginClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12425,7 +12657,7 @@ GetSiteOriginClientCertificateResponse Client::getSiteOriginClientCertificateWit
 }
 
 /**
- * @summary Retrieves origin-pull client certificate information at the site level.
+ * @summary Retrieves the back-to-origin client certificate information at the site level.
  *
  * @param request GetSiteOriginClientCertificateRequest
  * @return GetSiteOriginClientCertificateResponse
@@ -12728,10 +12960,10 @@ GetUserLogDeliveryQuotaResponse Client::getUserLogDeliveryQuota(const GetUserLog
 }
 
 /**
- * @summary This API retrieves the details of the WAF rule set for a specified instance.
+ * @summary Queries the details of a WAF ruleset for a specified instance.
  *
- * @description ## Request
- * `GetUserWafRuleset` retrieves the details of a specific Web Application Firewall (WAF) ruleset, identified by its instance ID and ruleset ID. The response includes details such as the ruleset\\"s location, name, description, status, and its rules. Specify all required parameters correctly to prevent request failures.
+ * @description ## Operation description
+ * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
  *
  * @param request GetUserWafRulesetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12766,10 +12998,10 @@ GetUserWafRulesetResponse Client::getUserWafRulesetWithOptions(const GetUserWafR
 }
 
 /**
- * @summary This API retrieves the details of the WAF rule set for a specified instance.
+ * @summary Queries the details of a WAF ruleset for a specified instance.
  *
- * @description ## Request
- * `GetUserWafRuleset` retrieves the details of a specific Web Application Firewall (WAF) ruleset, identified by its instance ID and ruleset ID. The response includes details such as the ruleset\\"s location, name, description, status, and its rules. Specify all required parameters correctly to prevent request failures.
+ * @description ## Operation description
+ * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
  *
  * @param request GetUserWafRulesetRequest
  * @return GetUserWafRulesetResponse
@@ -12912,7 +13144,7 @@ GetWafFilterResponse Client::getWafFilter(const GetWafFilterRequest &request) {
 }
 
 /**
- * @summary Web Application Firewall (WAF) quotas define the maximum number of resources a customer can use, including managed rule groups, custom lists, custom response pages, and scenario-based protection rules.
+ * @summary Retrieves quota details for Web Application Firewall (WAF) resources. These quotas define the quantity limits of corresponding resources that a customer can use, such as managed rule groups, custom lists, custom response pages, and scenario-specific protection rules.
  *
  * @param request GetWafQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12943,7 +13175,7 @@ GetWafQuotaResponse Client::getWafQuotaWithOptions(const GetWafQuotaRequest &req
 }
 
 /**
- * @summary Web Application Firewall (WAF) quotas define the maximum number of resources a customer can use, including managed rule groups, custom lists, custom response pages, and scenario-based protection rules.
+ * @summary Retrieves quota details for Web Application Firewall (WAF) resources. These quotas define the quantity limits of corresponding resources that a customer can use, such as managed rule groups, custom lists, custom response pages, and scenario-specific protection rules.
  *
  * @param request GetWafQuotaRequest
  * @return GetWafQuotaResponse
@@ -12954,7 +13186,7 @@ GetWafQuotaResponse Client::getWafQuota(const GetWafQuotaRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specific WAF rule, including its configuration and status.
+ * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
  *
  * @param request GetWafRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12989,7 +13221,7 @@ GetWafRuleResponse Client::getWafRuleWithOptions(const GetWafRuleRequest &reques
 }
 
 /**
- * @summary Retrieves the details of a specific WAF rule, including its configuration and status.
+ * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
  *
  * @param request GetWafRuleRequest
  * @return GetWafRuleResponse
@@ -13000,7 +13232,7 @@ GetWafRuleResponse Client::getWafRule(const GetWafRuleRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specified WAF ruleset, including its configuration and status.
+ * @summary Retrieves the details of a specified WAF ruleset. You can call this operation to query the configuration and status information of a specific ruleset.
  *
  * @param request GetWafRulesetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13039,7 +13271,7 @@ GetWafRulesetResponse Client::getWafRulesetWithOptions(const GetWafRulesetReques
 }
 
 /**
- * @summary Retrieves the details of a specified WAF ruleset, including its configuration and status.
+ * @summary Retrieves the details of a specified WAF ruleset. You can call this operation to query the configuration and status information of a specific ruleset.
  *
  * @param request GetWafRulesetRequest
  * @return GetWafRulesetResponse
@@ -13180,7 +13412,7 @@ ListCasCertificatesResponse Client::listCasCertificates(const ListCasCertificate
 }
 
 /**
- * @summary Lists the certificates for a given site.
+ * @summary Queries the certificate list for a specific site.
  *
  * @param request ListCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13227,7 +13459,7 @@ ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertifica
 }
 
 /**
- * @summary Lists the certificates for a given site.
+ * @summary Queries the certificate list for a specific site.
  *
  * @param request ListCertificatesRequest
  * @return ListCertificatesResponse
@@ -13238,7 +13470,7 @@ ListCertificatesResponse Client::listCertificates(const ListCertificatesRequest 
 }
 
 /**
- * @summary Retrieves site certificates for multiple matching records.
+ * @summary Queries the list of site certificates that match records. Batch record matching is supported.
  *
  * @param request ListCertificatesByRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13281,7 +13513,7 @@ ListCertificatesByRecordResponse Client::listCertificatesByRecordWithOptions(con
 }
 
 /**
- * @summary Retrieves site certificates for multiple matching records.
+ * @summary Queries the list of site certificates that match records. Batch record matching is supported.
  *
  * @param request ListCertificatesByRecordRequest
  * @return ListCertificatesByRecordResponse
@@ -13330,7 +13562,7 @@ ListCiphersResponse Client::listCiphers(const ListCiphersRequest &request) {
 }
 
 /**
- * @summary Retrieves the client CA certificates for a specified site.
+ * @summary Retrieves the list of client CA certificates for a specified site.
  *
  * @param request ListClientCaCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13357,7 +13589,7 @@ ListClientCaCertificatesResponse Client::listClientCaCertificatesWithOptions(con
 }
 
 /**
- * @summary Retrieves the client CA certificates for a specified site.
+ * @summary Retrieves the list of client CA certificates for a specified site.
  *
  * @param request ListClientCaCertificatesRequest
  * @return ListClientCaCertificatesResponse
@@ -13368,7 +13600,7 @@ ListClientCaCertificatesResponse Client::listClientCaCertificates(const ListClie
 }
 
 /**
- * @summary Retrieves a list of client certificates for a specified site.
+ * @summary Retrieves the list of client certificates for a specified site.
  *
  * @param request ListClientCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13395,7 +13627,7 @@ ListClientCertificatesResponse Client::listClientCertificatesWithOptions(const L
 }
 
 /**
- * @summary Retrieves a list of client certificates for a specified site.
+ * @summary Retrieves the list of client certificates for a specified site.
  *
  * @param request ListClientCertificatesRequest
  * @return ListClientCertificatesResponse
@@ -14318,7 +14550,7 @@ ListInstanceQuotasWithUsageResponse Client::listInstanceQuotasWithUsage(const Li
 }
 
 /**
- * @summary Retrieves keyless server configurations for a site.
+ * @summary Retrieves the list of Keyless server configurations for a site.
  *
  * @param request ListKeylessServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14357,7 +14589,7 @@ ListKeylessServersResponse Client::listKeylessServersWithOptions(const ListKeyle
 }
 
 /**
- * @summary Retrieves keyless server configurations for a site.
+ * @summary Retrieves the list of Keyless server configurations for a site.
  *
  * @param request ListKeylessServersRequest
  * @return ListKeylessServersResponse
@@ -14406,7 +14638,7 @@ ListKvsResponse Client::listKvs(const ListKvsRequest &request) {
 }
 
 /**
- * @summary Lists all custom lists and their details for an account. Use query parameters to filter the results and pagination to navigate the list collection.
+ * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
  *
  * @param tmpReq ListListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14451,7 +14683,7 @@ ListListsResponse Client::listListsWithOptions(const ListListsRequest &tmpReq, c
 }
 
 /**
- * @summary Lists all custom lists and their details for an account. Use query parameters to filter the results and pagination to navigate the list collection.
+ * @summary Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
  *
  * @param request ListListsRequest
  * @return ListListsResponse
@@ -14554,7 +14786,7 @@ ListLoadBalancerRegionsResponse Client::listLoadBalancerRegions(const ListLoadBa
 }
 
 /**
- * @summary Retrieves a paged list of load balancers in a specific site, returning their details. You can filter the list by load balancer name.
+ * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
  *
  * @param request ListLoadBalancersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14581,7 +14813,7 @@ ListLoadBalancersResponse Client::listLoadBalancersWithOptions(const ListLoadBal
 }
 
 /**
- * @summary Retrieves a paged list of load balancers in a specific site, returning their details. You can filter the list by load balancer name.
+ * @summary Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
  *
  * @param request ListLoadBalancersRequest
  * @return ListLoadBalancersResponse
@@ -14676,7 +14908,7 @@ ListNetworkOptimizationsResponse Client::listNetworkOptimizations(const ListNetw
 }
 
 /**
- * @summary Retrieves the CA certificates for the source server.
+ * @summary Queries the list of origin server CA certificates.
  *
  * @param request ListOriginCaCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14703,7 +14935,7 @@ ListOriginCaCertificatesResponse Client::listOriginCaCertificatesWithOptions(con
 }
 
 /**
- * @summary Retrieves the CA certificates for the source server.
+ * @summary Queries the list of origin server CA certificates.
  *
  * @param request ListOriginCaCertificatesRequest
  * @return ListOriginCaCertificatesResponse
@@ -14714,7 +14946,7 @@ ListOriginCaCertificatesResponse Client::listOriginCaCertificates(const ListOrig
 }
 
 /**
- * @summary Lists back-to-source client certificates for a domain name.
+ * @summary Queries the list of back-to-origin client certificates at the domain name granularity.
  *
  * @param request ListOriginClientCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14741,7 +14973,7 @@ ListOriginClientCertificatesResponse Client::listOriginClientCertificatesWithOpt
 }
 
 /**
- * @summary Lists back-to-source client certificates for a domain name.
+ * @summary Queries the list of back-to-origin client certificates at the domain name granularity.
  *
  * @param request ListOriginClientCertificatesRequest
  * @return ListOriginClientCertificatesResponse
@@ -14828,7 +15060,7 @@ ListOriginRulesResponse Client::listOriginRules(const ListOriginRulesRequest &re
 }
 
 /**
- * @summary Retrieves a list of your custom response pages. This operation supports pagination, allowing you to control the results by specifying a page number and a page size.
+ * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
  *
  * @param tmpReq ListPagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14873,7 +15105,7 @@ ListPagesResponse Client::listPagesWithOptions(const ListPagesRequest &tmpReq, c
 }
 
 /**
- * @summary Retrieves a list of your custom response pages. This operation supports pagination, allowing you to control the results by specifying a page number and a page size.
+ * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
  *
  * @param request ListPagesRequest
  * @return ListPagesResponse
@@ -15006,7 +15238,7 @@ ListRedirectRulesResponse Client::listRedirectRules(const ListRedirectRulesReque
 }
 
 /**
- * @summary List of Rewrite URL Rules
+ * @summary Queries the list of URL rewrite configurations for a site.
  *
  * @param request ListRewriteUrlRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15033,7 +15265,7 @@ ListRewriteUrlRulesResponse Client::listRewriteUrlRulesWithOptions(const ListRew
 }
 
 /**
- * @summary List of Rewrite URL Rules
+ * @summary Queries the list of URL rewrite configurations for a site.
  *
  * @param request ListRewriteUrlRulesRequest
  * @return ListRewriteUrlRulesResponse
@@ -15358,7 +15590,7 @@ ListSiteDeliveryTasksResponse Client::listSiteDeliveryTasks(const ListSiteDelive
 }
 
 /**
- * @summary Lists the back-to-origin client certificates for a site.
+ * @summary Queries the list of back-to-origin client certificates at the site level.
  *
  * @param request ListSiteOriginClientCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15385,7 +15617,7 @@ ListSiteOriginClientCertificatesResponse Client::listSiteOriginClientCertificate
 }
 
 /**
- * @summary Lists the back-to-origin client certificates for a site.
+ * @summary Queries the list of back-to-origin client certificates at the site level.
  *
  * @param request ListSiteOriginClientCertificatesRequest
  * @return ListSiteOriginClientCertificatesResponse
@@ -15396,7 +15628,7 @@ ListSiteOriginClientCertificatesResponse Client::listSiteOriginClientCertificate
 }
 
 /**
- * @summary Retrieves the function routes for a site.
+ * @summary Queries the list of Edge Routine routes for a site.
  *
  * @param request ListSiteRoutesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15447,7 +15679,7 @@ ListSiteRoutesResponse Client::listSiteRoutesWithOptions(const ListSiteRoutesReq
 }
 
 /**
- * @summary Retrieves the function routes for a site.
+ * @summary Queries the list of Edge Routine routes for a site.
  *
  * @param request ListSiteRoutesRequest
  * @return ListSiteRoutesResponse
@@ -15718,7 +15950,7 @@ ListUploadTasksResponse Client::listUploadTasks(const ListUploadTasksRequest &re
 }
 
 /**
- * @summary Queries the list of page monitoring configurations.
+ * @summary Queries the list of web page observation configurations.
  *
  * @param request ListUrlObservationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15761,7 +15993,7 @@ ListUrlObservationsResponse Client::listUrlObservationsWithOptions(const ListUrl
 }
 
 /**
- * @summary Queries the list of page monitoring configurations.
+ * @summary Queries the list of web page observation configurations.
  *
  * @param request ListUrlObservationsRequest
  * @return ListUrlObservationsResponse
@@ -16180,7 +16412,7 @@ ListWafPhasesResponse Client::listWafPhases(const ListWafPhasesRequest &request)
 }
 
 /**
- * @summary This API retrieves a paginated list of detailed WAF rules, which can be filtered by specific conditions.
+ * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
  *
  * @param tmpReq ListWafRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16241,7 +16473,7 @@ ListWafRulesResponse Client::listWafRulesWithOptions(const ListWafRulesRequest &
 }
 
 /**
- * @summary This API retrieves a paginated list of detailed WAF rules, which can be filtered by specific conditions.
+ * @summary Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
  *
  * @param request ListWafRulesRequest
  * @return ListWafRulesResponse
@@ -16252,7 +16484,7 @@ ListWafRulesResponse Client::listWafRules(const ListWafRulesRequest &request) {
 }
 
 /**
- * @summary Retrieves a paginated list of rule sets in the current WAF runtime phase, returning their basic information and status.
+ * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
  *
  * @param tmpReq ListWafRulesetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16309,7 +16541,7 @@ ListWafRulesetsResponse Client::listWafRulesetsWithOptions(const ListWafRulesets
 }
 
 /**
- * @summary Retrieves a paginated list of rule sets in the current WAF runtime phase, returning their basic information and status.
+ * @summary Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
  *
  * @param request ListWafRulesetsRequest
  * @return ListWafRulesetsResponse
@@ -16832,7 +17064,53 @@ PublishRoutineCodeVersionResponse Client::publishRoutineCodeVersion(const Publis
 }
 
 /**
- * @summary New Purchase of Cache Retention
+ * @summary Purchases a new bot instance.
+ *
+ * @param request PurchaseBotInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PurchaseBotInstanceResponse
+ */
+PurchaseBotInstanceResponse Client::purchaseBotInstanceWithOptions(const PurchaseBotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBotInstanceLevel()) {
+    query["BotInstanceLevel"] = request.getBotInstanceLevel();
+  }
+
+  if (!!request.hasSiteInstanceId()) {
+    query["SiteInstanceId"] = request.getSiteInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PurchaseBotInstance"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PurchaseBotInstanceResponse>();
+}
+
+/**
+ * @summary Purchases a new bot instance.
+ *
+ * @param request PurchaseBotInstanceRequest
+ * @return PurchaseBotInstanceResponse
+ */
+PurchaseBotInstanceResponse Client::purchaseBotInstance(const PurchaseBotInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return purchaseBotInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Purchases a cache reserve instance.
  *
  * @param request PurchaseCacheReserveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16883,7 +17161,7 @@ PurchaseCacheReserveResponse Client::purchaseCacheReserveWithOptions(const Purch
 }
 
 /**
- * @summary New Purchase of Cache Retention
+ * @summary Purchases a cache reserve instance.
  *
  * @param request PurchaseCacheReserveRequest
  * @return PurchaseCacheReserveResponse
@@ -17744,7 +18022,7 @@ SetClientCaCertificateHostnamesResponse Client::setClientCaCertificateHostnames(
 }
 
 /**
- * @summary Binds one or more hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+ * @summary Associates domain names with a specified client CA certificate. If no certificate is specified, the domain names are associated with the ESA CA certificate. This API is deprecated. Use SetClientCaCertificateHostnames instead.
  *
  * @param tmpReq SetClientCertificateHostnamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17791,7 +18069,7 @@ SetClientCertificateHostnamesResponse Client::setClientCertificateHostnamesWithO
 }
 
 /**
- * @summary Binds one or more hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+ * @summary Associates domain names with a specified client CA certificate. If no certificate is specified, the domain names are associated with the ESA CA certificate. This API is deprecated. Use SetClientCaCertificateHostnames instead.
  *
  * @param request SetClientCertificateHostnamesRequest
  * @return SetClientCertificateHostnamesResponse
@@ -20452,7 +20730,7 @@ UpdateOriginRuleResponse Client::updateOriginRule(const UpdateOriginRuleRequest 
 }
 
 /**
- * @summary Updates a user-created custom response page. Use this API to modify the page name, description, content type, and content.
+ * @summary Updates a custom response page that the user has created. You can use this operation to modify the page name, description, content type, and content.
  *
  * @param tmpReq UpdatePageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20509,7 +20787,7 @@ UpdatePageResponse Client::updatePageWithOptions(const UpdatePageRequest &tmpReq
 }
 
 /**
- * @summary Updates a user-created custom response page. Use this API to modify the page name, description, content type, and content.
+ * @summary Updates a custom response page that the user has created. You can use this operation to modify the page name, description, content type, and content.
  *
  * @param request UpdatePageRequest
  * @return UpdatePageResponse
@@ -20740,7 +21018,7 @@ UpdateRecordResponse Client::updateRecord(const UpdateRecordRequest &request) {
 }
 
 /**
- * @summary Updates the redirection configuration of a site.
+ * @summary Modifies the redirect configuration of a site.
  *
  * @param request UpdateRedirectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20807,7 +21085,7 @@ UpdateRedirectRuleResponse Client::updateRedirectRuleWithOptions(const UpdateRed
 }
 
 /**
- * @summary Updates the redirection configuration of a site.
+ * @summary Modifies the redirect configuration of a site.
  *
  * @param request UpdateRedirectRuleRequest
  * @return UpdateRedirectRuleResponse
@@ -20818,7 +21096,7 @@ UpdateRedirectRuleResponse Client::updateRedirectRule(const UpdateRedirectRuleRe
 }
 
 /**
- * @summary Update a Site\\"s URL Rewrite Configuration
+ * @summary Modifies the URL rewrite configuration of a site.
  *
  * @param request UpdateRewriteUrlRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20885,7 +21163,7 @@ UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRuleWithOptions(const Updat
 }
 
 /**
- * @summary Update a Site\\"s URL Rewrite Configuration
+ * @summary Modifies the URL rewrite configuration of a site.
  *
  * @param request UpdateRewriteUrlRuleRequest
  * @return UpdateRewriteUrlRuleResponse
@@ -21668,7 +21946,7 @@ UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplication(
 }
 
 /**
- * @summary Updates the webpage monitoring configuration.
+ * @summary Updates the URL observation configuration.
  *
  * @param request UpdateUrlObservationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21707,7 +21985,7 @@ UpdateUrlObservationResponse Client::updateUrlObservationWithOptions(const Updat
 }
 
 /**
- * @summary Updates the webpage monitoring configuration.
+ * @summary Updates the URL observation configuration.
  *
  * @param request UpdateUrlObservationRequest
  * @return UpdateUrlObservationResponse
@@ -22428,7 +22706,7 @@ UpdateWaitingRoomRuleResponse Client::updateWaitingRoomRule(const UpdateWaitingR
 }
 
 /**
- * @summary Uploads a client certificate authority (CA) certificate.
+ * @summary Uploads a client CA certificate.
  *
  * @param request UploadClientCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22469,7 +22747,7 @@ UploadClientCaCertificateResponse Client::uploadClientCaCertificateWithOptions(c
 }
 
 /**
- * @summary Uploads a client certificate authority (CA) certificate.
+ * @summary Uploads a client CA certificate.
  *
  * @param request UploadClientCaCertificateRequest
  * @return UploadClientCaCertificateResponse

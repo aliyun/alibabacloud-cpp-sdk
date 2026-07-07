@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the custom list.[](~~2850217~~)
+    // The ID of the custom list. You can obtain this value by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
     shared_ptr<int64_t> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

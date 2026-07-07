@@ -104,8 +104,9 @@ namespace Models
 
 
       protected:
-        // Whether slider captcha pages are enabled.
+        // Indicates whether slider CAPTCHA pages are enabled.
         shared_ptr<bool> enable_ {};
+        // The quantity quota for slider CAPTCHA pages.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -149,9 +150,9 @@ namespace Models
 
 
       protected:
-        // Whether the scenario protection feature is enabled.
+        // Indicates whether the scenario-specific protection feature is enabled.
         shared_ptr<bool> enable_ {};
-        // The maximum number of scenario protection rules allowed.
+        // The total quantity quota for scenario-specific protection rules.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -206,11 +207,11 @@ namespace Models
 
 
       protected:
-        // The quota for each Content-Type in a custom response page.
+        // The object that contains quota information for each Content-Type in custom response pages.
         shared_ptr<map<string, QuotaPageContentTypesValue>> contentTypes_ {};
-        // Whether the custom response page feature is enabled.
+        // Indicates whether custom response pages are enabled.
         shared_ptr<bool> enable_ {};
-        // The maximum number of custom response pages allowed.
+        // The total quantity quota for custom response pages.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -254,9 +255,9 @@ namespace Models
 
 
       protected:
-        // Whether the WAF managed rule group feature is enabled.
+        // Indicates whether WAF managed rule groups are enabled.
         shared_ptr<bool> enable_ {};
-        // The maximum number of WAF managed rule groups allowed.
+        // The total quantity quota for WAF managed rule groups.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -333,15 +334,15 @@ namespace Models
 
 
       protected:
-        // Whether the custom list feature is enabled.
+        // Indicates whether custom lists are enabled.
         shared_ptr<bool> enable_ {};
-        // The quota for each item type in a custom list.
+        // The object that contains quota information for each item type in custom lists.
         shared_ptr<map<string, QuotaListItemsValue>> items_ {};
-        // The maximum number of items allowed per custom list.
+        // The quantity quota for items in each custom list.
         shared_ptr<WafQuotaInteger> numberItemsPerList_ {};
-        // The maximum number of items allowed across all custom lists.
+        // The total quantity quota for items across all custom lists.
         shared_ptr<WafQuotaInteger> numberItemsTotal_ {};
-        // The maximum number of custom lists allowed.
+        // The total quantity quota for custom lists.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -385,9 +386,9 @@ namespace Models
 
 
       protected:
-        // Whether captcha rules are enabled.
+        // Indicates whether CAPTCHA rules are enabled.
         shared_ptr<bool> enable_ {};
-        // The maximum number of captcha rules allowed.
+        // The total quantity quota for CAPTCHA rules.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -448,17 +449,17 @@ namespace Models
 
 
     protected:
-      // The quota for captcha rules.
+      // The quota information for CAPTCHA rules.
       shared_ptr<Quota::Captcha> captcha_ {};
-      // The quota for custom lists.
+      // The quota information for custom lists.
       shared_ptr<Quota::List> list_ {};
-      // The quota for WAF managed rule groups.
+      // The quota information for WAF managed rule groups.
       shared_ptr<Quota::ManagedRulesGroup> managedRulesGroup_ {};
-      // The quota for custom response pages.
+      // The quota information for custom response pages.
       shared_ptr<Quota::Page> page_ {};
-      // The quota for scenario protection.
+      // The quota information for scenario-specific protection rules.
       shared_ptr<Quota::ScenePolicy> scenePolicy_ {};
-      // The quota for slider captcha pages.
+      // The quota information for slider CAPTCHA pages.
       shared_ptr<Quota::SliderCaptchaPage> sliderCaptchaPage_ {};
     };
 
@@ -481,7 +482,7 @@ namespace Models
 
 
   protected:
-    // The quota details.
+    // The returned quota information.
     shared_ptr<GetWafQuotaResponseBody::Quota> quota_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

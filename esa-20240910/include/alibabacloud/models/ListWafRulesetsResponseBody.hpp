@@ -139,37 +139,33 @@ namespace Models
 
 
     protected:
-      // A list of match fields.
+      // The list of match objects.
       shared_ptr<vector<string>> fields_ {};
-      // The ID of the WAF ruleset. This value is returned by the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
+      // The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ruleset ID.
       shared_ptr<int64_t> id_ {};
       // The ruleset name.
       shared_ptr<string> name_ {};
-      // The execution phase of the ruleset. Valid values are:
-      // 
-      // - `http_whitelist`: whitelist rule
-      // 
-      // - `http_custom`: custom rule
-      // 
-      // - `http_managed`: managed rule
-      // 
-      // - `http_anti_scan`: scan protection rule
-      // 
-      // - `http_ratelimit`: rate limiting rule
-      // 
-      // - `ip_access_rule`: IP access rule
-      // 
-      // - `http_bot`: advanced bot protection
-      // 
-      // - `http_security_level_rule`: security rule
+      // The WAF rule execution phase. Valid values:
+      // - http_whitelist: whitelist rules
+      // - http_custom: custom rules
+      // - http_managed: managed rules
+      // - http_anti_scan: scan protection rules
+      // - http_ratelimit: frequency control rules
+      // - ip_access_rule: IP access rules
+      // - http_bot: advanced mode bots
+      // - http_security_level_rule: security rules
       shared_ptr<string> phase_ {};
       // The ruleset status.
       shared_ptr<string> status_ {};
-      // The protection target for the \\"http_bot\\" phase.
+      // The protection target type in http_bot.
       shared_ptr<string> target_ {};
-      // A list of rule types.
+      // The list of rule types.
       shared_ptr<vector<string>> types_ {};
-      // The time the ruleset was last modified.
+      // The last modification time of the ruleset.
+      // 
+      // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+      // 
+      // Example: 2026-06-10T14:23:45Z
       shared_ptr<string> updateTime_ {};
     };
 
@@ -228,7 +224,7 @@ namespace Models
 
 
   protected:
-    // The number of WAF rulesets used by the instance in this WAF phase.
+    // The number of WAF rulesets used by the instance in this WAF execution phase.
     shared_ptr<int64_t> instanceUsage_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -236,11 +232,11 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of rulesets.
+    // The list of rulesets, including detailed information about each ruleset.
     shared_ptr<vector<ListWafRulesetsResponseBody::Rulesets>> rulesets_ {};
-    // The number of WAF rulesets used by the site in this WAF phase.
+    // The number of WAF rulesets used by the site in this WAF execution phase.
     shared_ptr<int64_t> siteUsage_ {};
-    // The total number of entries returned after filtering.
+    // The total number of records after filtering.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number to return. The default value is **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the site. You can get this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

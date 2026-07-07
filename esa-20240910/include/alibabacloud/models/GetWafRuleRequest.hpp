@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF rule. You can get this ID by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation.
+    // The ID of the WAF rule. You can call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The ID of the site. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

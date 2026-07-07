@@ -189,27 +189,27 @@ namespace Models
 
     protected:
       // The bypass mode. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> bypass_ {};
       // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The configuration type. You can use this parameter to query global or rule configurations. Valid values:
+      // The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
       // 
-      // - global: global configuration.
-      // - rule: rule configuration.
+      // - global: queries global configurations.
+      // - rule: queries rule configurations.
       shared_ptr<string> configType_ {};
-      // The fallback-to-origin switch. When enabled, if the function encounters an exception such as CPU usage exceeding the limit, the request is forwarded to the origin server. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // The fallback-to-origin switch. After this switch is enabled, requests are sent to the origin server if the function encounters an exception such as CPU usage exceeding the limit. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> fallback_ {};
       // The configuration mode. Valid values:
       // - simple: simple mode.
       // - custom: custom mode.
       shared_ptr<string> mode_ {};
-      // The route switch status. Valid values:
-      // - on: Enabled.
-      // - off: Disabled.
+      // The route switch. Valid values:
+      // - on: enabled.
+      // - off: disabled.
       shared_ptr<string> routeEnable_ {};
       // The route name.
       shared_ptr<string> routeName_ {};
@@ -217,7 +217,7 @@ namespace Models
       shared_ptr<string> routineName_ {};
       // The rule content.
       shared_ptr<string> rule_ {};
-      // The execution order of the rule.
+      // The rule execution order.
       shared_ptr<int32_t> sequence_ {};
       // The site ID.
       shared_ptr<int64_t> siteId_ {};
@@ -225,7 +225,7 @@ namespace Models
       shared_ptr<string> siteName_ {};
       // The version number of the site configuration.
       shared_ptr<int32_t> siteVersion_ {};
-      // The Edge Routine timeout period. Valid values: 5 to 60.
+      // The ER timeout period. Valid values: 5 to 60. Unit: seconds.
       shared_ptr<string> timeout_ {};
     };
 
@@ -276,7 +276,7 @@ namespace Models
 
 
   protected:
-    // The configuration list in the response body.
+    // The configuration information.
     shared_ptr<vector<ListRoutineRoutesResponseBody::Configs>> configs_ {};
     // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Order ID.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

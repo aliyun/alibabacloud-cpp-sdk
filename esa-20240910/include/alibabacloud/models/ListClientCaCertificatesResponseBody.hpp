@@ -199,35 +199,35 @@ namespace Models
 
 
     protected:
-      // The common name.
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The time when the certificate was added.
+      // The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
-      // The SHA-256 fingerprint.
+      // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
       // The certificate ID.
       shared_ptr<string> id_ {};
-      // The issuer of the certificate.
+      // The authority that issued the certificate.
       shared_ptr<string> issuer_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The date and time when the certificate expires.
+      // The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> notAfter_ {};
-      // The date and time when the certificate becomes valid.
+      // The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> notBefore_ {};
-      // The algorithm of the certificate\\"s public key.
+      // The public key algorithm of the certificate.
       shared_ptr<string> pubkeyAlgorithm_ {};
-      // The subject alternative names (SANs) of the certificate.
+      // The Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
-      // The unique serial number assigned by the issuer.
+      // The certificate sequence number.
       shared_ptr<string> serialNumber_ {};
-      // The algorithm used to sign the certificate.
+      // The signature algorithm of the certificate.
       shared_ptr<string> signatureAlgorithm_ {};
       // The certificate status.
       shared_ptr<string> status_ {};
       // The certificate type.
       shared_ptr<string> type_ {};
-      // The time when the certificate was last updated.
+      // The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -286,13 +286,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned data.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of client CA certificates.
+    // The list of client CA certificates.
     shared_ptr<vector<ListClientCaCertificatesResponseBody::Result>> result_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};

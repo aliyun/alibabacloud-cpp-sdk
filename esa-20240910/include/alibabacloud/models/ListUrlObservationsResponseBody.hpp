@@ -89,10 +89,10 @@ namespace Models
     protected:
       // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // SDK integration. Valid values:
+      // The SDK integration method. Valid values:
       // 
-      // *   **automatic**
-      // *   **manual**
+      // - **automatic**: Automatic integration.
+      // - **manual**: Manual integration.
       shared_ptr<string> sdkType_ {};
       // The URL of the web page to monitor.
       shared_ptr<string> url_ {};
@@ -145,17 +145,17 @@ namespace Models
 
 
   protected:
-    // The configurations of the feature.
+    // The configuration data.
     shared_ptr<vector<ListUrlObservationsResponseBody::Configs>> configs_ {};
-    // The number of the returned page.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

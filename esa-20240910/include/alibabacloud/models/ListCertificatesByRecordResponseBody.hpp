@@ -259,43 +259,43 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud certificate.
+        // The cloud certificate ID.
         shared_ptr<string> casId_ {};
         // The common name of the certificate.
         shared_ptr<string> commonName_ {};
-        // The time when the certificate was created.
+        // The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
         shared_ptr<string> createTime_ {};
         // The SHA-256 fingerprint of the certificate.
         shared_ptr<string> fingerprintSha256_ {};
-        // The ID of the certificate.
+        // The certificate ID.
         shared_ptr<string> id_ {};
-        // The issuer of the certificate.
+        // The certificate issuer.
         shared_ptr<string> issuer_ {};
         // The common name of the certificate issuer.
         shared_ptr<string> issuerCN_ {};
-        // The Keyless server ID. This parameter is valid only when `Type` is set to `keyless`.
+        // The Keyless server ID. This parameter is valid only when Type is set to keyless.
         shared_ptr<string> keyServerId_ {};
-        // The name of the certificate.
+        // The certificate name.
         shared_ptr<string> name_ {};
-        // The date and time when the certificate expires.
+        // The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
         shared_ptr<string> notAfter_ {};
-        // The date and time when the certificate becomes valid.
+        // The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
         shared_ptr<string> notBefore_ {};
         // The public key algorithm of the certificate.
         shared_ptr<string> pubAlg_ {};
-        // The region where the certificate is stored.
+        // The certificate store area.
         shared_ptr<string> region_ {};
-        // The Subject Alternative Names (SANs) of the certificate.
+        // The Subject Alternative Name (SAN) of the certificate.
         shared_ptr<string> SAN_ {};
-        // The serial number of the certificate.
+        // The certificate serial number.
         shared_ptr<string> serialNumber_ {};
         // The signature algorithm of the certificate.
         shared_ptr<string> sigAlg_ {};
-        // The status of the certificate.
+        // The certificate status.
         shared_ptr<string> status_ {};
-        // The type of the certificate. Valid values:
+        // The certificate type.
         shared_ptr<string> type_ {};
-        // The time when the certificate was last updated.
+        // The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -339,15 +339,19 @@ namespace Models
 
 
     protected:
-      // The number of certificate requests in progress.
+      // The number of certificates being applied for.
       shared_ptr<int64_t> applylingCount_ {};
-      // A list of certificates matching the record.
+      // The list of certificates that match the record.
       shared_ptr<vector<Result::Certificates>> certificates_ {};
-      // The number of certificates matching the record.
+      // The number of certificates that match the record.
       shared_ptr<int64_t> count_ {};
       // The record name.
       shared_ptr<string> recordName_ {};
-      // The certificate configuration status for the record. Valid values:
+      // The certificate configuration status of the record. Valid values:
+      // - none: Not configured.
+      // - configured: Configured.
+      // - applying: Being applied for.
+      // - failed: Application failed.
       shared_ptr<string> status_ {};
     };
 
@@ -393,13 +397,13 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of record details.
+    // The result array.
     shared_ptr<vector<ListCertificatesByRecordResponseBody::Result>> result_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};
     // The site name.
     shared_ptr<string> siteName_ {};
-    // The total number of records.
+    // The total number of entries, which is the same as the number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 
