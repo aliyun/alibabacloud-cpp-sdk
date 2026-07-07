@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(OAuth2CredentialProviderName, OAuth2CredentialProviderName_);
         DARABONBA_PTR_TO_JSON(OAuth2ProviderConfig, OAuth2ProviderConfig_);
+        DARABONBA_PTR_TO_JSON(OAuthType, OAuthType_);
         DARABONBA_PTR_TO_JSON(TokenVaultName, tokenVaultName_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(OAuth2CredentialProviderName, OAuth2CredentialProviderName_);
         DARABONBA_PTR_FROM_JSON(OAuth2ProviderConfig, OAuth2ProviderConfig_);
+        DARABONBA_PTR_FROM_JSON(OAuthType, OAuthType_);
         DARABONBA_PTR_FROM_JSON(TokenVaultName, tokenVaultName_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
@@ -76,7 +78,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->callbackURL_ == nullptr
         && this->createTime_ == nullptr && this->credentialProviderArn_ == nullptr && this->credentialProviderVendor_ == nullptr && this->description_ == nullptr && this->OAuth2CredentialProviderName_ == nullptr
-        && this->OAuth2ProviderConfig_ == nullptr && this->tokenVaultName_ == nullptr && this->updateTime_ == nullptr; };
+        && this->OAuth2ProviderConfig_ == nullptr && this->OAuthType_ == nullptr && this->tokenVaultName_ == nullptr && this->updateTime_ == nullptr; };
       // callbackURL Field Functions 
       bool hasCallbackURL() const { return this->callbackURL_ != nullptr;};
       void deleteCallbackURL() { this->callbackURL_ = nullptr;};
@@ -128,6 +130,13 @@ namespace Models
       inline OAuth2CredentialProviders& setOAuth2ProviderConfig(OAuth2ProviderConfig && OAuth2ProviderConfig) { DARABONBA_PTR_SET_RVALUE(OAuth2ProviderConfig_, OAuth2ProviderConfig) };
 
 
+      // OAuthType Field Functions 
+      bool hasOAuthType() const { return this->OAuthType_ != nullptr;};
+      void deleteOAuthType() { this->OAuthType_ = nullptr;};
+      inline string getOAuthType() const { DARABONBA_PTR_GET_DEFAULT(OAuthType_, "") };
+      inline OAuth2CredentialProviders& setOAuthType(string OAuthType) { DARABONBA_PTR_SET_VALUE(OAuthType_, OAuthType) };
+
+
       // tokenVaultName Field Functions 
       bool hasTokenVaultName() const { return this->tokenVaultName_ != nullptr;};
       void deleteTokenVaultName() { this->tokenVaultName_ = nullptr;};
@@ -150,6 +159,7 @@ namespace Models
       shared_ptr<string> description_ {};
       shared_ptr<string> OAuth2CredentialProviderName_ {};
       shared_ptr<OAuth2ProviderConfig> OAuth2ProviderConfig_ {};
+      shared_ptr<string> OAuthType_ {};
       shared_ptr<string> tokenVaultName_ {};
       shared_ptr<string> updateTime_ {};
     };

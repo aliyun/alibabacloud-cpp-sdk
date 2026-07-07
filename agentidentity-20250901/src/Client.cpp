@@ -335,6 +335,10 @@ CreateOAuth2CredentialProviderResponse Client::createOAuth2CredentialProviderWit
     body["OAuth2ProviderConfig"] = request.getOAuth2ProviderConfigShrink();
   }
 
+  if (!!request.hasOAuthType()) {
+    body["OAuthType"] = request.getOAuthType();
+  }
+
   if (!!request.hasTokenVaultName()) {
     body["TokenVaultName"] = request.getTokenVaultName();
   }
@@ -2125,8 +2129,16 @@ GetTokenVaultResponse Client::getTokenVault(const GetTokenVaultRequest &request)
 GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasUserId()) {
+    body["UserId"] = request.getUserId();
+  }
+
   if (!!request.hasUserName()) {
     body["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasUserPoolId()) {
+    body["UserPoolId"] = request.getUserPoolId();
   }
 
   if (!!request.hasUserPoolName()) {
