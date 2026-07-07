@@ -68,21 +68,19 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+    // You can call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
     // The job filter information.
     shared_ptr<string> jobFilterShrink_ {};
-    // The page number of the page to return.
-    // 
-    // *   Pages start from page 1.
-    // *   Default value: 1
+    // The page number of the list.
+    // - Minimum value: 1.
+    // - Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // *   Maximum value: 50.
-    // *   Default value: 10
+    // The number of entries per page when using paged query. Paging is applied to the results.
+    // - Maximum value: 50.
+    // - Default value: 10.
     shared_ptr<string> pageSize_ {};
   };
 

@@ -60,15 +60,13 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs for the created compute nodes.
+    // The list of compute nodes to be created.
     shared_ptr<vector<string>> instanceIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the operation was successful. Valid values:
-    // 
-    // - true: The operation was successful.
-    // 
-    // - false: The operation failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

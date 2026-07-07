@@ -170,13 +170,13 @@ namespace Models
 
 
         protected:
-          // Number of CPU cores.
+          // The number of CPU cores.
           shared_ptr<string> cores_ {};
-          // Number of CPUs
+          // The number of GPUs.
           shared_ptr<string> gpus_ {};
-          // Number of memory.
+          // The memory size.
           shared_ptr<string> memory_ {};
-          // Number of compute nodes.
+          // The number of compute nodes.
           shared_ptr<string> nodes_ {};
         };
 
@@ -236,13 +236,13 @@ namespace Models
 
 
         protected:
-          // The number of vCPUs that were used to run the job.
+          // The number of CPU cores used to run the job.
           shared_ptr<string> cores_ {};
-          // The number of GPUs that were used to run the job.
+          // The number of GPUs used to run the job.
           shared_ptr<string> gpus_ {};
-          // The size of memory that was used to run the job.
+          // The memory size used to run the job.
           shared_ptr<string> memory_ {};
-          // The number of compute nodes that were used to run the job.
+          // The number of compute nodes that run the job.
           shared_ptr<string> nodes_ {};
         };
 
@@ -384,47 +384,45 @@ namespace Models
       protected:
         // The array job ID.
         shared_ptr<string> arrayJobId_ {};
-        // The ID of the job in the array.
+        // The array sub-job ID.
         shared_ptr<string> arrayJobSubId_ {};
-        // The queue format of the job.
-        // 
-        // *   If the job is not in a queue, the output is empty.
-        // *   The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
+        // The array job format.
+        // - If the job is not an array job, the output is empty.
+        // - The format is X-Y:Z, where X is the first index, Y is the last index, and Z is the step size. For example, 2-7:2 indicates that the array job contains three sub-jobs numbered 2, 4, and 6.
         shared_ptr<string> arrayRequest_ {};
         // The job description.
         shared_ptr<string> comment_ {};
         // The job ID.
         shared_ptr<string> id_ {};
-        // The queue name.
+        // The name of the queue that runs the job.
         shared_ptr<string> jobQueue_ {};
-        // The time when the job was last updated.
+        // The last update time of the job.
         shared_ptr<string> lastModifyTime_ {};
-        // The compute nodes that were used to run the job.
+        // The list of compute nodes that run the job.
         shared_ptr<string> nodeList_ {};
-        // The job priority. Valid values: 0 to 9. A larger value indicates a higher priority.
+        // The priority of the job. Valid values: 0 to 9. A larger value indicates a higher priority.
         shared_ptr<string> priority_ {};
-        // The information about the resources required to run the job.
+        // The resource information required to run the job.
         shared_ptr<JobSpec::Resources> resources_ {};
-        // Actual resource usage of the job program
+        // The resources actually occupied by the job.
         shared_ptr<JobSpec::ResourcesActualOccupied> resourcesActualOccupied_ {};
-        // The user that ran the job.
+        // The username of the user who runs the job.
         shared_ptr<string> runasUser_ {};
-        // Job start time.
+        // The start time of the job.
         shared_ptr<string> startTime_ {};
-        // The job state. Valid values: (PBS cluster and Slurm cluster)
-        // 
-        // *   FINISHED/Completed
-        // *   RUNNING/Running
-        // *   QUEUED/Pending
-        // *   FAILED/Failed
+        // The job status. Valid values: (PBS cluster/Slurm cluster)
+        // - FINISHED/Completed: completed.
+        // - RUNNING/Running: running.
+        // - QUEUED/Pending: queued and waiting.
+        // - FAILED/Failed: failed.
         shared_ptr<string> state_ {};
-        // The error output path.
+        // The standard error output path.
         shared_ptr<string> stderrPath_ {};
         // The standard output path.
         shared_ptr<string> stdoutPath_ {};
-        // The time when the job was submitted.
+        // The submission time of the job.
         shared_ptr<string> submitTime_ {};
-        // The variables of the job.
+        // The list of job variables.
         shared_ptr<string> variables_ {};
       };
 
@@ -449,7 +447,7 @@ namespace Models
     protected:
       // The job name.
       shared_ptr<string> jobName_ {};
-      // The job configurations.
+      // The job configuration.
       shared_ptr<Jobs::JobSpec> jobSpec_ {};
     };
 
@@ -500,18 +498,17 @@ namespace Models
 
 
   protected:
-    // The jobs.
+    // The job list.
     shared_ptr<vector<ListJobsResponseBody::Jobs>> jobs_ {};
-    // The page number. Default value: 1
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10
+    // The number of entries per page set for the paged query. Paging settings apply. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // Indicates whether the command was run and the result was obtained. Valid values:
+    // - true: Succeeded.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

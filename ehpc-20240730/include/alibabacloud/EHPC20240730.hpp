@@ -129,7 +129,7 @@ namespace EHPC20240730
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary Creates a batch of compute nodes for an E-HPC cluster.
+       * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster in a batch.
        *
        * @param tmpReq CreateNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -138,7 +138,7 @@ namespace EHPC20240730
       Models::CreateNodesResponse createNodesWithOptions(const Models::CreateNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a batch of compute nodes for an E-HPC cluster.
+       * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster in a batch.
        *
        * @param request CreateNodesRequest
        * @return CreateNodesResponse
@@ -570,7 +570,7 @@ namespace EHPC20240730
       Models::ListAvailableImagesResponse listAvailableImages(const Models::ListAvailableImagesRequest &request);
 
       /**
-       * @summary Queries all clusters of a user in each region.
+       * @summary Queries the list of all clusters in each region under your account.
        *
        * @param tmpReq ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -579,7 +579,7 @@ namespace EHPC20240730
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all clusters of a user in each region.
+       * @summary Queries the list of all clusters in each region under your account.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -621,7 +621,7 @@ namespace EHPC20240730
       Models::ListInstalledSoftwaresResponse listInstalledSoftwares(const Models::ListInstalledSoftwaresRequest &request);
 
       /**
-       * @summary Queries the jobs in a cluster.
+       * @summary Queries the list of jobs in a specified cluster.
        *
        * @param tmpReq ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -630,7 +630,7 @@ namespace EHPC20240730
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the jobs in a cluster.
+       * @summary Queries the list of jobs in a specified cluster.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse

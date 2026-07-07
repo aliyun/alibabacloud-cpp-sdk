@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListClustersResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Clusters, clusters_);
+      DARABONBA_PTR_TO_JSON(EhpcVersionStatistics, ehpcVersionStatistics_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListClustersResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Clusters, clusters_);
+      DARABONBA_PTR_FROM_JSON(EhpcVersionStatistics, ehpcVersionStatistics_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -38,6 +40,48 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class EhpcVersionStatistics : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EhpcVersionStatistics& obj) { 
+        DARABONBA_PTR_TO_JSON(V1Count, v1Count_);
+        DARABONBA_PTR_TO_JSON(V2Count, v2Count_);
+      };
+      friend void from_json(const Darabonba::Json& j, EhpcVersionStatistics& obj) { 
+        DARABONBA_PTR_FROM_JSON(V1Count, v1Count_);
+        DARABONBA_PTR_FROM_JSON(V2Count, v2Count_);
+      };
+      EhpcVersionStatistics() = default ;
+      EhpcVersionStatistics(const EhpcVersionStatistics &) = default ;
+      EhpcVersionStatistics(EhpcVersionStatistics &&) = default ;
+      EhpcVersionStatistics(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EhpcVersionStatistics() = default ;
+      EhpcVersionStatistics& operator=(const EhpcVersionStatistics &) = default ;
+      EhpcVersionStatistics& operator=(EhpcVersionStatistics &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->v1Count_ == nullptr
+        && this->v2Count_ == nullptr; };
+      // v1Count Field Functions 
+      bool hasV1Count() const { return this->v1Count_ != nullptr;};
+      void deleteV1Count() { this->v1Count_ = nullptr;};
+      inline int32_t getV1Count() const { DARABONBA_PTR_GET_DEFAULT(v1Count_, 0) };
+      inline EhpcVersionStatistics& setV1Count(int32_t v1Count) { DARABONBA_PTR_SET_VALUE(v1Count_, v1Count) };
+
+
+      // v2Count Field Functions 
+      bool hasV2Count() const { return this->v2Count_ != nullptr;};
+      void deleteV2Count() { this->v2Count_ = nullptr;};
+      inline int32_t getV2Count() const { DARABONBA_PTR_GET_DEFAULT(v2Count_, 0) };
+      inline EhpcVersionStatistics& setV2Count(int32_t v2Count) { DARABONBA_PTR_SET_VALUE(v2Count_, v2Count) };
+
+
+    protected:
+      shared_ptr<int32_t> v1Count_ {};
+      shared_ptr<int32_t> v2Count_ {};
+    };
+
     class Clusters : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Clusters& obj) { 
@@ -141,9 +185,9 @@ namespace Models
 
 
       protected:
-        // The number of ordinary users.
+        // The number of regular users.
         shared_ptr<int32_t> normalCounts_ {};
-        // The number of administrators.
+        // The number of sudo users.
         shared_ptr<int32_t> sudoCounts_ {};
       };
 
@@ -194,9 +238,9 @@ namespace Models
 
 
       protected:
-        // The number of malfunctioning compute nodes.
+        // The number of abnormal compute nodes.
         shared_ptr<int32_t> abnormalCounts_ {};
-        // The number of compute nodes that are being created.
+        // The number of compute nodes being created.
         shared_ptr<int32_t> creatingCounts_ {};
         // The number of running compute nodes.
         shared_ptr<int32_t> runningCounts_ {};
@@ -307,9 +351,9 @@ namespace Models
 
 
         protected:
-          // The type of the domain account.
+          // The domain account type.
           shared_ptr<string> type_ {};
-          // The version of the domain account service.
+          // The domain account version.
           shared_ptr<string> version_ {};
         };
 
@@ -351,9 +395,9 @@ namespace Models
 
 
         protected:
-          // The resolution type.
+          // The domain name resolution type.
           shared_ptr<string> type_ {};
-          // The version of the domain name resolution service.
+          // The domain name resolution version.
           shared_ptr<string> version_ {};
         };
 
@@ -387,11 +431,11 @@ namespace Models
 
 
       protected:
-        // The configurations of the domain name resolution service.
+        // The domain name resolution service configuration.
         shared_ptr<Manager::DNS> DNS_ {};
-        // The configurations of the directory service.
+        // The domain account service configuration.
         shared_ptr<Manager::DirectoryService> directoryService_ {};
-        // The configurations of the scheduler service.
+        // The scheduler service configuration.
         shared_ptr<Manager::Scheduler> scheduler_ {};
       };
 
@@ -433,9 +477,9 @@ namespace Models
 
 
       protected:
-        // The parameters of the post-processing script.
+        // The parameters of the cluster post-processing script.
         shared_ptr<string> args_ {};
-        // The link to the post-processing script.
+        // The URL of the cluster post-processing script.
         shared_ptr<string> script_ {};
       };
 
@@ -567,9 +611,9 @@ namespace Models
 
 
         protected:
-          // The instance ID.
+          // The component instance ID.
           shared_ptr<string> ecsInstanceId_ {};
-          // The Elastic IP Address (EIP) ID.
+          // The elastic IP address (EIP) ID.
           shared_ptr<string> eipInstanceId_ {};
         };
 
@@ -637,23 +681,23 @@ namespace Models
 
 
       protected:
-        // The addon ID.
+        // The ID of the custom service component.
         shared_ptr<string> addonId_ {};
-        // The addon description.
+        // The description of the custom service component.
         shared_ptr<string> description_ {};
-        // The addon label.
+        // The label of the custom service component.
         shared_ptr<string> label_ {};
-        // The addon name.
+        // The name of the custom service component.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The resource configurations of the addon.
+        // The resource configuration of the component.
         shared_ptr<Addons::ResourcesSpec> resourcesSpec_ {};
-        // The information about the addon services.
+        // The service configuration of the component.
         shared_ptr<vector<Addons::ServicesSpec>> servicesSpec_ {};
-        // The addon state.
+        // The status of the custom service component.
         shared_ptr<string> status_ {};
-        // The addon version.
+        // The version of the custom service component.
         // 
         // This parameter is required.
         shared_ptr<string> version_ {};
@@ -892,21 +936,21 @@ namespace Models
 
 
     protected:
-      // The information about installed software in the cluster.
+      // The software installed on the cluster.
       shared_ptr<vector<Clusters::AdditionalPackages>> additionalPackages_ {};
-      // The information about the addons in the cluster.
+      // The custom service component information of the cluster.
       shared_ptr<vector<Clusters::Addons>> addons_ {};
-      // The cluster type. Valid values:
+      // The cluster edition. Valid values:
+      // - Standard
       // 
-      // *   Standard
-      // *   Serverless
+      // - Serverless
       shared_ptr<string> clusterCategory_ {};
-      // The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+      // The time when the cluster was created. The time is displayed in UTC+0 in the ISO 8601 standard format of yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
       shared_ptr<string> clusterCreateTime_ {};
-      // The logon credential type of the cluster. Valid values:
+      // The logon credential types of the cluster. Valid values:
       // 
-      // *   password: requires passwords for logons.
-      // *   keypair: requires key pairs for logons.
+      // - password: uses a password to log on to the cluster.
+      // - keypair: uses a key pair to log on to the cluster.
       shared_ptr<vector<string>> clusterCredentials_ {};
       // The post-processing script used by the cluster.
       shared_ptr<Clusters::ClusterCustomConfiguration> clusterCustomConfiguration_ {};
@@ -915,58 +959,57 @@ namespace Models
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // The deployment type of the cluster. Valid values:
-      // 
-      // *   Integrated: public cloud
-      // *   Hybrid: hybrid cloud
-      // *   Custom: a custom cluster
+      // - Integrated: public cloud
+      // - Hybrid: hybrid cloud
+      // - Custom: custom cluster
       shared_ptr<string> clusterMode_ {};
-      // The time when the cluster was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+      // The time when the cluster was last modified. The time is displayed in UTC+0 in the ISO 8601 standard format of yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
       shared_ptr<string> clusterModifyTime_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The cluster state. Valid values:
+      // The cluster status. Valid values:
       // 
-      // *   uninit: The cluster is being installed.
-      // *   creating: The cluster is being created.
-      // *   initing: The cluster is being initialized.
-      // *   running: The cluster is running.
-      // *   Releasing: The cluster is being released.
-      // *   stopping: The cluster is being stopped.
-      // *   stopped: The cluster is stopped.
-      // *   exception: The cluster has run into an exception.
-      // *   pending: The cluster is waiting to be configured.
+      // - uninit: installing.
+      // - creating: being created.
+      // - initing: being initialized.
+      // - running: running.
+      // - releasing: being released.
+      // - stopping: being stopped.
+      // - stopped: stopped.
+      // - exception: abnormal.
+      // - pending: pending configuration.
       shared_ptr<string> clusterStatus_ {};
-      // The vCPU-hour usage of the cluster.
+      // The core-hours consumed by the cluster.
       shared_ptr<float> clusterUsedCoreTime_ {};
-      // The ID of the vSwitch used by the cluster.
+      // The vSwitch ID used by the cluster.
       shared_ptr<string> clusterVSwitchId_ {};
-      // The ID of the virtual private cloud (VPC) used by the cluster.
+      // The VPC ID used by the cluster.
       shared_ptr<string> clusterVpcId_ {};
       // Indicates whether deletion protection is enabled for the cluster. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Deletion protection is enabled.
+      // - false: Deletion protection is not enabled.
       shared_ptr<bool> deletionProtection_ {};
-      // The Elastic High Performance Computing (E-HPC) version.
+      // The version of the E-HPC cluster.
       shared_ptr<string> ehpcVersion_ {};
-      // The configurations of the cluster management node.
+      // The management node configuration of the cluster.
       shared_ptr<Clusters::Manager> manager_ {};
-      // The maximum total number of vCPUs used by the compute nodes that can be managed by the cluster.
+      // The maximum total number of vCPUs of compute nodes that the cluster can manage.
       shared_ptr<int64_t> maxCoreCount_ {};
-      // The maximum number of compute nodes that can be managed by the cluster.
+      // The maximum number of compute nodes that the cluster can manage.
       shared_ptr<int64_t> maxCount_ {};
-      // The node statistics of the cluster.
+      // The node count information of the cluster.
       shared_ptr<Clusters::Nodes> nodes_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the security group used by the cluster.
+      // The security group ID used by the cluster.
       shared_ptr<string> securityGroupId_ {};
       // The user attribute information of the cluster.
       shared_ptr<Clusters::Users> users_ {};
     };
 
     virtual bool empty() const override { return this->clusters_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+        && this->ehpcVersionStatistics_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // clusters Field Functions 
     bool hasClusters() const { return this->clusters_ != nullptr;};
     void deleteClusters() { this->clusters_ = nullptr;};
@@ -974,6 +1017,15 @@ namespace Models
     inline vector<ListClustersResponseBody::Clusters> getClusters() { DARABONBA_PTR_GET(clusters_, vector<ListClustersResponseBody::Clusters>) };
     inline ListClustersResponseBody& setClusters(const vector<ListClustersResponseBody::Clusters> & clusters) { DARABONBA_PTR_SET_VALUE(clusters_, clusters) };
     inline ListClustersResponseBody& setClusters(vector<ListClustersResponseBody::Clusters> && clusters) { DARABONBA_PTR_SET_RVALUE(clusters_, clusters) };
+
+
+    // ehpcVersionStatistics Field Functions 
+    bool hasEhpcVersionStatistics() const { return this->ehpcVersionStatistics_ != nullptr;};
+    void deleteEhpcVersionStatistics() { this->ehpcVersionStatistics_ = nullptr;};
+    inline const ListClustersResponseBody::EhpcVersionStatistics & getEhpcVersionStatistics() const { DARABONBA_PTR_GET_CONST(ehpcVersionStatistics_, ListClustersResponseBody::EhpcVersionStatistics) };
+    inline ListClustersResponseBody::EhpcVersionStatistics getEhpcVersionStatistics() { DARABONBA_PTR_GET(ehpcVersionStatistics_, ListClustersResponseBody::EhpcVersionStatistics) };
+    inline ListClustersResponseBody& setEhpcVersionStatistics(const ListClustersResponseBody::EhpcVersionStatistics & ehpcVersionStatistics) { DARABONBA_PTR_SET_VALUE(ehpcVersionStatistics_, ehpcVersionStatistics) };
+    inline ListClustersResponseBody& setEhpcVersionStatistics(ListClustersResponseBody::EhpcVersionStatistics && ehpcVersionStatistics) { DARABONBA_PTR_SET_RVALUE(ehpcVersionStatistics_, ehpcVersionStatistics) };
 
 
     // pageNumber Field Functions 
@@ -1005,15 +1057,16 @@ namespace Models
 
 
   protected:
-    // The list of clusters.
+    // The cluster details.
     shared_ptr<vector<ListClustersResponseBody::Clusters>> clusters_ {};
-    // The page number of the returned page.
+    shared_ptr<ListClustersResponseBody::EhpcVersionStatistics> ehpcVersionStatistics_ {};
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

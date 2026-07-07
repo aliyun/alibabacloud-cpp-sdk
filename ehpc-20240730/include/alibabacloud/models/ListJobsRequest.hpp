@@ -118,24 +118,21 @@ namespace Models
 
 
       protected:
-        // The order in which jobs are sorted based on their execution time. Valid values:
-        // 
-        // *   asc: in ascending order.
-        // *   desc: in descending order.
+        // Sorts jobs by execution time. Valid values:
+        // - asc: ascending order.
+        // - desc: descending order.
         // 
         // Default value: desc.
         shared_ptr<string> executeOrder_ {};
-        // The order in which jobs are sorted based on their queuing time. Valid values:
-        // 
-        // *   asc: in ascending order.
-        // *   desc: in descending order.
+        // Sorts jobs by queue wait time. Valid values:
+        // - asc: ascending order.
+        // - desc: descending order.
         // 
         // Default value: desc.
         shared_ptr<string> pendOrder_ {};
-        // The order in which jobs are sorted based on their submitting time. Valid values:
-        // 
-        // *   asc: in ascending order.
-        // *   desc: in descending order.
+        // Sorts jobs by submission time. Valid values:
+        // - asc: ascending order.
+        // - desc: descending order.
         // 
         // Default value: desc.
         shared_ptr<string> submitOrder_ {};
@@ -188,11 +185,11 @@ namespace Models
 
 
       protected:
-        // Job diagnosis threshold comparator.
+        // The comparison operator for the job diagnostic threshold.
         shared_ptr<string> operator_ {};
-        // Job diagnosis and analysis metrics
+        // The job diagnostic analysis metric.
         shared_ptr<string> option_ {};
-        // Job diagnosis threshold.
+        // The job diagnostic threshold.
         shared_ptr<string> threshold_ {};
       };
 
@@ -273,29 +270,28 @@ namespace Models
 
 
     protected:
-      // The time when the job was last updated. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+      // The last update time of the job. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
       shared_ptr<string> createTimeEnd_ {};
-      // The time when the job started. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+      // The start time of the job. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
       shared_ptr<string> createTimeStart_ {};
-      // Job diagnosis and analysis list.
+      // The job diagnostic analysis list.
       shared_ptr<vector<JobFilter::Diagnosis>> diagnosis_ {};
       // The job name. Fuzzy match is supported.
       shared_ptr<string> jobName_ {};
       // The job status. Valid values:
-      // 
-      // *   all: returns all jobs.
-      // *   finished: returns completed jobs.
-      // *   notfinish: returns uncompleted jobs.
+      // - all: all statuses.
+      // - finished: completed.
+      // - notfinish: not completed.
       // 
       // Default value: all.
       shared_ptr<string> jobStatus_ {};
-      // The compute nodes that run the jobs.
+      // The list of compute nodes that run the jobs.
       shared_ptr<vector<string>> nodes_ {};
-      // The queues to which the jobs belong.
+      // The list of queues that run the jobs.
       shared_ptr<vector<string>> queues_ {};
-      // The result sorting configurations.
+      // The sorting configuration for the job list.
       shared_ptr<JobFilter::SortBy> sortBy_ {};
-      // The users that run the jobs.
+      // The list of users who run the jobs.
       shared_ptr<vector<string>> users_ {};
     };
 
@@ -334,21 +330,19 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+    // You can call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
     // The job filter information.
     shared_ptr<ListJobsRequest::JobFilter> jobFilter_ {};
-    // The page number of the page to return.
-    // 
-    // *   Pages start from page 1.
-    // *   Default value: 1
+    // The page number of the list.
+    // - Minimum value: 1.
+    // - Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // *   Maximum value: 50.
-    // *   Default value: 10
+    // The number of entries per page when using paged query. Paging is applied to the results.
+    // - Maximum value: 50.
+    // - Default value: 10.
     shared_ptr<string> pageSize_ {};
   };
 

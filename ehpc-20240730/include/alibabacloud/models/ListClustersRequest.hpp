@@ -71,13 +71,13 @@ namespace Models
 
 
   protected:
-    // The cluster IDs. You can specify up to 20 IDs.
+    // The IDs of the clusters to query. Valid values of N: 0 to 20.
     shared_ptr<vector<string>> clusterIds_ {};
-    // The cluster names. You can specify up to 20 names.
+    // The names of the clusters to query. Valid values of N: 0 to 20.
     shared_ptr<vector<string>> clusterNames_ {};
-    // The page number of the page to return. Default value: 1.
+    // The page number of the list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 10 to 100. Default value: 10
+    // The number of entries per page in a paged query. Settings the number of rows per page for paging. Valid values: 10 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 
