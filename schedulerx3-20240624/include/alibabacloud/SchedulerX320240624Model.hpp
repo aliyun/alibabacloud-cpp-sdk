@@ -12,6 +12,9 @@
 #include <alibabacloud/models/CreateClusterShrinkRequest.hpp>
 #include <alibabacloud/models/CreateClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateClusterResponse.hpp>
+#include <alibabacloud/models/CreateContactRequest.hpp>
+#include <alibabacloud/models/CreateContactResponseBody.hpp>
+#include <alibabacloud/models/CreateContactResponse.hpp>
 #include <alibabacloud/models/CreateDatasourceRequest.hpp>
 #include <alibabacloud/models/CreateDatasourceResponseBody.hpp>
 #include <alibabacloud/models/CreateDatasourceResponse.hpp>
@@ -37,6 +40,9 @@
 #include <alibabacloud/models/DeleteClusterRequest.hpp>
 #include <alibabacloud/models/DeleteClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteClusterResponse.hpp>
+#include <alibabacloud/models/DeleteContactRequest.hpp>
+#include <alibabacloud/models/DeleteContactResponseBody.hpp>
+#include <alibabacloud/models/DeleteContactResponse.hpp>
 #include <alibabacloud/models/DeleteDatasourceRequest.hpp>
 #include <alibabacloud/models/DeleteDatasourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDatasourceResponse.hpp>
@@ -132,6 +138,9 @@
 #include <alibabacloud/models/ListClustersRequest.hpp>
 #include <alibabacloud/models/ListClustersResponseBody.hpp>
 #include <alibabacloud/models/ListClustersResponse.hpp>
+#include <alibabacloud/models/ListContactsRequest.hpp>
+#include <alibabacloud/models/ListContactsResponseBody.hpp>
+#include <alibabacloud/models/ListContactsResponse.hpp>
 #include <alibabacloud/models/ListDatasourcesRequest.hpp>
 #include <alibabacloud/models/ListDatasourcesResponseBody.hpp>
 #include <alibabacloud/models/ListDatasourcesResponse.hpp>
@@ -261,6 +270,9 @@
 #include <alibabacloud/models/UpdateClusterRequest.hpp>
 #include <alibabacloud/models/UpdateClusterResponseBody.hpp>
 #include <alibabacloud/models/UpdateClusterResponse.hpp>
+#include <alibabacloud/models/UpdateContactRequest.hpp>
+#include <alibabacloud/models/UpdateContactResponseBody.hpp>
+#include <alibabacloud/models/UpdateContactResponse.hpp>
 #include <alibabacloud/models/UpdateDatasourceRequest.hpp>
 #include <alibabacloud/models/UpdateDatasourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateDatasourceResponse.hpp>

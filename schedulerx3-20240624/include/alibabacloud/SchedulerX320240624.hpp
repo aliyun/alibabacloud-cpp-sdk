@@ -76,6 +76,27 @@ namespace SchedulerX320240624
       Models::CreateClusterResponse createCluster(const Models::CreateClusterRequest &request);
 
       /**
+       * @summary 创建通知联系人
+       *
+       * @description 创建自定义联系人
+       *
+       * @param request CreateContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContactResponse
+       */
+      Models::CreateContactResponse createContactWithOptions(const Models::CreateContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建通知联系人
+       *
+       * @description 创建自定义联系人
+       *
+       * @param request CreateContactRequest
+       * @return CreateContactResponse
+       */
+      Models::CreateContactResponse createContact(const Models::CreateContactRequest &request);
+
+      /**
        * @summary Create a data source
        *
        * @param request CreateDatasourceRequest
@@ -218,6 +239,27 @@ namespace SchedulerX320240624
        * @return DeleteClusterResponse
        */
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
+
+      /**
+       * @summary 删除通知联系人
+       *
+       * @description 删除自定义联系人
+       *
+       * @param request DeleteContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContactResponse
+       */
+      Models::DeleteContactResponse deleteContactWithOptions(const Models::DeleteContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除通知联系人
+       *
+       * @description 删除自定义联系人
+       *
+       * @param request DeleteContactRequest
+       * @return DeleteContactResponse
+       */
+      Models::DeleteContactResponse deleteContact(const Models::DeleteContactRequest &request);
 
       /**
        * @summary Delete data source
@@ -770,7 +812,7 @@ namespace SchedulerX320240624
       Models::ListCalendarsResponse listCalendars(const Models::ListCalendarsRequest &request);
 
       /**
-       * @summary Query the list of instances.
+       * @summary Queries a list of instances.
        *
        * @param request ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -779,12 +821,33 @@ namespace SchedulerX320240624
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of instances.
+       * @summary Queries a list of instances.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
        */
       Models::ListClustersResponse listClusters(const Models::ListClustersRequest &request);
+
+      /**
+       * @summary 查询通知联系人列表
+       *
+       * @description 查看联系人
+       *
+       * @param request ListContactsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListContactsResponse
+       */
+      Models::ListContactsResponse listContactsWithOptions(const Models::ListContactsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询通知联系人列表
+       *
+       * @description 查看联系人
+       *
+       * @param request ListContactsRequest
+       * @return ListContactsResponse
+       */
+      Models::ListContactsResponse listContacts(const Models::ListContactsRequest &request);
 
       /**
        * @summary Retrieve the data source list
@@ -1508,6 +1571,27 @@ namespace SchedulerX320240624
       Models::UpdateClusterResponse updateCluster(const Models::UpdateClusterRequest &request);
 
       /**
+       * @summary 更新通知联系人
+       *
+       * @description 更新通知联系人
+       *
+       * @param request UpdateContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateContactResponse
+       */
+      Models::UpdateContactResponse updateContactWithOptions(const Models::UpdateContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新通知联系人
+       *
+       * @description 更新通知联系人
+       *
+       * @param request UpdateContactRequest
+       * @return UpdateContactResponse
+       */
+      Models::UpdateContactResponse updateContact(const Models::UpdateContactRequest &request);
+
+      /**
        * @summary Update data source
        *
        * @param request UpdateDatasourceRequest
@@ -1579,7 +1663,7 @@ namespace SchedulerX320240624
       Models::UpdateExecutorsResponse updateExecutors(const Models::UpdateExecutorsRequest &request);
 
       /**
-       * @summary Update task details.
+       * @summary Updates node information.
        *
        * @param tmpReq UpdateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1588,7 +1672,7 @@ namespace SchedulerX320240624
       Models::UpdateJobResponse updateJobWithOptions(const Models::UpdateJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update task details.
+       * @summary Updates node information.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse

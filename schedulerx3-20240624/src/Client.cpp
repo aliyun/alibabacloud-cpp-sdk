@@ -272,6 +272,60 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
+ * @summary 创建通知联系人
+ *
+ * @description 创建自定义联系人
+ *
+ * @param request CreateContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContactResponse
+ */
+CreateContactResponse Client::createContactWithOptions(const CreateContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasContactName()) {
+    body["ContactName"] = request.getContactName();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateContact"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContactResponse>();
+}
+
+/**
+ * @summary 创建通知联系人
+ *
+ * @description 创建自定义联系人
+ *
+ * @param request CreateContactRequest
+ * @return CreateContactResponse
+ */
+CreateContactResponse Client::createContact(const CreateContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContactWithOptions(request, runtime);
+}
+
+/**
  * @summary Create a data source
  *
  * @param request CreateDatasourceRequest
@@ -867,6 +921,52 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
 DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteClusterWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除通知联系人
+ *
+ * @description 删除自定义联系人
+ *
+ * @param request DeleteContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContactResponse
+ */
+DeleteContactResponse Client::deleteContactWithOptions(const DeleteContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContactName()) {
+    body["ContactName"] = request.getContactName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteContact"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContactResponse>();
+}
+
+/**
+ * @summary 删除通知联系人
+ *
+ * @description 删除自定义联系人
+ *
+ * @param request DeleteContactRequest
+ * @return DeleteContactResponse
+ */
+DeleteContactResponse Client::deleteContact(const DeleteContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContactWithOptions(request, runtime);
 }
 
 /**
@@ -2378,7 +2478,7 @@ ListCalendarsResponse Client::listCalendars(const ListCalendarsRequest &request)
 }
 
 /**
- * @summary Query the list of instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2405,7 +2505,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Query the list of instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -2413,6 +2513,60 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listClustersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询通知联系人列表
+ *
+ * @description 查看联系人
+ *
+ * @param request ListContactsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContactsResponse
+ */
+ListContactsResponse Client::listContactsWithOptions(const ListContactsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContactName()) {
+    query["ContactName"] = request.getContactName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContacts"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContactsResponse>();
+}
+
+/**
+ * @summary 查询通知联系人列表
+ *
+ * @description 查看联系人
+ *
+ * @param request ListContactsRequest
+ * @return ListContactsResponse
+ */
+ListContactsResponse Client::listContacts(const ListContactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContactsWithOptions(request, runtime);
 }
 
 /**
@@ -4742,6 +4896,64 @@ UpdateClusterResponse Client::updateCluster(const UpdateClusterRequest &request)
 }
 
 /**
+ * @summary 更新通知联系人
+ *
+ * @description 更新通知联系人
+ *
+ * @param request UpdateContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContactResponse
+ */
+UpdateContactResponse Client::updateContactWithOptions(const UpdateContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasContactName()) {
+    body["ContactName"] = request.getContactName();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateContact"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContactResponse>();
+}
+
+/**
+ * @summary 更新通知联系人
+ *
+ * @description 更新通知联系人
+ *
+ * @param request UpdateContactRequest
+ * @return UpdateContactResponse
+ */
+UpdateContactResponse Client::updateContact(const UpdateContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContactWithOptions(request, runtime);
+}
+
+/**
  * @summary Update data source
  *
  * @param request UpdateDatasourceRequest
@@ -4968,7 +5180,7 @@ UpdateExecutorsResponse Client::updateExecutors(const UpdateExecutorsRequest &re
 }
 
 /**
- * @summary Update task details.
+ * @summary Updates node information.
  *
  * @param tmpReq UpdateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5109,7 +5321,7 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 }
 
 /**
- * @summary Update task details.
+ * @summary Updates node information.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse

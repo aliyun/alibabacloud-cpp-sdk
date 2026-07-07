@@ -136,7 +136,7 @@ namespace Models
     shared_ptr<int32_t> clusterType_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page for paginated queries.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<vector<ListClustersRequest::Tag>> tag_ {};
   };

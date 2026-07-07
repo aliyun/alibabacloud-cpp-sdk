@@ -75,8 +75,10 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
           DARABONBA_PTR_TO_JSON(CiteList, citeList_);
           DARABONBA_PTR_TO_JSON(CmsWorkspaceId, cmsWorkspaceId_);
+          DARABONBA_PTR_TO_JSON(CurrentJobs, currentJobs_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(IntegrationType, integrationType_);
+          DARABONBA_PTR_TO_JSON(MaxJobs, maxJobs_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(Network, network_);
           DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -92,8 +94,10 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
           DARABONBA_PTR_FROM_JSON(CiteList, citeList_);
           DARABONBA_PTR_FROM_JSON(CmsWorkspaceId, cmsWorkspaceId_);
+          DARABONBA_PTR_FROM_JSON(CurrentJobs, currentJobs_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(IntegrationType, integrationType_);
+          DARABONBA_PTR_FROM_JSON(MaxJobs, maxJobs_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(Network, network_);
           DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -157,9 +161,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->authType_ == nullptr && this->autoScale_ == nullptr && this->citeList_ == nullptr && this->cmsWorkspaceId_ == nullptr && this->description_ == nullptr
-        && this->integrationType_ == nullptr && this->name_ == nullptr && this->network_ == nullptr && this->protocol_ == nullptr && this->resolvedWorkers_ == nullptr
-        && this->workerId_ == nullptr && this->workerType_ == nullptr && this->workers_ == nullptr && this->XAttrs_ == nullptr; };
+        && this->authType_ == nullptr && this->autoScale_ == nullptr && this->citeList_ == nullptr && this->cmsWorkspaceId_ == nullptr && this->currentJobs_ == nullptr
+        && this->description_ == nullptr && this->integrationType_ == nullptr && this->maxJobs_ == nullptr && this->name_ == nullptr && this->network_ == nullptr
+        && this->protocol_ == nullptr && this->resolvedWorkers_ == nullptr && this->workerId_ == nullptr && this->workerType_ == nullptr && this->workers_ == nullptr
+        && this->XAttrs_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -197,6 +202,13 @@ namespace Models
         inline Records& setCmsWorkspaceId(string cmsWorkspaceId) { DARABONBA_PTR_SET_VALUE(cmsWorkspaceId_, cmsWorkspaceId) };
 
 
+        // currentJobs Field Functions 
+        bool hasCurrentJobs() const { return this->currentJobs_ != nullptr;};
+        void deleteCurrentJobs() { this->currentJobs_ = nullptr;};
+        inline int32_t getCurrentJobs() const { DARABONBA_PTR_GET_DEFAULT(currentJobs_, 0) };
+        inline Records& setCurrentJobs(int32_t currentJobs) { DARABONBA_PTR_SET_VALUE(currentJobs_, currentJobs) };
+
+
         // description Field Functions 
         bool hasDescription() const { return this->description_ != nullptr;};
         void deleteDescription() { this->description_ = nullptr;};
@@ -209,6 +221,13 @@ namespace Models
         void deleteIntegrationType() { this->integrationType_ = nullptr;};
         inline string getIntegrationType() const { DARABONBA_PTR_GET_DEFAULT(integrationType_, "") };
         inline Records& setIntegrationType(string integrationType) { DARABONBA_PTR_SET_VALUE(integrationType_, integrationType) };
+
+
+        // maxJobs Field Functions 
+        bool hasMaxJobs() const { return this->maxJobs_ != nullptr;};
+        void deleteMaxJobs() { this->maxJobs_ = nullptr;};
+        inline int32_t getMaxJobs() const { DARABONBA_PTR_GET_DEFAULT(maxJobs_, 0) };
+        inline Records& setMaxJobs(int32_t maxJobs) { DARABONBA_PTR_SET_VALUE(maxJobs_, maxJobs) };
 
 
         // name Field Functions 
@@ -273,8 +292,10 @@ namespace Models
         shared_ptr<bool> autoScale_ {};
         shared_ptr<vector<Records::CiteList>> citeList_ {};
         shared_ptr<string> cmsWorkspaceId_ {};
+        shared_ptr<int32_t> currentJobs_ {};
         shared_ptr<string> description_ {};
         shared_ptr<string> integrationType_ {};
+        shared_ptr<int32_t> maxJobs_ {};
         shared_ptr<string> name_ {};
         shared_ptr<string> network_ {};
         shared_ptr<string> protocol_ {};
