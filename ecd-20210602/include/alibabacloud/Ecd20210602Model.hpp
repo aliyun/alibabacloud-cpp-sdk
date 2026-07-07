@@ -1,0 +1,40 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_ECD20210602MODEL_HPP_
+#define ALIBABACLOUD_ECD20210602MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateTenantSkillRequest.hpp>
+#include <alibabacloud/models/CreateTenantSkillShrinkRequest.hpp>
+#include <alibabacloud/models/CreateTenantSkillResponseBody.hpp>
+#include <alibabacloud/models/CreateTenantSkillResponse.hpp>
+#include <alibabacloud/models/DeleteTenantSkillsRequest.hpp>
+#include <alibabacloud/models/DeleteTenantSkillsResponseBody.hpp>
+#include <alibabacloud/models/DeleteTenantSkillsResponse.hpp>
+#include <alibabacloud/models/GetOssStsTokenRequest.hpp>
+#include <alibabacloud/models/GetOssStsTokenResponseBody.hpp>
+#include <alibabacloud/models/GetOssStsTokenResponse.hpp>
+#include <alibabacloud/models/GetParseProgressRequest.hpp>
+#include <alibabacloud/models/GetParseProgressResponseBody.hpp>
+#include <alibabacloud/models/GetParseProgressResponse.hpp>
+#include <alibabacloud/models/ListSecureSkillIdentitiesRequest.hpp>
+#include <alibabacloud/models/ListSecureSkillIdentitiesResponseBody.hpp>
+#include <alibabacloud/models/ListSecureSkillIdentitiesResponse.hpp>
+#include <alibabacloud/models/ListSkillAuthedIdentitiesRequest.hpp>
+#include <alibabacloud/models/ListSkillAuthedIdentitiesResponseBody.hpp>
+#include <alibabacloud/models/ListSkillAuthedIdentitiesResponse.hpp>
+#include <alibabacloud/models/ListSkillsRequest.hpp>
+#include <alibabacloud/models/ListSkillsResponseBody.hpp>
+#include <alibabacloud/models/ListSkillsResponse.hpp>
+#include <alibabacloud/models/ParseSkillPackageRequest.hpp>
+#include <alibabacloud/models/ParseSkillPackageResponseBody.hpp>
+#include <alibabacloud/models/ParseSkillPackageResponse.hpp>
+#include <alibabacloud/models/SetIdentitySkillAuthRequest.hpp>
+#include <alibabacloud/models/SetIdentitySkillAuthResponseBody.hpp>
+#include <alibabacloud/models/SetIdentitySkillAuthResponse.hpp>
+#include <alibabacloud/models/SetIdentitySkillSecurityRequest.hpp>
+#include <alibabacloud/models/SetIdentitySkillSecurityResponseBody.hpp>
+#include <alibabacloud/models/SetIdentitySkillSecurityResponse.hpp>
+#include <alibabacloud/models/SetTenantSkillEnabledRequest.hpp>
+#include <alibabacloud/models/SetTenantSkillEnabledResponseBody.hpp>
+#include <alibabacloud/models/SetTenantSkillEnabledResponse.hpp>
+
+#endif
