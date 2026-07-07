@@ -1336,7 +1336,7 @@ VideoModerationCancelResponse Client::videoModerationCancel(const VideoModeratio
 /**
  * @summary Retrieves the task result of an enhanced video content moderation node.
  *
- * @description This operation is not billed. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, the results are automatically deleted.
+ * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After that, results are automatically deleted.
  *
  * @param request VideoModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1373,7 @@ VideoModerationResultResponse Client::videoModerationResultWithOptions(const Vid
 /**
  * @summary Retrieves the task result of an enhanced video content moderation node.
  *
- * @description This operation is not billed. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, the results are automatically deleted.
+ * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After that, results are automatically deleted.
  *
  * @param request VideoModerationResultRequest
  * @return VideoModerationResultResponse
