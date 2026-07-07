@@ -21,6 +21,23 @@ namespace EdsAic20230930
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Activates an edge agent device.
+       *
+       * @param request ActivateEdgeMobileAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ActivateEdgeMobileAgentResponse
+       */
+      Models::ActivateEdgeMobileAgentResponse activateEdgeMobileAgentWithOptions(const Models::ActivateEdgeMobileAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Activates an edge agent device.
+       *
+       * @param request ActivateEdgeMobileAgentRequest
+       * @return ActivateEdgeMobileAgentResponse
+       */
+      Models::ActivateEdgeMobileAgentResponse activateEdgeMobileAgent(const Models::ActivateEdgeMobileAgentRequest &request);
+
+      /**
        * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
        *
        * @description - You can attach to an ADB key pair only to cloud phone instances in the Running state.
@@ -341,6 +358,27 @@ namespace EdsAic20230930
        * @return CreateCustomImageResponse
        */
       Models::CreateCustomImageResponse createCustomImage(const Models::CreateCustomImageRequest &request);
+
+      /**
+       * @summary Places an order to purchase an edge smart gateway agent package.
+       *
+       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+       *
+       * @param request CreateEdgeMobileAgentPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEdgeMobileAgentPackageResponse
+       */
+      Models::CreateEdgeMobileAgentPackageResponse createEdgeMobileAgentPackageWithOptions(const Models::CreateEdgeMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Places an order to purchase an edge smart gateway agent package.
+       *
+       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+       *
+       * @param request CreateEdgeMobileAgentPackageRequest
+       * @return CreateEdgeMobileAgentPackageResponse
+       */
+      Models::CreateEdgeMobileAgentPackageResponse createEdgeMobileAgentPackage(const Models::CreateEdgeMobileAgentPackageRequest &request);
 
       /**
        * @summary You can connect to Cloud Phones using the Android Debug Bridge (ADB). ADB lets you manage devices and applications, and transfer files. These operations require high permissions. Because Cloud Phones do not have physical interfaces, you cannot use a USB connection to trigger an authorization dialog box on the device. Therefore, you must configure a key pair before you connect to a Cloud Phone with ADB over a network. This key pair ensures that the device trusts the client and that all operations are secure. You can call the CreateKeyPair operation to create an ADB key pair. The system stores the public key and returns the private key. The private key is in PEM-encoded PKCS#8 format and complies with ADB connection standards. You must securely store the private key.
@@ -801,6 +839,23 @@ namespace EdsAic20230930
        * @return DescribeDisplayConfigResponse
        */
       Models::DescribeDisplayConfigResponse describeDisplayConfig(const Models::DescribeDisplayConfigRequest &request);
+
+      /**
+       * @summary Queries the details of edge agent packages.
+       *
+       * @param request DescribeEdgeMobileAgentPackagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEdgeMobileAgentPackagesResponse
+       */
+      Models::DescribeEdgeMobileAgentPackagesResponse describeEdgeMobileAgentPackagesWithOptions(const Models::DescribeEdgeMobileAgentPackagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of edge agent packages.
+       *
+       * @param request DescribeEdgeMobileAgentPackagesRequest
+       * @return DescribeEdgeMobileAgentPackagesResponse
+       */
+      Models::DescribeEdgeMobileAgentPackagesResponse describeEdgeMobileAgentPackages(const Models::DescribeEdgeMobileAgentPackagesRequest &request);
 
       /**
        * @summary Queries a list of available images.
@@ -1710,6 +1765,23 @@ namespace EdsAic20230930
       Models::RecoveryFileResponse recoveryFile(const Models::RecoveryFileRequest &request);
 
       /**
+       * @summary Refreshes model authentication tokens.
+       *
+       * @param request RefreshAuthTokensRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshAuthTokensResponse
+       */
+      Models::RefreshAuthTokensResponse refreshAuthTokensWithOptions(const Models::RefreshAuthTokensRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Refreshes model authentication tokens.
+       *
+       * @param request RefreshAuthTokensRequest
+       * @return RefreshAuthTokensResponse
+       */
+      Models::RefreshAuthTokensResponse refreshAuthTokens(const Models::RefreshAuthTokensRequest &request);
+
+      /**
        * @summary Renews subscription Cloud Phone instance groups. If a subscription instance group expires, the system automatically deletes the instance group and its instances after 15 days. You cannot recover deleted resources. Renew your instance groups promptly to prevent resource loss.
        *
        * @param request RenewAndroidInstanceGroupsRequest
@@ -1799,7 +1871,7 @@ namespace EdsAic20230930
       Models::ResumeAgentTaskResponse resumeAgentTask(const Models::ResumeAgentTaskRequest &request);
 
       /**
-       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
+       * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
        *
        * @param request RunAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1808,7 +1880,7 @@ namespace EdsAic20230930
       Models::RunAgentTaskResponse runAgentTaskWithOptions(const Models::RunAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
+       * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
        *
        * @param request RunAgentTaskRequest
        * @return RunAgentTaskResponse

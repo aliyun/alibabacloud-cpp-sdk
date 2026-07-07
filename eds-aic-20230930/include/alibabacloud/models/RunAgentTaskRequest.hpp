@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The Mobile node ID, such as acp-xxx.
       shared_ptr<string> instanceId_ {};
+      // The session ID. Tasks with the same session ID share context, such as ses-260702-21b****.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -154,12 +156,15 @@ namespace Models
     shared_ptr<string> bizRegionId_ {};
     // The list of Mobile node IDs. A maximum of 100 nodes are supported per request.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The maximum number of execution steps for the task to prevent infinite loops. Valid values: 30 to 1000. Default value: 1000.
+    // The maximum number of execution steps for the task. This prevents infinite loops. Valid values: 30 to 1000. Default value: 1000.
     shared_ptr<int32_t> maxSteps_ {};
+    // The scheduling plan ID. When specified, execution records are associated with the corresponding scheduled node, which facilitates aggregation query by scheduling dimension.
     shared_ptr<string> scheduleId_ {};
+    // The array of target objects. Each element contains an InstanceId and a SessionId.
     shared_ptr<vector<RunAgentTaskRequest::Targets>> targets_ {};
+    // The task configuration ID used to trigger a task with the specified configuration.
     shared_ptr<string> taskConfigId_ {};
-    // The task timeout period in seconds. Valid values: 300 to 3600. Default value: 3600.
+    // The timeout period of the task, in seconds. Valid values: 300 to 3600. Default value: 3600.
     shared_ptr<int32_t> timeoutSeconds_ {};
     // The user instruction in natural language. The Agent performs operations based on this instruction.
     shared_ptr<string> userPrompt_ {};

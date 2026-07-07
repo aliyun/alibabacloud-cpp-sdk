@@ -40,6 +40,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Activates an edge agent device.
+ *
+ * @param request ActivateEdgeMobileAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActivateEdgeMobileAgentResponse
+ */
+ActivateEdgeMobileAgentResponse Client::activateEdgeMobileAgentWithOptions(const ActivateEdgeMobileAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceClass()) {
+    query["DeviceClass"] = request.getDeviceClass();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasDeviceMeta()) {
+    query["DeviceMeta"] = request.getDeviceMeta();
+  }
+
+  if (!!request.hasLicenseKey()) {
+    query["LicenseKey"] = request.getLicenseKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ActivateEdgeMobileAgent"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActivateEdgeMobileAgentResponse>();
+}
+
+/**
+ * @summary Activates an edge agent device.
+ *
+ * @param request ActivateEdgeMobileAgentRequest
+ * @return ActivateEdgeMobileAgentResponse
+ */
+ActivateEdgeMobileAgentResponse Client::activateEdgeMobileAgent(const ActivateEdgeMobileAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return activateEdgeMobileAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
  *
  * @description - You can attach to an ADB key pair only to cloud phone instances in the Running state.
@@ -1193,6 +1247,84 @@ CreateCustomImageResponse Client::createCustomImageWithOptions(const CreateCusto
 CreateCustomImageResponse Client::createCustomImage(const CreateCustomImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCustomImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Places an order to purchase an edge smart gateway agent package.
+ *
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+ *
+ * @param request CreateEdgeMobileAgentPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEdgeMobileAgentPackageResponse
+ */
+CreateEdgeMobileAgentPackageResponse Client::createEdgeMobileAgentPackageWithOptions(const CreateEdgeMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasBizRegionId()) {
+    query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDeviceClass()) {
+    query["DeviceClass"] = request.getDeviceClass();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
+  }
+
+  if (!!request.hasQuantity()) {
+    query["Quantity"] = request.getQuantity();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateEdgeMobileAgentPackage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEdgeMobileAgentPackageResponse>();
+}
+
+/**
+ * @summary Places an order to purchase an edge smart gateway agent package.
+ *
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+ *
+ * @param request CreateEdgeMobileAgentPackageRequest
+ * @return CreateEdgeMobileAgentPackageResponse
+ */
+CreateEdgeMobileAgentPackageResponse Client::createEdgeMobileAgentPackage(const CreateEdgeMobileAgentPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createEdgeMobileAgentPackageWithOptions(request, runtime);
 }
 
 /**
@@ -2671,6 +2803,68 @@ DescribeDisplayConfigResponse Client::describeDisplayConfigWithOptions(const Des
 DescribeDisplayConfigResponse Client::describeDisplayConfig(const DescribeDisplayConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDisplayConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of edge agent packages.
+ *
+ * @param request DescribeEdgeMobileAgentPackagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeEdgeMobileAgentPackagesResponse
+ */
+DescribeEdgeMobileAgentPackagesResponse Client::describeEdgeMobileAgentPackagesWithOptions(const DescribeEdgeMobileAgentPackagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeviceClass()) {
+    query["DeviceClass"] = request.getDeviceClass();
+  }
+
+  if (!!request.hasLicenseKeys()) {
+    query["LicenseKeys"] = request.getLicenseKeys();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPackageIds()) {
+    query["PackageIds"] = request.getPackageIds();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeEdgeMobileAgentPackages"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeEdgeMobileAgentPackagesResponse>();
+}
+
+/**
+ * @summary Queries the details of edge agent packages.
+ *
+ * @param request DescribeEdgeMobileAgentPackagesRequest
+ * @return DescribeEdgeMobileAgentPackagesResponse
+ */
+DescribeEdgeMobileAgentPackagesResponse Client::describeEdgeMobileAgentPackages(const DescribeEdgeMobileAgentPackagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeEdgeMobileAgentPackagesWithOptions(request, runtime);
 }
 
 /**
@@ -5458,6 +5652,56 @@ RecoveryFileResponse Client::recoveryFile(const RecoveryFileRequest &request) {
 }
 
 /**
+ * @summary Refreshes model authentication tokens.
+ *
+ * @param request RefreshAuthTokensRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefreshAuthTokensResponse
+ */
+RefreshAuthTokensResponse Client::refreshAuthTokensWithOptions(const RefreshAuthTokensRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpireSeconds()) {
+    query["ExpireSeconds"] = request.getExpireSeconds();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasLicenseKeys()) {
+    query["LicenseKeys"] = request.getLicenseKeys();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RefreshAuthTokens"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefreshAuthTokensResponse>();
+}
+
+/**
+ * @summary Refreshes model authentication tokens.
+ *
+ * @param request RefreshAuthTokensRequest
+ * @return RefreshAuthTokensResponse
+ */
+RefreshAuthTokensResponse Client::refreshAuthTokens(const RefreshAuthTokensRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return refreshAuthTokensWithOptions(request, runtime);
+}
+
+/**
  * @summary Renews subscription Cloud Phone instance groups. If a subscription instance group expires, the system automatically deletes the instance group and its instances after 15 days. You cannot recover deleted resources. Renew your instance groups promptly to prevent resource loss.
  *
  * @param request RenewAndroidInstanceGroupsRequest
@@ -5758,7 +6002,7 @@ ResumeAgentTaskResponse Client::resumeAgentTask(const ResumeAgentTaskRequest &re
 }
 
 /**
- * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
+ * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
  *
  * @param request RunAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5817,7 +6061,7 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
 }
 
 /**
- * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
+ * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
  *
  * @param request RunAgentTaskRequest
  * @return RunAgentTaskResponse

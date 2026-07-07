@@ -3,6 +3,9 @@
 #define ALIBABACLOUD_EDSAIC20230930MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DataImageRegionDistributeMapValue.hpp>
+#include <alibabacloud/models/ActivateEdgeMobileAgentRequest.hpp>
+#include <alibabacloud/models/ActivateEdgeMobileAgentResponseBody.hpp>
+#include <alibabacloud/models/ActivateEdgeMobileAgentResponse.hpp>
 #include <alibabacloud/models/AttachKeyPairRequest.hpp>
 #include <alibabacloud/models/AttachKeyPairResponseBody.hpp>
 #include <alibabacloud/models/AttachKeyPairResponse.hpp>
@@ -48,6 +51,9 @@
 #include <alibabacloud/models/CreateCustomImageRequest.hpp>
 #include <alibabacloud/models/CreateCustomImageResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomImageResponse.hpp>
+#include <alibabacloud/models/CreateEdgeMobileAgentPackageRequest.hpp>
+#include <alibabacloud/models/CreateEdgeMobileAgentPackageResponseBody.hpp>
+#include <alibabacloud/models/CreateEdgeMobileAgentPackageResponse.hpp>
 #include <alibabacloud/models/CreateKeyPairRequest.hpp>
 #include <alibabacloud/models/CreateKeyPairResponseBody.hpp>
 #include <alibabacloud/models/CreateKeyPairResponse.hpp>
@@ -123,6 +129,9 @@
 #include <alibabacloud/models/DescribeDisplayConfigRequest.hpp>
 #include <alibabacloud/models/DescribeDisplayConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeDisplayConfigResponse.hpp>
+#include <alibabacloud/models/DescribeEdgeMobileAgentPackagesRequest.hpp>
+#include <alibabacloud/models/DescribeEdgeMobileAgentPackagesResponseBody.hpp>
+#include <alibabacloud/models/DescribeEdgeMobileAgentPackagesResponse.hpp>
 #include <alibabacloud/models/DescribeImageListRequest.hpp>
 #include <alibabacloud/models/DescribeImageListResponseBody.hpp>
 #include <alibabacloud/models/DescribeImageListResponse.hpp>
@@ -267,6 +276,9 @@
 #include <alibabacloud/models/RecoveryFileRequest.hpp>
 #include <alibabacloud/models/RecoveryFileResponseBody.hpp>
 #include <alibabacloud/models/RecoveryFileResponse.hpp>
+#include <alibabacloud/models/RefreshAuthTokensRequest.hpp>
+#include <alibabacloud/models/RefreshAuthTokensResponseBody.hpp>
+#include <alibabacloud/models/RefreshAuthTokensResponse.hpp>
 #include <alibabacloud/models/RenewAndroidInstanceGroupsRequest.hpp>
 #include <alibabacloud/models/RenewAndroidInstanceGroupsResponseBody.hpp>
 #include <alibabacloud/models/RenewAndroidInstanceGroupsResponse.hpp>

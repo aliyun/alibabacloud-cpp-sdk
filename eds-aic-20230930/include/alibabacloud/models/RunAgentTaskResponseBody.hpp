@@ -114,16 +114,35 @@ namespace Models
     protected:
       // The current status of the task. Valid values:
       // 
-      // - PENDING: The task is being created.
-      // - RUNNING: The task is running.
-      // - COMPLETED: The task is completed.
-      // - FAILED: The task failed.
-      // - TIMEOUT: The task execution timed out.
+      // PENDING: The task is being created.
+      // 
+      // RUNNING: The task is running.
+      // 
+      // COMPLETED: The task is completed.
+      // 
+      // FAILED: The task failed.
+      // 
+      // TIMEOUT: The task timed out.
+      // 
+      // CALL_FOR_USER: The task is waiting for user action.
+      // 
+      // PAUSING: The task is being paused.
+      // 
+      // PAUSED: The task is paused.
+      // 
+      // CANCELLING: The task is being canceled.
+      // 
+      // CANCELED: The task is canceled.
+      // 
+      // STOPPED: The task is stopped.
+      // 
+      // TIMEOUT: The task timed out.
       shared_ptr<string> currentStatus_ {};
       // The Mobile node ID.
       shared_ptr<string> instanceId_ {};
       // The time when the task was created, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
+      // The session ID. Tasks with the same session ID share context.
       shared_ptr<string> sessionId_ {};
       // The task ID, which is globally unique.
       shared_ptr<string> taskId_ {};
