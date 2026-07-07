@@ -270,13 +270,13 @@ namespace Models
         shared_ptr<int64_t> consumedQuota_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
-        // The creator.
+        // The user who created the activity.
         shared_ptr<string> createdBy_ {};
-        // The eligibility configuration (JSON).
+        // The eligibility configuration in JSON format.
         shared_ptr<string> eligibilityConfig_ {};
         // The end date.
         shared_ptr<string> endDate_ {};
-        // The offer configuration (JSON).
+        // The offer configuration in JSON format.
         shared_ptr<string> offerConfig_ {};
         // The offer configuration summary.
         shared_ptr<string> offerConfigSummary_ {};
@@ -288,7 +288,7 @@ namespace Models
         shared_ptr<string> status_ {};
         // The total quota.
         shared_ptr<int64_t> totalQuota_ {};
-        // The touchpoint configuration (JSON).
+        // The touchpoint configuration in JSON format.
         shared_ptr<string> touchpointConfig_ {};
         // The update time.
         shared_ptr<string> updateTime_ {};
@@ -319,7 +319,7 @@ namespace Models
     protected:
       // The list of promotional activities.
       shared_ptr<vector<Module::Activities>> activities_ {};
-      // The total count.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -423,7 +423,7 @@ namespace Models
 
 
   protected:
-    // The access denied detail.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};

@@ -94,7 +94,9 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Next& obj) { 
           DARABONBA_PTR_TO_JSON(Certificate, certificate_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(DnsConflict, dnsConflict_);
           DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+          DARABONBA_PTR_TO_JSON(Migration, migration_);
           DARABONBA_PTR_TO_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_TO_JSON(Ownership, ownership_);
           DARABONBA_PTR_TO_JSON(Qualification, qualification_);
@@ -104,7 +106,9 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Next& obj) { 
           DARABONBA_PTR_FROM_JSON(Certificate, certificate_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(DnsConflict, dnsConflict_);
           DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+          DARABONBA_PTR_FROM_JSON(Migration, migration_);
           DARABONBA_PTR_FROM_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_FROM_JSON(Ownership, ownership_);
           DARABONBA_PTR_FROM_JSON(Qualification, qualification_);
@@ -128,11 +132,13 @@ namespace Models
             DARABONBA_PTR_TO_JSON(DnsRecord, dnsRecord_);
             DARABONBA_PTR_TO_JSON(ErrorMsg, errorMsg_);
             DARABONBA_PTR_TO_JSON(VerificationStatus, verificationStatus_);
+            DARABONBA_PTR_TO_JSON(VerificationStatusCode, verificationStatusCode_);
           };
           friend void from_json(const Darabonba::Json& j, Verification& obj) { 
             DARABONBA_PTR_FROM_JSON(DnsRecord, dnsRecord_);
             DARABONBA_PTR_FROM_JSON(ErrorMsg, errorMsg_);
             DARABONBA_PTR_FROM_JSON(VerificationStatus, verificationStatus_);
+            DARABONBA_PTR_FROM_JSON(VerificationStatusCode, verificationStatusCode_);
           };
           Verification() = default ;
           Verification(const Verification &) = default ;
@@ -201,7 +207,7 @@ namespace Models
           };
 
           virtual bool empty() const override { return this->dnsRecord_ == nullptr
-        && this->errorMsg_ == nullptr && this->verificationStatus_ == nullptr; };
+        && this->errorMsg_ == nullptr && this->verificationStatus_ == nullptr && this->verificationStatusCode_ == nullptr; };
           // dnsRecord Field Functions 
           bool hasDnsRecord() const { return this->dnsRecord_ != nullptr;};
           void deleteDnsRecord() { this->dnsRecord_ = nullptr;};
@@ -225,6 +231,13 @@ namespace Models
           inline Verification& setVerificationStatus(string verificationStatus) { DARABONBA_PTR_SET_VALUE(verificationStatus_, verificationStatus) };
 
 
+          // verificationStatusCode Field Functions 
+          bool hasVerificationStatusCode() const { return this->verificationStatusCode_ != nullptr;};
+          void deleteVerificationStatusCode() { this->verificationStatusCode_ = nullptr;};
+          inline string getVerificationStatusCode() const { DARABONBA_PTR_GET_DEFAULT(verificationStatusCode_, "") };
+          inline Verification& setVerificationStatusCode(string verificationStatusCode) { DARABONBA_PTR_SET_VALUE(verificationStatusCode_, verificationStatusCode) };
+
+
         protected:
           // The DNS record that the user needs to configure.
           shared_ptr<Verification::DnsRecord> dnsRecord_ {};
@@ -232,6 +245,7 @@ namespace Models
           shared_ptr<string> errorMsg_ {};
           // The ownership verification status.
           shared_ptr<string> verificationStatus_ {};
+          shared_ptr<string> verificationStatusCode_ {};
         };
 
         class Resolution : public Darabonba::Model {
@@ -406,10 +420,12 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const Ownership& obj) { 
             DARABONBA_PTR_TO_JSON(Account, account_);
             DARABONBA_PTR_TO_JSON(Provider, provider_);
+            DARABONBA_PTR_TO_JSON(RootDomain, rootDomain_);
           };
           friend void from_json(const Darabonba::Json& j, Ownership& obj) { 
             DARABONBA_PTR_FROM_JSON(Account, account_);
             DARABONBA_PTR_FROM_JSON(Provider, provider_);
+            DARABONBA_PTR_FROM_JSON(RootDomain, rootDomain_);
           };
           Ownership() = default ;
           Ownership(const Ownership &) = default ;
@@ -423,7 +439,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->account_ == nullptr
-        && this->provider_ == nullptr; };
+        && this->provider_ == nullptr && this->rootDomain_ == nullptr; };
           // account Field Functions 
           bool hasAccount() const { return this->account_ != nullptr;};
           void deleteAccount() { this->account_ = nullptr;};
@@ -438,11 +454,179 @@ namespace Models
           inline Ownership& setProvider(string provider) { DARABONBA_PTR_SET_VALUE(provider_, provider) };
 
 
+          // rootDomain Field Functions 
+          bool hasRootDomain() const { return this->rootDomain_ != nullptr;};
+          void deleteRootDomain() { this->rootDomain_ = nullptr;};
+          inline string getRootDomain() const { DARABONBA_PTR_GET_DEFAULT(rootDomain_, "") };
+          inline Ownership& setRootDomain(string rootDomain) { DARABONBA_PTR_SET_VALUE(rootDomain_, rootDomain) };
+
+
         protected:
           // The account owner type. Valid values: CURRENT and OTHER.
           shared_ptr<string> account_ {};
           // The registrar type. Valid values: ALIYUN and OTHER.
           shared_ptr<string> provider_ {};
+          shared_ptr<string> rootDomain_ {};
+        };
+
+        class Migration : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Migration& obj) { 
+            DARABONBA_PTR_TO_JSON(MigrationStatus, migrationStatus_);
+            DARABONBA_ANY_TO_JSON(PreviousDomain, previousDomain_);
+          };
+          friend void from_json(const Darabonba::Json& j, Migration& obj) { 
+            DARABONBA_PTR_FROM_JSON(MigrationStatus, migrationStatus_);
+            DARABONBA_ANY_FROM_JSON(PreviousDomain, previousDomain_);
+          };
+          Migration() = default ;
+          Migration(const Migration &) = default ;
+          Migration(Migration &&) = default ;
+          Migration(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Migration() = default ;
+          Migration& operator=(const Migration &) = default ;
+          Migration& operator=(Migration &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->migrationStatus_ == nullptr
+        && this->previousDomain_ == nullptr; };
+          // migrationStatus Field Functions 
+          bool hasMigrationStatus() const { return this->migrationStatus_ != nullptr;};
+          void deleteMigrationStatus() { this->migrationStatus_ = nullptr;};
+          inline string getMigrationStatus() const { DARABONBA_PTR_GET_DEFAULT(migrationStatus_, "") };
+          inline Migration& setMigrationStatus(string migrationStatus) { DARABONBA_PTR_SET_VALUE(migrationStatus_, migrationStatus) };
+
+
+          // previousDomain Field Functions 
+          bool hasPreviousDomain() const { return this->previousDomain_ != nullptr;};
+          void deletePreviousDomain() { this->previousDomain_ = nullptr;};
+          inline           const Darabonba::Json & getPreviousDomain() const { DARABONBA_GET(previousDomain_) };
+          Darabonba::Json & getPreviousDomain() { DARABONBA_GET(previousDomain_) };
+          inline Migration& setPreviousDomain(const Darabonba::Json & previousDomain) { DARABONBA_SET_VALUE(previousDomain_, previousDomain) };
+          inline Migration& setPreviousDomain(Darabonba::Json && previousDomain) { DARABONBA_SET_RVALUE(previousDomain_, previousDomain) };
+
+
+        protected:
+          shared_ptr<string> migrationStatus_ {};
+          Darabonba::Json previousDomain_ {};
+        };
+
+        class DnsConflict : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DnsConflict& obj) { 
+            DARABONBA_PTR_TO_JSON(CanAutoResolve, canAutoResolve_);
+            DARABONBA_PTR_TO_JSON(HasConflict, hasConflict_);
+            DARABONBA_PTR_TO_JSON(Message, message_);
+            DARABONBA_PTR_TO_JSON(Records, records_);
+          };
+          friend void from_json(const Darabonba::Json& j, DnsConflict& obj) { 
+            DARABONBA_PTR_FROM_JSON(CanAutoResolve, canAutoResolve_);
+            DARABONBA_PTR_FROM_JSON(HasConflict, hasConflict_);
+            DARABONBA_PTR_FROM_JSON(Message, message_);
+            DARABONBA_PTR_FROM_JSON(Records, records_);
+          };
+          DnsConflict() = default ;
+          DnsConflict(const DnsConflict &) = default ;
+          DnsConflict(DnsConflict &&) = default ;
+          DnsConflict(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DnsConflict() = default ;
+          DnsConflict& operator=(const DnsConflict &) = default ;
+          DnsConflict& operator=(DnsConflict &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Records : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Records& obj) { 
+              DARABONBA_PTR_TO_JSON(Host, host_);
+              DARABONBA_PTR_TO_JSON(RecordType, recordType_);
+              DARABONBA_PTR_TO_JSON(Value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, Records& obj) { 
+              DARABONBA_PTR_FROM_JSON(Host, host_);
+              DARABONBA_PTR_FROM_JSON(RecordType, recordType_);
+              DARABONBA_PTR_FROM_JSON(Value, value_);
+            };
+            Records() = default ;
+            Records(const Records &) = default ;
+            Records(Records &&) = default ;
+            Records(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Records() = default ;
+            Records& operator=(const Records &) = default ;
+            Records& operator=(Records &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->host_ == nullptr
+        && this->recordType_ == nullptr && this->value_ == nullptr; };
+            // host Field Functions 
+            bool hasHost() const { return this->host_ != nullptr;};
+            void deleteHost() { this->host_ = nullptr;};
+            inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+            inline Records& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
+
+
+            // recordType Field Functions 
+            bool hasRecordType() const { return this->recordType_ != nullptr;};
+            void deleteRecordType() { this->recordType_ = nullptr;};
+            inline string getRecordType() const { DARABONBA_PTR_GET_DEFAULT(recordType_, "") };
+            inline Records& setRecordType(string recordType) { DARABONBA_PTR_SET_VALUE(recordType_, recordType) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+            inline Records& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+          protected:
+            shared_ptr<string> host_ {};
+            shared_ptr<string> recordType_ {};
+            shared_ptr<string> value_ {};
+          };
+
+          virtual bool empty() const override { return this->canAutoResolve_ == nullptr
+        && this->hasConflict_ == nullptr && this->message_ == nullptr && this->records_ == nullptr; };
+          // canAutoResolve Field Functions 
+          bool hasCanAutoResolve() const { return this->canAutoResolve_ != nullptr;};
+          void deleteCanAutoResolve() { this->canAutoResolve_ = nullptr;};
+          inline bool getCanAutoResolve() const { DARABONBA_PTR_GET_DEFAULT(canAutoResolve_, false) };
+          inline DnsConflict& setCanAutoResolve(bool canAutoResolve) { DARABONBA_PTR_SET_VALUE(canAutoResolve_, canAutoResolve) };
+
+
+          // hasConflict Field Functions 
+          bool hasHasConflict() const { return this->hasConflict_ != nullptr;};
+          void deleteHasConflict() { this->hasConflict_ = nullptr;};
+          inline bool getHasConflict() const { DARABONBA_PTR_GET_DEFAULT(hasConflict_, false) };
+          inline DnsConflict& setHasConflict(bool hasConflict) { DARABONBA_PTR_SET_VALUE(hasConflict_, hasConflict) };
+
+
+          // message Field Functions 
+          bool hasMessage() const { return this->message_ != nullptr;};
+          void deleteMessage() { this->message_ = nullptr;};
+          inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+          inline DnsConflict& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+          // records Field Functions 
+          bool hasRecords() const { return this->records_ != nullptr;};
+          void deleteRecords() { this->records_ = nullptr;};
+          inline const vector<DnsConflict::Records> & getRecords() const { DARABONBA_PTR_GET_CONST(records_, vector<DnsConflict::Records>) };
+          inline vector<DnsConflict::Records> getRecords() { DARABONBA_PTR_GET(records_, vector<DnsConflict::Records>) };
+          inline DnsConflict& setRecords(const vector<DnsConflict::Records> & records) { DARABONBA_PTR_SET_VALUE(records_, records) };
+          inline DnsConflict& setRecords(vector<DnsConflict::Records> && records) { DARABONBA_PTR_SET_RVALUE(records_, records) };
+
+
+        protected:
+          shared_ptr<bool> canAutoResolve_ {};
+          shared_ptr<bool> hasConflict_ {};
+          shared_ptr<string> message_ {};
+          shared_ptr<vector<DnsConflict::Records>> records_ {};
         };
 
         class Certificate : public Darabonba::Model {
@@ -501,19 +685,19 @@ namespace Models
 
 
         protected:
-          // The certificate name.
+          // The name of the certificate.
           shared_ptr<string> certificateName_ {};
-          // The certificate status.
+          // The status of the certificate.
           shared_ptr<string> certificateStatus_ {};
-          // The certificate type.
+          // The type of the certificate.
           shared_ptr<string> certificateType_ {};
           // The expiration date of the certificate.
           shared_ptr<string> endTime_ {};
         };
 
         virtual bool empty() const override { return this->certificate_ == nullptr
-        && this->createTime_ == nullptr && this->domainName_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->qualification_ == nullptr
-        && this->resolution_ == nullptr && this->verification_ == nullptr; };
+        && this->createTime_ == nullptr && this->dnsConflict_ == nullptr && this->domainName_ == nullptr && this->migration_ == nullptr && this->overallStatus_ == nullptr
+        && this->ownership_ == nullptr && this->qualification_ == nullptr && this->resolution_ == nullptr && this->verification_ == nullptr; };
         // certificate Field Functions 
         bool hasCertificate() const { return this->certificate_ != nullptr;};
         void deleteCertificate() { this->certificate_ = nullptr;};
@@ -530,11 +714,29 @@ namespace Models
         inline Next& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+        // dnsConflict Field Functions 
+        bool hasDnsConflict() const { return this->dnsConflict_ != nullptr;};
+        void deleteDnsConflict() { this->dnsConflict_ = nullptr;};
+        inline const Next::DnsConflict & getDnsConflict() const { DARABONBA_PTR_GET_CONST(dnsConflict_, Next::DnsConflict) };
+        inline Next::DnsConflict getDnsConflict() { DARABONBA_PTR_GET(dnsConflict_, Next::DnsConflict) };
+        inline Next& setDnsConflict(const Next::DnsConflict & dnsConflict) { DARABONBA_PTR_SET_VALUE(dnsConflict_, dnsConflict) };
+        inline Next& setDnsConflict(Next::DnsConflict && dnsConflict) { DARABONBA_PTR_SET_RVALUE(dnsConflict_, dnsConflict) };
+
+
         // domainName Field Functions 
         bool hasDomainName() const { return this->domainName_ != nullptr;};
         void deleteDomainName() { this->domainName_ = nullptr;};
         inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
         inline Next& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+        // migration Field Functions 
+        bool hasMigration() const { return this->migration_ != nullptr;};
+        void deleteMigration() { this->migration_ = nullptr;};
+        inline const Next::Migration & getMigration() const { DARABONBA_PTR_GET_CONST(migration_, Next::Migration) };
+        inline Next::Migration getMigration() { DARABONBA_PTR_GET(migration_, Next::Migration) };
+        inline Next& setMigration(const Next::Migration & migration) { DARABONBA_PTR_SET_VALUE(migration_, migration) };
+        inline Next& setMigration(Next::Migration && migration) { DARABONBA_PTR_SET_RVALUE(migration_, migration) };
 
 
         // overallStatus Field Functions 
@@ -581,12 +783,14 @@ namespace Models
 
 
       protected:
-        // The SSL certificate information of the domain name.
+        // The domain name SSL certificate information.
         shared_ptr<Next::Certificate> certificate_ {};
-        // The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
+        // The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
+        shared_ptr<Next::DnsConflict> dnsConflict_ {};
         // The domain name.
         shared_ptr<string> domainName_ {};
+        shared_ptr<Next::Migration> migration_ {};
         // The overall binding status.
         shared_ptr<string> overallStatus_ {};
         // The domain name ownership information.
@@ -604,7 +808,9 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Data& obj) { 
           DARABONBA_PTR_TO_JSON(Certificate, certificate_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(DnsConflict, dnsConflict_);
           DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+          DARABONBA_PTR_TO_JSON(Migration, migration_);
           DARABONBA_PTR_TO_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_TO_JSON(Ownership, ownership_);
           DARABONBA_PTR_TO_JSON(Qualification, qualification_);
@@ -614,7 +820,9 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
           DARABONBA_PTR_FROM_JSON(Certificate, certificate_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(DnsConflict, dnsConflict_);
           DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+          DARABONBA_PTR_FROM_JSON(Migration, migration_);
           DARABONBA_PTR_FROM_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_FROM_JSON(Ownership, ownership_);
           DARABONBA_PTR_FROM_JSON(Qualification, qualification_);
@@ -977,6 +1185,176 @@ namespace Models
           shared_ptr<string> rootDomain_ {};
         };
 
+        class Migration : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Migration& obj) { 
+            DARABONBA_PTR_TO_JSON(MigrationStatus, migrationStatus_);
+            DARABONBA_ANY_TO_JSON(PreviousDomain, previousDomain_);
+          };
+          friend void from_json(const Darabonba::Json& j, Migration& obj) { 
+            DARABONBA_PTR_FROM_JSON(MigrationStatus, migrationStatus_);
+            DARABONBA_ANY_FROM_JSON(PreviousDomain, previousDomain_);
+          };
+          Migration() = default ;
+          Migration(const Migration &) = default ;
+          Migration(Migration &&) = default ;
+          Migration(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Migration() = default ;
+          Migration& operator=(const Migration &) = default ;
+          Migration& operator=(Migration &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->migrationStatus_ == nullptr
+        && this->previousDomain_ == nullptr; };
+          // migrationStatus Field Functions 
+          bool hasMigrationStatus() const { return this->migrationStatus_ != nullptr;};
+          void deleteMigrationStatus() { this->migrationStatus_ = nullptr;};
+          inline string getMigrationStatus() const { DARABONBA_PTR_GET_DEFAULT(migrationStatus_, "") };
+          inline Migration& setMigrationStatus(string migrationStatus) { DARABONBA_PTR_SET_VALUE(migrationStatus_, migrationStatus) };
+
+
+          // previousDomain Field Functions 
+          bool hasPreviousDomain() const { return this->previousDomain_ != nullptr;};
+          void deletePreviousDomain() { this->previousDomain_ = nullptr;};
+          inline           const Darabonba::Json & getPreviousDomain() const { DARABONBA_GET(previousDomain_) };
+          Darabonba::Json & getPreviousDomain() { DARABONBA_GET(previousDomain_) };
+          inline Migration& setPreviousDomain(const Darabonba::Json & previousDomain) { DARABONBA_SET_VALUE(previousDomain_, previousDomain) };
+          inline Migration& setPreviousDomain(Darabonba::Json && previousDomain) { DARABONBA_SET_RVALUE(previousDomain_, previousDomain) };
+
+
+        protected:
+          shared_ptr<string> migrationStatus_ {};
+          Darabonba::Json previousDomain_ {};
+        };
+
+        class DnsConflict : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DnsConflict& obj) { 
+            DARABONBA_PTR_TO_JSON(CanAutoResolve, canAutoResolve_);
+            DARABONBA_PTR_TO_JSON(HasConflict, hasConflict_);
+            DARABONBA_PTR_TO_JSON(Message, message_);
+            DARABONBA_PTR_TO_JSON(Records, records_);
+          };
+          friend void from_json(const Darabonba::Json& j, DnsConflict& obj) { 
+            DARABONBA_PTR_FROM_JSON(CanAutoResolve, canAutoResolve_);
+            DARABONBA_PTR_FROM_JSON(HasConflict, hasConflict_);
+            DARABONBA_PTR_FROM_JSON(Message, message_);
+            DARABONBA_PTR_FROM_JSON(Records, records_);
+          };
+          DnsConflict() = default ;
+          DnsConflict(const DnsConflict &) = default ;
+          DnsConflict(DnsConflict &&) = default ;
+          DnsConflict(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DnsConflict() = default ;
+          DnsConflict& operator=(const DnsConflict &) = default ;
+          DnsConflict& operator=(DnsConflict &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Records : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Records& obj) { 
+              DARABONBA_PTR_TO_JSON(Host, host_);
+              DARABONBA_PTR_TO_JSON(RecordType, recordType_);
+              DARABONBA_PTR_TO_JSON(Status, status_);
+              DARABONBA_PTR_TO_JSON(Value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, Records& obj) { 
+              DARABONBA_PTR_FROM_JSON(Host, host_);
+              DARABONBA_PTR_FROM_JSON(RecordType, recordType_);
+              DARABONBA_PTR_FROM_JSON(Status, status_);
+              DARABONBA_PTR_FROM_JSON(Value, value_);
+            };
+            Records() = default ;
+            Records(const Records &) = default ;
+            Records(Records &&) = default ;
+            Records(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Records() = default ;
+            Records& operator=(const Records &) = default ;
+            Records& operator=(Records &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->host_ == nullptr
+        && this->recordType_ == nullptr && this->status_ == nullptr && this->value_ == nullptr; };
+            // host Field Functions 
+            bool hasHost() const { return this->host_ != nullptr;};
+            void deleteHost() { this->host_ = nullptr;};
+            inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
+            inline Records& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
+
+
+            // recordType Field Functions 
+            bool hasRecordType() const { return this->recordType_ != nullptr;};
+            void deleteRecordType() { this->recordType_ = nullptr;};
+            inline string getRecordType() const { DARABONBA_PTR_GET_DEFAULT(recordType_, "") };
+            inline Records& setRecordType(string recordType) { DARABONBA_PTR_SET_VALUE(recordType_, recordType) };
+
+
+            // status Field Functions 
+            bool hasStatus() const { return this->status_ != nullptr;};
+            void deleteStatus() { this->status_ = nullptr;};
+            inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+            inline Records& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+            inline Records& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+          protected:
+            shared_ptr<string> host_ {};
+            shared_ptr<string> recordType_ {};
+            shared_ptr<string> status_ {};
+            shared_ptr<string> value_ {};
+          };
+
+          virtual bool empty() const override { return this->canAutoResolve_ == nullptr
+        && this->hasConflict_ == nullptr && this->message_ == nullptr && this->records_ == nullptr; };
+          // canAutoResolve Field Functions 
+          bool hasCanAutoResolve() const { return this->canAutoResolve_ != nullptr;};
+          void deleteCanAutoResolve() { this->canAutoResolve_ = nullptr;};
+          inline bool getCanAutoResolve() const { DARABONBA_PTR_GET_DEFAULT(canAutoResolve_, false) };
+          inline DnsConflict& setCanAutoResolve(bool canAutoResolve) { DARABONBA_PTR_SET_VALUE(canAutoResolve_, canAutoResolve) };
+
+
+          // hasConflict Field Functions 
+          bool hasHasConflict() const { return this->hasConflict_ != nullptr;};
+          void deleteHasConflict() { this->hasConflict_ = nullptr;};
+          inline bool getHasConflict() const { DARABONBA_PTR_GET_DEFAULT(hasConflict_, false) };
+          inline DnsConflict& setHasConflict(bool hasConflict) { DARABONBA_PTR_SET_VALUE(hasConflict_, hasConflict) };
+
+
+          // message Field Functions 
+          bool hasMessage() const { return this->message_ != nullptr;};
+          void deleteMessage() { this->message_ = nullptr;};
+          inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+          inline DnsConflict& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+          // records Field Functions 
+          bool hasRecords() const { return this->records_ != nullptr;};
+          void deleteRecords() { this->records_ = nullptr;};
+          inline const vector<DnsConflict::Records> & getRecords() const { DARABONBA_PTR_GET_CONST(records_, vector<DnsConflict::Records>) };
+          inline vector<DnsConflict::Records> getRecords() { DARABONBA_PTR_GET(records_, vector<DnsConflict::Records>) };
+          inline DnsConflict& setRecords(const vector<DnsConflict::Records> & records) { DARABONBA_PTR_SET_VALUE(records_, records) };
+          inline DnsConflict& setRecords(vector<DnsConflict::Records> && records) { DARABONBA_PTR_SET_RVALUE(records_, records) };
+
+
+        protected:
+          shared_ptr<bool> canAutoResolve_ {};
+          shared_ptr<bool> hasConflict_ {};
+          shared_ptr<string> message_ {};
+          shared_ptr<vector<DnsConflict::Records>> records_ {};
+        };
+
         class Certificate : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Certificate& obj) { 
@@ -1033,19 +1411,19 @@ namespace Models
 
 
         protected:
-          // The certificate name.
+          // The name of the certificate.
           shared_ptr<string> certificateName_ {};
-          // The certificate status.
+          // The status of the certificate.
           shared_ptr<string> certificateStatus_ {};
-          // The certificate type.
+          // The type of the certificate.
           shared_ptr<string> certificateType_ {};
           // The expiration date of the certificate.
           shared_ptr<string> endTime_ {};
         };
 
         virtual bool empty() const override { return this->certificate_ == nullptr
-        && this->createTime_ == nullptr && this->domainName_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->qualification_ == nullptr
-        && this->resolution_ == nullptr && this->verification_ == nullptr; };
+        && this->createTime_ == nullptr && this->dnsConflict_ == nullptr && this->domainName_ == nullptr && this->migration_ == nullptr && this->overallStatus_ == nullptr
+        && this->ownership_ == nullptr && this->qualification_ == nullptr && this->resolution_ == nullptr && this->verification_ == nullptr; };
         // certificate Field Functions 
         bool hasCertificate() const { return this->certificate_ != nullptr;};
         void deleteCertificate() { this->certificate_ = nullptr;};
@@ -1062,11 +1440,29 @@ namespace Models
         inline Data& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+        // dnsConflict Field Functions 
+        bool hasDnsConflict() const { return this->dnsConflict_ != nullptr;};
+        void deleteDnsConflict() { this->dnsConflict_ = nullptr;};
+        inline const Data::DnsConflict & getDnsConflict() const { DARABONBA_PTR_GET_CONST(dnsConflict_, Data::DnsConflict) };
+        inline Data::DnsConflict getDnsConflict() { DARABONBA_PTR_GET(dnsConflict_, Data::DnsConflict) };
+        inline Data& setDnsConflict(const Data::DnsConflict & dnsConflict) { DARABONBA_PTR_SET_VALUE(dnsConflict_, dnsConflict) };
+        inline Data& setDnsConflict(Data::DnsConflict && dnsConflict) { DARABONBA_PTR_SET_RVALUE(dnsConflict_, dnsConflict) };
+
+
         // domainName Field Functions 
         bool hasDomainName() const { return this->domainName_ != nullptr;};
         void deleteDomainName() { this->domainName_ = nullptr;};
         inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
         inline Data& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+        // migration Field Functions 
+        bool hasMigration() const { return this->migration_ != nullptr;};
+        void deleteMigration() { this->migration_ = nullptr;};
+        inline const Data::Migration & getMigration() const { DARABONBA_PTR_GET_CONST(migration_, Data::Migration) };
+        inline Data::Migration getMigration() { DARABONBA_PTR_GET(migration_, Data::Migration) };
+        inline Data& setMigration(const Data::Migration & migration) { DARABONBA_PTR_SET_VALUE(migration_, migration) };
+        inline Data& setMigration(Data::Migration && migration) { DARABONBA_PTR_SET_RVALUE(migration_, migration) };
 
 
         // overallStatus Field Functions 
@@ -1113,12 +1509,14 @@ namespace Models
 
 
       protected:
-        // The SSL certificate information of the domain name.
+        // The domain name SSL certificate information.
         shared_ptr<Data::Certificate> certificate_ {};
-        // The time when the instance was created. Format: yyyy-MM-dd HH:mm:ss.
+        // The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
+        shared_ptr<Data::DnsConflict> dnsConflict_ {};
         // The domain name.
         shared_ptr<string> domainName_ {};
+        shared_ptr<Data::Migration> migration_ {};
         // The overall binding status.
         shared_ptr<string> overallStatus_ {};
         // The domain name ownership information.
@@ -1204,7 +1602,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The query results.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The decision weight.
       shared_ptr<Module::Next> next_ {};
@@ -1214,7 +1612,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes up to 1,000 recent records per query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // The server processes up to 1000 recent records beyond the pagination limit. If the results exceed 1000 entries, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -1322,32 +1720,32 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of entries to return per query.
+    // The maximum number of entries per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListAppInstanceDomainsResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if there are no more results.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // A reserved parameter.
     shared_ptr<bool> synchro_ {};

@@ -180,29 +180,29 @@ namespace Models
 
 
     protected:
-      // The time when the access token expires.
+      // Access token time-to-live (TTL)
       shared_ptr<string> accessTokenExpiresAt_ {};
-      // The time when the access token was issued.
+      // Access token issue Time
       shared_ptr<string> accessTokenIssuedAt_ {};
-      // The access token value.
+      // Access token value
       shared_ptr<string> accessTokenValue_ {};
       // aliyunPk
       shared_ptr<string> aliyunPk_ {};
-      // The extension properties.
+      // Extension property
       shared_ptr<string> attributes_ {};
-      // The authorization code type.
+      // Authorization code Type
       shared_ptr<string> authorizationGrantType_ {};
       // bid
       shared_ptr<string> bid_ {};
-      // The parent Alibaba Cloud account ID.
+      // Parent Alibaba Cloud PK
       shared_ptr<string> parentPk_ {};
-      // The time when the refresh token expires.
+      // Time-to-live (TTL) of the refresh token
       shared_ptr<string> refreshTokenExpiresAt_ {};
-      // The time when the refresh token was issued.
+      // Refresh token issue Time
       shared_ptr<string> refreshTokenIssuedAt_ {};
-      // The refresh token value.
+      // Refresh token value
       shared_ptr<string> refreshTokenValue_ {};
-      // The external unique identifier.
+      // Externally Unique
       shared_ptr<string> uuid_ {};
     };
 
@@ -291,28 +291,28 @@ namespace Models
 
 
   protected:
-    // The details about the access deny.
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // App Name.
     shared_ptr<string> appName_ {};
-    // The dynamic fault code.
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic fault message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The fault parameters.
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The response object.
+    // Returned object.
     shared_ptr<IntrospectAppInstanceTicketForPreviewResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The fault code.
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
-    // The root fault message.
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 
