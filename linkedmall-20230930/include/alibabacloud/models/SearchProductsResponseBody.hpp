@@ -166,10 +166,15 @@ namespace Models
 
 
       protected:
+        // Category ID
         shared_ptr<int64_t> categoryId_ {};
+        // Is leaf node
         shared_ptr<bool> isLeaf_ {};
+        // Level
         shared_ptr<int32_t> level_ {};
+        // Category name
         shared_ptr<string> name_ {};
+        // Parent class ID
         shared_ptr<int64_t> parentId_ {};
       };
 
@@ -366,31 +371,57 @@ namespace Models
 
 
     protected:
+      // Brand name
       shared_ptr<string> bandName_ {};
+      // Reason for unsellable status
       shared_ptr<string> canNotSellReason_ {};
+      // Whether the product is sellable (calculated value)
       shared_ptr<bool> canSell_ {};
+      // Category
       shared_ptr<vector<Products::CategoryChain>> categoryChain_ {};
+      // Billing cycle
       shared_ptr<vector<string>> credit_ {};
+      // Price difference range
       shared_ptr<string> diffPrice_ {};
+      // Distribution purchase price range
       shared_ptr<string> distributionPrice_ {};
+      // Distribution premium rate range
       shared_ptr<string> distributionPriceRatio_ {};
+      // Source platform
       shared_ptr<string> externalPlatformType_ {};
+      // Creation time.
       shared_ptr<string> gmtCreate_ {};
+      // Last modified time.
       shared_ptr<string> gmtModified_ {};
+      // Whether the product is in inventory
       shared_ptr<bool> inGroup_ {};
+      // Inventory time
       shared_ptr<string> inGroupTime_ {};
+      // Inventory risk level
       shared_ptr<string> inventoryRiskLevel_ {};
+      // Invoice type
       shared_ptr<string> invoiceType_ {};
+      // LM product ID
       shared_ptr<string> lmItemId_ {};
+      // Product main image URL
       shared_ptr<string> picUrl_ {};
+      // Suggested retail price range
       shared_ptr<string> platformPrice_ {};
+      // Strikethrough price range
       shared_ptr<string> platformReservePrice_ {};
+      // Product ID
       shared_ptr<string> productId_ {};
+      // Product name
       shared_ptr<string> productName_ {};
+      // Channel store name
       shared_ptr<string> shopName_ {};
+      // Accumulated sales volume
       shared_ptr<string> soldQuantity_ {};
+      // Tax code
       shared_ptr<string> taxCode_ {};
+      // Tax rate
       shared_ptr<int64_t> taxRate_ {};
+      // Sales pattern
       shared_ptr<string> tradeMode_ {};
     };
 
@@ -413,7 +444,9 @@ namespace Models
 
 
   protected:
+    // Product collection
     shared_ptr<vector<SearchProductsResponseBody::Products>> products_ {};
+    // Total quantity
     shared_ptr<int32_t> total_ {};
   };
 

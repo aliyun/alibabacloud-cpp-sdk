@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Distributor shop ID
+    // 
     // This parameter is required.
     shared_ptr<string> distributorShopId_ {};
+    // Area code
     shared_ptr<string> divisionCode_ {};
   };
 

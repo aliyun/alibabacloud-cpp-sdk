@@ -308,38 +308,81 @@ namespace Models
 
 
   protected:
+    // Brand name
     shared_ptr<string> brandName_ {};
+    // Collection of category IDs
     shared_ptr<vector<string>> categoryIds_ {};
+    // Creation end time
     shared_ptr<string> createEndTime_ {};
+    // Creation start time
     shared_ptr<string> createStartTime_ {};
+    // Upper limit of distribution purchase price
     shared_ptr<int64_t> distributionHighPrice_ {};
+    // Upper limit of distribution premium rate
     shared_ptr<int64_t> distributionHighPriceRatio_ {};
+    // Lower limit of distribution purchase price
     shared_ptr<int64_t> distributionLowPrice_ {};
+    // Lower limit of distribution premium rate
     shared_ptr<int64_t> distributionLowPriceRatio_ {};
+    // Upper limit of strikethrough price
     shared_ptr<int64_t> highMarkPrice_ {};
+    // Upper limit of suggested retail price
     shared_ptr<int64_t> highPrice_ {};
+    // Whether the product is in inventory
     shared_ptr<bool> inGroup_ {};
+    // End time of the product’s entry period.
     shared_ptr<string> inGroupEndTime_ {};
+    // Inventory start time
     shared_ptr<string> inGroupStartTime_ {};
+    // Inventory risk level
     shared_ptr<string> inventoryRiskLevel_ {};
+    // LM product ID
     shared_ptr<string> lmItemId_ {};
+    // Lower limit of strikethrough price
     shared_ptr<int64_t> lowMarkPrice_ {};
+    // Lower limit of suggested retail price
     shared_ptr<int64_t> lowPrice_ {};
+    // Modification end time
     shared_ptr<string> modifyEndTime_ {};
+    // Modification start time
     shared_ptr<string> modifyStartTime_ {};
+    // Sort field
+    // 
+    // > - Used in combination with the sort direction field
     shared_ptr<string> orderBy_ {};
+    // Sort direction
+    // 
+    // > - Used in combination with the sort field
     shared_ptr<string> orderDirection_ {};
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
+    // 
+    // > - Maximum of 20 items per page
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Source platform
     shared_ptr<string> platform_ {};
+    // Product ID
     shared_ptr<string> productId_ {};
+    // Product name
     shared_ptr<string> productName_ {};
+    // Product status
     shared_ptr<string> productStatus_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
+    // Tax rate
+    // 
+    // > - Supports combining multiple tax rate enumeration values as request parameters. Use commas to separate them, for example: Rate0,Rate1.
+    // >
+    // > - HasRate cannot be combined with other enumeration values as request parameters.
     shared_ptr<string> taxRate_ {};
+    // Sales pattern
     shared_ptr<string> tradeModeAndCredit_ {};
   };
 

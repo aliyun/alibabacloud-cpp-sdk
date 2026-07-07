@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Amount payable
     shared_ptr<string> fundAmountMoney_ {};
   };
 

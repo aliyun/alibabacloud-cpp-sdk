@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Specification key
     shared_ptr<string> key_ {};
+    // Specification ID
     shared_ptr<int64_t> keyId_ {};
+    // Specification value
     shared_ptr<string> value_ {};
+    // Specification value alias (Recommendation: If this field is not empty (null), use its value as the frontend display specification; if this field is empty (null), use the value field as the frontend display specification.)
     shared_ptr<string> valueAlias_ {};
+    // Specification value ID
     shared_ptr<int64_t> valueId_ {};
   };
 

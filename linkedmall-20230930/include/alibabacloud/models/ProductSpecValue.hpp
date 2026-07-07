@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specification value
     shared_ptr<string> value_ {};
+    // Specification value alias
     shared_ptr<string> valueAlias_ {};
+    // Rule value ID
     shared_ptr<int64_t> valueId_ {};
   };
 

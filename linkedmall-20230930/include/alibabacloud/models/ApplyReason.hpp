@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The reason ID.
     shared_ptr<int64_t> reasonTextId_ {};
+    // The reason text.
     shared_ptr<string> reasonTips_ {};
   };
 

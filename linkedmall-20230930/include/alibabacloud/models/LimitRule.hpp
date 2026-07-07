@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // Start time of validity
+    // 
+    // > UNIX timestamp in milliseconds
     shared_ptr<int64_t> beginTime_ {};
+    // Period condition
+    // 
+    // > This field applies only when ruleType is UpperNumberPerUserPeriod.
     shared_ptr<string> condcase_ {};
+    // End time of validity
+    // 
+    // > UNIX timestamp in milliseconds
     shared_ptr<int64_t> endTime_ {};
+    // Purchase limit quantity
+    // 
+    // > If multiple purchase limit rules are active at the same time, the final limit is the minimum value.
     shared_ptr<int32_t> limitNum_ {};
+    // Purchase limit type
     shared_ptr<string> ruleType_ {};
   };
 

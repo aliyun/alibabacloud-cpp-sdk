@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Is upload credential required
     shared_ptr<bool> proofRequired_ {};
+    // Reason text ID
     shared_ptr<string> reasonTextId_ {};
+    // Reason text
     shared_ptr<string> reasonTips_ {};
+    // Is a message required
     shared_ptr<bool> refundDescRequired_ {};
   };
 

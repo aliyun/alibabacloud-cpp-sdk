@@ -51,8 +51,14 @@ namespace Models
 
 
   protected:
+    // Collection of product IDs to add
+    // 
+    // > - You can add up to 30 products per call.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> productIds_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
   };

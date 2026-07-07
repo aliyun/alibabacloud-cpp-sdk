@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The name of the specification key.
     shared_ptr<string> key_ {};
+    // Specification
     shared_ptr<int64_t> keyId_ {};
+    // The values of the rule key.
     shared_ptr<vector<ProductSpecValue>> values_ {};
   };
 

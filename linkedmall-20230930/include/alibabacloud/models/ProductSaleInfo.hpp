@@ -147,17 +147,29 @@ namespace Models
 
 
   protected:
+    // Is sellable, calculated value
     shared_ptr<bool> canSell_ {};
+    // Region code
     shared_ptr<string> divisionCode_ {};
+    // Fuzzy inventory quantity.
     shared_ptr<string> fuzzyQuantity_ {};
+    // Purchase limit configuration
     shared_ptr<vector<LimitRule>> limitRules_ {};
+    // LM product ID
     shared_ptr<string> lmItemId_ {};
+    // Product ID
     shared_ptr<string> productId_ {};
+    // Product status
     shared_ptr<string> productStatus_ {};
+    // Inventory
     shared_ptr<int64_t> quantity_ {};
+    // API request ID
     shared_ptr<string> requestId_ {};
+    // Channel shop ID
     shared_ptr<string> shopId_ {};
+    // SKU collection
     shared_ptr<vector<SkuSaleInfo>> skus_ {};
+    // Title
     shared_ptr<string> title_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Company code
+    // 
     // This parameter is required.
     shared_ptr<string> cpCode_ {};
+    // Dispute ID
+    // 
     // This parameter is required.
     shared_ptr<string> disputeId_ {};
+    // Logistics tracking number
+    // 
     // This parameter is required.
     shared_ptr<string> logisticsNo_ {};
   };

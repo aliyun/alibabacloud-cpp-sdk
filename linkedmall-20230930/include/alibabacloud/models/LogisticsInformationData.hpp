@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The logistics status. A value of 2 indicates that the order is shipped and awaits the buyer\\"s confirmation of receipt.
     shared_ptr<string> logisticsStatus_ {};
+    // The time when the information was last updated, in yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> modifiedTime_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The ID of the order line.
     shared_ptr<string> orderLineId_ {};
+    // The external ID of the purchase order, provided upon creation.
     shared_ptr<string> outerPurchaseOrderId_ {};
+    // The ID of the purchaser.
     shared_ptr<string> purchaserId_ {};
+    // The code of the logistics company.
     shared_ptr<string> trackingCompanyCode_ {};
+    // The name of the logistics company.
     shared_ptr<string> trackingCompanyName_ {};
+    // The tracking number.
     shared_ptr<string> trackingNumber_ {};
   };
 

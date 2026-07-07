@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Category query parameters
     shared_ptr<CategoryListQuery> body_ {};
   };
 

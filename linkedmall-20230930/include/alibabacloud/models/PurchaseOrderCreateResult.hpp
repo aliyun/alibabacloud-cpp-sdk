@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Purchase Order ID
     shared_ptr<string> purchaseOrderId_ {};
+    // API Request requestId
     shared_ptr<string> requestId_ {};
   };
 

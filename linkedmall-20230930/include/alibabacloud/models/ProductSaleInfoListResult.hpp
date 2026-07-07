@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Product sales information
     shared_ptr<vector<ProductSaleInfo>> productSaleInfos_ {};
+    // The request ID of the API call
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Administrative division code. We recommend using a five-level code (township or subdistrict level).
     shared_ptr<string> divisionCode_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
   };

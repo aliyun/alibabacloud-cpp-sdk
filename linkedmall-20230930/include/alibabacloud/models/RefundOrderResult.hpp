@@ -66,9 +66,20 @@ namespace Models
 
 
   protected:
+    // Dispute ID
     shared_ptr<string> disputeId_ {};
+    // Status of the reverse operation  
+    // 1 – Return pending  
+    // 2 – Awaiting buyer return  
+    // 3 – Awaiting merchant receipt  
+    // 4 – Refund closed  
+    // 5 – Refund succeeded  
+    // 6 – Refund denied  
+    // 17 – Canceling refund
     shared_ptr<int32_t> disputeStatus_ {};
+    // Sub-distribution order ID for which the reverse operation was initiated
     shared_ptr<string> orderLineId_ {};
+    // API request ID
     shared_ptr<string> requestId_ {};
   };
 

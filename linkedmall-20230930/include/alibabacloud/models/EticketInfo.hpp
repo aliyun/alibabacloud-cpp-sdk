@@ -112,14 +112,37 @@ namespace Models
 
 
   protected:
+    // The number of available units.
     shared_ptr<int64_t> availableNum_ {};
+    // The unique code for the e-ticket.
     shared_ptr<string> code_ {};
+    // The status of the e-ticket.
+    // 
+    // > Valid enum values:
+    // >
+    // > - 1: valid
+    // >
+    // > - -1: redeemed
+    // >
+    // > - -2: expired
+    // >
+    // > - -5: expired
+    // >
+    // > - -8: expired
     shared_ptr<int64_t> codeStatus_ {};
+    // The end time of the e-ticket validity period.
     shared_ptr<string> endTime_ {};
+    // The number of locked units.
     shared_ptr<int64_t> lockNum_ {};
+    // The URL of the QR code image for the e-ticket.
+    // 
+    // > This field is not currently populated. Distributors must generate the QR code using the `code` field.
     shared_ptr<string> qrcodeUrl_ {};
+    // The start time of the e-ticket validity period.
     shared_ptr<string> startTime_ {};
+    // The time the e-ticket was redeemed.
     shared_ptr<string> useTime_ {};
+    // The number of redeemed units.
     shared_ptr<int64_t> usedNum_ {};
   };
 

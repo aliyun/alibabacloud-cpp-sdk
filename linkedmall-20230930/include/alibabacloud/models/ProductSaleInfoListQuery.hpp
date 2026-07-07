@@ -60,9 +60,14 @@ namespace Models
 
 
   protected:
+    // Area code (recommended to use a five-level township/street-level address code)
     shared_ptr<string> divisionCode_ {};
+    // Collection of product IDs to query, supporting batch queries of 1 to 10 items
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> productIds_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
   };

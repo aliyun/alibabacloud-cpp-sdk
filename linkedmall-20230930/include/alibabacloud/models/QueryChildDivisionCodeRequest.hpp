@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The parameters for querying child division codes.
+    // 
     // This parameter is required.
     shared_ptr<DivisionQuery> body_ {};
   };

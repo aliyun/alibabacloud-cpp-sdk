@@ -75,11 +75,20 @@ namespace Models
 
 
   protected:
+    // The ID of the end buyer.>Notice: Assign a unique ID to each buyer.
+    // 
     // This parameter is required.
     shared_ptr<string> buyerId_ {};
+    // Delivery address information.
+    // 
     // This parameter is required.
     shared_ptr<AddressInfo> deliveryAddress_ {};
+    // Extended information.
     Darabonba::Json extInfo_ {};
+    // A collection of products.
+    // 
+    // > A single purchase order can contain a maximum of 20 SKUs.
+    // 
     // This parameter is required.
     shared_ptr<vector<OrderRenderProductDTO>> productList_ {};
   };

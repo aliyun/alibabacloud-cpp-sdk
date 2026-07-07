@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Address encoding
     shared_ptr<int64_t> divisionCode_ {};
+    // Address Level
     shared_ptr<int64_t> divisionLevel_ {};
+    // Address Name
     shared_ptr<string> divisionName_ {};
+    // Parent ID
     shared_ptr<int64_t> parentId_ {};
+    // Address pinyin
     shared_ptr<string> pinyin_ {};
   };
 

@@ -116,19 +116,39 @@ namespace Models
 
 
   protected:
+    // Refund reason ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> applyReasonTextId_ {};
+    // Refund reason text
     shared_ptr<string> applyReasonTips_ {};
+    // Number of items to return
+    // 
     // This parameter is required.
     shared_ptr<int32_t> applyRefundCount_ {};
+    // Refund amount in cents
+    // 
     // This parameter is required.
     shared_ptr<int64_t> applyRefundFee_ {};
+    // Refund type
+    // 1: Refund only
+    // 3: Return and refund
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bizClaimType_ {};
+    // Item status
+    // 4: Not shipped
+    // 1: Not received
+    // 2: Received
+    // 
     // This parameter is required.
     shared_ptr<int32_t> goodsStatus_ {};
+    // Customer message
     shared_ptr<string> leaveMessage_ {};
+    // Collection of images
     shared_ptr<vector<LeavePictureList>> leavePictureLists_ {};
+    // Sub-distribution order ID
+    // 
     // This parameter is required.
     shared_ptr<string> orderLineId_ {};
   };

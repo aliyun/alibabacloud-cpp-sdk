@@ -217,27 +217,45 @@ namespace Models
 
 
   protected:
+    // 69 barcode
     shared_ptr<string> barcode_ {};
+    // Indicates whether the SKU is available for sale
     shared_ptr<bool> canSell_ {};
+    // Reserved field
     shared_ptr<int64_t> discountRetailPrice_ {};
+    // Region code
     shared_ptr<string> divisionCode_ {};
+    // Fuzzy inventory availability
     shared_ptr<string> fuzzyQuantity_ {};
+    // Strikethrough price, in cents
     shared_ptr<int64_t> markPrice_ {};
+    // SKU image URL
     shared_ptr<string> picUrl_ {};
+    // Suggested retail price, in cents
     shared_ptr<int64_t> platformPrice_ {};
+    // Distributor purchase price, in cents
     shared_ptr<int64_t> price_ {};
+    // Product ID
     shared_ptr<string> productId_ {};
+    // Available inventory. Note: This field is currently set to -1 for all SKUs and has no practical meaning.
     shared_ptr<int64_t> quantity_ {};
+    // SKU sort order
     shared_ptr<int64_t> rankValue_ {};
+    // Shop ID
     shared_ptr<string> shopId_ {};
+    // SKU note
     shared_ptr<string> skuAlias_ {};
-    // skuId
+    // SKU ID
     shared_ptr<string> skuId_ {};
-    // sku
+    // SKU specifications
     shared_ptr<vector<SkuSpec>> skuSpecs_ {};
+    // SKU sales specification code. Used by the frontend to filter SKUs
     shared_ptr<string> skuSpecsCode_ {};
+    // SKU control status
     shared_ptr<string> skuStatus_ {};
+    // Reserved field
     shared_ptr<int64_t> suggestedRetailPrice_ {};
+    // SKU title. Note: We recommend that distributors build the customer-facing SKU title by concatenating the value or valueAlias field from the SkuSpec struct (use `valueAlias` if it is present). Do not use this field directly as the customer-facing SKU title.
     shared_ptr<string> title_ {};
   };
 

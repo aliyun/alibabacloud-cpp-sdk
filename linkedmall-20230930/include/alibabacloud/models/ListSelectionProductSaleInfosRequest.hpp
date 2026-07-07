@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Parameters for querying product sales information in batches
+    // 
     // This parameter is required.
     shared_ptr<ProductSaleInfoListQuery> body_ {};
   };

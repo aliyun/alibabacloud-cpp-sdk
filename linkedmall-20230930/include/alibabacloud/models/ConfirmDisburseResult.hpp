@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // API Request requestId
     shared_ptr<string> requestId_ {};
+    // Return Result of Confirm Delivery
     shared_ptr<string> result_ {};
   };
 

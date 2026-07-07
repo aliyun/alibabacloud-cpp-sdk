@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Request ID of the API call
     shared_ptr<string> requestId_ {};
+    // Collection of SKU inventory records
     shared_ptr<vector<SkuSaleInfo>> skuSaleInfos_ {};
   };
 

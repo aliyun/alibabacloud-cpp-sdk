@@ -105,12 +105,19 @@ namespace Models
 
 
   protected:
+    // A collection of addresses.
     shared_ptr<vector<AddressInfo>> addressList_ {};
+    // Indicates whether the item can be sold.
     shared_ptr<bool> canSell_ {};
+    // Extended information.
     Darabonba::Json extInfo_ {};
+    // The reason why the item cannot be sold.
     shared_ptr<string> message_ {};
+    // A collection of sellable main orders.
     shared_ptr<vector<OrderRenderResult>> orderList_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A collection of unsellable main orders.
     shared_ptr<vector<OrderRenderResult>> unsellableOrderList_ {};
   };
 

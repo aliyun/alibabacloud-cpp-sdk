@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Maximum amount (cents)
     shared_ptr<int64_t> maxRefundFee_ {};
+    // Minimum amount (cents)
     shared_ptr<int64_t> minRefundFee_ {};
   };
 

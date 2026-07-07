@@ -79,12 +79,20 @@ namespace Models
 
 
   protected:
+    // Current page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Collection of products
     shared_ptr<vector<Product>> products_ {};
+    // Request ID for the API call
     shared_ptr<string> requestId_ {};
+    // Total count
+    // 
     // This parameter is required.
     shared_ptr<int32_t> total_ {};
   };

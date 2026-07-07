@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // Display name
     shared_ptr<string> displayName_ {};
+    // Unique ID
     shared_ptr<string> id_ {};
+    // Shipping fee amount
     shared_ptr<int64_t> postFee_ {};
     // serviceType
     shared_ptr<int64_t> serviceType_ {};

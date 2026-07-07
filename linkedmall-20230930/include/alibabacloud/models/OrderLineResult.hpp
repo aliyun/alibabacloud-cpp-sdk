@@ -144,18 +144,29 @@ namespace Models
 
 
   protected:
+    // A list of electronic vouchers.
     shared_ptr<vector<EticketInfo>> eticketInfos_ {};
+    // The logistics status of the order line.
     shared_ptr<string> logisticsStatus_ {};
+    // The number of items.
     shared_ptr<string> number_ {};
+    // The unique ID of the main order.
     shared_ptr<string> orderId_ {};
+    // The unique ID of the order line.
     shared_ptr<string> orderLineId_ {};
+    // The status of the order line.
     shared_ptr<string> orderLineStatus_ {};
+    // The payable amount for the order line.
     shared_ptr<int64_t> payFee_ {};
+    // The unique ID of the product.
     shared_ptr<string> productId_ {};
+    // The URL of the product image.
     shared_ptr<string> productPic_ {};
+    // The product name.
     shared_ptr<string> productTitle_ {};
-    // skuId
+    // The unique ID of the SKU.
     shared_ptr<string> skuId_ {};
+    // The SKU name.
     shared_ptr<string> skuTitle_ {};
   };
 

@@ -116,14 +116,23 @@ namespace Models
 
 
   protected:
+    // The order creation time.
     shared_ptr<string> createDate_ {};
+    // The distributor ID.
     shared_ptr<string> distributorId_ {};
+    // The logistics status. Valid values: 1 (Awaiting Seller\\"s Shipment), 2 (Awaiting Buyer\\"s Confirmation), 3 (Received), 4 (Returned), 5 (Partially Received), 6 (Partially Shipped), and 8 (Logistics Order Not Created).
     shared_ptr<string> logisticsStatus_ {};
+    // The order amount, in cents.
     shared_ptr<int64_t> orderAmount_ {};
+    // The reason the order was closed.
     shared_ptr<string> orderClosedReason_ {};
+    // The ID of the main order.
     shared_ptr<string> orderId_ {};
+    // The list of sub-orders.
     shared_ptr<vector<OrderLineResult>> orderLineList_ {};
+    // The order status. Valid values: 1 (Pending Payment), 2 (Paid), 4 (Closed with Refund), 6 (Transaction Successful), and 8 (Closed).
     shared_ptr<string> orderStatus_ {};
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

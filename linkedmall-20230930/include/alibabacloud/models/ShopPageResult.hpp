@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // API request ID
     shared_ptr<string> requestId_ {};
+    // Shop collection
     shared_ptr<vector<ShopPageDataResult>> shopList_ {};
+    // Total count
     shared_ptr<int32_t> total_ {};
   };
 

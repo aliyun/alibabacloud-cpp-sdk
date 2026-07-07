@@ -101,12 +101,73 @@ namespace Models
 
 
   protected:
+    // The data provider.
     shared_ptr<string> dataProvider_ {};
+    // The display title of the data provider.
     shared_ptr<string> dataProviderTitle_ {};
+    // Details of the goods.
     shared_ptr<vector<Good>> goods_ {};
+    // The logistics company code.
+    // 
+    // > Valid values:
+    // >
+    // > - `ZTKY` - China Railway Logistics
+    // >
+    // > - `POST` - China Post
+    // >
+    // > - `DBKD` - Deppon Express
+    // >
+    // > - `JT` - J\\&T Express
+    // >
+    // > - `QFKD` - Quanfeng Express
+    // >
+    // > - `EYB` - China Post E-commerce Express
+    // >
+    // > - `STO` - STO Express
+    // >
+    // > - `SF` - SF Express
+    // >
+    // > - `ZTO` - ZTO Express
+    // >
+    // > - `YTO` - YTO Express
+    // >
+    // > - `TTKDEX` - Tiantian Express
+    // >
+    // > - `JDLEx` - JD Express
+    // >
+    // > - `ETICKET` - e-ticket
+    // >
+    // > - `HTKY` - Best Express
+    // >
+    // > - `SHQ` - Huaqiang Logistics
+    // >
+    // > - `TAOBAO` - Taobao Logistics
+    // >
+    // > - `YUNDA` - Yunda Express
+    // >
+    // > - `ZJS` - ZJS Express
+    // >
+    // > - `FEDEX` - FedEx
+    // >
+    // > - `EMS` - EMS
+    // >
+    // > - `POSTB` - China Post Parcel
+    // >
+    // > - `OTHER` - other
+    // >
+    // > - `CNDJWL` - Cainiao Heavy Parcel Logistics
+    // >
+    // > - `TN` - T-neng Logistics
+    // >
+    // > - `ZMKM` - Cainiao Express
     shared_ptr<string> logisticsCompanyCode_ {};
+    // The name of the logistics company.
     shared_ptr<string> logisticsCompanyName_ {};
+    // A list of logistics details.
     shared_ptr<vector<LogisticsDetail>> logisticsDetailList_ {};
+    // The tracking number.
+    // 
+    // > For an e-ticket, the tracking number is a fixed value: \\*
     shared_ptr<string> mailNo_ {};
   };
 

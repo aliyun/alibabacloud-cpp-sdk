@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Collection of category IDs
     shared_ptr<vector<int64_t>> categoryIds_ {};
+    // Parent category ID
     shared_ptr<int64_t> parentCategoryId_ {};
   };
 

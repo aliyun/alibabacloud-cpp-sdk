@@ -57,7 +57,10 @@ namespace Models
 
 
   protected:
+    // Quantity
     shared_ptr<int32_t> buyAmount_ {};
+    // Product ID
+    // 
     // This parameter is required.
     shared_ptr<string> productId_ {};
     // skuid

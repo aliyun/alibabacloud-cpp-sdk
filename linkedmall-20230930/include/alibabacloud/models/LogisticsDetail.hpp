@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Time when the logistics event occurred
     shared_ptr<string> ocurrTimeStr_ {};
+    // Description of the logistics event
     shared_ptr<string> standerdDesc_ {};
   };
 

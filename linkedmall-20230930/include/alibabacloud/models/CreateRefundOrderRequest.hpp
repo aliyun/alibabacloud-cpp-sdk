@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Create a return order
+    // 
     // This parameter is required.
     shared_ptr<RefundOrderCmd> body_ {};
   };

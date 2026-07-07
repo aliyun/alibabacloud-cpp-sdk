@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The detailed shipping address. Enter the full address in the format of province, city, district/county, street, and community.
+    // 
     // This parameter is required.
     shared_ptr<string> addressDetail_ {};
+    // The address ID.
     shared_ptr<int64_t> addressId_ {};
+    // The level-4 address code for the district or county. This parameter is recommended.
     shared_ptr<string> divisionCode_ {};
+    // The recipient.
+    // 
     // This parameter is required.
     shared_ptr<string> receiver_ {};
+    // The phone number of the recipient.
+    // 
     // This parameter is required.
     shared_ptr<string> receiverPhone_ {};
+    // The level-5 address code for the town or street. This parameter is required.
     shared_ptr<string> townDivisionCode_ {};
   };
 

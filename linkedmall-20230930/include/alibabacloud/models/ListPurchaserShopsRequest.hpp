@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Page number of the request.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

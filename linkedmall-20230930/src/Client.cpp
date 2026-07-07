@@ -93,7 +93,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 取消逆向单
+ * @summary Cancels a refund order.
+ *
+ * @description Cancel a refund order.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -118,7 +120,9 @@ CancelRefundOrderResponse Client::cancelRefundOrderWithOptions(const string &dis
 }
 
 /**
- * @summary 取消逆向单
+ * @summary Cancels a refund order.
+ *
+ * @description Cancel a refund order.
  *
  * @return CancelRefundOrderResponse
  */
@@ -129,7 +133,9 @@ CancelRefundOrderResponse Client::cancelRefundOrder(const string &disputeId) {
 }
 
 /**
- * @summary 确认收货（订单）
+ * @summary Confirms the receipt of goods.
+ *
+ * @description Confirms the receipt of goods.
  *
  * @param request ConfirmDisburseRequest
  * @param headers map
@@ -157,7 +163,9 @@ ConfirmDisburseResponse Client::confirmDisburseWithOptions(const ConfirmDisburse
 }
 
 /**
- * @summary 确认收货（订单）
+ * @summary Confirms the receipt of goods.
+ *
+ * @description Confirms the receipt of goods.
  *
  * @param request ConfirmDisburseRequest
  * @return ConfirmDisburseResponse
@@ -169,7 +177,9 @@ ConfirmDisburseResponse Client::confirmDisburse(const ConfirmDisburseRequest &re
 }
 
 /**
- * @summary 提交运单信息
+ * @summary Backfill shipping notice information.
+ *
+ * @description Backfill shipping notice information.
  *
  * @param request CreateGoodsShippingNoticeRequest
  * @param headers map
@@ -197,7 +207,9 @@ CreateGoodsShippingNoticeResponse Client::createGoodsShippingNoticeWithOptions(c
 }
 
 /**
- * @summary 提交运单信息
+ * @summary Backfill shipping notice information.
+ *
+ * @description Backfill shipping notice information.
  *
  * @param request CreateGoodsShippingNoticeRequest
  * @return CreateGoodsShippingNoticeResponse
@@ -209,7 +221,11 @@ CreateGoodsShippingNoticeResponse Client::createGoodsShippingNotice(const Create
 }
 
 /**
- * @summary 创建采购单
+ * @summary Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+ *
+ * @description Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
+ * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
+ * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
  *
  * @param request CreatePurchaseOrderRequest
  * @param headers map
@@ -237,7 +253,11 @@ CreatePurchaseOrderResponse Client::createPurchaseOrderWithOptions(const CreateP
 }
 
 /**
- * @summary 创建采购单
+ * @summary Creates a purchase order and returns the purchase order ID. The specific result of order creation is communicated through messages. After the order is created, you can query the order details associated with the purchase order using the order API.
+ *
+ * @description Creates a purchase order and returns the purchase order ID. Messages communicate the specific result of order creation. After the order is created, you can query the order details associated with the purchase order using the order API.
+ * >Warning: Note: Purchase order creation is an asynchronous task. If a distributor calls this API and receives an abnormal status (such as error code 503), do not immediately process customer refunds. Distributors must wait for and consume the PurchaseOrderCreate message (the purchase order creation result message) to determine the order status—for example, by consuming the order status synchronization message—before proceeding with business logic. This prevents financial losses.
+ * >Notice: Note: If you do not receive the PurchaseOrderCreate message (the purchase order creation result message) after calling the purchase order creation API, submit a ticket to the technical support team to inquire about the cause.
  *
  * @param request CreatePurchaseOrderRequest
  * @return CreatePurchaseOrderResponse
@@ -249,7 +269,9 @@ CreatePurchaseOrderResponse Client::createPurchaseOrder(const CreatePurchaseOrde
 }
 
 /**
- * @summary 创建逆向单
+ * @summary Create a support ticket.
+ *
+ * @description Creates a refund order.
  *
  * @param request CreateRefundOrderRequest
  * @param headers map
@@ -277,7 +299,9 @@ CreateRefundOrderResponse Client::createRefundOrderWithOptions(const CreateRefun
 }
 
 /**
- * @summary 创建逆向单
+ * @summary Create a support ticket.
+ *
+ * @description Creates a refund order.
  *
  * @param request CreateRefundOrderRequest
  * @return CreateRefundOrderResponse
@@ -289,7 +313,7 @@ CreateRefundOrderResponse Client::createRefundOrder(const CreateRefundOrderReque
 }
 
 /**
- * @summary 查询主单详情
+ * @summary Queries the details of an order.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -314,7 +338,7 @@ GetOrderResponse Client::getOrderWithOptions(const string &orderId, const map<st
 }
 
 /**
- * @summary 查询主单详情
+ * @summary Queries the details of an order.
  *
  * @return GetOrderResponse
  */
@@ -325,7 +349,9 @@ GetOrderResponse Client::getOrder(const string &orderId) {
 }
 
 /**
- * @summary 查询采购单状态
+ * @summary Retrieve the purchase order status.
+ *
+ * @description Retrieve the transaction order status.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -350,7 +376,9 @@ GetPurchaseOrderStatusResponse Client::getPurchaseOrderStatusWithOptions(const s
 }
 
 /**
- * @summary 查询采购单状态
+ * @summary Retrieve the purchase order status.
+ *
+ * @description Retrieve the transaction order status.
  *
  * @return GetPurchaseOrderStatusResponse
  */
@@ -361,7 +389,9 @@ GetPurchaseOrderStatusResponse Client::getPurchaseOrderStatus(const string &purc
 }
 
 /**
- * @summary 查询分销商店铺
+ * @summary Retrieves the purchaser\\"s shop.
+ *
+ * @description Retrieves the purchaser\\"s shop.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -386,7 +416,9 @@ GetPurchaserShopResponse Client::getPurchaserShopWithOptions(const string &purch
 }
 
 /**
- * @summary 查询分销商店铺
+ * @summary Retrieves the purchaser\\"s shop.
+ *
+ * @description Retrieves the purchaser\\"s shop.
  *
  * @return GetPurchaserShopResponse
  */
@@ -397,7 +429,9 @@ GetPurchaserShopResponse Client::getPurchaserShop(const string &purchaserId) {
 }
 
 /**
- * @summary 查询逆向单详情
+ * @summary Retrieve details of an after-sales order.
+ *
+ * @description Retrieve after-sales order details
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -422,7 +456,9 @@ GetRefundOrderResponse Client::getRefundOrderWithOptions(const string &disputeId
 }
 
 /**
- * @summary 查询逆向单详情
+ * @summary Retrieve details of an after-sales order.
+ *
+ * @description Retrieve after-sales order details
  *
  * @return GetRefundOrderResponse
  */
@@ -433,7 +469,9 @@ GetRefundOrderResponse Client::getRefundOrder(const string &disputeId) {
 }
 
 /**
- * @summary 查询选品池商品详情
+ * @summary Query the details of a product in the selection pool.
+ *
+ * @description Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
  *
  * @param request GetSelectionProductRequest
  * @param headers map
@@ -470,7 +508,9 @@ GetSelectionProductResponse Client::getSelectionProductWithOptions(const string 
 }
 
 /**
- * @summary 查询选品池商品详情
+ * @summary Query the details of a product in the selection pool.
+ *
+ * @description Retrieve product details from the selection pool using the product ID. You can also specify a region code to check regional inventory.
  *
  * @param request GetSelectionProductRequest
  * @return GetSelectionProductResponse
@@ -482,7 +522,9 @@ GetSelectionProductResponse Client::getSelectionProduct(const string &productId,
 }
 
 /**
- * @summary 查询选品池商品库存
+ * @summary Queries sales information for products in the selection pool.
+ *
+ * @description Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
  *
  * @param request GetSelectionProductSaleInfoRequest
  * @param headers map
@@ -519,7 +561,9 @@ GetSelectionProductSaleInfoResponse Client::getSelectionProductSaleInfoWithOptio
 }
 
 /**
- * @summary 查询选品池商品库存
+ * @summary Queries sales information for products in the selection pool.
+ *
+ * @description Queries sales information for products in the selection pool. Distributors can call this operation to check product sales details, such as product status. Use the divisionCode input parameter to check whether a product is available for sale in a specific region. We recommend using a five-level administrative division code (township or subdistrict level).
  *
  * @param request GetSelectionProductSaleInfoRequest
  * @return GetSelectionProductSaleInfoResponse
@@ -531,7 +575,10 @@ GetSelectionProductSaleInfoResponse Client::getSelectionProductSaleInfo(const st
 }
 
 /**
- * @summary 查询类目
+ * @summary Lists categories.
+ *
+ * @description Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
+ * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
  *
  * @param request ListCategoriesRequest
  * @param headers map
@@ -559,7 +606,10 @@ ListCategoriesResponse Client::listCategoriesWithOptions(const ListCategoriesReq
 }
 
 /**
- * @summary 查询类目
+ * @summary Lists categories.
+ *
+ * @description Retrieves all subcategories for a parent category ID, or the details for a specific category ID.
+ * If the parent category ID (parentCategoryId) is 0, the API returns the top-level categories under the root category.
  *
  * @param request ListCategoriesRequest
  * @return ListCategoriesResponse
@@ -571,7 +621,9 @@ ListCategoriesResponse Client::listCategories(const ListCategoriesRequest &reque
 }
 
 /**
- * @summary 查询物流信息（订单）
+ * @summary Query logistics information for an order.
+ *
+ * @description Retrieves logistics information for an order.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -596,7 +648,9 @@ ListLogisticsOrdersResponse Client::listLogisticsOrdersWithOptions(const string 
 }
 
 /**
- * @summary 查询物流信息（订单）
+ * @summary Query logistics information for an order.
+ *
+ * @description Retrieves logistics information for an order.
  *
  * @return ListLogisticsOrdersResponse
  */
@@ -607,7 +661,9 @@ ListLogisticsOrdersResponse Client::listLogisticsOrders(const string &orderId) {
 }
 
 /**
- * @summary 采购方店铺列表查询
+ * @summary Lists purchaser shops.
+ *
+ * @description Lists purchaser shops.
  *
  * @param request ListPurchaserShopsRequest
  * @param headers map
@@ -644,7 +700,9 @@ ListPurchaserShopsResponse Client::listPurchaserShopsWithOptions(const ListPurch
 }
 
 /**
- * @summary 采购方店铺列表查询
+ * @summary Lists purchaser shops.
+ *
+ * @description Lists purchaser shops.
  *
  * @param request ListPurchaserShopsRequest
  * @return ListPurchaserShopsResponse
@@ -656,7 +714,9 @@ ListPurchaserShopsResponse Client::listPurchaserShops(const ListPurchaserShopsRe
 }
 
 /**
- * @summary 批量查询选品池商品库存
+ * @summary Query product sales information for the selection pool in batches.
+ *
+ * @description You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
  *
  * @param request ListSelectionProductSaleInfosRequest
  * @param headers map
@@ -684,7 +744,9 @@ ListSelectionProductSaleInfosResponse Client::listSelectionProductSaleInfosWithO
 }
 
 /**
- * @summary 批量查询选品池商品库存
+ * @summary Query product sales information for the selection pool in batches.
+ *
+ * @description You can query product sales information for the selection pool in batches. Distributors can call this operation to retrieve product sales details, such as product status. Use the divisionCode input parameter to check whether products are available for sale in a specific region. We recommend that you pass a five-level address code (town or street level).
  *
  * @param request ListSelectionProductSaleInfosRequest
  * @return ListSelectionProductSaleInfosResponse
@@ -696,7 +758,7 @@ ListSelectionProductSaleInfosResponse Client::listSelectionProductSaleInfos(cons
 }
 
 /**
- * @summary 查询商品列表
+ * @summary Retrieves a list of products from a product selection pool.
  *
  * @param request ListSelectionProductsRequest
  * @param headers map
@@ -737,7 +799,7 @@ ListSelectionProductsResponse Client::listSelectionProductsWithOptions(const Lis
 }
 
 /**
- * @summary 查询商品列表
+ * @summary Retrieves a list of products from a product selection pool.
  *
  * @param request ListSelectionProductsRequest
  * @return ListSelectionProductsResponse
@@ -749,7 +811,9 @@ ListSelectionProductsResponse Client::listSelectionProducts(const ListSelectionP
 }
 
 /**
- * @summary 批量查询选品池商品SKU库存
+ * @summary Query SKU sales information for items in the selection pool in batch.
+ *
+ * @description Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
  *
  * @param request ListSelectionSkuSaleInfosRequest
  * @param headers map
@@ -777,7 +841,9 @@ ListSelectionSkuSaleInfosResponse Client::listSelectionSkuSaleInfosWithOptions(c
 }
 
 /**
- * @summary 批量查询选品池商品SKU库存
+ * @summary Query SKU sales information for items in the selection pool in batch.
+ *
+ * @description Query SKU sales information for items in the selection pool in batch. Distributors can call this API to retrieve batch details about SKU sales status and other attributes. To determine whether SKUs are sellable in a specific region, use the divisionCode parameter—preferably a five-level administrative division code for townships or subdistricts.
  *
  * @param request ListSelectionSkuSaleInfosRequest
  * @return ListSelectionSkuSaleInfosResponse
@@ -789,7 +855,9 @@ ListSelectionSkuSaleInfosResponse Client::listSelectionSkuSaleInfos(const ListSe
 }
 
 /**
- * @summary 查询地址divisionCode
+ * @summary Queries child division codes.
+ *
+ * @description Queries child division codes.
  *
  * @param request QueryChildDivisionCodeRequest
  * @param headers map
@@ -817,7 +885,9 @@ QueryChildDivisionCodeResponse Client::queryChildDivisionCodeWithOptions(const Q
 }
 
 /**
- * @summary 查询地址divisionCode
+ * @summary Queries child division codes.
+ *
+ * @description Queries child division codes.
  *
  * @param request QueryChildDivisionCodeRequest
  * @return QueryChildDivisionCodeResponse
@@ -829,7 +899,9 @@ QueryChildDivisionCodeResponse Client::queryChildDivisionCode(const QueryChildDi
 }
 
 /**
- * @summary 查询主单列表
+ * @summary Queries a list of orders.
+ *
+ * @description Queries a list of orders.
  *
  * @param request QueryOrdersRequest
  * @param headers map
@@ -857,7 +929,9 @@ QueryOrdersResponse Client::queryOrdersWithOptions(const QueryOrdersRequest &req
 }
 
 /**
- * @summary 查询主单列表
+ * @summary Queries a list of orders.
+ *
+ * @description Queries a list of orders.
  *
  * @param request QueryOrdersRequest
  * @return QueryOrdersResponse
@@ -869,7 +943,10 @@ QueryOrdersResponse Client::queryOrders(const QueryOrdersRequest &request) {
 }
 
 /**
- * @summary 渲染采购单
+ * @summary Renders a purchase order and returns both sellable and unsellable products. Customers can then select the sellable products to place their orders.
+ *
+ * @description >Warning: 
+ * This API will be offline soon. For purchase order rendering, use the SplitPurchaseOrder API, which supports both purchase order rendering and splitting.
  *
  * @param request RenderPurchaseOrderRequest
  * @param headers map
@@ -897,7 +974,10 @@ RenderPurchaseOrderResponse Client::renderPurchaseOrderWithOptions(const RenderP
 }
 
 /**
- * @summary 渲染采购单
+ * @summary Renders a purchase order and returns both sellable and unsellable products. Customers can then select the sellable products to place their orders.
+ *
+ * @description >Warning: 
+ * This API will be offline soon. For purchase order rendering, use the SplitPurchaseOrder API, which supports both purchase order rendering and splitting.
  *
  * @param request RenderPurchaseOrderRequest
  * @return RenderPurchaseOrderResponse
@@ -909,7 +989,9 @@ RenderPurchaseOrderResponse Client::renderPurchaseOrder(const RenderPurchaseOrde
 }
 
 /**
- * @summary 逆向单渲染
+ * @summary Reverse Single Rendering
+ *
+ * @description Renders a refund order.
  *
  * @param request RenderRefundOrderRequest
  * @param headers map
@@ -937,7 +1019,9 @@ RenderRefundOrderResponse Client::renderRefundOrderWithOptions(const RenderRefun
 }
 
 /**
- * @summary 逆向单渲染
+ * @summary Reverse Single Rendering
+ *
+ * @description Renders a refund order.
  *
  * @param request RenderRefundOrderRequest
  * @return RenderRefundOrderResponse
@@ -949,7 +1033,7 @@ RenderRefundOrderResponse Client::renderRefundOrder(const RenderRefundOrderReque
 }
 
 /**
- * @summary 搜索商品
+ * @summary The product search API is a paginated interface for searching products based on various criteria.
  *
  * @param request SearchProductsRequest
  * @param headers map
@@ -1098,7 +1182,7 @@ SearchProductsResponse Client::searchProductsWithOptions(const SearchProductsReq
 }
 
 /**
- * @summary 搜索商品
+ * @summary The product search API is a paginated interface for searching products based on various criteria.
  *
  * @param request SearchProductsRequest
  * @return SearchProductsResponse
@@ -1110,7 +1194,10 @@ SearchProductsResponse Client::searchProducts(const SearchProductsRequest &reque
 }
 
 /**
- * @summary 入库操作
+ * @summary The distributor takes delivery of goods.
+ *
+ * @description Distributors use this API to add products to their selection group.
+ * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
  *
  * @param request SelectionGroupAddProductRequest
  * @param headers map
@@ -1147,7 +1234,10 @@ SelectionGroupAddProductResponse Client::selectionGroupAddProductWithOptions(con
 }
 
 /**
- * @summary 入库操作
+ * @summary The distributor takes delivery of goods.
+ *
+ * @description Distributors use this API to add products to their selection group.
+ * > We recommend that distributors who onboard on or after January 1, 2025 use this API. For more information about adding products and the related impact, see the [product best practices](https://help.aliyun.com/zh/linkedmall/user-guide/product-interface-best-practices?spm=a2c4g.11186623.help-menu-88587.d_2_2_0_8_0.58122056oN3crP\\&scm=20140722.H_2869668._.OR_help-T_cn~zh-V_1#lFENl).
  *
  * @param request SelectionGroupAddProductRequest
  * @return SelectionGroupAddProductResponse
@@ -1159,7 +1249,9 @@ SelectionGroupAddProductResponse Client::selectionGroupAddProduct(const Selectio
 }
 
 /**
- * @summary 出库操作
+ * @summary Removes products from a distributor\\"s stock.
+ *
+ * @description Distributors use this API to remove products from their stock.
  *
  * @param request SelectionGroupRemoveProductRequest
  * @param headers map
@@ -1196,7 +1288,9 @@ SelectionGroupRemoveProductResponse Client::selectionGroupRemoveProductWithOptio
 }
 
 /**
- * @summary 出库操作
+ * @summary Removes products from a distributor\\"s stock.
+ *
+ * @description Distributors use this API to remove products from their stock.
  *
  * @param request SelectionGroupRemoveProductRequest
  * @return SelectionGroupRemoveProductResponse
@@ -1208,7 +1302,9 @@ SelectionGroupRemoveProductResponse Client::selectionGroupRemoveProduct(const Se
 }
 
 /**
- * @summary 渲染拆分采购单
+ * @summary Splits a purchase order and renders the resulting parent-child order structure. This API returns a list of items based on the final parent-child order structure. Distributors can use this response to render the final parent-child order layout, which simplifies receiving the purchase order creation success message and backfilling parent-child order information later.
+ *
+ * @description Call this API before creating a purchase order. It returns two lists: one for sellable items and one for unsellable items. The sellable items list follows the final parent-child order split structure.
  *
  * @param request SplitPurchaseOrderRequest
  * @param headers map
@@ -1236,7 +1332,9 @@ SplitPurchaseOrderResponse Client::splitPurchaseOrderWithOptions(const SplitPurc
 }
 
 /**
- * @summary 渲染拆分采购单
+ * @summary Splits a purchase order and renders the resulting parent-child order structure. This API returns a list of items based on the final parent-child order structure. Distributors can use this response to render the final parent-child order layout, which simplifies receiving the purchase order creation success message and backfilling parent-child order information later.
+ *
+ * @description Call this API before creating a purchase order. It returns two lists: one for sellable items and one for unsellable items. The sellable items list follows the final parent-child order split structure.
  *
  * @param request SplitPurchaseOrderRequest
  * @return SplitPurchaseOrderResponse

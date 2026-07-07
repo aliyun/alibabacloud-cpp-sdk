@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // Input parameters for splitting and rendering a purchase order
     shared_ptr<PurchaseOrderRenderQuery> body_ {};
   };
 

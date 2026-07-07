@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Refund Type: 1 for refund only, 3 for return and refund
+    // 
     // This parameter is required.
     shared_ptr<int32_t> bizClaimType_ {};
+    // Goods Status: 4 for not shipped, 1 for not received, 2 for received
+    // 
     // This parameter is required.
     shared_ptr<int32_t> goodsStatus_ {};
+    // Sub-distribution order ID
+    // 
     // This parameter is required.
     shared_ptr<string> orderLineId_ {};
   };

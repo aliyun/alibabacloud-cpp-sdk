@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Render purchase order
+    // 
     // This parameter is required.
     shared_ptr<PurchaseOrderRenderQuery> body_ {};
   };

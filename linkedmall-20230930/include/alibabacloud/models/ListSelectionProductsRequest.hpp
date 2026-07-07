@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The page number. The value must be 1 or greater.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 20.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the purchaser.
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
   };

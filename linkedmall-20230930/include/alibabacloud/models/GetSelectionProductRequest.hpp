@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Region code (use a five-level township or subdistrict address code)
     shared_ptr<string> divisionCode_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
   };

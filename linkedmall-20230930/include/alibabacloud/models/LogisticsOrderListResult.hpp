@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Collection of logistics orders
     shared_ptr<vector<LogisticsOrderResult>> logisticsOrderList_ {};
+    // Request ID for the API call
     shared_ptr<string> requestId_ {};
   };
 

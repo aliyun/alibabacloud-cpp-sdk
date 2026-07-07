@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // Product ID
+    // 
     // This parameter is required.
     shared_ptr<string> productId_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
+    // Quantity
+    // 
     // This parameter is required.
     shared_ptr<int32_t> quantity_ {};
     // skuID

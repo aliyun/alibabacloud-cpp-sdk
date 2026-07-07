@@ -301,35 +301,61 @@ namespace Models
 
 
   protected:
+    // The brand name.
     shared_ptr<string> brandName_ {};
+    // Indicates whether the product is available for sale. This is a calculated value.
     shared_ptr<bool> canSell_ {};
+    // The category chain.
     shared_ptr<vector<Category>> categoryChain_ {};
+    // The leaf category ID.
     shared_ptr<int64_t> categoryLeafId_ {};
+    // The product description URL.
     shared_ptr<string> descPath_ {};
+    // The region code.
     shared_ptr<string> divisionCode_ {};
+    // The product\\"s extended properties.
     shared_ptr<vector<ProductExtendProperty>> extendProperties_ {};
+    // The stock status.
     shared_ptr<string> fuzzyQuantity_ {};
-    // images
+    // The product images.
     shared_ptr<vector<string>> images_ {};
+    // The warehousing status.
     shared_ptr<bool> inGroup_ {};
+    // The purchase limit rules.
     shared_ptr<vector<LimitRule>> limitRules_ {};
+    // The LM product ID.
     shared_ptr<string> lmItemId_ {};
+    // The main product image URL.
     shared_ptr<string> picUrl_ {};
+    // The product ID.
     shared_ptr<string> productId_ {};
-    // productSpecs
+    // The product specifications.
     shared_ptr<vector<ProductSpec>> productSpecs_ {};
+    // The product status.
     shared_ptr<string> productStatus_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
+    // The product attributes.
     shared_ptr<vector<ProductProperty>> properties_ {};
+    // The inventory.
+    // 
+    // > - This parameter is fixed at -1 and can be ignored.
     shared_ptr<int64_t> quantity_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The service promises.>Notice:  Suppliers maintain all service promises. If a supplier fails to update this information in a timely manner, the service promise labels for some products may be inaccurate. Distributors should display this information to their customers with caution.
     shared_ptr<vector<string>> servicePromises_ {};
+    // The channel shop ID.
     shared_ptr<string> shopId_ {};
-    // skus
+    // The product SKUs.
     shared_ptr<vector<Sku>> skus_ {};
+    // The quantity sold.
     shared_ptr<string> soldQuantity_ {};
+    // The tax code.
     shared_ptr<string> taxCode_ {};
+    // The tax rate.
     shared_ptr<int32_t> taxRate_ {};
+    // The product title.
     shared_ptr<string> title_ {};
   };
 

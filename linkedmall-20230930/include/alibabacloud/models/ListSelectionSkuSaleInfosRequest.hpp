@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Parameters for querying SKU sales information in batch
+    // 
     // This parameter is required.
     shared_ptr<SkuSaleInfoListQuery> body_ {};
   };

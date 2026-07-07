@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // List of bills.
     shared_ptr<vector<GeneralBill>> generalBills_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // API request ID.
     shared_ptr<string> requestId_ {};
+    // Total count.
     shared_ptr<int32_t> total_ {};
   };
 

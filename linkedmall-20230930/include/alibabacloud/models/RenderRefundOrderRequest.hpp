@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Refund order rendering
+    // 
     // This parameter is required.
     shared_ptr<RefundRenderCmd> body_ {};
   };

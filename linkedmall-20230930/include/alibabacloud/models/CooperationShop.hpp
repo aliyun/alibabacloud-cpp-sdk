@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The partner company ID.
     shared_ptr<string> cooperationCompanyId_ {};
+    // The partner shop ID.
     shared_ptr<string> cooperationShopId_ {};
+    // The shop ID.
     shared_ptr<string> shopId_ {};
   };
 

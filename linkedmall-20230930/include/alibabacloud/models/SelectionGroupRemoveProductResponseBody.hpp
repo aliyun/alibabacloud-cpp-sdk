@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // A collection of IDs for the products that were successfully removed.
     shared_ptr<vector<string>> productIds_ {};
   };
 

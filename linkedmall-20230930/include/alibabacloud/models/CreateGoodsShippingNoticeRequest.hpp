@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // Submit shipping notice information.
+    // 
     // This parameter is required.
     shared_ptr<GoodsShippingNoticeCreateCmd> body_ {};
   };

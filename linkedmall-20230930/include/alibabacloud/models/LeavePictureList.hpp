@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Description>Notice: If the after-sales order rendering API returns that a message description is required, this field is mandatory.</notice>
     shared_ptr<string> desc_ {};
+    // Image of the after-sales Credential>Notice: If the after-sales order rendering API returns that an after-sales image is required, this field is mandatory.</notice>
     shared_ptr<string> picture_ {};
   };
 

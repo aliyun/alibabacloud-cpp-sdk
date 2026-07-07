@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Maximum refundable amount for this order
     shared_ptr<int64_t> maxRefundFee_ {};
+    // Minimum refundable amount for this order
     shared_ptr<int64_t> minRefundFee_ {};
   };
 

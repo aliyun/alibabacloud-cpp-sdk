@@ -127,14 +127,23 @@ namespace Models
 
 
   protected:
+    // bill ID
     shared_ptr<string> billId_ {};
+    // billing cycle
     shared_ptr<string> billPeriod_ {};
+    // download URL for details
     shared_ptr<vector<string>> downloadUrl_ {};
+    // billing cycle End Time
     shared_ptr<string> endTime_ {};
+    // bill Creation Time
     shared_ptr<string> gmtCreate_ {};
+    // bill Updated At
     shared_ptr<string> gmtModified_ {};
+    // shop ID
     shared_ptr<string> shopId_ {};
+    // shop Name
     shared_ptr<string> shopName_ {};
+    // billing cycle Start Time
     shared_ptr<string> startTime_ {};
     shared_ptr<Money> totalAmount_ {};
   };

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Product name
     shared_ptr<string> goodName_ {};
+    // Product ID
     shared_ptr<string> productId_ {};
+    // Quantity
     shared_ptr<int32_t> quantity_ {};
+    // SKU ID
     shared_ptr<string> skuId_ {};
+    // SKU title
     shared_ptr<string> skuTitle_ {};
   };
 

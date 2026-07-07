@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the category.
     shared_ptr<int64_t> categoryId_ {};
+    // Indicates whether the category is a leaf category.
     shared_ptr<bool> isLeaf_ {};
+    // The level of the category.
     shared_ptr<int32_t> level_ {};
+    // The name of the category.
     shared_ptr<string> name_ {};
+    // The ID of the parent category.
     shared_ptr<int64_t> parentId_ {};
   };
 

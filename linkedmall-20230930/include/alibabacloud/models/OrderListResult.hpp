@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // Collection of orders
     shared_ptr<vector<OrderResult>> orderList_ {};
+    // The request ID for the API call
     shared_ptr<string> requestId_ {};
+    // Total number of orders
     shared_ptr<int32_t> total_ {};
   };
 

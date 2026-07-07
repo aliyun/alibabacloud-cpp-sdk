@@ -238,27 +238,70 @@ namespace Models
 
 
   protected:
+    // Current buyer\\"s refund request description
     shared_ptr<string> applyDisputeDesc_ {};
+    // Request reason
     shared_ptr<ApplyReason> applyReason_ {};
+    // Order return method  
+    // 1 – identity indicates refund only  
+    // 3 – identity indicates return and refund
     shared_ptr<int32_t> bizClaimType_ {};
+    // Dispute creation time
     shared_ptr<string> disputeCreateTime_ {};
+    // Reverse request description
     shared_ptr<string> disputeDesc_ {};
+    // Reverse process end time
     shared_ptr<string> disputeEndTime_ {};
+    // Reverse order ID
     shared_ptr<string> disputeId_ {};
+    // Reverse order status  
+    // 1 – Return pending  
+    // 2 – Awaiting buyer return  
+    // 3 – Awaiting merchant receipt  
+    // 4 – Refund shutdown  
+    // 5 – Refund succeeded  
+    // 6 – Refund denied  
+    // 17 – Canceling refund
     shared_ptr<int32_t> disputeStatus_ {};
+    // Main order ID
     shared_ptr<string> orderId_ {};
+    // Sub-order ID
     shared_ptr<string> orderLineId_ {};
+    // Order logistics status  
+    // 1 – Not shipped → Awaiting seller shipment  
+    // 2 – Shipped → Awaiting buyer confirmation of receipt  
+    // 3 – Received → Transaction succeeded  
+    // 6 – Partially shipping  
+    // 8 – Logistics order not yet created
     shared_ptr<int32_t> orderLogisticsStatus_ {};
+    // Refund amount
     shared_ptr<int64_t> refundFee_ {};
+    // Refund period
     shared_ptr<RefundFeeData> refundFeeData_ {};
+    // Merchant return address (available when disputeStatus=2, indicating the status is pending buyer return; save the return address during this status if needed)
     shared_ptr<string> refunderAddress_ {};
+    // Return recipient name
     shared_ptr<string> refunderName_ {};
+    // Return contact information
     shared_ptr<string> refunderTel_ {};
+    // Return address ZIP code
     shared_ptr<string> refunderZipCode_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Return logistics status  
+    // 0 – Return not initiated  
+    // 1 – Awaiting pickup  
+    // 2 – Package picked up  
+    // 3 – In transit  
+    // 4 – Out for delivery  
+    // 5 – Delivered  
+    // 6 – Delivery failed
     shared_ptr<int32_t> returnGoodLogisticsStatus_ {};
+    // Seller’s return approval message
     shared_ptr<string> sellerAgreeMsg_ {};
+    // Merchant\\"s message explaining the denial
     shared_ptr<string> sellerRefuseAgreementMessage_ {};
+    // Merchant denial reason
     shared_ptr<string> sellerRefuseReason_ {};
   };
 

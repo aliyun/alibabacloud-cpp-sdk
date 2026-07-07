@@ -69,11 +69,17 @@ namespace Models
 
 
   protected:
+    // Collection of primary order IDs
     shared_ptr<vector<string>> orderIdList_ {};
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Quantity per page
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Purchase order ID
     shared_ptr<string> purchaseOrderId_ {};
   };
 

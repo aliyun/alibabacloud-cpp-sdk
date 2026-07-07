@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // Product price (unit: cent)>Notice: It is recommended to include this field.</notice>
     shared_ptr<int64_t> price_ {};
+    // Product ID
+    // 
     // This parameter is required.
     shared_ptr<string> productId_ {};
+    // Purchaser ID
+    // 
     // This parameter is required.
     shared_ptr<string> purchaserId_ {};
+    // Quantity
+    // 
     // This parameter is required.
     shared_ptr<int32_t> quantity_ {};
     // SKUID

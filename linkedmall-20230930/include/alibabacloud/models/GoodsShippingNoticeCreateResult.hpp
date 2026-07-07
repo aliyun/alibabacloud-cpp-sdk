@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // API request requestId
     shared_ptr<string> requestId_ {};
+    // Return result of submitting logistics information
     shared_ptr<string> result_ {};
   };
 

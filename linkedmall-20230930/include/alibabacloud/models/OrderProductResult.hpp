@@ -132,17 +132,27 @@ namespace Models
 
 
   protected:
+    // Indicates whether the product is available for sale
     shared_ptr<bool> canSell_ {};
+    // Additional product information
     Darabonba::Json features_ {};
+    // Reason for unavailability
     shared_ptr<string> message_ {};
+    // Product price (unit: cent)
     shared_ptr<int64_t> price_ {};
+    // Product ID
     shared_ptr<string> productId_ {};
+    // Product image link
     shared_ptr<string> productPicUrl_ {};
+    // Product title
     shared_ptr<string> productTitle_ {};
+    // Purchaser ID
     shared_ptr<string> purchaserId_ {};
+    // Quantity
     shared_ptr<int32_t> quantity_ {};
     // SKUID
     shared_ptr<string> skuId_ {};
+    // SKU title
     shared_ptr<string> skuTitle_ {};
   };
 
