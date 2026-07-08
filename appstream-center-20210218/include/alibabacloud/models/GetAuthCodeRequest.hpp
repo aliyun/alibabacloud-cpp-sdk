@@ -13,6 +13,8 @@ namespace Models
   class GetAuthCodeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAuthCodeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
+      DARABONBA_PTR_TO_JSON(AdDomain, adDomain_);
       DARABONBA_PTR_TO_JSON(AutoCreateUser, autoCreateUser_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
@@ -20,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TokenType, tokenType_);
     };
     friend void from_json(const Darabonba::Json& j, GetAuthCodeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
+      DARABONBA_PTR_FROM_JSON(AdDomain, adDomain_);
       DARABONBA_PTR_FROM_JSON(AutoCreateUser, autoCreateUser_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
@@ -37,8 +41,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoCreateUser_ == nullptr
-        && this->endUserId_ == nullptr && this->externalUserId_ == nullptr && this->policy_ == nullptr && this->tokenType_ == nullptr; };
+    virtual bool empty() const override { return this->accountType_ == nullptr
+        && this->adDomain_ == nullptr && this->autoCreateUser_ == nullptr && this->endUserId_ == nullptr && this->externalUserId_ == nullptr && this->policy_ == nullptr
+        && this->tokenType_ == nullptr; };
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string getAccountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline GetAuthCodeRequest& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
+    // adDomain Field Functions 
+    bool hasAdDomain() const { return this->adDomain_ != nullptr;};
+    void deleteAdDomain() { this->adDomain_ = nullptr;};
+    inline string getAdDomain() const { DARABONBA_PTR_GET_DEFAULT(adDomain_, "") };
+    inline GetAuthCodeRequest& setAdDomain(string adDomain) { DARABONBA_PTR_SET_VALUE(adDomain_, adDomain) };
+
+
     // autoCreateUser Field Functions 
     bool hasAutoCreateUser() const { return this->autoCreateUser_ != nullptr;};
     void deleteAutoCreateUser() { this->autoCreateUser_ = nullptr;};
@@ -75,9 +94,33 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accountType_ {};
+    shared_ptr<string> adDomain_ {};
+    // Specifies whether to synchronously create an EndUserId based on `ExternalUserId`. This parameter takes effect only when `EndUserId` is empty.
     shared_ptr<bool> autoCreateUser_ {};
+    // The username of the China Desktop Service (China Desktop Service) convenience account, which is unique within an Alibaba Cloud account. This parameter and `ExternalUserId` cannot both be empty.
     shared_ptr<string> endUserId_ {};
+    // The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and `EndUserId` cannot both be empty.
     shared_ptr<string> externalUserId_ {};
+    // The access policy that restricts the access permissions of the authorization code. An empty value indicates no restrictions.
+    // 
+    // Syntax:
+    // 
+    // ```json
+    // {
+    //       "Version": "1",
+    //       "Resource": {
+    //             "Type": "<Resource type>",
+    //             "Id": "<Resource ID>"
+    //       }
+    // }
+    // ```
+    // 
+    // Valid values of <Resource type>:
+    // 
+    // - AppInstanceGroup: delivery group. You can call the ListAppInstanceGroup operation to obtain the ID.
+    // - AppInstance: application instance (dedicated field).
+    // - App: application. You can call the ListAppInstanceGroup operation to obtain the ID.
     shared_ptr<string> policy_ {};
     shared_ptr<string> tokenType_ {};
   };

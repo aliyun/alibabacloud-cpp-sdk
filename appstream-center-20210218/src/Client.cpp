@@ -17,7 +17,11 @@ namespace AppstreamCenter20210218
 {
 
 AlibabaCloud::AppstreamCenter20210218::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shanghai" , "appstream-center.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "appstream-center.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("appstream-center", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Manually invalidates a logon token.
+ * @summary Manually expires a logon token before its automatic expiration.
  *
  * @param request ExpireLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +83,7 @@ ExpireLoginTokenResponse Client::expireLoginTokenWithOptions(const ExpireLoginTo
 }
 
 /**
- * @summary Manually invalidates a logon token.
+ * @summary Manually expires a logon token before its automatic expiration.
  *
  * @param request ExpireLoginTokenRequest
  * @return ExpireLoginTokenResponse
@@ -90,7 +94,7 @@ ExpireLoginTokenResponse Client::expireLoginToken(const ExpireLoginTokenRequest 
 }
 
 /**
- * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+ * @summary Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
  *
  * @param request GetAuthCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -104,6 +108,14 @@ GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &req
   }
 
   json body = {};
+  if (!!request.hasAccountType()) {
+    body["AccountType"] = request.getAccountType();
+  }
+
+  if (!!request.hasAdDomain()) {
+    body["AdDomain"] = request.getAdDomain();
+  }
+
   if (!!request.hasAutoCreateUser()) {
     body["AutoCreateUser"] = request.getAutoCreateUser();
   }
@@ -139,7 +151,7 @@ GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &req
 }
 
 /**
- * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+ * @summary Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
  *
  * @param request GetAuthCodeRequest
  * @return GetAuthCodeResponse
@@ -150,7 +162,7 @@ GetAuthCodeResponse Client::getAuthCode(const GetAuthCodeRequest &request) {
 }
 
 /**
- * @summary 获取stsToken
+ * @summary Gets a Security Token Service (STS) token.
  *
  * @param request GetStsTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -189,7 +201,7 @@ GetStsTokenResponse Client::getStsTokenWithOptions(const GetStsTokenRequest &req
 }
 
 /**
- * @summary 获取stsToken
+ * @summary Gets a Security Token Service (STS) token.
  *
  * @param request GetStsTokenRequest
  * @return GetStsTokenResponse

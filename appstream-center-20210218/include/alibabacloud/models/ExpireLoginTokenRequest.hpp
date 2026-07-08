@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The logon username.
+    // 
     // This parameter is required.
     shared_ptr<string> endUserId_ {};
+    // The logon token.
+    // 
     // This parameter is required.
     shared_ptr<string> loginToken_ {};
+    // The ID of the workspace. This parameter is required if you log on using a workspace ID. You can leave this parameter empty if you log on using an organization ID.
     shared_ptr<string> officeSiteId_ {};
+    // The ID of the logon session.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
   };

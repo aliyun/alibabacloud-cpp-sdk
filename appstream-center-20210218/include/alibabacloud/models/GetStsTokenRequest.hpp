@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The Elastic Desktop Service (EDS) username.
+    // 
+    // > Either EndUserId or ExternalId is required.
     shared_ptr<string> endUserId_ {};
+    // The validity period of the token, in seconds. The maximum period is two days.
     shared_ptr<int64_t> expiration_ {};
+    // The ID of the external user.
     shared_ptr<string> externalId_ {};
   };
 

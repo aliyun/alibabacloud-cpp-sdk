@@ -21,7 +21,7 @@ namespace AppstreamCenter20210218
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Manually invalidates a logon token.
+       * @summary Manually expires a logon token before its automatic expiration.
        *
        * @param request ExpireLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AppstreamCenter20210218
       Models::ExpireLoginTokenResponse expireLoginTokenWithOptions(const Models::ExpireLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manually invalidates a logon token.
+       * @summary Manually expires a logon token before its automatic expiration.
        *
        * @param request ExpireLoginTokenRequest
        * @return ExpireLoginTokenResponse
@@ -38,7 +38,7 @@ namespace AppstreamCenter20210218
       Models::ExpireLoginTokenResponse expireLoginToken(const Models::ExpireLoginTokenRequest &request);
 
       /**
-       * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+       * @summary Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
        *
        * @param request GetAuthCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AppstreamCenter20210218
       Models::GetAuthCodeResponse getAuthCodeWithOptions(const Models::GetAuthCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+       * @summary Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
        *
        * @param request GetAuthCodeRequest
        * @return GetAuthCodeResponse
@@ -55,7 +55,7 @@ namespace AppstreamCenter20210218
       Models::GetAuthCodeResponse getAuthCode(const Models::GetAuthCodeRequest &request);
 
       /**
-       * @summary 获取stsToken
+       * @summary Gets a Security Token Service (STS) token.
        *
        * @param request GetStsTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace AppstreamCenter20210218
       Models::GetStsTokenResponse getStsTokenWithOptions(const Models::GetStsTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取stsToken
+       * @summary Gets a Security Token Service (STS) token.
        *
        * @param request GetStsTokenRequest
        * @return GetStsTokenResponse

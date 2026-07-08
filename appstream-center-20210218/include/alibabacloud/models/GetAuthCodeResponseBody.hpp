@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The authorization code. The authorization code is valid for 3 minutes and can be used only once regardless of whether the verification succeeds or fails. When multiple authorization codes are generated for a user, only the last generated code is valid.
       shared_ptr<string> authCode_ {};
+      // The username of the China Desktop Service convenience account.
       shared_ptr<string> endUserId_ {};
+      // The expiration time of the authorization code in UTC, following the ISO 8601 standard.
       shared_ptr<string> expireTime_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The authorization code information.
     shared_ptr<GetAuthCodeResponseBody::AuthModel> authModel_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
