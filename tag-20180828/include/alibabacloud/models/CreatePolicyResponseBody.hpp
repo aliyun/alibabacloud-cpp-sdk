@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->policyId_ != nullptr
-        && this->policyName_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->policyId_ == nullptr
+        && this->policyName_ == nullptr && this->requestId_ == nullptr; };
     // policyId Field Functions 
     bool hasPolicyId() const { return this->policyId_ != nullptr;};
     void deletePolicyId() { this->policyId_ = nullptr;};
-    inline string policyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
+    inline string getPolicyId() const { DARABONBA_PTR_GET_DEFAULT(policyId_, "") };
     inline CreatePolicyResponseBody& setPolicyId(string policyId) { DARABONBA_PTR_SET_VALUE(policyId_, policyId) };
 
 
     // policyName Field Functions 
     bool hasPolicyName() const { return this->policyName_ != nullptr;};
     void deletePolicyName() { this->policyName_ = nullptr;};
-    inline string policyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
+    inline string getPolicyName() const { DARABONBA_PTR_GET_DEFAULT(policyName_, "") };
     inline CreatePolicyResponseBody& setPolicyName(string policyName) { DARABONBA_PTR_SET_VALUE(policyName_, policyName) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreatePolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the tag policy.
-    std::shared_ptr<string> policyId_ = nullptr;
+    shared_ptr<string> policyId_ {};
     // The name of the tag policy.
-    std::shared_ptr<string> policyName_ = nullptr;
+    shared_ptr<string> policyName_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

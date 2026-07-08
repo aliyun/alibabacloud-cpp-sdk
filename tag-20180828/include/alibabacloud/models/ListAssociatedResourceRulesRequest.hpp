@@ -44,56 +44,56 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResult_ != nullptr
-        && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->settingName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->maxResult_ == nullptr
+        && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->settingName_ == nullptr && this->status_ == nullptr; };
     // maxResult Field Functions 
     bool hasMaxResult() const { return this->maxResult_ != nullptr;};
     void deleteMaxResult() { this->maxResult_ = nullptr;};
-    inline int32_t maxResult() const { DARABONBA_PTR_GET_DEFAULT(maxResult_, 0) };
+    inline int32_t getMaxResult() const { DARABONBA_PTR_GET_DEFAULT(maxResult_, 0) };
     inline ListAssociatedResourceRulesRequest& setMaxResult(int32_t maxResult) { DARABONBA_PTR_SET_VALUE(maxResult_, maxResult) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAssociatedResourceRulesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListAssociatedResourceRulesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListAssociatedResourceRulesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListAssociatedResourceRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListAssociatedResourceRulesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // settingName Field Functions 
     bool hasSettingName() const { return this->settingName_ != nullptr;};
     void deleteSettingName() { this->settingName_ = nullptr;};
-    inline const vector<string> & settingName() const { DARABONBA_PTR_GET_CONST(settingName_, vector<string>) };
-    inline vector<string> settingName() { DARABONBA_PTR_GET(settingName_, vector<string>) };
+    inline const vector<string> & getSettingName() const { DARABONBA_PTR_GET_CONST(settingName_, vector<string>) };
+    inline vector<string> getSettingName() { DARABONBA_PTR_GET(settingName_, vector<string>) };
     inline ListAssociatedResourceRulesRequest& setSettingName(const vector<string> & settingName) { DARABONBA_PTR_SET_VALUE(settingName_, settingName) };
     inline ListAssociatedResourceRulesRequest& setSettingName(vector<string> && settingName) { DARABONBA_PTR_SET_RVALUE(settingName_, settingName) };
 
@@ -101,29 +101,30 @@ namespace Models
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListAssociatedResourceRulesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
-    // Number of data entries to display per page during pagination.
+    // The number of entries to return on each page.
     // 
-    // Default value: 50. Maximum value: 100.
-    std::shared_ptr<int32_t> maxResult_ = nullptr;
-    // Token for the next query start.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    // Setting name of the associated resource tag rule.
-    std::shared_ptr<vector<string>> settingName_ = nullptr;
-    // Whether the associated resource tag rule is enabled. Values:
+    // Default Value: 50. Maximum Value: 100.
+    shared_ptr<int32_t> maxResult_ {};
+    // The token returned from a previous call to retrieve the next page of results.
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
+    // The Region ID.
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    // The names of the associated resource rules.
+    shared_ptr<vector<string>> settingName_ {};
+    // The status of the associated resource rules to query. Valid values:
     // 
-    // - Enable: Enabled.
-    // - Disable: Disabled.
-    std::shared_ptr<string> status_ = nullptr;
+    // - Enable: The rule is enabled.
+    // 
+    // - Disable: The rule is disabled.
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

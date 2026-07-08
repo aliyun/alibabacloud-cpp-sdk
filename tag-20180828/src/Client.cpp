@@ -51,7 +51,36 @@ AlibabaCloud::Tag20180828::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhangjiakou-na62-a01" , "tag.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "tag.cn-qingdao-nebula.aliyuncs.com"},
     {"eu-west-1-oxs" , "tag.cn-shenzhen-cloudstone.aliyuncs.com"},
-    {"rus-west-1-pop" , "tag.aliyuncs.com"}
+    {"rus-west-1-pop" , "tag.aliyuncs.com"},
+    {"us-east-1" , "tag.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "tag.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "tag.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "tag.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "tag.eu-central-1.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "tag.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "tag.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "tag.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "tag.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "tag.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "tag.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "tag.cn-qingdao.aliyuncs.com"},
+    {"cn-nanjing" , "tag.cn-nanjing.aliyuncs.com"},
+    {"cn-huhehaote" , "tag.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "tag.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan" , "tag.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou" , "tag.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "tag.cn-guangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "tag.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "tag.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "tag.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "tag.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "tag.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "tag.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "tag.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "tag.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "tag.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "tag.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "tag.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("tag", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -71,7 +100,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 绑定策略
+ * @summary Attaches a tag policy to an object.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -84,31 +113,31 @@ AttachPolicyResponse Client::attachPolicyWithOptions(const AttachPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -129,7 +158,7 @@ AttachPolicyResponse Client::attachPolicyWithOptions(const AttachPolicyRequest &
 }
 
 /**
- * @summary 绑定策略
+ * @summary Attaches a tag policy to an object.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -143,7 +172,7 @@ AttachPolicyResponse Client::attachPolicy(const AttachPolicyRequest &request) {
 }
 
 /**
- * @summary 校验CreatedBy开通状态
+ * @summary Checks whether the createdby tag is enabled.
  *
  * @param request CheckCreatedByEnabledRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -153,23 +182,23 @@ CheckCreatedByEnabledResponse Client::checkCreatedByEnabledWithOptions(const Che
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -190,7 +219,7 @@ CheckCreatedByEnabledResponse Client::checkCreatedByEnabledWithOptions(const Che
 }
 
 /**
- * @summary 校验CreatedBy开通状态
+ * @summary Checks whether the createdby tag is enabled.
  *
  * @param request CheckCreatedByEnabledRequest
  * @return CheckCreatedByEnabledResponse
@@ -201,7 +230,7 @@ CheckCreatedByEnabledResponse Client::checkCreatedByEnabled(const CheckCreatedBy
 }
 
 /**
- * @summary 关闭CreatedBy服务
+ * @summary Disables createdby tags.
  *
  * @param request CloseCreatedByRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -211,23 +240,23 @@ CloseCreatedByResponse Client::closeCreatedByWithOptions(const CloseCreatedByReq
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -248,7 +277,7 @@ CloseCreatedByResponse Client::closeCreatedByWithOptions(const CloseCreatedByReq
 }
 
 /**
- * @summary 关闭CreatedBy服务
+ * @summary Disables createdby tags.
  *
  * @param request CloseCreatedByRequest
  * @return CloseCreatedByResponse
@@ -259,7 +288,7 @@ CloseCreatedByResponse Client::closeCreatedBy(const CloseCreatedByRequest &reque
 }
 
 /**
- * @summary Creates associated resource tagging rules.
+ * @summary Creates associated resource tag rules.
  *
  * @param request CreateAssociatedResourceRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -269,23 +298,23 @@ CreateAssociatedResourceRulesResponse Client::createAssociatedResourceRulesWithO
   request.validate();
   json query = {};
   if (!!request.hasCreateRulesList()) {
-    query["CreateRulesList"] = request.createRulesList();
+    query["CreateRulesList"] = request.getCreateRulesList();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -306,7 +335,7 @@ CreateAssociatedResourceRulesResponse Client::createAssociatedResourceRulesWithO
 }
 
 /**
- * @summary Creates associated resource tagging rules.
+ * @summary Creates associated resource tag rules.
  *
  * @param request CreateAssociatedResourceRulesRequest
  * @return CreateAssociatedResourceRulesResponse
@@ -330,39 +359,39 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyContent()) {
-    query["PolicyContent"] = request.policyContent();
+    query["PolicyContent"] = request.getPolicyContent();
   }
 
   if (!!request.hasPolicyDesc()) {
-    query["PolicyDesc"] = request.policyDesc();
+    query["PolicyDesc"] = request.getPolicyDesc();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -411,23 +440,23 @@ CreateTagsResponse Client::createTagsWithOptions(const CreateTagsRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTagKeyValueParamList()) {
-    query["TagKeyValueParamList"] = request.tagKeyValueParamList();
+    query["TagKeyValueParamList"] = request.getTagKeyValueParamList();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -473,23 +502,23 @@ DeleteAssociatedResourceRuleResponse Client::deleteAssociatedResourceRuleWithOpt
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasSettingName()) {
-    query["SettingName"] = request.settingName();
+    query["SettingName"] = request.getSettingName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -534,23 +563,23 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const DeletePolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -597,27 +626,27 @@ DeleteTagResponse Client::deleteTagWithOptions(const DeleteTagRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasValue()) {
-    query["Value"] = request.value();
+    query["Value"] = request.getValue();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -661,27 +690,27 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
   request.validate();
   json query = {};
   if (!!request.hasAcceptLanguage()) {
-    query["AcceptLanguage"] = request.acceptLanguage();
+    query["AcceptLanguage"] = request.getAcceptLanguage();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -727,31 +756,31 @@ DetachPolicyResponse Client::detachPolicyWithOptions(const DetachPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -787,7 +816,10 @@ DetachPolicyResponse Client::detachPolicy(const DetachPolicyRequest &request) {
 }
 
 /**
- * @summary 关闭策略
+ * @summary Disables a control policy.
+ *
+ * @description ### Usage notes
+ * After you disable a tag policy, all bound tag policies are automatically unbound.
  *
  * @param request DisablePolicyTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -797,31 +829,31 @@ DisablePolicyTypeResponse Client::disablePolicyTypeWithOptions(const DisablePoli
   request.validate();
   json query = {};
   if (!!request.hasOpenType()) {
-    query["OpenType"] = request.openType();
+    query["OpenType"] = request.getOpenType();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -842,7 +874,10 @@ DisablePolicyTypeResponse Client::disablePolicyTypeWithOptions(const DisablePoli
 }
 
 /**
- * @summary 关闭策略
+ * @summary Disables a control policy.
+ *
+ * @description ### Usage notes
+ * After you disable a tag policy, all bound tag policies are automatically unbound.
  *
  * @param request DisablePolicyTypeRequest
  * @return DisablePolicyTypeResponse
@@ -853,7 +888,13 @@ DisablePolicyTypeResponse Client::disablePolicyType(const DisablePolicyTypeReque
 }
 
 /**
- * @summary 开通策略
+ * @summary Enables the tag policy feature.
+ *
+ * @description ### Usage notes
+ * You can enable the single-account mode or multi-account mode for tag policies:
+ * - Single-account mode: If the current logon account is an independent Alibaba Cloud account, the single-account mode for tag policies is enabled to manage resources within the scope of the single account.
+ * - Multi-account mode: If the current logon account is the management account of a resource directory, the multi-account mode for tag policies is enabled to manage resources within the scope of the resource directory.
+ *   > Members of a resource directory cannot enable the tag policy feature.
  *
  * @param request EnablePolicyTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -863,31 +904,31 @@ EnablePolicyTypeResponse Client::enablePolicyTypeWithOptions(const EnablePolicyT
   request.validate();
   json query = {};
   if (!!request.hasOpenType()) {
-    query["OpenType"] = request.openType();
+    query["OpenType"] = request.getOpenType();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -908,7 +949,13 @@ EnablePolicyTypeResponse Client::enablePolicyTypeWithOptions(const EnablePolicyT
 }
 
 /**
- * @summary 开通策略
+ * @summary Enables the tag policy feature.
+ *
+ * @description ### Usage notes
+ * You can enable the single-account mode or multi-account mode for tag policies:
+ * - Single-account mode: If the current logon account is an independent Alibaba Cloud account, the single-account mode for tag policies is enabled to manage resources within the scope of the single account.
+ * - Multi-account mode: If the current logon account is the management account of a resource directory, the multi-account mode for tag policies is enabled to manage resources within the scope of the resource directory.
+ *   > Members of a resource directory cannot enable the tag policy feature.
  *
  * @param request EnablePolicyTypeRequest
  * @return EnablePolicyTypeResponse
@@ -919,7 +966,7 @@ EnablePolicyTypeResponse Client::enablePolicyType(const EnablePolicyTypeRequest 
 }
 
 /**
- * @summary 生成规则检测报告
+ * @summary Generates a resource non-compliance report.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -932,31 +979,31 @@ GenerateConfigRuleReportResponse Client::generateConfigRuleReportWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -977,7 +1024,7 @@ GenerateConfigRuleReportResponse Client::generateConfigRuleReportWithOptions(con
 }
 
 /**
- * @summary 生成规则检测报告
+ * @summary Generates a resource non-compliance report.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -991,7 +1038,7 @@ GenerateConfigRuleReportResponse Client::generateConfigRuleReport(const Generate
 }
 
 /**
- * @summary Queries the basic information of the resource non-compliance report that is last generated.
+ * @summary Queries the basic information about the latest resource non-compliance report.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
@@ -1004,31 +1051,31 @@ GetConfigRuleReportResponse Client::getConfigRuleReportWithOptions(const GetConf
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1049,7 +1096,7 @@ GetConfigRuleReportResponse Client::getConfigRuleReportWithOptions(const GetConf
 }
 
 /**
- * @summary Queries the basic information of the resource non-compliance report that is last generated.
+ * @summary Queries the basic information about the latest resource non-compliance report.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
@@ -1063,11 +1110,12 @@ GetConfigRuleReportResponse Client::getConfigRuleReport(const GetConfigRuleRepor
 }
 
 /**
- * @summary Queries the information about the effective policy.
+ * @summary Retrieves the effective policy for a specified object.
  *
- * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
- * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
- * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+ * @description ### Usage notes
+ * In Single-Account Mode, the current logon account can query its own effective policy. In Multi-Account Mode, the Management Account of a Resource Directory can query the effective policy for the Root Folder, a Folder, or a Member. A Member can also query its own effective policy. For more information about tag policy modes, see [Tag policy modes](https://help.aliyun.com/document_detail/417434.html).
+ * Tag policy inheritance determines the effective policy. For more information, see [Tag policy inheritance and effective policy calculation](https://help.aliyun.com/document_detail/417435.html).
+ * This topic provides an example of how to query the effective policy for the current logon account in Single-Account Mode.
  *
  * @param request GetEffectivePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1077,31 +1125,31 @@ GetEffectivePolicyResponse Client::getEffectivePolicyWithOptions(const GetEffect
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTagKeys()) {
-    query["TagKeys"] = request.tagKeys();
+    query["TagKeys"] = request.getTagKeys();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1122,11 +1170,12 @@ GetEffectivePolicyResponse Client::getEffectivePolicyWithOptions(const GetEffect
 }
 
 /**
- * @summary Queries the information about the effective policy.
+ * @summary Retrieves the effective policy for a specified object.
  *
- * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
- * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
- * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+ * @description ### Usage notes
+ * In Single-Account Mode, the current logon account can query its own effective policy. In Multi-Account Mode, the Management Account of a Resource Directory can query the effective policy for the Root Folder, a Folder, or a Member. A Member can also query its own effective policy. For more information about tag policy modes, see [Tag policy modes](https://help.aliyun.com/document_detail/417434.html).
+ * Tag policy inheritance determines the effective policy. For more information, see [Tag policy inheritance and effective policy calculation](https://help.aliyun.com/document_detail/417435.html).
+ * This topic provides an example of how to query the effective policy for the current logon account in Single-Account Mode.
  *
  * @param request GetEffectivePolicyRequest
  * @return GetEffectivePolicyResponse
@@ -1149,23 +1198,23 @@ GetPolicyResponse Client::getPolicyWithOptions(const GetPolicyRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1211,31 +1260,31 @@ GetPolicyEnableStatusResponse Client::getPolicyEnableStatusWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasOpenType()) {
-    query["OpenType"] = request.openType();
+    query["OpenType"] = request.getOpenType();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1269,7 +1318,7 @@ GetPolicyEnableStatusResponse Client::getPolicyEnableStatus(const GetPolicyEnabl
 }
 
 /**
- * @summary Search the rules for associated resources that the user has set up.
+ * @summary Retrieves a list of associated resource rules.
  *
  * @param request ListAssociatedResourceRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1279,35 +1328,35 @@ ListAssociatedResourceRulesResponse Client::listAssociatedResourceRulesWithOptio
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasSettingName()) {
-    query["SettingName"] = request.settingName();
+    query["SettingName"] = request.getSettingName();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1328,7 +1377,7 @@ ListAssociatedResourceRulesResponse Client::listAssociatedResourceRulesWithOptio
 }
 
 /**
- * @summary Search the rules for associated resources that the user has set up.
+ * @summary Retrieves a list of associated resource rules.
  *
  * @param request ListAssociatedResourceRulesRequest
  * @return ListAssociatedResourceRulesResponse
@@ -1352,47 +1401,47 @@ ListConfigRulesForTargetResponse Client::listConfigRulesForTargetWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyType()) {
-    query["PolicyType"] = request.policyType();
+    query["PolicyType"] = request.getPolicyType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1427,7 +1476,7 @@ ListConfigRulesForTargetResponse Client::listConfigRulesForTarget(const ListConf
 }
 
 /**
- * @summary Queries tag policies.
+ * @summary Queries a list of tag policies.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
@@ -1440,39 +1489,39 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyIds()) {
-    query["PolicyIds"] = request.policyIds();
+    query["PolicyIds"] = request.getPolicyIds();
   }
 
   if (!!request.hasPolicyNames()) {
-    query["PolicyNames"] = request.policyNames();
+    query["PolicyNames"] = request.getPolicyNames();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasUserType()) {
-    query["UserType"] = request.userType();
+    query["UserType"] = request.getUserType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1493,7 +1542,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary Queries tag policies.
+ * @summary Queries a list of tag policies.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
@@ -1507,7 +1556,7 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary Queries the tag policies that are attached to an object.
+ * @summary Queries a list of tag policies that are attached to an object.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
@@ -1520,35 +1569,35 @@ ListPoliciesForTargetResponse Client::listPoliciesForTargetWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTargetId()) {
-    query["TargetId"] = request.targetId();
+    query["TargetId"] = request.getTargetId();
   }
 
   if (!!request.hasTargetType()) {
-    query["TargetType"] = request.targetType();
+    query["TargetType"] = request.getTargetType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1569,7 +1618,7 @@ ListPoliciesForTargetResponse Client::listPoliciesForTargetWithOptions(const Lis
 }
 
 /**
- * @summary Queries the tag policies that are attached to an object.
+ * @summary Queries a list of tag policies that are attached to an object.
  *
  * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
  * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
@@ -1595,47 +1644,47 @@ ListResourcesByTagResponse Client::listResourcesByTagWithOptions(const ListResou
   request.validate();
   json query = {};
   if (!!request.hasFuzzyType()) {
-    query["FuzzyType"] = request.fuzzyType();
+    query["FuzzyType"] = request.getFuzzyType();
   }
 
   if (!!request.hasIncludeAllTags()) {
-    query["IncludeAllTags"] = request.includeAllTags();
+    query["IncludeAllTags"] = request.getIncludeAllTags();
   }
 
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagFilter()) {
-    query["TagFilter"] = request.tagFilter();
+    query["TagFilter"] = request.getTagFilter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1684,43 +1733,43 @@ ListSupportResourceTypesResponse Client::listSupportResourceTypesWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasProductCode()) {
-    query["ProductCode"] = request.productCode();
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceTye()) {
-    query["ResourceTye"] = request.resourceTye();
+    query["ResourceTye"] = request.getResourceTye();
   }
 
   if (!!request.hasShowItems()) {
-    query["ShowItems"] = request.showItems();
+    query["ShowItems"] = request.getShowItems();
   }
 
   if (!!request.hasSupportCode()) {
-    query["SupportCode"] = request.supportCode();
+    query["SupportCode"] = request.getSupportCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1769,51 +1818,51 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
   request.validate();
   json query = {};
   if (!!request.hasCategory()) {
-    query["Category"] = request.category();
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasFuzzyType()) {
-    query["FuzzyType"] = request.fuzzyType();
+    query["FuzzyType"] = request.getFuzzyType();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryType()) {
-    query["QueryType"] = request.queryType();
+    query["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagFilter()) {
-    query["TagFilter"] = request.tagFilter();
+    query["TagFilter"] = request.getTagFilter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1859,43 +1908,43 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasCategory()) {
-    query["Category"] = request.category();
+    query["Category"] = request.getCategory();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceARN()) {
-    query["ResourceARN"] = request.resourceARN();
+    query["ResourceARN"] = request.getResourceARN();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1941,51 +1990,51 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
   request.validate();
   json query = {};
   if (!!request.hasFuzzyType()) {
-    query["FuzzyType"] = request.fuzzyType();
+    query["FuzzyType"] = request.getFuzzyType();
   }
 
   if (!!request.hasKey()) {
-    query["Key"] = request.key();
+    query["Key"] = request.getKey();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueryType()) {
-    query["QueryType"] = request.queryType();
+    query["QueryType"] = request.getQueryType();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagFilter()) {
-    query["TagFilter"] = request.tagFilter();
+    query["TagFilter"] = request.getTagFilter();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2032,31 +2081,31 @@ ListTargetsForPolicyResponse Client::listTargetsForPolicyWithOptions(const ListT
   request.validate();
   json query = {};
   if (!!request.hasMaxResult()) {
-    query["MaxResult"] = request.maxResult();
+    query["MaxResult"] = request.getMaxResult();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2104,39 +2153,39 @@ ModifyPolicyResponse Client::modifyPolicyWithOptions(const ModifyPolicyRequest &
   request.validate();
   json query = {};
   if (!!request.hasDryRun()) {
-    query["DryRun"] = request.dryRun();
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPolicyContent()) {
-    query["PolicyContent"] = request.policyContent();
+    query["PolicyContent"] = request.getPolicyContent();
   }
 
   if (!!request.hasPolicyDesc()) {
-    query["PolicyDesc"] = request.policyDesc();
+    query["PolicyDesc"] = request.getPolicyDesc();
   }
 
   if (!!request.hasPolicyId()) {
-    query["PolicyId"] = request.policyId();
+    query["PolicyId"] = request.getPolicyId();
   }
 
   if (!!request.hasPolicyName()) {
-    query["PolicyName"] = request.policyName();
+    query["PolicyName"] = request.getPolicyName();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2183,23 +2232,23 @@ OpenCreatedByResponse Client::openCreatedByWithOptions(const OpenCreatedByReques
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.resourceOwnerId();
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2246,31 +2295,31 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceARN()) {
-    query["ResourceARN"] = request.resourceARN();
+    query["ResourceARN"] = request.getResourceARN();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2318,31 +2367,31 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceARN()) {
-    query["ResourceARN"] = request.resourceARN();
+    query["ResourceARN"] = request.getResourceARN();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasTagKey()) {
-    query["TagKey"] = request.tagKey();
+    query["TagKey"] = request.getTagKey();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2377,7 +2426,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Update the rule for tagging associated resources.
+ * @summary Updates an Associated Resource Tag Rule.
  *
  * @param request UpdateAssociatedResourceRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2387,35 +2436,35 @@ UpdateAssociatedResourceRuleResponse Client::updateAssociatedResourceRuleWithOpt
   request.validate();
   json query = {};
   if (!!request.hasExistingStatus()) {
-    query["ExistingStatus"] = request.existingStatus();
+    query["ExistingStatus"] = request.getExistingStatus();
   }
 
   if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.ownerAccount();
+    query["OwnerAccount"] = request.getOwnerAccount();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
   }
 
   if (!!request.hasSettingName()) {
-    query["SettingName"] = request.settingName();
+    query["SettingName"] = request.getSettingName();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasTagKeys()) {
-    query["TagKeys"] = request.tagKeys();
+    query["TagKeys"] = request.getTagKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2436,7 +2485,7 @@ UpdateAssociatedResourceRuleResponse Client::updateAssociatedResourceRuleWithOpt
 }
 
 /**
- * @summary Update the rule for tagging associated resources.
+ * @summary Updates an Associated Resource Tag Rule.
  *
  * @param request UpdateAssociatedResourceRuleRequest
  * @return UpdateAssociatedResourceRuleResponse

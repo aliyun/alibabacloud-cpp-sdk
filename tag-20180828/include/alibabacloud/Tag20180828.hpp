@@ -21,7 +21,7 @@ namespace Tag20180828
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 绑定策略
+       * @summary Attaches a tag policy to an object.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -33,7 +33,7 @@ namespace Tag20180828
       Models::AttachPolicyResponse attachPolicyWithOptions(const Models::AttachPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定策略
+       * @summary Attaches a tag policy to an object.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -44,7 +44,7 @@ namespace Tag20180828
       Models::AttachPolicyResponse attachPolicy(const Models::AttachPolicyRequest &request);
 
       /**
-       * @summary 校验CreatedBy开通状态
+       * @summary Checks whether the createdby tag is enabled.
        *
        * @param request CheckCreatedByEnabledRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -53,7 +53,7 @@ namespace Tag20180828
       Models::CheckCreatedByEnabledResponse checkCreatedByEnabledWithOptions(const Models::CheckCreatedByEnabledRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验CreatedBy开通状态
+       * @summary Checks whether the createdby tag is enabled.
        *
        * @param request CheckCreatedByEnabledRequest
        * @return CheckCreatedByEnabledResponse
@@ -61,7 +61,7 @@ namespace Tag20180828
       Models::CheckCreatedByEnabledResponse checkCreatedByEnabled(const Models::CheckCreatedByEnabledRequest &request);
 
       /**
-       * @summary 关闭CreatedBy服务
+       * @summary Disables createdby tags.
        *
        * @param request CloseCreatedByRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -70,7 +70,7 @@ namespace Tag20180828
       Models::CloseCreatedByResponse closeCreatedByWithOptions(const Models::CloseCreatedByRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭CreatedBy服务
+       * @summary Disables createdby tags.
        *
        * @param request CloseCreatedByRequest
        * @return CloseCreatedByResponse
@@ -78,7 +78,7 @@ namespace Tag20180828
       Models::CloseCreatedByResponse closeCreatedBy(const Models::CloseCreatedByRequest &request);
 
       /**
-       * @summary Creates associated resource tagging rules.
+       * @summary Creates associated resource tag rules.
        *
        * @param request CreateAssociatedResourceRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -87,7 +87,7 @@ namespace Tag20180828
       Models::CreateAssociatedResourceRulesResponse createAssociatedResourceRulesWithOptions(const Models::CreateAssociatedResourceRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates associated resource tagging rules.
+       * @summary Creates associated resource tag rules.
        *
        * @param request CreateAssociatedResourceRulesRequest
        * @return CreateAssociatedResourceRulesResponse
@@ -246,7 +246,10 @@ namespace Tag20180828
       Models::DetachPolicyResponse detachPolicy(const Models::DetachPolicyRequest &request);
 
       /**
-       * @summary 关闭策略
+       * @summary Disables a control policy.
+       *
+       * @description ### Usage notes
+       * After you disable a tag policy, all bound tag policies are automatically unbound.
        *
        * @param request DisablePolicyTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -255,7 +258,10 @@ namespace Tag20180828
       Models::DisablePolicyTypeResponse disablePolicyTypeWithOptions(const Models::DisablePolicyTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭策略
+       * @summary Disables a control policy.
+       *
+       * @description ### Usage notes
+       * After you disable a tag policy, all bound tag policies are automatically unbound.
        *
        * @param request DisablePolicyTypeRequest
        * @return DisablePolicyTypeResponse
@@ -263,7 +269,13 @@ namespace Tag20180828
       Models::DisablePolicyTypeResponse disablePolicyType(const Models::DisablePolicyTypeRequest &request);
 
       /**
-       * @summary 开通策略
+       * @summary Enables the tag policy feature.
+       *
+       * @description ### Usage notes
+       * You can enable the single-account mode or multi-account mode for tag policies:
+       * - Single-account mode: If the current logon account is an independent Alibaba Cloud account, the single-account mode for tag policies is enabled to manage resources within the scope of the single account.
+       * - Multi-account mode: If the current logon account is the management account of a resource directory, the multi-account mode for tag policies is enabled to manage resources within the scope of the resource directory.
+       *   > Members of a resource directory cannot enable the tag policy feature.
        *
        * @param request EnablePolicyTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -272,7 +284,13 @@ namespace Tag20180828
       Models::EnablePolicyTypeResponse enablePolicyTypeWithOptions(const Models::EnablePolicyTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通策略
+       * @summary Enables the tag policy feature.
+       *
+       * @description ### Usage notes
+       * You can enable the single-account mode or multi-account mode for tag policies:
+       * - Single-account mode: If the current logon account is an independent Alibaba Cloud account, the single-account mode for tag policies is enabled to manage resources within the scope of the single account.
+       * - Multi-account mode: If the current logon account is the management account of a resource directory, the multi-account mode for tag policies is enabled to manage resources within the scope of the resource directory.
+       *   > Members of a resource directory cannot enable the tag policy feature.
        *
        * @param request EnablePolicyTypeRequest
        * @return EnablePolicyTypeResponse
@@ -280,7 +298,7 @@ namespace Tag20180828
       Models::EnablePolicyTypeResponse enablePolicyType(const Models::EnablePolicyTypeRequest &request);
 
       /**
-       * @summary 生成规则检测报告
+       * @summary Generates a resource non-compliance report.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -292,7 +310,7 @@ namespace Tag20180828
       Models::GenerateConfigRuleReportResponse generateConfigRuleReportWithOptions(const Models::GenerateConfigRuleReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成规则检测报告
+       * @summary Generates a resource non-compliance report.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
@@ -303,7 +321,7 @@ namespace Tag20180828
       Models::GenerateConfigRuleReportResponse generateConfigRuleReport(const Models::GenerateConfigRuleReportRequest &request);
 
       /**
-       * @summary Queries the basic information of the resource non-compliance report that is last generated.
+       * @summary Queries the basic information about the latest resource non-compliance report.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
@@ -315,7 +333,7 @@ namespace Tag20180828
       Models::GetConfigRuleReportResponse getConfigRuleReportWithOptions(const Models::GetConfigRuleReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information of the resource non-compliance report that is last generated.
+       * @summary Queries the basic information about the latest resource non-compliance report.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
@@ -326,11 +344,12 @@ namespace Tag20180828
       Models::GetConfigRuleReportResponse getConfigRuleReport(const Models::GetConfigRuleReportRequest &request);
 
       /**
-       * @summary Queries the information about the effective policy.
+       * @summary Retrieves the effective policy for a specified object.
        *
-       * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-       * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
-       * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+       * @description ### Usage notes
+       * In Single-Account Mode, the current logon account can query its own effective policy. In Multi-Account Mode, the Management Account of a Resource Directory can query the effective policy for the Root Folder, a Folder, or a Member. A Member can also query its own effective policy. For more information about tag policy modes, see [Tag policy modes](https://help.aliyun.com/document_detail/417434.html).
+       * Tag policy inheritance determines the effective policy. For more information, see [Tag policy inheritance and effective policy calculation](https://help.aliyun.com/document_detail/417435.html).
+       * This topic provides an example of how to query the effective policy for the current logon account in Single-Account Mode.
        *
        * @param request GetEffectivePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -339,11 +358,12 @@ namespace Tag20180828
       Models::GetEffectivePolicyResponse getEffectivePolicyWithOptions(const Models::GetEffectivePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the effective policy.
+       * @summary Retrieves the effective policy for a specified object.
        *
-       * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-       * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](https://help.aliyun.com/document_detail/417435.html).
-       * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+       * @description ### Usage notes
+       * In Single-Account Mode, the current logon account can query its own effective policy. In Multi-Account Mode, the Management Account of a Resource Directory can query the effective policy for the Root Folder, a Folder, or a Member. A Member can also query its own effective policy. For more information about tag policy modes, see [Tag policy modes](https://help.aliyun.com/document_detail/417434.html).
+       * Tag policy inheritance determines the effective policy. For more information, see [Tag policy inheritance and effective policy calculation](https://help.aliyun.com/document_detail/417435.html).
+       * This topic provides an example of how to query the effective policy for the current logon account in Single-Account Mode.
        *
        * @param request GetEffectivePolicyRequest
        * @return GetEffectivePolicyResponse
@@ -393,7 +413,7 @@ namespace Tag20180828
       Models::GetPolicyEnableStatusResponse getPolicyEnableStatus(const Models::GetPolicyEnableStatusRequest &request);
 
       /**
-       * @summary Search the rules for associated resources that the user has set up.
+       * @summary Retrieves a list of associated resource rules.
        *
        * @param request ListAssociatedResourceRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -402,7 +422,7 @@ namespace Tag20180828
       Models::ListAssociatedResourceRulesResponse listAssociatedResourceRulesWithOptions(const Models::ListAssociatedResourceRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Search the rules for associated resources that the user has set up.
+       * @summary Retrieves a list of associated resource rules.
        *
        * @param request ListAssociatedResourceRulesRequest
        * @return ListAssociatedResourceRulesResponse
@@ -433,7 +453,7 @@ namespace Tag20180828
       Models::ListConfigRulesForTargetResponse listConfigRulesForTarget(const Models::ListConfigRulesForTargetRequest &request);
 
       /**
-       * @summary Queries tag policies.
+       * @summary Queries a list of tag policies.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
@@ -445,7 +465,7 @@ namespace Tag20180828
       Models::ListPoliciesResponse listPoliciesWithOptions(const Models::ListPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tag policies.
+       * @summary Queries a list of tag policies.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
@@ -456,7 +476,7 @@ namespace Tag20180828
       Models::ListPoliciesResponse listPolicies(const Models::ListPoliciesRequest &request);
 
       /**
-       * @summary Queries the tag policies that are attached to an object.
+       * @summary Queries a list of tag policies that are attached to an object.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
@@ -468,7 +488,7 @@ namespace Tag20180828
       Models::ListPoliciesForTargetResponse listPoliciesForTargetWithOptions(const Models::ListPoliciesForTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tag policies that are attached to an object.
+       * @summary Queries a list of tag policies that are attached to an object.
        *
        * @description If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag policies that are attached to the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag policies that are attached to the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
        * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
@@ -703,7 +723,7 @@ namespace Tag20180828
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Update the rule for tagging associated resources.
+       * @summary Updates an Associated Resource Tag Rule.
        *
        * @param request UpdateAssociatedResourceRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -712,7 +732,7 @@ namespace Tag20180828
       Models::UpdateAssociatedResourceRuleResponse updateAssociatedResourceRuleWithOptions(const Models::UpdateAssociatedResourceRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the rule for tagging associated resources.
+       * @summary Updates an Associated Resource Tag Rule.
        *
        * @param request UpdateAssociatedResourceRuleRequest
        * @return UpdateAssociatedResourceRuleResponse

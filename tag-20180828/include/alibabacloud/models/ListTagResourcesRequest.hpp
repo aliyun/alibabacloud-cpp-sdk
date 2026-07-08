@@ -46,56 +46,56 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr
-        && this->resourceARN_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->resourceARN_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->tags_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline ListTagResourcesRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTagResourcesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListTagResourcesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListTagResourcesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListTagResourcesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListTagResourcesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceARN Field Functions 
     bool hasResourceARN() const { return this->resourceARN_ != nullptr;};
     void deleteResourceARN() { this->resourceARN_ = nullptr;};
-    inline const vector<string> & resourceARN() const { DARABONBA_PTR_GET_CONST(resourceARN_, vector<string>) };
-    inline vector<string> resourceARN() { DARABONBA_PTR_GET(resourceARN_, vector<string>) };
+    inline const vector<string> & getResourceARN() const { DARABONBA_PTR_GET_CONST(resourceARN_, vector<string>) };
+    inline vector<string> getResourceARN() { DARABONBA_PTR_GET(resourceARN_, vector<string>) };
     inline ListTagResourcesRequest& setResourceARN(const vector<string> & resourceARN) { DARABONBA_PTR_SET_VALUE(resourceARN_, resourceARN) };
     inline ListTagResourcesRequest& setResourceARN(vector<string> && resourceARN) { DARABONBA_PTR_SET_RVALUE(resourceARN_, resourceARN) };
 
@@ -103,14 +103,14 @@ namespace Models
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListTagResourcesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline string tags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
+    inline string getTags() const { DARABONBA_PTR_GET_DEFAULT(tags_, "") };
     inline ListTagResourcesRequest& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
@@ -122,22 +122,22 @@ namespace Models
     // *   All
     // 
     // Default value: All.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The token that is used to start the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The number of entries to return on each page.
     // 
     // Maximum value: 1000. Default value: 50.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // *   If the resources belong to a service that is centrally deployed, set the value to the region ID of the resources by referring to [Regions supported by tag-related operations on resources of centrally deployed Alibaba Cloud services](https://help.aliyun.com/document_detail/2579691.html).
     // *   If the resources belong to a service that is not centrally deployed, set the value to the region ID of the resources.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The Alibaba Cloud Resource Name (ARN) of a resource.
     // 
     // Valid values of N: 1 to 50.
@@ -151,8 +151,8 @@ namespace Models
     // *   `ResourceId`: the ID of the resource.
     // 
     // >  You can set `ProductCode` and `ResourceType` in ResourceARN to values defined in Resource Group, ActionTrail, or Resource Center.
-    std::shared_ptr<vector<string>> resourceARN_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
+    shared_ptr<vector<string>> resourceARN_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
     // The key-value pairs of tags. You can specify 1 to 10 key-value pairs.
     // 
     // If you specify multiple tags, the system queries the resources to which all these tags are added.
@@ -163,7 +163,7 @@ namespace Models
     // *   A tag value must be 1 to 128 characters in length.
     // *   Tag keys and tag values are case-sensitive.
     // *   Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
-    std::shared_ptr<string> tags_ = nullptr;
+    shared_ptr<string> tags_ {};
   };
 
   } // namespace Models

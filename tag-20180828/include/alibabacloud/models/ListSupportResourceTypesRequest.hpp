@@ -47,76 +47,76 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResult_ != nullptr
-        && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->productCode_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceTye_ != nullptr && this->showItems_ != nullptr && this->supportCode_ != nullptr; };
+    virtual bool empty() const override { return this->maxResult_ == nullptr
+        && this->nextToken_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->productCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceTye_ == nullptr && this->showItems_ == nullptr && this->supportCode_ == nullptr; };
     // maxResult Field Functions 
     bool hasMaxResult() const { return this->maxResult_ != nullptr;};
     void deleteMaxResult() { this->maxResult_ = nullptr;};
-    inline int32_t maxResult() const { DARABONBA_PTR_GET_DEFAULT(maxResult_, 0) };
+    inline int32_t getMaxResult() const { DARABONBA_PTR_GET_DEFAULT(maxResult_, 0) };
     inline ListSupportResourceTypesRequest& setMaxResult(int32_t maxResult) { DARABONBA_PTR_SET_VALUE(maxResult_, maxResult) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListSupportResourceTypesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ListSupportResourceTypesRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ListSupportResourceTypesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline ListSupportResourceTypesRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListSupportResourceTypesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ListSupportResourceTypesRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceTye Field Functions 
     bool hasResourceTye() const { return this->resourceTye_ != nullptr;};
     void deleteResourceTye() { this->resourceTye_ = nullptr;};
-    inline string resourceTye() const { DARABONBA_PTR_GET_DEFAULT(resourceTye_, "") };
+    inline string getResourceTye() const { DARABONBA_PTR_GET_DEFAULT(resourceTye_, "") };
     inline ListSupportResourceTypesRequest& setResourceTye(string resourceTye) { DARABONBA_PTR_SET_VALUE(resourceTye_, resourceTye) };
 
 
     // showItems Field Functions 
     bool hasShowItems() const { return this->showItems_ != nullptr;};
     void deleteShowItems() { this->showItems_ = nullptr;};
-    inline bool showItems() const { DARABONBA_PTR_GET_DEFAULT(showItems_, false) };
+    inline bool getShowItems() const { DARABONBA_PTR_GET_DEFAULT(showItems_, false) };
     inline ListSupportResourceTypesRequest& setShowItems(bool showItems) { DARABONBA_PTR_SET_VALUE(showItems_, showItems) };
 
 
     // supportCode Field Functions 
     bool hasSupportCode() const { return this->supportCode_ != nullptr;};
     void deleteSupportCode() { this->supportCode_ = nullptr;};
-    inline string supportCode() const { DARABONBA_PTR_GET_DEFAULT(supportCode_, "") };
+    inline string getSupportCode() const { DARABONBA_PTR_GET_DEFAULT(supportCode_, "") };
     inline ListSupportResourceTypesRequest& setSupportCode(string supportCode) { DARABONBA_PTR_SET_VALUE(supportCode_, supportCode) };
 
 
@@ -124,33 +124,33 @@ namespace Models
     // The number of entries to return on each page.
     // 
     // Maximum value: 1000. Default value: 50.
-    std::shared_ptr<int32_t> maxResult_ = nullptr;
+    shared_ptr<int32_t> maxResult_ {};
     // The token that is used to start the next query.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The service code. This parameter specifies a filter condition for the query.
     // 
     // This parameter is obtained from the response.
-    std::shared_ptr<string> productCode_ = nullptr;
+    shared_ptr<string> productCode_ {};
     // The region ID.
     // 
     // For more information about region IDs, see [Endpoints](https://help.aliyun.com/document_detail/2330902.html).
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
     // The resource type. This parameter specifies a filter condition for the query.
     // 
     // This parameter is obtained from the response.
-    std::shared_ptr<string> resourceTye_ = nullptr;
+    shared_ptr<string> resourceTye_ {};
     // Specifies whether to return tag-related capability items. Valid values:
     // 
     // *   true: The system returns tag-related capability items.
     // *   false (default value): The system does not return tag-related capability items.
-    std::shared_ptr<bool> showItems_ = nullptr;
+    shared_ptr<bool> showItems_ {};
     // The code of the tag-related capability item. This parameter specifies a filter condition for the query.
     // 
     // For more information, see **Tag-related capability items**.
-    std::shared_ptr<string> supportCode_ = nullptr;
+    shared_ptr<string> supportCode_ {};
   };
 
   } // namespace Models
