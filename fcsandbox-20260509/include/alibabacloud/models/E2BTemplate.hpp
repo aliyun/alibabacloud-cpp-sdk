@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_E2BTEMPLATE_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/E2BTemplateBuild.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
 #include <alibabacloud/models/E2BTemplateTag.hpp>
 using namespace std;
@@ -19,7 +18,6 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const E2BTemplate& obj) { 
       DARABONBA_PTR_TO_JSON(aliases, aliases_);
       DARABONBA_PTR_TO_JSON(buildStatus, buildStatus_);
-      DARABONBA_PTR_TO_JSON(builds, builds_);
       DARABONBA_PTR_TO_JSON(cpuCount, cpuCount_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(lastSpawnedAt, lastSpawnedAt_);
@@ -27,9 +25,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_TO_JSON(names, names_);
       DARABONBA_PTR_TO_JSON(public, public_);
+      DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(spawnCount, spawnCount_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
+      DARABONBA_PTR_TO_JSON(teamID, teamID_);
+      DARABONBA_PTR_TO_JSON(teamName, teamName_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_TO_JSON(userID, userID_);
@@ -37,7 +38,6 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, E2BTemplate& obj) { 
       DARABONBA_PTR_FROM_JSON(aliases, aliases_);
       DARABONBA_PTR_FROM_JSON(buildStatus, buildStatus_);
-      DARABONBA_PTR_FROM_JSON(builds, builds_);
       DARABONBA_PTR_FROM_JSON(cpuCount, cpuCount_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(lastSpawnedAt, lastSpawnedAt_);
@@ -45,9 +45,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_FROM_JSON(names, names_);
       DARABONBA_PTR_FROM_JSON(public, public_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(spawnCount, spawnCount_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
+      DARABONBA_PTR_FROM_JSON(teamID, teamID_);
+      DARABONBA_PTR_FROM_JSON(teamName, teamName_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_FROM_JSON(userID, userID_);
@@ -64,9 +67,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliases_ == nullptr
-        && this->buildStatus_ == nullptr && this->builds_ == nullptr && this->cpuCount_ == nullptr && this->createdAt_ == nullptr && this->lastSpawnedAt_ == nullptr
-        && this->logConfiguration_ == nullptr && this->memoryMB_ == nullptr && this->names_ == nullptr && this->public_ == nullptr && this->spawnCount_ == nullptr
-        && this->statusReason_ == nullptr && this->tags_ == nullptr && this->templateID_ == nullptr && this->updatedAt_ == nullptr && this->userID_ == nullptr; };
+        && this->buildStatus_ == nullptr && this->cpuCount_ == nullptr && this->createdAt_ == nullptr && this->lastSpawnedAt_ == nullptr && this->logConfiguration_ == nullptr
+        && this->memoryMB_ == nullptr && this->names_ == nullptr && this->public_ == nullptr && this->resourceGroupID_ == nullptr && this->spawnCount_ == nullptr
+        && this->statusReason_ == nullptr && this->tags_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr
+        && this->updatedAt_ == nullptr && this->userID_ == nullptr; };
     // aliases Field Functions 
     bool hasAliases() const { return this->aliases_ != nullptr;};
     void deleteAliases() { this->aliases_ = nullptr;};
@@ -81,15 +85,6 @@ namespace Models
     void deleteBuildStatus() { this->buildStatus_ = nullptr;};
     inline string getBuildStatus() const { DARABONBA_PTR_GET_DEFAULT(buildStatus_, "") };
     inline E2BTemplate& setBuildStatus(string buildStatus) { DARABONBA_PTR_SET_VALUE(buildStatus_, buildStatus) };
-
-
-    // builds Field Functions 
-    bool hasBuilds() const { return this->builds_ != nullptr;};
-    void deleteBuilds() { this->builds_ = nullptr;};
-    inline const E2BTemplateBuild & getBuilds() const { DARABONBA_PTR_GET_CONST(builds_, E2BTemplateBuild) };
-    inline E2BTemplateBuild getBuilds() { DARABONBA_PTR_GET(builds_, E2BTemplateBuild) };
-    inline E2BTemplate& setBuilds(const E2BTemplateBuild & builds) { DARABONBA_PTR_SET_VALUE(builds_, builds) };
-    inline E2BTemplate& setBuilds(E2BTemplateBuild && builds) { DARABONBA_PTR_SET_RVALUE(builds_, builds) };
 
 
     // cpuCount Field Functions 
@@ -145,11 +140,18 @@ namespace Models
     inline E2BTemplate& setPublic(bool _public) { DARABONBA_PTR_SET_VALUE(public_, _public) };
 
 
+    // resourceGroupID Field Functions 
+    bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
+    void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline E2BTemplate& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
+
+
     // spawnCount Field Functions 
     bool hasSpawnCount() const { return this->spawnCount_ != nullptr;};
     void deleteSpawnCount() { this->spawnCount_ = nullptr;};
-    inline string getSpawnCount() const { DARABONBA_PTR_GET_DEFAULT(spawnCount_, "") };
-    inline E2BTemplate& setSpawnCount(string spawnCount) { DARABONBA_PTR_SET_VALUE(spawnCount_, spawnCount) };
+    inline int32_t getSpawnCount() const { DARABONBA_PTR_GET_DEFAULT(spawnCount_, 0) };
+    inline E2BTemplate& setSpawnCount(int32_t spawnCount) { DARABONBA_PTR_SET_VALUE(spawnCount_, spawnCount) };
 
 
     // statusReason Field Functions 
@@ -166,6 +168,20 @@ namespace Models
     inline vector<E2BTemplateTag> getTags() { DARABONBA_PTR_GET(tags_, vector<E2BTemplateTag>) };
     inline E2BTemplate& setTags(const vector<E2BTemplateTag> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline E2BTemplate& setTags(vector<E2BTemplateTag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+    // teamID Field Functions 
+    bool hasTeamID() const { return this->teamID_ != nullptr;};
+    void deleteTeamID() { this->teamID_ = nullptr;};
+    inline string getTeamID() const { DARABONBA_PTR_GET_DEFAULT(teamID_, "") };
+    inline E2BTemplate& setTeamID(string teamID) { DARABONBA_PTR_SET_VALUE(teamID_, teamID) };
+
+
+    // teamName Field Functions 
+    bool hasTeamName() const { return this->teamName_ != nullptr;};
+    void deleteTeamName() { this->teamName_ = nullptr;};
+    inline string getTeamName() const { DARABONBA_PTR_GET_DEFAULT(teamName_, "") };
+    inline E2BTemplate& setTeamName(string teamName) { DARABONBA_PTR_SET_VALUE(teamName_, teamName) };
 
 
     // templateID Field Functions 
@@ -192,7 +208,6 @@ namespace Models
   protected:
     shared_ptr<vector<string>> aliases_ {};
     shared_ptr<string> buildStatus_ {};
-    shared_ptr<E2BTemplateBuild> builds_ {};
     shared_ptr<int32_t> cpuCount_ {};
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> lastSpawnedAt_ {};
@@ -200,9 +215,12 @@ namespace Models
     shared_ptr<int32_t> memoryMB_ {};
     shared_ptr<vector<string>> names_ {};
     shared_ptr<bool> public_ {};
-    shared_ptr<string> spawnCount_ {};
+    shared_ptr<string> resourceGroupID_ {};
+    shared_ptr<int32_t> spawnCount_ {};
     shared_ptr<string> statusReason_ {};
     shared_ptr<vector<E2BTemplateTag>> tags_ {};
+    shared_ptr<string> teamID_ {};
+    shared_ptr<string> teamName_ {};
     shared_ptr<string> templateID_ {};
     shared_ptr<string> updatedAt_ {};
     shared_ptr<string> userID_ {};

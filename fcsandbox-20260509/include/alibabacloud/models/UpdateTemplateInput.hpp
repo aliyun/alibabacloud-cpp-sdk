@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATETEMPLATEINPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
+#include <alibabacloud/models/NetworkConfiguration.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,9 +16,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateTemplateInput& obj) { 
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
+      DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateTemplateInput& obj) { 
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
+      DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
     };
     UpdateTemplateInput() = default ;
     UpdateTemplateInput(const UpdateTemplateInput &) = default ;
@@ -30,7 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->logConfiguration_ == nullptr; };
+    virtual bool empty() const override { return this->logConfiguration_ == nullptr
+        && this->networkConfiguration_ == nullptr; };
     // logConfiguration Field Functions 
     bool hasLogConfiguration() const { return this->logConfiguration_ != nullptr;};
     void deleteLogConfiguration() { this->logConfiguration_ = nullptr;};
@@ -40,8 +44,18 @@ namespace Models
     inline UpdateTemplateInput& setLogConfiguration(LogConfiguration && logConfiguration) { DARABONBA_PTR_SET_RVALUE(logConfiguration_, logConfiguration) };
 
 
+    // networkConfiguration Field Functions 
+    bool hasNetworkConfiguration() const { return this->networkConfiguration_ != nullptr;};
+    void deleteNetworkConfiguration() { this->networkConfiguration_ = nullptr;};
+    inline const NetworkConfiguration & getNetworkConfiguration() const { DARABONBA_PTR_GET_CONST(networkConfiguration_, NetworkConfiguration) };
+    inline NetworkConfiguration getNetworkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, NetworkConfiguration) };
+    inline UpdateTemplateInput& setNetworkConfiguration(const NetworkConfiguration & networkConfiguration) { DARABONBA_PTR_SET_VALUE(networkConfiguration_, networkConfiguration) };
+    inline UpdateTemplateInput& setNetworkConfiguration(NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
+
+
   protected:
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    shared_ptr<NetworkConfiguration> networkConfiguration_ {};
   };
 
   } // namespace Models

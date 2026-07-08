@@ -24,11 +24,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(envdVersion, envdVersion_);
       DARABONBA_PTR_TO_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_TO_JSON(metadata, metadata_);
+      DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(sandboxID, sandboxID_);
       DARABONBA_PTR_TO_JSON(startedAt, startedAt_);
       DARABONBA_PTR_TO_JSON(state, state_);
+      DARABONBA_PTR_TO_JSON(teamID, teamID_);
+      DARABONBA_PTR_TO_JSON(teamName, teamName_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
+      DARABONBA_PTR_TO_JSON(userID, userID_);
       DARABONBA_PTR_TO_JSON(volumeMounts, volumeMounts_);
     };
     friend void from_json(const Darabonba::Json& j, E2BListedSandbox& obj) { 
@@ -40,11 +44,15 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(envdVersion, envdVersion_);
       DARABONBA_PTR_FROM_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_FROM_JSON(metadata, metadata_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(sandboxID, sandboxID_);
       DARABONBA_PTR_FROM_JSON(startedAt, startedAt_);
       DARABONBA_PTR_FROM_JSON(state, state_);
+      DARABONBA_PTR_FROM_JSON(teamID, teamID_);
+      DARABONBA_PTR_FROM_JSON(teamName, teamName_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
+      DARABONBA_PTR_FROM_JSON(userID, userID_);
       DARABONBA_PTR_FROM_JSON(volumeMounts, volumeMounts_);
     };
     E2BListedSandbox() = default ;
@@ -60,8 +68,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alias_ == nullptr
         && this->clientID_ == nullptr && this->cpuCount_ == nullptr && this->diskSizeMB_ == nullptr && this->endAt_ == nullptr && this->envdVersion_ == nullptr
-        && this->memoryMB_ == nullptr && this->metadata_ == nullptr && this->sandboxID_ == nullptr && this->startedAt_ == nullptr && this->state_ == nullptr
-        && this->templateID_ == nullptr && this->templateName_ == nullptr && this->volumeMounts_ == nullptr; };
+        && this->memoryMB_ == nullptr && this->metadata_ == nullptr && this->resourceGroupID_ == nullptr && this->sandboxID_ == nullptr && this->startedAt_ == nullptr
+        && this->state_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr && this->templateName_ == nullptr
+        && this->userID_ == nullptr && this->volumeMounts_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};
@@ -120,6 +129,13 @@ namespace Models
     inline E2BListedSandbox& setMetadata(map<string, string> && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
 
 
+    // resourceGroupID Field Functions 
+    bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
+    void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline E2BListedSandbox& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
+
+
     // sandboxID Field Functions 
     bool hasSandboxID() const { return this->sandboxID_ != nullptr;};
     void deleteSandboxID() { this->sandboxID_ = nullptr;};
@@ -141,6 +157,20 @@ namespace Models
     inline E2BListedSandbox& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+    // teamID Field Functions 
+    bool hasTeamID() const { return this->teamID_ != nullptr;};
+    void deleteTeamID() { this->teamID_ = nullptr;};
+    inline string getTeamID() const { DARABONBA_PTR_GET_DEFAULT(teamID_, "") };
+    inline E2BListedSandbox& setTeamID(string teamID) { DARABONBA_PTR_SET_VALUE(teamID_, teamID) };
+
+
+    // teamName Field Functions 
+    bool hasTeamName() const { return this->teamName_ != nullptr;};
+    void deleteTeamName() { this->teamName_ = nullptr;};
+    inline string getTeamName() const { DARABONBA_PTR_GET_DEFAULT(teamName_, "") };
+    inline E2BListedSandbox& setTeamName(string teamName) { DARABONBA_PTR_SET_VALUE(teamName_, teamName) };
+
+
     // templateID Field Functions 
     bool hasTemplateID() const { return this->templateID_ != nullptr;};
     void deleteTemplateID() { this->templateID_ = nullptr;};
@@ -153,6 +183,13 @@ namespace Models
     void deleteTemplateName() { this->templateName_ = nullptr;};
     inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline E2BListedSandbox& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
+    // userID Field Functions 
+    bool hasUserID() const { return this->userID_ != nullptr;};
+    void deleteUserID() { this->userID_ = nullptr;};
+    inline string getUserID() const { DARABONBA_PTR_GET_DEFAULT(userID_, "") };
+    inline E2BListedSandbox& setUserID(string userID) { DARABONBA_PTR_SET_VALUE(userID_, userID) };
 
 
     // volumeMounts Field Functions 
@@ -173,11 +210,15 @@ namespace Models
     shared_ptr<string> envdVersion_ {};
     shared_ptr<int32_t> memoryMB_ {};
     shared_ptr<map<string, string>> metadata_ {};
+    shared_ptr<string> resourceGroupID_ {};
     shared_ptr<string> sandboxID_ {};
     shared_ptr<string> startedAt_ {};
     shared_ptr<string> state_ {};
+    shared_ptr<string> teamID_ {};
+    shared_ptr<string> teamName_ {};
     shared_ptr<string> templateID_ {};
     shared_ptr<string> templateName_ {};
+    shared_ptr<string> userID_ {};
     shared_ptr<vector<E2BVolumeMount>> volumeMounts_ {};
   };
 

@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateApiKeyInput& obj) { 
       DARABONBA_PTR_TO_JSON(apiKeyName, apiKeyName_);
       DARABONBA_PTR_TO_JSON(expireTime, expireTime_);
+      DARABONBA_PTR_TO_JSON(teamID, teamID_);
     };
     friend void from_json(const Darabonba::Json& j, CreateApiKeyInput& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKeyName, apiKeyName_);
       DARABONBA_PTR_FROM_JSON(expireTime, expireTime_);
+      DARABONBA_PTR_FROM_JSON(teamID, teamID_);
     };
     CreateApiKeyInput() = default ;
     CreateApiKeyInput(const CreateApiKeyInput &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyName_ == nullptr
-        && this->expireTime_ == nullptr; };
+        && this->expireTime_ == nullptr && this->teamID_ == nullptr; };
     // apiKeyName Field Functions 
     bool hasApiKeyName() const { return this->apiKeyName_ != nullptr;};
     void deleteApiKeyName() { this->apiKeyName_ = nullptr;};
@@ -47,9 +49,17 @@ namespace Models
     inline CreateApiKeyInput& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
+    // teamID Field Functions 
+    bool hasTeamID() const { return this->teamID_ != nullptr;};
+    void deleteTeamID() { this->teamID_ = nullptr;};
+    inline string getTeamID() const { DARABONBA_PTR_GET_DEFAULT(teamID_, "") };
+    inline CreateApiKeyInput& setTeamID(string teamID) { DARABONBA_PTR_SET_VALUE(teamID_, teamID) };
+
+
   protected:
     shared_ptr<string> apiKeyName_ {};
     shared_ptr<string> expireTime_ {};
+    shared_ptr<string> teamID_ {};
   };
 
   } // namespace Models

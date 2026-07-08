@@ -20,6 +20,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(expireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(lastUsedTime, lastUsedTime_);
+      DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
+      DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(teamID, teamID_);
+      DARABONBA_PTR_TO_JSON(teamName, teamName_);
       DARABONBA_PTR_TO_JSON(userID, userID_);
       DARABONBA_PTR_TO_JSON(username, username_);
     };
@@ -31,6 +35,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(expireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(lastUsedTime, lastUsedTime_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(teamID, teamID_);
+      DARABONBA_PTR_FROM_JSON(teamName, teamName_);
       DARABONBA_PTR_FROM_JSON(userID, userID_);
       DARABONBA_PTR_FROM_JSON(username, username_);
     };
@@ -47,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyID_ == nullptr
         && this->apiKeyMask_ == nullptr && this->apiKeyName_ == nullptr && this->apiKeyValue_ == nullptr && this->createdTime_ == nullptr && this->expireTime_ == nullptr
-        && this->lastUsedTime_ == nullptr && this->userID_ == nullptr && this->username_ == nullptr; };
+        && this->lastUsedTime_ == nullptr && this->resourceGroupID_ == nullptr && this->status_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr
+        && this->userID_ == nullptr && this->username_ == nullptr; };
     // apiKeyID Field Functions 
     bool hasApiKeyID() const { return this->apiKeyID_ != nullptr;};
     void deleteApiKeyID() { this->apiKeyID_ = nullptr;};
@@ -97,6 +106,34 @@ namespace Models
     inline ApiKey& setLastUsedTime(string lastUsedTime) { DARABONBA_PTR_SET_VALUE(lastUsedTime_, lastUsedTime) };
 
 
+    // resourceGroupID Field Functions 
+    bool hasResourceGroupID() const { return this->resourceGroupID_ != nullptr;};
+    void deleteResourceGroupID() { this->resourceGroupID_ = nullptr;};
+    inline string getResourceGroupID() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupID_, "") };
+    inline ApiKey& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ApiKey& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // teamID Field Functions 
+    bool hasTeamID() const { return this->teamID_ != nullptr;};
+    void deleteTeamID() { this->teamID_ = nullptr;};
+    inline string getTeamID() const { DARABONBA_PTR_GET_DEFAULT(teamID_, "") };
+    inline ApiKey& setTeamID(string teamID) { DARABONBA_PTR_SET_VALUE(teamID_, teamID) };
+
+
+    // teamName Field Functions 
+    bool hasTeamName() const { return this->teamName_ != nullptr;};
+    void deleteTeamName() { this->teamName_ = nullptr;};
+    inline string getTeamName() const { DARABONBA_PTR_GET_DEFAULT(teamName_, "") };
+    inline ApiKey& setTeamName(string teamName) { DARABONBA_PTR_SET_VALUE(teamName_, teamName) };
+
+
     // userID Field Functions 
     bool hasUserID() const { return this->userID_ != nullptr;};
     void deleteUserID() { this->userID_ = nullptr;};
@@ -119,6 +156,10 @@ namespace Models
     shared_ptr<string> createdTime_ {};
     shared_ptr<string> expireTime_ {};
     shared_ptr<string> lastUsedTime_ {};
+    shared_ptr<string> resourceGroupID_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> teamID_ {};
+    shared_ptr<string> teamName_ {};
     shared_ptr<string> userID_ {};
     shared_ptr<string> username_ {};
   };
