@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The end time of the query. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
+    // The language of the response. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The start time of the query. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

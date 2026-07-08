@@ -38,24 +38,24 @@ namespace Cloudfw20171207
       Models::AddAclBackupDataResponse addAclBackupData(const Models::AddAclBackupDataRequest &request);
 
       /**
-       * @summary Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+       * @summary Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
        *
-       * @description This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
-       * ## QPS Limit
-       * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+       * @description This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+       * ## Rate limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
-       * @param request AddAddressBookRequest
+       * @param tmpReq AddAddressBookRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddAddressBookResponse
        */
-      Models::AddAddressBookResponse addAddressBookWithOptions(const Models::AddAddressBookRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::AddAddressBookResponse addAddressBookWithOptions(const Models::AddAddressBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+       * @summary Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
        *
-       * @description This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
-       * ## QPS Limit
-       * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+       * @description This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+       * ## Rate limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request AddAddressBookRequest
        * @return AddAddressBookResponse
@@ -1414,10 +1414,10 @@ namespace Cloudfw20171207
       Models::DescribeAclRuleCountResponse describeAclRuleCount(const Models::DescribeAclRuleCountRequest &request);
 
       /**
-       * @summary Queries the Access Control List (ACL) whitelist.
+       * @summary Retrieves the ACL whitelist.
        *
        * @description ## QPS limit
-       * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request DescribeAclWhitelistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1426,10 +1426,10 @@ namespace Cloudfw20171207
       Models::DescribeAclWhitelistResponse describeAclWhitelistWithOptions(const Models::DescribeAclWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Access Control List (ACL) whitelist.
+       * @summary Retrieves the ACL whitelist.
        *
        * @description ## QPS limit
-       * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request DescribeAclWhitelistRequest
        * @return DescribeAclWhitelistResponse
@@ -1437,24 +1437,24 @@ namespace Cloudfw20171207
       Models::DescribeAclWhitelistResponse describeAclWhitelist(const Models::DescribeAclWhitelistRequest &request);
 
       /**
-       * @summary Queries address books in a batch.
+       * @summary Queries address books in batches.
        *
-       * @description Use this API to query the details of an access control policy address book.
+       * @description This operation is used to query the details of access control policy address books.
        * ## QPS limit
-       * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
-       * @param request DescribeAddressBookRequest
+       * @param tmpReq DescribeAddressBookRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAddressBookResponse
        */
-      Models::DescribeAddressBookResponse describeAddressBookWithOptions(const Models::DescribeAddressBookRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeAddressBookResponse describeAddressBookWithOptions(const Models::DescribeAddressBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries address books in a batch.
+       * @summary Queries address books in batches.
        *
-       * @description Use this API to query the details of an access control policy address book.
+       * @description This operation is used to query the details of access control policy address books.
        * ## QPS limit
-       * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request DescribeAddressBookRequest
        * @return DescribeAddressBookResponse
@@ -1883,7 +1883,7 @@ namespace Cloudfw20171207
       Models::DescribeFirewallTaskResponse describeFirewallTask(const Models::DescribeFirewallTaskRequest &request);
 
       /**
-       * @summary 获取总流量趋势
+       * @summary Queries the traffic trend of a firewall.
        *
        * @param request DescribeFirewallTrafficTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1892,7 +1892,7 @@ namespace Cloudfw20171207
       Models::DescribeFirewallTrafficTrendResponse describeFirewallTrafficTrendWithOptions(const Models::DescribeFirewallTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取总流量趋势
+       * @summary Queries the traffic trend of a firewall.
        *
        * @param request DescribeFirewallTrafficTrendRequest
        * @return DescribeFirewallTrafficTrendResponse
@@ -4466,24 +4466,24 @@ namespace Cloudfw20171207
       Models::ListTlsInspectCACertificatesResponse listTlsInspectCACertificates(const Models::ListTlsInspectCACertificatesRequest &request);
 
       /**
-       * @summary Modify an address book.
+       * @summary Modifies an address book.
        *
-       * @description This API is used to modify an address book.
-       * ## QPS Limit
-       * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+       * @description This operation is used to modify an address book.
+       * ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
-       * @param request ModifyAddressBookRequest
+       * @param tmpReq ModifyAddressBookRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAddressBookResponse
        */
-      Models::ModifyAddressBookResponse modifyAddressBookWithOptions(const Models::ModifyAddressBookRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyAddressBookResponse modifyAddressBookWithOptions(const Models::ModifyAddressBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify an address book.
+       * @summary Modifies an address book.
        *
-       * @description This API is used to modify an address book.
-       * ## QPS Limit
-       * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+       * @description This operation is used to modify an address book.
+       * ## QPS limit
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ModifyAddressBookRequest
        * @return ModifyAddressBookResponse

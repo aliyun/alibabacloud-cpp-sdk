@@ -81,26 +81,23 @@ namespace Models
     shared_ptr<string> aclUuid_ {};
     // The traffic direction of the access control policy.
     // 
-    // Valid value:
+    // Valid values:
     // 
     // - **out**: outbound traffic.
     shared_ptr<string> direction_ {};
-    // The language of the response message. Valid values:
-    // 
+    // The language of the content within the response. Valid values:
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the NAT Gateway.
+    // The NAT gateway ID.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
-    // The new priority for the IPv4 access control policy of the NAT firewall.
-    // Priorities are represented by numbers. A smaller number indicates a higher priority. The value 1 indicates the highest priority.
+    // The policy priority for the NAT firewall IPv4 access control policy. A value of 1 indicates the highest priority. A larger value indicates a lower priority.
     // 
-    // > The new priority must be within the range of existing priorities for IPv4 policies of the NAT firewall. Otherwise, the call fails.
+    // > The policy priority value must be within the range of existing NAT firewall IPv4 policy priorities. Otherwise, an error occurs when you call this operation.
     // 
-    // Before calling this operation, call the DescribeNatFirewallPolicyPriorUsed operation to query the priority range of existing IPv4 policies for the specified traffic direction of the NAT firewall.
+    // Before you call this operation, call DescribeNatFirewallPolicyPriorUsed to query the priority range of IPv4 policies for the specified traffic direction of the NAT firewall.
     // 
     // This parameter is required.
     shared_ptr<int32_t> newOrder_ {};

@@ -6,6 +6,7 @@
 #include <alibabacloud/models/AddAclBackupDataResponseBody.hpp>
 #include <alibabacloud/models/AddAclBackupDataResponse.hpp>
 #include <alibabacloud/models/AddAddressBookRequest.hpp>
+#include <alibabacloud/models/AddAddressBookShrinkRequest.hpp>
 #include <alibabacloud/models/AddAddressBookResponseBody.hpp>
 #include <alibabacloud/models/AddAddressBookResponse.hpp>
 #include <alibabacloud/models/AddControlPolicyRequest.hpp>
@@ -207,6 +208,7 @@
 #include <alibabacloud/models/DescribeAclWhitelistResponseBody.hpp>
 #include <alibabacloud/models/DescribeAclWhitelistResponse.hpp>
 #include <alibabacloud/models/DescribeAddressBookRequest.hpp>
+#include <alibabacloud/models/DescribeAddressBookShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeAddressBookResponseBody.hpp>
 #include <alibabacloud/models/DescribeAddressBookResponse.hpp>
 #include <alibabacloud/models/DescribeAssetListRequest.hpp>
@@ -673,6 +675,7 @@
 #include <alibabacloud/models/ListTlsInspectCACertificatesResponseBody.hpp>
 #include <alibabacloud/models/ListTlsInspectCACertificatesResponse.hpp>
 #include <alibabacloud/models/ModifyAddressBookRequest.hpp>
+#include <alibabacloud/models/ModifyAddressBookShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyAddressBookResponseBody.hpp>
 #include <alibabacloud/models/ModifyAddressBookResponse.hpp>
 #include <alibabacloud/models/ModifyCfwInstanceRequest.hpp>

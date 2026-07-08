@@ -162,7 +162,11 @@ namespace Models
       protected:
         // The risk category ID.
         shared_ptr<string> classId_ {};
-        // The risk level.
+        // The risk level. Valid values:
+        // - **0**: no risk.
+        // - **1**: low risk.
+        // - **2**: medium risk.
+        // - **3**: high risk.
         shared_ptr<int32_t> riskLevel_ {};
         // The tag description.
         shared_ptr<string> tagDescribe_ {};
@@ -367,7 +371,7 @@ namespace Models
       shared_ptr<vector<AssetList::TagList>> tagList_ {};
       // The total traffic.
       shared_ptr<string> totalBytes_ {};
-      // The instance ID of the VPC.
+      // The VPC instance ID.
       shared_ptr<string> vpcId_ {};
     };
 

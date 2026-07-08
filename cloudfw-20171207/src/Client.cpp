@@ -118,18 +118,28 @@ AddAclBackupDataResponse Client::addAclBackupData(const AddAclBackupDataRequest 
 }
 
 /**
- * @summary Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+ * @summary Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
  *
- * @description This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
- * ## QPS Limit
- * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+ * @description This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+ * ## Rate limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
- * @param request AddAddressBookRequest
+ * @param tmpReq AddAddressBookRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddAddressBookResponse
  */
-AddAddressBookResponse Client::addAddressBookWithOptions(const AddAddressBookRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+AddAddressBookResponse Client::addAddressBookWithOptions(const AddAddressBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddAddressBookShrinkRequest request = AddAddressBookShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssetMemberUids()) {
+    request.setAssetMemberUidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetMemberUids(), "AssetMemberUids", "json"));
+  }
+
+  if (!!tmpReq.hasAssetRegionResourceTypes()) {
+    request.setAssetRegionResourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetRegionResourceTypes(), "AssetRegionResourceTypes", "json"));
+  }
+
   json query = {};
   if (!!request.hasAckClusterConnectorId()) {
     query["AckClusterConnectorId"] = request.getAckClusterConnectorId();
@@ -145,6 +155,14 @@ AddAddressBookResponse Client::addAddressBookWithOptions(const AddAddressBookReq
 
   if (!!request.hasAddressList()) {
     query["AddressList"] = request.getAddressList();
+  }
+
+  if (!!request.hasAssetMemberUidsShrink()) {
+    query["AssetMemberUids"] = request.getAssetMemberUidsShrink();
+  }
+
+  if (!!request.hasAssetRegionResourceTypesShrink()) {
+    query["AssetRegionResourceTypes"] = request.getAssetRegionResourceTypesShrink();
   }
 
   if (!!request.hasAutoAddTagEcs()) {
@@ -197,11 +215,11 @@ AddAddressBookResponse Client::addAddressBookWithOptions(const AddAddressBookReq
 }
 
 /**
- * @summary Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+ * @summary Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
  *
- * @description This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
- * ## QPS Limit
- * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+ * @description This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+ * ## Rate limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request AddAddressBookRequest
  * @return AddAddressBookResponse
@@ -4136,10 +4154,10 @@ DescribeAclRuleCountResponse Client::describeAclRuleCount(const DescribeAclRuleC
 }
 
 /**
- * @summary Queries the Access Control List (ACL) whitelist.
+ * @summary Retrieves the ACL whitelist.
  *
  * @description ## QPS limit
- * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
  *
  * @param request DescribeAclWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4174,10 +4192,10 @@ DescribeAclWhitelistResponse Client::describeAclWhitelistWithOptions(const Descr
 }
 
 /**
- * @summary Queries the Access Control List (ACL) whitelist.
+ * @summary Retrieves the ACL whitelist.
  *
  * @description ## QPS limit
- * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
  *
  * @param request DescribeAclWhitelistRequest
  * @return DescribeAclWhitelistResponse
@@ -4188,19 +4206,29 @@ DescribeAclWhitelistResponse Client::describeAclWhitelist(const DescribeAclWhite
 }
 
 /**
- * @summary Queries address books in a batch.
+ * @summary Queries address books in batches.
  *
- * @description Use this API to query the details of an access control policy address book.
+ * @description This operation is used to query the details of access control policy address books.
  * ## QPS limit
- * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
- * @param request DescribeAddressBookRequest
+ * @param tmpReq DescribeAddressBookRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAddressBookResponse
  */
-DescribeAddressBookResponse Client::describeAddressBookWithOptions(const DescribeAddressBookRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+DescribeAddressBookResponse Client::describeAddressBookWithOptions(const DescribeAddressBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeAddressBookShrinkRequest request = DescribeAddressBookShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssetMemberUids()) {
+    request.setAssetMemberUidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetMemberUids(), "AssetMemberUids", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAssetMemberUidsShrink()) {
+    query["AssetMemberUids"] = request.getAssetMemberUidsShrink();
+  }
+
   if (!!request.hasContainPort()) {
     query["ContainPort"] = request.getContainPort();
   }
@@ -4247,11 +4275,11 @@ DescribeAddressBookResponse Client::describeAddressBookWithOptions(const Describ
 }
 
 /**
- * @summary Queries address books in a batch.
+ * @summary Queries address books in batches.
  *
- * @description Use this API to query the details of an access control policy address book.
+ * @description This operation is used to query the details of access control policy address books.
  * ## QPS limit
- * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DescribeAddressBookRequest
  * @return DescribeAddressBookResponse
@@ -5496,7 +5524,7 @@ DescribeFirewallTaskResponse Client::describeFirewallTask(const DescribeFirewall
 }
 
 /**
- * @summary 获取总流量趋势
+ * @summary Queries the traffic trend of a firewall.
  *
  * @param request DescribeFirewallTrafficTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5535,7 +5563,7 @@ DescribeFirewallTrafficTrendResponse Client::describeFirewallTrafficTrendWithOpt
 }
 
 /**
- * @summary 获取总流量趋势
+ * @summary Queries the traffic trend of a firewall.
  *
  * @param request DescribeFirewallTrafficTrendRequest
  * @return DescribeFirewallTrafficTrendResponse
@@ -14452,18 +14480,28 @@ ListTlsInspectCACertificatesResponse Client::listTlsInspectCACertificates(const 
 }
 
 /**
- * @summary Modify an address book.
+ * @summary Modifies an address book.
  *
- * @description This API is used to modify an address book.
- * ## QPS Limit
- * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+ * @description This operation is used to modify an address book.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
- * @param request ModifyAddressBookRequest
+ * @param tmpReq ModifyAddressBookRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAddressBookResponse
  */
-ModifyAddressBookResponse Client::modifyAddressBookWithOptions(const ModifyAddressBookRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyAddressBookResponse Client::modifyAddressBookWithOptions(const ModifyAddressBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyAddressBookShrinkRequest request = ModifyAddressBookShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssetMemberUids()) {
+    request.setAssetMemberUidsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetMemberUids(), "AssetMemberUids", "json"));
+  }
+
+  if (!!tmpReq.hasAssetRegionResourceTypes()) {
+    request.setAssetRegionResourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssetRegionResourceTypes(), "AssetRegionResourceTypes", "json"));
+  }
+
   json query = {};
   if (!!request.hasAckLabels()) {
     query["AckLabels"] = request.getAckLabels();
@@ -14475,6 +14513,14 @@ ModifyAddressBookResponse Client::modifyAddressBookWithOptions(const ModifyAddre
 
   if (!!request.hasAddressList()) {
     query["AddressList"] = request.getAddressList();
+  }
+
+  if (!!request.hasAssetMemberUidsShrink()) {
+    query["AssetMemberUids"] = request.getAssetMemberUidsShrink();
+  }
+
+  if (!!request.hasAssetRegionResourceTypesShrink()) {
+    query["AssetRegionResourceTypes"] = request.getAssetRegionResourceTypesShrink();
   }
 
   if (!!request.hasAutoAddTagEcs()) {
@@ -14531,11 +14577,11 @@ ModifyAddressBookResponse Client::modifyAddressBookWithOptions(const ModifyAddre
 }
 
 /**
- * @summary Modify an address book.
+ * @summary Modifies an address book.
  *
- * @description This API is used to modify an address book.
- * ## QPS Limit
- * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+ * @description This operation is used to modify an address book.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request ModifyAddressBookRequest
  * @return ModifyAddressBookResponse

@@ -76,30 +76,22 @@ namespace Models
 
   protected:
     // Indicates whether the whitelist is enabled. Valid values:
-    // 
-    // - **true**: enabled
-    // 
-    // - **false**: disabled
+    // - **true**: Enabled.
+    // - **false**: Not enabled.
     shared_ptr<bool> domainGroupUseDns_ {};
-    // Indicates whether DNS is supported for domain names in NAT scenarios. Valid values:
-    // 
-    // - **true**: supported
-    // 
-    // - **false**: not supported
+    // Indicates whether domain name DNS is supported in NAT scenarios. Valid values:
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> natDomainGroupUseDns_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the message type is supported. Valid values:
-    // 
-    // - **true**: supported
-    // 
-    // - **false**: not supported
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> supportMessageType_ {};
-    // Indicates whether DNS is supported for domain names in VPC scenarios. Valid values:
-    // 
-    // - **true**: supported
-    // 
-    // - **false**: not supported
+    // Indicates whether domain name DNS is supported in VPC scenarios. Valid values:
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> vpcDomainGroupUseDns_ {};
   };
 
