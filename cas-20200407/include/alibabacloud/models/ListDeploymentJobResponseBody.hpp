@@ -208,14 +208,17 @@ namespace Models
       shared_ptr<string> certDomain_ {};
       // The type of the certificate. Valid values:
       // 
-      // *   **upload**: uploaded certificate
-      // *   **buy**: purchased certificate
-      // *   **free**: free certificate, available only on the China site (aliyun.com)
+      // - **upload**: uploaded certificate
+      // 
+      // - **buy**: purchased certificate
+      // 
+      // - **free**: free certificate, available only on the China site (aliyun.com)
       shared_ptr<string> certType_ {};
       // Indicates whether the deployment task is deleted. Valid values:
       // 
-      // *   **0**: not deleted
-      // *   **1**: deleted
+      // - **0**: not deleted
+      // 
+      // - **1**: deleted
       shared_ptr<int32_t> del_ {};
       // The end time of the deployment task.
       shared_ptr<string> endTime_ {};
@@ -229,8 +232,9 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The type of the deployment task.
       // 
-      // *   **cloud**: multi-cloud deployment task.
-      // *   **user**: cloud service deployment task. This type of task does not support ECS instances.
+      // - **cloud**: multi-cloud deployment task.
+      // 
+      // - **user**: cloud service deployment task. This type of task does not support ECS instances.
       shared_ptr<string> jobType_ {};
       // The name of the deployment task.
       shared_ptr<string> name_ {};
@@ -238,8 +242,9 @@ namespace Models
       shared_ptr<string> productName_ {};
       // Indicates whether the rollback worker is included. For example, if a cloud service involved in a deployment task has been rolled back, **1** is returned. Valid values:
       // 
-      // *   **0**: The rollback worker is not included.
-      // *   **1**: The rollback worker is included.
+      // - **0**: The rollback worker is not included.
+      // 
+      // - **1**: The rollback worker is included.
       shared_ptr<int32_t> rollback_ {};
       // The time when the deployment task was scheduled.
       shared_ptr<string> scheduleTime_ {};
@@ -247,12 +252,17 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The status of the deployment task. Valid values:
       // 
-      // *   **pending**
-      // *   **editing**
-      // *   **scheduling**
-      // *   **processing**
-      // *   **error**
-      // *   **success**
+      // - **pending**
+      // 
+      // - **editing**
+      // 
+      // - **scheduling**
+      // 
+      // - **processing**
+      // 
+      // - **error**
+      // 
+      // - **success**
       shared_ptr<string> status_ {};
       // The ID of the user.
       shared_ptr<int64_t> userId_ {};

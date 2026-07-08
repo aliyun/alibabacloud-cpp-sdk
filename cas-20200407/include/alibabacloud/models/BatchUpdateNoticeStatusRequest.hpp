@@ -75,12 +75,25 @@ namespace Models
 
 
   protected:
+    // The list of primary key identifiers to be synchronized to Certificate Management Service. Separate multiple IDs with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
+    // The language type for the request and the received message. Valid values:
+    // 
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The business code of message notification. The value is fixed as ssl.
     shared_ptr<string> noticeBiz_ {};
+    // Specifies whether to enable message notification.
+    // \\--enable: enables message notification.
+    // \\--disable: disables message notification.
+    // 
     // This parameter is required.
     shared_ptr<string> noticeStatus_ {};
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

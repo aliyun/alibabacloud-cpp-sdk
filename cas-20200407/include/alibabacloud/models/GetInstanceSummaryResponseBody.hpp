@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The remaining quota for automatic reissue.
     shared_ptr<int32_t> autoReissueCount_ {};
+    // The remaining certificate quota.
     shared_ptr<int32_t> certificateCount_ {};
+    // The total number of inactive instances.
     shared_ptr<int32_t> inactiveCount_ {};
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of instances that are about to expire.
     shared_ptr<int32_t> willExpireCount_ {};
   };
 

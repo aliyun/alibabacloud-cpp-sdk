@@ -71,9 +71,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token from a previous response. Use this token to retrieve the next page of results. Omit this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // A list of warehouse instance IDs.
     shared_ptr<vector<string>> warehouseInstanceIds_ {};
+    // A list of warehouse types.
     shared_ptr<vector<string>> warehouseTypes_ {};
   };
 

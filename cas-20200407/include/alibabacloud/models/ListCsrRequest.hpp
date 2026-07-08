@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The algorithm. Valid values: RSA, ECC, and SM2.
     shared_ptr<string> algorithm_ {};
-    // The page number.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
-    // The keyword.
+    // The keyword for fuzzy search. For example, you can specify a domain name.
     shared_ptr<string> keyWord_ {};
     // The number of entries per page. Default value: 50.
     shared_ptr<int64_t> showSize_ {};

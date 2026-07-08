@@ -52,13 +52,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The desired status.
+    // The desired status of the deployment task.
     // 
     // Valid values:
     // 
-    // *   pending
-    // *   scheduling
-    // *   editing
+    // - pending
+    // 
+    // - scheduling
+    // 
+    // - editing
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

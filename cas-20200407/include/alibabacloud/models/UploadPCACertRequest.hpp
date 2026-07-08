@@ -66,19 +66,17 @@ namespace Models
 
 
   protected:
-    // <UploadPCACertResponse>
-    //     <RequestId>15C66C7B-671A-4297-9187-2C4477247A74</RequestId>
-    // </UploadPCACertResponse>
+    // The content of the certificate and its chain, in PEM format.
     // 
     // This parameter is required.
     shared_ptr<string> cert_ {};
-    // UploadPCACert
+    // A custom name for the certificate.
     shared_ptr<string> name_ {};
-    // Uploads a private certificate to a certificate repository.
+    // The private key of the certificate, in PEM format.
     shared_ptr<string> privateKey_ {};
-    // The ID of the repository.
+    // The ID of the certificate warehouse.
     // 
-    // >  You can call the [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) operation to query the ID.
+    // > Call [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> warehouseId_ {};

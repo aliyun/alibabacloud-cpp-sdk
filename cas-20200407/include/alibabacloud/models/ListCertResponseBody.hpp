@@ -195,44 +195,57 @@ namespace Models
 
 
     protected:
-      // The expiration time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration date of the certificate. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> afterDate_ {};
+      // The encryption algorithm of the certificate. Valid values:
+      // 
+      // - **RSA**: the RSA algorithm
+      // 
+      // - **ECC**: the ECC algorithm
+      // 
+      // - **SM2**: the SM2 algorithm
       shared_ptr<string> algorithm_ {};
-      // The issuance time of the certificate. The value is a UNIX timestamp. Unit: milliseconds.
+      // The start date of the certificate\\"s validity period. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
-      // 证书的类型 。取值：
+      // The type of the certificate. Valid values:
       // 
-      // - **CA**：表示CA证书。
-      // - **CERT**：表示签发的证书。
+      // - **CA**: a Certificate Authority (CA) certificate
+      // 
+      // - **CERT**: an issued certificate
       shared_ptr<string> certType_ {};
-      // The domain name.
+      // The common name of the certificate. This is typically the primary domain name associated with the certificate.
       shared_ptr<string> commonName_ {};
-      // Indicates whether the certificate contains a private key. Valid values:
+      // Indicates whether a private key is available for the certificate. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> existPrivateKey_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The issuer of the certificate.
       shared_ptr<string> issuer_ {};
-      // The domain names that are bound to the certificate. Multiple domain names are separated by commas.
+      // The Subject Alternative Names (SANs) associated with the certificate. Multiple domain names are separated by commas (,).
       shared_ptr<string> sans_ {};
+      // The serial number of the certificate. This parameter is returned only if the `OrderType` request parameter is set to `CERT` or `UPLOAD`.
       shared_ptr<string> serialNo_ {};
+      // The signature algorithm of the certificate.
       shared_ptr<string> signAlgorithm_ {};
       // The source of the certificate. Valid values:
       // 
-      // *   **upload**: uploaded certificate
-      // *   **aliyun**: Alibaba Cloud certificate
+      // - **upload**: The certificate is uploaded.
+      // 
+      // - **aliyun**: The certificate is from Alibaba Cloud.
       shared_ptr<string> sourceType_ {};
       // The status of the certificate. Valid values:
       // 
-      // *   **ISSUE**: issued
-      // *   **REVOKE**: revoked
+      // - **ISSUE**: The certificate is issued.
+      // 
+      // - **REVOKE**: The certificate is revoked.
       shared_ptr<string> status_ {};
-      // The ID of the certificate repository.
+      // The warehouse ID.
       shared_ptr<int64_t> whId_ {};
-      // The instance ID of the certificate repository.
+      // The warehouse instance ID.
       shared_ptr<string> whInstanceId_ {};
     };
 
@@ -276,15 +289,15 @@ namespace Models
 
 
   protected:
-    // An array that consists of the certificates.
+    // The list of certificates.
     shared_ptr<vector<ListCertResponseBody::CertList>> certList_ {};
-    // The page number of the returned page. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned per page. Default value: 50.
+    // The page size. Default value: 50.
     shared_ptr<int64_t> showSize_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

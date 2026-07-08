@@ -260,16 +260,19 @@ namespace Models
       shared_ptr<string> certStartTime_ {};
       // The AccessKey ID that is used to access cloud resources.
       // 
-      // >  This parameter is returned only when you deploy certificates to cloud services of third-party clouds.
+      // > This parameter is returned only when you deploy certificates to cloud services of third-party clouds.
       shared_ptr<string> cloudAccessId_ {};
       // The cloud service provider.
       // 
       // Valid values:
       // 
-      // *   Tencent
-      // *   Huawei
-      // *   Aws
-      // *   aliyun
+      // - Tencent
+      // 
+      // - Huawei
+      // 
+      // - Aws
+      // 
+      // - aliyun
       shared_ptr<string> cloudName_ {};
       // The cloud service.
       shared_ptr<string> cloudProduct_ {};
@@ -277,17 +280,19 @@ namespace Models
       shared_ptr<string> cloudRegion_ {};
       // Indicates whether the cloud resource is the default resource. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: yes
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // - **0**: no
+      // 
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<int32_t> defaultResource_ {};
       // The domain name bound to the cloud resource.
       shared_ptr<string> domain_ {};
       // Indicates whether HTTPS is enabled for the cloud resource. Valid values:
       // 
-      // *   **1**: yes.
-      // *   **0**: no.
+      // - **1**: yes.
+      // 
+      // - **0**: no.
       shared_ptr<int32_t> enableHttps_ {};
       // The time when the cloud resource was created. The time is a timestamp in seconds.
       shared_ptr<string> gmtCreate_ {};
@@ -297,15 +302,15 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // The instance ID of the cloud resource.
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<string> instanceId_ {};
       // The listener ID of the cloud resource.
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<string> listenerId_ {};
       // The listening port of the cloud resource.
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<string> listenerPort_ {};
       // The region ID of the cloud resource.
       shared_ptr<string> regionId_ {};
@@ -313,10 +318,11 @@ namespace Models
       shared_ptr<string> status_ {};
       // Indicates whether an Alibaba Cloud SSL certificate is used. Valid values:
       // 
-      // *   **1**: yes
-      // *   **0**: no
+      // - **1**: yes
       // 
-      // >  This parameter is required only when you deploy certificates to services of multiple clouds.
+      // - **0**: no
+      // 
+      // > This parameter is required only when you deploy certificates to services of multiple clouds.
       shared_ptr<int32_t> useSsl_ {};
       // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> userId_ {};

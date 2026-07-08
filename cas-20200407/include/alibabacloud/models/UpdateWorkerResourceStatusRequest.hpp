@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The desired status.
+    // The desired status of the worker resource.
     // 
     // Valid values:
     // 
-    // *   rollback
+    // - rollback
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

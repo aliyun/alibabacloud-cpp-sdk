@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The order ID.
+    // The ID of the certificate order to cancel.
     // 
-    // >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID.
+    // > Obtain this ID by calling [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html).
     // 
     // This parameter is required.
     shared_ptr<int64_t> orderId_ {};

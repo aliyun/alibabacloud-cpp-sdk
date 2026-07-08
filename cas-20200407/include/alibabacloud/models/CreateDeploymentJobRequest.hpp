@@ -96,8 +96,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   cloud: multi-cloud deployment task.
-    // *   user: cloud service deployment task. This type of task does not support cloud servers.
+    // - cloud: multi-cloud deployment task.
+    // 
+    // - user: cloud service deployment task. This type of task does not support cloud servers.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};

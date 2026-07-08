@@ -137,8 +137,9 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // Indicates whether the certificate application repository has expired. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isExpired_ {};
       // The name of the certificate application repository.
       shared_ptr<string> name_ {};
@@ -148,11 +149,15 @@ namespace Models
       shared_ptr<int64_t> qps_ {};
       // The type of the certificate application repository. Valid values:
       // 
-      // *   **ssl**: certificate application repository of SSL certificates
-      // *   **uploadPCA**: certificate application repository of uploaded private certificates
-      // *   **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
-      // *   **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud Private Certificate Authority (PCA), available only on the China site (aliyun.com)
-      // *   **disable**: disabled certificate application repository
+      // - **ssl**: certificate application repository of SSL certificates
+      // 
+      // - **uploadPCA**: certificate application repository of uploaded private certificates
+      // 
+      // - **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
+      // 
+      // - **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud PCA, available only on the China site (aliyun.com)
+      // 
+      // - **disable**: disabled certificate application repository
       shared_ptr<string> type_ {};
       // The ID of the certificate application repository.
       shared_ptr<int64_t> whId_ {};

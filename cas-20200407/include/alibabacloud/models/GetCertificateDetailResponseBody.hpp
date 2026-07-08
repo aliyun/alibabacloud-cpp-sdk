@@ -114,7 +114,11 @@ namespace Models
 
 
     protected:
+      // The tag key of the instance. You can specify 1 to 20 tag keys. The value cannot be an empty string.
+      // 
+      // The value can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -183,10 +187,15 @@ namespace Models
 
 
     protected:
+      // The issuer of the certificate chain.
       shared_ptr<string> issuer_ {};
+      // The end of the validity period.
       shared_ptr<int64_t> notAfter_ {};
+      // The beginning of the validity period.
       shared_ptr<int64_t> notBefore_ {};
+      // The remaining validity period of the certificate chain.
       shared_ptr<int32_t> remainDay_ {};
+      // The common name of the certificate chain.
       shared_ptr<string> subject_ {};
     };
 
@@ -373,29 +382,80 @@ namespace Models
 
 
   protected:
+    // The certificate algorithm. Valid values:
+    // 
+    // - **RSA**: The RSA algorithm.
+    // 
+    // - **ECC**: The ECC algorithm.
+    // 
+    // - **SM2**: The SM2 algorithm.
     shared_ptr<string> algorithm_ {};
+    // The global ID of the certificate, which is used in various Alibaba Cloud services. The format of the ID is `<Certificate ID>-<Region ID>`. The region ID is `cn-hangzhou` for the China site and `ap-southeast-1` for the International site. For example, if a certificate ID is `123`, its `CertIdentifier` is `123-cn-hangzhou` for the China site and `123-ap-southeast-1` for the International site.
     shared_ptr<string> certIdentifier_ {};
+    // The information about the certificate chain.
     shared_ptr<vector<GetCertificateDetailResponseBody::CertificateChainList>> certificateChainList_ {};
+    // The certificate ID.
     shared_ptr<int32_t> certificateId_ {};
+    // The certificate name.
     shared_ptr<string> certificateName_ {};
+    // The source of the certificate. Valid values:
+    // 
+    // - **BUY**: a purchased certificate.
+    // 
+    // - **TEST**: a test certificate.
+    // 
+    // - Upload the certificate.
     shared_ptr<string> certificateSource_ {};
+    // The status of the certificate. Valid values:
+    // 
+    // - **issued**: The certificate is issued.
+    // 
+    // - **revoked**: The certificate is revoked.
+    // 
+    // - **willExpire**: The certificate is about to expire.
+    // 
+    // - **expired**: The certificate has expired.
     shared_ptr<string> certificateStatus_ {};
+    // The common name.
     shared_ptr<string> commonName_ {};
+    // The ID of the company profile that is associated with the certificate application. This parameter is empty for DV certificates.
     shared_ptr<int64_t> companyId_ {};
+    // The ID of the contact.
     shared_ptr<int64_t> contactId_ {};
     shared_ptr<string> csr_ {};
+    // The domain names that are bound to the certificate. Multiple domain names are separated by commas (,).
     shared_ptr<string> domain_ {};
+    // Indicates whether a private key is available. Valid values:
+    // 
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> existPrivateKey_ {};
+    // The fingerprint of the public key.
     shared_ptr<string> fingerPrint_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The issuer of the certificate.
     shared_ptr<string> issuer_ {};
+    // The key size.
+    // 
+    // - For RSA algorithms, the key size is typically 2,048, 3,072, or 4,096 bits.
+    // 
+    // - For ECC and SM2 algorithms, the key size is typically 256 bits.
     shared_ptr<int32_t> keySize_ {};
+    // The end of the validity period of the certificate.
     shared_ptr<int64_t> notAfter_ {};
+    // The beginning of the validity period of the certificate.
     shared_ptr<int64_t> notBefore_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The serial number of the certificate.
     shared_ptr<string> serial_ {};
+    // The subject alternative names (SANs) of the certificate.
     shared_ptr<vector<string>> subjectAlternativeNames_ {};
+    // The list of tags.
     shared_ptr<vector<GetCertificateDetailResponseBody::Tags>> tags_ {};
+    // The list of cloud services in which the certificate is deployed.
     shared_ptr<vector<string>> usingProductList_ {};
   };
 

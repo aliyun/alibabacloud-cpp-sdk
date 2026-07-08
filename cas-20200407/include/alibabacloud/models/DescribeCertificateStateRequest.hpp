@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate application order that you want to query.
+    // The ID of the certificate request order to query.
     // 
-    // >  You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the ID.
+    // > You can call [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> orderId_ {};

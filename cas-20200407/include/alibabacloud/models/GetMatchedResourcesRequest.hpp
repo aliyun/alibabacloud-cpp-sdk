@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The certificate IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> certIds_ {};
+    // Because of the large number of matched resources, the backend uses aggregation and does not support pagination. This parameter is reserved. By default, a maximum of 2,000 entries are returned.
     shared_ptr<int32_t> maxResults_ {};
+    // Because of the large number of matched resources, the backend uses aggregation and does not support pagination. This parameter is reserved.
     shared_ptr<string> nextToken_ {};
+    // The resource match scope. This parameter can be empty.
     shared_ptr<string> resourceScope_ {};
   };
 

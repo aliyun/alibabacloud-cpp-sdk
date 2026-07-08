@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
     // The instance ID of the certificate application repository.
     shared_ptr<string> instanceId_ {};
@@ -85,11 +85,15 @@ namespace Models
     shared_ptr<int64_t> showSize_ {};
     // The type of the certificate application repository. Valid values:
     // 
-    // *   **ssl**: certificate application repository of SSL certificates
-    // *   **uploadPCA**: certificate application repository of uploaded private certificates
-    // *   **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
-    // *   **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud Private Certificate Authority (PCA), available only on the China site (aliyun.com)
-    // *   **disable**: disabled certificate application repository
+    // - **ssl**: certificate application repository of SSL certificates
+    // 
+    // - **uploadPCA**: certificate application repository of uploaded private certificates
+    // 
+    // - **free**: certificate application repository of free certificates, available only on the China site (aliyun.com)
+    // 
+    // - **aliyunPCA**: certificate application repository of private certificates purchased from Alibaba Cloud Private Certificate Authority (PCA), available only on the China site (aliyun.com)
+    // 
+    // - **disable**: disabled certificate application repository
     shared_ptr<string> type_ {};
   };
 

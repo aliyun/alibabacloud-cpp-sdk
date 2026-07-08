@@ -139,8 +139,9 @@ namespace Models
     shared_ptr<string> department_ {};
     // The key length that is used by the algorithm.
     // 
-    // *   The key length for RSA algorithms can be 2,048, 3,072, and 4,096 bits.
-    // *   The key length for ECC and SM2 algorithms can be 256 bits.
+    // - The key length for RSA algorithms can be 2,048, 3,072, and 4,096 bits.
+    // 
+    // - The key length for ECC and SM2 algorithms can be 256 bits.
     // 
     // This parameter is required.
     shared_ptr<int32_t> keySize_ {};

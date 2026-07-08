@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the instance. Before you request a certificate, call the UpdateInstance operation to update and complete the application information for the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

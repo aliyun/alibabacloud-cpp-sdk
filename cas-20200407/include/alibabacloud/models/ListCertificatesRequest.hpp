@@ -94,12 +94,33 @@ namespace Models
 
 
   protected:
+    // The source of the certificate.
+    // 
+    // - BUY: A purchased certificate.
+    // 
+    // - TEST: A test certificate.
+    // 
+    // - UPLOAD: An uploaded certificate.
     shared_ptr<string> certificateSource_ {};
+    // The status of the certificate.
+    // 
+    // - **issued**: The certificate is issued.
+    // 
+    // - **revoked**: The certificate is revoked.
+    // 
+    // - **willExpire**: The certificate is about to expire.
+    // 
+    // - **expired**: The certificate has expired.
     shared_ptr<string> certificateStatus_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // A keyword for a fuzzy query. The keyword can be a domain name, a certificate name, or a resource ID.
     shared_ptr<string> keyword_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The number of entries to return on each page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> showSize_ {};
   };
 

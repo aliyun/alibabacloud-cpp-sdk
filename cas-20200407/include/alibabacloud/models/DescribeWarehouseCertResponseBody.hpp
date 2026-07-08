@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the certificate.
     shared_ptr<string> certIdentifier_ {};
+    // The status of the certificate.
     shared_ptr<string> certStatus_ {};
+    // The type of the certificate.
     shared_ptr<string> certType_ {};
+    // The common name of the certificate subject. This field is empty if the certificate subject does not include a common name (CN).
     shared_ptr<string> commonName_ {};
+    // The content of the certificate, including the certificate chain.
     shared_ptr<string> content_ {};
+    // The fingerprint of the certificate content.
     shared_ptr<string> fingerprint_ {};
+    // The common name (or organization name) of the issuer.
     shared_ptr<string> issuer_ {};
+    // The unique identifier of the issuer certificate.
     shared_ptr<string> issuerIdentifier_ {};
+    // The instance ID of the private CA instance associated with the certificate.
     shared_ptr<string> privateCaInstanceId_ {};
+    // The region ID of the private CA instance associated with the certificate.
     shared_ptr<string> privateCaRegionId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The instance ID of the certificate warehouse.
     shared_ptr<string> warehouseInstanceId_ {};
   };
 

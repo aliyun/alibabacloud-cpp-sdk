@@ -279,37 +279,55 @@ namespace Models
       shared_ptr<string> certName_ {};
       // The cloud service provider to which the cloud resource in the worker task belongs.
       // 
-      // >  This parameter is not returned if you deploy certificates to Alibaba Cloud services.
+      // > This parameter is not returned if you deploy certificates to Alibaba Cloud services.
       shared_ptr<string> cloudName_ {};
       // The cloud service to which the cloud resource in the worker task belongs. Valid values:
       // 
-      // *   **CDN**: Alibaba Cloud CDN (CDN). This value is supported only at the China site (aliyun.com).
-      // *   **SLB**: Classic Load Balancer (CLB). This value is supported only at the China site (aliyun.com).
-      // *   **DCDN**: Dynamic Content Delivery Network (DCDN). This value is supported only at the China site (aliyun.com).
-      // *   **DDOS**: Anti-DDoS. This value is supported only at the China site (aliyun.com).
-      // *   **LIVE**: ApsaraVideo Live. This value is supported only at the China site (aliyun.com).
-      // *   **webHosting**: Cloud Web Hosting. This value is supported only at the China site (aliyun.com).
-      // *   **VOD**: ApsaraVideo VOD. This value is supported only at the China site (aliyun.com).
-      // *   **CR**: Container Registry. This value is supported only at the China site (aliyun.com).
-      // *   **ALB**: Application Load Balancer (ALB).
-      // *   **APIGateway**: API Gateway.
-      // *   **FC**: Function Compute.
-      // *   **GA**: Global Accelerator (GA).
-      // *   **MSE**: Microservices Engine (MSE).
-      // *   **NLB**: Network Load Balancer (NLB).
-      // *   **OSS**: Object Storage Service (OSS).
-      // *   **SAE**: Serverless App Engine (SAE).
-      // *   **TencentCDN**: Tencent Cloud Content Delivery Network (CDN).
-      // *   **WAF**: Web Application Firewall (WAF).
+      // - **CDN**: Alibaba Cloud CDN (CDN). This value is supported only at the China site (aliyun.com).
+      // 
+      // - **SLB**: Classic Load Balancer (CLB). This value is supported only at the China site (aliyun.com).
+      // 
+      // - **DCDN**: Dynamic Content Delivery Network (DCDN). This value is supported only at the China site (aliyun.com).
+      // 
+      // - **DDOS**: Anti-DDoS. This value is supported only at the China site (aliyun.com).
+      // 
+      // - **LIVE**: ApsaraVideo Live. This value is supported only at the China site (aliyun.com).
+      // 
+      // - **webHosting**: Cloud Web Hosting. This value is supported only at the China site (aliyun.com).
+      // 
+      // - **VOD**: ApsaraVideo VOD. This value is supported only at the China site (aliyun.com).
+      // 
+      // - **CR**: Container Registry. This value is supported only at the China site (aliyun.com).
+      // 
+      // - **ALB**: Application Load Balancer (ALB).
+      // 
+      // - **APIGateway**: API Gateway.
+      // 
+      // - **FC**: Function Compute.
+      // 
+      // - **GA**: Global Accelerator (GA).
+      // 
+      // - **MSE**: Microservices Engine (MSE).
+      // 
+      // - **NLB**: Network Load Balancer (NLB).
+      // 
+      // - **OSS**: Object Storage Service (OSS).
+      // 
+      // - **SAE**: Serverless App Engine (SAE).
+      // 
+      // - **TencentCDN**: Tencent Cloud Content Delivery Network (CDN).
+      // 
+      // - **WAF**: Web Application Firewall (WAF).
       shared_ptr<string> cloudProduct_ {};
       // The original region ID of the cloud resource in the worker task. The value is the region ID defined by the cloud service provider. This parameter is required only when you deploy certificates to services of multiple clouds.
       shared_ptr<string> cloudRegion_ {};
       // Indicates whether the cloud resource in the worker task is the default resource. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // - **false**
+      // 
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<bool> defaultResource_ {};
       // The time when the worker task was created. The time is a timestamp in seconds.
       shared_ptr<string> gmtCreate_ {};
@@ -319,23 +337,23 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // The ID of the cloud resource in the worker task.
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<string> instanceId_ {};
       // The ID of the deployment task to which the worker task belongs.
       shared_ptr<int64_t> jobId_ {};
       // The listener ID of the cloud resource in the worker task.
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<string> listenerId_ {};
       // The ID of the namespace in SAE. This parameter is returned only if you deploy certificates to SAE.
       shared_ptr<string> namespaceId_ {};
       // The order ID of the worker task, which is the same as the order ID of the certificate.
       // 
-      // >  If the CertId parameter is returned, this parameter is not returned.
+      // > If the CertId parameter is returned, this parameter is not returned.
       shared_ptr<int64_t> orderId_ {};
       // The listening port of the cloud resource in the worker task.
       // 
-      // >  This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
+      // > This parameter is returned only when the value of CloudProduct is SLB, NLB, ALB, or GA.
       shared_ptr<int32_t> port_ {};
       // The region ID of the cloud resource in the worker task.
       shared_ptr<string> regionId_ {};
@@ -347,15 +365,23 @@ namespace Models
       shared_ptr<int64_t> resourceId_ {};
       // The status of the worker task. Valid values:
       // 
-      // *   **editing**
-      // *   **pending**
-      // *   **scheduling**
-      // *   **processing**
-      // *   **error**
-      // *   **success**
-      // *   **rollback**
-      // *   **rollback_success**
-      // *   **rollback_error**
+      // - **editing**
+      // 
+      // - **pending**
+      // 
+      // - **scheduling**
+      // 
+      // - **processing**
+      // 
+      // - **error**
+      // 
+      // - **success**
+      // 
+      // - **rollback**
+      // 
+      // - **rollback_success**
+      // 
+      // - **rollback_error**
       shared_ptr<string> status_ {};
       // The ID of the Alibaba Cloud account to which the worker task belongs.
       shared_ptr<int64_t> userId_ {};

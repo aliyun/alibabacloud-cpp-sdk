@@ -76,13 +76,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The type of the resource.\\
+    // The type of the resource.<br>
     // Default value: **instance**
     // 
     // Valid values:
     // 
-    // *   instance: certificate order
-    // *   Certificate: certificate
+    // - instance: certificate order
+    // 
+    // - Certificate: certificate
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

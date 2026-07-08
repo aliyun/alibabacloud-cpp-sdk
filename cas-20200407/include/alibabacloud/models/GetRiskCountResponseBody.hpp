@@ -204,24 +204,43 @@ namespace Models
 
 
   protected:
+    // Number of expired Alibaba Cloud certificates.
     shared_ptr<int32_t> aliyunAssetCertificateExpiredCount_ {};
+    // Number of Alibaba Cloud certificates that will expire soon.
     shared_ptr<int32_t> aliyunAssetCertificateWillExpiredCount_ {};
+    // Number of expired paid certificates.
     shared_ptr<int32_t> buyCertificateExpireCount_ {};
+    // Number of paid certificates not deployed.
     shared_ptr<int32_t> buyCertificateNotDeploymentCount_ {};
+    // Number of paid certificates not managed.
     shared_ptr<int32_t> buyCertificateNotTrusteeCount_ {};
+    // Number of paid certificates that will expire soon.
     shared_ptr<int32_t> buyCertificateWillExpiredCount_ {};
+    // Number of failed paid certificate orders.
     shared_ptr<int32_t> buyCheckedFailCount_ {};
+    // Number of domains without monitoring configured.
     shared_ptr<int32_t> domainAssetNotMonitorCount_ {};
+    // Number of expired free certificates.
     shared_ptr<int32_t> freeCertificateExpireCount_ {};
+    // Number of free certificates not deployed.
     shared_ptr<int32_t> freeCertificateNotDeploymentCount_ {};
+    // Number of free certificates that will expire soon.
     shared_ptr<int32_t> freeCertificateWillExpiredCount_ {};
+    // Number of failed free certificate orders.
     shared_ptr<int32_t> freeCheckedFailCount_ {};
+    // Number of expired multicloud certificates.
     shared_ptr<int32_t> multiCloudAssetCertificateExpiredCount_ {};
+    // Number of multicloud certificates that will expire soon.
     shared_ptr<int32_t> multiCloudAssetCertificateWillExpiredCount_ {};
+    // The ID of this API call. Alibaba Cloud generates this unique identifier for each request. Use it to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
+    // Number of expired uploaded certificates.
     shared_ptr<int32_t> uploadCertificateExpireCount_ {};
+    // Number of uploaded certificates not deployed.
     shared_ptr<int32_t> uploadCertificateNotDeploymentCount_ {};
+    // Number of uploaded certificates without alerting configured.
     shared_ptr<int32_t> uploadCertificateNotNoticeCount_ {};
+    // Number of uploaded certificates that will expire soon.
     shared_ptr<int32_t> uploadCertificateWillExpiredCount_ {};
   };
 

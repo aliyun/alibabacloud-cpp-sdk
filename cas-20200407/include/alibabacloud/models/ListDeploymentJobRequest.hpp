@@ -72,21 +72,27 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   cloud: multi-cloud deployment task.
-    // *   user: cloud service deployment task. This type of task does not support Elastic Compute Service (ECS) instances.
+    // - cloud: multi-cloud deployment task.
+    // 
+    // - user: cloud service deployment task. This type of task does not support Elastic Compute Service (ECS) instances.
     shared_ptr<string> jobType_ {};
-    // The number of certificates per page. Default value: **50**.
+    // The number of entries to return on each page. Default value: 50.
     shared_ptr<int32_t> showSize_ {};
     // The status of the deployment task.
     // 
     // Valid values:
     // 
-    // *   success
-    // *   pending
-    // *   scheduling
-    // *   processing
-    // *   error
-    // *   editing
+    // - success
+    // 
+    // - pending
+    // 
+    // - scheduling
+    // 
+    // - processing
+    // 
+    // - error
+    // 
+    // - editing
     shared_ptr<string> status_ {};
   };
 

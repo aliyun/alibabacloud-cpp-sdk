@@ -68,9 +68,13 @@ namespace Models
 
 
   protected:
+    // 请求接口返回的数据。
     Darabonba::Json data_ {};
+    // 分页参数：结果集的最大数量，默认值为 20。
     shared_ptr<int32_t> maxResults_ {};
+    // 下一个查询开始 Token，NextToken 为空说明没有下一个。
     shared_ptr<string> nextToken_ {};
+    // 本次请求的 ID。
     shared_ptr<string> requestId_ {};
   };
 

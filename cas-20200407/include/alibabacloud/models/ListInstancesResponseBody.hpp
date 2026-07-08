@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CertificateId, certificateId_);
         DARABONBA_PTR_TO_JSON(CertificateName, certificateName_);
         DARABONBA_PTR_TO_JSON(CertificateNotAfter, certificateNotAfter_);
+        DARABONBA_PTR_TO_JSON(CertificateNotBefore, certificateNotBefore_);
         DARABONBA_PTR_TO_JSON(CertificateRevokeTime, certificateRevokeTime_);
         DARABONBA_PTR_TO_JSON(CertificateStatus, certificateStatus_);
         DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
@@ -75,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CertificateId, certificateId_);
         DARABONBA_PTR_FROM_JSON(CertificateName, certificateName_);
         DARABONBA_PTR_FROM_JSON(CertificateNotAfter, certificateNotAfter_);
+        DARABONBA_PTR_FROM_JSON(CertificateNotBefore, certificateNotBefore_);
         DARABONBA_PTR_FROM_JSON(CertificateRevokeTime, certificateRevokeTime_);
         DARABONBA_PTR_FROM_JSON(CertificateStatus, certificateStatus_);
         DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
@@ -107,10 +109,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->autoReissue_ == nullptr
         && this->brand_ == nullptr && this->certIdentifier_ == nullptr && this->certificateDomain_ == nullptr && this->certificateId_ == nullptr && this->certificateName_ == nullptr
-        && this->certificateNotAfter_ == nullptr && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr && this->domain_ == nullptr
-        && this->fullDomainCount_ == nullptr && this->instanceEndTime_ == nullptr && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr && this->instanceType_ == nullptr
-        && this->keyAlgorithm_ == nullptr && this->orderEndTime_ == nullptr && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->spec_ == nullptr && this->status_ == nullptr && this->usingProductList_ == nullptr && this->wildcardDomainCount_ == nullptr; };
+        && this->certificateNotAfter_ == nullptr && this->certificateNotBefore_ == nullptr && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr
+        && this->domain_ == nullptr && this->fullDomainCount_ == nullptr && this->instanceEndTime_ == nullptr && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr
+        && this->instanceType_ == nullptr && this->keyAlgorithm_ == nullptr && this->orderEndTime_ == nullptr && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->usingProductList_ == nullptr && this->wildcardDomainCount_ == nullptr; };
       // autoReissue Field Functions 
       bool hasAutoReissue() const { return this->autoReissue_ != nullptr;};
       void deleteAutoReissue() { this->autoReissue_ = nullptr;};
@@ -158,6 +160,13 @@ namespace Models
       void deleteCertificateNotAfter() { this->certificateNotAfter_ = nullptr;};
       inline int64_t getCertificateNotAfter() const { DARABONBA_PTR_GET_DEFAULT(certificateNotAfter_, 0L) };
       inline InstanceList& setCertificateNotAfter(int64_t certificateNotAfter) { DARABONBA_PTR_SET_VALUE(certificateNotAfter_, certificateNotAfter) };
+
+
+      // certificateNotBefore Field Functions 
+      bool hasCertificateNotBefore() const { return this->certificateNotBefore_ != nullptr;};
+      void deleteCertificateNotBefore() { this->certificateNotBefore_ = nullptr;};
+      inline int64_t getCertificateNotBefore() const { DARABONBA_PTR_GET_DEFAULT(certificateNotBefore_, 0L) };
+      inline InstanceList& setCertificateNotBefore(int64_t certificateNotBefore) { DARABONBA_PTR_SET_VALUE(certificateNotBefore_, certificateNotBefore) };
 
 
       // certificateRevokeTime Field Functions 
@@ -289,30 +298,78 @@ namespace Models
 
 
     protected:
+      // Indicates whether automatic managed renewal is enabled. Valid values:
+      // - enable: enabled.
+      // - disable: disabled.
       shared_ptr<string> autoReissue_ {};
+      // The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
       shared_ptr<string> brand_ {};
+      // The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+      // - For the China site: certificate ID + "-cn-hangzhou"
+      // - For the China site: certificate ID + "-ap-southeast-1"
+      // 
+      // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
       shared_ptr<string> certIdentifier_ {};
+      // The domain name of the latest issued certificate.
       shared_ptr<string> certificateDomain_ {};
+      // The certificate ID.
       shared_ptr<int64_t> certificateId_ {};
+      // The certificate name.
       shared_ptr<string> certificateName_ {};
+      // The end time of the latest certificate, in UNIX timestamp format. If no certificate has been issued, this value is empty.
       shared_ptr<int64_t> certificateNotAfter_ {};
+      shared_ptr<int64_t> certificateNotBefore_ {};
+      // The revocation time of the latest certificate, in UNIX timestamp format.
       shared_ptr<int64_t> certificateRevokeTime_ {};
+      // The status of the certificate. Valid values:
+      // - **issued**: issued.
+      // - **revoked**: revoked.
+      // - **willExpire**: about to expire.
+      // - **expired**: expired.
       shared_ptr<string> certificateStatus_ {};
+      // The type of the certificate. Valid values: DV, OV, and EV.
       shared_ptr<string> certificateType_ {};
+      // The domain name bound to the certificate.
       shared_ptr<string> domain_ {};
+      // The number of exact-match domain names.
       shared_ptr<int32_t> fullDomainCount_ {};
+      // The expiration time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
       shared_ptr<int64_t> instanceEndTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The start time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
       shared_ptr<int64_t> instanceStartTime_ {};
+      // The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
       shared_ptr<string> instanceType_ {};
+      // The certificate algorithm. Default value: RSA_2048. Valid values:
+      // - **RSA_2048**
+      // - **RSA_3072**
+      // - **RSA_4096**
+      // - **ECC_256**
+      // - **SM2**.
       shared_ptr<string> keyAlgorithm_ {};
+      // The end time of the instance purchase, in UNIX timestamp format. This value is used to determine the purchase duration of the instance.
       shared_ptr<int64_t> orderEndTime_ {};
+      // The start time of the instance purchase, in UNIX timestamp format. This value is used to determine the refund time limit.
       shared_ptr<int64_t> orderStartTime_ {};
+      // The result returned by the CA during the last certificate operation.
       shared_ptr<string> pendingResult_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The purchased instance specification.
       shared_ptr<string> spec_ {};
+      // The instance status. Valid values:
+      // - **inactive**: pending use.
+      // - **pending**: under review. The latest certificate is being reviewed.
+      // - **willExpire**: about to expire.
+      // - **expired**: expired.
+      // - **refund**: refunded.
+      // - **normal**: normal.
+      // - **closed**: closed and unavailable.
       shared_ptr<string> status_ {};
+      // The list of cloud services to which the latest certificate is deployed.
       shared_ptr<vector<string>> usingProductList_ {};
+      // The number of wildcard domain names.
       shared_ptr<int32_t> wildcardDomainCount_ {};
     };
 
@@ -356,10 +413,15 @@ namespace Models
 
 
   protected:
+    // The current page number in a paged query.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of instances.
     shared_ptr<vector<ListInstancesResponseBody::InstanceList>> instanceList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of records per page.
     shared_ptr<int32_t> showSize_ {};
+    // The total number of instances.
     shared_ptr<int64_t> totalCount_ {};
   };
 

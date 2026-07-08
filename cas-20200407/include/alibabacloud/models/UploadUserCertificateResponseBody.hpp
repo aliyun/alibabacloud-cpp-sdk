@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int64_t> certId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource.
+    // The ID of the certificate instance.
     shared_ptr<string> resourceId_ {};
   };
 

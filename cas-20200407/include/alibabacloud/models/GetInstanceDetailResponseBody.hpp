@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CertificateId, certificateId_);
       DARABONBA_PTR_TO_JSON(CertificateName, certificateName_);
       DARABONBA_PTR_TO_JSON(CertificateNotAfter, certificateNotAfter_);
+      DARABONBA_PTR_TO_JSON(CertificateNotBefore, certificateNotBefore_);
       DARABONBA_PTR_TO_JSON(CertificateRevokeTime, certificateRevokeTime_);
       DARABONBA_PTR_TO_JSON(CertificateStatus, certificateStatus_);
       DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CertificateId, certificateId_);
       DARABONBA_PTR_FROM_JSON(CertificateName, certificateName_);
       DARABONBA_PTR_FROM_JSON(CertificateNotAfter, certificateNotAfter_);
+      DARABONBA_PTR_FROM_JSON(CertificateNotBefore, certificateNotBefore_);
       DARABONBA_PTR_FROM_JSON(CertificateRevokeTime, certificateRevokeTime_);
       DARABONBA_PTR_FROM_JSON(CertificateStatus, certificateStatus_);
       DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
@@ -140,7 +142,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -228,12 +232,19 @@ namespace Models
 
 
     protected:
+      // The CNAME record value for verification-free authorization. This field may be empty.
       shared_ptr<string> cname_ {};
+      // The prefix for CNAME validation.
       shared_ptr<string> cnameKey_ {};
+      // The domain name to be validated.
       shared_ptr<string> domain_ {};
+      // The root domain name.
       shared_ptr<string> rootDomain_ {};
+      // The host record.
       shared_ptr<string> validationKey_ {};
+      // The validation type. Valid values: TXT, HTTP, and CNAME.
       shared_ptr<string> validationType_ {};
+      // The host record value for validation.
       shared_ptr<string> validationValue_ {};
     };
 
@@ -293,21 +304,27 @@ namespace Models
 
 
     protected:
+      // The instance ID of the expert service DingTalk group.
       shared_ptr<string> dingGroupInstanceId_ {};
+      // The name of the expert service DingTalk group.
       shared_ptr<string> dingGroupName_ {};
+      // The type of the expert service DingTalk group. Valid values:
+      // - expedite: application assistance.
+      // - remote: offline deployment.
       shared_ptr<string> dingGroupType_ {};
+      // The link to join the expert service DingTalk group.
       shared_ptr<string> dingGroupUrl_ {};
     };
 
     virtual bool empty() const override { return this->autoReissue_ == nullptr
         && this->averageWaitingTime_ == nullptr && this->brand_ == nullptr && this->certIdentifier_ == nullptr && this->certificateId_ == nullptr && this->certificateName_ == nullptr
-        && this->certificateNotAfter_ == nullptr && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr && this->city_ == nullptr
-        && this->companyId_ == nullptr && this->contactIdList_ == nullptr && this->countryCode_ == nullptr && this->csr_ == nullptr && this->dingGroupList_ == nullptr
-        && this->domain_ == nullptr && this->domainValidationList_ == nullptr && this->fullDomainCount_ == nullptr && this->generateCsrMethod_ == nullptr && this->instanceEndTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr && this->instanceType_ == nullptr && this->keyAlgorithm_ == nullptr && this->orderEndTime_ == nullptr
-        && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr && this->province_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->upgradeStatus_ == nullptr && this->validationMethod_ == nullptr
-        && this->wildcardDomainCount_ == nullptr; };
+        && this->certificateNotAfter_ == nullptr && this->certificateNotBefore_ == nullptr && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr
+        && this->city_ == nullptr && this->companyId_ == nullptr && this->contactIdList_ == nullptr && this->countryCode_ == nullptr && this->csr_ == nullptr
+        && this->dingGroupList_ == nullptr && this->domain_ == nullptr && this->domainValidationList_ == nullptr && this->fullDomainCount_ == nullptr && this->generateCsrMethod_ == nullptr
+        && this->instanceEndTime_ == nullptr && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr && this->instanceType_ == nullptr && this->keyAlgorithm_ == nullptr
+        && this->orderEndTime_ == nullptr && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr && this->province_ == nullptr && this->requestId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->upgradeStatus_ == nullptr
+        && this->validationMethod_ == nullptr && this->wildcardDomainCount_ == nullptr; };
     // autoReissue Field Functions 
     bool hasAutoReissue() const { return this->autoReissue_ != nullptr;};
     void deleteAutoReissue() { this->autoReissue_ = nullptr;};
@@ -355,6 +372,13 @@ namespace Models
     void deleteCertificateNotAfter() { this->certificateNotAfter_ = nullptr;};
     inline int64_t getCertificateNotAfter() const { DARABONBA_PTR_GET_DEFAULT(certificateNotAfter_, 0L) };
     inline GetInstanceDetailResponseBody& setCertificateNotAfter(int64_t certificateNotAfter) { DARABONBA_PTR_SET_VALUE(certificateNotAfter_, certificateNotAfter) };
+
+
+    // certificateNotBefore Field Functions 
+    bool hasCertificateNotBefore() const { return this->certificateNotBefore_ != nullptr;};
+    void deleteCertificateNotBefore() { this->certificateNotBefore_ = nullptr;};
+    inline int64_t getCertificateNotBefore() const { DARABONBA_PTR_GET_DEFAULT(certificateNotBefore_, 0L) };
+    inline GetInstanceDetailResponseBody& setCertificateNotBefore(int64_t certificateNotBefore) { DARABONBA_PTR_SET_VALUE(certificateNotBefore_, certificateNotBefore) };
 
 
     // certificateRevokeTime Field Functions 
@@ -576,42 +600,113 @@ namespace Models
 
 
   protected:
+    // Specifies whether automatic managed renewal is enabled. Valid values:
+    // - enable: Enabled.
+    // - disable: Disabled.
     shared_ptr<string> autoReissue_ {};
+    // The average waiting time for issuing a certificate of this specification. Unit: seconds.
     shared_ptr<string> averageWaitingTime_ {};
+    // The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
     shared_ptr<string> brand_ {};
+    // The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+    //   --For the China site, the format is certificate ID + "-cn-hangzhou".
+    // For the China site, the format is certificate ID + "-ap-southeast-1".
+    // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
     shared_ptr<string> certIdentifier_ {};
+    // The certificate ID.
     shared_ptr<int32_t> certificateId_ {};
+    // The name of the instance. When a certificate is issued, this name is used as the default certificate name.
     shared_ptr<string> certificateName_ {};
+    // The end time of the latest certificate. The value is a UNIX timestamp. This field is empty if no certificate has been issued.
     shared_ptr<int64_t> certificateNotAfter_ {};
+    shared_ptr<int64_t> certificateNotBefore_ {};
+    // The revocation time of the latest certificate. The value is a UNIX timestamp.
     shared_ptr<int64_t> certificateRevokeTime_ {};
+    // The status of the certificate. Valid values:
+    // - **issued**: issued.
+    // - **revoked**: revoked.
+    // - **willExpire**: about to expire.
+    // - **expired**: expired.
     shared_ptr<string> certificateStatus_ {};
+    // The type of the certificate. Valid values: DV, OV, and EV.
     shared_ptr<string> certificateType_ {};
+    // The city where the company or organization of the certificate purchaser is located. This field is required when generating a certificate signing request. Default value: Beijing.
     shared_ptr<string> city_ {};
+    // The company information ID.
     shared_ptr<int64_t> companyId_ {};
+    // The list of contact IDs.
     shared_ptr<vector<int64_t>> contactIdList_ {};
+    // The code of the country or region where the certificate organization is located. For example, CN indicates China, and US indicates the United States. This field is required when generating a certificate signing request. Default value: CN.
     shared_ptr<string> countryCode_ {};
+    // The certificate signing request in PEM format.
     shared_ptr<string> csr_ {};
+    // The list of associated expert service DingTalk groups.
     shared_ptr<vector<GetInstanceDetailResponseBody::DingGroupList>> dingGroupList_ {};
+    // The domain name bound to the certificate.
     shared_ptr<string> domain_ {};
+    // The list of domain names to be validated.
     shared_ptr<vector<GetInstanceDetailResponseBody::DomainValidationList>> domainValidationList_ {};
+    // The number of exact-match domain names.
     shared_ptr<int32_t> fullDomainCount_ {};
+    // The CSR generation method. Valid values:
+    // - online: system-generated. The Csr field is ignored.
+    // - upload: user-uploaded. The Csr field is required.
     shared_ptr<string> generateCsrMethod_ {};
+    // The expiration time of the instance. The value is a UNIX timestamp. If no certificate has been issued, this field is empty.
     shared_ptr<int64_t> instanceEndTime_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The start time of the instance. The value is a UNIX timestamp. If no certificate has been issued, this field is empty.
     shared_ptr<int64_t> instanceStartTime_ {};
+    // The instance type. Valid values:
+    // - **BUY**: formal certificate.
+    // - **TEST**: test certificate.
     shared_ptr<string> instanceType_ {};
+    // The certificate algorithm. Valid values:
+    // - **RSA_2048**
+    // - **RSA_3072**
+    // - **RSA_4096**
+    // - **ECC_256**
+    // - **SM2**.
     shared_ptr<string> keyAlgorithm_ {};
+    // The end time of the instance purchase. The value is a UNIX timestamp. You can use this value to determine the purchase duration of the instance.
     shared_ptr<int64_t> orderEndTime_ {};
+    // The start time of the instance purchase. The value is a UNIX timestamp. You can use this value to determine the refund time limit.
     shared_ptr<int64_t> orderStartTime_ {};
+    // The result returned by the certification authority (CA) during the last certificate operation.
     shared_ptr<string> pendingResult_ {};
+    // The province or region where the company is located. This field is required when generating a certificate signing request. Default value: Beijing.
     shared_ptr<string> province_ {};
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The purchased instance specification.
     shared_ptr<string> spec_ {};
+    // The instance status. Valid values:
+    // - **inactive**: pending use.
+    // - **pending**: under review. The latest certificate is being reviewed.
+    // - **willExpire**: the instance is about to expire.
+    // - **expired**: the instance has expired.
+    // - **refund**: refunded.
+    // - **normal**: normal.
+    // - **closed**: closed and unavailable.
     shared_ptr<string> status_ {};
+    // The list of tags.
     shared_ptr<vector<GetInstanceDetailResponseBody::Tags>> tags_ {};
+    // The upgrade status of the instance. Valid values:
+    // 
+    // - none: the instance has not been upgraded.
+    // 
+    // - payed: the instance upgrade has been paid.
+    // 
+    // - issued: the latest certificate has been issued after the instance upgrade.
     shared_ptr<string> upgradeStatus_ {};
+    // The validation method for the certificate application. Valid values:
+    // - DNS: DNS validation, using TXT or CNAME.
+    // - HTTP: file-based validation.
     shared_ptr<string> validationMethod_ {};
+    // The number of wildcard domain names.
     shared_ptr<int32_t> wildcardDomainCount_ {};
   };
 

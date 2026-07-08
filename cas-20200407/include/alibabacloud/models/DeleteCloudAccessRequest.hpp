@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the access key.
     shared_ptr<string> accessId_ {};
   };
 

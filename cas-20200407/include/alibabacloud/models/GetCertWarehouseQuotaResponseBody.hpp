@@ -75,13 +75,15 @@ namespace Models
 
 
   protected:
+    // The total quota for the certificate application service. This includes both complimentary and purchased quotas.
     shared_ptr<int64_t> appTotalQuota_ {};
+    // The used quota for the certificate application service.
     shared_ptr<int64_t> appUseCount_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total quota for certificate repositories, including the free quota and purchased quota.
+    // The total quota for the electronic contract signing service. This includes both complimentary and purchased quotas.
     shared_ptr<int64_t> totalQuota_ {};
-    // The used quota.
+    // The used quota for the electronic contract signing service.
     shared_ptr<int64_t> useCount_ {};
   };
 

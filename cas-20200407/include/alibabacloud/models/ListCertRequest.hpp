@@ -103,29 +103,33 @@ namespace Models
 
 
   protected:
-    // 证书的类型 。取值：
+    // The certificate type. Valid values:
     // 
-    // - **CA**：表示CA证书。
-    // - **CERT**：表示签发的证书。
+    // - **CA**: CA certificate
+    // 
+    // - **CERT**: issued certificate
     shared_ptr<string> certType_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number to return. The default value is 1.
     shared_ptr<int64_t> currentPage_ {};
+    // A comma-separated list of certificate identifiers.
     shared_ptr<string> identifiers_ {};
-    // The keyword for the query. You can enter a name, domain name, or Subject Alternative Name (SAN) extension. Fuzzy match is supported.
+    // The keyword for a fuzzy search by name, domain name, or subject alternative name.
     shared_ptr<string> keyWord_ {};
-    // The number of entries to return on each page. Default value: 50.
+    // The number of entries per page. The default value is 50.
     shared_ptr<int64_t> showSize_ {};
     // The source of the certificate. Valid values:
     // 
-    // *   **upload**: uploaded certificate
-    // *   **aliyun**: Alibaba Cloud certificate
-    shared_ptr<string> sourceType_ {};
-    // The status of the certificate. Valid values:
+    // - **upload**: uploaded certificate
     // 
-    // *   **ISSUE**: issued
-    // *   **REVOKE**: revoked
+    // - **aliyun**: Alibaba Cloud certificate
+    shared_ptr<string> sourceType_ {};
+    // The certificate status. Valid values:
+    // 
+    // - **ISSUE**: issued
+    // 
+    // - **REVOKE**: revoked
     shared_ptr<string> status_ {};
-    // The ID of the certificate repository. You can call the ListCertWarehouse API operation to query the IDs of certificate repositories.
+    // The warehouse ID. You can obtain this ID by calling the [ListCertWarehouse](https://help.aliyun.com/document_detail/453246.html) API.
     shared_ptr<int64_t> warehouseId_ {};
   };
 

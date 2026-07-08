@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the client certificate or server certificate that you want to revoke.
+    // The unique identifier of the client or server certificate to revoke.
     // 
     // This parameter is required.
     shared_ptr<string> identifier_ {};

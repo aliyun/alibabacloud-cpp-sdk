@@ -89,15 +89,23 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   rollback
-    // *   rollback_error
-    // *   success
-    // *   rollback_success
-    // *   pending
-    // *   scheduling
-    // *   processing
-    // *   error
-    // *   editing
+    // - rollback
+    // 
+    // - rollback_error
+    // 
+    // - success
+    // 
+    // - rollback_success
+    // 
+    // - pending
+    // 
+    // - scheduling
+    // 
+    // - processing
+    // 
+    // - error
+    // 
+    // - editing
     shared_ptr<string> status_ {};
   };
 

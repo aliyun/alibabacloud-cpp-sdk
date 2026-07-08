@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
+    // The expiration date of the certificate.
     shared_ptr<int64_t> endDate_ {};
+    // The number of entries to return on each page. Default value: 50.
     shared_ptr<int64_t> showSize_ {};
+    // The date of certificate issuance.
     shared_ptr<int64_t> startDate_ {};
   };
 

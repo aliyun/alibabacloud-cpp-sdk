@@ -69,7 +69,13 @@ AlibabaCloud::Cas20200407::Client::Client(Config &config): OpenApiClient(config)
     {"eu-west-1-oxs" , "cas.aliyuncs.com"},
     {"rus-west-1-pop" , "cas.aliyuncs.com"},
     {"us-east-1" , "cas.aliyuncs.com"},
-    {"us-west-1" , "cas.aliyuncs.com"}
+    {"us-west-1" , "cas.aliyuncs.com"},
+    {"me-east-1" , "cas.me-east-1.aliyuncs.com"},
+    {"eu-central-1" , "cas.eu-central-1.aliyuncs.com"},
+    {"ap-southeast-2" , "cas.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "cas.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "cas.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-1" , "cas.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -89,7 +95,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加授权ak
+ * @summary Adds an AccessKey for authorization.
+ *
+ * @description The single-user QPS limit for this API is 100 queries per second (QPS). Calls that exceed this limit are throttled, which can affect your business operations. Call this API at a reasonable rate to avoid throttling.
  *
  * @param request AddCloudAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -128,7 +136,9 @@ AddCloudAccessResponse Client::addCloudAccessWithOptions(const AddCloudAccessReq
 }
 
 /**
- * @summary 添加授权ak
+ * @summary Adds an AccessKey for authorization.
+ *
+ * @description The single-user QPS limit for this API is 100 queries per second (QPS). Calls that exceed this limit are throttled, which can affect your business operations. Call this API at a reasonable rate to avoid throttling.
  *
  * @param request AddCloudAccessRequest
  * @return AddCloudAccessResponse
@@ -139,7 +149,7 @@ AddCloudAccessResponse Client::addCloudAccess(const AddCloudAccessRequest &reque
 }
 
 /**
- * @summary 申请证书
+ * @summary Submits a certificate application for a Certificate Management Service instance.
  *
  * @param request ApplyCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +180,7 @@ ApplyCertificateResponse Client::applyCertificateWithOptions(const ApplyCertific
 }
 
 /**
- * @summary 申请证书
+ * @summary Submits a certificate application for a Certificate Management Service instance.
  *
  * @param request ApplyCertificateRequest
  * @return ApplyCertificateResponse
@@ -181,7 +191,12 @@ ApplyCertificateResponse Client::applyCertificate(const ApplyCertificateRequest 
 }
 
 /**
- * @summary 批量更新通知状态
+ * @summary Updates the notification status in batches
+ *
+ * @description After a CA certificate is created, it is in the normal issuance state by default. You can call this operation to change the status of a CA certificate from normal issuance to revoked. In the normal issuance state, the CA certificate can be used to issue certificates. In the revoked state, the CA certificate cannot be used to issue certificates, and the certificates that have been issued by the CA certificate also become invalid accordingly.
+ * Before you call this operation, you must have called [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) to create a root CA certificate and called [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html) to create a sub CA certificate.
+ * ## QPS limit
+ * The QPS limit per user for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation properly.
  *
  * @param request BatchUpdateNoticeStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -228,7 +243,12 @@ BatchUpdateNoticeStatusResponse Client::batchUpdateNoticeStatusWithOptions(const
 }
 
 /**
- * @summary 批量更新通知状态
+ * @summary Updates the notification status in batches
+ *
+ * @description After a CA certificate is created, it is in the normal issuance state by default. You can call this operation to change the status of a CA certificate from normal issuance to revoked. In the normal issuance state, the CA certificate can be used to issue certificates. In the revoked state, the CA certificate cannot be used to issue certificates, and the certificates that have been issued by the CA certificate also become invalid accordingly.
+ * Before you call this operation, you must have called [CreateRootCACertificate](https://help.aliyun.com/document_detail/465962.html) to create a root CA certificate and called [CreateSubCACertificate](https://help.aliyun.com/document_detail/465959.html) to create a sub CA certificate.
+ * ## QPS limit
+ * The QPS limit per user for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation properly.
  *
  * @param request BatchUpdateNoticeStatusRequest
  * @return BatchUpdateNoticeStatusResponse
@@ -239,9 +259,9 @@ BatchUpdateNoticeStatusResponse Client::batchUpdateNoticeStatus(const BatchUpdat
 }
 
 /**
- * @summary Revokes an issued certificate and cancels the application order of the certificate.
+ * @summary Revokes an issued certificate or cancels a pending certificate order and restores the quota.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API has a limit of 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. This can affect your business. Call the API at a reasonable rate.
  *
  * @param request CancelCertificateForPackageRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -272,9 +292,9 @@ CancelCertificateForPackageRequestResponse Client::cancelCertificateForPackageRe
 }
 
 /**
- * @summary Revokes an issued certificate and cancels the application order of the certificate.
+ * @summary Revokes an issued certificate or cancels a pending certificate order and restores the quota.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API has a limit of 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. This can affect your business. Call the API at a reasonable rate.
  *
  * @param request CancelCertificateForPackageRequestRequest
  * @return CancelCertificateForPackageRequestResponse
@@ -285,9 +305,9 @@ CancelCertificateForPackageRequestResponse Client::cancelCertificateForPackageRe
 }
 
 /**
- * @summary Cancels a certificate application order that is in the pending validation or being reviewed state.
+ * @summary Cancels a certificate application order that is pending domain verification or under review.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API is limited to 100 queries per second (QPS) for each user. API calls that exceed this limit are throttled. Because this can impact your business, you should call this API at a reasonable rate.
  *
  * @param request CancelOrderRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -318,9 +338,9 @@ CancelOrderRequestResponse Client::cancelOrderRequestWithOptions(const CancelOrd
 }
 
 /**
- * @summary Cancels a certificate application order that is in the pending validation or being reviewed state.
+ * @summary Cancels a certificate application order that is pending domain verification or under review.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API is limited to 100 queries per second (QPS) for each user. API calls that exceed this limit are throttled. Because this can impact your business, you should call this API at a reasonable rate.
  *
  * @param request CancelOrderRequestRequest
  * @return CancelOrderRequestResponse
@@ -331,7 +351,7 @@ CancelOrderRequestResponse Client::cancelOrderRequest(const CancelOrderRequestRe
 }
 
 /**
- * @summary 撤回证书申请
+ * @summary Cancels a pending certificate application that has not been issued.
  *
  * @param request CancelPendingCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -362,7 +382,7 @@ CancelPendingCertificateResponse Client::cancelPendingCertificateWithOptions(con
 }
 
 /**
- * @summary 撤回证书申请
+ * @summary Cancels a pending certificate application that has not been issued.
  *
  * @param request CancelPendingCertificateRequest
  * @return CancelPendingCertificateResponse
@@ -373,11 +393,11 @@ CancelPendingCertificateResponse Client::cancelPendingCertificate(const CancelPe
 }
 
 /**
- * @summary Submits a certificate application.
+ * @summary Submits a certificate application by using a purchased certificate package quota.
  *
- * @description *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
- * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
- * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
+ * @description - Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+ * - After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+ * - After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
  *
  * @param request CreateCertificateForPackageRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -440,11 +460,11 @@ CreateCertificateForPackageRequestResponse Client::createCertificateForPackageRe
 }
 
 /**
- * @summary Submits a certificate application.
+ * @summary Submits a certificate application by using a purchased certificate package quota.
  *
- * @description *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
- * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
- * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
+ * @description - Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+ * - After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+ * - After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
  *
  * @param request CreateCertificateForPackageRequestRequest
  * @return CreateCertificateForPackageRequestResponse
@@ -457,10 +477,10 @@ CreateCertificateForPackageRequestResponse Client::createCertificateForPackageRe
 /**
  * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using extended certificate services.
  *
- * @description *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
- * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
- * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
- * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
+ * @description - You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+ * - Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+ * - When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+ * - After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
  *
  * @param request CreateCertificateRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -517,10 +537,10 @@ CreateCertificateRequestResponse Client::createCertificateRequestWithOptions(con
 /**
  * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using extended certificate services.
  *
- * @description *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
- * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
- * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
- * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
+ * @description - You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+ * - Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+ * - When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
+ * - After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
  *
  * @param request CreateCertificateRequestRequest
  * @return CreateCertificateRequestResponse
@@ -531,12 +551,12 @@ CreateCertificateRequestResponse Client::createCertificateRequest(const CreateCe
 }
 
 /**
- * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file. You can use extended certificate services to purchase and apply for a DV certificate with a few clicks.
+ * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file.
  *
- * @description *   You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
- * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
- * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
- * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you must call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
+ * @description - You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
+ * - Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+ * - When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+ * - After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you must call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
  *
  * @param request CreateCertificateWithCsrRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,12 +611,12 @@ CreateCertificateWithCsrRequestResponse Client::createCertificateWithCsrRequestW
 }
 
 /**
- * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file. You can use extended certificate services to purchase and apply for a DV certificate with a few clicks.
+ * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file.
  *
- * @description *   You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
- * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
- * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
- * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you must call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
+ * @description - You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
+ * - Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+ * - When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
+ * - After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you must call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
  *
  * @param request CreateCertificateWithCsrRequestRequest
  * @return CreateCertificateWithCsrRequestResponse
@@ -607,7 +627,7 @@ CreateCertificateWithCsrRequestResponse Client::createCertificateWithCsrRequest(
 }
 
 /**
- * @summary Creates a certificate signing request (CSR). A CSR file contains the information about an SSL certificate that you want to apply for. The information includes the domain names that you want to bind to the certificate and the name and the geographical location of the certificate holder. When you submit a certificate application to a certificate authority (CA), you must provide a CSR. After the CA approves your certificate application, the CA uses the private key of the root CA to sign your CSR and generates a public key file. The public key file is the SSL certificate that the CA issues to you. The private key of the SSL certificate is generated when you create the CSR.
+ * @summary Creates a certificate signing request (CSR) that contains information about an SSL certificate to apply for, such as the domain names and the certificate holder. You must provide a CSR when you submit a certificate application to a certificate authority (CA).
  *
  * @param request CreateCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -674,7 +694,7 @@ CreateCsrResponse Client::createCsrWithOptions(const CreateCsrRequest &request, 
 }
 
 /**
- * @summary Creates a certificate signing request (CSR). A CSR file contains the information about an SSL certificate that you want to apply for. The information includes the domain names that you want to bind to the certificate and the name and the geographical location of the certificate holder. When you submit a certificate application to a certificate authority (CA), you must provide a CSR. After the CA approves your certificate application, the CA uses the private key of the root CA to sign your CSR and generates a public key file. The public key file is the SSL certificate that the CA issues to you. The private key of the SSL certificate is generated when you create the CSR.
+ * @summary Creates a certificate signing request (CSR) that contains information about an SSL certificate to apply for, such as the domain names and the certificate holder. You must provide a CSR when you submit a certificate application to a certificate authority (CA).
  *
  * @param request CreateCsrRequest
  * @return CreateCsrResponse
@@ -685,7 +705,7 @@ CreateCsrResponse Client::createCsr(const CreateCsrRequest &request) {
 }
 
 /**
- * @summary Creates a certificate deployment task. After an SSL certificate is issued, you can create a certificate deployment task to immediately deploy the certificate to an Alibaba Cloud service or deploy the certificate to the service at a specific point in time. Then, the certificate can implement trusted identity authentication and ensure the security of data transmission for your website hosted on the service.
+ * @summary Creates a certificate deployment task to deploy an SSL certificate to one or more Alibaba Cloud services immediately or at a scheduled time.
  *
  * @description After the task creation is completed, the task will be in the editing state. You need to call the UpdateDeploymentJobStatus interface to change the status to the pending state, otherwise the task will not be executed.
  *
@@ -738,7 +758,7 @@ CreateDeploymentJobResponse Client::createDeploymentJobWithOptions(const CreateD
 }
 
 /**
- * @summary Creates a certificate deployment task. After an SSL certificate is issued, you can create a certificate deployment task to immediately deploy the certificate to an Alibaba Cloud service or deploy the certificate to the service at a specific point in time. Then, the certificate can implement trusted identity authentication and ensure the security of data transmission for your website hosted on the service.
+ * @summary Creates a certificate deployment task to deploy an SSL certificate to one or more Alibaba Cloud services immediately or at a scheduled time.
  *
  * @description After the task creation is completed, the task will be in the editing state. You need to call the UpdateDeploymentJobStatus interface to change the status to the pending state, otherwise the task will not be executed.
  *
@@ -751,7 +771,9 @@ CreateDeploymentJobResponse Client::createDeploymentJob(const CreateDeploymentJo
 }
 
 /**
- * @summary Applies for a client certificate in a certificate repository of a single user.
+ * @summary Issues a single client certificate from the general user certificate repository.
+ *
+ * @description This API is limited to 10 QPS per user. Exceeding this limit triggers throttling, which can affect your business. Call this API at a reasonable rate to avoid disruption.
  *
  * @param request CreateWHClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +868,9 @@ CreateWHClientCertificateResponse Client::createWHClientCertificateWithOptions(c
 }
 
 /**
- * @summary Applies for a client certificate in a certificate repository of a single user.
+ * @summary Issues a single client certificate from the general user certificate repository.
+ *
+ * @description This API is limited to 10 QPS per user. Exceeding this limit triggers throttling, which can affect your business. Call this API at a reasonable rate to avoid disruption.
  *
  * @param request CreateWHClientCertificateRequest
  * @return CreateWHClientCertificateResponse
@@ -857,7 +881,7 @@ CreateWHClientCertificateResponse Client::createWHClientCertificate(const Create
 }
 
 /**
- * @summary 创建证书仓库。
+ * @summary Creates a certificate warehouse.
  *
  * @param request CreateWarehouseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +920,7 @@ CreateWarehouseResponse Client::createWarehouseWithOptions(const CreateWarehouse
 }
 
 /**
- * @summary 创建证书仓库。
+ * @summary Creates a certificate warehouse.
  *
  * @param request CreateWarehouseRequest
  * @return CreateWarehouseResponse
@@ -907,9 +931,9 @@ CreateWarehouseResponse Client::createWarehouse(const CreateWarehouseRequest &re
 }
 
 /**
- * @summary Decrypts a certificate in a certificate repository.
+ * @summary Decrypts data that was encrypted by using a certificate in a certificate application repository.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for this API operation is 10 per user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
  *
  * @param request DecryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -960,9 +984,9 @@ DecryptResponse Client::decryptWithOptions(const DecryptRequest &request, const 
 }
 
 /**
- * @summary Decrypts a certificate in a certificate repository.
+ * @summary Decrypts data that was encrypted by using a certificate in a certificate application repository.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for this API operation is 10 per user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
  *
  * @param request DecryptRequest
  * @return DecryptResponse
@@ -973,11 +997,11 @@ DecryptResponse Client::decrypt(const DecryptRequest &request) {
 }
 
 /**
- * @summary Deletes an order in which the application for a domain validated (DV) certificate failed.
+ * @summary Deletes a failed domain validated (DV) certificate application order.
  *
  * @description You can call this operation to delete a certificate application order only in the following scenarios:
- * *   The status of the order is **review failed**. You have called the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
- * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](https://help.aliyun.com/document_detail/455299.html) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
+ * - The status of the order is **review failed**. You have called the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
+ * - The status of the order is **pending application**. You have called the [CancelOrderRequest](https://help.aliyun.com/document_detail/455299.html) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
  *
  * @param request DeleteCertificateRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1008,11 +1032,11 @@ DeleteCertificateRequestResponse Client::deleteCertificateRequestWithOptions(con
 }
 
 /**
- * @summary Deletes an order in which the application for a domain validated (DV) certificate failed.
+ * @summary Deletes a failed domain validated (DV) certificate application order.
  *
  * @description You can call this operation to delete a certificate application order only in the following scenarios:
- * *   The status of the order is **review failed**. You have called the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
- * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](https://help.aliyun.com/document_detail/455299.html) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
+ * - The status of the order is **review failed**. You have called the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
+ * - The status of the order is **pending application**. You have called the [CancelOrderRequest](https://help.aliyun.com/document_detail/455299.html) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
  *
  * @param request DeleteCertificateRequestRequest
  * @return DeleteCertificateRequestResponse
@@ -1023,7 +1047,9 @@ DeleteCertificateRequestResponse Client::deleteCertificateRequest(const DeleteCe
 }
 
 /**
- * @summary 删除授权ak
+ * @summary Deletes an access key.
+ *
+ * @description This operation is limited to 100 queries per second (QPS) per user. API calls that exceed this limit are throttled, which can impact your business.
  *
  * @param request DeleteCloudAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1054,7 +1080,9 @@ DeleteCloudAccessResponse Client::deleteCloudAccessWithOptions(const DeleteCloud
 }
 
 /**
- * @summary 删除授权ak
+ * @summary Deletes an access key.
+ *
+ * @description This operation is limited to 100 queries per second (QPS) per user. API calls that exceed this limit are throttled, which can impact your business.
  *
  * @param request DeleteCloudAccessRequest
  * @return DeleteCloudAccessResponse
@@ -1065,7 +1093,7 @@ DeleteCloudAccessResponse Client::deleteCloudAccess(const DeleteCloudAccessReque
 }
 
 /**
- * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
+ * @summary Deletes a certificate signing request (CSR).
  *
  * @param request DeleteCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1096,7 +1124,7 @@ DeleteCsrResponse Client::deleteCsrWithOptions(const DeleteCsrRequest &request, 
 }
 
 /**
- * @summary Deletes a Certificate Signing Request (CSR) that is no longer required.
+ * @summary Deletes a certificate signing request (CSR).
  *
  * @param request DeleteCsrRequest
  * @return DeleteCsrResponse
@@ -1107,7 +1135,7 @@ DeleteCsrResponse Client::deleteCsr(const DeleteCsrRequest &request) {
 }
 
 /**
- * @summary Deletes a deployment task.
+ * @summary Deletes a certificate deployment task.
  *
  * @param request DeleteDeploymentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1138,7 +1166,7 @@ DeleteDeploymentJobResponse Client::deleteDeploymentJobWithOptions(const DeleteD
 }
 
 /**
- * @summary Deletes a deployment task.
+ * @summary Deletes a certificate deployment task.
  *
  * @param request DeleteDeploymentJobRequest
  * @return DeleteDeploymentJobResponse
@@ -1149,7 +1177,7 @@ DeleteDeploymentJobResponse Client::deleteDeploymentJob(const DeleteDeploymentJo
 }
 
 /**
- * @summary 删除实例
+ * @summary Deletes a Certificate Management Service instance.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1180,7 +1208,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary 删除实例
+ * @summary Deletes a Certificate Management Service instance.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -1241,9 +1269,9 @@ DeletePCACertResponse Client::deletePCACert(const DeletePCACertRequest &request)
 }
 
 /**
- * @summary Deletes an expired or uploaded certificate.
+ * @summary Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
  *
  * @param request DeleteUserCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1274,9 +1302,9 @@ DeleteUserCertificateResponse Client::deleteUserCertificateWithOptions(const Del
 }
 
 /**
- * @summary Deletes an expired or uploaded certificate.
+ * @summary Deletes an expired, revoked, or manually uploaded certificate from Certificate Management Service.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is limited to 100 queries per second (QPS) per user. API calls exceeding this limit are throttled, which can impact your business. We recommend calling this operation at a reasonable rate to avoid this.
  *
  * @param request DeleteUserCertificateRequest
  * @return DeleteUserCertificateResponse
@@ -1287,7 +1315,11 @@ DeleteUserCertificateResponse Client::deleteUserCertificate(const DeleteUserCert
 }
 
 /**
- * @summary 删除证书仓库
+ * @summary Deletes a certificate warehouse.
+ *
+ * @description This operation deletes a certificate warehouse.
+ * ### QPS limit
+ * This operation has a QPS limit of 10 requests per second per user. Exceeding this limit causes subsequent API calls to be throttled, which can impact your services. To ensure service availability, call this operation at a reasonable rate.
  *
  * @param request DeleteWarehouseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1350,11 @@ DeleteWarehouseResponse Client::deleteWarehouseWithOptions(const DeleteWarehouse
 }
 
 /**
- * @summary 删除证书仓库
+ * @summary Deletes a certificate warehouse.
+ *
+ * @description This operation deletes a certificate warehouse.
+ * ### QPS limit
+ * This operation has a QPS limit of 10 requests per second per user. Exceeding this limit causes subsequent API calls to be throttled, which can impact your services. To ensure service availability, call this operation at a reasonable rate.
  *
  * @param request DeleteWarehouseRequest
  * @return DeleteWarehouseResponse
@@ -1329,7 +1365,7 @@ DeleteWarehouseResponse Client::deleteWarehouse(const DeleteWarehouseRequest &re
 }
 
 /**
- * @summary Deletes the worker of a deployment task.
+ * @summary Deletes a worker task from a certificate deployment task.
  *
  * @param request DeleteWorkerResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1364,7 +1400,7 @@ DeleteWorkerResourceResponse Client::deleteWorkerResourceWithOptions(const Delet
 }
 
 /**
- * @summary Deletes the worker of a deployment task.
+ * @summary Deletes a worker task from a certificate deployment task.
  *
  * @param request DeleteWorkerResourceRequest
  * @return DeleteWorkerResourceResponse
@@ -1375,10 +1411,12 @@ DeleteWorkerResourceResponse Client::deleteWorkerResource(const DeleteWorkerReso
 }
 
 /**
- * @summary Queries the status of a specified certificate application order.
+ * @summary Queries the status of a certificate application order, such as domain validation progress.
  *
- * @description If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
- * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+ * @description If you have not completed domain ownership validation after submitting a certificate request, you can call this operation to obtain the information required to complete domain validation. Using the returned domain validation information, you can complete domain validation on the DNS management platform (DNS validation method) or on the domain server (file validation method).
+ * Your certificate request will enter the CA center review stage only after you complete domain validation. After the CA center approves your certificate request, a certificate will be issued to you. If the certificate has been issued, you can call this operation to obtain the issued certificate file and private key content.
+ * <props="china">
+ * For the complete process of requesting a certificate using the resource plan API, see [Process of requesting a certificate using API operations](https://help.aliyun.com/document_detail/204741.html).
  *
  * @param request DescribeCertificateStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1409,10 +1447,12 @@ DescribeCertificateStateResponse Client::describeCertificateStateWithOptions(con
 }
 
 /**
- * @summary Queries the status of a specified certificate application order.
+ * @summary Queries the status of a certificate application order, such as domain validation progress.
  *
- * @description If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
- * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+ * @description If you have not completed domain ownership validation after submitting a certificate request, you can call this operation to obtain the information required to complete domain validation. Using the returned domain validation information, you can complete domain validation on the DNS management platform (DNS validation method) or on the domain server (file validation method).
+ * Your certificate request will enter the CA center review stage only after you complete domain validation. After the CA center approves your certificate request, a certificate will be issued to you. If the certificate has been issued, you can call this operation to obtain the issued certificate file and private key content.
+ * <props="china">
+ * For the complete process of requesting a certificate using the resource plan API, see [Process of requesting a certificate using API operations](https://help.aliyun.com/document_detail/204741.html).
  *
  * @param request DescribeCertificateStateRequest
  * @return DescribeCertificateStateResponse
@@ -1423,7 +1463,7 @@ DescribeCertificateStateResponse Client::describeCertificateState(const Describe
 }
 
 /**
- * @summary Queries the number of third-party cloud resources on which you deployed certificates by using a multi-cloud deployment task.
+ * @summary Queries the number of cloud resources on which certificates were deployed by using a multi-cloud deployment task.
  *
  * @param request DescribeCloudResourceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1454,7 +1494,7 @@ DescribeCloudResourceStatusResponse Client::describeCloudResourceStatusWithOptio
 }
 
 /**
- * @summary Queries the number of third-party cloud resources on which you deployed certificates by using a multi-cloud deployment task.
+ * @summary Queries the number of cloud resources on which certificates were deployed by using a multi-cloud deployment task.
  *
  * @param request DescribeCloudResourceStatusRequest
  * @return DescribeCloudResourceStatusResponse
@@ -1465,7 +1505,7 @@ DescribeCloudResourceStatusResponse Client::describeCloudResourceStatus(const De
 }
 
 /**
- * @summary Queries the details of a deployment task. You can call the CreateDeploymentJob operation to create a deployment task and obtain the ID of the task.
+ * @summary Retrieves information about a certificate deployment task, including the task status, target resources, and certificates.
  *
  * @param request DescribeDeploymentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1496,7 +1536,7 @@ DescribeDeploymentJobResponse Client::describeDeploymentJobWithOptions(const Des
 }
 
 /**
- * @summary Queries the details of a deployment task. You can call the CreateDeploymentJob operation to create a deployment task and obtain the ID of the task.
+ * @summary Retrieves information about a certificate deployment task, including the task status, target resources, and certificates.
  *
  * @param request DescribeDeploymentJobRequest
  * @return DescribeDeploymentJobResponse
@@ -1507,7 +1547,7 @@ DescribeDeploymentJobResponse Client::describeDeploymentJob(const DescribeDeploy
 }
 
 /**
- * @summary Queries the number of worker tasks in a deployment task.
+ * @summary Queries the execution status summary of a certificate deployment task, including the number of succeeded and failed workers.
  *
  * @param request DescribeDeploymentJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1538,7 +1578,7 @@ DescribeDeploymentJobStatusResponse Client::describeDeploymentJobStatusWithOptio
 }
 
 /**
- * @summary Queries the number of worker tasks in a deployment task.
+ * @summary Queries the execution status summary of a certificate deployment task, including the number of succeeded and failed workers.
  *
  * @param request DescribeDeploymentJobStatusRequest
  * @return DescribeDeploymentJobStatusResponse
@@ -1549,7 +1589,7 @@ DescribeDeploymentJobStatusResponse Client::describeDeploymentJobStatus(const De
 }
 
 /**
- * @summary Queries the quota for domain validated (DV) certificates that you purchase and the quota usage.
+ * @summary Queries the quota and usage of domain validated (DV) certificate packages.
  *
  * @param request DescribePackageStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1580,7 +1620,7 @@ DescribePackageStateResponse Client::describePackageStateWithOptions(const Descr
 }
 
 /**
- * @summary Queries the quota for domain validated (DV) certificates that you purchase and the quota usage.
+ * @summary Queries the quota and usage of domain validated (DV) certificate packages.
  *
  * @param request DescribePackageStateRequest
  * @return DescribePackageStateResponse
@@ -1591,7 +1631,7 @@ DescribePackageStateResponse Client::describePackageState(const DescribePackageS
 }
 
 /**
- * @summary 查询仓库证书详情。
+ * @summary Retrieves the details of a certificate stored in a certificate warehouse.
  *
  * @param request DescribeWarehouseCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1622,7 +1662,7 @@ DescribeWarehouseCertResponse Client::describeWarehouseCertWithOptions(const Des
 }
 
 /**
- * @summary 查询仓库证书详情。
+ * @summary Retrieves the details of a certificate stored in a certificate warehouse.
  *
  * @param request DescribeWarehouseCertRequest
  * @return DescribeWarehouseCertResponse
@@ -1633,9 +1673,9 @@ DescribeWarehouseCertResponse Client::describeWarehouseCert(const DescribeWareho
 }
 
 /**
- * @summary Encrypts a certificate in a certificate repository.
+ * @summary Encrypts data by using a certificate in a certificate application repository.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for a single user is 10. If you exceed this limit, API calls are throttled, which may affect your business. To prevent this, call this operation at a reasonable rate.
  *
  * @param request EncryptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1686,9 +1726,9 @@ EncryptResponse Client::encryptWithOptions(const EncryptRequest &request, const 
 }
 
 /**
- * @summary Encrypts a certificate in a certificate repository.
+ * @summary Encrypts data by using a certificate in a certificate application repository.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for a single user is 10. If you exceed this limit, API calls are throttled, which may affect your business. To prevent this, call this operation at a reasonable rate.
  *
  * @param request EncryptRequest
  * @return EncryptResponse
@@ -1699,7 +1739,11 @@ EncryptResponse Client::encrypt(const EncryptRequest &request) {
 }
 
 /**
- * @summary 统计资产数量
+ * @summary Queries the total number of certificate-related assets, such as websites and cloud resources.
+ *
+ * @description This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
+ * ## QPS Limit
+ * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAssetCountResponse
@@ -1721,7 +1765,11 @@ GetAssetCountResponse Client::getAssetCountWithOptions(const Darabonba::RuntimeO
 }
 
 /**
- * @summary 统计资产数量
+ * @summary Queries the total number of certificate-related assets, such as websites and cloud resources.
+ *
+ * @description This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
+ * ## QPS Limit
+ * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
  *
  * @return GetAssetCountResponse
  */
@@ -1731,9 +1779,9 @@ GetAssetCountResponse Client::getAssetCount() {
 }
 
 /**
- * @summary Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
+ * @summary Queries the remaining quota for certificate application repository operations.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, your API calls are throttled. This may impact your business. Call this operation at a reasonable rate.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCertWarehouseQuotaResponse
@@ -1755,9 +1803,9 @@ GetCertWarehouseQuotaResponse Client::getCertWarehouseQuotaWithOptions(const Dar
 }
 
 /**
- * @summary Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
+ * @summary Queries the remaining quota for certificate application repository operations.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed the limit, your API calls are throttled. This may impact your business. Call this operation at a reasonable rate.
  *
  * @return GetCertWarehouseQuotaResponse
  */
@@ -1767,7 +1815,7 @@ GetCertWarehouseQuotaResponse Client::getCertWarehouseQuota() {
 }
 
 /**
- * @summary 查询证书详情
+ * @summary Retrieves certificate details, excluding the certificate body and private key.
  *
  * @param request GetCertificateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1798,7 +1846,7 @@ GetCertificateDetailResponse Client::getCertificateDetailWithOptions(const GetCe
 }
 
 /**
- * @summary 查询证书详情
+ * @summary Retrieves certificate details, excluding the certificate body and private key.
  *
  * @param request GetCertificateDetailRequest
  * @return GetCertificateDetailResponse
@@ -1809,7 +1857,7 @@ GetCertificateDetailResponse Client::getCertificateDetail(const GetCertificateDe
 }
 
 /**
- * @summary Obtains the content of a certificate signing request (CSR) file.
+ * @summary Queries the content of a certificate signing request (CSR).
  *
  * @param request GetCsrDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1840,7 +1888,7 @@ GetCsrDetailResponse Client::getCsrDetailWithOptions(const GetCsrDetailRequest &
 }
 
 /**
- * @summary Obtains the content of a certificate signing request (CSR) file.
+ * @summary Queries the content of a certificate signing request (CSR).
  *
  * @param request GetCsrDetailRequest
  * @return GetCsrDetailResponse
@@ -1851,7 +1899,7 @@ GetCsrDetailResponse Client::getCsrDetail(const GetCsrDetailRequest &request) {
 }
 
 /**
- * @summary 查询实例详情
+ * @summary Queries the details of an instance.
  *
  * @param request GetInstanceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1882,7 +1930,7 @@ GetInstanceDetailResponse Client::getInstanceDetailWithOptions(const GetInstance
 }
 
 /**
- * @summary 查询实例详情
+ * @summary Queries the details of an instance.
  *
  * @param request GetInstanceDetailRequest
  * @return GetInstanceDetailResponse
@@ -1893,7 +1941,7 @@ GetInstanceDetailResponse Client::getInstanceDetail(const GetInstanceDetailReque
 }
 
 /**
- * @summary 实例统计
+ * @summary Queries the summary statistics of Certificate Management Service instances, such as certificate counts by status.
  *
  * @param request GetInstanceSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1924,7 +1972,7 @@ GetInstanceSummaryResponse Client::getInstanceSummaryWithOptions(const GetInstan
 }
 
 /**
- * @summary 实例统计
+ * @summary Queries the summary statistics of Certificate Management Service instances, such as certificate counts by status.
  *
  * @param request GetInstanceSummaryRequest
  * @return GetInstanceSummaryResponse
@@ -1935,7 +1983,12 @@ GetInstanceSummaryResponse Client::getInstanceSummary(const GetInstanceSummaryRe
 }
 
 /**
- * @summary 获取匹配的资源
+ * @summary Retrieves the resources that match a certificate.
+ *
+ * @description 本接口用于通过私有 CA 实例的 ID，查询您通过 SSL 证书服务控制台购买的私有 CA 实例的状态信息，例如，CA 实例的状态、包含的证书数量、已签发的证书数量等。
+ * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有 CA。具体操作，请参见[购买私有 CA](https://help.aliyun.com/document_detail/208553.html)。
+ * ## QPS 限制
+ * 本接口的单用户 QPS 限制为 10 次/秒。超过限制，API 调用将会被限流，这可能影响您的业务，请合理调用。
  *
  * @param request GetMatchedResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1978,7 +2031,12 @@ GetMatchedResourcesResponse Client::getMatchedResourcesWithOptions(const GetMatc
 }
 
 /**
- * @summary 获取匹配的资源
+ * @summary Retrieves the resources that match a certificate.
+ *
+ * @description 本接口用于通过私有 CA 实例的 ID，查询您通过 SSL 证书服务控制台购买的私有 CA 实例的状态信息，例如，CA 实例的状态、包含的证书数量、已签发的证书数量等。
+ * 调用本接口前，您必须已经通过[数字证书管理服务控制台](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist)购买了私有 CA。具体操作，请参见[购买私有 CA](https://help.aliyun.com/document_detail/208553.html)。
+ * ## QPS 限制
+ * 本接口的单用户 QPS 限制为 10 次/秒。超过限制，API 调用将会被限流，这可能影响您的业务，请合理调用。
  *
  * @param request GetMatchedResourcesRequest
  * @return GetMatchedResourcesResponse
@@ -1989,7 +2047,11 @@ GetMatchedResourcesResponse Client::getMatchedResources(const GetMatchedResource
 }
 
 /**
- * @summary 统计风险资产数量
+ * @summary Queries the number of assets with certificate-related risks, such as expired or soon-to-expire certificates.
+ *
+ * @description This operation queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+ * ## QPS limits
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are rate-limited, which may affect your business. We recommend that you call this operation at a reasonable frequency.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRiskCountResponse
@@ -2011,7 +2073,11 @@ GetRiskCountResponse Client::getRiskCountWithOptions(const Darabonba::RuntimeOpt
 }
 
 /**
- * @summary 统计风险资产数量
+ * @summary Queries the number of assets with certificate-related risks, such as expired or soon-to-expire certificates.
+ *
+ * @description This operation queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+ * ## QPS limits
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are rate-limited, which may affect your business. We recommend that you call this operation at a reasonable frequency.
  *
  * @return GetRiskCountResponse
  */
@@ -2021,7 +2087,7 @@ GetRiskCountResponse Client::getRiskCount() {
 }
 
 /**
- * @summary 查询异步任务状态
+ * @summary Queries the processing result and status of a submitted certificate application.
  *
  * @param request GetTaskAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2056,7 +2122,7 @@ GetTaskAttributeResponse Client::getTaskAttributeWithOptions(const GetTaskAttrib
 }
 
 /**
- * @summary 查询异步任务状态
+ * @summary Queries the processing result and status of a submitted certificate application.
  *
  * @param request GetTaskAttributeRequest
  * @return GetTaskAttributeResponse
@@ -2067,9 +2133,9 @@ GetTaskAttributeResponse Client::getTaskAttribute(const GetTaskAttributeRequest 
 }
 
 /**
- * @summary Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
+ * @summary Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
  *
  * @param request GetUserCertificateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2104,9 +2170,9 @@ GetUserCertificateDetailResponse Client::getUserCertificateDetailWithOptions(con
 }
 
 /**
- * @summary Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
+ * @summary Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
  *
  * @param request GetUserCertificateDetailRequest
  * @return GetUserCertificateDetailResponse
@@ -2117,7 +2183,11 @@ GetUserCertificateDetailResponse Client::getUserCertificateDetail(const GetUserC
 }
 
 /**
- * @summary 查询云产品资源统计列表
+ * @summary Queries the certificate deployment statistics by cloud service type.
+ *
+ * @description Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+ * ## QPS limit
+ * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
  *
  * @param request ListAssetCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2160,7 +2230,11 @@ ListAssetCountResponse Client::listAssetCountWithOptions(const ListAssetCountReq
 }
 
 /**
- * @summary 查询云产品资源统计列表
+ * @summary Queries the certificate deployment statistics by cloud service type.
+ *
+ * @description Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+ * ## QPS limit
+ * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
  *
  * @param request ListAssetCountRequest
  * @return ListAssetCountResponse
@@ -2171,9 +2245,9 @@ ListAssetCountResponse Client::listAssetCount(const ListAssetCountRequest &reque
 }
 
 /**
- * @summary Queries the certificates in a certificate repository.
+ * @summary This API queries certificates in the certificate store.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The single-user QPS limit for this API is 10. Calls exceeding this limit are throttled, which may impact your business. Plan your API calls accordingly.
  *
  * @param request ListCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2232,9 +2306,9 @@ ListCertResponse Client::listCertWithOptions(const ListCertRequest &request, con
 }
 
 /**
- * @summary Queries the certificates in a certificate repository.
+ * @summary This API queries certificates in the certificate store.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The single-user QPS limit for this API is 10. Calls exceeding this limit are throttled, which may impact your business. Plan your API calls accordingly.
  *
  * @param request ListCertRequest
  * @return ListCertResponse
@@ -2245,7 +2319,7 @@ ListCertResponse Client::listCert(const ListCertRequest &request) {
 }
 
 /**
- * @summary Queries certificate repositories.
+ * @summary Queries the certificate application repositories in your account.
  *
  * @description You can call the ListCertWarehouse operation to query certificate repositories.
  * ### Limits
@@ -2296,7 +2370,7 @@ ListCertWarehouseResponse Client::listCertWarehouseWithOptions(const ListCertWar
 }
 
 /**
- * @summary Queries certificate repositories.
+ * @summary Queries the certificate application repositories in your account.
  *
  * @description You can call the ListCertWarehouse operation to query certificate repositories.
  * ### Limits
@@ -2311,7 +2385,7 @@ ListCertWarehouseResponse Client::listCertWarehouse(const ListCertWarehouseReque
 }
 
 /**
- * @summary 获取证书列表
+ * @summary Queries the certificates managed by Certificate Management Service.
  *
  * @param request ListCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2366,7 +2440,7 @@ ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertifica
 }
 
 /**
- * @summary 获取证书列表
+ * @summary Queries the certificates managed by Certificate Management Service.
  *
  * @param request ListCertificatesRequest
  * @return ListCertificatesResponse
@@ -2377,7 +2451,7 @@ ListCertificatesResponse Client::listCertificates(const ListCertificatesRequest 
 }
 
 /**
- * @summary Queries a list of AccessKey pairs for multi-cloud deployment.
+ * @summary Queries the AccessKey pairs that are configured for multi-cloud certificate deployment.
  *
  * @param request ListCloudAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2420,7 +2494,7 @@ ListCloudAccessResponse Client::listCloudAccessWithOptions(const ListCloudAccess
 }
 
 /**
- * @summary Queries a list of AccessKey pairs for multi-cloud deployment.
+ * @summary Queries the AccessKey pairs that are configured for multi-cloud certificate deployment.
  *
  * @param request ListCloudAccessRequest
  * @return ListCloudAccessResponse
@@ -2431,7 +2505,7 @@ ListCloudAccessResponse Client::listCloudAccess(const ListCloudAccessRequest &re
 }
 
 /**
- * @summary Queries the certificate resources of a cloud service provider and cloud services.
+ * @summary Queries the cloud resources on which certificates are deployed, such as Server Load Balancer (SLB) instances and CDN domains.
  *
  * @param tmpReq ListCloudResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2492,7 +2566,7 @@ ListCloudResourcesResponse Client::listCloudResourcesWithOptions(const ListCloud
 }
 
 /**
- * @summary Queries the certificate resources of a cloud service provider and cloud services.
+ * @summary Queries the cloud resources on which certificates are deployed, such as Server Load Balancer (SLB) instances and CDN domains.
  *
  * @param request ListCloudResourcesRequest
  * @return ListCloudResourcesResponse
@@ -2503,7 +2577,7 @@ ListCloudResourcesResponse Client::listCloudResources(const ListCloudResourcesRe
 }
 
 /**
- * @summary Queries a list of contacts.
+ * @summary Queries the contacts that receive certificate deployment notifications.
  *
  * @param request ListContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2542,7 +2616,7 @@ ListContactResponse Client::listContactWithOptions(const ListContactRequest &req
 }
 
 /**
- * @summary Queries a list of contacts.
+ * @summary Queries the contacts that receive certificate deployment notifications.
  *
  * @param request ListContactRequest
  * @return ListContactResponse
@@ -2553,7 +2627,7 @@ ListContactResponse Client::listContact(const ListContactRequest &request) {
 }
 
 /**
- * @summary Queries the details of Certificate Signing Requests (CSRs).
+ * @summary Queries the certificate signing requests (CSRs) in your account.
  *
  * @param request ListCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2596,7 +2670,7 @@ ListCsrResponse Client::listCsrWithOptions(const ListCsrRequest &request, const 
 }
 
 /**
- * @summary Queries the details of Certificate Signing Requests (CSRs).
+ * @summary Queries the certificate signing requests (CSRs) in your account.
  *
  * @param request ListCsrRequest
  * @return ListCsrResponse
@@ -2607,7 +2681,7 @@ ListCsrResponse Client::listCsr(const ListCsrRequest &request) {
 }
 
 /**
- * @summary Queries a list of deployment tasks that are created.
+ * @summary Queries the certificate deployment tasks that are created in your account.
  *
  * @param request ListDeploymentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2650,7 +2724,7 @@ ListDeploymentJobResponse Client::listDeploymentJobWithOptions(const ListDeploym
 }
 
 /**
- * @summary Queries a list of deployment tasks that are created.
+ * @summary Queries the certificate deployment tasks that are created in your account.
  *
  * @param request ListDeploymentJobRequest
  * @return ListDeploymentJobResponse
@@ -2661,7 +2735,7 @@ ListDeploymentJobResponse Client::listDeploymentJob(const ListDeploymentJobReque
 }
 
 /**
- * @summary Queries the basic information about a deployment task. After you create a deployment task, you can call this operation to obtain the basic information about the deployment task, including the instance ID, type, and name of the certificate.
+ * @summary Queries the certificates associated with a deployment task, such as the certificate instance ID, type, and name.
  *
  * @param request ListDeploymentJobCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2692,7 +2766,7 @@ ListDeploymentJobCertResponse Client::listDeploymentJobCertWithOptions(const Lis
 }
 
 /**
- * @summary Queries the basic information about a deployment task. After you create a deployment task, you can call this operation to obtain the basic information about the deployment task, including the instance ID, type, and name of the certificate.
+ * @summary Queries the certificates associated with a deployment task, such as the certificate instance ID, type, and name.
  *
  * @param request ListDeploymentJobCertRequest
  * @return ListDeploymentJobCertResponse
@@ -2703,7 +2777,7 @@ ListDeploymentJobCertResponse Client::listDeploymentJobCert(const ListDeployment
 }
 
 /**
- * @summary Queries the cloud resources of cloud services in a deployment task.
+ * @summary Queries the cloud resources associated with a deployment task. An empty list indicates that the resources are invalid and must be re-associated.
  *
  * @param request ListDeploymentJobResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2734,7 +2808,7 @@ ListDeploymentJobResourceResponse Client::listDeploymentJobResourceWithOptions(c
 }
 
 /**
- * @summary Queries the cloud resources of cloud services in a deployment task.
+ * @summary Queries the cloud resources associated with a deployment task. An empty list indicates that the resources are invalid and must be re-associated.
  *
  * @param request ListDeploymentJobResourceRequest
  * @return ListDeploymentJobResourceResponse
@@ -2745,7 +2819,7 @@ ListDeploymentJobResourceResponse Client::listDeploymentJobResource(const ListDe
 }
 
 /**
- * @summary 获取实例列表
+ * @summary Retrieves a list of instances.
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2808,7 +2882,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary 获取实例列表
+ * @summary Retrieves a list of instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -2819,11 +2893,11 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Queries the certificates or certificate orders of users.
+ * @summary Queries the SSL certificates and certificate orders in your account.
  *
- * @description You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+ * ## QPS limit
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
  *
  * @param request ListUserCertificateOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2874,11 +2948,11 @@ ListUserCertificateOrderResponse Client::listUserCertificateOrderWithOptions(con
 }
 
 /**
- * @summary Queries the certificates or certificate orders of users.
+ * @summary Queries the SSL certificates and certificate orders in your account.
  *
- * @description You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
- * ## Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+ * ## QPS limit
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
  *
  * @param request ListUserCertificateOrderRequest
  * @return ListUserCertificateOrderResponse
@@ -2889,7 +2963,11 @@ ListUserCertificateOrderResponse Client::listUserCertificateOrder(const ListUser
 }
 
 /**
- * @summary 查询证书仓库
+ * @summary Lists warehouses.
+ *
+ * @description This operation lists your warehouses.
+ * ### QPS limit
+ * This operation has a per-user QPS limit of 10 requests per second. Calls exceeding this limit are throttled, which can affect your business.
  *
  * @param tmpReq ListWarehouseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2942,7 +3020,11 @@ ListWarehouseResponse Client::listWarehouseWithOptions(const ListWarehouseReques
 }
 
 /**
- * @summary 查询证书仓库
+ * @summary Lists warehouses.
+ *
+ * @description This operation lists your warehouses.
+ * ### QPS limit
+ * This operation has a per-user QPS limit of 10 requests per second. Calls exceeding this limit are throttled, which can affect your business.
  *
  * @param request ListWarehouseRequest
  * @return ListWarehouseResponse
@@ -2953,7 +3035,7 @@ ListWarehouseResponse Client::listWarehouse(const ListWarehouseRequest &request)
 }
 
 /**
- * @summary Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
+ * @summary Queries the worker tasks of a deployment task. Each worker task deploys a certificate to a specific cloud resource in a cloud service.
  *
  * @param request ListWorkerResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3000,7 +3082,7 @@ ListWorkerResourceResponse Client::listWorkerResourceWithOptions(const ListWorke
 }
 
 /**
- * @summary Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
+ * @summary Queries the worker tasks of a deployment task. Each worker task deploys a certificate to a specific cloud resource in a cloud service.
  *
  * @param request ListWorkerResourceRequest
  * @return ListWorkerResourceResponse
@@ -3065,7 +3147,7 @@ MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupReque
 }
 
 /**
- * @summary 申请证书
+ * @summary Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
  *
  * @param request RefundInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3096,7 +3178,7 @@ RefundInstanceResponse Client::refundInstanceWithOptions(const RefundInstanceReq
 }
 
 /**
- * @summary 申请证书
+ * @summary Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
  *
  * @param request RefundInstanceRequest
  * @return RefundInstanceResponse
@@ -3107,10 +3189,10 @@ RefundInstanceResponse Client::refundInstance(const RefundInstanceRequest &reque
 }
 
 /**
- * @summary Submits a renewal application for an issued certificate.
+ * @summary Submits a renewal application for an issued SSL certificate.
  *
  * @description You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
- * >  You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+ * > You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
  *
  * @param request RenewCertificateOrderForPackageRequestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3149,10 +3231,10 @@ RenewCertificateOrderForPackageRequestResponse Client::renewCertificateOrderForP
 }
 
 /**
- * @summary Submits a renewal application for an issued certificate.
+ * @summary Submits a renewal application for an issued SSL certificate.
  *
  * @description You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
- * >  You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+ * > You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
  *
  * @param request RenewCertificateOrderForPackageRequestRequest
  * @return RenewCertificateOrderForPackageRequestResponse
@@ -3163,7 +3245,7 @@ RenewCertificateOrderForPackageRequestResponse Client::renewCertificateOrderForP
 }
 
 /**
- * @summary 吊销证书
+ * @summary Revokes a certificate.
  *
  * @param request RevokeCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3172,6 +3254,10 @@ RenewCertificateOrderForPackageRequestResponse Client::renewCertificateOrderForP
 RevokeCertificateResponse Client::revokeCertificateWithOptions(const RevokeCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCertificateId()) {
+    query["CertificateId"] = request.getCertificateId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -3194,7 +3280,7 @@ RevokeCertificateResponse Client::revokeCertificateWithOptions(const RevokeCerti
 }
 
 /**
- * @summary 吊销证书
+ * @summary Revokes a certificate.
  *
  * @param request RevokeCertificateRequest
  * @return RevokeCertificateResponse
@@ -3205,9 +3291,9 @@ RevokeCertificateResponse Client::revokeCertificate(const RevokeCertificateReque
 }
 
 /**
- * @summary Revokes a client certificate or a server certificate in a certificate repository.
+ * @summary Revokes a client certificate from the certificate repository.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The rate limit for this API is 10 queries per second (QPS) per user. If you exceed this limit, subsequent API calls will be throttled, which can disrupt your services. We recommend that you call this API at a reasonable rate.
  *
  * @param request RevokeWHClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3238,9 +3324,9 @@ RevokeWHClientCertificateResponse Client::revokeWHClientCertificateWithOptions(c
 }
 
 /**
- * @summary Revokes a client certificate or a server certificate in a certificate repository.
+ * @summary Revokes a client certificate from the certificate repository.
  *
- * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The rate limit for this API is 10 queries per second (QPS) per user. If you exceed this limit, subsequent API calls will be throttled, which can disrupt your services. We recommend that you call this API at a reasonable rate.
  *
  * @param request RevokeWHClientCertificateRequest
  * @return RevokeWHClientCertificateResponse
@@ -3251,11 +3337,11 @@ RevokeWHClientCertificateResponse Client::revokeWHClientCertificate(const Revoke
 }
 
 /**
- * @summary Signs a private certificate in a certificate application repository.
+ * @summary This operation creates a digital signature with a PCA certificate from a certificate repository.
  *
- * @description You can call the Sign operation to sign a private certificate in a certificate application repository.
- * ### Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation creates a digital signature with a PCA certificate from a certificate repository.
+ * ### QPS limit
+ * This operation supports up to 1,000 queries per second (QPS) for a single user. If you exceed this limit, the system throttles your API calls, which can impact your business. Plan your API calls accordingly.
  *
  * @param request SignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3306,11 +3392,11 @@ SignResponse Client::signWithOptions(const SignRequest &request, const Darabonba
 }
 
 /**
- * @summary Signs a private certificate in a certificate application repository.
+ * @summary This operation creates a digital signature with a PCA certificate from a certificate repository.
  *
- * @description You can call the Sign operation to sign a private certificate in a certificate application repository.
- * ### Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation creates a digital signature with a PCA certificate from a certificate repository.
+ * ### QPS limit
+ * This operation supports up to 1,000 queries per second (QPS) for a single user. If you exceed this limit, the system throttles your API calls, which can impact your business. Plan your API calls accordingly.
  *
  * @param request SignRequest
  * @return SignResponse
@@ -3321,7 +3407,7 @@ SignResponse Client::sign(const SignRequest &request) {
 }
 
 /**
- * @summary Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
+ * @summary Updates the private key associated with a certificate signing request (CSR).
  *
  * @param request UpdateCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3356,7 +3442,7 @@ UpdateCsrResponse Client::updateCsrWithOptions(const UpdateCsrRequest &request, 
 }
 
 /**
- * @summary Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
+ * @summary Updates the private key associated with a certificate signing request (CSR).
  *
  * @param request UpdateCsrRequest
  * @return UpdateCsrResponse
@@ -3367,7 +3453,7 @@ UpdateCsrResponse Client::updateCsr(const UpdateCsrRequest &request) {
 }
 
 /**
- * @summary Updates a deployment task.
+ * @summary Updates the configuration of a certificate deployment task, such as the certificates or target resources.
  *
  * @param request UpdateDeploymentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3418,7 +3504,7 @@ UpdateDeploymentJobResponse Client::updateDeploymentJobWithOptions(const UpdateD
 }
 
 /**
- * @summary Updates a deployment task.
+ * @summary Updates the configuration of a certificate deployment task, such as the certificates or target resources.
  *
  * @param request UpdateDeploymentJobRequest
  * @return UpdateDeploymentJobResponse
@@ -3429,7 +3515,7 @@ UpdateDeploymentJobResponse Client::updateDeploymentJob(const UpdateDeploymentJo
 }
 
 /**
- * @summary Updates the status of a deployment task.
+ * @summary Updates the status of a certificate deployment task, such as changing from editing to pending execution.
  *
  * @param request UpdateDeploymentJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3464,7 +3550,7 @@ UpdateDeploymentJobStatusResponse Client::updateDeploymentJobStatusWithOptions(c
 }
 
 /**
- * @summary Updates the status of a deployment task.
+ * @summary Updates the status of a certificate deployment task, such as changing from editing to pending execution.
  *
  * @param request UpdateDeploymentJobStatusRequest
  * @return UpdateDeploymentJobStatusResponse
@@ -3475,7 +3561,7 @@ UpdateDeploymentJobStatusResponse Client::updateDeploymentJobStatus(const Update
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates the configuration of a Certificate Management Service instance.
  *
  * @param request UpdateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3562,7 +3648,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates the configuration of a Certificate Management Service instance.
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
@@ -3573,7 +3659,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary Rolls back or executes a worker task in a deployment task.
+ * @summary Rolls back or re-executes a worker task in a certificate deployment task.
  *
  * @param request UpdateWorkerResourceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3612,7 +3698,7 @@ UpdateWorkerResourceStatusResponse Client::updateWorkerResourceStatusWithOptions
 }
 
 /**
- * @summary Rolls back or executes a worker task in a deployment task.
+ * @summary Rolls back or re-executes a worker task in a certificate deployment task.
  *
  * @param request UpdateWorkerResourceStatusRequest
  * @return UpdateWorkerResourceStatusResponse
@@ -3623,7 +3709,7 @@ UpdateWorkerResourceStatusResponse Client::updateWorkerResourceStatus(const Upda
 }
 
 /**
- * @summary Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
+ * @summary Uploads an existing certificate signing request (CSR) to Certificate Management Service. After the upload, you can use the CSR to apply for certificates.
  *
  * @param request UploadCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3662,7 +3748,7 @@ UploadCsrResponse Client::uploadCsrWithOptions(const UploadCsrRequest &request, 
 }
 
 /**
- * @summary Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
+ * @summary Uploads an existing certificate signing request (CSR) to Certificate Management Service. After the upload, you can use the CSR to apply for certificates.
  *
  * @param request UploadCsrRequest
  * @return UploadCsrResponse
@@ -3673,11 +3759,11 @@ UploadCsrResponse Client::uploadCsr(const UploadCsrRequest &request) {
 }
 
 /**
- * @summary The private key of the certificate.
+ * @summary Uploads a PCA certificate to a certificate warehouse.
  *
- * @description You can call this operation to upload a private certificate to a certificate repository.
- * ## [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Use this operation to upload a PCA certificate to a certificate warehouse.
+ * ## QPS limit
+ * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
  *
  * @param request UploadPCACertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3720,11 +3806,11 @@ UploadPCACertResponse Client::uploadPCACertWithOptions(const UploadPCACertReques
 }
 
 /**
- * @summary The private key of the certificate.
+ * @summary Uploads a PCA certificate to a certificate warehouse.
  *
- * @description You can call this operation to upload a private certificate to a certificate repository.
- * ## [](#qps-)Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Use this operation to upload a PCA certificate to a certificate warehouse.
+ * ## QPS limit
+ * The QPS limit for this operation is 10 requests per second per user. Exceeding this limit triggers throttling, which can affect your business.
  *
  * @param request UploadPCACertRequest
  * @return UploadPCACertResponse
@@ -3735,9 +3821,9 @@ UploadPCACertResponse Client::uploadPCACert(const UploadPCACertRequest &request)
 }
 
 /**
- * @summary Uploads a certificate.
+ * @summary Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request UploadUserCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3800,9 +3886,9 @@ UploadUserCertificateResponse Client::uploadUserCertificateWithOptions(const Upl
 }
 
 /**
- * @summary Uploads a certificate.
+ * @summary Uploads a certificate and its private key to Certificate Management Service. Both SM and non-SM certificates are supported.
  *
- * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description The queries per second (QPS) limit for this operation is 100 for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
  *
  * @param request UploadUserCertificateRequest
  * @return UploadUserCertificateResponse
@@ -3813,11 +3899,11 @@ UploadUserCertificateResponse Client::uploadUserCertificate(const UploadUserCert
 }
 
 /**
- * @summary Verifies the signature of a private certificate in a certificate application repository.
+ * @summary Verifies a data signature by using a private certificate in a certificate application repository.
  *
- * @description You can call the Verify operation to verify the signature of a private certificate in a certificate application repository.
- * ### Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API verifies the signatures of PCA certificates and SSL certificates in the certificate repository.
+ * ### QPS limits
+ * The queries per second (QPS) limit for this API is 1,000 for a single user. For your specific QPS limit, refer to the certificate repository. If you exceed this limit, API calls are throttled, which may affect your business. Plan your API calls accordingly.
  *
  * @param request VerifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3872,11 +3958,11 @@ VerifyResponse Client::verifyWithOptions(const VerifyRequest &request, const Dar
 }
 
 /**
- * @summary Verifies the signature of a private certificate in a certificate application repository.
+ * @summary Verifies a data signature by using a private certificate in a certificate application repository.
  *
- * @description You can call the Verify operation to verify the signature of a private certificate in a certificate application repository.
- * ### Limits
- * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API verifies the signatures of PCA certificates and SSL certificates in the certificate repository.
+ * ### QPS limits
+ * The queries per second (QPS) limit for this API is 1,000 for a single user. For your specific QPS limit, refer to the certificate repository. If you exceed this limit, API calls are throttled, which may affect your business. Plan your API calls accordingly.
  *
  * @param request VerifyRequest
  * @return VerifyResponse

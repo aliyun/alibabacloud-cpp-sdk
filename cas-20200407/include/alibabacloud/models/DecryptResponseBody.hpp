@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The unique identifier of the certificate.
     shared_ptr<string> certIdentifier_ {};
-    // The data after decryption.
+    // The decrypted data.
     shared_ptr<string> plaintext_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

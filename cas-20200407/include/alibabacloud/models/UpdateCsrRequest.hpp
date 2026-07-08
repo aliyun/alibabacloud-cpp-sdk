@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the CSR.
+    // The unique ID of the CSR. This ID is generated when you upload a CSR. To obtain the ID, call the [ListCsr](https://help.aliyun.com/document_detail/2709717.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> csrId_ {};
-    // The private key content of the certificate in the PEM format.
+    // The content of the certificate private key in PEM format.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The certificate warehouse instance ID.
     shared_ptr<string> warehouseInstanceId_ {};
   };
 

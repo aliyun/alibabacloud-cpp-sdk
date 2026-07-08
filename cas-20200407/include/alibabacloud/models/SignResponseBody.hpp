@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The signature.
+    // The Base64-encoded signature.
     shared_ptr<string> signature_ {};
   };
 

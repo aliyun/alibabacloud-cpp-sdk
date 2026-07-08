@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The instance ID of the certificate warehouse.
     shared_ptr<string> warehouseInstanceId_ {};
   };
 

@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The warehouse instance ID.
       shared_ptr<string> warehouseInstanceId_ {};
+      // The warehouse name.
       shared_ptr<string> warehouseName_ {};
+      // The warehouse type.
       shared_ptr<string> warehouseType_ {};
     };
 
@@ -130,10 +133,15 @@ namespace Models
 
 
   protected:
+    // A list of warehouse objects.
     shared_ptr<vector<ListWarehouseResponseBody::Data>> data_ {};
+    // The maximum number of entries returned on each page. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this parameter is not returned, all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries in the result set.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the CSR.
+    // The unique ID of the CSR. You can use this ID to obtain the content of the CSR. For more information, see [GetCsrDetail](https://help.aliyun.com/document_detail/2709720.html).
     shared_ptr<int64_t> csrId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

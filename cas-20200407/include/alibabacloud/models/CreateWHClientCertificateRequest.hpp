@@ -186,23 +186,83 @@ namespace Models
 
 
   protected:
+    // The expiration time of the client certificate, specified as a Unix timestamp in seconds.
+    // 
+    // > The `BeforeTime` and `AfterTime` parameters must be specified together or not at all.
     shared_ptr<int64_t> afterTime_ {};
+    // The key algorithm for the client certificate. The format is `<encryption_algorithm>_<key_length>`. Valid values:
+    // 
+    // - **RSA_1024**: The corresponding signature algorithm is Sha256WithRSA.
+    // 
+    // - **RSA_2048**: The corresponding signature algorithm is Sha256WithRSA.
+    // 
+    // - **RSA_4096**: The corresponding signature algorithm is Sha256WithRSA.
+    // 
+    // - **ECC_256**: The corresponding signature algorithm is Sha256WithECDSA.
+    // 
+    // - **ECC_384**: The corresponding signature algorithm is Sha256WithECDSA.
+    // 
+    // - **ECC_512**: The corresponding signature algorithm is Sha256WithECDSA.
+    // 
+    // - **SM2_256**: The corresponding signature algorithm is SM3WithSM2.
+    // 
+    // The encryption algorithm of the client certificate must match that of the issuing subordinate CA certificate, but the key lengths can differ. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm for the client certificate must be one of RSA_1024, RSA_2048, or RSA_4096.
     shared_ptr<string> algorithm_ {};
+    // The issuance time of the client certificate, as a Unix timestamp in seconds. If omitted, this defaults to the time of the API call.
+    // 
+    // > The `BeforeTime` and `AfterTime` parameters must be specified together or not at all.
     shared_ptr<int64_t> beforeTime_ {};
+    // The common name of the client certificate. Supports Chinese, English, and other characters.
     shared_ptr<string> commonName_ {};
+    // The country where the organization is located.
     shared_ptr<string> country_ {};
+    // The content of the certificate signing request (CSR). You can generate a CSR with tools like OpenSSL or Keytool.
     shared_ptr<string> csr_ {};
+    // The validity period of the client certificate, in days.
+    // 
+    // You cannot leave the `Days`, `BeforeTime`, and `AfterTime` parameters all empty. The `BeforeTime` and `AfterTime` parameters must be specified together or not at all.
+    // 
+    // - If you specify the `Days` parameter, specifying `BeforeTime` and `AfterTime` is optional.
+    // 
+    // - If you do not specify the `Days` parameter, you must specify both `BeforeTime` and `AfterTime`.
+    // 
+    // > If you specify `Days`, `BeforeTime`, and `AfterTime` simultaneously, the `Days` parameter takes precedence in determining the validity period.
     shared_ptr<int64_t> days_ {};
+    // Specifies which certificate content to return in the response.
+    // 
+    // - **0**: Does not return the certificate (default).
+    // 
+    // - **1**: Returns the certificate.
+    // 
+    // - **2**: Returns the certificate and its certificate chain.
     shared_ptr<int64_t> immediately_ {};
+    // The city where the organization is located. Chinese, English, and other characters are supported.
     shared_ptr<string> locality_ {};
+    // The validity period of the certificate, in months.
     shared_ptr<int64_t> months_ {};
+    // The organization name associated with the root CA certificate, typically your company or enterprise name. Supports Chinese, English, and other characters.
     shared_ptr<string> organization_ {};
+    // The name of the department or business unit within the organization.
     shared_ptr<string> organizationUnit_ {};
+    // The unique identifier of the issuing subordinate CA certificate.
+    // 
     // This parameter is required.
     shared_ptr<string> parentIdentifier_ {};
+    // The type of the subject alternative name (SAN) for the client certificate. Valid values:
+    // 
+    // - **1**: email address.
+    // 
+    // - **2**: domain name.
+    // 
+    // - **6**: Uniform Resource Identifier (URI).
+    // 
+    // - **7**: IP address.
     shared_ptr<int64_t> sanType_ {};
+    // The value of the SAN extension. To specify multiple values, separate them with commas (,).
     shared_ptr<string> sanValue_ {};
+    // The province, municipality, or autonomous region where the organization is located. Chinese, English, and other characters are supported.
     shared_ptr<string> state_ {};
+    // The validity period of the certificate, in years.
     shared_ptr<int64_t> years_ {};
   };
 

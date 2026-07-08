@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The error message.
     shared_ptr<string> taskMessage_ {};
+    // The result of the task.
+    // 
+    // - success: The submission is successful.
+    // 
+    // - processing: The submission is in progress.
+    // 
+    // - failed: The submission failed.
     shared_ptr<string> taskStatus_ {};
   };
 

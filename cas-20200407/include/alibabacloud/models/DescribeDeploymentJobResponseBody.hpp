@@ -279,16 +279,19 @@ namespace Models
     shared_ptr<string> certDomain_ {};
     // The type of the certificate. Valid values:
     // 
-    // *   **upload**: uploaded certificate
-    // *   **buy**: purchased certificate
-    // *   **free**: free certificate available only on the China site (aliyun.com)
+    // - **upload**: uploaded certificate
+    // 
+    // - **buy**: purchased certificate
+    // 
+    // - **free**: free certificate available only on the China site (aliyun.com)
     shared_ptr<string> certType_ {};
     // The configurations of the deployment task.
     shared_ptr<string> config_ {};
     // Indicates whether the deployment job was deleted. Valid values:
     // 
-    // *   **0**: not deleted
-    // *   **1**: deleted
+    // - **0**: not deleted
+    // 
+    // - **1**: deleted
     shared_ptr<int32_t> del_ {};
     // The end time of the deployment job. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> endTime_ {};
@@ -302,9 +305,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the deployment job. Valid values:
     // 
-    // *   **cloud**: multi-cloud deployment job.
-    // *   **trustee**: hosted deployment job available only on the China site (aliyun.com).
-    // *   **user**: cloud service deployment job. The cloud server is not included.
+    // - **cloud**: multi-cloud deployment job.
+    // 
+    // - **trustee**: hosted deployment job available only on the China site (aliyun.com).
+    // 
+    // - **user**: cloud service deployment job. The cloud server is not included.
     shared_ptr<string> jobType_ {};
     // The name of the deployment task.
     shared_ptr<string> name_ {};
@@ -314,8 +319,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the deployment job includes the rollback worker. For example, if a cloud service in a deployment job has been rolled back, **1** is returned. Valid values:
     // 
-    // *   **0**: The rollback worker is not included.
-    // *   **1**: The rollback worker is included.
+    // - **0**: The rollback worker is not included.
+    // 
+    // - **1**: The rollback worker is included.
     shared_ptr<int32_t> rollback_ {};
     // The time when the deployment job was scheduled. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> scheduleTime_ {};
@@ -323,12 +329,17 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The status of the deployment job. Valid values:
     // 
-    // *   **pending**
-    // *   **editing**
-    // *   **scheduling**
-    // *   **processing**
-    // *   **error**
-    // *   **success**
+    // - **pending**
+    // 
+    // - **editing**
+    // 
+    // - **scheduling**
+    // 
+    // - **processing**
+    // 
+    // - **error**
+    // 
+    // - **success**
     shared_ptr<string> status_ {};
     // The ID of the Alibaba Cloud account in which the deployment job is created.
     shared_ptr<int64_t> userId_ {};

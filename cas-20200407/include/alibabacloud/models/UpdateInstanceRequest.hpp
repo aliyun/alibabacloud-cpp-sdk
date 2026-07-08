@@ -96,7 +96,13 @@ namespace Models
 
 
     protected:
+      // The tag key of the instance. Valid values for N: **1** to **20**. If you specify this value, it cannot be an empty string.
+      // 
+      // It can contain up to 64 characters. It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the instance. Valid values for N: **1** to **20**. If you specify this value, it can be an empty string.
+      // 
+      // It can contain up to 128 characters. It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -214,21 +220,67 @@ namespace Models
 
 
   protected:
+    // Whether to enable automatic management.
+    // 
+    // - enable: enabled
+    // 
+    // - disable: disabled
     shared_ptr<string> autoReissue_ {};
+    // The name of the instance. When issuing a certificate, this value serves as the default certificate name.
     shared_ptr<string> certificateName_ {};
+    // The city where the company or organization of the certificate requester is located. Required when generating a CSR for a DV certificate. Default value: Beijing.
     shared_ptr<string> city_ {};
+    // The company information ID. Required for OV and EV certificates. Otherwise, you cannot call ApplyCertificate to request a certificate.
     shared_ptr<int64_t> companyId_ {};
+    // The list of contact IDs. You must specify at least one contact. Otherwise, you cannot call ApplyCertificate to request a certificate.
     shared_ptr<vector<int64_t>> contactIdList_ {};
+    // The country or region code of the certificate organization. For example, CN represents China, and US represents the United States. Required when generating a CSR for a DV certificate. Default value: CN.
     shared_ptr<string> countryCode_ {};
+    // The CSR content. You can generate a CSR using OpenSSL or Keytool. For more information, see [How to create a CSR file](https://help.aliyun.com/document_detail/42218.html).
     shared_ptr<string> csr_ {};
+    // The domain name to bind to the certificate. Requirements are as follows:
+    // 
+    // - Supports single domain names or wildcard domain names (for example, `*.aliyundoc.com`).
+    // 
+    // - Supports multiple domain names. Separate multiple domain names with commas (,). The first domain determines whether a free domain is included.
+    // 
+    // >Notice: 
+    // 
+    // If you bind multiple domain names to the certificate, this parameter is required. This parameter and the **Csr** parameter cannot both be empty. If you set both parameters, the system uses the **CN** field value from the **Csr** as the domain name for the certificate.
     shared_ptr<string> domain_ {};
+    // The CSR generation method. Default value: online.
+    // 
+    // - online: The system generates the CSR. The Csr field is ignored.
+    // 
+    // - upload: You upload the CSR. The Csr field is required.
     shared_ptr<string> generateCsrMethod_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The certificate algorithm. Default value: RSA_2048.
+    // 
+    // - **RSA_2048**
+    // 
+    // - **RSA_3072**
+    // 
+    // - **RSA_4096**
+    // 
+    // - **ECC_256**
+    // 
+    // - **SM2**
     shared_ptr<string> keyAlgorithm_ {};
+    // The province or region where the company is located. Required when generating a CSR for a DV certificate. Default value: Beijing.
     shared_ptr<string> province_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
+    // A list of tags.
     shared_ptr<vector<UpdateInstanceRequest::Tags>> tags_ {};
+    // The certificate validation method.
+    // 
+    // - DNS: DNS validation using TXT or CNAME records.
+    // 
+    // - HTTP: File-based validation.
     shared_ptr<string> validationMethod_ {};
   };
 

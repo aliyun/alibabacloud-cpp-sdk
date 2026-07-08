@@ -192,9 +192,11 @@ namespace Models
       shared_ptr<string> certName_ {};
       // The type of the certificate order. Valid values:
       // 
-      // *   **upload**: uploaded certificate.
-      // *   **buy**: purchased certificate.
-      // *   **free**: free certificate. This value is available only on the China site (aliyun.com).
+      // - **upload**: uploaded certificate.
+      // 
+      // - **buy**: purchased certificate.
+      // 
+      // - **free**: free certificate. This value is available only on the China site (aliyun.com).
       shared_ptr<string> certOrderType_ {};
       // The type of the certificate.
       shared_ptr<string> certType_ {};
@@ -202,8 +204,9 @@ namespace Models
       shared_ptr<string> commonName_ {};
       // Indicates whether the certificate is hosted. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> isTrustee_ {};
       // The month in which the certificate is applied for.
       shared_ptr<int32_t> month_ {};
@@ -213,25 +216,37 @@ namespace Models
       shared_ptr<int64_t> notBeforeTime_ {};
       // The ID of the certificate order.
       // 
-      // >  If CertId is returned, this parameter is not returned.
+      // > If CertId is returned, this parameter is not returned.
       shared_ptr<int64_t> orderId_ {};
       // The subject alternative name (SAN) extensions of the certificate.
       shared_ptr<vector<string>> sans_ {};
       // The status code of the certificate. Valid values:
       // 
-      // *   **payed**: paid and pending application
-      // *   **checking**: being validated
-      // *   **checkedFail**: validation failed
-      // *   **revoked**: revoked
-      // *   **revokeChecking**: revocation request being validated
-      // *   **issued**: issued (excluding hosted certificates that are issued, certificates that are about to expire, expired certificates, and uploaded certificates)
-      // *   **trustee**: hosted and issued
-      // *   **upload**: uploaded (excluding certificates that are about to expire and expired certificates)
-      // *   **willExpired**: about to expire (including certificates issued by using the Certificate Management Service console and uploaded certificates)
-      // *   **expired**: expired (including certificates issued by using the Certificate Management Service console and uploaded certificates)
-      // *   **validity**: valid (including certificates that are not expired or revoked)
-      // *   **refund**: refunded
-      // *   **closed**: closed
+      // - **payed**: paid and pending application
+      // 
+      // - **checking**: being validated
+      // 
+      // - **checkedFail**: validation failed
+      // 
+      // - **revoked**: revoked
+      // 
+      // - **revokeChecking**: revocation request being validated
+      // 
+      // - **issued**: issued (excluding hosted certificates that are issued, certificates that are about to expire, expired certificates, and uploaded certificates)
+      // 
+      // - **trustee**: hosted and issued
+      // 
+      // - **upload**: uploaded (excluding certificates that are about to expire and expired certificates)
+      // 
+      // - **willExpired**: about to expire (including certificates issued by using the Certificate Management Service (CAS) console and uploaded certificates)
+      // 
+      // - **expired**: expired (including certificates issued by using the CAS console and uploaded certificates)
+      // 
+      // - **validity**: valid (including certificates that are not expired or revoked)
+      // 
+      // - **refund**: refunded
+      // 
+      // - **closed**: closed
       shared_ptr<string> statusCode_ {};
     };
 

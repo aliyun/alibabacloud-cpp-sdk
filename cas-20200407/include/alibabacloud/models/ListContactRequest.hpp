@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The keyword used in the query. For example, you can specify a keyword in names, email addresses, and mobile phone numbers.
     shared_ptr<string> keyword_ {};
-    // The number of contacts per page.
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> showSize_ {};
   };
 

@@ -94,55 +94,79 @@ namespace Models
 
 
   protected:
-    // The certificate IDs.
+    // The certificate IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> certIdsShrink_ {};
     // The cloud service provider.
     // 
     // Valid values:
     // 
-    // *   Tencent
-    // *   Huawei
-    // *   Aws
-    // *   aliyun
+    // - Tencent
+    // 
+    // - Huawei
+    // 
+    // - Aws
+    // 
+    // - aliyun
     shared_ptr<string> cloudName_ {};
-    // The cloud service.
+    // The cloud service name. Used to filter resources by cloud service.
     // 
     // Valid values when CloudName is set to aliyun:
     // 
-    // *   SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
-    // *   LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
-    // *   webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
-    // *   VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
-    // *   CR: Container Registry. This value is available only on the China site (aliyun.com).
-    // *   DCDN: Dynamic Content Delivery Network (DCDN).
-    // *   DDOS: Anti-DDoS.
-    // *   CDN: Alibaba Cloud CDN (CDN).
-    // *   ALB: Application Load Balancer (ALB).
-    // *   APIGateway: API Gateway.
-    // *   FC: Function Compute.
-    // *   GA: Global Accelerator (GA).
-    // *   MSE: Microservices Engine (MSE).
-    // *   NLB: Network Load Balancer (NLB).
-    // *   OSS: Object Storage Service (OSS).
-    // *   SAE: Serverless App Engine (SAE).
-    // *   WAF: Web Application Firewall (WAF).
+    // - SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
+    // 
+    // - LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
+    // 
+    // - webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
+    // 
+    // - VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
+    // 
+    // - CR: Container Registry. This value is available only on the China site (aliyun.com).
+    // 
+    // - DCDN: Dynamic Content Delivery Network (DCDN).
+    // 
+    // - DDOS: Anti-DDoS.
+    // 
+    // - CDN: Alibaba Cloud CDN (CDN).
+    // 
+    // - ALB: Application Load Balancer (ALB).
+    // 
+    // - APIGateway: API Gateway.
+    // 
+    // - FC: Function Compute.
+    // 
+    // - GA: Global Accelerator (GA).
+    // 
+    // - MSE: Microservices Engine (MSE).
+    // 
+    // - NLB: Network Load Balancer (NLB).
+    // 
+    // - OSS: Object Storage Service (OSS).
+    // 
+    // - SAE: Serverless App Engine (SAE).
+    // 
+    // - WAF: Web Application Firewall (WAF).
     // 
     // Valid values when CloudName is set to Tencent:
     // 
-    // *   TencentCDN: Content Delivery Network (CDN).
-    // *   TencentCLB: CLB.
-    // *   TencentWAF: WAF.
+    // - TencentCDN: Content Delivery Network (CDN).
+    // 
+    // - TencentCLB: CLB.
+    // 
+    // - TencentWAF: WAF.
     // 
     // Valid value when CloudName is set to Huawei:
     // 
-    // *   HuaweiCDN: CDN.
+    // - HuaweiCDN: CDN.
     // 
     // Valid values when CloudName is set to Aws:
     // 
-    // *   AwsCloudFront: Amazon CloudFront.
-    // *   AwsCLB: CLB.
-    // *   AwsALB: ALB.
-    // *   AwsNLB: NLB.
+    // - AwsCloudFront: Amazon CloudFront.
+    // 
+    // - AwsCLB: CLB.
+    // 
+    // - AwsALB: ALB.
+    // 
+    // - AwsNLB: NLB.
     shared_ptr<string> cloudProduct_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};

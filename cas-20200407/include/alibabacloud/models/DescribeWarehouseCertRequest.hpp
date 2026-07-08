@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the certificate.
     shared_ptr<string> certIdentifier_ {};
   };
 

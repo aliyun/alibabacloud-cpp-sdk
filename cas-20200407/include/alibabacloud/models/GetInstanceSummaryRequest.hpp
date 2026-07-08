@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance type. Valid values: BUY: a paid certificate. TEST: a test certificate.
     shared_ptr<string> instanceType_ {};
   };
 

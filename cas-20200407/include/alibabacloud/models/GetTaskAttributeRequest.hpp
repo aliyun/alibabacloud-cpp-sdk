@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The type of the asynchronous task. The default value is ApplyCertificate, which specifies a query for the result of a certificate application.
     shared_ptr<string> taskType_ {};
   };
 

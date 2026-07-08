@@ -159,27 +159,27 @@ namespace Models
 
 
   protected:
-    // The content of the certificate in the PEM format.
+    // The content of a non-SM certificate in PEM format.
     shared_ptr<string> cert_ {};
-    // The content of the encryption certificate in PEM format.
+    // The content of the SM encryption certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
     shared_ptr<string> encryptCert_ {};
-    // The private key of the encryption certificate in the PEM format.
+    // The content of the private key of the SM encryption certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
     shared_ptr<string> encryptPrivateKey_ {};
-    // The private key of the certificate in the PEM format.
+    // The private key of a non-SM certificate in PEM format.
     shared_ptr<string> key_ {};
-    // The name of the certificate. The name can be up to 64 characters in length, and can contain all types of characters, such as letters, digits, and underscores (_).
+    // The custom name of the certificate. The name can be up to 63 characters long and can contain letters, digits, and underscores (_).
     // 
-    // >  The name must be unique within an Alibaba Cloud account.
+    // > Certificate names must be unique for each user.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // the resource group id.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The content of the signing certificate in the PEM format.
+    // The content of the SM signing certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
     shared_ptr<string> signCert_ {};
-    // The private key of the signing certificate in the PEM format.
+    // The content of the private key of the SM signing certificate in PEM format. This parameter is invalid if Cert and Key are not empty.
     shared_ptr<string> signPrivateKey_ {};
-    // The tags.
+    // A list of tags.
     shared_ptr<vector<UploadUserCertificateRequest::Tags>> tags_ {};
   };
 

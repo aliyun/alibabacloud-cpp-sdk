@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The certificate ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> certificateId_ {};
   };
