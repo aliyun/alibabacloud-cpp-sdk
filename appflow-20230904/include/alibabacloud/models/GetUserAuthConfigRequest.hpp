@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The credential ID.
+    // 
     // This parameter is required.
     shared_ptr<string> authConfigId_ {};
+    // The connector ID.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The connector version.
     shared_ptr<string> connectorVersion_ {};
   };
 

@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The name of the filter field.
       shared_ptr<string> name_ {};
+      // The list of filter values. The valid range for N is 1 to 10.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -131,12 +133,19 @@ namespace Models
 
 
   protected:
+    // The authentication type.
     shared_ptr<string> authType_ {};
+    // The ID of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The version of the connector.
     shared_ptr<string> connectorVersion_ {};
+    // The query conditions.
     shared_ptr<vector<ListUserAuthConfigsRequest::Filter>> filter_ {};
+    // The maximum number of entries.
     shared_ptr<string> maxResults_ {};
+    // The pagination token for the request.
     shared_ptr<string> nextToken_ {};
   };
 

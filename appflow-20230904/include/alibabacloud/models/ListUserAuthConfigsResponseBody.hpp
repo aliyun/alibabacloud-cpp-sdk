@@ -131,13 +131,21 @@ namespace Models
 
 
     protected:
+      // The credential ID.
       shared_ptr<string> authConfigId_ {};
+      // The credential name.
       shared_ptr<string> authConfigName_ {};
+      // The authentication type.
       shared_ptr<string> authType_ {};
+      // The ID of the connector.
       shared_ptr<string> connectorId_ {};
+      // The version of the connector.
       shared_ptr<string> connectorVersion_ {};
+      // The number of connection flows that use this credential.
       shared_ptr<int32_t> flowCount_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
     };
 
@@ -181,11 +189,15 @@ namespace Models
 
 
   protected:
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The user authentication credentials.
     shared_ptr<vector<ListUserAuthConfigsResponseBody::UserAuthConfigs>> userAuthConfigs_ {};
   };
 

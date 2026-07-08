@@ -21,7 +21,9 @@ namespace Appflow20230904
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建连接流
+       * @summary Creates a flow.
+       *
+       * @description Creates a flow or a flow version.
        *
        * @param request CreateFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +32,9 @@ namespace Appflow20230904
       Models::CreateFlowResponse createFlowWithOptions(const Models::CreateFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建连接流
+       * @summary Creates a flow.
+       *
+       * @description Creates a flow or a flow version.
        *
        * @param request CreateFlowRequest
        * @return CreateFlowResponse
@@ -38,7 +42,9 @@ namespace Appflow20230904
       Models::CreateFlowResponse createFlow(const Models::CreateFlowRequest &request);
 
       /**
-       * @summary 创建用户鉴权凭证
+       * @summary Creates a user authentication credential.
+       *
+       * @description Creates a connection flow or a connection flow version.
        *
        * @param request CreateUserAuthConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +53,9 @@ namespace Appflow20230904
       Models::CreateUserAuthConfigResponse createUserAuthConfigWithOptions(const Models::CreateUserAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建用户鉴权凭证
+       * @summary Creates a user authentication credential.
+       *
+       * @description Creates a connection flow or a connection flow version.
        *
        * @param request CreateUserAuthConfigRequest
        * @return CreateUserAuthConfigResponse
@@ -55,7 +63,7 @@ namespace Appflow20230904
       Models::CreateUserAuthConfigResponse createUserAuthConfig(const Models::CreateUserAuthConfigRequest &request);
 
       /**
-       * @summary 删除连接流
+       * @summary Deletes a connection flow.
        *
        * @param request DeleteFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +72,7 @@ namespace Appflow20230904
       Models::DeleteFlowResponse deleteFlowWithOptions(const Models::DeleteFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除连接流
+       * @summary Deletes a connection flow.
        *
        * @param request DeleteFlowRequest
        * @return DeleteFlowResponse
@@ -72,7 +80,9 @@ namespace Appflow20230904
       Models::DeleteFlowResponse deleteFlow(const Models::DeleteFlowRequest &request);
 
       /**
-       * @summary 删除用户鉴权凭证
+       * @summary Deletes a user authentication credential.
+       *
+       * @description Creates a connection flow or a connection flow version.
        *
        * @param request DeleteUserAuthConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +91,9 @@ namespace Appflow20230904
       Models::DeleteUserAuthConfigResponse deleteUserAuthConfigWithOptions(const Models::DeleteUserAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除用户鉴权凭证
+       * @summary Deletes a user authentication credential.
+       *
+       * @description Creates a connection flow or a connection flow version.
        *
        * @param request DeleteUserAuthConfigRequest
        * @return DeleteUserAuthConfigResponse
@@ -89,7 +101,7 @@ namespace Appflow20230904
       Models::DeleteUserAuthConfigResponse deleteUserAuthConfig(const Models::DeleteUserAuthConfigRequest &request);
 
       /**
-       * @summary 禁用连接流
+       * @summary Disables a flow.
        *
        * @param request DisableFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +110,7 @@ namespace Appflow20230904
       Models::DisableFlowResponse disableFlowWithOptions(const Models::DisableFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用连接流
+       * @summary Disables a flow.
        *
        * @param request DisableFlowRequest
        * @return DisableFlowResponse
@@ -106,7 +118,7 @@ namespace Appflow20230904
       Models::DisableFlowResponse disableFlow(const Models::DisableFlowRequest &request);
 
       /**
-       * @summary 启用连接流
+       * @summary Enables a flow.
        *
        * @param request EnableFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +127,7 @@ namespace Appflow20230904
       Models::EnableFlowResponse enableFlowWithOptions(const Models::EnableFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启用连接流
+       * @summary Enables a flow.
        *
        * @param request EnableFlowRequest
        * @return EnableFlowResponse
@@ -123,7 +135,7 @@ namespace Appflow20230904
       Models::EnableFlowResponse enableFlow(const Models::EnableFlowRequest &request);
 
       /**
-       * @summary Generate Login Session Token
+       * @summary Generates a logon session token.
        *
        * @param request GenerateUserSessionTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +144,7 @@ namespace Appflow20230904
       Models::GenerateUserSessionTokenResponse generateUserSessionTokenWithOptions(const Models::GenerateUserSessionTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generate Login Session Token
+       * @summary Generates a logon session token.
        *
        * @param request GenerateUserSessionTokenRequest
        * @return GenerateUserSessionTokenResponse
@@ -140,7 +152,7 @@ namespace Appflow20230904
       Models::GenerateUserSessionTokenResponse generateUserSessionToken(const Models::GenerateUserSessionTokenRequest &request);
 
       /**
-       * @summary 获取连接流详情
+       * @summary Queries the details of a flow.
        *
        * @param request GetFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +161,7 @@ namespace Appflow20230904
       Models::GetFlowResponse getFlowWithOptions(const Models::GetFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取连接流详情
+       * @summary Queries the details of a flow.
        *
        * @param request GetFlowRequest
        * @return GetFlowResponse
@@ -157,7 +169,9 @@ namespace Appflow20230904
       Models::GetFlowResponse getFlow(const Models::GetFlowRequest &request);
 
       /**
-       * @summary 获取用户鉴权凭证详情
+       * @summary Gets the details of a user authentication credential.
+       *
+       * @description This operation gets the details of a specified credential.
        *
        * @param request GetUserAuthConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +180,9 @@ namespace Appflow20230904
       Models::GetUserAuthConfigResponse getUserAuthConfigWithOptions(const Models::GetUserAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户鉴权凭证详情
+       * @summary Gets the details of a user authentication credential.
+       *
+       * @description This operation gets the details of a specified credential.
        *
        * @param request GetUserAuthConfigRequest
        * @return GetUserAuthConfigResponse
@@ -174,7 +190,7 @@ namespace Appflow20230904
       Models::GetUserAuthConfigResponse getUserAuthConfig(const Models::GetUserAuthConfigRequest &request);
 
       /**
-       * @summary 运行连接器的执行动作
+       * @summary Invokes a connector action.
        *
        * @param tmpReq InvokeActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +199,7 @@ namespace Appflow20230904
       FutureGenerator<Models::InvokeActionResponse> invokeActionWithSSE(const Models::InvokeActionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运行连接器的执行动作
+       * @summary Invokes a connector action.
        *
        * @param tmpReq InvokeActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -192,7 +208,7 @@ namespace Appflow20230904
       Models::InvokeActionResponse invokeActionWithOptions(const Models::InvokeActionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 运行连接器的执行动作
+       * @summary Invokes a connector action.
        *
        * @param request InvokeActionRequest
        * @return InvokeActionResponse
@@ -200,7 +216,7 @@ namespace Appflow20230904
       Models::InvokeActionResponse invokeAction(const Models::InvokeActionRequest &request);
 
       /**
-       * @summary 发布连接流
+       * @summary Launches a flow.
        *
        * @param request LaunchFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -209,7 +225,7 @@ namespace Appflow20230904
       Models::LaunchFlowResponse launchFlowWithOptions(const Models::LaunchFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布连接流
+       * @summary Launches a flow.
        *
        * @param request LaunchFlowRequest
        * @return LaunchFlowResponse
@@ -217,7 +233,30 @@ namespace Appflow20230904
       Models::LaunchFlowResponse launchFlow(const Models::LaunchFlowRequest &request);
 
       /**
-       * @summary 获取用户鉴权凭证列表
+       * @summary Retrieves a list of connector flows.
+       *
+       * @description Creates a connector flow or a connector flow version.
+       *
+       * @param request ListFlowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFlowsResponse
+       */
+      Models::ListFlowsResponse listFlowsWithOptions(const Models::ListFlowsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of connector flows.
+       *
+       * @description Creates a connector flow or a connector flow version.
+       *
+       * @param request ListFlowsRequest
+       * @return ListFlowsResponse
+       */
+      Models::ListFlowsResponse listFlows(const Models::ListFlowsRequest &request);
+
+      /**
+       * @summary Lists user authentication credentials.
+       *
+       * @description This operation retrieves user auth configs that match specified filters.
        *
        * @param request ListUserAuthConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -226,7 +265,9 @@ namespace Appflow20230904
       Models::ListUserAuthConfigsResponse listUserAuthConfigsWithOptions(const Models::ListUserAuthConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户鉴权凭证列表
+       * @summary Lists user authentication credentials.
+       *
+       * @description This operation retrieves user auth configs that match specified filters.
        *
        * @param request ListUserAuthConfigsRequest
        * @return ListUserAuthConfigsResponse
@@ -234,7 +275,7 @@ namespace Appflow20230904
       Models::ListUserAuthConfigsResponse listUserAuthConfigs(const Models::ListUserAuthConfigsRequest &request);
 
       /**
-       * @summary 更新连接流
+       * @summary Updates a connection flow.
        *
        * @param request UpdateFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -243,7 +284,7 @@ namespace Appflow20230904
       Models::UpdateFlowResponse updateFlowWithOptions(const Models::UpdateFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新连接流
+       * @summary Updates a connection flow.
        *
        * @param request UpdateFlowRequest
        * @return UpdateFlowResponse
@@ -251,7 +292,9 @@ namespace Appflow20230904
       Models::UpdateFlowResponse updateFlow(const Models::UpdateFlowRequest &request);
 
       /**
-       * @summary 编辑用户鉴权凭证
+       * @summary Updates a user authentication credential.
+       *
+       * @description Updates the configuration of a specific user authentication credential.
        *
        * @param request UpdateUserAuthConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,7 +303,9 @@ namespace Appflow20230904
       Models::UpdateUserAuthConfigResponse updateUserAuthConfigWithOptions(const Models::UpdateUserAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑用户鉴权凭证
+       * @summary Updates a user authentication credential.
+       *
+       * @description Updates the configuration of a specific user authentication credential.
        *
        * @param request UpdateUserAuthConfigRequest
        * @return UpdateUserAuthConfigResponse
@@ -268,7 +313,7 @@ namespace Appflow20230904
       Models::UpdateUserAuthConfigResponse updateUserAuthConfig(const Models::UpdateUserAuthConfigRequest &request);
 
       /**
-       * @summary 下线连接流
+       * @summary Withdraws a connection flow.
        *
        * @param request WithdrawFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +322,7 @@ namespace Appflow20230904
       Models::WithdrawFlowResponse withdrawFlowWithOptions(const Models::WithdrawFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线连接流
+       * @summary Withdraws a connection flow.
        *
        * @param request WithdrawFlowRequest
        * @return WithdrawFlowResponse

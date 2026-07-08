@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether the connection flow is enabled.
     shared_ptr<bool> enabled_ {};
+    // The description of the connection flow.
     shared_ptr<string> flowDesc_ {};
+    // The ID of the connection flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
+    // The name of the connection flow.
     shared_ptr<string> flowName_ {};
+    // The template of the connection flow.
     shared_ptr<string> flowTemplate_ {};
+    // The version of the connection flow.
     shared_ptr<string> flowVersion_ {};
   };
 

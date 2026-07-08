@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The user authentication credential, provided as a JSON string.
     shared_ptr<string> authConfig_ {};
+    // The ID of the credential.
+    // 
     // This parameter is required.
     shared_ptr<string> authConfigId_ {};
+    // The name of the credential.
     shared_ptr<string> authConfigName_ {};
+    // The ID of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The connector version.
     shared_ptr<string> connectorVersion_ {};
   };
 

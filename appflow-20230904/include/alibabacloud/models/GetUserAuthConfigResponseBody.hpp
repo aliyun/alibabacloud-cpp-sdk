@@ -105,11 +105,17 @@ namespace Models
 
 
     protected:
+      // The auth config, specified as a JSON string.
       shared_ptr<string> authConfig_ {};
+      // The credential ID.
       shared_ptr<string> authConfigId_ {};
+      // The credential name.
       shared_ptr<string> authConfigName_ {};
+      // The authentication type.
       shared_ptr<string> authType_ {};
+      // The connector ID.
       shared_ptr<string> connectorId_ {};
+      // The connector version.
       shared_ptr<string> connectorVersion_ {};
     };
 
@@ -132,8 +138,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Contains the credential details.
     shared_ptr<GetUserAuthConfigResponseBody::UserAuthConfig> userAuthConfig_ {};
   };
 

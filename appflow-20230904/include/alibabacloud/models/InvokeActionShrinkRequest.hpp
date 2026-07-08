@@ -121,17 +121,29 @@ namespace Models
 
 
   protected:
+    // The action ID.
+    // 
     // This parameter is required.
     shared_ptr<string> actionId_ {};
+    // The action version.
     shared_ptr<string> actionVersion_ {};
+    // The authentication information for the action.
     shared_ptr<string> authConfigShrink_ {};
+    // The request body for the action.
     shared_ptr<string> bodyShrink_ {};
+    // The connector ID.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The connector version.
     shared_ptr<string> connectorVersion_ {};
+    // The request header parameters for the action.
     shared_ptr<string> headersShrink_ {};
+    // The path parameters for the action.
     shared_ptr<string> pathShrink_ {};
+    // The query parameters for the action.
     shared_ptr<string> queryShrink_ {};
+    // Specifies whether to use streaming output.
     shared_ptr<bool> stream_ {};
   };
 

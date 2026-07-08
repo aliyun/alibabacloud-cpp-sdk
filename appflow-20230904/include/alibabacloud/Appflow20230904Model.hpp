@@ -36,6 +36,9 @@
 #include <alibabacloud/models/LaunchFlowRequest.hpp>
 #include <alibabacloud/models/LaunchFlowResponseBody.hpp>
 #include <alibabacloud/models/LaunchFlowResponse.hpp>
+#include <alibabacloud/models/ListFlowsRequest.hpp>
+#include <alibabacloud/models/ListFlowsResponseBody.hpp>
+#include <alibabacloud/models/ListFlowsResponse.hpp>
 #include <alibabacloud/models/ListUserAuthConfigsRequest.hpp>
 #include <alibabacloud/models/ListUserAuthConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListUserAuthConfigsResponse.hpp>

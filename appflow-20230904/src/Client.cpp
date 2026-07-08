@@ -18,7 +18,10 @@ namespace Appflow20230904
 {
 
 AlibabaCloud::Appflow20230904::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-hangzhou" , "appflow.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("appflow", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +40,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建连接流
+ * @summary Creates a flow.
+ *
+ * @description Creates a flow or a flow version.
  *
  * @param request CreateFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -96,7 +101,9 @@ CreateFlowResponse Client::createFlowWithOptions(const CreateFlowRequest &reques
 }
 
 /**
- * @summary 创建连接流
+ * @summary Creates a flow.
+ *
+ * @description Creates a flow or a flow version.
  *
  * @param request CreateFlowRequest
  * @return CreateFlowResponse
@@ -107,7 +114,9 @@ CreateFlowResponse Client::createFlow(const CreateFlowRequest &request) {
 }
 
 /**
- * @summary 创建用户鉴权凭证
+ * @summary Creates a user authentication credential.
+ *
+ * @description Creates a connection flow or a connection flow version.
  *
  * @param request CreateUserAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -154,7 +163,9 @@ CreateUserAuthConfigResponse Client::createUserAuthConfigWithOptions(const Creat
 }
 
 /**
- * @summary 创建用户鉴权凭证
+ * @summary Creates a user authentication credential.
+ *
+ * @description Creates a connection flow or a connection flow version.
  *
  * @param request CreateUserAuthConfigRequest
  * @return CreateUserAuthConfigResponse
@@ -165,7 +176,7 @@ CreateUserAuthConfigResponse Client::createUserAuthConfig(const CreateUserAuthCo
 }
 
 /**
- * @summary 删除连接流
+ * @summary Deletes a connection flow.
  *
  * @param request DeleteFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +211,7 @@ DeleteFlowResponse Client::deleteFlowWithOptions(const DeleteFlowRequest &reques
 }
 
 /**
- * @summary 删除连接流
+ * @summary Deletes a connection flow.
  *
  * @param request DeleteFlowRequest
  * @return DeleteFlowResponse
@@ -211,7 +222,9 @@ DeleteFlowResponse Client::deleteFlow(const DeleteFlowRequest &request) {
 }
 
 /**
- * @summary 删除用户鉴权凭证
+ * @summary Deletes a user authentication credential.
+ *
+ * @description Creates a connection flow or a connection flow version.
  *
  * @param request DeleteUserAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +263,9 @@ DeleteUserAuthConfigResponse Client::deleteUserAuthConfigWithOptions(const Delet
 }
 
 /**
- * @summary 删除用户鉴权凭证
+ * @summary Deletes a user authentication credential.
+ *
+ * @description Creates a connection flow or a connection flow version.
  *
  * @param request DeleteUserAuthConfigRequest
  * @return DeleteUserAuthConfigResponse
@@ -261,7 +276,7 @@ DeleteUserAuthConfigResponse Client::deleteUserAuthConfig(const DeleteUserAuthCo
 }
 
 /**
- * @summary 禁用连接流
+ * @summary Disables a flow.
  *
  * @param request DisableFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -296,7 +311,7 @@ DisableFlowResponse Client::disableFlowWithOptions(const DisableFlowRequest &req
 }
 
 /**
- * @summary 禁用连接流
+ * @summary Disables a flow.
  *
  * @param request DisableFlowRequest
  * @return DisableFlowResponse
@@ -307,7 +322,7 @@ DisableFlowResponse Client::disableFlow(const DisableFlowRequest &request) {
 }
 
 /**
- * @summary 启用连接流
+ * @summary Enables a flow.
  *
  * @param request EnableFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -342,7 +357,7 @@ EnableFlowResponse Client::enableFlowWithOptions(const EnableFlowRequest &reques
 }
 
 /**
- * @summary 启用连接流
+ * @summary Enables a flow.
  *
  * @param request EnableFlowRequest
  * @return EnableFlowResponse
@@ -353,7 +368,7 @@ EnableFlowResponse Client::enableFlow(const EnableFlowRequest &request) {
 }
 
 /**
- * @summary Generate Login Session Token
+ * @summary Generates a logon session token.
  *
  * @param request GenerateUserSessionTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +423,7 @@ GenerateUserSessionTokenResponse Client::generateUserSessionTokenWithOptions(con
 }
 
 /**
- * @summary Generate Login Session Token
+ * @summary Generates a logon session token.
  *
  * @param request GenerateUserSessionTokenRequest
  * @return GenerateUserSessionTokenResponse
@@ -419,7 +434,7 @@ GenerateUserSessionTokenResponse Client::generateUserSessionToken(const Generate
 }
 
 /**
- * @summary 获取连接流详情
+ * @summary Queries the details of a flow.
  *
  * @param request GetFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -454,7 +469,7 @@ GetFlowResponse Client::getFlowWithOptions(const GetFlowRequest &request, const 
 }
 
 /**
- * @summary 获取连接流详情
+ * @summary Queries the details of a flow.
  *
  * @param request GetFlowRequest
  * @return GetFlowResponse
@@ -465,7 +480,9 @@ GetFlowResponse Client::getFlow(const GetFlowRequest &request) {
 }
 
 /**
- * @summary 获取用户鉴权凭证详情
+ * @summary Gets the details of a user authentication credential.
+ *
+ * @description This operation gets the details of a specified credential.
  *
  * @param request GetUserAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -504,7 +521,9 @@ GetUserAuthConfigResponse Client::getUserAuthConfigWithOptions(const GetUserAuth
 }
 
 /**
- * @summary 获取用户鉴权凭证详情
+ * @summary Gets the details of a user authentication credential.
+ *
+ * @description This operation gets the details of a specified credential.
  *
  * @param request GetUserAuthConfigRequest
  * @return GetUserAuthConfigResponse
@@ -515,7 +534,7 @@ GetUserAuthConfigResponse Client::getUserAuthConfig(const GetUserAuthConfigReque
 }
 
 /**
- * @summary 运行连接器的执行动作
+ * @summary Invokes a connector action.
  *
  * @param tmpReq InvokeActionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -618,7 +637,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 运行连接器的执行动作
+ * @summary Invokes a connector action.
  *
  * @param tmpReq InvokeActionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -707,7 +726,7 @@ InvokeActionResponse Client::invokeActionWithOptions(const InvokeActionRequest &
 }
 
 /**
- * @summary 运行连接器的执行动作
+ * @summary Invokes a connector action.
  *
  * @param request InvokeActionRequest
  * @return InvokeActionResponse
@@ -718,7 +737,7 @@ InvokeActionResponse Client::invokeAction(const InvokeActionRequest &request) {
 }
 
 /**
- * @summary 发布连接流
+ * @summary Launches a flow.
  *
  * @param request LaunchFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -765,7 +784,7 @@ LaunchFlowResponse Client::launchFlowWithOptions(const LaunchFlowRequest &reques
 }
 
 /**
- * @summary 发布连接流
+ * @summary Launches a flow.
  *
  * @param request LaunchFlowRequest
  * @return LaunchFlowResponse
@@ -776,7 +795,67 @@ LaunchFlowResponse Client::launchFlow(const LaunchFlowRequest &request) {
 }
 
 /**
- * @summary 获取用户鉴权凭证列表
+ * @summary Retrieves a list of connector flows.
+ *
+ * @description Creates a connector flow or a connector flow version.
+ *
+ * @param request ListFlowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFlowsResponse
+ */
+ListFlowsResponse Client::listFlowsWithOptions(const ListFlowsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFlows"},
+    {"version" , "2023-09-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFlowsResponse>();
+}
+
+/**
+ * @summary Retrieves a list of connector flows.
+ *
+ * @description Creates a connector flow or a connector flow version.
+ *
+ * @param request ListFlowsRequest
+ * @return ListFlowsResponse
+ */
+ListFlowsResponse Client::listFlows(const ListFlowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFlowsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists user authentication credentials.
+ *
+ * @description This operation retrieves user auth configs that match specified filters.
  *
  * @param request ListUserAuthConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +906,9 @@ ListUserAuthConfigsResponse Client::listUserAuthConfigsWithOptions(const ListUse
 }
 
 /**
- * @summary 获取用户鉴权凭证列表
+ * @summary Lists user authentication credentials.
+ *
+ * @description This operation retrieves user auth configs that match specified filters.
  *
  * @param request ListUserAuthConfigsRequest
  * @return ListUserAuthConfigsResponse
@@ -838,7 +919,7 @@ ListUserAuthConfigsResponse Client::listUserAuthConfigs(const ListUserAuthConfig
 }
 
 /**
- * @summary 更新连接流
+ * @summary Updates a connection flow.
  *
  * @param request UpdateFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -889,7 +970,7 @@ UpdateFlowResponse Client::updateFlowWithOptions(const UpdateFlowRequest &reques
 }
 
 /**
- * @summary 更新连接流
+ * @summary Updates a connection flow.
  *
  * @param request UpdateFlowRequest
  * @return UpdateFlowResponse
@@ -900,7 +981,9 @@ UpdateFlowResponse Client::updateFlow(const UpdateFlowRequest &request) {
 }
 
 /**
- * @summary 编辑用户鉴权凭证
+ * @summary Updates a user authentication credential.
+ *
+ * @description Updates the configuration of a specific user authentication credential.
  *
  * @param request UpdateUserAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -947,7 +1030,9 @@ UpdateUserAuthConfigResponse Client::updateUserAuthConfigWithOptions(const Updat
 }
 
 /**
- * @summary 编辑用户鉴权凭证
+ * @summary Updates a user authentication credential.
+ *
+ * @description Updates the configuration of a specific user authentication credential.
  *
  * @param request UpdateUserAuthConfigRequest
  * @return UpdateUserAuthConfigResponse
@@ -958,7 +1043,7 @@ UpdateUserAuthConfigResponse Client::updateUserAuthConfig(const UpdateUserAuthCo
 }
 
 /**
- * @summary 下线连接流
+ * @summary Withdraws a connection flow.
  *
  * @param request WithdrawFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -993,7 +1078,7 @@ WithdrawFlowResponse Client::withdrawFlowWithOptions(const WithdrawFlowRequest &
 }
 
 /**
- * @summary 下线连接流
+ * @summary Withdraws a connection flow.
  *
  * @param request WithdrawFlowRequest
  * @return WithdrawFlowResponse

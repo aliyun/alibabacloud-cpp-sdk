@@ -82,7 +82,11 @@ namespace Models
 
 
     protected:
+      // The tag key. You can filter the cluster list by tag. You can specify up to 20 tag pairs. The number N in each tag pair must be unique and a consecutive integer starting from 1. The value corresponding to `Tag.N.Key` is `Tag.N.Value`.
+      // 
+      // > The tag key can be up to 64 characters long and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
       shared_ptr<string> key_ {};
+      // The authentication content.
       shared_ptr<string> value_ {};
     };
 
@@ -124,7 +128,14 @@ namespace Models
 
 
     protected:
+      // The name of a parameter defined in the template. If no parameter name or value is specified, ROS uses the default value defined in the template.
+      // 
+      // The maximum value of N is 200.<br>
+      // The name must be 1 to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // 
+      // > Parameters is optional. If you specify Parameters, you must specify both Parameters.N.ParameterKey and Parameters.N.ParameterValue.
       shared_ptr<string> parameterKey_ {};
+      // The value for the parameter.
       shared_ptr<string> parameterValue_ {};
     };
 
@@ -192,14 +203,27 @@ namespace Models
 
 
   protected:
+    // The description of the flow.
     shared_ptr<string> flowDesc_ {};
+    // The ID of the flow. This parameter is required when you update a flow or create a new flow version.
     shared_ptr<string> flowId_ {};
+    // The name of the flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowName_ {};
+    // The content of the template.
     shared_ptr<string> flowTemplate_ {};
+    // The publication status of the flow: True for published, False for unpublished.
     shared_ptr<bool> launchStatus_ {};
+    // The parameters for the template.
+    // 
+    // You can specify up to 200 parameters.
+    // 
+    // > This parameter is optional. If you use this parameter, you must specify both ParameterKey and ParameterValue for each entry.
     shared_ptr<vector<CreateFlowRequest::Parameters>> parameters_ {};
+    // The object tags to which the rule applies. You can specify multiple tags.
     shared_ptr<vector<CreateFlowRequest::Tag>> tag_ {};
+    // The ID of the template. Specify this parameter when you create a flow from a template in the Template Center.
     shared_ptr<string> templateId_ {};
   };
 

@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<string> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

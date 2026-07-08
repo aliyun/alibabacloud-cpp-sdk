@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The authentication information.
+    // 
     // This parameter is required.
     shared_ptr<string> authConfig_ {};
+    // The name of the credential.
+    // 
     // This parameter is required.
     shared_ptr<string> authConfigName_ {};
+    // The type of the credential.
     shared_ptr<string> authType_ {};
+    // The ID of the connector.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The version of the connector.
     shared_ptr<string> connectorVersion_ {};
   };
 

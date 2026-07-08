@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The tag key. The value can be up to 64 characters in length.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -261,19 +263,33 @@ namespace Models
 
 
       protected:
+        // The authentication credentials of the node.
         shared_ptr<string> authMetadata_ {};
+        // The connector ID.
         shared_ptr<string> connectorId_ {};
+        // The connector version.
         shared_ptr<string> connectorVersion_ {};
+        // The flow ID.
         shared_ptr<string> flowId_ {};
+        // The flow version.
         shared_ptr<string> flowVersion_ {};
+        // The metadata of the node.
         shared_ptr<string> inputSchema_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The node key.
         shared_ptr<string> nodeKey_ {};
+        // The node name.
         shared_ptr<string> nodeName_ {};
+        // The node type.
         shared_ptr<string> nodeType_ {};
+        // The ID of the previous node.
         shared_ptr<string> prevNodeId_ {};
+        // The ID of the trigger or action.
         shared_ptr<string> refId_ {};
+        // The trigger or action version.
         shared_ptr<string> refVersion_ {};
+        // The webhook URL.
         shared_ptr<string> webhookUrl_ {};
       };
 
@@ -362,16 +378,27 @@ namespace Models
 
 
     protected:
+      // Indicates whether the flow is enabled.
       shared_ptr<string> enabled_ {};
+      // The flow description.
       shared_ptr<string> flowDesc_ {};
+      // The flow ID.
       shared_ptr<string> flowId_ {};
+      // The flow name.
       shared_ptr<string> flowName_ {};
+      // The list of nodes.
       shared_ptr<vector<Flow::FlowNodes>> flowNodes_ {};
+      // The flow template content.
       shared_ptr<string> flowTemplate_ {};
+      // The flow version.
       shared_ptr<string> flowVersion_ {};
+      // The flow version status.
       shared_ptr<string> flowVersionStatus_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
+      // A list of tags.
       shared_ptr<vector<Flow::Tags>> tags_ {};
     };
 
@@ -394,8 +421,9 @@ namespace Models
 
 
   protected:
+    // The flow object.
     shared_ptr<GetFlowResponseBody::Flow> flow_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The description of the flow.
     shared_ptr<string> flowDesc_ {};
+    // The ID of the flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
+    // The name of the flow.
     shared_ptr<string> flowName_ {};
+    // The template of the flow.
     shared_ptr<string> flowTemplate_ {};
+    // The version of the flow.
     shared_ptr<int32_t> flowVersion_ {};
   };
 

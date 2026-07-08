@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Token.
+    // Token
     shared_ptr<string> userSessionToken_ {};
   };
 

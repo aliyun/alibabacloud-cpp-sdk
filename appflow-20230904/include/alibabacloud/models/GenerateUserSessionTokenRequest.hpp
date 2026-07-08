@@ -94,20 +94,20 @@ namespace Models
 
 
   protected:
-    // AI Assistant ID
+    // RDS Copilot ID
     shared_ptr<string> chatbotId_ {};
-    // Expiration Time, in seconds, default 24 hours
+    // Time-to-live (TTL) in seconds. Default is 24 hours.
     shared_ptr<int64_t> expireSecond_ {};
     shared_ptr<string> extraInfo_ {};
     // Integration ID
     shared_ptr<string> integrateId_ {};
-    // User Avatar (URL)
+    // Profile picture (URL)
     shared_ptr<string> userAvatar_ {};
     // User ID
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
-    // User Nickname
+    // Nickname
     shared_ptr<string> userName_ {};
   };
 

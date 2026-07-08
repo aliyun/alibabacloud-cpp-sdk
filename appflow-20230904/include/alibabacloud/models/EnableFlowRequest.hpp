@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
+    // The version of the flow.
     shared_ptr<int32_t> flowVersion_ {};
   };
 

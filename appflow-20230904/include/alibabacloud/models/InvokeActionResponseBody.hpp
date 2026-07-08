@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The output of the action.
       Darabonba::Json output_ {};
+      // The execution status.
       shared_ptr<string> status_ {};
     };
 
@@ -104,8 +107,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The execution result.
     shared_ptr<InvokeActionResponseBody::Result> result_ {};
   };
 

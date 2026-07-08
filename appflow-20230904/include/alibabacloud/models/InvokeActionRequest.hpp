@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The type of authentication information.
       shared_ptr<string> type_ {};
+      // The authentication content. Its value is a raw JSON object or a credential ID, as determined by the `Type` parameter.
       Darabonba::Json value_ {};
     };
 
@@ -176,17 +178,29 @@ namespace Models
 
 
   protected:
+    // The action ID.
+    // 
     // This parameter is required.
     shared_ptr<string> actionId_ {};
+    // The action version.
     shared_ptr<string> actionVersion_ {};
+    // The authentication information for the action.
     shared_ptr<InvokeActionRequest::AuthConfig> authConfig_ {};
+    // The request body for the action.
     Darabonba::Json body_ {};
+    // The connector ID.
+    // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
+    // The connector version.
     shared_ptr<string> connectorVersion_ {};
+    // The request header parameters for the action.
     shared_ptr<map<string, string>> headers_ {};
+    // The path parameters for the action.
     shared_ptr<map<string, string>> path_ {};
+    // The query parameters for the action.
     shared_ptr<map<string, string>> query_ {};
+    // Specifies whether to use streaming output.
     shared_ptr<bool> stream_ {};
   };
 
