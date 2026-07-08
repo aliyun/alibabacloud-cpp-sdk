@@ -79,11 +79,15 @@ namespace Models
 
 
   protected:
+    // The list of skills returned.
     shared_ptr<vector<Skill>> data_ {};
+    // The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The NextToken value, which is used to retrieve more results.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

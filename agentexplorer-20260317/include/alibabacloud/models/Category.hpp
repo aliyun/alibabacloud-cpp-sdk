@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // Level 2 Category Code
       shared_ptr<string> code_ {};
+      // Level 2 Category Name
       shared_ptr<string> name_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // Sub-categories
     shared_ptr<vector<Category::Children>> children_ {};
+    // Level 1 Category Code
     shared_ptr<string> code_ {};
+    // Level 1 Category Name
     shared_ptr<string> name_ {};
   };
 

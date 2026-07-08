@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The returned category list
     shared_ptr<vector<Category>> data_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // request ID
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // SKILL.md file content
     shared_ptr<string> content_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

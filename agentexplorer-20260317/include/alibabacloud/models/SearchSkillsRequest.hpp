@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(searchMode, searchMode_);
       DARABONBA_PTR_TO_JSON(skip, skip_);
     };
     friend void from_json(const Darabonba::Json& j, SearchSkillsRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(searchMode, searchMode_);
       DARABONBA_PTR_FROM_JSON(skip, skip_);
     };
     SearchSkillsRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryCode_ == nullptr
-        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->skip_ == nullptr; };
+        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->searchMode_ == nullptr && this->skip_ == nullptr; };
     // categoryCode Field Functions 
     bool hasCategoryCode() const { return this->categoryCode_ != nullptr;};
     void deleteCategoryCode() { this->categoryCode_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline SearchSkillsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // searchMode Field Functions 
+    bool hasSearchMode() const { return this->searchMode_ != nullptr;};
+    void deleteSearchMode() { this->searchMode_ = nullptr;};
+    inline string getSearchMode() const { DARABONBA_PTR_GET_DEFAULT(searchMode_, "") };
+    inline SearchSkillsRequest& setSearchMode(string searchMode) { DARABONBA_PTR_SET_VALUE(searchMode_, searchMode) };
+
+
     // skip Field Functions 
     bool hasSkip() const { return this->skip_ != nullptr;};
     void deleteSkip() { this->skip_ = nullptr;};
@@ -75,10 +84,16 @@ namespace Models
 
 
   protected:
+    // The skill category code. Separate multiple codes with commas. For a second-level category, use the format: first-level category.second-level category.
     shared_ptr<string> categoryCode_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query. Set this to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> searchMode_ {};
+    // The number of entries to skip for pagination.
     shared_ptr<int32_t> skip_ {};
   };
 

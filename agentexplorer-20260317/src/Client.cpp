@@ -18,7 +18,11 @@ namespace AgentExplorer20260317
 {
 
 AlibabaCloud::AgentExplorer20260317::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"public" , "agentexplorer.aliyuncs.com"},
+    {"cn-hangzhou" , "agentexplorer.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agentexplorer", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +41,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 获取阿里云 Agent Skill 内容
+ * @summary Get the SKILL.md file content of the specified Agent Skill
  *
  * @param request GetSkillContentRequest
  * @param headers map
@@ -64,7 +68,7 @@ GetSkillContentResponse Client::getSkillContentWithOptions(const string &skillNa
 }
 
 /**
- * @summary 获取阿里云 Agent Skill 内容
+ * @summary Get the SKILL.md file content of the specified Agent Skill
  *
  * @param request GetSkillContentRequest
  * @return GetSkillContentResponse
@@ -76,7 +80,7 @@ GetSkillContentResponse Client::getSkillContent(const string &skillName, const G
 }
 
 /**
- * @summary 列举所有的阿里云 Skills 类目
+ * @summary List all Alibaba Cloud Skills categories.
  *
  * @param request ListCategoriesRequest
  * @param headers map
@@ -103,7 +107,7 @@ ListCategoriesResponse Client::listCategoriesWithOptions(const ListCategoriesReq
 }
 
 /**
- * @summary 列举所有的阿里云 Skills 类目
+ * @summary List all Alibaba Cloud Skills categories.
  *
  * @param request ListCategoriesRequest
  * @return ListCategoriesResponse
@@ -115,7 +119,7 @@ ListCategoriesResponse Client::listCategories(const ListCategoriesRequest &reque
 }
 
 /**
- * @summary 通过关键词、类目搜索阿里云 Agent Skills
+ * @summary Searches for Alibaba Cloud Agent Skills by keyword or category.
  *
  * @param request SearchSkillsRequest
  * @param headers map
@@ -141,6 +145,10 @@ SearchSkillsResponse Client::searchSkillsWithOptions(const SearchSkillsRequest &
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasSearchMode()) {
+    query["searchMode"] = request.getSearchMode();
+  }
+
   if (!!request.hasSkip()) {
     query["skip"] = request.getSkip();
   }
@@ -164,7 +172,7 @@ SearchSkillsResponse Client::searchSkillsWithOptions(const SearchSkillsRequest &
 }
 
 /**
- * @summary 通过关键词、类目搜索阿里云 Agent Skills
+ * @summary Searches for Alibaba Cloud Agent Skills by keyword or category.
  *
  * @param request SearchSkillsRequest
  * @return SearchSkillsResponse
