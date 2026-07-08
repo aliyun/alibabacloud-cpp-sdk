@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The authorization code.
+    // Authorization code.
     // 
-    // >  On the [My Applications](https://dytns.console.aliyun.com/analysis/apply) page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/overview?spm=a2c4g.608385.0.0.79847f8b3awqUC), you can obtain the authorization code (also known as authorization ID).
+    // >Log on to the [Cell Phone Number Service console](https://dytns.console.aliyun.com/overview?spm=a2c4g.608385.0.0.79847f8b3awqUC), and obtain the authorization ID (i.e., authorization code) on the [My Applications](https://dytns.console.aliyun.com/analysis/apply) page.
     // 
     // This parameter is required.
     shared_ptr<string> authCode_ {};
-    // The enterprise name.
+    // Enterprise name.
     // 
     // This parameter is required.
     shared_ptr<string> epCertName_ {};
-    // The business license number.
+    // Enterprise certificate number.
     // 
     // This parameter is required.
     shared_ptr<string> epCertNo_ {};

@@ -130,15 +130,24 @@ namespace Models
 
 
   protected:
+    // The business type. Set the value to **contact**.
     shared_ptr<string> bizType_ {};
+    // The contact email.
     shared_ptr<string> contactEmail_ {};
+    // The contact name.
+    // 
     // This parameter is required.
     shared_ptr<string> contactName_ {};
+    // The contact phone number.
     shared_ptr<string> contactPhone_ {};
+    // Specifies whether to enable email alerts. Valid values:
     shared_ptr<int32_t> mailStatus_ {};
+    // Specifies whether to enable status warnings. Valid values:
     shared_ptr<bool> openStatusWarning_ {};
+    // Specifies whether to enable attribution warnings. Valid values:
     shared_ptr<bool> opentAttributionWarning_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to enable phone alerts. Valid values:
     shared_ptr<int32_t> phoneStatus_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

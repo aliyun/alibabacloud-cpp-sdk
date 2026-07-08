@@ -78,18 +78,19 @@ namespace Models
 
 
   protected:
-    // The response code. **OK** indicates that the request is successful.
+    // The status code returned. **OK** indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data returned.
     shared_ptr<vector<string>> data_ {};
-    // The returned message.
+    // The description of the status code returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: successful.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -95,7 +95,12 @@ namespace Models
 
 
       protected:
+        // The result code returned.
+        // - YES: valid
+        // - NO: invalid
+        // - UNKNOWN: unknown
         shared_ptr<string> code_ {};
+        // The mobile phone number that is passed in.
         shared_ptr<string> number_ {};
       };
 
@@ -110,6 +115,7 @@ namespace Models
 
 
     protected:
+      // The data list.
       shared_ptr<vector<Data::List>> list_ {};
     };
 
@@ -153,10 +159,17 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only if RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. Valid values:
+    // 
+    //  **OK**: The request was successful.
     shared_ptr<string> code_ {};
+    // The information about the phone number analysis result.
     shared_ptr<DescribePhoneNumberAnalysisResponseBody::Data> data_ {};
+    // The description of the phone number status.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

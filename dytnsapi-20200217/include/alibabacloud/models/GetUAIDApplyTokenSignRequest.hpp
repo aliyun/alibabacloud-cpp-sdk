@@ -130,20 +130,51 @@ namespace Models
 
 
   protected:
+    // The authorization code.
+    // 
+    // > To obtain this authorization code, navigate to **Tag Plaza** in the [**Phone Number Verification Service**](https://dytns.console.aliyun.com/analysis/square) console, select a tag, and submit an application. You receive the code after your application is approved.
+    // 
     // This parameter is required.
     shared_ptr<string> authCode_ {};
+    // The mobile carrier. Valid values:
+    // 
+    // - **CM**: China Mobile
+    // 
+    // - **CU**: China Unicom
+    // 
+    // - **CT**: China Telecom
+    // 
     // This parameter is required.
     shared_ptr<string> carrier_ {};
+    // The client type. Valid values:
+    // 
+    // - `30100`: Android
+    // 
+    // - `30300`: iOS
+    // 
+    // - `20200`: H5
+    // 
+    // - `10010`: Web
+    // 
     // This parameter is required.
     shared_ptr<string> clientType_ {};
     shared_ptr<string> format_ {};
+    // The external ID.
+    // 
+    // > For China Mobile (CM), this parameter corresponds to `traceId` and `msgId`. The values of `OutId`, `traceId`, and `msgId` must be the same.
+    // 
     // This parameter is required.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // This parameter is required if the carrier is China Telecom (CT). For details, see the China Telecom documentation.
     shared_ptr<string> paramKey_ {};
+    // This parameter is required if the carrier is China Telecom (CT). For details, see the China Telecom documentation.
     shared_ptr<string> paramStr_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The event timestamp, accurate to the millisecond.<br>
+    // Format: `yyyyMMddHHmmssSSS`.<br>
+    // 
     // This parameter is required.
     shared_ptr<string> time_ {};
   };

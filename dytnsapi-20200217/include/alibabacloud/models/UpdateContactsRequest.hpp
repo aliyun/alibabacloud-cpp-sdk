@@ -130,15 +130,37 @@ namespace Models
 
 
   protected:
+    // The email address of the contact.
     shared_ptr<string> contactEmail_ {};
+    // The ID of the contact to update. You can retrieve the ID by calling the ListContacts operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> contactId_ {};
+    // The name of the contact.
     shared_ptr<string> contactName_ {};
+    // The mobile phone number of the contact.
     shared_ptr<string> contactPhone_ {};
+    // Enables or disables email alerts. Valid values:
+    // 
+    // - 0: disabled.
+    // 
+    // - 1: enabled.
     shared_ptr<int32_t> mailStatus_ {};
+    // Enables or disables alerts for number status.
+    // Valid values:
+    // 
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
     shared_ptr<bool> openStatusWarning_ {};
+    // Enables or disables alerts for number attribution queries. Valid values: -**true**: enabled. -**false**: disabled.
     shared_ptr<bool> opentAttributionWarning_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Enables or disables phone call alerts. Valid values:
+    // 
+    // - 0: disabled.
+    // 
+    // - 1: enabled.
     shared_ptr<int32_t> phoneStatus_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

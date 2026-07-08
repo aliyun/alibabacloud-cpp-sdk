@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The request status code. The value `OK` indicates a successful request. For more information about other error codes, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
     shared_ptr<string> code_ {};
+    // Indicates whether the operation was successful. A value of **true** indicates success, and a value of **false** indicates failure.
     shared_ptr<bool> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

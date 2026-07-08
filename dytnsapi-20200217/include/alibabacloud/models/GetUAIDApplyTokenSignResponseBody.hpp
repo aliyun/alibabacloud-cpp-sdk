@@ -84,8 +84,17 @@ namespace Models
 
 
     protected:
+      // The mobile carrier. Valid values:
+      // 
+      // - **CM**: China Mobile
+      // 
+      // - **CU**: China Unicom
+      // 
+      // - **CT**: China Telecom
       shared_ptr<string> carrier_ {};
+      // The external ID.
       shared_ptr<string> outId_ {};
+      // The signature value.
       shared_ptr<string> sign_ {};
     };
 
@@ -129,10 +138,17 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response status code. Valid values:
+    // 
+    // - **OK**: The request was successful.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetUAIDApplyTokenSignResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

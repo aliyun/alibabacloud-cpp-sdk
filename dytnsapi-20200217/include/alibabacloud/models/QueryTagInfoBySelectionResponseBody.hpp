@@ -211,9 +211,9 @@ namespace Models
         shared_ptr<bool> must_ {};
         // The Chinese name of the parameter.
         shared_ptr<string> name_ {};
-        // The type. The code that corresponds to EnumUIWidgetTypes.
+        // The code corresponding to the type EnumUIWidgetTypes.
         shared_ptr<string> type_ {};
-        // The definitions of the enumerated values such as Code or Desc.
+        // The definition of an enumerated value, in the format of code:desc.
         shared_ptr<vector<ParamList::ValueDict>> valueDict_ {};
       };
 
@@ -326,12 +326,13 @@ namespace Models
     protected:
       // The list of available authorization codes.
       shared_ptr<vector<string>> authCodeList_ {};
+      // The tag type.
       shared_ptr<string> complexityType_ {};
-      // The URL for the API demo.
+      // The link to the API demo.
       shared_ptr<string> demoAddress_ {};
-      // The URL for the API documentation.
+      // The link to the API documentation.
       shared_ptr<string> docAddress_ {};
-      // The URL for the definitions of the enumerated values.
+      // The link to the enumerated value definition.
       shared_ptr<string> enumDefinitionAddress_ {};
       // The flow name.
       shared_ptr<string> flowName_ {};
@@ -341,6 +342,7 @@ namespace Models
       shared_ptr<string> industryName_ {};
       // The list of tag parameters.
       shared_ptr<vector<Data::ParamList>> paramList_ {};
+      // The rich text description. This field is available only for complex tags.
       shared_ptr<string> richTextDescription_ {};
       // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
@@ -392,18 +394,19 @@ namespace Models
 
 
   protected:
-    // The response code. **OK** indicates that the request is successful.
+    // The request status code. The value **OK** indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data returned.
     shared_ptr<vector<QueryTagInfoBySelectionResponseBody::Data>> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

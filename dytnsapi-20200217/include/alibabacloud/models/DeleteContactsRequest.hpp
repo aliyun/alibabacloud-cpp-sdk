@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The ID of the contact.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> contactId_ {};
     shared_ptr<int64_t> ownerId_ {};

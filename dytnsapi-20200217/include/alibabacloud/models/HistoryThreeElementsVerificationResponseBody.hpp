@@ -75,7 +75,19 @@ namespace Models
 
 
     protected:
+      // The consistency of the verification result. Valid values:
+      // 
+      // - `0`: No record found.
+      // 
+      // - `1`: The phone number, ID number, and name match the carrier\\"s records.
+      // 
+      // - `2`: The phone number and ID number match the carrier\\"s records, but the name does not.
+      // 
+      // - `3`: The phone number and name match the carrier\\"s records, but the ID number does not.
+      // 
+      // - `4`: The phone number matches the carrier\\"s records, but the name and ID number do not.
       shared_ptr<int64_t> isConsistent_ {};
+      // The carrier to which the request was routed.
       shared_ptr<string> requestCarrier_ {};
     };
 
@@ -119,10 +131,21 @@ namespace Models
 
 
   protected:
+    // Details about why access is denied.
+    // 
+    // > This parameter is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code of the request.
+    // 
+    // - A value of `OK` indicates the request was successful.
+    // 
+    // - For other values, see the Error Codes section.
     shared_ptr<string> code_ {};
+    // The query results.
     shared_ptr<HistoryThreeElementsVerificationResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

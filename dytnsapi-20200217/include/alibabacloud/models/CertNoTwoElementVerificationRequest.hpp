@@ -84,10 +84,18 @@ namespace Models
 
 
   protected:
+    // The authorization code.
+    // 
+    // > In **Cell Phone Number Service** -> [**Tag Marketplace**](https://dytns.console.aliyun.com/analysis/square), select a tag and submit an application for use. After the application is approved, you will obtain the authorization code.
+    // 
     // This parameter is required.
     shared_ptr<string> authCode_ {};
+    // The name to be verified.
+    // 
     // This parameter is required.
     shared_ptr<string> certName_ {};
+    // The ID card number to be verified.
+    // 
     // This parameter is required.
     shared_ptr<string> certNo_ {};
     shared_ptr<int64_t> ownerId_ {};

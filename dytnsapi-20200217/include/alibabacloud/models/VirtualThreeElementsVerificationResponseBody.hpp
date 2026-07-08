@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CERTNOTHREEELEMENTVERIFICATIONRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CERTNOTHREEELEMENTVERIFICATIONRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_VIRTUALTHREEELEMENTSVERIFICATIONRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_VIRTUALTHREEELEMENTSVERIFICATIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,29 +10,29 @@ namespace Dytnsapi20200217
 {
 namespace Models
 {
-  class CertNoThreeElementVerificationResponseBody : public Darabonba::Model {
+  class VirtualThreeElementsVerificationResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CertNoThreeElementVerificationResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const VirtualThreeElementsVerificationResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, CertNoThreeElementVerificationResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, VirtualThreeElementsVerificationResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    CertNoThreeElementVerificationResponseBody() = default ;
-    CertNoThreeElementVerificationResponseBody(const CertNoThreeElementVerificationResponseBody &) = default ;
-    CertNoThreeElementVerificationResponseBody(CertNoThreeElementVerificationResponseBody &&) = default ;
-    CertNoThreeElementVerificationResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CertNoThreeElementVerificationResponseBody() = default ;
-    CertNoThreeElementVerificationResponseBody& operator=(const CertNoThreeElementVerificationResponseBody &) = default ;
-    CertNoThreeElementVerificationResponseBody& operator=(CertNoThreeElementVerificationResponseBody &&) = default ;
+    VirtualThreeElementsVerificationResponseBody() = default ;
+    VirtualThreeElementsVerificationResponseBody(const VirtualThreeElementsVerificationResponseBody &) = default ;
+    VirtualThreeElementsVerificationResponseBody(VirtualThreeElementsVerificationResponseBody &&) = default ;
+    VirtualThreeElementsVerificationResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~VirtualThreeElementsVerificationResponseBody() = default ;
+    VirtualThreeElementsVerificationResponseBody& operator=(const VirtualThreeElementsVerificationResponseBody &) = default ;
+    VirtualThreeElementsVerificationResponseBody& operator=(VirtualThreeElementsVerificationResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -60,25 +60,12 @@ namespace Models
       // isConsistent Field Functions 
       bool hasIsConsistent() const { return this->isConsistent_ != nullptr;};
       void deleteIsConsistent() { this->isConsistent_ = nullptr;};
-      inline string getIsConsistent() const { DARABONBA_PTR_GET_DEFAULT(isConsistent_, "") };
-      inline Data& setIsConsistent(string isConsistent) { DARABONBA_PTR_SET_VALUE(isConsistent_, isConsistent) };
+      inline int64_t getIsConsistent() const { DARABONBA_PTR_GET_DEFAULT(isConsistent_, 0L) };
+      inline Data& setIsConsistent(int64_t isConsistent) { DARABONBA_PTR_SET_VALUE(isConsistent_, isConsistent) };
 
 
     protected:
-      // Indicates whether the verification result is consistent. Returned values:
-      // 
-      // - 0: The name matches the ID card number, but they are recognized as not the same person.
-      // 
-      // - 1: The name matches the ID card number, and they are recognized as the same person.
-      // 
-      // - 2: The name matches the ID card number, and they are suspected to be the same person.
-      // 
-      // - 3: The name matches the ID card number, but no portrait information is found in the database.
-      // 
-      // - 4: Invalid identity information (the name does not match the ID card number).
-      // 
-      // - 5: The photo quality is unqualified.
-      shared_ptr<string> isConsistent_ {};
+      shared_ptr<int64_t> isConsistent_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
@@ -87,51 +74,44 @@ namespace Models
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
     inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
-    inline CertNoThreeElementVerificationResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline VirtualThreeElementsVerificationResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline CertNoThreeElementVerificationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline VirtualThreeElementsVerificationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const CertNoThreeElementVerificationResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, CertNoThreeElementVerificationResponseBody::Data) };
-    inline CertNoThreeElementVerificationResponseBody::Data getData() { DARABONBA_PTR_GET(data_, CertNoThreeElementVerificationResponseBody::Data) };
-    inline CertNoThreeElementVerificationResponseBody& setData(const CertNoThreeElementVerificationResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline CertNoThreeElementVerificationResponseBody& setData(CertNoThreeElementVerificationResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const VirtualThreeElementsVerificationResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, VirtualThreeElementsVerificationResponseBody::Data) };
+    inline VirtualThreeElementsVerificationResponseBody::Data getData() { DARABONBA_PTR_GET(data_, VirtualThreeElementsVerificationResponseBody::Data) };
+    inline VirtualThreeElementsVerificationResponseBody& setData(const VirtualThreeElementsVerificationResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline VirtualThreeElementsVerificationResponseBody& setData(VirtualThreeElementsVerificationResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CertNoThreeElementVerificationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline VirtualThreeElementsVerificationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CertNoThreeElementVerificationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline VirtualThreeElementsVerificationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The details about why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The request status code. Valid values:
-    // - OK: The request is successful.
-    // - For other error codes, see the error code list below.
     shared_ptr<string> code_ {};
-    // The returned result.
-    shared_ptr<CertNoThreeElementVerificationResponseBody::Data> data_ {};
-    // The description of the status code.
+    shared_ptr<VirtualThreeElementsVerificationResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

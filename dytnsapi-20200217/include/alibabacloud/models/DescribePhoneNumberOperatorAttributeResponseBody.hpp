@@ -113,23 +113,24 @@ namespace Models
     protected:
       // The basic carrier. Valid values:
       // 
-      // *   **China Mobile**
-      // *   **China Unicom**
-      // *   **China Telecom**
-      // *   **China Broadnet**
+      // - **China Mobile**.
+      // - **China Unicom**.
+      // - **China Telecom**.
+      // - **China Broadnet**.
       shared_ptr<string> basicCarrier_ {};
-      // The actual carrier, including the virtual network operator (VNO). If the phone number involves mobile number portability, the value of this parameter is the carrier after mobile number portability.
+      // The actual carrier (including the mobile virtual network operator). If number portability is enabled, the value indicates the carrier after number portability.
       shared_ptr<string> carrier_ {};
-      // The city where the phone number is registered.
+      // The city to which the phone number belongs.
       shared_ptr<string> city_ {};
-      // Indicates whether the phone number involves mobile number portability. Valid values:
+      // Indicates whether the number has been ported. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: yes
+      // 
+      // - **false**: no
       shared_ptr<bool> isNumberPortability_ {};
       // The number segment to which the phone number belongs.
       shared_ptr<int64_t> numberSegment_ {};
-      // The province where the phone number is registered.
+      // The province to which the phone number belongs.
       shared_ptr<string> province_ {};
     };
 
@@ -173,18 +174,19 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only if the request is denied because the RAM user or RAM role does not have the required permissions.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. Valid values:
+    // The status code of the request. Valid values:
     // 
-    // *   **OK**: The request is successful.
-    // *   **InvalidParameter**: The specified phone number is invalid or the parameter format is invalid.
-    // *   **PhoneNumberNotfound**: No attribute information can be found for the specified phone number.
-    // *   **isp.UNKNOWN**: An unknown exception occurred.
-    // *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
+    // - **OK**: The request is successful.
+    // - **InvalidParameter**: The phone number is invalid or the format of the parameter is invalid.
+    // - **PhoneNumberNotfound**: The carrier information of the phone number is not found.
+    // - **isp.UNKNOWN**: An unknown error occurred.
+    // - **RequestFrequencyLimit**: Due to carrier restrictions, you cannot frequently query the same number in a short period of time. If this error code is returned, try again later.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The returned data.
     shared_ptr<DescribePhoneNumberOperatorAttributeResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

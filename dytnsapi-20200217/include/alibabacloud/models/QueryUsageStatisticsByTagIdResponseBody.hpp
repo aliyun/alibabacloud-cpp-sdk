@@ -158,27 +158,27 @@ namespace Models
 
 
     protected:
-      // The authorization code.
+      // 授权码。
       shared_ptr<string> authorizationCode_ {};
-      // The numbers for which the query failed.
+      // 查询失败号码数。
       shared_ptr<int64_t> failTotal_ {};
-      // The creation time.
+      // 创建时间。
       shared_ptr<string> gmtDateStr_ {};
-      // The ID of the authorization code usage record.
+      // 授权码使用记录ID。
       shared_ptr<int64_t> id_ {};
-      // The industry name.
+      // 行业名称。
       shared_ptr<string> industryName_ {};
-      // The customer product ID (PID).
+      // 客户pid。
       shared_ptr<int64_t> partnerId_ {};
-      // The scene name.
+      // 场景名称。
       shared_ptr<string> sceneName_ {};
-      // The numbers for which the query succeeded.
+      // 查询成功号码数。
       shared_ptr<int64_t> successTotal_ {};
-      // The tag name.
+      // 标签名称。
       shared_ptr<int64_t> tagId_ {};
-      // The tag name.
+      // 标签名称。
       shared_ptr<string> tagName_ {};
-      // The total quantity of numbers that are involved in the query.
+      // 查询总号码数。
       shared_ptr<int64_t> total_ {};
     };
 
@@ -222,18 +222,17 @@ namespace Models
 
 
   protected:
-    // The response code. **OK** indicates that the request is successful.
+    // 请求状态码。 **OK**为成功。
     shared_ptr<string> code_ {};
-    // The returned data.
+    // 返回的数据内容。
     shared_ptr<vector<QueryUsageStatisticsByTagIdResponseBody::Data>> data_ {};
-    // The returned message.
+    // 返回状态码描述。
     shared_ptr<string> message_ {};
-    // The request ID.
+    // 请求ID。
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
-    // 
-    // *   true
-    // *   false
+    // 表示是否调用成功。
+    // - true：调用成功。             
+    //  - false：调用失败。
     shared_ptr<bool> success_ {};
   };
 

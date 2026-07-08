@@ -67,7 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // 产品名称，如dysms
+    // The product name. The value must be dytns.
     shared_ptr<string> productName_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

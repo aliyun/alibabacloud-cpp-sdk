@@ -75,7 +75,9 @@ namespace Models
 
 
   protected:
+    // The business type. Set the value to `dytns`.
     shared_ptr<string> bizType_ {};
+    // The contact ID.
     shared_ptr<int64_t> contactId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

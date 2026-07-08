@@ -195,11 +195,11 @@ namespace Models
 
 
       protected:
-        // The API operation that is called by the frontend.
+        // The name of the API called by the frontend.
         shared_ptr<string> apiName_ {};
-        // Code
+        // The response code. OK indicates success.
         shared_ptr<string> code_ {};
-        // The URL for the API documentation.
+        // The API document link.
         shared_ptr<string> docAddress_ {};
         // The tag ID.
         shared_ptr<int64_t> id_ {};
@@ -207,14 +207,15 @@ namespace Models
         shared_ptr<int64_t> industryId_ {};
         // The industry name.
         shared_ptr<string> industryName_ {};
-        // The tag description.
+        // The tag introduction.
         shared_ptr<string> introduction_ {};
-        // Indicates whether the number is activated.
+        // Indicates whether the activation has been applied for.
         shared_ptr<int64_t> isOpen_ {};
         // The tag name.
         shared_ptr<string> name_ {};
-        // *   0: The number is hidden.
-        // *   1: The number is public.
+        // - 0: hidden.
+        //  
+        // - 1: public.
         shared_ptr<string> saleStatusStr_ {};
         // The scene ID.
         shared_ptr<int64_t> sceneId_ {};
@@ -262,15 +263,15 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNo_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The retruned data.
+      // The data list.
       shared_ptr<vector<Data::Records>> records_ {};
-      // The total number of returned entries.
+      // The total count.
       shared_ptr<int64_t> totalCount_ {};
-      // The total number of returned pages.
+      // The total number of pages.
       shared_ptr<int64_t> totalPage_ {};
     };
 
@@ -314,18 +315,19 @@ namespace Models
 
 
   protected:
-    // The response code. **OK** indicates that the request is successful.
+    // The response code. **OK** indicates success.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryTagListPageResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the response code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: successful.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -69,7 +69,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag ID.
+    // The tag ID. You can call the [QueryTagListPage](~~QueryTagListPage~~) operation to query tag IDs.
     shared_ptr<int64_t> tagId_ {};
   };
 

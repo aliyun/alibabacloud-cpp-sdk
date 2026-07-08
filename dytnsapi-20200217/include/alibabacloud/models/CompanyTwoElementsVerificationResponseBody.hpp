@@ -101,7 +101,7 @@ namespace Models
 
 
       protected:
-        // The business status of the enterprise.
+        // The operating status of the enterprise.
         shared_ptr<string> enterpriseStatus_ {};
         // The business term of the enterprise.
         shared_ptr<string> openTime_ {};
@@ -142,21 +142,25 @@ namespace Models
 
 
     protected:
-      // The information about the enterprise.
-      shared_ptr<Data::DetailInfo> detailInfo_ {};
-      // The fields to be verified.
-      shared_ptr<vector<string>> inconsistentData_ {};
-      // The code of the verification result. Valid values:
+      // Enterprise details.
       // 
-      // *   0: The two elements belong to the same enterprise.
-      // *   1: The two elements belong to the same enterprise, but the business status of the enterprise is abnormal.
-      // *   3: The two elements do not belong to the same enterprise.
-      // *   4: No information about the enterprise is found.
+      // > This field is not returned for public institutions or civil groups.
+      shared_ptr<Data::DetailInfo> detailInfo_ {};
+      // The fields that are inconsistent in the verification.
+      shared_ptr<vector<string>> inconsistentData_ {};
+      // The verification result code. Valid values:
+      // 
+      // - 0: Verification consistent
+      // - 1: Verification consistent, the enterprise is not in normal operation
+      // - 3: The two enterprise elements failed verification
+      // - 4: No such enterprise found
       shared_ptr<string> reasonCode_ {};
       // The verification result. Valid values:
       // 
-      // *   true: The two elements belong to the same enterprise and the business status of the enterprise is Active.
-      // *   false: The two elements do not belong to the same enterprise.
+      // - true: The information is verified to be consistent, and the enterprise is operating normally.
+      // - false: The verification failed.
+      // 
+      // > The operating status verification is not supported for public institutions or civil groups. Only the consistency between the enterprise name and the enterprise certificate number is verified.
       shared_ptr<string> verifyResult_ {};
     };
 
@@ -200,15 +204,15 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The request status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The struct.
     shared_ptr<CompanyTwoElementsVerificationResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
-    // The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+    // The common parameter. Each request returns a unique ID, which can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

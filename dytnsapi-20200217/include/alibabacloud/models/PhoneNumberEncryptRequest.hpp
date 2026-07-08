@@ -96,22 +96,24 @@ namespace Models
   protected:
     // The authorization code.
     // 
-    // >  On the **My Applications** page in the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), you can obtain the authorization code (also known as authorization ID).
+    // > On the **My Applications** page of the [Cell Phone Number Service console](https://dytns.console.aliyun.com/analysis/apply), obtain the authorization ID, which is the authorization code.
     // 
     // This parameter is required.
     shared_ptr<string> authCode_ {};
     // The phone number to be queried.
     // 
-    // >  You can query only one phone number at a time.
+    // > Currently, only single phone number queries are supported.
     // 
     // This parameter is required.
     shared_ptr<string> inputNumber_ {};
-    // The encryption method of the phone number. Set the value to **NORMAL**.
+    // The encryption method of the phone number. Valid value: **NORMAL**.
     // 
-    // >  Only the NORMAL encryption method is supported.
+    // 
+    // >Notice: Currently, only the NORMAL encryption method is supported.
     // 
     // This parameter is required.
     shared_ptr<string> mask_ {};
+    // The user-defined outId. This parameter is optional. The format is not limited, and the length must be less than or equal to 64 characters.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

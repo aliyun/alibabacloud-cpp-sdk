@@ -94,10 +94,13 @@ namespace Models
     protected:
       // The encrypted phone number.
       shared_ptr<string> encryptedNumber_ {};
-      // The time when the phone number expires.
+      // The expiration time of the phone number.
       shared_ptr<string> expireTime_ {};
       // The original phone number.
       shared_ptr<string> originalNumber_ {};
+      // The custom ID reserved for the caller when the request was initiated. This ID is eventually returned to the caller.
+      // 
+      // The value is of the string type. The maximum length is 64 characters.
       shared_ptr<string> outId_ {};
     };
 
@@ -134,14 +137,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code of the request.
     // 
-    // *   The value OK indicates that the request was successful.
-    // *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
+    // - The value OK indicates that the request was successful.
+    // 
+    // - For information about other error codes, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
     shared_ptr<string> code_ {};
-    // Details about the returned entries.
+    // The array.
     shared_ptr<vector<PhoneNumberEncryptResponseBody::Data>> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

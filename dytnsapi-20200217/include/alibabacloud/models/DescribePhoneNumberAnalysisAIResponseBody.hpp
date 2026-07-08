@@ -75,13 +75,13 @@ namespace Models
 
 
     protected:
-      // The returned code.
+      // The returned result code.
       // 
-      // *   YES: The specified phone number is valid.
-      // *   NO: The specified phone number is invalid.
-      // *   UNKNOWN: The specified phone number is unknown
+      // - YES: valid
+      // - NO: invalid
+      // - UNKNOWN: unknown
       shared_ptr<string> code_ {};
-      // The specified phone number.
+      // The phone number that was passed in.
       shared_ptr<string> number_ {};
     };
 
@@ -125,14 +125,14 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code. Valid values:
-    // 
-    // *   OK: The request is successful.
+    // The request status code. Valid values:
+    // - OK: success
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The returned result.
     shared_ptr<DescribePhoneNumberAnalysisAIResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

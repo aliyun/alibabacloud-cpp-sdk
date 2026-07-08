@@ -65,6 +65,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether the verification result is consistent. Valid values:
+      // 
+      // - **1**: Consistent
+      // 
+      // - **0**: Inconsistent
+      // 
+      // - **2**: Not found
       shared_ptr<string> isConsistent_ {};
     };
 
@@ -108,10 +115,15 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
     shared_ptr<string> code_ {};
+    // The returned result.
     shared_ptr<CertNoTwoElementVerificationResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

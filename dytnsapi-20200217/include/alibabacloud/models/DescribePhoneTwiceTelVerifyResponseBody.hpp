@@ -73,20 +73,27 @@ namespace Models
 
 
     protected:
-      // The carrier. Valid values:
+      // The carrier that provides service for the number. Valid values:
       // 
-      // *   **CMCC**: China Mobile
-      // *   **CUCC**: China Unicom
-      // *   **CTCC**: China Telecom
+      // - **CMCC**: China Mobile.
       // 
-      // >  The returned result indicates the carrier who assigns the phone number. If the phone number involves mobile number portability, the carrier after mobile number portability is returned.
+      // - **CUCC**: China Unicom.
+      // 
+      // - **CTCC**: China Telecom.
+      // 
+      // > The carrier that currently provides service for the number. For a ported number, this is the destination carrier.
       shared_ptr<string> carrier_ {};
-      // The result of the request. Valid values:
+      // The verification result. Valid values:
       // 
-      // *   **0**: It is unable to judge whether the phone number is a reassigned number.
-      // *   **1**: The phone number is a reassigned number.
-      // *   **2**: The phone number is not a reassigned number.
-      // *   **3**: The phone number has been canceled.
+      // - **0**: Cannot be determined.
+      // 
+      // - **1**: The number is a recycled number.
+      // 
+      // - **2**: The number is not a recycled number.
+      // 
+      // - **3**: The number has been deactivated.
+      // 
+      // - **4**: Unknown: The number was transferred to a new owner.
       shared_ptr<string> verifyResult_ {};
     };
 
@@ -123,20 +130,23 @@ namespace Models
 
 
   protected:
-    // The response code. Valid values:
+    // The request status code. Valid values:
     // 
-    // *   **OK**: The request is successful.
-    // *   **PortabilityNumberNotSupported**: The phone number that is involved in mobile number portability is not supported.
-    // *   **RequestNumberNotSupported**: You are not allowed to query phone numbers assigned by China Broadnet (that is, phone numbers start with 192) and phone numbers assigned by virtual network operators (VNOs).
-    // *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
+    // - **OK**: The request was successful.
     // 
-    // >  You are charged for phone number verifications if the value of Code is OK and the value of VerifyResult is not 0. For more information, see [Pricing](https://help.aliyun.com/document_detail/154751.html).
+    // - **PortabilityNumberNotSupported**: Queries for this ported number are not supported.
+    // 
+    // - **RequestNumberNotSupported**: Queries are not supported for numbers from China Broadnet (starting with 192), mobile virtual network operators, and other unsupported carriers.
+    // 
+    // - **RequestFrequencyLimit**: Carriers limit frequent queries for the same number. If you receive this error code, try again later.
+    // 
+    // > A charge applies when the value of `Code` is `OK` and the value of `VerifyResult` is not `0`. For more information, see [Phone Number Service pricing](https://help.aliyun.com/document_detail/154751.html).
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // A data structure that contains the verification results.
     shared_ptr<DescribePhoneTwiceTelVerifyResponseBody::Data> data_ {};
-    // The returned message.
+    // A description of the returned status code.
     shared_ptr<string> message_ {};
-    // The unique request ID. It is a common parameter and can be used to troubleshoot and locate issues.
+    // The unique ID of the request. This common parameter is returned with each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

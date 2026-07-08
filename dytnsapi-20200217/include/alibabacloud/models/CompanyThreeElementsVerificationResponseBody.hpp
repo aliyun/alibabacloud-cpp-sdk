@@ -101,9 +101,9 @@ namespace Models
 
 
       protected:
-        // The business status of the enterprise.
+        // The operating status of the company.
         shared_ptr<string> enterpriseStatus_ {};
-        // The business term of the enterprise.
+        // The business term of the company.
         shared_ptr<string> openTime_ {};
       };
 
@@ -142,23 +142,23 @@ namespace Models
 
 
     protected:
-      // The information about the enterprise.
+      // The company details.
       shared_ptr<Data::DetailInfo> detailInfo_ {};
-      // The fields to be verified.
+      // The fields whose verification results are inconsistent.
       shared_ptr<vector<string>> inconsistentData_ {};
-      // The code of the verification result. Valid values:
+      // The verification result code. Valid values:
       // 
-      // *   0: The three elements belong to the same enterprise.
-      // *   1: The three elements belong to the same enterprise, and the business status of the enterprise is abnormal.
-      // *   2: The legal representative information cannot match the enterprise information.
-      // *   3: The three elements do not belong to the same enterprise.
-      // *   4: No information about the enterprise is found.
-      // *   5: No information about the legal representative is found.
+      // - 0: The verification is consistent.
+      // - 1: The verification is consistent, but the company is not operating normally.
+      // - 2: The person-company verification is inconsistent.
+      // - 3: The two-element company verification failed.
+      // - 4: The company is not found.
+      // - 5: The person does not exist in the database.
       shared_ptr<int64_t> reasonCode_ {};
       // The verification result. Valid values:
       // 
-      // *   true: The three elements belong to the same enterprise and the business status of the enterprise is Active.
-      // *   false: The three elements do not belong to the same enterprise.
+      // - true: The information is consistent and the company is operating normally.
+      // - false: The verification failed.
       shared_ptr<string> verifyResult_ {};
     };
 
@@ -204,13 +204,13 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The request status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The returned data.
     shared_ptr<CompanyThreeElementsVerificationResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
-    // The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+    // The common parameter. Each request returns a unique ID, which can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

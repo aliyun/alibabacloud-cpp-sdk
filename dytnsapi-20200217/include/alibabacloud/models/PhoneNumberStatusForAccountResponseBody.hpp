@@ -73,24 +73,31 @@ namespace Models
 
 
     protected:
-      // The basic carrier who assings the phone number. If the queried phone number involves mobile number portability, the carrier after mobile number portability is returned. Valid values:
+      // The number\\"s current carrier. If the number has been ported to a new carrier through mobile number portability, the new carrier is returned. Valid values:
       // 
-      // *   **CMCC**: China Mobile
-      // *   **CUCC**: China Unicom
-      // *   **CTCC**: China Telecom
+      // - **CMCC**: China Mobile
       // 
-      // >  You are not allowed to query the phone numbers assigned by China Broadnet.
+      // - **CUCC**: China Unicom
+      // 
+      // - **CTCC**: China Telecom
+      // 
+      // > Queries for China Broadnet numbers are not supported.
       shared_ptr<string> carrier_ {};
-      // The returned status for the queried phone number. Valid values:
+      // The status of the phone number. Valid values:
       // 
-      // *   **NORMAL**: The queried phone number is valid.
-      // *   **SHUTDOWN**: The queried phone number is suspended.
-      // *   **POWER_OFF**: The queried phone number cannot be connected.
-      // *   **NOT_EXIST**: The queried phone number is a nonexistent number.
-      // *   **DEFECT**: The queried phone number is invalid.
-      // *   **UNKNOWN**: The queried phone number is unknown.
+      // - **NORMAL**: The number is active.
       // 
-      // >  Due to system adjustment of the carrier, the BUSY and POWER_OFF states cannot be returned for the numbers assigned by China Telecom. [For more information, see the official announcements](https://help.aliyun.com/document_detail/2489709.html).
+      // - **SHUTDOWN**: The number is suspended or temporarily out of service.
+      // 
+      // - **POWER_OFF**: The phone is powered off.
+      // 
+      // - **NOT_EXIST**: The number is non-existent.
+      // 
+      // - **DEFECT**: The number is invalid.
+      // 
+      // - **UNKNOWN**: The status is unknown.
+      // 
+      // > Due to adjustments in the carrier\\"s system, China Telecom numbers do not return the `busy` and `powered off` statuses. For more information, [see the official announcement](https://help.aliyun.com/document_detail/2489709.html).
       shared_ptr<string> status_ {};
     };
 
@@ -129,15 +136,17 @@ namespace Models
   protected:
     // The response code. Valid values:
     // 
-    // *   **OK**: The request is successful.
-    // *   **OperatorLimit**: The carrier prohibits the query of the phone number.
-    // *   **RequestFrequencyLimit**: Repeated queries for the same phone number at a high frequency within a short period of time are prohibited due to restrictions that are set by carriers. If this error code is returned, please try again later.
+    // - **OK**: The request was successful.
+    // 
+    // - **OperatorLimit**: The query is prohibited by the carrier.
+    // 
+    // - **RequestFrequencyLimit**: Carriers restrict frequent queries for the same number within a short period. If you receive this error code, try again later.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The response object.
     shared_ptr<PhoneNumberStatusForAccountResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+    // The ID of the request. This ID is unique to each request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

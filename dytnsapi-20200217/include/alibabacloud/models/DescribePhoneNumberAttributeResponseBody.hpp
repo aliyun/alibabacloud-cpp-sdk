@@ -109,24 +109,11 @@ namespace Models
 
 
     protected:
-      // The basic carrier. Valid values:
-      // 
-      // *   **China Mobile**
-      // *   **China Unicom**
-      // *   **China Telecom**
       shared_ptr<string> basicCarrier_ {};
-      // The actual carrier, including the virtual network operator (VNO). If the phone number involves mobile number portability, the value of this parameter is the carrier after mobile number portability.
       shared_ptr<string> carrier_ {};
-      // The city where the phone number is registered.
       shared_ptr<string> city_ {};
-      // Indicates whether the phone number involves mobile number portability. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> isNumberPortability_ {};
-      // The number segment to which the phone number belongs.
       shared_ptr<int64_t> numberSegment_ {};
-      // The province where the phone number is registered.
       shared_ptr<string> province_ {};
     };
 
@@ -163,18 +150,9 @@ namespace Models
 
 
   protected:
-    // The response code. Valid values:
-    // 
-    // *   **OK**: The request is successful.
-    // *   **InvalidParameter**: The specified phone number is invalid or the parameter format is invalid.
-    // *   **PhoneNumberNotfound**: No attribute information can be found for the specified phone number.
-    // *   **isp.UNKNOWN**: An unknown exception occurred.
     shared_ptr<string> code_ {};
-    // The returned message.
     shared_ptr<string> message_ {};
-    // The attribute information about the phone number.
     shared_ptr<DescribePhoneNumberAttributeResponseBody::PhoneNumberAttribute> phoneNumberAttribute_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

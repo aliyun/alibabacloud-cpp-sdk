@@ -77,10 +77,23 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - OK indicates that the request is successful.
+    // 
+    // - For other error codes, see the [error code list](https://help.aliyun.com/document_detail/109196.html).
     shared_ptr<string> code_ {};
+    // The response data.
     Darabonba::Json data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

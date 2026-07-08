@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The details of the tasks.
       shared_ptr<vector<string>> data_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNo_ {};
+      // The total count.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -123,9 +126,21 @@ namespace Models
 
 
   protected:
+    // The request status code. Valid values:
+    // 
+    // - **OK**: The request was successful.
+    // 
+    // - **isv.INVALID_PARAMETERS**: The specified parameter is invalid.
+    // 
+    // - **isp.SYSTEM_ERROR**: A system error occurred.
+    // 
+    // > For more information, see the "Error codes" section of this topic.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<QueryTaskListResponseBody::Data> data_ {};
+    // The status code description.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

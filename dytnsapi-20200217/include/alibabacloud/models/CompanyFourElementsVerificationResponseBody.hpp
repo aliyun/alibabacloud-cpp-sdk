@@ -101,7 +101,7 @@ namespace Models
 
 
       protected:
-        // The business status of the enterprise.
+        // The operating status of the enterprise.
         shared_ptr<string> enterpriseStatus_ {};
         // The business term of the enterprise.
         shared_ptr<string> openTime_ {};
@@ -142,23 +142,22 @@ namespace Models
 
 
     protected:
-      // The information about the enterprise.
+      // The enterprise details.
       shared_ptr<Data::DetailInfo> detailInfo_ {};
-      // The fields to be verified.
+      // The fields that failed verification.
       shared_ptr<vector<string>> inconsistentData_ {};
-      // The code of the verification result. Valid values:
+      // The verification result code. Valid values:
       // 
-      // *   0: The four elements belong to the same enterprise.
-      // *   1: The four elements belong to the same enterprise, but the business status of the enterprise is abnormal.
-      // *   2: The legal representative information cannot match the enterprise information.
-      // *   3: The four elements do not belong to the same enterprise.
-      // *   4: No information about the enterprise is found.
-      // *   5: No information about the legal representative is found.
+      // - 0: Verification passed.
+      // - 1: Verification passed, but the enterprise is not operating normally.
+      // - 2: The legal person and enterprise information are inconsistent.
+      // - 3: The enterprise four-element verification failed.
+      // - 4: The enterprise was not found.
+      // - 5: The legal person was not found in the database.
       shared_ptr<int64_t> reasonCode_ {};
       // The verification result. Valid values:
-      // 
-      // *   true: The four elements belong to the same enterprise and the business status of the enterprise is Active.
-      // *   false: The four elements do not belong to the same enterprise.
+      // -   true: The information is consistent and the enterprise is operating normally.
+      // -   false: Verification failed.
       shared_ptr<string> verifyResult_ {};
     };
 
@@ -204,13 +203,13 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The request status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The structure.
     shared_ptr<CompanyFourElementsVerificationResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
-    // The unique request ID. It is a common parameter and can be used to troubleshoot issues.
+    // The common parameter. The ID returned for each request is unique and can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -103,14 +103,14 @@ namespace Models
 
 
   protected:
-    // The beginning of the time range to query.
+    // The start time of the query.
     shared_ptr<string> beginTime_ {};
-    // The end of the time range to query.
+    // The end time of the query.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

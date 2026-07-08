@@ -111,17 +111,29 @@ namespace Models
 
 
     protected:
-      // The requirements for application materials.
+      // The application material requirements. This parameter is returned when NeedApplyMaterial=1.
       shared_ptr<string> applyMaterialDesc_ {};
-      // Indicates whether the application is automatically approved.
+      // Indicates whether to automatically approve. Valid values:
+      // 
+      // - 0: do not automatically approve.
+      // 
+      // - 1: automatically approve.
       shared_ptr<int64_t> autoAudit_ {};
-      // The URL for the billing documentation.
+      // The billing standard description link.
       shared_ptr<string> chargingStandardLink_ {};
-      // indicates whether encrypted queries are supported.
+      // Indicates whether encrypted query is supported. Valid values:
+      // 
+      // - 0: not supported.
+      // 
+      // - 1: supported.
       shared_ptr<int64_t> encryptedQuery_ {};
-      // Indicates whether application materials are required.
+      // Indicates whether application materials need to be provided. Valid values:
+      // 
+      // - 0: not required.
+      // 
+      // - 1: required.
       shared_ptr<int64_t> needApplyMaterial_ {};
-      // The URL for the service agreement.
+      // The service agreement link.
       shared_ptr<string> slaLink_ {};
     };
 
@@ -165,18 +177,19 @@ namespace Models
 
 
   protected:
-    // The response code. **OK** indicates that the request is successful.
+    // The request status code. **OK** indicates success.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryTagApplyRuleResponseBody::Data> data_ {};
-    // The returned message.
+    // The description of the returned status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: successful.
+    // 
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

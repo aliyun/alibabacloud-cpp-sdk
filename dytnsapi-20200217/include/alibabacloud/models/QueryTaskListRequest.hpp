@@ -126,15 +126,22 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page size. Maximum value: 1000.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The task statuses.
     shared_ptr<vector<int64_t>> result_ {};
+    // The tag ID. You can call the [QueryTagListPage](~~QueryTagListPage~~) operation to query tag IDs.
     shared_ptr<int64_t> tagId_ {};
+    // The task ID. You can call the DescribeTasks operation to query the list of task IDs.
     shared_ptr<int64_t> taskId_ {};
+    // The task name.
     shared_ptr<string> taskName_ {};
+    // An array of task types.
     shared_ptr<vector<int64_t>> taskType_ {};
   };
 

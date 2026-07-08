@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The obtained UAID value.
       shared_ptr<string> uaid_ {};
     };
 
@@ -108,10 +109,17 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code. Valid values:
+    // 
+    // - **OK**: The request is successful.
     shared_ptr<string> code_ {};
+    // The returned result.
     shared_ptr<UAIDVerificationResponseBody::Data> data_ {};
+    // The description of the status code.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

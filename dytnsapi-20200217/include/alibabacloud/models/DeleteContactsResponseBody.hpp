@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The response code. `OK` indicates a successful request.
     shared_ptr<string> code_ {};
+    // Indicates whether the operation succeeded. Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<bool> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

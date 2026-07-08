@@ -138,14 +138,39 @@ namespace Models
 
 
     protected:
+      // The contact email.
       shared_ptr<string> contactEmail_ {};
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
+      // The contact name.
       shared_ptr<string> contactName_ {};
+      // The contact mobile number.
       shared_ptr<string> contactPhone_ {};
+      // The email status.
+      // 
+      // - 1: Normal
+      // 
+      // - 0: Abnormal
       shared_ptr<int32_t> mailStatus_ {};
+      // The calling number.
       shared_ptr<int32_t> main_ {};
+      // Specifies whether the number status warning is enabled.
+      // 
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> openStatusWarning_ {};
+      // Specifies whether the number attribution query warning is enabled.
+      // 
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> opentAttributionWarning_ {};
+      // The number status.
+      // 
+      // - 1: Normal
+      // 
+      // - 0: Abnormal
       shared_ptr<int32_t> phoneStatus_ {};
     };
 
@@ -182,9 +207,13 @@ namespace Models
 
 
   protected:
+    // The status code. `OK` indicates a successful request.
     shared_ptr<string> code_ {};
+    // An array of contact information objects.
     shared_ptr<vector<ListContactsResponseBody::Data>> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

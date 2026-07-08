@@ -121,18 +121,36 @@ namespace Models
 
 
   protected:
+    // The authorization code.
+    // 
+    // > In **Cell Phone Number Service** -> [**Tag Marketplace**](https://dytns.console.aliyun.com/analysis/square), select a tag and submit a usage application. After the application is approved, you will obtain this authorization code.
+    // 
     // This parameter is required.
     shared_ptr<string> authCode_ {};
+    // The carrier of the user. Valid values:
+    // - **CM**: China Mobile.
+    // - **CU**: China Unicom.
+    // - **CT**: China Telecom.
+    // 
     // This parameter is required.
     shared_ptr<string> carrier_ {};
+    // The public IP address. This parameter is required when the carrier is China Unicom (CU). Both IPv4 and IPv6 addresses are supported.
     shared_ptr<string> ip_ {};
+    // The external serial number.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The province ID. This parameter is optional when the carrier is China Unicom (CU). The value must be the same as the value of the province field in the response returned when the token is obtained.
     shared_ptr<string> province_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The carrier authorization token.  
+    // > For information about how to obtain the authorization token and its signature, see the GetUAIDApplyTokenSign API documentation.
+    // 
     // This parameter is required.
     shared_ptr<string> token_ {};
+    // The user authorization code, which indicates that the user has granted authorization. The value must be a unique random number that does not exceed 128 characters in length.  
+    // 
+    // <warning>When you integrate the service, we recommend that you include UAID-related content in the privacy policy of your product.</warning>
     shared_ptr<string> userGrantId_ {};
   };
 

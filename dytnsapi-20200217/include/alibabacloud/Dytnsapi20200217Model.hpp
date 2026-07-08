@@ -144,5 +144,8 @@
 #include <alibabacloud/models/UpdateContactsRequest.hpp>
 #include <alibabacloud/models/UpdateContactsResponseBody.hpp>
 #include <alibabacloud/models/UpdateContactsResponse.hpp>
+#include <alibabacloud/models/VirtualThreeElementsVerificationRequest.hpp>
+#include <alibabacloud/models/VirtualThreeElementsVerificationResponseBody.hpp>
+#include <alibabacloud/models/VirtualThreeElementsVerificationResponse.hpp>
 
 #endif
