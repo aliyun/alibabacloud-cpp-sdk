@@ -170,18 +170,39 @@ namespace Models
 
 
     protected:
+      // The video aspect ratio.
       shared_ptr<string> aspectRatio_ {};
+      // The error message. This parameter is of the String type and is returned when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
+      // The task input.
       shared_ptr<string> input_ {};
+      // The task ID.
       shared_ptr<string> jobId_ {};
+      // The task feature configuration. No configuration is required at this time.
       shared_ptr<string> jobParameters_ {};
+      // The task type.
       shared_ptr<string> jobType_ {};
+      // The model name.
       shared_ptr<string> model_ {};
+      // The number of generated images.
       shared_ptr<string> n_ {};
+      // The generation result in JSON string format. Fields:
+      // - Medias: a list of media information (Media objects). Fields of a Media object:
+      //   - MediaId: String. The media asset ID.
+      //   - OutputUrl: String. The media URL (with authentication string).
       shared_ptr<string> output_ {};
+      // The resolution of the generated video.
       shared_ptr<string> resolution_ {};
+      // The scenario type. Currently only `general` is supported.
       shared_ptr<string> scene_ {};
+      // The task status. Valid values:
+      // - Created: The task is created.
+      // - Queuing: The task is queuing.
+      // - Executing: The task is being executed.
+      // - Finished: The task is completed.
+      // - Failed: The task failed.
       shared_ptr<string> status_ {};
+      // The custom business information.
       shared_ptr<string> userData_ {};
     };
 
@@ -204,7 +225,9 @@ namespace Models
 
 
   protected:
+    // The image generation task.
     shared_ptr<GetImageGenerationJobResponseBody::ImageGenerationJob> imageGenerationJob_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -457,10 +457,10 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const Delete
 }
 
 /**
- * @summary 查询图片生成任务
+ * @summary Queries an image generation task.
  *
- * @description ## 请求说明
- * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Request description
+ * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request GetImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -491,10 +491,10 @@ GetImageGenerationJobResponse Client::getImageGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary 查询图片生成任务
+ * @summary Queries an image generation task.
  *
- * @description ## 请求说明
- * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Request description
+ * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request GetImageGenerationJobRequest
  * @return GetImageGenerationJobResponse
@@ -505,7 +505,7 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 }
 
 /**
- * @summary 查询视频生成任务
+ * @summary Queries an AI video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +540,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary 查询视频生成任务
+ * @summary Queries an AI video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -1363,10 +1363,10 @@ SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditReque
 }
 
 /**
- * @summary 提交图像生成接口
+ * @summary Submits an image generation task.
  *
- * @description ## 请求说明
- * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Operation description
+ * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1433,10 +1433,10 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 }
 
 /**
- * @summary 提交图像生成接口
+ * @summary Submits an image generation task.
  *
- * @description ## 请求说明
- * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Operation description
+ * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -1447,10 +1447,10 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 }
 
 /**
- * @summary 提交视频生成接口
+ * @summary Submits a video generation task.
  *
- * @description ## 请求说明
- * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Request description
+ * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1521,10 +1521,10 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
 }
 
 /**
- * @summary 提交视频生成接口
+ * @summary Submits a video generation task.
  *
- * @description ## 请求说明
- * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Request description
+ * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitVideoGenerationJobRequest
  * @return SubmitVideoGenerationJobResponse
@@ -1589,10 +1589,11 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRe
 }
 
 /**
- * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+ * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This operation is applicable to video scenarios such as influencer product promotion and knowledge explanation.
  *
- * @description ## Operation description
- * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description ## Description
+ * This operation generates a video in which a virtual human delivers an oral broadcast based on the provided text content and other parameters such as digital human information and application scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can use the `UserData` field to pass custom parameters, which are returned as-is in the callback.
+ * Common scenarios: influencer product promotion, knowledge explanation, and similar video scenarios.
  *
  * @param request SubmitYikeAvatarNarratorJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1627,10 +1628,11 @@ SubmitYikeAvatarNarratorJobResponse Client::submitYikeAvatarNarratorJobWithOptio
 }
 
 /**
- * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+ * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This operation is applicable to video scenarios such as influencer product promotion and knowledge explanation.
  *
- * @description ## Operation description
- * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description ## Description
+ * This operation generates a video in which a virtual human delivers an oral broadcast based on the provided text content and other parameters such as digital human information and application scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can use the `UserData` field to pass custom parameters, which are returned as-is in the callback.
+ * Common scenarios: influencer product promotion, knowledge explanation, and similar video scenarios.
  *
  * @param request SubmitYikeAvatarNarratorJobRequest
  * @return SubmitYikeAvatarNarratorJobResponse
@@ -1768,8 +1770,16 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
     query["NarrationVoiceId"] = request.getNarrationVoiceId();
   }
 
+  if (!!request.hasNeedCaption()) {
+    query["NeedCaption"] = request.getNeedCaption();
+  }
+
   if (!!request.hasResolution()) {
     query["Resolution"] = request.getResolution();
+  }
+
+  if (!!request.hasShotPromptLang()) {
+    query["ShotPromptLang"] = request.getShotPromptLang();
   }
 
   if (!!request.hasShotPromptMode()) {
@@ -1887,7 +1897,7 @@ SubmitYikeVideoCloneJobResponse Client::submitYikeVideoCloneJob(const SubmitYike
 }
 
 /**
- * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
+ * @summary Creates an intelligent video generation task for a voice-over-only scenario (without a digital human). This task is applicable to video scenarios such as product showcasing and news broadcasting.
  *
  * @param request SubmitYikeVoiceNarratorJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1922,7 +1932,7 @@ SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJobWithOptions
 }
 
 /**
- * @summary Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
+ * @summary Creates an intelligent video generation task for a voice-over-only scenario (without a digital human). This task is applicable to video scenarios such as product showcasing and news broadcasting.
  *
  * @param request SubmitYikeVoiceNarratorJobRequest
  * @return SubmitYikeVoiceNarratorJobResponse
