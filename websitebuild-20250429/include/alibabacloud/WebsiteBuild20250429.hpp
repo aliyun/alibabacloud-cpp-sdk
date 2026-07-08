@@ -82,7 +82,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Verifies a verification code.
        *
-       * @description Retrieves the configuration information of the code generation plug-in.
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request CheckAppVerifyCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -93,7 +93,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Verifies a verification code.
        *
-       * @description Retrieves the configuration information of the code generation plug-in.
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request CheckAppVerifyCodeRequest
        * @return CheckAppVerifyCodeResponse
@@ -164,9 +164,9 @@ namespace WebsiteBuild20250429
       Models::ConfirmAppInstanceResponse confirmAppInstance(const Models::ConfirmAppInstanceRequest &request);
 
       /**
-       * @summary 复制插件配置
+       * @summary Copies the plug-in configuration.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the code generation plug-in configuration information.
        *
        * @param request CopyAppPluginConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -175,9 +175,9 @@ namespace WebsiteBuild20250429
       Models::CopyAppPluginConfigResponse copyAppPluginConfigWithOptions(const Models::CopyAppPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 复制插件配置
+       * @summary Copies the plug-in configuration.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the code generation plug-in configuration information.
        *
        * @param request CopyAppPluginConfigRequest
        * @return CopyAppPluginConfigResponse
@@ -208,7 +208,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Creates an AI employee session.
        *
-       * @description Creates an AI session for WanXiaoZhi 2.0.
+       * @description Creates an AI session for Wan Xiaozhi 2.0.
        *
        * @param request CreateAIStaffConversationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -219,7 +219,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Creates an AI employee session.
        *
-       * @description Creates an AI session for WanXiaoZhi 2.0.
+       * @description Creates an AI session for Wan Xiaozhi 2.0.
        *
        * @param request CreateAIStaffConversationRequest
        * @return CreateAIStaffConversationResponse
@@ -477,9 +477,9 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirect(const Models::DeleteAppDomainRedirectRequest &request);
 
       /**
-       * @summary 删除文件
+       * @summary Deletes a file.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request DeleteAppFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -488,9 +488,9 @@ namespace WebsiteBuild20250429
       Models::DeleteAppFileResponse deleteAppFileWithOptions(const Models::DeleteAppFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除文件
+       * @summary Deletes a file.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request DeleteAppFileRequest
        * @return DeleteAppFileResponse
@@ -498,9 +498,9 @@ namespace WebsiteBuild20250429
       Models::DeleteAppFileResponse deleteAppFile(const Models::DeleteAppFileRequest &request);
 
       /**
-       * @summary Delete file
+       * @summary Deletes a file.
        *
-       * @description Query application instance information
+       * @description Queries application instance information.
        *
        * @param request DeleteAppInstanceFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -509,9 +509,9 @@ namespace WebsiteBuild20250429
       Models::DeleteAppInstanceFileResponse deleteAppInstanceFileWithOptions(const Models::DeleteAppInstanceFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete file
+       * @summary Deletes a file.
        *
-       * @description Query application instance information
+       * @description Queries application instance information.
        *
        * @param request DeleteAppInstanceFileRequest
        * @return DeleteAppInstanceFileResponse
@@ -540,9 +540,9 @@ namespace WebsiteBuild20250429
       Models::DeleteAppNotificationSceneResponse deleteAppNotificationScene(const Models::DeleteAppNotificationSceneRequest &request);
 
       /**
-       * @summary Delete Supabase key
+       * @summary Deletes a Supabase key.
        *
-       * @description Operation resource corresponds to the supabase instance information
+       * @description The Supabase instance information corresponding to the operated resource.
        *
        * @param request DeleteAppSupabaseSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -551,9 +551,9 @@ namespace WebsiteBuild20250429
       Models::DeleteAppSupabaseSecretsResponse deleteAppSupabaseSecretsWithOptions(const Models::DeleteAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Supabase key
+       * @summary Deletes a Supabase key.
        *
-       * @description Operation resource corresponds to the supabase instance information
+       * @description The Supabase instance information corresponding to the operated resource.
        *
        * @param request DeleteAppSupabaseSecretsRequest
        * @return DeleteAppSupabaseSecretsResponse
@@ -705,9 +705,9 @@ namespace WebsiteBuild20250429
       Models::GetAppCodeWorkspaceDetailResponse getAppCodeWorkspaceDetail(const Models::GetAppCodeWorkspaceDetailRequest &request);
 
       /**
-       * @summary Retrieve conversation details
+       * @summary Retrieves the details of a conversation.
        *
-       * @description Wan Xiaozhi 2.0 API for creating an AI session
+       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
        *
        * @param request GetAppConversationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -716,9 +716,9 @@ namespace WebsiteBuild20250429
       Models::GetAppConversationResponse getAppConversationWithOptions(const Models::GetAppConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve conversation details
+       * @summary Retrieves the details of a conversation.
        *
-       * @description Wan Xiaozhi 2.0 API for creating an AI session
+       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
        *
        * @param request GetAppConversationRequest
        * @return GetAppConversationResponse
@@ -768,9 +768,9 @@ namespace WebsiteBuild20250429
       Models::GetAppDatabaseTableSchemasResponse getAppDatabaseTableSchemas(const Models::GetAppDatabaseTableSchemasRequest &request);
 
       /**
-       * @summary 读取文件及修改时间
+       * @summary Retrieves file content and modification time.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetAppFileContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -779,9 +779,9 @@ namespace WebsiteBuild20250429
       Models::GetAppFileContentResponse getAppFileContentWithOptions(const Models::GetAppFileContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 读取文件及修改时间
+       * @summary Retrieves file content and modification time.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetAppFileContentRequest
        * @return GetAppFileContentResponse
@@ -806,9 +806,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceResponse getAppInstance(const Models::GetAppInstanceRequest &request);
 
       /**
-       * @summary GetAppInstanceEntitlement
+       * @summary Queries the entitlement information of an application instance.
        *
-       * @description Query application instance information
+       * @description Queries the entitlement information of an application instance.
        *
        * @param request GetAppInstanceEntitlementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -817,9 +817,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceEntitlementResponse getAppInstanceEntitlementWithOptions(const Models::GetAppInstanceEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetAppInstanceEntitlement
+       * @summary Queries the entitlement information of an application instance.
        *
-       * @description Query application instance information
+       * @description Queries the entitlement information of an application instance.
        *
        * @param request GetAppInstanceEntitlementRequest
        * @return GetAppInstanceEntitlementResponse
@@ -869,9 +869,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceForPartnerResponse getAppInstanceForPartner(const Models::GetAppInstanceForPartnerRequest &request);
 
       /**
-       * @summary Obtain a temporary short URL for the application
+       * @summary Retrieves a temporary short URL for an application.
        *
-       * @description Obtain configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetAppInstanceTempShortUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,9 +880,9 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceTempShortUrlResponse getAppInstanceTempShortUrlWithOptions(const Models::GetAppInstanceTempShortUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain a temporary short URL for the application
+       * @summary Retrieves a temporary short URL for an application.
        *
-       * @description Obtain configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetAppInstanceTempShortUrlRequest
        * @return GetAppInstanceTempShortUrlResponse
@@ -911,9 +911,9 @@ namespace WebsiteBuild20250429
       Models::GetAppPluginConfigResponse getAppPluginConfig(const Models::GetAppPluginConfigRequest &request);
 
       /**
-       * @summary Query publishing status
+       * @summary Queries the publish status.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppPublishStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -922,9 +922,9 @@ namespace WebsiteBuild20250429
       Models::GetAppPublishStatusResponse getAppPublishStatusWithOptions(const Models::GetAppPublishStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query publishing status
+       * @summary Queries the publish status.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppPublishStatusRequest
        * @return GetAppPublishStatusResponse
@@ -995,9 +995,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSandboxPreviewUrlResponse getAppSandboxPreviewUrl(const Models::GetAppSandboxPreviewUrlRequest &request);
 
       /**
-       * @summary Query SEO index status
+       * @summary Queries the SEO index status.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppSeoStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1006,9 +1006,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSeoStatusResponse getAppSeoStatusWithOptions(const Models::GetAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query SEO index status
+       * @summary Queries the SEO index status.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppSeoStatusRequest
        * @return GetAppSeoStatusResponse
@@ -1016,9 +1016,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSeoStatusResponse getAppSeoStatus(const Models::GetAppSeoStatusRequest &request);
 
       /**
-       * @summary SEO Index Chart
+       * @summary SEO index chart.
        *
-       * @description Obtain plugin configuration information
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppSeoTrendsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1027,9 +1027,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSeoTrendsResponse getAppSeoTrendsWithOptions(const Models::GetAppSeoTrendsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SEO Index Chart
+       * @summary SEO index chart.
        *
-       * @description Obtain plugin configuration information
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppSeoTrendsRequest
        * @return GetAppSeoTrendsResponse
@@ -1037,9 +1037,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSeoTrendsResponse getAppSeoTrends(const Models::GetAppSeoTrendsRequest &request);
 
       /**
-       * @summary Retrieve site map
+       * @summary Retrieves the sitemap.
        *
-       * @description Retrieve QR code plugin configuration information
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppSitemapRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1048,9 +1048,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSitemapResponse getAppSitemapWithOptions(const Models::GetAppSitemapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve site map
+       * @summary Retrieves the sitemap.
        *
-       * @description Retrieve QR code plugin configuration information
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request GetAppSitemapRequest
        * @return GetAppSitemapResponse
@@ -1058,9 +1058,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSitemapResponse getAppSitemap(const Models::GetAppSitemapRequest &request);
 
       /**
-       * @summary Query Supabase authentication settings
+       * @summary Queries the Supabase authentication settings.
        *
-       * @description Query the auth configuration information of the Supabase instance corresponding to the resource.
+       * @description Queries the Supabase instance authentication configuration information for a specified resource.
        *
        * @param request GetAppSupabaseAuthConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1069,9 +1069,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSupabaseAuthConfigResponse getAppSupabaseAuthConfigWithOptions(const Models::GetAppSupabaseAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Supabase authentication settings
+       * @summary Queries the Supabase authentication settings.
        *
-       * @description Query the auth configuration information of the Supabase instance corresponding to the resource.
+       * @description Queries the Supabase instance authentication configuration information for a specified resource.
        *
        * @param request GetAppSupabaseAuthConfigRequest
        * @return GetAppSupabaseAuthConfigResponse
@@ -1100,9 +1100,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSupabaseInstanceResponse getAppSupabaseInstance(const Models::GetAppSupabaseInstanceRequest &request);
 
       /**
-       * @summary Query Supabase keys
+       * @summary Queries Supabase keys.
        *
-       * @description The supabase instance information corresponding to the operated resource
+       * @description Queries the Supabase instance information corresponding to the specified resource.
        *
        * @param request GetAppSupabaseSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1111,9 +1111,9 @@ namespace WebsiteBuild20250429
       Models::GetAppSupabaseSecretsResponse getAppSupabaseSecretsWithOptions(const Models::GetAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Supabase keys
+       * @summary Queries Supabase keys.
        *
-       * @description The supabase instance information corresponding to the operated resource
+       * @description Queries the Supabase instance information corresponding to the specified resource.
        *
        * @param request GetAppSupabaseSecretsRequest
        * @return GetAppSupabaseSecretsResponse
@@ -1235,7 +1235,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the LLM Proxy configuration.
        *
-       * @description Queries the Supabase instance configuration information for a specified resource.
+       * @description Queries the Supabase instance configuration information corresponding to a resource.
        *
        * @param request GetLlmProxyConfigForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1246,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the LLM Proxy configuration.
        *
-       * @description Queries the Supabase instance configuration information for a specified resource.
+       * @description Queries the Supabase instance configuration information corresponding to a resource.
        *
        * @param request GetLlmProxyConfigForAdminRequest
        * @return GetLlmProxyConfigForAdminResponse
@@ -1254,7 +1254,7 @@ namespace WebsiteBuild20250429
       Models::GetLlmProxyConfigForAdminResponse getLlmProxyConfigForAdmin(const Models::GetLlmProxyConfigForAdminRequest &request);
 
       /**
-       * @summary Obtain miniapp authorization link
+       * @summary Retrieves the authorization URL for a mini program.
        *
        * @param request GetMiniAppAuthUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1263,7 @@ namespace WebsiteBuild20250429
       Models::GetMiniAppAuthUrlResponse getMiniAppAuthUrlWithOptions(const Models::GetMiniAppAuthUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain miniapp authorization link
+       * @summary Retrieves the authorization URL for a mini program.
        *
        * @param request GetMiniAppAuthUrlRequest
        * @return GetMiniAppAuthUrlResponse
@@ -1271,9 +1271,9 @@ namespace WebsiteBuild20250429
       Models::GetMiniAppAuthUrlResponse getMiniAppAuthUrl(const Models::GetMiniAppAuthUrlRequest &request);
 
       /**
-       * @summary Query the miniapp attached to a site
+       * @summary Queries the mini programs associated with a site.
        *
-       * @description Obtain the QR code plugin configuration information
+       * @description Retrieves the configuration information of the QR code generation plug-in.
        *
        * @param tmpReq GetMiniAppBindingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1282,9 +1282,9 @@ namespace WebsiteBuild20250429
       Models::GetMiniAppBindingResponse getMiniAppBindingWithOptions(const Models::GetMiniAppBindingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the miniapp attached to a site
+       * @summary Queries the mini programs associated with a site.
        *
-       * @description Obtain the QR code plugin configuration information
+       * @description Retrieves the configuration information of the QR code generation plug-in.
        *
        * @param request GetMiniAppBindingRequest
        * @return GetMiniAppBindingResponse
@@ -1292,7 +1292,7 @@ namespace WebsiteBuild20250429
       Models::GetMiniAppBindingResponse getMiniAppBinding(const Models::GetMiniAppBindingRequest &request);
 
       /**
-       * @summary Query the miniapp attached to an application instance based on conditions
+       * @summary Performs a conditional query for mini programs attached to an application instance.
        *
        * @param request GetMiniAppBindingForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1301,7 +1301,7 @@ namespace WebsiteBuild20250429
       Models::GetMiniAppBindingForAdminResponse getMiniAppBindingForAdminWithOptions(const Models::GetMiniAppBindingForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the miniapp attached to an application instance based on conditions
+       * @summary Performs a conditional query for mini programs attached to an application instance.
        *
        * @param request GetMiniAppBindingForAdminRequest
        * @return GetMiniAppBindingForAdminResponse
@@ -1309,9 +1309,9 @@ namespace WebsiteBuild20250429
       Models::GetMiniAppBindingForAdminResponse getMiniAppBindingForAdmin(const Models::GetMiniAppBindingForAdminRequest &request);
 
       /**
-       * @summary 生成文件上传策略
+       * @summary Generates a file upload policy.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetOssUploadPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1320,9 +1320,9 @@ namespace WebsiteBuild20250429
       Models::GetOssUploadPolicyResponse getOssUploadPolicyWithOptions(const Models::GetOssUploadPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成文件上传策略
+       * @summary Generates a file upload policy.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetOssUploadPolicyRequest
        * @return GetOssUploadPolicyResponse
@@ -1486,9 +1486,9 @@ namespace WebsiteBuild20250429
       Models::ListAppAssistantAgentsResponse listAppAssistantAgents(const Models::ListAppAssistantAgentsRequest &request);
 
       /**
-       * @summary Query the message list of a specified chat
+       * @summary Queries the message list of a specified chat.
        *
-       * @description Wan Xiaozhi 2.0 - AI session history information query API
+       * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
        *
        * @param request ListAppChatMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1497,9 +1497,9 @@ namespace WebsiteBuild20250429
       Models::ListAppChatMessagesResponse listAppChatMessagesWithOptions(const Models::ListAppChatMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the message list of a specified chat
+       * @summary Queries the message list of a specified chat.
        *
-       * @description Wan Xiaozhi 2.0 - AI session history information query API
+       * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
        *
        * @param request ListAppChatMessagesRequest
        * @return ListAppChatMessagesResponse
@@ -1572,9 +1572,9 @@ namespace WebsiteBuild20250429
       Models::ListAppConversationMessagesResponse listAppConversationMessages(const Models::ListAppConversationMessagesRequest &request);
 
       /**
-       * @summary Search session list
+       * @summary Searches the conversation list.
        *
-       * @description Wan Xiaozhi 2.0 Create AI Session API
+       * @description Creates an AI session by using Wanxiaozhi 2.0.
        *
        * @param request ListAppConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1583,9 +1583,9 @@ namespace WebsiteBuild20250429
       Models::ListAppConversationsResponse listAppConversationsWithOptions(const Models::ListAppConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Search session list
+       * @summary Searches the conversation list.
        *
-       * @description Wan Xiaozhi 2.0 Create AI Session API
+       * @description Creates an AI session by using Wanxiaozhi 2.0.
        *
        * @param request ListAppConversationsRequest
        * @return ListAppConversationsResponse
@@ -1665,9 +1665,9 @@ namespace WebsiteBuild20250429
       Models::ListAppPluginConfigsResponse listAppPluginConfigs(const Models::ListAppPluginConfigsRequest &request);
 
       /**
-       * @summary List of code generation plugins
+       * @summary Queries the list of code generation plug-ins.
        *
-       * @description Obtain configuration information of code generation plugins
+       * @description Retrieves the configuration information of code generation plug-ins.
        *
        * @param request ListAppPluginsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1676,9 +1676,9 @@ namespace WebsiteBuild20250429
       Models::ListAppPluginsResponse listAppPluginsWithOptions(const Models::ListAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List of code generation plugins
+       * @summary Queries the list of code generation plug-ins.
        *
-       * @description Obtain configuration information of code generation plugins
+       * @description Retrieves the configuration information of code generation plug-ins.
        *
        * @param request ListAppPluginsRequest
        * @return ListAppPluginsResponse
@@ -2003,9 +2003,9 @@ namespace WebsiteBuild20250429
       Models::OperateAppServiceForPartnerResponse operateAppServiceForPartner(const Models::OperateAppServiceForPartnerRequest &request);
 
       /**
-       * @summary Switch template like statistics
+       * @summary Switches the like statistics for a template.
        *
-       * @description Obtain barcode generation plugin configuration information
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request OperateAppTemplateLikeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2014,9 +2014,9 @@ namespace WebsiteBuild20250429
       Models::OperateAppTemplateLikeResponse operateAppTemplateLikeWithOptions(const Models::OperateAppTemplateLikeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switch template like statistics
+       * @summary Switches the like statistics for a template.
        *
-       * @description Obtain barcode generation plugin configuration information
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request OperateAppTemplateLikeRequest
        * @return OperateAppTemplateLikeResponse
@@ -2026,7 +2026,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Operates on the Supabase instance information corresponding to a resource.
        *
-       * @description The Supabase instance information corresponding to the operated resource.
+       * @description The Supabase instance information corresponding to the resource to operate on.
        *
        * @param request OperateSupabaseForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2037,7 +2037,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Operates on the Supabase instance information corresponding to a resource.
        *
-       * @description The Supabase instance information corresponding to the operated resource.
+       * @description The Supabase instance information corresponding to the resource to operate on.
        *
        * @param request OperateSupabaseForAdminRequest
        * @return OperateSupabaseForAdminResponse
@@ -2108,9 +2108,9 @@ namespace WebsiteBuild20250429
       Models::QueryInspirationAccountDetailsResponse queryInspirationAccountDetails(const Models::QueryInspirationAccountDetailsRequest &request);
 
       /**
-       * @summary Query Inspiration Balance Overview
+       * @summary Queries the overview of inspiration point balance.
        *
-       * @description Query the Supabase instance information corresponding to the resource.
+       * @description Queries the Supabase instance information corresponding to a resource.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryInspirationBalanceResponse
@@ -2118,9 +2118,9 @@ namespace WebsiteBuild20250429
       Models::QueryInspirationBalanceResponse queryInspirationBalanceWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Inspiration Balance Overview
+       * @summary Queries the overview of inspiration point balance.
        *
-       * @description Query the Supabase instance information corresponding to the resource.
+       * @description Queries the Supabase instance information corresponding to a resource.
        *
        * @return QueryInspirationBalanceResponse
        */
@@ -2438,9 +2438,9 @@ namespace WebsiteBuild20250429
       Models::RollbackAppCodeSnapshotResponse rollbackAppCodeSnapshot(const Models::RollbackAppCodeSnapshotRequest &request);
 
       /**
-       * @summary Roll back application instance deployment
+       * @summary Rolls back the release of an application instance.
        *
-       * @description Query application instance information
+       * @description Queries application instance information.
        *
        * @param request RollbackAppInstancePublishRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2449,9 +2449,9 @@ namespace WebsiteBuild20250429
       Models::RollbackAppInstancePublishResponse rollbackAppInstancePublishWithOptions(const Models::RollbackAppInstancePublishRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Roll back application instance deployment
+       * @summary Rolls back the release of an application instance.
        *
-       * @description Query application instance information
+       * @description Queries application instance information.
        *
        * @param request RollbackAppInstancePublishRequest
        * @return RollbackAppInstancePublishResponse
@@ -2480,9 +2480,9 @@ namespace WebsiteBuild20250429
       Models::SaveAppRequirementResponse saveAppRequirement(const Models::SaveAppRequirementRequest &request);
 
       /**
-       * @summary Save Supabase key
+       * @summary Saves Supabase secrets.
        *
-       * @description The supabase instance information corresponding to the operation resource
+       * @description The Supabase instance information corresponding to the operated resource.
        *
        * @param request SaveAppSupabaseSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2491,9 +2491,9 @@ namespace WebsiteBuild20250429
       Models::SaveAppSupabaseSecretsResponse saveAppSupabaseSecretsWithOptions(const Models::SaveAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Save Supabase key
+       * @summary Saves Supabase secrets.
        *
-       * @description The supabase instance information corresponding to the operation resource
+       * @description The Supabase instance information corresponding to the operated resource.
        *
        * @param request SaveAppSupabaseSecretsRequest
        * @return SaveAppSupabaseSecretsResponse
@@ -2535,9 +2535,9 @@ namespace WebsiteBuild20250429
       Models::SetAppDomainCertificateResponse setAppDomainCertificate(const Models::SetAppDomainCertificateRequest &request);
 
       /**
-       * @summary 提交SEO索引
+       * @summary Submits an SEO index.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request SubmitAppSeoIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2546,9 +2546,9 @@ namespace WebsiteBuild20250429
       Models::SubmitAppSeoIndexResponse submitAppSeoIndexWithOptions(const Models::SubmitAppSeoIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交SEO索引
+       * @summary Submits an SEO index.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request SubmitAppSeoIndexRequest
        * @return SubmitAppSeoIndexResponse
@@ -2573,9 +2573,9 @@ namespace WebsiteBuild20250429
       Models::SubmitMaterialTaskResponse submitMaterialTask(const Models::SubmitMaterialTaskRequest &request);
 
       /**
-       * @summary 切换到指定对话
+       * @summary Switches to a specified conversation.
        *
-       * @description 万小智2.0创建AI会话接口
+       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
        *
        * @param request SwitchAppConversationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2584,9 +2584,9 @@ namespace WebsiteBuild20250429
       Models::SwitchAppConversationResponse switchAppConversationWithOptions(const Models::SwitchAppConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 切换到指定对话
+       * @summary Switches to a specified conversation.
        *
-       * @description 万小智2.0创建AI会话接口
+       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
        *
        * @param request SwitchAppConversationRequest
        * @return SwitchAppConversationResponse
@@ -2628,9 +2628,9 @@ namespace WebsiteBuild20250429
       Models::UnbindAppDomainResponse unbindAppDomain(const Models::UnbindAppDomainRequest &request);
 
       /**
-       * @summary Update message content
+       * @summary Updates message content.
        *
-       * @description Wan Xiaozhi 2.0 - AI session history query API
+       * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
        *
        * @param request UpdateAppChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2639,9 +2639,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppChatMessageResponse updateAppChatMessageWithOptions(const Models::UpdateAppChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update message content
+       * @summary Updates message content.
        *
-       * @description Wan Xiaozhi 2.0 - AI session history query API
+       * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
        *
        * @param request UpdateAppChatMessageRequest
        * @return UpdateAppChatMessageResponse
@@ -2649,9 +2649,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppChatMessageResponse updateAppChatMessage(const Models::UpdateAppChatMessageRequest &request);
 
       /**
-       * @summary Edit JSX Code
+       * @summary Edits JSX code.
        *
-       * @description Retrieve the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request UpdateAppCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2660,9 +2660,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppCodeResponse updateAppCodeWithOptions(const Models::UpdateAppCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit JSX Code
+       * @summary Edits JSX code.
        *
-       * @description Retrieve the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request UpdateAppCodeRequest
        * @return UpdateAppCodeResponse
@@ -2691,9 +2691,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppFileResponse updateAppFile(const Models::UpdateAppFileRequest &request);
 
       /**
-       * @summary Upgrade/Downgrade website instance.
+       * @summary Changes the specifications of a website building instance.
        *
-       * @description Query application instance information
+       * @description Queries the information of an application instance.
        *
        * @param tmpReq UpdateAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2702,9 +2702,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppInstanceResponse updateAppInstanceWithOptions(const Models::UpdateAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrade/Downgrade website instance.
+       * @summary Changes the specifications of a website building instance.
        *
-       * @description Query application instance information
+       * @description Queries the information of an application instance.
        *
        * @param request UpdateAppInstanceRequest
        * @return UpdateAppInstanceResponse
@@ -2712,9 +2712,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppInstanceResponse updateAppInstance(const Models::UpdateAppInstanceRequest &request);
 
       /**
-       * @summary Update SEO Index Status
+       * @summary Updates the SEO index status.
        *
-       * @description WanXiaoZhi 2.0 AI Conversation
+       * @description Wanxiaozhi 2.0 AI conversation.
        *
        * @param request UpdateAppSeoStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2723,9 +2723,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppSeoStatusResponse updateAppSeoStatusWithOptions(const Models::UpdateAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update SEO Index Status
+       * @summary Updates the SEO index status.
        *
-       * @description WanXiaoZhi 2.0 AI Conversation
+       * @description Wanxiaozhi 2.0 AI conversation.
        *
        * @param request UpdateAppSeoStatusRequest
        * @return UpdateAppSeoStatusResponse
@@ -2754,9 +2754,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppSupabaseAuthConfigResponse updateAppSupabaseAuthConfig(const Models::UpdateAppSupabaseAuthConfigRequest &request);
 
       /**
-       * @summary Update Supabase key
+       * @summary Updates a Supabase key.
        *
-       * @description Operation resource corresponds to the supabase instance information
+       * @description The Supabase instance information corresponding to the operated resource.
        *
        * @param request UpdateAppSupabaseSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2765,9 +2765,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppSupabaseSecretResponse updateAppSupabaseSecretWithOptions(const Models::UpdateAppSupabaseSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Supabase key
+       * @summary Updates a Supabase key.
        *
-       * @description Operation resource corresponds to the supabase instance information
+       * @description The Supabase instance information corresponding to the operated resource.
        *
        * @param request UpdateAppSupabaseSecretRequest
        * @return UpdateAppSupabaseSecretResponse
@@ -2792,9 +2792,9 @@ namespace WebsiteBuild20250429
       Models::UpdateMiniAppBindingResponse updateMiniAppBinding(const Models::UpdateMiniAppBindingRequest &request);
 
       /**
-       * @summary Upload to the site root directory
+       * @summary Uploads a file to the root directory of a site.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request UploadAppSiteValidationFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2803,9 +2803,9 @@ namespace WebsiteBuild20250429
       Models::UploadAppSiteValidationFileResponse uploadAppSiteValidationFileWithOptions(const Models::UploadAppSiteValidationFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upload to the site root directory
+       * @summary Uploads a file to the root directory of a site.
        *
-       * @description Obtain the configuration information of the code generation plugin
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request UploadAppSiteValidationFileRequest
        * @return UploadAppSiteValidationFileResponse

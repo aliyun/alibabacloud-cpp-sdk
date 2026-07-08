@@ -124,13 +124,13 @@ namespace Models
 
 
     protected:
-      // Remaining (totalQuota - totalUsed).
+      // The remaining amount, calculated as totalQuota minus totalUsed.
       shared_ptr<int64_t> remaining_ {};
       shared_ptr<string> remainingStr_ {};
-      // Total quota (sum of initQuota for all active accounts).
+      // The total quota, which is the sum of initQuota values across all valid accounts.
       shared_ptr<int64_t> totalQuota_ {};
       shared_ptr<string> totalQuotaStr_ {};
-      // Total used (sum of used for all active accounts).
+      // The total consumed amount, which is the sum of used values across all valid accounts.
       shared_ptr<int64_t> totalUsed_ {};
       shared_ptr<string> totalUsedStr_ {};
     };
@@ -220,28 +220,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether the request can be retried.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Query the application with this name.
+    // The application name. The system queries the application with this name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace `%s` in the **ErrMessage** error message of the response parameters.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Error parameters.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data.
+    // The response data.
     shared_ptr<QueryInspirationBalanceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Exception message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether to process synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

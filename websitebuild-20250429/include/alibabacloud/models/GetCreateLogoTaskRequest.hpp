@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The task ID returned when the call is successful. Note: Keep this ID safe. This ID is required when you query the status of device creation.
+    // The task ID returned when the call is successful. Keep this ID safe. This ID is required when you query the status of device creation.
     shared_ptr<string> taskId_ {};
   };
 

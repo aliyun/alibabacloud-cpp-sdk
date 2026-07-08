@@ -211,50 +211,50 @@ namespace Models
 
 
     protected:
-      // Bot ID
+      // The bot ID.
       shared_ptr<string> botId_ {};
-      // Unique ID of a single message
+      // The unique ID of a single message.
       shared_ptr<string> chatId_ {};
-      // Current chat status
+      // The current chat status.
       shared_ptr<string> chatStatus_ {};
-      // ID of the data class API being invoked.
+      // The ID of the data API operation that is called.
       shared_ptr<string> content_ {};
-      // Content type
+      // The content type.
       shared_ptr<string> contentType_ {};
-      // Session ID
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // Creation Time
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Updated At
+      // The modification time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // Message ID
+      // The message ID.
       shared_ptr<string> messageId_ {};
-      // Business extension metadata (in Map format, must be a JSON string)
+      // The business extension metadata in Map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
-      // Region ordinal number. This parameter is deprecated.
+      // The region sequence number. This parameter is deprecated.
       shared_ptr<int32_t> no_ {};
-      // Indicates the role of the participant in the conversation. Valid values include:
+      // The role of the conversation participant. Valid values:
       // 
-      // - user: User
+      // - user: user
       // 
-      // - assistant: Assistant
+      // - assistant: assistant
       // 
-      // - system: System
-      // - function: Function
+      // - system: system
+      // - function: function
       // 
-      // - plugin: Plugin
+      // - plugin: plug-in
       // 
-      // - tool: Tool
+      // - tool: tool
       shared_ptr<string> role_ {};
-      // Section ID of the checklist item.
+      // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+      // The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
-      // File type
+      // The file type.
       shared_ptr<string> type_ {};
     };
 
@@ -358,34 +358,34 @@ namespace Models
 
 
   protected:
-    // permission denied information
+    // The access denied detail.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message used to replace `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results per query.
+    // The number of entries per query.
     // 
-    // Value range: 10 to 100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Response data
+    // The response data.
     shared_ptr<vector<ListAppChatMessagesResponseBody::Module>> module_ {};
-    // Token for starting the next query. It is empty when there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

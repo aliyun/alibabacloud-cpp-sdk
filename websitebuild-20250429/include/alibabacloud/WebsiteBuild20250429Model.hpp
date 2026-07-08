@@ -11,6 +11,7 @@
 #include <alibabacloud/models/TreeNode.hpp>
 #include <alibabacloud/models/AppServiceProfile.hpp>
 #include <alibabacloud/models/AppServiceAggregate.hpp>
+#include <alibabacloud/models/TemplateRecord.hpp>
 #include <alibabacloud/models/AppInstanceAggregate.hpp>
 #include <alibabacloud/models/AppMaterialDirectory.hpp>
 #include <alibabacloud/models/AppMaterialFile.hpp>

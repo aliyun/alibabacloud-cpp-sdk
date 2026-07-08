@@ -99,14 +99,14 @@ namespace Models
     // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
     // The sort order. Valid values:
-    // - ASC: ascending order.
-    // - DESC: descending order.
+    // - ASC: ascending order
+    // - DESC: descending order
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The source type used to filter results. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+    // The source type used to filter results, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
     shared_ptr<string> sourceType_ {};
     // The start time of the query.
     shared_ptr<string> startTime_ {};

@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // Bot ID
+    // The bot ID.
     shared_ptr<string> botId_ {};
-    // End modification time (ISO 8601 format)
+    // The end modification time in ISO 8601 format.
     shared_ptr<string> endModifyTime_ {};
-    // The number of entries to return in each query result.  
+    // The maximum number of entries to return per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token indicating the start of the next query. It is empty when there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // Number of entries per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Site ID
+    // The site ID.
     shared_ptr<string> siteId_ {};
-    // Start modification time (ISO 8601 format)
+    // The start modification time in ISO 8601 format.
     shared_ptr<string> startModifyTime_ {};
   };
 

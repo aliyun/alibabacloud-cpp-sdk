@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the item is collected
+    // Specifies whether the template is favorited.
     shared_ptr<bool> liked_ {};
-    // Template ID
+    // The template ID.
     shared_ptr<string> templateId_ {};
   };
 

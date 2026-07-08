@@ -170,16 +170,27 @@ namespace Models
 
 
     protected:
+      // The user ID.
       shared_ptr<string> aliyunPk_ {};
+      // The bot ID.
       shared_ptr<string> botId_ {};
+      // The chat records.
       shared_ptr<int32_t> chatNum_ {};
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The extended information in JSON string format.
       shared_ptr<string> metaData_ {};
+      // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
+      // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
+      // The current viewpoint, equivalent to the news title.
       shared_ptr<string> title_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -268,16 +279,27 @@ namespace Models
 
 
   protected:
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The response data.
     shared_ptr<SwitchAppConversationResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

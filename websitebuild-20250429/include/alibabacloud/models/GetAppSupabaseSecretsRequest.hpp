@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Search keyword
+    // The search keyword.
     shared_ptr<string> keyword_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The search engine type.
     shared_ptr<string> seType_ {};
+    // Specifies whether to delay the submission.
     shared_ptr<bool> submitLater_ {};
   };
 

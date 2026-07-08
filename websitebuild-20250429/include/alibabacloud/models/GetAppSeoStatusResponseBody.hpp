@@ -134,23 +134,23 @@ namespace Models
 
 
     protected:
-      // Business ID
+      // The business ID.
       shared_ptr<string> bizId_ {};
-      // Primary domain name
+      // The primary domain name.
       shared_ptr<string> domain_ {};
-      // Creation time of the output.
+      // The time when the output was created.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Updated At.
+      // The time when the output was last modified.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // Index permission
+      // The index permissions.
       shared_ptr<string> seAuthInfo_ {};
-      // index status
+      // The index status.
       shared_ptr<int32_t> seIndexStatus_ {};
-      // search engine type
+      // The search engine type.
       shared_ptr<string> seType_ {};
     };
 
@@ -239,28 +239,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // response data
+    // The response data.
     shared_ptr<vector<GetAppSeoStatusResponseBody::Module>> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Fallback parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

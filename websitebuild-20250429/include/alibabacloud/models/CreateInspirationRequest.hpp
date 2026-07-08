@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The resource plan specification.
+    // The specification of the resource plan.
     shared_ptr<string> amountspec_ {};
     // The idempotency token.
     shared_ptr<string> clientToken_ {};
@@ -104,13 +104,13 @@ namespace Models
     shared_ptr<string> extend_ {};
     // The payment type.
     shared_ptr<string> paymentType_ {};
-    // The unit of the subscription duration. Valid values:
-    // - Year: year.
-    // - Month: month.
-    // - Day: day.
-    // - Hour: hour.
+    // The unit of the subscription cycle. Valid values:
+    // - Year: year
+    // - Month: month
+    // - Day: day
+    // - Hour: hour
     shared_ptr<string> pricingCycle_ {};
-    // The number of instances to purchase.
+    // The number of instances to subscribe to.
     shared_ptr<int32_t> quantity_ {};
   };
 

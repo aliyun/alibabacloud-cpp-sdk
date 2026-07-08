@@ -7,6 +7,7 @@
 #include <alibabacloud/models/AppOperationAddress.hpp>
 #include <alibabacloud/models/AppServiceAggregate.hpp>
 #include <alibabacloud/models/AppInstanceProfile.hpp>
+#include <alibabacloud/models/TemplateRecord.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StatusText, statusText_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TemplateRecord, templateRecord_);
       DARABONBA_PTR_TO_JSON(ThumbnailUrl, thumbnailUrl_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(Version, version_);
@@ -83,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StatusText, statusText_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TemplateRecord, templateRecord_);
       DARABONBA_PTR_FROM_JSON(ThumbnailUrl, thumbnailUrl_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
@@ -303,8 +306,8 @@ namespace Models
         && this->designSpecId_ == nullptr && this->domain_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr && this->gmtDelete_ == nullptr
         && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr && this->partnerDetail_ == nullptr
         && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr && this->slug_ == nullptr && this->sourceType_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr && this->thumbnailUrl_ == nullptr
-        && this->userId_ == nullptr && this->version_ == nullptr; };
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr && this->templateRecord_ == nullptr
+        && this->thumbnailUrl_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr; };
     // aiStaffList Field Functions 
     bool hasAiStaffList() const { return this->aiStaffList_ != nullptr;};
     void deleteAiStaffList() { this->aiStaffList_ = nullptr;};
@@ -527,6 +530,15 @@ namespace Models
     inline AppInstanceAggregate& setTags(vector<AppInstanceAggregate::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // templateRecord Field Functions 
+    bool hasTemplateRecord() const { return this->templateRecord_ != nullptr;};
+    void deleteTemplateRecord() { this->templateRecord_ = nullptr;};
+    inline const TemplateRecord & getTemplateRecord() const { DARABONBA_PTR_GET_CONST(templateRecord_, TemplateRecord) };
+    inline TemplateRecord getTemplateRecord() { DARABONBA_PTR_GET(templateRecord_, TemplateRecord) };
+    inline AppInstanceAggregate& setTemplateRecord(const TemplateRecord & templateRecord) { DARABONBA_PTR_SET_VALUE(templateRecord_, templateRecord) };
+    inline AppInstanceAggregate& setTemplateRecord(TemplateRecord && templateRecord) { DARABONBA_PTR_SET_RVALUE(templateRecord_, templateRecord) };
+
+
     // thumbnailUrl Field Functions 
     bool hasThumbnailUrl() const { return this->thumbnailUrl_ != nullptr;};
     void deleteThumbnailUrl() { this->thumbnailUrl_ = nullptr;};
@@ -576,10 +588,11 @@ namespace Models
     shared_ptr<string> slug_ {};
     shared_ptr<string> sourceType_ {};
     shared_ptr<string> startTime_ {};
-    // trial,draft,live,refunded,expired,released
+    // Valid values: trial, draft, live, refunded, expired, released.
     shared_ptr<string> status_ {};
     shared_ptr<string> statusText_ {};
     shared_ptr<vector<AppInstanceAggregate::Tags>> tags_ {};
+    shared_ptr<TemplateRecord> templateRecord_ {};
     shared_ptr<string> thumbnailUrl_ {};
     shared_ptr<string> userId_ {};
     shared_ptr<string> version_ {};

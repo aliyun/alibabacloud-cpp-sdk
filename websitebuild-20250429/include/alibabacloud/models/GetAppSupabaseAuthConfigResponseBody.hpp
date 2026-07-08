@@ -80,14 +80,20 @@ namespace Models
 
 
     protected:
-      // Configuration value. Valid values:  
-      // - cc_rule: CC rule.  
-      // - ddos_dispatch: DDoS filter interaction scheduling.  
-      // - edge_safe: Edge application security.  
-      // - blocked_regions: Geo-blocking.  
-      // - http_acl_policy: Precise ACL rule.  
-      // - bot_manager: Bot traffic management.  
-      // - ip_reputation: IP reputation investigation.
+      // The configuration value. Valid values:
+      // - cc_rule: HTTP flood protection rule.
+      // 
+      // - ddos_dispatch: DDoS mitigation interaction scheduling.
+      // 
+      // - edge_safe: edge application security.
+      // 
+      // - blocked_regions: location blacklist.
+      // 
+      // - http_acl_policy: accurate access control.
+      // 
+      // - bot_manager: bot traffic management.
+      // 
+      // - ip_reputation: IP reputation library.
       Darabonba::Json configs_ {};
     };
 
@@ -176,28 +182,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the ErrMessage parameter.
+    // > If ErrMessage returns **The Value of Input Parameter %s is not valid** and DynamicMessage returns **DtsJobId**, the DtsJobId request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Error arguments returned.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Task object
+    // The task object.
     shared_ptr<GetAppSupabaseAuthConfigResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Error message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

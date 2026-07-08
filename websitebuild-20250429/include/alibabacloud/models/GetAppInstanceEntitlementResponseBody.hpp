@@ -247,39 +247,39 @@ namespace Models
 
 
       protected:
-        // Indicates whether an instance has been assigned
+        // Indicates whether an instance is allocated.
         shared_ptr<bool> allocated_ {};
-        // Is this item currently active?
+        // Indicates whether this entitlement item is currently available.
         shared_ptr<bool> available_ {};
-        // Authorization item identity
+        // The code of the entitlement item.
         shared_ptr<string> code_ {};
-        // Indicates whether configuration has been completed
+        // Indicates whether the configuration is complete.
         shared_ptr<bool> configured_ {};
-        // Is this item entitled in the version?
+        // Indicates whether the edition grants this entitlement item.
         shared_ptr<bool> entitled_ {};
-        // Feature source type (PLUGIN/SKILL/CHANNEL/SYSTEM)
+        // The feature source type. Valid values: PLUGIN, SKILL, CHANNEL, and SYSTEM.
         shared_ptr<string> featureType_ {};
-        // Runtime instance ID
+        // The runtime instance ID.
         shared_ptr<string> instanceId_ {};
-        // Authorization item Name
+        // The name of the entitlement item.
         shared_ptr<string> name_ {};
-        // Plugin ID
+        // The plug-in ID.
         shared_ptr<string> pluginId_ {};
-        // Total quota
+        // The total quota.
         shared_ptr<int64_t> quota_ {};
-        // Remaining quantity
+        // The remaining amount.
         shared_ptr<int64_t> remaining_ {};
-        // Resource domain association identity
+        // The association code of the resource domain.
         shared_ptr<string> resourceCode_ {};
-        // Resource type (QUOTA/LIMIT)
+        // The resource type. Valid values: QUOTA and LIMIT.
         shared_ptr<string> resourceType_ {};
-        // Is it running?
+        // Indicates whether the instance is running.
         shared_ptr<bool> running_ {};
-        // Authorization Type (FEATURE / RESOURCE / RUNTIME)
+        // The entitlement type. Valid values: FEATURE, RESOURCE, and RUNTIME.
         shared_ptr<string> type_ {};
-        // Usage percentage
+        // The usage percentage.
         shared_ptr<int32_t> usagePercent_ {};
-        // Usage
+        // The used amount.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -302,9 +302,9 @@ namespace Models
 
 
     protected:
-      // BizId of the associated application instance
+      // The business ID of the application instance.
       shared_ptr<string> bizId_ {};
-      // All entitlements
+      // The list of all entitlement items.
       shared_ptr<vector<Module::Items>> items_ {};
     };
 
@@ -393,28 +393,28 @@ namespace Models
 
 
   protected:
-    // Permission denied information
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<GetAppInstanceEntitlementResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -297,17 +297,17 @@ namespace Models
       shared_ptr<string> extra_ {};
       // The time when the instance creation was completed.
       shared_ptr<string> instanceCreateFinishedTime_ {};
-      // The instance creation status.
+      // The creation status of the instance.
       shared_ptr<string> instanceCreateStatus_ {};
       // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
-      // The password for accessing the ApsaraDB RDS database.
+      // The password used to access the ApsaraDB RDS database.
       shared_ptr<string> rdsDatabasePassword_ {};
       // The service key.
       shared_ptr<string> serviceKey_ {};
       // The instance status. Valid values:
       // - 0: paused
-      // - 1: running.
+      // - 1: running
       shared_ptr<int32_t> status_ {};
       // The password for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardPassword_ {};
@@ -418,7 +418,7 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -436,7 +436,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

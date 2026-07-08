@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The business ID of the application instance. This parameter is required for scenario 1 and is used to filter by instance version.
+    // The application instance business ID. Required in scenario 1 and used for instance version filtering.
     shared_ptr<string> bizId_ {};
     shared_ptr<string> extend_ {};
     shared_ptr<string> resourceConditions_ {};
-    // Scenarios. Valid values:
+    // The scenarios. Valid values:
     // - ai_chat
-    // - inspiration.
+    // - inspiration
     shared_ptr<string> scene_ {};
   };
 

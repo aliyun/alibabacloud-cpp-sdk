@@ -75,20 +75,20 @@ namespace Models
 
 
   protected:
-    // Business ID of the application instance
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Valid range: 10 to 100. Default value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token indicating the start of the next query. Empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
-    // Status of the dataset acceleration instance. Valid values:  
-    // - Created: Initialization.  
-    // - Running: Running.  
-    // - Stopped: Stopped.
+    // The status of the Dataset Accelerator instance. Valid values:
+    // - Created: init.
+    // - Running: running.
+    // - Stopped: stopped.
     shared_ptr<string> phase_ {};
-    // Platform
+    // The platform.
     shared_ptr<string> platform_ {};
   };
 

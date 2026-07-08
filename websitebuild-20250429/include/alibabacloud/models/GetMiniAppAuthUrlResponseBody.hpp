@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // authorized address
+      // The authorization URL.
       shared_ptr<string> authUrl_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // Result of the request.
+    // The request result.
     shared_ptr<GetMiniAppAuthUrlResponseBody::Data> data_ {};
-    // request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

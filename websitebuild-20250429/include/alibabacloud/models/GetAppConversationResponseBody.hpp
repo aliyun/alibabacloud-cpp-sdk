@@ -170,31 +170,31 @@ namespace Models
 
 
     protected:
-      // User ID
+      // The user ID.
       shared_ptr<string> aliyunPk_ {};
-      // bot ID
+      // The bot ID.
       shared_ptr<string> botId_ {};
-      // Chat record
+      // The chat records.
       shared_ptr<int32_t> chatNum_ {};
-      // session id
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // Creation Time.
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Update Time.
+      // The update time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // Extension information (in JSON string format)
+      // The extended information in JSON string format.
       shared_ptr<string> metaData_ {};
-      // Section ID of the checklist item.
+      // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+      // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
       shared_ptr<string> siteId_ {};
-      // Current point, equivalent to news title
+      // The current viewpoint, which is equivalent to the news title.
       shared_ptr<string> title_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -283,28 +283,28 @@ namespace Models
 
 
   protected:
-    // access denied details
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // response Data
+    // The response data.
     shared_ptr<GetAppConversationResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -207,50 +207,50 @@ namespace Models
 
 
     protected:
-      // Bot ID
+      // The bot ID.
       shared_ptr<string> botId_ {};
-      // The ID of the chat.
+      // The chat ID.
       shared_ptr<string> chatId_ {};
-      // Current conversation status
+      // The current conversation status.
       shared_ptr<string> chatStatus_ {};
-      // The ID of the data class API being invoked.
+      // The ID of the data API operation that is called.
       shared_ptr<string> content_ {};
-      // Content type.
+      // The content type.
       shared_ptr<string> contentType_ {};
-      // Session ID.
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // Creation Time
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Updated At.
+      // The modification time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // Message ID
+      // The message ID.
       shared_ptr<string> messageId_ {};
-      // Business extension metadata (in Map format, must be a JSON string)
+      // The business extension metadata in Map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
-      // The probability of not wearing a mask, not wearing a uniform, or not wearing a hat.
+      // The probability of not wearing a mask, not wearing work clothes, or not wearing a hat.
       shared_ptr<int32_t> no_ {};
-      // Indicates the role of a conversation participant. Valid values include:
+      // The role of the conversation participant. Valid values:
       // 
-      // - user: User
+      // - user: user
       // 
-      // - assistant: Assistant
+      // - assistant: assistant
       // 
-      // - system: System
-      // - function: Function
+      // - system: system
+      // - function: function
       // 
-      // - plugin: Plugin
+      // - plugin: plug-in
       // 
-      // - tool: Tool
+      // - tool: tool
       shared_ptr<string> role_ {};
-      // Section ID of the checklist item.
+      // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+      // The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
-      // File type
+      // The file type.
       shared_ptr<string> type_ {};
     };
 
@@ -339,28 +339,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // dynamic code; not currently used. Please ignore.
+    // The dynamic code. This parameter is not currently used. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // faulty parameters
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The returned object.
+    // The response object.
     shared_ptr<UpdateAppChatMessageResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is processed synchronously
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

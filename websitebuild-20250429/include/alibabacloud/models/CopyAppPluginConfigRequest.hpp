@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The source business ID.
     shared_ptr<string> sourceBizId_ {};
+    // The target business ID.
     shared_ptr<string> targetBizId_ {};
   };
 

@@ -125,19 +125,19 @@ namespace Models
 
 
       protected:
-        // Tag key
+        // The tag key.
         shared_ptr<string> key_ {};
-        // Application name
+        // The application name.
         shared_ptr<string> name_ {};
-        // The credential type. Valid values:  
-        // - Generic: generic secret.  
-        // - Rds: RDS credential.  
-        // - Redis: Redis/Tair credential.  
+        // The credential type. Valid values:
+        // - Generic: generic credential.  
+        // - Rds: ApsaraDB RDS credential.  
+        // - Redis: Redis/Tair credential.
         // - RAMCredentials: RAM credential.  
-        // - ECS: ECS credential.  
+        // - ECS: ECS credential.
         // - PolarDB: PolarDB credential.
         shared_ptr<string> secretType_ {};
-        // Record value
+        // The record value.
         shared_ptr<string> value_ {};
       };
 
@@ -152,7 +152,7 @@ namespace Models
 
 
     protected:
-      // Instance ID.
+      // The instance ID.
       shared_ptr<vector<Module::Secrets>> secrets_ {};
     };
 
@@ -241,30 +241,30 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:  
-    // - false: Retry is not allowed.  
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
     // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Returned object.
+    // The response object.
     shared_ptr<GetAppSupabaseSecretsResponseBody::Module> module_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the operation is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

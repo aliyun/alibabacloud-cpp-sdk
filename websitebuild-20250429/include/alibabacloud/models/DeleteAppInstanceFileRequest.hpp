@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Session ID
+    // The session ID.
     shared_ptr<string> conversationId_ {};
-    // File Path
+    // The file path.
     shared_ptr<string> filePath_ {};
   };
 

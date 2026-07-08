@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Key list JSON
+    // The JSON string of the secrets list.
     shared_ptr<string> secretsJson_ {};
   };
 

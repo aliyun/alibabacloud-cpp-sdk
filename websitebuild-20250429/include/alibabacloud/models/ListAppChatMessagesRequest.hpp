@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Chat ID
+    // The chat ID.
     shared_ptr<string> chatId_ {};
-    // Session ID
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Valid range: 10 to 100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token indicating the start of the next query. This value is empty if there is no subsequent query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Segment ID
+    // The section ID.
     shared_ptr<string> sectionId_ {};
   };
 

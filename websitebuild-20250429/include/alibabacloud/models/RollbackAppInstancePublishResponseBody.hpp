@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Publish order ID
+      // The publish order ID.
       shared_ptr<int64_t> publishOrderId_ {};
     };
 
@@ -167,28 +167,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace `%s` in the **ErrMessage** error message.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<RollbackAppInstancePublishResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

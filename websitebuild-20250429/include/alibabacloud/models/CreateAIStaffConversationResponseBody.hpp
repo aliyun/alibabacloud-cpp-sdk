@@ -132,7 +132,7 @@ namespace Models
       shared_ptr<string> conversationId_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+      // The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
       // The current viewpoint, equivalent to the news title.
       shared_ptr<string> title_ {};

@@ -143,13 +143,21 @@ namespace Models
 
 
     protected:
+      // The upload directory path.
       shared_ptr<string> dir_ {};
+      // The OSS bucket host address.
       shared_ptr<string> host_ {};
+      // The Base64-encoded policy.
       shared_ptr<string> policy_ {};
+      // The Security Token Service (STS) token. This parameter is null in non-STS scenarios.
       shared_ptr<string> securityToken_ {};
+      // The calculated signature.
       shared_ptr<string> signature_ {};
+      // The signature version, such as OSS4-HMAC-SHA256.
       shared_ptr<string> version_ {};
+      // x-oss-credential
       shared_ptr<string> xossCredential_ {};
+      // x-oss-date
       shared_ptr<string> xossDate_ {};
     };
 
@@ -238,16 +246,29 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether a retry is allowed. Valid values:
+    // - false: No retry is allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The task object.
     shared_ptr<GetOssUploadPolicyResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

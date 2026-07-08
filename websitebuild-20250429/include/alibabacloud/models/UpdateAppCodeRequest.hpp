@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Edit operation Content (JSON)
+    // The edit operation content in JSON format.
     shared_ptr<string> content_ {};
-    // session ID
+    // The session ID.
     shared_ptr<string> conversationId_ {};
   };
 

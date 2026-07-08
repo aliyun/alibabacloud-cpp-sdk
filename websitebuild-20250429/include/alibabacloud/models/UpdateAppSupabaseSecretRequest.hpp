@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Key value
+    // The secret key.
     shared_ptr<string> secretKey_ {};
-    // Key name
+    // The secret name.
     shared_ptr<string> secretName_ {};
-    // Key Type
+    // The secret type.
     shared_ptr<string> secretType_ {};
-    // Key Value
+    // The secret value.
     shared_ptr<string> secretValue_ {};
   };
 

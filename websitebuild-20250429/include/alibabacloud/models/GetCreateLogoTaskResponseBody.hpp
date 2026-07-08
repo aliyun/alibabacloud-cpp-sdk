@@ -91,11 +91,11 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The current status of the task. Valid values:
       // 
-      // - pending: pending execution
-      // - configuring: being configured
-      // - success: succeeded
-      // - failed: failed
-      // - partialFailed: partially failed.
+      // - pending: Pending execution.
+      // - configuring: Being configured.
+      // - success: Succeeded.
+      // - failed: Failed.
+      // - partialFailed: Partially failed.
       shared_ptr<string> taskStatus_ {};
       // The URL of the prefetched resource.
       shared_ptr<vector<string>> urls_ {};
@@ -141,7 +141,7 @@ namespace Models
 
 
   protected:
-    // The error code. If the request is successful, this field is not returned. If the request fails, this field is returned. For more information, see the error code list in this topic.
+    // The error code. Valid values: If the request is successful, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error codes in this topic.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};

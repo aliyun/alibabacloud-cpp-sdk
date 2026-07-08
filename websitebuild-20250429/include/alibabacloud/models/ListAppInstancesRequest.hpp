@@ -163,11 +163,11 @@ namespace Models
     shared_ptr<string> endTimeEnd_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
-    // The number of entries per query.
+    // The maximum number of results per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results are available.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // The field used for sorting.
     shared_ptr<string> orderColumn_ {};

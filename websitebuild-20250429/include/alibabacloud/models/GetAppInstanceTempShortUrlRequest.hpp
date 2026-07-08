@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Application business ID
+    // The business ID of the application.
     shared_ptr<string> bizId_ {};
   };
 

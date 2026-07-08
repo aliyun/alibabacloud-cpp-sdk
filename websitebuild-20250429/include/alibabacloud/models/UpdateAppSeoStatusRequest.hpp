@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Domain Name
+    // The domain name.
     shared_ptr<string> domain_ {};
     shared_ptr<string> seAuthInfo_ {};
-    // Search Engine Type
+    // The search engine type.
     shared_ptr<string> seType_ {};
   };
 

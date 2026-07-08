@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Deployment channel
+    // The deployment channel.
     shared_ptr<string> deployChannel_ {};
-    // Publish number
+    // The publish number.
     shared_ptr<string> publishNumber_ {};
-    // Quick rollback.
+    // Specifies whether to perform a quick rollback.
     shared_ptr<string> quickRollback_ {};
   };
 

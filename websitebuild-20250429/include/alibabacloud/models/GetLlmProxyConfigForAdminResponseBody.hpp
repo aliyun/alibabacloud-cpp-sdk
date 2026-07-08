@@ -216,13 +216,13 @@ namespace Models
 
 
     protected:
-      // The list of allowed models.
+      // The list of supported models.
       shared_ptr<string> allowedModels_ {};
       // The business ID of the application instance.
       shared_ptr<string> bizId_ {};
       // The list of blocked models.
       shared_ptr<string> blockedModels_ {};
-      // The specific permissions granted to processes in the container. Only NET_ADMIN and NET_RAW are supported.
+      // Grants specific permissions to processes in the container. Only NET_ADMIN and NET_RAW are supported.
       // 
       // > NET_RAW is not supported by default. Submit a ticket to apply for this permission.
       shared_ptr<string> capability_ {};
@@ -230,7 +230,7 @@ namespace Models
       shared_ptr<int32_t> dailyLimit_ {};
       // The maximum number of tokens per day.
       shared_ptr<int64_t> dailyTokenLimit_ {};
-      // Specifies whether scheduled delivery of resource snapshots is enabled.
+      // Indicates whether scheduled delivery of resource snapshots is enabled.
       // 
       // Valid values:
       // - true: Enabled.
@@ -362,7 +362,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};

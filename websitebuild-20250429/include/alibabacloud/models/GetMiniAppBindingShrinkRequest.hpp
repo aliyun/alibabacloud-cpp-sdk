@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Site ID
+    // The site ID.
     shared_ptr<string> bizId_ {};
-    // Channel
+    // The channel.
     shared_ptr<string> channel_ {};
-    // List of extension information keys
+    // The list of extension information keys.
     shared_ptr<string> settingKeysShrink_ {};
   };
 

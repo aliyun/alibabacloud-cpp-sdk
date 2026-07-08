@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The session ID.
     shared_ptr<string> conversationId_ {};
+    // The file path. The path is restricted to the ./public/ directory.
     shared_ptr<string> filePath_ {};
   };
 

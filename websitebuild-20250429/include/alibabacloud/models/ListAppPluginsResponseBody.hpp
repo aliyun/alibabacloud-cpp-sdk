@@ -211,46 +211,46 @@ namespace Models
 
 
     protected:
-      // plugin code
+      // The plug-in code.
       shared_ptr<string> code_ {};
-      // Configuration form in React JSON Schema format
+      // The configuration form in React JSON Schema format.
       shared_ptr<string> configItems_ {};
-      // plugin Description
+      // The plug-in description.
       shared_ptr<string> desc_ {};
-      // Image display. Valid values:  
+      // The image display mode. Valid values:
       // 
-      // - **0** (None): Do not display.  
-      // - **1** (Always): Always display.
+      // - **0** (None): Not displayed.
+      // - **1** (Always): Always displayed.
       shared_ptr<int32_t> display_ {};
-      // Indicates whether scheduled delivery of resource snapshots is enabled.  
+      // Specifies whether scheduled delivery of resource snapshots is enabled.
       // 
-      // Valid values:  
-      // - true: Enabled.  
-      // - false: Shutdown.
+      // Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<int32_t> enabled_ {};
-      // environment
+      // The environment.
       shared_ptr<string> env_ {};
-      // Creation Time
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Updated At
+      // The modification time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // hook definitions
+      // The hook definitions.
       shared_ptr<string> hooks_ {};
-      // plugin Description
+      // The plug-in description.
       shared_ptr<string> icon_ {};
-      // primary key
+      // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the item has been deleted: 0—No, 1—Yes
+      // Indicates whether the entry is deleted. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> isDeleted_ {};
-      // plugin Name
+      // The plug-in name.
       shared_ptr<string> name_ {};
-      // skill header, used by the model for selection
+      // The skill header information for model selection.
       shared_ptr<string> skillHeader_ {};
-      // Categorization label
+      // The category labels.
       shared_ptr<string> tags_ {};
     };
 
@@ -354,34 +354,34 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name. Query the application with this name.
+    // The application name to query.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the DtsJobId request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Value range: 10 to 100. Default value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Returned object.
+    // The response object.
     shared_ptr<vector<ListAppPluginsResponseBody::Module>> module_ {};
-    // Token for starting the next query. It is empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

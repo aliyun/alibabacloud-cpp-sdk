@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // JSON list of keys to be deleted
+    // The JSON list of keys to be deleted.
     shared_ptr<string> keysJson_ {};
   };
 

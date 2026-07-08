@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name that was queried.
+    // The application name to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};

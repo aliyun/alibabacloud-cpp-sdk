@@ -219,9 +219,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -233,15 +233,15 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error arguments returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
+    // The maximum number of results per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
-    // The token for the next query. This parameter is empty if no more results are available.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
@@ -249,11 +249,11 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // In addition to pagination limits, the server processes up to 1,000 recent records per query. If the result exceeds 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+    // In addition to pagination limits, the server processes a maximum of 1,000 recent records per query. If the results exceed 1,000 records, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     shared_ptr<string> startPosition_ {};
     // The reserved parameter.

@@ -106,13 +106,13 @@ namespace Models
 
 
     protected:
-      // BizId of the associated application instance
+      // The business ID of the associated application instance.
       shared_ptr<string> bizId_ {};
-      // Application icon
+      // The application icon URL.
       shared_ptr<string> iconUrl_ {};
-      // Order ID
+      // The order ID.
       shared_ptr<string> orderId_ {};
-      // Application thumbnail
+      // The application thumbnail URL.
       shared_ptr<string> thumbnailUrl_ {};
     };
 
@@ -201,27 +201,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Please ignore.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<UpdateAppInstanceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

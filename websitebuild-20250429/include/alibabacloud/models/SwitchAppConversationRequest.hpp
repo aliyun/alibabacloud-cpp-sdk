@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The business ID of the agent task.
     shared_ptr<string> bizId_ {};
+    // The bot ID.
     shared_ptr<string> botId_ {};
+    // The type of the agent task.
     shared_ptr<string> taskType_ {};
   };
 

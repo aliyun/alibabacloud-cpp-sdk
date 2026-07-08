@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The scenario, such as knowledge.
     shared_ptr<string> scenario_ {};
   };
 

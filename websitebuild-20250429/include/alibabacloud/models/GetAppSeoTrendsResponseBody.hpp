@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // Baidu
+      // The Baidu index trends.
       shared_ptr<string> baiduIndexTrends_ {};
-      // Bing
+      // The Bing index trends.
       shared_ptr<string> bingIndexTrends_ {};
-      // Google
+      // The Google index trends.
       shared_ptr<string> googleIndexTrends_ {};
     };
 
@@ -190,27 +190,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message.
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<GetAppSeoTrendsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Backup parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

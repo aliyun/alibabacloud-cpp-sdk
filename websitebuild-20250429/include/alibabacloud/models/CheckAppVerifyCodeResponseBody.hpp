@@ -187,7 +187,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the %s variable in the ErrMessage response element.
+    // The dynamic error message, which is used to replace the %s variable in the ErrMessage response parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

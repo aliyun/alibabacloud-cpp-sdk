@@ -138,16 +138,16 @@ namespace Models
   protected:
     // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<AppInstanceAggregate> module_ {};

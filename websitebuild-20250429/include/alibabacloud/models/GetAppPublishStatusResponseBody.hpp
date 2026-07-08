@@ -220,39 +220,39 @@ namespace Models
     protected:
       // Indicates whether quick rollback is supported.
       shared_ptr<string> canQuickRevert_ {};
-      // Current operation step of the job.
+      // The current step of the task.
       shared_ptr<string> currentStep_ {};
-      // Deployment channel
+      // The deployment channel.
       shared_ptr<string> deployChannel_ {};
-      // Application description
+      // The application description.
       shared_ptr<string> description_ {};
-      // Publishing procedure
+      // The publish process.
       shared_ptr<string> errorStep_ {};
-      // Indicates whether the job is finished.
+      // Indicates whether the task is complete.
       shared_ptr<bool> isFinish_ {};
-      // Indicates whether the invocation succeeded. Valid values:
+      // Indicates whether the call is successful. Valid values:
       // 
-      // - `true`: The invocation succeeded.
+      // - `true`: The call is successful.
       // 
-      // - `false`: Failed to invoke.
+      // - `false`: The call failed.
       shared_ptr<bool> isSuccess_ {};
-      // Additional description information.
+      // The additional description.
       shared_ptr<string> msg_ {};
-      // Sorting type: ASC or DESC.
+      // The sort type. Valid values: ASC and DESC.
       shared_ptr<string> orderType_ {};
-      // Job completion percentage.
+      // The task completion percentage.
       shared_ptr<int32_t> percent_ {};
-      // Publish number
+      // The publish number.
       shared_ptr<string> publishNumber_ {};
-      // Publish order ID
+      // The publish order ID.
       shared_ptr<int64_t> publishOrderId_ {};
-      // Scheduled publish time
+      // The scheduled publish time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> publishTime_ {};
-      // The site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+      // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
-      // Error Level, including FATAL, ERROR, WARNING, and CRITICAL.
+      // The error level. Valid values: FATAL, ERROR, WARNING, and CRITICAL.
       shared_ptr<vector<string>> steps_ {};
       shared_ptr<string> subchannel_ {};
     };
@@ -342,27 +342,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<GetAppPublishStatusResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -101,7 +101,9 @@ namespace Models
     shared_ptr<string> env_ {};
     // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values: ASC and DESC.
+    // The sort order. Valid values:
+    // - ASC: ascending order
+    // - DESC: descending order
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
