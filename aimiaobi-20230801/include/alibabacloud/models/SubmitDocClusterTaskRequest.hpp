@@ -85,9 +85,13 @@ namespace Models
 
 
     protected:
+      // The content of the document.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The document ID. It is used to identify the document in the returned cluster results. If you do not provide an ID for any document, the array index is used instead. An error is reported if you provide IDs for only some of the documents.
       shared_ptr<string> docId_ {};
+      // The title of the document.
       shared_ptr<string> title_ {};
     };
 
@@ -131,12 +135,19 @@ namespace Models
 
 
   protected:
+    // The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // A list of documents.
+    // 
     // This parameter is required.
     shared_ptr<vector<SubmitDocClusterTaskRequest::Documents>> documents_ {};
+    // The character limit for the generated cluster summary.
     shared_ptr<int32_t> summaryLength_ {};
+    // The character limit for the generated cluster title.
     shared_ptr<int32_t> titleLength_ {};
+    // The maximum number of clusters.
     shared_ptr<int32_t> topicCount_ {};
   };
 

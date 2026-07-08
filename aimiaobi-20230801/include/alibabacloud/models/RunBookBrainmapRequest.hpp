@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to clear the cache. The default is `false`.
     shared_ptr<bool> cleanCache_ {};
+    // The document ID.
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // The number of nodes on the second level of the mind map.
     shared_ptr<int32_t> nodeNumber_ {};
+    // A prompt with additional instructions.
     shared_ptr<string> prompt_ {};
     shared_ptr<int32_t> responseFormat_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The number of words per node.
     shared_ptr<int32_t> wordNumber_ {};
+    // The unique identifier for the Model Studio workspace. For more information, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

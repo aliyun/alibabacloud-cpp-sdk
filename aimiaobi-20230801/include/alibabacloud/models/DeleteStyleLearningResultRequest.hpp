@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Unique identity of the workspace: AgentKey
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Style learning ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
   };

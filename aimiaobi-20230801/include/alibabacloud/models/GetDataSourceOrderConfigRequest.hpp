@@ -57,9 +57,24 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // When productCode=miaosou, this corresponds to Miaosou: generation technology. Possible values:
+    // 
+    // Valid values:
+    // 
+    // - copilotPrecise
+    // 
+    // - copilotReference
     shared_ptr<string> generateTechnology_ {};
+    // Configuration type. Possible values:
+    // 
+    // - miaobi
+    // 
+    // - miaosou
+    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
   };

@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The download URL for the task result.
       shared_ptr<string> artifactUrl_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // Error code.
     shared_ptr<string> code_ {};
+    // The task response object.
     shared_ptr<GetDeepWriteTaskResultResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

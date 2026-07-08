@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // Number of output videos.
       shared_ptr<int32_t> count_ {};
+      // Output file name. Must include {index}.
       shared_ptr<string> fileName_ {};
+      // Output video height.
       shared_ptr<int32_t> height_ {};
+      // Maximum duration of the output video, in seconds.
       shared_ptr<int32_t> maxDuration_ {};
+      // Save to Content Management.
       shared_ptr<bool> saveToGeneratedContent_ {};
+      // Output video width.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -185,8 +191,15 @@ namespace Models
 
 
       protected:
+        // Material ID.
+        // 
         // This parameter is required.
         shared_ptr<string> id_ {};
+        // ID type:
+        // materialId: Material Library reference ID
+        // fileKey: FileKey in Alibaba Cloud Model Studio
+        // url: Publicly accessible URL
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -256,8 +269,15 @@ namespace Models
 
 
         protected:
+          // Sticker ID.
+          // 
           // This parameter is required.
           shared_ptr<string> id_ {};
+          // ID type:
+          // materialId: Material Library reference ID
+          // fileKey: FileKey in Alibaba Cloud Model Studio
+          // url: Publicly accessible URL
+          // 
           // This parameter is required.
           shared_ptr<string> type_ {};
         };
@@ -302,14 +322,24 @@ namespace Models
 
 
       protected:
+        // Height of the sticker.
+        // 
         // This parameter is required.
         shared_ptr<double> height_ {};
+        // Sticker ID.
+        // 
         // This parameter is required.
         shared_ptr<Stickers::StickerId> stickerId_ {};
+        // Width of the sticker.
+        // 
         // This parameter is required.
         shared_ptr<double> width_ {};
+        // X coordinate of the top-left corner of the sticker.
+        // 
         // This parameter is required.
         shared_ptr<double> x_ {};
+        // Y coordinate of the top-left corner of the sticker.
+        // 
         // This parameter is required.
         shared_ptr<double> y_ {};
       };
@@ -352,8 +382,15 @@ namespace Models
 
 
       protected:
+        // Background music ID.
+        // 
         // This parameter is required.
         shared_ptr<string> id_ {};
+        // ID type:
+        // materialId: Material Library reference ID
+        // fileKey: FileKey in Alibaba Cloud Model Studio
+        // url: Publicly accessible URL
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -406,10 +443,16 @@ namespace Models
 
 
     protected:
+      // List of background music IDs.
       shared_ptr<vector<InputConfig::BackgroundMusics>> backgroundMusics_ {};
+      // List of voiceover script texts.
       shared_ptr<vector<string>> speechTexts_ {};
+      // List of stickers.
       shared_ptr<vector<InputConfig::Stickers>> stickers_ {};
+      // List of titles.
       shared_ptr<vector<string>> titles_ {};
+      // List of video material ID objects.
+      // 
       // This parameter is required.
       shared_ptr<vector<InputConfig::VideoIds>> videoIds_ {};
     };
@@ -504,10 +547,23 @@ namespace Models
 
 
       protected:
+        // TopLeft: Top-left corner of the video.
+        // TopCenter: Top center of the vertical axis of the video.
+        // TopRight: Top-right corner of the video.
+        // CenterLeft: Left side of the horizontal center line of the video.
+        // CenterCenter: Center of the video.
+        // CenterRight: Right side of the horizontal center line of the video.
+        // BottomLeft: Bottom-left corner of the video.
+        // BottomCenter: Bottom center of the vertical axis of the video.
+        // BottomRight: Bottom-right corner of the video.
         shared_ptr<string> alignment_ {};
+        // Time when the title appears.
         shared_ptr<float> timelineIn_ {};
+        // Time when the title disappears.
         shared_ptr<float> timelineOut_ {};
+        // Horizontal distance from the top-left corner of the banner text to the top-left corner of the output video. You can specify this value as a percentage or in pixels. If the value is between 0 and 0.9999, it represents a percentage of the output video width. If the value is an integer greater than or equal to 2, it represents an absolute pixel value. Default value: 0. This coordinate scales based on the source material size and the final output size.
         shared_ptr<float> x_ {};
+        // Vertical distance from the top-left corner of the banner text to the top-left corner of the output video. You can specify this value as a percentage or in pixels. If the value is between 0 and 0.9999, it represents a percentage of the output video height. If the value is an integer greater than or equal to 2, it represents an absolute pixel value. Default value: 0. This coordinate scales based on the source material size and the final output size.
         shared_ptr<float> y_ {};
       };
 
@@ -622,12 +678,28 @@ namespace Models
 
 
         protected:
+          // Caption alignment.
+          // TopLeft: Top-left corner of the video.
+          // TopCenter: Top center of the vertical axis of the video.
+          // TopRight: Top-right corner of the video.
+          // CenterLeft: Left side of the horizontal center line of the video.
+          // CenterCenter: Center of the video.
+          // CenterRight: Right side of the horizontal center line of the video.
+          // BottomLeft: Bottom-left corner of the video.
+          // BottomCenter: Bottom center of the vertical axis of the video.
+          // BottomRight: Bottom-right corner of the video.
           shared_ptr<string> alignment_ {};
+          // Font of the caption text. For supported fonts, see the font list. Default font: SimSun.
           shared_ptr<string> font_ {};
+          // Color of the caption text. Format: # followed by a hexadecimal value. Example: #ffffff.
           shared_ptr<string> fontColor_ {};
+          // Font size of the caption text. This size scales based on the source material size and the final output size. Default value: 0. Maximum value: 5000.
           shared_ptr<string> fontSize_ {};
+          // Letter spacing of the caption text, in pixels.
           shared_ptr<string> spacing_ {};
+          // Horizontal distance from the top-left corner of the caption text to the top-left corner of the output video. You can specify this value as a percentage or in pixels. If the value is between 0 and 0.9999, it represents a percentage of the output video width. If the value is an integer greater than or equal to 2, it represents an absolute pixel value. Default value: 0. This coordinate scales based on the source material size and the final output size.
           shared_ptr<float> x_ {};
+          // Vertical distance from the top-left corner of the caption text to the top-left corner of the output video. You can specify this value as a percentage or in pixels. If the value is between 0 and 0.9999, it represents a percentage of the output video height. If the value is an integer greater than or equal to 2, it represents an absolute pixel value. Default value: 0. This coordinate scales based on the source material size and the final output size.
           shared_ptr<float> y_ {};
         };
 
@@ -671,10 +743,33 @@ namespace Models
 
 
       protected:
+        // Caption parameter configuration.
         shared_ptr<SpeechConfig::AsrConfig> asrConfig_ {};
+        // Speech rate of the voiceover script.
+        // Valid values: -500 to 500. Default value: 0.
+        // The corresponding playback speed multipliers for [-500, 0, 500] are [0.5, 1.0, 2.0].
+        // Calculation method:
+        // For 0.8× speed: (1 - 1/0.8) / 0.002 = -125
+        // For 1.2× speed: (1 - 1/1.2) / 0.001 = 166
+        // Use coefficient 0.002 for speeds less than 1×.
+        // Use coefficient 0.001 for speeds greater than 1×.
+        // Round the result to the nearest integer.
+        // 
+        // The calculation method is as follows:<br>
+        // 0.8× speed: (1 − 1/0.8)/0.002 = −125<br>
+        // 1.2× speed: (1 − 1/1.2)/0.001 = 166<br>
+        // When the speed is less than 1×, use a coefficient of 0.002.<br>
+        // When the speed is greater than 1×, use a coefficient of 0.001.<br>
+        // The actual algorithm result is approximated.<br><br><br><br><br>
         shared_ptr<double> speechRate_ {};
+        // Voiceover style. Default value: empty. If both Voice and Style are specified, Voice takes precedence.
+        // Gentle: Gentle
+        // Serious: Serious
+        // Entertainment: Entertainment
         shared_ptr<string> style_ {};
+        // Specify one or more voice styles for the voiceover, separated by commas. When multiple voices are specified, one is randomly selected for synthesis. For available voice styles, see [Smart Voice Effect Examples](https://help.aliyun.com/zh/ims/developer-reference/smart-voice-effect-example?spm=a2c4g.11186623.0.0.13091ee6Pw4Jqz). Example: "zhimiao_emo,zhilun".
         shared_ptr<string> voice_ {};
+        // Volume of the voiceover audio. Default value: 1. Valid values: 0 to 10.0. Decimal values are supported. Example: 0.5.
         shared_ptr<double> volume_ {};
       };
 
@@ -706,6 +801,7 @@ namespace Models
 
 
       protected:
+        // Volume of the video material. 0 means mute.
         shared_ptr<double> volume_ {};
       };
 
@@ -747,7 +843,18 @@ namespace Models
 
 
       protected:
+        // Background music style. Default value: empty. If background music is already configured in InputConfig, this field does not take effect.
+        // Valid values:
+        // bgm-beauty: Fashion
+        // bgm-chinese-style: Chinese style
+        // bgm-cuisine: Food
+        // bgm-dynamic: Dynamic
+        // bgm-quirky: Quirky
+        // bgm-relaxing: Relaxing
+        // bgm-romantic: Romantic
+        // bgm-upbeat: Upbeat
         shared_ptr<string> style_ {};
+        // Volume of the background music. Valid values: 0 to 10.0.
         shared_ptr<double> volume_ {};
       };
 
@@ -790,9 +897,13 @@ namespace Models
 
 
     protected:
+      // Background music configuration.
       shared_ptr<EditingConfig::BackgroundMusicConfig> backgroundMusicConfig_ {};
+      // Media configuration.
       shared_ptr<EditingConfig::MediaConfig> mediaConfig_ {};
+      // Voiceover configuration.
       shared_ptr<EditingConfig::SpeechConfig> speechConfig_ {};
+      // Title configuration.
       shared_ptr<EditingConfig::TitleConfig> titleConfig_ {};
     };
 
@@ -840,11 +951,18 @@ namespace Models
 
 
   protected:
+    // Video editing configuration.
     shared_ptr<SubmitSmartClipTaskRequest::EditingConfig> editingConfig_ {};
+    // Additional extended parameters. These parameters merge with InputConfig, OutputConfig, and EditingConfig.
     shared_ptr<string> extendParam_ {};
+    // Input configuration.
+    // 
     // This parameter is required.
     shared_ptr<SubmitSmartClipTaskRequest::InputConfig> inputConfig_ {};
+    // Output configuration.
     shared_ptr<SubmitSmartClipTaskRequest::OutputConfig> outputConfig_ {};
+    // Alibaba Cloud Model Studio workspace ID. For more information, see [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/3027170.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Specifies whether to filter out results with empty content.
     shared_ptr<bool> filterNotNull_ {};
+    // Specifies whether to include the full text of the article.
     shared_ptr<bool> includeContent_ {};
+    // The page number. The default value is 1.
     shared_ptr<int32_t> page_ {};
+    // The number of records to return on each page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The search query.
     shared_ptr<string> query_ {};
+    // A list of search sources.
     shared_ptr<string> searchSourcesShrink_ {};
   };
 

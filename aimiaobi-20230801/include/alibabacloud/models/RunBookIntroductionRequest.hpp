@@ -85,12 +85,20 @@ namespace Models
 
   protected:
     shared_ptr<bool> cleanCache_ {};
+    // The document ID.
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // A custom prompt for extracting key points.
     shared_ptr<string> keyPointPrompt_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // A custom prompt for generating the summary.
     shared_ptr<string> summaryPrompt_ {};
+    // The unique ID of the workspace in Model Studio (Bailian). For more information, see [Get your workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

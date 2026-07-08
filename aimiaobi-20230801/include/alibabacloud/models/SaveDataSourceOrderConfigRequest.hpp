@@ -101,12 +101,20 @@ namespace Models
 
 
     protected:
+      // Code description
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // Specifies whether to enable the data source.
       shared_ptr<bool> enable_ {};
+      // The display name.
       shared_ptr<string> name_ {};
+      // Quantity
+      // 
       // This parameter is required.
       shared_ptr<int32_t> number_ {};
+      // The type of the data source.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -144,11 +152,28 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The generation technology for Miaosou. This parameter is valid only when \\`ProductCode\\` is set to \\`miaosou\\`.
+    // 
+    // Valid values:
+    // 
+    // - copilotPrecise
+    // 
+    // - copilotReference
     shared_ptr<string> generateTechnology_ {};
+    // The product type. Valid values:
+    // 
+    // - miaobi
+    // 
+    // - miaosou
+    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
+    // The data source configuration.
+    // 
     // This parameter is required.
     shared_ptr<vector<SaveDataSourceOrderConfigRequest::UserConfigDataSourceList>> userConfigDataSourceList_ {};
   };

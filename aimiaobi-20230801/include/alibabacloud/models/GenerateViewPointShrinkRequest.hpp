@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The context data.
     shared_ptr<string> referenceDataShrink_ {};
   };
 

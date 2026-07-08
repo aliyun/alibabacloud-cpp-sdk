@@ -95,9 +95,13 @@ namespace Models
 
 
     protected:
+      // The description of the configuration item.
       shared_ptr<string> configDesc_ {};
+      // The unique identifier of the configuration.
       shared_ptr<string> configKey_ {};
+      // The value of the configuration.
       shared_ptr<string> configValue_ {};
+      // The data type of the configuration value.
       shared_ptr<string> configValueType_ {};
     };
 
@@ -148,11 +152,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The unique identifier of the configuration item.
     shared_ptr<UpdateGeneralConfigResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

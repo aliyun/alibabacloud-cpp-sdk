@@ -126,10 +126,15 @@ namespace Models
 
 
       protected:
+        // Code description
         shared_ptr<string> code_ {};
+        // Is enabled
         shared_ptr<bool> enable_ {};
+        // Display name
         shared_ptr<string> name_ {};
+        // Quantity
         shared_ptr<int32_t> number_ {};
+        // Type
         shared_ptr<string> type_ {};
       };
 
@@ -152,7 +157,9 @@ namespace Models
 
 
     protected:
+      // Maximum total document count
       shared_ptr<int32_t> totalDocSize_ {};
+      // List of user-configured data source weights
       shared_ptr<vector<Data::UserConfigDataSourceList>> userConfigDataSourceList_ {};
     };
 
@@ -203,11 +210,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetDataSourceOrderConfigResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Is successful: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

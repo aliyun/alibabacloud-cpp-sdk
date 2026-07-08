@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // Activation type
           shared_ptr<int32_t> effectType_ {};
+          // End time
           shared_ptr<string> endTime_ {};
+          // Start time
           shared_ptr<string> startTime_ {};
         };
 
@@ -189,8 +192,11 @@ namespace Models
 
 
         protected:
+          // Answer type
           shared_ptr<int32_t> answerType_ {};
+          // Answer content
           shared_ptr<string> message_ {};
+          // Namespace
           shared_ptr<string> namespace_ {};
         };
 
@@ -245,11 +251,17 @@ namespace Models
 
 
       protected:
+        // Answer configuration
         shared_ptr<vector<InterveneRuleDetail::AnswerConfig>> answerConfig_ {};
+        // Activation configuration
         shared_ptr<InterveneRuleDetail::EffectConfig> effectConfig_ {};
+        // Intervention type
         shared_ptr<int32_t> interveneType_ {};
+        // Namespace list
         shared_ptr<vector<string>> namespaceList_ {};
+        // Rule ID
         shared_ptr<int64_t> ruleId_ {};
+        // Rule name
         shared_ptr<string> ruleName_ {};
       };
 
@@ -273,6 +285,7 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // Structure of the rule details
       shared_ptr<Data::InterveneRuleDetail> interveneRuleDetail_ {};
     };
 
@@ -323,11 +336,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetInterveneRuleDetailResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request ID
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

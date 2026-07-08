@@ -202,18 +202,31 @@ namespace Models
 
 
       protected:
+        // The unique ID of the review item.
         shared_ptr<string> checkId_ {};
+        // The original text segment.
         shared_ptr<string> context_ {};
+        // The offset index of the incorrect word within the context.
         shared_ptr<int32_t> contextOffset_ {};
+        // The error level. 1: critical, 2: warning, 3: notice, 4: suggestion.
         shared_ptr<int32_t> errorLevel_ {};
+        // The incorrect word.
         shared_ptr<string> errorWord_ {};
+        // The primary error code.
         shared_ptr<string> majorCode_ {};
+        // The description of the primary error.
         shared_ptr<string> majorCodeDesc_ {};
+        // The offset index of the incorrect word in the full text.
         shared_ptr<int32_t> offset_ {};
+        // The error description.
         shared_ptr<string> reason_ {};
+        // The suggested correction.
         shared_ptr<string> rightWord_ {};
+        // The sub-error code.
         shared_ptr<string> subClassCode_ {};
+        // The description of the sub-error.
         shared_ptr<string> subClassDesc_ {};
+        // In an image review scenario, this is the public URL of the image that triggered the review.
         shared_ptr<string> url_ {};
       };
 
@@ -243,8 +256,11 @@ namespace Models
 
 
     protected:
+      // The list of review error details.
       shared_ptr<vector<Data::ErrorItemDetails>> errorItemDetails_ {};
+      // If the final status is not SUCCESSED, read this error message to identify the fault.
       shared_ptr<string> errorMessage_ {};
+      // The task execution status. Valid values: PENDING, RUNNING, SUCCESSED, SUSPENDED, FAILED, and CANCELLED.
       shared_ptr<string> status_ {};
     };
 
@@ -295,12 +311,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The review result.
     shared_ptr<GetSmartAuditResultResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

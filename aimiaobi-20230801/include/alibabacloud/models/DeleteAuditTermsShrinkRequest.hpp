@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // List of rule IDs for user logon audit terms to delete.
     shared_ptr<string> idListShrink_ {};
+    // Unique identifier for the Alibaba Cloud Model Studio workspace. Get the [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

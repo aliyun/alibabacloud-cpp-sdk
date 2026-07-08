@@ -103,8 +103,11 @@ namespace Models
 
 
       protected:
+        // Input Tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // Output Tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total Tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -136,6 +139,7 @@ namespace Models
 
 
       protected:
+        // Output content.
         shared_ptr<string> text_ {};
       };
 
@@ -160,7 +164,9 @@ namespace Models
 
 
     protected:
+      // Output content object.
       shared_ptr<Payload::Output> output_ {};
+      // Large Language Model (LLM) token usage information.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -248,12 +254,19 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // Event type.
       shared_ptr<string> event_ {};
+      // Event description.
       shared_ptr<string> eventInfo_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -292,9 +305,13 @@ namespace Models
 
 
   protected:
+    // Whether the output is complete. True indicates completion.
     shared_ptr<bool> end_ {};
+    // The streaming output header, containing general return information.
     shared_ptr<RunStyleFeatureAnalysisResponseBody::Header> header_ {};
+    // The payload of the response, in JSON structure
     shared_ptr<RunStyleFeatureAnalysisResponseBody::Payload> payload_ {};
+    // Unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

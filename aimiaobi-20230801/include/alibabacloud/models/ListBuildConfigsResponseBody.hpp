@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // Description of the preset tag
         shared_ptr<string> description_ {};
+        // Key of the preset tag
         shared_ptr<string> key_ {};
       };
 
@@ -195,15 +197,25 @@ namespace Models
 
 
     protected:
+      // Indicates whether the preset is built-in
       shared_ptr<bool> buildIn_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Creator
       shared_ptr<string> createUser_ {};
+      // Primary key ID
       shared_ptr<int64_t> id_ {};
+      // List of available values for the tag
       shared_ptr<vector<Data::Keywords>> keywords_ {};
+      // Tag key
       shared_ptr<string> tag_ {};
+      // Tag description
       shared_ptr<string> tagDescription_ {};
+      // Content category. Valid values: media or government.
       shared_ptr<string> type_ {};
+      // Last update time
       shared_ptr<string> updateTime_ {};
+      // Last updater
       shared_ptr<string> updateUser_ {};
     };
 
@@ -254,11 +266,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<vector<ListBuildConfigsResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. true indicates success. false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

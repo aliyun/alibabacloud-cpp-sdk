@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // A detailed breakdown of token consumption.
         shared_ptr<map<string, int64_t>> tokenMap_ {};
+        // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -269,15 +273,25 @@ namespace Models
 
 
         protected:
+          // The author.
           shared_ptr<string> author_ {};
+          // The content.
           shared_ptr<string> content_ {};
+          // The custom unique ID for the document.
           shared_ptr<string> docId_ {};
+          // The internal unique identifier for the document.
           shared_ptr<string> docUuid_ {};
+          // The publication time.
           shared_ptr<string> pubTime_ {};
+          // The source.
           shared_ptr<string> source_ {};
+          // The article summary.
           shared_ptr<string> summary_ {};
+          // The tag.
           shared_ptr<string> tag_ {};
+          // The title.
           shared_ptr<string> title_ {};
+          // The article URL.
           shared_ptr<string> url_ {};
         };
 
@@ -351,13 +365,21 @@ namespace Models
 
 
       protected:
+        // The reference articles.
         shared_ptr<vector<Output::Articles>> articles_ {};
+        // A traceability object, returned when the `modelSourceTrace` parameter is provided.
         shared_ptr<GenerateTraceability> generateTraceability_ {};
+        // A list of refined article snippets.
         shared_ptr<vector<string>> miniDoc_ {};
+        // A list of outlines. This field is returned when `writingStyle` is set to `outlineWriting` and `step` is `outlineWriting`.
         shared_ptr<vector<WritingOutline>> outlines_ {};
+        // The result of the query rewrite.
         shared_ptr<string> searchQuery_ {};
+        // The search result. This field is returned when `writingStyle` is set to `outlineWriting` and `step` is `OutlineSearch`.
         shared_ptr<OutlineSearchResult> searchResult_ {};
+        // The generated text.
         shared_ptr<string> text_ {};
+        // The article title. This field is returned when `writingStyle` is set to `outlineWriting` and `step` is `outlineWriting`.
         shared_ptr<string> title_ {};
       };
 
@@ -382,7 +404,9 @@ namespace Models
 
 
     protected:
+      // The output.
       shared_ptr<Payload::Output> output_ {};
+      // The token usage statistics.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -479,13 +503,25 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The type of event. The service returns two types of events: writing events and other events.
+      // 
+      // The writing event, `task-progress-start-generating`, indicates that the output contains the complete article information.
+      // 
+      // Other events, such as `writing-instruction-analysis` (instruction analysis), `task-progress-news-search-end` (web search), and `result-intent-recognition-end` (intent recognition), can be monitored through the `payload.output.text` field or ignored.
       shared_ptr<string> event_ {};
+      // The parent session ID.
       shared_ptr<string> originSessionId_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The HTTP status code.
       shared_ptr<int32_t> statusCode_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -524,9 +560,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether this is the final message in the response stream.
     shared_ptr<bool> end_ {};
+    // The response header.
     shared_ptr<RunWritingV2ResponseBody::Header> header_ {};
+    // The response payload.
     shared_ptr<RunWritingV2ResponseBody::Payload> payload_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The article snippets.
       shared_ptr<vector<string>> miniDoc_ {};
     };
 
@@ -84,8 +85,11 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The context data.
     shared_ptr<GenerateViewPointRequest::ReferenceData> referenceData_ {};
   };
 

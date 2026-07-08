@@ -112,15 +112,28 @@ namespace Models
 
 
   protected:
+    // The unique ID of the external user.
     shared_ptr<string> externalUserId_ {};
+    // Specifies whether the request originates from a mobile client.
     shared_ptr<bool> isMobile_ {};
+    // The presentation outline, formatted in Markdown.
     shared_ptr<string> outline_ {};
+    // The ID of the PPT template.
     shared_ptr<int32_t> pptTemplateId_ {};
+    // The template type. The default value is `1`. Valid values: `1` (system template) and `2` (enterprise template).
     shared_ptr<int32_t> pptTemplateType_ {};
     shared_ptr<string> pptTitle_ {};
+    // The type of process to initiate. Valid values:<br>
+    // `0`: Generates only a signature to initialize the front-end SDK for the full creation process.<br>
+    // `1`: Generates a signature and a process ID. Use this option if you have a custom front-end page for templates before you initialize the SDK.<br>
+    // `2`: Generates an artifact ID, which allows for direct editing of the artifact.<br>
+    // `3`: Generates an export task ID. You can poll this ID to retrieve the export result.<br><br><br><br>
     shared_ptr<int32_t> processType_ {};
+    // The ID of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

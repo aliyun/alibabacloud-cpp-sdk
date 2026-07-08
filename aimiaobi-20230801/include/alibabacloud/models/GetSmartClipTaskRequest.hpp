@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the task.
+    // 
+    // > You do not need to specify TaskId. The system generates it automatically. If you use the same TaskId for multiple tasks, those tasks belong to the same conversation group.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Unique identifier of your Alibaba Cloud Model Studio workspace. To get the workspace ID, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

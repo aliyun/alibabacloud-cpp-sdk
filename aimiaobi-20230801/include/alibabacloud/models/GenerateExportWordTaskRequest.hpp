@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: AgentKey
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Unique identifier of the document
+    // 
     // This parameter is required.
     shared_ptr<int64_t> generatedContentId_ {};
   };

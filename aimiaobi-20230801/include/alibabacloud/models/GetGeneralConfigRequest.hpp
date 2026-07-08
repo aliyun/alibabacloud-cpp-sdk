@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> configKey_ {};
+    // The unique identifier of the Model Studio workspace. For more information, see [Get workspaceId]().
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -232,28 +232,75 @@ namespace Models
 
 
   protected:
+    // A list of articles to use as references. **Note:** When you provide this parameter, web search is disabled, overriding the `UseSearch` and `SearchSources` parameters.
     shared_ptr<string> articlesShrink_ {};
+    // Specifies whether to enable step-by-step writing. For more information, see the `Step` parameter description.
     shared_ptr<bool> distributeWriting_ {};
+    // The number of articles to write. If you request multiple articles, the system returns them concurrently, each with a unique session ID.
     shared_ptr<int32_t> gcNumberSize_ {};
+    // A string that specifies the desired article length. Examples: "about 300 words", "about 600 words", "about 1,000 words", or "about 2,000 words".
     shared_ptr<string> gcNumberSizeTag_ {};
+    // A list of keywords used for both search and writing.
     shared_ptr<string> keywordsShrink_ {};
+    // The output language for the article.
+    // 
+    // - `en`: English
+    // 
+    // - `zh`: Chinese
+    // 
+    // - Other languages or specific style requirements can also be specified.
     shared_ptr<string> language_ {};
+    // A list of article snippets.
     shared_ptr<string> miniDocsShrink_ {};
+    // A list of outlines for step-by-step writing.
     shared_ptr<string> outlineListShrink_ {};
+    // A list of outlines for step-by-step writing. This parameter is deprecated. Use `OutlineList` instead.
     shared_ptr<string> outlinesShrink_ {};
+    // The writing prompt. You must provide either `Prompt` or `WritingParams`. For more information, see the description of the `PromptMode` parameter.
     shared_ptr<string> prompt_ {};
+    // The prompt mode. Valid values: `Template` (template mode) and `PE` (advanced PE mode).
+    // 
+    // 1. If this parameter is omitted, you must provide the `Prompt` parameter. We recommend that the prompt includes the topic, length, requirements, and prohibitions.
+    // 
+    // 2. If `PromptMode` is set to `Template`, you must provide `WritingParams`, which is a dictionary of string key-value pairs. For the required schema, see the `.Data.TemplateDefine[].Fields` field in the response of the [ListWritingStyles](https://help.aliyun.com/document_detail/2922609.html) operation.
+    // 
+    // 3. If `PromptMode` is set to `PE`, you must pass `WritingParams` with the following two fields:
+    // 
+    //    1. `topic`: Required. The topic to write about.
+    // 
+    //    2. `prompt`: Optional. Any additional custom prompts or writing requirements.
     shared_ptr<string> promptMode_ {};
+    // A list of specified search sources to use.
     shared_ptr<string> searchSourcesShrink_ {};
+    // The ID of a single-turn conversation. This parameter is deprecated and its use is discouraged.
     shared_ptr<string> sessionId_ {};
+    // The source tracing method. Currently, only `modelSourceTrace` is supported. If set to `modelSourceTrace`, the model adds citation markers (for example, `[[1]]`) to the end of each cited snippet in the generated text. The citation index starts at 1.
     shared_ptr<string> sourceTraceMethod_ {};
+    // The step for step-by-step writing. Valid values:
+    // 
+    // - `OutlineGenerate`: Outline generation
+    // 
+    // - `Writing`: Article writing
+    // 
+    // When `DistributeWriting` is `true`, the default flow for step-by-step writing is to first generate an outline and then write the content based on it.
     shared_ptr<string> step_ {};
+    // A list of summarization objects, used for step-by-step writing.
     shared_ptr<string> summarizationShrink_ {};
+    // The unique ID of the task. You can reuse the same task ID for a multi-turn conversation.
+    // 
+    // > The system automatically generates a `TaskId` if you do not specify one. Reusing the same `TaskId` for subsequent requests groups them into a single conversation.
     shared_ptr<string> taskId_ {};
+    // Specifies whether to enable web search. If `true`, the system uses its built-in web search feature. Default: `false`.
     shared_ptr<bool> useSearch_ {};
+    // The unique ID of the Model Studio workspace. For more information, see [Obtain a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The parameters for template-based writing, provided as a dictionary of string key-value pairs. You must provide either `Prompt` or `WritingParams`. For more information, see the description of the `PromptMode` parameter.
     shared_ptr<string> writingParamsShrink_ {};
+    // The writing scene. Valid values: `government` (government affairs), `media`, `market` (marketing), `office`, and `custom`.
     shared_ptr<string> writingScene_ {};
+    // The writing style. For a list of supported styles, see [ListWritingStyles](https://help.aliyun.com/document_detail/2922609.html).
     shared_ptr<string> writingStyle_ {};
   };
 

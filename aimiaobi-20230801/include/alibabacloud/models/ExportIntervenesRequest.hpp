@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
   };

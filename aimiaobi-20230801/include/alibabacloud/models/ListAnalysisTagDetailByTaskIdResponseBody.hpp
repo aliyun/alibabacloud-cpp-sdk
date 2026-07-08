@@ -122,8 +122,11 @@ namespace Models
 
 
       protected:
+        // The summary.
         shared_ptr<string> summaryOverview_ {};
+        // The name of the tag.
         shared_ptr<string> tagName_ {};
+        // A list of tag values.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -167,10 +170,15 @@ namespace Models
 
 
     protected:
+      // The content of the tag.
       shared_ptr<string> content_ {};
+      // A list of tags applied to the content.
       shared_ptr<vector<Data::ContentTags>> contentTags_ {};
+      // The primary key ID of the data.
       shared_ptr<int64_t> id_ {};
+      // The type of the tag mining task. Valid values: \\`singleTagValue\\`, \\`multiTagValues\\`, and \\`summaryAndOverview\\`.
       shared_ptr<string> tagTaskType_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -243,14 +251,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // A list of classification details from the tag mining task.
     shared_ptr<vector<ListAnalysisTagDetailByTaskIdResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

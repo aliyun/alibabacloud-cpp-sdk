@@ -163,8 +163,11 @@ namespace Models
 
 
         protected:
+          // End time of the video shard in milliseconds.
           shared_ptr<int64_t> endTime_ {};
+          // Start time of the video shard in milliseconds.
           shared_ptr<int64_t> startTime_ {};
+          // Content of the video shard.
           shared_ptr<string> text_ {};
         };
 
@@ -206,7 +209,9 @@ namespace Models
 
 
         protected:
+          // Parameter Name
           shared_ptr<string> key_ {};
+          // Parameter value
           shared_ptr<string> value_ {};
         };
 
@@ -257,8 +262,11 @@ namespace Models
 
 
         protected:
+          // End time in milliseconds.
           shared_ptr<int64_t> endTime_ {};
+          // Start time in milliseconds.
           shared_ptr<int64_t> startTime_ {};
+          // ASR text content.
           shared_ptr<string> text_ {};
         };
 
@@ -299,9 +307,13 @@ namespace Models
 
 
       protected:
+        // ASR results.
         shared_ptr<vector<Metadata::AsrSentences>> asrSentences_ {};
+        // Key-value structure metadata
         shared_ptr<vector<Metadata::KeyValues>> keyValues_ {};
+        // Metadata for the document dimension.
         shared_ptr<string> text_ {};
+        // Video sharding information.
         shared_ptr<vector<Metadata::VideoShots>> videoShots_ {};
       };
 
@@ -434,22 +446,39 @@ namespace Models
 
 
     protected:
+      // Category UUID
       shared_ptr<string> categoryUuid_ {};
+      // Content of the article.
       shared_ptr<string> content_ {};
+      // Whether this record is indexed in the multimodal index library.
       shared_ptr<bool> disableHandleMultimodalMedia_ {};
+      // User-side unique ID of the document.
       shared_ptr<string> docId_ {};
+      // Document type. For example, video or image.
       shared_ptr<string> docType_ {};
+      // Unique ID of the document in the document system.
       shared_ptr<string> docUuid_ {};
+      // Extension field 1
       shared_ptr<string> extend1_ {};
+      // Extension field 2
       shared_ptr<string> extend2_ {};
+      // Extension field 3
       shared_ptr<string> extend3_ {};
+      // Dictionary information.
       shared_ptr<Data::Metadata> metadata_ {};
+      // Publication time in yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> pubTime_ {};
+      // Source of the document.
       shared_ptr<string> sourceFrom_ {};
+      // Document status. 100 means success. 0 means failure. 1 means indexing or queued.
       shared_ptr<int32_t> status_ {};
+      // Summary of the article.
       shared_ptr<string> summary_ {};
+      // Tags.
       shared_ptr<vector<string>> tags_ {};
+      // Title of the document.
       shared_ptr<string> title_ {};
+      // URL of the article.
       shared_ptr<string> url_ {};
     };
 
@@ -500,11 +529,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Business data.
     shared_ptr<GetDatasetDocumentResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. true means success. false means failure.
     shared_ptr<bool> success_ {};
   };
 

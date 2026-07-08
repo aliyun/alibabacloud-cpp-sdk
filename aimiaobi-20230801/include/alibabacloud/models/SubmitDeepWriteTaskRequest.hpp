@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // A description of the attachment.
       shared_ptr<string> fileDescription_ {};
+      // The Object Storage Service (OSS) address of the attachment.
       shared_ptr<string> fileKey_ {};
+      // The name of the attachment.
       shared_ptr<string> fileName_ {};
     };
 
@@ -151,7 +154,9 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable citations.
         shared_ptr<bool> enableCitation_ {};
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -183,6 +188,7 @@ namespace Models
 
 
       protected:
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -224,7 +230,9 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable retrieval.
         shared_ptr<bool> enableSearch_ {};
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -258,8 +266,11 @@ namespace Models
 
 
     protected:
+      // The data analysis agent.
       shared_ptr<AgentOrchestration::DataAnalystAgent> dataAnalystAgent_ {};
+      // The data collection agent.
       shared_ptr<AgentOrchestration::DataCollectorAgent> dataCollectorAgent_ {};
+      // The reporter agent.
       shared_ptr<AgentOrchestration::ReporterAgent> reporterAgent_ {};
     };
 
@@ -305,11 +316,17 @@ namespace Models
 
 
   protected:
+    // The agent orchestration options.
     shared_ptr<SubmitDeepWriteTaskRequest::AgentOrchestration> agentOrchestration_ {};
+    // A list of attachments.
     shared_ptr<vector<SubmitDeepWriteTaskRequest::Files>> files_ {};
+    // The user\\"s question.
+    // 
     // This parameter is required.
     shared_ptr<string> input_ {};
+    // The instructions.
     shared_ptr<string> instructions_ {};
+    // [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

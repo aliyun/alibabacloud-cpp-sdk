@@ -112,17 +112,29 @@ namespace Models
 
 
   protected:
+    // Purge cache
     shared_ptr<bool> cleanCache_ {};
+    // Document ID
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // Custom requirements for the document summary
     shared_ptr<string> introductionPrompt_ {};
+    // Custom requirements for key points
     shared_ptr<string> keyPointPrompt_ {};
+    // User-defined model name
     shared_ptr<string> modelName_ {};
+    // Conversation ID
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Custom requirements for the summary content
     shared_ptr<string> summaryPrompt_ {};
+    // Unique identifier (UUID) of the Alibaba Cloud Model Studio workspace. For more information, see [Workspace ID](https://help.aliyun.com/document_detail/2587495.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // Content to generate the summary from. If not empty, this value takes precedence over docId.
     shared_ptr<string> referenceContent_ {};
   };
 

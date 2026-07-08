@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // The file name of the role\\"s facial image.
         shared_ptr<string> roleFileName_ {};
+        // The public URL of the role\\"s facial image.
         shared_ptr<string> roleFileUrl_ {};
       };
 
@@ -143,8 +145,11 @@ namespace Models
 
 
     protected:
+      // Information about the role.
       shared_ptr<string> roleInfo_ {};
+      // The name of the role.
       shared_ptr<string> roleName_ {};
+      // The URLs of the role photos.
       shared_ptr<vector<VideoRoles::RoleUrls>> roleUrls_ {};
     };
 
@@ -195,9 +200,14 @@ namespace Models
 
 
     protected:
+      // Additional description of the video.
       shared_ptr<string> videoExtraInfo_ {};
+      // The name of the video.
+      // 
       // This parameter is required.
       shared_ptr<string> videoName_ {};
+      // The URL of the video.
+      // 
       // This parameter is required.
       shared_ptr<string> videoUrl_ {};
     };
@@ -249,8 +259,11 @@ namespace Models
 
 
     protected:
+      // Additional information for video understanding.
       shared_ptr<string> videoExtraInfo_ {};
+      // The name of the reference video.
       shared_ptr<string> videoName_ {};
+      // The URL of the video.
       shared_ptr<string> videoUrl_ {};
     };
 
@@ -349,18 +362,32 @@ namespace Models
 
 
   protected:
+    // Shot segmentation threshold. A smaller value increases sensitivity. Valid range is 1 to 10. Default value is 3.
     shared_ptr<float> adaptiveThreshold_ {};
+    // The prompt for video understanding.
     shared_ptr<string> anlysisPrompt_ {};
+    // The similarity threshold for character recognition.
     shared_ptr<double> faceIdentitySimilarityMinScore_ {};
+    // Information about the reference video.
     shared_ptr<AsyncUploadVideoRequest::ReferenceVideo> referenceVideo_ {};
+    // Removes captions from the material.
     shared_ptr<bool> removeSubtitle_ {};
+    // The structure of the video editing materials.
+    // 
     // This parameter is required.
     shared_ptr<vector<AsyncUploadVideoRequest::SourceVideos>> sourceVideos_ {};
+    // The time interval for video understanding shots.
     shared_ptr<int32_t> splitInterval_ {};
+    // Job name
     shared_ptr<string> taskName_ {};
+    // Task Type
     shared_ptr<string> taskType_ {};
+    // Face information of the roles.
     shared_ptr<vector<AsyncUploadVideoRequest::VideoRoles>> videoRoles_ {};
+    // The number of frames sampled from a single shot for character matching.
     shared_ptr<int32_t> videoShotFaceIdentityCount_ {};
+    // [The ID of the Alibaba Cloud Model Studio workspace.](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

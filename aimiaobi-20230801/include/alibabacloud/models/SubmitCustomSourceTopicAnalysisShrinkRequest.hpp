@@ -103,13 +103,27 @@ namespace Models
 
 
   protected:
+    // The types of analysis for hot topic selection. Multiple values are supported. If you omit this parameter, the service analyzes all types by default. If you pass an empty array, the service performs only clustering and skips the analysis of hot topics for selection.
+    // `HotViewPoints`: Analyzes perspectives on hot topics.
+    // `WebReviewPoints`: Analyzes user viewpoints. This requires comments.
+    // `TimedViewPoints`: Analyzes perspectives on timeliness.
+    // `FreshViewPoints`: Analyzes novel perspectives.
+    // `TopicSummary`: Summarizes news content.
     shared_ptr<string> analysisTypesShrink_ {};
+    // The file type. Valid values: `json` (JSON array) and `jsonLine` (JSON Lines).
     shared_ptr<string> fileType_ {};
+    // The file URL. You must specify either `FileUrl` or `News`. For details on the file structure, see the description of the `News` parameter.
     shared_ptr<string> fileUrl_ {};
+    // The maximum number of topics to analyze. By default, the service sorts clustered news by count in descending order and analyzes the top 50 topics. The maximum value is 200.
     shared_ptr<int32_t> maxTopicSize_ {};
+    // A list of news articles. You must specify either `News` or `FileUrl`.
     shared_ptr<string> newsShrink_ {};
+    // A list of topics.
     shared_ptr<string> topicsShrink_ {};
+    // The URL of the file that contains the topic list. The file must be in JSON Lines format, with each line representing a single JSON object.
     shared_ptr<string> topicsFileUrl_ {};
+    // [The Model Studio workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -176,11 +176,17 @@ namespace Models
 
 
         protected:
+          // The content.
           shared_ptr<string> content_ {};
+          // The publishing time.
           shared_ptr<string> pubTime_ {};
+          // The source.
           shared_ptr<string> source_ {};
+          // The article summary.
           shared_ptr<string> summary_ {};
+          // The title.
           shared_ptr<string> title_ {};
+          // The article URL.
           shared_ptr<string> url_ {};
         };
 
@@ -231,11 +237,17 @@ namespace Models
 
 
       protected:
+        // The status code.
         shared_ptr<string> code_ {};
+        // The current page number.
         shared_ptr<int32_t> current_ {};
+        // The list of articles.
         shared_ptr<vector<NewsArticleResults::Data>> data_ {};
+        // The error message.
         shared_ptr<string> message_ {};
+        // The number of records per page.
         shared_ptr<int32_t> size_ {};
+        // The total number of records.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -301,13 +313,21 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<string> createUser_ {};
+      // The display name of the dataset.
       shared_ptr<string> datasetDescription_ {};
+      // The dataset ID.
       shared_ptr<int64_t> datasetId_ {};
+      // The dataset name.
       shared_ptr<string> datasetName_ {};
+      // The dataset type.
       shared_ptr<string> datasetType_ {};
+      // The list of articles.
       shared_ptr<vector<Data::NewsArticleResults>> newsArticleResults_ {};
+      // Indicates whether search is enabled for the dataset.
       shared_ptr<int32_t> searchDatasetEnable_ {};
     };
 
@@ -358,11 +378,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<UpdateDatasetResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

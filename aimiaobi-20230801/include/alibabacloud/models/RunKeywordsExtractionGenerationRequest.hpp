@@ -66,6 +66,8 @@ namespace Models
 
 
     protected:
+      // List of content.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> contents_ {};
     };
@@ -103,10 +105,18 @@ namespace Models
 
 
   protected:
+    // Custom prompt.
     shared_ptr<string> prompt_ {};
+    // Data required for generation.
+    // 
     // This parameter is required.
     shared_ptr<RunKeywordsExtractionGenerationRequest::ReferenceData> referenceData_ {};
+    // The unique identifier for the associated creation article.
+    // 
+    // > TaskId is not required by default; the system automatically generates it. If subsequent tasks use the same TaskId, they belong to the same conversation group.
     shared_ptr<string> taskId_ {};
+    // The unique identifier for the Alibaba Cloud Model Studio workspace. Obtain the [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

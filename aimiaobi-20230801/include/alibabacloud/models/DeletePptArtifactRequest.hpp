@@ -58,7 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<string> externalUserId_ {};
+    // The ID of the PPT work.
     shared_ptr<string> pptArtifactId_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

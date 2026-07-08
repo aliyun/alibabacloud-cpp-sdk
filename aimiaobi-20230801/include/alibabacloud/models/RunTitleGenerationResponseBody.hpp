@@ -109,8 +109,11 @@ namespace Models
 
 
       protected:
+        // Number of tokens used for input.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of tokens used for output.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens used for this call.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -142,6 +145,7 @@ namespace Models
 
 
       protected:
+        // Article title.
         shared_ptr<string> text_ {};
       };
 
@@ -166,7 +170,9 @@ namespace Models
 
 
     protected:
+      // Outputs.
       shared_ptr<Payload::Output> output_ {};
+      // Token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -254,12 +260,19 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error code message.
       shared_ptr<string> errorMessage_ {};
+      // SSE event.
       shared_ptr<string> event_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Status code.
       shared_ptr<int32_t> statusCode_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Full link ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -320,12 +333,19 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Response header.
     shared_ptr<RunTitleGenerationResponseBody::Header> header_ {};
+    // HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // Error description.
     shared_ptr<string> message_ {};
+    // Response body.
     shared_ptr<RunTitleGenerationResponseBody::Payload> payload_ {};
+    // Unique request identifier.
     shared_ptr<string> requestId_ {};
+    // Whether the operation was successful: true for success, false for failure.
     shared_ptr<bool> success_ {};
   };
 

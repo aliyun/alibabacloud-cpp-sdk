@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // Reply content
         shared_ptr<string> message_ {};
+        // Reply type
         shared_ptr<string> replyType_ {};
       };
 
@@ -123,6 +125,7 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // Reply message list
       shared_ptr<vector<Data::ReplyMessagList>> replyMessagList_ {};
     };
 
@@ -173,11 +176,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetInterveneGlobalReplyResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

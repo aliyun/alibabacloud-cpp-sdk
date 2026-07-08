@@ -66,11 +66,20 @@ namespace Models
 
 
   protected:
+    // Tone. Examples include lyrical, bold, subtle, excited, friendly, and inspirational.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // Data required for generation.
+    // 
     // This parameter is required.
     shared_ptr<string> referenceDataShrink_ {};
+    // Unique identifier of the associated article.
+    // 
+    // > You do not need to specify TaskId. The system generates it automatically. If you use the same TaskId in later requests, those requests belong to the same conversation group.
     shared_ptr<string> taskId_ {};
+    // Unique identifier of your Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

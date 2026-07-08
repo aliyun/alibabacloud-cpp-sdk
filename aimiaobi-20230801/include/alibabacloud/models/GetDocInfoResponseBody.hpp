@@ -179,13 +179,20 @@ namespace Models
 
 
     protected:
+      // The category where the document is stored.
       shared_ptr<string> categoryId_ {};
+      // The document name.
       shared_ptr<string> docName_ {};
+      // The document type.
       shared_ptr<string> docType_ {};
+      // The URL of the document.
       shared_ptr<string> fileUrl_ {};
       shared_ptr<Data::PageInfo> pageInfo_ {};
+      // The task status.
       shared_ptr<int32_t> status_ {};
+      // The status message.
       shared_ptr<string> statusMessage_ {};
+      // Text transcripts from the video\\"s audio.
       shared_ptr<vector<string>> videoContents_ {};
     };
 
@@ -236,11 +243,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetDocInfoResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of `true` indicates success, and `false` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

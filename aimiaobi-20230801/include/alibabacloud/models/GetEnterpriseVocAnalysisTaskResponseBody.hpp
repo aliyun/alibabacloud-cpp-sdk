@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
       };
 
@@ -196,8 +198,11 @@ namespace Models
 
 
           protected:
+            // The tag name.
             shared_ptr<string> tagName_ {};
+            // The type of the tag mining task. Valid values: \\`singleTagValue\\` (single tag), \\`multiTagValues\\` (multiple tags), and \\`summaryAndOverview\\` (summary and overview).
             shared_ptr<string> tagTaskType_ {};
+            // The number of tag values.
             shared_ptr<int32_t> valueCount_ {};
           };
 
@@ -212,6 +217,7 @@ namespace Models
 
 
         protected:
+          // The statistics of tag value counts.
           shared_ptr<vector<TagDimensionStatistics::TagValueCountStatistic>> tagValueCountStatistic_ {};
         };
 
@@ -281,8 +287,11 @@ namespace Models
 
 
           protected:
+            // The tag name.
             shared_ptr<string> tagName_ {};
+            // The type of the tag mining task. Valid values: \\`singleTagValue\\` (single tag), \\`multiTagValues\\` (multiple tags), and \\`summaryAndOverview\\` (summary and overview).
             shared_ptr<string> tagTaskType_ {};
+            // The number of tag values.
             shared_ptr<int32_t> valueCount_ {};
           };
 
@@ -297,6 +306,7 @@ namespace Models
 
 
         protected:
+          // The statistics of tag value counts.
           shared_ptr<vector<FilterDimensionStatistics::TagValueCountStatistic>> tagValueCountStatistic_ {};
         };
 
@@ -328,8 +338,11 @@ namespace Models
 
 
       protected:
+        // The total number of analyzed data entries.
         shared_ptr<int32_t> count_ {};
+        // The statistics of filter tags.
         shared_ptr<StatisticsOverview::FilterDimensionStatistics> filterDimensionStatistics_ {};
+        // The statistics of content tags.
         shared_ptr<StatisticsOverview::TagDimensionStatistics> tagDimensionStatistics_ {};
       };
 
@@ -368,9 +381,13 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The statistics overview.
       shared_ptr<Data::StatisticsOverview> statisticsOverview_ {};
+      // The status of the task. Valid values: \\`PENDING\\` (pending), \\`RUNNING\\` (running), \\`SUCCESSED\\` (successful), \\`FAILED\\` (failed), and \\`CANCELED\\` (canceled).
       shared_ptr<string> status_ {};
+      // The usage statistics.
       shared_ptr<Data::Usage> usage_ {};
     };
 
@@ -421,11 +438,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The result of the enterprise VOC analysis.
     shared_ptr<GetEnterpriseVocAnalysisTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

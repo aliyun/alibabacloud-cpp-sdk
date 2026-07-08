@@ -206,18 +206,31 @@ namespace Models
 
 
       protected:
+        // The author.
         shared_ptr<string> author_ {};
+        // The content.
         shared_ptr<string> content_ {};
+        // The unique identifier of the internal document.
         shared_ptr<string> docUuid_ {};
+        // The image URLs.
         shared_ptr<vector<string>> imageUrls_ {};
+        // The publish time.
         shared_ptr<string> pubTime_ {};
+        // The search source.
         shared_ptr<string> searchSource_ {};
+        // The search source name.
         shared_ptr<string> searchSourceName_ {};
+        // The source.
         shared_ptr<string> source_ {};
+        // The article summary.
         shared_ptr<string> summary_ {};
+        // The tag.
         shared_ptr<string> tag_ {};
+        // The title.
         shared_ptr<string> title_ {};
+        // The system update time.
         shared_ptr<string> updateTime_ {};
+        // The article URL.
         shared_ptr<string> url_ {};
       };
 
@@ -254,9 +267,16 @@ namespace Models
 
 
     protected:
+      // The news list.
       shared_ptr<vector<Data::News>> news_ {};
+      // The news category. Valid values:
+      // - society: social current affairs.
+      // - person: people news.
+      // - government: government affairs.
       shared_ptr<string> newsType_ {};
+      // The news category name.
       shared_ptr<string> newsTypeName_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -307,11 +327,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<vector<ListHotNewsWithTypeResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

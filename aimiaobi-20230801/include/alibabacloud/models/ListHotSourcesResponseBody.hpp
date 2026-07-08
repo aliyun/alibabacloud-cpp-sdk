@@ -102,9 +102,13 @@ namespace Models
 
 
     protected:
+      // Hot ranking source description
       shared_ptr<string> description_ {};
+      // Whether to display in the console
       shared_ptr<bool> show_ {};
+      // Sorting value
       shared_ptr<int32_t> sort_ {};
+      // Hot ranking source identity
       shared_ptr<string> source_ {};
     };
 
@@ -177,14 +181,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Third-party source list
     shared_ptr<vector<ListHotSourcesResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of results returned
     shared_ptr<int32_t> maxResults_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Next page token
     shared_ptr<string> nextToken_ {};
+    // Request UUID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded: true for success, false for failure
     shared_ptr<bool> success_ {};
+    // Total number of records
     shared_ptr<int32_t> totalCount_ {};
   };
 

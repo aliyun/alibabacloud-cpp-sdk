@@ -94,13 +94,24 @@ namespace Models
 
 
   protected:
+    // A list of categories for filtering.
     shared_ptr<string> categoriesShrink_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The number of records to request.
     shared_ptr<int32_t> size_ {};
+    // The unique ID of the task.
+    // 
+    // > This parameter is optional. The system automatically generates a task ID. If you specify the same TaskId for multiple tasks, the tasks are considered part of the same conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -188,8 +188,11 @@ namespace Models
 
 
           protected:
+            // The type.
             shared_ptr<string> code_ {};
+            // The unique ID.
             shared_ptr<string> datasetName_ {};
+            // The description.
             shared_ptr<string> name_ {};
           };
 
@@ -230,6 +233,7 @@ namespace Models
         protected:
           shared_ptr<string> endTime_ {};
           shared_ptr<vector<string>> multimodalSearchTypes_ {};
+          // The search sources.
           shared_ptr<vector<SearchParam::SearchSources>> searchSources_ {};
           shared_ptr<string> startTime_ {};
         };
@@ -283,10 +287,15 @@ namespace Models
 
 
       protected:
+        // The request type.
         shared_ptr<int32_t> dialogueType_ {};
+        // Indicates whether the process is end-to-end.
         shared_ptr<bool> endToEnd_ {};
+        // The generation level.
         shared_ptr<string> generateLevel_ {};
+        // The type of content generation.
         shared_ptr<string> generateTechnology_ {};
+        // The search type.
         shared_ptr<vector<string>> searchModels_ {};
         shared_ptr<ChatConfig::SearchParam> searchParam_ {};
       };
@@ -384,17 +393,29 @@ namespace Models
 
 
     protected:
+      // The configuration.
       shared_ptr<Data::ChatConfig> chatConfig_ {};
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The type of generation.
       shared_ptr<int32_t> dialogueType_ {};
+      // The generated content that the customer rated as good.
       shared_ptr<string> goodText_ {};
+      // The original session ID.
       shared_ptr<string> originSessionId_ {};
+      // The input prompt.
       shared_ptr<string> prompt_ {};
+      // The rating of the content, which can be Like or Dislike.
       shared_ptr<string> rating_ {};
+      // The response body as a string.
       shared_ptr<string> responseBodyStr_ {};
+      // The unique ID of a single-turn conversation.
       shared_ptr<string> sessionId_ {};
+      // The tags.
       shared_ptr<vector<string>> tags_ {};
+      // The unique ID of the task.
       shared_ptr<string> taskId_ {};
+      // The customer feedback.
       shared_ptr<string> text_ {};
     };
 
@@ -467,14 +488,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<vector<ListSearchTaskDialoguesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The number of the page returned.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

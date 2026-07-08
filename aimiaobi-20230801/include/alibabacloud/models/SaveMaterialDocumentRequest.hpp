@@ -161,21 +161,37 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Author
     shared_ptr<string> author_ {};
+    // Is the material saved to both the private library and the shared library?
     shared_ptr<bool> bothSavePrivateAndShare_ {};
+    // Document tags used for classification, etc.
     shared_ptr<vector<string>> docKeywords_ {};
+    // Document type (html: web page, plainText: plain text, image: image, pdf: pdf, word: word, excel: excel, csv: csv, jsonLine: jsonLine)
+    // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
+    // URL uploaded by external customers, used only for record keeping
     shared_ptr<string> externalUrl_ {};
+    // Formatted content
     shared_ptr<string> htmlContent_ {};
+    // Publication time, format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> pubTime_ {};
+    // Sharing attribute: 0: private, 1: shared within the workspace
     shared_ptr<int32_t> shareAttr_ {};
+    // Document source (UserUpload: User Upload, IntellijSearch: Intelligent Search, HotViewPoint: Hot Viewpoint)
     shared_ptr<string> srcFrom_ {};
+    // Summary
     shared_ptr<string> summary_ {};
+    // Parsed text content, empty for images
     shared_ptr<string> textContent_ {};
+    // Document title
     shared_ptr<string> title_ {};
+    // URL of the material
     shared_ptr<string> url_ {};
   };
 

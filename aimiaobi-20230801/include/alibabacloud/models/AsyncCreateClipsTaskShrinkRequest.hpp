@@ -13,6 +13,8 @@ namespace Models
   class AsyncCreateClipsTaskShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AsyncCreateClipsTaskShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AdaptMode, adaptMode_);
+      DARABONBA_PTR_TO_JSON(Alignment, alignment_);
       DARABONBA_PTR_TO_JSON(CloseMusic, closeMusic_);
       DARABONBA_PTR_TO_JSON(CloseSubtitle, closeSubtitle_);
       DARABONBA_PTR_TO_JSON(CloseVoice, closeVoice_);
@@ -32,12 +34,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Stickers, stickersShrink_);
       DARABONBA_PTR_TO_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      DARABONBA_PTR_TO_JSON(TextWidth, textWidth_);
       DARABONBA_PTR_TO_JSON(VoiceStyle, voiceStyle_);
       DARABONBA_PTR_TO_JSON(VoiceVolume, voiceVolume_);
       DARABONBA_PTR_TO_JSON(Width, width_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AsyncCreateClipsTaskShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AdaptMode, adaptMode_);
+      DARABONBA_PTR_FROM_JSON(Alignment, alignment_);
       DARABONBA_PTR_FROM_JSON(CloseMusic, closeMusic_);
       DARABONBA_PTR_FROM_JSON(CloseSubtitle, closeSubtitle_);
       DARABONBA_PTR_FROM_JSON(CloseVoice, closeVoice_);
@@ -57,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Stickers, stickersShrink_);
       DARABONBA_PTR_FROM_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      DARABONBA_PTR_FROM_JSON(TextWidth, textWidth_);
       DARABONBA_PTR_FROM_JSON(VoiceStyle, voiceStyle_);
       DARABONBA_PTR_FROM_JSON(VoiceVolume, voiceVolume_);
       DARABONBA_PTR_FROM_JSON(Width, width_);
@@ -73,12 +79,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->closeMusic_ == nullptr
-        && this->closeSubtitle_ == nullptr && this->closeVoice_ == nullptr && this->closingCreditsUrl_ == nullptr && this->colorWordsShrink_ == nullptr && this->cosyVoiceAppKey_ == nullptr
-        && this->cosyVoiceToken_ == nullptr && this->customVoiceStyle_ == nullptr && this->customVoiceUrl_ == nullptr && this->customVoiceVolume_ == nullptr && this->height_ == nullptr
-        && this->highDefSourceVideosShrink_ == nullptr && this->musicStyle_ == nullptr && this->musicUrl_ == nullptr && this->musicVolume_ == nullptr && this->openingCreditsUrl_ == nullptr
-        && this->stickersShrink_ == nullptr && this->subtitleFontSize_ == nullptr && this->taskId_ == nullptr && this->voiceStyle_ == nullptr && this->voiceVolume_ == nullptr
-        && this->width_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->adaptMode_ == nullptr
+        && this->alignment_ == nullptr && this->closeMusic_ == nullptr && this->closeSubtitle_ == nullptr && this->closeVoice_ == nullptr && this->closingCreditsUrl_ == nullptr
+        && this->colorWordsShrink_ == nullptr && this->cosyVoiceAppKey_ == nullptr && this->cosyVoiceToken_ == nullptr && this->customVoiceStyle_ == nullptr && this->customVoiceUrl_ == nullptr
+        && this->customVoiceVolume_ == nullptr && this->height_ == nullptr && this->highDefSourceVideosShrink_ == nullptr && this->musicStyle_ == nullptr && this->musicUrl_ == nullptr
+        && this->musicVolume_ == nullptr && this->openingCreditsUrl_ == nullptr && this->stickersShrink_ == nullptr && this->subtitleFontSize_ == nullptr && this->taskId_ == nullptr
+        && this->textWidth_ == nullptr && this->voiceStyle_ == nullptr && this->voiceVolume_ == nullptr && this->width_ == nullptr && this->workspaceId_ == nullptr; };
+    // adaptMode Field Functions 
+    bool hasAdaptMode() const { return this->adaptMode_ != nullptr;};
+    void deleteAdaptMode() { this->adaptMode_ = nullptr;};
+    inline string getAdaptMode() const { DARABONBA_PTR_GET_DEFAULT(adaptMode_, "") };
+    inline AsyncCreateClipsTaskShrinkRequest& setAdaptMode(string adaptMode) { DARABONBA_PTR_SET_VALUE(adaptMode_, adaptMode) };
+
+
+    // alignment Field Functions 
+    bool hasAlignment() const { return this->alignment_ != nullptr;};
+    void deleteAlignment() { this->alignment_ = nullptr;};
+    inline string getAlignment() const { DARABONBA_PTR_GET_DEFAULT(alignment_, "") };
+    inline AsyncCreateClipsTaskShrinkRequest& setAlignment(string alignment) { DARABONBA_PTR_SET_VALUE(alignment_, alignment) };
+
+
     // closeMusic Field Functions 
     bool hasCloseMusic() const { return this->closeMusic_ != nullptr;};
     void deleteCloseMusic() { this->closeMusic_ = nullptr;};
@@ -212,6 +232,13 @@ namespace Models
     inline AsyncCreateClipsTaskShrinkRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+    // textWidth Field Functions 
+    bool hasTextWidth() const { return this->textWidth_ != nullptr;};
+    void deleteTextWidth() { this->textWidth_ = nullptr;};
+    inline string getTextWidth() const { DARABONBA_PTR_GET_DEFAULT(textWidth_, "") };
+    inline AsyncCreateClipsTaskShrinkRequest& setTextWidth(string textWidth) { DARABONBA_PTR_SET_VALUE(textWidth_, textWidth) };
+
+
     // voiceStyle Field Functions 
     bool hasVoiceStyle() const { return this->voiceStyle_ != nullptr;};
     void deleteVoiceStyle() { this->voiceStyle_ = nullptr;};
@@ -241,29 +268,57 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> adaptMode_ {};
+    shared_ptr<string> alignment_ {};
+    // Specifies whether to disable the background music.
     shared_ptr<bool> closeMusic_ {};
+    // Specifies whether to disable the subtitles.
     shared_ptr<bool> closeSubtitle_ {};
+    // Specifies whether to disable the narration voice.
     shared_ptr<bool> closeVoice_ {};
+    // The URL of the closing credits video.
     shared_ptr<string> closingCreditsUrl_ {};
+    // The array of animated text elements.
     shared_ptr<string> colorWordsShrink_ {};
+    // The AppKey of CosyVoice.
     shared_ptr<string> cosyVoiceAppKey_ {};
+    // The token of CosyVoice.
     shared_ptr<string> cosyVoiceToken_ {};
+    // The voice tone of CosyVoice.
     shared_ptr<string> customVoiceStyle_ {};
+    // The URL of the custom audio track.
     shared_ptr<string> customVoiceUrl_ {};
+    // The volume of the custom audio track.
     shared_ptr<int32_t> customVoiceVolume_ {};
+    // The height of the video.
     shared_ptr<int32_t> height_ {};
+    // The list of high-definition video structures.
     shared_ptr<string> highDefSourceVideosShrink_ {};
+    // The type of recommended music.
     shared_ptr<string> musicStyle_ {};
+    // The URL of the background music.
     shared_ptr<string> musicUrl_ {};
+    // The volume of the background music.
     shared_ptr<int32_t> musicVolume_ {};
+    // The URL of the opening credits video.
     shared_ptr<string> openingCreditsUrl_ {};
+    // The array of sticker structures.
     shared_ptr<string> stickersShrink_ {};
+    // The font size of the subtitles.
     shared_ptr<int32_t> subtitleFontSize_ {};
+    // The unique ID of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    shared_ptr<string> textWidth_ {};
+    // The type of narration voice.
     shared_ptr<string> voiceStyle_ {};
+    // The volume of the narration voice.
     shared_ptr<int32_t> voiceVolume_ {};
+    // The width of the video.
     shared_ptr<int32_t> width_ {};
+    // The [Bailian workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -94,18 +94,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to generate the text step by step.
     shared_ptr<bool> distributeWriting_ {};
+    // The prompt, which specifies the subject for the AI to write about.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The prompt pattern. For example, PE indicates the advanced pattern and Template indicates the template pattern.
     shared_ptr<string> promptMode_ {};
+    // The [workspace](https://help.aliyun.com/document_detail/2782167.html) ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The writing parameters from the previous form, specified as key-value pairs.
     shared_ptr<string> writingParamsShrink_ {};
-    // 写作场景：government(政务)、media(传媒)、market(营销)、office(办公)、custom(自定义)
+    // The writing scenario. Valid values: government, media, market, office, and custom.
     // 
     // This parameter is required.
     shared_ptr<string> writingScene_ {};
-    // 写作文体唯一标识KEY，可通过ListWritingStyles接口获取对应写作场景下的文体列表
+    // The unique key for the writing style. Call the [ListWritingStyles](https://help.aliyun.com/document_detail/2922609.html) operation to get a list of styles for the specified scenario.
     // 
     // This parameter is required.
     shared_ptr<string> writingStyle_ {};

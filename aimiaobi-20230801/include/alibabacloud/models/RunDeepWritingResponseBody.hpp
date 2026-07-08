@@ -126,7 +126,9 @@ namespace Models
 
 
         protected:
+          // The unique ID of the task.
           shared_ptr<string> id_ {};
+          // The execution status of the task.
           shared_ptr<string> status_ {};
         };
 
@@ -201,7 +203,9 @@ namespace Models
 
 
           protected:
+            // The text content that is output when the item type is \\`message\\`.
             shared_ptr<string> text_ {};
+            // When the item type is \\`message\\`, the value of this field is \\`output_text\\`.
             shared_ptr<string> type_ {};
           };
 
@@ -267,13 +271,21 @@ namespace Models
 
 
         protected:
+          // The name of the agent that generated this item.
           shared_ptr<string> agent_ {};
+          // Parameter
           shared_ptr<string> arguments_ {};
+          // This field has a value when the item type is \\`message\\`. The value is a list of output content.
           shared_ptr<vector<Item::Content>> content_ {};
+          // The unique ID of the item.
           shared_ptr<string> id_ {};
+          // The name of the parameter.
           shared_ptr<string> name_ {};
+          // The item\\"s result.
           shared_ptr<string> result_ {};
+          // The status of the item.
           shared_ptr<string> status_ {};
+          // The type of the item.
           shared_ptr<string> type_ {};
         };
 
@@ -319,10 +331,15 @@ namespace Models
 
 
       protected:
+        // The new output item for this event.
         shared_ptr<Output::Item> item_ {};
+        // The ordinal number of the new output item in this event.
         shared_ptr<int32_t> outputIndex_ {};
+        // The response body.
         shared_ptr<Output::Response> response_ {};
+        // The ordinal number of the streaming event.
         shared_ptr<string> sequenceNumber_ {};
+        // The type.
         shared_ptr<string> type_ {};
       };
 
@@ -337,6 +354,7 @@ namespace Models
 
 
     protected:
+      // The output.
       shared_ptr<Payload::Output> output_ {};
     };
 
@@ -424,12 +442,19 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The Server-Sent Event (SSE).
       shared_ptr<string> event_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The HTTP status code.
       shared_ptr<int32_t> statusCode_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -490,12 +515,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response header.
     shared_ptr<RunDeepWritingResponseBody::Header> header_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The response body.
     shared_ptr<RunDeepWritingResponseBody::Payload> payload_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

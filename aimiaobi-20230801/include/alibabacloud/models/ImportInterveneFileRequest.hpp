@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Name of the uploaded file.
     shared_ptr<string> docName_ {};
+    // OSS key of the file.
     shared_ptr<string> fileKey_ {};
+    // URL of the file.
     shared_ptr<string> fileUrl_ {};
   };
 

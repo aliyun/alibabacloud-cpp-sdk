@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the dataset.
     shared_ptr<int64_t> datasetId_ {};
+    // Name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // The document to update.
+    // 
     // This parameter is required.
     shared_ptr<string> documentShrink_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
     shared_ptr<string> workspaceId_ {};
   };
 

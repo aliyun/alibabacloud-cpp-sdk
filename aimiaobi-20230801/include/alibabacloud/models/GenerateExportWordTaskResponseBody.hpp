@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Response body
     shared_ptr<GenerateExportWordTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

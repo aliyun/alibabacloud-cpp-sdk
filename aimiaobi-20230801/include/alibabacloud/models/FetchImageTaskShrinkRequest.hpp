@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Article task ID
+    // 
     // This parameter is required.
     shared_ptr<string> articleTaskId_ {};
+    // List of task IDs
+    // 
     // This parameter is required.
     shared_ptr<string> taskIdListShrink_ {};
   };

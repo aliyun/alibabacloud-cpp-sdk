@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The status of the task.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The task response object.
     shared_ptr<SubmitDeepWriteTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The task ID of the article. If you do not have one, you can assign a universally unique identifier (UUID).
+    // 
     // This parameter is required.
     shared_ptr<string> articleTaskId_ {};
+    // The content of the paragraphs.
+    // 
     // This parameter is required.
     shared_ptr<string> paragraphListShrink_ {};
+    // The size of the image to generate.
+    // 
     // This parameter is required.
     shared_ptr<string> size_ {};
+    // The style.
+    // 
     // This parameter is required.
     shared_ptr<string> style_ {};
   };

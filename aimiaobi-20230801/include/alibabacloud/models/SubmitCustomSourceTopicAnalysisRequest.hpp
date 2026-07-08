@@ -103,9 +103,13 @@ namespace Models
 
 
     protected:
+      // A custom field. You can use this field to filter results when you call the `ListHotTopics` operation.
       shared_ptr<string> customField_ {};
+      // A list of news articles.
       shared_ptr<vector<HottopicNews>> news_ {};
+      // The topic name.
       shared_ptr<string> topic_ {};
+      // The URL of the topic. This value is passed through to the `ListHotTopics` response without being processed.
       shared_ptr<string> topicUrl_ {};
     };
 
@@ -166,6 +170,7 @@ namespace Models
 
 
       protected:
+        // The comment text.
         shared_ptr<string> text_ {};
       };
 
@@ -216,11 +221,17 @@ namespace Models
 
 
     protected:
+      // A list of comments.
       shared_ptr<vector<News::Comments>> comments_ {};
+      // The content of the news article.
       shared_ptr<string> content_ {};
+      // The publication time. The format must be `YYYY-MM-dd HH:mm:ss`.
       shared_ptr<string> pubTime_ {};
+      // The source of the news article.
       shared_ptr<string> source_ {};
+      // The title of the news article.
       shared_ptr<string> title_ {};
+      // The URL of the news article.
       shared_ptr<string> url_ {};
     };
 
@@ -290,13 +301,27 @@ namespace Models
 
 
   protected:
+    // The types of analysis for hot topic selection. Multiple values are supported. If you omit this parameter, the service analyzes all types by default. If you pass an empty array, the service performs only clustering and skips the analysis of hot topics for selection.
+    // `HotViewPoints`: Analyzes perspectives on hot topics.
+    // `WebReviewPoints`: Analyzes user viewpoints. This requires comments.
+    // `TimedViewPoints`: Analyzes perspectives on timeliness.
+    // `FreshViewPoints`: Analyzes novel perspectives.
+    // `TopicSummary`: Summarizes news content.
     shared_ptr<vector<string>> analysisTypes_ {};
+    // The file type. Valid values: `json` (JSON array) and `jsonLine` (JSON Lines).
     shared_ptr<string> fileType_ {};
+    // The file URL. You must specify either `FileUrl` or `News`. For details on the file structure, see the description of the `News` parameter.
     shared_ptr<string> fileUrl_ {};
+    // The maximum number of topics to analyze. By default, the service sorts clustered news by count in descending order and analyzes the top 50 topics. The maximum value is 200.
     shared_ptr<int32_t> maxTopicSize_ {};
+    // A list of news articles. You must specify either `News` or `FileUrl`.
     shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequest::News>> news_ {};
+    // A list of topics.
     shared_ptr<vector<SubmitCustomSourceTopicAnalysisRequest::Topics>> topics_ {};
+    // The URL of the file that contains the topic list. The file must be in JSON Lines format, with each line representing a single JSON object.
     shared_ptr<string> topicsFileUrl_ {};
+    // [The Model Studio workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

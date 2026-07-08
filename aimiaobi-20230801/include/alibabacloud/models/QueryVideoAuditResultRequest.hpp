@@ -48,10 +48,12 @@ namespace Models
 
 
   protected:
-    // 视频审校任务的唯一标识，长度固定32位
+    // Task ID
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Workspace ID
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

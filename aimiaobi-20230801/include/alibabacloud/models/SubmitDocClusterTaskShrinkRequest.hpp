@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // A list of documents.
+    // 
     // This parameter is required.
     shared_ptr<string> documentsShrink_ {};
+    // The character limit for the generated cluster summary.
     shared_ptr<int32_t> summaryLength_ {};
+    // The character limit for the generated cluster title.
     shared_ptr<int32_t> titleLength_ {};
+    // The maximum number of clusters.
     shared_ptr<int32_t> topicCount_ {};
   };
 

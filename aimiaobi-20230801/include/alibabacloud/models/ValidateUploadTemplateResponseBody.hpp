@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // Number of comments.
       shared_ptr<int32_t> commentCount_ {};
+      // Number of dialogues.
       shared_ptr<int32_t> dialogueCount_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Template validation result.
     shared_ptr<ValidateUploadTemplateResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Unique request identifier.
     shared_ptr<string> requestId_ {};
+    // Operation status. Returns true on success. Returns false on failure.
     shared_ptr<bool> success_ {};
   };
 

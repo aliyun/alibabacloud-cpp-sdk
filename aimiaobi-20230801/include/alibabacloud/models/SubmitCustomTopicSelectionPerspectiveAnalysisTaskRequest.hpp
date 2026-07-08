@@ -120,13 +120,21 @@ namespace Models
 
 
     protected:
+      // The author.
       shared_ptr<string> author_ {};
+      // The content.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The publication time. Format: YYYY-MM-dd HH:mm:ss
       shared_ptr<string> pubTime_ {};
+      // The source of the article.
       shared_ptr<string> source_ {};
+      // The summary.
       shared_ptr<string> summary_ {};
+      // The title.
       shared_ptr<string> title_ {};
+      // The URL of the article.
       shared_ptr<string> url_ {};
     };
 
@@ -163,11 +171,17 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The list of documents to be analyzed.
     shared_ptr<vector<SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest::Documents>> documents_ {};
+    // The input prompt for custom perspectives.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The name of the topic to be analyzed.
     shared_ptr<string> topic_ {};
   };
 

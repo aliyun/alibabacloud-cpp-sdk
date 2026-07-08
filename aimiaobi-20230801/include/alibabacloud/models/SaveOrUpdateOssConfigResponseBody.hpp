@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The name of the OSS bucket.
       shared_ptr<string> bucketName_ {};
+      // Indicates whether the OSS configuration is active. \\`1\\`: The configuration is active. \\`0\\`: The configuration is inactive.
       shared_ptr<string> enable_ {};
+      // The endpoint of OSS.
       shared_ptr<string> endpoint_ {};
     };
 
@@ -138,12 +141,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<SaveOrUpdateOssConfigResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

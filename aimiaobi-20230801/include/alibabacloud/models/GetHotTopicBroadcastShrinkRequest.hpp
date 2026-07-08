@@ -140,17 +140,30 @@ namespace Models
 
 
   protected:
+    // Whether to compute the total token count
     shared_ptr<bool> calcTotalToken_ {};
+    // categorization Filter
     shared_ptr<string> category_ {};
+    // Current page number
     shared_ptr<int32_t> current_ {};
+    // hot spot Version
     shared_ptr<string> hotTopicVersion_ {};
+    // Full-text index for hot spot Regions (when this parameter is present, current does not take effect)
     shared_ptr<string> locationQuery_ {};
+    // List of Regions for news retrieval (keyword filtering)
     shared_ptr<string> locationsShrink_ {};
+    // Full-text index (full-text retrieval for title, hot spot summary, and Region) (when this parameter is present, current does not take effect)
     shared_ptr<string> query_ {};
+    // Page size
     shared_ptr<int32_t> size_ {};
+    // Custom output style configuration
     shared_ptr<string> stepForCustomSummaryStyleConfigShrink_ {};
+    // Hot Spot News Broadcast Content Configuration
     shared_ptr<string> stepForNewsBroadcastContentConfigShrink_ {};
+    // topic Filter
     shared_ptr<string> topicsShrink_ {};
+    // UUID of the Alibaba Cloud Model Studio workspace: obtain the [Workspace ID](https://help.aliyun.com/document_detail/2587495.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

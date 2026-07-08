@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // Show video understanding results.
     shared_ptr<bool> showAnalysisResults_ {};
+    // Show video source information.
     shared_ptr<bool> showResourceInfo_ {};
+    // Unique ID of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // [Workspace](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The time when the post-processing task was completed. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> completionTime_ {};
+      // The time when the post-processing task was created. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
+      // The error message. This is returned only when the post-processing task fails.
       shared_ptr<string> errorMessage_ {};
+      // The ID of the rule library. The default value in the current version is "Default".
       shared_ptr<string> noteId_ {};
+      // The number of lines that have been post-processed.
       shared_ptr<int32_t> processedLines_ {};
+      // The status of the post-processing task. Valid values: PENDING, RUNNING, SUCCEEDED, and FAILED.
       shared_ptr<string> status_ {};
+      // The total number of lines in the structured rule library.
       shared_ptr<int32_t> totalLines_ {};
     };
 
@@ -179,16 +186,24 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetAuditNotePostProcessingStatusResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details.
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
     // Id of the request
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
     // This parameter is required.
     shared_ptr<bool> success_ {};
   };

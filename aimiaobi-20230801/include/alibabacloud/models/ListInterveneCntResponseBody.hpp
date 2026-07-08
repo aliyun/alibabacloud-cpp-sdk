@@ -107,10 +107,15 @@ namespace Models
 
 
     protected:
+      // List of count information
       shared_ptr<vector<Darabonba::Json>> cntList_ {};
+      // Intervention service status code
       shared_ptr<int32_t> code_ {};
+      // Total number of pages
       shared_ptr<int32_t> pageCnt_ {};
+      // Page number
       shared_ptr<int32_t> pageIndex_ {};
+      // Page size
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -161,11 +166,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<ListInterveneCntResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

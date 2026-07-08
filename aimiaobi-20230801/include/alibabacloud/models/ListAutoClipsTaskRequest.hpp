@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The task end time.
     shared_ptr<string> createTimeEnd_ {};
+    // The start time of the task.
     shared_ptr<string> createTimeStart_ {};
+    // Page number
     shared_ptr<int32_t> current_ {};
+    // Deprecated
     shared_ptr<int32_t> maxResults_ {};
+    // Deprecated
     shared_ptr<string> nextToken_ {};
+    // Number of items per page. Default is 10.
     shared_ptr<int32_t> size_ {};
+    // Deprecated
     shared_ptr<int32_t> skip_ {};
+    // Task name
     shared_ptr<string> taskName_ {};
+    // Task status
     shared_ptr<int32_t> taskStatus_ {};
+    // Task type
     shared_ptr<string> taskType_ {};
+    // Model Studio workspace
     shared_ptr<string> workspaceId_ {};
   };
 

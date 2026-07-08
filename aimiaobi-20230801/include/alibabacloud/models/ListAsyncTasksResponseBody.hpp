@@ -258,26 +258,47 @@ namespace Models
 
 
     protected:
+      // The creation date.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<string> createUser_ {};
+      // The primary key ID of the task.
       shared_ptr<int64_t> id_ {};
+      // The task identifier, which specifies the task.
       shared_ptr<string> taskCode_ {};
+      // The optional task definition configuration in JSON format. These parameters overwrite the system\\"s default configuration.
       shared_ptr<string> taskDefinition_ {};
+      // The actual end time of the task.
       shared_ptr<string> taskEndTime_ {};
+      // The error message from the task execution for the client.
       shared_ptr<string> taskErrorMessage_ {};
+      // The time when the task is scheduled to run. The system polls only for tasks that are due. If this parameter is empty, the task runs immediately.
       shared_ptr<string> taskExecuteTime_ {};
+      // The unique task ID. It is equivalent to the Id parameter.
       shared_ptr<string> taskId_ {};
+      // The internal error message from the task execution. Sensitive information, such as exception stacks and internal thread stacks, is recorded here.
       shared_ptr<string> taskInnerErrorMessage_ {};
+      // The intermediate result of the task execution. If a task consists of multiple steps, the output of each step can be saved here. When the task resumes from a paused state, it can read this intermediate result and continue execution.
       shared_ptr<string> taskIntermediateResult_ {};
+      // The task name.
       shared_ptr<string> taskName_ {};
+      // The input parameters for the task execution, in JSON format.
       shared_ptr<string> taskParam_ {};
+      // The progress information of the task execution.
       shared_ptr<string> taskProgressMessage_ {};
+      // The result information of the task execution.
       shared_ptr<string> taskResult_ {};
+      // The number of times the task has been retried.
       shared_ptr<string> taskRetryCount_ {};
+      // The actual start time of the task.
       shared_ptr<string> taskStartTime_ {};
+      // The execution status of the task. Valid values: 0 (Pending), 1 (Running), 2 (Succeeded), 3 (Paused), 4 (Failed and retriable), 5 (Failed and not retriable), 6 (Canceled).
       shared_ptr<int32_t> taskStatus_ {};
+      // The task categories. Multiple categories are separated by commas.
       shared_ptr<string> taskType_ {};
+      // The update date.
       shared_ptr<string> updateTime_ {};
+      // The user who performed the update.
       shared_ptr<string> updateUser_ {};
     };
 
@@ -350,14 +371,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The current page.
     shared_ptr<int32_t> current_ {};
+    // The returned data.
     shared_ptr<vector<ListAsyncTasksResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of records per page.
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the request was successful. true: The request was successful. false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

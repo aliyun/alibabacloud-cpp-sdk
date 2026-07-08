@@ -111,10 +111,15 @@ namespace Models
 
 
     protected:
+      // AIGC-generated content
       shared_ptr<string> aigcResult_ {};
+      // ID of the style learning analysis result
       shared_ptr<int64_t> id_ {};
+      // Revised content
       shared_ptr<string> rewriteResult_ {};
+      // Style name
       shared_ptr<string> styleName_ {};
+      // Task ID used for style analysis
       shared_ptr<string> taskId_ {};
     };
 
@@ -187,14 +192,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Page number
     shared_ptr<int32_t> current_ {};
+    // List of style learning analysis results
     shared_ptr<vector<ListStyleLearningResultResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request ID
     shared_ptr<string> requestId_ {};
+    // Number of items per page
     shared_ptr<int32_t> size_ {};
+    // Indicates success. Returns true on success and false on failure.
     shared_ptr<bool> success_ {};
+    // Total number of items
     shared_ptr<int32_t> total_ {};
   };
 

@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The style ID.
         shared_ptr<int64_t> id_ {};
+        // The style name.
         shared_ptr<string> title_ {};
       };
 
@@ -145,7 +147,9 @@ namespace Models
 
 
       protected:
+        // The scenario ID.
         shared_ptr<int64_t> id_ {};
+        // The scenario name.
         shared_ptr<string> title_ {};
       };
 
@@ -196,8 +200,11 @@ namespace Models
 
 
       protected:
+        // The color value.
         shared_ptr<string> code_ {};
+        // The color ID.
         shared_ptr<int64_t> id_ {};
+        // The color name.
         shared_ptr<string> name_ {};
       };
 
@@ -248,8 +255,11 @@ namespace Models
 
 
       protected:
+        // The career ID.
         shared_ptr<int64_t> id_ {};
+        // Indicates whether the career is popular.
         shared_ptr<int64_t> isHot_ {};
+        // The career name.
         shared_ptr<string> name_ {};
       };
 
@@ -292,9 +302,13 @@ namespace Models
 
 
     protected:
+      // The careers.
       shared_ptr<vector<Data::Career>> career_ {};
+      // The colors.
       shared_ptr<vector<Data::Colour>> colour_ {};
+      // The scenarios.
       shared_ptr<vector<Data::SuitScene>> suitScene_ {};
+      // The styles.
       shared_ptr<vector<Data::SuitStyle>> suitStyle_ {};
     };
 
@@ -345,12 +359,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response object.
     shared_ptr<GetPptTemplateSelectorResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

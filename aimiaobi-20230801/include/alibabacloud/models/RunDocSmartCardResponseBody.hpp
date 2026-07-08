@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // The number of tokens used for the input.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of tokens for the output.
         shared_ptr<int64_t> outputTokens_ {};
+        // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -147,7 +150,9 @@ namespace Models
 
 
       protected:
+        // The title of the card.
         shared_ptr<string> content_ {};
+        // An array of card tags.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -172,7 +177,9 @@ namespace Models
 
 
     protected:
+      // The output object.
       shared_ptr<Payload::Output> output_ {};
+      // The token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -260,12 +267,19 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The event type.
       shared_ptr<string> event_ {};
+      // The event description.
       shared_ptr<string> eventInfo_ {};
+      // The unique ID of the session.
       shared_ptr<string> sessionId_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -297,7 +311,9 @@ namespace Models
 
 
   protected:
+    // The response header.
     shared_ptr<RunDocSmartCardResponseBody::Header> header_ {};
+    // The response body.
     shared_ptr<RunDocSmartCardResponseBody::Payload> payload_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

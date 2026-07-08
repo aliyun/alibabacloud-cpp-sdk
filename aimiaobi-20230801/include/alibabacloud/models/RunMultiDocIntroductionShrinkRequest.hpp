@@ -84,13 +84,22 @@ namespace Models
 
 
   protected:
+    // Array of document IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> docIdsShrink_ {};
+    // Custom prompt for key points.
     shared_ptr<string> keyPointPrompt_ {};
+    // Name of the custom model to use.
     shared_ptr<string> modelName_ {};
+    // Session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Custom prompt for the summary.
     shared_ptr<string> summaryPrompt_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

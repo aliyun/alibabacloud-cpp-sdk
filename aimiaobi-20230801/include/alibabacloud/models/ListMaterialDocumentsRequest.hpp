@@ -181,22 +181,39 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Full-text search of document content
     shared_ptr<string> content_ {};
+    // Creation time - end range. Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> createTimeEnd_ {};
+    // Creation time - start range. Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> createTimeStart_ {};
+    // Current page number.
     shared_ptr<int32_t> current_ {};
+    // Document type (html: web page, plainText: plain text, image: image, pdf: pdf, word: word, excel: excel, csv: csv, jsonLine: jsonLine)
     shared_ptr<string> docType_ {};
+    // Document type list (html: web page, plainText: plain text, image: image, pdf: pdf, word: word, excel: excel, csv: csv, jsonLine: jsonLine)
     shared_ptr<vector<string>> docTypeList_ {};
+    // Generate a public URL for the file.
     shared_ptr<bool> generatePublicUrl_ {};
+    // Material primary key ID.
     shared_ptr<int64_t> id_ {};
+    // Document keywords.
     shared_ptr<vector<string>> keywords_ {};
+    // Supports comprehensive queries for title, content, and content.
     shared_ptr<string> query_ {};
+    // Share property: 0: personal private, 1: shared within the workspace.
     shared_ptr<int32_t> shareAttr_ {};
+    // Number of items per page. Default is 10.
     shared_ptr<int32_t> size_ {};
+    // Performs a full-text search on material titles.
     shared_ptr<string> title_ {};
+    // Update time - end range. Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> updateTimeEnd_ {};
+    // Update time - start range. Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> updateTimeStart_ {};
   };
 

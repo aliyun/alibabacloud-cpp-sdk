@@ -127,8 +127,11 @@ namespace Models
 
 
         protected:
+          // The key of the dimension.
           shared_ptr<string> dimension_ {};
+          // The name of the dimension.
           shared_ptr<string> dimensionName_ {};
+          // The weight.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -160,8 +163,11 @@ namespace Models
 
 
       protected:
+        // The list of selected channels.
         shared_ptr<vector<string>> categories_ {};
+        // The custom weights for hot topics.
         shared_ptr<vector<StepForNewsBroadcastContentConfig::CustomHotValueWeights>> customHotValueWeights_ {};
+        // The number of topics.
         shared_ptr<int32_t> topicCount_ {};
       };
 
@@ -212,8 +218,11 @@ namespace Models
 
 
       protected:
+        // The number of images in the summary.
         shared_ptr<int32_t> summaryImageCount_ {};
+        // The summary model.
         shared_ptr<string> summaryModel_ {};
+        // The custom prompt for the summary.
         shared_ptr<string> summaryPrompt_ {};
       };
 
@@ -238,8 +247,12 @@ namespace Models
 
 
     protected:
+      // The configuration for the custom output style.
+      // 
       // This parameter is required.
       shared_ptr<HotTopicBroadcastConfig::StepForCustomSummaryStyleConfig> stepForCustomSummaryStyleConfig_ {};
+      // The configuration for the broadcast content.
+      // 
       // This parameter is required.
       shared_ptr<HotTopicBroadcastConfig::StepForNewsBroadcastContentConfig> stepForNewsBroadcastContentConfig_ {};
     };
@@ -279,10 +292,16 @@ namespace Models
 
 
   protected:
+    // The configuration for the news broadcast job.
+    // 
     // This parameter is required.
     shared_ptr<SubmitCustomHotTopicBroadcastJobRequest::HotTopicBroadcastConfig> hotTopicBroadcastConfig_ {};
+    // The version of the hot topic.
     shared_ptr<string> hotTopicVersion_ {};
+    // The topic filter.
     shared_ptr<vector<string>> topics_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

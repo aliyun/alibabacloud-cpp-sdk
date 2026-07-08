@@ -130,17 +130,32 @@ namespace Models
 
 
   protected:
+    // Indicates whether to include the main content.
     shared_ptr<bool> includeContent_ {};
+    // The type of data to search.
     shared_ptr<string> multimodalSearchType_ {};
+    // The unique identifier of the historical dialogue. This is the source of all original materials.
     shared_ptr<string> originalSessionId_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The query conditions.
     shared_ptr<string> query_ {};
+    // The type of search agent.
     shared_ptr<string> searchModel_ {};
+    // The data under the search agent classification.
     shared_ptr<string> searchModelDataValue_ {};
+    // The unique identifier of the historical dialogue. This is the source of reference materials.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The unique identifier of the task.
+    // 
+    // > You do not need to specify this parameter. The system automatically generates a task ID. If you specify the same task ID for multiple tasks, the tasks are considered part of the same dialogue group.
     shared_ptr<string> taskId_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

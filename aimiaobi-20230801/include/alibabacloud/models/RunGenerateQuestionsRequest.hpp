@@ -75,10 +75,16 @@ namespace Models
 
 
   protected:
+    // Document ID
     shared_ptr<string> docId_ {};
+    // Name of the custom model
     shared_ptr<string> modelName_ {};
+    // Document content to extract questions from. If this field is not empty, use this text. If it is empty, use the document identified by DocId.
     shared_ptr<string> referenceContent_ {};
+    // Session ID
     shared_ptr<string> sessionId_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

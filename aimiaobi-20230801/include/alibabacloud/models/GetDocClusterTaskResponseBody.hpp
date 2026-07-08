@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // A list of document IDs for the clustering topic.
         shared_ptr<vector<string>> docIds_ {};
+        // The summary of the clustering topic.
         shared_ptr<string> summary_ {};
+        // The name of the clustering topic.
         shared_ptr<string> title_ {};
       };
 
@@ -143,8 +146,11 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The status of the task. Valid values: PENDING (to be executed), RUNNING (executing), SUCCESSED (successful), SUSPENDED (paused), FAILED (failed), and CANCELED (canceled).
       shared_ptr<string> status_ {};
+      // A list of clustering topics.
       shared_ptr<vector<Data::Topics>> topics_ {};
     };
 
@@ -195,11 +201,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GetDocClusterTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

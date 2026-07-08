@@ -64,6 +64,7 @@ namespace Models
 
 
     protected:
+      // News comment content
       shared_ptr<string> text_ {};
     };
 
@@ -100,9 +101,13 @@ namespace Models
 
 
   protected:
+    // List of news comments
     shared_ptr<vector<HottopicNews::Comments>> comments_ {};
+    // News content
     shared_ptr<string> content_ {};
+    // News title
     shared_ptr<string> title_ {};
+    // News URL link
     shared_ptr<string> url_ {};
   };
 

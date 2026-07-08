@@ -135,9 +135,13 @@ namespace Models
 
 
       protected:
+        // The file name.
         shared_ptr<string> fileName_ {};
+        // The height.
         shared_ptr<int32_t> height_ {};
+        // The preview image of the work file.
         shared_ptr<string> tmpUrl_ {};
+        // The width of the video.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -188,11 +192,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The properties of the work file.
       shared_ptr<Data::FileAttr> fileAttr_ {};
+      // The preview image of the work file.
       shared_ptr<string> fileKey_ {};
+      // The unique ID of the document.
       shared_ptr<int64_t> id_ {};
+      // The title.
       shared_ptr<string> title_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -279,16 +289,27 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The current page.
     shared_ptr<int32_t> current_ {};
+    // Indicates whether the deletion succeeded.
     shared_ptr<vector<ListPptArtifactsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The number of entries returned in this response.
     shared_ptr<int32_t> maxResults_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of entries per page. The default is 10.
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

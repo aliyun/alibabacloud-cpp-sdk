@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return per page. Note: This parameter is not yet in effect.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. Note: This parameter is not yet in effect.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to skip (the \\"offset\\"). Note: This parameter is not yet in effect.
     shared_ptr<int32_t> skip_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

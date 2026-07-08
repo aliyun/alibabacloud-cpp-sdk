@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // File Key.
+    // 
     // This parameter is required.
     shared_ptr<string> fileKey_ {};
+    // Dictionary name. Optional. If not specified, the default is Default.
     shared_ptr<string> termsName_ {};
+    // Alibaba Cloud Model Studio unique workspace identifier: For more information, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

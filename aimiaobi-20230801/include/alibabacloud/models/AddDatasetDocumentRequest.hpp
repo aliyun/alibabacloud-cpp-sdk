@@ -136,8 +136,15 @@ namespace Models
 
 
       protected:
+        // The URL of the file. The URL must be accessible over the public network.
         shared_ptr<string> fileUrl_ {};
+        // The unique identifier of the multimodal data. The system automatically generates this ID. You do not need to specify this parameter.
         shared_ptr<string> mediaId_ {};
+        // The type of the multimodal data.
+        // 
+        // - image: an image
+        // 
+        // - video: a video
         shared_ptr<string> mediaType_ {};
       };
 
@@ -213,8 +220,11 @@ namespace Models
 
 
         protected:
+          // The end time in milliseconds.
           shared_ptr<int64_t> endTime_ {};
+          // The start time in milliseconds.
           shared_ptr<int64_t> startTime_ {};
+          // The text information from the video shot analysis.
           shared_ptr<string> text_ {};
         };
 
@@ -256,7 +266,9 @@ namespace Models
 
 
         protected:
+          // The name.
           shared_ptr<string> key_ {};
+          // The parameter value.
           shared_ptr<string> value_ {};
         };
 
@@ -307,8 +319,11 @@ namespace Models
 
 
         protected:
+          // The end time in milliseconds.
           shared_ptr<int64_t> endTime_ {};
+          // The start time in milliseconds.
           shared_ptr<int64_t> startTime_ {};
+          // The speech or caption information.
           shared_ptr<string> text_ {};
         };
 
@@ -349,9 +364,13 @@ namespace Models
 
 
       protected:
+        // The speech or caption information.
         shared_ptr<vector<Metadata::AsrSentences>> asrSentences_ {};
+        // The metadata in a key-value structure.
         shared_ptr<vector<Metadata::KeyValues>> keyValues_ {};
+        // The description of the metadata. This field is deprecated.
         shared_ptr<string> text_ {};
+        // The video shot information.
         shared_ptr<vector<Metadata::VideoShots>> videoShots_ {};
       };
 
@@ -493,23 +512,59 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the category.
       shared_ptr<string> categoryUuid_ {};
+      // The content.
       shared_ptr<string> content_ {};
+      // Specifies whether to disable the indexing of multimodal data, such as images and videos, in the current record. The default value is true.
       shared_ptr<bool> disableHandleMultimodalMedia_ {};
+      // The unique business ID of the document.
       shared_ptr<string> docId_ {};
+      // The type of the document.
+      // 
+      // - plainText: plain text. The content parameter is required.
+      // 
+      // - richText: rich text in HTML format. The content parameter is required.
+      // 
+      // - text: a text file. The url parameter is required.
+      // 
+      // - pdf: a PDF file. The url parameter is required.
+      // 
+      // - word: a Word document. The url parameter is required.
+      // 
+      // - image: an image. The url parameter is required. Most common image formats are supported, such as GIF, PNG, JPG, and JPEG.
+      // 
+      // - video: a video. The url parameter is required. Most common video formats are supported, such as MP4, AVI, WMV, and MOV.
       shared_ptr<string> docType_ {};
+      // The unique system ID of the document. The system automatically generates this ID. You do not need to specify this parameter.
       shared_ptr<string> docUuid_ {};
+      // Extension field 1.
       shared_ptr<string> extend1_ {};
+      // Extension field 2.
       shared_ptr<string> extend2_ {};
+      // Extension field 3.
       shared_ptr<string> extend3_ {};
+      // The metadata.
       shared_ptr<Document::Metadata> metadata_ {};
+      // Deprecated. This parameter is not available.
       shared_ptr<string> multimodalIndexName_ {};
+      // A list of multimodal data in the document.
+      // 
+      // - If a document, such as a rich text document, contains multimodal data like images or videos, you can pass the data using this parameter. This allows the data to be retrieved in search results.
+      // 
+      // - If the document itself is multimodal data, leave this field empty and specify the data using the docType and url parameters.
       shared_ptr<vector<Document::MultimodalMedias>> multimodalMedias_ {};
+      // The publishing time.
       shared_ptr<string> pubTime_ {};
+      // The source.
       shared_ptr<string> sourceFrom_ {};
+      // The summary of the article.
       shared_ptr<string> summary_ {};
+      // The tag name.
       shared_ptr<vector<string>> tags_ {};
+      // The title of the document.
       shared_ptr<string> title_ {};
+      // The URL of the article. The URL must be accessible over the public network.
       shared_ptr<string> url_ {};
     };
 
@@ -546,10 +601,16 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the dataset.
     shared_ptr<int64_t> datasetId_ {};
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // The document.
+    // 
     // This parameter is required.
     shared_ptr<AddDatasetDocumentRequest::Document> document_ {};
+    // The unique identifier of the Model Studio workspace. For more information, see [Obtain a workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

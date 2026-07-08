@@ -180,7 +180,9 @@ namespace Models
 
 
             protected:
+              // The outline.
               shared_ptr<string> outline_ {};
+              // The summary of the outline.
               shared_ptr<string> summary_ {};
             };
 
@@ -210,8 +212,11 @@ namespace Models
 
 
           protected:
+            // The outline.
             shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+            // The generated perspective.
             shared_ptr<string> point_ {};
+            // The summary.
             shared_ptr<string> summary_ {};
           };
 
@@ -280,10 +285,15 @@ namespace Models
 
 
           protected:
+            // The source.
             shared_ptr<string> source_ {};
+            // The content.
             shared_ptr<string> text_ {};
+            // The title.
             shared_ptr<string> title_ {};
+            // The URL where the comment is located.
             shared_ptr<string> url_ {};
+            // The username.
             shared_ptr<string> username_ {};
           };
 
@@ -329,10 +339,15 @@ namespace Models
 
 
         protected:
+          // The current viewpoint.
           shared_ptr<string> attitude_ {};
+          // The type of the viewpoint.
           shared_ptr<string> attitudeType_ {};
+          // A list of user comments.
           shared_ptr<vector<Attitudes::Comments>> comments_ {};
+          // The proportion of the current viewpoint.
           shared_ptr<string> ratio_ {};
+          // A list of topic selection perspectives.
           shared_ptr<vector<Attitudes::ViewPoints>> viewPoints_ {};
         };
 
@@ -347,6 +362,7 @@ namespace Models
 
 
       protected:
+        // A list of viewpoints from online reviews for topic selection.
         shared_ptr<vector<WebReviewPointsResult::Attitudes>> attitudes_ {};
       };
 
@@ -439,8 +455,11 @@ namespace Models
 
 
           protected:
+            // The source of the article.
             shared_ptr<string> source_ {};
+            // The title of the article.
             shared_ptr<string> title_ {};
+            // The URL of the article.
             shared_ptr<string> url_ {};
           };
 
@@ -470,8 +489,11 @@ namespace Models
 
 
         protected:
+          // The articles referenced to generate the summary for this title.
           shared_ptr<vector<Summaries::DocList>> docList_ {};
+          // The summary.
           shared_ptr<string> summary_ {};
+          // The title.
           shared_ptr<string> title_ {};
         };
 
@@ -486,6 +508,7 @@ namespace Models
 
 
       protected:
+        // A list of summaries.
         shared_ptr<vector<TopicSummaryResult::Summaries>> summaries_ {};
       };
 
@@ -602,7 +625,9 @@ namespace Models
 
 
             protected:
+              // The outline.
               shared_ptr<string> outline_ {};
+              // The summary of the outline.
               shared_ptr<string> summary_ {};
             };
 
@@ -632,8 +657,11 @@ namespace Models
 
 
           protected:
+            // The outline.
             shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+            // The generated perspective.
             shared_ptr<string> point_ {};
+            // The summary.
             shared_ptr<string> summary_ {};
           };
 
@@ -699,13 +727,21 @@ namespace Models
 
 
         protected:
+          // The current viewpoint.
           shared_ptr<string> attitude_ {};
+          // The type of the viewpoint.
           shared_ptr<string> attitudeType_ {};
+          // The time when the viewpoint was published.
           shared_ptr<string> pubTime_ {};
+          // The proportion of the current viewpoint.
           shared_ptr<string> ratio_ {};
+          // The source of the news.
           shared_ptr<string> source_ {};
+          // The current viewpoint. This is the same as the news title.
           shared_ptr<string> title_ {};
+          // The URL of the news.
           shared_ptr<string> url_ {};
+          // A list of topic selection perspectives.
           shared_ptr<vector<Attitudes::ViewPoints>> viewPoints_ {};
         };
 
@@ -720,6 +756,7 @@ namespace Models
 
 
       protected:
+        // A list of viewpoints for time-sensitive topic selection perspectives.
         shared_ptr<vector<TimedViewPointsResult::Attitudes>> attitudes_ {};
       };
 
@@ -830,7 +867,9 @@ namespace Models
 
 
             protected:
+              // The outline.
               shared_ptr<string> outline_ {};
+              // The summary of the outline.
               shared_ptr<string> summary_ {};
             };
 
@@ -860,8 +899,11 @@ namespace Models
 
 
           protected:
+            // The outline.
             shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+            // The generated perspective.
             shared_ptr<string> point_ {};
+            // The summary.
             shared_ptr<string> summary_ {};
           };
 
@@ -999,17 +1041,29 @@ namespace Models
 
 
           protected:
+            // The news content.
             shared_ptr<string> content_ {};
+            // The time when the article was created.
             shared_ptr<string> createTime_ {};
+            // The custom unique ID of the document.
             shared_ptr<string> docId_ {};
+            // The unique ID of the article.
             shared_ptr<string> docUuid_ {};
+            // The URLs of the images in the article.
             shared_ptr<vector<string>> imageUrls_ {};
+            // The time when the article was published.
             shared_ptr<string> pubTime_ {};
+            // The source of the news.
             shared_ptr<string> source_ {};
+            // The summary of the news.
             shared_ptr<string> summary_ {};
+            // The tags.
             shared_ptr<vector<string>> tags_ {};
+            // The title of the news.
             shared_ptr<string> title_ {};
+            // The topic of the article.
             shared_ptr<string> topic_ {};
+            // The URL of the news.
             shared_ptr<string> url_ {};
           };
 
@@ -1055,10 +1109,15 @@ namespace Models
 
 
         protected:
+          // The current viewpoint.
           shared_ptr<string> attitude_ {};
+          // The type of the viewpoint.
           shared_ptr<string> attitudeType_ {};
+          // A list of related news.
           shared_ptr<vector<Attitudes::News>> news_ {};
+          // The proportion of the current viewpoint.
           shared_ptr<string> ratio_ {};
+          // A list of topic selection perspectives.
           shared_ptr<vector<Attitudes::ViewPoints>> viewPoints_ {};
         };
 
@@ -1073,6 +1132,7 @@ namespace Models
 
 
       protected:
+        // A list of viewpoints for hot topic selection perspectives.
         shared_ptr<vector<HotViewPointsResult::Attitudes>> attitudes_ {};
       };
 
@@ -1181,7 +1241,9 @@ namespace Models
 
 
             protected:
+              // The outline.
               shared_ptr<string> outline_ {};
+              // The summary of the outline.
               shared_ptr<string> summary_ {};
             };
 
@@ -1211,8 +1273,11 @@ namespace Models
 
 
           protected:
+            // The outline.
             shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+            // The generated perspective.
             shared_ptr<string> point_ {};
+            // The summary.
             shared_ptr<string> summary_ {};
           };
 
@@ -1249,9 +1314,13 @@ namespace Models
 
 
         protected:
+          // The current viewpoint.
           shared_ptr<string> attitude_ {};
+          // The type of the viewpoint.
           shared_ptr<string> attitudeType_ {};
+          // The proportion of the current viewpoint.
           shared_ptr<string> ratio_ {};
+          // A list of topic selection perspectives.
           shared_ptr<vector<Attitudes::ViewPoints>> viewPoints_ {};
         };
 
@@ -1266,6 +1335,7 @@ namespace Models
 
 
       protected:
+        // A list of viewpoints for novel topic selection perspectives.
         shared_ptr<vector<FreshViewPointsResult::Attitudes>> attitudes_ {};
       };
 
@@ -1339,13 +1409,21 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The analysis result of novel topic selection perspectives.
       shared_ptr<Data::FreshViewPointsResult> freshViewPointsResult_ {};
+      // The analysis result of hot topic selection perspectives.
       shared_ptr<Data::HotViewPointsResult> hotViewPointsResult_ {};
+      // The status of the task. Valid values: PENDING, RUNNING, SUCCESSED, SUSPENDED, FAILED, and CANCELED.
       shared_ptr<string> status_ {};
+      // The analysis result of time-sensitive topic selection perspectives.
       shared_ptr<Data::TimedViewPointsResult> timedViewPointsResult_ {};
+      // The hot spot topic event.
       shared_ptr<string> topic_ {};
+      // The summary of the hot spot topic event.
       shared_ptr<Data::TopicSummaryResult> topicSummaryResult_ {};
+      // The analysis result of online review topic selection perspectives.
       shared_ptr<Data::WebReviewPointsResult> webReviewPointsResult_ {};
     };
 
@@ -1396,11 +1474,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GetTopicSelectionPerspectiveAnalysisTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

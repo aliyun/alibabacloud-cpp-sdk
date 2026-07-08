@@ -88,8 +88,9 @@ namespace Models
 
 
     protected:
+      // The template thumbnail.
       shared_ptr<string> coverImg_ {};
-      // ID
+      // The ID.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -176,16 +177,27 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The returned data.
     shared_ptr<vector<ListPptTemplatesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of entries per page. The default value is 10.
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates success and \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

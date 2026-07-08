@@ -236,24 +236,43 @@ namespace Models
 
 
     protected:
+      // Author
       shared_ptr<string> author_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Creator user ID
       shared_ptr<string> createUser_ {};
+      // Document tags used for classification and other purposes. Separate multiple keywords with commas.
       shared_ptr<vector<string>> docKeywords_ {};
+      // Document type, such as pdf, word, url, or image
       shared_ptr<string> docType_ {};
+      // URL uploaded by an external customer. Used only for record keeping.
       shared_ptr<string> externalUrl_ {};
+      // Web page content
       shared_ptr<string> htmlContent_ {};
+      // Primary key
       shared_ptr<int64_t> id_ {};
+      // Publication time
       shared_ptr<string> pubTime_ {};
+      // Temporary public URL
       shared_ptr<string> publicUrl_ {};
+      // Sharing attribute stored as bit flags. The first bit indicates sharing within the workspace, the second bit indicates sharing within the tenant, and the third bit indicates system-wide sharing.
       shared_ptr<int32_t> shareAttr_ {};
+      // Document source, such as user_upload, search, or viewpoint
       shared_ptr<string> srcFrom_ {};
+      // Document summary
       shared_ptr<string> summary_ {};
+      // Parsed text content. Empty for images.
       shared_ptr<string> textContent_ {};
+      // Base64-encoded thumbnail for image documents
       shared_ptr<string> thumbnailInBase64_ {};
+      // Document title
       shared_ptr<string> title_ {};
+      // Modification time
       shared_ptr<string> updateTime_ {};
+      // Modifier user ID
       shared_ptr<string> updateUser_ {};
+      // Internal document storage URL
       shared_ptr<string> url_ {};
     };
 
@@ -304,11 +323,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetMaterialByIdResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

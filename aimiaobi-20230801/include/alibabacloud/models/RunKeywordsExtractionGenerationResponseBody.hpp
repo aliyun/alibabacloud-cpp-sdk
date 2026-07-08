@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // Number of input tokens used.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens used.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens used in this call.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -134,6 +137,7 @@ namespace Models
 
 
       protected:
+        // Text generation result.
         shared_ptr<string> text_ {};
       };
 
@@ -158,7 +162,9 @@ namespace Models
 
 
     protected:
+      // Outputs.
       shared_ptr<Payload::Output> output_ {};
+      // Token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -236,11 +242,17 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // SSE event.
       shared_ptr<string> event_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -272,8 +284,11 @@ namespace Models
 
 
   protected:
+    // Response header.
     shared_ptr<RunKeywordsExtractionGenerationResponseBody::Header> header_ {};
+    // Response body.
     shared_ptr<RunKeywordsExtractionGenerationResponseBody::Payload> payload_ {};
+    // Unique request identifier.
     shared_ptr<string> requestId_ {};
   };
 

@@ -208,21 +208,37 @@ namespace Models
 
 
     protected:
+      // Rich text content
       shared_ptr<string> content_ {};
+      // Content generation domain. Valid values: media (news) and government (government services)
       shared_ptr<string> contentDomain_ {};
+      // Plain text content
       shared_ptr<string> contentText_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Creator
       shared_ptr<string> createUser_ {};
+      // Device ID
       shared_ptr<string> deviceId_ {};
+      // Document ID
       shared_ptr<int64_t> id_ {};
+      // List of words to ignore during content audit (JSON string)
       shared_ptr<string> ignoreContentAuditWords_ {};
+      // Keywords
       shared_ptr<vector<string>> keywordList_ {};
+      // Keywords (string format)
       shared_ptr<string> keywords_ {};
+      // Last prompt used to generate this content
       shared_ptr<string> prompt_ {};
+      // Session task ID
       shared_ptr<string> taskId_ {};
+      // Title
       shared_ptr<string> title_ {};
+      // Update time
       shared_ptr<string> updateTime_ {};
+      // Updater
       shared_ptr<string> updateUser_ {};
+      // UUID for traceability
       shared_ptr<string> uuid_ {};
     };
 
@@ -273,11 +289,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetGeneratedContentResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. true indicates success. false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

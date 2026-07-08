@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // 视频审校任务的唯一标识，可用于后续查询任务状态和结果
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -118,17 +118,17 @@ namespace Models
 
 
   protected:
-    // 业务处理结果状态码
+    // Business status code
     shared_ptr<string> code_ {};
-    // 视频审校任务提交后的返回数据
+    // Submitted task result data
     shared_ptr<SubmitVideoAuditResponseBody::Data> data_ {};
-    // HTTP响应状态码
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 业务处理结果描述信息
+    // Return message
     shared_ptr<string> message_ {};
-    // 本次API请求的唯一标识
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // 请求是否处理成功
+    // Is successful
     shared_ptr<bool> success_ {};
   };
 

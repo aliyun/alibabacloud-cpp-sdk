@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // Dimension key
         shared_ptr<string> dimension_ {};
+        // weight
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -145,8 +147,11 @@ namespace Models
 
 
     protected:
+      // List of selected channels
       shared_ptr<vector<string>> categories_ {};
+      // Custom hot spot weight
       shared_ptr<vector<StepForNewsBroadcastContentConfig::CustomHotValueWeights>> customHotValueWeights_ {};
+      // topic Quantity
       shared_ptr<int32_t> topicCount_ {};
     };
 
@@ -197,8 +202,11 @@ namespace Models
 
 
     protected:
+      // Summary – number of images
       shared_ptr<int32_t> summaryImageCount_ {};
+      // Summary model
       shared_ptr<string> summaryModel_ {};
+      // Summary - Custom Prompt
       shared_ptr<string> summaryPrompt_ {};
     };
 
@@ -299,17 +307,30 @@ namespace Models
 
 
   protected:
+    // Whether to compute the total token count
     shared_ptr<bool> calcTotalToken_ {};
+    // categorization Filter
     shared_ptr<string> category_ {};
+    // Current page number
     shared_ptr<int32_t> current_ {};
+    // hot spot Version
     shared_ptr<string> hotTopicVersion_ {};
+    // Full-text index for hot spot Regions (when this parameter is present, current does not take effect)
     shared_ptr<string> locationQuery_ {};
+    // List of Regions for news retrieval (keyword filtering)
     shared_ptr<vector<string>> locations_ {};
+    // Full-text index (full-text retrieval for title, hot spot summary, and Region) (when this parameter is present, current does not take effect)
     shared_ptr<string> query_ {};
+    // Page size
     shared_ptr<int32_t> size_ {};
+    // Custom output style configuration
     shared_ptr<GetHotTopicBroadcastRequest::StepForCustomSummaryStyleConfig> stepForCustomSummaryStyleConfig_ {};
+    // Hot Spot News Broadcast Content Configuration
     shared_ptr<GetHotTopicBroadcastRequest::StepForNewsBroadcastContentConfig> stepForNewsBroadcastContentConfig_ {};
+    // topic Filter
     shared_ptr<vector<string>> topics_ {};
+    // UUID of the Alibaba Cloud Model Studio workspace: obtain the [Workspace ID](https://help.aliyun.com/document_detail/2587495.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Folder where the document resides. If no value is provided, it defaults to "default".
     shared_ptr<string> categoryId_ {};
+    // Document
+    // 
     // This parameter is required.
     shared_ptr<string> docsShrink_ {};
+    // Unique identifier (UUID) of the Alibaba Cloud Model Studio workspace: obtain the [Workspace ID](https://help.aliyun.com/document_detail/2587495.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

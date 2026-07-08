@@ -183,11 +183,17 @@ namespace Models
 
 
       protected:
+        // Duration.
         shared_ptr<double> duration_ {};
+        // File content length.
         shared_ptr<int64_t> fileLength_ {};
+        // File name.
         shared_ptr<string> fileName_ {};
+        // Video height.
         shared_ptr<int32_t> height_ {};
+        // File MIME type.
         shared_ptr<string> mimeType_ {};
+        // Video width.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -363,28 +369,51 @@ namespace Models
 
 
     protected:
+      // Author.
       shared_ptr<string> author_ {};
+      // Creation time.
       shared_ptr<string> createTime_ {};
+      // Creator user ID.
       shared_ptr<string> createUser_ {};
+      // Creator username.
       shared_ptr<string> createUserName_ {};
+      // Document tags used for categorization. Separate keywords with commas.
       shared_ptr<vector<string>> docKeywords_ {};
+      // Document type: pdf, word, url, or image.
       shared_ptr<string> docType_ {};
+      // URL uploaded by an external customer, used only for record keeping.
       shared_ptr<string> externalUrl_ {};
+      // Media file properties.
       shared_ptr<Data::FileAttr> fileAttr_ {};
+      // Unique file identity.
       shared_ptr<string> fileKey_ {};
+      // Web page content.
       shared_ptr<string> htmlContent_ {};
+      // Primary key.
       shared_ptr<int64_t> id_ {};
+      // Publish time. Format: yyyy-MM-dd HH:mm:ss
       shared_ptr<string> pubTime_ {};
+      // Temporary public URL.
       shared_ptr<string> publicUrl_ {};
+      // Public property, stored by bit. The first bit indicates if it is shared within the workspace, the second bit indicates if it is shared within the tenant, and the third bit indicates if it is shared system-wide.
       shared_ptr<int32_t> shareAttr_ {};
+      // Document source: user_upload, search, or viewpoint.
       shared_ptr<string> srcFrom_ {};
+      // Document summary.
       shared_ptr<string> summary_ {};
+      // Parsed text content. This is empty for images.
       shared_ptr<string> textContent_ {};
+      // Base64 thumbnail for image document types.
       shared_ptr<string> thumbnailInBase64_ {};
+      // Document title.
       shared_ptr<string> title_ {};
+      // Modification time.
       shared_ptr<string> updateTime_ {};
+      // Modifier user ID.
       shared_ptr<string> updateUser_ {};
+      // The name of the user who updated the document.
       shared_ptr<string> updateUserName_ {};
+      // URL for internal document storage. Supports multiple protocols (http\\://, file://, ftp\\://). This URL is saved to internal storage when a customer uploads a file, stored long-term, and deleted upon expiration.
       shared_ptr<string> url_ {};
     };
 
@@ -457,14 +486,23 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Current page number.
     shared_ptr<int32_t> current_ {};
+    // List object.
     shared_ptr<vector<ListMaterialDocumentsResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description.
     shared_ptr<string> message_ {};
+    // Unique request identity.
     shared_ptr<string> requestId_ {};
+    // Number of records per page.
     shared_ptr<int32_t> size_ {};
+    // Is successful: true for success, false for failure.
     shared_ptr<bool> success_ {};
+    // Total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

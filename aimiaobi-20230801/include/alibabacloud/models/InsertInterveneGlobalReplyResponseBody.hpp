@@ -90,7 +90,9 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // List of failed index IDs
       shared_ptr<vector<string>> failIdList_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -141,11 +143,17 @@ namespace Models
 
 
   protected:
+    // status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<InsertInterveneGlobalReplyResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Whether successful: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

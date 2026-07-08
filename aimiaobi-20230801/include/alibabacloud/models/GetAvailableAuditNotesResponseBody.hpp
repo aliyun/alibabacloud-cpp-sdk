@@ -104,10 +104,15 @@ namespace Models
 
 
     protected:
+      // Rule library file size in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // Primary ID of the rule library storage.
       shared_ptr<string> id_ {};
+      // Rule library ID.
       shared_ptr<string> noteId_ {};
+      // Parsed rule library name.
       shared_ptr<string> noteName_ {};
+      // Rule library update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -158,12 +163,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<GetAvailableAuditNotesResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

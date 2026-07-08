@@ -163,8 +163,11 @@ namespace Models
 
 
         protected:
+          // The source of the article.
           shared_ptr<string> source_ {};
+          // The article title.
           shared_ptr<string> title_ {};
+          // The article URL.
           shared_ptr<string> url_ {};
         };
 
@@ -194,8 +197,11 @@ namespace Models
 
 
       protected:
+        // A list of articles used to generate the title and summary.
         shared_ptr<vector<StructureSummary::DocList>> docList_ {};
+        // The generated summary.
         shared_ptr<string> summary_ {};
+        // The generated title.
         shared_ptr<string> title_ {};
       };
 
@@ -311,20 +317,47 @@ namespace Models
 
 
     protected:
+      // The asynchronous task ID. This parameter is returned only when `TopicSource` is `Custom`.
       shared_ptr<string> asyncTaskId_ {};
+      // The time the topic was created, in `yyyy-MM-dd HH:mm:ss` format.
       shared_ptr<string> createTime_ {};
+      // The ID of the user who created the topic. This parameter is returned only when `TopicSource` is `Custom`.
       shared_ptr<string> createUser_ {};
+      // A custom field for business-specific data, such as a keyword.
       shared_ptr<string> customField_ {};
+      // The popularity score of the topic.
       shared_ptr<int64_t> hotValue_ {};
+      // The ID of the hot topic.
       shared_ptr<string> id_ {};
+      // The asynchronous task status. This parameter is returned only when `TopicSource` is `Custom`. Valid values: `PENDING`, `RUNNING`, `SUCCEEDED`, `SUSPENDED`, `FAILED`, and `CANCELED`.
       shared_ptr<string> status_ {};
+      // A list of structured topic summaries.
       shared_ptr<vector<Data::StructureSummary>> structureSummary_ {};
+      // The hot topic summary.
       shared_ptr<string> summary_ {};
+      // The error message returned when the asynchronous task fails.
       shared_ptr<string> taskErrorMessage_ {};
+      // The asynchronous task status. This parameter is returned only when `TopicSource` is `Custom`. Valid values: `0` (Pending), `1` (Running), `2` (Succeeded), `3` (Suspended, not currently in use), `4` (Failed), and `6` (Canceled).
       shared_ptr<int32_t> taskStatus_ {};
+      // The unique topic name.
       shared_ptr<string> topic_ {};
+      // The source of the hot topic. Valid values:
+      // 
+      // - `Toutiao`
+      // 
+      // - `Quark`
+      // 
+      // - `Baidu`
+      // 
+      // - `Sina`
+      // 
+      // - `Custom`
+      // 
+      // - `Aggregation`
       shared_ptr<string> topicSource_ {};
+      // The URL of the original topic.
       shared_ptr<string> topicUrl_ {};
+      // The data version.
       shared_ptr<string> version_ {};
     };
 
@@ -397,14 +430,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListHotTopicsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results returned on this page.
     shared_ptr<int32_t> maxResults_ {};
+    // The result message for the request.
     shared_ptr<string> message_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of `true` indicates success; `false` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of topics found.
     shared_ptr<int32_t> totalCount_ {};
   };
 

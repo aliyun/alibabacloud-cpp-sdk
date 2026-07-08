@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // Number of tokens used for input.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of tokens used for output.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens used for this call.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -134,6 +137,7 @@ namespace Models
 
 
       protected:
+        // Text generation result.
         shared_ptr<string> text_ {};
       };
 
@@ -158,7 +162,9 @@ namespace Models
 
 
     protected:
+      // Output.
       shared_ptr<Payload::Output> output_ {};
+      // Token consumption.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -246,12 +252,19 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // The SSE event. \\`task-started\\`: started. \\`task-finished\\`: finished. \\`task-failed\\`: failed.
       shared_ptr<string> event_ {};
+      // Parent session ID.
       shared_ptr<string> originSessionId_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // End-to-end trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -283,8 +296,11 @@ namespace Models
 
 
   protected:
+    // Response header.
     shared_ptr<RunTextPolishingResponseBody::Header> header_ {};
+    // Response body.
     shared_ptr<RunTextPolishingResponseBody::Payload> payload_ {};
+    // Unique request identifier.
     shared_ptr<string> requestId_ {};
   };
 

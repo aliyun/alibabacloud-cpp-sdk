@@ -94,13 +94,23 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Page number of the current page.
     shared_ptr<int32_t> current_ {};
+    // Generation type. Valid values: 1 (creation) and 2 (intelligent search). Default value: 2.
     shared_ptr<int32_t> dialogueType_ {};
+    // End time.
     shared_ptr<string> endTime_ {};
+    // Number of items per page. Default value: 10.
     shared_ptr<int32_t> size_ {};
+    // Start time.
     shared_ptr<string> startTime_ {};
+    // Unique identifier for the task.
+    // 
+    // > You do not need to specify TaskId. The system generates it automatically. If you use the same TaskId in later tasks, those tasks belong to the same conversation group.
     shared_ptr<string> taskId_ {};
   };
 

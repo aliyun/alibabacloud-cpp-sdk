@@ -117,9 +117,13 @@ namespace Models
 
 
       protected:
+        // Additional information about the video.
         shared_ptr<string> videoExtraInfo_ {};
+        // The video ID.
         shared_ptr<string> videoId_ {};
+        // The name of the video.
         shared_ptr<string> videoName_ {};
+        // The video URL.
         shared_ptr<string> videoUrl_ {};
       };
 
@@ -142,7 +146,9 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // Information about the videos.
       shared_ptr<vector<Data::VideoInfos>> videoInfos_ {};
     };
 
@@ -193,12 +199,17 @@ namespace Models
 
 
   protected:
+    // The status code returned for the request.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<AsyncUploadVideoResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

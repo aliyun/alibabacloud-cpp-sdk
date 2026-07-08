@@ -105,6 +105,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether to disable the processing logic for multimedia files. Default value: false.
         shared_ptr<bool> disableHandleMultimodalMedia_ {};
       };
 
@@ -270,8 +271,11 @@ namespace Models
 
 
                 protected:
+                  // The key of the node.
                   shared_ptr<string> key_ {};
+                  // The path of the node.
                   shared_ptr<string> path_ {};
+                  // The data type of the node. Valid values: string, number, list, object, and base.
                   shared_ptr<string> type_ {};
                 };
 
@@ -308,9 +312,13 @@ namespace Models
 
 
               protected:
+                // The child node configurations.
                 shared_ptr<vector<JqNodesItem::JqNodes>> jqNodes_ {};
+                // The key of the node.
                 shared_ptr<string> key_ {};
+                // The path of the node.
                 shared_ptr<string> path_ {};
+                // The data type of the node. Valid values: string, number, list, object, and base.
                 shared_ptr<string> type_ {};
               };
 
@@ -347,9 +355,13 @@ namespace Models
 
 
             protected:
+              // The child node configurations.
               shared_ptr<vector<JqNodes::JqNodesItem>> jqNodes_ {};
+              // The key of the node.
               shared_ptr<string> key_ {};
+              // The path of the node.
               shared_ptr<string> path_ {};
+              // The data type of the node. Valid values: string, number, list, object, and base.
               shared_ptr<string> type_ {};
             };
 
@@ -364,6 +376,7 @@ namespace Models
 
 
           protected:
+            // The node configurations.
             shared_ptr<vector<SearchSourceResponseConfig::JqNodes>> jqNodes_ {};
           };
 
@@ -456,9 +469,13 @@ namespace Models
 
 
             protected:
+              // The name of the parameter.
               shared_ptr<string> name_ {};
+              // The value of the parameter.
               shared_ptr<string> value_ {};
+              // This parameter is valid only when \\`ValueType\\` is set to \\`time\\`.
               shared_ptr<string> valueFormat_ {};
+              // The data type of the parameter value. Default value: string.
               shared_ptr<string> valueType_ {};
             };
 
@@ -518,9 +535,13 @@ namespace Models
 
 
             protected:
+              // The name of the parameter.
               shared_ptr<string> name_ {};
+              // The value of the parameter.
               shared_ptr<string> value_ {};
+              // This parameter is valid only when \\`ValueType\\` is set to \\`time\\`.
               shared_ptr<string> valueFormat_ {};
+              // The data type of the parameter value. Default value: string.
               shared_ptr<string> valueType_ {};
             };
 
@@ -588,13 +609,21 @@ namespace Models
 
 
           protected:
+            // The request body.
             shared_ptr<string> body_ {};
+            // The connection timeout period.
             shared_ptr<int32_t> connectTimeout_ {};
+            // The HTTP request headers.
             shared_ptr<vector<SearchSourceRequestConfig::Headers>> headers_ {};
+            // The request method.
             shared_ptr<string> method_ {};
+            // The request path parameters.
             shared_ptr<vector<SearchSourceRequestConfig::Params>> params_ {};
+            // Specifies whether to enable path parameters.
             shared_ptr<bool> pathParamsEnable_ {};
+            // The read timeout period.
             shared_ptr<int32_t> socketTimeout_ {};
+            // The API URL.
             shared_ptr<string> url_ {};
           };
 
@@ -633,9 +662,13 @@ namespace Models
 
 
         protected:
+          // A sample query keyword. This keyword is used to test whether the search source is available.
           shared_ptr<string> demoQuery_ {};
+          // The API request configuration.
           shared_ptr<SearchSourceConfigs::SearchSourceRequestConfig> searchSourceRequestConfig_ {};
+          // The API response configuration.
           shared_ptr<SearchSourceConfigs::SearchSourceResponseConfig> searchSourceResponseConfig_ {};
+          // The default number of data entries for requests and responses.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -695,9 +728,13 @@ namespace Models
 
 
         protected:
+          // Specifies whether to include the key-value pairs of metadata in the generation. Default value: true.
           shared_ptr<string> metadataKeyValueGenerateEnable_ {};
+          // Specifies whether to include the key-value pairs of metadata in the search. Default value: true.
           shared_ptr<string> metadataKeyValueSearchEnable_ {};
+          // Specifies whether to include tags in the generation. Default value: true.
           shared_ptr<string> tagGenerateEnable_ {};
+          // Specifies whether to include tags in the search. Default value: true.
           shared_ptr<string> tagSearchEnable_ {};
         };
 
@@ -722,7 +759,9 @@ namespace Models
 
 
       protected:
+        // The configuration items for the dataset.
         shared_ptr<DatasetConfig::SearchSourceConfig> searchSourceConfig_ {};
+        // Third-party search: API definition.
         shared_ptr<vector<DatasetConfig::SearchSourceConfigs>> searchSourceConfigs_ {};
       };
 
@@ -805,14 +844,23 @@ namespace Models
 
     protected:
       shared_ptr<string> accessLevel_ {};
+      // The time when the dataset was created.
       shared_ptr<string> createTime_ {};
+      // The user who created the dataset.
       shared_ptr<string> createUser_ {};
+      // The search configuration of the dataset.
       shared_ptr<Data::DatasetConfig> datasetConfig_ {};
+      // The display name of the dataset.
       shared_ptr<string> datasetDescription_ {};
+      // The ID of the dataset.
       shared_ptr<int64_t> datasetId_ {};
+      // The name of the dataset.
       shared_ptr<string> datasetName_ {};
+      // The type of the dataset.
       shared_ptr<string> datasetType_ {};
+      // The document processing configuration.
       shared_ptr<Data::DocumentHandleConfig> documentHandleConfig_ {};
+      // The switch that enables or disables search for the dataset.
       shared_ptr<int32_t> searchDatasetEnable_ {};
     };
 
@@ -863,11 +911,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GetDatasetResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

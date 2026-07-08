@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // The value of the option.
         shared_ptr<string> keyword_ {};
+        // The tag of the option. For example, gcNumberSizeTag=10.
         shared_ptr<string> tag_ {};
       };
 
@@ -173,9 +175,13 @@ namespace Models
 
 
       protected:
+        // Necessary tips.
         shared_ptr<string> necessaryTips_ {};
+        // The position or stance.
         shared_ptr<string> position_ {};
+        // Reverse the words.
         shared_ptr<string> reverseWords_ {};
+        // The theme.
         shared_ptr<string> theme_ {};
       };
 
@@ -245,13 +251,50 @@ namespace Models
 
 
     protected:
+      // The writing domain.
+      // 
+      // - media (default): Media writing.
+      // 
+      // - government: Official document writing.
       shared_ptr<string> domain_ {};
+      // The keywords. This affects article retrieval.
       shared_ptr<vector<string>> keywords_ {};
+      // The prompt assistant.
       shared_ptr<WritingConfig::PromptTag> promptTag_ {};
+      // The step-by-step writing scenario.
+      // 
+      // - Scenarios supported for media writing: News Writing (default), News Commentary, and General Style.
+      // 
+      // - Scenarios supported for official document writing: Notification (default), Announcement, Bulletin, Request for Instruction, Decision, Letter, and General Style.
       shared_ptr<string> scene_ {};
+      // The writing step.
+      // 
+      // - Generate outline: OutlineGenerate
+      // 
+      // - Generate summary: MiniDocSummary
+      // 
+      // - Writing (default): Generate article
       shared_ptr<string> step_ {};
+      // The return type of the summary result.<br>
+      // 
+      // - Structure:
+      //   Returns a JSON string in payload.output.text. Example format: `{"event":"{outline}","message":"{message}"}`
+      // 
+      // - Content: Returns only the plain text summary content in payload.output.text. Example format:
+      //   `Outline: {outline}
+      // 
+      // {message}
+      // 
+      // 
+      //  Outline: {outline}
+      // 
+      // {message}`
+      // 
+      // - Event: Returns only the outline content itself in payload.output.text each time an outline is completed. Typically, six describes are returned.
       shared_ptr<string> summaryReturnType_ {};
+      // Control parameters for writing, such as style, length, and output language.
       shared_ptr<vector<WritingConfig::Tags>> tags_ {};
+      // Specifies whether to automatically supplement materials.
       shared_ptr<bool> useSearch_ {};
     };
 
@@ -348,8 +391,11 @@ namespace Models
 
 
         protected:
+          // The article content.
           shared_ptr<string> content_ {};
+          // The article title.
           shared_ptr<string> title_ {};
+          // The article URL.
           shared_ptr<string> url_ {};
         };
 
@@ -372,7 +418,9 @@ namespace Models
 
 
       protected:
+        // The specified data source for the outline.
         shared_ptr<vector<Outlines::Articles>> articles_ {};
+        // The outline.
         shared_ptr<string> outline_ {};
       };
 
@@ -496,16 +544,27 @@ namespace Models
 
 
       protected:
+        // The author.
         shared_ptr<string> author_ {};
+        // The content.
         shared_ptr<string> content_ {};
+        // The custom unique ID of the document.
         shared_ptr<string> docId_ {};
+        // The internal unique ID of the document.
         shared_ptr<string> docUuid_ {};
+        // The URL of the original material.
         shared_ptr<string> mediaUrl_ {};
+        // The publication time.
         shared_ptr<string> pubTime_ {};
+        // The source.
         shared_ptr<string> source_ {};
+        // The article summary.
         shared_ptr<string> summary_ {};
+        // The tag.
         shared_ptr<string> tag_ {};
+        // The title.
         shared_ptr<string> title_ {};
+        // The URL of the article.
         shared_ptr<string> url_ {};
       };
 
@@ -548,9 +607,13 @@ namespace Models
 
 
     protected:
+      // The reference article data for writing.
       shared_ptr<vector<ReferenceData::Articles>> articles_ {};
+      // The ranked article segments for subsequent model generation.
       shared_ptr<vector<string>> miniDoc_ {};
+      // The outline. You can specify a data source to generate the outline.
       shared_ptr<vector<ReferenceData::Outlines>> outlines_ {};
+      // The summary result from the Large Language Model (LLM).
       shared_ptr<vector<string>> summarization_ {};
     };
 
@@ -611,14 +674,25 @@ namespace Models
 
 
   protected:
+    // The ID of the original conversation when regenerating content.
     shared_ptr<string> originSessionId_ {};
+    // The prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The reference article data for writing.
     shared_ptr<RunStepByStepWritingRequest::ReferenceData> referenceData_ {};
+    // The ID of a single-turn conversation.
     shared_ptr<string> sessionId_ {};
+    // The task ID. You can reuse the same task ID for a multi-turn conversation.
+    // 
+    // > By default, you do not need to specify this parameter. The system automatically generates a task ID. If you specify the same TaskId for subsequent tasks, the tasks are considered part of the same conversation group.
     shared_ptr<string> taskId_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The writing configuration.
     shared_ptr<RunStepByStepWritingRequest::WritingConfig> writingConfig_ {};
   };
 

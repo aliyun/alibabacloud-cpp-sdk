@@ -166,7 +166,15 @@ namespace Models
 
 
         protected:
+          // Search source type:
+          // 
+          // - SystemSearch: Built-in system search
+          // 
+          // - CustomSemanticSearch: Custom semantic index search
+          // 
+          // - ThirdSearch: Third-party API search
           shared_ptr<string> code_ {};
+          // Unique identifier for the search source: matches the dataset name shown in the console, such as 4cb0eda3fad841758262dbe8d61191.
           shared_ptr<string> datasetName_ {};
         };
 
@@ -307,22 +315,39 @@ namespace Models
 
 
       protected:
+        // Unique category identifier.
         shared_ptr<vector<string>> categoryUuids_ {};
+        // End creation time, in UNIX timestamp format.
         shared_ptr<int64_t> createTimeEnd_ {};
+        // Start creation time, in UNIX timestamp format.
         shared_ptr<int64_t> createTimeStart_ {};
+        // Array of document IDs.
         shared_ptr<vector<string>> docIds_ {};
+        // Unique document identifier.
         shared_ptr<vector<string>> docUuids_ {};
+        // End time.
         shared_ptr<int64_t> endTime_ {};
+        // Extension field 1.
         shared_ptr<string> extend1_ {};
+        // Extension field 2.
         shared_ptr<string> extend2_ {};
+        // Extension field 3.
         shared_ptr<string> extend3_ {};
+        // Search scope list.
         shared_ptr<vector<string>> multimodalSearchTypes_ {};
+        // Voice search threshold: Applies only to custom data sources (range: 0 to 1).
         shared_ptr<double> searchAudioMinScore_ {};
+        // Image search threshold: Applies only to custom data sources (range: 0 to 1).
         shared_ptr<double> searchImageMinScore_ {};
+        // List of search sources.
         shared_ptr<vector<SearchParam::SearchSources>> searchSources_ {};
+        // Text search threshold: Applies only to custom data sources (range: 0 to 1).
         shared_ptr<double> searchTextMinScore_ {};
+        // Video search threshold: Applies only to custom data sources (range: 0 to 1).
         shared_ptr<double> searchVideoMinScore_ {};
+        // Start time.
         shared_ptr<int64_t> startTime_ {};
+        // Tags.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -392,13 +417,76 @@ namespace Models
 
 
     protected:
+      // Enable deep thinking.
       shared_ptr<bool> enableThinking_ {};
+      // List of generation options to skip.
       shared_ptr<vector<string>> excludeGenerateOptions_ {};
+      // Detailedness of the response:
+      // 
+      // - concise: Concise (default)
+      // 
+      // - enhance: Enhanced
+      // 
+      // - free: Free-form
+      // 
+      // - deepResearch: Research-level
       shared_ptr<string> generateLevel_ {};
+      // Generation technology:
+      // 
+      // - copilotReference: Q\\&A-style search
+      // 
+      // - copilotPrecise: Pure search
       shared_ptr<string> generateTechnology_ {};
+      // Plain-text prompt template for Q\\&A-style search and summary generation. Must include variables {query} and {content}. Example:
+      // 
+      // ```text
+      // # Role
+      // You are an expert article retrieval and Q&A assistant.
+      // 
+      // # Goal
+      // Answer or explain the user\\"s question "{query}" using the retrieved articles.
+      // 
+      // # Constraints
+      // - Filter by knowledge date if the question mentions a specific date.
+      // - Structure responses clearly.
+      // - Keep responses concise.
+      // - Do not use external data or fabricate answers.
+      // - If unable to answer, respond in the appropriate language:
+      //   - Chinese: "Unable to answer based on known information."
+      //   - English: "Unable to answer based on the known information."
+      // 
+      // # Input
+      // ## Retrieved articles
+      // {content}
+      // ```
       shared_ptr<string> modelCustomPromptTemplate_ {};
+      // Plain-text prompt template for Q\\&A-style search and summary generation. Must include variables {query} and {content}. Example:
+      // 
+      // ```text
+      // # Role
+      // You are an expert article retrieval and Q&A assistant.
+      // 
+      // # Goal
+      // Answer or explain the user\\"s question "{query}" using the retrieved articles and images.
+      // 
+      // # Constraints
+      // - Filter by knowledge date if the question mentions a specific date.
+      // - Structure responses clearly.
+      // - Keep responses concise.
+      // - Ignore article content if image content fully answers the question.
+      // - Do not use external data or fabricate answers.
+      // - If unable to answer, respond in the appropriate language:
+      //     - Chinese: "Unable to answer based on known information."
+      //     - English: "Unable to answer based on the known information."
+      // 
+      // # Input
+      // ## Retrieved articles
+      // {content}
+      // ```
       shared_ptr<string> modelCustomVlPromptTemplate_ {};
+      // List of search types.
       shared_ptr<vector<string>> searchModels_ {};
+      // Search parameters.
       shared_ptr<ChatConfig::SearchParam> searchParam_ {};
     };
 
@@ -647,18 +735,31 @@ namespace Models
 
 
             protected:
+              // Relevant chunks.
               shared_ptr<vector<string>> chunks_ {};
+              // Content.
               shared_ptr<string> content_ {};
+              // Custom unique document ID.
               shared_ptr<string> docId_ {};
+              // Internal unique document identifier.
               shared_ptr<string> docUuid_ {};
+              // Publication time.
               shared_ptr<string> pubTime_ {};
+              // Relevance score.
               shared_ptr<float> score_ {};
+              // Unique identifier for the search source. Same as searchSource.datasetName.
               shared_ptr<string> searchSource_ {};
+              // Name of the search source.
               shared_ptr<string> searchSourceName_ {};
+              // Search source type. Same as searchSource.code.
               shared_ptr<string> searchSourceType_ {};
+              // Source.
               shared_ptr<string> source_ {};
+              // Article summary.
               shared_ptr<string> summary_ {};
+              // Title.
               shared_ptr<string> title_ {};
+              // Article URL.
               shared_ptr<string> url_ {};
             };
 
@@ -673,6 +774,7 @@ namespace Models
 
 
           protected:
+            // List of text search results.
             shared_ptr<vector<TextSearchResult::SearchResult>> searchResult_ {};
           };
 
@@ -723,11 +825,17 @@ namespace Models
 
 
         protected:
+          // Unique identifier for the original session. Used to retrieve full results from that session. Required only for media asset search.
           shared_ptr<string> originalSessionId_ {};
+          // Used only for clustering. Pass ClusterGenerate when performing secondary clustering on cluster subtopics.
           shared_ptr<string> searchModel_ {};
+          // When SearchModel = ClusterGenerate, enter the topic name for the subtopic. Include quotation marks if the original value has them.
           shared_ptr<string> searchModelDataValue_ {};
+          // The type of referenced data source. Valid values: ‒ all: Retrieves the full data from historical sessions. This value is supported only in clustering scenarios. ‒ selected: Retrieves data from textSearchResult during generation.
           shared_ptr<string> selectionType_ {};
+          // Unique identifier for the session used as reference during generation. Used for clustering in media asset search.
           shared_ptr<string> sessionId_ {};
+          // Text search results.
           shared_ptr<MultimodalMediaSelection::TextSearchResult> textSearchResult_ {};
         };
 
@@ -811,15 +919,25 @@ namespace Models
 
 
       protected:
+        // Follow-up question.
         shared_ptr<string> askUser_ {};
+        // List of recommended keywords for follow-up questions.
         shared_ptr<vector<string>> askUserKeywords_ {};
+        // Current step.
         shared_ptr<string> currentStep_ {};
+        // User-provided or selected multimodal data.
         shared_ptr<BizContext::MultimodalMediaSelection> multimodalMediaSelection_ {};
+        // Next step.
         shared_ptr<string> nextStep_ {};
+        // Skip follow-up questions.
         shared_ptr<bool> skipCurrentSupplement_ {};
+        // Data type needed for reasoning: searchQuery.
         shared_ptr<string> supplementDataType_ {};
+        // Specifies whether supplementation is required.
         shared_ptr<bool> supplementEnable_ {};
+        // User feedback to follow-up questions.
         shared_ptr<string> userBack_ {};
+        // List of keywords from user feedback to follow-up questions.
         shared_ptr<vector<string>> userBackKeywords_ {};
       };
 
@@ -834,6 +952,7 @@ namespace Models
 
 
     protected:
+      // Business context.
       shared_ptr<AgentContext::BizContext> bizContext_ {};
     };
 
@@ -901,13 +1020,28 @@ namespace Models
 
 
   protected:
+    // Context.
     shared_ptr<RunSearchGenerationRequest::AgentContext> agentContext_ {};
+    // Session configuration.
     shared_ptr<RunSearchGenerationRequest::ChatConfig> chatConfig_ {};
+    // Image URL. Used for image search and hybrid text-and-image (prompt) search generation.
     shared_ptr<string> fileUrl_ {};
+    // Model ID:
+    // 
+    // - quanmiao-max: Quanmiao-Max
+    // 
+    // - quanmiao-plus: Quanmiao-Plus
     shared_ptr<string> modelId_ {};
+    // Original session identifier. Usually empty. When non-empty, it indicates that the current conversation is based on the referenced session. The system loads parameters and search results from that session and replaces the generated result. Use this for re-generation, changing data sources, or adding new agents.
     shared_ptr<string> originalSessionId_ {};
+    // Search query.
     shared_ptr<string> prompt_ {};
+    // Unique identifier for the session task.
+    // 
+    // > By default, you do not need to provide a TaskId. The system generates one automatically. If you specify the same TaskId in subsequent requests, those tasks are grouped into the same conversation.
     shared_ptr<string> taskId_ {};
+    // ID of the Alibaba Cloud Model Studio workspace. To learn how to obtain this ID, see [How to use workspaces](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

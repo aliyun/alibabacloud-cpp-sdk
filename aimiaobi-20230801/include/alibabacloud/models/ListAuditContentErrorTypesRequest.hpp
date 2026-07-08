@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Maximum number of records
     shared_ptr<int32_t> maxResults_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

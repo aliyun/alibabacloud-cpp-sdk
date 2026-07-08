@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // Number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -166,7 +169,9 @@ namespace Models
 
 
         protected:
+          // Key point.
           shared_ptr<string> keyPoint_ {};
+          // Source of the information.
           shared_ptr<string> source_ {};
         };
 
@@ -189,7 +194,9 @@ namespace Models
 
 
       protected:
+        // Key point information.
         shared_ptr<vector<Output::KeyPoints>> keyPoints_ {};
+        // Outline-style summary.
         shared_ptr<string> summary_ {};
       };
 
@@ -214,7 +221,9 @@ namespace Models
 
 
     protected:
+      // Output data.
       shared_ptr<Payload::Output> output_ {};
+      // Token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -302,12 +311,19 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // Server-sent event (SSE) type.
       shared_ptr<string> event_ {};
+      // Event description.
       shared_ptr<string> eventInfo_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // End-to-end trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -339,9 +355,11 @@ namespace Models
 
 
   protected:
+    // Response header.
     shared_ptr<RunMultiDocIntroductionResponseBody::Header> header_ {};
+    // Response body.
     shared_ptr<RunMultiDocIntroductionResponseBody::Payload> payload_ {};
-    // Id of the request
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

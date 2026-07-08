@@ -97,14 +97,23 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The body of the article in rich text format.
     shared_ptr<string> content_ {};
+    // The body of the article in plain text format.
     shared_ptr<string> contentText_ {};
+    // The unique identifier of the document.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The keywords.
     shared_ptr<vector<string>> keywords_ {};
+    // The last prompt that was used to generate the content.
     shared_ptr<string> prompt_ {};
+    // The title.
     shared_ptr<string> title_ {};
   };
 

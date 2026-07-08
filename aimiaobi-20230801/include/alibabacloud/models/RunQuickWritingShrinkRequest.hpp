@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // Referenced articles
     shared_ptr<string> articlesShrink_ {};
+    // Other writing parameters. Choose either prompt or writingParams.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // Use the specified search source list.
     shared_ptr<string> searchSourcesShrink_ {};
+    // Task ID. Reuse the same task ID for multi-turn conversations.
     shared_ptr<string> taskId_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

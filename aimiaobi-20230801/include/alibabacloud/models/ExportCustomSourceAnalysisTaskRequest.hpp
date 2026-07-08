@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Export format type. Default is jsonLine. jsonline: Exports in jsonLine format. excel: Exports in Excel format.
     shared_ptr<string> exportType_ {};
+    // Unique ID for the task
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Unique identifier for the workspace: AgentKey
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

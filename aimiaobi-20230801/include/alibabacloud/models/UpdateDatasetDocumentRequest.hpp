@@ -131,13 +131,21 @@ namespace Models
 
 
     protected:
+      // UUID of the category
       shared_ptr<string> categoryUuid_ {};
+      // User-defined unique ID for the document.
       shared_ptr<string> docId_ {};
+      // Unique ID of the document in the system.
       shared_ptr<string> docUuid_ {};
+      // Extension field 1
       shared_ptr<string> extend1_ {};
+      // Extension field 2
       shared_ptr<string> extend2_ {};
+      // Extension field 3
       shared_ptr<string> extend3_ {};
+      // Tags
       shared_ptr<vector<string>> tags_ {};
+      // Document title.
       shared_ptr<string> title_ {};
     };
 
@@ -174,10 +182,15 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the dataset.
     shared_ptr<int64_t> datasetId_ {};
+    // Name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // The document to update.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDatasetDocumentRequest::Document> document_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
     shared_ptr<string> workspaceId_ {};
   };
 

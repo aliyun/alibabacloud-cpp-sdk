@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The category where the document is stored.
     shared_ptr<string> categoryId_ {};
+    // The document ID.
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // The unique identifier of the workspace in Alibaba Cloud Model Studio. For instructions on how to obtain a workspace ID, see [Obtain a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

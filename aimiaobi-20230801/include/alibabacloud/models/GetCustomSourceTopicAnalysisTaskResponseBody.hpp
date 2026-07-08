@@ -133,7 +133,9 @@ namespace Models
 
 
         protected:
+          // The title of the news article.
           shared_ptr<string> title_ {};
+          // The URL of the news article.
           shared_ptr<string> url_ {};
         };
 
@@ -156,7 +158,9 @@ namespace Models
 
 
       protected:
+        // A list of aggregated news articles. The body text is not included.
         shared_ptr<vector<ClusterResults::ClusterNews>> clusterNews_ {};
+        // The name of the aggregated topic.
         shared_ptr<string> topic_ {};
       };
 
@@ -224,13 +228,22 @@ namespace Models
 
 
     protected:
+      // The number of documents after clustering.
       shared_ptr<int32_t> clusterCount_ {};
+      // A list of news aggregation results.
       shared_ptr<vector<Data::ClusterResults>> clusterResults_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The maximum number of news articles in a cluster after aggregation.
       shared_ptr<int32_t> maxClusteredTopicNewsSize_ {};
+      // The number of news articles after the file is parsed.
       shared_ptr<int32_t> parsedNewsSize_ {};
+      // The status of the task. Valid values: \\`PENDING\\`, \\`RUNNING\\`, \\`SUCCESSED\\`, \\`FAILED\\`, and \\`CANCELED\\`.
       shared_ptr<string> status_ {};
+      // The total runtime in milliseconds.
       shared_ptr<int64_t> rt_ {};
+      // The token usage. The possible billable items are:
+      // quanmiaoMax, quanmiaoPlus
       shared_ptr<map<string, int64_t>> usages_ {};
     };
 
@@ -281,11 +294,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<GetCustomSourceTopicAnalysisTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success and \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

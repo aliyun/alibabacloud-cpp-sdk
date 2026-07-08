@@ -104,10 +104,25 @@ namespace Models
 
 
     protected:
+      // The unique business ID of the document.
       shared_ptr<string> docId_ {};
+      // The unique system ID of the document.
       shared_ptr<string> docUuid_ {};
+      // The error code for the exception.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The status.
+      // 
+      // - 1: created
+      // 
+      // - 2: text index built
+      // 
+      // - 3: multimodal index built
+      // 
+      // - 100: full build completed
+      // 
+      // - 0: failed
       shared_ptr<int32_t> status_ {};
     };
 
@@ -158,11 +173,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<AddDatasetDocumentResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

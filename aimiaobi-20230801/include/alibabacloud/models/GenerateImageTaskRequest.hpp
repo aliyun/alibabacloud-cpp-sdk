@@ -94,11 +94,31 @@ namespace Models
 
 
     protected:
+      // The content of the paragraph.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The paragraph ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // The unique ID of the task.
+      // 
+      // > By default, you do not need to specify this parameter. The system automatically generates a task ID. If you specify the same TaskId for subsequent tasks, these tasks are considered part of the same conversation group.
       shared_ptr<string> taskId_ {};
+      // The current status of the task.
+      // 
+      // - PENDING: The task is in the queue.
+      // 
+      // - RUNNING: The task is in progress.
+      // 
+      // - SUSPENDED: The task is suspended.
+      // 
+      // - SUCCEEDED: The task was successful.
+      // 
+      // - FAILED: The task failed.
+      // 
+      // - UNKNOWN: The task does not exist or its status is unknown.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -142,14 +162,24 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The task ID of the article. If you do not have one, you can assign a universally unique identifier (UUID).
+    // 
     // This parameter is required.
     shared_ptr<string> articleTaskId_ {};
+    // The content of the paragraphs.
+    // 
     // This parameter is required.
     shared_ptr<vector<GenerateImageTaskRequest::ParagraphList>> paragraphList_ {};
+    // The size of the image to generate.
+    // 
     // This parameter is required.
     shared_ptr<string> size_ {};
+    // The style.
+    // 
     // This parameter is required.
     shared_ptr<string> style_ {};
   };

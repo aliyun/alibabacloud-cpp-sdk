@@ -263,29 +263,80 @@ namespace Models
 
 
   protected:
+    // The unique IDs of the categories.
     shared_ptr<vector<string>> categoryUuids_ {};
+    // The end of the creation time range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> createTimeEnd_ {};
+    // The start of the creation time range, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> createTimeStart_ {};
+    // Deprecated.
     shared_ptr<string> datasetDescription_ {};
+    // The unique ID of the dataset. You must specify either this parameter or `DatasetName`.
     shared_ptr<int64_t> datasetId_ {};
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // An array of document IDs.
     shared_ptr<vector<string>> docIds_ {};
+    // The type of the document. Valid values:
+    // 
+    // - `plainText`: Plain text.
+    // 
+    // - `richText`: Rich text.
+    // 
+    // - `text`: A text file.
+    // 
+    // - `pdf`: A PDF file.
+    // 
+    // - `word`: A Word file.
+    // 
+    // - `image`: An image file.
+    // 
+    // - `video`: A video file.
     shared_ptr<string> docType_ {};
+    // The unique IDs of the documents.
     shared_ptr<vector<string>> docUuids_ {};
+    // The end time, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The fields to exclude from the response. Valid value:
+    // 
+    // - `content`: The document content.
     shared_ptr<vector<string>> excludeFields_ {};
+    // A custom extension field.
     shared_ptr<string> extend1_ {};
+    // A custom extension field.
     shared_ptr<string> extend2_ {};
+    // A custom extension field.
     shared_ptr<string> extend3_ {};
+    // The fields to include in the response.
     shared_ptr<vector<string>> includeFields_ {};
+    // A token to retrieve the next page of results. This parameter is required when you retrieve more than 10,000 entries.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The search query.
     shared_ptr<string> query_ {};
+    // The start time, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The status of the document. Valid values:
+    // 
+    // - `1`: Document created.
+    // 
+    // - `2`: Text index built.
+    // 
+    // - `3`: Multimodal index built.
+    // 
+    // - `100`: Full build complete.
+    // 
+    // - `0`: Build failed.
     shared_ptr<int32_t> status_ {};
+    // The tags.
     shared_ptr<vector<string>> tags_ {};
+    // The title.
     shared_ptr<string> title_ {};
+    // The unique ID of the Model Studio workspace. For more information, see [Get workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

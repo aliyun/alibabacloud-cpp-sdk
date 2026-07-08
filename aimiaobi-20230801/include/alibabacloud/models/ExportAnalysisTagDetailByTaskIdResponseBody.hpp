@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Temporary accessible URL (expires in 1 hour).
     shared_ptr<string> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description.
     shared_ptr<string> message_ {};
+    // Unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful: true for success, false for failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Task ID returned by the SubmitAuditNote operation. Save this ID securely. It uniquely identifies your custom rule library task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Unique identifier of your Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

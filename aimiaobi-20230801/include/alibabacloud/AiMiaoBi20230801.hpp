@@ -21,7 +21,7 @@ namespace AiMiaoBi20230801
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加审核自定义词库记录
+       * @summary Add a custom term to the audit dictionary.
        *
        * @param tmpReq AddAuditTermsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AiMiaoBi20230801
       Models::AddAuditTermsResponse addAuditTermsWithOptions(const Models::AddAuditTermsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加审核自定义词库记录
+       * @summary Add a custom term to the audit dictionary.
        *
        * @param request AddAuditTermsRequest
        * @return AddAuditTermsResponse
@@ -38,7 +38,7 @@ namespace AiMiaoBi20230801
       Models::AddAuditTermsResponse addAuditTerms(const Models::AddAuditTermsRequest &request);
 
       /**
-       * @summary 添加文档到数据集
+       * @summary Adds a document to a data source.
        *
        * @param tmpReq AddDatasetDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace AiMiaoBi20230801
       Models::AddDatasetDocumentResponse addDatasetDocumentWithOptions(const Models::AddDatasetDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加文档到数据集
+       * @summary Adds a document to a data source.
        *
        * @param request AddDatasetDocumentRequest
        * @return AddDatasetDocumentResponse
@@ -55,7 +55,7 @@ namespace AiMiaoBi20230801
       Models::AddDatasetDocumentResponse addDatasetDocument(const Models::AddDatasetDocumentRequest &request);
 
       /**
-       * @summary 生成剪辑视频任务
+       * @summary Generates a video clip.
        *
        * @param tmpReq AsyncCreateClipsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace AiMiaoBi20230801
       Models::AsyncCreateClipsTaskResponse asyncCreateClipsTaskWithOptions(const Models::AsyncCreateClipsTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成剪辑视频任务
+       * @summary Generates a video clip.
        *
        * @param request AsyncCreateClipsTaskRequest
        * @return AsyncCreateClipsTaskResponse
@@ -72,7 +72,7 @@ namespace AiMiaoBi20230801
       Models::AsyncCreateClipsTaskResponse asyncCreateClipsTask(const Models::AsyncCreateClipsTaskRequest &request);
 
       /**
-       * @summary 智能剪辑timeline
+       * @summary Creates a timeline for smart video editing.
        *
        * @param tmpReq AsyncCreateClipsTimeLineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace AiMiaoBi20230801
       Models::AsyncCreateClipsTimeLineResponse asyncCreateClipsTimeLineWithOptions(const Models::AsyncCreateClipsTimeLineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能剪辑timeline
+       * @summary Creates a timeline for smart video editing.
        *
        * @param request AsyncCreateClipsTimeLineRequest
        * @return AsyncCreateClipsTimeLineResponse
@@ -89,7 +89,7 @@ namespace AiMiaoBi20230801
       Models::AsyncCreateClipsTimeLineResponse asyncCreateClipsTimeLine(const Models::AsyncCreateClipsTimeLineRequest &request);
 
       /**
-       * @summary 编辑剪辑任务的timeline
+       * @summary Edits the timeline of a video editing task.
        *
        * @param tmpReq AsyncEditTimelineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace AiMiaoBi20230801
       Models::AsyncEditTimelineResponse asyncEditTimelineWithOptions(const Models::AsyncEditTimelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑剪辑任务的timeline
+       * @summary Edits the timeline of a video editing task.
        *
        * @param request AsyncEditTimelineRequest
        * @return AsyncEditTimelineResponse
@@ -106,7 +106,7 @@ namespace AiMiaoBi20230801
       Models::AsyncEditTimelineResponse asyncEditTimeline(const Models::AsyncEditTimelineRequest &request);
 
       /**
-       * @summary 上传招标书文件
+       * @summary Upload a tender document.
        *
        * @param request AsyncUploadTenderDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace AiMiaoBi20230801
       Models::AsyncUploadTenderDocResponse asyncUploadTenderDocWithOptions(const Models::AsyncUploadTenderDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传招标书文件
+       * @summary Upload a tender document.
        *
        * @param request AsyncUploadTenderDocRequest
        * @return AsyncUploadTenderDocResponse
@@ -123,7 +123,7 @@ namespace AiMiaoBi20230801
       Models::AsyncUploadTenderDocResponse asyncUploadTenderDoc(const Models::AsyncUploadTenderDocRequest &request);
 
       /**
-       * @summary 上传剪辑素材
+       * @summary Uploads video assets for editing.
        *
        * @param tmpReq AsyncUploadVideoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace AiMiaoBi20230801
       Models::AsyncUploadVideoResponse asyncUploadVideoWithOptions(const Models::AsyncUploadVideoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传剪辑素材
+       * @summary Uploads video assets for editing.
        *
        * @param request AsyncUploadVideoRequest
        * @return AsyncUploadVideoResponse
@@ -140,7 +140,7 @@ namespace AiMiaoBi20230801
       Models::AsyncUploadVideoResponse asyncUploadVideo(const Models::AsyncUploadVideoRequest &request);
 
       /**
-       * @summary 标书写作接口
+       * @summary An API for writing bidding documents.
        *
        * @param request AsyncWritingBiddingDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace AiMiaoBi20230801
       Models::AsyncWritingBiddingDocResponse asyncWritingBiddingDocWithOptions(const Models::AsyncWritingBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 标书写作接口
+       * @summary An API for writing bidding documents.
        *
        * @param request AsyncWritingBiddingDocRequest
        * @return AsyncWritingBiddingDocResponse
@@ -157,7 +157,7 @@ namespace AiMiaoBi20230801
       Models::AsyncWritingBiddingDocResponse asyncWritingBiddingDoc(const Models::AsyncWritingBiddingDocRequest &request);
 
       /**
-       * @summary 绑定PPT作品信息
+       * @summary Binds a PowerPoint (PPT) artifact.
        *
        * @param request BindPptArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace AiMiaoBi20230801
       Models::BindPptArtifactResponse bindPptArtifactWithOptions(const Models::BindPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定PPT作品信息
+       * @summary Binds a PowerPoint (PPT) artifact.
        *
        * @param request BindPptArtifactRequest
        * @return BindPptArtifactResponse
@@ -174,7 +174,7 @@ namespace AiMiaoBi20230801
       Models::BindPptArtifactResponse bindPptArtifact(const Models::BindPptArtifactRequest &request);
 
       /**
-       * @summary 取消异步任务
+       * @summary Cancels pending asynchronous tasks.
        *
        * @param request CancelAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace AiMiaoBi20230801
       Models::CancelAsyncTaskResponse cancelAsyncTaskWithOptions(const Models::CancelAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消异步任务
+       * @summary Cancels pending asynchronous tasks.
        *
        * @param request CancelAsyncTaskRequest
        * @return CancelAsyncTaskResponse
@@ -191,7 +191,7 @@ namespace AiMiaoBi20230801
       Models::CancelAsyncTaskResponse cancelAsyncTask(const Models::CancelAsyncTaskRequest &request);
 
       /**
-       * @summary 取消审核任务
+       * @summary Cancel an audit task.
        *
        * @param request CancelAuditTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +200,7 @@ namespace AiMiaoBi20230801
       Models::CancelAuditTaskResponse cancelAuditTaskWithOptions(const Models::CancelAuditTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消审核任务
+       * @summary Cancel an audit task.
        *
        * @param request CancelAuditTaskRequest
        * @return CancelAuditTaskResponse
@@ -208,7 +208,7 @@ namespace AiMiaoBi20230801
       Models::CancelAuditTaskResponse cancelAuditTask(const Models::CancelAuditTaskRequest &request);
 
       /**
-       * @summary 取消深度写作任务
+       * @summary Cancels a deep writing task.
        *
        * @param request CancelDeepWriteTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace AiMiaoBi20230801
       Models::CancelDeepWriteTaskResponse cancelDeepWriteTaskWithOptions(const Models::CancelDeepWriteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消深度写作任务
+       * @summary Cancels a deep writing task.
        *
        * @param request CancelDeepWriteTaskRequest
        * @return CancelDeepWriteTaskResponse
@@ -225,7 +225,7 @@ namespace AiMiaoBi20230801
       Models::CancelDeepWriteTaskResponse cancelDeepWriteTask(const Models::CancelDeepWriteTaskRequest &request);
 
       /**
-       * @summary 清除所有干预内容
+       * @summary Clears all intervention content.
        *
        * @param request ClearIntervenesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +234,7 @@ namespace AiMiaoBi20230801
       Models::ClearIntervenesResponse clearIntervenesWithOptions(const Models::ClearIntervenesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 清除所有干预内容
+       * @summary Clears all intervention content.
        *
        * @param request ClearIntervenesRequest
        * @return ClearIntervenesResponse
@@ -242,7 +242,7 @@ namespace AiMiaoBi20230801
       Models::ClearIntervenesResponse clearIntervenes(const Models::ClearIntervenesRequest &request);
 
       /**
-       * @summary 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+       * @summary This interface confirms whether the parsing results from your custom rule library submission are used for audit tasks. Because parsing results may not meet your requirements, use this interface to perform a second confirmation. If you are satisfied with the parsing of your submitted rule library, provide the TaskId from that submission as an input parameter. The system then post-processes your uploaded rule library and makes it available for auditing. Otherwise, invoke the SubmitAuditNote interface again to upload the modified rule library.
        *
        * @param request ConfirmAndPostProcessAuditNoteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace AiMiaoBi20230801
       Models::ConfirmAndPostProcessAuditNoteResponse confirmAndPostProcessAuditNoteWithOptions(const Models::ConfirmAndPostProcessAuditNoteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+       * @summary This interface confirms whether the parsing results from your custom rule library submission are used for audit tasks. Because parsing results may not meet your requirements, use this interface to perform a second confirmation. If you are satisfied with the parsing of your submitted rule library, provide the TaskId from that submission as an input parameter. The system then post-processes your uploaded rule library and makes it available for auditing. Otherwise, invoke the SubmitAuditNote interface again to upload the modified rule library.
        *
        * @param request ConfirmAndPostProcessAuditNoteRequest
        * @return ConfirmAndPostProcessAuditNoteResponse
@@ -259,7 +259,8 @@ namespace AiMiaoBi20230801
       Models::ConfirmAndPostProcessAuditNoteResponse confirmAndPostProcessAuditNote(const Models::ConfirmAndPostProcessAuditNoteRequest &request);
 
       /**
-       * @summary 用户数据集权限-批量添加
+       * @summary Batch add permissions:\\
+       * \\- Dataset permissions\\
        *
        * @param tmpReq CreateDataPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +269,8 @@ namespace AiMiaoBi20230801
       Models::CreateDataPermissionsResponse createDataPermissionsWithOptions(const Models::CreateDataPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户数据集权限-批量添加
+       * @summary Batch add permissions:\\
+       * \\- Dataset permissions\\
        *
        * @param request CreateDataPermissionsRequest
        * @return CreateDataPermissionsResponse
@@ -276,7 +278,7 @@ namespace AiMiaoBi20230801
       Models::CreateDataPermissionsResponse createDataPermissions(const Models::CreateDataPermissionsRequest &request);
 
       /**
-       * @summary 数据集管理-创建
+       * @summary Creates a dataset.
        *
        * @param tmpReq CreateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +287,7 @@ namespace AiMiaoBi20230801
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据集管理-创建
+       * @summary Creates a dataset.
        *
        * @param request CreateDatasetRequest
        * @return CreateDatasetResponse
@@ -293,7 +295,7 @@ namespace AiMiaoBi20230801
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary 通用配置-创建
+       * @summary General configurations — Create
        *
        * @param request CreateGeneralConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +304,7 @@ namespace AiMiaoBi20230801
       Models::CreateGeneralConfigResponse createGeneralConfigWithOptions(const Models::CreateGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用配置-创建
+       * @summary General configurations — Create
        *
        * @param request CreateGeneralConfigRequest
        * @return CreateGeneralConfigResponse
@@ -310,7 +312,7 @@ namespace AiMiaoBi20230801
       Models::CreateGeneralConfigResponse createGeneralConfig(const Models::CreateGeneralConfigRequest &request);
 
       /**
-       * @summary 文档管理-创建
+       * @summary Saves an article created in Miaobi. This operation supports rich text.
        *
        * @param tmpReq CreateGeneratedContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +321,7 @@ namespace AiMiaoBi20230801
       Models::CreateGeneratedContentResponse createGeneratedContentWithOptions(const Models::CreateGeneratedContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档管理-创建
+       * @summary Saves an article created in Miaobi. This operation supports rich text.
        *
        * @param request CreateGeneratedContentRequest
        * @return CreateGeneratedContentResponse
@@ -327,7 +329,7 @@ namespace AiMiaoBi20230801
       Models::CreateGeneratedContentResponse createGeneratedContent(const Models::CreateGeneratedContentRequest &request);
 
       /**
-       * @summary 获取授权token
+       * @summary Creates a temporary token for the online inference API.
        *
        * @param request CreateTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +338,7 @@ namespace AiMiaoBi20230801
       Models::CreateTokenResponse createTokenWithOptions(const Models::CreateTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取授权token
+       * @summary Creates a temporary token for the online inference API.
        *
        * @param request CreateTokenRequest
        * @return CreateTokenResponse
@@ -344,7 +346,7 @@ namespace AiMiaoBi20230801
       Models::CreateTokenResponse createToken(const Models::CreateTokenRequest &request);
 
       /**
-       * @summary 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+       * @summary Deletes all custom rule libraries available for audit under the user account. This operation is irreversible. To archive rule libraries, use the DownloadAuditNote API to save them before deletion.
        *
        * @param request DeleteAuditNoteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +355,7 @@ namespace AiMiaoBi20230801
       Models::DeleteAuditNoteResponse deleteAuditNoteWithOptions(const Models::DeleteAuditNoteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+       * @summary Deletes all custom rule libraries available for audit under the user account. This operation is irreversible. To archive rule libraries, use the DownloadAuditNote API to save them before deletion.
        *
        * @param request DeleteAuditNoteRequest
        * @return DeleteAuditNoteResponse
@@ -361,7 +363,7 @@ namespace AiMiaoBi20230801
       Models::DeleteAuditNoteResponse deleteAuditNote(const Models::DeleteAuditNoteRequest &request);
 
       /**
-       * @summary 删除指定的词库记录
+       * @summary Deletes specified term records.
        *
        * @param tmpReq DeleteAuditTermsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +372,7 @@ namespace AiMiaoBi20230801
       Models::DeleteAuditTermsResponse deleteAuditTermsWithOptions(const Models::DeleteAuditTermsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定的词库记录
+       * @summary Deletes specified term records.
        *
        * @param request DeleteAuditTermsRequest
        * @return DeleteAuditTermsResponse
@@ -378,7 +380,7 @@ namespace AiMiaoBi20230801
       Models::DeleteAuditTermsResponse deleteAuditTerms(const Models::DeleteAuditTermsRequest &request);
 
       /**
-       * @summary 删除自定义文本
+       * @summary Deletes a custom text.
        *
        * @param request DeleteCustomTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +389,7 @@ namespace AiMiaoBi20230801
       Models::DeleteCustomTextResponse deleteCustomTextWithOptions(const Models::DeleteCustomTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义文本
+       * @summary Deletes a custom text.
        *
        * @param request DeleteCustomTextRequest
        * @return DeleteCustomTextResponse
@@ -395,7 +397,7 @@ namespace AiMiaoBi20230801
       Models::DeleteCustomTextResponse deleteCustomText(const Models::DeleteCustomTextRequest &request);
 
       /**
-       * @summary 根据主题删除自定义主题事件
+       * @summary Delete a custom hot spot event by topic name.
        *
        * @param request DeleteCustomTopicByTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +406,7 @@ namespace AiMiaoBi20230801
       Models::DeleteCustomTopicByTopicResponse deleteCustomTopicByTopicWithOptions(const Models::DeleteCustomTopicByTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据主题删除自定义主题事件
+       * @summary Delete a custom hot spot event by topic name.
        *
        * @param request DeleteCustomTopicByTopicRequest
        * @return DeleteCustomTopicByTopicResponse
@@ -412,7 +414,7 @@ namespace AiMiaoBi20230801
       Models::DeleteCustomTopicByTopicResponse deleteCustomTopicByTopic(const Models::DeleteCustomTopicByTopicRequest &request);
 
       /**
-       * @summary 根据自定义观点ID删除自定义观点
+       * @summary Deletes a custom topic viewpoint by its ID.
        *
        * @param request DeleteCustomTopicViewPointByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +423,7 @@ namespace AiMiaoBi20230801
       Models::DeleteCustomTopicViewPointByIdResponse deleteCustomTopicViewPointByIdWithOptions(const Models::DeleteCustomTopicViewPointByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据自定义观点ID删除自定义观点
+       * @summary Deletes a custom topic viewpoint by its ID.
        *
        * @param request DeleteCustomTopicViewPointByIdRequest
        * @return DeleteCustomTopicViewPointByIdResponse
@@ -429,7 +431,7 @@ namespace AiMiaoBi20230801
       Models::DeleteCustomTopicViewPointByIdResponse deleteCustomTopicViewPointById(const Models::DeleteCustomTopicViewPointByIdRequest &request);
 
       /**
-       * @summary 用户数据集权限-批量删除
+       * @summary Batch delete dataset permissions
        *
        * @param tmpReq DeleteDataPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +440,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDataPermissionsResponse deleteDataPermissionsWithOptions(const Models::DeleteDataPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户数据集权限-批量删除
+       * @summary Batch delete dataset permissions
        *
        * @param request DeleteDataPermissionsRequest
        * @return DeleteDataPermissionsResponse
@@ -446,7 +448,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDataPermissionsResponse deleteDataPermissions(const Models::DeleteDataPermissionsRequest &request);
 
       /**
-       * @summary 数据集管理-删除
+       * @summary Deletes a dataset from the data source.
        *
        * @param request DeleteDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +457,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDatasetResponse deleteDatasetWithOptions(const Models::DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据集管理-删除
+       * @summary Deletes a dataset from the data source.
        *
        * @param request DeleteDatasetRequest
        * @return DeleteDatasetResponse
@@ -463,7 +465,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDatasetResponse deleteDataset(const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary 删除数据集文档
+       * @summary Delete source documents.
        *
        * @param request DeleteDatasetDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +474,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDatasetDocumentResponse deleteDatasetDocumentWithOptions(const Models::DeleteDatasetDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据集文档
+       * @summary Delete source documents.
        *
        * @param request DeleteDatasetDocumentRequest
        * @return DeleteDatasetDocumentResponse
@@ -480,7 +482,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDatasetDocumentResponse deleteDatasetDocument(const Models::DeleteDatasetDocumentRequest &request);
 
       /**
-       * @summary 妙读删除多个文档
+       * @summary Deletes multiple documents.
        *
        * @param tmpReq DeleteDocsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +491,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDocsResponse deleteDocsWithOptions(const Models::DeleteDocsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读删除多个文档
+       * @summary Deletes multiple documents.
        *
        * @param request DeleteDocsRequest
        * @return DeleteDocsResponse
@@ -497,7 +499,7 @@ namespace AiMiaoBi20230801
       Models::DeleteDocsResponse deleteDocs(const Models::DeleteDocsRequest &request);
 
       /**
-       * @summary 删除指定的用于事实性审核的 URL。
+       * @summary Deletes the specified URL used for factuality audit.
        *
        * @param request DeleteFactAuditUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +508,7 @@ namespace AiMiaoBi20230801
       Models::DeleteFactAuditUrlResponse deleteFactAuditUrlWithOptions(const Models::DeleteFactAuditUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定的用于事实性审核的 URL。
+       * @summary Deletes the specified URL used for factuality audit.
        *
        * @param request DeleteFactAuditUrlRequest
        * @return DeleteFactAuditUrlResponse
@@ -514,7 +516,7 @@ namespace AiMiaoBi20230801
       Models::DeleteFactAuditUrlResponse deleteFactAuditUrl(const Models::DeleteFactAuditUrlRequest &request);
 
       /**
-       * @summary 通用配置-删除
+       * @summary Deletes general configurations.
        *
        * @param request DeleteGeneralConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +525,7 @@ namespace AiMiaoBi20230801
       Models::DeleteGeneralConfigResponse deleteGeneralConfigWithOptions(const Models::DeleteGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用配置-删除
+       * @summary Deletes general configurations.
        *
        * @param request DeleteGeneralConfigRequest
        * @return DeleteGeneralConfigResponse
@@ -531,7 +533,7 @@ namespace AiMiaoBi20230801
       Models::DeleteGeneralConfigResponse deleteGeneralConfig(const Models::DeleteGeneralConfigRequest &request);
 
       /**
-       * @summary 文档管理-删除。
+       * @summary Deletes an article created in MiaoBi.
        *
        * @param request DeleteGeneratedContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +542,7 @@ namespace AiMiaoBi20230801
       Models::DeleteGeneratedContentResponse deleteGeneratedContentWithOptions(const Models::DeleteGeneratedContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档管理-删除。
+       * @summary Deletes an article created in MiaoBi.
        *
        * @param request DeleteGeneratedContentRequest
        * @return DeleteGeneratedContentResponse
@@ -548,7 +550,7 @@ namespace AiMiaoBi20230801
       Models::DeleteGeneratedContentResponse deleteGeneratedContent(const Models::DeleteGeneratedContentRequest &request);
 
       /**
-       * @summary 删除干预规则
+       * @summary Deletes an intervention rule.
        *
        * @param request DeleteInterveneRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +559,7 @@ namespace AiMiaoBi20230801
       Models::DeleteInterveneRuleResponse deleteInterveneRuleWithOptions(const Models::DeleteInterveneRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除干预规则
+       * @summary Deletes an intervention rule.
        *
        * @param request DeleteInterveneRuleRequest
        * @return DeleteInterveneRuleResponse
@@ -565,7 +567,7 @@ namespace AiMiaoBi20230801
       Models::DeleteInterveneRuleResponse deleteInterveneRule(const Models::DeleteInterveneRuleRequest &request);
 
       /**
-       * @summary 根据ID删除素材
+       * @summary Deletes a material from the material library.
        *
        * @param request DeleteMaterialByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +576,7 @@ namespace AiMiaoBi20230801
       Models::DeleteMaterialByIdResponse deleteMaterialByIdWithOptions(const Models::DeleteMaterialByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据ID删除素材
+       * @summary Deletes a material from the material library.
        *
        * @param request DeleteMaterialByIdRequest
        * @return DeleteMaterialByIdResponse
@@ -582,7 +584,11 @@ namespace AiMiaoBi20230801
       Models::DeleteMaterialByIdResponse deleteMaterialById(const Models::DeleteMaterialByIdRequest &request);
 
       /**
-       * @summary 删除PPT作品
+       * @summary Delete a PPT work
+       *
+       * @description - This API operation uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI portal is not compatible with the SSE inference protocol. You cannot directly test this API operation in the portal. For more information about how to call this API operation using the software development kit (SDK) for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, see [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request DeletePptArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +597,11 @@ namespace AiMiaoBi20230801
       Models::DeletePptArtifactResponse deletePptArtifactWithOptions(const Models::DeletePptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除PPT作品
+       * @summary Delete a PPT work
+       *
+       * @description - This API operation uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI portal is not compatible with the SSE inference protocol. You cannot directly test this API operation in the portal. For more information about how to call this API operation using the software development kit (SDK) for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, see [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request DeletePptArtifactRequest
        * @return DeletePptArtifactResponse
@@ -599,7 +609,7 @@ namespace AiMiaoBi20230801
       Models::DeletePptArtifactResponse deletePptArtifact(const Models::DeletePptArtifactRequest &request);
 
       /**
-       * @summary 删除指定自定义文体
+       * @summary Deletes a specified custom style.
        *
        * @param request DeleteStyleLearningResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +618,7 @@ namespace AiMiaoBi20230801
       Models::DeleteStyleLearningResultResponse deleteStyleLearningResultWithOptions(const Models::DeleteStyleLearningResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定自定义文体
+       * @summary Deletes a specified custom style.
        *
        * @param request DeleteStyleLearningResultRequest
        * @return DeleteStyleLearningResultResponse
@@ -616,7 +626,7 @@ namespace AiMiaoBi20230801
       Models::DeleteStyleLearningResultResponse deleteStyleLearningResult(const Models::DeleteStyleLearningResultRequest &request);
 
       /**
-       * @summary 从链接中提取文档内容
+       * @summary Extracts the content of documents from URLs.
        *
        * @param tmpReq DocumentExtractionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +635,7 @@ namespace AiMiaoBi20230801
       Models::DocumentExtractionResponse documentExtractionWithOptions(const Models::DocumentExtractionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从链接中提取文档内容
+       * @summary Extracts the content of documents from URLs.
        *
        * @param request DocumentExtractionRequest
        * @return DocumentExtractionResponse
@@ -633,7 +643,7 @@ namespace AiMiaoBi20230801
       Models::DocumentExtractionResponse documentExtraction(const Models::DocumentExtractionRequest &request);
 
       /**
-       * @summary 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+       * @summary Call this API to download the structured rule library for further processing. You can use this API to download either the structured rule library before post-processing or the structured rule library currently available for auditing. For specific usage, see the input parameter descriptions.
        *
        * @param request DownloadAuditNoteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +652,7 @@ namespace AiMiaoBi20230801
       Models::DownloadAuditNoteResponse downloadAuditNoteWithOptions(const Models::DownloadAuditNoteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+       * @summary Call this API to download the structured rule library for further processing. You can use this API to download either the structured rule library before post-processing or the structured rule library currently available for auditing. For specific usage, see the input parameter descriptions.
        *
        * @param request DownloadAuditNoteRequest
        * @return DownloadAuditNoteResponse
@@ -650,7 +660,7 @@ namespace AiMiaoBi20230801
       Models::DownloadAuditNoteResponse downloadAuditNote(const Models::DownloadAuditNoteRequest &request);
 
       /**
-       * @summary 标书下载接口
+       * @summary API for downloading bidding documents
        *
        * @param request DownloadBiddingDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +669,7 @@ namespace AiMiaoBi20230801
       Models::DownloadBiddingDocResponse downloadBiddingDocWithOptions(const Models::DownloadBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 标书下载接口
+       * @summary API for downloading bidding documents
        *
        * @param request DownloadBiddingDocRequest
        * @return DownloadBiddingDocResponse
@@ -667,7 +677,7 @@ namespace AiMiaoBi20230801
       Models::DownloadBiddingDocResponse downloadBiddingDoc(const Models::DownloadBiddingDocRequest &request);
 
       /**
-       * @summary 编辑审核自定义词库记录
+       * @summary Edit custom audit term records.
        *
        * @param tmpReq EditAuditTermsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +686,7 @@ namespace AiMiaoBi20230801
       Models::EditAuditTermsResponse editAuditTermsWithOptions(const Models::EditAuditTermsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑审核自定义词库记录
+       * @summary Edit custom audit term records.
        *
        * @param request EditAuditTermsRequest
        * @return EditAuditTermsResponse
@@ -684,7 +694,7 @@ namespace AiMiaoBi20230801
       Models::EditAuditTermsResponse editAuditTerms(const Models::EditAuditTermsRequest &request);
 
       /**
-       * @summary 编辑标书内容接口
+       * @summary Edits the content of a bidding document.
        *
        * @param request EditBiddingDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +703,7 @@ namespace AiMiaoBi20230801
       Models::EditBiddingDocResponse editBiddingDocWithOptions(const Models::EditBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑标书内容接口
+       * @summary Edits the content of a bidding document.
        *
        * @param request EditBiddingDocRequest
        * @return EditBiddingDocResponse
@@ -701,7 +711,7 @@ namespace AiMiaoBi20230801
       Models::EditBiddingDocResponse editBiddingDoc(const Models::EditBiddingDocRequest &request);
 
       /**
-       * @summary 导出企业VOC分析任务明细列表
+       * @summary Exports the tag details for a specified enterprise VOC analysis task.
        *
        * @param tmpReq ExportAnalysisTagDetailByTaskIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +720,7 @@ namespace AiMiaoBi20230801
       Models::ExportAnalysisTagDetailByTaskIdResponse exportAnalysisTagDetailByTaskIdWithOptions(const Models::ExportAnalysisTagDetailByTaskIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出企业VOC分析任务明细列表
+       * @summary Exports the tag details for a specified enterprise VOC analysis task.
        *
        * @param request ExportAnalysisTagDetailByTaskIdRequest
        * @return ExportAnalysisTagDetailByTaskIdResponse
@@ -718,7 +728,7 @@ namespace AiMiaoBi20230801
       Models::ExportAnalysisTagDetailByTaskIdResponse exportAnalysisTagDetailByTaskId(const Models::ExportAnalysisTagDetailByTaskIdRequest &request);
 
       /**
-       * @summary 导出智能审核报告
+       * @summary Exports an automated review report.
        *
        * @param request ExportAuditContentResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +737,7 @@ namespace AiMiaoBi20230801
       Models::ExportAuditContentResultResponse exportAuditContentResultWithOptions(const Models::ExportAuditContentResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出智能审核报告
+       * @summary Exports an automated review report.
        *
        * @param request ExportAuditContentResultRequest
        * @return ExportAuditContentResultResponse
@@ -735,7 +745,7 @@ namespace AiMiaoBi20230801
       Models::ExportAuditContentResultResponse exportAuditContentResult(const Models::ExportAuditContentResultRequest &request);
 
       /**
-       * @summary 导出-自定义数据源-选题视角分析任务结果
+       * @summary Exports custom data source topic perspective analysis task results.
        *
        * @param request ExportCustomSourceAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +754,7 @@ namespace AiMiaoBi20230801
       Models::ExportCustomSourceAnalysisTaskResponse exportCustomSourceAnalysisTaskWithOptions(const Models::ExportCustomSourceAnalysisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出-自定义数据源-选题视角分析任务结果
+       * @summary Exports custom data source topic perspective analysis task results.
        *
        * @param request ExportCustomSourceAnalysisTaskRequest
        * @return ExportCustomSourceAnalysisTaskResponse
@@ -752,7 +762,7 @@ namespace AiMiaoBi20230801
       Models::ExportCustomSourceAnalysisTaskResponse exportCustomSourceAnalysisTask(const Models::ExportCustomSourceAnalysisTaskRequest &request);
 
       /**
-       * @summary 文档管理-导出。
+       * @summary Exports the history of articles created in MiaoBi.
        *
        * @param request ExportGeneratedContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +771,7 @@ namespace AiMiaoBi20230801
       Models::ExportGeneratedContentResponse exportGeneratedContentWithOptions(const Models::ExportGeneratedContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档管理-导出。
+       * @summary Exports the history of articles created in MiaoBi.
        *
        * @param request ExportGeneratedContentRequest
        * @return ExportGeneratedContentResponse
@@ -769,7 +779,7 @@ namespace AiMiaoBi20230801
       Models::ExportGeneratedContentResponse exportGeneratedContent(const Models::ExportGeneratedContentRequest &request);
 
       /**
-       * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+       * @summary Exports topic planning documents and provides a publicly accessible URL that expires in one hour.
        *
        * @param tmpReq ExportHotTopicPlanningProposalsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +788,7 @@ namespace AiMiaoBi20230801
       Models::ExportHotTopicPlanningProposalsResponse exportHotTopicPlanningProposalsWithOptions(const Models::ExportHotTopicPlanningProposalsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+       * @summary Exports topic planning documents and provides a publicly accessible URL that expires in one hour.
        *
        * @param request ExportHotTopicPlanningProposalsRequest
        * @return ExportHotTopicPlanningProposalsResponse
@@ -786,7 +796,7 @@ namespace AiMiaoBi20230801
       Models::ExportHotTopicPlanningProposalsResponse exportHotTopicPlanningProposals(const Models::ExportHotTopicPlanningProposalsRequest &request);
 
       /**
-       * @summary 导出所有干预内容
+       * @summary Exports all interventions.
        *
        * @param request ExportIntervenesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +805,7 @@ namespace AiMiaoBi20230801
       Models::ExportIntervenesResponse exportIntervenesWithOptions(const Models::ExportIntervenesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出所有干预内容
+       * @summary Exports all interventions.
        *
        * @param request ExportIntervenesRequest
        * @return ExportIntervenesResponse
@@ -803,7 +813,7 @@ namespace AiMiaoBi20230801
       Models::ExportIntervenesResponse exportIntervenes(const Models::ExportIntervenesRequest &request);
 
       /**
-       * @summary 导出PPT作品
+       * @summary Exports a PPT artifact.
        *
        * @param request ExportPptArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +822,7 @@ namespace AiMiaoBi20230801
       Models::ExportPptArtifactResponse exportPptArtifactWithOptions(const Models::ExportPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出PPT作品
+       * @summary Exports a PPT artifact.
        *
        * @param request ExportPptArtifactRequest
        * @return ExportPptArtifactResponse
@@ -820,7 +830,7 @@ namespace AiMiaoBi20230801
       Models::ExportPptArtifactResponse exportPptArtifact(const Models::ExportPptArtifactRequest &request);
 
       /**
-       * @summary 反馈某次生成的结果
+       * @summary Provides feedback on the quality of the content that the model generates.
        *
        * @param tmpReq FeedbackDialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +839,7 @@ namespace AiMiaoBi20230801
       Models::FeedbackDialogueResponse feedbackDialogueWithOptions(const Models::FeedbackDialogueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 反馈某次生成的结果
+       * @summary Provides feedback on the quality of the content that the model generates.
        *
        * @param request FeedbackDialogueRequest
        * @return FeedbackDialogueResponse
@@ -837,7 +847,7 @@ namespace AiMiaoBi20230801
       Models::FeedbackDialogueResponse feedbackDialogue(const Models::FeedbackDialogueRequest &request);
 
       /**
-       * @summary 获取词库导出任务结果
+       * @summary Retrieves the results of a term library export task.
        *
        * @param request FetchExportTermsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +856,7 @@ namespace AiMiaoBi20230801
       Models::FetchExportTermsTaskResponse fetchExportTermsTaskWithOptions(const Models::FetchExportTermsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取词库导出任务结果
+       * @summary Retrieves the results of a term library export task.
        *
        * @param request FetchExportTermsTaskRequest
        * @return FetchExportTermsTaskResponse
@@ -854,7 +864,7 @@ namespace AiMiaoBi20230801
       Models::FetchExportTermsTaskResponse fetchExportTermsTask(const Models::FetchExportTermsTaskRequest &request);
 
       /**
-       * @summary 获取异步导出文档任务结果
+       * @summary Fetches the result of an asynchronous document export task.
        *
        * @param request FetchExportWordTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +873,7 @@ namespace AiMiaoBi20230801
       Models::FetchExportWordTaskResponse fetchExportWordTaskWithOptions(const Models::FetchExportWordTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异步导出文档任务结果
+       * @summary Fetches the result of an asynchronous document export task.
        *
        * @param request FetchExportWordTaskRequest
        * @return FetchExportWordTaskResponse
@@ -871,7 +881,7 @@ namespace AiMiaoBi20230801
       Models::FetchExportWordTaskResponse fetchExportWordTask(const Models::FetchExportWordTaskRequest &request);
 
       /**
-       * @summary 获取图片任务执行结果
+       * @summary Retrieve the results of image generation tasks.
        *
        * @param tmpReq FetchImageTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +890,7 @@ namespace AiMiaoBi20230801
       Models::FetchImageTaskResponse fetchImageTaskWithOptions(const Models::FetchImageTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取图片任务执行结果
+       * @summary Retrieve the results of image generation tasks.
        *
        * @param request FetchImageTaskRequest
        * @return FetchImageTaskResponse
@@ -888,7 +898,7 @@ namespace AiMiaoBi20230801
       Models::FetchImageTaskResponse fetchImageTask(const Models::FetchImageTaskRequest &request);
 
       /**
-       * @summary 获取导入词库任务结果
+       * @summary Retrieves the result of a term import task.
        *
        * @param request FetchImportTermsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +907,7 @@ namespace AiMiaoBi20230801
       Models::FetchImportTermsTaskResponse fetchImportTermsTaskWithOptions(const Models::FetchImportTermsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取导入词库任务结果
+       * @summary Retrieves the result of a term import task.
        *
        * @param request FetchImportTermsTaskRequest
        * @return FetchImportTermsTaskResponse
@@ -905,7 +915,7 @@ namespace AiMiaoBi20230801
       Models::FetchImportTermsTaskResponse fetchImportTermsTask(const Models::FetchImportTermsTaskRequest &request);
 
       /**
-       * @summary 获取排版任务结果
+       * @summary Retrieve the layout task result.
        *
        * @param request FetchParseDocumentLayoutTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -914,7 +924,7 @@ namespace AiMiaoBi20230801
       Models::FetchParseDocumentLayoutTaskResponse fetchParseDocumentLayoutTaskWithOptions(const Models::FetchParseDocumentLayoutTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取排版任务结果
+       * @summary Retrieve the layout task result.
        *
        * @param request FetchParseDocumentLayoutTaskRequest
        * @return FetchParseDocumentLayoutTaskResponse
@@ -922,7 +932,9 @@ namespace AiMiaoBi20230801
       Models::FetchParseDocumentLayoutTaskResponse fetchParseDocumentLayoutTask(const Models::FetchParseDocumentLayoutTaskRequest &request);
 
       /**
-       * @summary 生成内容导出文档任务
+       * @summary Start a task to export content as a Word document.
+       *
+       * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request GenerateExportWordTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +943,9 @@ namespace AiMiaoBi20230801
       Models::GenerateExportWordTaskResponse generateExportWordTaskWithOptions(const Models::GenerateExportWordTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成内容导出文档任务
+       * @summary Start a task to export content as a Word document.
+       *
+       * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request GenerateExportWordTaskRequest
        * @return GenerateExportWordTaskResponse
@@ -939,7 +953,7 @@ namespace AiMiaoBi20230801
       Models::GenerateExportWordTaskResponse generateExportWordTask(const Models::GenerateExportWordTaskRequest &request);
 
       /**
-       * @summary 生成临时可访问的公开url
+       * @summary Generate a temporary public URL.
        *
        * @param request GenerateFileUrlByKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -948,7 +962,7 @@ namespace AiMiaoBi20230801
       Models::GenerateFileUrlByKeyResponse generateFileUrlByKeyWithOptions(const Models::GenerateFileUrlByKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成临时可访问的公开url
+       * @summary Generate a temporary public URL.
        *
        * @param request GenerateFileUrlByKeyRequest
        * @return GenerateFileUrlByKeyResponse
@@ -956,7 +970,7 @@ namespace AiMiaoBi20230801
       Models::GenerateFileUrlByKeyResponse generateFileUrlByKey(const Models::GenerateFileUrlByKeyRequest &request);
 
       /**
-       * @summary 智能配图，图片生成任务
+       * @summary Asynchronously generates an image from text.
        *
        * @param tmpReq GenerateImageTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +979,7 @@ namespace AiMiaoBi20230801
       Models::GenerateImageTaskResponse generateImageTaskWithOptions(const Models::GenerateImageTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能配图，图片生成任务
+       * @summary Asynchronously generates an image from text.
        *
        * @param request GenerateImageTaskRequest
        * @return GenerateImageTaskResponse
@@ -973,7 +987,12 @@ namespace AiMiaoBi20230801
       Models::GenerateImageTaskResponse generateImageTask(const Models::GenerateImageTaskRequest &request);
 
       /**
-       * @summary 生成上传配置
+       * @summary Generates a file upload configuration.
+       * 1\\. Call this API to obtain the upload configuration. The API returns the `PostUrl` (an internal OSS address for AI Writing Assistant), temporary OSS authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`), and the unique file identifier `fileKey`.
+       * 2\\. The client uses the `PostUrl` and the temporary authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`) to upload the file.
+       * 3\\. Use the `fileKey` to call subsequent APIs that require a `fileKey`, such as `GenerateFileUrlByKey`.
+       *
+       * @description This API returns the address and credentials for file uploads. For more information, see [OSS Form Upload](https://help.aliyun.com/zh/oss/user-guide/form-upload?scm=20140722.H_31849._.OR_help-T_cn~zh-V_1).
        *
        * @param request GenerateUploadConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -982,7 +1001,12 @@ namespace AiMiaoBi20230801
       Models::GenerateUploadConfigResponse generateUploadConfigWithOptions(const Models::GenerateUploadConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成上传配置
+       * @summary Generates a file upload configuration.
+       * 1\\. Call this API to obtain the upload configuration. The API returns the `PostUrl` (an internal OSS address for AI Writing Assistant), temporary OSS authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`), and the unique file identifier `fileKey`.
+       * 2\\. The client uses the `PostUrl` and the temporary authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`) to upload the file.
+       * 3\\. Use the `fileKey` to call subsequent APIs that require a `fileKey`, such as `GenerateFileUrlByKey`.
+       *
+       * @description This API returns the address and credentials for file uploads. For more information, see [OSS Form Upload](https://help.aliyun.com/zh/oss/user-guide/form-upload?scm=20140722.H_31849._.OR_help-T_cn~zh-V_1).
        *
        * @param request GenerateUploadConfigRequest
        * @return GenerateUploadConfigResponse
@@ -990,7 +1014,7 @@ namespace AiMiaoBi20230801
       Models::GenerateUploadConfigResponse generateUploadConfig(const Models::GenerateUploadConfigRequest &request);
 
       /**
-       * @summary 视角生成
+       * @summary Generates viewpoints from article snippets.
        *
        * @param tmpReq GenerateViewPointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1023,7 @@ namespace AiMiaoBi20230801
       Models::GenerateViewPointResponse generateViewPointWithOptions(const Models::GenerateViewPointRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视角生成
+       * @summary Generates viewpoints from article snippets.
        *
        * @param request GenerateViewPointRequest
        * @return GenerateViewPointResponse
@@ -1007,7 +1031,7 @@ namespace AiMiaoBi20230801
       Models::GenerateViewPointResponse generateViewPoint(const Models::GenerateViewPointRequest &request);
 
       /**
-       * @summary 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+       * @summary Queries the progress of a post-processing task for a rule library. Use this operation together with the ConfirmAndPostProcessAuditNote operation to check the status of the current post-processing task.
        *
        * @param request GetAuditNotePostProcessingStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1016,7 +1040,7 @@ namespace AiMiaoBi20230801
       Models::GetAuditNotePostProcessingStatusResponse getAuditNotePostProcessingStatusWithOptions(const Models::GetAuditNotePostProcessingStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+       * @summary Queries the progress of a post-processing task for a rule library. Use this operation together with the ConfirmAndPostProcessAuditNote operation to check the status of the current post-processing task.
        *
        * @param request GetAuditNotePostProcessingStatusRequest
        * @return GetAuditNotePostProcessingStatusResponse
@@ -1024,7 +1048,7 @@ namespace AiMiaoBi20230801
       Models::GetAuditNotePostProcessingStatusResponse getAuditNotePostProcessingStatus(const Models::GetAuditNotePostProcessingStatusRequest &request);
 
       /**
-       * @summary 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+       * @summary Checks the processing status of an uploaded rule library. This operation returns the current status of the upload task, the size of the parsed rule library file, and its storage path.
        *
        * @param request GetAuditNoteProcessingStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1057,7 @@ namespace AiMiaoBi20230801
       Models::GetAuditNoteProcessingStatusResponse getAuditNoteProcessingStatusWithOptions(const Models::GetAuditNoteProcessingStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+       * @summary Checks the processing status of an uploaded rule library. This operation returns the current status of the upload task, the size of the parsed rule library file, and its storage path.
        *
        * @param request GetAuditNoteProcessingStatusRequest
        * @return GetAuditNoteProcessingStatusResponse
@@ -1041,7 +1065,7 @@ namespace AiMiaoBi20230801
       Models::GetAuditNoteProcessingStatusResponse getAuditNoteProcessingStatus(const Models::GetAuditNoteProcessingStatusRequest &request);
 
       /**
-       * @summary 获得剪辑任务状态
+       * @summary Retrieves the status of a video editing task.
        *
        * @param request GetAutoClipsTaskInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1074,7 @@ namespace AiMiaoBi20230801
       Models::GetAutoClipsTaskInfoResponse getAutoClipsTaskInfoWithOptions(const Models::GetAutoClipsTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得剪辑任务状态
+       * @summary Retrieves the status of a video editing task.
        *
        * @param request GetAutoClipsTaskInfoRequest
        * @return GetAutoClipsTaskInfoResponse
@@ -1058,7 +1082,7 @@ namespace AiMiaoBi20230801
       Models::GetAutoClipsTaskInfoResponse getAutoClipsTaskInfo(const Models::GetAutoClipsTaskInfoRequest &request);
 
       /**
-       * @summary 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+       * @summary Query the rule libraries that are currently available for audit. This operation returns only rule libraries that are active for auditing. To view the contents of a custom rule library, use the DownloadAuditNote API.
        *
        * @param request GetAvailableAuditNotesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1091,7 @@ namespace AiMiaoBi20230801
       Models::GetAvailableAuditNotesResponse getAvailableAuditNotesWithOptions(const Models::GetAvailableAuditNotesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+       * @summary Query the rule libraries that are currently available for audit. This operation returns only rule libraries that are active for auditing. To view the contents of a custom rule library, use the DownloadAuditNote API.
        *
        * @param request GetAvailableAuditNotesRequest
        * @return GetAvailableAuditNotesResponse
@@ -1075,7 +1099,7 @@ namespace AiMiaoBi20230801
       Models::GetAvailableAuditNotesResponse getAvailableAuditNotes(const Models::GetAvailableAuditNotesRequest &request);
 
       /**
-       * @summary 获得标书写作结果接口
+       * @summary Retrieves the generation results of a bidding document.
        *
        * @param request GetBiddingDocInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1108,7 @@ namespace AiMiaoBi20230801
       Models::GetBiddingDocInfoResponse getBiddingDocInfoWithOptions(const Models::GetBiddingDocInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得标书写作结果接口
+       * @summary Retrieves the generation results of a bidding document.
        *
        * @param request GetBiddingDocInfoRequest
        * @return GetBiddingDocInfoResponse
@@ -1092,7 +1116,7 @@ namespace AiMiaoBi20230801
       Models::GetBiddingDocInfoResponse getBiddingDocInfo(const Models::GetBiddingDocInfoRequest &request);
 
       /**
-       * @summary 获得标书功能剩余额度
+       * @summary Retrieve the remaining limit for the bidding feature.
        *
        * @param request GetBiddingRemainLimitNumRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1125,7 @@ namespace AiMiaoBi20230801
       Models::GetBiddingRemainLimitNumResponse getBiddingRemainLimitNumWithOptions(const Models::GetBiddingRemainLimitNumRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得标书功能剩余额度
+       * @summary Retrieve the remaining limit for the bidding feature.
        *
        * @param request GetBiddingRemainLimitNumRequest
        * @return GetBiddingRemainLimitNumResponse
@@ -1109,7 +1133,7 @@ namespace AiMiaoBi20230801
       Models::GetBiddingRemainLimitNumResponse getBiddingRemainLimitNum(const Models::GetBiddingRemainLimitNumRequest &request);
 
       /**
-       * @summary 获取某次标签挖掘结果分类
+       * @summary Retrieves the classifications from a tag mining task.
        *
        * @param request GetCategoriesByTaskIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1142,7 @@ namespace AiMiaoBi20230801
       Models::GetCategoriesByTaskIdResponse getCategoriesByTaskIdWithOptions(const Models::GetCategoriesByTaskIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取某次标签挖掘结果分类
+       * @summary Retrieves the classifications from a tag mining task.
        *
        * @param request GetCategoriesByTaskIdRequest
        * @return GetCategoriesByTaskIdResponse
@@ -1126,7 +1150,7 @@ namespace AiMiaoBi20230801
       Models::GetCategoriesByTaskIdResponse getCategoriesByTaskId(const Models::GetCategoriesByTaskIdRequest &request);
 
       /**
-       * @summary 获得智能混剪内置资源
+       * @summary Retrieves the built-in resources for smart clipping.
        *
        * @param request GetClipsBuildInResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1159,7 @@ namespace AiMiaoBi20230801
       Models::GetClipsBuildInResourceResponse getClipsBuildInResourceWithOptions(const Models::GetClipsBuildInResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得智能混剪内置资源
+       * @summary Retrieves the built-in resources for smart clipping.
        *
        * @param request GetClipsBuildInResourceRequest
        * @return GetClipsBuildInResourceResponse
@@ -1143,7 +1167,7 @@ namespace AiMiaoBi20230801
       Models::GetClipsBuildInResourceResponse getClipsBuildInResource(const Models::GetClipsBuildInResourceRequest &request);
 
       /**
-       * @summary 获取自定义播报单任务结果
+       * @summary Retrieves the result of a custom hot topic broadcast job.
        *
        * @param request GetCustomHotTopicBroadcastJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1176,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomHotTopicBroadcastJobResponse getCustomHotTopicBroadcastJobWithOptions(const Models::GetCustomHotTopicBroadcastJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义播报单任务结果
+       * @summary Retrieves the result of a custom hot topic broadcast job.
        *
        * @param request GetCustomHotTopicBroadcastJobRequest
        * @return GetCustomHotTopicBroadcastJobResponse
@@ -1160,7 +1184,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomHotTopicBroadcastJobResponse getCustomHotTopicBroadcastJob(const Models::GetCustomHotTopicBroadcastJobRequest &request);
 
       /**
-       * @summary 获取自定义数据源-选题视角分析任务结果
+       * @summary Retrieves the results of a topic analysis task for a custom data source.
        *
        * @param request GetCustomSourceTopicAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1193,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomSourceTopicAnalysisTaskResponse getCustomSourceTopicAnalysisTaskWithOptions(const Models::GetCustomSourceTopicAnalysisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义数据源-选题视角分析任务结果
+       * @summary Retrieves the results of a topic analysis task for a custom data source.
        *
        * @param request GetCustomSourceTopicAnalysisTaskRequest
        * @return GetCustomSourceTopicAnalysisTaskResponse
@@ -1177,7 +1201,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomSourceTopicAnalysisTaskResponse getCustomSourceTopicAnalysisTask(const Models::GetCustomSourceTopicAnalysisTaskRequest &request);
 
       /**
-       * @summary 获取自定义文本
+       * @summary Retrieve custom text.
        *
        * @param request GetCustomTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1210,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomTextResponse getCustomTextWithOptions(const Models::GetCustomTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义文本
+       * @summary Retrieve custom text.
        *
        * @param request GetCustomTextRequest
        * @return GetCustomTextResponse
@@ -1194,7 +1218,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomTextResponse getCustomText(const Models::GetCustomTextRequest &request);
 
       /**
-       * @summary 获取自定义选题视角分析任务结果
+       * @summary Retrieve the result of a custom topic selection perspective analysis task.
        *
        * @param request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1227,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomTopicSelectionPerspectiveAnalysisTaskResponse getCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(const Models::GetCustomTopicSelectionPerspectiveAnalysisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义选题视角分析任务结果
+       * @summary Retrieve the result of a custom topic selection perspective analysis task.
        *
        * @param request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
        * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
@@ -1211,7 +1235,7 @@ namespace AiMiaoBi20230801
       Models::GetCustomTopicSelectionPerspectiveAnalysisTaskResponse getCustomTopicSelectionPerspectiveAnalysisTask(const Models::GetCustomTopicSelectionPerspectiveAnalysisTaskRequest &request);
 
       /**
-       * @summary 获取系统数据源配置和个人配置
+       * @summary Retrieves configuration information for write data sources and general search data sources.
        *
        * @param request GetDataSourceOrderConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1220,7 +1244,7 @@ namespace AiMiaoBi20230801
       Models::GetDataSourceOrderConfigResponse getDataSourceOrderConfigWithOptions(const Models::GetDataSourceOrderConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取系统数据源配置和个人配置
+       * @summary Retrieves configuration information for write data sources and general search data sources.
        *
        * @param request GetDataSourceOrderConfigRequest
        * @return GetDataSourceOrderConfigResponse
@@ -1228,7 +1252,7 @@ namespace AiMiaoBi20230801
       Models::GetDataSourceOrderConfigResponse getDataSourceOrderConfig(const Models::GetDataSourceOrderConfigRequest &request);
 
       /**
-       * @summary 数据集管理-详情
+       * @summary Data source management details.
        *
        * @param request GetDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1237,7 +1261,7 @@ namespace AiMiaoBi20230801
       Models::GetDatasetResponse getDatasetWithOptions(const Models::GetDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据集管理-详情
+       * @summary Data source management details.
        *
        * @param request GetDatasetRequest
        * @return GetDatasetResponse
@@ -1245,7 +1269,7 @@ namespace AiMiaoBi20230801
       Models::GetDatasetResponse getDataset(const Models::GetDatasetRequest &request);
 
       /**
-       * @summary 获取数据集文档
+       * @summary Retrieve the data source document.
        *
        * @param tmpReq GetDatasetDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1278,7 @@ namespace AiMiaoBi20230801
       Models::GetDatasetDocumentResponse getDatasetDocumentWithOptions(const Models::GetDatasetDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据集文档
+       * @summary Retrieve the data source document.
        *
        * @param request GetDatasetDocumentRequest
        * @return GetDatasetDocumentResponse
@@ -1262,7 +1286,7 @@ namespace AiMiaoBi20230801
       Models::GetDatasetDocumentResponse getDatasetDocument(const Models::GetDatasetDocumentRequest &request);
 
       /**
-       * @summary 查询深度写作任务
+       * @summary Queries deep writing tasks. You can use it to check the running status of a specific task.
        *
        * @param request GetDeepWriteTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1271,7 +1295,7 @@ namespace AiMiaoBi20230801
       Models::GetDeepWriteTaskResponse getDeepWriteTaskWithOptions(const Models::GetDeepWriteTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询深度写作任务
+       * @summary Queries deep writing tasks. You can use it to check the running status of a specific task.
        *
        * @param request GetDeepWriteTaskRequest
        * @return GetDeepWriteTaskResponse
@@ -1279,7 +1303,7 @@ namespace AiMiaoBi20230801
       Models::GetDeepWriteTaskResponse getDeepWriteTask(const Models::GetDeepWriteTaskRequest &request);
 
       /**
-       * @summary 查询深度写作任务的结果
+       * @summary Queries the result of a deep writing task. If the task is not complete, the operation returns its current status—such as queued, running, failed, or canceled. If the task is complete, the operation returns a URL that points to a compressed package of the task output that you can download.
        *
        * @param request GetDeepWriteTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1288,7 +1312,7 @@ namespace AiMiaoBi20230801
       Models::GetDeepWriteTaskResultResponse getDeepWriteTaskResultWithOptions(const Models::GetDeepWriteTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询深度写作任务的结果
+       * @summary Queries the result of a deep writing task. If the task is not complete, the operation returns its current status—such as queued, running, failed, or canceled. If the task is complete, the operation returns a URL that points to a compressed package of the task output that you can download.
        *
        * @param request GetDeepWriteTaskResultRequest
        * @return GetDeepWriteTaskResultResponse
@@ -1296,7 +1320,7 @@ namespace AiMiaoBi20230801
       Models::GetDeepWriteTaskResultResponse getDeepWriteTaskResult(const Models::GetDeepWriteTaskResultRequest &request);
 
       /**
-       * @summary 获取文档聚合任务结果
+       * @summary Retrieves the result of a content aggregation task.
        *
        * @param request GetDocClusterTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1305,7 +1329,7 @@ namespace AiMiaoBi20230801
       Models::GetDocClusterTaskResponse getDocClusterTaskWithOptions(const Models::GetDocClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文档聚合任务结果
+       * @summary Retrieves the result of a content aggregation task.
        *
        * @param request GetDocClusterTaskRequest
        * @return GetDocClusterTaskResponse
@@ -1313,7 +1337,7 @@ namespace AiMiaoBi20230801
       Models::GetDocClusterTaskResponse getDocClusterTask(const Models::GetDocClusterTaskRequest &request);
 
       /**
-       * @summary 妙读获取文档信息
+       * @summary Retrieves information about a document.
        *
        * @param request GetDocInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1346,7 @@ namespace AiMiaoBi20230801
       Models::GetDocInfoResponse getDocInfoWithOptions(const Models::GetDocInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读获取文档信息
+       * @summary Retrieves information about a document.
        *
        * @param request GetDocInfoRequest
        * @return GetDocInfoResponse
@@ -1330,7 +1354,7 @@ namespace AiMiaoBi20230801
       Models::GetDocInfoResponse getDocInfo(const Models::GetDocInfoRequest &request);
 
       /**
-       * @summary 获取企业VOC分析任务结果
+       * @summary Retrieves the result of an enterprise Voice of the Customer (VOC) analysis task.
        *
        * @param request GetEnterpriseVocAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1363,7 @@ namespace AiMiaoBi20230801
       Models::GetEnterpriseVocAnalysisTaskResponse getEnterpriseVocAnalysisTaskWithOptions(const Models::GetEnterpriseVocAnalysisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取企业VOC分析任务结果
+       * @summary Retrieves the result of an enterprise Voice of the Customer (VOC) analysis task.
        *
        * @param request GetEnterpriseVocAnalysisTaskRequest
        * @return GetEnterpriseVocAnalysisTaskResponse
@@ -1347,7 +1371,7 @@ namespace AiMiaoBi20230801
       Models::GetEnterpriseVocAnalysisTaskResponse getEnterpriseVocAnalysisTask(const Models::GetEnterpriseVocAnalysisTaskRequest &request);
 
       /**
-       * @summary 获取当前正用于事实性审核的信源 URL。
+       * @summary Retrieves the source URL that is currently used for factuality audit.
        *
        * @param request GetFactAuditUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1356,7 +1380,7 @@ namespace AiMiaoBi20230801
       Models::GetFactAuditUrlResponse getFactAuditUrlWithOptions(const Models::GetFactAuditUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前正用于事实性审核的信源 URL。
+       * @summary Retrieves the source URL that is currently used for factuality audit.
        *
        * @param request GetFactAuditUrlRequest
        * @return GetFactAuditUrlResponse
@@ -1364,7 +1388,7 @@ namespace AiMiaoBi20230801
       Models::GetFactAuditUrlResponse getFactAuditUrl(const Models::GetFactAuditUrlRequest &request);
 
       /**
-       * @summary 妙读获得文档字数
+       * @summary MiaoRead calculates the word count for a document.
        *
        * @param request GetFileContentLengthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1397,7 @@ namespace AiMiaoBi20230801
       Models::GetFileContentLengthResponse getFileContentLengthWithOptions(const Models::GetFileContentLengthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读获得文档字数
+       * @summary MiaoRead calculates the word count for a document.
        *
        * @param request GetFileContentLengthRequest
        * @return GetFileContentLengthResponse
@@ -1381,7 +1405,7 @@ namespace AiMiaoBi20230801
       Models::GetFileContentLengthResponse getFileContentLength(const Models::GetFileContentLengthRequest &request);
 
       /**
-       * @summary 通用配置-查询
+       * @summary Queries general configurations.
        *
        * @param request GetGeneralConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1414,7 @@ namespace AiMiaoBi20230801
       Models::GetGeneralConfigResponse getGeneralConfigWithOptions(const Models::GetGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用配置-查询
+       * @summary Queries general configurations.
        *
        * @param request GetGeneralConfigRequest
        * @return GetGeneralConfigResponse
@@ -1398,7 +1422,7 @@ namespace AiMiaoBi20230801
       Models::GetGeneralConfigResponse getGeneralConfig(const Models::GetGeneralConfigRequest &request);
 
       /**
-       * @summary 文档管理-查询详情。
+       * @summary Get generated content. Queries the history of articles generated in MiaoBi.
        *
        * @param request GetGeneratedContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1431,7 @@ namespace AiMiaoBi20230801
       Models::GetGeneratedContentResponse getGeneratedContentWithOptions(const Models::GetGeneratedContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档管理-查询详情。
+       * @summary Get generated content. Queries the history of articles generated in MiaoBi.
        *
        * @param request GetGeneratedContentRequest
        * @return GetGeneratedContentResponse
@@ -1415,7 +1439,7 @@ namespace AiMiaoBi20230801
       Models::GetGeneratedContentResponse getGeneratedContent(const Models::GetGeneratedContentRequest &request);
 
       /**
-       * @summary 查询新闻播报单
+       * @summary Query news broadcast orders.
        *
        * @param tmpReq GetHotTopicBroadcastRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1424,7 +1448,7 @@ namespace AiMiaoBi20230801
       Models::GetHotTopicBroadcastResponse getHotTopicBroadcastWithOptions(const Models::GetHotTopicBroadcastRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询新闻播报单
+       * @summary Query news broadcast orders.
        *
        * @param request GetHotTopicBroadcastRequest
        * @return GetHotTopicBroadcastResponse
@@ -1432,7 +1456,7 @@ namespace AiMiaoBi20230801
       Models::GetHotTopicBroadcastResponse getHotTopicBroadcast(const Models::GetHotTopicBroadcastRequest &request);
 
       /**
-       * @summary 获得干预全局回复
+       * @summary Retrieve the global intervention reply.
        *
        * @param request GetInterveneGlobalReplyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1465,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneGlobalReplyResponse getInterveneGlobalReplyWithOptions(const Models::GetInterveneGlobalReplyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得干预全局回复
+       * @summary Retrieve the global intervention reply.
        *
        * @param request GetInterveneGlobalReplyRequest
        * @return GetInterveneGlobalReplyResponse
@@ -1449,7 +1473,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneGlobalReplyResponse getInterveneGlobalReply(const Models::GetInterveneGlobalReplyRequest &request);
 
       /**
-       * @summary 获得导入任务信息
+       * @summary Gets information about an import task.
        *
        * @param request GetInterveneImportTaskInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1458,7 +1482,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneImportTaskInfoResponse getInterveneImportTaskInfoWithOptions(const Models::GetInterveneImportTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得导入任务信息
+       * @summary Gets information about an import task.
        *
        * @param request GetInterveneImportTaskInfoRequest
        * @return GetInterveneImportTaskInfoResponse
@@ -1466,7 +1490,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneImportTaskInfoResponse getInterveneImportTaskInfo(const Models::GetInterveneImportTaskInfoRequest &request);
 
       /**
-       * @summary 获得干预项规则详情
+       * @summary Retrieves the details of an intervention rule.
        *
        * @param request GetInterveneRuleDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1475,7 +1499,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneRuleDetailResponse getInterveneRuleDetailWithOptions(const Models::GetInterveneRuleDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得干预项规则详情
+       * @summary Retrieves the details of an intervention rule.
        *
        * @param request GetInterveneRuleDetailRequest
        * @return GetInterveneRuleDetailResponse
@@ -1483,7 +1507,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneRuleDetailResponse getInterveneRuleDetail(const Models::GetInterveneRuleDetailRequest &request);
 
       /**
-       * @summary 获得干预导入模版文件下载地址
+       * @summary Retrieves the download URL for the intervention import template.
        *
        * @param request GetInterveneTemplateFileUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1492,7 +1516,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneTemplateFileUrlResponse getInterveneTemplateFileUrlWithOptions(const Models::GetInterveneTemplateFileUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得干预导入模版文件下载地址
+       * @summary Retrieves the download URL for the intervention import template.
        *
        * @param request GetInterveneTemplateFileUrlRequest
        * @return GetInterveneTemplateFileUrlResponse
@@ -1500,7 +1524,7 @@ namespace AiMiaoBi20230801
       Models::GetInterveneTemplateFileUrlResponse getInterveneTemplateFileUrl(const Models::GetInterveneTemplateFileUrlRequest &request);
 
       /**
-       * @summary 根据ID获取素材内容
+       * @summary Retrieves detailed information about a material from the Material Library.
        *
        * @param request GetMaterialByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1509,7 +1533,7 @@ namespace AiMiaoBi20230801
       Models::GetMaterialByIdResponse getMaterialByIdWithOptions(const Models::GetMaterialByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据ID获取素材内容
+       * @summary Retrieves detailed information about a material from the Material Library.
        *
        * @param request GetMaterialByIdRequest
        * @return GetMaterialByIdResponse
@@ -1517,7 +1541,12 @@ namespace AiMiaoBi20230801
       Models::GetMaterialByIdResponse getMaterialById(const Models::GetMaterialByIdRequest &request);
 
       /**
-       * @summary 查询PPT作品信息
+       * @summary Queries information about a PPT artifact.
+       *
+       * @description Usage notes:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI portal is not compatible with the SSE protocol and cannot be used for direct debugging. For examples of how to call the API using an SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, [download it from the API portal](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request GetPptArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1526,7 +1555,12 @@ namespace AiMiaoBi20230801
       Models::GetPptArtifactResponse getPptArtifactWithOptions(const Models::GetPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询PPT作品信息
+       * @summary Queries information about a PPT artifact.
+       *
+       * @description Usage notes:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI portal is not compatible with the SSE protocol and cannot be used for direct debugging. For examples of how to call the API using an SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, [download it from the API portal](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request GetPptArtifactRequest
        * @return GetPptArtifactResponse
@@ -1534,7 +1568,7 @@ namespace AiMiaoBi20230801
       Models::GetPptArtifactResponse getPptArtifact(const Models::GetPptArtifactRequest &request);
 
       /**
-       * @summary 查询PPT导出任务的结果
+       * @summary Retrieves the result of a PPT export task.
        *
        * @param request GetPptArtifactExportResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1543,7 +1577,7 @@ namespace AiMiaoBi20230801
       Models::GetPptArtifactExportResultResponse getPptArtifactExportResultWithOptions(const Models::GetPptArtifactExportResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询PPT导出任务的结果
+       * @summary Retrieves the result of a PPT export task.
        *
        * @param request GetPptArtifactExportResultRequest
        * @return GetPptArtifactExportResultResponse
@@ -1551,7 +1585,7 @@ namespace AiMiaoBi20230801
       Models::GetPptArtifactExportResultResponse getPptArtifactExportResult(const Models::GetPptArtifactExportResultRequest &request);
 
       /**
-       * @summary 获取PPT组件的配置
+       * @summary Retrieves the configuration of a PPT component.
        *
        * @param request GetPptConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1560,7 +1594,7 @@ namespace AiMiaoBi20230801
       Models::GetPptConfigResponse getPptConfigWithOptions(const Models::GetPptConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取PPT组件的配置
+       * @summary Retrieves the configuration of a PPT component.
        *
        * @param request GetPptConfigRequest
        * @return GetPptConfigResponse
@@ -1568,7 +1602,7 @@ namespace AiMiaoBi20230801
       Models::GetPptConfigResponse getPptConfig(const Models::GetPptConfigRequest &request);
 
       /**
-       * @summary 查询PPT任务信息
+       * @summary Gets information about a PPT task.
        *
        * @param request GetPptInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1577,7 +1611,7 @@ namespace AiMiaoBi20230801
       Models::GetPptInfoResponse getPptInfoWithOptions(const Models::GetPptInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询PPT任务信息
+       * @summary Gets information about a PPT task.
        *
        * @param request GetPptInfoRequest
        * @return GetPptInfoResponse
@@ -1585,7 +1619,7 @@ namespace AiMiaoBi20230801
       Models::GetPptInfoResponse getPptInfo(const Models::GetPptInfoRequest &request);
 
       /**
-       * @summary 查询PPT模板筛选器
+       * @summary Retrieves the filters for PowerPoint (PPT) templates.
        *
        * @param request GetPptTemplateSelectorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1594,7 +1628,7 @@ namespace AiMiaoBi20230801
       Models::GetPptTemplateSelectorResponse getPptTemplateSelectorWithOptions(const Models::GetPptTemplateSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询PPT模板筛选器
+       * @summary Retrieves the filters for PowerPoint (PPT) templates.
        *
        * @param request GetPptTemplateSelectorRequest
        * @return GetPptTemplateSelectorResponse
@@ -1602,7 +1636,7 @@ namespace AiMiaoBi20230801
       Models::GetPptTemplateSelectorResponse getPptTemplateSelector(const Models::GetPptTemplateSelectorRequest &request);
 
       /**
-       * @summary 获取当前用户的配置
+       * @summary Retrieves configuration information, such as intelligent configuration styles and inference-related metadata configurations.
        *
        * @param request GetPropertiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1645,7 @@ namespace AiMiaoBi20230801
       Models::GetPropertiesResponse getPropertiesWithOptions(const Models::GetPropertiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前用户的配置
+       * @summary Retrieves configuration information, such as intelligent configuration styles and inference-related metadata configurations.
        *
        * @param request GetPropertiesRequest
        * @return GetPropertiesResponse
@@ -1619,7 +1653,7 @@ namespace AiMiaoBi20230801
       Models::GetPropertiesResponse getProperties(const Models::GetPropertiesRequest &request);
 
       /**
-       * @summary 查询智能审核结果
+       * @summary Queries the result of an automated review.
        *
        * @param request GetSmartAuditResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1628,7 +1662,7 @@ namespace AiMiaoBi20230801
       Models::GetSmartAuditResultResponse getSmartAuditResultWithOptions(const Models::GetSmartAuditResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询智能审核结果
+       * @summary Queries the result of an automated review.
        *
        * @param request GetSmartAuditResultRequest
        * @return GetSmartAuditResultResponse
@@ -1636,7 +1670,7 @@ namespace AiMiaoBi20230801
       Models::GetSmartAuditResultResponse getSmartAuditResult(const Models::GetSmartAuditResultRequest &request);
 
       /**
-       * @summary 查询一键成片剪辑任务
+       * @summary Queries a one-click video editing task.
        *
        * @param request GetSmartClipTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1645,7 +1679,7 @@ namespace AiMiaoBi20230801
       Models::GetSmartClipTaskResponse getSmartClipTaskWithOptions(const Models::GetSmartClipTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一键成片剪辑任务
+       * @summary Queries a one-click video editing task.
        *
        * @param request GetSmartClipTaskRequest
        * @return GetSmartClipTaskResponse
@@ -1653,7 +1687,7 @@ namespace AiMiaoBi20230801
       Models::GetSmartClipTaskResponse getSmartClipTask(const Models::GetSmartClipTaskRequest &request);
 
       /**
-       * @summary 获取文体学习分析结果
+       * @summary Retrieves the analysis result of a style learning task.
        *
        * @param request GetStyleLearningResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1662,7 +1696,7 @@ namespace AiMiaoBi20230801
       Models::GetStyleLearningResultResponse getStyleLearningResultWithOptions(const Models::GetStyleLearningResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文体学习分析结果
+       * @summary Retrieves the analysis result of a style learning task.
        *
        * @param request GetStyleLearningResultRequest
        * @return GetStyleLearningResultResponse
@@ -1670,7 +1704,7 @@ namespace AiMiaoBi20230801
       Models::GetStyleLearningResultResponse getStyleLearningResult(const Models::GetStyleLearningResultRequest &request);
 
       /**
-       * @summary 根据ID获取热点事件信息
+       * @summary Retrieve hot topic event information by ID.
        *
        * @param request GetTopicByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1679,7 +1713,7 @@ namespace AiMiaoBi20230801
       Models::GetTopicByIdResponse getTopicByIdWithOptions(const Models::GetTopicByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据ID获取热点事件信息
+       * @summary Retrieve hot topic event information by ID.
        *
        * @param request GetTopicByIdRequest
        * @return GetTopicByIdResponse
@@ -1687,7 +1721,7 @@ namespace AiMiaoBi20230801
       Models::GetTopicByIdResponse getTopicById(const Models::GetTopicByIdRequest &request);
 
       /**
-       * @summary 获取选题视角分析任务结果
+       * @summary Retrieves the result of a topic selection perspective analysis task.
        *
        * @param request GetTopicSelectionPerspectiveAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1696,7 +1730,7 @@ namespace AiMiaoBi20230801
       Models::GetTopicSelectionPerspectiveAnalysisTaskResponse getTopicSelectionPerspectiveAnalysisTaskWithOptions(const Models::GetTopicSelectionPerspectiveAnalysisTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取选题视角分析任务结果
+       * @summary Retrieves the result of a topic selection perspective analysis task.
        *
        * @param request GetTopicSelectionPerspectiveAnalysisTaskRequest
        * @return GetTopicSelectionPerspectiveAnalysisTaskResponse
@@ -1704,7 +1738,7 @@ namespace AiMiaoBi20230801
       Models::GetTopicSelectionPerspectiveAnalysisTaskResponse getTopicSelectionPerspectiveAnalysisTask(const Models::GetTopicSelectionPerspectiveAnalysisTaskRequest &request);
 
       /**
-       * @summary 导入干预文件
+       * @summary Imports an intervention file.
        *
        * @param request ImportInterveneFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1713,7 +1747,7 @@ namespace AiMiaoBi20230801
       Models::ImportInterveneFileResponse importInterveneFileWithOptions(const Models::ImportInterveneFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导入干预文件
+       * @summary Imports an intervention file.
        *
        * @param request ImportInterveneFileRequest
        * @return ImportInterveneFileResponse
@@ -1721,7 +1755,7 @@ namespace AiMiaoBi20230801
       Models::ImportInterveneFileResponse importInterveneFile(const Models::ImportInterveneFileRequest &request);
 
       /**
-       * @summary 异步导入干预文件
+       * @summary Asynchronously import an intervention file.
        *
        * @param request ImportInterveneFileAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1730,7 +1764,7 @@ namespace AiMiaoBi20230801
       Models::ImportInterveneFileAsyncResponse importInterveneFileAsyncWithOptions(const Models::ImportInterveneFileAsyncRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异步导入干预文件
+       * @summary Asynchronously import an intervention file.
        *
        * @param request ImportInterveneFileAsyncRequest
        * @return ImportInterveneFileAsyncResponse
@@ -1738,7 +1772,10 @@ namespace AiMiaoBi20230801
       Models::ImportInterveneFileAsyncResponse importInterveneFileAsync(const Models::ImportInterveneFileAsyncRequest &request);
 
       /**
-       * @summary 初始化PPT创建操作
+       * @summary Important: This is a billable API operation.
+       * This API performs two operations:
+       * 1\\. Returns the initialization code for the "PPT Generation" frontend component.
+       * 2\\. Performs billing.
        *
        * @param request InitiatePptCreationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1747,7 +1784,10 @@ namespace AiMiaoBi20230801
       Models::InitiatePptCreationResponse initiatePptCreationWithOptions(const Models::InitiatePptCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 初始化PPT创建操作
+       * @summary Important: This is a billable API operation.
+       * This API performs two operations:
+       * 1\\. Returns the initialization code for the "PPT Generation" frontend component.
+       * 2\\. Performs billing.
        *
        * @param request InitiatePptCreationRequest
        * @return InitiatePptCreationResponse
@@ -1755,7 +1795,7 @@ namespace AiMiaoBi20230801
       Models::InitiatePptCreationResponse initiatePptCreation(const Models::InitiatePptCreationRequest &request);
 
       /**
-       * @summary 初始化PPT创建操作V2
+       * @summary Starts a task to create a presentation.
        *
        * @param request InitiatePptCreationV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -1764,7 +1804,7 @@ namespace AiMiaoBi20230801
       Models::InitiatePptCreationV2Response initiatePptCreationV2WithOptions(const Models::InitiatePptCreationV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 初始化PPT创建操作V2
+       * @summary Starts a task to create a presentation.
        *
        * @param request InitiatePptCreationV2Request
        * @return InitiatePptCreationV2Response
@@ -1772,7 +1812,7 @@ namespace AiMiaoBi20230801
       Models::InitiatePptCreationV2Response initiatePptCreationV2(const Models::InitiatePptCreationV2Request &request);
 
       /**
-       * @summary 设置干预全局回复
+       * @summary Sets global intervention replies.
        *
        * @param tmpReq InsertInterveneGlobalReplyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1781,7 +1821,7 @@ namespace AiMiaoBi20230801
       Models::InsertInterveneGlobalReplyResponse insertInterveneGlobalReplyWithOptions(const Models::InsertInterveneGlobalReplyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置干预全局回复
+       * @summary Sets global intervention replies.
        *
        * @param request InsertInterveneGlobalReplyRequest
        * @return InsertInterveneGlobalReplyResponse
@@ -1789,7 +1829,7 @@ namespace AiMiaoBi20230801
       Models::InsertInterveneGlobalReplyResponse insertInterveneGlobalReply(const Models::InsertInterveneGlobalReplyRequest &request);
 
       /**
-       * @summary 插入干预规则
+       * @summary Insert an intervention rule.
        *
        * @param tmpReq InsertInterveneRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1798,7 +1838,7 @@ namespace AiMiaoBi20230801
       Models::InsertInterveneRuleResponse insertInterveneRuleWithOptions(const Models::InsertInterveneRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 插入干预规则
+       * @summary Insert an intervention rule.
        *
        * @param request InsertInterveneRuleRequest
        * @return InsertInterveneRuleResponse
@@ -1806,7 +1846,7 @@ namespace AiMiaoBi20230801
       Models::InsertInterveneRuleResponse insertInterveneRule(const Models::InsertInterveneRuleRequest &request);
 
       /**
-       * @summary 分页获取企业VOC分析任务明细列表
+       * @summary Retrieves a paginated list of details for an enterprise Voice of the Customer (VOC) analysis task.
        *
        * @param tmpReq ListAnalysisTagDetailByTaskIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1815,7 +1855,7 @@ namespace AiMiaoBi20230801
       Models::ListAnalysisTagDetailByTaskIdResponse listAnalysisTagDetailByTaskIdWithOptions(const Models::ListAnalysisTagDetailByTaskIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页获取企业VOC分析任务明细列表
+       * @summary Retrieves a paginated list of details for an enterprise Voice of the Customer (VOC) analysis task.
        *
        * @param request ListAnalysisTagDetailByTaskIdRequest
        * @return ListAnalysisTagDetailByTaskIdResponse
@@ -1823,7 +1863,7 @@ namespace AiMiaoBi20230801
       Models::ListAnalysisTagDetailByTaskIdResponse listAnalysisTagDetailByTaskId(const Models::ListAnalysisTagDetailByTaskIdRequest &request);
 
       /**
-       * @summary 查询任务列表
+       * @summary Retrieves a list of asynchronous tasks.
        *
        * @param tmpReq ListAsyncTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1832,7 +1872,7 @@ namespace AiMiaoBi20230801
       Models::ListAsyncTasksResponse listAsyncTasksWithOptions(const Models::ListAsyncTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询任务列表
+       * @summary Retrieves a list of asynchronous tasks.
        *
        * @param request ListAsyncTasksRequest
        * @return ListAsyncTasksResponse
@@ -1840,7 +1880,7 @@ namespace AiMiaoBi20230801
       Models::ListAsyncTasksResponse listAsyncTasks(const Models::ListAsyncTasksRequest &request);
 
       /**
-       * @summary 获取审核维度列表
+       * @summary Retrieves a list of audit dimensions.
        *
        * @param request ListAuditContentErrorTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1849,7 +1889,7 @@ namespace AiMiaoBi20230801
       Models::ListAuditContentErrorTypesResponse listAuditContentErrorTypesWithOptions(const Models::ListAuditContentErrorTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取审核维度列表
+       * @summary Retrieves a list of audit dimensions.
        *
        * @param request ListAuditContentErrorTypesRequest
        * @return ListAuditContentErrorTypesResponse
@@ -1857,7 +1897,7 @@ namespace AiMiaoBi20230801
       Models::ListAuditContentErrorTypesResponse listAuditContentErrorTypes(const Models::ListAuditContentErrorTypesRequest &request);
 
       /**
-       * @summary 获取词库列表
+       * @summary Retrieve a list of term libraries.
        *
        * @param request ListAuditTermsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1866,7 +1906,7 @@ namespace AiMiaoBi20230801
       Models::ListAuditTermsResponse listAuditTermsWithOptions(const Models::ListAuditTermsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取词库列表
+       * @summary Retrieve a list of term libraries.
        *
        * @param request ListAuditTermsRequest
        * @return ListAuditTermsResponse
@@ -1874,7 +1914,7 @@ namespace AiMiaoBi20230801
       Models::ListAuditTermsResponse listAuditTerms(const Models::ListAuditTermsRequest &request);
 
       /**
-       * @summary 列出智能混剪任务列表
+       * @summary Lists smart video editing tasks.
        *
        * @param request ListAutoClipsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1883,7 +1923,7 @@ namespace AiMiaoBi20230801
       Models::ListAutoClipsTaskResponse listAutoClipsTaskWithOptions(const Models::ListAutoClipsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出智能混剪任务列表
+       * @summary Lists smart video editing tasks.
        *
        * @param request ListAutoClipsTaskRequest
        * @return ListAutoClipsTaskResponse
@@ -1891,7 +1931,7 @@ namespace AiMiaoBi20230801
       Models::ListAutoClipsTaskResponse listAutoClipsTask(const Models::ListAutoClipsTaskRequest &request);
 
       /**
-       * @summary 获得标书写作任务列表
+       * @summary Retrieves the list of bidding document writing tasks.
        *
        * @param request ListBiddingDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1900,7 +1940,7 @@ namespace AiMiaoBi20230801
       Models::ListBiddingDocResponse listBiddingDocWithOptions(const Models::ListBiddingDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得标书写作任务列表
+       * @summary Retrieves the list of bidding document writing tasks.
        *
        * @param request ListBiddingDocRequest
        * @return ListBiddingDocResponse
@@ -1908,7 +1948,7 @@ namespace AiMiaoBi20230801
       Models::ListBiddingDocResponse listBiddingDoc(const Models::ListBiddingDocRequest &request);
 
       /**
-       * @summary 获取系统自定义预设
+       * @summary Retrieves the system-defined presets for the Generate Content workflow. These presets include options such as writing style, article length, output language, and the number of articles to generate.
        *
        * @param request ListBuildConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1917,7 +1957,7 @@ namespace AiMiaoBi20230801
       Models::ListBuildConfigsResponse listBuildConfigsWithOptions(const Models::ListBuildConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取系统自定义预设
+       * @summary Retrieves the system-defined presets for the Generate Content workflow. These presets include options such as writing style, article length, output language, and the number of articles to generate.
        *
        * @param request ListBuildConfigsRequest
        * @return ListBuildConfigsResponse
@@ -1925,7 +1965,7 @@ namespace AiMiaoBi20230801
       Models::ListBuildConfigsResponse listBuildConfigs(const Models::ListBuildConfigsRequest &request);
 
       /**
-       * @summary 自定义文本列表
+       * @summary Retrieve a list of custom texts.
        *
        * @param request ListCustomTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1934,7 +1974,7 @@ namespace AiMiaoBi20230801
       Models::ListCustomTextResponse listCustomTextWithOptions(const Models::ListCustomTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义文本列表
+       * @summary Retrieve a list of custom texts.
        *
        * @param request ListCustomTextRequest
        * @return ListCustomTextResponse
@@ -1942,7 +1982,7 @@ namespace AiMiaoBi20230801
       Models::ListCustomTextResponse listCustomText(const Models::ListCustomTextRequest &request);
 
       /**
-       * @summary 自定义视角列表
+       * @summary Lists custom viewpoints.
        *
        * @param tmpReq ListCustomViewPointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1951,7 +1991,7 @@ namespace AiMiaoBi20230801
       Models::ListCustomViewPointsResponse listCustomViewPointsWithOptions(const Models::ListCustomViewPointsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义视角列表
+       * @summary Lists custom viewpoints.
        *
        * @param request ListCustomViewPointsRequest
        * @return ListCustomViewPointsResponse
@@ -1959,7 +1999,7 @@ namespace AiMiaoBi20230801
       Models::ListCustomViewPointsResponse listCustomViewPoints(const Models::ListCustomViewPointsRequest &request);
 
       /**
-       * @summary 用户数据集权限-列表
+       * @summary Permission to list datasets
        *
        * @param request ListDataPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1968,7 +2008,7 @@ namespace AiMiaoBi20230801
       Models::ListDataPermissionsResponse listDataPermissionsWithOptions(const Models::ListDataPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户数据集权限-列表
+       * @summary Permission to list datasets
        *
        * @param request ListDataPermissionsRequest
        * @return ListDataPermissionsResponse
@@ -1976,7 +2016,7 @@ namespace AiMiaoBi20230801
       Models::ListDataPermissionsResponse listDataPermissions(const Models::ListDataPermissionsRequest &request);
 
       /**
-       * @summary 查询数据集文档列表
+       * @summary Lists data source documents.
        *
        * @param tmpReq ListDatasetDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1985,7 +2025,7 @@ namespace AiMiaoBi20230801
       Models::ListDatasetDocumentsResponse listDatasetDocumentsWithOptions(const Models::ListDatasetDocumentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据集文档列表
+       * @summary Lists data source documents.
        *
        * @param request ListDatasetDocumentsRequest
        * @return ListDatasetDocumentsResponse
@@ -1993,7 +2033,7 @@ namespace AiMiaoBi20230801
       Models::ListDatasetDocumentsResponse listDatasetDocuments(const Models::ListDatasetDocumentsRequest &request);
 
       /**
-       * @summary 数据集管理-查询
+       * @summary Data source management - query
        *
        * @param request ListDatasetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2002,7 +2042,7 @@ namespace AiMiaoBi20230801
       Models::ListDatasetsResponse listDatasetsWithOptions(const Models::ListDatasetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据集管理-查询
+       * @summary Data source management - query
        *
        * @param request ListDatasetsRequest
        * @return ListDatasetsResponse
@@ -2010,7 +2050,7 @@ namespace AiMiaoBi20230801
       Models::ListDatasetsResponse listDatasets(const Models::ListDatasetsRequest &request);
 
       /**
-       * @summary 生成历史列表
+       * @summary History of online inference scenarios.
        *
        * @param request ListDialoguesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2019,7 +2059,7 @@ namespace AiMiaoBi20230801
       Models::ListDialoguesResponse listDialoguesWithOptions(const Models::ListDialoguesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成历史列表
+       * @summary History of online inference scenarios.
        *
        * @param request ListDialoguesRequest
        * @return ListDialoguesResponse
@@ -2027,7 +2067,7 @@ namespace AiMiaoBi20230801
       Models::ListDialoguesResponse listDialogues(const Models::ListDialoguesRequest &request);
 
       /**
-       * @summary 妙读获取文档列表
+       * @summary Miàodú retrieves the list of documents.
        *
        * @param tmpReq ListDocsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2036,7 +2076,7 @@ namespace AiMiaoBi20230801
       Models::ListDocsResponse listDocsWithOptions(const Models::ListDocsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读获取文档列表
+       * @summary Miàodú retrieves the list of documents.
        *
        * @param request ListDocsRequest
        * @return ListDocsResponse
@@ -2044,7 +2084,9 @@ namespace AiMiaoBi20230801
       Models::ListDocsResponse listDocs(const Models::ListDocsRequest &request);
 
       /**
-       * @summary 公文检索
+       * @summary Searches government document libraries based on complex conditions.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request ListDocumentRetrieveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2053,7 +2095,9 @@ namespace AiMiaoBi20230801
       Models::ListDocumentRetrieveResponse listDocumentRetrieveWithOptions(const Models::ListDocumentRetrieveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 公文检索
+       * @summary Searches government document libraries based on complex conditions.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request ListDocumentRetrieveRequest
        * @return ListDocumentRetrieveResponse
@@ -2061,7 +2105,9 @@ namespace AiMiaoBi20230801
       Models::ListDocumentRetrieveResponse listDocumentRetrieve(const Models::ListDocumentRetrieveRequest &request);
 
       /**
-       * @summary 查询PPT模板列表
+       * @summary Lists the enterprise-specific PPT templates.
+       *
+       * @description Quanmiao supports iframe integration. For details, see the [Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request ListEnterprisePptTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2070,7 +2116,9 @@ namespace AiMiaoBi20230801
       Models::ListEnterprisePptTemplatesResponse listEnterprisePptTemplatesWithOptions(const Models::ListEnterprisePptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询PPT模板列表
+       * @summary Lists the enterprise-specific PPT templates.
+       *
+       * @description Quanmiao supports iframe integration. For details, see the [Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request ListEnterprisePptTemplatesRequest
        * @return ListEnterprisePptTemplatesResponse
@@ -2078,7 +2126,7 @@ namespace AiMiaoBi20230801
       Models::ListEnterprisePptTemplatesResponse listEnterprisePptTemplates(const Models::ListEnterprisePptTemplatesRequest &request);
 
       /**
-       * @summary 新颖视角列表
+       * @summary List of novel perspectives.
        *
        * @param request ListFreshViewPointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2087,7 +2135,7 @@ namespace AiMiaoBi20230801
       Models::ListFreshViewPointsResponse listFreshViewPointsWithOptions(const Models::ListFreshViewPointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新颖视角列表
+       * @summary List of novel perspectives.
        *
        * @param request ListFreshViewPointsRequest
        * @return ListFreshViewPointsResponse
@@ -2095,7 +2143,7 @@ namespace AiMiaoBi20230801
       Models::ListFreshViewPointsResponse listFreshViewPoints(const Models::ListFreshViewPointsRequest &request);
 
       /**
-       * @summary 通用配置-列表
+       * @summary Lists the general configurations.
        *
        * @param request ListGeneralConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2104,7 +2152,7 @@ namespace AiMiaoBi20230801
       Models::ListGeneralConfigsResponse listGeneralConfigsWithOptions(const Models::ListGeneralConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用配置-列表
+       * @summary Lists the general configurations.
        *
        * @param request ListGeneralConfigsRequest
        * @return ListGeneralConfigsResponse
@@ -2112,7 +2160,7 @@ namespace AiMiaoBi20230801
       Models::ListGeneralConfigsResponse listGeneralConfigs(const Models::ListGeneralConfigsRequest &request);
 
       /**
-       * @summary 文档管理-列表。
+       * @summary Retrieve a list of documents: Query the history of articles created in MiaoBi.
        *
        * @param request ListGeneratedContentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2121,7 +2169,7 @@ namespace AiMiaoBi20230801
       Models::ListGeneratedContentsResponse listGeneratedContentsWithOptions(const Models::ListGeneratedContentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档管理-列表。
+       * @summary Retrieve a list of documents: Query the history of articles created in MiaoBi.
        *
        * @param request ListGeneratedContentsRequest
        * @return ListGeneratedContentsResponse
@@ -2129,7 +2177,7 @@ namespace AiMiaoBi20230801
       Models::ListGeneratedContentsResponse listGeneratedContents(const Models::ListGeneratedContentsRequest &request);
 
       /**
-       * @summary 获取分类的热点新闻
+       * @summary Retrieves the list of trending topic hotspots.
        *
        * @param tmpReq ListHotNewsWithTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2138,7 +2186,7 @@ namespace AiMiaoBi20230801
       Models::ListHotNewsWithTypeResponse listHotNewsWithTypeWithOptions(const Models::ListHotNewsWithTypeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取分类的热点新闻
+       * @summary Retrieves the list of trending topic hotspots.
        *
        * @param request ListHotNewsWithTypeRequest
        * @return ListHotNewsWithTypeResponse
@@ -2146,7 +2194,7 @@ namespace AiMiaoBi20230801
       Models::ListHotNewsWithTypeResponse listHotNewsWithType(const Models::ListHotNewsWithTypeRequest &request);
 
       /**
-       * @summary 获取所有平台热榜源列表
+       * @summary Retrieve the list of hot ranking sources for all platforms.
        *
        * @param request ListHotSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2155,7 +2203,7 @@ namespace AiMiaoBi20230801
       Models::ListHotSourcesResponse listHotSourcesWithOptions(const Models::ListHotSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取所有平台热榜源列表
+       * @summary Retrieve the list of hot ranking sources for all platforms.
        *
        * @param request ListHotSourcesRequest
        * @return ListHotSourcesResponse
@@ -2163,7 +2211,7 @@ namespace AiMiaoBi20230801
       Models::ListHotSourcesResponse listHotSources(const Models::ListHotSourcesRequest &request);
 
       /**
-       * @summary 获取热点事件列表
+       * @summary Retrieves a list of trending topics.
        *
        * @param tmpReq ListHotTopicsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2172,7 +2220,7 @@ namespace AiMiaoBi20230801
       Models::ListHotTopicsResponse listHotTopicsWithOptions(const Models::ListHotTopicsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取热点事件列表
+       * @summary Retrieves a list of trending topics.
        *
        * @param request ListHotTopicsRequest
        * @return ListHotTopicsResponse
@@ -2180,7 +2228,7 @@ namespace AiMiaoBi20230801
       Models::ListHotTopicsResponse listHotTopics(const Models::ListHotTopicsRequest &request);
 
       /**
-       * @summary 热门视角列表
+       * @summary List of popular viewpoints.
        *
        * @param request ListHotViewPointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2189,7 +2237,7 @@ namespace AiMiaoBi20230801
       Models::ListHotViewPointsResponse listHotViewPointsWithOptions(const Models::ListHotViewPointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 热门视角列表
+       * @summary List of popular viewpoints.
        *
        * @param request ListHotViewPointsRequest
        * @return ListHotViewPointsResponse
@@ -2197,7 +2245,7 @@ namespace AiMiaoBi20230801
       Models::ListHotViewPointsResponse listHotViewPoints(const Models::ListHotViewPointsRequest &request);
 
       /**
-       * @summary 获得干预项目数量列表
+       * @summary Lists the number of intervention projects.
        *
        * @param request ListInterveneCntRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2206,7 +2254,7 @@ namespace AiMiaoBi20230801
       Models::ListInterveneCntResponse listInterveneCntWithOptions(const Models::ListInterveneCntRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得干预项目数量列表
+       * @summary Lists the number of intervention projects.
        *
        * @param request ListInterveneCntRequest
        * @return ListInterveneCntResponse
@@ -2214,7 +2262,7 @@ namespace AiMiaoBi20230801
       Models::ListInterveneCntResponse listInterveneCnt(const Models::ListInterveneCntRequest &request);
 
       /**
-       * @summary 获得导入任务列表
+       * @summary Retrieve a list of import tasks.
        *
        * @param request ListInterveneImportTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2223,7 +2271,7 @@ namespace AiMiaoBi20230801
       Models::ListInterveneImportTasksResponse listInterveneImportTasksWithOptions(const Models::ListInterveneImportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得导入任务列表
+       * @summary Retrieve a list of import tasks.
        *
        * @param request ListInterveneImportTasksRequest
        * @return ListInterveneImportTasksResponse
@@ -2231,7 +2279,7 @@ namespace AiMiaoBi20230801
       Models::ListInterveneImportTasksResponse listInterveneImportTasks(const Models::ListInterveneImportTasksRequest &request);
 
       /**
-       * @summary 获得干预规则列表
+       * @summary Retrieves a list of intervention rules.
        *
        * @param request ListInterveneRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2240,7 +2288,7 @@ namespace AiMiaoBi20230801
       Models::ListInterveneRulesResponse listInterveneRulesWithOptions(const Models::ListInterveneRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得干预规则列表
+       * @summary Retrieves a list of intervention rules.
        *
        * @param request ListInterveneRulesRequest
        * @return ListInterveneRulesResponse
@@ -2248,7 +2296,7 @@ namespace AiMiaoBi20230801
       Models::ListInterveneRulesResponse listInterveneRules(const Models::ListInterveneRulesRequest &request);
 
       /**
-       * @summary 获得干预项列表
+       * @summary Retrieves the list of intervention items.
        *
        * @param request ListIntervenesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2257,7 +2305,7 @@ namespace AiMiaoBi20230801
       Models::ListIntervenesResponse listIntervenesWithOptions(const Models::ListIntervenesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获得干预项列表
+       * @summary Retrieves the list of intervention items.
        *
        * @param request ListIntervenesRequest
        * @return ListIntervenesResponse
@@ -2265,7 +2313,7 @@ namespace AiMiaoBi20230801
       Models::ListIntervenesResponse listIntervenes(const Models::ListIntervenesRequest &request);
 
       /**
-       * @summary 查询素材列表
+       * @summary Retrieve the list of materials from the Material Library.
        *
        * @param tmpReq ListMaterialDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2274,7 +2322,7 @@ namespace AiMiaoBi20230801
       Models::ListMaterialDocumentsResponse listMaterialDocumentsWithOptions(const Models::ListMaterialDocumentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询素材列表
+       * @summary Retrieve the list of materials from the Material Library.
        *
        * @param request ListMaterialDocumentsRequest
        * @return ListMaterialDocumentsResponse
@@ -2282,7 +2330,7 @@ namespace AiMiaoBi20230801
       Models::ListMaterialDocumentsResponse listMaterialDocuments(const Models::ListMaterialDocumentsRequest &request);
 
       /**
-       * @summary 获取选题策划列表
+       * @summary Retrieves a list of planning proposals.
        *
        * @param tmpReq ListPlanningProposalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2291,7 +2339,7 @@ namespace AiMiaoBi20230801
       Models::ListPlanningProposalResponse listPlanningProposalWithOptions(const Models::ListPlanningProposalRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取选题策划列表
+       * @summary Retrieves a list of planning proposals.
        *
        * @param request ListPlanningProposalRequest
        * @return ListPlanningProposalResponse
@@ -2299,7 +2347,7 @@ namespace AiMiaoBi20230801
       Models::ListPlanningProposalResponse listPlanningProposal(const Models::ListPlanningProposalRequest &request);
 
       /**
-       * @summary PPT作品-列表
+       * @summary Queries a list of PPT artifacts.
        *
        * @param request ListPptArtifactsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2308,7 +2356,7 @@ namespace AiMiaoBi20230801
       Models::ListPptArtifactsResponse listPptArtifactsWithOptions(const Models::ListPptArtifactsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary PPT作品-列表
+       * @summary Queries a list of PPT artifacts.
        *
        * @param request ListPptArtifactsRequest
        * @return ListPptArtifactsResponse
@@ -2316,7 +2364,7 @@ namespace AiMiaoBi20230801
       Models::ListPptArtifactsResponse listPptArtifacts(const Models::ListPptArtifactsRequest &request);
 
       /**
-       * @summary 查询PPT模板列表
+       * @summary Queries a list of PowerPoint templates.
        *
        * @param request ListPptTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2325,7 +2373,7 @@ namespace AiMiaoBi20230801
       Models::ListPptTemplatesResponse listPptTemplatesWithOptions(const Models::ListPptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询PPT模板列表
+       * @summary Queries a list of PowerPoint templates.
        *
        * @param request ListPptTemplatesRequest
        * @return ListPptTemplatesResponse
@@ -2333,7 +2381,7 @@ namespace AiMiaoBi20230801
       Models::ListPptTemplatesResponse listPptTemplates(const Models::ListPptTemplatesRequest &request);
 
       /**
-       * @summary 查询搜索生成任务对话详情中数据列表
+       * @summary Lists the dialogue data for a search generation task.
        *
        * @param request ListSearchTaskDialogueDatasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2342,7 +2390,7 @@ namespace AiMiaoBi20230801
       Models::ListSearchTaskDialogueDatasResponse listSearchTaskDialogueDatasWithOptions(const Models::ListSearchTaskDialogueDatasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询搜索生成任务对话详情中数据列表
+       * @summary Lists the dialogue data for a search generation task.
        *
        * @param request ListSearchTaskDialogueDatasRequest
        * @return ListSearchTaskDialogueDatasResponse
@@ -2350,7 +2398,7 @@ namespace AiMiaoBi20230801
       Models::ListSearchTaskDialogueDatasResponse listSearchTaskDialogueDatas(const Models::ListSearchTaskDialogueDatasRequest &request);
 
       /**
-       * @summary 查询妙搜搜索生成任务详情列表
+       * @summary Retrieves the task details for MiaoSou search generation tasks.
        *
        * @param request ListSearchTaskDialoguesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2359,7 +2407,7 @@ namespace AiMiaoBi20230801
       Models::ListSearchTaskDialoguesResponse listSearchTaskDialoguesWithOptions(const Models::ListSearchTaskDialoguesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询妙搜搜索生成任务详情列表
+       * @summary Retrieves the task details for MiaoSou search generation tasks.
        *
        * @param request ListSearchTaskDialoguesRequest
        * @return ListSearchTaskDialoguesResponse
@@ -2367,7 +2415,7 @@ namespace AiMiaoBi20230801
       Models::ListSearchTaskDialoguesResponse listSearchTaskDialogues(const Models::ListSearchTaskDialoguesRequest &request);
 
       /**
-       * @summary 查询妙搜搜索生成历史任务列表
+       * @summary Queries the list of historical tasks generated by Miaosou Search.
        *
        * @param tmpReq ListSearchTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2376,7 +2424,7 @@ namespace AiMiaoBi20230801
       Models::ListSearchTasksResponse listSearchTasksWithOptions(const Models::ListSearchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询妙搜搜索生成历史任务列表
+       * @summary Queries the list of historical tasks generated by Miaosou Search.
        *
        * @param request ListSearchTasksRequest
        * @return ListSearchTasksResponse
@@ -2384,7 +2432,9 @@ namespace AiMiaoBi20230801
       Models::ListSearchTasksResponse listSearchTasks(const Models::ListSearchTasksRequest &request);
 
       /**
-       * @summary 获取文体学习分析结果列表
+       * @summary Retrieves the list of style learning analysis results.
+       *
+       * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request ListStyleLearningResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2393,7 +2443,9 @@ namespace AiMiaoBi20230801
       Models::ListStyleLearningResultResponse listStyleLearningResultWithOptions(const Models::ListStyleLearningResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文体学习分析结果列表
+       * @summary Retrieves the list of style learning analysis results.
+       *
+       * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request ListStyleLearningResultRequest
        * @return ListStyleLearningResultResponse
@@ -2401,7 +2453,7 @@ namespace AiMiaoBi20230801
       Models::ListStyleLearningResultResponse listStyleLearningResult(const Models::ListStyleLearningResultRequest &request);
 
       /**
-       * @summary 时效性视角列表
+       * @summary List of timeliness perspectives.
        *
        * @param request ListTimedViewAttitudeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2410,7 +2462,7 @@ namespace AiMiaoBi20230801
       Models::ListTimedViewAttitudeResponse listTimedViewAttitudeWithOptions(const Models::ListTimedViewAttitudeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 时效性视角列表
+       * @summary List of timeliness perspectives.
        *
        * @param request ListTimedViewAttitudeRequest
        * @return ListTimedViewAttitudeResponse
@@ -2418,7 +2470,7 @@ namespace AiMiaoBi20230801
       Models::ListTimedViewAttitudeResponse listTimedViewAttitude(const Models::ListTimedViewAttitudeRequest &request);
 
       /**
-       * @summary 获取热点推荐事件
+       * @summary Retrieve hot spot recommendation events.
        *
        * @param request ListTopicRecommendEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2427,7 +2479,7 @@ namespace AiMiaoBi20230801
       Models::ListTopicRecommendEventListResponse listTopicRecommendEventListWithOptions(const Models::ListTopicRecommendEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取热点推荐事件
+       * @summary Retrieve hot spot recommendation events.
        *
        * @param request ListTopicRecommendEventListRequest
        * @return ListTopicRecommendEventListResponse
@@ -2435,7 +2487,7 @@ namespace AiMiaoBi20230801
       Models::ListTopicRecommendEventListResponse listTopicRecommendEventList(const Models::ListTopicRecommendEventListRequest &request);
 
       /**
-       * @summary 获取主题事件推荐观点列表
+       * @summary Retrieves recommended viewpoints for hot spot events.
        *
        * @param request ListTopicViewPointRecommendEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2444,7 +2496,7 @@ namespace AiMiaoBi20230801
       Models::ListTopicViewPointRecommendEventListResponse listTopicViewPointRecommendEventListWithOptions(const Models::ListTopicViewPointRecommendEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取主题事件推荐观点列表
+       * @summary Retrieves recommended viewpoints for hot spot events.
        *
        * @param request ListTopicViewPointRecommendEventListRequest
        * @return ListTopicViewPointRecommendEventListResponse
@@ -2452,7 +2504,7 @@ namespace AiMiaoBi20230801
       Models::ListTopicViewPointRecommendEventListResponse listTopicViewPointRecommendEventList(const Models::ListTopicViewPointRecommendEventListRequest &request);
 
       /**
-       * @summary 获取系统所有实例信息
+       * @summary Retrieve version information for your purchased services.
        *
        * @param request ListVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2461,7 +2513,7 @@ namespace AiMiaoBi20230801
       Models::ListVersionsResponse listVersionsWithOptions(const Models::ListVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取系统所有实例信息
+       * @summary Retrieve version information for your purchased services.
        *
        * @param request ListVersionsRequest
        * @return ListVersionsResponse
@@ -2469,7 +2521,7 @@ namespace AiMiaoBi20230801
       Models::ListVersionsResponse listVersions(const Models::ListVersionsRequest &request);
 
       /**
-       * @summary 网友视角列表
+       * @summary List of viewpoints from netizens.
        *
        * @param request ListWebReviewPointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2478,7 +2530,7 @@ namespace AiMiaoBi20230801
       Models::ListWebReviewPointsResponse listWebReviewPointsWithOptions(const Models::ListWebReviewPointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网友视角列表
+       * @summary List of viewpoints from netizens.
        *
        * @param request ListWebReviewPointsRequest
        * @return ListWebReviewPointsResponse
@@ -2486,7 +2538,7 @@ namespace AiMiaoBi20230801
       Models::ListWebReviewPointsResponse listWebReviewPoints(const Models::ListWebReviewPointsRequest &request);
 
       /**
-       * @summary 获取文体列表
+       * @summary Retrieves the list of writing styles.
        *
        * @param request ListWritingStylesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2495,7 +2547,7 @@ namespace AiMiaoBi20230801
       Models::ListWritingStylesResponse listWritingStylesWithOptions(const Models::ListWritingStylesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文体列表
+       * @summary Retrieves the list of writing styles.
        *
        * @param request ListWritingStylesRequest
        * @return ListWritingStylesResponse
@@ -2503,7 +2555,7 @@ namespace AiMiaoBi20230801
       Models::ListWritingStylesResponse listWritingStyles(const Models::ListWritingStylesRequest &request);
 
       /**
-       * @summary 根据taskId查询异步任务状态
+       * @summary Queries the details of submitted asynchronous task executions.
        *
        * @param request QueryAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2512,7 +2564,7 @@ namespace AiMiaoBi20230801
       Models::QueryAsyncTaskResponse queryAsyncTaskWithOptions(const Models::QueryAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据taskId查询异步任务状态
+       * @summary Queries the details of submitted asynchronous task executions.
        *
        * @param request QueryAsyncTaskRequest
        * @return QueryAsyncTaskResponse
@@ -2520,7 +2572,7 @@ namespace AiMiaoBi20230801
       Models::QueryAsyncTaskResponse queryAsyncTask(const Models::QueryAsyncTaskRequest &request);
 
       /**
-       * @summary 查询审核结果
+       * @summary Queries the results of an audit task.
        *
        * @param request QueryAuditTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2529,7 +2581,7 @@ namespace AiMiaoBi20230801
       Models::QueryAuditTaskResponse queryAuditTaskWithOptions(const Models::QueryAuditTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询审核结果
+       * @summary Queries the results of an audit task.
        *
        * @param request QueryAuditTaskRequest
        * @return QueryAuditTaskResponse
@@ -2537,9 +2589,9 @@ namespace AiMiaoBi20230801
       Models::QueryAuditTaskResponse queryAuditTask(const Models::QueryAuditTaskRequest &request);
 
       /**
-       * @summary 查询视频审校结果
+       * @summary Queries video audit results.
        *
-       * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+       * @description Queries video audit results by task ID. The response includes video information, shot information, and audit results.
        *
        * @param request QueryVideoAuditResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2548,9 +2600,9 @@ namespace AiMiaoBi20230801
       Models::QueryVideoAuditResultResponse queryVideoAuditResultWithOptions(const Models::QueryVideoAuditResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频审校结果
+       * @summary Queries video audit results.
        *
-       * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+       * @description Queries video audit results by task ID. The response includes video information, shot information, and audit results.
        *
        * @param request QueryVideoAuditResultRequest
        * @return QueryVideoAuditResultResponse
@@ -2558,7 +2610,7 @@ namespace AiMiaoBi20230801
       Models::QueryVideoAuditResultResponse queryVideoAuditResult(const Models::QueryVideoAuditResultRequest &request);
 
       /**
-       * @summary 内容缩写
+       * @summary Abbreviates the specified content.
        *
        * @param request RunAbbreviationContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2567,7 +2619,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunAbbreviationContentResponse> runAbbreviationContentWithSSE(const Models::RunAbbreviationContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容缩写
+       * @summary Abbreviates the specified content.
        *
        * @param request RunAbbreviationContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2576,7 +2628,7 @@ namespace AiMiaoBi20230801
       Models::RunAbbreviationContentResponse runAbbreviationContentWithOptions(const Models::RunAbbreviationContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容缩写
+       * @summary Abbreviates the specified content.
        *
        * @param request RunAbbreviationContentRequest
        * @return RunAbbreviationContentResponse
@@ -2584,7 +2636,9 @@ namespace AiMiaoBi20230801
       Models::RunAbbreviationContentResponse runAbbreviationContent(const Models::RunAbbreviationContentRequest &request);
 
       /**
-       * @summary 妙笔：AI助手写作
+       * @summary MiaoBi: AI-assisted writing
+       *
+       * @description QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunAiHelperWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2593,7 +2647,9 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunAiHelperWritingResponse> runAiHelperWritingWithSSE(const Models::RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙笔：AI助手写作
+       * @summary MiaoBi: AI-assisted writing
+       *
+       * @description QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunAiHelperWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2602,7 +2658,9 @@ namespace AiMiaoBi20230801
       Models::RunAiHelperWritingResponse runAiHelperWritingWithOptions(const Models::RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙笔：AI助手写作
+       * @summary MiaoBi: AI-assisted writing
+       *
+       * @description QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request RunAiHelperWritingRequest
        * @return RunAiHelperWritingResponse
@@ -2610,7 +2668,7 @@ namespace AiMiaoBi20230801
       Models::RunAiHelperWritingResponse runAiHelperWriting(const Models::RunAiHelperWritingRequest &request);
 
       /**
-       * @summary 妙读生成书籍脑图
+       * @summary Miaodu generates mind maps of books.
        *
        * @param request RunBookBrainmapRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2619,7 +2677,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunBookBrainmapResponse> runBookBrainmapWithSSE(const Models::RunBookBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读生成书籍脑图
+       * @summary Miaodu generates mind maps of books.
        *
        * @param request RunBookBrainmapRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2628,7 +2686,7 @@ namespace AiMiaoBi20230801
       Models::RunBookBrainmapResponse runBookBrainmapWithOptions(const Models::RunBookBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读生成书籍脑图
+       * @summary Miaodu generates mind maps of books.
        *
        * @param request RunBookBrainmapRequest
        * @return RunBookBrainmapResponse
@@ -2636,7 +2694,7 @@ namespace AiMiaoBi20230801
       Models::RunBookBrainmapResponse runBookBrainmap(const Models::RunBookBrainmapRequest &request);
 
       /**
-       * @summary 书籍导读接口
+       * @summary Extracts a summary, structured selling points, and hotwords from a book.
        *
        * @param request RunBookIntroductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2645,7 +2703,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunBookIntroductionResponse> runBookIntroductionWithSSE(const Models::RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 书籍导读接口
+       * @summary Extracts a summary, structured selling points, and hotwords from a book.
        *
        * @param request RunBookIntroductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2654,7 +2712,7 @@ namespace AiMiaoBi20230801
       Models::RunBookIntroductionResponse runBookIntroductionWithOptions(const Models::RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 书籍导读接口
+       * @summary Extracts a summary, structured selling points, and hotwords from a book.
        *
        * @param request RunBookIntroductionRequest
        * @return RunBookIntroductionResponse
@@ -2662,7 +2720,7 @@ namespace AiMiaoBi20230801
       Models::RunBookIntroductionResponse runBookIntroduction(const Models::RunBookIntroductionRequest &request);
 
       /**
-       * @summary 书籍智能卡片接口
+       * @summary A smart card interface for books.
        *
        * @param request RunBookSmartCardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2671,7 +2729,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunBookSmartCardResponse> runBookSmartCardWithSSE(const Models::RunBookSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 书籍智能卡片接口
+       * @summary A smart card interface for books.
        *
        * @param request RunBookSmartCardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2680,7 +2738,7 @@ namespace AiMiaoBi20230801
       Models::RunBookSmartCardResponse runBookSmartCardWithOptions(const Models::RunBookSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 书籍智能卡片接口
+       * @summary A smart card interface for books.
        *
        * @param request RunBookSmartCardRequest
        * @return RunBookSmartCardResponse
@@ -2688,7 +2746,7 @@ namespace AiMiaoBi20230801
       Models::RunBookSmartCardResponse runBookSmartCard(const Models::RunBookSmartCardRequest &request);
 
       /**
-       * @summary 客户之声预测
+       * @summary Predicts user comments for a specified article.
        *
        * @param tmpReq RunCommentGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2697,7 +2755,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunCommentGenerationResponse> runCommentGenerationWithSSE(const Models::RunCommentGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户之声预测
+       * @summary Predicts user comments for a specified article.
        *
        * @param tmpReq RunCommentGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2706,7 +2764,7 @@ namespace AiMiaoBi20230801
       Models::RunCommentGenerationResponse runCommentGenerationWithOptions(const Models::RunCommentGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户之声预测
+       * @summary Predicts user comments for a specified article.
        *
        * @param request RunCommentGenerationRequest
        * @return RunCommentGenerationResponse
@@ -2714,7 +2772,7 @@ namespace AiMiaoBi20230801
       Models::RunCommentGenerationResponse runCommentGeneration(const Models::RunCommentGenerationRequest &request);
 
       /**
-       * @summary 内容续写
+       * @summary Continues generating content.
        *
        * @param request RunContinueContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2723,7 +2781,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunContinueContentResponse> runContinueContentWithSSE(const Models::RunContinueContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容续写
+       * @summary Continues generating content.
        *
        * @param request RunContinueContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2732,7 +2790,7 @@ namespace AiMiaoBi20230801
       Models::RunContinueContentResponse runContinueContentWithOptions(const Models::RunContinueContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容续写
+       * @summary Continues generating content.
        *
        * @param request RunContinueContentRequest
        * @return RunContinueContentResponse
@@ -2740,7 +2798,7 @@ namespace AiMiaoBi20230801
       Models::RunContinueContentResponse runContinueContent(const Models::RunContinueContentRequest &request);
 
       /**
-       * @summary 自定义热点话题分析
+       * @summary Analyzes custom hot topics.
        *
        * @param request RunCustomHotTopicAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2749,7 +2807,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunCustomHotTopicAnalysisResponse> runCustomHotTopicAnalysisWithSSE(const Models::RunCustomHotTopicAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义热点话题分析
+       * @summary Analyzes custom hot topics.
        *
        * @param request RunCustomHotTopicAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2758,7 +2816,7 @@ namespace AiMiaoBi20230801
       Models::RunCustomHotTopicAnalysisResponse runCustomHotTopicAnalysisWithOptions(const Models::RunCustomHotTopicAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义热点话题分析
+       * @summary Analyzes custom hot topics.
        *
        * @param request RunCustomHotTopicAnalysisRequest
        * @return RunCustomHotTopicAnalysisResponse
@@ -2766,7 +2824,7 @@ namespace AiMiaoBi20230801
       Models::RunCustomHotTopicAnalysisResponse runCustomHotTopicAnalysis(const Models::RunCustomHotTopicAnalysisRequest &request);
 
       /**
-       * @summary 自定义选题视角分析
+       * @summary Perspective analysis of custom topics.
        *
        * @param request RunCustomHotTopicViewPointAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2775,7 +2833,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunCustomHotTopicViewPointAnalysisResponse> runCustomHotTopicViewPointAnalysisWithSSE(const Models::RunCustomHotTopicViewPointAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义选题视角分析
+       * @summary Perspective analysis of custom topics.
        *
        * @param request RunCustomHotTopicViewPointAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2784,7 +2842,7 @@ namespace AiMiaoBi20230801
       Models::RunCustomHotTopicViewPointAnalysisResponse runCustomHotTopicViewPointAnalysisWithOptions(const Models::RunCustomHotTopicViewPointAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 自定义选题视角分析
+       * @summary Perspective analysis of custom topics.
        *
        * @param request RunCustomHotTopicViewPointAnalysisRequest
        * @return RunCustomHotTopicViewPointAnalysisResponse
@@ -2792,7 +2850,7 @@ namespace AiMiaoBi20230801
       Models::RunCustomHotTopicViewPointAnalysisResponse runCustomHotTopicViewPointAnalysis(const Models::RunCustomHotTopicViewPointAnalysisRequest &request);
 
       /**
-       * @summary 流式输出深度写作事件
+       * @summary Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
        *
        * @param request RunDeepWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2801,7 +2859,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDeepWritingResponse> runDeepWritingWithSSE(const Models::RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流式输出深度写作事件
+       * @summary Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
        *
        * @param request RunDeepWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2810,7 +2868,7 @@ namespace AiMiaoBi20230801
       Models::RunDeepWritingResponse runDeepWritingWithOptions(const Models::RunDeepWritingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流式输出深度写作事件
+       * @summary Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
        *
        * @param request RunDeepWritingRequest
        * @return RunDeepWritingResponse
@@ -2818,7 +2876,7 @@ namespace AiMiaoBi20230801
       Models::RunDeepWritingResponse runDeepWriting(const Models::RunDeepWritingRequest &request);
 
       /**
-       * @summary 妙读脑图生成接口
+       * @summary Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
        *
        * @param request RunDocBrainmapRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2827,7 +2885,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocBrainmapResponse> runDocBrainmapWithSSE(const Models::RunDocBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读脑图生成接口
+       * @summary Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
        *
        * @param request RunDocBrainmapRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2836,7 +2894,7 @@ namespace AiMiaoBi20230801
       Models::RunDocBrainmapResponse runDocBrainmapWithOptions(const Models::RunDocBrainmapRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读脑图生成接口
+       * @summary Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
        *
        * @param request RunDocBrainmapRequest
        * @return RunDocBrainmapResponse
@@ -2844,7 +2902,7 @@ namespace AiMiaoBi20230801
       Models::RunDocBrainmapResponse runDocBrainmap(const Models::RunDocBrainmapRequest &request);
 
       /**
-       * @summary 妙读文档导读接口
+       * @summary Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
        *
        * @param request RunDocIntroductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2911,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocIntroductionResponse> runDocIntroductionWithSSE(const Models::RunDocIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档导读接口
+       * @summary Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
        *
        * @param request RunDocIntroductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2862,7 +2920,7 @@ namespace AiMiaoBi20230801
       Models::RunDocIntroductionResponse runDocIntroductionWithOptions(const Models::RunDocIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档导读接口
+       * @summary Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
        *
        * @param request RunDocIntroductionRequest
        * @return RunDocIntroductionResponse
@@ -2870,7 +2928,8 @@ namespace AiMiaoBi20230801
       Models::RunDocIntroductionResponse runDocIntroduction(const Models::RunDocIntroductionRequest &request);
 
       /**
-       * @summary 妙读问答接口
+       * @summary Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.  
+       * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
        *
        * @param tmpReq RunDocQaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2879,7 +2938,8 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocQaResponse> runDocQaWithSSE(const Models::RunDocQaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读问答接口
+       * @summary Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.  
+       * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
        *
        * @param tmpReq RunDocQaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2888,7 +2948,8 @@ namespace AiMiaoBi20230801
       Models::RunDocQaResponse runDocQaWithOptions(const Models::RunDocQaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读问答接口
+       * @summary Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.  
+       * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
        *
        * @param request RunDocQaRequest
        * @return RunDocQaResponse
@@ -2896,7 +2957,7 @@ namespace AiMiaoBi20230801
       Models::RunDocQaResponse runDocQa(const Models::RunDocQaRequest &request);
 
       /**
-       * @summary 文档智能卡片接口
+       * @summary Automatically adds tags to selected text or a specified chat and generates a smart card note.
        *
        * @param request RunDocSmartCardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2905,7 +2966,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocSmartCardResponse> runDocSmartCardWithSSE(const Models::RunDocSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档智能卡片接口
+       * @summary Automatically adds tags to selected text or a specified chat and generates a smart card note.
        *
        * @param request RunDocSmartCardRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2914,7 +2975,7 @@ namespace AiMiaoBi20230801
       Models::RunDocSmartCardResponse runDocSmartCardWithOptions(const Models::RunDocSmartCardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档智能卡片接口
+       * @summary Automatically adds tags to selected text or a specified chat and generates a smart card note.
        *
        * @param request RunDocSmartCardRequest
        * @return RunDocSmartCardResponse
@@ -2922,7 +2983,7 @@ namespace AiMiaoBi20230801
       Models::RunDocSmartCardResponse runDocSmartCard(const Models::RunDocSmartCardRequest &request);
 
       /**
-       * @summary 妙读文档总结摘要接口
+       * @summary Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
        *
        * @param request RunDocSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2931,7 +2992,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocSummaryResponse> runDocSummaryWithSSE(const Models::RunDocSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档总结摘要接口
+       * @summary Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
        *
        * @param request RunDocSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2940,7 +3001,7 @@ namespace AiMiaoBi20230801
       Models::RunDocSummaryResponse runDocSummaryWithOptions(const Models::RunDocSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档总结摘要接口
+       * @summary Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
        *
        * @param request RunDocSummaryRequest
        * @return RunDocSummaryResponse
@@ -2948,7 +3009,7 @@ namespace AiMiaoBi20230801
       Models::RunDocSummaryResponse runDocSummary(const Models::RunDocSummaryRequest &request);
 
       /**
-       * @summary 妙读文档翻译接口
+       * @summary An API for document translation between English and Chinese.
        *
        * @param request RunDocTranslationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2957,7 +3018,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocTranslationResponse> runDocTranslationWithSSE(const Models::RunDocTranslationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档翻译接口
+       * @summary An API for document translation between English and Chinese.
        *
        * @param request RunDocTranslationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2966,7 +3027,7 @@ namespace AiMiaoBi20230801
       Models::RunDocTranslationResponse runDocTranslationWithOptions(const Models::RunDocTranslationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档翻译接口
+       * @summary An API for document translation between English and Chinese.
        *
        * @param request RunDocTranslationRequest
        * @return RunDocTranslationResponse
@@ -2974,7 +3035,7 @@ namespace AiMiaoBi20230801
       Models::RunDocTranslationResponse runDocTranslation(const Models::RunDocTranslationRequest &request);
 
       /**
-       * @summary 文档改写
+       * @summary Rewrites an article in a specified style.
        *
        * @param request RunDocWashingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2983,7 +3044,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunDocWashingResponse> runDocWashingWithSSE(const Models::RunDocWashingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档改写
+       * @summary Rewrites an article in a specified style.
        *
        * @param request RunDocWashingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2992,7 +3053,7 @@ namespace AiMiaoBi20230801
       Models::RunDocWashingResponse runDocWashingWithOptions(const Models::RunDocWashingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档改写
+       * @summary Rewrites an article in a specified style.
        *
        * @param request RunDocWashingRequest
        * @return RunDocWashingResponse
@@ -3000,7 +3061,7 @@ namespace AiMiaoBi20230801
       Models::RunDocWashingResponse runDocWashing(const Models::RunDocWashingRequest &request);
 
       /**
-       * @summary 内容扩写
+       * @summary Expands content.
        *
        * @param request RunExpandContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3009,7 +3070,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunExpandContentResponse> runExpandContentWithSSE(const Models::RunExpandContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容扩写
+       * @summary Expands content.
        *
        * @param request RunExpandContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3018,7 +3079,7 @@ namespace AiMiaoBi20230801
       Models::RunExpandContentResponse runExpandContentWithOptions(const Models::RunExpandContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容扩写
+       * @summary Expands content.
        *
        * @param request RunExpandContentRequest
        * @return RunExpandContentResponse
@@ -3026,7 +3087,7 @@ namespace AiMiaoBi20230801
       Models::RunExpandContentResponse runExpandContent(const Models::RunExpandContentRequest &request);
 
       /**
-       * @summary 妙读猜你想问接口
+       * @summary Submits a query and returns several related queries.
        *
        * @param request RunGenerateQuestionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3035,7 +3096,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunGenerateQuestionsResponse> runGenerateQuestionsWithSSE(const Models::RunGenerateQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读猜你想问接口
+       * @summary Submits a query and returns several related queries.
        *
        * @param request RunGenerateQuestionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3044,7 +3105,7 @@ namespace AiMiaoBi20230801
       Models::RunGenerateQuestionsResponse runGenerateQuestionsWithOptions(const Models::RunGenerateQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读猜你想问接口
+       * @summary Submits a query and returns several related queries.
        *
        * @param request RunGenerateQuestionsRequest
        * @return RunGenerateQuestionsResponse
@@ -3052,7 +3113,7 @@ namespace AiMiaoBi20230801
       Models::RunGenerateQuestionsResponse runGenerateQuestions(const Models::RunGenerateQuestionsRequest &request);
 
       /**
-       * @summary 妙读文档关键词抽取接口
+       * @summary Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
        *
        * @param request RunHotwordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3061,7 +3122,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunHotwordResponse> runHotwordWithSSE(const Models::RunHotwordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档关键词抽取接口
+       * @summary Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
        *
        * @param request RunHotwordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3070,7 +3131,7 @@ namespace AiMiaoBi20230801
       Models::RunHotwordResponse runHotwordWithOptions(const Models::RunHotwordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读文档关键词抽取接口
+       * @summary Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
        *
        * @param request RunHotwordRequest
        * @return RunHotwordResponse
@@ -3078,7 +3139,7 @@ namespace AiMiaoBi20230801
       Models::RunHotwordResponse runHotword(const Models::RunHotwordRequest &request);
 
       /**
-       * @summary AI妙笔-创作-抽取关键词
+       * @summary Extracts and generates keywords using AMB.
        *
        * @param tmpReq RunKeywordsExtractionGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3087,7 +3148,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunKeywordsExtractionGenerationResponse> runKeywordsExtractionGenerationWithSSE(const Models::RunKeywordsExtractionGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙笔-创作-抽取关键词
+       * @summary Extracts and generates keywords using AMB.
        *
        * @param tmpReq RunKeywordsExtractionGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3096,7 +3157,7 @@ namespace AiMiaoBi20230801
       Models::RunKeywordsExtractionGenerationResponse runKeywordsExtractionGenerationWithOptions(const Models::RunKeywordsExtractionGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙笔-创作-抽取关键词
+       * @summary Extracts and generates keywords using AMB.
        *
        * @param request RunKeywordsExtractionGenerationRequest
        * @return RunKeywordsExtractionGenerationResponse
@@ -3104,7 +3165,7 @@ namespace AiMiaoBi20230801
       Models::RunKeywordsExtractionGenerationResponse runKeywordsExtractionGeneration(const Models::RunKeywordsExtractionGenerationRequest &request);
 
       /**
-       * @summary 文档批量导读
+       * @summary Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
        *
        * @param tmpReq RunMultiDocIntroductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3113,7 +3174,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunMultiDocIntroductionResponse> runMultiDocIntroductionWithSSE(const Models::RunMultiDocIntroductionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档批量导读
+       * @summary Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
        *
        * @param tmpReq RunMultiDocIntroductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3122,7 +3183,7 @@ namespace AiMiaoBi20230801
       Models::RunMultiDocIntroductionResponse runMultiDocIntroductionWithOptions(const Models::RunMultiDocIntroductionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档批量导读
+       * @summary Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
        *
        * @param request RunMultiDocIntroductionRequest
        * @return RunMultiDocIntroductionResponse
@@ -3130,7 +3191,12 @@ namespace AiMiaoBi20230801
       Models::RunMultiDocIntroductionResponse runMultiDocIntroduction(const Models::RunMultiDocIntroductionRequest &request);
 
       /**
-       * @summary 流式输出PPT大纲
+       * @summary Generates a PowerPoint outline.
+       *
+       * @description Instructions:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request RunPptOutlineGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3139,7 +3205,12 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunPptOutlineGenerationResponse> runPptOutlineGenerationWithSSE(const Models::RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流式输出PPT大纲
+       * @summary Generates a PowerPoint outline.
+       *
+       * @description Instructions:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request RunPptOutlineGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3148,7 +3219,12 @@ namespace AiMiaoBi20230801
       Models::RunPptOutlineGenerationResponse runPptOutlineGenerationWithOptions(const Models::RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流式输出PPT大纲
+       * @summary Generates a PowerPoint outline.
+       *
+       * @description Instructions:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+       * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
        *
        * @param request RunPptOutlineGenerationRequest
        * @return RunPptOutlineGenerationResponse
@@ -3156,7 +3232,11 @@ namespace AiMiaoBi20230801
       Models::RunPptOutlineGenerationResponse runPptOutlineGeneration(const Models::RunPptOutlineGenerationRequest &request);
 
       /**
-       * @summary 快速写作
+       * @summary Enter writing instructions to quickly generate content.
+       *
+       * @description ### Access Instructions:
+       * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+       * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
        *
        * @param tmpReq RunQuickWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3165,7 +3245,11 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunQuickWritingResponse> runQuickWritingWithSSE(const Models::RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 快速写作
+       * @summary Enter writing instructions to quickly generate content.
+       *
+       * @description ### Access Instructions:
+       * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+       * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
        *
        * @param tmpReq RunQuickWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3174,7 +3258,11 @@ namespace AiMiaoBi20230801
       Models::RunQuickWritingResponse runQuickWritingWithOptions(const Models::RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 快速写作
+       * @summary Enter writing instructions to quickly generate content.
+       *
+       * @description ### Access Instructions:
+       * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+       * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
        *
        * @param request RunQuickWritingRequest
        * @return RunQuickWritingResponse
@@ -3182,7 +3270,19 @@ namespace AiMiaoBi20230801
       Models::RunQuickWritingResponse runQuickWriting(const Models::RunQuickWritingRequest &request);
 
       /**
-       * @summary AI妙搜-智能搜索生成
+       * @summary AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+       * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+       * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+       *
+       * @description ### Integration notes:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+       * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+       * ### Data sources for search:
+       * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+       * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+       * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+       * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
        *
        * @param tmpReq RunSearchGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3191,7 +3291,19 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunSearchGenerationResponse> runSearchGenerationWithSSE(const Models::RunSearchGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙搜-智能搜索生成
+       * @summary AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+       * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+       * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+       *
+       * @description ### Integration notes:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+       * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+       * ### Data sources for search:
+       * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+       * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+       * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+       * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
        *
        * @param tmpReq RunSearchGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3200,7 +3312,19 @@ namespace AiMiaoBi20230801
       Models::RunSearchGenerationResponse runSearchGenerationWithOptions(const Models::RunSearchGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙搜-智能搜索生成
+       * @summary AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+       * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+       * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+       *
+       * @description ### Integration notes:
+       * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+       * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+       * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+       * ### Data sources for search:
+       * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+       * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+       * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+       * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
        *
        * @param request RunSearchGenerationRequest
        * @return RunSearchGenerationResponse
@@ -3208,7 +3332,7 @@ namespace AiMiaoBi20230801
       Models::RunSearchGenerationResponse runSearchGeneration(const Models::RunSearchGenerationRequest &request);
 
       /**
-       * @summary 妙搜-文搜文
+       * @summary Miao Search enables text-to-text search.
        *
        * @param tmpReq RunSearchSimilarArticlesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3217,7 +3341,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunSearchSimilarArticlesResponse> runSearchSimilarArticlesWithSSE(const Models::RunSearchSimilarArticlesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙搜-文搜文
+       * @summary Miao Search enables text-to-text search.
        *
        * @param tmpReq RunSearchSimilarArticlesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3226,7 +3350,7 @@ namespace AiMiaoBi20230801
       Models::RunSearchSimilarArticlesResponse runSearchSimilarArticlesWithOptions(const Models::RunSearchSimilarArticlesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙搜-文搜文
+       * @summary Miao Search enables text-to-text search.
        *
        * @param request RunSearchSimilarArticlesRequest
        * @return RunSearchSimilarArticlesResponse
@@ -3234,7 +3358,9 @@ namespace AiMiaoBi20230801
       Models::RunSearchSimilarArticlesResponse runSearchSimilarArticles(const Models::RunSearchSimilarArticlesRequest &request);
 
       /**
-       * @summary 创作-分步骤写作
+       * @summary Writes content in a step-by-step pattern using an outline and summaries.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunStepByStepWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3243,7 +3369,9 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunStepByStepWritingResponse> runStepByStepWritingWithSSE(const Models::RunStepByStepWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创作-分步骤写作
+       * @summary Writes content in a step-by-step pattern using an outline and summaries.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunStepByStepWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3252,7 +3380,9 @@ namespace AiMiaoBi20230801
       Models::RunStepByStepWritingResponse runStepByStepWritingWithOptions(const Models::RunStepByStepWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创作-分步骤写作
+       * @summary Writes content in a step-by-step pattern using an outline and summaries.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request RunStepByStepWritingRequest
        * @return RunStepByStepWritingResponse
@@ -3260,7 +3390,9 @@ namespace AiMiaoBi20230801
       Models::RunStepByStepWritingResponse runStepByStepWriting(const Models::RunStepByStepWritingRequest &request);
 
       /**
-       * @summary 内容特点分析
+       * @summary Analyzes the stylistic features of content.
+       *
+       * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunStyleFeatureAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3269,7 +3401,9 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunStyleFeatureAnalysisResponse> runStyleFeatureAnalysisWithSSE(const Models::RunStyleFeatureAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容特点分析
+       * @summary Analyzes the stylistic features of content.
+       *
+       * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunStyleFeatureAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3278,7 +3412,9 @@ namespace AiMiaoBi20230801
       Models::RunStyleFeatureAnalysisResponse runStyleFeatureAnalysisWithOptions(const Models::RunStyleFeatureAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容特点分析
+       * @summary Analyzes the stylistic features of content.
+       *
+       * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request RunStyleFeatureAnalysisRequest
        * @return RunStyleFeatureAnalysisResponse
@@ -3286,7 +3422,7 @@ namespace AiMiaoBi20230801
       Models::RunStyleFeatureAnalysisResponse runStyleFeatureAnalysis(const Models::RunStyleFeatureAnalysisRequest &request);
 
       /**
-       * @summary 内容摘要生成
+       * @summary Generates a summary of content.
        *
        * @param request RunSummaryGenerateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3295,7 +3431,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunSummaryGenerateResponse> runSummaryGenerateWithSSE(const Models::RunSummaryGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容摘要生成
+       * @summary Generates a summary of content.
        *
        * @param request RunSummaryGenerateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3304,7 +3440,7 @@ namespace AiMiaoBi20230801
       Models::RunSummaryGenerateResponse runSummaryGenerateWithOptions(const Models::RunSummaryGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容摘要生成
+       * @summary Generates a summary of content.
        *
        * @param request RunSummaryGenerateRequest
        * @return RunSummaryGenerateResponse
@@ -3312,7 +3448,7 @@ namespace AiMiaoBi20230801
       Models::RunSummaryGenerateResponse runSummaryGenerate(const Models::RunSummaryGenerateRequest &request);
 
       /**
-       * @summary 创作-文本润色
+       * @summary Polishes the specified text.
        *
        * @param request RunTextPolishingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3321,7 +3457,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunTextPolishingResponse> runTextPolishingWithSSE(const Models::RunTextPolishingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创作-文本润色
+       * @summary Polishes the specified text.
        *
        * @param request RunTextPolishingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3330,7 +3466,7 @@ namespace AiMiaoBi20230801
       Models::RunTextPolishingResponse runTextPolishingWithOptions(const Models::RunTextPolishingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创作-文本润色
+       * @summary Polishes the specified text.
        *
        * @param request RunTextPolishingRequest
        * @return RunTextPolishingResponse
@@ -3338,7 +3474,7 @@ namespace AiMiaoBi20230801
       Models::RunTextPolishingResponse runTextPolishing(const Models::RunTextPolishingRequest &request);
 
       /**
-       * @summary 妙笔：标题生成
+       * @summary Miaobi generates titles.
        *
        * @param tmpReq RunTitleGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3347,7 +3483,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunTitleGenerationResponse> runTitleGenerationWithSSE(const Models::RunTitleGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙笔：标题生成
+       * @summary Miaobi generates titles.
        *
        * @param tmpReq RunTitleGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3356,7 +3492,7 @@ namespace AiMiaoBi20230801
       Models::RunTitleGenerationResponse runTitleGenerationWithOptions(const Models::RunTitleGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙笔：标题生成
+       * @summary Miaobi generates titles.
        *
        * @param request RunTitleGenerationRequest
        * @return RunTitleGenerationResponse
@@ -3364,7 +3500,9 @@ namespace AiMiaoBi20230801
       Models::RunTitleGenerationResponse runTitleGeneration(const Models::RunTitleGenerationRequest &request);
 
       /**
-       * @summary 妙策选题策划聚合
+       * @summary Selects and aggregates topics for MiaoCe.
+       *
+       * @description All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunTopicSelectionMergeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3373,7 +3511,9 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunTopicSelectionMergeResponse> runTopicSelectionMergeWithSSE(const Models::RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙策选题策划聚合
+       * @summary Selects and aggregates topics for MiaoCe.
+       *
+       * @description All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunTopicSelectionMergeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3382,7 +3522,9 @@ namespace AiMiaoBi20230801
       Models::RunTopicSelectionMergeResponse runTopicSelectionMergeWithOptions(const Models::RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙策选题策划聚合
+       * @summary Selects and aggregates topics for MiaoCe.
+       *
+       * @description All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request RunTopicSelectionMergeRequest
        * @return RunTopicSelectionMergeResponse
@@ -3390,7 +3532,7 @@ namespace AiMiaoBi20230801
       Models::RunTopicSelectionMergeResponse runTopicSelectionMerge(const Models::RunTopicSelectionMergeRequest &request);
 
       /**
-       * @summary AI妙笔-创作-中英文翻译
+       * @summary Translates text for content creation using AMB.
        *
        * @param tmpReq RunTranslateGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3399,7 +3541,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunTranslateGenerationResponse> runTranslateGenerationWithSSE(const Models::RunTranslateGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙笔-创作-中英文翻译
+       * @summary Translates text for content creation using AMB.
        *
        * @param tmpReq RunTranslateGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3408,7 +3550,7 @@ namespace AiMiaoBi20230801
       Models::RunTranslateGenerationResponse runTranslateGenerationWithOptions(const Models::RunTranslateGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙笔-创作-中英文翻译
+       * @summary Translates text for content creation using AMB.
        *
        * @param request RunTranslateGenerationRequest
        * @return RunTranslateGenerationResponse
@@ -3416,7 +3558,7 @@ namespace AiMiaoBi20230801
       Models::RunTranslateGenerationResponse runTranslateGeneration(const Models::RunTranslateGenerationRequest &request);
 
       /**
-       * @summary AI生成视频剪辑脚本
+       * @summary Generates video clip scripts using AI.
        *
        * @param request RunVideoScriptGenerateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3425,7 +3567,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunVideoScriptGenerateResponse> runVideoScriptGenerateWithSSE(const Models::RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI生成视频剪辑脚本
+       * @summary Generates video clip scripts using AI.
        *
        * @param request RunVideoScriptGenerateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3434,7 +3576,7 @@ namespace AiMiaoBi20230801
       Models::RunVideoScriptGenerateResponse runVideoScriptGenerateWithOptions(const Models::RunVideoScriptGenerateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI生成视频剪辑脚本
+       * @summary Generates video clip scripts using AI.
        *
        * @param request RunVideoScriptGenerateRequest
        * @return RunVideoScriptGenerateResponse
@@ -3442,7 +3584,7 @@ namespace AiMiaoBi20230801
       Models::RunVideoScriptGenerateResponse runVideoScriptGenerate(const Models::RunVideoScriptGenerateRequest &request);
 
       /**
-       * @summary AI妙笔-创作-文风改写
+       * @summary Calls AMB to rewrite text in a new tone.
        *
        * @param tmpReq RunWriteToneGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3451,7 +3593,7 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunWriteToneGenerationResponse> runWriteToneGenerationWithSSE(const Models::RunWriteToneGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙笔-创作-文风改写
+       * @summary Calls AMB to rewrite text in a new tone.
        *
        * @param tmpReq RunWriteToneGenerationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3460,7 +3602,7 @@ namespace AiMiaoBi20230801
       Models::RunWriteToneGenerationResponse runWriteToneGenerationWithOptions(const Models::RunWriteToneGenerationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI妙笔-创作-文风改写
+       * @summary Calls AMB to rewrite text in a new tone.
        *
        * @param request RunWriteToneGenerationRequest
        * @return RunWriteToneGenerationResponse
@@ -3468,7 +3610,10 @@ namespace AiMiaoBi20230801
       Models::RunWriteToneGenerationResponse runWriteToneGeneration(const Models::RunWriteToneGenerationRequest &request);
 
       /**
-       * @summary 直接写作
+       * @summary Direct writing.
+       *
+       * @description This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+       * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3477,7 +3622,10 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunWritingResponse> runWritingWithSSE(const Models::RunWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 直接写作
+       * @summary Direct writing.
+       *
+       * @description This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+       * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunWritingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3486,7 +3634,10 @@ namespace AiMiaoBi20230801
       Models::RunWritingResponse runWritingWithOptions(const Models::RunWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 直接写作
+       * @summary Direct writing.
+       *
+       * @description This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+       * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request RunWritingRequest
        * @return RunWritingResponse
@@ -3494,7 +3645,9 @@ namespace AiMiaoBi20230801
       Models::RunWritingResponse runWriting(const Models::RunWritingRequest &request);
 
       /**
-       * @summary 直接写作
+       * @summary AI writing
+       *
+       * @description For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunWritingV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -3503,7 +3656,9 @@ namespace AiMiaoBi20230801
       FutureGenerator<Models::RunWritingV2Response> runWritingV2WithSSE(const Models::RunWritingV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 直接写作
+       * @summary AI writing
+       *
+       * @description For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param tmpReq RunWritingV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -3512,7 +3667,9 @@ namespace AiMiaoBi20230801
       Models::RunWritingV2Response runWritingV2WithOptions(const Models::RunWritingV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 直接写作
+       * @summary AI writing
+       *
+       * @description For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request RunWritingV2Request
        * @return RunWritingV2Response
@@ -3520,7 +3677,7 @@ namespace AiMiaoBi20230801
       Models::RunWritingV2Response runWritingV2(const Models::RunWritingV2Request &request);
 
       /**
-       * @summary 保存自定义文本
+       * @summary Saves custom text.
        *
        * @param request SaveCustomTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3529,7 +3686,7 @@ namespace AiMiaoBi20230801
       Models::SaveCustomTextResponse saveCustomTextWithOptions(const Models::SaveCustomTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存自定义文本
+       * @summary Saves custom text.
        *
        * @param request SaveCustomTextRequest
        * @return SaveCustomTextResponse
@@ -3537,7 +3694,7 @@ namespace AiMiaoBi20230801
       Models::SaveCustomTextResponse saveCustomText(const Models::SaveCustomTextRequest &request);
 
       /**
-       * @summary 保存用户的信源配置
+       * @summary Saves the data source configuration for content creation and general search.
        *
        * @param tmpReq SaveDataSourceOrderConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3546,7 +3703,7 @@ namespace AiMiaoBi20230801
       Models::SaveDataSourceOrderConfigResponse saveDataSourceOrderConfigWithOptions(const Models::SaveDataSourceOrderConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存用户的信源配置
+       * @summary Saves the data source configuration for content creation and general search.
        *
        * @param request SaveDataSourceOrderConfigRequest
        * @return SaveDataSourceOrderConfigResponse
@@ -3554,7 +3711,7 @@ namespace AiMiaoBi20230801
       Models::SaveDataSourceOrderConfigResponse saveDataSourceOrderConfig(const Models::SaveDataSourceOrderConfigRequest &request);
 
       /**
-       * @summary 保存素材
+       * @summary Save material: Save material to the Material Library.
        *
        * @param tmpReq SaveMaterialDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3563,7 +3720,7 @@ namespace AiMiaoBi20230801
       Models::SaveMaterialDocumentResponse saveMaterialDocumentWithOptions(const Models::SaveMaterialDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存素材
+       * @summary Save material: Save material to the Material Library.
        *
        * @param request SaveMaterialDocumentRequest
        * @return SaveMaterialDocumentResponse
@@ -3571,7 +3728,7 @@ namespace AiMiaoBi20230801
       Models::SaveMaterialDocumentResponse saveMaterialDocument(const Models::SaveMaterialDocumentRequest &request);
 
       /**
-       * @summary 配置oss访问参数
+       * @summary Configuration: Cloud storage parameter settings
        *
        * @param request SaveOrUpdateOssConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3580,7 +3737,7 @@ namespace AiMiaoBi20230801
       Models::SaveOrUpdateOssConfigResponse saveOrUpdateOssConfigWithOptions(const Models::SaveOrUpdateOssConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置oss访问参数
+       * @summary Configuration: Cloud storage parameter settings
        *
        * @param request SaveOrUpdateOssConfigRequest
        * @return SaveOrUpdateOssConfigResponse
@@ -3588,7 +3745,7 @@ namespace AiMiaoBi20230801
       Models::SaveOrUpdateOssConfigResponse saveOrUpdateOssConfig(const Models::SaveOrUpdateOssConfigRequest &request);
 
       /**
-       * @summary 保存自定义文体
+       * @summary Saves a custom writing style.
        *
        * @param tmpReq SaveStyleLearningResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3597,7 +3754,7 @@ namespace AiMiaoBi20230801
       Models::SaveStyleLearningResultResponse saveStyleLearningResultWithOptions(const Models::SaveStyleLearningResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存自定义文体
+       * @summary Saves a custom writing style.
        *
        * @param request SaveStyleLearningResultRequest
        * @return SaveStyleLearningResultResponse
@@ -3605,7 +3762,7 @@ namespace AiMiaoBi20230801
       Models::SaveStyleLearningResultResponse saveStyleLearningResult(const Models::SaveStyleLearningResultRequest &request);
 
       /**
-       * @summary 搜索数据集文档
+       * @summary Searches documents in a data source.
        *
        * @param tmpReq SearchDatasetDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3614,7 +3771,7 @@ namespace AiMiaoBi20230801
       Models::SearchDatasetDocumentsResponse searchDatasetDocumentsWithOptions(const Models::SearchDatasetDocumentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索数据集文档
+       * @summary Searches documents in a data source.
        *
        * @param request SearchDatasetDocumentsRequest
        * @return SearchDatasetDocumentsResponse
@@ -3622,7 +3779,7 @@ namespace AiMiaoBi20230801
       Models::SearchDatasetDocumentsResponse searchDatasetDocuments(const Models::SearchDatasetDocumentsRequest &request);
 
       /**
-       * @summary 新闻检索
+       * @summary Searches for news based on your input. This feature is currently limited to web search.
        *
        * @param tmpReq SearchNewsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3631,7 +3788,7 @@ namespace AiMiaoBi20230801
       Models::SearchNewsResponse searchNewsWithOptions(const Models::SearchNewsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新闻检索
+       * @summary Searches for news based on your input. This feature is currently limited to web search.
        *
        * @param request SearchNewsRequest
        * @return SearchNewsResponse
@@ -3639,7 +3796,7 @@ namespace AiMiaoBi20230801
       Models::SearchNewsResponse searchNews(const Models::SearchNewsRequest &request);
 
       /**
-       * @summary 提交异步任务
+       * @summary Executes predefined asynchronous tasks.
        *
        * @param request SubmitAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3648,7 +3805,7 @@ namespace AiMiaoBi20230801
       Models::SubmitAsyncTaskResponse submitAsyncTaskWithOptions(const Models::SubmitAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交异步任务
+       * @summary Executes predefined asynchronous tasks.
        *
        * @param request SubmitAsyncTaskRequest
        * @return SubmitAsyncTaskResponse
@@ -3656,7 +3813,9 @@ namespace AiMiaoBi20230801
       Models::SubmitAsyncTaskResponse submitAsyncTask(const Models::SubmitAsyncTaskRequest &request);
 
       /**
-       * @summary 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+       * @summary Model Studio provides the same feature as the Intelligent Proofreading module in Alibaba Cloud public cloud: uploading a custom rule library. Due to authentication restrictions, you must pass the file key (FileKey) of your custom rule library file as an input parameter to successfully call this API. After you call this API, Model Studio processes your custom rule library and returns a structured result in XLSX format. You can call GetAuditNoteProcessingStatus to check the processing status or call DownloadAuditNote to download the processed rule library. This API is under active development and will eventually accept a publicly accessible file URL instead of a FileKey.
+       *
+       * @description All Model Studio products support iframe embedding. For details, see [Customer Integration: Model Studio Public Cloud iFrame Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request SubmitAuditNoteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3665,7 +3824,9 @@ namespace AiMiaoBi20230801
       Models::SubmitAuditNoteResponse submitAuditNoteWithOptions(const Models::SubmitAuditNoteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+       * @summary Model Studio provides the same feature as the Intelligent Proofreading module in Alibaba Cloud public cloud: uploading a custom rule library. Due to authentication restrictions, you must pass the file key (FileKey) of your custom rule library file as an input parameter to successfully call this API. After you call this API, Model Studio processes your custom rule library and returns a structured result in XLSX format. You can call GetAuditNoteProcessingStatus to check the processing status or call DownloadAuditNote to download the processed rule library. This API is under active development and will eventually accept a publicly accessible file URL instead of a FileKey.
+       *
+       * @description All Model Studio products support iframe embedding. For details, see [Customer Integration: Model Studio Public Cloud iFrame Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
        *
        * @param request SubmitAuditNoteRequest
        * @return SubmitAuditNoteResponse
@@ -3673,7 +3834,9 @@ namespace AiMiaoBi20230801
       Models::SubmitAuditNoteResponse submitAuditNote(const Models::SubmitAuditNoteRequest &request);
 
       /**
-       * @summary 提交审核任务
+       * @summary Submits an audit task.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
        *
        * @param request SubmitAuditTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3682,7 +3845,9 @@ namespace AiMiaoBi20230801
       Models::SubmitAuditTaskResponse submitAuditTaskWithOptions(const Models::SubmitAuditTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交审核任务
+       * @summary Submits an audit task.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
        *
        * @param request SubmitAuditTaskRequest
        * @return SubmitAuditTaskResponse
@@ -3690,7 +3855,7 @@ namespace AiMiaoBi20230801
       Models::SubmitAuditTaskResponse submitAuditTask(const Models::SubmitAuditTaskRequest &request);
 
       /**
-       * @summary 提交自定义播报单任务
+       * @summary You can submit a custom broadcast list job.
        *
        * @param tmpReq SubmitCustomHotTopicBroadcastJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3699,7 +3864,7 @@ namespace AiMiaoBi20230801
       Models::SubmitCustomHotTopicBroadcastJobResponse submitCustomHotTopicBroadcastJobWithOptions(const Models::SubmitCustomHotTopicBroadcastJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交自定义播报单任务
+       * @summary You can submit a custom broadcast list job.
        *
        * @param request SubmitCustomHotTopicBroadcastJobRequest
        * @return SubmitCustomHotTopicBroadcastJobResponse
@@ -3707,7 +3872,7 @@ namespace AiMiaoBi20230801
       Models::SubmitCustomHotTopicBroadcastJobResponse submitCustomHotTopicBroadcastJob(const Models::SubmitCustomHotTopicBroadcastJobRequest &request);
 
       /**
-       * @summary 从自定义数据源提交选题热点分析
+       * @summary Submit topic trend analysis using a custom data source
        *
        * @param tmpReq SubmitCustomSourceTopicAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3716,7 +3881,7 @@ namespace AiMiaoBi20230801
       Models::SubmitCustomSourceTopicAnalysisResponse submitCustomSourceTopicAnalysisWithOptions(const Models::SubmitCustomSourceTopicAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从自定义数据源提交选题热点分析
+       * @summary Submit topic trend analysis using a custom data source
        *
        * @param request SubmitCustomSourceTopicAnalysisRequest
        * @return SubmitCustomSourceTopicAnalysisResponse
@@ -3724,7 +3889,7 @@ namespace AiMiaoBi20230801
       Models::SubmitCustomSourceTopicAnalysisResponse submitCustomSourceTopicAnalysis(const Models::SubmitCustomSourceTopicAnalysisRequest &request);
 
       /**
-       * @summary 提交自定义热点选题视角分析任务
+       * @summary Submits a custom analysis task to analyze hot topic perspectives.
        *
        * @param tmpReq SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3733,7 +3898,7 @@ namespace AiMiaoBi20230801
       Models::SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(const Models::SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交自定义热点选题视角分析任务
+       * @summary Submits a custom analysis task to analyze hot topic perspectives.
        *
        * @param request SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
        * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
@@ -3741,7 +3906,7 @@ namespace AiMiaoBi20230801
       Models::SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse submitCustomTopicSelectionPerspectiveAnalysisTask(const Models::SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest &request);
 
       /**
-       * @summary 提交深度写作任务
+       * @summary You can submit a deep writing task. You can provide information such as questions, instructions, and attachments, based on the topic you want to research or analyze. The system schedules and executes this task in the background.
        *
        * @param tmpReq SubmitDeepWriteTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3750,7 +3915,7 @@ namespace AiMiaoBi20230801
       Models::SubmitDeepWriteTaskResponse submitDeepWriteTaskWithOptions(const Models::SubmitDeepWriteTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交深度写作任务
+       * @summary You can submit a deep writing task. You can provide information such as questions, instructions, and attachments, based on the topic you want to research or analyze. The system schedules and executes this task in the background.
        *
        * @param request SubmitDeepWriteTaskRequest
        * @return SubmitDeepWriteTaskResponse
@@ -3758,7 +3923,7 @@ namespace AiMiaoBi20230801
       Models::SubmitDeepWriteTaskResponse submitDeepWriteTask(const Models::SubmitDeepWriteTaskRequest &request);
 
       /**
-       * @summary 提交文档聚合任务
+       * @summary Submits a content clustering task.
        *
        * @param tmpReq SubmitDocClusterTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3767,7 +3932,7 @@ namespace AiMiaoBi20230801
       Models::SubmitDocClusterTaskResponse submitDocClusterTaskWithOptions(const Models::SubmitDocClusterTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交文档聚合任务
+       * @summary Submits a content clustering task.
        *
        * @param request SubmitDocClusterTaskRequest
        * @return SubmitDocClusterTaskResponse
@@ -3775,7 +3940,7 @@ namespace AiMiaoBi20230801
       Models::SubmitDocClusterTaskResponse submitDocClusterTask(const Models::SubmitDocClusterTaskRequest &request);
 
       /**
-       * @summary 提交VOC异步任务
+       * @summary Submits a Voice of the Customer (VOC) asynchronous task.
        *
        * @param tmpReq SubmitEnterpriseVocAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3784,7 +3949,7 @@ namespace AiMiaoBi20230801
       Models::SubmitEnterpriseVocAnalysisTaskResponse submitEnterpriseVocAnalysisTaskWithOptions(const Models::SubmitEnterpriseVocAnalysisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交VOC异步任务
+       * @summary Submits a Voice of the Customer (VOC) asynchronous task.
        *
        * @param request SubmitEnterpriseVocAnalysisTaskRequest
        * @return SubmitEnterpriseVocAnalysisTaskResponse
@@ -3792,7 +3957,7 @@ namespace AiMiaoBi20230801
       Models::SubmitEnterpriseVocAnalysisTaskResponse submitEnterpriseVocAnalysisTask(const Models::SubmitEnterpriseVocAnalysisTaskRequest &request);
 
       /**
-       * @summary 导出词库任务
+       * @summary Export task for a thesaurus
        *
        * @param request SubmitExportTermsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3801,7 +3966,7 @@ namespace AiMiaoBi20230801
       Models::SubmitExportTermsTaskResponse submitExportTermsTaskWithOptions(const Models::SubmitExportTermsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出词库任务
+       * @summary Export task for a thesaurus
        *
        * @param request SubmitExportTermsTaskRequest
        * @return SubmitExportTermsTaskResponse
@@ -3809,7 +3974,7 @@ namespace AiMiaoBi20230801
       Models::SubmitExportTermsTaskResponse submitExportTermsTask(const Models::SubmitExportTermsTaskRequest &request);
 
       /**
-       * @summary 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+       * @summary MiaoBi provides a factuality audit capability that verifies facts using web search and supports custom configuration of search source URLs.
        *
        * @param request SubmitFactAuditUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3818,7 +3983,7 @@ namespace AiMiaoBi20230801
       Models::SubmitFactAuditUrlResponse submitFactAuditUrlWithOptions(const Models::SubmitFactAuditUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+       * @summary MiaoBi provides a factuality audit capability that verifies facts using web search and supports custom configuration of search source URLs.
        *
        * @param request SubmitFactAuditUrlRequest
        * @return SubmitFactAuditUrlResponse
@@ -3826,7 +3991,7 @@ namespace AiMiaoBi20230801
       Models::SubmitFactAuditUrlResponse submitFactAuditUrl(const Models::SubmitFactAuditUrlRequest &request);
 
       /**
-       * @summary 提交导入自定义词库任务
+       * @summary Submit a custom dictionary import task.
        *
        * @param request SubmitImportTermsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3835,7 +4000,7 @@ namespace AiMiaoBi20230801
       Models::SubmitImportTermsTaskResponse submitImportTermsTaskWithOptions(const Models::SubmitImportTermsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交导入自定义词库任务
+       * @summary Submit a custom dictionary import task.
        *
        * @param request SubmitImportTermsTaskRequest
        * @return SubmitImportTermsTaskResponse
@@ -3860,7 +4025,111 @@ namespace AiMiaoBi20230801
       Models::SubmitParseDocumentLayoutTaskResponse submitParseDocumentLayoutTask(const Models::SubmitParseDocumentLayoutTaskRequest &request);
 
       /**
-       * @summary 提交智能审核
+       * @summary Submit a smart audit request.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao public cloud iframe customization guide](https://help.aliyun.com/document_detail/3000990.html).
+       * # Supported audit types
+       * ## Audit category overview
+       * | Audit category                 | Description                                                                                                                                                                                                                                                               |
+       * | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+       * | Content accuracy               | Errors due to phonetic or visual similarity; punctuation errors; misuse of Chinese structural particles (的/地/得); inappropriate word choice or syntax errors; incorrect personal names; incorrect place names; incorrect references; errors in proper nouns or terminology |
+       * | Formatting issues              | Inconsistent capitalization; numeric errors; nonstandard units of measurement; use of traditional Chinese characters                                                                                                                                                      |
+       * | Content structure issues       | Redundant text; repeated segments; logical contradictions; unfilled placeholders                                                                                                                                                                                          |
+       * | Political sensitivity issues   | Sensitive content or directional risks; name or sorting errors; conventional phrasing errors; nonstandard institutional names; misquoting important speeches; references to disgraced officials; mismatched name-title pairings; incorrect title expressions              |
+       * | Security and compliance issues | Violence or terrorism; pornography; prohibited content; insults; disgraced celebrities; personal privacy violations; reporting standard violations                                                                                                                        |
+       * | Legal errors                   | Incorrect citation of laws and regulations; errors in legal provisions                                                                                                                                                                                                    |
+       * | Other domain-specific errors   | Violations of advertising law; financial information errors; scientific or technical term errors                                                                                                                                                                          |
+       * | Factuality check               | Factuality verification: correct or incorrect items                                                                                                                                                                                                                       |
+       * | Image audit                    | Image content moderation                                                                                                                                                                                                                                                  |
+       * | Custom word library            | Custom word library audit                                                                                                                                                                                                                                                 |
+       * | Rule library audit             | Rule library audit                                                                                                                                                                                                                                                        |
+       * | English proofreading           | Terminology standardization; verb tense accuracy; punctuation and quotation marks; spelling and language variants; sentence structure and clarity; numeric and percentage formatting; standardized phrasing                                                               |
+       * ***
+       * ## Sub-audit code values
+       * ### 1. Content accuracy
+       * | Description                                    | Code                 |
+       * | ---------------------------------------------- | -------------------- |
+       * | Phonetic or visual similarity errors           | PhoneticSimilarError |
+       * | Punctuation errors                             | PunctuationError     |
+       * | Misuse of Chinese structural particles (的/地/得) | ParticleUsageError   |
+       * | Inappropriate word choice or syntax errors     | WordError            |
+       * | Incorrect personal names                       | PersonNameError      |
+       * | Incorrect place names                          | LocationError        |
+       * | Incorrect references                           | ReferenceError       |
+       * | Errors in proper nouns or terminology          | NounItemError        |
+       * ### 2. Formatting issues
+       * | Description                           | Code                    |
+       * | ------------------------------------- | ----------------------- |
+       * | Inconsistent capitalization           | CapitalizationError     |
+       * | Numeric errors                        | NumberError             |
+       * | Nonstandard units of measurement      | UnitError               |
+       * | Use of traditional Chinese characters | TraditionalChineseError |
+       * ### 3. Content structure issues
+       * | Description            | Code                 |
+       * | ---------------------- | -------------------- |
+       * | Redundant text         | WordRedundancy       |
+       * | Repeated segments      | DuplicateError       |
+       * | Logical contradictions | LogicContradiction   |
+       * | Unfilled placeholders  | PlaceholderNotFilled |
+       * ### 4. Political sensitivity issues
+       * | Description                            | Code                        |
+       * | -------------------------------------- | --------------------------- |
+       * | Sensitive content or directional risks | SensitiveContentRisk        |
+       * | Name or sorting errors                 | NameOrderError              |
+       * | Conventional phrasing errors           | ConventionalExpressionError |
+       * | Nonstandard institutional names        | DepartmentNameError         |
+       * | Misquoting important speeches          | ImportantSpeechError        |
+       * | References to disgraced officials      | FallenOfficialError         |
+       * | Mismatched name-title pairings         | LeaderTitleMatchError       |
+       * | Incorrect title expressions            | TitleError                  |
+       * ### 5. Security and compliance issues
+       * | Description                   | Code                   |
+       * | ----------------------------- | ---------------------- |
+       * | Violence or terrorism         | ViolenceTerrorismError |
+       * | Pornography                   | PornographyError       |
+       * | Prohibited content            | ProhibitedContentError |
+       * | Insults                       | InsultError            |
+       * | Disgraced celebrities         | DisgracedArtistError   |
+       * | Personal privacy violations   | PersonalPrivacyError   |
+       * | Reporting standard violations | ReportingStandardError |
+       * ### 6. Legal errors
+       * | Description                                | Code                 |
+       * | ------------------------------------------ | -------------------- |
+       * | Incorrect citation of laws and regulations | LegalReferenceError  |
+       * | Errors in legal provisions                 | LegalProvisionsError |
+       * ### 7. Other domain-specific errors
+       * | Description                         | Code                            |
+       * | ----------------------------------- | ------------------------------- |
+       * | Violations of advertising law       | AdvertisingProhibitedWordsError |
+       * | Financial information errors        | FinancialInformationError       |
+       * | Scientific or technical term errors | TechnicalTermError              |
+       * ### 8. Factuality check
+       * | Description                              | Code           |
+       * | ---------------------------------------- | -------------- |
+       * | Factuality verification – correct item   | CorrectFact    |
+       * | Factuality verification – incorrect item | WrongFactError |
+       * ### 9. Image audit
+       * | Description | Code       |
+       * | ----------- | ---------- |
+       * | Image audit | ImageAudit |
+       * ### 10. Custom word library
+       * | Description         | Code        |
+       * | ------------------- | ----------- |
+       * | Custom word library | WordLibrary |
+       * ### 11. Rule library audit
+       * | Description        | Code              |
+       * | ------------------ | ----------------- |
+       * | Rule library audit | WrongQuestionBook |
+       * ### 12. English proofreading
+       * | Description                       | Code                         |
+       * | --------------------------------- | ---------------------------- |
+       * | Terminology standardization       | TerminologyNormalisation     |
+       * | Verb tense accuracy               | VerbTenseAccuracy            |
+       * | Punctuation and quotation marks   | PunctuationAndQuotationMarks |
+       * | Spelling and language variants    | SpellingAndLanguageVariety   |
+       * | Sentence structure and clarity    | SentenceStructureAndClarity  |
+       * | Numeric and percentage formatting | NumericAndPercentageStyle    |
+       * | Other standardized phrasing       | Others                       |
        *
        * @param tmpReq SubmitSmartAuditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3869,7 +4138,111 @@ namespace AiMiaoBi20230801
       Models::SubmitSmartAuditResponse submitSmartAuditWithOptions(const Models::SubmitSmartAuditRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交智能审核
+       * @summary Submit a smart audit request.
+       *
+       * @description The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao public cloud iframe customization guide](https://help.aliyun.com/document_detail/3000990.html).
+       * # Supported audit types
+       * ## Audit category overview
+       * | Audit category                 | Description                                                                                                                                                                                                                                                               |
+       * | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+       * | Content accuracy               | Errors due to phonetic or visual similarity; punctuation errors; misuse of Chinese structural particles (的/地/得); inappropriate word choice or syntax errors; incorrect personal names; incorrect place names; incorrect references; errors in proper nouns or terminology |
+       * | Formatting issues              | Inconsistent capitalization; numeric errors; nonstandard units of measurement; use of traditional Chinese characters                                                                                                                                                      |
+       * | Content structure issues       | Redundant text; repeated segments; logical contradictions; unfilled placeholders                                                                                                                                                                                          |
+       * | Political sensitivity issues   | Sensitive content or directional risks; name or sorting errors; conventional phrasing errors; nonstandard institutional names; misquoting important speeches; references to disgraced officials; mismatched name-title pairings; incorrect title expressions              |
+       * | Security and compliance issues | Violence or terrorism; pornography; prohibited content; insults; disgraced celebrities; personal privacy violations; reporting standard violations                                                                                                                        |
+       * | Legal errors                   | Incorrect citation of laws and regulations; errors in legal provisions                                                                                                                                                                                                    |
+       * | Other domain-specific errors   | Violations of advertising law; financial information errors; scientific or technical term errors                                                                                                                                                                          |
+       * | Factuality check               | Factuality verification: correct or incorrect items                                                                                                                                                                                                                       |
+       * | Image audit                    | Image content moderation                                                                                                                                                                                                                                                  |
+       * | Custom word library            | Custom word library audit                                                                                                                                                                                                                                                 |
+       * | Rule library audit             | Rule library audit                                                                                                                                                                                                                                                        |
+       * | English proofreading           | Terminology standardization; verb tense accuracy; punctuation and quotation marks; spelling and language variants; sentence structure and clarity; numeric and percentage formatting; standardized phrasing                                                               |
+       * ***
+       * ## Sub-audit code values
+       * ### 1. Content accuracy
+       * | Description                                    | Code                 |
+       * | ---------------------------------------------- | -------------------- |
+       * | Phonetic or visual similarity errors           | PhoneticSimilarError |
+       * | Punctuation errors                             | PunctuationError     |
+       * | Misuse of Chinese structural particles (的/地/得) | ParticleUsageError   |
+       * | Inappropriate word choice or syntax errors     | WordError            |
+       * | Incorrect personal names                       | PersonNameError      |
+       * | Incorrect place names                          | LocationError        |
+       * | Incorrect references                           | ReferenceError       |
+       * | Errors in proper nouns or terminology          | NounItemError        |
+       * ### 2. Formatting issues
+       * | Description                           | Code                    |
+       * | ------------------------------------- | ----------------------- |
+       * | Inconsistent capitalization           | CapitalizationError     |
+       * | Numeric errors                        | NumberError             |
+       * | Nonstandard units of measurement      | UnitError               |
+       * | Use of traditional Chinese characters | TraditionalChineseError |
+       * ### 3. Content structure issues
+       * | Description            | Code                 |
+       * | ---------------------- | -------------------- |
+       * | Redundant text         | WordRedundancy       |
+       * | Repeated segments      | DuplicateError       |
+       * | Logical contradictions | LogicContradiction   |
+       * | Unfilled placeholders  | PlaceholderNotFilled |
+       * ### 4. Political sensitivity issues
+       * | Description                            | Code                        |
+       * | -------------------------------------- | --------------------------- |
+       * | Sensitive content or directional risks | SensitiveContentRisk        |
+       * | Name or sorting errors                 | NameOrderError              |
+       * | Conventional phrasing errors           | ConventionalExpressionError |
+       * | Nonstandard institutional names        | DepartmentNameError         |
+       * | Misquoting important speeches          | ImportantSpeechError        |
+       * | References to disgraced officials      | FallenOfficialError         |
+       * | Mismatched name-title pairings         | LeaderTitleMatchError       |
+       * | Incorrect title expressions            | TitleError                  |
+       * ### 5. Security and compliance issues
+       * | Description                   | Code                   |
+       * | ----------------------------- | ---------------------- |
+       * | Violence or terrorism         | ViolenceTerrorismError |
+       * | Pornography                   | PornographyError       |
+       * | Prohibited content            | ProhibitedContentError |
+       * | Insults                       | InsultError            |
+       * | Disgraced celebrities         | DisgracedArtistError   |
+       * | Personal privacy violations   | PersonalPrivacyError   |
+       * | Reporting standard violations | ReportingStandardError |
+       * ### 6. Legal errors
+       * | Description                                | Code                 |
+       * | ------------------------------------------ | -------------------- |
+       * | Incorrect citation of laws and regulations | LegalReferenceError  |
+       * | Errors in legal provisions                 | LegalProvisionsError |
+       * ### 7. Other domain-specific errors
+       * | Description                         | Code                            |
+       * | ----------------------------------- | ------------------------------- |
+       * | Violations of advertising law       | AdvertisingProhibitedWordsError |
+       * | Financial information errors        | FinancialInformationError       |
+       * | Scientific or technical term errors | TechnicalTermError              |
+       * ### 8. Factuality check
+       * | Description                              | Code           |
+       * | ---------------------------------------- | -------------- |
+       * | Factuality verification – correct item   | CorrectFact    |
+       * | Factuality verification – incorrect item | WrongFactError |
+       * ### 9. Image audit
+       * | Description | Code       |
+       * | ----------- | ---------- |
+       * | Image audit | ImageAudit |
+       * ### 10. Custom word library
+       * | Description         | Code        |
+       * | ------------------- | ----------- |
+       * | Custom word library | WordLibrary |
+       * ### 11. Rule library audit
+       * | Description        | Code              |
+       * | ------------------ | ----------------- |
+       * | Rule library audit | WrongQuestionBook |
+       * ### 12. English proofreading
+       * | Description                       | Code                         |
+       * | --------------------------------- | ---------------------------- |
+       * | Terminology standardization       | TerminologyNormalisation     |
+       * | Verb tense accuracy               | VerbTenseAccuracy            |
+       * | Punctuation and quotation marks   | PunctuationAndQuotationMarks |
+       * | Spelling and language variants    | SpellingAndLanguageVariety   |
+       * | Sentence structure and clarity    | SentenceStructureAndClarity  |
+       * | Numeric and percentage formatting | NumericAndPercentageStyle    |
+       * | Other standardized phrasing       | Others                       |
        *
        * @param request SubmitSmartAuditRequest
        * @return SubmitSmartAuditResponse
@@ -3877,7 +4250,7 @@ namespace AiMiaoBi20230801
       Models::SubmitSmartAuditResponse submitSmartAudit(const Models::SubmitSmartAuditRequest &request);
 
       /**
-       * @summary 提交一键成片剪辑任务
+       * @summary Submits a one-click video editing task.
        *
        * @param tmpReq SubmitSmartClipTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3886,7 +4259,7 @@ namespace AiMiaoBi20230801
       Models::SubmitSmartClipTaskResponse submitSmartClipTaskWithOptions(const Models::SubmitSmartClipTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一键成片剪辑任务
+       * @summary Submits a one-click video editing task.
        *
        * @param request SubmitSmartClipTaskRequest
        * @return SubmitSmartClipTaskResponse
@@ -3894,7 +4267,7 @@ namespace AiMiaoBi20230801
       Models::SubmitSmartClipTaskResponse submitSmartClipTask(const Models::SubmitSmartClipTaskRequest &request);
 
       /**
-       * @summary 提交选题热点分析任务
+       * @summary Submits a hot spot analysis task for topic selection.
        *
        * @param tmpReq SubmitTopicSelectionPerspectiveAnalysisTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3903,7 +4276,7 @@ namespace AiMiaoBi20230801
       Models::SubmitTopicSelectionPerspectiveAnalysisTaskResponse submitTopicSelectionPerspectiveAnalysisTaskWithOptions(const Models::SubmitTopicSelectionPerspectiveAnalysisTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交选题热点分析任务
+       * @summary Submits a hot spot analysis task for topic selection.
        *
        * @param request SubmitTopicSelectionPerspectiveAnalysisTaskRequest
        * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse
@@ -3911,9 +4284,9 @@ namespace AiMiaoBi20230801
       Models::SubmitTopicSelectionPerspectiveAnalysisTaskResponse submitTopicSelectionPerspectiveAnalysisTask(const Models::SubmitTopicSelectionPerspectiveAnalysisTaskRequest &request);
 
       /**
-       * @summary 提交视频审校
+       * @summary Submits a video for review.
        *
-       * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+       * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration_Quanmiao Public Cloud iframe Customization Solution](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
        *
        * @param request SubmitVideoAuditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3922,9 +4295,9 @@ namespace AiMiaoBi20230801
       Models::SubmitVideoAuditResponse submitVideoAuditWithOptions(const Models::SubmitVideoAuditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频审校
+       * @summary Submits a video for review.
        *
-       * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+       * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration_Quanmiao Public Cloud iframe Customization Solution](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
        *
        * @param request SubmitVideoAuditRequest
        * @return SubmitVideoAuditResponse
@@ -3932,7 +4305,7 @@ namespace AiMiaoBi20230801
       Models::SubmitVideoAuditResponse submitVideoAudit(const Models::SubmitVideoAuditRequest &request);
 
       /**
-       * @summary 更新自定义文本
+       * @summary Updates custom text.
        *
        * @param request UpdateCustomTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3941,7 +4314,7 @@ namespace AiMiaoBi20230801
       Models::UpdateCustomTextResponse updateCustomTextWithOptions(const Models::UpdateCustomTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义文本
+       * @summary Updates custom text.
        *
        * @param request UpdateCustomTextRequest
        * @return UpdateCustomTextResponse
@@ -3949,7 +4322,7 @@ namespace AiMiaoBi20230801
       Models::UpdateCustomTextResponse updateCustomText(const Models::UpdateCustomTextRequest &request);
 
       /**
-       * @summary 数据集管理-更新
+       * @summary This operation updates a data source.
        *
        * @param tmpReq UpdateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3958,7 +4331,7 @@ namespace AiMiaoBi20230801
       Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据集管理-更新
+       * @summary This operation updates a data source.
        *
        * @param request UpdateDatasetRequest
        * @return UpdateDatasetResponse
@@ -3966,7 +4339,7 @@ namespace AiMiaoBi20230801
       Models::UpdateDatasetResponse updateDataset(const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary 修改数据集文档
+       * @summary Updates a document in a dataset.
        *
        * @param tmpReq UpdateDatasetDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3975,7 +4348,7 @@ namespace AiMiaoBi20230801
       Models::UpdateDatasetDocumentResponse updateDatasetDocumentWithOptions(const Models::UpdateDatasetDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改数据集文档
+       * @summary Updates a document in a dataset.
        *
        * @param request UpdateDatasetDocumentRequest
        * @return UpdateDatasetDocumentResponse
@@ -3983,7 +4356,7 @@ namespace AiMiaoBi20230801
       Models::UpdateDatasetDocumentResponse updateDatasetDocument(const Models::UpdateDatasetDocumentRequest &request);
 
       /**
-       * @summary 通用配置-更新
+       * @summary Updates general configurations.
        *
        * @param request UpdateGeneralConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3992,7 +4365,7 @@ namespace AiMiaoBi20230801
       Models::UpdateGeneralConfigResponse updateGeneralConfigWithOptions(const Models::UpdateGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通用配置-更新
+       * @summary Updates general configurations.
        *
        * @param request UpdateGeneralConfigRequest
        * @return UpdateGeneralConfigResponse
@@ -4000,7 +4373,7 @@ namespace AiMiaoBi20230801
       Models::UpdateGeneralConfigResponse updateGeneralConfig(const Models::UpdateGeneralConfigRequest &request);
 
       /**
-       * @summary 文档管理-更新。
+       * @summary Updates the history of an article created in AiMiaoBi.
        *
        * @param tmpReq UpdateGeneratedContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4009,7 +4382,7 @@ namespace AiMiaoBi20230801
       Models::UpdateGeneratedContentResponse updateGeneratedContentWithOptions(const Models::UpdateGeneratedContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文档管理-更新。
+       * @summary Updates the history of an article created in AiMiaoBi.
        *
        * @param request UpdateGeneratedContentRequest
        * @return UpdateGeneratedContentResponse
@@ -4017,7 +4390,7 @@ namespace AiMiaoBi20230801
       Models::UpdateGeneratedContentResponse updateGeneratedContent(const Models::UpdateGeneratedContentRequest &request);
 
       /**
-       * @summary 根据ID更新素材
+       * @summary Update a material in the Material Library.
        *
        * @param tmpReq UpdateMaterialDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4026,7 +4399,7 @@ namespace AiMiaoBi20230801
       Models::UpdateMaterialDocumentResponse updateMaterialDocumentWithOptions(const Models::UpdateMaterialDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据ID更新素材
+       * @summary Update a material in the Material Library.
        *
        * @param request UpdateMaterialDocumentRequest
        * @return UpdateMaterialDocumentResponse
@@ -4034,7 +4407,7 @@ namespace AiMiaoBi20230801
       Models::UpdateMaterialDocumentResponse updateMaterialDocument(const Models::UpdateMaterialDocumentRequest &request);
 
       /**
-       * @summary 妙读上传书籍
+       * @summary Use MiaoDu to upload books.
        *
        * @param tmpReq UploadBookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4043,7 +4416,7 @@ namespace AiMiaoBi20230801
       Models::UploadBookResponse uploadBookWithOptions(const Models::UploadBookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读上传书籍
+       * @summary Use MiaoDu to upload books.
        *
        * @param request UploadBookRequest
        * @return UploadBookResponse
@@ -4051,7 +4424,9 @@ namespace AiMiaoBi20230801
       Models::UploadBookResponse uploadBook(const Models::UploadBookRequest &request);
 
       /**
-       * @summary 妙读上传文档接口
+       * @summary Upload document API for Miaodu.
+       *
+       * @description Document upload is implemented through asynchronous invocation. After the invocation, you must use the getDocInfo API to periodically check the document status. Only when the document status becomes 1 can you proceed with subsequent operations such as generating a document summary, creating a full-text mind map, summarizing Q&A content, extracting keywords, or rewriting.
        *
        * @param tmpReq UploadDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4060,7 +4435,9 @@ namespace AiMiaoBi20230801
       Models::UploadDocResponse uploadDocWithOptions(const Models::UploadDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 妙读上传文档接口
+       * @summary Upload document API for Miaodu.
+       *
+       * @description Document upload is implemented through asynchronous invocation. After the invocation, you must use the getDocInfo API to periodically check the document status. Only when the document status becomes 1 can you proceed with subsequent operations such as generating a document summary, creating a full-text mind map, summarizing Q&A content, extracting keywords, or rewriting.
        *
        * @param request UploadDocRequest
        * @return UploadDocResponse
@@ -4068,7 +4445,7 @@ namespace AiMiaoBi20230801
       Models::UploadDocResponse uploadDoc(const Models::UploadDocRequest &request);
 
       /**
-       * @summary 校验企业VOC上传模板
+       * @summary Validates an enterprise VOC upload template.
        *
        * @param request ValidateUploadTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4077,7 +4454,7 @@ namespace AiMiaoBi20230801
       Models::ValidateUploadTemplateResponse validateUploadTemplateWithOptions(const Models::ValidateUploadTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验企业VOC上传模板
+       * @summary Validates an enterprise VOC upload template.
        *
        * @param request ValidateUploadTemplateRequest
        * @return ValidateUploadTemplateResponse

@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // Workspace unique identifier: AgentKey
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Commodity code
     shared_ptr<string> commodityCode_ {};
+    // Content
     shared_ptr<string> content_ {};
+    // Primary key ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Title
     shared_ptr<string> title_ {};
   };
 

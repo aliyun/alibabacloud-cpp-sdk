@@ -75,14 +75,16 @@ namespace Models
 
 
   protected:
-    // 扩展参数JSON字符串
+    // Extension parameters
     shared_ptr<string> ext_ {};
-    // OSS文件Key，与url参数二选一
+    // Unique file identity within the Miaobi system (choose either FileKey or URL)
     shared_ptr<string> fileKey_ {};
-    // 抽帧间隔时间（秒）
+    // Snapshot interval
     shared_ptr<double> snapshotInterval_ {};
-    // 视频URL地址，与fileKey参数二选一
+    // Video URL (choose either FileKey or URL)
     shared_ptr<string> url_ {};
+    // Workspace ID
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

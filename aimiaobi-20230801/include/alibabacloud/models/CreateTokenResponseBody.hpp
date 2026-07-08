@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The expiration time.
       shared_ptr<int64_t> expiredTime_ {};
+      // The access token.
       shared_ptr<string> token_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<CreateTokenResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success and \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

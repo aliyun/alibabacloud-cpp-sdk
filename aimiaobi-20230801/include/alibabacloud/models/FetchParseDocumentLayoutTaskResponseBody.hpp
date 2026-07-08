@@ -136,9 +136,13 @@ namespace Models
 
 
         protected:
+          // Content
           shared_ptr<string> content_ {};
+          // For headings, content with heading numbers removed
           shared_ptr<string> formatContent_ {};
+          // Index order of each element
           shared_ptr<float> index_ {};
+          // Type
           shared_ptr<string> type_ {};
         };
 
@@ -153,6 +157,7 @@ namespace Models
 
 
       protected:
+        // Returned element data
         shared_ptr<vector<LayoutResult::Elements>> elements_ {};
       };
 
@@ -175,7 +180,9 @@ namespace Models
 
 
     protected:
+      // Structured content after formatting
       shared_ptr<Data::LayoutResult> layoutResult_ {};
+      // Task status
       shared_ptr<string> taskStats_ {};
     };
 
@@ -226,12 +233,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<FetchParseDocumentLayoutTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
   };
 

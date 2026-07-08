@@ -67,9 +67,13 @@ namespace Models
 
   protected:
     shared_ptr<string> externalUserId_ {};
+    // The outline.
     shared_ptr<string> outline_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
     shared_ptr<string> workspaceId_ {};
   };
 

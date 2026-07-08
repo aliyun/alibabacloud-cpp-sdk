@@ -121,18 +121,42 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Custom viewpoint ID (used for custom viewpoint planning proposal scenarios).
     shared_ptr<string> customViewPointId_ {};
+    // List of custom viewpoint IDs (used for custom viewpoint planning proposal scenarios).
     shared_ptr<string> customViewPointIdsShrink_ {};
+    // Maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
+    // Token for the next page.
     shared_ptr<string> nextToken_ {};
+    // Filter planning proposal titles, corresponding to the viewpoint names of each planning proposal type.
     shared_ptr<string> titlesShrink_ {};
+    // Hot topic subject.
+    // 
     // This parameter is required.
     shared_ptr<string> topic_ {};
+    // Hot topic source.
+    // 
     // This parameter is required.
     shared_ptr<string> topicSource_ {};
+    // Hot spot event data version.
     shared_ptr<string> topicVersion_ {};
+    // Planning proposal type
+    // 
+    // - CustomViewPoints: Custom viewpoint
+    // 
+    // - HotViewPoints: Hot viewpoint
+    // 
+    // - TimedViewPoints: Time-sensitive viewpoint
+    // 
+    // - WebReviewPoints: User viewpoint
+    // 
+    // - FreshViewPoints: Fresh viewpoint
+    // 
     // This parameter is required.
     shared_ptr<string> viewPointType_ {};
   };

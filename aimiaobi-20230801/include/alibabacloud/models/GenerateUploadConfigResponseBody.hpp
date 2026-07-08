@@ -89,8 +89,21 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the file. You can use this value as a URL for AI Writing Assistant.
       shared_ptr<string> fileKey_ {};
+      // The credentials for uploading the file to OSS.
+      // 
+      // ```json
+      // {
+      //   "OSSAccessKeyId": "xxx",
+      //   "Signature": "xxx+xxx=",
+      //   "MaxSize": 31457280,
+      //   "key": "aimiaobi/dataset/2_2/xx.txt",
+      //   "policy": "xxx=="
+      // }
+      // ```
       shared_ptr<map<string, string>> formDatas_ {};
+      // The address for uploading the file to OSS. This is a dedicated OSS domain name for AI Writing Assistant. The value is fixed to \\`https\\://aimiaobi-service-prod.oss-cn-beijing.aliyuncs.com/\\`.
       shared_ptr<string> postUrl_ {};
     };
 
@@ -141,11 +154,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GenerateUploadConfigResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

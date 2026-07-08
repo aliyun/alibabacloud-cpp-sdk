@@ -86,8 +86,23 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The version number of the hot topic.
       shared_ptr<string> hotTopicVersion_ {};
+      // The status of the task.
+      // 
+      // - PENDING: The task is pending.
+      // 
+      // - RUNNING: The task is running.
+      // 
+      // - SUCCESSED: The task is successful.
+      // 
+      // - SUSPENDED: The task is paused.
+      // 
+      // - FAILED: The task failed.
+      // 
+      // - CANCELED: The task is canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -138,11 +153,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GetCustomHotTopicBroadcastJobResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error details.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: true and false.
     shared_ptr<bool> success_ {};
   };
 

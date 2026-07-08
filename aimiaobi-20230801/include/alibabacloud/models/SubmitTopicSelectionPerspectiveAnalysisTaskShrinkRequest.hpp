@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The list of documents to be analyzed. (Provide at least one of documents or topic)
     shared_ptr<string> documentsShrink_ {};
+    // The topic selection perspective tasks to be analyzed. By default, this parameter is empty, which means all tasks are analyzed. (TopicSummary: Topic event summary, HotViewPoints: Hot topic selection perspectives, TimedViewPoints: Timeliness topic selection perspectives, WebReviewPoints: Online review topic selection perspectives, FreshViewPoints: Novel topic selection perspectives)
     shared_ptr<string> perspectiveTypesShrink_ {};
+    // The name of the topic to be analyzed. (Provide at least one of documents or topic)
     shared_ptr<string> topic_ {};
   };
 

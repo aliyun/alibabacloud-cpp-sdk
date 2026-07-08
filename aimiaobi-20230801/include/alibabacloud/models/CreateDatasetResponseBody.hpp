@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<string> createUser_ {};
+      // The display name of the dataset.
       shared_ptr<string> datasetDescription_ {};
+      // The dataset ID.
       shared_ptr<int64_t> datasetId_ {};
+      // The dataset name.
       shared_ptr<string> datasetName_ {};
+      // The dataset type.
       shared_ptr<string> datasetType_ {};
+      // The dataset search switch.
       shared_ptr<int32_t> searchDatasetEnable_ {};
     };
 
@@ -179,11 +186,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<CreateDatasetResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

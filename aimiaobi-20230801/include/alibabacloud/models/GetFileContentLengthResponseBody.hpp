@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // File length
       shared_ptr<int64_t> wordNum_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetFileContentLengthResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. true means success. false means failure.
     shared_ptr<bool> success_ {};
   };
 

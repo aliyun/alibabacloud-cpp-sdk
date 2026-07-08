@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total token count
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -216,6 +219,7 @@ namespace Models
 
 
             protected:
+              // ID.
               shared_ptr<string> mediaId_ {};
             };
 
@@ -247,6 +251,7 @@ namespace Models
 
 
             protected:
+              // ID.
               shared_ptr<string> docUuid_ {};
             };
 
@@ -278,6 +283,7 @@ namespace Models
 
 
             protected:
+              // ID.
               shared_ptr<string> mediaId_ {};
             };
 
@@ -309,6 +315,7 @@ namespace Models
 
 
             protected:
+              // ID.
               shared_ptr<string> mediaId_ {};
             };
 
@@ -358,10 +365,15 @@ namespace Models
 
 
           protected:
+            // List of audio results.
             shared_ptr<vector<SearchResult::Audios>> audios_ {};
+            // List of image searches.
             shared_ptr<vector<SearchResult::Images>> images_ {};
+            // Multimodal search query.
             shared_ptr<string> multimodalSearchQuery_ {};
+            // List of text searches.
             shared_ptr<vector<SearchResult::Texts>> texts_ {};
+            // List of video results.
             shared_ptr<vector<SearchResult::Videos>> videos_ {};
           };
 
@@ -429,13 +441,33 @@ namespace Models
 
 
         protected:
+          // Indicates whether clarification is needed.
           shared_ptr<bool> clarifications_ {};
+          // Generated text.
           shared_ptr<string> content_ {};
+          // Indicates whether the current node has finished.
           shared_ptr<bool> generateFinished_ {};
+          // Node ID.
           shared_ptr<string> id_ {};
+          // Node code:
+          // 
+          // - generateStartStatement
+          // 
+          // - generateSearchQueries
+          // 
+          // - multiSearch
+          // 
+          // - readSearchResult
+          // 
+          // - reflection
+          // 
+          // - generate
           shared_ptr<string> nodeCode_ {};
+          // List of search queries.
           shared_ptr<vector<string>> searchQueries_ {};
+          // Current node search query.
           shared_ptr<string> searchQuery_ {};
+          // Search result.
           shared_ptr<vector<Messages::SearchResult>> searchResult_ {};
         };
 
@@ -564,10 +596,15 @@ namespace Models
 
 
             protected:
+              // First token time.
               shared_ptr<float> firstTokenTime_ {};
+              // Average number of tokens output per second.
               shared_ptr<float> outputAvgTime_ {};
+              // Search time cost.
               shared_ptr<float> searchTime_ {};
+              // Total time cost.
               shared_ptr<float> time_ {};
+              // Total number of tokens.
               shared_ptr<int64_t> totalTokens_ {};
             };
 
@@ -717,10 +754,15 @@ namespace Models
 
 
                   protected:
+                    // Start time of the segment.
                     shared_ptr<double> from_ {};
+                    // Confidence score. For reference only.
                     shared_ptr<double> score_ {};
+                    // Corresponding text, such as ASR transcription.
                     shared_ptr<string> text_ {};
+                    // End time.
                     shared_ptr<double> to_ {};
+                    // Type. Example: asr.
                     shared_ptr<string> type_ {};
                   };
 
@@ -846,16 +888,27 @@ namespace Models
 
 
                   protected:
+                    // Unique category identifier.
                     shared_ptr<string> categoryUuid_ {};
+                    // Custom unique document ID.
                     shared_ptr<string> docId_ {};
+                    // Internal unique document identifier.
                     shared_ptr<string> docUuid_ {};
+                    // Extension field 1.
                     shared_ptr<string> extend1_ {};
+                    // Extension field 2.
                     shared_ptr<string> extend2_ {};
+                    // Extension field 3.
                     shared_ptr<string> extend3_ {};
+                    // Search source name.
                     shared_ptr<string> searchSourceName_ {};
+                    // Summary.
                     shared_ptr<string> summary_ {};
+                    // Tags.
                     shared_ptr<vector<string>> tags_ {};
+                    // Title.
                     shared_ptr<string> title_ {};
+                    // Article URL.
                     shared_ptr<string> url_ {};
                   };
 
@@ -901,10 +954,15 @@ namespace Models
 
 
                 protected:
+                  // Article.
                   shared_ptr<SearchResult::Article> article_ {};
+                  // List of matching segments.
                   shared_ptr<vector<SearchResult::ClipInfos>> clipInfos_ {};
+                  // File URL.
                   shared_ptr<string> fileUrl_ {};
+                  // Unique multimodal data identifier.
                   shared_ptr<string> mediaId_ {};
+                  // Unique traceability identifier.
                   shared_ptr<string> traceabilityId_ {};
                 };
 
@@ -919,6 +977,7 @@ namespace Models
 
 
               protected:
+                // List of search results.
                 shared_ptr<vector<VideoSearchResult::SearchResult>> searchResult_ {};
               };
 
@@ -1075,11 +1134,17 @@ namespace Models
 
 
                     protected:
+                      // Custom unique document ID.
                       shared_ptr<string> docId_ {};
+                      // Internal unique document identifier.
                       shared_ptr<string> docUuid_ {};
+                      // Search source name.
                       shared_ptr<string> searchSourceName_ {};
+                      // Summary.
                       shared_ptr<string> summary_ {};
+                      // Title.
                       shared_ptr<string> title_ {};
+                      // Article URL.
                       shared_ptr<string> url_ {};
                     };
 
@@ -1116,9 +1181,13 @@ namespace Models
 
 
                   protected:
+                    // Article.
                     shared_ptr<MultimodalMediaList::Article> article_ {};
+                    // File URL.
                     shared_ptr<string> fileUrl_ {};
+                    // Unique multimodal data identifier.
                     shared_ptr<string> mediaId_ {};
+                    // Multimodal file type. Valid values: video, image.
                     shared_ptr<string> mediaType_ {};
                   };
 
@@ -1148,8 +1217,11 @@ namespace Models
 
 
                 protected:
+                  // End position.
                   shared_ptr<int32_t> end_ {};
+                  // List of multimodal data.
                   shared_ptr<vector<TextGenerateMultimodalMediaList::MultimodalMediaList>> multimodalMediaList_ {};
+                  // Start position.
                   shared_ptr<int32_t> start_ {};
                 };
 
@@ -1360,25 +1432,45 @@ namespace Models
 
 
                 protected:
+                  // Unique category identifier.
                   shared_ptr<string> categoryUuid_ {};
+                  // List of chunks.
                   shared_ptr<vector<string>> chunks_ {};
+                  // Body.
                   shared_ptr<string> content_ {};
+                  // Custom unique document ID.
                   shared_ptr<string> docId_ {};
+                  // Internal unique document identifier.
                   shared_ptr<string> docUuid_ {};
+                  // Extension field 1.
                   shared_ptr<string> extend1_ {};
+                  // Extension field 2.
                   shared_ptr<string> extend2_ {};
+                  // Extension field 3.
                   shared_ptr<string> extend3_ {};
+                  // Publication time. Format: yyyy-MM-dd HH:mm:ss.
                   shared_ptr<string> pubTime_ {};
+                  // Confidence score. For reference only.
                   shared_ptr<float> score_ {};
+                  // Search source unique identifier. Same as searchSource.datasetName.
                   shared_ptr<string> searchSource_ {};
+                  // Search source name.
                   shared_ptr<string> searchSourceName_ {};
+                  // Search source type. Same as searchSource.code.
                   shared_ptr<string> searchSourceType_ {};
+                  // Selection status.
                   shared_ptr<bool> select_ {};
+                  // Source.
                   shared_ptr<string> source_ {};
+                  // Summary.
                   shared_ptr<string> summary_ {};
+                  // Tag name.
                   shared_ptr<vector<string>> tags_ {};
+                  // Title.
                   shared_ptr<string> title_ {};
+                  // Traceability ID.
                   shared_ptr<int32_t> traceabilityId_ {};
+                  // Article URL.
                   shared_ptr<string> url_ {};
                 };
 
@@ -1495,10 +1587,15 @@ namespace Models
 
 
                     protected:
+                      // Start time.
                       shared_ptr<double> from_ {};
+                      // Confidence score. For reference only.
                       shared_ptr<double> score_ {};
+                      // Corresponding text, such as ASR transcription.
                       shared_ptr<string> text_ {};
+                      // End time.
                       shared_ptr<double> to_ {};
+                      // Type. Example: asr.
                       shared_ptr<string> type_ {};
                     };
 
@@ -1576,11 +1673,17 @@ namespace Models
 
 
                     protected:
+                      // Custom unique document ID.
                       shared_ptr<string> docId_ {};
+                      // Internal unique document identifier.
                       shared_ptr<string> docUuid_ {};
+                      // Search source name.
                       shared_ptr<string> searchSourceName_ {};
+                      // Summary.
                       shared_ptr<string> summary_ {};
+                      // Title.
                       shared_ptr<string> title_ {};
+                      // Article URL.
                       shared_ptr<string> url_ {};
                     };
 
@@ -1626,10 +1729,15 @@ namespace Models
 
 
                   protected:
+                    // Article.
                     shared_ptr<SearchResult::Article> article_ {};
+                    // List of matching segments.
                     shared_ptr<vector<SearchResult::ClipInfos>> clipInfos_ {};
+                    // File URL.
                     shared_ptr<string> fileUrl_ {};
+                    // Unique multimodal data identifier.
                     shared_ptr<string> mediaId_ {};
+                    // Multimodal file type. Valid values: video, image.
                     shared_ptr<string> mediaType_ {};
                   };
 
@@ -1652,7 +1760,9 @@ namespace Models
 
 
                 protected:
+                  // List of search results.
                   shared_ptr<vector<MultimodalSearchResultList::SearchResult>> searchResult_ {};
+                  // Date string.
                   shared_ptr<string> timelineDateStr_ {};
                 };
 
@@ -1754,9 +1864,13 @@ namespace Models
 
 
                     protected:
+                      // Media asset type.
                       shared_ptr<string> mediaType_ {};
+                      // Number, starting from 1.
                       shared_ptr<int32_t> x_ {};
+                      // Start position.
                       shared_ptr<int32_t> y_ {};
+                      // End position.
                       shared_ptr<int32_t> z_ {};
                     };
 
@@ -1807,8 +1921,11 @@ namespace Models
 
 
                     protected:
+                      // Number, starting from 1.
                       shared_ptr<int32_t> x_ {};
+                      // Start position.
                       shared_ptr<int32_t> y_ {};
+                      // End position.
                       shared_ptr<int32_t> z_ {};
                     };
 
@@ -1833,7 +1950,9 @@ namespace Models
 
 
                   protected:
+                    // Coordinates of the generated document block.
                     shared_ptr<Coordinates::GenerateCoordinate> generateCoordinate_ {};
+                    // Coordinates of the reference article.
                     shared_ptr<Coordinates::NewsCoordinate> newsCoordinate_ {};
                   };
 
@@ -1856,7 +1975,9 @@ namespace Models
 
 
                 protected:
+                  // Traceability location.
                   shared_ptr<vector<GenerateTraceability::Coordinates>> coordinates_ {};
+                  // Relevance score.
                   shared_ptr<double> duplicate_ {};
                 };
 
@@ -1921,12 +2042,19 @@ namespace Models
 
 
               protected:
+                // Indicates whether the current agent has finished generating.
                 shared_ptr<bool> generateFinished_ {};
+                // Traceability information.
                 shared_ptr<TimelineResult::GenerateTraceability> generateTraceability_ {};
+                // List of multimodal search results.
                 shared_ptr<vector<TimelineResult::MultimodalSearchResultList>> multimodalSearchResultList_ {};
+                // Deep thinking content.
                 shared_ptr<string> reasonTextGenerate_ {};
+                // List of reference articles.
                 shared_ptr<vector<TimelineResult::ReferenceList>> referenceList_ {};
+                // Text generation result.
                 shared_ptr<string> textGenerate_ {};
+                // List of accompanying images.
                 shared_ptr<vector<TimelineResult::TextGenerateMultimodalMediaList>> textGenerateMultimodalMediaList_ {};
               };
 
@@ -2123,21 +2251,37 @@ namespace Models
 
 
                 protected:
+                  // Unique category identifier.
                   shared_ptr<string> categoryUuid_ {};
+                  // Body.
                   shared_ptr<string> content_ {};
+                  // Unique document business identifier.
                   shared_ptr<string> docId_ {};
+                  // System internal unique document identifier.
                   shared_ptr<string> docUuid_ {};
+                  // Extension field 1.
                   shared_ptr<string> extend1_ {};
+                  // Extension field 2.
                   shared_ptr<string> extend2_ {};
+                  // Extension field 3.
                   shared_ptr<string> extend3_ {};
+                  // Publication time.
                   shared_ptr<string> pubTime_ {};
+                  // Data source unique identifier.
                   shared_ptr<string> searchSource_ {};
+                  // Data source description.
                   shared_ptr<string> searchSourceName_ {};
+                  // Data source type.
                   shared_ptr<string> searchSourceType_ {};
+                  // Summary.
                   shared_ptr<string> summary_ {};
+                  // Tag name.
                   shared_ptr<vector<string>> tags_ {};
+                  // Title.
                   shared_ptr<string> title_ {};
+                  // Unique traceability identifier.
                   shared_ptr<string> traceabilityId_ {};
+                  // URL.
                   shared_ptr<string> url_ {};
                 };
 
@@ -2174,9 +2318,13 @@ namespace Models
 
 
               protected:
+                // Current page.
                 shared_ptr<int32_t> current_ {};
+                // The structure of the search result.
                 shared_ptr<vector<TextSearchResult::SearchResult>> searchResult_ {};
+                // Current page size.
                 shared_ptr<int32_t> size_ {};
+                // Total count.
                 shared_ptr<int32_t> total_ {};
               };
 
@@ -2335,11 +2483,17 @@ namespace Models
 
 
                     protected:
+                      // Custom unique document ID.
                       shared_ptr<string> docId_ {};
+                      // Internal unique document identifier.
                       shared_ptr<string> docUuid_ {};
+                      // Search source name.
                       shared_ptr<string> searchSourceName_ {};
+                      // Summary.
                       shared_ptr<string> summary_ {};
+                      // Title.
                       shared_ptr<string> title_ {};
+                      // Article URL.
                       shared_ptr<string> url_ {};
                     };
 
@@ -2376,9 +2530,13 @@ namespace Models
 
 
                   protected:
+                    // Article.
                     shared_ptr<MultimodalMediaList::Article> article_ {};
+                    // File URL.
                     shared_ptr<string> fileUrl_ {};
+                    // Media asset ID.
                     shared_ptr<string> mediaId_ {};
+                    // Multimodal file type. Valid values: video, image.
                     shared_ptr<string> mediaType_ {};
                   };
 
@@ -2408,8 +2566,11 @@ namespace Models
 
 
                 protected:
+                  // End position.
                   shared_ptr<int32_t> end_ {};
+                  // List of multimodal data.
                   shared_ptr<vector<TextGenerateMultimodalMediaList::MultimodalMediaList>> multimodalMediaList_ {};
+                  // Start position.
                   shared_ptr<int32_t> start_ {};
                 };
 
@@ -2620,25 +2781,45 @@ namespace Models
 
 
                 protected:
+                  // Category unique identifier
                   shared_ptr<string> categoryUuid_ {};
+                  // List of chunks.
                   shared_ptr<vector<string>> chunks_ {};
+                  // Body.
                   shared_ptr<string> content_ {};
+                  // Custom unique document ID.
                   shared_ptr<string> docId_ {};
+                  // Internal unique document identifier.
                   shared_ptr<string> docUuid_ {};
+                  // Extension field 1.
                   shared_ptr<string> extend1_ {};
+                  // Extension field 2.
                   shared_ptr<string> extend2_ {};
+                  // Extension field 3.
                   shared_ptr<string> extend3_ {};
+                  // Publication time. Format: yyyy-MM-dd HH:mm:ss.
                   shared_ptr<string> pubTime_ {};
+                  // Confidence score. For reference only.
                   shared_ptr<float> score_ {};
+                  // Search source unique identifier. Same as searchSource.datasetName.
                   shared_ptr<string> searchSource_ {};
+                  // Search source name.
                   shared_ptr<string> searchSourceName_ {};
+                  // Search source type. Same as searchSource.code.
                   shared_ptr<string> searchSourceType_ {};
+                  // Indicates whether it is a reference.
                   shared_ptr<bool> select_ {};
+                  // Source.
                   shared_ptr<string> source_ {};
+                  // Summary.
                   shared_ptr<string> summary_ {};
+                  // Tag name.
                   shared_ptr<vector<string>> tags_ {};
+                  // Title.
                   shared_ptr<string> title_ {};
+                  // Traceability ID.
                   shared_ptr<int32_t> traceabilityId_ {};
+                  // Article URL.
                   shared_ptr<string> url_ {};
                 };
 
@@ -2765,10 +2946,15 @@ namespace Models
 
 
                     protected:
+                      // Start time.
                       shared_ptr<double> from_ {};
+                      // Confidence score. For reference only.
                       shared_ptr<double> score_ {};
+                      // Corresponding text, such as ASR transcription.
                       shared_ptr<string> text_ {};
+                      // End time.
                       shared_ptr<double> to_ {};
+                      // Type. Example: asr.
                       shared_ptr<string> type_ {};
                     };
 
@@ -2846,11 +3032,17 @@ namespace Models
 
 
                     protected:
+                      // Custom unique document ID.
                       shared_ptr<string> docId_ {};
+                      // Internal unique document identifier.
                       shared_ptr<string> docUuid_ {};
+                      // Search source name.
                       shared_ptr<string> searchSourceName_ {};
+                      // Summary.
                       shared_ptr<string> summary_ {};
+                      // Title.
                       shared_ptr<string> title_ {};
+                      // Article URL.
                       shared_ptr<string> url_ {};
                     };
 
@@ -2896,10 +3088,15 @@ namespace Models
 
 
                   protected:
+                    // Article.
                     shared_ptr<SearchResult::Article> article_ {};
+                    // List of matching segments.
                     shared_ptr<vector<SearchResult::ClipInfos>> clipInfos_ {};
+                    // File URL.
                     shared_ptr<string> fileUrl_ {};
+                    // Media asset ID.
                     shared_ptr<string> mediaId_ {};
+                    // Multimodal file type. Valid values: video, image.
                     shared_ptr<string> mediaType_ {};
                   };
 
@@ -2958,12 +3155,19 @@ namespace Models
 
 
                 protected:
+                  // Current page.
                   shared_ptr<int32_t> current_ {};
+                  // Search query.
                   shared_ptr<string> searchQuery_ {};
+                  // List of search results.
                   shared_ptr<vector<MultimodalSearchResultList::SearchResult>> searchResult_ {};
+                  // Search type.
                   shared_ptr<string> searchType_ {};
+                  // Items per page.
                   shared_ptr<int32_t> size_ {};
+                  // Timeline date.
                   shared_ptr<string> timelineDateStr_ {};
+                  // Total items.
                   shared_ptr<int32_t> total_ {};
                 };
 
@@ -3065,9 +3269,13 @@ namespace Models
 
 
                     protected:
+                      // Media asset type.
                       shared_ptr<string> mediaType_ {};
+                      // Number, starting from 1.
                       shared_ptr<int32_t> x_ {};
+                      // Start position.
                       shared_ptr<int32_t> y_ {};
+                      // End position.
                       shared_ptr<int32_t> z_ {};
                     };
 
@@ -3118,8 +3326,11 @@ namespace Models
 
 
                     protected:
+                      // Number, starting from 1.
                       shared_ptr<int32_t> x_ {};
+                      // Start position.
                       shared_ptr<int32_t> y_ {};
+                      // End position.
                       shared_ptr<int32_t> z_ {};
                     };
 
@@ -3144,7 +3355,9 @@ namespace Models
 
 
                   protected:
+                    // Coordinates of the generated document block.
                     shared_ptr<Coordinates::GenerateCoordinate> generateCoordinate_ {};
+                    // Coordinates of the reference document block.
                     shared_ptr<Coordinates::NewsCoordinate> newsCoordinate_ {};
                   };
 
@@ -3167,7 +3380,9 @@ namespace Models
 
 
                 protected:
+                  // List of traceability locations.
                   shared_ptr<vector<GenerateTraceability::Coordinates>> coordinates_ {};
+                  // Overall traceability relevance.
                   shared_ptr<double> duplicate_ {};
                 };
 
@@ -3239,13 +3454,25 @@ namespace Models
 
 
               protected:
+                // Indicates whether the current agent has finished generating.
                 shared_ptr<bool> generateFinished_ {};
+                // Detailedness of the response:
+                // 
+                // - concise: Concise (default)
+                // 
+                // - enhance: Enhanced
                 shared_ptr<string> generateLevel_ {};
+                // Traceability information.
                 shared_ptr<TextGenerateResult::GenerateTraceability> generateTraceability_ {};
+                // List of multimodal search results.
                 shared_ptr<vector<TextGenerateResult::MultimodalSearchResultList>> multimodalSearchResultList_ {};
+                // Deep thinking content.
                 shared_ptr<string> reasonTextGenerate_ {};
+                // List of reference articles.
                 shared_ptr<vector<TextGenerateResult::ReferenceList>> referenceList_ {};
+                // Text generation result.
                 shared_ptr<string> textGenerate_ {};
+                // List of accompanying images.
                 shared_ptr<vector<TextGenerateResult::TextGenerateMultimodalMediaList>> textGenerateMultimodalMediaList_ {};
               };
 
@@ -3373,8 +3600,11 @@ namespace Models
 
 
                     protected:
+                      // List of causes.
                       shared_ptr<vector<string>> causeList_ {};
+                      // List of processes.
                       shared_ptr<vector<string>> processList_ {};
+                      // List of results.
                       shared_ptr<vector<string>> resultList_ {};
                     };
 
@@ -3411,9 +3641,13 @@ namespace Models
 
 
                   protected:
+                    // Event.
                     shared_ptr<NewsElementList::Event> event_ {};
+                    // Location.
                     shared_ptr<string> location_ {};
+                    // People.
                     shared_ptr<string> people_ {};
+                    // Time.
                     shared_ptr<string> time_ {};
                   };
 
@@ -3595,22 +3829,39 @@ namespace Models
 
 
                   protected:
+                    // Unique category identifier.
                     shared_ptr<string> categoryUuid_ {};
+                    // Body.
                     shared_ptr<string> content_ {};
+                    // Custom unique document ID.
                     shared_ptr<string> docId_ {};
+                    // Internal unique document identifier.
                     shared_ptr<string> docUuid_ {};
+                    // Extension field 1.
                     shared_ptr<string> extend1_ {};
+                    // Extension field 2.
                     shared_ptr<string> extend2_ {};
+                    // Extension field 3.
                     shared_ptr<string> extend3_ {};
+                    // Publication time. Format: yyyy-MM-dd HH:mm:ss.
                     shared_ptr<string> pubTime_ {};
+                    // Confidence score. For reference only.
                     shared_ptr<float> score_ {};
+                    // Search source unique identifier. Same as searchSource.datasetName.
                     shared_ptr<string> searchSource_ {};
+                    // Search source name.
                     shared_ptr<string> searchSourceName_ {};
+                    // Search source type. Same as searchSource.code.
                     shared_ptr<string> searchSourceType_ {};
+                    // Indicates whether it is a reference.
                     shared_ptr<bool> select_ {};
+                    // Summary.
                     shared_ptr<string> summary_ {};
+                    // Tag name.
                     shared_ptr<vector<string>> tags_ {};
+                    // Title.
                     shared_ptr<string> title_ {};
+                    // Article URL.
                     shared_ptr<string> url_ {};
                   };
 
@@ -3642,8 +3893,11 @@ namespace Models
 
 
                 protected:
+                  // Article.
                   shared_ptr<NewsElementArticleList::Article> article_ {};
+                  // List of news items.
                   shared_ptr<vector<NewsElementArticleList::NewsElementList>> newsElementList_ {};
+                  // Generated text content.
                   shared_ptr<string> textGenerate_ {};
                 };
 
@@ -3673,8 +3927,11 @@ namespace Models
 
 
               protected:
+                // Indicates whether the current agent has finished generating.
                 shared_ptr<bool> generateFinished_ {};
+                // List of news extractions.
                 shared_ptr<vector<NewsElementResult::NewsElementArticleList>> newsElementArticleList_ {};
+                // Generated text content.
                 shared_ptr<string> textGenerate_ {};
               };
 
@@ -3844,16 +4101,27 @@ namespace Models
 
 
                   protected:
+                    // Unique category identifier.
                     shared_ptr<string> categoryUuid_ {};
+                    // Custom unique document ID.
                     shared_ptr<string> docId_ {};
+                    // Internal unique document identifier.
                     shared_ptr<string> docUuid_ {};
+                    // Extension field 1.
                     shared_ptr<string> extend1_ {};
+                    // Extension field 2.
                     shared_ptr<string> extend2_ {};
+                    // Extension field 3.
                     shared_ptr<string> extend3_ {};
+                    // Search source name.
                     shared_ptr<string> searchSourceName_ {};
+                    // Article summary.
                     shared_ptr<string> summary_ {};
+                    // Tag name.
                     shared_ptr<vector<string>> tags_ {};
+                    // Title.
                     shared_ptr<string> title_ {};
+                    // Article URL.
                     shared_ptr<string> url_ {};
                   };
 
@@ -3890,9 +4158,13 @@ namespace Models
 
 
                 protected:
+                  // Article.
                   shared_ptr<SearchResult::Article> article_ {};
+                  // File URL.
                   shared_ptr<string> fileUrl_ {};
+                  // Media data unique identifier.
                   shared_ptr<string> mediaId_ {};
+                  // Unique traceability identifier.
                   shared_ptr<string> traceabilityId_ {};
                 };
 
@@ -3907,6 +4179,7 @@ namespace Models
 
 
               protected:
+                // List of search results.
                 shared_ptr<vector<ImageSearchResult::SearchResult>> searchResult_ {};
               };
 
@@ -4113,10 +4386,15 @@ namespace Models
 
 
                       protected:
+                        // Custom unique document ID.
                         shared_ptr<string> docId_ {};
+                        // Internal unique document identifier.
                         shared_ptr<string> docUuid_ {};
+                        // Search source name.
                         shared_ptr<string> searchSourceName_ {};
+                        // Title.
                         shared_ptr<string> title_ {};
+                        // Article URL.
                         shared_ptr<string> url_ {};
                       };
 
@@ -4153,9 +4431,13 @@ namespace Models
 
 
                     protected:
+                      // Article.
                       shared_ptr<MultimodalMediaList::Article> article_ {};
+                      // File URL.
                       shared_ptr<string> fileUrl_ {};
+                      // Unique multimodal data identifier.
                       shared_ptr<string> mediaId_ {};
+                      // Multimodal file type. Valid values: video, image.
                       shared_ptr<string> mediaType_ {};
                     };
 
@@ -4192,9 +4474,13 @@ namespace Models
 
 
                   protected:
+                    // Internal unique document identifier.
                     shared_ptr<string> docUuid_ {};
+                    // End position.
                     shared_ptr<int32_t> end_ {};
+                    // List of multimodal data.
                     shared_ptr<vector<TextGenerateMultimodalMediaList::MultimodalMediaList>> multimodalMediaList_ {};
+                    // Start position.
                     shared_ptr<int32_t> start_ {};
                   };
 
@@ -4245,8 +4531,15 @@ namespace Models
 
 
                   protected:
+                    // File URL.
                     shared_ptr<string> fileUrl_ {};
+                    // Unique multimodal data identifier.
                     shared_ptr<string> mediaId_ {};
+                    // Multimodal file type. Valid values:
+                    // 
+                    // - video: video
+                    // 
+                    // - image: image
                     shared_ptr<string> mediaType_ {};
                   };
 
@@ -4419,27 +4712,49 @@ namespace Models
 
 
                 protected:
+                  // Unique category identifier.
                   shared_ptr<string> categoryUuid_ {};
+                  // List of chunks.
                   shared_ptr<vector<string>> chunks_ {};
+                  // Body.
                   shared_ptr<string> content_ {};
+                  // Custom unique document ID.
                   shared_ptr<string> docId_ {};
+                  // Internal unique document identifier.
                   shared_ptr<string> docUuid_ {};
+                  // Content answered with original sentences.
                   shared_ptr<string> excerpt_ {};
+                  // Extension field 1.
                   shared_ptr<string> extend1_ {};
+                  // Extension field 2.
                   shared_ptr<string> extend2_ {};
+                  // Extension field 3.
                   shared_ptr<string> extend3_ {};
+                  // List of multimodal information items.
                   shared_ptr<vector<SearchResult::MultimodalMedias>> multimodalMedias_ {};
+                  // Publication time. Format: yyyy-MM-dd HH:mm:ss.
                   shared_ptr<string> pubTime_ {};
+                  // Confidence score. For reference only.
                   shared_ptr<float> score_ {};
+                  // Search source unique identifier. Same as searchSource.datasetName.
                   shared_ptr<string> searchSource_ {};
+                  // Search source name.
                   shared_ptr<string> searchSourceName_ {};
+                  // Search source type. Same as searchSource.code.
                   shared_ptr<string> searchSourceType_ {};
+                  // Indicates whether it is a reference.
                   shared_ptr<bool> select_ {};
+                  // Summary.
                   shared_ptr<string> summary_ {};
+                  // Tag name.
                   shared_ptr<vector<string>> tags_ {};
+                  // List of accompanying images.
                   shared_ptr<vector<SearchResult::TextGenerateMultimodalMediaList>> textGenerateMultimodalMediaList_ {};
+                  // Title.
                   shared_ptr<string> title_ {};
+                  // Traceability ID.
                   shared_ptr<int32_t> traceabilityId_ {};
+                  // Article URL.
                   shared_ptr<string> url_ {};
                 };
 
@@ -4483,10 +4798,19 @@ namespace Models
 
 
               protected:
+                // Indicates whether the current agent has finished generating.
                 shared_ptr<bool> generateFinished_ {};
+                // Detailedness of the response:
+                // 
+                // - concise: Concise (default)
+                // 
+                // - enhance: Enhanced
                 shared_ptr<string> generateLevel_ {};
+                // Deep thinking content.
                 shared_ptr<string> reasonTextGenerate_ {};
+                // List of search results.
                 shared_ptr<vector<ExcerptResult::SearchResult>> searchResult_ {};
+                // Generated text.
                 shared_ptr<string> textGenerate_ {};
               };
 
@@ -4655,10 +4979,15 @@ namespace Models
 
 
                       protected:
+                        // Start time
                         shared_ptr<double> from_ {};
+                        // Reference confidence level
                         shared_ptr<double> score_ {};
+                        // Corresponding text, such as ASR transcription results.
                         shared_ptr<string> text_ {};
+                        // End time
                         shared_ptr<double> to_ {};
+                        // Text type, such as ASR.
                         shared_ptr<string> type_ {};
                       };
 
@@ -4803,18 +5132,31 @@ namespace Models
 
 
                       protected:
+                        // Category
                         shared_ptr<string> categoryUuid_ {};
+                        // Document: a custom unique ID
                         shared_ptr<string> docId_ {};
+                        // The unique identifier of the internal document.
                         shared_ptr<string> docUuid_ {};
+                        // Extension field 1
                         shared_ptr<string> extend1_ {};
+                        // Extension field 2
                         shared_ptr<string> extend2_ {};
+                        // Extension field 3
                         shared_ptr<string> extend3_ {};
+                        // The unique identifier of the dataset.
                         shared_ptr<string> searchSource_ {};
+                        // The name of the search source.
                         shared_ptr<string> searchSourceName_ {};
+                        // Dataset type
                         shared_ptr<string> searchSourceType_ {};
+                        // Summary
                         shared_ptr<string> summary_ {};
+                        // Tags
                         shared_ptr<vector<string>> tags_ {};
+                        // Title
                         shared_ptr<string> title_ {};
+                        // The URL of the article.
                         shared_ptr<string> url_ {};
                       };
 
@@ -4853,9 +5195,13 @@ namespace Models
 
 
                     protected:
+                      // Article
                       shared_ptr<SearchResult::Article> article_ {};
+                      // A list of matching information.
                       shared_ptr<vector<SearchResult::ClipInfos>> clipInfos_ {};
+                      // The URL of the file.
                       shared_ptr<string> fileUrl_ {};
+                      // Unique identifier for the multimodal data
                       shared_ptr<string> mediaId_ {};
                     };
 
@@ -4892,9 +5238,13 @@ namespace Models
 
 
                   protected:
+                    // The current page number.
                     shared_ptr<int32_t> current_ {};
+                    // Search results
                     shared_ptr<vector<VideoSearchResult::SearchResult>> searchResult_ {};
+                    // Number of records per page
                     shared_ptr<int32_t> size_ {};
+                    // Total records
                     shared_ptr<int32_t> total_ {};
                   };
 
@@ -5017,8 +5367,15 @@ namespace Models
 
 
                       protected:
+                        // The URL of the file.
                         shared_ptr<string> fileUrl_ {};
+                        // The unique ID of the multimodal data.
                         shared_ptr<string> mediaId_ {};
+                        // Multimodal data file type. Valid values:
+                        // 
+                        // - video: Video.
+                        // 
+                        // - image: Image.
                         shared_ptr<string> mediaType_ {};
                       };
 
@@ -5136,20 +5493,35 @@ namespace Models
 
 
                     protected:
+                      // Category unique identifier
                       shared_ptr<string> categoryUuid_ {};
+                      // The custom unique ID of the document.
                       shared_ptr<string> docId_ {};
+                      // Unique identifier for internal documents.
                       shared_ptr<string> docUuid_ {};
+                      // Extension field 1
                       shared_ptr<string> extend1_ {};
+                      // Extension field 2
                       shared_ptr<string> extend2_ {};
+                      // Extension field 3
                       shared_ptr<string> extend3_ {};
+                      // A list of multimodal information.
                       shared_ptr<vector<SearchResult::MultimodalMedias>> multimodalMedias_ {};
+                      // Publication time, in the format yyyy-MM-dd HH:mm:ss
                       shared_ptr<string> pubTime_ {};
+                      // The unique identifier of the search source. This is the same as searchSource.datasetName.
                       shared_ptr<string> searchSource_ {};
+                      // The name of the search source.
                       shared_ptr<string> searchSourceName_ {};
+                      // Search source type, same as searchSource.code.
                       shared_ptr<string> searchSourceType_ {};
+                      // Summary
                       shared_ptr<string> summary_ {};
+                      // Tags
                       shared_ptr<vector<string>> tags_ {};
+                      // Title
                       shared_ptr<string> title_ {};
+                      // Article URL
                       shared_ptr<string> url_ {};
                     };
 
@@ -5186,9 +5558,13 @@ namespace Models
 
 
                   protected:
+                    // Current page number
                     shared_ptr<int32_t> current_ {};
+                    // Search results list
                     shared_ptr<vector<TextSearchResult::SearchResult>> searchResult_ {};
+                    // Number of records per page
                     shared_ptr<int32_t> size_ {};
+                    // The total number of entries.
                     shared_ptr<int32_t> total_ {};
                   };
 
@@ -5381,18 +5757,31 @@ namespace Models
 
 
                       protected:
+                        // Unique category identifier.
                         shared_ptr<string> categoryUuid_ {};
+                        // Custom unique document ID.
                         shared_ptr<string> docId_ {};
+                        // Internal unique document identifier.
                         shared_ptr<string> docUuid_ {};
+                        // Extension field 1.
                         shared_ptr<string> extend1_ {};
+                        // Extension field 2.
                         shared_ptr<string> extend2_ {};
+                        // Extension field 3.
                         shared_ptr<string> extend3_ {};
+                        // Dataset unique identifier.
                         shared_ptr<string> searchSource_ {};
+                        // Search source name.
                         shared_ptr<string> searchSourceName_ {};
+                        // Dataset type.
                         shared_ptr<string> searchSourceType_ {};
+                        // Summary.
                         shared_ptr<string> summary_ {};
+                        // Tags.
                         shared_ptr<vector<string>> tags_ {};
+                        // Title.
                         shared_ptr<string> title_ {};
+                        // Article URL.
                         shared_ptr<string> url_ {};
                       };
 
@@ -5422,8 +5811,11 @@ namespace Models
 
 
                     protected:
+                      // Article.
                       shared_ptr<SearchResult::Article> article_ {};
+                      // File URL.
                       shared_ptr<string> fileUrl_ {};
+                      // Unique multimodal data identifier.
                       shared_ptr<string> mediaId_ {};
                     };
 
@@ -5460,9 +5852,13 @@ namespace Models
 
 
                   protected:
+                    // Current page number.
                     shared_ptr<int32_t> current_ {};
+                    // List of search results.
                     shared_ptr<vector<ImageSearchResult::SearchResult>> searchResult_ {};
+                    // Records per page.
                     shared_ptr<int32_t> size_ {};
+                    // Total records.
                     shared_ptr<int32_t> total_ {};
                   };
 
@@ -5581,10 +5977,15 @@ namespace Models
 
 
                       protected:
+                        // Start position
                         shared_ptr<double> from_ {};
+                        // The threshold.
                         shared_ptr<double> score_ {};
+                        // Text content
                         shared_ptr<string> text_ {};
+                        // The end position.
                         shared_ptr<double> to_ {};
+                        // Type
                         shared_ptr<string> type_ {};
                       };
 
@@ -5729,18 +6130,31 @@ namespace Models
 
 
                       protected:
+                        // Category identity
                         shared_ptr<string> categoryUuid_ {};
+                        // docId
                         shared_ptr<string> docId_ {};
+                        // docUuid
                         shared_ptr<string> docUuid_ {};
+                        // Extension field 1
                         shared_ptr<string> extend1_ {};
+                        // Extension field 2
                         shared_ptr<string> extend2_ {};
+                        // Extension field 3
                         shared_ptr<string> extend3_ {};
+                        // Unique identifier of the dataset
                         shared_ptr<string> searchSource_ {};
+                        // Search source
                         shared_ptr<string> searchSourceName_ {};
+                        // The type of the dataset.
                         shared_ptr<string> searchSourceType_ {};
+                        // Summary
                         shared_ptr<string> summary_ {};
+                        // Tag name
                         shared_ptr<vector<string>> tags_ {};
+                        // Title
                         shared_ptr<string> title_ {};
+                        // The URL of the article.
                         shared_ptr<string> url_ {};
                       };
 
@@ -5779,9 +6193,13 @@ namespace Models
 
 
                     protected:
+                      // Corresponding document
                       shared_ptr<SearchResult::Article> article_ {};
+                      // List of matching information
                       shared_ptr<vector<SearchResult::ClipInfos>> clipInfos_ {};
+                      // URL
                       shared_ptr<string> fileUrl_ {};
+                      // The ID.
                       shared_ptr<string> mediaId_ {};
                     };
 
@@ -5818,9 +6236,13 @@ namespace Models
 
 
                   protected:
+                    // Current page
                     shared_ptr<int32_t> current_ {};
+                    // Audio search results
                     shared_ptr<AudioSearchResult::SearchResult> searchResult_ {};
+                    // Size
                     shared_ptr<int32_t> size_ {};
+                    // Total count
                     shared_ptr<int32_t> total_ {};
                   };
 
@@ -5870,10 +6292,15 @@ namespace Models
 
 
                 protected:
+                  // Audio result
                   shared_ptr<ClusterTopics::AudioSearchResult> audioSearchResult_ {};
+                  // Image search result.
                   shared_ptr<ClusterTopics::ImageSearchResult> imageSearchResult_ {};
+                  // Document search results
                   shared_ptr<ClusterTopics::TextSearchResult> textSearchResult_ {};
+                  // Topic.
                   shared_ptr<string> topic_ {};
+                  // Video search results
                   shared_ptr<ClusterTopics::VideoSearchResult> videoSearchResult_ {};
                 };
 
@@ -5903,8 +6330,11 @@ namespace Models
 
 
               protected:
+                // List of clusters.
                 shared_ptr<vector<ClusterTopicResult::ClusterTopics>> clusterTopics_ {};
+                // Indicates whether the current agent has finished generating.
                 shared_ptr<bool> generateFinished_ {};
+                // Text result.
                 shared_ptr<string> textGenerate_ {};
               };
 
@@ -6019,10 +6449,15 @@ namespace Models
 
 
                   protected:
+                    // Start position.
                     shared_ptr<double> from_ {};
+                    // Threshold.
                     shared_ptr<double> score_ {};
+                    // Text content.
                     shared_ptr<string> text_ {};
+                    // End position.
                     shared_ptr<double> to_ {};
+                    // Text type.
                     shared_ptr<string> type_ {};
                   };
 
@@ -6148,16 +6583,27 @@ namespace Models
 
 
                   protected:
+                    // Unique category identifier.
                     shared_ptr<string> categoryUuid_ {};
+                    // ID.
                     shared_ptr<string> docId_ {};
+                    // UUID.
                     shared_ptr<string> docUuid_ {};
+                    // Extension field 1.
                     shared_ptr<string> extend1_ {};
+                    // Extension field 2.
                     shared_ptr<string> extend2_ {};
+                    // Extension field 3.
                     shared_ptr<string> extend3_ {};
+                    // Search source.
                     shared_ptr<string> searchSourceName_ {};
+                    // Summary.
                     shared_ptr<string> summary_ {};
+                    // List of tags.
                     shared_ptr<vector<string>> tags_ {};
+                    // Title.
                     shared_ptr<string> title_ {};
+                    // URL.
                     shared_ptr<string> url_ {};
                   };
 
@@ -6203,10 +6649,15 @@ namespace Models
 
 
                 protected:
+                  // Associated document.
                   shared_ptr<SearchResult::Article> article_ {};
+                  // List of matching segments.
                   shared_ptr<vector<SearchResult::ClipInfos>> clipInfos_ {};
+                  // URL.
                   shared_ptr<string> fileUrl_ {};
+                  // ID.
                   shared_ptr<string> mediaId_ {};
+                  // Unique traceability identifier.
                   shared_ptr<string> traceabilityId_ {};
                 };
 
@@ -6221,6 +6672,7 @@ namespace Models
 
 
               protected:
+                // Voice search result.
                 shared_ptr<vector<AudioSearchResult::SearchResult>> searchResult_ {};
               };
 
@@ -6309,14 +6761,23 @@ namespace Models
 
 
             protected:
+              // Voice search result.
               shared_ptr<GeneratedContent::AudioSearchResult> audioSearchResult_ {};
+              // Clustering result.
               shared_ptr<GeneratedContent::ClusterTopicResult> clusterTopicResult_ {};
+              // Result of answering with original sentences.
               shared_ptr<GeneratedContent::ExcerptResult> excerptResult_ {};
+              // Image search result.
               shared_ptr<GeneratedContent::ImageSearchResult> imageSearchResult_ {};
+              // News extraction result.
               shared_ptr<GeneratedContent::NewsElementResult> newsElementResult_ {};
+              // Summarized answer.
               shared_ptr<GeneratedContent::TextGenerateResult> textGenerateResult_ {};
+              // Text document search result.
               shared_ptr<GeneratedContent::TextSearchResult> textSearchResult_ {};
+              // Result of summarizing by time.
               shared_ptr<GeneratedContent::TimelineResult> timelineResult_ {};
+              // Video search result.
               shared_ptr<GeneratedContent::VideoSearchResult> videoSearchResult_ {};
             };
 
@@ -6421,17 +6882,29 @@ namespace Models
 
 
           protected:
+            // Follow-up question.
             shared_ptr<string> askUser_ {};
+            // List of recommended keywords for follow-up questions.
             shared_ptr<vector<string>> askUserKeywords_ {};
+            // Current step in the task.
             shared_ptr<string> currentStep_ {};
+            // Generated content.
             shared_ptr<BizContext::GeneratedContent> generatedContent_ {};
+            // Model ID.
             shared_ptr<string> modelId_ {};
+            // Next step: think, search, or generate.
             shared_ptr<string> nextStep_ {};
+            // Generation - list of recommendations.
             shared_ptr<vector<string>> recommendSearchQueryList_ {};
+            // Reasoning - list of query understanding keywords.
             shared_ptr<vector<string>> searchKeywords_ {};
+            // List of text search queries.
             shared_ptr<vector<string>> searchQueryList_ {};
+            // Reasoning - data type to supplement: searchQuery.
             shared_ptr<string> supplementDataType_ {};
+            // Reasoning - whether supplementation is needed.
             shared_ptr<bool> supplementEnable_ {};
+            // Runtime performance statistics.
             shared_ptr<BizContext::TokenCalculate> tokenCalculate_ {};
           };
 
@@ -6446,6 +6919,7 @@ namespace Models
 
 
         protected:
+          // Business context.
           shared_ptr<AgentContext::BizContext> bizContext_ {};
         };
 
@@ -6470,7 +6944,9 @@ namespace Models
 
 
       protected:
+        // Context data.
         shared_ptr<Output::AgentContext> agentContext_ {};
+        // List of messages in research mode.
         shared_ptr<vector<Output::Messages>> messages_ {};
       };
 
@@ -6495,7 +6971,9 @@ namespace Models
 
 
     protected:
+      // Outputs.
       shared_ptr<Payload::Output> output_ {};
+      // Token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -6601,14 +7079,23 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // SSE event.
       shared_ptr<string> event_ {};
+      // Event description.
       shared_ptr<string> eventInfo_ {};
+      // Source session ID.
       shared_ptr<string> originSessionId_ {};
+      // Response time, in milliseconds (ms).
       shared_ptr<int64_t> responseTime_ {};
+      // Conversation ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Full link ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -6640,8 +7127,11 @@ namespace Models
 
 
   protected:
+    // Response header.
     shared_ptr<RunSearchGenerationResponseBody::Header> header_ {};
+    // Response body.
     shared_ptr<RunSearchGenerationResponseBody::Payload> payload_ {};
+    // Unique request identifier.
     shared_ptr<string> requestId_ {};
   };
 

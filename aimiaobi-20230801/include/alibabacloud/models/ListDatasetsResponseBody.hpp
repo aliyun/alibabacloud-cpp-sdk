@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The dataset quota.
       shared_ptr<int32_t> datasetQuota_ {};
+      // The number of datasets created.
       shared_ptr<int32_t> datasetUsedQuota_ {};
     };
 
@@ -167,7 +169,9 @@ namespace Models
 
 
       protected:
+        // The administrator user ID.
         shared_ptr<string> userId_ {};
+        // The administrator username.
         shared_ptr<string> username_ {};
       };
 
@@ -247,15 +251,25 @@ namespace Models
 
 
     protected:
+      // The dataset access level.
       shared_ptr<string> accessLevel_ {};
+      // The administrators of the dataset.
       shared_ptr<vector<Data::Administrators>> administrators_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The creator of the dataset.
       shared_ptr<string> createUser_ {};
+      // The dataset description.
       shared_ptr<string> datasetDescription_ {};
+      // The dataset ID.
       shared_ptr<int64_t> datasetId_ {};
+      // The dataset name.
       shared_ptr<string> datasetName_ {};
+      // The dataset type.
       shared_ptr<string> datasetType_ {};
+      // The number of documents uploaded to the dataset.
       shared_ptr<int64_t> docUsedQuota_ {};
+      // Indicates whether search is enabled for the dataset.
       shared_ptr<int32_t> searchDatasetEnable_ {};
     };
 
@@ -315,9 +329,13 @@ namespace Models
 
 
     protected:
+      // The dataset quota.
       shared_ptr<int32_t> datasetQuota_ {};
+      // The number of datasets created.
       shared_ptr<int32_t> datasetUsedQuota_ {};
+      // The document quota.
       shared_ptr<int64_t> docQuota_ {};
+      // The used document quota.
       shared_ptr<int64_t> docUsedQuota_ {};
     };
 
@@ -408,16 +426,27 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // Configuration and usage details for custom semantic search datasets that use uploaded files as data sources.
     shared_ptr<ListDatasetsResponseBody::CustomSemanticSearchConfig> customSemanticSearchConfig_ {};
+    // An array of dataset objects.
     shared_ptr<vector<ListDatasetsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: `true` (success) and `false` (failure).
     shared_ptr<bool> success_ {};
+    // Configuration and usage details for API-integrated datasets.
     shared_ptr<ListDatasetsResponseBody::ThirdSearchConfig> thirdSearchConfig_ {};
+    // The total number of datasets.
     shared_ptr<int32_t> totalCount_ {};
   };
 

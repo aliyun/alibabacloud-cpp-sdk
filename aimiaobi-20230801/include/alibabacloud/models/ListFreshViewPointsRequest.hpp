@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // UUID of the workspace: AgentKey
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Maximum number of returned results
     shared_ptr<int32_t> maxResults_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
+    // Trending list topic
+    // 
     // This parameter is required.
     shared_ptr<string> topic_ {};
+    // Trending list source
+    // 
     // This parameter is required.
     shared_ptr<string> topicSource_ {};
   };

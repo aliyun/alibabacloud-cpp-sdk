@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // Communication configuration parameters.
     shared_ptr<string> chatConfigShrink_ {};
+    // Document type.
     shared_ptr<string> docType_ {};
+    // Article title.
     shared_ptr<string> title_ {};
+    // Article URL.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

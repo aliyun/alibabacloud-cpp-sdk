@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // API name
     shared_ptr<string> apiName_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

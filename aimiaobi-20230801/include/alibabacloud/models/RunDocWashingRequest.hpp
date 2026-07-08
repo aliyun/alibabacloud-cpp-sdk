@@ -112,16 +112,27 @@ namespace Models
 
 
   protected:
+    // Model ID
     shared_ptr<string> modelId_ {};
+    // Additional prompt requirements
     shared_ptr<string> prompt_ {};
+    // The article to rewrite
+    // 
     // This parameter is required.
     shared_ptr<string> referenceContent_ {};
+    // Channel ID
     shared_ptr<string> sessionId_ {};
+    // Topic of the rewritten article
     shared_ptr<string> topic_ {};
+    // Required word count after rewriting
     shared_ptr<int32_t> wordNumber_ {};
+    // Unique identifier for Alibaba Cloud Model Studio workspace: Get [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // Writing style type name
     shared_ptr<string> writingTypeName_ {};
+    // Example article for writing style
     shared_ptr<string> writingTypeRefDoc_ {};
   };
 

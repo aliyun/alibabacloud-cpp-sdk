@@ -140,7 +140,9 @@ namespace Models
 
 
         protected:
+          // outline
           shared_ptr<string> outline_ {};
+          // outline summary
           shared_ptr<string> summary_ {};
         };
 
@@ -170,8 +172,11 @@ namespace Models
 
 
       protected:
+        // outlines
         shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+        // generated point
         shared_ptr<string> point_ {};
+        // Summary
         shared_ptr<string> summary_ {};
       };
 
@@ -237,13 +242,21 @@ namespace Models
 
 
     protected:
+      // current attitude
       shared_ptr<string> attitude_ {};
+      // Attitude Type
       shared_ptr<string> attitudeType_ {};
+      // Published At
       shared_ptr<string> pubTime_ {};
+      // Proportion of the current attitude
       shared_ptr<string> ratio_ {};
+      // News Source
       shared_ptr<string> source_ {};
+      // Current attitude, equivalent to the news title
       shared_ptr<string> title_ {};
+      // News URL
       shared_ptr<string> url_ {};
+      // List of topic perspectives
       shared_ptr<vector<Data::ViewPoints>> viewPoints_ {};
     };
 
@@ -316,14 +329,23 @@ namespace Models
 
 
   protected:
+    // Status Code
     shared_ptr<string> code_ {};
+    // Business Data
     shared_ptr<vector<ListTimedViewAttitudeResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of return results
     shared_ptr<int32_t> maxResults_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
+    // Request UUID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded: true for success, false for failure
     shared_ptr<bool> success_ {};
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
   };
 

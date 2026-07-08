@@ -111,10 +111,15 @@ namespace Models
 
 
     protected:
+      // Main text.
       shared_ptr<string> essay_ {};
+      // Issuing agency.
       shared_ptr<string> issuingAuthority_ {};
+      // URL.
       shared_ptr<string> link_ {};
+      // Publication date.
       shared_ptr<string> publicationDate_ {};
+      // Title.
       shared_ptr<string> title_ {};
     };
 
@@ -187,15 +192,23 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Business data.
     shared_ptr<vector<ListDocumentRetrieveResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of records returned.
     shared_ptr<int32_t> maxResults_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Token for the next page.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
+    // Total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

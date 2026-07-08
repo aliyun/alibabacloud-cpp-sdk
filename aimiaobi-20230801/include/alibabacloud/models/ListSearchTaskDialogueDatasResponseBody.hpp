@@ -103,8 +103,11 @@ namespace Models
 
 
     protected:
+      // The URL of the image or video file.
       shared_ptr<string> fileUrl_ {};
+      // The unique identifier of the multi-modal data.
       shared_ptr<string> mediaId_ {};
+      // The type of the multi-modal data.
       shared_ptr<string> mediaType_ {};
     };
 
@@ -155,8 +158,11 @@ namespace Models
 
 
     protected:
+      // The URL of the image or video file.
       shared_ptr<string> fileUrl_ {};
+      // The unique identifier of the multi-modal data.
       shared_ptr<string> mediaId_ {};
+      // The type of the multi-modal data.
       shared_ptr<string> mediaType_ {};
     };
 
@@ -198,7 +204,9 @@ namespace Models
 
 
     protected:
+      // The URL of the image or video file.
       shared_ptr<string> fileUrl_ {};
+      // The unique identifier of the multi-modal data.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -296,8 +304,11 @@ namespace Models
 
 
       protected:
+        // The URL of the image or video file.
         shared_ptr<string> fileUrl_ {};
+        // The unique identifier of the multi-modal data.
         shared_ptr<string> mediaId_ {};
+        // The type of the multi-modal data.
         shared_ptr<string> mediaType_ {};
       };
 
@@ -413,20 +424,35 @@ namespace Models
 
 
     protected:
+      // The author.
       shared_ptr<string> author_ {};
+      // The unique identifier of the category.
       shared_ptr<string> categoryUuid_ {};
+      // The content.
       shared_ptr<string> content_ {};
+      // The custom unique ID of the document.
       shared_ptr<string> docId_ {};
+      // The document type.
       shared_ptr<string> docType_ {};
+      // The internal unique identifier of the document.
       shared_ptr<string> docUuid_ {};
+      // Extension field 1.
       shared_ptr<string> extend1_ {};
+      // Extension field 2.
       shared_ptr<string> extend2_ {};
+      // Extension field 3.
       shared_ptr<string> extend3_ {};
+      // The multi-modal information.
       shared_ptr<vector<Articles::MultimodalMedias>> multimodalMedias_ {};
+      // The publication time.
       shared_ptr<string> pubTime_ {};
+      // The source.
       shared_ptr<string> source_ {};
+      // The summary of the article.
       shared_ptr<string> summary_ {};
+      // The title.
       shared_ptr<string> title_ {};
+      // The URL of the article.
       shared_ptr<string> url_ {};
     };
 
@@ -541,19 +567,33 @@ namespace Models
 
 
   protected:
+    // The list of articles.
     shared_ptr<vector<ListSearchTaskDialogueDatasResponseBody::Articles>> articles_ {};
+    // The list of audio files.
     shared_ptr<vector<ListSearchTaskDialogueDatasResponseBody::Audios>> audios_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of images.
     shared_ptr<vector<ListSearchTaskDialogueDatasResponseBody::Images>> images_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether real-time search is enabled.
     shared_ptr<bool> realtimeSearch_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // The search type.
     shared_ptr<string> searchType_ {};
+    // Indicates whether the request was successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of videos.
     shared_ptr<vector<ListSearchTaskDialogueDatasResponseBody::Videos>> videos_ {};
   };
 

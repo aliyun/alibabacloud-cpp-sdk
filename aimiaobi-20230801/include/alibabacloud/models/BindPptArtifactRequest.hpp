@@ -66,11 +66,16 @@ namespace Models
 
 
   protected:
+    // The artifact ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> artifactId_ {};
     shared_ptr<string> externalUserId_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

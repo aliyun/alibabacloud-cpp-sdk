@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // Array of successfully uploaded document IDs
       shared_ptr<vector<string>> docIds_ {};
+      // Document IDs that could not be uploaded because they already exist
       shared_ptr<vector<string>> existedIds_ {};
     };
 
@@ -133,12 +135,17 @@ namespace Models
 
 
   protected:
+    // Internal error code
     shared_ptr<string> code_ {};
+    // Document information
     shared_ptr<UploadDocResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded
     shared_ptr<bool> success_ {};
   };
 

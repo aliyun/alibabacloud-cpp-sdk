@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Unique ID of the task.
+    // 
+    // > The system generates a TaskId by default. If you specify the same TaskId for multiple tasks, those tasks belong to the same conversation group.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

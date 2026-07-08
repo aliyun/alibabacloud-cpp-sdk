@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The unique identity of the workspace. For more information, see [AgentKey]().
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The intervention type.
     shared_ptr<int32_t> interveneType_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The query.
     shared_ptr<string> query_ {};
+    // The rule ID.
     shared_ptr<int64_t> ruleId_ {};
   };
 

@@ -94,13 +94,22 @@ namespace Models
 
 
   protected:
+    // Clear the current cache?
     shared_ptr<bool> cleanCache_ {};
+    // Document ID
     shared_ptr<string> docId_ {};
+    // User-defined model name
     shared_ptr<string> modelName_ {};
+    // Content to be translated
     shared_ptr<string> recommendContent_ {};
+    // Session ID
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Translation type
     shared_ptr<string> transType_ {};
+    // Alibaba Cloud Model Studio workspace unique identifier. For more information, see [Get the Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

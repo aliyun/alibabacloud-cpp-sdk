@@ -212,15 +212,23 @@ namespace Models
 
 
   protected:
+    // Supplementary material information to help generate the voiceover script
     shared_ptr<string> additionalContent_ {};
+    // Custom voiceover content
     shared_ptr<string> customContent_ {};
     shared_ptr<AsyncCreateClipsTimeLineRequest::HighLightConfig> highLightConfig_ {};
+    // Enable mimicry capability
     shared_ptr<bool> noRefVideo_ {};
+    // Prompt for processing
     shared_ptr<string> processPrompt_ {};
     shared_ptr<bool> recommendAudio_ {};
+    // Unique task ID
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
     shared_ptr<int32_t> timelineScene_ {};
+    // [Model Studio workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

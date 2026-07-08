@@ -170,17 +170,29 @@ namespace Models
 
 
     protected:
+      // Concurrency
       shared_ptr<int32_t> concurrentCount_ {};
+      // Service expiration time
       shared_ptr<string> endTime_ {};
+      // Number of instances
       shared_ptr<int32_t> instanceCount_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Order ID
       shared_ptr<int64_t> orderId_ {};
+      // Version type (TRIAL: trial edition, STANDARD: Standard Edition, CUSTOMIZE: custom edition)
       shared_ptr<string> productType_ {};
+      // Trial edition quota
       shared_ptr<int32_t> quota_ {};
+      // Service start time
       shared_ptr<string> startTime_ {};
+      // Trial edition usage count
       shared_ptr<int32_t> useQuota_ {};
+      // Version details
       shared_ptr<string> versionDetail_ {};
+      // Version
       shared_ptr<string> versionName_ {};
+      // Validity status: 0 indicates active, 1 indicates expired (go to the renewal page), and 2 indicates unavailable (go to the purchase page)
       shared_ptr<int32_t> versionStatus_ {};
     };
 
@@ -231,11 +243,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<vector<ListVersionsResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

@@ -88,6 +88,7 @@ namespace Models
 
 
       protected:
+        // The output content.
         shared_ptr<string> text_ {};
       };
 
@@ -102,6 +103,7 @@ namespace Models
 
 
     protected:
+      // The output.
       shared_ptr<Payload::Output> output_ {};
     };
 
@@ -189,12 +191,19 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The SSE event. \\`task-started\\`: The task starts. \\`task-finished\\`: The task is complete. \\`task-failed\\`: The task failed.
       shared_ptr<string> event_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The status code.
       shared_ptr<int32_t> statusCode_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -255,12 +264,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response header.
     shared_ptr<RunPptOutlineGenerationResponseBody::Header> header_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The response body.
     shared_ptr<RunPptOutlineGenerationResponseBody::Payload> payload_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

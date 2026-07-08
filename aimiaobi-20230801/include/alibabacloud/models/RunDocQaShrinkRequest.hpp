@@ -112,17 +112,30 @@ namespace Models
 
 
   protected:
+    // Array of folder IDs for filtering. This parameter takes effect only when SearchSource is set to fromIndexLib.
     shared_ptr<string> categoryIdsShrink_ {};
+    // Array of historical context content
     shared_ptr<string> conversationContextsShrink_ {};
+    // Array of multiple document IDs
     shared_ptr<string> docIdsShrink_ {};
+    // Custom model name defined by the User
     shared_ptr<string> modelName_ {};
+    // Question
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // Associated content actively provided by the questioner
     shared_ptr<string> referenceContent_ {};
+    // Search source
+    // 
     // This parameter is required.
     shared_ptr<string> searchSource_ {};
+    // Conversation ID
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Alibaba Cloud Model Studio workspace ID. For details on how to obtain it, see [How to Use Workspaces](https://help.aliyun.com/document_detail/2587495.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

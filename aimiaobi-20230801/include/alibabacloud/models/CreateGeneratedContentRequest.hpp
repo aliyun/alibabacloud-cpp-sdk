@@ -115,18 +115,33 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The body of the content, in rich text format.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The domain for content generation.
     shared_ptr<string> contentDomain_ {};
+    // The body of the content, in plain text format.
     shared_ptr<string> contentText_ {};
+    // The keywords.
     shared_ptr<vector<string>> keywords_ {};
+    // The last generated prompt.
     shared_ptr<string> prompt_ {};
+    // The unique identifier of the task.
+    // 
+    // > The system automatically generates a task ID. You do not need to specify this parameter. If you specify the same task ID for multiple tasks, they are grouped into a single conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The title.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The traceability UUID.
     shared_ptr<string> uuid_ {};
   };
 

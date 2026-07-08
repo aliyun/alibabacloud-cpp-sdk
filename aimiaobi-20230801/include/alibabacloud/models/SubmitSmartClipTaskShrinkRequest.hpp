@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // Video editing configuration.
     shared_ptr<string> editingConfigShrink_ {};
+    // Additional extended parameters. These parameters merge with InputConfig, OutputConfig, and EditingConfig.
     shared_ptr<string> extendParam_ {};
+    // Input configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> inputConfigShrink_ {};
+    // Output configuration.
     shared_ptr<string> outputConfigShrink_ {};
+    // Alibaba Cloud Model Studio workspace ID. For more information, see [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

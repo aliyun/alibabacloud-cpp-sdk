@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // Style name
         shared_ptr<string> name_ {};
+        // Style image URL
         shared_ptr<string> pic_ {};
+        // Style code
         shared_ptr<string> value_ {};
       };
 
@@ -169,7 +172,9 @@ namespace Models
 
 
       protected:
+        // Image aspect ratio
         shared_ptr<string> name_ {};
+        // Image size in pixels
         shared_ptr<string> value_ {};
       };
 
@@ -229,9 +234,13 @@ namespace Models
 
 
       protected:
+        // Unique identifier for the workspace
         shared_ptr<string> agentId_ {};
+        // Unique identifier for the tenant
         shared_ptr<string> tenantId_ {};
+        // User ID
         shared_ptr<string> userId_ {};
+        // Username
         shared_ptr<string> username_ {};
       };
 
@@ -273,7 +282,9 @@ namespace Models
 
 
       protected:
+        // Search source name
         shared_ptr<string> label_ {};
+        // Search source code
         shared_ptr<string> value_ {};
       };
 
@@ -324,8 +335,11 @@ namespace Models
 
 
       protected:
+        // Search source type: corresponds to (SystemSearch: system-built-in search, CustomSemanticSearch: custom semantic index search, ThirdSearch: third-party API search)
         shared_ptr<string> code_ {};
+        // Unique identifier for the data source
         shared_ptr<string> datasetName_ {};
+        // Search source description
         shared_ptr<string> name_ {};
       };
 
@@ -390,7 +404,9 @@ namespace Models
 
 
         protected:
+          // Model ID
           shared_ptr<string> modelId_ {};
+          // Model name
           shared_ptr<string> modelName_ {};
         };
 
@@ -420,8 +436,11 @@ namespace Models
 
 
       protected:
+        // The number of active documents in the dataset.
         shared_ptr<int64_t> maxDocSize_ {};
+        // Model list supported by intelligent search
         shared_ptr<vector<MiaosouConfig::ModelInfos>> modelInfos_ {};
+        // Number of documents used in the dataset
         shared_ptr<int64_t> useDocSize_ {};
       };
 
@@ -497,8 +516,11 @@ namespace Models
 
 
         protected:
+          // Unique identifier for the dataset: code+datasetName
           shared_ptr<string> code_ {};
+          // Unique identifier for the dataset: code+datasetName
           shared_ptr<string> datasetName_ {};
+          // Search source name: Chinese
           shared_ptr<string> name_ {};
         };
 
@@ -581,9 +603,13 @@ namespace Models
 
 
           protected:
+            // Whether manually selected when passed from the frontend
             shared_ptr<bool> select_ {};
+            // Whether it is a starred article
             shared_ptr<bool> stared_ {};
+            // Title
             shared_ptr<string> title_ {};
+            // Article URL
             shared_ptr<string> url_ {};
           };
 
@@ -613,8 +639,11 @@ namespace Models
 
 
         protected:
+          // Article list
           shared_ptr<vector<SearchSamples::Articles>> articles_ {};
+          // Prompt
           shared_ptr<string> prompt_ {};
+          // Generated content
           shared_ptr<string> text_ {};
         };
 
@@ -665,8 +694,11 @@ namespace Models
 
 
         protected:
+          // Unique identifier for the dataset: code+datasetName
           shared_ptr<string> code_ {};
+          // Unique identifier for the dataset: code+datasetName
           shared_ptr<string> datasetName_ {};
+          // Search source name: Chinese
           shared_ptr<string> name_ {};
         };
 
@@ -707,9 +739,13 @@ namespace Models
 
 
       protected:
+        // Miaosou: Search source configuration
         shared_ptr<vector<IntelligentSearchConfig::CopilotPreciseSearchSources>> copilotPreciseSearchSources_ {};
+        // Homepage product description
         shared_ptr<string> productDescription_ {};
+        // Intelligent search recommendations
         shared_ptr<vector<IntelligentSearchConfig::SearchSamples>> searchSamples_ {};
+        // Search source list
         shared_ptr<vector<IntelligentSearchConfig::SearchSources>> searchSources_ {};
       };
 
@@ -751,7 +787,9 @@ namespace Models
 
 
       protected:
+        // Prompt content
         shared_ptr<string> tipContent_ {};
+        // Title
         shared_ptr<string> title_ {};
       };
 
@@ -856,16 +894,27 @@ namespace Models
 
 
     protected:
+      // Call configuration
       Darabonba::Json chatConfig_ {};
+      // Console configuration
       shared_ptr<Data::ConsoleConfig> consoleConfig_ {};
+      // General configurations map
       Darabonba::Json generalConfigMap_ {};
+      // Intelligent search configuration
       shared_ptr<Data::IntelligentSearchConfig> intelligentSearchConfig_ {};
+      // Miaosou configuration
       shared_ptr<Data::MiaosouConfig> miaosouConfig_ {};
+      // Specified search source list
       shared_ptr<vector<Data::SearchSourceList>> searchSourceList_ {};
+      // Search source dropdown list
       shared_ptr<vector<Data::SearchSources>> searchSources_ {};
+      // Whether SLR is authorized
       shared_ptr<bool> slrAuthorized_ {};
+      // User configuration
       shared_ptr<Data::UserInfo> userInfo_ {};
+      // Wanxiang images
       shared_ptr<vector<Data::WanxiangImageSizeConfig>> wanxiangImageSizeConfig_ {};
+      // Wanxiang image style configuration
       shared_ptr<vector<Data::WanxiangImageStyleConfig>> wanxiangImageStyleConfig_ {};
     };
 
@@ -916,11 +965,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetPropertiesResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Whether successful: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

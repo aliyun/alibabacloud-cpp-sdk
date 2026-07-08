@@ -94,13 +94,24 @@ namespace Models
 
 
   protected:
+    // The follow-up question from the model.
     shared_ptr<string> askUser_ {};
+    // Specifies whether to forcibly analyze a duplicate topic and overwrite the existing analysis.
     shared_ptr<bool> forceAnalysisExistsTopic_ {};
+    // The user\\"s input prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The unique ID for each request.
     shared_ptr<string> sessionId_ {};
+    // The unique ID for the entire conversation task.
+    // 
+    // > By default, you do not need to specify TaskId. The system automatically generates one. If you specify the same TaskId for subsequent tasks, the tasks are considered part of the same conversation group.
     shared_ptr<string> taskId_ {};
+    // The user\\"s input in response to the model\\"s follow-up question.
     shared_ptr<string> userBack_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

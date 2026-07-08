@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // An alert message related to service usage or status.
       shared_ptr<string> alert_ {};
+      // The AppKey for initializing the front-end component.
       shared_ptr<string> appKey_ {};
+      // The ID of the export task.
       shared_ptr<string> exportTaskId_ {};
+      // The URL of the artifact cover.
       shared_ptr<string> pptArtifactCover_ {};
+      // The artifact ID. Use this ID to edit the artifact.
       shared_ptr<string> pptArtifactId_ {};
+      // The process ID for creating the PPT, used to initialize the front-end component for artifact creation.
       shared_ptr<string> pptProcessId_ {};
+      // The signature for initializing the front-end component.
       shared_ptr<string> signature_ {};
     };
 
@@ -179,12 +186,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<InitiatePptCreationV2ResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

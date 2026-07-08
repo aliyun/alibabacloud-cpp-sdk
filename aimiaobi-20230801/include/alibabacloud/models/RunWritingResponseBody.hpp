@@ -116,9 +116,13 @@ namespace Models
 
 
       protected:
+        // The number of tokens used for the input.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of tokens used for the output.
         shared_ptr<int64_t> outputTokens_ {};
+        // The detailed token usage.
         shared_ptr<map<string, int64_t>> tokenMap_ {};
+        // The total number of tokens used in the current call.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -258,15 +262,25 @@ namespace Models
 
 
         protected:
+          // The author.
           shared_ptr<string> author_ {};
+          // The content.
           shared_ptr<string> content_ {};
+          // The custom unique ID of the document.
           shared_ptr<string> docId_ {};
+          // The internal unique ID of the document.
           shared_ptr<string> docUuid_ {};
+          // The publication time.
           shared_ptr<string> pubTime_ {};
+          // The source.
           shared_ptr<string> source_ {};
+          // The article summary.
           shared_ptr<string> summary_ {};
+          // The tag.
           shared_ptr<string> tag_ {};
+          // The title.
           shared_ptr<string> title_ {};
+          // The URL of the article.
           shared_ptr<string> url_ {};
         };
 
@@ -305,9 +319,13 @@ namespace Models
 
 
       protected:
+        // The reference articles.
         shared_ptr<vector<Output::Articles>> articles_ {};
+        // A list of refined segments from the article.
         shared_ptr<vector<string>> miniDoc_ {};
+        // The rewritten query.
         shared_ptr<string> searchQuery_ {};
+        // The generated text.
         shared_ptr<string> text_ {};
       };
 
@@ -332,7 +350,9 @@ namespace Models
 
 
     protected:
+      // The output.
       shared_ptr<Payload::Output> output_ {};
+      // The token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -429,13 +449,21 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The Server-Sent Events (SSE) event. Valid values: task-started (the task starts), task-finished (the task is complete), and task-failed (the task failed).
       shared_ptr<string> event_ {};
+      // The parent session ID.
       shared_ptr<string> originSessionId_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The HTTP status code.
       shared_ptr<int32_t> statusCode_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -474,9 +502,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether the current request is complete.
     shared_ptr<bool> end_ {};
+    // The response header.
     shared_ptr<RunWritingResponseBody::Header> header_ {};
+    // The response body.
     shared_ptr<RunWritingResponseBody::Payload> payload_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

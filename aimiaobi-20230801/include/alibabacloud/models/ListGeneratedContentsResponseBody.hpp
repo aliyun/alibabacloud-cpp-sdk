@@ -153,9 +153,13 @@ namespace Models
 
 
       protected:
+        // File name
         shared_ptr<string> fileName_ {};
+        // Video height
         shared_ptr<int32_t> height_ {};
+        // Temporary URL for video file access. Expires in one hour.
         shared_ptr<string> tmpUrl_ {};
+        // Video width
         shared_ptr<int32_t> width_ {};
       };
 
@@ -288,22 +292,51 @@ namespace Models
 
 
     protected:
+      // Content: rich text
       shared_ptr<string> content_ {};
+      // Content domain (content category)
+      // 
+      // - media: Media writing
+      // 
+      // - government: Government document writing
+      // 
+      // - office: Office writing
+      // 
+      // - market: Marketing writing
+      // 
+      // - custom: Custom writing
+      // 
+      // - commentGenerate: Opinion generation
       shared_ptr<string> contentDomain_ {};
+      // Content: plain text
       shared_ptr<string> contentText_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Creator
       shared_ptr<string> createUser_ {};
+      // Device ID
       shared_ptr<string> deviceId_ {};
+      // File attributes
       shared_ptr<Data::FileAttr> fileAttr_ {};
+      // File ID
       shared_ptr<string> fileKey_ {};
+      // Document ID
       shared_ptr<int64_t> id_ {};
+      // Keywords
       shared_ptr<vector<string>> keywordList_ {};
+      // Keywords (string)
       shared_ptr<string> keywords_ {};
+      // Last prompt used to generate this document
       shared_ptr<string> prompt_ {};
+      // Conversation task ID
       shared_ptr<string> taskId_ {};
+      // Title
       shared_ptr<string> title_ {};
+      // Update time
       shared_ptr<string> updateTime_ {};
+      // Updater
       shared_ptr<string> updateUser_ {};
+      // UUID traceability ID
       shared_ptr<string> uuid_ {};
     };
 
@@ -376,14 +409,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Page number
     shared_ptr<int32_t> current_ {};
+    // Document list
     shared_ptr<vector<ListGeneratedContentsResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Number of items per page
     shared_ptr<int32_t> size_ {};
+    // Operation status: true means success. false means failure.
     shared_ptr<bool> success_ {};
+    // Total number of items
     shared_ptr<int32_t> total_ {};
   };
 

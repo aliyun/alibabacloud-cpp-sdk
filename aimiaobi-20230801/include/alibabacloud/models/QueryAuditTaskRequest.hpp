@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Article ID (Choose either task ID or article ID)
     shared_ptr<string> articleId_ {};
+    // Audit task ID (Choose either task ID or article ID)
     shared_ptr<string> contentAuditTaskId_ {};
+    // [workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

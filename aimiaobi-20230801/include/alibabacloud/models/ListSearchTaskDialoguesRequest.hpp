@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results to return.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the task.
+    // 
+    // > You do not need to specify this parameter. The system generates it automatically. If you specify the same TaskId for multiple tasks, they are grouped into the same conversation.
     shared_ptr<string> taskId_ {};
+    // The unique ID of the Model Studio workspace. For more information, see [Obtain a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

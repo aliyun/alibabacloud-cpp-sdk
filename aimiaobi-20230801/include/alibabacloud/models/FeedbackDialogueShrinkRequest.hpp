@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // The unique ID of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The feedback.
     shared_ptr<string> customerResponse_ {};
+    // The generated content that is considered good.
     shared_ptr<string> goodText_ {};
+    // The modified generated result.
     shared_ptr<string> modifiedResponse_ {};
+    // thumbsDown: Dislike, thumbsUp: Like
     shared_ptr<string> rating_ {};
+    // The tags.
     shared_ptr<string> ratingTagsShrink_ {};
+    // The ID of a single-turn conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The ID of the page.
     shared_ptr<string> taskId_ {};
   };
 

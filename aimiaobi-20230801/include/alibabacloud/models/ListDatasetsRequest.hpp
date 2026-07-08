@@ -130,16 +130,28 @@ namespace Models
 
 
   protected:
+    // A keyword within the dataset description to filter results.
     shared_ptr<string> datasetDescription_ {};
+    // The dataset ID.
     shared_ptr<int64_t> datasetId_ {};
+    // The dataset name. The name must be globally unique.
     shared_ptr<string> datasetName_ {};
+    // The dataset type.
     shared_ptr<string> datasetType_ {};
+    // The end of the creation time range.
     shared_ptr<string> endTime_ {};
+    // Specifies whether to return configuration and usage information. Default value: false.
     shared_ptr<bool> includeConfig_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // Specifies the dataset search setting.
     shared_ptr<int32_t> searchDatasetEnable_ {};
+    // The start of the creation time range.
     shared_ptr<string> startTime_ {};
+    // The unique ID of the Model Studio workspace. For more information, see [Get workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

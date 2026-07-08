@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the bidding company.
     shared_ptr<string> companyKeyword_ {};
+    // The prompt.
     shared_ptr<string> prompt_ {};
+    // The unique ID of the task.
     shared_ptr<string> taskId_ {};
+    // [The ID of the workspace.](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

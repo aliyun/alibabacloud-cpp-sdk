@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The list of documents to be analyzed.
     shared_ptr<string> documentsShrink_ {};
+    // The input prompt for custom perspectives.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The name of the topic to be analyzed.
     shared_ptr<string> topic_ {};
   };
 

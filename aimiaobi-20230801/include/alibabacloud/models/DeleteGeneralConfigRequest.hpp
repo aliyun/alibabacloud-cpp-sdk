@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> configKey_ {};
+    // Unique identifier of the Model Studio workspace. For more information, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Maximum number of results to return
     shared_ptr<int32_t> maxResults_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
   };
 

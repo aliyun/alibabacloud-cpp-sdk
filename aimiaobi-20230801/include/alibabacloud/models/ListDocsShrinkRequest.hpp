@@ -103,13 +103,22 @@ namespace Models
 
 
   protected:
+    // Document folder.
     shared_ptr<string> categoryId_ {};
+    // Document name.
     shared_ptr<string> docName_ {};
+    // Document type.
     shared_ptr<string> docType_ {};
+    // Maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // Next page token.
     shared_ptr<string> nextToken_ {};
+    // Skip n records for paging.
     shared_ptr<int32_t> skip_ {};
+    // Document status list.
     shared_ptr<string> statusesShrink_ {};
+    // Alibaba Cloud Model Studio workspace ID. For more information, see [How to Use Workspaces](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -150,13 +150,21 @@ namespace Models
 
 
       protected:
+        // Clip ID
         shared_ptr<string> clipId_ {};
+        // Segmented voice-over script
         shared_ptr<string> contentInner_ {};
+        // Start time, in seconds. Deprecated.
         shared_ptr<int32_t> in_ {};
+        // Clip start time, in milliseconds
         shared_ptr<float> inEx_ {};
+        // End time, in seconds. Deprecated.
         shared_ptr<int32_t> out_ {};
+        // Clip end time, in milliseconds
         shared_ptr<float> outEx_ {};
+        // Video ID
         shared_ptr<string> videoId_ {};
+        // Video name
         shared_ptr<string> videoName_ {};
       };
 
@@ -179,8 +187,11 @@ namespace Models
 
 
     protected:
+      // Array of video clips
+      // 
       // This parameter is required.
       shared_ptr<vector<Timelines::Clips>> clips_ {};
+      // Timeline ID
       shared_ptr<string> timelineId_ {};
     };
 
@@ -217,11 +228,18 @@ namespace Models
 
 
   protected:
+    // Enable automatic clip adjustment
     shared_ptr<bool> autoClips_ {};
+    // Unique identifier of the task
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Array structure of video editing timelines
+    // 
     // This parameter is required.
     shared_ptr<vector<AsyncEditTimelineRequest::Timelines>> timelines_ {};
+    // [Model Studio workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

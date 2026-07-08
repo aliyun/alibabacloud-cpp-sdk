@@ -110,9 +110,11 @@ namespace Models
 
 
       protected:
-        // id
+        // ID
         shared_ptr<string> id_ {};
+        // Operation type
         shared_ptr<int32_t> operationType_ {};
+        // Intervention query configuration
         shared_ptr<string> query_ {};
       };
 
@@ -163,8 +165,11 @@ namespace Models
 
 
       protected:
+        // Activation type
         shared_ptr<int32_t> effectType_ {};
+        // End time
         shared_ptr<string> endTime_ {};
+        // Start time
         shared_ptr<string> startTime_ {};
       };
 
@@ -215,8 +220,11 @@ namespace Models
 
 
       protected:
+        // Answer type
         shared_ptr<int32_t> answerType_ {};
+        // Answer content
         shared_ptr<string> message_ {};
+        // Namespace
         shared_ptr<string> namespace_ {};
       };
 
@@ -281,12 +289,19 @@ namespace Models
 
 
     protected:
+      // Answer configuration
       shared_ptr<vector<InterveneRuleConfig::AnswerConfig>> answerConfig_ {};
+      // Activation configuration
       shared_ptr<InterveneRuleConfig::EffectConfig> effectConfig_ {};
+      // Intervention configuration list
       shared_ptr<vector<InterveneRuleConfig::InterveneConfigList>> interveneConfigList_ {};
+      // Intervention type
       shared_ptr<int32_t> interveneType_ {};
+      // Namespace list
       shared_ptr<vector<string>> namespaceList_ {};
+      // Rule ID
       shared_ptr<int64_t> ruleId_ {};
+      // Rule name
       shared_ptr<string> ruleName_ {};
     };
 
@@ -309,8 +324,11 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Intervention rule configuration
     shared_ptr<InsertInterveneRuleRequest::InterveneRuleConfig> interveneRuleConfig_ {};
   };
 

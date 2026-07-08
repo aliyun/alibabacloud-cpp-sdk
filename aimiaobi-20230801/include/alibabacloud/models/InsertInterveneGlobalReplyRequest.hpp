@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // Reply content
       shared_ptr<string> message_ {};
+      // Reply type
       shared_ptr<string> replyType_ {};
     };
 
@@ -93,8 +95,11 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // List of reply content
     shared_ptr<vector<InsertInterveneGlobalReplyRequest::ReplyMessagList>> replyMessagList_ {};
   };
 

@@ -112,15 +112,25 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The viewpoint to filter by.
     shared_ptr<string> attitude_ {};
+    // A list of viewpoints to filter by.
     shared_ptr<string> attitudesShrink_ {};
+    // The ID of the custom viewpoint.
     shared_ptr<string> customViewPointId_ {};
+    // A list of custom viewpoint IDs.
     shared_ptr<string> customViewPointIdsShrink_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The topic of the hot list.
     shared_ptr<string> topic_ {};
+    // The topic ID.
     shared_ptr<string> topicId_ {};
   };
 

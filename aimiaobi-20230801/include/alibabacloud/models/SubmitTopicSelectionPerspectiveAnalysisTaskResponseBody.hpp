@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Unique task ID
       shared_ptr<string> taskId_ {};
+      // Task name
       shared_ptr<string> taskName_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<SubmitTopicSelectionPerspectiveAnalysisTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request ID
     shared_ptr<string> requestId_ {};
+    // Success or failure: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

@@ -103,8 +103,11 @@ namespace Models
 
 
       protected:
+        // Number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -136,6 +139,7 @@ namespace Models
 
 
       protected:
+        // Output content.
         shared_ptr<string> text_ {};
       };
 
@@ -160,7 +164,9 @@ namespace Models
 
 
     protected:
+      // Output content object.
       shared_ptr<Payload::Output> output_ {};
+      // Large Language Model (LLM) token usage information.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -248,12 +254,19 @@ namespace Models
 
 
     protected:
+      // Abnormal error code.
       shared_ptr<string> errorCode_ {};
+      // Abnormal error message.
       shared_ptr<string> errorMessage_ {};
+      // Event type.
       shared_ptr<string> event_ {};
+      // Event description.
       shared_ptr<string> eventInfo_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Generation task ID.
       shared_ptr<string> taskId_ {};
+      // Trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -292,9 +305,13 @@ namespace Models
 
 
   protected:
+    // Is output complete? True indicates completion.
     shared_ptr<bool> end_ {};
+    // Streaming output header, contains general return information.
     shared_ptr<RunContinueContentResponseBody::Header> header_ {};
+    // Payload of the returned result, JSON structure.
     shared_ptr<RunContinueContentResponseBody::Payload> payload_ {};
+    // Unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

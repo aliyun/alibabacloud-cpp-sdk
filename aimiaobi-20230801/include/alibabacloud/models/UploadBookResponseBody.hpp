@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // Document IDs
       shared_ptr<vector<string>> docIds_ {};
+      // IDs of duplicate documents
       shared_ptr<vector<string>> existedIds_ {};
     };
 
@@ -133,12 +135,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<UploadBookResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Operation result. Set to true for success. Set to false for failure.
     shared_ptr<bool> success_ {};
   };
 

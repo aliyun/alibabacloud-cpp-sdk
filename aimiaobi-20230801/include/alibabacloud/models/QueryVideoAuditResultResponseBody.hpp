@@ -159,11 +159,19 @@ namespace Models
 
 
         protected:
-          // 0到100分，保留到小数点后2位，部分标签无置信分
+          // From 0 to 100, retained to 2 decimal places. Some labels do not have a confidence score.
           shared_ptr<float> confidence_ {};
-          // Label字段的解释说明
+          // Explanation of the Label field
           shared_ptr<string> description_ {};
-          // 图片内容检测运算后返回的标签，如：nonLabel（未检测出风险）
+          // Risk label
+          // 
+          // The label of the image content review result. For example: nonLabel (no risk detected).
+          // 
+          // The label can also be a risk level that is determined by the high-risk and low-risk thresholds that you set. Valid return values are:
+          // ● high: high risk
+          // ● medium: medium risk
+          // ● low: low risk
+          // ● none: no risk detected
           shared_ptr<string> label_ {};
         };
 
@@ -200,13 +208,21 @@ namespace Models
 
 
       protected:
-        // 对应图片的ID，与ImageUrl中的id字段对应
+        // Image ID (Associate with ImageUrls[].Id to get image information)
         shared_ptr<string> dataId_ {};
-        // 审核请求ID
+        // Request ID
         shared_ptr<string> reqId_ {};
-        // 图片检测的风险标签、置信分等参数结果
+        // Detection results
         shared_ptr<vector<Results::Result>> result_ {};
-        // 风险等级：high(高风险)、medium(中风险)、low(低风险)、none(未检测到风险)
+        // Risk level
+        // 
+        // - high: High risk
+        // 
+        // - medium: Medium risk
+        // 
+        // - low: Low risk
+        // 
+        // - none: No risk
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -257,9 +273,11 @@ namespace Models
 
 
       protected:
-        // 图片ID，与AliyunImageAuditResult中的dataId对应
+        // Image ID (Associate with Results[].DataId to get audit result information)
         shared_ptr<string> id_ {};
+        // Timestamp (milliseconds)
         shared_ptr<double> timestamp_ {};
+        // Image URL
         shared_ptr<string> url_ {};
       };
 
@@ -377,35 +395,35 @@ namespace Models
 
 
     protected:
-      // 视频总时长（秒）
+      // Video duration
       shared_ptr<double> duration_ {};
-      // 任务执行失败时的错误信息
+      // Error message
       shared_ptr<string> errorMessage_ {};
-      // 视频帧率（FPS）
+      // Video frame rate
       shared_ptr<double> fps_ {};
-      // 已经完成审核的帧数
+      // Frames audited
       shared_ptr<int32_t> frameAudited_ {};
-      // 视频高度（像素）
+      // Video height
       shared_ptr<int32_t> height_ {};
-      // 抽取的图片URL列表
+      // Image URL list
       shared_ptr<vector<Data::ImageUrls>> imageUrls_ {};
-      // 图片审核结果详情
+      // Audit results list
       shared_ptr<vector<Data::Results>> results_ {};
-      // 任务状态：PENDING(待执行)、RUNNING(执行中)、SUCCESSED(成功)、FAILED(失败)、CANCELED(取消)
+      // Task status (PENDING: Queued, RUNNING: In progress, SUCCESSED: Successful, FAILED: Failed, CANCELED: Task canceled)
       shared_ptr<string> status_ {};
-      // 视频审校的文本结果
+      // Reviewed text
       shared_ptr<string> text_ {};
-      // 需要审核的视频帧总数
+      // Frames to audit
       shared_ptr<int32_t> totalFrameAudit_ {};
-      // 视频总帧数
+      // Total frames
       shared_ptr<int32_t> totalFrames_ {};
-      // 检测到的视频分镜总数
+      // Total shots
       shared_ptr<int32_t> totalShots_ {};
-      // 被审核的视频文件Key
+      // Video FileKey
       shared_ptr<string> videoFileKey_ {};
-      // 被审核的视频URL地址
+      // Video URL
       shared_ptr<string> videoUrl_ {};
-      // 视频宽度（像素）
+      // Video width
       shared_ptr<int32_t> width_ {};
     };
 
@@ -456,17 +474,17 @@ namespace Models
 
 
   protected:
-    // 业务处理结果状态码
+    // Business status code
     shared_ptr<string> code_ {};
-    // 视频审校的详细结果
+    // Video audit result data
     shared_ptr<QueryVideoAuditResultResponseBody::Data> data_ {};
-    // HTTP响应状态码
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 业务处理结果描述信息
+    // Return message
     shared_ptr<string> message_ {};
-    // 本次API请求的唯一标识
+    // Request ID
     shared_ptr<string> requestId_ {};
-    // 请求是否处理成功
+    // Is successful
     shared_ptr<bool> success_ {};
   };
 

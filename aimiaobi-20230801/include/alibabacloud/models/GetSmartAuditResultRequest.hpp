@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
     shared_ptr<string> workspaceId_ {};
   };
 

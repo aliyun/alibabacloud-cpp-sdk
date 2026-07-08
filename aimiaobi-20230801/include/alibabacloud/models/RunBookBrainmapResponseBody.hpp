@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // The input token count.
         shared_ptr<int64_t> inputTokens_ {};
+        // The output token count.
         shared_ptr<int64_t> outputTokens_ {};
+        // The total token count.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -134,6 +137,7 @@ namespace Models
 
 
       protected:
+        // The mind map content.
         shared_ptr<string> content_ {};
       };
 
@@ -158,7 +162,9 @@ namespace Models
 
 
     protected:
+      // The generated output.
       shared_ptr<Payload::Output> output_ {};
+      // Details about token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -246,12 +252,19 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The event type.
       shared_ptr<string> event_ {};
+      // The event description.
       shared_ptr<string> eventInfo_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -283,9 +296,11 @@ namespace Models
 
 
   protected:
+    // The response header.
     shared_ptr<RunBookBrainmapResponseBody::Header> header_ {};
+    // The response payload.
     shared_ptr<RunBookBrainmapResponseBody::Payload> payload_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

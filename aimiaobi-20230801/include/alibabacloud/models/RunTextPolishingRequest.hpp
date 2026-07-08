@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // Text content.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // Original article.
     shared_ptr<string> originContent_ {};
+    // Custom polishing requirements.
     shared_ptr<string> prompt_ {};
+    // The task ID. The same task ID shares a session. The task timeout is 12 hours.
     shared_ptr<string> taskId_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. Obtain the [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

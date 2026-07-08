@@ -154,7 +154,9 @@ namespace Models
 
 
         protected:
+          // The content of the chunk.
           shared_ptr<string> chunk_ {};
+          // The relevance score of the chunk.
           shared_ptr<double> score_ {};
         };
 
@@ -308,25 +310,45 @@ namespace Models
 
 
       protected:
+        // The unique identifier for the category.
         shared_ptr<string> categoryUuid_ {};
+        // The content of the relevant chunk. This field is returned only in `chunk` mode.
         shared_ptr<string> chunk_ {};
+        // A list of relevant chunks from the document. This field is returned only in `document` mode.
         shared_ptr<vector<Documents::ChunkInfos>> chunkInfos_ {};
+        // The content of the document.
         shared_ptr<string> content_ {};
+        // The user-defined unique ID for the document.
         shared_ptr<string> docId_ {};
+        // The document type.
         shared_ptr<string> docType_ {};
+        // The unique system ID of the document.
         shared_ptr<string> docUuid_ {};
+        // Custom extension field 1.
         shared_ptr<string> extend1_ {};
+        // Custom extension field 2.
         shared_ptr<string> extend2_ {};
+        // Custom extension field 3.
         shared_ptr<string> extend3_ {};
+        // The publication time, in `yyyy-MM-dd HH:mm:ss` format.
         shared_ptr<string> pubTime_ {};
+        // The relevance score.
         shared_ptr<double> score_ {};
+        // The unique identifier for the dataset.
         shared_ptr<string> searchSource_ {};
+        // The name of the dataset.
         shared_ptr<string> searchSourceName_ {};
+        // The dataset type.
         shared_ptr<string> searchSourceType_ {};
+        // The source of the document.
         shared_ptr<string> sourceFrom_ {};
+        // The summary of the document.
         shared_ptr<string> summary_ {};
+        // A list of tags.
         shared_ptr<vector<string>> tags_ {};
+        // The title of the document.
         shared_ptr<string> title_ {};
+        // The URL of the document.
         shared_ptr<string> url_ {};
       };
 
@@ -341,6 +363,7 @@ namespace Models
 
 
     protected:
+      // The document list.
       shared_ptr<vector<Data::Documents>> documents_ {};
     };
 
@@ -391,11 +414,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<SearchDatasetDocumentsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The status message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request succeeded (`true`) or failed (`false`).
     shared_ptr<bool> success_ {};
   };
 

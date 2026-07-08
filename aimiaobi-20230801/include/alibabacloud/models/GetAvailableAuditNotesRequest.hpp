@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The rule library ID. If not specified, defaults to Default.
     shared_ptr<string> noteId_ {};
+    // The unique identifier of your Alibaba Cloud Model Studio workspace. Get your [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

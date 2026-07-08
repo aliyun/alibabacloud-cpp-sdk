@@ -84,11 +84,18 @@ namespace Models
 
 
   protected:
+    // Exception phrase
     shared_ptr<string> exceptionWordShrink_ {};
+    // Keyword
     shared_ptr<string> keyword_ {};
+    // Suggested word
     shared_ptr<string> suggestWord_ {};
+    // Audit basis
     shared_ptr<string> termsDesc_ {};
+    // Name of the dictionary. Optional. If not specified, defaults to Default.
     shared_ptr<string> termsName_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

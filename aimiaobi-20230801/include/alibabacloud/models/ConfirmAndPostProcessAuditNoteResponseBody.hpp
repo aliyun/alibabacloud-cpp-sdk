@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // The task ID obtained after confirming the use of this parsing result. It is consistent with the input parameter, returned here for your convenience.
     shared_ptr<string> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates if the request was successful
     shared_ptr<bool> success_ {};
   };
 

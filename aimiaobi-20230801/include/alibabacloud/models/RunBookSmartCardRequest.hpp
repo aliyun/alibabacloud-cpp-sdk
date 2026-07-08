@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Document ID.
+    // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
+    // Session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -85,10 +85,16 @@ namespace Models
 
   protected:
     shared_ptr<string> accessLevel_ {};
+    // The configurations for a third-party search dataset.
     shared_ptr<string> datasetConfigShrink_ {};
+    // The description of the dataset.
     shared_ptr<string> datasetDescription_ {};
+    // The dataset ID.
     shared_ptr<int64_t> datasetId_ {};
+    // Specifies whether to enable search for the dataset.
     shared_ptr<int32_t> searchDatasetEnable_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspaceId]().
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

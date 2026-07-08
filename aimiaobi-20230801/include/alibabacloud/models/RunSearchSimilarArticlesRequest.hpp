@@ -147,8 +147,17 @@ namespace Models
 
 
         protected:
+          // Search source type:
+          // 
+          // - SystemSearch: Built-in system search.
+          // 
+          // - CustomSemanticSearch: Custom semantic index search.
+          // 
+          // - ThirdSearch: Third-party API search.
           shared_ptr<string> code_ {};
+          // Unique identifier of the search source.
           shared_ptr<string> datasetName_ {};
+          // Search source name (optional).
           shared_ptr<string> name_ {};
         };
 
@@ -260,18 +269,31 @@ namespace Models
 
 
       protected:
+        // Category UUID
         shared_ptr<vector<string>> categoryUuids_ {};
+        // Creation Time cutoff, in UNIX timestamp format.
         shared_ptr<int64_t> createTimeEnd_ {};
+        // Start Creation Time.
         shared_ptr<int64_t> createTimeStart_ {};
+        // Document ID
         shared_ptr<vector<string>> docIds_ {};
+        // Document types: text, image, video, audio, pdf, word, ppt, etc.
         shared_ptr<vector<string>> docTypes_ {};
+        // Document UUID
         shared_ptr<vector<string>> docUuids_ {};
+        // End Time
         shared_ptr<int64_t> endTime_ {};
+        // Extension Field 1
         shared_ptr<string> extend1_ {};
+        // Extension Field 2
         shared_ptr<string> extend2_ {};
+        // Extension Field 3
         shared_ptr<string> extend3_ {};
+        // Search sources.
         shared_ptr<vector<SearchParam::SearchSources>> searchSources_ {};
+        // Start Time
         shared_ptr<int64_t> startTime_ {};
+        // Tag Name
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -286,6 +308,7 @@ namespace Models
 
 
     protected:
+      // Search configuration parameters.
       shared_ptr<ChatConfig::SearchParam> searchParam_ {};
     };
 
@@ -329,11 +352,18 @@ namespace Models
 
 
   protected:
+    // Communication configuration parameters.
     shared_ptr<RunSearchSimilarArticlesRequest::ChatConfig> chatConfig_ {};
+    // Document type.
     shared_ptr<string> docType_ {};
+    // Article title.
     shared_ptr<string> title_ {};
+    // Article URL.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

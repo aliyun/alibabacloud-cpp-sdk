@@ -62,8 +62,12 @@ namespace Models
 
 
   protected:
+    // A collection of custom content texts.
     shared_ptr<vector<string>> contents_ {};
+    // A collection of Material Library IDs.
     shared_ptr<vector<int64_t>> materialIds_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. Get the [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -103,8 +103,11 @@ namespace Models
 
 
       protected:
+        // Number of input tokens used.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens used.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens used.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -136,6 +139,7 @@ namespace Models
 
 
       protected:
+        // Generated comment text.
         shared_ptr<string> text_ {};
       };
 
@@ -160,7 +164,9 @@ namespace Models
 
 
     protected:
+      // Output data.
       shared_ptr<Payload::Output> output_ {};
+      // Token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -238,11 +244,17 @@ namespace Models
 
 
     protected:
+      // Event name.
       shared_ptr<string> event_ {};
+      // Event description.
       shared_ptr<string> eventInfo_ {};
+      // Request ID.
       shared_ptr<string> requestId_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -281,10 +293,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether the response is complete.
     shared_ptr<bool> end_ {};
+    // Response header.
     shared_ptr<RunCommentGenerationResponseBody::Header> header_ {};
+    // Response body.
     shared_ptr<RunCommentGenerationResponseBody::Payload> payload_ {};
-    // Id of the request
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

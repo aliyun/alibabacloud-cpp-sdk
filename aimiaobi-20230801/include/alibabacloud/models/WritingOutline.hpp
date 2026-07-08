@@ -103,12 +103,19 @@ namespace Models
 
 
   protected:
+    // List of articles referenced in the outline
     shared_ptr<vector<OutlineWritingArticle>> articles_ {};
+    // List of sub-outlines
     shared_ptr<vector<WritingOutline>> children_ {};
+    // Outline
     shared_ptr<string> outline_ {};
+    // Unique outline identifier
     shared_ptr<string> outlineId_ {};
+    // Outline writing search keyword list
     shared_ptr<vector<string>> searchKeyWordList_ {};
+    // Description of word count requirements, such as 1K words, 2K words, or no less than 500 words.
     shared_ptr<string> wordCount_ {};
+    // Outline writing requirements, writing tips
     shared_ptr<string> writingTips_ {};
   };
 

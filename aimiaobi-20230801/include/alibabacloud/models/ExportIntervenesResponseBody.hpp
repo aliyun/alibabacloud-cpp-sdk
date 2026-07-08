@@ -78,6 +78,7 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // File URL
       shared_ptr<string> fileUrl_ {};
     };
 
@@ -128,11 +129,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<ExportIntervenesResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Success status: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

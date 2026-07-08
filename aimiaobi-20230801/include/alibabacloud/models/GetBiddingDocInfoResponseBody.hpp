@@ -132,13 +132,21 @@ namespace Models
 
 
     protected:
+      // Bidding document content
       shared_ptr<string> content_ {};
+      // Format
       shared_ptr<string> contentFormat_ {};
+      // File type.
       shared_ptr<string> contentType_ {};
+      // Task status
       shared_ptr<int32_t> status_ {};
+      // Current status
       shared_ptr<string> step_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // Tender document URL
       shared_ptr<string> tenderDocUrl_ {};
+      // Tender document file type
       shared_ptr<string> tenderFileType_ {};
     };
 
@@ -189,12 +197,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetBiddingDocInfoResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

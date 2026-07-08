@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // Quantity of input tokens
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of tokens used in the output
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -201,10 +204,15 @@ namespace Models
 
 
         protected:
+          // Published At
           shared_ptr<string> pubTime_ {};
+          // Source
           shared_ptr<string> source_ {};
+          // Source docId
           shared_ptr<string> sourceDocId_ {};
+          // Title of the associated content
           shared_ptr<string> title_ {};
+          // Article URL
           shared_ptr<string> url_ {};
         };
 
@@ -246,7 +254,9 @@ namespace Models
 
 
         protected:
+          // Title of the recommended content
           shared_ptr<string> title_ {};
+          // URL of the recommended content
           shared_ptr<string> url_ {};
         };
 
@@ -311,7 +321,9 @@ namespace Models
 
 
           protected:
+            // Start time of the video segment
             shared_ptr<double> from_ {};
+            // End time of the video segment
             shared_ptr<double> to_ {};
           };
 
@@ -341,8 +353,11 @@ namespace Models
 
 
         protected:
+          // Array of related video time information
           shared_ptr<vector<MediaUrlList::ClipInfos>> clipInfos_ {};
+          // File URL
           shared_ptr<string> fileUrl_ {};
+          // Media asset type
           shared_ptr<string> mediaType_ {};
         };
 
@@ -397,11 +412,17 @@ namespace Models
 
 
       protected:
+        // Content of the response
         shared_ptr<string> content_ {};
+        // Response content after intervention
         shared_ptr<string> interveneContent_ {};
+        // Indicates whether the request is rejected
         shared_ptr<bool> isReject_ {};
+        // List of multimodal resource information
         shared_ptr<vector<Output::MediaUrlList>> mediaUrlList_ {};
+        // Array of recommended content
         shared_ptr<vector<Output::Recommends>> recommends_ {};
+        // Array of sources for the response content
         shared_ptr<vector<Output::References>> references_ {};
       };
 
@@ -426,7 +447,9 @@ namespace Models
 
 
     protected:
+      // Outputs
       shared_ptr<Payload::Output> output_ {};
+      // token usage
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -514,12 +537,19 @@ namespace Models
 
 
     protected:
+      // error code
       shared_ptr<string> errorCode_ {};
+      // error message
       shared_ptr<string> errorMessage_ {};
+      // management event
       shared_ptr<string> event_ {};
+      // Description of the management event
       shared_ptr<string> eventInfo_ {};
+      // Session ID
       shared_ptr<string> sessionId_ {};
+      // Job ID
       shared_ptr<string> taskId_ {};
+      // End-to-end trace ID
       shared_ptr<string> traceId_ {};
     };
 
@@ -551,8 +581,11 @@ namespace Models
 
 
   protected:
+    // response header
     shared_ptr<RunDocQaResponseBody::Header> header_ {};
+    // response body
     shared_ptr<RunDocQaResponseBody::Payload> payload_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

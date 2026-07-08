@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -237,12 +240,19 @@ namespace Models
 
 
           protected:
+            // The start timestamp of the content block.
             shared_ptr<int64_t> beginTime_ {};
+            // The end timestamp of the content block.
             shared_ptr<int64_t> endTime_ {};
+            // The height of the content block.
             shared_ptr<int32_t> height_ {};
+            // The ID of the page where the content block is located.
             shared_ptr<int32_t> pageId_ {};
+            // The width of the content block.
             shared_ptr<int32_t> width_ {};
+            // The x-coordinate of the content block\\"s top-left corner on the page.
             shared_ptr<int32_t> x_ {};
+            // The y-coordinate of the content block\\"s top-left corner on the page.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -272,8 +282,11 @@ namespace Models
 
 
         protected:
+          // A list of content blocks within this section.
           shared_ptr<vector<Introductions::Blocks>> blocks_ {};
+          // A summary of this section.
           shared_ptr<string> summary_ {};
+          // The title of this section.
           shared_ptr<string> title_ {};
         };
 
@@ -303,8 +316,11 @@ namespace Models
 
 
       protected:
+        // A list of generated introductions for each part of the book.
         shared_ptr<vector<Output::Introductions>> introductions_ {};
+        // The book\\"s key points.
         shared_ptr<string> keyPoint_ {};
+        // The book summary.
         shared_ptr<string> summary_ {};
       };
 
@@ -329,7 +345,9 @@ namespace Models
 
 
     protected:
+      // The generated content.
       shared_ptr<Payload::Output> output_ {};
+      // Token usage details for the request.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -417,12 +435,19 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The event type.
       shared_ptr<string> event_ {};
+      // The event description.
       shared_ptr<string> eventInfo_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -454,9 +479,11 @@ namespace Models
 
 
   protected:
+    // The response header.
     shared_ptr<RunBookIntroductionResponseBody::Header> header_ {};
+    // The payload.
     shared_ptr<RunBookIntroductionResponseBody::Payload> payload_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

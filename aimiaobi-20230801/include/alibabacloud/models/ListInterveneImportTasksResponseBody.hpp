@@ -132,10 +132,15 @@ namespace Models
 
 
       protected:
+        // Task message
         shared_ptr<string> msg_ {};
+        // Completion percentage
         shared_ptr<int32_t> percentage_ {};
+        // Task status
         shared_ptr<int32_t> status_ {};
+        // Task ID
         shared_ptr<string> taskId_ {};
+        // Task name
         shared_ptr<string> taskName_ {};
       };
 
@@ -179,10 +184,15 @@ namespace Models
 
 
     protected:
+      // Status code returned by the intervention service
       shared_ptr<int32_t> code_ {};
+      // Page number
       shared_ptr<int32_t> pageIndex_ {};
+      // Page size
       shared_ptr<int32_t> pageSize_ {};
+      // Task status information
       shared_ptr<vector<Data::StatusList>> statusList_ {};
+      // Total number of pages
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -233,11 +243,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<ListInterveneImportTasksResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

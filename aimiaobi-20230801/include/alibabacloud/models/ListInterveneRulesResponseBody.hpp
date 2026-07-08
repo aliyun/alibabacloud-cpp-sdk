@@ -145,8 +145,11 @@ namespace Models
 
 
         protected:
+          // Answer type
           shared_ptr<int32_t> answerType_ {};
+          // Answer content
           shared_ptr<string> message_ {};
+          // Namespace
           shared_ptr<string> namespace_ {};
         };
 
@@ -207,12 +210,19 @@ namespace Models
 
 
       protected:
+        // Answer configuration
         shared_ptr<vector<InterveneRuleList::AnswerConfig>> answerConfig_ {};
+        // Creation time
         shared_ptr<string> createTime_ {};
+        // Effective time
         shared_ptr<string> effectTime_ {};
+        // Intervention type
         shared_ptr<int32_t> interveneType_ {};
+        // List of namespaces
         shared_ptr<vector<string>> namespaceList_ {};
+        // Rule ID
         shared_ptr<int64_t> ruleId_ {};
+        // Rule name
         shared_ptr<string> ruleName_ {};
       };
 
@@ -256,10 +266,15 @@ namespace Models
 
 
     protected:
+      // Status code returned by the intervention service
       shared_ptr<int32_t> code_ {};
+      // Number of items
       shared_ptr<int64_t> count_ {};
+      // List of rules
       shared_ptr<vector<Data::InterveneRuleList>> interveneRuleList_ {};
+      // Page number
       shared_ptr<int32_t> pageIndex_ {};
+      // Page size
       shared_ptr<int32_t> pageSize_ {};
     };
 
@@ -310,11 +325,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<ListInterveneRulesResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

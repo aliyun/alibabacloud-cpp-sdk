@@ -151,15 +151,25 @@ namespace Models
 
 
     protected:
+      // Author
       shared_ptr<string> author_ {};
+      // Content
       shared_ptr<string> content_ {};
+      // Custom unique ID for the document
       shared_ptr<string> docId_ {};
+      // Internal unique identifier for the document
       shared_ptr<string> docUuid_ {};
+      // Publication time
       shared_ptr<string> pubTime_ {};
+      // Source
       shared_ptr<string> source_ {};
+      // Article summary
       shared_ptr<string> summary_ {};
+      // Tag
       shared_ptr<string> tag_ {};
+      // Title
       shared_ptr<string> title_ {};
+      // Article URL
       shared_ptr<string> url_ {};
     };
 
@@ -210,11 +220,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<vector<DocumentExtractionResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

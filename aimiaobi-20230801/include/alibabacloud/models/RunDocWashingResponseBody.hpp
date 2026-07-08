@@ -103,8 +103,11 @@ namespace Models
 
 
       protected:
+        // Number of input tokens
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -136,6 +139,7 @@ namespace Models
 
 
       protected:
+        // Output content
         shared_ptr<string> text_ {};
       };
 
@@ -160,7 +164,9 @@ namespace Models
 
 
     protected:
+      // Output
       shared_ptr<Payload::Output> output_ {};
+      // Token consumption
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -238,11 +244,17 @@ namespace Models
 
 
     protected:
+      // Event type
       shared_ptr<string> event_ {};
+      // Event description
       shared_ptr<string> eventInfo_ {};
+      // Request ID
       shared_ptr<string> requestId_ {};
+      // Session ID
       shared_ptr<string> sessionId_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // Full link ID
       shared_ptr<string> traceId_ {};
     };
 
@@ -281,8 +293,11 @@ namespace Models
 
 
   protected:
+    // Is the response package finished?
     shared_ptr<bool> end_ {};
+    // Response header
     shared_ptr<RunDocWashingResponseBody::Header> header_ {};
+    // Response body
     shared_ptr<RunDocWashingResponseBody::Payload> payload_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The configuration for the news broadcast job.
+    // 
     // This parameter is required.
     shared_ptr<string> hotTopicBroadcastConfigShrink_ {};
+    // The version of the hot topic.
     shared_ptr<string> hotTopicVersion_ {};
+    // The topic filter.
     shared_ptr<string> topicsShrink_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

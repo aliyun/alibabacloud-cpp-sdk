@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Custom merge prompt
     shared_ptr<string> prompt_ {};
+    // List of topic perspectives to merge
+    // 
     // This parameter is required.
     shared_ptr<string> topicsShrink_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

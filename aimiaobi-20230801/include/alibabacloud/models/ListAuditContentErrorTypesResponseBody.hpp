@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // Sub-audit dimension code
         shared_ptr<string> classCode_ {};
+        // Sub-audit dimension name
         shared_ptr<string> className_ {};
       };
 
@@ -137,8 +139,11 @@ namespace Models
 
 
     protected:
+      // Main audit dimension code
       shared_ptr<string> majorClassCode_ {};
+      // Sub-audit dimension name
       shared_ptr<string> majorClassName_ {};
+      // List of sub-audit dimensions
       shared_ptr<vector<Data::SubClasses>> subClasses_ {};
     };
 
@@ -211,15 +216,23 @@ namespace Models
 
 
   protected:
+    // Error code
     shared_ptr<string> code_ {};
+    // List of audit dimensions
     shared_ptr<vector<ListAuditContentErrorTypesResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of records returned in this response
     shared_ptr<int32_t> maxResults_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Total number of records
     shared_ptr<int32_t> totalCount_ {};
   };
 

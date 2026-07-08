@@ -88,8 +88,11 @@ namespace Models
 
 
     protected:
+      // The unique task ID.
       shared_ptr<string> taskId_ {};
+      // The intermediate result.
       Darabonba::Json taskIntermediateResult_ {};
+      // The task name.
       shared_ptr<string> taskName_ {};
     };
 
@@ -140,11 +143,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<SubmitAsyncTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

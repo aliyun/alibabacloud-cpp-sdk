@@ -135,13 +135,21 @@ namespace Models
 
 
     protected:
+      // Category UUID
       shared_ptr<string> categoryUuid_ {};
+      // User-defined unique ID for the document.
       shared_ptr<string> docId_ {};
+      // Internal unique ID of the document.
       shared_ptr<string> docUuid_ {};
+      // Extension field 1
       shared_ptr<string> extend1_ {};
+      // Extension field 2
       shared_ptr<string> extend2_ {};
+      // Extension field 3
       shared_ptr<string> extend3_ {};
+      // Tags.
       shared_ptr<vector<string>> tags_ {};
+      // Document title.
       shared_ptr<string> title_ {};
     };
 
@@ -192,11 +200,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Business data.
     shared_ptr<UpdateDatasetDocumentResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

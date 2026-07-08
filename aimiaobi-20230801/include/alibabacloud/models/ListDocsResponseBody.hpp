@@ -130,12 +130,19 @@ namespace Models
 
 
     protected:
+      // Document folder.
       shared_ptr<string> categoryId_ {};
+      // Creation time.
       shared_ptr<int64_t> createTime_ {};
+      // Document ID.
       shared_ptr<string> docId_ {};
+      // Document name.
       shared_ptr<string> docName_ {};
+      // Document type.
       shared_ptr<string> docType_ {};
+      // Status.
       shared_ptr<int32_t> status_ {};
+      // Status message.
       shared_ptr<string> statusMessage_ {};
     };
 
@@ -208,14 +215,23 @@ namespace Models
 
 
   protected:
+    // Return code.
     shared_ptr<string> code_ {};
+    // List of returned data results.
     shared_ptr<vector<ListDocsResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // Return message.
     shared_ptr<string> message_ {};
+    // Next page token.
     shared_ptr<string> nextToken_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

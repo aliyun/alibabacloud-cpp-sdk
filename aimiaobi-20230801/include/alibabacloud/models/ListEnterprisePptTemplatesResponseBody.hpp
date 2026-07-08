@@ -88,8 +88,9 @@ namespace Models
 
 
     protected:
+      // The URL of the cover image.
       shared_ptr<string> coverImg_ {};
-      // ID
+      // The ID of the template.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -176,16 +177,27 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // An array of enterprise-specific PPT template objects.
     shared_ptr<vector<ListEnterprisePptTemplatesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results per page, as specified in the request. Note: This parameter is not yet in effect.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The token for the next page of results. An empty value indicates that no more data is available. Note: This parameter is not yet in effect.
     shared_ptr<string> nextToken_ {};
+    // The unique request ID. Provide this ID when you contact technical support.
     shared_ptr<string> requestId_ {};
+    // The number of entries returned on the current page (the \\"page size\\").
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the request succeeded. `true` indicates success, and `false` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

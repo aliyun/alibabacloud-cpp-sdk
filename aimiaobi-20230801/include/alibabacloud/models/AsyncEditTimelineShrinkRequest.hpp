@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // Enable automatic clip adjustment
     shared_ptr<bool> autoClips_ {};
+    // Unique identifier of the task
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Array structure of video editing timelines
+    // 
     // This parameter is required.
     shared_ptr<string> timelinesShrink_ {};
+    // [Model Studio workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

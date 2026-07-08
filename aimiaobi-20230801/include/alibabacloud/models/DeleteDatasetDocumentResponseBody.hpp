@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<vector<string>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Is successful: true for successful, false for failed.
     shared_ptr<bool> success_ {};
   };
 

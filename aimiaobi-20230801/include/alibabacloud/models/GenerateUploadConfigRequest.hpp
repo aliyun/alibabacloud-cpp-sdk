@@ -57,9 +57,22 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The parent folder.
+    // 
+    // - materialDocument: The Material Library for AI Writing Assistant.
+    // 
+    // - datasetUpload: The dataset for AI Search.
+    // 
+    // - intervenes: Interventions.
+    // 
+    // - temp: A temporary upload folder. Files in this folder are released periodically.
+    // 
     // This parameter is required.
     shared_ptr<string> parentDir_ {};
   };

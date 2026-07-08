@@ -58,8 +58,12 @@ namespace Models
 
   protected:
     shared_ptr<string> externalUserId_ {};
+    // The user\\"s prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // File OSS key
     shared_ptr<string> fileKey_ {};
+    // Tender document name
     shared_ptr<string> tenderDocName_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
     shared_ptr<string> workspaceId_ {};
   };
 

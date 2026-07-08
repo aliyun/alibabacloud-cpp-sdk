@@ -140,22 +140,68 @@ namespace Models
 
 
   protected:
+    // Set to true to allow emoji in comments. Default is false.
     shared_ptr<bool> allowEmoji_ {};
+    // Additional instructions.
     shared_ptr<string> extraInfo_ {};
+    // Length of each comment in characters.
     shared_ptr<string> length_ {};
+    // Length distribution.
+    // 
+    // Valid keys:
+    // 
+    // - short (up to 20 characters)
+    // 
+    // - medium (20–50 characters)
+    // 
+    // - long (50–100 characters)
+    // 
     // This parameter is required.
     shared_ptr<string> lengthRangeShrink_ {};
+    // ID of the model to use.
     shared_ptr<string> modelId_ {};
+    // Number of comments to generate.
+    // 
     // This parameter is required.
     shared_ptr<string> numComments_ {};
+    // Sentiment distribution.
+    // 
+    // Valid keys:
+    // 
+    // - positive
+    // 
+    // - neutral
+    // 
+    // - negative
+    // 
     // This parameter is required.
     shared_ptr<string> sentimentShrink_ {};
+    // Session ID.
     shared_ptr<string> sessionId_ {};
+    // Article to comment on.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceMaterial_ {};
+    // Tone of the comments.
     shared_ptr<string> style_ {};
+    // Comment type.
+    // 
+    // Valid keys:
+    // 
+    // - emotion (expresses emotion)
+    // 
+    // - opinion (states an opinion)
+    // 
+    // - interaction (encourages interaction)
+    // 
+    // - experience (shares experience)
+    // 
+    // - humor (uses humor)
+    // 
     // This parameter is required.
     shared_ptr<string> typeShrink_ {};
+    // Path parameter. The unique identifier of your Alibaba Cloud Model Studio workspace. To get this ID, see [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

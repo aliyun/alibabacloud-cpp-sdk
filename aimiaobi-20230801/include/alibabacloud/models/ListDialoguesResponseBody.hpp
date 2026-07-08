@@ -120,11 +120,17 @@ namespace Models
 
 
     protected:
+      // Model output.
       shared_ptr<string> bot_ {};
+      // Creation time.
       shared_ptr<string> createTime_ {};
+      // Creator.
       shared_ptr<string> createUser_ {};
+      // Generation type. Valid values: 1 (creation) and 2 (intelligent search). Default value: 2.
       shared_ptr<int32_t> dialogueType_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // User input.
       shared_ptr<string> user_ {};
     };
 
@@ -197,14 +203,23 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Page number of the current page.
     shared_ptr<int32_t> current_ {};
+    // List of generation history records.
     shared_ptr<vector<ListDialoguesResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // Number of items per page.
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the operation succeeded. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
+    // Total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

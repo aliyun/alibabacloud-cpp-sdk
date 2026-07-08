@@ -76,9 +76,13 @@ namespace Models
 
   protected:
     shared_ptr<string> externalUserId_ {};
+    // The number of data entries to query in this request (deprecated).
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The search keyword for the work name.
     shared_ptr<string> query_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

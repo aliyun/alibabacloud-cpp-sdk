@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -117,12 +118,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<AsyncCreateClipsTimeLineResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Operation result: true indicates success. false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

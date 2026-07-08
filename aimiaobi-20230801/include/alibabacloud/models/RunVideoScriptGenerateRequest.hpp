@@ -84,12 +84,36 @@ namespace Models
 
 
   protected:
+    // The language of the generated script.
+    // Recommended values:
+    // 
+    // zh-CN: Chinese
+    // 
+    // en-US: English
+    // 
+    // The default is Chinese.
     shared_ptr<string> language_ {};
+    // The prompt for the video script.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The length of the script. Valid values:
+    // 
+    // 20\\~75: 10 to 15 seconds of normal speaking time.
+    // 
+    // 75\\~150: 15 to 30 seconds of normal speaking time.
+    // 
+    // 150\\~300: Approximately 30 to 60 seconds of normal speaking time.
+    // 
+    // \\>=300: 60 seconds or more of normal speaking time.
     shared_ptr<string> scriptLength_ {};
+    // The number of scripts to generate. The default is 1. You can generate a maximum of three scripts at a time.
+    // If you specify multiple scripts, the results are returned in parallel streams. The client distinguishes between the streams using different session IDs.
     shared_ptr<int32_t> scriptNumber_ {};
+    // Specifies whether to use an internet search. If you set this to true, the system performs intention recognition and then searches the internet for relevant reference materials.
     shared_ptr<bool> useSearch_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

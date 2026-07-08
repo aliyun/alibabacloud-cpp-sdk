@@ -69,6 +69,7 @@ namespace Models
 
 
     protected:
+      // ID
       shared_ptr<int64_t> id_ {};
     };
 
@@ -127,13 +128,19 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data (whether the update succeeded). This field is deprecated. Use DataV1 to get the primary key ID instead.
     shared_ptr<bool> data_ {};
+    // ID of the added dictionary term
     shared_ptr<AddAuditTermsResponseBody::DataV1> dataV1_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

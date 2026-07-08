@@ -117,10 +117,15 @@ namespace Models
 
 
     protected:
+      // Creation time - start range, format: yyyy-MM-dd HH:mm:ss
       shared_ptr<string> createTimeStart_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
+      // Task name
       shared_ptr<string> taskName_ {};
+      // Task status
       shared_ptr<int32_t> taskStatus_ {};
+      // Task step
       shared_ptr<string> taskStep_ {};
     };
 
@@ -215,18 +220,29 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Current page number
     shared_ptr<int32_t> current_ {};
+    // Returned data
     shared_ptr<vector<ListBiddingDocResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Deprecated
     shared_ptr<int32_t> maxResults_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Deprecated
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Number of items per page
     shared_ptr<int32_t> size_ {};
+    // Whether the operation was successful: true for success, false for failure.
     shared_ptr<bool> success_ {};
+    // Total records
     shared_ptr<int32_t> total_ {};
+    // Deprecated
     shared_ptr<int32_t> totalCount_ {};
   };
 

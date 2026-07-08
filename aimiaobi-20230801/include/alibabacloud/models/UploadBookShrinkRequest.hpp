@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Folder ID
     shared_ptr<string> categoryId_ {};
+    // Documents
+    // 
     // This parameter is required.
     shared_ptr<string> docsShrink_ {};
+    // Unique identifier of your Alibaba Cloud Model Studio workspace. [Get your workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

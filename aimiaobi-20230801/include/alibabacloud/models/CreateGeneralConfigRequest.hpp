@@ -57,10 +57,32 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the configuration item. Supported keys include the following:
+    // 
+    // - MiaoSou text search threshold (double): searchGenerate.searchTextMinScore
+    // 
+    // - MiaoSou image search threshold (double): searchGenerate.searchImageMinScore
+    // 
+    // - MiaoSou video search threshold (double): searchGenerate.searchVideoMinScore
+    // 
+    // - MiaoSou audio search threshold (double): searchGenerate.searchAudioMinScore
+    // 
+    // - MiaoSou Q\\&A search general answer summary prompt template (string): searchGenerate.sumQaAgentPrompt
+    // 
+    // - MiaoSou Q\\&A search general answer summary prompt template with text and images (string): searchGenerate.sumQaAgentVlPrompt
+    // 
+    // - MiaoSou Q\\&A search deep answer summary prompt template (string): searchGenerate.sumQaEnhanceAgentPrompt
+    // 
+    // - MiaoSou Q\\&A search deep answer summary prompt template with text and images (string): searchGenerate.sumQaEnhanceAgentVlPrompt
+    // 
     // This parameter is required.
     shared_ptr<string> configKey_ {};
+    // Value of the configuration item
+    // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};
+    // Unique identifier of the Model Studio workspace. [Get the workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

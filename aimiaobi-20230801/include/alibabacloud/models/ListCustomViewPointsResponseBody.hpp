@@ -142,7 +142,9 @@ namespace Models
 
 
         protected:
+          // The outline.
           shared_ptr<string> outline_ {};
+          // The summary of the outline.
           shared_ptr<string> summary_ {};
         };
 
@@ -172,8 +174,11 @@ namespace Models
 
 
       protected:
+        // The outline.
         shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+        // The generated viewpoint.
         shared_ptr<string> point_ {};
+        // The summary.
         shared_ptr<string> summary_ {};
       };
 
@@ -246,14 +251,23 @@ namespace Models
 
 
     protected:
+      // The ID of the asynchronous task that analyzes the custom viewpoint.
       shared_ptr<string> asyncTaskId_ {};
+      // The viewpoint.
       shared_ptr<string> attitude_ {};
+      // The time when the viewpoint was created.
       shared_ptr<string> createTime_ {};
+      // The ID of the user who created the viewpoint.
       shared_ptr<string> createUser_ {};
+      // The ID of the custom viewpoint.
       shared_ptr<string> id_ {};
+      // The task execution status. Valid values: PENDING, RUNNING, SUCCEEDED, SUSPENDED, FAILED, and CANCELED.
       shared_ptr<string> status_ {};
+      // The error message for the task execution.
       shared_ptr<string> taskErrorMessage_ {};
+      // The task execution status. 0: PENDING, 1: RUNNING, 2: SUCCEEDED, 3: PAUSED, 4: FAILED (retriable), 5: FAILED (non-retriable), 6: CANCELED.
       shared_ptr<int32_t> taskStatus_ {};
+      // A list of topic selection viewpoints.
       shared_ptr<vector<Data::ViewPoints>> viewPoints_ {};
     };
 
@@ -326,14 +340,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<vector<ListCustomViewPointsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\`: The request was successful. \\`false\\`: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -130,17 +130,29 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The end of the time range to query task creation times. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> createTimeEnd_ {};
+    // The start of the time range to query task creation times. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> createTimeStart_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> size_ {};
+    // A term query for the task code.
     shared_ptr<string> taskCode_ {};
+    // A term query for the task name.
     shared_ptr<string> taskName_ {};
+    // A term query for the task status. Valid values: 0 (Pending), 1 (Running), 2 (Succeeded), 3 (Paused), 4 (Failed and retriable), 5 (Failed and not retriable), and 6 (Canceled).
     shared_ptr<int32_t> taskStatus_ {};
+    // A term query for a list of task statuses. Valid values: 0 (Pending), 1 (Running), 2 (Succeeded), 3 (Paused), 4 (Failed and retriable), 5 (Failed and not retriable), and 6 (Canceled).
     shared_ptr<string> taskStatusListShrink_ {};
+    // A term query for the task type.
     shared_ptr<string> taskType_ {};
+    // A term query for a list of task types.
     shared_ptr<string> taskTypeListShrink_ {};
   };
 

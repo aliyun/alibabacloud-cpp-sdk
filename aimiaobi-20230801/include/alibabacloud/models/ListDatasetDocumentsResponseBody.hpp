@@ -154,8 +154,11 @@ namespace Models
 
 
       protected:
+        // The URL of the image or video file.
         shared_ptr<string> fileUrl_ {};
+        // The unique ID of the multimodal media.
         shared_ptr<string> mediaId_ {};
+        // The type of the multimodal media.
         shared_ptr<string> mediaType_ {};
       };
 
@@ -316,27 +319,47 @@ namespace Models
 
 
     protected:
+      // The unique ID of the category.
       shared_ptr<string> categoryUuid_ {};
+      // The content of the document.
       shared_ptr<string> content_ {};
+      // The creation time of the document.
       shared_ptr<string> createTime_ {};
+      // The creator of the document.
       shared_ptr<string> createUser_ {};
+      // Indicates whether multimodal indexing is disabled for this document.
       shared_ptr<bool> disableHandleMultimodalMedia_ {};
+      // The user-specified unique document ID.
       shared_ptr<string> docId_ {};
+      // The type of the document.
       shared_ptr<string> docType_ {};
+      // The unique internal document ID.
       shared_ptr<string> docUuid_ {};
+      // Extension field 1.
       shared_ptr<string> extend1_ {};
+      // Extension field 2.
       shared_ptr<string> extend2_ {};
+      // Extension field 3.
       shared_ptr<string> extend3_ {};
+      // A list of multimodal media items associated with the document.
       shared_ptr<vector<Data::MultimodalMedias>> multimodalMedias_ {};
+      // The publication time of the document.
       shared_ptr<string> pubTime_ {};
+      // The source of the document.
       shared_ptr<string> sourceFrom_ {};
+      // The build status of the document index.
       shared_ptr<int32_t> status_ {};
+      // The summary of the document.
       shared_ptr<string> summary_ {};
+      // A list of tags associated with the document.
       shared_ptr<vector<string>> tags_ {};
+      // The title of the document.
       shared_ptr<string> title_ {};
+      // The last update time of the document.
       shared_ptr<string> updateTime_ {};
+      // The user who last updated the document.
       shared_ptr<string> updateUser_ {};
-      // url
+      // The URL of the document.
       shared_ptr<string> url_ {};
     };
 
@@ -416,15 +439,25 @@ namespace Models
 
 
   protected:
+    // The status code for the request.
     shared_ptr<string> code_ {};
+    // A list of documents.
     shared_ptr<vector<ListDatasetDocumentsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // A detailed message about the request status.
     shared_ptr<string> message_ {};
+    // The token used to retrieve the next page of results. This field appears only when more results are available.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of `true` indicates success, and `false` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of matching documents.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -120,11 +120,17 @@ namespace Models
 
 
     protected:
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Task type
       shared_ptr<int32_t> dialogueType_ {};
+      // Unique task identifier
       shared_ptr<string> taskId_ {};
+      // Task name
       shared_ptr<string> taskName_ {};
+      // Modification time
       shared_ptr<string> updateTime_ {};
+      // Creator name
       shared_ptr<string> username_ {};
     };
 
@@ -197,14 +203,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<vector<ListSearchTasksResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Current page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. True for success, false for failed.
     shared_ptr<bool> success_ {};
+    // Total number of records
     shared_ptr<int32_t> totalCount_ {};
   };
 

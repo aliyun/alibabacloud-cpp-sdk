@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // Task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -117,12 +118,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<AsyncUploadTenderDocResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

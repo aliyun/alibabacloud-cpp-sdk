@@ -94,14 +94,25 @@ namespace Models
 
 
   protected:
+    // The ID of the original conversation when regenerating content.
     shared_ptr<string> originSessionId_ {};
+    // The prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The reference article data for writing.
     shared_ptr<string> referenceDataShrink_ {};
+    // The ID of a single-turn conversation.
     shared_ptr<string> sessionId_ {};
+    // The task ID. You can reuse the same task ID for a multi-turn conversation.
+    // 
+    // > By default, you do not need to specify this parameter. The system automatically generates a task ID. If you specify the same TaskId for subsequent tasks, the tasks are considered part of the same conversation group.
     shared_ptr<string> taskId_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The writing configuration.
     shared_ptr<string> writingConfigShrink_ {};
   };
 

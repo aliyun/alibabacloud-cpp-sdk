@@ -49,6 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> externalUserId_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

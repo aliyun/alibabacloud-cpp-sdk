@@ -151,8 +151,11 @@ namespace Models
 
 
         protected:
+          // Article source
           shared_ptr<string> source_ {};
+          // Article title
           shared_ptr<string> title_ {};
+          // Article URL
           shared_ptr<string> url_ {};
         };
 
@@ -182,8 +185,11 @@ namespace Models
 
 
       protected:
+        // Articles referenced to generate the title summary
         shared_ptr<vector<StructureSummary::DocList>> docList_ {};
+        // Summary
         shared_ptr<string> summary_ {};
+        // Title
         shared_ptr<string> title_ {};
       };
 
@@ -278,17 +284,41 @@ namespace Models
 
 
     protected:
+      // Asynchronous task ID (used in custom topic scenarios)
       shared_ptr<string> asyncTaskId_ {};
+      // Creator user ID (used in custom topic scenarios)
       shared_ptr<string> createUser_ {};
+      // Hotness value
       shared_ptr<int64_t> hotValue_ {};
+      // Hot topic ID
       shared_ptr<string> id_ {};
+      // Asynchronous task status (used in custom event scenarios) (PENDING: pending, RUNNING: running, SUCCESSED: succeeded, SUSPENDED: suspended, FAILED: failed, CANCELED: canceled)
       shared_ptr<string> status_ {};
+      // List of structured topic summaries
       shared_ptr<vector<Data::StructureSummary>> structureSummary_ {};
+      // Hot topic summary
       shared_ptr<string> summary_ {};
+      // Error message for asynchronous task failure
       shared_ptr<string> taskErrorMessage_ {};
+      // Asynchronous task status. 0: pending, 1: running, 2: succeeded, 3: suspended (not used), 4: failed, 6: canceled (used in custom event scenarios).
       shared_ptr<int32_t> taskStatus_ {};
+      // Unique topic name
       shared_ptr<string> topic_ {};
+      // Hot topic source. Supported sources:
+      // 
+      // - Toutiao: Toutiao
+      // 
+      // - Quark: Quark
+      // 
+      // - Baidu: Baidu
+      // 
+      // - Sina: Sina
+      // 
+      // - Custom: Custom
+      // 
+      // - Aggregation: Hot Topic List
       shared_ptr<string> topicSource_ {};
+      // Data version
       shared_ptr<string> version_ {};
     };
 
@@ -339,11 +369,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetTopicByIdResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

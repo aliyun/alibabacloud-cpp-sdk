@@ -145,18 +145,33 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the business space.
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The end of the creation time filter range (inclusive). The value must be in the `yyyy-MM-dd HH:mm:ss` format.
     shared_ptr<string> createTimeEnd_ {};
+    // The start of the creation time filter range (inclusive). The value must be in the `yyyy-MM-dd HH:mm:ss` format.
     shared_ptr<string> createTimeStart_ {};
+    // Filters the results by a custom business field. The service performs an exact keyword match on this field. The value can be up to 255 characters long.
     shared_ptr<string> customField_ {};
+    // The maximum number of results to return for a single request. If this parameter is not specified, the service uses a default value.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. If you do not specify this parameter, the service returns the first page of results. You can get this token from the `NextToken` response parameter of the previous request.
     shared_ptr<string> nextToken_ {};
+    // A list of topic IDs.
     shared_ptr<vector<string>> topicIds_ {};
+    // The keywords for a full-text search on hot topics.
     shared_ptr<string> topicQuery_ {};
+    // Filters the results by hot topic source. For a list of supported hot topic sources, call the `ListHotSources` operation.
+    // 
+    // `Aggregation`: represents the aggregated list of national hot topics.
     shared_ptr<string> topicSource_ {};
+    // Filters the results by data version.
     shared_ptr<string> topicVersion_ {};
+    // Filters the results by hot topic.
     shared_ptr<vector<string>> topics_ {};
+    // Specifies whether to include news in the response.
     shared_ptr<bool> withNews_ {};
   };
 

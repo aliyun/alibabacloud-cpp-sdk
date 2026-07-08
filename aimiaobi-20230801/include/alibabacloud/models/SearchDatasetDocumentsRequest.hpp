@@ -215,25 +215,46 @@ namespace Models
 
 
   protected:
+    // A list of category UUIDs for filtering.
     shared_ptr<vector<string>> categoryUuids_ {};
+    // The end time for document creation, specified as a Unix timestamp.
     shared_ptr<int64_t> createTimeEnd_ {};
+    // The start time for document creation, specified as a Unix timestamp.
     shared_ptr<int64_t> createTimeStart_ {};
+    // The ID of the dataset. You must specify either `DatasetId` or `DatasetName`.
     shared_ptr<int64_t> datasetId_ {};
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // A list of document IDs for filtering.
     shared_ptr<vector<string>> docIds_ {};
+    // A list of document types for filtering.
     shared_ptr<vector<string>> docTypes_ {};
+    // A list of document UUIDs for filtering.
     shared_ptr<vector<string>> docUuids_ {};
+    // The end of the time range for filtering, specified as a Unix timestamp.
     shared_ptr<int64_t> endTime_ {};
+    // A business parameter.
     shared_ptr<string> extend1_ {};
+    // A reserved business parameter.
     shared_ptr<string> extend2_ {};
+    // A reserved business parameter.
     shared_ptr<string> extend3_ {};
+    // Specifies whether to include the document content in the search results. The default value is `false`.
     shared_ptr<bool> includeContent_ {};
+    // The number of documents to return per page.
     shared_ptr<string> pageSize_ {};
+    // The search query.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The search mode.
     shared_ptr<string> searchMode_ {};
+    // The start of the time range for filtering, specified as a Unix timestamp.
     shared_ptr<int64_t> startTime_ {};
+    // A list of tags for filtering.
     shared_ptr<vector<string>> tags_ {};
+    // The ID of the Model Studio workspace. For more information, see [Get workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

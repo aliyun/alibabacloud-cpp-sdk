@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // SystemSearch: system-built-in search. CustomSemanticSearch: custom semantic index search. ThirdSearch: third-party API search.
       shared_ptr<string> code_ {};
+      // Unique identifier of the data source
       shared_ptr<string> datasetName_ {};
     };
 
@@ -127,8 +129,11 @@ namespace Models
 
 
     protected:
+      // Article content
       shared_ptr<string> content_ {};
+      // Article title
       shared_ptr<string> title_ {};
+      // Article URL
       shared_ptr<string> url_ {};
     };
 
@@ -174,11 +179,18 @@ namespace Models
 
 
   protected:
+    // Referenced articles
     shared_ptr<vector<RunQuickWritingRequest::Articles>> articles_ {};
+    // Other writing parameters. Choose either prompt or writingParams.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // Use the specified search source list.
     shared_ptr<vector<RunQuickWritingRequest::SearchSources>> searchSources_ {};
+    // Task ID. Reuse the same task ID for multi-turn conversations.
     shared_ptr<string> taskId_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

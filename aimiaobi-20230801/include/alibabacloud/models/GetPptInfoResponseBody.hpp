@@ -126,12 +126,19 @@ namespace Models
 
 
     protected:
+      // Download links for the exported files.
       shared_ptr<vector<string>> exportFileLink_ {};
+      // The ID of the export task.
       shared_ptr<string> exportTaskId_ {};
+      // The URL of the cover image for the PPT artifact.
       shared_ptr<string> pptArtifactCover_ {};
+      // The ID of the PPT artifact.
       shared_ptr<string> pptArtifactId_ {};
+      // The ID of the PPT process.
       shared_ptr<string> pptProcessId_ {};
+      // The query for the PPT task.
       shared_ptr<string> query_ {};
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -182,12 +189,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetPptInfoResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

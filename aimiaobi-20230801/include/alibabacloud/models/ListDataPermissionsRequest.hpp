@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // The unique ID of the data.
+    // 
+    // - Example for a dataset: SystemSearch.QuarkCommonNews
     shared_ptr<string> dataId_ {};
+    // The data type.
+    // 
+    // - dataset: a dataset
     shared_ptr<string> dataType_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspaceId](https://help.aliyun.com/document_detail/2587495.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

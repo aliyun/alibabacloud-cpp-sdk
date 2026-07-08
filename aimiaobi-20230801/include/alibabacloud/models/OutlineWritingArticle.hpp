@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // Content
     shared_ptr<string> content_ {};
+    // The leaf outline this material belongs to
     shared_ptr<string> outline_ {};
+    // The primary outline this material belongs to
     shared_ptr<string> primaryOutline_ {};
+    // Publish time
     shared_ptr<string> pubTime_ {};
+    // Retrieval source encoding
     shared_ptr<string> searchSource_ {};
+    // Retrieval name
     shared_ptr<string> searchSourceName_ {};
+    // News title
     shared_ptr<string> title_ {};
+    // News URL
     shared_ptr<string> url_ {};
   };
 

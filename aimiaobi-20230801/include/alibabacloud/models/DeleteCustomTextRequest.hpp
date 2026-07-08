@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace. For more information, see [AgentKey](https://help.aliyun.com/document_detail/2587494.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The commodity code.
     shared_ptr<string> commodityCode_ {};
+    // The primary key ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
   };

@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The topic outline.
       shared_ptr<string> outline_ {};
+      // The summary of the outline.
       shared_ptr<string> summary_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // A list of topic outlines.
     shared_ptr<vector<TopicSelection::Outlines>> outlines_ {};
+    // The perspective of the topic.
     shared_ptr<string> point_ {};
+    // The summary of the topic.
     shared_ptr<string> summary_ {};
   };
 

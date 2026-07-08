@@ -84,12 +84,18 @@ namespace Models
 
 
   protected:
+    // Indicates if the exported artifact is editable.
     shared_ptr<bool> edit_ {};
+    // The export file type.
     shared_ptr<string> exportFileType_ {};
     shared_ptr<string> externalUserId_ {};
+    // The ID of the PPT artifact.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pptArtifactId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // Indicates if the exported file is compressed into a ZIP package.
     shared_ptr<bool> zip_ {};
   };
 

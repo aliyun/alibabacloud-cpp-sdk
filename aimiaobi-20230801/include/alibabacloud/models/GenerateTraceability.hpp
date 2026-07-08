@@ -104,12 +104,17 @@ namespace Models
 
 
     protected:
+      // The index \\`n\\` that corresponds to the \\`[[n]]\\` marker in the original article. The index starts from 1.
       shared_ptr<int32_t> index_ {};
+      // The publish time.
       shared_ptr<string> pubTime_ {};
+      // The unique identity of the retrieval source.
       shared_ptr<string> searchSource_ {};
+      // The name of the retrieval source.
       shared_ptr<string> searchSourceName_ {};
+      // The title.
       shared_ptr<string> title_ {};
-      // URL
+      // The URL.
       shared_ptr<string> url_ {};
     };
 
@@ -124,6 +129,7 @@ namespace Models
 
 
   protected:
+    // The list of traceability news.
     shared_ptr<vector<GenerateTraceability::News>> news_ {};
   };
 

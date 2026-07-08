@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Response message
       shared_ptr<string> message_ {};
+      // Unique task ID
       shared_ptr<string> taskId_ {};
     };
 
@@ -128,12 +130,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<AsyncEditTimelineResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

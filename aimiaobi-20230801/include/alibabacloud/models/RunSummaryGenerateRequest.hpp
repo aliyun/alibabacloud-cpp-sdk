@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Content to summarize.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // Custom prompt for summary generation.
     shared_ptr<string> prompt_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

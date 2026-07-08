@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Status code returned by the intervention service
       shared_ptr<int32_t> code_ {};
+      // Rule ID
       shared_ptr<int64_t> ruleId_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<InsertInterveneRuleResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

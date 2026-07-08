@@ -57,8 +57,10 @@ namespace Models
 
 
   protected:
+    // The ID of the export task.
     shared_ptr<string> exportTaskId_ {};
     shared_ptr<string> externalUserId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

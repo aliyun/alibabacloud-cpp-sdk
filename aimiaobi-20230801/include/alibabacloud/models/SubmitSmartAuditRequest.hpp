@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // Unique image identifier
       shared_ptr<string> id_ {};
+      // The URL can be a web link or a base64-encoded string.
       shared_ptr<string> url_ {};
     };
 
@@ -122,7 +124,9 @@ namespace Models
 
 
     protected:
+      // Unique image identifier
       shared_ptr<string> id_ {};
+      // The URL can be a web link or a base64-encoded string.
       shared_ptr<string> url_ {};
     };
 
@@ -185,12 +189,19 @@ namespace Models
 
 
   protected:
+    // Parameters for image audit
     shared_ptr<vector<SubmitSmartAuditRequest::ImageUrlList>> imageUrlList_ {};
+    // Rule library ID for rule-based auditing (default: Default)
     shared_ptr<string> noteId_ {};
+    // List of sub-audit codes
     shared_ptr<vector<string>> subCodes_ {};
+    // Word library name for dictionary-based auditing (default: Default)
     shared_ptr<string> termsName_ {};
+    // Content to be audited
     shared_ptr<string> text_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
+    // Parameters for image audit (deprecated; use ImageUrlList instead)
     shared_ptr<vector<SubmitSmartAuditRequest::ImageUrls>> imageUrls_ {};
   };
 

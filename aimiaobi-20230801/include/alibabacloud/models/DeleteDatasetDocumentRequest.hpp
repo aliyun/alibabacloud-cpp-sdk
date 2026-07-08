@@ -75,10 +75,16 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the dataset. Choose either DatasetId or DatasetName.
     shared_ptr<int64_t> datasetId_ {};
+    // Dataset name
     shared_ptr<string> datasetName_ {};
+    // The user-specified unique ID of the document.
     shared_ptr<string> docId_ {};
+    // The internal unique identifier of the document.
     shared_ptr<string> docUuid_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

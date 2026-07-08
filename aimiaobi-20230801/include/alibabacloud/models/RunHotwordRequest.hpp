@@ -84,11 +84,18 @@ namespace Models
 
 
   protected:
+    // Document ID.
     shared_ptr<string> docId_ {};
+    // Name of the custom model.
     shared_ptr<string> modelName_ {};
+    // Prompt.
     shared_ptr<string> prompt_ {};
+    // Document content to extract hotwords from. If not empty, extract hotwords from this content. If empty, extract hotwords using the DocId.
     shared_ptr<string> referenceContent_ {};
+    // Session ID.
     shared_ptr<string> sessionId_ {};
+    // Unique identifier of the Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

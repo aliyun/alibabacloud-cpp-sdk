@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The ID of the dataset. You must specify either this parameter or \\`DatasetName\\`.
     shared_ptr<int64_t> datasetId_ {};
+    // The name of the dataset. The name must be globally unique.
     shared_ptr<string> datasetName_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

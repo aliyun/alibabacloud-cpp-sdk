@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // List of hot spot events
     shared_ptr<vector<string>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of records returned
     shared_ptr<int32_t> maxResults_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Next page token
     shared_ptr<string> nextToken_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful: true for success, false for failure
     shared_ptr<bool> success_ {};
+    // Total number of records
     shared_ptr<int32_t> totalCount_ {};
   };
 

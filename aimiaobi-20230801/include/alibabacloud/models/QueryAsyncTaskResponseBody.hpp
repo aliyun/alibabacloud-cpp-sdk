@@ -187,19 +187,33 @@ namespace Models
 
 
     protected:
+      // Creation date
       shared_ptr<string> createTime_ {};
+      // Creator
       shared_ptr<string> createUser_ {};
+      // Task ID, indicates the specific task.
       shared_ptr<string> taskCode_ {};
+      // Task execution error message
       shared_ptr<string> taskErrorMessage_ {};
+      // Unique task ID
       shared_ptr<string> taskId_ {};
+      // Intermediate task execution result. When a task has multiple steps, save the output of each step here. When resuming from a pause, read the intermediate result and continue from there.
       shared_ptr<string> taskIntermediateResult_ {};
+      // Task name
       shared_ptr<string> taskName_ {};
+      // Task execution input parameters, JSON format
       shared_ptr<string> taskParam_ {};
+      // Task execution progress message
       shared_ptr<string> taskProgressMessage_ {};
+      // Task execution result message
       shared_ptr<string> taskResult_ {};
+      // Number of task retries
       shared_ptr<string> taskRetryCount_ {};
+      // Task execution status: 0-Pending, 1-Executing, 2-Execution successful, 3-Paused, 4-Execution failed (retryable), 5-Execution failed (not retryable), 6-Task canceled.
       shared_ptr<int32_t> taskStatus_ {};
+      // Update date
       shared_ptr<string> updateTime_ {};
+      // Updater
       shared_ptr<string> updateUser_ {};
     };
 
@@ -250,11 +264,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<QueryAsyncTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request ID
     shared_ptr<string> requestId_ {};
+    // Success status: true for success, false for failure.
     shared_ptr<bool> success_ {};
   };
 

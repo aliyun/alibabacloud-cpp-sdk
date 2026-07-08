@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The value of the option.
         shared_ptr<string> keyword_ {};
+        // The tag of the option. Example: gcNumberSizeTag=10.
         shared_ptr<string> tag_ {};
       };
 
@@ -165,9 +167,13 @@ namespace Models
 
 
       protected:
+        // Necessary tips.
         shared_ptr<string> necessaryTips_ {};
+        // The stance.
         shared_ptr<string> position_ {};
+        // Negative keywords.
         shared_ptr<string> reverseWords_ {};
+        // The theme.
         shared_ptr<string> theme_ {};
       };
 
@@ -206,9 +212,19 @@ namespace Models
 
 
     protected:
+      // The writing domain.
+      // 
+      // - media: Media
+      // 
+      // - government: Government
+      // 
+      // - market: Marketing
       shared_ptr<string> domain_ {};
+      // The prompt assistant.
       shared_ptr<WritingConfig::PromptTag> promptTag_ {};
+      // Control parameters for writing, such as the style, length, and output language.
       shared_ptr<vector<WritingConfig::Tags>> tags_ {};
+      // Specifies whether to automatically add reference materials.
       shared_ptr<bool> useSearch_ {};
     };
 
@@ -342,15 +358,25 @@ namespace Models
 
 
       protected:
+        // The author.
         shared_ptr<string> author_ {};
+        // The content.
         shared_ptr<string> content_ {};
+        // The custom unique ID of the document.
         shared_ptr<string> docId_ {};
+        // The internal unique ID of the document.
         shared_ptr<string> docUuid_ {};
+        // The publication time.
         shared_ptr<string> pubTime_ {};
+        // The source.
         shared_ptr<string> source_ {};
+        // The article summary.
         shared_ptr<string> summary_ {};
+        // The tag.
         shared_ptr<string> tag_ {};
+        // The title.
         shared_ptr<string> title_ {};
+        // The URL of the article.
         shared_ptr<string> url_ {};
       };
 
@@ -365,6 +391,7 @@ namespace Models
 
 
     protected:
+      // The reference article data for writing.
       shared_ptr<vector<ReferenceData::Articles>> articles_ {};
     };
 
@@ -425,14 +452,25 @@ namespace Models
 
 
   protected:
+    // The ID of the original conversation to use for regeneration.
     shared_ptr<string> originSessionId_ {};
+    // The prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The reference article data for writing.
     shared_ptr<RunWritingRequest::ReferenceData> referenceData_ {};
+    // The ID of a single-turn conversation.
     shared_ptr<string> sessionId_ {};
+    // The ID of the task. You can reuse the same task ID in a multi-turn conversation.
+    // 
+    // > You do not need to specify TaskId. The system generates one automatically. If you use the same TaskId for multiple tasks, they are grouped into a single conversation.
     shared_ptr<string> taskId_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The writing configuration.
     shared_ptr<RunWritingRequest::WritingConfig> writingConfig_ {};
   };
 

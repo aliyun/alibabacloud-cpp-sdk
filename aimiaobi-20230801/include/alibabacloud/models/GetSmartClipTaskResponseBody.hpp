@@ -164,11 +164,17 @@ namespace Models
 
 
         protected:
+          // Video duration in seconds
           shared_ptr<double> duration_ {};
+          // Video file size
           shared_ptr<string> fileLength_ {};
+          // Video file name
           shared_ptr<string> fileName_ {};
+          // Video height
           shared_ptr<int32_t> height_ {};
+          // Temporary URL to access the video file. Expires in one hour.
           shared_ptr<string> tmpUrl_ {};
+          // Video width
           shared_ptr<int32_t> width_ {};
         };
 
@@ -212,10 +218,20 @@ namespace Models
 
 
       protected:
+        // Error message
         shared_ptr<string> errorMessage_ {};
+        // File attributes
         shared_ptr<SubJobs::FileAttr> fileAttr_ {};
+        // File key
         shared_ptr<string> fileKey_ {};
+        // Subtask status:
+        // PENDING: Pending
+        // RUNNING: Running
+        // SUCCESSED: Succeeded
+        // FAILED: Failed
+        // CANCELED: Canceled
         shared_ptr<string> status_ {};
+        // Subtask ID
         shared_ptr<string> subJobId_ {};
       };
 
@@ -245,8 +261,16 @@ namespace Models
 
 
     protected:
+      // Error message
       shared_ptr<string> errorMessage_ {};
+      // Task status:
+      // PENDING: Pending
+      // RUNNING: Running
+      // SUCCESSED: Succeeded
+      // FAILED: Failed
+      // CANCELED: Canceled
       shared_ptr<string> status_ {};
+      // List of subtasks
       shared_ptr<vector<Data::SubJobs>> subJobs_ {};
     };
 
@@ -297,11 +321,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Task response
     shared_ptr<GetSmartClipTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique identifier of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. true indicates success. false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -115,9 +115,13 @@ namespace Models
 
 
       protected:
+        // The content of the paragraph.
         shared_ptr<string> content_ {};
+        // The paragraph ID.
         shared_ptr<int64_t> id_ {};
+        // The unique ID of the task.
         shared_ptr<string> taskId_ {};
+        // The current status of the task. Valid values: SUCCEEDED, FAILED, CANCELED, PENDING, SUSPENDED, and RUNNING.
         shared_ptr<string> taskStatus_ {};
       };
 
@@ -132,6 +136,7 @@ namespace Models
 
 
     protected:
+      // The information about the paragraph tasks. The tasks are associated based on the input paragraph IDs.
       shared_ptr<vector<Data::TaskList>> taskList_ {};
     };
 
@@ -182,11 +187,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<GenerateImageTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. true: The request was successful. false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

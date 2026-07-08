@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // Total number of hot spots
         shared_ptr<int32_t> hotTopicCount_ {};
+        // Estimated number of input tokens
         shared_ptr<int32_t> inputTokens_ {};
+        // Estimated number of output tokens
         shared_ptr<int32_t> outputTokens_ {};
+        // Estimated total word count
         shared_ptr<int32_t> wordCount_ {};
       };
 
@@ -237,7 +241,9 @@ namespace Models
 
 
           protected:
+            // Summary
             shared_ptr<string> summary_ {};
+            // title
             shared_ptr<string> title_ {};
           };
 
@@ -267,8 +273,11 @@ namespace Models
 
 
         protected:
+          // Number of input tokens used to generate this summary
           shared_ptr<int32_t> inputToken_ {};
+          // Number of output tokens used to generate this summary
           shared_ptr<int32_t> outputToken_ {};
+          // List of structured summaries
           shared_ptr<vector<Summary::Summaries>> summaries_ {};
         };
 
@@ -363,7 +372,9 @@ namespace Models
 
 
           protected:
+            // Content
             shared_ptr<string> text_ {};
+            // Username
             shared_ptr<string> username_ {};
           };
 
@@ -505,24 +516,41 @@ namespace Models
 
 
         protected:
+          // Model categorization result
           shared_ptr<string> analysisCategory_ {};
+          // aggregated hot spot name
           shared_ptr<string> analysisTopic_ {};
+          // Author
           shared_ptr<string> author_ {};
+          // Categorization
           shared_ptr<vector<string>> category_ {};
+          // News content
           shared_ptr<vector<News::Comments>> comments_ {};
+          // News content
           shared_ptr<string> content_ {};
+          // Ingestion time
           shared_ptr<string> createTime_ {};
+          // Source
           shared_ptr<string> domain_ {};
+          // Date of entry
           shared_ptr<string> dt_ {};
+          // original hot spot name
           shared_ptr<string> hotTopic_ {};
+          // Image list
           shared_ptr<vector<string>> imgList_ {};
           // logo
           shared_ptr<string> logo_ {};
+          // Published At
           shared_ptr<string> pubTime_ {};
+          // Summary
           shared_ptr<string> summary_ {};
+          // title
           shared_ptr<string> title_ {};
+          // news URL
           shared_ptr<string> url_ {};
+          // Primary key ID
           shared_ptr<string> uuid_ {};
+          // website
           shared_ptr<string> website_ {};
         };
 
@@ -554,6 +582,7 @@ namespace Models
 
 
         protected:
+          // URL link
           shared_ptr<string> url_ {};
         };
 
@@ -690,22 +719,39 @@ namespace Models
 
 
       protected:
+        // Hot topic category
         shared_ptr<string> category_ {};
+        // Creation Time
         shared_ptr<string> createTime_ {};
+        // Custom hotness value
         shared_ptr<double> customHotValue_ {};
+        // Custom text summarization of the hot spot topic
         shared_ptr<string> customTextSummary_ {};
+        // Name of the hot spot topic
         shared_ptr<string> hotTopic_ {};
+        // hot spot topic summary Version
         shared_ptr<string> hotTopicVersion_ {};
+        // Hotness value
         shared_ptr<double> hotValue_ {};
+        // hot spot topic ID
         shared_ptr<string> id_ {};
+        // List of hot spot topic images
         shared_ptr<vector<DataItem::Images>> images_ {};
+        // Input Token
         shared_ptr<int32_t> inputToken_ {};
+        // List of Regions associated with the hot spot
         shared_ptr<vector<string>> locations_ {};
+        // Article List
         shared_ptr<vector<DataItem::News>> news_ {};
+        // Output Token
         shared_ptr<int32_t> outputToken_ {};
+        // Published At
         shared_ptr<string> pubTime_ {};
+        // Structured summary of hot spot topics
         shared_ptr<DataItem::Summary> summary_ {};
+        // Text summary of the hot topic
         shared_ptr<string> textSummary_ {};
+        // Hot list URL
         shared_ptr<string> url_ {};
       };
 
@@ -737,8 +783,11 @@ namespace Models
 
 
     protected:
+      // List of hot spot bulletins
       shared_ptr<vector<Data::DataItem>> data_ {};
+      // Total count
       shared_ptr<int32_t> totalCount_ {};
+      // Estimated total number of tokens required for generation
       shared_ptr<Data::TotalTokenInfo> totalTokenInfo_ {};
     };
 
@@ -789,11 +838,17 @@ namespace Models
 
 
   protected:
+    // status code
     shared_ptr<string> code_ {};
+    // Business Data
     shared_ptr<GetHotTopicBroadcastResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Request UUID
     shared_ptr<string> requestId_ {};
+    // is successful: true indicates Succeeded, false indicates failed
     shared_ptr<bool> success_ {};
   };
 

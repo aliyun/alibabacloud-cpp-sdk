@@ -18,7 +18,10 @@ namespace AiMiaoBi20230801
 {
 
 AlibabaCloud::AiMiaoBi20230801::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "aimiaobi.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aimiaobi", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加审核自定义词库记录
+ * @summary Add a custom term to the audit dictionary.
  *
  * @param tmpReq AddAuditTermsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -94,7 +97,7 @@ AddAuditTermsResponse Client::addAuditTermsWithOptions(const AddAuditTermsReques
 }
 
 /**
- * @summary 添加审核自定义词库记录
+ * @summary Add a custom term to the audit dictionary.
  *
  * @param request AddAuditTermsRequest
  * @return AddAuditTermsResponse
@@ -105,7 +108,7 @@ AddAuditTermsResponse Client::addAuditTerms(const AddAuditTermsRequest &request)
 }
 
 /**
- * @summary 添加文档到数据集
+ * @summary Adds a document to a data source.
  *
  * @param tmpReq AddDatasetDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -154,7 +157,7 @@ AddDatasetDocumentResponse Client::addDatasetDocumentWithOptions(const AddDatase
 }
 
 /**
- * @summary 添加文档到数据集
+ * @summary Adds a document to a data source.
  *
  * @param request AddDatasetDocumentRequest
  * @return AddDatasetDocumentResponse
@@ -165,7 +168,7 @@ AddDatasetDocumentResponse Client::addDatasetDocument(const AddDatasetDocumentRe
 }
 
 /**
- * @summary 生成剪辑视频任务
+ * @summary Generates a video clip.
  *
  * @param tmpReq AsyncCreateClipsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -188,6 +191,14 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
   }
 
   json body = {};
+  if (!!request.hasAdaptMode()) {
+    body["AdaptMode"] = request.getAdaptMode();
+  }
+
+  if (!!request.hasAlignment()) {
+    body["Alignment"] = request.getAlignment();
+  }
+
   if (!!request.hasCloseMusic()) {
     body["CloseMusic"] = request.getCloseMusic();
   }
@@ -264,6 +275,10 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
     body["TaskId"] = request.getTaskId();
   }
 
+  if (!!request.hasTextWidth()) {
+    body["TextWidth"] = request.getTextWidth();
+  }
+
   if (!!request.hasVoiceStyle()) {
     body["VoiceStyle"] = request.getVoiceStyle();
   }
@@ -298,7 +313,7 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
 }
 
 /**
- * @summary 生成剪辑视频任务
+ * @summary Generates a video clip.
  *
  * @param request AsyncCreateClipsTaskRequest
  * @return AsyncCreateClipsTaskResponse
@@ -309,7 +324,7 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTask(const AsyncCreateClips
 }
 
 /**
- * @summary 智能剪辑timeline
+ * @summary Creates a timeline for smart video editing.
  *
  * @param tmpReq AsyncCreateClipsTimeLineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -378,7 +393,7 @@ AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLineWithOptions(con
 }
 
 /**
- * @summary 智能剪辑timeline
+ * @summary Creates a timeline for smart video editing.
  *
  * @param request AsyncCreateClipsTimeLineRequest
  * @return AsyncCreateClipsTimeLineResponse
@@ -389,7 +404,7 @@ AsyncCreateClipsTimeLineResponse Client::asyncCreateClipsTimeLine(const AsyncCre
 }
 
 /**
- * @summary 编辑剪辑任务的timeline
+ * @summary Edits the timeline of a video editing task.
  *
  * @param tmpReq AsyncEditTimelineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +453,7 @@ AsyncEditTimelineResponse Client::asyncEditTimelineWithOptions(const AsyncEditTi
 }
 
 /**
- * @summary 编辑剪辑任务的timeline
+ * @summary Edits the timeline of a video editing task.
  *
  * @param request AsyncEditTimelineRequest
  * @return AsyncEditTimelineResponse
@@ -449,7 +464,7 @@ AsyncEditTimelineResponse Client::asyncEditTimeline(const AsyncEditTimelineReque
 }
 
 /**
- * @summary 上传招标书文件
+ * @summary Upload a tender document.
  *
  * @param request AsyncUploadTenderDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -488,7 +503,7 @@ AsyncUploadTenderDocResponse Client::asyncUploadTenderDocWithOptions(const Async
 }
 
 /**
- * @summary 上传招标书文件
+ * @summary Upload a tender document.
  *
  * @param request AsyncUploadTenderDocRequest
  * @return AsyncUploadTenderDocResponse
@@ -499,7 +514,7 @@ AsyncUploadTenderDocResponse Client::asyncUploadTenderDoc(const AsyncUploadTende
 }
 
 /**
- * @summary 上传剪辑素材
+ * @summary Uploads video assets for editing.
  *
  * @param tmpReq AsyncUploadVideoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -588,7 +603,7 @@ AsyncUploadVideoResponse Client::asyncUploadVideoWithOptions(const AsyncUploadVi
 }
 
 /**
- * @summary 上传剪辑素材
+ * @summary Uploads video assets for editing.
  *
  * @param request AsyncUploadVideoRequest
  * @return AsyncUploadVideoResponse
@@ -599,7 +614,7 @@ AsyncUploadVideoResponse Client::asyncUploadVideo(const AsyncUploadVideoRequest 
 }
 
 /**
- * @summary 标书写作接口
+ * @summary An API for writing bidding documents.
  *
  * @param request AsyncWritingBiddingDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +657,7 @@ AsyncWritingBiddingDocResponse Client::asyncWritingBiddingDocWithOptions(const A
 }
 
 /**
- * @summary 标书写作接口
+ * @summary An API for writing bidding documents.
  *
  * @param request AsyncWritingBiddingDocRequest
  * @return AsyncWritingBiddingDocResponse
@@ -653,7 +668,7 @@ AsyncWritingBiddingDocResponse Client::asyncWritingBiddingDoc(const AsyncWriting
 }
 
 /**
- * @summary 绑定PPT作品信息
+ * @summary Binds a PowerPoint (PPT) artifact.
  *
  * @param request BindPptArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -696,7 +711,7 @@ BindPptArtifactResponse Client::bindPptArtifactWithOptions(const BindPptArtifact
 }
 
 /**
- * @summary 绑定PPT作品信息
+ * @summary Binds a PowerPoint (PPT) artifact.
  *
  * @param request BindPptArtifactRequest
  * @return BindPptArtifactResponse
@@ -707,7 +722,7 @@ BindPptArtifactResponse Client::bindPptArtifact(const BindPptArtifactRequest &re
 }
 
 /**
- * @summary 取消异步任务
+ * @summary Cancels pending asynchronous tasks.
  *
  * @param request CancelAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +759,7 @@ CancelAsyncTaskResponse Client::cancelAsyncTaskWithOptions(const CancelAsyncTask
 }
 
 /**
- * @summary 取消异步任务
+ * @summary Cancels pending asynchronous tasks.
  *
  * @param request CancelAsyncTaskRequest
  * @return CancelAsyncTaskResponse
@@ -755,7 +770,7 @@ CancelAsyncTaskResponse Client::cancelAsyncTask(const CancelAsyncTaskRequest &re
 }
 
 /**
- * @summary 取消审核任务
+ * @summary Cancel an audit task.
  *
  * @param request CancelAuditTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -794,7 +809,7 @@ CancelAuditTaskResponse Client::cancelAuditTaskWithOptions(const CancelAuditTask
 }
 
 /**
- * @summary 取消审核任务
+ * @summary Cancel an audit task.
  *
  * @param request CancelAuditTaskRequest
  * @return CancelAuditTaskResponse
@@ -805,7 +820,7 @@ CancelAuditTaskResponse Client::cancelAuditTask(const CancelAuditTaskRequest &re
 }
 
 /**
- * @summary 取消深度写作任务
+ * @summary Cancels a deep writing task.
  *
  * @param request CancelDeepWriteTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -840,7 +855,7 @@ CancelDeepWriteTaskResponse Client::cancelDeepWriteTaskWithOptions(const CancelD
 }
 
 /**
- * @summary 取消深度写作任务
+ * @summary Cancels a deep writing task.
  *
  * @param request CancelDeepWriteTaskRequest
  * @return CancelDeepWriteTaskResponse
@@ -851,7 +866,7 @@ CancelDeepWriteTaskResponse Client::cancelDeepWriteTask(const CancelDeepWriteTas
 }
 
 /**
- * @summary 清除所有干预内容
+ * @summary Clears all intervention content.
  *
  * @param request ClearIntervenesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -882,7 +897,7 @@ ClearIntervenesResponse Client::clearIntervenesWithOptions(const ClearIntervenes
 }
 
 /**
- * @summary 清除所有干预内容
+ * @summary Clears all intervention content.
  *
  * @param request ClearIntervenesRequest
  * @return ClearIntervenesResponse
@@ -893,7 +908,7 @@ ClearIntervenesResponse Client::clearIntervenes(const ClearIntervenesRequest &re
 }
 
 /**
- * @summary 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+ * @summary This interface confirms whether the parsing results from your custom rule library submission are used for audit tasks. Because parsing results may not meet your requirements, use this interface to perform a second confirmation. If you are satisfied with the parsing of your submitted rule library, provide the TaskId from that submission as an input parameter. The system then post-processes your uploaded rule library and makes it available for auditing. Otherwise, invoke the SubmitAuditNote interface again to upload the modified rule library.
  *
  * @param request ConfirmAndPostProcessAuditNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -928,7 +943,7 @@ ConfirmAndPostProcessAuditNoteResponse Client::confirmAndPostProcessAuditNoteWit
 }
 
 /**
- * @summary 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+ * @summary This interface confirms whether the parsing results from your custom rule library submission are used for audit tasks. Because parsing results may not meet your requirements, use this interface to perform a second confirmation. If you are satisfied with the parsing of your submitted rule library, provide the TaskId from that submission as an input parameter. The system then post-processes your uploaded rule library and makes it available for auditing. Otherwise, invoke the SubmitAuditNote interface again to upload the modified rule library.
  *
  * @param request ConfirmAndPostProcessAuditNoteRequest
  * @return ConfirmAndPostProcessAuditNoteResponse
@@ -939,7 +954,8 @@ ConfirmAndPostProcessAuditNoteResponse Client::confirmAndPostProcessAuditNote(co
 }
 
 /**
- * @summary 用户数据集权限-批量添加
+ * @summary Batch add permissions:\\
+ * \\- Dataset permissions\\
  *
  * @param tmpReq CreateDataPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -988,7 +1004,8 @@ CreateDataPermissionsResponse Client::createDataPermissionsWithOptions(const Cre
 }
 
 /**
- * @summary 用户数据集权限-批量添加
+ * @summary Batch add permissions:\\
+ * \\- Dataset permissions\\
  *
  * @param request CreateDataPermissionsRequest
  * @return CreateDataPermissionsResponse
@@ -999,7 +1016,7 @@ CreateDataPermissionsResponse Client::createDataPermissions(const CreateDataPerm
 }
 
 /**
- * @summary 数据集管理-创建
+ * @summary Creates a dataset.
  *
  * @param tmpReq CreateDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1072,7 +1089,7 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
 }
 
 /**
- * @summary 数据集管理-创建
+ * @summary Creates a dataset.
  *
  * @param request CreateDatasetRequest
  * @return CreateDatasetResponse
@@ -1083,7 +1100,7 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
- * @summary 通用配置-创建
+ * @summary General configurations — Create
  *
  * @param request CreateGeneralConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1122,7 +1139,7 @@ CreateGeneralConfigResponse Client::createGeneralConfigWithOptions(const CreateG
 }
 
 /**
- * @summary 通用配置-创建
+ * @summary General configurations — Create
  *
  * @param request CreateGeneralConfigRequest
  * @return CreateGeneralConfigResponse
@@ -1133,7 +1150,7 @@ CreateGeneralConfigResponse Client::createGeneralConfig(const CreateGeneralConfi
 }
 
 /**
- * @summary 文档管理-创建
+ * @summary Saves an article created in Miaobi. This operation supports rich text.
  *
  * @param tmpReq CreateGeneratedContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1204,7 +1221,7 @@ CreateGeneratedContentResponse Client::createGeneratedContentWithOptions(const C
 }
 
 /**
- * @summary 文档管理-创建
+ * @summary Saves an article created in Miaobi. This operation supports rich text.
  *
  * @param request CreateGeneratedContentRequest
  * @return CreateGeneratedContentResponse
@@ -1215,7 +1232,7 @@ CreateGeneratedContentResponse Client::createGeneratedContent(const CreateGenera
 }
 
 /**
- * @summary 获取授权token
+ * @summary Creates a temporary token for the online inference API.
  *
  * @param request CreateTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1263,7 @@ CreateTokenResponse Client::createTokenWithOptions(const CreateTokenRequest &req
 }
 
 /**
- * @summary 获取授权token
+ * @summary Creates a temporary token for the online inference API.
  *
  * @param request CreateTokenRequest
  * @return CreateTokenResponse
@@ -1257,7 +1274,7 @@ CreateTokenResponse Client::createToken(const CreateTokenRequest &request) {
 }
 
 /**
- * @summary 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+ * @summary Deletes all custom rule libraries available for audit under the user account. This operation is irreversible. To archive rule libraries, use the DownloadAuditNote API to save them before deletion.
  *
  * @param request DeleteAuditNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1309,7 @@ DeleteAuditNoteResponse Client::deleteAuditNoteWithOptions(const DeleteAuditNote
 }
 
 /**
- * @summary 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+ * @summary Deletes all custom rule libraries available for audit under the user account. This operation is irreversible. To archive rule libraries, use the DownloadAuditNote API to save them before deletion.
  *
  * @param request DeleteAuditNoteRequest
  * @return DeleteAuditNoteResponse
@@ -1303,7 +1320,7 @@ DeleteAuditNoteResponse Client::deleteAuditNote(const DeleteAuditNoteRequest &re
 }
 
 /**
- * @summary 删除指定的词库记录
+ * @summary Deletes specified term records.
  *
  * @param tmpReq DeleteAuditTermsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1344,7 +1361,7 @@ DeleteAuditTermsResponse Client::deleteAuditTermsWithOptions(const DeleteAuditTe
 }
 
 /**
- * @summary 删除指定的词库记录
+ * @summary Deletes specified term records.
  *
  * @param request DeleteAuditTermsRequest
  * @return DeleteAuditTermsResponse
@@ -1355,7 +1372,7 @@ DeleteAuditTermsResponse Client::deleteAuditTerms(const DeleteAuditTermsRequest 
 }
 
 /**
- * @summary 删除自定义文本
+ * @summary Deletes a custom text.
  *
  * @param request DeleteCustomTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1396,7 +1413,7 @@ DeleteCustomTextResponse Client::deleteCustomTextWithOptions(const DeleteCustomT
 }
 
 /**
- * @summary 删除自定义文本
+ * @summary Deletes a custom text.
  *
  * @param request DeleteCustomTextRequest
  * @return DeleteCustomTextResponse
@@ -1407,7 +1424,7 @@ DeleteCustomTextResponse Client::deleteCustomText(const DeleteCustomTextRequest 
 }
 
 /**
- * @summary 根据主题删除自定义主题事件
+ * @summary Delete a custom hot spot event by topic name.
  *
  * @param request DeleteCustomTopicByTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1444,7 +1461,7 @@ DeleteCustomTopicByTopicResponse Client::deleteCustomTopicByTopicWithOptions(con
 }
 
 /**
- * @summary 根据主题删除自定义主题事件
+ * @summary Delete a custom hot spot event by topic name.
  *
  * @param request DeleteCustomTopicByTopicRequest
  * @return DeleteCustomTopicByTopicResponse
@@ -1455,7 +1472,7 @@ DeleteCustomTopicByTopicResponse Client::deleteCustomTopicByTopic(const DeleteCu
 }
 
 /**
- * @summary 根据自定义观点ID删除自定义观点
+ * @summary Deletes a custom topic viewpoint by its ID.
  *
  * @param request DeleteCustomTopicViewPointByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1492,7 +1509,7 @@ DeleteCustomTopicViewPointByIdResponse Client::deleteCustomTopicViewPointByIdWit
 }
 
 /**
- * @summary 根据自定义观点ID删除自定义观点
+ * @summary Deletes a custom topic viewpoint by its ID.
  *
  * @param request DeleteCustomTopicViewPointByIdRequest
  * @return DeleteCustomTopicViewPointByIdResponse
@@ -1503,7 +1520,7 @@ DeleteCustomTopicViewPointByIdResponse Client::deleteCustomTopicViewPointById(co
 }
 
 /**
- * @summary 用户数据集权限-批量删除
+ * @summary Batch delete dataset permissions
  *
  * @param tmpReq DeleteDataPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1544,7 +1561,7 @@ DeleteDataPermissionsResponse Client::deleteDataPermissionsWithOptions(const Del
 }
 
 /**
- * @summary 用户数据集权限-批量删除
+ * @summary Batch delete dataset permissions
  *
  * @param request DeleteDataPermissionsRequest
  * @return DeleteDataPermissionsResponse
@@ -1555,7 +1572,7 @@ DeleteDataPermissionsResponse Client::deleteDataPermissions(const DeleteDataPerm
 }
 
 /**
- * @summary 数据集管理-删除
+ * @summary Deletes a dataset from the data source.
  *
  * @param request DeleteDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1590,7 +1607,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetReques
 }
 
 /**
- * @summary 数据集管理-删除
+ * @summary Deletes a dataset from the data source.
  *
  * @param request DeleteDatasetRequest
  * @return DeleteDatasetResponse
@@ -1601,7 +1618,7 @@ DeleteDatasetResponse Client::deleteDataset(const DeleteDatasetRequest &request)
 }
 
 /**
- * @summary 删除数据集文档
+ * @summary Delete source documents.
  *
  * @param request DeleteDatasetDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1648,7 +1665,7 @@ DeleteDatasetDocumentResponse Client::deleteDatasetDocumentWithOptions(const Del
 }
 
 /**
- * @summary 删除数据集文档
+ * @summary Delete source documents.
  *
  * @param request DeleteDatasetDocumentRequest
  * @return DeleteDatasetDocumentResponse
@@ -1659,7 +1676,7 @@ DeleteDatasetDocumentResponse Client::deleteDatasetDocument(const DeleteDatasetD
 }
 
 /**
- * @summary 妙读删除多个文档
+ * @summary Deletes multiple documents.
  *
  * @param tmpReq DeleteDocsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1700,7 +1717,7 @@ DeleteDocsResponse Client::deleteDocsWithOptions(const DeleteDocsRequest &tmpReq
 }
 
 /**
- * @summary 妙读删除多个文档
+ * @summary Deletes multiple documents.
  *
  * @param request DeleteDocsRequest
  * @return DeleteDocsResponse
@@ -1711,7 +1728,7 @@ DeleteDocsResponse Client::deleteDocs(const DeleteDocsRequest &request) {
 }
 
 /**
- * @summary 删除指定的用于事实性审核的 URL。
+ * @summary Deletes the specified URL used for factuality audit.
  *
  * @param request DeleteFactAuditUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1746,7 +1763,7 @@ DeleteFactAuditUrlResponse Client::deleteFactAuditUrlWithOptions(const DeleteFac
 }
 
 /**
- * @summary 删除指定的用于事实性审核的 URL。
+ * @summary Deletes the specified URL used for factuality audit.
  *
  * @param request DeleteFactAuditUrlRequest
  * @return DeleteFactAuditUrlResponse
@@ -1757,7 +1774,7 @@ DeleteFactAuditUrlResponse Client::deleteFactAuditUrl(const DeleteFactAuditUrlRe
 }
 
 /**
- * @summary 通用配置-删除
+ * @summary Deletes general configurations.
  *
  * @param request DeleteGeneralConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1792,7 +1809,7 @@ DeleteGeneralConfigResponse Client::deleteGeneralConfigWithOptions(const DeleteG
 }
 
 /**
- * @summary 通用配置-删除
+ * @summary Deletes general configurations.
  *
  * @param request DeleteGeneralConfigRequest
  * @return DeleteGeneralConfigResponse
@@ -1803,7 +1820,7 @@ DeleteGeneralConfigResponse Client::deleteGeneralConfig(const DeleteGeneralConfi
 }
 
 /**
- * @summary 文档管理-删除。
+ * @summary Deletes an article created in MiaoBi.
  *
  * @param request DeleteGeneratedContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1844,7 +1861,7 @@ DeleteGeneratedContentResponse Client::deleteGeneratedContentWithOptions(const D
 }
 
 /**
- * @summary 文档管理-删除。
+ * @summary Deletes an article created in MiaoBi.
  *
  * @param request DeleteGeneratedContentRequest
  * @return DeleteGeneratedContentResponse
@@ -1855,7 +1872,7 @@ DeleteGeneratedContentResponse Client::deleteGeneratedContent(const DeleteGenera
 }
 
 /**
- * @summary 删除干预规则
+ * @summary Deletes an intervention rule.
  *
  * @param request DeleteInterveneRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1892,7 +1909,7 @@ DeleteInterveneRuleResponse Client::deleteInterveneRuleWithOptions(const DeleteI
 }
 
 /**
- * @summary 删除干预规则
+ * @summary Deletes an intervention rule.
  *
  * @param request DeleteInterveneRuleRequest
  * @return DeleteInterveneRuleResponse
@@ -1903,7 +1920,7 @@ DeleteInterveneRuleResponse Client::deleteInterveneRule(const DeleteInterveneRul
 }
 
 /**
- * @summary 根据ID删除素材
+ * @summary Deletes a material from the material library.
  *
  * @param request DeleteMaterialByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1940,7 +1957,7 @@ DeleteMaterialByIdResponse Client::deleteMaterialByIdWithOptions(const DeleteMat
 }
 
 /**
- * @summary 根据ID删除素材
+ * @summary Deletes a material from the material library.
  *
  * @param request DeleteMaterialByIdRequest
  * @return DeleteMaterialByIdResponse
@@ -1951,7 +1968,11 @@ DeleteMaterialByIdResponse Client::deleteMaterialById(const DeleteMaterialByIdRe
 }
 
 /**
- * @summary 删除PPT作品
+ * @summary Delete a PPT work
+ *
+ * @description - This API operation uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI portal is not compatible with the SSE inference protocol. You cannot directly test this API operation in the portal. For more information about how to call this API operation using the software development kit (SDK) for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, see [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request DeletePptArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1990,7 +2011,11 @@ DeletePptArtifactResponse Client::deletePptArtifactWithOptions(const DeletePptAr
 }
 
 /**
- * @summary 删除PPT作品
+ * @summary Delete a PPT work
+ *
+ * @description - This API operation uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI portal is not compatible with the SSE inference protocol. You cannot directly test this API operation in the portal. For more information about how to call this API operation using the software development kit (SDK) for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, see [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request DeletePptArtifactRequest
  * @return DeletePptArtifactResponse
@@ -2001,7 +2026,7 @@ DeletePptArtifactResponse Client::deletePptArtifact(const DeletePptArtifactReque
 }
 
 /**
- * @summary 删除指定自定义文体
+ * @summary Deletes a specified custom style.
  *
  * @param request DeleteStyleLearningResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2038,7 +2063,7 @@ DeleteStyleLearningResultResponse Client::deleteStyleLearningResultWithOptions(c
 }
 
 /**
- * @summary 删除指定自定义文体
+ * @summary Deletes a specified custom style.
  *
  * @param request DeleteStyleLearningResultRequest
  * @return DeleteStyleLearningResultResponse
@@ -2049,7 +2074,7 @@ DeleteStyleLearningResultResponse Client::deleteStyleLearningResult(const Delete
 }
 
 /**
- * @summary 从链接中提取文档内容
+ * @summary Extracts the content of documents from URLs.
  *
  * @param tmpReq DocumentExtractionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2092,7 +2117,7 @@ DocumentExtractionResponse Client::documentExtractionWithOptions(const DocumentE
 }
 
 /**
- * @summary 从链接中提取文档内容
+ * @summary Extracts the content of documents from URLs.
  *
  * @param request DocumentExtractionRequest
  * @return DocumentExtractionResponse
@@ -2103,7 +2128,7 @@ DocumentExtractionResponse Client::documentExtraction(const DocumentExtractionRe
 }
 
 /**
- * @summary 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+ * @summary Call this API to download the structured rule library for further processing. You can use this API to download either the structured rule library before post-processing or the structured rule library currently available for auditing. For specific usage, see the input parameter descriptions.
  *
  * @param request DownloadAuditNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2142,7 +2167,7 @@ DownloadAuditNoteResponse Client::downloadAuditNoteWithOptions(const DownloadAud
 }
 
 /**
- * @summary 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+ * @summary Call this API to download the structured rule library for further processing. You can use this API to download either the structured rule library before post-processing or the structured rule library currently available for auditing. For specific usage, see the input parameter descriptions.
  *
  * @param request DownloadAuditNoteRequest
  * @return DownloadAuditNoteResponse
@@ -2153,7 +2178,7 @@ DownloadAuditNoteResponse Client::downloadAuditNote(const DownloadAuditNoteReque
 }
 
 /**
- * @summary 标书下载接口
+ * @summary API for downloading bidding documents
  *
  * @param request DownloadBiddingDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2188,7 +2213,7 @@ DownloadBiddingDocResponse Client::downloadBiddingDocWithOptions(const DownloadB
 }
 
 /**
- * @summary 标书下载接口
+ * @summary API for downloading bidding documents
  *
  * @param request DownloadBiddingDocRequest
  * @return DownloadBiddingDocResponse
@@ -2199,7 +2224,7 @@ DownloadBiddingDocResponse Client::downloadBiddingDoc(const DownloadBiddingDocRe
 }
 
 /**
- * @summary 编辑审核自定义词库记录
+ * @summary Edit custom audit term records.
  *
  * @param tmpReq EditAuditTermsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2256,7 +2281,7 @@ EditAuditTermsResponse Client::editAuditTermsWithOptions(const EditAuditTermsReq
 }
 
 /**
- * @summary 编辑审核自定义词库记录
+ * @summary Edit custom audit term records.
  *
  * @param request EditAuditTermsRequest
  * @return EditAuditTermsResponse
@@ -2267,7 +2292,7 @@ EditAuditTermsResponse Client::editAuditTerms(const EditAuditTermsRequest &reque
 }
 
 /**
- * @summary 编辑标书内容接口
+ * @summary Edits the content of a bidding document.
  *
  * @param request EditBiddingDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2314,7 +2339,7 @@ EditBiddingDocResponse Client::editBiddingDocWithOptions(const EditBiddingDocReq
 }
 
 /**
- * @summary 编辑标书内容接口
+ * @summary Edits the content of a bidding document.
  *
  * @param request EditBiddingDocRequest
  * @return EditBiddingDocResponse
@@ -2325,7 +2350,7 @@ EditBiddingDocResponse Client::editBiddingDoc(const EditBiddingDocRequest &reque
 }
 
 /**
- * @summary 导出企业VOC分析任务明细列表
+ * @summary Exports the tag details for a specified enterprise VOC analysis task.
  *
  * @param tmpReq ExportAnalysisTagDetailByTaskIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2370,7 +2395,7 @@ ExportAnalysisTagDetailByTaskIdResponse Client::exportAnalysisTagDetailByTaskIdW
 }
 
 /**
- * @summary 导出企业VOC分析任务明细列表
+ * @summary Exports the tag details for a specified enterprise VOC analysis task.
  *
  * @param request ExportAnalysisTagDetailByTaskIdRequest
  * @return ExportAnalysisTagDetailByTaskIdResponse
@@ -2381,7 +2406,7 @@ ExportAnalysisTagDetailByTaskIdResponse Client::exportAnalysisTagDetailByTaskId(
 }
 
 /**
- * @summary 导出智能审核报告
+ * @summary Exports an automated review report.
  *
  * @param request ExportAuditContentResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2416,7 +2441,7 @@ ExportAuditContentResultResponse Client::exportAuditContentResultWithOptions(con
 }
 
 /**
- * @summary 导出智能审核报告
+ * @summary Exports an automated review report.
  *
  * @param request ExportAuditContentResultRequest
  * @return ExportAuditContentResultResponse
@@ -2427,7 +2452,7 @@ ExportAuditContentResultResponse Client::exportAuditContentResult(const ExportAu
 }
 
 /**
- * @summary 导出-自定义数据源-选题视角分析任务结果
+ * @summary Exports custom data source topic perspective analysis task results.
  *
  * @param request ExportCustomSourceAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2466,7 +2491,7 @@ ExportCustomSourceAnalysisTaskResponse Client::exportCustomSourceAnalysisTaskWit
 }
 
 /**
- * @summary 导出-自定义数据源-选题视角分析任务结果
+ * @summary Exports custom data source topic perspective analysis task results.
  *
  * @param request ExportCustomSourceAnalysisTaskRequest
  * @return ExportCustomSourceAnalysisTaskResponse
@@ -2477,7 +2502,7 @@ ExportCustomSourceAnalysisTaskResponse Client::exportCustomSourceAnalysisTask(co
 }
 
 /**
- * @summary 文档管理-导出。
+ * @summary Exports the history of articles created in MiaoBi.
  *
  * @param request ExportGeneratedContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2514,7 +2539,7 @@ ExportGeneratedContentResponse Client::exportGeneratedContentWithOptions(const E
 }
 
 /**
- * @summary 文档管理-导出。
+ * @summary Exports the history of articles created in MiaoBi.
  *
  * @param request ExportGeneratedContentRequest
  * @return ExportGeneratedContentResponse
@@ -2525,7 +2550,7 @@ ExportGeneratedContentResponse Client::exportGeneratedContent(const ExportGenera
 }
 
 /**
- * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+ * @summary Exports topic planning documents and provides a publicly accessible URL that expires in one hour.
  *
  * @param tmpReq ExportHotTopicPlanningProposalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2592,7 +2617,7 @@ ExportHotTopicPlanningProposalsResponse Client::exportHotTopicPlanningProposalsW
 }
 
 /**
- * @summary 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效
+ * @summary Exports topic planning documents and provides a publicly accessible URL that expires in one hour.
  *
  * @param request ExportHotTopicPlanningProposalsRequest
  * @return ExportHotTopicPlanningProposalsResponse
@@ -2603,7 +2628,7 @@ ExportHotTopicPlanningProposalsResponse Client::exportHotTopicPlanningProposals(
 }
 
 /**
- * @summary 导出所有干预内容
+ * @summary Exports all interventions.
  *
  * @param request ExportIntervenesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2634,7 +2659,7 @@ ExportIntervenesResponse Client::exportIntervenesWithOptions(const ExportInterve
 }
 
 /**
- * @summary 导出所有干预内容
+ * @summary Exports all interventions.
  *
  * @param request ExportIntervenesRequest
  * @return ExportIntervenesResponse
@@ -2645,7 +2670,7 @@ ExportIntervenesResponse Client::exportIntervenes(const ExportIntervenesRequest 
 }
 
 /**
- * @summary 导出PPT作品
+ * @summary Exports a PPT artifact.
  *
  * @param request ExportPptArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2696,7 +2721,7 @@ ExportPptArtifactResponse Client::exportPptArtifactWithOptions(const ExportPptAr
 }
 
 /**
- * @summary 导出PPT作品
+ * @summary Exports a PPT artifact.
  *
  * @param request ExportPptArtifactRequest
  * @return ExportPptArtifactResponse
@@ -2707,7 +2732,7 @@ ExportPptArtifactResponse Client::exportPptArtifact(const ExportPptArtifactReque
 }
 
 /**
- * @summary 反馈某次生成的结果
+ * @summary Provides feedback on the quality of the content that the model generates.
  *
  * @param tmpReq FeedbackDialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2774,7 +2799,7 @@ FeedbackDialogueResponse Client::feedbackDialogueWithOptions(const FeedbackDialo
 }
 
 /**
- * @summary 反馈某次生成的结果
+ * @summary Provides feedback on the quality of the content that the model generates.
  *
  * @param request FeedbackDialogueRequest
  * @return FeedbackDialogueResponse
@@ -2785,7 +2810,7 @@ FeedbackDialogueResponse Client::feedbackDialogue(const FeedbackDialogueRequest 
 }
 
 /**
- * @summary 获取词库导出任务结果
+ * @summary Retrieves the results of a term library export task.
  *
  * @param request FetchExportTermsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2820,7 +2845,7 @@ FetchExportTermsTaskResponse Client::fetchExportTermsTaskWithOptions(const Fetch
 }
 
 /**
- * @summary 获取词库导出任务结果
+ * @summary Retrieves the results of a term library export task.
  *
  * @param request FetchExportTermsTaskRequest
  * @return FetchExportTermsTaskResponse
@@ -2831,7 +2856,7 @@ FetchExportTermsTaskResponse Client::fetchExportTermsTask(const FetchExportTerms
 }
 
 /**
- * @summary 获取异步导出文档任务结果
+ * @summary Fetches the result of an asynchronous document export task.
  *
  * @param request FetchExportWordTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2868,7 +2893,7 @@ FetchExportWordTaskResponse Client::fetchExportWordTaskWithOptions(const FetchEx
 }
 
 /**
- * @summary 获取异步导出文档任务结果
+ * @summary Fetches the result of an asynchronous document export task.
  *
  * @param request FetchExportWordTaskRequest
  * @return FetchExportWordTaskResponse
@@ -2879,7 +2904,7 @@ FetchExportWordTaskResponse Client::fetchExportWordTask(const FetchExportWordTas
 }
 
 /**
- * @summary 获取图片任务执行结果
+ * @summary Retrieve the results of image generation tasks.
  *
  * @param tmpReq FetchImageTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2926,7 +2951,7 @@ FetchImageTaskResponse Client::fetchImageTaskWithOptions(const FetchImageTaskReq
 }
 
 /**
- * @summary 获取图片任务执行结果
+ * @summary Retrieve the results of image generation tasks.
  *
  * @param request FetchImageTaskRequest
  * @return FetchImageTaskResponse
@@ -2937,7 +2962,7 @@ FetchImageTaskResponse Client::fetchImageTask(const FetchImageTaskRequest &reque
 }
 
 /**
- * @summary 获取导入词库任务结果
+ * @summary Retrieves the result of a term import task.
  *
  * @param request FetchImportTermsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +2997,7 @@ FetchImportTermsTaskResponse Client::fetchImportTermsTaskWithOptions(const Fetch
 }
 
 /**
- * @summary 获取导入词库任务结果
+ * @summary Retrieves the result of a term import task.
  *
  * @param request FetchImportTermsTaskRequest
  * @return FetchImportTermsTaskResponse
@@ -2983,7 +3008,7 @@ FetchImportTermsTaskResponse Client::fetchImportTermsTask(const FetchImportTerms
 }
 
 /**
- * @summary 获取排版任务结果
+ * @summary Retrieve the layout task result.
  *
  * @param request FetchParseDocumentLayoutTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3018,7 +3043,7 @@ FetchParseDocumentLayoutTaskResponse Client::fetchParseDocumentLayoutTaskWithOpt
 }
 
 /**
- * @summary 获取排版任务结果
+ * @summary Retrieve the layout task result.
  *
  * @param request FetchParseDocumentLayoutTaskRequest
  * @return FetchParseDocumentLayoutTaskResponse
@@ -3029,7 +3054,9 @@ FetchParseDocumentLayoutTaskResponse Client::fetchParseDocumentLayoutTask(const 
 }
 
 /**
- * @summary 生成内容导出文档任务
+ * @summary Start a task to export content as a Word document.
+ *
+ * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request GenerateExportWordTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3066,7 +3093,9 @@ GenerateExportWordTaskResponse Client::generateExportWordTaskWithOptions(const G
 }
 
 /**
- * @summary 生成内容导出文档任务
+ * @summary Start a task to export content as a Word document.
+ *
+ * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request GenerateExportWordTaskRequest
  * @return GenerateExportWordTaskResponse
@@ -3077,7 +3106,7 @@ GenerateExportWordTaskResponse Client::generateExportWordTask(const GenerateExpo
 }
 
 /**
- * @summary 生成临时可访问的公开url
+ * @summary Generate a temporary public URL.
  *
  * @param request GenerateFileUrlByKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3118,7 +3147,7 @@ GenerateFileUrlByKeyResponse Client::generateFileUrlByKeyWithOptions(const Gener
 }
 
 /**
- * @summary 生成临时可访问的公开url
+ * @summary Generate a temporary public URL.
  *
  * @param request GenerateFileUrlByKeyRequest
  * @return GenerateFileUrlByKeyResponse
@@ -3129,7 +3158,7 @@ GenerateFileUrlByKeyResponse Client::generateFileUrlByKey(const GenerateFileUrlB
 }
 
 /**
- * @summary 智能配图，图片生成任务
+ * @summary Asynchronously generates an image from text.
  *
  * @param tmpReq GenerateImageTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3184,7 +3213,7 @@ GenerateImageTaskResponse Client::generateImageTaskWithOptions(const GenerateIma
 }
 
 /**
- * @summary 智能配图，图片生成任务
+ * @summary Asynchronously generates an image from text.
  *
  * @param request GenerateImageTaskRequest
  * @return GenerateImageTaskResponse
@@ -3195,7 +3224,12 @@ GenerateImageTaskResponse Client::generateImageTask(const GenerateImageTaskReque
 }
 
 /**
- * @summary 生成上传配置
+ * @summary Generates a file upload configuration.
+ * 1\\. Call this API to obtain the upload configuration. The API returns the `PostUrl` (an internal OSS address for AI Writing Assistant), temporary OSS authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`), and the unique file identifier `fileKey`.
+ * 2\\. The client uses the `PostUrl` and the temporary authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`) to upload the file.
+ * 3\\. Use the `fileKey` to call subsequent APIs that require a `fileKey`, such as `GenerateFileUrlByKey`.
+ *
+ * @description This API returns the address and credentials for file uploads. For more information, see [OSS Form Upload](https://help.aliyun.com/zh/oss/user-guide/form-upload?scm=20140722.H_31849._.OR_help-T_cn~zh-V_1).
  *
  * @param request GenerateUploadConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3236,7 +3270,12 @@ GenerateUploadConfigResponse Client::generateUploadConfigWithOptions(const Gener
 }
 
 /**
- * @summary 生成上传配置
+ * @summary Generates a file upload configuration.
+ * 1\\. Call this API to obtain the upload configuration. The API returns the `PostUrl` (an internal OSS address for AI Writing Assistant), temporary OSS authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`), and the unique file identifier `fileKey`.
+ * 2\\. The client uses the `PostUrl` and the temporary authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`) to upload the file.
+ * 3\\. Use the `fileKey` to call subsequent APIs that require a `fileKey`, such as `GenerateFileUrlByKey`.
+ *
+ * @description This API returns the address and credentials for file uploads. For more information, see [OSS Form Upload](https://help.aliyun.com/zh/oss/user-guide/form-upload?scm=20140722.H_31849._.OR_help-T_cn~zh-V_1).
  *
  * @param request GenerateUploadConfigRequest
  * @return GenerateUploadConfigResponse
@@ -3247,7 +3286,7 @@ GenerateUploadConfigResponse Client::generateUploadConfig(const GenerateUploadCo
 }
 
 /**
- * @summary 视角生成
+ * @summary Generates viewpoints from article snippets.
  *
  * @param tmpReq GenerateViewPointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3290,7 +3329,7 @@ GenerateViewPointResponse Client::generateViewPointWithOptions(const GenerateVie
 }
 
 /**
- * @summary 视角生成
+ * @summary Generates viewpoints from article snippets.
  *
  * @param request GenerateViewPointRequest
  * @return GenerateViewPointResponse
@@ -3301,7 +3340,7 @@ GenerateViewPointResponse Client::generateViewPoint(const GenerateViewPointReque
 }
 
 /**
- * @summary 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+ * @summary Queries the progress of a post-processing task for a rule library. Use this operation together with the ConfirmAndPostProcessAuditNote operation to check the status of the current post-processing task.
  *
  * @param request GetAuditNotePostProcessingStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3336,7 +3375,7 @@ GetAuditNotePostProcessingStatusResponse Client::getAuditNotePostProcessingStatu
 }
 
 /**
- * @summary 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+ * @summary Queries the progress of a post-processing task for a rule library. Use this operation together with the ConfirmAndPostProcessAuditNote operation to check the status of the current post-processing task.
  *
  * @param request GetAuditNotePostProcessingStatusRequest
  * @return GetAuditNotePostProcessingStatusResponse
@@ -3347,7 +3386,7 @@ GetAuditNotePostProcessingStatusResponse Client::getAuditNotePostProcessingStatu
 }
 
 /**
- * @summary 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+ * @summary Checks the processing status of an uploaded rule library. This operation returns the current status of the upload task, the size of the parsed rule library file, and its storage path.
  *
  * @param request GetAuditNoteProcessingStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3382,7 +3421,7 @@ GetAuditNoteProcessingStatusResponse Client::getAuditNoteProcessingStatusWithOpt
 }
 
 /**
- * @summary 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+ * @summary Checks the processing status of an uploaded rule library. This operation returns the current status of the upload task, the size of the parsed rule library file, and its storage path.
  *
  * @param request GetAuditNoteProcessingStatusRequest
  * @return GetAuditNoteProcessingStatusResponse
@@ -3393,7 +3432,7 @@ GetAuditNoteProcessingStatusResponse Client::getAuditNoteProcessingStatus(const 
 }
 
 /**
- * @summary 获得剪辑任务状态
+ * @summary Retrieves the status of a video editing task.
  *
  * @param request GetAutoClipsTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3436,7 +3475,7 @@ GetAutoClipsTaskInfoResponse Client::getAutoClipsTaskInfoWithOptions(const GetAu
 }
 
 /**
- * @summary 获得剪辑任务状态
+ * @summary Retrieves the status of a video editing task.
  *
  * @param request GetAutoClipsTaskInfoRequest
  * @return GetAutoClipsTaskInfoResponse
@@ -3447,7 +3486,7 @@ GetAutoClipsTaskInfoResponse Client::getAutoClipsTaskInfo(const GetAutoClipsTask
 }
 
 /**
- * @summary 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+ * @summary Query the rule libraries that are currently available for audit. This operation returns only rule libraries that are active for auditing. To view the contents of a custom rule library, use the DownloadAuditNote API.
  *
  * @param request GetAvailableAuditNotesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3482,7 +3521,7 @@ GetAvailableAuditNotesResponse Client::getAvailableAuditNotesWithOptions(const G
 }
 
 /**
- * @summary 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+ * @summary Query the rule libraries that are currently available for audit. This operation returns only rule libraries that are active for auditing. To view the contents of a custom rule library, use the DownloadAuditNote API.
  *
  * @param request GetAvailableAuditNotesRequest
  * @return GetAvailableAuditNotesResponse
@@ -3493,7 +3532,7 @@ GetAvailableAuditNotesResponse Client::getAvailableAuditNotes(const GetAvailable
 }
 
 /**
- * @summary 获得标书写作结果接口
+ * @summary Retrieves the generation results of a bidding document.
  *
  * @param request GetBiddingDocInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3528,7 +3567,7 @@ GetBiddingDocInfoResponse Client::getBiddingDocInfoWithOptions(const GetBiddingD
 }
 
 /**
- * @summary 获得标书写作结果接口
+ * @summary Retrieves the generation results of a bidding document.
  *
  * @param request GetBiddingDocInfoRequest
  * @return GetBiddingDocInfoResponse
@@ -3539,7 +3578,7 @@ GetBiddingDocInfoResponse Client::getBiddingDocInfo(const GetBiddingDocInfoReque
 }
 
 /**
- * @summary 获得标书功能剩余额度
+ * @summary Retrieve the remaining limit for the bidding feature.
  *
  * @param request GetBiddingRemainLimitNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3574,7 +3613,7 @@ GetBiddingRemainLimitNumResponse Client::getBiddingRemainLimitNumWithOptions(con
 }
 
 /**
- * @summary 获得标书功能剩余额度
+ * @summary Retrieve the remaining limit for the bidding feature.
  *
  * @param request GetBiddingRemainLimitNumRequest
  * @return GetBiddingRemainLimitNumResponse
@@ -3585,7 +3624,7 @@ GetBiddingRemainLimitNumResponse Client::getBiddingRemainLimitNum(const GetBiddi
 }
 
 /**
- * @summary 获取某次标签挖掘结果分类
+ * @summary Retrieves the classifications from a tag mining task.
  *
  * @param request GetCategoriesByTaskIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3620,7 +3659,7 @@ GetCategoriesByTaskIdResponse Client::getCategoriesByTaskIdWithOptions(const Get
 }
 
 /**
- * @summary 获取某次标签挖掘结果分类
+ * @summary Retrieves the classifications from a tag mining task.
  *
  * @param request GetCategoriesByTaskIdRequest
  * @return GetCategoriesByTaskIdResponse
@@ -3631,7 +3670,7 @@ GetCategoriesByTaskIdResponse Client::getCategoriesByTaskId(const GetCategoriesB
 }
 
 /**
- * @summary 获得智能混剪内置资源
+ * @summary Retrieves the built-in resources for smart clipping.
  *
  * @param request GetClipsBuildInResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3666,7 +3705,7 @@ GetClipsBuildInResourceResponse Client::getClipsBuildInResourceWithOptions(const
 }
 
 /**
- * @summary 获得智能混剪内置资源
+ * @summary Retrieves the built-in resources for smart clipping.
  *
  * @param request GetClipsBuildInResourceRequest
  * @return GetClipsBuildInResourceResponse
@@ -3677,7 +3716,7 @@ GetClipsBuildInResourceResponse Client::getClipsBuildInResource(const GetClipsBu
 }
 
 /**
- * @summary 获取自定义播报单任务结果
+ * @summary Retrieves the result of a custom hot topic broadcast job.
  *
  * @param request GetCustomHotTopicBroadcastJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3712,7 +3751,7 @@ GetCustomHotTopicBroadcastJobResponse Client::getCustomHotTopicBroadcastJobWithO
 }
 
 /**
- * @summary 获取自定义播报单任务结果
+ * @summary Retrieves the result of a custom hot topic broadcast job.
  *
  * @param request GetCustomHotTopicBroadcastJobRequest
  * @return GetCustomHotTopicBroadcastJobResponse
@@ -3723,7 +3762,7 @@ GetCustomHotTopicBroadcastJobResponse Client::getCustomHotTopicBroadcastJob(cons
 }
 
 /**
- * @summary 获取自定义数据源-选题视角分析任务结果
+ * @summary Retrieves the results of a topic analysis task for a custom data source.
  *
  * @param request GetCustomSourceTopicAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3758,7 +3797,7 @@ GetCustomSourceTopicAnalysisTaskResponse Client::getCustomSourceTopicAnalysisTas
 }
 
 /**
- * @summary 获取自定义数据源-选题视角分析任务结果
+ * @summary Retrieves the results of a topic analysis task for a custom data source.
  *
  * @param request GetCustomSourceTopicAnalysisTaskRequest
  * @return GetCustomSourceTopicAnalysisTaskResponse
@@ -3769,7 +3808,7 @@ GetCustomSourceTopicAnalysisTaskResponse Client::getCustomSourceTopicAnalysisTas
 }
 
 /**
- * @summary 获取自定义文本
+ * @summary Retrieve custom text.
  *
  * @param request GetCustomTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3810,7 +3849,7 @@ GetCustomTextResponse Client::getCustomTextWithOptions(const GetCustomTextReques
 }
 
 /**
- * @summary 获取自定义文本
+ * @summary Retrieve custom text.
  *
  * @param request GetCustomTextRequest
  * @return GetCustomTextResponse
@@ -3821,7 +3860,7 @@ GetCustomTextResponse Client::getCustomText(const GetCustomTextRequest &request)
 }
 
 /**
- * @summary 获取自定义选题视角分析任务结果
+ * @summary Retrieve the result of a custom topic selection perspective analysis task.
  *
  * @param request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3858,7 +3897,7 @@ GetCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::getCustomTopicSel
 }
 
 /**
- * @summary 获取自定义选题视角分析任务结果
+ * @summary Retrieve the result of a custom topic selection perspective analysis task.
  *
  * @param request GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
  * @return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse
@@ -3869,7 +3908,7 @@ GetCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::getCustomTopicSel
 }
 
 /**
- * @summary 获取系统数据源配置和个人配置
+ * @summary Retrieves configuration information for write data sources and general search data sources.
  *
  * @param request GetDataSourceOrderConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3910,7 +3949,7 @@ GetDataSourceOrderConfigResponse Client::getDataSourceOrderConfigWithOptions(con
 }
 
 /**
- * @summary 获取系统数据源配置和个人配置
+ * @summary Retrieves configuration information for write data sources and general search data sources.
  *
  * @param request GetDataSourceOrderConfigRequest
  * @return GetDataSourceOrderConfigResponse
@@ -3921,7 +3960,7 @@ GetDataSourceOrderConfigResponse Client::getDataSourceOrderConfig(const GetDataS
 }
 
 /**
- * @summary 数据集管理-详情
+ * @summary Data source management details.
  *
  * @param request GetDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3960,7 +3999,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &reques
 }
 
 /**
- * @summary 数据集管理-详情
+ * @summary Data source management details.
  *
  * @param request GetDatasetRequest
  * @return GetDatasetResponse
@@ -3971,7 +4010,7 @@ GetDatasetResponse Client::getDataset(const GetDatasetRequest &request) {
 }
 
 /**
- * @summary 获取数据集文档
+ * @summary Retrieve the data source document.
  *
  * @param tmpReq GetDatasetDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4028,7 +4067,7 @@ GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatase
 }
 
 /**
- * @summary 获取数据集文档
+ * @summary Retrieve the data source document.
  *
  * @param request GetDatasetDocumentRequest
  * @return GetDatasetDocumentResponse
@@ -4039,7 +4078,7 @@ GetDatasetDocumentResponse Client::getDatasetDocument(const GetDatasetDocumentRe
 }
 
 /**
- * @summary 查询深度写作任务
+ * @summary Queries deep writing tasks. You can use it to check the running status of a specific task.
  *
  * @param request GetDeepWriteTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4074,7 +4113,7 @@ GetDeepWriteTaskResponse Client::getDeepWriteTaskWithOptions(const GetDeepWriteT
 }
 
 /**
- * @summary 查询深度写作任务
+ * @summary Queries deep writing tasks. You can use it to check the running status of a specific task.
  *
  * @param request GetDeepWriteTaskRequest
  * @return GetDeepWriteTaskResponse
@@ -4085,7 +4124,7 @@ GetDeepWriteTaskResponse Client::getDeepWriteTask(const GetDeepWriteTaskRequest 
 }
 
 /**
- * @summary 查询深度写作任务的结果
+ * @summary Queries the result of a deep writing task. If the task is not complete, the operation returns its current status—such as queued, running, failed, or canceled. If the task is complete, the operation returns a URL that points to a compressed package of the task output that you can download.
  *
  * @param request GetDeepWriteTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4120,7 +4159,7 @@ GetDeepWriteTaskResultResponse Client::getDeepWriteTaskResultWithOptions(const G
 }
 
 /**
- * @summary 查询深度写作任务的结果
+ * @summary Queries the result of a deep writing task. If the task is not complete, the operation returns its current status—such as queued, running, failed, or canceled. If the task is complete, the operation returns a URL that points to a compressed package of the task output that you can download.
  *
  * @param request GetDeepWriteTaskResultRequest
  * @return GetDeepWriteTaskResultResponse
@@ -4131,7 +4170,7 @@ GetDeepWriteTaskResultResponse Client::getDeepWriteTaskResult(const GetDeepWrite
 }
 
 /**
- * @summary 获取文档聚合任务结果
+ * @summary Retrieves the result of a content aggregation task.
  *
  * @param request GetDocClusterTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4168,7 +4207,7 @@ GetDocClusterTaskResponse Client::getDocClusterTaskWithOptions(const GetDocClust
 }
 
 /**
- * @summary 获取文档聚合任务结果
+ * @summary Retrieves the result of a content aggregation task.
  *
  * @param request GetDocClusterTaskRequest
  * @return GetDocClusterTaskResponse
@@ -4179,7 +4218,7 @@ GetDocClusterTaskResponse Client::getDocClusterTask(const GetDocClusterTaskReque
 }
 
 /**
- * @summary 妙读获取文档信息
+ * @summary Retrieves information about a document.
  *
  * @param request GetDocInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4218,7 +4257,7 @@ GetDocInfoResponse Client::getDocInfoWithOptions(const GetDocInfoRequest &reques
 }
 
 /**
- * @summary 妙读获取文档信息
+ * @summary Retrieves information about a document.
  *
  * @param request GetDocInfoRequest
  * @return GetDocInfoResponse
@@ -4229,7 +4268,7 @@ GetDocInfoResponse Client::getDocInfo(const GetDocInfoRequest &request) {
 }
 
 /**
- * @summary 获取企业VOC分析任务结果
+ * @summary Retrieves the result of an enterprise Voice of the Customer (VOC) analysis task.
  *
  * @param request GetEnterpriseVocAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4264,7 +4303,7 @@ GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTaskWithOpt
 }
 
 /**
- * @summary 获取企业VOC分析任务结果
+ * @summary Retrieves the result of an enterprise Voice of the Customer (VOC) analysis task.
  *
  * @param request GetEnterpriseVocAnalysisTaskRequest
  * @return GetEnterpriseVocAnalysisTaskResponse
@@ -4275,7 +4314,7 @@ GetEnterpriseVocAnalysisTaskResponse Client::getEnterpriseVocAnalysisTask(const 
 }
 
 /**
- * @summary 获取当前正用于事实性审核的信源 URL。
+ * @summary Retrieves the source URL that is currently used for factuality audit.
  *
  * @param request GetFactAuditUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4306,7 +4345,7 @@ GetFactAuditUrlResponse Client::getFactAuditUrlWithOptions(const GetFactAuditUrl
 }
 
 /**
- * @summary 获取当前正用于事实性审核的信源 URL。
+ * @summary Retrieves the source URL that is currently used for factuality audit.
  *
  * @param request GetFactAuditUrlRequest
  * @return GetFactAuditUrlResponse
@@ -4317,7 +4356,7 @@ GetFactAuditUrlResponse Client::getFactAuditUrl(const GetFactAuditUrlRequest &re
 }
 
 /**
- * @summary 妙读获得文档字数
+ * @summary MiaoRead calculates the word count for a document.
  *
  * @param request GetFileContentLengthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4356,7 +4395,7 @@ GetFileContentLengthResponse Client::getFileContentLengthWithOptions(const GetFi
 }
 
 /**
- * @summary 妙读获得文档字数
+ * @summary MiaoRead calculates the word count for a document.
  *
  * @param request GetFileContentLengthRequest
  * @return GetFileContentLengthResponse
@@ -4367,7 +4406,7 @@ GetFileContentLengthResponse Client::getFileContentLength(const GetFileContentLe
 }
 
 /**
- * @summary 通用配置-查询
+ * @summary Queries general configurations.
  *
  * @param request GetGeneralConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4402,7 +4441,7 @@ GetGeneralConfigResponse Client::getGeneralConfigWithOptions(const GetGeneralCon
 }
 
 /**
- * @summary 通用配置-查询
+ * @summary Queries general configurations.
  *
  * @param request GetGeneralConfigRequest
  * @return GetGeneralConfigResponse
@@ -4413,7 +4452,7 @@ GetGeneralConfigResponse Client::getGeneralConfig(const GetGeneralConfigRequest 
 }
 
 /**
- * @summary 文档管理-查询详情。
+ * @summary Get generated content. Queries the history of articles generated in MiaoBi.
  *
  * @param request GetGeneratedContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4450,7 +4489,7 @@ GetGeneratedContentResponse Client::getGeneratedContentWithOptions(const GetGene
 }
 
 /**
- * @summary 文档管理-查询详情。
+ * @summary Get generated content. Queries the history of articles generated in MiaoBi.
  *
  * @param request GetGeneratedContentRequest
  * @return GetGeneratedContentResponse
@@ -4461,7 +4500,7 @@ GetGeneratedContentResponse Client::getGeneratedContent(const GetGeneratedConten
 }
 
 /**
- * @summary 查询新闻播报单
+ * @summary Query news broadcast orders.
  *
  * @param tmpReq GetHotTopicBroadcastRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4554,7 +4593,7 @@ GetHotTopicBroadcastResponse Client::getHotTopicBroadcastWithOptions(const GetHo
 }
 
 /**
- * @summary 查询新闻播报单
+ * @summary Query news broadcast orders.
  *
  * @param request GetHotTopicBroadcastRequest
  * @return GetHotTopicBroadcastResponse
@@ -4565,7 +4604,7 @@ GetHotTopicBroadcastResponse Client::getHotTopicBroadcast(const GetHotTopicBroad
 }
 
 /**
- * @summary 获得干预全局回复
+ * @summary Retrieve the global intervention reply.
  *
  * @param request GetInterveneGlobalReplyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4596,7 +4635,7 @@ GetInterveneGlobalReplyResponse Client::getInterveneGlobalReplyWithOptions(const
 }
 
 /**
- * @summary 获得干预全局回复
+ * @summary Retrieve the global intervention reply.
  *
  * @param request GetInterveneGlobalReplyRequest
  * @return GetInterveneGlobalReplyResponse
@@ -4607,7 +4646,7 @@ GetInterveneGlobalReplyResponse Client::getInterveneGlobalReply(const GetInterve
 }
 
 /**
- * @summary 获得导入任务信息
+ * @summary Gets information about an import task.
  *
  * @param request GetInterveneImportTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4644,7 +4683,7 @@ GetInterveneImportTaskInfoResponse Client::getInterveneImportTaskInfoWithOptions
 }
 
 /**
- * @summary 获得导入任务信息
+ * @summary Gets information about an import task.
  *
  * @param request GetInterveneImportTaskInfoRequest
  * @return GetInterveneImportTaskInfoResponse
@@ -4655,7 +4694,7 @@ GetInterveneImportTaskInfoResponse Client::getInterveneImportTaskInfo(const GetI
 }
 
 /**
- * @summary 获得干预项规则详情
+ * @summary Retrieves the details of an intervention rule.
  *
  * @param request GetInterveneRuleDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4692,7 +4731,7 @@ GetInterveneRuleDetailResponse Client::getInterveneRuleDetailWithOptions(const G
 }
 
 /**
- * @summary 获得干预项规则详情
+ * @summary Retrieves the details of an intervention rule.
  *
  * @param request GetInterveneRuleDetailRequest
  * @return GetInterveneRuleDetailResponse
@@ -4703,7 +4742,7 @@ GetInterveneRuleDetailResponse Client::getInterveneRuleDetail(const GetIntervene
 }
 
 /**
- * @summary 获得干预导入模版文件下载地址
+ * @summary Retrieves the download URL for the intervention import template.
  *
  * @param request GetInterveneTemplateFileUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4734,7 +4773,7 @@ GetInterveneTemplateFileUrlResponse Client::getInterveneTemplateFileUrlWithOptio
 }
 
 /**
- * @summary 获得干预导入模版文件下载地址
+ * @summary Retrieves the download URL for the intervention import template.
  *
  * @param request GetInterveneTemplateFileUrlRequest
  * @return GetInterveneTemplateFileUrlResponse
@@ -4745,7 +4784,7 @@ GetInterveneTemplateFileUrlResponse Client::getInterveneTemplateFileUrl(const Ge
 }
 
 /**
- * @summary 根据ID获取素材内容
+ * @summary Retrieves detailed information about a material from the Material Library.
  *
  * @param request GetMaterialByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4782,7 +4821,7 @@ GetMaterialByIdResponse Client::getMaterialByIdWithOptions(const GetMaterialById
 }
 
 /**
- * @summary 根据ID获取素材内容
+ * @summary Retrieves detailed information about a material from the Material Library.
  *
  * @param request GetMaterialByIdRequest
  * @return GetMaterialByIdResponse
@@ -4793,7 +4832,12 @@ GetMaterialByIdResponse Client::getMaterialById(const GetMaterialByIdRequest &re
 }
 
 /**
- * @summary 查询PPT作品信息
+ * @summary Queries information about a PPT artifact.
+ *
+ * @description Usage notes:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI portal is not compatible with the SSE protocol and cannot be used for direct debugging. For examples of how to call the API using an SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, [download it from the API portal](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request GetPptArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4832,7 +4876,12 @@ GetPptArtifactResponse Client::getPptArtifactWithOptions(const GetPptArtifactReq
 }
 
 /**
- * @summary 查询PPT作品信息
+ * @summary Queries information about a PPT artifact.
+ *
+ * @description Usage notes:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI portal is not compatible with the SSE protocol and cannot be used for direct debugging. For examples of how to call the API using an SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, [download it from the API portal](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request GetPptArtifactRequest
  * @return GetPptArtifactResponse
@@ -4843,7 +4892,7 @@ GetPptArtifactResponse Client::getPptArtifact(const GetPptArtifactRequest &reque
 }
 
 /**
- * @summary 查询PPT导出任务的结果
+ * @summary Retrieves the result of a PPT export task.
  *
  * @param request GetPptArtifactExportResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4882,7 +4931,7 @@ GetPptArtifactExportResultResponse Client::getPptArtifactExportResultWithOptions
 }
 
 /**
- * @summary 查询PPT导出任务的结果
+ * @summary Retrieves the result of a PPT export task.
  *
  * @param request GetPptArtifactExportResultRequest
  * @return GetPptArtifactExportResultResponse
@@ -4893,7 +4942,7 @@ GetPptArtifactExportResultResponse Client::getPptArtifactExportResult(const GetP
 }
 
 /**
- * @summary 获取PPT组件的配置
+ * @summary Retrieves the configuration of a PPT component.
  *
  * @param request GetPptConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4928,7 +4977,7 @@ GetPptConfigResponse Client::getPptConfigWithOptions(const GetPptConfigRequest &
 }
 
 /**
- * @summary 获取PPT组件的配置
+ * @summary Retrieves the configuration of a PPT component.
  *
  * @param request GetPptConfigRequest
  * @return GetPptConfigResponse
@@ -4939,7 +4988,7 @@ GetPptConfigResponse Client::getPptConfig(const GetPptConfigRequest &request) {
 }
 
 /**
- * @summary 查询PPT任务信息
+ * @summary Gets information about a PPT task.
  *
  * @param request GetPptInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4978,7 +5027,7 @@ GetPptInfoResponse Client::getPptInfoWithOptions(const GetPptInfoRequest &reques
 }
 
 /**
- * @summary 查询PPT任务信息
+ * @summary Gets information about a PPT task.
  *
  * @param request GetPptInfoRequest
  * @return GetPptInfoResponse
@@ -4989,7 +5038,7 @@ GetPptInfoResponse Client::getPptInfo(const GetPptInfoRequest &request) {
 }
 
 /**
- * @summary 查询PPT模板筛选器
+ * @summary Retrieves the filters for PowerPoint (PPT) templates.
  *
  * @param request GetPptTemplateSelectorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5020,7 +5069,7 @@ GetPptTemplateSelectorResponse Client::getPptTemplateSelectorWithOptions(const G
 }
 
 /**
- * @summary 查询PPT模板筛选器
+ * @summary Retrieves the filters for PowerPoint (PPT) templates.
  *
  * @param request GetPptTemplateSelectorRequest
  * @return GetPptTemplateSelectorResponse
@@ -5031,7 +5080,7 @@ GetPptTemplateSelectorResponse Client::getPptTemplateSelector(const GetPptTempla
 }
 
 /**
- * @summary 获取当前用户的配置
+ * @summary Retrieves configuration information, such as intelligent configuration styles and inference-related metadata configurations.
  *
  * @param request GetPropertiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5062,7 +5111,7 @@ GetPropertiesResponse Client::getPropertiesWithOptions(const GetPropertiesReques
 }
 
 /**
- * @summary 获取当前用户的配置
+ * @summary Retrieves configuration information, such as intelligent configuration styles and inference-related metadata configurations.
  *
  * @param request GetPropertiesRequest
  * @return GetPropertiesResponse
@@ -5073,7 +5122,7 @@ GetPropertiesResponse Client::getProperties(const GetPropertiesRequest &request)
 }
 
 /**
- * @summary 查询智能审核结果
+ * @summary Queries the result of an automated review.
  *
  * @param request GetSmartAuditResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5108,7 +5157,7 @@ GetSmartAuditResultResponse Client::getSmartAuditResultWithOptions(const GetSmar
 }
 
 /**
- * @summary 查询智能审核结果
+ * @summary Queries the result of an automated review.
  *
  * @param request GetSmartAuditResultRequest
  * @return GetSmartAuditResultResponse
@@ -5119,7 +5168,7 @@ GetSmartAuditResultResponse Client::getSmartAuditResult(const GetSmartAuditResul
 }
 
 /**
- * @summary 查询一键成片剪辑任务
+ * @summary Queries a one-click video editing task.
  *
  * @param request GetSmartClipTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5154,7 +5203,7 @@ GetSmartClipTaskResponse Client::getSmartClipTaskWithOptions(const GetSmartClipT
 }
 
 /**
- * @summary 查询一键成片剪辑任务
+ * @summary Queries a one-click video editing task.
  *
  * @param request GetSmartClipTaskRequest
  * @return GetSmartClipTaskResponse
@@ -5165,7 +5214,7 @@ GetSmartClipTaskResponse Client::getSmartClipTask(const GetSmartClipTaskRequest 
 }
 
 /**
- * @summary 获取文体学习分析结果
+ * @summary Retrieves the analysis result of a style learning task.
  *
  * @param request GetStyleLearningResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5202,7 +5251,7 @@ GetStyleLearningResultResponse Client::getStyleLearningResultWithOptions(const G
 }
 
 /**
- * @summary 获取文体学习分析结果
+ * @summary Retrieves the analysis result of a style learning task.
  *
  * @param request GetStyleLearningResultRequest
  * @return GetStyleLearningResultResponse
@@ -5213,7 +5262,7 @@ GetStyleLearningResultResponse Client::getStyleLearningResult(const GetStyleLear
 }
 
 /**
- * @summary 根据ID获取热点事件信息
+ * @summary Retrieve hot topic event information by ID.
  *
  * @param request GetTopicByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5250,7 +5299,7 @@ GetTopicByIdResponse Client::getTopicByIdWithOptions(const GetTopicByIdRequest &
 }
 
 /**
- * @summary 根据ID获取热点事件信息
+ * @summary Retrieve hot topic event information by ID.
  *
  * @param request GetTopicByIdRequest
  * @return GetTopicByIdResponse
@@ -5261,7 +5310,7 @@ GetTopicByIdResponse Client::getTopicById(const GetTopicByIdRequest &request) {
 }
 
 /**
- * @summary 获取选题视角分析任务结果
+ * @summary Retrieves the result of a topic selection perspective analysis task.
  *
  * @param request GetTopicSelectionPerspectiveAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5298,7 +5347,7 @@ GetTopicSelectionPerspectiveAnalysisTaskResponse Client::getTopicSelectionPerspe
 }
 
 /**
- * @summary 获取选题视角分析任务结果
+ * @summary Retrieves the result of a topic selection perspective analysis task.
  *
  * @param request GetTopicSelectionPerspectiveAnalysisTaskRequest
  * @return GetTopicSelectionPerspectiveAnalysisTaskResponse
@@ -5309,7 +5358,7 @@ GetTopicSelectionPerspectiveAnalysisTaskResponse Client::getTopicSelectionPerspe
 }
 
 /**
- * @summary 导入干预文件
+ * @summary Imports an intervention file.
  *
  * @param request ImportInterveneFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5354,7 +5403,7 @@ ImportInterveneFileResponse Client::importInterveneFileWithOptions(const ImportI
 }
 
 /**
- * @summary 导入干预文件
+ * @summary Imports an intervention file.
  *
  * @param request ImportInterveneFileRequest
  * @return ImportInterveneFileResponse
@@ -5365,7 +5414,7 @@ ImportInterveneFileResponse Client::importInterveneFile(const ImportInterveneFil
 }
 
 /**
- * @summary 异步导入干预文件
+ * @summary Asynchronously import an intervention file.
  *
  * @param request ImportInterveneFileAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5410,7 +5459,7 @@ ImportInterveneFileAsyncResponse Client::importInterveneFileAsyncWithOptions(con
 }
 
 /**
- * @summary 异步导入干预文件
+ * @summary Asynchronously import an intervention file.
  *
  * @param request ImportInterveneFileAsyncRequest
  * @return ImportInterveneFileAsyncResponse
@@ -5421,7 +5470,10 @@ ImportInterveneFileAsyncResponse Client::importInterveneFileAsync(const ImportIn
 }
 
 /**
- * @summary 初始化PPT创建操作
+ * @summary Important: This is a billable API operation.
+ * This API performs two operations:
+ * 1\\. Returns the initialization code for the "PPT Generation" frontend component.
+ * 2\\. Performs billing.
  *
  * @param request InitiatePptCreationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5464,7 +5516,10 @@ InitiatePptCreationResponse Client::initiatePptCreationWithOptions(const Initiat
 }
 
 /**
- * @summary 初始化PPT创建操作
+ * @summary Important: This is a billable API operation.
+ * This API performs two operations:
+ * 1\\. Returns the initialization code for the "PPT Generation" frontend component.
+ * 2\\. Performs billing.
  *
  * @param request InitiatePptCreationRequest
  * @return InitiatePptCreationResponse
@@ -5475,7 +5530,7 @@ InitiatePptCreationResponse Client::initiatePptCreation(const InitiatePptCreatio
 }
 
 /**
- * @summary 初始化PPT创建操作V2
+ * @summary Starts a task to create a presentation.
  *
  * @param request InitiatePptCreationV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -5538,7 +5593,7 @@ InitiatePptCreationV2Response Client::initiatePptCreationV2WithOptions(const Ini
 }
 
 /**
- * @summary 初始化PPT创建操作V2
+ * @summary Starts a task to create a presentation.
  *
  * @param request InitiatePptCreationV2Request
  * @return InitiatePptCreationV2Response
@@ -5549,7 +5604,7 @@ InitiatePptCreationV2Response Client::initiatePptCreationV2(const InitiatePptCre
 }
 
 /**
- * @summary 设置干预全局回复
+ * @summary Sets global intervention replies.
  *
  * @param tmpReq InsertInterveneGlobalReplyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5592,7 +5647,7 @@ InsertInterveneGlobalReplyResponse Client::insertInterveneGlobalReplyWithOptions
 }
 
 /**
- * @summary 设置干预全局回复
+ * @summary Sets global intervention replies.
  *
  * @param request InsertInterveneGlobalReplyRequest
  * @return InsertInterveneGlobalReplyResponse
@@ -5603,7 +5658,7 @@ InsertInterveneGlobalReplyResponse Client::insertInterveneGlobalReply(const Inse
 }
 
 /**
- * @summary 插入干预规则
+ * @summary Insert an intervention rule.
  *
  * @param tmpReq InsertInterveneRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5646,7 +5701,7 @@ InsertInterveneRuleResponse Client::insertInterveneRuleWithOptions(const InsertI
 }
 
 /**
- * @summary 插入干预规则
+ * @summary Insert an intervention rule.
  *
  * @param request InsertInterveneRuleRequest
  * @return InsertInterveneRuleResponse
@@ -5657,7 +5712,7 @@ InsertInterveneRuleResponse Client::insertInterveneRule(const InsertInterveneRul
 }
 
 /**
- * @summary 分页获取企业VOC分析任务明细列表
+ * @summary Retrieves a paginated list of details for an enterprise Voice of the Customer (VOC) analysis task.
  *
  * @param tmpReq ListAnalysisTagDetailByTaskIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5718,7 +5773,7 @@ ListAnalysisTagDetailByTaskIdResponse Client::listAnalysisTagDetailByTaskIdWithO
 }
 
 /**
- * @summary 分页获取企业VOC分析任务明细列表
+ * @summary Retrieves a paginated list of details for an enterprise Voice of the Customer (VOC) analysis task.
  *
  * @param request ListAnalysisTagDetailByTaskIdRequest
  * @return ListAnalysisTagDetailByTaskIdResponse
@@ -5729,7 +5784,7 @@ ListAnalysisTagDetailByTaskIdResponse Client::listAnalysisTagDetailByTaskId(cons
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Retrieves a list of asynchronous tasks.
  *
  * @param tmpReq ListAsyncTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5812,7 +5867,7 @@ ListAsyncTasksResponse Client::listAsyncTasksWithOptions(const ListAsyncTasksReq
 }
 
 /**
- * @summary 查询任务列表
+ * @summary Retrieves a list of asynchronous tasks.
  *
  * @param request ListAsyncTasksRequest
  * @return ListAsyncTasksResponse
@@ -5823,7 +5878,7 @@ ListAsyncTasksResponse Client::listAsyncTasks(const ListAsyncTasksRequest &reque
 }
 
 /**
- * @summary 获取审核维度列表
+ * @summary Retrieves a list of audit dimensions.
  *
  * @param request ListAuditContentErrorTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5862,7 +5917,7 @@ ListAuditContentErrorTypesResponse Client::listAuditContentErrorTypesWithOptions
 }
 
 /**
- * @summary 获取审核维度列表
+ * @summary Retrieves a list of audit dimensions.
  *
  * @param request ListAuditContentErrorTypesRequest
  * @return ListAuditContentErrorTypesResponse
@@ -5873,7 +5928,7 @@ ListAuditContentErrorTypesResponse Client::listAuditContentErrorTypes(const List
 }
 
 /**
- * @summary 获取词库列表
+ * @summary Retrieve a list of term libraries.
  *
  * @param request ListAuditTermsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5916,7 +5971,7 @@ ListAuditTermsResponse Client::listAuditTermsWithOptions(const ListAuditTermsReq
 }
 
 /**
- * @summary 获取词库列表
+ * @summary Retrieve a list of term libraries.
  *
  * @param request ListAuditTermsRequest
  * @return ListAuditTermsResponse
@@ -5927,7 +5982,7 @@ ListAuditTermsResponse Client::listAuditTerms(const ListAuditTermsRequest &reque
 }
 
 /**
- * @summary 列出智能混剪任务列表
+ * @summary Lists smart video editing tasks.
  *
  * @param request ListAutoClipsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5998,7 +6053,7 @@ ListAutoClipsTaskResponse Client::listAutoClipsTaskWithOptions(const ListAutoCli
 }
 
 /**
- * @summary 列出智能混剪任务列表
+ * @summary Lists smart video editing tasks.
  *
  * @param request ListAutoClipsTaskRequest
  * @return ListAutoClipsTaskResponse
@@ -6009,7 +6064,7 @@ ListAutoClipsTaskResponse Client::listAutoClipsTask(const ListAutoClipsTaskReque
 }
 
 /**
- * @summary 获得标书写作任务列表
+ * @summary Retrieves the list of bidding document writing tasks.
  *
  * @param request ListBiddingDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6076,7 +6131,7 @@ ListBiddingDocResponse Client::listBiddingDocWithOptions(const ListBiddingDocReq
 }
 
 /**
- * @summary 获得标书写作任务列表
+ * @summary Retrieves the list of bidding document writing tasks.
  *
  * @param request ListBiddingDocRequest
  * @return ListBiddingDocResponse
@@ -6087,7 +6142,7 @@ ListBiddingDocResponse Client::listBiddingDoc(const ListBiddingDocRequest &reque
 }
 
 /**
- * @summary 获取系统自定义预设
+ * @summary Retrieves the system-defined presets for the Generate Content workflow. These presets include options such as writing style, article length, output language, and the number of articles to generate.
  *
  * @param request ListBuildConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6128,7 +6183,7 @@ ListBuildConfigsResponse Client::listBuildConfigsWithOptions(const ListBuildConf
 }
 
 /**
- * @summary 获取系统自定义预设
+ * @summary Retrieves the system-defined presets for the Generate Content workflow. These presets include options such as writing style, article length, output language, and the number of articles to generate.
  *
  * @param request ListBuildConfigsRequest
  * @return ListBuildConfigsResponse
@@ -6139,7 +6194,7 @@ ListBuildConfigsResponse Client::listBuildConfigs(const ListBuildConfigsRequest 
 }
 
 /**
- * @summary 自定义文本列表
+ * @summary Retrieve a list of custom texts.
  *
  * @param request ListCustomTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6176,7 +6231,7 @@ ListCustomTextResponse Client::listCustomTextWithOptions(const ListCustomTextReq
 }
 
 /**
- * @summary 自定义文本列表
+ * @summary Retrieve a list of custom texts.
  *
  * @param request ListCustomTextRequest
  * @return ListCustomTextResponse
@@ -6187,7 +6242,7 @@ ListCustomTextResponse Client::listCustomText(const ListCustomTextRequest &reque
 }
 
 /**
- * @summary 自定义视角列表
+ * @summary Lists custom viewpoints.
  *
  * @param tmpReq ListCustomViewPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6262,7 +6317,7 @@ ListCustomViewPointsResponse Client::listCustomViewPointsWithOptions(const ListC
 }
 
 /**
- * @summary 自定义视角列表
+ * @summary Lists custom viewpoints.
  *
  * @param request ListCustomViewPointsRequest
  * @return ListCustomViewPointsResponse
@@ -6273,7 +6328,7 @@ ListCustomViewPointsResponse Client::listCustomViewPoints(const ListCustomViewPo
 }
 
 /**
- * @summary 用户数据集权限-列表
+ * @summary Permission to list datasets
  *
  * @param request ListDataPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6320,7 +6375,7 @@ ListDataPermissionsResponse Client::listDataPermissionsWithOptions(const ListDat
 }
 
 /**
- * @summary 用户数据集权限-列表
+ * @summary Permission to list datasets
  *
  * @param request ListDataPermissionsRequest
  * @return ListDataPermissionsResponse
@@ -6331,7 +6386,7 @@ ListDataPermissionsResponse Client::listDataPermissions(const ListDataPermission
 }
 
 /**
- * @summary 查询数据集文档列表
+ * @summary Lists data source documents.
  *
  * @param tmpReq ListDatasetDocumentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6480,7 +6535,7 @@ ListDatasetDocumentsResponse Client::listDatasetDocumentsWithOptions(const ListD
 }
 
 /**
- * @summary 查询数据集文档列表
+ * @summary Lists data source documents.
  *
  * @param request ListDatasetDocumentsRequest
  * @return ListDatasetDocumentsResponse
@@ -6491,7 +6546,7 @@ ListDatasetDocumentsResponse Client::listDatasetDocuments(const ListDatasetDocum
 }
 
 /**
- * @summary 数据集管理-查询
+ * @summary Data source management - query
  *
  * @param request ListDatasetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6562,7 +6617,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &
 }
 
 /**
- * @summary 数据集管理-查询
+ * @summary Data source management - query
  *
  * @param request ListDatasetsRequest
  * @return ListDatasetsResponse
@@ -6573,7 +6628,7 @@ ListDatasetsResponse Client::listDatasets(const ListDatasetsRequest &request) {
 }
 
 /**
- * @summary 生成历史列表
+ * @summary History of online inference scenarios.
  *
  * @param request ListDialoguesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6630,7 +6685,7 @@ ListDialoguesResponse Client::listDialoguesWithOptions(const ListDialoguesReques
 }
 
 /**
- * @summary 生成历史列表
+ * @summary History of online inference scenarios.
  *
  * @param request ListDialoguesRequest
  * @return ListDialoguesResponse
@@ -6641,7 +6696,7 @@ ListDialoguesResponse Client::listDialogues(const ListDialoguesRequest &request)
 }
 
 /**
- * @summary 妙读获取文档列表
+ * @summary Miàodú retrieves the list of documents.
  *
  * @param tmpReq ListDocsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6706,7 +6761,7 @@ ListDocsResponse Client::listDocsWithOptions(const ListDocsRequest &tmpReq, cons
 }
 
 /**
- * @summary 妙读获取文档列表
+ * @summary Miàodú retrieves the list of documents.
  *
  * @param request ListDocsRequest
  * @return ListDocsResponse
@@ -6717,7 +6772,9 @@ ListDocsResponse Client::listDocs(const ListDocsRequest &request) {
 }
 
 /**
- * @summary 公文检索
+ * @summary Searches government document libraries based on complex conditions.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request ListDocumentRetrieveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6800,7 +6857,9 @@ ListDocumentRetrieveResponse Client::listDocumentRetrieveWithOptions(const ListD
 }
 
 /**
- * @summary 公文检索
+ * @summary Searches government document libraries based on complex conditions.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request ListDocumentRetrieveRequest
  * @return ListDocumentRetrieveResponse
@@ -6811,7 +6870,9 @@ ListDocumentRetrieveResponse Client::listDocumentRetrieve(const ListDocumentRetr
 }
 
 /**
- * @summary 查询PPT模板列表
+ * @summary Lists the enterprise-specific PPT templates.
+ *
+ * @description Quanmiao supports iframe integration. For details, see the [Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request ListEnterprisePptTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6856,7 +6917,9 @@ ListEnterprisePptTemplatesResponse Client::listEnterprisePptTemplatesWithOptions
 }
 
 /**
- * @summary 查询PPT模板列表
+ * @summary Lists the enterprise-specific PPT templates.
+ *
+ * @description Quanmiao supports iframe integration. For details, see the [Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request ListEnterprisePptTemplatesRequest
  * @return ListEnterprisePptTemplatesResponse
@@ -6867,7 +6930,7 @@ ListEnterprisePptTemplatesResponse Client::listEnterprisePptTemplates(const List
 }
 
 /**
- * @summary 新颖视角列表
+ * @summary List of novel perspectives.
  *
  * @param request ListFreshViewPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6916,7 +6979,7 @@ ListFreshViewPointsResponse Client::listFreshViewPointsWithOptions(const ListFre
 }
 
 /**
- * @summary 新颖视角列表
+ * @summary List of novel perspectives.
  *
  * @param request ListFreshViewPointsRequest
  * @return ListFreshViewPointsResponse
@@ -6927,7 +6990,7 @@ ListFreshViewPointsResponse Client::listFreshViewPoints(const ListFreshViewPoint
 }
 
 /**
- * @summary 通用配置-列表
+ * @summary Lists the general configurations.
  *
  * @param request ListGeneralConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6966,7 +7029,7 @@ ListGeneralConfigsResponse Client::listGeneralConfigsWithOptions(const ListGener
 }
 
 /**
- * @summary 通用配置-列表
+ * @summary Lists the general configurations.
  *
  * @param request ListGeneralConfigsRequest
  * @return ListGeneralConfigsResponse
@@ -6977,7 +7040,7 @@ ListGeneralConfigsResponse Client::listGeneralConfigs(const ListGeneralConfigsRe
 }
 
 /**
- * @summary 文档管理-列表。
+ * @summary Retrieve a list of documents: Query the history of articles created in MiaoBi.
  *
  * @param request ListGeneratedContentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7046,7 +7109,7 @@ ListGeneratedContentsResponse Client::listGeneratedContentsWithOptions(const Lis
 }
 
 /**
- * @summary 文档管理-列表。
+ * @summary Retrieve a list of documents: Query the history of articles created in MiaoBi.
  *
  * @param request ListGeneratedContentsRequest
  * @return ListGeneratedContentsResponse
@@ -7057,7 +7120,7 @@ ListGeneratedContentsResponse Client::listGeneratedContents(const ListGeneratedC
 }
 
 /**
- * @summary 获取分类的热点新闻
+ * @summary Retrieves the list of trending topic hotspots.
  *
  * @param tmpReq ListHotNewsWithTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7112,7 +7175,7 @@ ListHotNewsWithTypeResponse Client::listHotNewsWithTypeWithOptions(const ListHot
 }
 
 /**
- * @summary 获取分类的热点新闻
+ * @summary Retrieves the list of trending topic hotspots.
  *
  * @param request ListHotNewsWithTypeRequest
  * @return ListHotNewsWithTypeResponse
@@ -7123,7 +7186,7 @@ ListHotNewsWithTypeResponse Client::listHotNewsWithType(const ListHotNewsWithTyp
 }
 
 /**
- * @summary 获取所有平台热榜源列表
+ * @summary Retrieve the list of hot ranking sources for all platforms.
  *
  * @param request ListHotSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7164,7 +7227,7 @@ ListHotSourcesResponse Client::listHotSourcesWithOptions(const ListHotSourcesReq
 }
 
 /**
- * @summary 获取所有平台热榜源列表
+ * @summary Retrieve the list of hot ranking sources for all platforms.
  *
  * @param request ListHotSourcesRequest
  * @return ListHotSourcesResponse
@@ -7175,7 +7238,7 @@ ListHotSourcesResponse Client::listHotSources(const ListHotSourcesRequest &reque
 }
 
 /**
- * @summary 获取热点事件列表
+ * @summary Retrieves a list of trending topics.
  *
  * @param tmpReq ListHotTopicsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7262,7 +7325,7 @@ ListHotTopicsResponse Client::listHotTopicsWithOptions(const ListHotTopicsReques
 }
 
 /**
- * @summary 获取热点事件列表
+ * @summary Retrieves a list of trending topics.
  *
  * @param request ListHotTopicsRequest
  * @return ListHotTopicsResponse
@@ -7273,7 +7336,7 @@ ListHotTopicsResponse Client::listHotTopics(const ListHotTopicsRequest &request)
 }
 
 /**
- * @summary 热门视角列表
+ * @summary List of popular viewpoints.
  *
  * @param request ListHotViewPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7322,7 +7385,7 @@ ListHotViewPointsResponse Client::listHotViewPointsWithOptions(const ListHotView
 }
 
 /**
- * @summary 热门视角列表
+ * @summary List of popular viewpoints.
  *
  * @param request ListHotViewPointsRequest
  * @return ListHotViewPointsResponse
@@ -7333,7 +7396,7 @@ ListHotViewPointsResponse Client::listHotViewPoints(const ListHotViewPointsReque
 }
 
 /**
- * @summary 获得干预项目数量列表
+ * @summary Lists the number of intervention projects.
  *
  * @param request ListInterveneCntRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7374,7 +7437,7 @@ ListInterveneCntResponse Client::listInterveneCntWithOptions(const ListIntervene
 }
 
 /**
- * @summary 获得干预项目数量列表
+ * @summary Lists the number of intervention projects.
  *
  * @param request ListInterveneCntRequest
  * @return ListInterveneCntResponse
@@ -7385,7 +7448,7 @@ ListInterveneCntResponse Client::listInterveneCnt(const ListInterveneCntRequest 
 }
 
 /**
- * @summary 获得导入任务列表
+ * @summary Retrieve a list of import tasks.
  *
  * @param request ListInterveneImportTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7426,7 +7489,7 @@ ListInterveneImportTasksResponse Client::listInterveneImportTasksWithOptions(con
 }
 
 /**
- * @summary 获得导入任务列表
+ * @summary Retrieve a list of import tasks.
  *
  * @param request ListInterveneImportTasksRequest
  * @return ListInterveneImportTasksResponse
@@ -7437,7 +7500,7 @@ ListInterveneImportTasksResponse Client::listInterveneImportTasks(const ListInte
 }
 
 /**
- * @summary 获得干预规则列表
+ * @summary Retrieves a list of intervention rules.
  *
  * @param request ListInterveneRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7478,7 +7541,7 @@ ListInterveneRulesResponse Client::listInterveneRulesWithOptions(const ListInter
 }
 
 /**
- * @summary 获得干预规则列表
+ * @summary Retrieves a list of intervention rules.
  *
  * @param request ListInterveneRulesRequest
  * @return ListInterveneRulesResponse
@@ -7489,7 +7552,7 @@ ListInterveneRulesResponse Client::listInterveneRules(const ListInterveneRulesRe
 }
 
 /**
- * @summary 获得干预项列表
+ * @summary Retrieves the list of intervention items.
  *
  * @param request ListIntervenesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7542,7 +7605,7 @@ ListIntervenesResponse Client::listIntervenesWithOptions(const ListIntervenesReq
 }
 
 /**
- * @summary 获得干预项列表
+ * @summary Retrieves the list of intervention items.
  *
  * @param request ListIntervenesRequest
  * @return ListIntervenesResponse
@@ -7553,7 +7616,7 @@ ListIntervenesResponse Client::listIntervenes(const ListIntervenesRequest &reque
 }
 
 /**
- * @summary 查询素材列表
+ * @summary Retrieve the list of materials from the Material Library.
  *
  * @param tmpReq ListMaterialDocumentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7656,7 +7719,7 @@ ListMaterialDocumentsResponse Client::listMaterialDocumentsWithOptions(const Lis
 }
 
 /**
- * @summary 查询素材列表
+ * @summary Retrieve the list of materials from the Material Library.
  *
  * @param request ListMaterialDocumentsRequest
  * @return ListMaterialDocumentsResponse
@@ -7667,7 +7730,7 @@ ListMaterialDocumentsResponse Client::listMaterialDocuments(const ListMaterialDo
 }
 
 /**
- * @summary 获取选题策划列表
+ * @summary Retrieves a list of planning proposals.
  *
  * @param tmpReq ListPlanningProposalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7746,7 +7809,7 @@ ListPlanningProposalResponse Client::listPlanningProposalWithOptions(const ListP
 }
 
 /**
- * @summary 获取选题策划列表
+ * @summary Retrieves a list of planning proposals.
  *
  * @param request ListPlanningProposalRequest
  * @return ListPlanningProposalResponse
@@ -7757,7 +7820,7 @@ ListPlanningProposalResponse Client::listPlanningProposal(const ListPlanningProp
 }
 
 /**
- * @summary PPT作品-列表
+ * @summary Queries a list of PPT artifacts.
  *
  * @param request ListPptArtifactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7806,7 +7869,7 @@ ListPptArtifactsResponse Client::listPptArtifactsWithOptions(const ListPptArtifa
 }
 
 /**
- * @summary PPT作品-列表
+ * @summary Queries a list of PPT artifacts.
  *
  * @param request ListPptArtifactsRequest
  * @return ListPptArtifactsResponse
@@ -7817,7 +7880,7 @@ ListPptArtifactsResponse Client::listPptArtifacts(const ListPptArtifactsRequest 
 }
 
 /**
- * @summary 查询PPT模板列表
+ * @summary Queries a list of PowerPoint templates.
  *
  * @param request ListPptTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7874,7 +7937,7 @@ ListPptTemplatesResponse Client::listPptTemplatesWithOptions(const ListPptTempla
 }
 
 /**
- * @summary 查询PPT模板列表
+ * @summary Queries a list of PowerPoint templates.
  *
  * @param request ListPptTemplatesRequest
  * @return ListPptTemplatesResponse
@@ -7885,7 +7948,7 @@ ListPptTemplatesResponse Client::listPptTemplates(const ListPptTemplatesRequest 
 }
 
 /**
- * @summary 查询搜索生成任务对话详情中数据列表
+ * @summary Lists the dialogue data for a search generation task.
  *
  * @param request ListSearchTaskDialogueDatasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7956,7 +8019,7 @@ ListSearchTaskDialogueDatasResponse Client::listSearchTaskDialogueDatasWithOptio
 }
 
 /**
- * @summary 查询搜索生成任务对话详情中数据列表
+ * @summary Lists the dialogue data for a search generation task.
  *
  * @param request ListSearchTaskDialogueDatasRequest
  * @return ListSearchTaskDialogueDatasResponse
@@ -7967,7 +8030,7 @@ ListSearchTaskDialogueDatasResponse Client::listSearchTaskDialogueDatas(const Li
 }
 
 /**
- * @summary 查询妙搜搜索生成任务详情列表
+ * @summary Retrieves the task details for MiaoSou search generation tasks.
  *
  * @param request ListSearchTaskDialoguesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8010,7 +8073,7 @@ ListSearchTaskDialoguesResponse Client::listSearchTaskDialoguesWithOptions(const
 }
 
 /**
- * @summary 查询妙搜搜索生成任务详情列表
+ * @summary Retrieves the task details for MiaoSou search generation tasks.
  *
  * @param request ListSearchTaskDialoguesRequest
  * @return ListSearchTaskDialoguesResponse
@@ -8021,7 +8084,7 @@ ListSearchTaskDialoguesResponse Client::listSearchTaskDialogues(const ListSearch
 }
 
 /**
- * @summary 查询妙搜搜索生成历史任务列表
+ * @summary Queries the list of historical tasks generated by Miaosou Search.
  *
  * @param tmpReq ListSearchTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8070,7 +8133,7 @@ ListSearchTasksResponse Client::listSearchTasksWithOptions(const ListSearchTasks
 }
 
 /**
- * @summary 查询妙搜搜索生成历史任务列表
+ * @summary Queries the list of historical tasks generated by Miaosou Search.
  *
  * @param request ListSearchTasksRequest
  * @return ListSearchTasksResponse
@@ -8081,7 +8144,9 @@ ListSearchTasksResponse Client::listSearchTasks(const ListSearchTasksRequest &re
 }
 
 /**
- * @summary 获取文体学习分析结果列表
+ * @summary Retrieves the list of style learning analysis results.
+ *
+ * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request ListStyleLearningResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8122,7 +8187,9 @@ ListStyleLearningResultResponse Client::listStyleLearningResultWithOptions(const
 }
 
 /**
- * @summary 获取文体学习分析结果列表
+ * @summary Retrieves the list of style learning analysis results.
+ *
+ * @description The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request ListStyleLearningResultRequest
  * @return ListStyleLearningResultResponse
@@ -8133,7 +8200,7 @@ ListStyleLearningResultResponse Client::listStyleLearningResult(const ListStyleL
 }
 
 /**
- * @summary 时效性视角列表
+ * @summary List of timeliness perspectives.
  *
  * @param request ListTimedViewAttitudeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8182,7 +8249,7 @@ ListTimedViewAttitudeResponse Client::listTimedViewAttitudeWithOptions(const Lis
 }
 
 /**
- * @summary 时效性视角列表
+ * @summary List of timeliness perspectives.
  *
  * @param request ListTimedViewAttitudeRequest
  * @return ListTimedViewAttitudeResponse
@@ -8193,7 +8260,7 @@ ListTimedViewAttitudeResponse Client::listTimedViewAttitude(const ListTimedViewA
 }
 
 /**
- * @summary 获取热点推荐事件
+ * @summary Retrieve hot spot recommendation events.
  *
  * @param request ListTopicRecommendEventListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8234,7 +8301,7 @@ ListTopicRecommendEventListResponse Client::listTopicRecommendEventListWithOptio
 }
 
 /**
- * @summary 获取热点推荐事件
+ * @summary Retrieve hot spot recommendation events.
  *
  * @param request ListTopicRecommendEventListRequest
  * @return ListTopicRecommendEventListResponse
@@ -8245,7 +8312,7 @@ ListTopicRecommendEventListResponse Client::listTopicRecommendEventList(const Li
 }
 
 /**
- * @summary 获取主题事件推荐观点列表
+ * @summary Retrieves recommended viewpoints for hot spot events.
  *
  * @param request ListTopicViewPointRecommendEventListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8290,7 +8357,7 @@ ListTopicViewPointRecommendEventListResponse Client::listTopicViewPointRecommend
 }
 
 /**
- * @summary 获取主题事件推荐观点列表
+ * @summary Retrieves recommended viewpoints for hot spot events.
  *
  * @param request ListTopicViewPointRecommendEventListRequest
  * @return ListTopicViewPointRecommendEventListResponse
@@ -8301,7 +8368,7 @@ ListTopicViewPointRecommendEventListResponse Client::listTopicViewPointRecommend
 }
 
 /**
- * @summary 获取系统所有实例信息
+ * @summary Retrieve version information for your purchased services.
  *
  * @param request ListVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8332,7 +8399,7 @@ ListVersionsResponse Client::listVersionsWithOptions(const ListVersionsRequest &
 }
 
 /**
- * @summary 获取系统所有实例信息
+ * @summary Retrieve version information for your purchased services.
  *
  * @param request ListVersionsRequest
  * @return ListVersionsResponse
@@ -8343,7 +8410,7 @@ ListVersionsResponse Client::listVersions(const ListVersionsRequest &request) {
 }
 
 /**
- * @summary 网友视角列表
+ * @summary List of viewpoints from netizens.
  *
  * @param request ListWebReviewPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8392,7 +8459,7 @@ ListWebReviewPointsResponse Client::listWebReviewPointsWithOptions(const ListWeb
 }
 
 /**
- * @summary 网友视角列表
+ * @summary List of viewpoints from netizens.
  *
  * @param request ListWebReviewPointsRequest
  * @return ListWebReviewPointsResponse
@@ -8403,7 +8470,7 @@ ListWebReviewPointsResponse Client::listWebReviewPoints(const ListWebReviewPoint
 }
 
 /**
- * @summary 获取文体列表
+ * @summary Retrieves the list of writing styles.
  *
  * @param request ListWritingStylesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8448,7 +8515,7 @@ ListWritingStylesResponse Client::listWritingStylesWithOptions(const ListWriting
 }
 
 /**
- * @summary 获取文体列表
+ * @summary Retrieves the list of writing styles.
  *
  * @param request ListWritingStylesRequest
  * @return ListWritingStylesResponse
@@ -8459,7 +8526,7 @@ ListWritingStylesResponse Client::listWritingStyles(const ListWritingStylesReque
 }
 
 /**
- * @summary 根据taskId查询异步任务状态
+ * @summary Queries the details of submitted asynchronous task executions.
  *
  * @param request QueryAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8496,7 +8563,7 @@ QueryAsyncTaskResponse Client::queryAsyncTaskWithOptions(const QueryAsyncTaskReq
 }
 
 /**
- * @summary 根据taskId查询异步任务状态
+ * @summary Queries the details of submitted asynchronous task executions.
  *
  * @param request QueryAsyncTaskRequest
  * @return QueryAsyncTaskResponse
@@ -8507,7 +8574,7 @@ QueryAsyncTaskResponse Client::queryAsyncTask(const QueryAsyncTaskRequest &reque
 }
 
 /**
- * @summary 查询审核结果
+ * @summary Queries the results of an audit task.
  *
  * @param request QueryAuditTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8546,7 +8613,7 @@ QueryAuditTaskResponse Client::queryAuditTaskWithOptions(const QueryAuditTaskReq
 }
 
 /**
- * @summary 查询审核结果
+ * @summary Queries the results of an audit task.
  *
  * @param request QueryAuditTaskRequest
  * @return QueryAuditTaskResponse
@@ -8557,9 +8624,9 @@ QueryAuditTaskResponse Client::queryAuditTask(const QueryAuditTaskRequest &reque
 }
 
 /**
- * @summary 查询视频审校结果
+ * @summary Queries video audit results.
  *
- * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+ * @description Queries video audit results by task ID. The response includes video information, shot information, and audit results.
  *
  * @param request QueryVideoAuditResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8594,9 +8661,9 @@ QueryVideoAuditResultResponse Client::queryVideoAuditResultWithOptions(const Que
 }
 
 /**
- * @summary 查询视频审校结果
+ * @summary Queries video audit results.
  *
- * @description 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+ * @description Queries video audit results by task ID. The response includes video information, shot information, and audit results.
  *
  * @param request QueryVideoAuditResultRequest
  * @return QueryVideoAuditResultResponse
@@ -8607,7 +8674,7 @@ QueryVideoAuditResultResponse Client::queryVideoAuditResult(const QueryVideoAudi
 }
 
 /**
- * @summary 内容缩写
+ * @summary Abbreviates the specified content.
  *
  * @param request RunAbbreviationContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8660,7 +8727,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 内容缩写
+ * @summary Abbreviates the specified content.
  *
  * @param request RunAbbreviationContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8699,7 +8766,7 @@ RunAbbreviationContentResponse Client::runAbbreviationContentWithOptions(const R
 }
 
 /**
- * @summary 内容缩写
+ * @summary Abbreviates the specified content.
  *
  * @param request RunAbbreviationContentRequest
  * @return RunAbbreviationContentResponse
@@ -8710,7 +8777,9 @@ RunAbbreviationContentResponse Client::runAbbreviationContent(const RunAbbreviat
 }
 
 /**
- * @summary 妙笔：AI助手写作
+ * @summary MiaoBi: AI-assisted writing
+ *
+ * @description QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunAiHelperWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8785,7 +8854,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙笔：AI助手写作
+ * @summary MiaoBi: AI-assisted writing
+ *
+ * @description QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunAiHelperWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8846,7 +8917,9 @@ RunAiHelperWritingResponse Client::runAiHelperWritingWithOptions(const RunAiHelp
 }
 
 /**
- * @summary 妙笔：AI助手写作
+ * @summary MiaoBi: AI-assisted writing
+ *
+ * @description QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request RunAiHelperWritingRequest
  * @return RunAiHelperWritingResponse
@@ -8857,7 +8930,7 @@ RunAiHelperWritingResponse Client::runAiHelperWriting(const RunAiHelperWritingRe
 }
 
 /**
- * @summary 妙读生成书籍脑图
+ * @summary Miaodu generates mind maps of books.
  *
  * @param request RunBookBrainmapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8930,7 +9003,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读生成书籍脑图
+ * @summary Miaodu generates mind maps of books.
  *
  * @param request RunBookBrainmapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8989,7 +9062,7 @@ RunBookBrainmapResponse Client::runBookBrainmapWithOptions(const RunBookBrainmap
 }
 
 /**
- * @summary 妙读生成书籍脑图
+ * @summary Miaodu generates mind maps of books.
  *
  * @param request RunBookBrainmapRequest
  * @return RunBookBrainmapResponse
@@ -9000,7 +9073,7 @@ RunBookBrainmapResponse Client::runBookBrainmap(const RunBookBrainmapRequest &re
 }
 
 /**
- * @summary 书籍导读接口
+ * @summary Extracts a summary, structured selling points, and hotwords from a book.
  *
  * @param request RunBookIntroductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9065,7 +9138,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 书籍导读接口
+ * @summary Extracts a summary, structured selling points, and hotwords from a book.
  *
  * @param request RunBookIntroductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9116,7 +9189,7 @@ RunBookIntroductionResponse Client::runBookIntroductionWithOptions(const RunBook
 }
 
 /**
- * @summary 书籍导读接口
+ * @summary Extracts a summary, structured selling points, and hotwords from a book.
  *
  * @param request RunBookIntroductionRequest
  * @return RunBookIntroductionResponse
@@ -9127,7 +9200,7 @@ RunBookIntroductionResponse Client::runBookIntroduction(const RunBookIntroductio
 }
 
 /**
- * @summary 书籍智能卡片接口
+ * @summary A smart card interface for books.
  *
  * @param request RunBookSmartCardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9180,7 +9253,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 书籍智能卡片接口
+ * @summary A smart card interface for books.
  *
  * @param request RunBookSmartCardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9219,7 +9292,7 @@ RunBookSmartCardResponse Client::runBookSmartCardWithOptions(const RunBookSmartC
 }
 
 /**
- * @summary 书籍智能卡片接口
+ * @summary A smart card interface for books.
  *
  * @param request RunBookSmartCardRequest
  * @return RunBookSmartCardResponse
@@ -9230,7 +9303,7 @@ RunBookSmartCardResponse Client::runBookSmartCard(const RunBookSmartCardRequest 
 }
 
 /**
- * @summary 客户之声预测
+ * @summary Predicts user comments for a specified article.
  *
  * @param tmpReq RunCommentGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9333,7 +9406,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 客户之声预测
+ * @summary Predicts user comments for a specified article.
  *
  * @param tmpReq RunCommentGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9422,7 +9495,7 @@ RunCommentGenerationResponse Client::runCommentGenerationWithOptions(const RunCo
 }
 
 /**
- * @summary 客户之声预测
+ * @summary Predicts user comments for a specified article.
  *
  * @param request RunCommentGenerationRequest
  * @return RunCommentGenerationResponse
@@ -9433,7 +9506,7 @@ RunCommentGenerationResponse Client::runCommentGeneration(const RunCommentGenera
 }
 
 /**
- * @summary 内容续写
+ * @summary Continues generating content.
  *
  * @param request RunContinueContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9482,7 +9555,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 内容续写
+ * @summary Continues generating content.
  *
  * @param request RunContinueContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9517,7 +9590,7 @@ RunContinueContentResponse Client::runContinueContentWithOptions(const RunContin
 }
 
 /**
- * @summary 内容续写
+ * @summary Continues generating content.
  *
  * @param request RunContinueContentRequest
  * @return RunContinueContentResponse
@@ -9528,7 +9601,7 @@ RunContinueContentResponse Client::runContinueContent(const RunContinueContentRe
 }
 
 /**
- * @summary 自定义热点话题分析
+ * @summary Analyzes custom hot topics.
  *
  * @param request RunCustomHotTopicAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9597,7 +9670,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 自定义热点话题分析
+ * @summary Analyzes custom hot topics.
  *
  * @param request RunCustomHotTopicAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9652,7 +9725,7 @@ RunCustomHotTopicAnalysisResponse Client::runCustomHotTopicAnalysisWithOptions(c
 }
 
 /**
- * @summary 自定义热点话题分析
+ * @summary Analyzes custom hot topics.
  *
  * @param request RunCustomHotTopicAnalysisRequest
  * @return RunCustomHotTopicAnalysisResponse
@@ -9663,7 +9736,7 @@ RunCustomHotTopicAnalysisResponse Client::runCustomHotTopicAnalysis(const RunCus
 }
 
 /**
- * @summary 自定义选题视角分析
+ * @summary Perspective analysis of custom topics.
  *
  * @param request RunCustomHotTopicViewPointAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9744,7 +9817,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 自定义选题视角分析
+ * @summary Perspective analysis of custom topics.
  *
  * @param request RunCustomHotTopicViewPointAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9811,7 +9884,7 @@ RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAna
 }
 
 /**
- * @summary 自定义选题视角分析
+ * @summary Perspective analysis of custom topics.
  *
  * @param request RunCustomHotTopicViewPointAnalysisRequest
  * @return RunCustomHotTopicViewPointAnalysisResponse
@@ -9822,7 +9895,7 @@ RunCustomHotTopicViewPointAnalysisResponse Client::runCustomHotTopicViewPointAna
 }
 
 /**
- * @summary 流式输出深度写作事件
+ * @summary Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
  *
  * @param request RunDeepWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9875,7 +9948,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 流式输出深度写作事件
+ * @summary Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
  *
  * @param request RunDeepWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9914,7 +9987,7 @@ RunDeepWritingResponse Client::runDeepWritingWithOptions(const RunDeepWritingReq
 }
 
 /**
- * @summary 流式输出深度写作事件
+ * @summary Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
  *
  * @param request RunDeepWritingRequest
  * @return RunDeepWritingResponse
@@ -9925,7 +9998,7 @@ RunDeepWritingResponse Client::runDeepWriting(const RunDeepWritingRequest &reque
 }
 
 /**
- * @summary 妙读脑图生成接口
+ * @summary Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
  *
  * @param request RunDocBrainmapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10006,7 +10079,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读脑图生成接口
+ * @summary Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
  *
  * @param request RunDocBrainmapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10073,7 +10146,7 @@ RunDocBrainmapResponse Client::runDocBrainmapWithOptions(const RunDocBrainmapReq
 }
 
 /**
- * @summary 妙读脑图生成接口
+ * @summary Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
  *
  * @param request RunDocBrainmapRequest
  * @return RunDocBrainmapResponse
@@ -10084,7 +10157,7 @@ RunDocBrainmapResponse Client::runDocBrainmap(const RunDocBrainmapRequest &reque
 }
 
 /**
- * @summary 妙读文档导读接口
+ * @summary Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
  *
  * @param request RunDocIntroductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10161,7 +10234,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读文档导读接口
+ * @summary Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
  *
  * @param request RunDocIntroductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10224,7 +10297,7 @@ RunDocIntroductionResponse Client::runDocIntroductionWithOptions(const RunDocInt
 }
 
 /**
- * @summary 妙读文档导读接口
+ * @summary Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
  *
  * @param request RunDocIntroductionRequest
  * @return RunDocIntroductionResponse
@@ -10235,7 +10308,8 @@ RunDocIntroductionResponse Client::runDocIntroduction(const RunDocIntroductionRe
 }
 
 /**
- * @summary 妙读问答接口
+ * @summary Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.  
+ * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
  *
  * @param tmpReq RunDocQaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10326,7 +10400,8 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读问答接口
+ * @summary Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.  
+ * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
  *
  * @param tmpReq RunDocQaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10403,7 +10478,8 @@ RunDocQaResponse Client::runDocQaWithOptions(const RunDocQaRequest &tmpReq, cons
 }
 
 /**
- * @summary 妙读问答接口
+ * @summary Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.  
+ * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
  *
  * @param request RunDocQaRequest
  * @return RunDocQaResponse
@@ -10414,7 +10490,7 @@ RunDocQaResponse Client::runDocQa(const RunDocQaRequest &request) {
 }
 
 /**
- * @summary 文档智能卡片接口
+ * @summary Automatically adds tags to selected text or a specified chat and generates a smart card note.
  *
  * @param request RunDocSmartCardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10475,7 +10551,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 文档智能卡片接口
+ * @summary Automatically adds tags to selected text or a specified chat and generates a smart card note.
  *
  * @param request RunDocSmartCardRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10522,7 +10598,7 @@ RunDocSmartCardResponse Client::runDocSmartCardWithOptions(const RunDocSmartCard
 }
 
 /**
- * @summary 文档智能卡片接口
+ * @summary Automatically adds tags to selected text or a specified chat and generates a smart card note.
  *
  * @param request RunDocSmartCardRequest
  * @return RunDocSmartCardResponse
@@ -10533,7 +10609,7 @@ RunDocSmartCardResponse Client::runDocSmartCard(const RunDocSmartCardRequest &re
 }
 
 /**
- * @summary 妙读文档总结摘要接口
+ * @summary Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
  *
  * @param request RunDocSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10602,7 +10678,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读文档总结摘要接口
+ * @summary Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
  *
  * @param request RunDocSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10657,7 +10733,7 @@ RunDocSummaryResponse Client::runDocSummaryWithOptions(const RunDocSummaryReques
 }
 
 /**
- * @summary 妙读文档总结摘要接口
+ * @summary Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
  *
  * @param request RunDocSummaryRequest
  * @return RunDocSummaryResponse
@@ -10668,7 +10744,7 @@ RunDocSummaryResponse Client::runDocSummary(const RunDocSummaryRequest &request)
 }
 
 /**
- * @summary 妙读文档翻译接口
+ * @summary An API for document translation between English and Chinese.
  *
  * @param request RunDocTranslationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10737,7 +10813,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读文档翻译接口
+ * @summary An API for document translation between English and Chinese.
  *
  * @param request RunDocTranslationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10792,7 +10868,7 @@ RunDocTranslationResponse Client::runDocTranslationWithOptions(const RunDocTrans
 }
 
 /**
- * @summary 妙读文档翻译接口
+ * @summary An API for document translation between English and Chinese.
  *
  * @param request RunDocTranslationRequest
  * @return RunDocTranslationResponse
@@ -10803,7 +10879,7 @@ RunDocTranslationResponse Client::runDocTranslation(const RunDocTranslationReque
 }
 
 /**
- * @summary 文档改写
+ * @summary Rewrites an article in a specified style.
  *
  * @param request RunDocWashingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10880,7 +10956,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 文档改写
+ * @summary Rewrites an article in a specified style.
  *
  * @param request RunDocWashingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10943,7 +11019,7 @@ RunDocWashingResponse Client::runDocWashingWithOptions(const RunDocWashingReques
 }
 
 /**
- * @summary 文档改写
+ * @summary Rewrites an article in a specified style.
  *
  * @param request RunDocWashingRequest
  * @return RunDocWashingResponse
@@ -10954,7 +11030,7 @@ RunDocWashingResponse Client::runDocWashing(const RunDocWashingRequest &request)
 }
 
 /**
- * @summary 内容扩写
+ * @summary Expands content.
  *
  * @param request RunExpandContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11007,7 +11083,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 内容扩写
+ * @summary Expands content.
  *
  * @param request RunExpandContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11046,7 +11122,7 @@ RunExpandContentResponse Client::runExpandContentWithOptions(const RunExpandCont
 }
 
 /**
- * @summary 内容扩写
+ * @summary Expands content.
  *
  * @param request RunExpandContentRequest
  * @return RunExpandContentResponse
@@ -11057,7 +11133,7 @@ RunExpandContentResponse Client::runExpandContent(const RunExpandContentRequest 
 }
 
 /**
- * @summary 妙读猜你想问接口
+ * @summary Submits a query and returns several related queries.
  *
  * @param request RunGenerateQuestionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11118,7 +11194,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读猜你想问接口
+ * @summary Submits a query and returns several related queries.
  *
  * @param request RunGenerateQuestionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11165,7 +11241,7 @@ RunGenerateQuestionsResponse Client::runGenerateQuestionsWithOptions(const RunGe
 }
 
 /**
- * @summary 妙读猜你想问接口
+ * @summary Submits a query and returns several related queries.
  *
  * @param request RunGenerateQuestionsRequest
  * @return RunGenerateQuestionsResponse
@@ -11176,7 +11252,7 @@ RunGenerateQuestionsResponse Client::runGenerateQuestions(const RunGenerateQuest
 }
 
 /**
- * @summary 妙读文档关键词抽取接口
+ * @summary Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
  *
  * @param request RunHotwordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11241,7 +11317,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙读文档关键词抽取接口
+ * @summary Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
  *
  * @param request RunHotwordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11292,7 +11368,7 @@ RunHotwordResponse Client::runHotwordWithOptions(const RunHotwordRequest &reques
 }
 
 /**
- * @summary 妙读文档关键词抽取接口
+ * @summary Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
  *
  * @param request RunHotwordRequest
  * @return RunHotwordResponse
@@ -11303,7 +11379,7 @@ RunHotwordResponse Client::runHotword(const RunHotwordRequest &request) {
 }
 
 /**
- * @summary AI妙笔-创作-抽取关键词
+ * @summary Extracts and generates keywords using AMB.
  *
  * @param tmpReq RunKeywordsExtractionGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11366,7 +11442,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI妙笔-创作-抽取关键词
+ * @summary Extracts and generates keywords using AMB.
  *
  * @param tmpReq RunKeywordsExtractionGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11415,7 +11491,7 @@ RunKeywordsExtractionGenerationResponse Client::runKeywordsExtractionGenerationW
 }
 
 /**
- * @summary AI妙笔-创作-抽取关键词
+ * @summary Extracts and generates keywords using AMB.
  *
  * @param request RunKeywordsExtractionGenerationRequest
  * @return RunKeywordsExtractionGenerationResponse
@@ -11426,7 +11502,7 @@ RunKeywordsExtractionGenerationResponse Client::runKeywordsExtractionGeneration(
 }
 
 /**
- * @summary 文档批量导读
+ * @summary Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
  *
  * @param tmpReq RunMultiDocIntroductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11497,7 +11573,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 文档批量导读
+ * @summary Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
  *
  * @param tmpReq RunMultiDocIntroductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11554,7 +11630,7 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroductionWithOptions(const
 }
 
 /**
- * @summary 文档批量导读
+ * @summary Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
  *
  * @param request RunMultiDocIntroductionRequest
  * @return RunMultiDocIntroductionResponse
@@ -11565,7 +11641,12 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroduction(const RunMultiDo
 }
 
 /**
- * @summary 流式输出PPT大纲
+ * @summary Generates a PowerPoint outline.
+ *
+ * @description Instructions:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request RunPptOutlineGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11618,7 +11699,12 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 流式输出PPT大纲
+ * @summary Generates a PowerPoint outline.
+ *
+ * @description Instructions:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request RunPptOutlineGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11657,7 +11743,12 @@ RunPptOutlineGenerationResponse Client::runPptOutlineGenerationWithOptions(const
 }
 
 /**
- * @summary 流式输出PPT大纲
+ * @summary Generates a PowerPoint outline.
+ *
+ * @description Instructions:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+ * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
  *
  * @param request RunPptOutlineGenerationRequest
  * @return RunPptOutlineGenerationResponse
@@ -11668,7 +11759,11 @@ RunPptOutlineGenerationResponse Client::runPptOutlineGeneration(const RunPptOutl
 }
 
 /**
- * @summary 快速写作
+ * @summary Enter writing instructions to quickly generate content.
+ *
+ * @description ### Access Instructions:
+ * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+ * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
  *
  * @param tmpReq RunQuickWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11739,7 +11834,11 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 快速写作
+ * @summary Enter writing instructions to quickly generate content.
+ *
+ * @description ### Access Instructions:
+ * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+ * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
  *
  * @param tmpReq RunQuickWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11796,7 +11895,11 @@ RunQuickWritingResponse Client::runQuickWritingWithOptions(const RunQuickWriting
 }
 
 /**
- * @summary 快速写作
+ * @summary Enter writing instructions to quickly generate content.
+ *
+ * @description ### Access Instructions:
+ * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+ * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
  *
  * @param request RunQuickWritingRequest
  * @return RunQuickWritingResponse
@@ -11807,7 +11910,19 @@ RunQuickWritingResponse Client::runQuickWriting(const RunQuickWritingRequest &re
 }
 
 /**
- * @summary AI妙搜-智能搜索生成
+ * @summary AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+ * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+ * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+ *
+ * @description ### Integration notes:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+ * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+ * ### Data sources for search:
+ * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+ * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+ * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+ * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
  *
  * @param tmpReq RunSearchGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11890,7 +12005,19 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI妙搜-智能搜索生成
+ * @summary AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+ * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+ * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+ *
+ * @description ### Integration notes:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+ * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+ * ### Data sources for search:
+ * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+ * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+ * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+ * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
  *
  * @param tmpReq RunSearchGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11959,7 +12086,19 @@ RunSearchGenerationResponse Client::runSearchGenerationWithOptions(const RunSear
 }
 
 /**
- * @summary AI妙搜-智能搜索生成
+ * @summary AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+ * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+ * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+ *
+ * @description ### Integration notes:
+ * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+ * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+ * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+ * ### Data sources for search:
+ * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+ * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+ * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+ * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
  *
  * @param request RunSearchGenerationRequest
  * @return RunSearchGenerationResponse
@@ -11970,7 +12109,7 @@ RunSearchGenerationResponse Client::runSearchGeneration(const RunSearchGeneratio
 }
 
 /**
- * @summary 妙搜-文搜文
+ * @summary Miao Search enables text-to-text search.
  *
  * @param tmpReq RunSearchSimilarArticlesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12037,7 +12176,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙搜-文搜文
+ * @summary Miao Search enables text-to-text search.
  *
  * @param tmpReq RunSearchSimilarArticlesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12090,7 +12229,7 @@ RunSearchSimilarArticlesResponse Client::runSearchSimilarArticlesWithOptions(con
 }
 
 /**
- * @summary 妙搜-文搜文
+ * @summary Miao Search enables text-to-text search.
  *
  * @param request RunSearchSimilarArticlesRequest
  * @return RunSearchSimilarArticlesResponse
@@ -12101,7 +12240,9 @@ RunSearchSimilarArticlesResponse Client::runSearchSimilarArticles(const RunSearc
 }
 
 /**
- * @summary 创作-分步骤写作
+ * @summary Writes content in a step-by-step pattern using an outline and summaries.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunStepByStepWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12180,7 +12321,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 创作-分步骤写作
+ * @summary Writes content in a step-by-step pattern using an outline and summaries.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunStepByStepWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12245,7 +12388,9 @@ RunStepByStepWritingResponse Client::runStepByStepWritingWithOptions(const RunSt
 }
 
 /**
- * @summary 创作-分步骤写作
+ * @summary Writes content in a step-by-step pattern using an outline and summaries.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request RunStepByStepWritingRequest
  * @return RunStepByStepWritingResponse
@@ -12256,7 +12401,9 @@ RunStepByStepWritingResponse Client::runStepByStepWriting(const RunStepByStepWri
 }
 
 /**
- * @summary 内容特点分析
+ * @summary Analyzes the stylistic features of content.
+ *
+ * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunStyleFeatureAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12319,7 +12466,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 内容特点分析
+ * @summary Analyzes the stylistic features of content.
+ *
+ * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunStyleFeatureAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12368,7 +12517,9 @@ RunStyleFeatureAnalysisResponse Client::runStyleFeatureAnalysisWithOptions(const
 }
 
 /**
- * @summary 内容特点分析
+ * @summary Analyzes the stylistic features of content.
+ *
+ * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request RunStyleFeatureAnalysisRequest
  * @return RunStyleFeatureAnalysisResponse
@@ -12379,7 +12530,7 @@ RunStyleFeatureAnalysisResponse Client::runStyleFeatureAnalysis(const RunStyleFe
 }
 
 /**
- * @summary 内容摘要生成
+ * @summary Generates a summary of content.
  *
  * @param request RunSummaryGenerateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12432,7 +12583,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 内容摘要生成
+ * @summary Generates a summary of content.
  *
  * @param request RunSummaryGenerateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12471,7 +12622,7 @@ RunSummaryGenerateResponse Client::runSummaryGenerateWithOptions(const RunSummar
 }
 
 /**
- * @summary 内容摘要生成
+ * @summary Generates a summary of content.
  *
  * @param request RunSummaryGenerateRequest
  * @return RunSummaryGenerateResponse
@@ -12482,7 +12633,7 @@ RunSummaryGenerateResponse Client::runSummaryGenerate(const RunSummaryGenerateRe
 }
 
 /**
- * @summary 创作-文本润色
+ * @summary Polishes the specified text.
  *
  * @param request RunTextPolishingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12543,7 +12694,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 创作-文本润色
+ * @summary Polishes the specified text.
  *
  * @param request RunTextPolishingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12590,7 +12741,7 @@ RunTextPolishingResponse Client::runTextPolishingWithOptions(const RunTextPolish
 }
 
 /**
- * @summary 创作-文本润色
+ * @summary Polishes the specified text.
  *
  * @param request RunTextPolishingRequest
  * @return RunTextPolishingResponse
@@ -12601,7 +12752,7 @@ RunTextPolishingResponse Client::runTextPolishing(const RunTextPolishingRequest 
 }
 
 /**
- * @summary 妙笔：标题生成
+ * @summary Miaobi generates titles.
  *
  * @param tmpReq RunTitleGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12672,7 +12823,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙笔：标题生成
+ * @summary Miaobi generates titles.
  *
  * @param tmpReq RunTitleGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12729,7 +12880,7 @@ RunTitleGenerationResponse Client::runTitleGenerationWithOptions(const RunTitleG
 }
 
 /**
- * @summary 妙笔：标题生成
+ * @summary Miaobi generates titles.
  *
  * @param request RunTitleGenerationRequest
  * @return RunTitleGenerationResponse
@@ -12740,7 +12891,9 @@ RunTitleGenerationResponse Client::runTitleGeneration(const RunTitleGenerationRe
 }
 
 /**
- * @summary 妙策选题策划聚合
+ * @summary Selects and aggregates topics for MiaoCe.
+ *
+ * @description All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunTopicSelectionMergeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12799,7 +12952,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 妙策选题策划聚合
+ * @summary Selects and aggregates topics for MiaoCe.
+ *
+ * @description All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunTopicSelectionMergeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12844,7 +12999,9 @@ RunTopicSelectionMergeResponse Client::runTopicSelectionMergeWithOptions(const R
 }
 
 /**
- * @summary 妙策选题策划聚合
+ * @summary Selects and aggregates topics for MiaoCe.
+ *
+ * @description All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request RunTopicSelectionMergeRequest
  * @return RunTopicSelectionMergeResponse
@@ -12855,7 +13012,7 @@ RunTopicSelectionMergeResponse Client::runTopicSelectionMerge(const RunTopicSele
 }
 
 /**
- * @summary AI妙笔-创作-中英文翻译
+ * @summary Translates text for content creation using AMB.
  *
  * @param tmpReq RunTranslateGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12918,7 +13075,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI妙笔-创作-中英文翻译
+ * @summary Translates text for content creation using AMB.
  *
  * @param tmpReq RunTranslateGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12967,7 +13124,7 @@ RunTranslateGenerationResponse Client::runTranslateGenerationWithOptions(const R
 }
 
 /**
- * @summary AI妙笔-创作-中英文翻译
+ * @summary Translates text for content creation using AMB.
  *
  * @param request RunTranslateGenerationRequest
  * @return RunTranslateGenerationResponse
@@ -12978,7 +13135,7 @@ RunTranslateGenerationResponse Client::runTranslateGeneration(const RunTranslate
 }
 
 /**
- * @summary AI生成视频剪辑脚本
+ * @summary Generates video clip scripts using AI.
  *
  * @param request RunVideoScriptGenerateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13043,7 +13200,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI生成视频剪辑脚本
+ * @summary Generates video clip scripts using AI.
  *
  * @param request RunVideoScriptGenerateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13094,7 +13251,7 @@ RunVideoScriptGenerateResponse Client::runVideoScriptGenerateWithOptions(const R
 }
 
 /**
- * @summary AI生成视频剪辑脚本
+ * @summary Generates video clip scripts using AI.
  *
  * @param request RunVideoScriptGenerateRequest
  * @return RunVideoScriptGenerateResponse
@@ -13105,7 +13262,7 @@ RunVideoScriptGenerateResponse Client::runVideoScriptGenerate(const RunVideoScri
 }
 
 /**
- * @summary AI妙笔-创作-文风改写
+ * @summary Calls AMB to rewrite text in a new tone.
  *
  * @param tmpReq RunWriteToneGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13168,7 +13325,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary AI妙笔-创作-文风改写
+ * @summary Calls AMB to rewrite text in a new tone.
  *
  * @param tmpReq RunWriteToneGenerationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13217,7 +13374,7 @@ RunWriteToneGenerationResponse Client::runWriteToneGenerationWithOptions(const R
 }
 
 /**
- * @summary AI妙笔-创作-文风改写
+ * @summary Calls AMB to rewrite text in a new tone.
  *
  * @param request RunWriteToneGenerationRequest
  * @return RunWriteToneGenerationResponse
@@ -13228,7 +13385,10 @@ RunWriteToneGenerationResponse Client::runWriteToneGeneration(const RunWriteTone
 }
 
 /**
- * @summary 直接写作
+ * @summary Direct writing.
+ *
+ * @description This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+ * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13307,7 +13467,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 直接写作
+ * @summary Direct writing.
+ *
+ * @description This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+ * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunWritingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13372,7 +13535,10 @@ RunWritingResponse Client::runWritingWithOptions(const RunWritingRequest &tmpReq
 }
 
 /**
- * @summary 直接写作
+ * @summary Direct writing.
+ *
+ * @description This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+ * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request RunWritingRequest
  * @return RunWritingResponse
@@ -13383,7 +13549,9 @@ RunWritingResponse Client::runWriting(const RunWritingRequest &request) {
 }
 
 /**
- * @summary 直接写作
+ * @summary AI writing
+ *
+ * @description For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunWritingV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -13546,7 +13714,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 直接写作
+ * @summary AI writing
+ *
+ * @description For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param tmpReq RunWritingV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -13695,7 +13865,9 @@ RunWritingV2Response Client::runWritingV2WithOptions(const RunWritingV2Request &
 }
 
 /**
- * @summary 直接写作
+ * @summary AI writing
+ *
+ * @description For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request RunWritingV2Request
  * @return RunWritingV2Response
@@ -13706,7 +13878,7 @@ RunWritingV2Response Client::runWritingV2(const RunWritingV2Request &request) {
 }
 
 /**
- * @summary 保存自定义文本
+ * @summary Saves custom text.
  *
  * @param request SaveCustomTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13751,7 +13923,7 @@ SaveCustomTextResponse Client::saveCustomTextWithOptions(const SaveCustomTextReq
 }
 
 /**
- * @summary 保存自定义文本
+ * @summary Saves custom text.
  *
  * @param request SaveCustomTextRequest
  * @return SaveCustomTextResponse
@@ -13762,7 +13934,7 @@ SaveCustomTextResponse Client::saveCustomText(const SaveCustomTextRequest &reque
 }
 
 /**
- * @summary 保存用户的信源配置
+ * @summary Saves the data source configuration for content creation and general search.
  *
  * @param tmpReq SaveDataSourceOrderConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13813,7 +13985,7 @@ SaveDataSourceOrderConfigResponse Client::saveDataSourceOrderConfigWithOptions(c
 }
 
 /**
- * @summary 保存用户的信源配置
+ * @summary Saves the data source configuration for content creation and general search.
  *
  * @param request SaveDataSourceOrderConfigRequest
  * @return SaveDataSourceOrderConfigResponse
@@ -13824,7 +13996,7 @@ SaveDataSourceOrderConfigResponse Client::saveDataSourceOrderConfig(const SaveDa
 }
 
 /**
- * @summary 保存素材
+ * @summary Save material: Save material to the Material Library.
  *
  * @param tmpReq SaveMaterialDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13915,7 +14087,7 @@ SaveMaterialDocumentResponse Client::saveMaterialDocumentWithOptions(const SaveM
 }
 
 /**
- * @summary 保存素材
+ * @summary Save material: Save material to the Material Library.
  *
  * @param request SaveMaterialDocumentRequest
  * @return SaveMaterialDocumentResponse
@@ -13926,7 +14098,7 @@ SaveMaterialDocumentResponse Client::saveMaterialDocument(const SaveMaterialDocu
 }
 
 /**
- * @summary 配置oss访问参数
+ * @summary Configuration: Cloud storage parameter settings
  *
  * @param request SaveOrUpdateOssConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13965,7 +14137,7 @@ SaveOrUpdateOssConfigResponse Client::saveOrUpdateOssConfigWithOptions(const Sav
 }
 
 /**
- * @summary 配置oss访问参数
+ * @summary Configuration: Cloud storage parameter settings
  *
  * @param request SaveOrUpdateOssConfigRequest
  * @return SaveOrUpdateOssConfigResponse
@@ -13976,7 +14148,7 @@ SaveOrUpdateOssConfigResponse Client::saveOrUpdateOssConfig(const SaveOrUpdateOs
 }
 
 /**
- * @summary 保存自定义文体
+ * @summary Saves a custom writing style.
  *
  * @param tmpReq SaveStyleLearningResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14041,7 +14213,7 @@ SaveStyleLearningResultResponse Client::saveStyleLearningResultWithOptions(const
 }
 
 /**
- * @summary 保存自定义文体
+ * @summary Saves a custom writing style.
  *
  * @param request SaveStyleLearningResultRequest
  * @return SaveStyleLearningResultResponse
@@ -14052,7 +14224,7 @@ SaveStyleLearningResultResponse Client::saveStyleLearningResult(const SaveStyleL
 }
 
 /**
- * @summary 搜索数据集文档
+ * @summary Searches documents in a data source.
  *
  * @param tmpReq SearchDatasetDocumentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14177,7 +14349,7 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocumentsWithOptions(const S
 }
 
 /**
- * @summary 搜索数据集文档
+ * @summary Searches documents in a data source.
  *
  * @param request SearchDatasetDocumentsRequest
  * @return SearchDatasetDocumentsResponse
@@ -14188,7 +14360,7 @@ SearchDatasetDocumentsResponse Client::searchDatasetDocuments(const SearchDatase
 }
 
 /**
- * @summary 新闻检索
+ * @summary Searches for news based on your input. This feature is currently limited to web search.
  *
  * @param tmpReq SearchNewsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14251,7 +14423,7 @@ SearchNewsResponse Client::searchNewsWithOptions(const SearchNewsRequest &tmpReq
 }
 
 /**
- * @summary 新闻检索
+ * @summary Searches for news based on your input. This feature is currently limited to web search.
  *
  * @param request SearchNewsRequest
  * @return SearchNewsResponse
@@ -14262,7 +14434,7 @@ SearchNewsResponse Client::searchNews(const SearchNewsRequest &request) {
 }
 
 /**
- * @summary 提交异步任务
+ * @summary Executes predefined asynchronous tasks.
  *
  * @param request SubmitAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14311,7 +14483,7 @@ SubmitAsyncTaskResponse Client::submitAsyncTaskWithOptions(const SubmitAsyncTask
 }
 
 /**
- * @summary 提交异步任务
+ * @summary Executes predefined asynchronous tasks.
  *
  * @param request SubmitAsyncTaskRequest
  * @return SubmitAsyncTaskResponse
@@ -14322,7 +14494,9 @@ SubmitAsyncTaskResponse Client::submitAsyncTask(const SubmitAsyncTaskRequest &re
 }
 
 /**
- * @summary 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+ * @summary Model Studio provides the same feature as the Intelligent Proofreading module in Alibaba Cloud public cloud: uploading a custom rule library. Due to authentication restrictions, you must pass the file key (FileKey) of your custom rule library file as an input parameter to successfully call this API. After you call this API, Model Studio processes your custom rule library and returns a structured result in XLSX format. You can call GetAuditNoteProcessingStatus to check the processing status or call DownloadAuditNote to download the processed rule library. This API is under active development and will eventually accept a publicly accessible file URL instead of a FileKey.
+ *
+ * @description All Model Studio products support iframe embedding. For details, see [Customer Integration: Model Studio Public Cloud iFrame Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request SubmitAuditNoteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14361,7 +14535,9 @@ SubmitAuditNoteResponse Client::submitAuditNoteWithOptions(const SubmitAuditNote
 }
 
 /**
- * @summary 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+ * @summary Model Studio provides the same feature as the Intelligent Proofreading module in Alibaba Cloud public cloud: uploading a custom rule library. Due to authentication restrictions, you must pass the file key (FileKey) of your custom rule library file as an input parameter to successfully call this API. After you call this API, Model Studio processes your custom rule library and returns a structured result in XLSX format. You can call GetAuditNoteProcessingStatus to check the processing status or call DownloadAuditNote to download the processed rule library. This API is under active development and will eventually accept a publicly accessible file URL instead of a FileKey.
+ *
+ * @description All Model Studio products support iframe embedding. For details, see [Customer Integration: Model Studio Public Cloud iFrame Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
  *
  * @param request SubmitAuditNoteRequest
  * @return SubmitAuditNoteResponse
@@ -14372,7 +14548,9 @@ SubmitAuditNoteResponse Client::submitAuditNote(const SubmitAuditNoteRequest &re
 }
 
 /**
- * @summary 提交审核任务
+ * @summary Submits an audit task.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
  *
  * @param request SubmitAuditTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14419,7 +14597,9 @@ SubmitAuditTaskResponse Client::submitAuditTaskWithOptions(const SubmitAuditTask
 }
 
 /**
- * @summary 提交审核任务
+ * @summary Submits an audit task.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
  *
  * @param request SubmitAuditTaskRequest
  * @return SubmitAuditTaskResponse
@@ -14430,7 +14610,7 @@ SubmitAuditTaskResponse Client::submitAuditTask(const SubmitAuditTaskRequest &re
 }
 
 /**
- * @summary 提交自定义播报单任务
+ * @summary You can submit a custom broadcast list job.
  *
  * @param tmpReq SubmitCustomHotTopicBroadcastJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14483,7 +14663,7 @@ SubmitCustomHotTopicBroadcastJobResponse Client::submitCustomHotTopicBroadcastJo
 }
 
 /**
- * @summary 提交自定义播报单任务
+ * @summary You can submit a custom broadcast list job.
  *
  * @param request SubmitCustomHotTopicBroadcastJobRequest
  * @return SubmitCustomHotTopicBroadcastJobResponse
@@ -14494,7 +14674,7 @@ SubmitCustomHotTopicBroadcastJobResponse Client::submitCustomHotTopicBroadcastJo
 }
 
 /**
- * @summary 从自定义数据源提交选题热点分析
+ * @summary Submit topic trend analysis using a custom data source
  *
  * @param tmpReq SubmitCustomSourceTopicAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14567,7 +14747,7 @@ SubmitCustomSourceTopicAnalysisResponse Client::submitCustomSourceTopicAnalysisW
 }
 
 /**
- * @summary 从自定义数据源提交选题热点分析
+ * @summary Submit topic trend analysis using a custom data source
  *
  * @param request SubmitCustomSourceTopicAnalysisRequest
  * @return SubmitCustomSourceTopicAnalysisResponse
@@ -14578,7 +14758,7 @@ SubmitCustomSourceTopicAnalysisResponse Client::submitCustomSourceTopicAnalysis(
 }
 
 /**
- * @summary 提交自定义热点选题视角分析任务
+ * @summary Submits a custom analysis task to analyze hot topic perspectives.
  *
  * @param tmpReq SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14629,7 +14809,7 @@ SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::submitCustomTo
 }
 
 /**
- * @summary 提交自定义热点选题视角分析任务
+ * @summary Submits a custom analysis task to analyze hot topic perspectives.
  *
  * @param request SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
  * @return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse
@@ -14640,7 +14820,7 @@ SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse Client::submitCustomTo
 }
 
 /**
- * @summary 提交深度写作任务
+ * @summary You can submit a deep writing task. You can provide information such as questions, instructions, and attachments, based on the topic you want to research or analyze. The system schedules and executes this task in the background.
  *
  * @param tmpReq SubmitDeepWriteTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14699,7 +14879,7 @@ SubmitDeepWriteTaskResponse Client::submitDeepWriteTaskWithOptions(const SubmitD
 }
 
 /**
- * @summary 提交深度写作任务
+ * @summary You can submit a deep writing task. You can provide information such as questions, instructions, and attachments, based on the topic you want to research or analyze. The system schedules and executes this task in the background.
  *
  * @param request SubmitDeepWriteTaskRequest
  * @return SubmitDeepWriteTaskResponse
@@ -14710,7 +14890,7 @@ SubmitDeepWriteTaskResponse Client::submitDeepWriteTask(const SubmitDeepWriteTas
 }
 
 /**
- * @summary 提交文档聚合任务
+ * @summary Submits a content clustering task.
  *
  * @param tmpReq SubmitDocClusterTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14765,7 +14945,7 @@ SubmitDocClusterTaskResponse Client::submitDocClusterTaskWithOptions(const Submi
 }
 
 /**
- * @summary 提交文档聚合任务
+ * @summary Submits a content clustering task.
  *
  * @param request SubmitDocClusterTaskRequest
  * @return SubmitDocClusterTaskResponse
@@ -14776,7 +14956,7 @@ SubmitDocClusterTaskResponse Client::submitDocClusterTask(const SubmitDocCluster
 }
 
 /**
- * @summary 提交VOC异步任务
+ * @summary Submits a Voice of the Customer (VOC) asynchronous task.
  *
  * @param tmpReq SubmitEnterpriseVocAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14861,7 +15041,7 @@ SubmitEnterpriseVocAnalysisTaskResponse Client::submitEnterpriseVocAnalysisTaskW
 }
 
 /**
- * @summary 提交VOC异步任务
+ * @summary Submits a Voice of the Customer (VOC) asynchronous task.
  *
  * @param request SubmitEnterpriseVocAnalysisTaskRequest
  * @return SubmitEnterpriseVocAnalysisTaskResponse
@@ -14872,7 +15052,7 @@ SubmitEnterpriseVocAnalysisTaskResponse Client::submitEnterpriseVocAnalysisTask(
 }
 
 /**
- * @summary 导出词库任务
+ * @summary Export task for a thesaurus
  *
  * @param request SubmitExportTermsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14907,7 +15087,7 @@ SubmitExportTermsTaskResponse Client::submitExportTermsTaskWithOptions(const Sub
 }
 
 /**
- * @summary 导出词库任务
+ * @summary Export task for a thesaurus
  *
  * @param request SubmitExportTermsTaskRequest
  * @return SubmitExportTermsTaskResponse
@@ -14918,7 +15098,7 @@ SubmitExportTermsTaskResponse Client::submitExportTermsTask(const SubmitExportTe
 }
 
 /**
- * @summary 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+ * @summary MiaoBi provides a factuality audit capability that verifies facts using web search and supports custom configuration of search source URLs.
  *
  * @param request SubmitFactAuditUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14953,7 +15133,7 @@ SubmitFactAuditUrlResponse Client::submitFactAuditUrlWithOptions(const SubmitFac
 }
 
 /**
- * @summary 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+ * @summary MiaoBi provides a factuality audit capability that verifies facts using web search and supports custom configuration of search source URLs.
  *
  * @param request SubmitFactAuditUrlRequest
  * @return SubmitFactAuditUrlResponse
@@ -14964,7 +15144,7 @@ SubmitFactAuditUrlResponse Client::submitFactAuditUrl(const SubmitFactAuditUrlRe
 }
 
 /**
- * @summary 提交导入自定义词库任务
+ * @summary Submit a custom dictionary import task.
  *
  * @param request SubmitImportTermsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15003,7 +15183,7 @@ SubmitImportTermsTaskResponse Client::submitImportTermsTaskWithOptions(const Sub
 }
 
 /**
- * @summary 提交导入自定义词库任务
+ * @summary Submit a custom dictionary import task.
  *
  * @param request SubmitImportTermsTaskRequest
  * @return SubmitImportTermsTaskResponse
@@ -15062,7 +15242,111 @@ SubmitParseDocumentLayoutTaskResponse Client::submitParseDocumentLayoutTask(cons
 }
 
 /**
- * @summary 提交智能审核
+ * @summary Submit a smart audit request.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao public cloud iframe customization guide](https://help.aliyun.com/document_detail/3000990.html).
+ * # Supported audit types
+ * ## Audit category overview
+ * | Audit category                 | Description                                                                                                                                                                                                                                                               |
+ * | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ * | Content accuracy               | Errors due to phonetic or visual similarity; punctuation errors; misuse of Chinese structural particles (的/地/得); inappropriate word choice or syntax errors; incorrect personal names; incorrect place names; incorrect references; errors in proper nouns or terminology |
+ * | Formatting issues              | Inconsistent capitalization; numeric errors; nonstandard units of measurement; use of traditional Chinese characters                                                                                                                                                      |
+ * | Content structure issues       | Redundant text; repeated segments; logical contradictions; unfilled placeholders                                                                                                                                                                                          |
+ * | Political sensitivity issues   | Sensitive content or directional risks; name or sorting errors; conventional phrasing errors; nonstandard institutional names; misquoting important speeches; references to disgraced officials; mismatched name-title pairings; incorrect title expressions              |
+ * | Security and compliance issues | Violence or terrorism; pornography; prohibited content; insults; disgraced celebrities; personal privacy violations; reporting standard violations                                                                                                                        |
+ * | Legal errors                   | Incorrect citation of laws and regulations; errors in legal provisions                                                                                                                                                                                                    |
+ * | Other domain-specific errors   | Violations of advertising law; financial information errors; scientific or technical term errors                                                                                                                                                                          |
+ * | Factuality check               | Factuality verification: correct or incorrect items                                                                                                                                                                                                                       |
+ * | Image audit                    | Image content moderation                                                                                                                                                                                                                                                  |
+ * | Custom word library            | Custom word library audit                                                                                                                                                                                                                                                 |
+ * | Rule library audit             | Rule library audit                                                                                                                                                                                                                                                        |
+ * | English proofreading           | Terminology standardization; verb tense accuracy; punctuation and quotation marks; spelling and language variants; sentence structure and clarity; numeric and percentage formatting; standardized phrasing                                                               |
+ * ***
+ * ## Sub-audit code values
+ * ### 1. Content accuracy
+ * | Description                                    | Code                 |
+ * | ---------------------------------------------- | -------------------- |
+ * | Phonetic or visual similarity errors           | PhoneticSimilarError |
+ * | Punctuation errors                             | PunctuationError     |
+ * | Misuse of Chinese structural particles (的/地/得) | ParticleUsageError   |
+ * | Inappropriate word choice or syntax errors     | WordError            |
+ * | Incorrect personal names                       | PersonNameError      |
+ * | Incorrect place names                          | LocationError        |
+ * | Incorrect references                           | ReferenceError       |
+ * | Errors in proper nouns or terminology          | NounItemError        |
+ * ### 2. Formatting issues
+ * | Description                           | Code                    |
+ * | ------------------------------------- | ----------------------- |
+ * | Inconsistent capitalization           | CapitalizationError     |
+ * | Numeric errors                        | NumberError             |
+ * | Nonstandard units of measurement      | UnitError               |
+ * | Use of traditional Chinese characters | TraditionalChineseError |
+ * ### 3. Content structure issues
+ * | Description            | Code                 |
+ * | ---------------------- | -------------------- |
+ * | Redundant text         | WordRedundancy       |
+ * | Repeated segments      | DuplicateError       |
+ * | Logical contradictions | LogicContradiction   |
+ * | Unfilled placeholders  | PlaceholderNotFilled |
+ * ### 4. Political sensitivity issues
+ * | Description                            | Code                        |
+ * | -------------------------------------- | --------------------------- |
+ * | Sensitive content or directional risks | SensitiveContentRisk        |
+ * | Name or sorting errors                 | NameOrderError              |
+ * | Conventional phrasing errors           | ConventionalExpressionError |
+ * | Nonstandard institutional names        | DepartmentNameError         |
+ * | Misquoting important speeches          | ImportantSpeechError        |
+ * | References to disgraced officials      | FallenOfficialError         |
+ * | Mismatched name-title pairings         | LeaderTitleMatchError       |
+ * | Incorrect title expressions            | TitleError                  |
+ * ### 5. Security and compliance issues
+ * | Description                   | Code                   |
+ * | ----------------------------- | ---------------------- |
+ * | Violence or terrorism         | ViolenceTerrorismError |
+ * | Pornography                   | PornographyError       |
+ * | Prohibited content            | ProhibitedContentError |
+ * | Insults                       | InsultError            |
+ * | Disgraced celebrities         | DisgracedArtistError   |
+ * | Personal privacy violations   | PersonalPrivacyError   |
+ * | Reporting standard violations | ReportingStandardError |
+ * ### 6. Legal errors
+ * | Description                                | Code                 |
+ * | ------------------------------------------ | -------------------- |
+ * | Incorrect citation of laws and regulations | LegalReferenceError  |
+ * | Errors in legal provisions                 | LegalProvisionsError |
+ * ### 7. Other domain-specific errors
+ * | Description                         | Code                            |
+ * | ----------------------------------- | ------------------------------- |
+ * | Violations of advertising law       | AdvertisingProhibitedWordsError |
+ * | Financial information errors        | FinancialInformationError       |
+ * | Scientific or technical term errors | TechnicalTermError              |
+ * ### 8. Factuality check
+ * | Description                              | Code           |
+ * | ---------------------------------------- | -------------- |
+ * | Factuality verification – correct item   | CorrectFact    |
+ * | Factuality verification – incorrect item | WrongFactError |
+ * ### 9. Image audit
+ * | Description | Code       |
+ * | ----------- | ---------- |
+ * | Image audit | ImageAudit |
+ * ### 10. Custom word library
+ * | Description         | Code        |
+ * | ------------------- | ----------- |
+ * | Custom word library | WordLibrary |
+ * ### 11. Rule library audit
+ * | Description        | Code              |
+ * | ------------------ | ----------------- |
+ * | Rule library audit | WrongQuestionBook |
+ * ### 12. English proofreading
+ * | Description                       | Code                         |
+ * | --------------------------------- | ---------------------------- |
+ * | Terminology standardization       | TerminologyNormalisation     |
+ * | Verb tense accuracy               | VerbTenseAccuracy            |
+ * | Punctuation and quotation marks   | PunctuationAndQuotationMarks |
+ * | Spelling and language variants    | SpellingAndLanguageVariety   |
+ * | Sentence structure and clarity    | SentenceStructureAndClarity  |
+ * | Numeric and percentage formatting | NumericAndPercentageStyle    |
+ * | Other standardized phrasing       | Others                       |
  *
  * @param tmpReq SubmitSmartAuditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15131,7 +15415,111 @@ SubmitSmartAuditResponse Client::submitSmartAuditWithOptions(const SubmitSmartAu
 }
 
 /**
- * @summary 提交智能审核
+ * @summary Submit a smart audit request.
+ *
+ * @description The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao public cloud iframe customization guide](https://help.aliyun.com/document_detail/3000990.html).
+ * # Supported audit types
+ * ## Audit category overview
+ * | Audit category                 | Description                                                                                                                                                                                                                                                               |
+ * | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ * | Content accuracy               | Errors due to phonetic or visual similarity; punctuation errors; misuse of Chinese structural particles (的/地/得); inappropriate word choice or syntax errors; incorrect personal names; incorrect place names; incorrect references; errors in proper nouns or terminology |
+ * | Formatting issues              | Inconsistent capitalization; numeric errors; nonstandard units of measurement; use of traditional Chinese characters                                                                                                                                                      |
+ * | Content structure issues       | Redundant text; repeated segments; logical contradictions; unfilled placeholders                                                                                                                                                                                          |
+ * | Political sensitivity issues   | Sensitive content or directional risks; name or sorting errors; conventional phrasing errors; nonstandard institutional names; misquoting important speeches; references to disgraced officials; mismatched name-title pairings; incorrect title expressions              |
+ * | Security and compliance issues | Violence or terrorism; pornography; prohibited content; insults; disgraced celebrities; personal privacy violations; reporting standard violations                                                                                                                        |
+ * | Legal errors                   | Incorrect citation of laws and regulations; errors in legal provisions                                                                                                                                                                                                    |
+ * | Other domain-specific errors   | Violations of advertising law; financial information errors; scientific or technical term errors                                                                                                                                                                          |
+ * | Factuality check               | Factuality verification: correct or incorrect items                                                                                                                                                                                                                       |
+ * | Image audit                    | Image content moderation                                                                                                                                                                                                                                                  |
+ * | Custom word library            | Custom word library audit                                                                                                                                                                                                                                                 |
+ * | Rule library audit             | Rule library audit                                                                                                                                                                                                                                                        |
+ * | English proofreading           | Terminology standardization; verb tense accuracy; punctuation and quotation marks; spelling and language variants; sentence structure and clarity; numeric and percentage formatting; standardized phrasing                                                               |
+ * ***
+ * ## Sub-audit code values
+ * ### 1. Content accuracy
+ * | Description                                    | Code                 |
+ * | ---------------------------------------------- | -------------------- |
+ * | Phonetic or visual similarity errors           | PhoneticSimilarError |
+ * | Punctuation errors                             | PunctuationError     |
+ * | Misuse of Chinese structural particles (的/地/得) | ParticleUsageError   |
+ * | Inappropriate word choice or syntax errors     | WordError            |
+ * | Incorrect personal names                       | PersonNameError      |
+ * | Incorrect place names                          | LocationError        |
+ * | Incorrect references                           | ReferenceError       |
+ * | Errors in proper nouns or terminology          | NounItemError        |
+ * ### 2. Formatting issues
+ * | Description                           | Code                    |
+ * | ------------------------------------- | ----------------------- |
+ * | Inconsistent capitalization           | CapitalizationError     |
+ * | Numeric errors                        | NumberError             |
+ * | Nonstandard units of measurement      | UnitError               |
+ * | Use of traditional Chinese characters | TraditionalChineseError |
+ * ### 3. Content structure issues
+ * | Description            | Code                 |
+ * | ---------------------- | -------------------- |
+ * | Redundant text         | WordRedundancy       |
+ * | Repeated segments      | DuplicateError       |
+ * | Logical contradictions | LogicContradiction   |
+ * | Unfilled placeholders  | PlaceholderNotFilled |
+ * ### 4. Political sensitivity issues
+ * | Description                            | Code                        |
+ * | -------------------------------------- | --------------------------- |
+ * | Sensitive content or directional risks | SensitiveContentRisk        |
+ * | Name or sorting errors                 | NameOrderError              |
+ * | Conventional phrasing errors           | ConventionalExpressionError |
+ * | Nonstandard institutional names        | DepartmentNameError         |
+ * | Misquoting important speeches          | ImportantSpeechError        |
+ * | References to disgraced officials      | FallenOfficialError         |
+ * | Mismatched name-title pairings         | LeaderTitleMatchError       |
+ * | Incorrect title expressions            | TitleError                  |
+ * ### 5. Security and compliance issues
+ * | Description                   | Code                   |
+ * | ----------------------------- | ---------------------- |
+ * | Violence or terrorism         | ViolenceTerrorismError |
+ * | Pornography                   | PornographyError       |
+ * | Prohibited content            | ProhibitedContentError |
+ * | Insults                       | InsultError            |
+ * | Disgraced celebrities         | DisgracedArtistError   |
+ * | Personal privacy violations   | PersonalPrivacyError   |
+ * | Reporting standard violations | ReportingStandardError |
+ * ### 6. Legal errors
+ * | Description                                | Code                 |
+ * | ------------------------------------------ | -------------------- |
+ * | Incorrect citation of laws and regulations | LegalReferenceError  |
+ * | Errors in legal provisions                 | LegalProvisionsError |
+ * ### 7. Other domain-specific errors
+ * | Description                         | Code                            |
+ * | ----------------------------------- | ------------------------------- |
+ * | Violations of advertising law       | AdvertisingProhibitedWordsError |
+ * | Financial information errors        | FinancialInformationError       |
+ * | Scientific or technical term errors | TechnicalTermError              |
+ * ### 8. Factuality check
+ * | Description                              | Code           |
+ * | ---------------------------------------- | -------------- |
+ * | Factuality verification – correct item   | CorrectFact    |
+ * | Factuality verification – incorrect item | WrongFactError |
+ * ### 9. Image audit
+ * | Description | Code       |
+ * | ----------- | ---------- |
+ * | Image audit | ImageAudit |
+ * ### 10. Custom word library
+ * | Description         | Code        |
+ * | ------------------- | ----------- |
+ * | Custom word library | WordLibrary |
+ * ### 11. Rule library audit
+ * | Description        | Code              |
+ * | ------------------ | ----------------- |
+ * | Rule library audit | WrongQuestionBook |
+ * ### 12. English proofreading
+ * | Description                       | Code                         |
+ * | --------------------------------- | ---------------------------- |
+ * | Terminology standardization       | TerminologyNormalisation     |
+ * | Verb tense accuracy               | VerbTenseAccuracy            |
+ * | Punctuation and quotation marks   | PunctuationAndQuotationMarks |
+ * | Spelling and language variants    | SpellingAndLanguageVariety   |
+ * | Sentence structure and clarity    | SentenceStructureAndClarity  |
+ * | Numeric and percentage formatting | NumericAndPercentageStyle    |
+ * | Other standardized phrasing       | Others                       |
  *
  * @param request SubmitSmartAuditRequest
  * @return SubmitSmartAuditResponse
@@ -15142,7 +15530,7 @@ SubmitSmartAuditResponse Client::submitSmartAudit(const SubmitSmartAuditRequest 
 }
 
 /**
- * @summary 提交一键成片剪辑任务
+ * @summary Submits a one-click video editing task.
  *
  * @param tmpReq SubmitSmartClipTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15203,7 +15591,7 @@ SubmitSmartClipTaskResponse Client::submitSmartClipTaskWithOptions(const SubmitS
 }
 
 /**
- * @summary 提交一键成片剪辑任务
+ * @summary Submits a one-click video editing task.
  *
  * @param request SubmitSmartClipTaskRequest
  * @return SubmitSmartClipTaskResponse
@@ -15214,7 +15602,7 @@ SubmitSmartClipTaskResponse Client::submitSmartClipTask(const SubmitSmartClipTas
 }
 
 /**
- * @summary 提交选题热点分析任务
+ * @summary Submits a hot spot analysis task for topic selection.
  *
  * @param tmpReq SubmitTopicSelectionPerspectiveAnalysisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15269,7 +15657,7 @@ SubmitTopicSelectionPerspectiveAnalysisTaskResponse Client::submitTopicSelection
 }
 
 /**
- * @summary 提交选题热点分析任务
+ * @summary Submits a hot spot analysis task for topic selection.
  *
  * @param request SubmitTopicSelectionPerspectiveAnalysisTaskRequest
  * @return SubmitTopicSelectionPerspectiveAnalysisTaskResponse
@@ -15280,9 +15668,9 @@ SubmitTopicSelectionPerspectiveAnalysisTaskResponse Client::submitTopicSelection
 }
 
 /**
- * @summary 提交视频审校
+ * @summary Submits a video for review.
  *
- * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+ * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration_Quanmiao Public Cloud iframe Customization Solution](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
  *
  * @param request SubmitVideoAuditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15329,9 +15717,9 @@ SubmitVideoAuditResponse Client::submitVideoAuditWithOptions(const SubmitVideoAu
 }
 
 /**
- * @summary 提交视频审校
+ * @summary Submits a video for review.
  *
- * @description 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+ * @description Quanmiao products support iframe embedding. For more information, see [Customer Integration_Quanmiao Public Cloud iframe Customization Solution](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
  *
  * @param request SubmitVideoAuditRequest
  * @return SubmitVideoAuditResponse
@@ -15342,7 +15730,7 @@ SubmitVideoAuditResponse Client::submitVideoAudit(const SubmitVideoAuditRequest 
 }
 
 /**
- * @summary 更新自定义文本
+ * @summary Updates custom text.
  *
  * @param request UpdateCustomTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15391,7 +15779,7 @@ UpdateCustomTextResponse Client::updateCustomTextWithOptions(const UpdateCustomT
 }
 
 /**
- * @summary 更新自定义文本
+ * @summary Updates custom text.
  *
  * @param request UpdateCustomTextRequest
  * @return UpdateCustomTextResponse
@@ -15402,7 +15790,7 @@ UpdateCustomTextResponse Client::updateCustomText(const UpdateCustomTextRequest 
 }
 
 /**
- * @summary 数据集管理-更新
+ * @summary This operation updates a data source.
  *
  * @param tmpReq UpdateDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15459,7 +15847,7 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetReques
 }
 
 /**
- * @summary 数据集管理-更新
+ * @summary This operation updates a data source.
  *
  * @param request UpdateDatasetRequest
  * @return UpdateDatasetResponse
@@ -15470,7 +15858,7 @@ UpdateDatasetResponse Client::updateDataset(const UpdateDatasetRequest &request)
 }
 
 /**
- * @summary 修改数据集文档
+ * @summary Updates a document in a dataset.
  *
  * @param tmpReq UpdateDatasetDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15519,7 +15907,7 @@ UpdateDatasetDocumentResponse Client::updateDatasetDocumentWithOptions(const Upd
 }
 
 /**
- * @summary 修改数据集文档
+ * @summary Updates a document in a dataset.
  *
  * @param request UpdateDatasetDocumentRequest
  * @return UpdateDatasetDocumentResponse
@@ -15530,7 +15918,7 @@ UpdateDatasetDocumentResponse Client::updateDatasetDocument(const UpdateDatasetD
 }
 
 /**
- * @summary 通用配置-更新
+ * @summary Updates general configurations.
  *
  * @param request UpdateGeneralConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15569,7 +15957,7 @@ UpdateGeneralConfigResponse Client::updateGeneralConfigWithOptions(const UpdateG
 }
 
 /**
- * @summary 通用配置-更新
+ * @summary Updates general configurations.
  *
  * @param request UpdateGeneralConfigRequest
  * @return UpdateGeneralConfigResponse
@@ -15580,7 +15968,7 @@ UpdateGeneralConfigResponse Client::updateGeneralConfig(const UpdateGeneralConfi
 }
 
 /**
- * @summary 文档管理-更新。
+ * @summary Updates the history of an article created in AiMiaoBi.
  *
  * @param tmpReq UpdateGeneratedContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15643,7 +16031,7 @@ UpdateGeneratedContentResponse Client::updateGeneratedContentWithOptions(const U
 }
 
 /**
- * @summary 文档管理-更新。
+ * @summary Updates the history of an article created in AiMiaoBi.
  *
  * @param request UpdateGeneratedContentRequest
  * @return UpdateGeneratedContentResponse
@@ -15654,7 +16042,7 @@ UpdateGeneratedContentResponse Client::updateGeneratedContent(const UpdateGenera
 }
 
 /**
- * @summary 根据ID更新素材
+ * @summary Update a material in the Material Library.
  *
  * @param tmpReq UpdateMaterialDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15749,7 +16137,7 @@ UpdateMaterialDocumentResponse Client::updateMaterialDocumentWithOptions(const U
 }
 
 /**
- * @summary 根据ID更新素材
+ * @summary Update a material in the Material Library.
  *
  * @param request UpdateMaterialDocumentRequest
  * @return UpdateMaterialDocumentResponse
@@ -15760,7 +16148,7 @@ UpdateMaterialDocumentResponse Client::updateMaterialDocument(const UpdateMateri
 }
 
 /**
- * @summary 妙读上传书籍
+ * @summary Use MiaoDu to upload books.
  *
  * @param tmpReq UploadBookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15805,7 +16193,7 @@ UploadBookResponse Client::uploadBookWithOptions(const UploadBookRequest &tmpReq
 }
 
 /**
- * @summary 妙读上传书籍
+ * @summary Use MiaoDu to upload books.
  *
  * @param request UploadBookRequest
  * @return UploadBookResponse
@@ -15816,7 +16204,9 @@ UploadBookResponse Client::uploadBook(const UploadBookRequest &request) {
 }
 
 /**
- * @summary 妙读上传文档接口
+ * @summary Upload document API for Miaodu.
+ *
+ * @description Document upload is implemented through asynchronous invocation. After the invocation, you must use the getDocInfo API to periodically check the document status. Only when the document status becomes 1 can you proceed with subsequent operations such as generating a document summary, creating a full-text mind map, summarizing Q&A content, extracting keywords, or rewriting.
  *
  * @param tmpReq UploadDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15861,7 +16251,9 @@ UploadDocResponse Client::uploadDocWithOptions(const UploadDocRequest &tmpReq, c
 }
 
 /**
- * @summary 妙读上传文档接口
+ * @summary Upload document API for Miaodu.
+ *
+ * @description Document upload is implemented through asynchronous invocation. After the invocation, you must use the getDocInfo API to periodically check the document status. Only when the document status becomes 1 can you proceed with subsequent operations such as generating a document summary, creating a full-text mind map, summarizing Q&A content, extracting keywords, or rewriting.
  *
  * @param request UploadDocRequest
  * @return UploadDocResponse
@@ -15872,7 +16264,7 @@ UploadDocResponse Client::uploadDoc(const UploadDocRequest &request) {
 }
 
 /**
- * @summary 校验企业VOC上传模板
+ * @summary Validates an enterprise VOC upload template.
  *
  * @param request ValidateUploadTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15915,7 +16307,7 @@ ValidateUploadTemplateResponse Client::validateUploadTemplateWithOptions(const V
 }
 
 /**
- * @summary 校验企业VOC上传模板
+ * @summary Validates an enterprise VOC upload template.
  *
  * @param request ValidateUploadTemplateRequest
  * @return ValidateUploadTemplateResponse

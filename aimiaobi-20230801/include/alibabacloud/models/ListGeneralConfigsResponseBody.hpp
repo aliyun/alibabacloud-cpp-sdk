@@ -102,9 +102,13 @@ namespace Models
 
 
     protected:
+      // The description of the configuration item.
       shared_ptr<string> configDesc_ {};
+      // The unique identifier of the configuration item.
       shared_ptr<string> configKey_ {};
+      // The value of the configuration item.
       shared_ptr<string> configValue_ {};
+      // The type of the configuration item.
       shared_ptr<string> configValueType_ {};
     };
 
@@ -177,14 +181,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The query results.
     shared_ptr<vector<ListGeneralConfigsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The fault description.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

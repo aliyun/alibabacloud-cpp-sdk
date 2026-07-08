@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the dataset
+    // 
     // This parameter is required.
     shared_ptr<int64_t> datasetId_ {};
+    // Unique identifier of Alibaba Cloud Model Studio workspace: [Get workspaceId](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The text content.
     shared_ptr<string> content_ {};
+    // The format.
     shared_ptr<string> contentFormat_ {};
+    // The content type.
     shared_ptr<string> contentType_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

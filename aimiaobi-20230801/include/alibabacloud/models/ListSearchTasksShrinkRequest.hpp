@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // Task type
     shared_ptr<string> dialogueTypesShrink_ {};
+    // Current page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page. Default is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain workspaceId]().
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

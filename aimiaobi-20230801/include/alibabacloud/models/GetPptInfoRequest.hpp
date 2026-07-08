@@ -58,7 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<string> externalUserId_ {};
+    // The ID of the task.
     shared_ptr<string> taskId_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

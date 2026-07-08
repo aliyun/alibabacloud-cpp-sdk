@@ -124,9 +124,13 @@ namespace Models
 
 
       protected:
+        // The file name.
         shared_ptr<string> fileName_ {};
+        // The height.
         shared_ptr<int32_t> height_ {};
+        // The temporary access URL for the file. The URL expires in one hour.
         shared_ptr<string> tmpUrl_ {};
+        // The width.
         shared_ptr<int32_t> width_ {};
       };
 
@@ -177,11 +181,17 @@ namespace Models
 
 
     protected:
+      // The time when the resource was last updated.
       shared_ptr<string> createTime_ {};
+      // The file properties.
       shared_ptr<Data::FileAttr> fileAttr_ {};
+      // The storage path of the file in the backend.
       shared_ptr<string> fileKey_ {};
+      // The unique ID of the artifact.
       shared_ptr<int64_t> id_ {};
+      // The title.
       shared_ptr<string> title_ {};
+      // The time when the artifact was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -232,12 +242,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The task response object.
     shared_ptr<GetPptArtifactResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

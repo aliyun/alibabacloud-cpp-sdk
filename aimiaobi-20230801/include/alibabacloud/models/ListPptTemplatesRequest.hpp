@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The career ID.
     shared_ptr<int32_t> careerId_ {};
+    // The color ID.
     shared_ptr<int32_t> colourId_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The template scenario ID.
     shared_ptr<int32_t> sceneId_ {};
+    // The style ID.
     shared_ptr<int32_t> styleId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

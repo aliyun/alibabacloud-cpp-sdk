@@ -103,13 +103,28 @@ namespace Models
 
 
   protected:
+    // Context.
     shared_ptr<string> agentContextShrink_ {};
+    // Session configuration.
     shared_ptr<string> chatConfigShrink_ {};
+    // Image URL. Used for image search and hybrid text-and-image (prompt) search generation.
     shared_ptr<string> fileUrl_ {};
+    // Model ID:
+    // 
+    // - quanmiao-max: Quanmiao-Max
+    // 
+    // - quanmiao-plus: Quanmiao-Plus
     shared_ptr<string> modelId_ {};
+    // Original session identifier. Usually empty. When non-empty, it indicates that the current conversation is based on the referenced session. The system loads parameters and search results from that session and replaces the generated result. Use this for re-generation, changing data sources, or adding new agents.
     shared_ptr<string> originalSessionId_ {};
+    // Search query.
     shared_ptr<string> prompt_ {};
+    // Unique identifier for the session task.
+    // 
+    // > By default, you do not need to provide a TaskId. The system generates one automatically. If you specify the same TaskId in subsequent requests, those tasks are grouped into the same conversation.
     shared_ptr<string> taskId_ {};
+    // ID of the Alibaba Cloud Model Studio workspace. To learn how to obtain this ID, see [How to use workspaces](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

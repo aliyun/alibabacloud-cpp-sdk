@@ -70,6 +70,7 @@ namespace Models
 
 
     protected:
+      // The links to the exported files.
       shared_ptr<vector<string>> exportFileLink_ {};
     };
 
@@ -120,12 +121,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetPptArtifactExportResultResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

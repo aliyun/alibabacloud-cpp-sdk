@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // Content
       shared_ptr<string> content_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Created by
       shared_ptr<string> createUser_ {};
+      // Primary key ID
       shared_ptr<int64_t> id_ {};
+      // Title
       shared_ptr<string> title_ {};
+      // Update time
       shared_ptr<string> updateTime_ {};
+      // Update user
       shared_ptr<string> updateUser_ {};
     };
 
@@ -179,11 +186,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetCustomTextResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Is successful: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

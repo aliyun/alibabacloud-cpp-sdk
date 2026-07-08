@@ -142,13 +142,21 @@ namespace Models
 
 
     protected:
+      // The template definition for step-by-step writing.
       shared_ptr<WritingStyleTemplateDefine> distributeStepTemplateDefine_ {};
+      // Indicates whether step-by-step writing is supported.
       shared_ptr<bool> distributeWriting_ {};
+      // The icon for the writing style, represented by a character.
       shared_ptr<string> emoji_ {};
+      // The description of the writing style.
       shared_ptr<string> styleDescription_ {};
+      // The image for the writing style.
       shared_ptr<string> styleImage_ {};
+      // The unique key of the writing style.
       shared_ptr<string> styleKey_ {};
+      // The name of the writing style.
       shared_ptr<string> styleName_ {};
+      // The template definition for the writing style.
       shared_ptr<WritingStyleTemplateDefine> templateDefine_ {};
     };
 
@@ -214,14 +222,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The list of writing styles.
     shared_ptr<vector<ListWritingStylesResponseBody::Data>> data_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The next token.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

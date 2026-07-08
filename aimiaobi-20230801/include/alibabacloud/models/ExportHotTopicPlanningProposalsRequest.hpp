@@ -99,15 +99,39 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Custom viewpoint ID. Use this parameter for custom viewpoint topic planning.
     shared_ptr<vector<string>> customViewPointIds_ {};
+    // Document export format
+    // 
+    // - word: Export as a Word document
+    // 
+    // - xmind: Export as an XMind file
     shared_ptr<string> exportType_ {};
+    // Filter topic planning documents by title
     shared_ptr<vector<string>> titles_ {};
+    // Hot list topic
+    // 
     // This parameter is required.
     shared_ptr<string> topic_ {};
+    // Hot list source
+    // 
     // This parameter is required.
     shared_ptr<string> topicSource_ {};
+    // Topic planning type
+    // 
+    // - CustomViewPoints: Custom viewpoint
+    // 
+    // - HotViewPoints: Popular viewpoint
+    // 
+    // - TimedViewPoints: Time-sensitive viewpoint
+    // 
+    // - WebReviewPoints: Public viewpoint
+    // 
+    // - FreshViewPoints: Fresh viewpoint
     shared_ptr<string> viewPointType_ {};
   };
 

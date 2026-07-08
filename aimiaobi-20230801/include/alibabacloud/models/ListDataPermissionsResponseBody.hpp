@@ -139,13 +139,25 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The creator.
       shared_ptr<string> createUser_ {};
+      // The unique ID of the data.
+      // 
+      // - Example for a dataset: SystemSearch.QuarkCommonNews
       shared_ptr<string> dataId_ {};
+      // The data type.
+      // 
+      // - dataset: a dataset
       shared_ptr<string> dataType_ {};
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
+      // The permission type. The default value is \\`read\\`, which means read-only.
       shared_ptr<string> permission_ {};
+      // The unique ID of the user with the permission.
       shared_ptr<string> userId_ {};
+      // The name of the user with the permission.
       shared_ptr<string> username_ {};
     };
 
@@ -218,14 +230,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListDataPermissionsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success and \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // File key.
+    // 
     // This parameter is required.
     shared_ptr<string> fileKey_ {};
+    // Task type. Valid values: lightAppSass (SaaS page call) or sdkBatchTask (SDK batch task).
     shared_ptr<string> taskType_ {};
+    // Template type. Valid values: Content (content asset template) or PositiveSample (positive sample template).
+    // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};
+    // Unique identifier of your Alibaba Cloud Model Studio workspace. To get this ID, see [Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The URL of the audit information source you want to delete. The provided URL must match the result from GetFactAuditUrl for successful deletion.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. Get the [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

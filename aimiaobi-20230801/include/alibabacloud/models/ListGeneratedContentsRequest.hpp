@@ -121,16 +121,61 @@ namespace Models
 
 
   protected:
+    // Workspace ID: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Content domain (content category)
+    // 
+    // - media: Media writing
+    // 
+    // - government: Government document writing
+    // 
+    // - office: Office writing
+    // 
+    // - market: Marketing writing
+    // 
+    // - custom: Custom writing
+    // 
+    // - commentGenerate: Opinion generation
     shared_ptr<string> contentDomain_ {};
+    // Page number
     shared_ptr<int32_t> current_ {};
+    // Data type filter
+    // 
+    // - plainText: Plain text
+    // 
+    // - richText: Rich text
+    // 
+    // - html: HTML
+    // 
+    // - pdf: PDF
+    // 
+    // - word: Word
+    // 
+    // - excel: Excel
+    // 
+    // - csv: CSV
+    // 
+    // - image: Image
+    // 
+    // - video: Video
+    // 
+    // - audio: Audio
     shared_ptr<string> dataType_ {};
+    // End time
     shared_ptr<string> endTime_ {};
+    // Search keyword: Supports fuzzy search on titles and content
     shared_ptr<string> query_ {};
+    // Items per page. Default is 10.
     shared_ptr<int32_t> size_ {};
+    // Start time
     shared_ptr<string> startTime_ {};
+    // Task ID
+    // 
+    // > You do not need to specify TaskId. The system generates it automatically. If you use the same TaskId for multiple tasks, those tasks belong to the same conversation.
     shared_ptr<string> taskId_ {};
+    // Title text
     shared_ptr<string> title_ {};
   };
 

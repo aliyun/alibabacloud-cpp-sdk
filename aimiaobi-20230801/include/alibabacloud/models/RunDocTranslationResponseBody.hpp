@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // Number of tokens used for input
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of tokens used for output
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens used for this call
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -134,6 +137,7 @@ namespace Models
 
 
       protected:
+        // Translated content
         shared_ptr<string> content_ {};
       };
 
@@ -158,7 +162,9 @@ namespace Models
 
 
     protected:
+      // Outputs
       shared_ptr<Payload::Output> output_ {};
+      // Token usage
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -246,12 +252,19 @@ namespace Models
 
 
     protected:
+      // Error code
       shared_ptr<string> errorCode_ {};
+      // Error code message
       shared_ptr<string> errorMessage_ {};
+      // Event type
       shared_ptr<string> event_ {};
+      // Event description
       shared_ptr<string> eventInfo_ {};
+      // Session ID
       shared_ptr<string> sessionId_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // Trace ID
       shared_ptr<string> traceId_ {};
     };
 
@@ -283,8 +296,11 @@ namespace Models
 
 
   protected:
+    // Response header
     shared_ptr<RunDocTranslationResponseBody::Header> header_ {};
+    // Response body
     shared_ptr<RunDocTranslationResponseBody::Payload> payload_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

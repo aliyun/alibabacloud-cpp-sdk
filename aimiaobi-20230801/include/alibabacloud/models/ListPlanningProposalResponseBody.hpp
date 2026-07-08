@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // Outline.
         shared_ptr<string> outline_ {};
+        // Outline summary.
         shared_ptr<string> summary_ {};
       };
 
@@ -137,8 +139,11 @@ namespace Models
 
 
     protected:
+      // Outline list.
       shared_ptr<vector<Data::Outlines>> outlines_ {};
+      // Summary.
       shared_ptr<string> summary_ {};
+      // Title.
       shared_ptr<string> title_ {};
     };
 
@@ -211,14 +216,23 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Business data.
     shared_ptr<vector<ListPlanningProposalResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of returned results.
     shared_ptr<int32_t> maxResults_ {};
+    // Fault description.
     shared_ptr<string> message_ {};
+    // Token for the next page.
     shared_ptr<string> nextToken_ {};
+    // Unique request identity.
     shared_ptr<string> requestId_ {};
+    // Is successful: true for success, false for failure.
     shared_ptr<bool> success_ {};
+    // Total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

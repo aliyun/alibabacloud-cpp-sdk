@@ -134,7 +134,9 @@ namespace Models
 
 
         protected:
+          // Outline
           shared_ptr<string> outline_ {};
+          // Outline summary
           shared_ptr<string> summary_ {};
         };
 
@@ -164,8 +166,11 @@ namespace Models
 
 
       protected:
+        // Outline
         shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+        // Generated point
         shared_ptr<string> point_ {};
+        // Summary
         shared_ptr<string> summary_ {};
       };
 
@@ -234,10 +239,15 @@ namespace Models
 
 
       protected:
+        // Source
         shared_ptr<string> source_ {};
+        // Content
         shared_ptr<string> text_ {};
+        // title
         shared_ptr<string> title_ {};
+        // Current URL
         shared_ptr<string> url_ {};
+        // username
         shared_ptr<string> username_ {};
       };
 
@@ -283,10 +293,15 @@ namespace Models
 
 
     protected:
+      // Current viewpoint
       shared_ptr<string> attitude_ {};
+      // Viewpoint type
       shared_ptr<string> attitudeType_ {};
+      // List of user opinions
       shared_ptr<vector<Data::Comments>> comments_ {};
+      // Proportion of the current opinion
       shared_ptr<string> ratio_ {};
+      // List of topic perspectives
       shared_ptr<vector<Data::ViewPoints>> viewPoints_ {};
     };
 
@@ -359,14 +374,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business Data
     shared_ptr<vector<ListWebReviewPointsResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of return results
     shared_ptr<int32_t> maxResults_ {};
+    // Fault description
     shared_ptr<string> message_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
+    // Request UUID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded: true for success, false for failure
     shared_ptr<bool> success_ {};
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
   };
 

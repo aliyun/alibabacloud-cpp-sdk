@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The unique ID of the task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The unique identifier of the workspace. It is the AgentKey.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

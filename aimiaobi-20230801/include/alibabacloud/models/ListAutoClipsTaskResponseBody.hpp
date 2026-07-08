@@ -126,12 +126,17 @@ namespace Models
 
 
     protected:
+      // Start time of task creation
       shared_ptr<string> createTimeStart_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // Task name
       shared_ptr<string> taskName_ {};
+      // Task status
       shared_ptr<int32_t> taskStatus_ {};
       // upload
       shared_ptr<string> taskStep_ {};
+      // Task type
       shared_ptr<string> taskType_ {};
     };
 
@@ -226,18 +231,29 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Page number
     shared_ptr<int32_t> current_ {};
+    // Business data
     shared_ptr<vector<ListAutoClipsTaskResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Deprecated
     shared_ptr<int32_t> maxResults_ {};
+    // Error message
     shared_ptr<string> message_ {};
+    // Deprecated
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Number of items per page
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the request succeeded. true means success. false means failure.
     shared_ptr<bool> success_ {};
+    // Total number of records
     shared_ptr<int32_t> total_ {};
+    // Deprecated
     shared_ptr<int32_t> totalCount_ {};
   };
 

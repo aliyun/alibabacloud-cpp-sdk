@@ -121,16 +121,28 @@ namespace Models
 
 
   protected:
+    // Model follow-up question
     shared_ptr<string> askUser_ {};
+    // Prompt for custom hot topic viewpoint analysis
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // Rewritten query
     shared_ptr<string> searchQuery_ {};
+    // Set to true to skip the follow-up question
     shared_ptr<bool> skipAskUser_ {};
+    // The hot topic for analysis
     shared_ptr<string> topic_ {};
+    // Hot topic ID
     shared_ptr<string> topicId_ {};
+    // Hot topic source
     shared_ptr<string> topicSource_ {};
+    // Hot topic version
     shared_ptr<string> topicVersion_ {};
+    // User feedback
     shared_ptr<string> userBack_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get the Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -167,23 +167,40 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Author
     shared_ptr<string> author_ {};
+    // Document tags for categorization
     shared_ptr<string> docKeywordsShrink_ {};
+    // Document type. Valid values: html, plainText, image, pdf, word, excel, csv, jsonLine
+    // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
+    // URL uploaded by an external customer. Used only for record keeping
     shared_ptr<string> externalUrl_ {};
+    // Formatted content
     shared_ptr<string> htmlContent_ {};
+    // Primary key
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Publication time in yyyy-MM-dd HH:mm:ss format
     shared_ptr<string> pubTime_ {};
     shared_ptr<string> regionId_ {};
+    // Sharing attribute. Valid values: 0 (private), 1 (shared within the workspace)
     shared_ptr<int32_t> shareAttr_ {};
+    // Source of the document. Valid values: UserUpload, IntellijSearch, HotViewPoint
     shared_ptr<string> srcFrom_ {};
+    // Summary
     shared_ptr<string> summary_ {};
+    // Parsed text content. Empty for images
     shared_ptr<string> textContent_ {};
+    // Document title
     shared_ptr<string> title_ {};
+    // URL of the material
     shared_ptr<string> url_ {};
   };
 

@@ -229,13 +229,21 @@ namespace Models
 
 
         protected:
+          // ID of the clip.
           shared_ptr<string> clipId_ {};
+          // Segmented voiceover script.
           shared_ptr<string> contentInner_ {};
+          // Start time of the clip in seconds. This field is deprecated.
           shared_ptr<int32_t> in_ {};
+          // Start time of the clip in milliseconds.
           shared_ptr<float> inEx_ {};
+          // End time of the clip in seconds. This field is deprecated.
           shared_ptr<int32_t> out_ {};
+          // End time of the clip in milliseconds.
           shared_ptr<float> outEx_ {};
+          // ID of the video.
           shared_ptr<string> videoId_ {};
+          // Name of the video.
           shared_ptr<string> videoName_ {};
         };
 
@@ -265,8 +273,11 @@ namespace Models
 
 
       protected:
+        // Array of video clips.
         shared_ptr<vector<Timelines::Clips>> clips_ {};
+        // Voiceover script.
         shared_ptr<string> content_ {};
+        // ID of the timeline.
         shared_ptr<string> timelineId_ {};
       };
 
@@ -363,13 +374,21 @@ namespace Models
 
 
       protected:
+        // Duration of the sticker display.
         shared_ptr<int32_t> duration_ {};
+        // Height of the sticker
         shared_ptr<int32_t> dyncFrames_ {};
+        // Height of the sticker.
         shared_ptr<int32_t> height_ {};
+        // Start time of the sticker in seconds.
         shared_ptr<int32_t> timelineIn_ {};
+        // URL of the sticker GIF file.
         shared_ptr<string> url_ {};
+        // Width of the sticker.
         shared_ptr<int32_t> width_ {};
+        // X-coordinate of the sticker position.
         shared_ptr<float> x_ {};
+        // Y-coordinate of the sticker position.
         shared_ptr<float> y_ {};
       };
 
@@ -420,8 +439,11 @@ namespace Models
 
 
       protected:
+        // Video ID.
         shared_ptr<string> videoId_ {};
+        // Video name.
         shared_ptr<string> videoName_ {};
+        // Video URL.
         shared_ptr<string> videoUrl_ {};
       };
 
@@ -472,8 +494,11 @@ namespace Models
 
 
       protected:
+        // Video ID.
         shared_ptr<string> videoId_ {};
+        // Video name.
         shared_ptr<string> videoName_ {};
+        // Video URL.
         shared_ptr<string> videoUrl_ {};
       };
 
@@ -561,12 +586,19 @@ namespace Models
 
 
       protected:
+        // Text content.
         shared_ptr<string> content_ {};
+        // Visual effect of the decorative text.
         shared_ptr<string> effectColorStyle_ {};
+        // Font size of the decorative text.
         shared_ptr<int32_t> fontSize_ {};
+        // Start time of the decorative text in seconds.
         shared_ptr<int32_t> timelineIn_ {};
+        // End time of the decorative text in seconds.
         shared_ptr<int32_t> timelineOut_ {};
+        // X-coordinate of the decorative text.
         shared_ptr<float> x_ {};
+        // Y-coordinate of the decorative text.
         shared_ptr<float> y_ {};
       };
 
@@ -674,9 +706,13 @@ namespace Models
 
 
           protected:
+            // Hour.
             shared_ptr<int32_t> hour_ {};
+            // Millisecond.
             shared_ptr<int32_t> millSecond_ {};
+            // Minute.
             shared_ptr<int32_t> minute_ {};
+            // Second.
             shared_ptr<int32_t> second_ {};
           };
 
@@ -736,9 +772,13 @@ namespace Models
 
 
           protected:
+            // Hour.
             shared_ptr<int32_t> hour_ {};
+            // Millisecond.
             shared_ptr<int32_t> millSecond_ {};
+            // Minute.
             shared_ptr<int32_t> minute_ {};
+            // Second.
             shared_ptr<int32_t> second_ {};
           };
 
@@ -770,8 +810,11 @@ namespace Models
 
 
         protected:
+          // Content analysis
           shared_ptr<string> analysisContent_ {};
+          // End time.
           shared_ptr<LensInfos::EndTime> endTime_ {};
+          // Start time.
           shared_ptr<LensInfos::StartTime> startTime_ {};
         };
 
@@ -808,9 +851,13 @@ namespace Models
 
 
       protected:
+        // List of shot information.
         shared_ptr<vector<AnalysisResults::LensInfos>> lensInfos_ {};
+        // Video ID.
         shared_ptr<string> mediaId_ {};
+        // Video name.
         shared_ptr<string> mediaName_ {};
+        // Video URL.
         shared_ptr<string> mediaUrl_ {};
       };
 
@@ -1030,33 +1077,61 @@ namespace Models
 
 
     protected:
+      // List of video understanding results.
       shared_ptr<vector<Data::AnalysisResults>> analysisResults_ {};
+      // Disable background music.
       shared_ptr<bool> closeMusic_ {};
+      // Disable subtitles.
       shared_ptr<bool> closeSubtitle_ {};
+      // Disable voiceover.
       shared_ptr<bool> closeVoice_ {};
+      // URL of the closing credits video.
       shared_ptr<string> closingCreditsUrl_ {};
+      // Array of decorative text elements.
       shared_ptr<vector<Data::ColorWords>> colorWords_ {};
+      // Full voiceover script.
       shared_ptr<string> content_ {};
+      // Voice style for CosyVoice.
       shared_ptr<string> customVoiceStyle_ {};
+      // URL of the custom audio track file.
       shared_ptr<string> customVoiceUrl_ {};
+      // Volume of the custom audio track.
       shared_ptr<int32_t> customVoiceVolume_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // ApsaraVideo timeline.
       shared_ptr<string> mediaCloudTimeline_ {};
+      // Recommended music style.
       shared_ptr<string> musicStyle_ {};
+      // URL of the background music.
       shared_ptr<string> musicUrl_ {};
+      // Volume of the background music.
       shared_ptr<int32_t> musicVolume_ {};
+      // URL of the opening credits video.
       shared_ptr<string> openingCreditsUrl_ {};
+      // File key of the output video.
       shared_ptr<string> outputVideoFileKey_ {};
+      // URL of the final video.
       shared_ptr<string> outputVideoUrl_ {};
+      // Reference video information.
       shared_ptr<Data::ReferenceVideo> referenceVideo_ {};
+      // List of video sources used for editing.
       shared_ptr<vector<Data::SourceVideos>> sourceVideos_ {};
+      // Status
       shared_ptr<int32_t> status_ {};
+      // Current step.
       shared_ptr<string> step_ {};
+      // Array of stickers.
       shared_ptr<vector<Data::Stickers>> stickers_ {};
+      // Font size of subtitles.
       shared_ptr<int32_t> subtitleFontSize_ {};
+      // Unique ID of the task.
       shared_ptr<string> taskId_ {};
+      // Array of voiceover timelines.
       shared_ptr<vector<Data::Timelines>> timelines_ {};
+      // Voice style for voiceover.
       shared_ptr<string> voiceStyle_ {};
+      // Volume of the voiceover.
       shared_ptr<int32_t> voiceVolume_ {};
     };
 
@@ -1107,12 +1182,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Business data.
     shared_ptr<GetAutoClipsTaskInfoResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

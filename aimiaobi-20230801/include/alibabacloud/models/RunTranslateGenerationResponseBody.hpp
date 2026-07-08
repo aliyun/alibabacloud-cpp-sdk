@@ -101,8 +101,11 @@ namespace Models
 
 
       protected:
+        // The number of tokens used for the input.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of tokens used for the output.
         shared_ptr<int64_t> outputTokens_ {};
+        // The total number of tokens used in the call.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -134,6 +137,7 @@ namespace Models
 
 
       protected:
+        // The text generation result.
         shared_ptr<string> text_ {};
       };
 
@@ -158,7 +162,9 @@ namespace Models
 
 
     protected:
+      // Output data
       shared_ptr<Payload::Output> output_ {};
+      // Token usage information
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -236,11 +242,17 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The Server-Sent Events (SSE) event.
       shared_ptr<string> event_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The trace ID.
       shared_ptr<string> traceId_ {};
     };
 
@@ -272,8 +284,11 @@ namespace Models
 
 
   protected:
+    // Response header
     shared_ptr<RunTranslateGenerationResponseBody::Header> header_ {};
+    // Response body
     shared_ptr<RunTranslateGenerationResponseBody::Payload> payload_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

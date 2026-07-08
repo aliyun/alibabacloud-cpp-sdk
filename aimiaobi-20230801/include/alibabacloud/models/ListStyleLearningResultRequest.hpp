@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // Page number
     shared_ptr<int32_t> current_ {};
+    // Number of items per page. Default is 10.
     shared_ptr<int32_t> size_ {};
   };
 

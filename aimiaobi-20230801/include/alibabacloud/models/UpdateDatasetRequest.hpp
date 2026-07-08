@@ -202,8 +202,11 @@ namespace Models
 
 
               protected:
+                // The node key.
                 shared_ptr<string> key_ {};
+                // The node path.
                 shared_ptr<string> path_ {};
+                // The type.
                 shared_ptr<string> type_ {};
               };
 
@@ -240,9 +243,13 @@ namespace Models
 
 
             protected:
+              // The child node configuration.
               shared_ptr<vector<JqNodesItem::JqNodes>> jqNodes_ {};
+              // The node key.
               shared_ptr<string> key_ {};
+              // The node path.
               shared_ptr<string> path_ {};
+              // The type.
               shared_ptr<string> type_ {};
             };
 
@@ -279,9 +286,13 @@ namespace Models
 
 
           protected:
+            // The child node configuration.
             shared_ptr<vector<JqNodes::JqNodesItem>> jqNodes_ {};
+            // The node key.
             shared_ptr<string> key_ {};
+            // The node path.
             shared_ptr<string> path_ {};
+            // The data type of the node. Valid values: string, number, list, object, and base.
             shared_ptr<string> type_ {};
           };
 
@@ -296,6 +307,7 @@ namespace Models
 
 
         protected:
+          // The node configuration.
           shared_ptr<vector<SearchSourceResponseConfig::JqNodes>> jqNodes_ {};
         };
 
@@ -388,9 +400,13 @@ namespace Models
 
 
           protected:
+            // The parameter name.
             shared_ptr<string> name_ {};
+            // The parameter value.
             shared_ptr<string> value_ {};
+            // This parameter is valid only when ValueType is set to time.
             shared_ptr<string> valueFormat_ {};
+            // The data type of the parameter value. Default: string.
             shared_ptr<string> valueType_ {};
           };
 
@@ -450,9 +466,13 @@ namespace Models
 
 
           protected:
+            // The parameter name.
             shared_ptr<string> name_ {};
+            // The parameter value.
             shared_ptr<string> value_ {};
+            // This parameter is valid only when ValueType is set to time.
             shared_ptr<string> valueFormat_ {};
+            // The data type of the parameter value. Default: string.
             shared_ptr<string> valueType_ {};
           };
 
@@ -520,13 +540,21 @@ namespace Models
 
 
         protected:
+          // The request body.
           shared_ptr<string> body_ {};
+          // The connection timeout period, in milliseconds.
           shared_ptr<int32_t> connectTimeout_ {};
+          // The HTTP request headers.
           shared_ptr<vector<SearchSourceRequestConfig::Headers>> headers_ {};
+          // The request method.
           shared_ptr<string> method_ {};
+          // The request path parameters.
           shared_ptr<vector<SearchSourceRequestConfig::Params>> params_ {};
+          // Specifies whether to enable path parameters.
           shared_ptr<bool> pathParamsEnable_ {};
+          // The read timeout period, in milliseconds.
           shared_ptr<int32_t> socketTimeout_ {};
+          // The API URL.
           shared_ptr<string> url_ {};
         };
 
@@ -565,9 +593,13 @@ namespace Models
 
 
       protected:
+        // A searchable keyword used to verify availability.
         shared_ptr<string> demoQuery_ {};
+        // The API request configuration.
         shared_ptr<SearchSourceConfigs::SearchSourceRequestConfig> searchSourceRequestConfig_ {};
+        // The API response configuration.
         shared_ptr<SearchSourceConfigs::SearchSourceResponseConfig> searchSourceResponseConfig_ {};
+        // The default number of data entries for requests and responses.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -627,9 +659,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether the key-value pairs in metadata are used for generation. Default: true.
         shared_ptr<bool> metadataKeyValueGenerateEnable_ {};
+        // Specifies whether the key-value pairs in metadata are included in searches. Default: true.
         shared_ptr<bool> metadataKeyValueSearchEnable_ {};
+        // Specifies whether tags are used for generation. Default: true.
         shared_ptr<bool> tagGenerateEnable_ {};
+        // Specifies whether tags are included in searches. Default: true.
         shared_ptr<bool> tagSearchEnable_ {};
       };
 
@@ -654,7 +690,9 @@ namespace Models
 
 
     protected:
+      // The dataset configuration items.
       shared_ptr<DatasetConfig::SearchSourceConfig> searchSourceConfig_ {};
+      // Third-party search: API definition.
       shared_ptr<vector<DatasetConfig::SearchSourceConfigs>> searchSourceConfigs_ {};
     };
 
@@ -706,10 +744,16 @@ namespace Models
 
   protected:
     shared_ptr<string> accessLevel_ {};
+    // The configurations for a third-party search dataset.
     shared_ptr<UpdateDatasetRequest::DatasetConfig> datasetConfig_ {};
+    // The description of the dataset.
     shared_ptr<string> datasetDescription_ {};
+    // The dataset ID.
     shared_ptr<int64_t> datasetId_ {};
+    // Specifies whether to enable search for the dataset.
     shared_ptr<int32_t> searchDatasetEnable_ {};
+    // The unique identifier of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspaceId]().
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

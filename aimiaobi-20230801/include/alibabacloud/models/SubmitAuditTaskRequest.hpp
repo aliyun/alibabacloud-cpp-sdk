@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the article to be audited.
     shared_ptr<string> articleId_ {};
+    // The content to be audited.
     shared_ptr<string> content_ {};
+    // The content to be audited, in HTML format.
     shared_ptr<string> htmlContent_ {};
+    // The title of the article to be audited.
     shared_ptr<string> title_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

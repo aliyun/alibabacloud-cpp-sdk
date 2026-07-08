@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // Number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // Total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -296,21 +299,44 @@ namespace Models
 
 
         protected:
+          // UUID of the category
           shared_ptr<string> categoryUuid_ {};
+          // Custom unique document ID.
           shared_ptr<string> docId_ {};
+          // Document Type:  
+          // - plainText: plain text; content is required  
+          // - richText: rich text in HTML format; content is required  
+          // - text: text file; url is required  
+          // - pdf: url is required  
+          // - word: url is required  
+          // - image: Image; url is required. Supports most common image formats such as GIF, PNG, JPG, and JPEG  
+          // - video: Video; url is required. Supports most common video formats such as MP4, AVI, WMV, and MOV
           shared_ptr<string> docType_ {};
+          // Article ID.
           shared_ptr<string> docUuid_ {};
+          // Extension field 1
           shared_ptr<string> extend1_ {};
+          // Extension field 2
           shared_ptr<string> extend2_ {};
+          // Extension field 3
           shared_ptr<string> extend3_ {};
+          // Publication time.
           shared_ptr<string> pubTime_ {};
+          // Search source
           shared_ptr<string> searchSource_ {};
+          // Search source name.
           shared_ptr<string> searchSourceName_ {};
+          // Type of dataset
           shared_ptr<string> searchSourceType_ {};
+          // Source website.
           shared_ptr<string> source_ {};
+          // Summary.
           shared_ptr<string> summary_ {};
+          // label
           shared_ptr<vector<string>> tags_ {};
+          // Title.
           shared_ptr<string> title_ {};
+          // URL.
           shared_ptr<string> url_ {};
         };
 
@@ -333,7 +359,9 @@ namespace Models
 
 
       protected:
+        // Article list.
         shared_ptr<vector<Output::Articles>> articles_ {};
+        // Text generation result.
         shared_ptr<string> text_ {};
       };
 
@@ -358,7 +386,11 @@ namespace Models
 
 
     protected:
+      // Output.
       shared_ptr<Payload::Output> output_ {};
+      // instance: The image is running and used by an ECS instance.
+      // 
+      // none: The image is idle and not used by any ECS instance.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -436,11 +468,16 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // Server-sent event. Valid values: task-started, task-finished, and task-failed.
       shared_ptr<string> event_ {};
       shared_ptr<string> eventInfo_ {};
+      // Session ID.
       shared_ptr<string> sessionId_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -472,8 +509,11 @@ namespace Models
 
 
   protected:
+    // Response header.
     shared_ptr<RunSearchSimilarArticlesResponseBody::Header> header_ {};
+    // Response body.
     shared_ptr<RunSearchSimilarArticlesResponseBody::Payload> payload_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

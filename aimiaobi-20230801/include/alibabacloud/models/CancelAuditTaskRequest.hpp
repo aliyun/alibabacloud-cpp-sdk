@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Article ID. Specify either this parameter or ContentAuditTaskId.
     shared_ptr<string> articleId_ {};
+    // Audit task ID. Specify either this parameter or ArticleId.
     shared_ptr<string> contentAuditTaskId_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

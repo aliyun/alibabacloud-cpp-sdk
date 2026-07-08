@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Pagination token
     shared_ptr<string> nextToken_ {};
+    // Filters by writing scenario.
+    // 
     // This parameter is required.
     shared_ptr<string> scene_ {};
+    // [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // Input token quantity
         shared_ptr<int64_t> inputTokens_ {};
+        // Output token quantity
         shared_ptr<int64_t> outputTokens_ {};
+        // Total token quantity
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -239,12 +242,19 @@ namespace Models
 
 
           protected:
+            // Start Time of the segment
             shared_ptr<int64_t> beginTime_ {};
+            // End Time of the segment
             shared_ptr<int64_t> endTime_ {};
+            // Height of the text block
             shared_ptr<int32_t> height_ {};
+            // Page number where the text block is located
             shared_ptr<int32_t> pageId_ {};
+            // Width of the text block
             shared_ptr<int32_t> width_ {};
+            // X coordinate of the top-left corner of the block
             shared_ptr<int32_t> x_ {};
+            // Y coordinate of the top-left corner of the block
             shared_ptr<int32_t> y_ {};
           };
 
@@ -281,9 +291,13 @@ namespace Models
 
 
         protected:
+          // Array of position information
           shared_ptr<vector<Introductions::Blocks>> blocks_ {};
+          // Starting page number of multiple text blocks
           shared_ptr<int32_t> startPageId_ {};
+          // Summary of this segment
           shared_ptr<string> summary_ {};
+          // Title of this segment
           shared_ptr<string> title_ {};
         };
 
@@ -313,8 +327,11 @@ namespace Models
 
 
       protected:
+        // Array of segment introductions
         shared_ptr<vector<Output::Introductions>> introductions_ {};
+        // Key point content
         shared_ptr<string> keyPoint_ {};
+        // Outline summary
         shared_ptr<string> summary_ {};
       };
 
@@ -339,7 +356,9 @@ namespace Models
 
 
     protected:
+      // Outputs
       shared_ptr<Payload::Output> output_ {};
+      // token usage
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -427,12 +446,19 @@ namespace Models
 
 
     protected:
+      // error code
       shared_ptr<string> errorCode_ {};
+      // error message.
       shared_ptr<string> errorMessage_ {};
+      // Type of management event
       shared_ptr<string> event_ {};
+      // Description of the management event
       shared_ptr<string> eventInfo_ {};
+      // session ID
       shared_ptr<string> sessionId_ {};
+      // Job ID
       shared_ptr<string> taskId_ {};
+      // End-to-end trace ID
       shared_ptr<string> traceId_ {};
     };
 
@@ -464,8 +490,11 @@ namespace Models
 
 
   protected:
+    // response header
     shared_ptr<RunDocIntroductionResponseBody::Header> header_ {};
+    // response body
     shared_ptr<RunDocIntroductionResponseBody::Payload> payload_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

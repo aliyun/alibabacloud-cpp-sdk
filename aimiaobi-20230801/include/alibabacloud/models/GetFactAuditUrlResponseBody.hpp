@@ -87,13 +87,19 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // List of source URLs currently used for factuality audit. If the list is empty, the retrieval source is the entire network. If URLs are present, information is retrieved only from the configured URLs. To delete unnecessary source URLs, use the URLs from the response parameter as input for the DeleteFactAuditUrl API.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Whether this request was successful.
     shared_ptr<bool> success_ {};
   };
 

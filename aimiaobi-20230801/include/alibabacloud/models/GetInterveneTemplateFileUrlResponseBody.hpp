@@ -78,6 +78,7 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // The URL of the template file.
       shared_ptr<string> fileUrl_ {};
     };
 
@@ -128,11 +129,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetInterveneTemplateFileUrlResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -122,11 +122,17 @@ namespace Models
 
 
     protected:
+      // Exception statements
       shared_ptr<vector<string>> exceptionWord_ {};
+      // Task primary key ID
       shared_ptr<string> id_ {};
+      // Keyword
       shared_ptr<string> keyword_ {};
+      // Suggested word
       shared_ptr<string> suggestWord_ {};
+      // Audit basis
       shared_ptr<string> termsDesc_ {};
+      // Dictionary name
       shared_ptr<string> termsName_ {};
     };
 
@@ -199,15 +205,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<vector<ListAuditTermsResponseBody::Data>> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Maximum number of results returned
     shared_ptr<int32_t> maxResults_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Token for the next page
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // Total count
     shared_ptr<int32_t> totalCount_ {};
   };
 

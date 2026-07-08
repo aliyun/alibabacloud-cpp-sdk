@@ -170,7 +170,9 @@ namespace Models
 
 
             protected:
+              // Outline
               shared_ptr<string> outline_ {};
+              // Outline summary
               shared_ptr<string> summary_ {};
             };
 
@@ -200,8 +202,11 @@ namespace Models
 
 
           protected:
+            // Outline
             shared_ptr<vector<ViewPoints::Outlines>> outlines_ {};
+            // Generated perspective
             shared_ptr<string> point_ {};
+            // Summary
             shared_ptr<string> summary_ {};
           };
 
@@ -238,9 +243,13 @@ namespace Models
 
 
         protected:
+          // Current viewpoint
           shared_ptr<string> attitude_ {};
+          // Viewpoint type
           shared_ptr<string> attitudeType_ {};
+          // Proportion of the current viewpoint
           shared_ptr<string> ratio_ {};
+          // List of topic selection perspectives
           shared_ptr<vector<Attitudes::ViewPoints>> viewPoints_ {};
         };
 
@@ -263,7 +272,9 @@ namespace Models
 
 
       protected:
+        // List of custom viewpoints. By default, the system generates one viewpoint based on the prompt input.
         shared_ptr<vector<CustomViewPointsResult::Attitudes>> attitudes_ {};
+        // Hot topic event
         shared_ptr<string> topic_ {};
       };
 
@@ -293,8 +304,11 @@ namespace Models
 
 
     protected:
+      // Result of the custom topic selection analysis task
       shared_ptr<Data::CustomViewPointsResult> customViewPointsResult_ {};
+      // Error message
       shared_ptr<string> errorMessage_ {};
+      // Task status (PENDING: pending, RUNNING: running, SUCCESSED: succeeded, SUSPENDED: suspended, FAILED: failed, CANCELED: canceled)
       shared_ptr<string> status_ {};
     };
 
@@ -345,11 +359,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Business data
     shared_ptr<GetCustomTopicSelectionPerspectiveAnalysisTaskResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates success: true for success, false for failure
     shared_ptr<bool> success_ {};
   };
 

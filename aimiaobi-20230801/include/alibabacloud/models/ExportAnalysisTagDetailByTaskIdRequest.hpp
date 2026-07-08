@@ -60,9 +60,16 @@ namespace Models
 
 
   protected:
+    // Category filter list.
     shared_ptr<vector<string>> categories_ {};
+    // Unique task ID.
+    // 
+    // > By default, do not specify TaskId. The system automatically generates it. If subsequent tasks use the same TaskId, they belong to the same conversation group.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // Unique identifier for Alibaba Cloud Model Studio workspace. For more information, see [Get Workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

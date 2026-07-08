@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // OSS path where the parsed rule library is stored
       shared_ptr<string> fileKey_ {};
+      // Size of the rule library file, in bytes
       shared_ptr<int64_t> fileSize_ {};
+      // Name of the parsed rule library
       shared_ptr<string> noteName_ {};
+      // Task status. Valid values: PENDING, RUNNING, SUCCESSED, or FAILED
       shared_ptr<string> status_ {};
+      // Task ID. Unique identifier for this task.
       shared_ptr<string> taskId_ {};
+      // Update time
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -168,12 +174,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<GetAuditNoteProcessingStatusResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

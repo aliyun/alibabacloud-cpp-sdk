@@ -187,18 +187,31 @@ namespace Models
 
 
     protected:
+      // The author of the article. This parameter may not be returned for some articles.
       shared_ptr<string> author_ {};
+      // The content of the article. This parameter is always returned.
       shared_ptr<string> content_ {};
+      // The unique ID of the internal document. This parameter is always returned.
       shared_ptr<string> docUuid_ {};
+      // The URLs of the images. This parameter is deprecated and is no longer returned. Do not use it.
       shared_ptr<vector<string>> imageUrls_ {};
+      // The time when the article was published. This parameter is always returned.
       shared_ptr<string> pubTime_ {};
+      // The ID of the internal search source. This parameter is always returned.
       shared_ptr<string> searchSource_ {};
+      // The name of the internal search source. This parameter is always returned.
       shared_ptr<string> searchSourceName_ {};
+      // The source of the article. This parameter may not be returned for some articles.
       shared_ptr<string> source_ {};
+      // The summary of the article. This parameter may not be returned for some articles.
       shared_ptr<string> summary_ {};
+      // The tag of the article. This parameter may not be returned for some articles.
       shared_ptr<string> tag_ {};
+      // The title of the article. This parameter is always returned.
       shared_ptr<string> title_ {};
+      // The time when the system was updated. This parameter is deprecated and is no longer returned. Do not use it.
       shared_ptr<string> updateTime_ {};
+      // The URL of the article. This parameter is always returned.
       shared_ptr<string> url_ {};
     };
 
@@ -271,14 +284,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The data returned.
     shared_ptr<vector<SearchNewsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of records on each page.
     shared_ptr<int32_t> size_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates success and a value of \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -105,8 +105,9 @@ namespace Models
 
 
       protected:
-        // id
+        // The ID.
         shared_ptr<string> id_ {};
+        // The intervention query.
         shared_ptr<string> query_ {};
       };
 
@@ -151,9 +152,13 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // The list of intervention items.
       shared_ptr<vector<Data::InterveneList>> interveneList_ {};
+      // The page number.
       shared_ptr<int32_t> pageIndex_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of pages.
       shared_ptr<int64_t> totalSize_ {};
     };
 
@@ -204,11 +209,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<ListIntervenesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. True for success, false for failure.
     shared_ptr<bool> success_ {};
   };
 

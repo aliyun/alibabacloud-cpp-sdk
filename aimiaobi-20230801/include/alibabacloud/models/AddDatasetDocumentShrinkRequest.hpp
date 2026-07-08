@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the dataset.
     shared_ptr<int64_t> datasetId_ {};
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // The document.
+    // 
     // This parameter is required.
     shared_ptr<string> documentShrink_ {};
+    // The unique identifier of the Model Studio workspace. For more information, see [Obtain a workspaceId](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

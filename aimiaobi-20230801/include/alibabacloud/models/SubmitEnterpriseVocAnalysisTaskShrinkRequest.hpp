@@ -130,18 +130,32 @@ namespace Models
 
 
   protected:
+    // The API key for integration access. For more information, see [Get an API key](https://help.aliyun.com/zh/model-studio/get-api-key?spm=a2c4g.11186623.help-menu-2400256.d_2_0_0.1cbdb0a8lsT1n3).
     shared_ptr<string> apiKey_ {};
+    // The content tags.
+    // 
     // This parameter is required.
     shared_ptr<string> contentTagsShrink_ {};
+    // The material content to be mined.
     shared_ptr<string> contentsShrink_ {};
+    // The key of the file.
     shared_ptr<string> fileKey_ {};
+    // The filter tags.
     shared_ptr<string> filterTagsShrink_ {};
+    // The material type. Valid values: \\`shortContent\\` (long or short comments, or tickets) and \\`dialogue\\` (dialogues).
     shared_ptr<string> materialType_ {};
+    // The ID of the model.
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
+    // The content of the positive sample.
     shared_ptr<string> positiveSample_ {};
+    // The key of the positive sample file.
     shared_ptr<string> positiveSampleFileKey_ {};
+    // The task type. Valid values: \\`lightAppSass\\` (invoked from a Software as a Service (SaaS) page) and \\`sdkBatchTask\\` (SDK batch task).
     shared_ptr<string> taskType_ {};
+    // The ID of the Model Studio workspace. For more information, see [Get a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

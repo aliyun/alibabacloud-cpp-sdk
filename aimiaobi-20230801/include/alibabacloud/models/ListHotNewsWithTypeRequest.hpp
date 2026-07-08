@@ -78,11 +78,23 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the business space: [AgentKey](https://help.aliyun.com/document_detail/3027170.html).
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The news category. Valid values:
+    // - society: social current affairs.
+    // - person: people news.
+    // - government: government affairs.
     shared_ptr<string> newsType_ {};
+    // The list of news categories for multi-selection. Valid values:
+    // - society: social current affairs.
+    // - person: people news.
+    // - government: government affairs.
     shared_ptr<vector<string>> newsTypes_ {};
+    // The number of records per page.
     shared_ptr<int32_t> size_ {};
   };
 

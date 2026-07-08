@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // Intervention status code.
       shared_ptr<int32_t> code_ {};
+      // List of failed index IDs.
       shared_ptr<vector<string>> failIdList_ {};
+      // Task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -141,11 +144,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Business data.
     shared_ptr<ImportInterveneFileResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. Set to true for success or false for failure.
     shared_ptr<bool> success_ {};
   };
 

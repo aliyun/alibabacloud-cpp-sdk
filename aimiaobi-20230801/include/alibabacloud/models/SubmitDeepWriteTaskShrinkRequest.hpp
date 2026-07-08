@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The agent orchestration options.
     shared_ptr<string> agentOrchestrationShrink_ {};
+    // A list of attachments.
     shared_ptr<string> filesShrink_ {};
+    // The user\\"s question.
+    // 
     // This parameter is required.
     shared_ptr<string> input_ {};
+    // The instructions.
     shared_ptr<string> instructions_ {};
+    // [The workspace ID.](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

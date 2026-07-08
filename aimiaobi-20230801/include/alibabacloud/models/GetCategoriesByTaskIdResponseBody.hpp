@@ -91,6 +91,7 @@ namespace Models
 
 
       protected:
+        // The name of the sub-classification.
         shared_ptr<string> category_ {};
       };
 
@@ -120,8 +121,11 @@ namespace Models
 
 
     protected:
+      // The name of the classification.
       shared_ptr<string> category_ {};
+      // A list of sub-classifications.
       shared_ptr<vector<Data::Children>> children_ {};
+      // The number of Voice of the Customer (VOC) entries in this classification.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -172,11 +176,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // A list of classification objects.
     shared_ptr<vector<GetCategoriesByTaskIdResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: \\`true\\` and \\`false\\`.
     shared_ptr<bool> success_ {};
   };
 

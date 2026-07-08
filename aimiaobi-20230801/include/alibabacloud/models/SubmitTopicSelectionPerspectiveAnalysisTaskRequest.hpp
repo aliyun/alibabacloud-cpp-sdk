@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // Content
         shared_ptr<string> text_ {};
+        // Username
         shared_ptr<string> username_ {};
       };
 
@@ -173,14 +175,23 @@ namespace Models
 
 
     protected:
+      // Author
       shared_ptr<string> author_ {};
+      // Content list
       shared_ptr<vector<Documents::Comments>> comments_ {};
+      // Content
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // Publication time. Format: YYYY-MM-dd HH:mm:ss
       shared_ptr<string> pubTime_ {};
+      // Article source
       shared_ptr<string> source_ {};
+      // Summary
       shared_ptr<string> summary_ {};
+      // Title
       shared_ptr<string> title_ {};
+      // Article URL
       shared_ptr<string> url_ {};
     };
 
@@ -219,10 +230,15 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the workspace: [AgentKey](https://help.aliyun.com/document_detail/2587494.html)
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    // The list of documents to be analyzed. (Provide at least one of documents or topic)
     shared_ptr<vector<SubmitTopicSelectionPerspectiveAnalysisTaskRequest::Documents>> documents_ {};
+    // The topic selection perspective tasks to be analyzed. By default, this parameter is empty, which means all tasks are analyzed. (TopicSummary: Topic event summary, HotViewPoints: Hot topic selection perspectives, TimedViewPoints: Timeliness topic selection perspectives, WebReviewPoints: Online review topic selection perspectives, FreshViewPoints: Novel topic selection perspectives)
     shared_ptr<vector<string>> perspectiveTypes_ {};
+    // The name of the topic to be analyzed. (Provide at least one of documents or topic)
     shared_ptr<string> topic_ {};
   };
 

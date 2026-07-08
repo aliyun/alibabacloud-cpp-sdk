@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // A list of retrieved materials.
     shared_ptr<vector<OutlineWritingArticle>> articles_ {};
+    // The retrieved outline.
     shared_ptr<string> outline_ {};
+    // The unique identifier of the outline.
     shared_ptr<string> outlineId_ {};
+    // The primary outline.
     shared_ptr<string> primaryOutline_ {};
+    // The retrieval query.
     shared_ptr<string> query_ {};
   };
 

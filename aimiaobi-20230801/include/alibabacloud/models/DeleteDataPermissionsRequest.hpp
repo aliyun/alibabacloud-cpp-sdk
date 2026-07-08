@@ -51,8 +51,12 @@ namespace Models
 
 
   protected:
+    // The permission IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> ids_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Get a workspace ID](https://help.aliyun.com/document_detail/2587495.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

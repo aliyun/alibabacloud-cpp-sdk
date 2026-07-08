@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // End creation time, in timestamp format.
     shared_ptr<string> createTimeEnd_ {};
+    // Start creation time, in timestamp format.
     shared_ptr<string> createTimeStart_ {};
+    // Current page number
     shared_ptr<int32_t> current_ {};
+    // Deprecated
     shared_ptr<int32_t> maxResults_ {};
+    // Deprecated
     shared_ptr<string> nextToken_ {};
+    // Number of items per page. Default is 10.
     shared_ptr<int32_t> size_ {};
+    // Deprecated
     shared_ptr<int32_t> skip_ {};
+    // Defines the task name.
     shared_ptr<string> taskName_ {};
+    // Task status
     shared_ptr<int32_t> taskStatus_ {};
+    // [Workspace ID](https://help.aliyun.com/document_detail/2782167.html)
     shared_ptr<string> workspaceId_ {};
   };
 

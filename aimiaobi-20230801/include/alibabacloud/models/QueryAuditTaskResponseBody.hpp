@@ -159,8 +159,11 @@ namespace Models
 
 
           protected:
+            // Input tokens.
             shared_ptr<int32_t> inputTokens_ {};
+            // Output tokens.
             shared_ptr<int32_t> outputTokens_ {};
+            // Total tokens.
             shared_ptr<int32_t> totalTokens_ {};
           };
 
@@ -192,6 +195,7 @@ namespace Models
 
 
           protected:
+            // Final response result (JSON array structure)
             shared_ptr<string> text_ {};
           };
 
@@ -216,7 +220,9 @@ namespace Models
 
 
         protected:
+          // response body
           shared_ptr<Payload::Output> output_ {};
+          // usage
           shared_ptr<Payload::Usage> usage_ {};
         };
 
@@ -285,10 +291,15 @@ namespace Models
 
 
         protected:
+          // error code
           shared_ptr<string> errorCode_ {};
+          // error message
           shared_ptr<string> errorMessage_ {};
+          // Event
           shared_ptr<string> event_ {};
+          // Unique conversation ID.
           shared_ptr<string> sessionId_ {};
+          // Unique multi-turn conversation ID.
           shared_ptr<string> taskId_ {};
         };
 
@@ -313,7 +324,9 @@ namespace Models
 
 
       protected:
+        // Audit response header
         shared_ptr<Response::Header> header_ {};
+        // response body
         shared_ptr<Response::Payload> payload_ {};
       };
 
@@ -372,12 +385,19 @@ namespace Models
 
 
     protected:
+      // Audit time.
       shared_ptr<string> auditTime_ {};
+      // Original text at the time of audit.
       shared_ptr<string> content_ {};
+      // Formatted content at the time of audit.
       shared_ptr<string> htmlContent_ {};
+      // Audit results.
       shared_ptr<Data::Response> response_ {};
+      // Task execution status: PENDING: pending, RUNNING: running, SUCCESSED: successful, SUSPENDED: paused, FAILED: failed, CANCELLED: canceled
       shared_ptr<string> status_ {};
+      // Task execution status: 0: pending, 1: running, 2: successful, 3: paused, 4: failed, 6: canceled
       shared_ptr<int32_t> taskStatus_ {};
+      // Content title
       shared_ptr<string> title_ {};
     };
 
@@ -428,12 +448,17 @@ namespace Models
 
 
   protected:
+    // error code
     shared_ptr<string> code_ {};
+    // Asynchronous task object
     shared_ptr<QueryAuditTaskResponseBody::Data> data_ {};
+    // HTTP error code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // error message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

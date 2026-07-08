@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // status code
     shared_ptr<string> code_ {};
+    // Deletion result. If deletion is successful, "SUCCESSED" is returned.
     shared_ptr<string> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error description
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether this request was successful.
     shared_ptr<bool> success_ {};
   };
 

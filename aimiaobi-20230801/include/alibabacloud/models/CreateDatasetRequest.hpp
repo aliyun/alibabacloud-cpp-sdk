@@ -74,6 +74,11 @@ namespace Models
 
 
     protected:
+      // Disables the processing logic for multimedia files.
+      // 
+      // - true: Disables multimodal (image and video) indexing. Only text is indexed and searched.
+      // 
+      // - false: Enables multimodal (text, image, and video) indexing. This setting takes effect only after you activate ApsaraVideo and grant authorization in system administration. If you set this to false but authorization is not granted, image and video indexing is automatically skipped. This is the default value.
       shared_ptr<bool> disableHandleMultimodalMedia_ {};
     };
 
@@ -239,8 +244,11 @@ namespace Models
 
 
               protected:
+                // The node key.
                 shared_ptr<string> key_ {};
+                // The node path.
                 shared_ptr<string> path_ {};
+                // The type.
                 shared_ptr<string> type_ {};
               };
 
@@ -277,9 +285,13 @@ namespace Models
 
 
             protected:
+              // Child node configuration.
               shared_ptr<vector<JqNodesItem::JqNodes>> jqNodes_ {};
+              // The node key.
               shared_ptr<string> key_ {};
+              // The path.
               shared_ptr<string> path_ {};
+              // The type.
               shared_ptr<string> type_ {};
             };
 
@@ -316,9 +328,13 @@ namespace Models
 
 
           protected:
+            // Child node configuration.
             shared_ptr<vector<JqNodes::JqNodesItem>> jqNodes_ {};
+            // The node key.
             shared_ptr<string> key_ {};
+            // The node path.
             shared_ptr<string> path_ {};
+            // The data type of the node. Valid values: string, number, list, object, and base.
             shared_ptr<string> type_ {};
           };
 
@@ -333,6 +349,7 @@ namespace Models
 
 
         protected:
+          // Node configuration.
           shared_ptr<vector<SearchSourceResponseConfig::JqNodes>> jqNodes_ {};
         };
 
@@ -425,9 +442,13 @@ namespace Models
 
 
           protected:
+            // The parameter name.
             shared_ptr<string> name_ {};
+            // The parameter value.
             shared_ptr<string> value_ {};
+            // This parameter is valid only when ValueType is set to time.
             shared_ptr<string> valueFormat_ {};
+            // The data type of the parameter value. The default value is string.
             shared_ptr<string> valueType_ {};
           };
 
@@ -487,9 +508,13 @@ namespace Models
 
 
           protected:
+            // The parameter name.
             shared_ptr<string> name_ {};
+            // The parameter value.
             shared_ptr<string> value_ {};
+            // This parameter is valid only when ValueType is set to time.
             shared_ptr<string> valueFormat_ {};
+            // The data type of the parameter value. The default value is string.
             shared_ptr<string> valueType_ {};
           };
 
@@ -557,13 +582,21 @@ namespace Models
 
 
         protected:
+          // The request body.
           shared_ptr<string> body_ {};
+          // The connection timeout period, in milliseconds.
           shared_ptr<int32_t> connectTimeout_ {};
+          // The HTTP request headers.
           shared_ptr<vector<SearchSourceRequestConfig::Headers>> headers_ {};
+          // The request method.
           shared_ptr<string> method_ {};
+          // The request path parameters.
           shared_ptr<vector<SearchSourceRequestConfig::Params>> params_ {};
+          // Specifies whether to enable path parameters.
           shared_ptr<bool> pathParamsEnable_ {};
+          // The read timeout period, in milliseconds.
           shared_ptr<int32_t> socketTimeout_ {};
+          // The API URL.
           shared_ptr<string> url_ {};
         };
 
@@ -602,9 +635,13 @@ namespace Models
 
 
       protected:
+        // A searchable keyword used to verify availability.
         shared_ptr<string> demoQuery_ {};
+        // API request configuration.
         shared_ptr<SearchSourceConfigs::SearchSourceRequestConfig> searchSourceRequestConfig_ {};
+        // API response configuration.
         shared_ptr<SearchSourceConfigs::SearchSourceResponseConfig> searchSourceResponseConfig_ {};
+        // The default limit on the number of data entries for requests and responses.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -664,9 +701,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether the metadata key-value pairs are used in generation. The default value is true.
         shared_ptr<bool> metadataKeyValueGenerateEnable_ {};
+        // Specifies whether the metadata key-value pairs are used in searches. The default value is true.
         shared_ptr<bool> metadataKeyValueSearchEnable_ {};
+        // Specifies whether tags are used in generation. The default value is true.
         shared_ptr<bool> tagGenerateEnable_ {};
+        // Specifies whether tags are used in searches. The default value is true.
         shared_ptr<bool> tagSearchEnable_ {};
       };
 
@@ -691,7 +732,9 @@ namespace Models
 
 
     protected:
+      // Dataset configuration items.
       shared_ptr<DatasetConfig::SearchSourceConfig> searchSourceConfig_ {};
+      // Third-party search: API definition.
       shared_ptr<vector<DatasetConfig::SearchSourceConfigs>> searchSourceConfigs_ {};
     };
 
@@ -767,14 +810,40 @@ namespace Models
 
   protected:
     shared_ptr<string> accessLevel_ {};
+    // The dataset search configuration.
     shared_ptr<CreateDatasetRequest::DatasetConfig> datasetConfig_ {};
+    // The description of the dataset. This is the display name in the console. Use a human-readable name.
     shared_ptr<string> datasetDescription_ {};
+    // The name of the dataset. The name must be globally unique.
+    // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
+    // The type of the dataset. Valid values:
+    // 
+    // - CustomSemanticSearch: A custom semantic index. This is the default value. Upload documents to build the dataset.
+    // 
+    // - ThirdSearch: A third-party search source (API). Configure your own search API.
     shared_ptr<string> datasetType_ {};
+    // Dataset index configuration.
     shared_ptr<CreateDatasetRequest::DocumentHandleConfig> documentHandleConfig_ {};
+    // The invocation method. Currently, only portal is supported, which indicates an invocation from the console.
+    // 
+    // - If left empty: When DatasetType is ThirdSearch, datasetConfig.SearchSourceConfigs (third-party API definition) is required.
+    // 
+    // - If set to portal: When DatasetType is ThirdSearch, the system initializes a SearchSourceConfigs (third-party API demo) example by default for your reference.
     shared_ptr<string> invokeType_ {};
+    // The dataset search switch. Valid values:
+    // 
+    // - 0: Disabled for all.
+    // 
+    // - 1: Visible only to Miao Search.
+    // 
+    // - 2: Visible only to Miao Bi.
+    // 
+    // - 3: Visible to both Miao Search and Miao Bi. This is the default value.
     shared_ptr<int32_t> searchDatasetEnable_ {};
+    // The unique ID of the Alibaba Cloud Model Studio workspace. For more information, see [Obtain a workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

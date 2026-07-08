@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The list of resources.
       shared_ptr<vector<string>> resourceList_ {};
+      // The resource type.
       shared_ptr<int32_t> resourceType_ {};
     };
 
@@ -131,12 +133,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetClipsBuildInResourceResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true means the request was successful. A value of false means the request failed.
     shared_ptr<bool> success_ {};
   };
 

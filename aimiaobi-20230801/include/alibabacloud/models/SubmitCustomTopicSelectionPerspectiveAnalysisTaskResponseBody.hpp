@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The unique ID of the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The business data.
     shared_ptr<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error description.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

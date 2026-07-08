@@ -125,10 +125,15 @@ namespace Models
 
 
       protected:
+        // The information about the task.
         shared_ptr<string> msg_ {};
+        // The completion percentage.
         shared_ptr<int32_t> percentage_ {};
+        // The status of the task.
         shared_ptr<int32_t> status_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
+        // The name of the task.
         shared_ptr<string> taskName_ {};
       };
 
@@ -152,6 +157,7 @@ namespace Models
 
     protected:
       shared_ptr<int32_t> code_ {};
+      // The status information of the task.
       shared_ptr<Data::Status> status_ {};
     };
 
@@ -202,11 +208,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetInterveneImportTaskInfoResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of \\`true\\` indicates success, and a value of \\`false\\` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

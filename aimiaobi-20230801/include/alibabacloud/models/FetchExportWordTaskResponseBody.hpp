@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The file URL.
       shared_ptr<string> fileUrl_ {};
+      // The status of the task.
       shared_ptr<string> taskStats_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<FetchExportWordTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. \\`true\\`: successful. \\`false\\`: failed.
     shared_ptr<bool> success_ {};
   };
 

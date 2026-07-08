@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The resource type.
     shared_ptr<int32_t> resourceType_ {};
+    // The ID of the Alibaba Cloud Model Studio workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

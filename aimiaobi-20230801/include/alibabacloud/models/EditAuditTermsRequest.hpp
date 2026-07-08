@@ -87,11 +87,18 @@ namespace Models
 
 
   protected:
+    // Exception statements
     shared_ptr<vector<string>> exceptionWord_ {};
+    // Primary key ID
     shared_ptr<string> id_ {};
+    // Keyword
     shared_ptr<string> keyword_ {};
+    // Suggested word
     shared_ptr<string> suggestWord_ {};
+    // Audit rationale
     shared_ptr<string> termsDesc_ {};
+    // The unique identifier of your Alibaba Cloud Model Studio workspace. Get your [workspace ID](https://help.aliyun.com/document_detail/2782167.html).
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

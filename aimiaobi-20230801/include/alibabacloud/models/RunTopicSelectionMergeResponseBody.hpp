@@ -116,9 +116,13 @@ namespace Models
 
 
       protected:
+        // Number of input tokens
         shared_ptr<int64_t> inputTokens_ {};
+        // Number of output tokens used
         shared_ptr<int64_t> outputTokens_ {};
+        // Detailed token consumption
         shared_ptr<map<string, int64_t>> tokenMap_ {};
+        // Total number of tokens used in this call
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -162,7 +166,9 @@ namespace Models
 
 
       protected:
+        // Text generation result
         shared_ptr<string> text_ {};
+        // Merged topic selection object
         shared_ptr<TopicSelection> topic_ {};
       };
 
@@ -187,7 +193,9 @@ namespace Models
 
 
     protected:
+      // Output
       shared_ptr<Payload::Output> output_ {};
+      // Token usage
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -284,13 +292,21 @@ namespace Models
 
 
     protected:
+      // Error code
       shared_ptr<string> errorCode_ {};
+      // Error message
       shared_ptr<string> errorMessage_ {};
+      // SSE event. Values: task-started, task-finished, or task-failed
       shared_ptr<string> event_ {};
+      // Parent session ID
       shared_ptr<string> originSessionId_ {};
+      // Session ID
       shared_ptr<string> sessionId_ {};
+      // HTTP status code
       shared_ptr<int32_t> statusCode_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // End-to-end trace ID
       shared_ptr<string> traceId_ {};
     };
 
@@ -329,9 +345,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether the response packet is complete
     shared_ptr<bool> end_ {};
+    // Response header
     shared_ptr<RunTopicSelectionMergeResponseBody::Header> header_ {};
+    // Response body
     shared_ptr<RunTopicSelectionMergeResponseBody::Payload> payload_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

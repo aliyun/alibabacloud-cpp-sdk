@@ -110,11 +110,11 @@ namespace Models
 
 
       protected:
-        // 输入内容消耗的Token数量
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
-        // 生成内容消耗的Token数量
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
-        // 输入和输出Token的总和
+        // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -158,9 +158,9 @@ namespace Models
 
 
       protected:
-        // AI生成的文章内容，流式返回时为增量文本
+        // The generated text.
         shared_ptr<string> text_ {};
-        // 返回的写作参数键值对
+        // The writing parameters for the AI-assisted writing.
         shared_ptr<map<string, string>> writingParams_ {};
       };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
     protected:
-      // AI生成的写作内容
+      // The output content.
       shared_ptr<Payload::Output> output_ {};
-      // 本次请求的Token消耗统计
+      // The token usage.
       shared_ptr<Payload::Usage> usage_ {};
     };
 
@@ -275,19 +275,19 @@ namespace Models
 
 
     protected:
-      // 请求错误时的错误码
+      // The error code.
       shared_ptr<string> errorCode_ {};
-      // 请求错误时的详细错误信息
+      // The error message.
       shared_ptr<string> errorMessage_ {};
-      // SSE事件类型，如：result-generated(生成结果)、task-finished(任务完成)
+      // The event type.
       shared_ptr<string> event_ {};
-      // 当前写作会话的唯一标识
+      // The session ID.
       shared_ptr<string> sessionId_ {};
-      // HTTP状态码
+      // The status code.
       shared_ptr<int32_t> statusCode_ {};
-      // 写作任务的唯一标识
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // 用于问题排查的链路追踪标识
+      // Trace ID
       shared_ptr<string> traceId_ {};
     };
 
@@ -348,19 +348,19 @@ namespace Models
 
 
   protected:
-    // 业务处理结果状态码
+    // The business status code.
     shared_ptr<string> code_ {};
-    // 流式响应的头部信息，包含事件类型、状态码等元数据
+    // The Server-Sent Events (SSE) response header.
     shared_ptr<RunAiHelperWritingResponseBody::Header> header_ {};
-    // HTTP响应状态码
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // 业务处理结果描述信息
+    // The returned message.
     shared_ptr<string> message_ {};
-    // 包含写作输出内容和Token使用量统计
+    // The response payload.
     shared_ptr<RunAiHelperWritingResponseBody::Payload> payload_ {};
-    // 本次API请求的唯一标识
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 请求是否处理成功
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 
