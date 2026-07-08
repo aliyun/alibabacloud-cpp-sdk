@@ -4326,6 +4326,23 @@ namespace Cloudfw20171207
       Models::DescribeVpcFirewallTrafficAssetListResponse describeVpcFirewallTrafficAssetList(const Models::DescribeVpcFirewallTrafficAssetListRequest &request);
 
       /**
+       * @summary Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+       *
+       * @param request DescribeVpcFirewallTrafficTrendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVpcFirewallTrafficTrendResponse
+       */
+      Models::DescribeVpcFirewallTrafficTrendResponse describeVpcFirewallTrafficTrendWithOptions(const Models::DescribeVpcFirewallTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+       *
+       * @param request DescribeVpcFirewallTrafficTrendRequest
+       * @return DescribeVpcFirewallTrafficTrendResponse
+       */
+      Models::DescribeVpcFirewallTrafficTrendResponse describeVpcFirewallTrafficTrend(const Models::DescribeVpcFirewallTrafficTrendRequest &request);
+
+      /**
        * @summary Describes the available zones for a VPC firewall.
        *
        * @param request DescribeVpcFirewallZoneRequest

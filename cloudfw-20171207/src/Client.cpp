@@ -14000,6 +14000,72 @@ DescribeVpcFirewallTrafficAssetListResponse Client::describeVpcFirewallTrafficAs
 }
 
 /**
+ * @summary Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+ *
+ * @param request DescribeVpcFirewallTrafficTrendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallTrafficTrendResponse
+ */
+DescribeVpcFirewallTrafficTrendResponse Client::describeVpcFirewallTrafficTrendWithOptions(const DescribeVpcFirewallTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPeerVpcId()) {
+    query["PeerVpcId"] = request.getPeerVpcId();
+  }
+
+  if (!!request.hasPrivateIP()) {
+    query["PrivateIP"] = request.getPrivateIP();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallTrafficTrend"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallTrafficTrendResponse>();
+}
+
+/**
+ * @summary Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+ *
+ * @param request DescribeVpcFirewallTrafficTrendRequest
+ * @return DescribeVpcFirewallTrafficTrendResponse
+ */
+DescribeVpcFirewallTrafficTrendResponse Client::describeVpcFirewallTrafficTrend(const DescribeVpcFirewallTrafficTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallTrafficTrendWithOptions(request, runtime);
+}
+
+/**
  * @summary Describes the available zones for a VPC firewall.
  *
  * @param request DescribeVpcFirewallZoneRequest
