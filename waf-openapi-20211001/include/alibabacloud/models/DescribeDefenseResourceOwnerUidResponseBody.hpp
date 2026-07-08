@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The owner account ID of the protected object.
       shared_ptr<string> ownerUserId_ {};
+      // The name of the protected object.
       shared_ptr<string> resourceName_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The owner account information of the protected objects.
     shared_ptr<vector<DescribeDefenseResourceOwnerUidResponseBody::OwnerInfos>> ownerInfos_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

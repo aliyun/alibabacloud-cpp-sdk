@@ -107,7 +107,7 @@ namespace Models
 
 
       protected:
-        // The type of the sensitive data.
+        // The type of sensitive data.
         shared_ptr<string> code_ {};
         // The number of sensitive data entries.
         shared_ptr<int64_t> count_ {};
@@ -184,26 +184,25 @@ namespace Models
 
 
     protected:
-      // The number of risks in the previous 30 days.
+      // The number of risks in the last 30 days.
       shared_ptr<int64_t> abnormalCount_ {};
-      // The API.
+      // The API operation.
       shared_ptr<string> apiFormat_ {};
       // The ID of the API.
       shared_ptr<string> apiId_ {};
       // The IP address.
       shared_ptr<string> clientIP_ {};
-      // The evaluation result. Valid values:
-      // 
-      // *   **leak**: Data leaks may occur.
-      // *   **none**: No data leak can occur.
+      // The assessment result. Valid values:
+      // - **leak**: a leak risk exists.
+      // - **none**: no leak risk exists.
       shared_ptr<string> detectionResult_ {};
-      // The number of events in the previous 30 days.
+      // The number of events in the last 30 days.
       shared_ptr<int64_t> eventCount_ {};
-      // The statistics of the sensitive data.
+      // The list of sensitive data statistics.
       shared_ptr<vector<Data::InfoCount>> infoCount_ {};
-      // The domain name of the API.
+      // The domain name to which the API operation belongs.
       shared_ptr<string> matchedHost_ {};
-      // The sensitive data.
+      // The list of sensitive data.
       shared_ptr<vector<string>> sensitiveList_ {};
     };
 
@@ -233,7 +232,7 @@ namespace Models
 
 
   protected:
-    // The tracing results of the data.
+    // The list of data tracing results.
     shared_ptr<vector<DescribeSensitiveRequestsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

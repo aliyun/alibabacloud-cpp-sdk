@@ -103,11 +103,11 @@ namespace Models
       shared_ptr<int64_t> apiCount_ {};
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The number of high-risk security events.
+      // The number of high-risk events.
       shared_ptr<int64_t> high_ {};
-      // The number of low-risk security events.
+      // The number of low-risk events.
       shared_ptr<int64_t> low_ {};
-      // The number of medium-risk security events.
+      // The number of medium-risk events.
       shared_ptr<int64_t> medium_ {};
     };
 
@@ -137,9 +137,9 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<vector<DescribeApisecEventDomainStatisticResponseBody::Data>> data_ {};
-    // Id of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

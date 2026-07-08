@@ -107,24 +107,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> clusterId_ {};
-    // The host name.
+    // The hostname of the server that you want to query.
     shared_ptr<string> hostName_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address of the server.
+    // The IP address of the server that you want to query.
     shared_ptr<string> ip_ {};
-    // The page number. Default value: **1**.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries to return on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

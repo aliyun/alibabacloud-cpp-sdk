@@ -75,13 +75,27 @@ namespace Models
 
 
   protected:
+    // The name of the configuration item that you want to query. For more information, see the **ConfigKey** parameter in [ModifyDefenseSceneConfig](https://help.aliyun.com/document_detail/2968435.html).
+    // 
     // This parameter is required.
     shared_ptr<string> configKey_ {};
+    // The defense scenario whose configuration you want to query. For more information, see the **DefenseScene** parameter in [ModifyDefenseSceneConfig](https://help.aliyun.com/document_detail/2968435.html).
+    // 
     // This parameter is required.
     shared_ptr<string> defenseScene_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region of the WAF instance. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

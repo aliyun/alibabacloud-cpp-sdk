@@ -75,13 +75,32 @@ namespace Models
 
 
   protected:
+    // The ID of the security event.
+    // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
+    // The ID of the WAF instance.
+    // 
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The statistical metric. Different values of Metric correspond to different statistical objects. Valid values:
+    // - **time**: aggregates statistics by attack time, sorts them in descending order, and returns the top 5 records.
+    // - **src**: aggregates statistics by source IP address of attack requests, sorts them in descending order, and returns the top 5 records.
+    // - **target**: aggregates statistics by URL of attack requests (excluding query strings), sorts them in descending order, and returns the top 5 records.
+    // - **type**: aggregates statistics by attack type, sorts them in descending order, and returns the top 5 records.
+    // - **tools**: aggregates statistics by attack tool, sorts them in descending order, and returns the top 5 records.
+    // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
+    // The region where the WAF instance is deployed. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

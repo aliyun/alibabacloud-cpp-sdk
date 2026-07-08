@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The information about the regions.
+    // The regions.
     shared_ptr<vector<DescribeHybridCloudServerRegionsResponseBody::Regions>> regions_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

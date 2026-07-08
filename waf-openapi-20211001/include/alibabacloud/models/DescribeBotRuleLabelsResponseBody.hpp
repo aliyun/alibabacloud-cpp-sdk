@@ -94,9 +94,23 @@ namespace Models
 
 
     protected:
+      // The bot behavior that corresponds to the rule label. Valid values:
+      // 
+      // - **malicious**: malicious bot.
+      // 
+      // - **suspicious**: suspected bot.
+      // 
+      // - **normal**: normal bot.
       shared_ptr<string> botBehavior_ {};
+      // The key of the bot management rule label.
       shared_ptr<string> labelKey_ {};
+      // The type of the bot rule label.
       shared_ptr<string> labelType_ {};
+      // The bot management scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
+      // 
+      // - **web**: web protection.
+      // 
+      // - **app**: app protection.
       shared_ptr<string> subScene_ {};
     };
 
@@ -140,10 +154,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per page. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. This parameter is returned if a next page exists.
+    // 
+    // > If a value is returned for this parameter, it indicates that more results are available. Use the returned **NextToken** value in the next request to retrieve the next page of results. Repeat this process until no value is returned for this parameter. This indicates that all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of bot management rule labels.
     shared_ptr<vector<DescribeBotRuleLabelsResponseBody::RuleLabels>> ruleLabels_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

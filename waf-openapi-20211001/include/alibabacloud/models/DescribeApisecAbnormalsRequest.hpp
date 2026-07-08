@@ -204,76 +204,72 @@ namespace Models
 
 
   protected:
-    // The ID of the risk.
+    // The risk ID.
     shared_ptr<string> abnormalId_ {};
-    // The level of the risk. Valid values:
-    // 
-    // * **high**
-    // * **medium**
-    // * **low**
+    // The risk level. Valid values:
+    // - **high**: high risk.
+    // - **medium**: medium risk.
+    // - **low**: low risk.
     shared_ptr<string> abnormalLevel_ {};
-    // The type of the risk.
-    // 
-    // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
+    // The risk type.
+    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported risk types.
     shared_ptr<string> abnormalTag_ {};
-    // The risk-related API.
+    // The API operation associated with the risk.
     shared_ptr<string> apiFormat_ {};
-    // The ID of the risk-related API.
+    // The ID of the API associated with the risk.
     shared_ptr<string> apiId_ {};
     // The business purpose of the API.
-    // 
-    // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
+    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
     shared_ptr<string> apiTag_ {};
     // The ID of the hybrid cloud cluster.
-    // 
-    // >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
     shared_ptr<string> endTime_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The domain name or IP address of the API.
+    // The domain name or IP address to which the API operation belongs.
     shared_ptr<string> matchedHost_ {};
-    // The name of the sorting field. Valid values:
-    // 
-    // *   **discoverTime** (default): indicates the time when a risk was first detected.
-    // *   **abnormalLevel**: indicates the level of a risk.
-    // *   **latestDiscoverTime**: indicates the time when a risk was last detected.
+    // The name of the field used for sorting. Valid values:
+    // - **discoverTime**: the time when the risk was first detected. This is the default value.
+    // - **abnormalLevel**: the risk level.
+    // - **latestDiscoverTime**: the time when the risk was most recently detected.
     shared_ptr<string> orderKey_ {};
-    // The sorting method. Valid values:
-    // 
-    // * **desc (default)**: in descending order
-    // * **asc**: in ascending order
+    // The sort order. Valid values:
+    // - **desc**: descending order. This is the default value.
+    // - **asc**: ascending order.
     shared_ptr<string> orderWay_ {};
     // The source of the risk type. Valid values:
-    // 
-    // * **custom**
-    // * **default**
+    // - **custom**: custom.
+    // - **default**: built-in.
     shared_ptr<string> origin_ {};
-    // The page number. Default value: **1**.
+    // The page number to return in a paging query. Default value: **1**, which indicates the first page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries per page in a paging query. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
     shared_ptr<string> startTime_ {};
-    // The status of the risk. Valid values:
-    // 
-    // * **toBeConfirmed**
-    // * **confirmed**
-    // * **toBeFixed**
-    // * **fixed**
-    // * **ignored**
+    // The risk status. Valid values:
+    // - **toBeConfirmed**: to be confirmed.
+    // - **confirmed**: confirmed.
+    // - **toBeFixed**: to be fixed.
+    // - **fixed**: fixed (manually verified).
+    // - **ignored**: ignored.
+    // - **toBeVerified**: to be verified by the system.
+    // - **notFixed**: not fixed after verification.
+    // - **systemFixed**: fixed (verified by the system).
     shared_ptr<string> userStatus_ {};
   };
 

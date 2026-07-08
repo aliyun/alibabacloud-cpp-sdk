@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The value of the configuration item. For more information, see the **ConfigValue** parameter in [ModifyDefenseSceneConfig](https://help.aliyun.com/document_detail/2968435.html).
     shared_ptr<string> configValue_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

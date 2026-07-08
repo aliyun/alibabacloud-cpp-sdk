@@ -72,12 +72,12 @@ namespace Models
 
 
     protected:
-      // The type of the tag. Valid values:
+      // The tag type. Valid values:
       // 
-      // *   custom
-      // *   system
+      // - custom: custom tag.
+      // - system: system tag.
       shared_ptr<string> category_ {};
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
     };
 
@@ -107,11 +107,11 @@ namespace Models
 
 
   protected:
-    // The keys and types of the tags.
+    // The list of tag keys and types.
     shared_ptr<vector<ListTagKeysResponseBody::Keys>> keys_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to start the next query. If this parameter is empty, no more results are returned.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

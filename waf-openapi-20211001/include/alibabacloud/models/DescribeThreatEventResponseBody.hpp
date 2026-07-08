@@ -118,12 +118,53 @@ namespace Models
 
 
     protected:
+      // The percentage of attack requests that were blocked by WAF.
       shared_ptr<string> blockRate_ {};
+      // The time when the last attack occurred. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
+      // The ID of the security event.
       shared_ptr<string> eventId_ {};
+      // The severity level of the security event. Valid values:
+      // 
+      // - **critical**
+      // 
+      // - **high**
+      // 
+      // - **medium**
+      // 
+      // - **low**
       shared_ptr<string> eventLevel_ {};
+      // The source IP address of the attack.
+      // 
+      // > A security event may have multiple source IP addresses. This operation returns only one of them.
       shared_ptr<string> eventSrc_ {};
+      // The type of the security event. Valid values:
+      // 
+      // - **MultipleDomainDirscan**: a directory and file scan against multiple domain names.
+      // 
+      // - **SingleDomainDirscan**: a directory and file scan against a single domain name.
+      // 
+      // - **MultipleDomainWebscan**: a web vulnerability scan against multiple domain names.
+      // 
+      // - **SingleDomainWebscan**: a web vulnerability scan against a single domain name.
+      // 
+      // - **MultipleDomainWebattack**: a web vulnerability attack against multiple domain names.
+      // 
+      // - **SingleDomainWebattack**: a web vulnerability attack against a single domain name.
+      // 
+      // - **SingleURLWebattack**: a web vulnerability attack against a specific URL.
+      // 
+      // - **SingleURLSqlattack**: an SQL injection attack against a specific URL.
+      // 
+      // - **SingleURLXssattack**: an XSS attack against a specific URL.
+      // 
+      // - **WebshellUpload**: an attack that attempts to upload backdoor trojans.
+      // 
+      // - **RandomVulnTest**: a random web vulnerability probe.
       shared_ptr<string> eventTag_ {};
+      // The protected object that is the target of the attack.
+      // 
+      // > A security event may have multiple protected objects as targets. This operation returns only one of them.
       shared_ptr<string> eventTarget_ {};
     };
 
@@ -153,8 +194,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of notable security events.
     shared_ptr<vector<DescribeThreatEventResponseBody::ThreatEvents>> threatEvents_ {};
+    // The total number of security events that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

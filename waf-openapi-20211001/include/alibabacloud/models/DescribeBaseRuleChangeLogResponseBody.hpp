@@ -99,10 +99,19 @@ namespace Models
 
 
     protected:
+      // The CVE ID of the vulnerability associated with the system rule.
       shared_ptr<string> cveId_ {};
+      // The type of change. Valid values:
+      // 
+      // - **add**: The rule was added.
+      // 
+      // - **modify**: The rule was modified.
       shared_ptr<string> operation_ {};
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
+      // The time when the rule was updated, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -132,8 +141,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of rule change records.
     shared_ptr<vector<DescribeBaseRuleChangeLogResponseBody::Rules>> rules_ {};
+    // The total number of rule change records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

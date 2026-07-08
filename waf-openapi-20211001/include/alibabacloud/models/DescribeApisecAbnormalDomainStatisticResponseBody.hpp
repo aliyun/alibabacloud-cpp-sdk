@@ -103,11 +103,11 @@ namespace Models
       shared_ptr<int64_t> apiCount_ {};
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The number of high-level risks.
+      // The number of high-risk vulnerabilities.
       shared_ptr<int64_t> high_ {};
-      // The number of low-level risks.
+      // The number of low-risk vulnerabilities.
       shared_ptr<int64_t> low_ {};
-      // The number of medium-level risks.
+      // The number of medium-risk vulnerabilities.
       shared_ptr<int64_t> medium_ {};
     };
 
@@ -137,11 +137,11 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The data list.
     shared_ptr<vector<DescribeApisecAbnormalDomainStatisticResponseBody::Data>> data_ {};
-    // Id of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -96,30 +96,29 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The status of the compliance check feature. Valid values:
-    // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // The compliance review status. Valid values: 
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<int64_t> reportStatus_ {};
-    // The name of the protected object group to which the protected object belongs.
+    // The name of the protected object group to which the protected object is added.
     shared_ptr<string> resourceGroups_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The name of the protected object.
     shared_ptr<string> resources_ {};
-    // The status of the tracing and auditing feature. Valid values:
-    // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // The tracing audit status. Valid values: 
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<int32_t> traceStatus_ {};
   };
 

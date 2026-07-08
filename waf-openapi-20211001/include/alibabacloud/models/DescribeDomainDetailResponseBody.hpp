@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The domain name of your website.
+      // The common name (CN).
       shared_ptr<string> commonName_ {};
-      // The end of the validity period of the SSL certificate. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The ID of the SSL certificate.
+      // The SSL certificate ID.
       shared_ptr<string> id_ {};
-      // The name of the SSL certificate.
+      // The certificate name.
       shared_ptr<string> name_ {};
-      // All domain names that are bound to the certificate.
+      // All domain names bound to the certificate.
       shared_ptr<vector<string>> sans_ {};
-      // The beginning of the validity period of the SSL certificate. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The effective period of the certificate. The value is in the format of a UNIX timestamp (UTC). Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -245,9 +245,9 @@ namespace Models
 
 
       protected:
-        // The custom header field.
+        // The custom request header field.
         shared_ptr<string> key_ {};
-        // The value of the custom header field.
+        // The value of the custom request header field.
         shared_ptr<string> value_ {};
       };
 
@@ -279,7 +279,7 @@ namespace Models
 
 
       protected:
-        // The back-to-origin IP address or domain name.
+        // The IP address or domain name of the secondary origin server for the domain name.
         shared_ptr<string> backend_ {};
       };
 
@@ -311,7 +311,7 @@ namespace Models
 
 
       protected:
-        // The IP address or domain name of the origin server.
+        // The IP address or domain name of the origin server for the domain name.
         shared_ptr<string> backend_ {};
       };
 
@@ -362,8 +362,13 @@ namespace Models
 
 
       protected:
+        // The back-to-origin port.
         shared_ptr<int32_t> backendPort_ {};
+        // The listening port.
         shared_ptr<int32_t> listenPort_ {};
+        // The protocol type of the listening port. Valid values:
+        // - **http**: HTTP protocol.
+        // - **https**: HTTPS protocol.
         shared_ptr<string> protocol_ {};
       };
 
@@ -568,69 +573,113 @@ namespace Models
 
 
     protected:
+      // The list of secondary origin server IP addresses or back-to-origin domain names for the domain name.
       shared_ptr<vector<string>> backUpBackendList_ {};
+      // The list of origin server IP addresses or back-to-origin domain names for the domain name.
       shared_ptr<vector<string>> backendList_ {};
+      // The custom port configuration. By default, this is the same as the listening port.
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
-      // An array of addresses of origin servers.
+      // The back-to-origin addresses of the domain name.
+      // 
+      // > This parameter will be deprecated. Use **BackendList** instead.
       shared_ptr<vector<Redirect::Backends>> backends_ {};
-      // An array of HTTPS listener ports.
+      // The secondary back-to-origin addresses of the domain name.
+      // 
+      // > This parameter will be deprecated. Use **BackUpBackendList** instead.
       shared_ptr<vector<Redirect::BackupBackends>> backupBackends_ {};
-      // The timeout period of the connection. Unit: seconds. Valid values: 5 to 120.
+      // The connection timeout period. Unit: seconds.
+      // Valid values: 5 to 120.
       shared_ptr<int32_t> connectTimeout_ {};
-      // Indicates whether HTTPS to HTTP redirection is enabled for back-to-origin requests of the domain name. Valid values:
+      // Indicates whether forced HTTP back-to-origin is enabled. Valid values:
       // 
-      // *   **true:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is enabled.
-      // *   **false:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is disabled.
+      // - **true**: Forced HTTP back-to-origin is enabled.
+      // 
+      // - **false**: Forced HTTP back-to-origin is not enabled.
       shared_ptr<bool> focusHttpBackend_ {};
+      // The HTTP/2 back-to-origin setting.
       shared_ptr<bool> http2Origin_ {};
+      // The maximum number of concurrent connections for HTTP/2 back-to-origin.
       shared_ptr<int32_t> http2OriginMaxConcurrency_ {};
-      // Indicates whether the persistent connection feature is enabled. Valid values:
+      // Indicates whether persistent connections are enabled. Valid values:
       // 
-      // *   **true:** The persistent connection feature is enabled. This is the default value.
-      // *   **false:** The persistent connection feature is disabled.
+      // - **true** (default): Persistent connections are enabled.
+      // 
+      // - **false**: Persistent connections are not enabled.
       shared_ptr<bool> keepalive_ {};
-      // The number of reused persistent connections. Valid values: 60 to 1000.
+      // The number of requests that can reuse a persistent connection. Valid values: 60 to 1000.
       // 
-      // >  This parameter specifies the number of reused persistent connections when you enable the persistent connection feature.
+      // > After persistent connections are enabled, this parameter specifies how many persistent connections can be reused.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The timeout period of persistent connections that are in the Idle state. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+      // The idle timeout period for persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
       // 
-      // >  This parameter specifies the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
+      // > Specifies how long an idle persistent connection can remain open before it is released.
       shared_ptr<int32_t> keepaliveTimeout_ {};
-      // The load balancing algorithm that is used when WAF forwards requests to the origin server. Valid values:
+      // The load balancing algorithm used for back-to-origin. Valid values:
       // 
-      // *   **ip_hash:** the IP hash algorithm.
-      // *   **roundRobin:** the round-robin algorithm.
-      // *   **leastTime:** the least response time algorithm.
+      // - **iphash**: IP hash algorithm.
+      // 
+      // - **roundRobin**: round-robin algorithm.
+      // 
+      // - **leastTime**: least-time back-to-origin algorithm.
       shared_ptr<string> loadbalance_ {};
+      // The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
+      // > Only Ultimate Edition supports this feature.
       shared_ptr<int32_t> maxBodySize_ {};
+      // Indicates whether the client source IP preservation feature is enabled.
+      // - **true**: The client source IP preservation feature is enabled. After this feature is enabled, the backend service can view the originating IP address of the client.
+      // - **false**: The client source IP preservation feature is not enabled.
       shared_ptr<bool> proxyProtocol_ {};
-      // The read timeout period. Unit: seconds. Valid values: 5 to 1800.
+      // The read timeout period. Unit: seconds.
+      // Valid values: 5 to 1800.
       shared_ptr<int32_t> readTimeout_ {};
-      // An array of key-value pairs that are used to mark the requests that pass through the WAF instance.
+      // The traffic tag fields and values of the domain name, which are used to mark traffic processed by WAF.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
-      // Indicates whether WAF retries when requests fail to be forwarded to the origin server. Valid values:
+      // Indicates whether WAF retries when back-to-origin fails. Valid values:
       // 
-      // *   **true:** WAF retries. This is the default value.
-      // *   **false:** WAF does not retry.
+      // - **true** (default): WAF retries.
+      // 
+      // - **false**: WAF does not retry.
       shared_ptr<bool> retry_ {};
-      // Indicates whether origin Server Name Indication (SNI) is enabled. Valid values:
+      // Indicates whether back-to-origin SNI is enabled. Valid values:
       // 
-      // *   **true:** Origin SNI is enabled.
-      // *   **false:** Origin SNI is disabled. This is the default value.
+      // - **true**: Back-to-origin SNI is enabled.
+      // 
+      // - **false** (default): Back-to-origin SNI is not enabled.
       shared_ptr<bool> sniEnabled_ {};
-      // The value of the custom SNI field.
+      // The value of the custom SNI extension field.
       shared_ptr<string> sniHost_ {};
-      shared_ptr<bool> WLProxyClientIp_ {};
-      shared_ptr<bool> webServerType_ {};
-      // The write timeout period. Unit: seconds. Valid values: 5 to 1800.
-      shared_ptr<int32_t> writeTimeout_ {};
-      shared_ptr<bool> XClientIp_ {};
-      shared_ptr<bool> XTrueIp_ {};
-      // Indicates whether the X-Forward-For-Proto header is used to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+      // Indicates whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
       // 
-      // *   **true** (default)
-      // *   **false**
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> WLProxyClientIp_ {};
+      // Indicates whether WAF is allowed to overwrite the Web-Server-Type header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> webServerType_ {};
+      // The write timeout period. Unit: seconds.
+      // Valid values: 5 to 1800.
+      shared_ptr<int32_t> writeTimeout_ {};
+      // Indicates whether WAF is allowed to overwrite the X-Client-IP header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> XClientIp_ {};
+      // Indicates whether WAF is allowed to overwrite the X-True-IP header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
+      shared_ptr<bool> XTrueIp_ {};
+      // Indicates whether the X-Forward-For-Proto header is used to pass the protocol used by WAF. Valid values:
+      // 
+      // - **true** (default): The protocol used by WAF is passed.
+      // 
+      // - **false**: The protocol used by WAF is not passed.
       shared_ptr<bool> xffProto_ {};
     };
 
@@ -845,78 +894,101 @@ namespace Models
 
 
     protected:
-      // The ID of the certificate.
+      // The certificate ID.
       shared_ptr<string> certId_ {};
-      // The type of the cipher suites. Valid values:
+      // The type of the cipher suite. Valid values:
       // 
-      // *   **1:** all cipher suites.
-      // *   **2:** strong cipher suites.
-      // *   **99:** custom cipher suites.
+      // - **1**: all cipher suites are added.
+      // 
+      // - **2**: strong cipher suites are added.
+      // 
+      // - **99**: custom cipher suites are added.
       shared_ptr<int64_t> cipherSuite_ {};
-      // An array of custom cipher suites.
+      // The custom cipher suites.
       shared_ptr<vector<string>> customCiphers_ {};
       // Indicates whether TLS 1.3 is supported. Valid values:
       // 
-      // *   **true:** TLS 1.3 is supported.
-      // *   **false:** TLS 1.3 is not supported.
+      // - **true**: TLS 1.3 is supported.
+      // 
+      // - **false**: TLS 1.3 is not supported.
       shared_ptr<bool> enableTLSv3_ {};
       // Indicates whether an exclusive IP address is enabled. Valid values:
       // 
-      // *   **true:** An exclusive IP address is enabled for the domain name.
-      // *   **false:** No exclusive IP addresses are enabled for the domain name.
-      shared_ptr<bool> exclusiveIp_ {};
-      // Indicates whether HTTP to HTTPS redirection is enabled for the domain name. Valid values:
+      // - **true**: An exclusive IP address is enabled.
       // 
-      // *   **true:** HTTP to HTTPS redirection is enabled.
-      // *   **false:** HTTP to HTTPS redirection is disabled.
+      // - **false**: An exclusive IP address is not enabled.
+      shared_ptr<bool> exclusiveIp_ {};
+      // Indicates whether HTTPS forced redirect is enabled. Valid values:
+      // 
+      // - **true**: HTTPS forced redirect is enabled.
+      // 
+      // - **false**: HTTPS forced redirect is not enabled.
       shared_ptr<bool> focusHttps_ {};
+      // Indicates whether HSTS includes subdomains. Valid values:
+      // 
+      // - **true**: Enabled.
+      // 
+      // - **false**: Not enabled.
       shared_ptr<bool> hstsIncludeSubDomain_ {};
+      // The HSTS expiration time. Unit: seconds.
       shared_ptr<int64_t> hstsMaxAge_ {};
+      // Indicates whether HSTS preloading is enabled. This feature is disabled by default. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> hstsPreload_ {};
       // Indicates whether HTTP/2 is enabled. Valid values:
       // 
-      // *   **true:** HTTP/2 is enabled.
-      // *   **false:** HTTP/2 is disabled.
+      // - **true**: HTTP/2 is enabled.
+      // 
+      // - **false**: HTTP/2 is not enabled.
       shared_ptr<bool> http2Enabled_ {};
-      // An array of HTTP listener ports.
+      // The listening ports for the HTTP protocol.
       shared_ptr<vector<int64_t>> httpPorts_ {};
-      // An array of HTTPS listener ports.
+      // The listening ports for the HTTPS protocol.
       shared_ptr<vector<int64_t>> httpsPorts_ {};
       // Indicates whether IPv6 is enabled. Valid values:
       // 
-      // *   **true:** IPv6 is enabled.
-      // *   **false:** IPv6 is disabled.
+      // - **true**: IPv6 is enabled.
+      // 
+      // - **false**: IPv6 is not enabled.
       shared_ptr<bool> IPv6Enabled_ {};
-      // The type of protection resource that is used. Valid values:
+      // The type of protection resource to use. Valid values:
       // 
-      // *   **share:** shared cluster.
-      // *   **gslb:** shared cluster-based intelligent load balancing.
+      // - **share**: shared cluster.
+      // 
+      // - **gslb**: shared cluster with intelligent load balancing.
       shared_ptr<string> protectionResource_ {};
-      // Indicates whether only SM certificate-based clients can access the domain name. This parameter is returned only if the value of SM2Enabled is true. Valid values:
+      // Indicates whether only SM-compliant clients can access the domain name. This parameter is used only when SM2Enable is set to true.
       // 
-      // *   true
-      // *   false
+      // - true: Only SM-compliant clients can access the domain name.
+      // 
+      // - false: Both SM-compliant and non-SM-compliant clients can access the domain name.
       shared_ptr<bool> SM2AccessOnly_ {};
-      // The ID of the SM certificate that is added. This parameter is returned only if the value of SM2Enabled is true.
+      // The ID of the SM certificate to add. This parameter is used only when SM2Enable is set to true.
       shared_ptr<string> SM2CertId_ {};
-      // Indicates whether SM certificate-based verification is enabled. Valid values:
+      // Indicates whether the China Encryption Standard (SM) certificate is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The SM certificate is enabled.
+      // 
+      // - **false**: The SM certificate is not enabled.
       shared_ptr<bool> SM2Enabled_ {};
-      // The version of the Transport Layer Security (TLS) protocol. Valid values:
+      // The TLS version. Valid values:
       // 
-      // *   **tlsv1**
-      // *   **tlsv1.1**
-      // *   **tlsv1.2**
+      // - **tlsv1**
+      // 
+      // - **tlsv1.1**
+      // 
+      // - **tlsv1.2**
       shared_ptr<string> TLSVersion_ {};
-      // The method that WAF uses to obtain the actual IP address of a client. Valid values:
+      // The method that WAF uses to obtain the originating IP address of the client. Valid values:
       // 
-      // *   **0:** No Layer 7 proxies are deployed in front of WAF.
-      // *   **1:** WAF reads the first value of the X-Forwarded-For (XFF) header field as the actual IP address of the client.
-      // *   **2:** WAF reads the value of a custom header field as the actual IP address of the client.
+      // - **0**: No Layer 7 proxy is deployed in front of WAF.
+      // 
+      // - **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the client IP address.
+      // 
+      // - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
       shared_ptr<int64_t> xffHeaderMode_ {};
-      // An array of custom header fields that are used to obtain the actual IP address of a client.
+      // The list of custom header fields used to obtain the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
     };
 
@@ -996,17 +1068,17 @@ namespace Models
 
 
     protected:
-      // The domain name of your website.
+      // The common name (CN).
       shared_ptr<string> commonName_ {};
-      // The end of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
+      // The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The ID of the SSL certificate.
+      // The SSL certificate ID.
       shared_ptr<string> id_ {};
-      // The name of the SSL certificate.
+      // The certificate name.
       shared_ptr<string> name_ {};
-      // All domain names that are bound to the certificate.
+      // All domain names bound to the certificate.
       shared_ptr<vector<string>> sans_ {};
-      // The beginning of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
+      // The effective period of the certificate. The value is in the format of a UNIX timestamp (UTC). Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -1092,30 +1164,35 @@ namespace Models
 
 
   protected:
-    // The details of the SSL certificate.
+    // The SSL certificate details.
     shared_ptr<DescribeDomainDetailResponseBody::CertDetail> certDetail_ {};
-    // The CNAME that is assigned by WAF to the domain name.
+    // The CNAME assigned by WAF to the domain name.
     shared_ptr<string> cname_ {};
     // The domain name.
     shared_ptr<string> domain_ {};
+    // The domain name ID.
     shared_ptr<string> domainId_ {};
-    // The configurations of the listeners.
+    // The listener configuration.
     shared_ptr<DescribeDomainDetailResponseBody::Listen> listen_ {};
-    // The configurations of the forwarding rule.
+    // The forwarding configuration.
     shared_ptr<DescribeDomainDetailResponseBody::Redirect> redirect_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The information about the SM certificate.
+    // The SM certificate information.
     shared_ptr<DescribeDomainDetailResponseBody::SM2CertDetail> SM2CertDetail_ {};
     // The status of the domain name. Valid values:
     // 
-    // *   **1:** The domain name is in a normal state.
-    // *   **2:** The domain name is being created.
-    // *   **3:** The domain name is being modified.
-    // *   **4:** The domain name is being released.
-    // *   **5:** WAF no longer forwards traffic of the domain name.
+    // - **1**: The domain name is in a normal state.
+    // 
+    // - **2**: The domain name is being created.
+    // 
+    // - **3**: The domain name is being modified.
+    // 
+    // - **4**: The domain name is being released.
+    // 
+    // - **5**: The domain name has stopped forwarding traffic.
     shared_ptr<int32_t> status_ {};
   };
 

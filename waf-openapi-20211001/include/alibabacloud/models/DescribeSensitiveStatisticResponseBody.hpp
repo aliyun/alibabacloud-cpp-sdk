@@ -99,17 +99,17 @@ namespace Models
 
 
     protected:
-      // The API.
+      // The API operation.
       shared_ptr<string> apiFormat_ {};
       // The IP address.
       shared_ptr<string> clientIP_ {};
-      // The number of entries returned.
+      // The number of data entries.
       shared_ptr<int64_t> count_ {};
       // The domain name.
       shared_ptr<string> matchedHost_ {};
-      // The type of the sensitive data.
+      // The sensitive data type.
       // 
-      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
+      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
       shared_ptr<string> sensitiveCode_ {};
     };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
   protected:
-    // The statistics of the sensitive data.
+    // The list of sensitive data statistics.
     shared_ptr<vector<DescribeSensitiveStatisticResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

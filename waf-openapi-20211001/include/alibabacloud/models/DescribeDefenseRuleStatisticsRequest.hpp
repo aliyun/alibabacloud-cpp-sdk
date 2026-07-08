@@ -103,16 +103,33 @@ namespace Models
 
 
   protected:
+    // The quaternary query condition. The value cannot be the same as the primary, secondary, or tertiary query condition.
     shared_ptr<string> fourthKey_ {};
+    // The ID of the WAF instance.
+    // 
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The primary query condition.
+    // 
     // This parameter is required.
     shared_ptr<string> primaryKey_ {};
+    // The region where the WAF instance is deployed. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The secondary query condition. The value cannot be the same as the primary query condition.
     shared_ptr<string> secondaryKey_ {};
+    // The ID of the protection template to query.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
+    // The tertiary query condition. The value cannot be the same as the primary or secondary query condition.
     shared_ptr<string> thirdKey_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IDs of the protection rules. Multiple IDs are separated by commas (,).
+    // The comma-separated IDs of the created protection rules.
     shared_ptr<string> ruleIds_ {};
   };
 

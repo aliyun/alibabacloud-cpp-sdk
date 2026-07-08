@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The compilation result. Valid values:
+    // 
+    // - **success**: The rule is successfully compiled.
+    // 
+    // - **compiling**: The rule is being compiled.
+    // 
+    // - **failed**: The rule failed to be compiled.
     shared_ptr<string> result_ {};
   };
 

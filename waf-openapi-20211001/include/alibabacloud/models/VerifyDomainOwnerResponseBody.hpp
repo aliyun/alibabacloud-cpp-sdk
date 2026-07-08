@@ -69,18 +69,23 @@ namespace Models
 
 
     protected:
-      // The reasons why the verification fails. Valid values:
+      // The reason why the verification failed.
       // 
-      // *   DnsTxtVerifyFailed: The DNS TXT record and the domain name do not match.
-      // *   DnsServerError: The DNS server is abnormal.
-      // *   VerifyFileNotExist: The verification file does not exist.
-      // *   VerifyDomainNotAccess: The access to the domain name failed.
-      // *   FileContentVerifyFailed: The content of the verification file and the domain name do not match.
+      // - DnsTxtVerifyFailed: The DNS TXT record does not match.
+      // 
+      // - DnsServerError: The DNS server is abnormal.
+      // 
+      // - VerifyFileNotExist: The verification file does not exist.
+      // 
+      // - VerifyDomainNotAccess: Failed to access the domain name.
+      // 
+      // - FileContentVerifyFailed: The file content does not match.
       shared_ptr<string> failCode_ {};
       // The verification result. Valid values:
       // 
-      // *   **true**: The verification succeeds.
-      // *   **false**: The verification fails.
+      // - **true**: The verification is successful.
+      // 
+      // - **false**: The verification failed.
       shared_ptr<bool> result_ {};
     };
 
@@ -103,7 +108,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The verification result.
     shared_ptr<VerifyDomainOwnerResponseBody::VerifyResult> verifyResult_ {};

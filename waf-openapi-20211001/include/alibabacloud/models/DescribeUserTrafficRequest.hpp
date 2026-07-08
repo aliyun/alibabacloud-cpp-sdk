@@ -94,13 +94,38 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query.
     shared_ptr<int64_t> endTimestamp_ {};
+    // Instance ID of the WAF instance.
+    // 
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The time interval. Unit: seconds.
     shared_ptr<int64_t> interval_ {};
+    // The region where the WAF instance is deployed. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The beginning of the time range to query.
     shared_ptr<int64_t> startTimestamp_ {};
+    // The type of real-time user traffic. Valid values:
+    // - bot: the number of bot management requests.
+    // - risk: the number of times risk identification is triggered.
+    // - custom_acl_captcha: the number of times the slider action of custom rules is triggered.
+    // - qps: the peak QPS.
+    // - apisec: the number of API security requests.
+    // - alb: the number of requests connected through ALB.
+    // - mse: the number of requests connected through MSE.
+    // - fc: the number of requests connected through Function Compute.
+    // - sae: the number of requests connected through Serverless App Engine.
+    // - apig: the number of requests connected through Cloud Native API Gateway.
+    // - nlb: the number of requests connected through NLB.
     shared_ptr<string> type_ {};
   };
 

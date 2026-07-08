@@ -239,70 +239,67 @@ namespace Models
 
 
     protected:
-      // The number of risk-related security events.
+      // The number of events associated with the risk.
       shared_ptr<int64_t> abnormalEventNumber_ {};
-      // The ID of the risk.
+      // The risk ID.
       shared_ptr<string> abnormalId_ {};
-      // The details of the risk. The value is a string that consists of multiple parameters in the JSON format. Valid values:
-      // 
-      // * **rule**: risk-related rule
-      // * **data_type**: sensitive data type
-      // * **custom_rule_name**: custom rule name
-      // * **rule_name**: built-in rule name
+      // The detailed risk information, which is a JSON string constructed from a series of parameters. The parameters include:
+      // - **rule**: the rule associated with the risk.
+      // - **data_type**: the sensitive data type.
+      // - **custom_rule_name**: the custom rule name.
+      // - **rule_name**: the built-in rule name.
       shared_ptr<string> abnormalInfo_ {};
-      // The level of the risk. Valid values:
-      // 
-      // * **high**
-      // * **medium**
-      // * **low**
+      // The risk level. Valid values:
+      // - **high**: high risk.
+      // - **medium**: medium risk.
+      // - **low**: low risk.
       shared_ptr<string> abnormalLevel_ {};
-      // The type of the risk.
+      // The risk type.
       // 
-      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
+      // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported risk types.
       shared_ptr<string> abnormalTag_ {};
-      // The status of the risk.
+      // The risk status.
       shared_ptr<string> abnromalStatus_ {};
-      // The risk-related API.
+      // The API operation associated with the risk.
       shared_ptr<string> apiFormat_ {};
-      // The ID of the risk-related API.
+      // The ID of the API associated with the risk.
       shared_ptr<string> apiId_ {};
       // The business purpose of the API.
-      // 
-      // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
+      // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
       shared_ptr<string> apiTag_ {};
-      // The time at which the risk was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the risk was first detected. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> discoverTime_ {};
-      // The risk-related samples.
+      // The list of examples associated with the risk.
       shared_ptr<vector<string>> examples_ {};
-      // The time at which the API was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the API asset was first discovered. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> firstTime_ {};
-      // Indicates whether the API is followed. Valid values:
-      // 
-      // *   **1**: yes
-      // *   **0**(default): no
+      // Indicates whether the risk is followed. Valid values:
+      // - **1**: followed.
+      // - **0**: not followed. This is the default value.
       shared_ptr<int64_t> follow_ {};
-      // The time at which the risk was marked as ignored. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the user marked the risk as ignored. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> ignoreTime_ {};
-      // The time at which the API was last accessed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The most recent access time of the API asset. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> lastestTime_ {};
-      // The time at which the risk was last detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The time when the risk was most recently detected. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> latestDiscoverTime_ {};
-      // The domain name or IP address of the API.
+      // The domain name or IP address to which the API operation belongs.
       shared_ptr<string> matchedHost_ {};
       // The remarks.
       shared_ptr<string> note_ {};
       // The source of the risk type. Valid values:
-      // 
-      // *   **custom**
-      // *   **default**
+      // - **custom**: custom.
+      // - **default**: built-in.
       shared_ptr<string> origin_ {};
-      // The status of the risk. Valid values:
-      // 
-      // * **toBeConfirmed**
-      // * **confirmed**
-      // * **toBeFixed**
-      // * **fixed**
-      // * **ignored**
+      // The risk status. Valid values:
+      // - **toBeConfirmed**: to be confirmed.
+      // - **confirmed**: confirmed.
+      // - **toBeFixed**: to be fixed.
+      // - **fixed**: fixed (manually verified).
+      // - **ignored**: ignored.
+      // - ** toBeVerified**: to be verified by the system.
+      // - ** notFixed**: not fixed after verification.
+      // - ** systemFixed**: fixed (verified by the system).
       shared_ptr<string> userStatus_ {};
     };
 
@@ -332,7 +329,7 @@ namespace Models
 
 
   protected:
-    // The risks.
+    // The list of risks.
     shared_ptr<vector<DescribeApisecAbnormalsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The end time of the query range (Unix timestamp, seconds). Same as the EndDate request parameter.
+        // The end of the time range that was queried. This value is a UNIX timestamp. Unit: seconds. This value is the same as the EndDate request parameter.
         shared_ptr<int64_t> endDate_ {};
-        // The start time of the query range (Unix timestamp, seconds). Same as the StartDate request parameter.
+        // The start of the time range that was queried. This value is a UNIX timestamp. Unit: seconds. This value is the same as the StartDate request parameter.
         shared_ptr<int64_t> startDate_ {};
       };
 
@@ -127,11 +127,11 @@ namespace Models
 
 
     protected:
-      // The time granularity. For example, 15m indicates that each data point is counted every 15 minutes. For details, see the **Time granularity of time series data points** section below.
+      // The time granularity of each data point in the returned time series. For example, "15m" indicates that each data point represents statistics for a 15-minute interval. For more information about the time granularity, see the **Time granularity of data points** section.
       shared_ptr<string> aggregateInterval_ {};
-      // The query time range.
+      // The time range that was queried.
       shared_ptr<TimeSeriesMetaData::DateRange> dateRange_ {};
-      // The unit of the returned data. It is fixed as requests.
+      // The unit of the returned data. Default value: requests.
       shared_ptr<string> units_ {};
     };
 
@@ -186,11 +186,11 @@ namespace Models
 
 
     protected:
-      // The metric name, consistent with the Metric request parameter.
+      // The metric name. This value is the same as the Metric request parameter.
       shared_ptr<string> metric_ {};
-      // The array of timestamps (seconds) marking the start of each time interval.
+      // The timestamps. Each value represents the start of a time interval.
       shared_ptr<vector<string>> timestamps_ {};
-      // The array of counts, each representing the count for the corresponding time interval.
+      // The metric values. Each value represents the count within the corresponding time interval.
       shared_ptr<vector<int64_t>> values_ {};
     };
 
@@ -222,9 +222,9 @@ namespace Models
 
 
   protected:
-    // The array of time-series data. Supports returning data with multiple values.
+    // The time series data. Multiple data series can be returned.
     shared_ptr<vector<DescribeNetworkFlowTimeSeriesMetricResponseBody::NetworkFlowTimeSeries>> networkFlowTimeSeries_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The metadata of the returned data.
     shared_ptr<DescribeNetworkFlowTimeSeriesMetricResponseBody::TimeSeriesMetaData> timeSeriesMetaData_ {};

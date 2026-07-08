@@ -118,19 +118,19 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores.
+      // The number of CPU cores of the server.
       shared_ptr<int64_t> cpu_ {};
-      // The name of the node.
+      // The custom name of the server.
       shared_ptr<string> customName_ {};
-      // The host name.
+      // The hostname of the server.
       shared_ptr<string> hostName_ {};
       // The IP address of the server.
       shared_ptr<string> ip_ {};
-      // The media access control (MAC) address of the device.
+      // The MAC address of the server.
       shared_ptr<string> mac_ {};
-      // The memory size. Unit: KB. A conversion factor of 1,000 is used.
+      // The memory size of the server. Unit: KB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the node.
+      // The ID of the server.
       shared_ptr<string> mid_ {};
     };
 
@@ -160,11 +160,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of unassigned servers returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The servers that are not assigned to the hybrid cloud cluster.
+    // The unassigned servers in the hybrid cloud cluster.
     shared_ptr<vector<DescribeHybridCloudUnassignedMachinesResponseBody::UnassignedMachines>> unassignedMachines_ {};
   };
 

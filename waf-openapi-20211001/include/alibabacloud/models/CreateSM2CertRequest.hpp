@@ -103,28 +103,29 @@ namespace Models
 
 
   protected:
-    // The name of the SM certificate.
+    // The certificate name.
     shared_ptr<string> certName_ {};
-    // The content of the SM certificate.
+    // The content of the SM encryption certificate.
     shared_ptr<string> encryptCertificate_ {};
-    // The private key of the SM certificate.
+    // The private key content of the SM encryption certificate.
     shared_ptr<string> encryptPrivateKey_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The content of the signing certificate for the SM certificate.
+    // The signing certificate content of the SM certificate.
     shared_ptr<string> signCertificate_ {};
-    // The private key of the signing certificate for the SM certificate.
+    // The private key content of the SM signing certificate.
     shared_ptr<string> signPrivateKey_ {};
   };
 

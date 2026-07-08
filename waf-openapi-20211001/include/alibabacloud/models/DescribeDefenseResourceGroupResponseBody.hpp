@@ -98,13 +98,13 @@ namespace Models
     protected:
       // The description of the protected object group.
       shared_ptr<string> description_ {};
-      // The time when the protected object group was created.
+      // The timestamp when the protected object group was created.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The most recent time when the protected object group was modified.
+      // The timestamp when the protected object group was modified.
       shared_ptr<int64_t> gmtModified_ {};
-      // The name of the protected object group.
+      // The name of the protected object group that you want to query.
       shared_ptr<string> groupName_ {};
-      // The protected objects in the protected object group. The protected objects are separated with commas (,).
+      // All the protected objects that are added to the protected object group. Separate the protected objects with commas (,).
       shared_ptr<string> resourceList_ {};
     };
 
@@ -129,7 +129,7 @@ namespace Models
   protected:
     // The information about the protected object group.
     shared_ptr<DescribeDefenseResourceGroupResponseBody::Group> group_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

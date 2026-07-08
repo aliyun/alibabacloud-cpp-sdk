@@ -103,14 +103,33 @@ namespace Models
 
 
   protected:
+    // The end time. The value is a UNIX timestamp (UTC). Unit: seconds.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID of the WAF instance.
+    // 
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. If a next page exists, this field has a return value.
+    // 
+    // > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The epoch type for billing information. Valid values:
+    // 
+    // - **hour**: Billing information is calculated on an hourly basis.
     shared_ptr<string> periodType_ {};
+    // The region where the WAF instance is deployed. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The start time. The value is a UNIX timestamp (UTC). Unit: seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

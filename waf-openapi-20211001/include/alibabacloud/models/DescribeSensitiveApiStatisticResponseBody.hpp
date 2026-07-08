@@ -126,15 +126,15 @@ namespace Models
 
 
       protected:
-        // The API.
+        // The API operation.
         shared_ptr<string> apiFormat_ {};
-        // The ID of the API.
+        // The ID of the API operation.
         shared_ptr<string> apiId_ {};
-        // The number of personal information records involved in cross-border data transfer by API.
+        // The number of outbound personal information entries at the API level.
         shared_ptr<int64_t> infoCount_ {};
-        // The types of sensitive data.
+        // The list of sensitive data types.
         shared_ptr<vector<string>> sensitiveCode_ {};
-        // The number of sensitive personal information records involved in cross-border data transfer by API.
+        // The number of outbound sensitive personal information items at the API level.
         shared_ptr<int64_t> sensitiveCount_ {};
       };
 
@@ -171,13 +171,15 @@ namespace Models
 
 
     protected:
-      // The number of personal information records involved in cross-border data transfer by domain name.
+      // The number of outbound personal information entries at the domain name level.
       shared_ptr<int64_t> infoOutboundCount_ {};
-      // The domain name-related APIs.
+      // The list of API operation statistics information under the domain name.
+      // 
+      // > This field is returned only when the **Type** parameter is set to **apiFormat**, which represents the API dimension statistics information.
       shared_ptr<vector<Data::List>> list_ {};
       // The domain name or IP address.
       shared_ptr<string> matchedHost_ {};
-      // The number of sensitive personal information records involved in cross-border data transfer by domain name.
+      // The number of outbound sensitive personal information items at the domain name level.
       shared_ptr<int64_t> sensitiveOutboundCount_ {};
     };
 
@@ -207,7 +209,7 @@ namespace Models
 
 
   protected:
-    // The statistics.
+    // The statistics list.
     shared_ptr<vector<DescribeSensitiveApiStatisticResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

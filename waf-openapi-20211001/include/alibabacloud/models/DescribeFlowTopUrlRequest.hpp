@@ -84,24 +84,25 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
+    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the current time is used as the end time.
     shared_ptr<string> endTimestamp_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou:** the Chinese mainland.
-    // *   **ap-southeast-1:** outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The protected object.
+    // The protected object, such as a domain name or IP address added to WAF.
     shared_ptr<string> resource_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. Unit: seconds.
+    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTimestamp_ {};

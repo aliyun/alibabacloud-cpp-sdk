@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The name of the log delivery configuration.
     shared_ptr<string> deliveryName_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

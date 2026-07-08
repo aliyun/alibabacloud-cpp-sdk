@@ -103,15 +103,35 @@ namespace Models
 
 
   protected:
+    // The back-to-origin address.
     shared_ptr<string> backend_ {};
+    // Specifies whether to enable public cloud disaster recovery. Valid values:
+    // 
+    // - **true**: Public cloud disaster recovery is enabled.
+    // 
+    // - **false**: Public cloud disaster recovery is disabled.
     shared_ptr<bool> cnameEnabled_ {};
+    // The domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    // Instance ID of the WAF instance.
+    // 
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

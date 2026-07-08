@@ -94,13 +94,27 @@ namespace Models
 
 
   protected:
+    // The address to query. You can set this parameter to perform a fuzzy match on added addresses.
     shared_ptr<string> addressLike_ {};
+    // The ID of the WAF instance.
+    // 
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number of entries per page for paging. Valid values: 1 to 500. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. Set this parameter to the value of **NextToken** returned in the previous API call. Leave this parameter empty for the first page.
     shared_ptr<string> nextToken_ {};
+    // The region where the WAF instance is deployed. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // The ID of the address book to query.
     shared_ptr<int64_t> ruleId_ {};
   };
 

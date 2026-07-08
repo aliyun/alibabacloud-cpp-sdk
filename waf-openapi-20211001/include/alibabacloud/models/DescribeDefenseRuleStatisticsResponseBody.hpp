@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The number of rules that meet all the query conditions.
       shared_ptr<int64_t> count_ {};
+      // The value corresponding to the quaternary query condition.
       shared_ptr<string> fourthValue_ {};
+      // The value corresponding to the primary query condition.
       shared_ptr<string> primaryValue_ {};
+      // The value corresponding to the secondary query condition.
       shared_ptr<string> secondaryValue_ {};
+      // The value corresponding to the tertiary query condition.
       shared_ptr<string> thirdValue_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The statistics results.
     shared_ptr<vector<DescribeDefenseRuleStatisticsResponseBody::StatisticsInfos>> statisticsInfos_ {};
   };
 

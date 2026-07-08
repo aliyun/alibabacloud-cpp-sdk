@@ -87,13 +87,19 @@ namespace Models
 
 
   protected:
+    // The number of entries returned on each page. Valid values: 1 to 500. Default value: 500.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. This parameter is returned if a next page exists.
+    // 
+    // > If a value is returned for this parameter, a next page exists. You can use the returned **NextToken** value as a request parameter to retrieve the data on the next page. When no value is returned, all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of protected objects or protected object groups that are associated to the protection rule template.
+    // A list of the names of the attached protected objects or protected object groups, or the IDs of the protected assets.
     shared_ptr<vector<string>> resources_ {};
+    // The ID of the protection template.
     shared_ptr<int64_t> templateId_ {};
+    // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

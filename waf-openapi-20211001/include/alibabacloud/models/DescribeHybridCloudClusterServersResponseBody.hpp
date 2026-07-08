@@ -237,25 +237,55 @@ namespace Models
 
 
     protected:
+      // The continent identifier of the server, such as `asiapacific`.
       shared_ptr<string> continents_ {};
+      // The continent code of the protection cluster.
+      // 
+      // > For a list of valid codes, see the supplementary description of response parameters.
       shared_ptr<int32_t> continentsValue_ {};
+      // The number of CPU cores of the server.
       shared_ptr<int32_t> cpu_ {};
+      // The time when the server was created. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
+      // The custom name of the server.
       shared_ptr<string> customName_ {};
+      // The ID of the node group.
       shared_ptr<int64_t> groupId_ {};
+      // The name of the node group.
       shared_ptr<string> groupName_ {};
+      // The type of the hybrid cloud node group. Valid values:
+      // 
+      // - **protect**: protection.
+      // 
+      // - **control**: control.
+      // 
+      // - **storage**: storage.
+      // 
+      // - **controlStorage**: control and storage.
       shared_ptr<string> groupType_ {};
+      // The hostname of the server.
       shared_ptr<string> hostName_ {};
+      // The IP address of the server.
       shared_ptr<string> ip_ {};
+      // The running status of the server.
       shared_ptr<string> jobStatus_ {};
+      // The MAC address of the server.
       shared_ptr<string> mac_ {};
+      // The memory size of the server. Unit: bytes.
       shared_ptr<int64_t> memory_ {};
+      // The machine ID (MID) of the server.
       shared_ptr<string> mid_ {};
+      // The cloud service provider where the server resides.
       shared_ptr<string> operator_ {};
+      // The carrier code of the server.
       shared_ptr<int32_t> operatorValue_ {};
+      // The region identifier of the server, such as `beijing`.
       shared_ptr<string> regionCode_ {};
+      // The numeric code of the region where the server resides.
       shared_ptr<int32_t> regionCodeValue_ {};
+      // The health status of the server in the hybrid cloud cluster.
       shared_ptr<string> status_ {};
+      // The time when the server was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -285,8 +315,11 @@ namespace Models
 
 
   protected:
+    // The servers in the hybrid cloud cluster.
     shared_ptr<vector<DescribeHybridCloudClusterServersResponseBody::ClusterServers>> clusterServers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

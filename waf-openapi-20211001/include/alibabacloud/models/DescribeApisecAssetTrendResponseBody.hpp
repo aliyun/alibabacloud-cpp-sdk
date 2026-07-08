@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The number of active assets.
+      // The number of active APIs.
       shared_ptr<int64_t> assetActive_ {};
-      // The total number of assets.
+      // The total number of API assets.
       shared_ptr<int64_t> assetCount_ {};
-      // The number of deactivated assets.
+      // The number of inactive APIs.
       shared_ptr<int64_t> assetOffline_ {};
-      // The time for statistics. Specify a UNIX timestamp in UTC. Unit: seconds.
+      // The time of the statistics. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The list of API asset information.
     shared_ptr<vector<DescribeApisecAssetTrendResponseBody::Data>> data_ {};
-    // Id of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

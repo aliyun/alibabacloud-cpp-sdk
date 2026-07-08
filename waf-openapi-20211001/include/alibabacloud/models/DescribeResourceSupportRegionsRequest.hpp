@@ -68,22 +68,35 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: the Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The cloud service. Valid values:
+    // The cloud product to which the resource belongs. By default, instances of ALB, MSE, FC, and SAE products are returned. Valid values:
     // 
-    // *   **clb4**: Layer 4 CLB.
-    // *   **clb7**: Layer 7 CLB.
-    // *   **ecs**: ECS.
+    // - **alb**: ALB.
+    // 
+    // - **mse**: MSE.
+    // 
+    // - **fc**: FC.
+    // 
+    // - **sae**: SAE.
+    // 
+    // - **ecs**: ECS.
+    // - **clb4**: CLB (TCP).
+    // - **clb7**: CLB (HTTP/HTTPS).
+    // - **apig**: APIG.
+    // - **nlb**: NLB.
+    // 
+    // > Each product supports different regions. If you specify a product filter, refer to the regions supported by the product. Otherwise, the filtering may fail.
     shared_ptr<string> resourceProduct_ {};
   };
 

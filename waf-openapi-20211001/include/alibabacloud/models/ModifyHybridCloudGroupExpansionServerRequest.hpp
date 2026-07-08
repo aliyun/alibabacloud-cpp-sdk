@@ -88,26 +88,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> clusterId_ {};
-    // The ID of the node group.
+    // The ID of the node group in the hybrid cloud cluster.
     // 
     // This parameter is required.
     shared_ptr<int64_t> groupId_ {};
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the node.
+    // The ID of the node that you want to add to the node group.
     // 
     // This parameter is required.
     shared_ptr<string> mids_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the Resource Manager resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

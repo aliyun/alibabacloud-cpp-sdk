@@ -100,10 +100,15 @@ namespace Models
 
 
     protected:
+      // The download URL of the verification file.
       shared_ptr<string> downloadUrl_ {};
+      // The name of the verification file.
       shared_ptr<string> fileName_ {};
+      // The root domain of the domain name to be verified.
       shared_ptr<string> topDomain_ {};
+      // The content of the verification file.
       shared_ptr<string> value_ {};
+      // The URL that is used to access the verification file.
       shared_ptr<string> verifyPath_ {};
     };
 
@@ -154,8 +159,11 @@ namespace Models
 
 
     protected:
+      // The host record of the DNS TXT record used for domain ownership verification.
       shared_ptr<string> RR_ {};
+      // The type of the DNS record used for verification.
       shared_ptr<string> type_ {};
+      // The value of the DNS TXT record used for verification.
       shared_ptr<string> value_ {};
     };
 
@@ -194,9 +202,13 @@ namespace Models
 
 
   protected:
+    // The DNS-based verification content, including the TXT record details.
     shared_ptr<DescribeVerifyContentResponseBody::DnsContent> dnsContent_ {};
+    // The file-based verification content, including the file name, path, and download URL.
     shared_ptr<DescribeVerifyContentResponseBody::FileContent> fileContent_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the domain ownership verification is successful.
     shared_ptr<bool> verifyResult_ {};
   };
 

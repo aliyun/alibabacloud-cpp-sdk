@@ -40,6 +40,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ElasticQpsSetValue, elasticQpsSetValue_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(ExceedStatus, exceedStatus_);
+        DARABONBA_PTR_TO_JSON(ExtensionPlugin, extensionPlugin_);
+        DARABONBA_PTR_TO_JSON(ExtensionPluginRequest, extensionPluginRequest_);
         DARABONBA_PTR_TO_JSON(MaxQps, maxQps_);
         DARABONBA_PTR_TO_JSON(Price, price_);
         DARABONBA_PTR_TO_JSON(Qps, qps_);
@@ -54,6 +56,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ElasticQpsSetValue, elasticQpsSetValue_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(ExceedStatus, exceedStatus_);
+        DARABONBA_PTR_FROM_JSON(ExtensionPlugin, extensionPlugin_);
+        DARABONBA_PTR_FROM_JSON(ExtensionPluginRequest, extensionPluginRequest_);
         DARABONBA_PTR_FROM_JSON(MaxQps, maxQps_);
         DARABONBA_PTR_FROM_JSON(Price, price_);
         DARABONBA_PTR_FROM_JSON(Qps, qps_);
@@ -76,9 +80,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->elasticQpsSetValue_ == nullptr
-        && this->endTime_ == nullptr && this->exceedStatus_ == nullptr && this->maxQps_ == nullptr && this->price_ == nullptr && this->qps_ == nullptr
-        && this->qpsVersion_ == nullptr && this->riskControl_ == nullptr && this->riskTraffic_ == nullptr && this->startTime_ == nullptr && this->total_ == nullptr
-        && this->type_ == nullptr; };
+        && this->endTime_ == nullptr && this->exceedStatus_ == nullptr && this->extensionPlugin_ == nullptr && this->extensionPluginRequest_ == nullptr && this->maxQps_ == nullptr
+        && this->price_ == nullptr && this->qps_ == nullptr && this->qpsVersion_ == nullptr && this->riskControl_ == nullptr && this->riskTraffic_ == nullptr
+        && this->startTime_ == nullptr && this->total_ == nullptr && this->type_ == nullptr; };
       // elasticQpsSetValue Field Functions 
       bool hasElasticQpsSetValue() const { return this->elasticQpsSetValue_ != nullptr;};
       void deleteElasticQpsSetValue() { this->elasticQpsSetValue_ = nullptr;};
@@ -98,6 +102,20 @@ namespace Models
       void deleteExceedStatus() { this->exceedStatus_ = nullptr;};
       inline int32_t getExceedStatus() const { DARABONBA_PTR_GET_DEFAULT(exceedStatus_, 0) };
       inline Bills& setExceedStatus(int32_t exceedStatus) { DARABONBA_PTR_SET_VALUE(exceedStatus_, exceedStatus) };
+
+
+      // extensionPlugin Field Functions 
+      bool hasExtensionPlugin() const { return this->extensionPlugin_ != nullptr;};
+      void deleteExtensionPlugin() { this->extensionPlugin_ = nullptr;};
+      inline bool getExtensionPlugin() const { DARABONBA_PTR_GET_DEFAULT(extensionPlugin_, false) };
+      inline Bills& setExtensionPlugin(bool extensionPlugin) { DARABONBA_PTR_SET_VALUE(extensionPlugin_, extensionPlugin) };
+
+
+      // extensionPluginRequest Field Functions 
+      bool hasExtensionPluginRequest() const { return this->extensionPluginRequest_ != nullptr;};
+      void deleteExtensionPluginRequest() { this->extensionPluginRequest_ = nullptr;};
+      inline int64_t getExtensionPluginRequest() const { DARABONBA_PTR_GET_DEFAULT(extensionPluginRequest_, 0L) };
+      inline Bills& setExtensionPluginRequest(int64_t extensionPluginRequest) { DARABONBA_PTR_SET_VALUE(extensionPluginRequest_, extensionPluginRequest) };
 
 
       // maxQps Field Functions 
@@ -166,36 +184,36 @@ namespace Models
 
 
     protected:
-      // The burstable QPS of the WAF instance.
+      // The burstable QPS specification of the WAF instance.
       shared_ptr<int64_t> elasticQpsSetValue_ {};
-      // The billing end time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The end time of the billing period. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The status of QPS usage within the current period of time. Valid values:
-      // 
-      // *   **0**: normal.
-      // *   **1**: excess.
-      // *   **2**: sandbox.
+      // The overuse status of the current period. Valid values:
+      // - **0**: Normal.
+      // - **1**: Overused.
+      // - **2**: Sandboxed.
       shared_ptr<int32_t> exceedStatus_ {};
-      // The peak QPS within the current period of time.
+      shared_ptr<bool> extensionPlugin_ {};
+      shared_ptr<int64_t> extensionPluginRequest_ {};
+      // The maximum QPS during the current period.
       shared_ptr<int64_t> maxQps_ {};
-      // The unit price in the bill. The price is measured in CNY for bills at the China site (aliyun.com) and in USD for bills at the international site (alibabacloud.com).
+      // The unit price for elastic billing. Unit: CNY for the China site and USD for the international site.
       shared_ptr<float> price_ {};
-      // The extended QPS of the WAF instance.
+      // The QPS extension specification of the WAF instance.
       shared_ptr<int64_t> qps_ {};
-      // The default QPS of the WAF instance.
+      // The QPS specification included in the WAF instance edition.
       shared_ptr<int64_t> qpsVersion_ {};
       // Indicates whether risk identification is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Risk identification is enabled.
+      // - **false**: Risk identification is not enabled.
       shared_ptr<bool> riskControl_ {};
-      // The number of times that risk identification is performed.
+      // The number of times risk identification is used.
       shared_ptr<int64_t> riskTraffic_ {};
-      // The billing start time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The start time of the billing period. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
-      // The actual QPS in total.
+      // The total QPS that is billed.
       shared_ptr<int64_t> total_ {};
-      // The billing types.
+      // The elastic billing type.
       shared_ptr<vector<string>> type_ {};
     };
 
@@ -225,7 +243,7 @@ namespace Models
 
 
   protected:
-    // The bills of the burstable QPS (pay-as-you-go) feature.
+    // The list of WAF elastic billing records.
     shared_ptr<vector<DescribePrepayDailyBillsResponseBody::Bills>> bills_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

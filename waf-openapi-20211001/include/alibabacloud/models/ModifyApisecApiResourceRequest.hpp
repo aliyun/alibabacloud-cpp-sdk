@@ -94,32 +94,35 @@ namespace Models
 
 
   protected:
-    // The ID of the API.
+    // The ID of the API asset that you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> apiId_ {};
     // The ID of the hybrid cloud cluster.
-    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+    // 
+    // > This parameter is required only for hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the ID of the hybrid cloud cluster.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to follow the API. Valid values:
+    // Indicates whether to follow the API asset. Valid values:
     // 
-    // *   **1**: yes
-    // *   **0** (default): no
+    // - **1**: follows the API asset.
+    // 
+    // - **0** (default): does not follow the API asset.
     shared_ptr<int64_t> follow_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The remarks.
+    // The remarks of the API asset. You can use this parameter to add a custom annotation to the API asset for easier identification.
     shared_ptr<string> note_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The ID of the Alibaba Cloud resource group to which the WAF instance belongs.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

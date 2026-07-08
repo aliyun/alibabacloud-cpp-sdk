@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The CNAME that is assigned by WAF to the domain name.
+      // The CNAME assigned by WAF to the domain name.
       shared_ptr<string> cname_ {};
-      // The domain name that you added to WAF.
+      // The added domain name.
       shared_ptr<string> domain_ {};
-      // The name of the protected object that is generated.
+      // The domain name ID.
       shared_ptr<string> domainId_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The information about the domain name that is added.
+    // The information about the added domain name.
     shared_ptr<CreateDomainResponseBody::DomainInfo> domainInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

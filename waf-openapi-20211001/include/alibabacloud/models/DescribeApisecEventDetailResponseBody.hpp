@@ -152,18 +152,55 @@ namespace Models
 
 
   protected:
+    // The total number of attacks in the security event.
     shared_ptr<string> attackCnt_ {};
+    // The list of attackers associated with the security event.
     shared_ptr<vector<string>> attackerList_ {};
+    // The details of the security event.
     shared_ptr<string> detailValue_ {};
+    // The end of the time range during which the security event occurred. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> endTs_ {};
+    // The ID of the API security event.
     shared_ptr<string> eventId_ {};
+    // The severity level of the security event. Valid values:
+    // 
+    // - **high**: high severity.
+    // 
+    // - **medium**: medium severity.
+    // 
+    // - **low**: low severity.
     shared_ptr<string> eventLevel_ {};
+    // The dimension of the security event. Valid values:
+    // 
+    // - **ip** (default): IP security event.
+    // 
+    // - **account**: account security event.
     shared_ptr<string> eventScope_ {};
+    // The type of the security event.
+    // 
+    // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
     shared_ptr<string> eventTag_ {};
+    // The remarks added to the security event.
     shared_ptr<string> note_ {};
+    // The source of the event type rule. Valid values:
+    // 
+    // - **custom**: a user-defined rule.
+    // 
+    // - **default**: a built-in rule.
     shared_ptr<string> origin_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The beginning of the time range during which the security event occurred. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<string> startTs_ {};
+    // The event status. Valid values:
+    // 
+    // - **toBeConfirmed**: to be confirmed.
+    // 
+    // - **confirmed**: confirmed.
+    // 
+    // - **actioned**: handled.
+    // 
+    // - **ignored**: ignored.
     shared_ptr<string> userStatus_ {};
   };
 

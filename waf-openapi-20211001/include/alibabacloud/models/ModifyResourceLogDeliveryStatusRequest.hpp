@@ -84,13 +84,34 @@ namespace Models
 
 
   protected:
+    // The name of the log delivery configuration.
+    // 
+    // > This parameter is required when you enable log delivery by setting **Status** to **true**.
     shared_ptr<string> deliveryName_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The protected object for which you want to modify the log delivery status.
+    // 
     // This parameter is required.
     shared_ptr<string> resource_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
+    // Indicates whether to enable log delivery for the protected object. Valid values:
+    // 
+    // - **true**: enables log delivery.
+    // 
+    // - **false**: disables log delivery.
+    // 
     // This parameter is required.
     shared_ptr<bool> status_ {};
   };

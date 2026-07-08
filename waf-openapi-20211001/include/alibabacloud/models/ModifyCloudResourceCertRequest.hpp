@@ -80,8 +80,16 @@ namespace Models
 
 
     protected:
+      // The type of the certificate for the HTTPS protocol. Valid values:
+      // 
+      // - **default**: the default certificate.
+      // 
+      // - **extension**: the additional certificate.
+      // 
       // This parameter is required.
       shared_ptr<string> appliedType_ {};
+      // The ID of the certificate.
+      // 
       // This parameter is required.
       shared_ptr<string> certificateId_ {};
     };
@@ -141,15 +149,41 @@ namespace Models
 
 
   protected:
+    // The list of certificates.
+    // 
+    // > Enter all certificate IDs. This includes the default certificate and all additional certificates. After you submit the request, WAF compares the submitted IDs with the existing ones. WAF adds new certificates and deletes certificates that are not in your list. Deleting a certificate may affect related services.
+    // 
     // This parameter is required.
     shared_ptr<vector<ModifyCloudResourceCertRequest::Certificates>> certificates_ {};
+    // The ID of the resource that is added to WAF. WAF automatically generates this ID when you add the resource in cloud native mode.
+    // 
+    // > Call the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to add a resource. Then, view the resource ID in the response.
     shared_ptr<string> cloudResourceId_ {};
+    // The ID of the WAF instance.
+    // 
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The port of the cloud product that is added to WAF.
     shared_ptr<int32_t> port_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the cloud product instance.
     shared_ptr<string> resourceInstanceId_ {};
+    // The type of the cloud product. Valid values:
+    // 
+    // - **ecs**: Elastic Compute Service (ECS).
+    // 
+    // - **clb4**: Layer 4 Classic Load Balancer (CLB).
+    // 
+    // - **nlb**: Network Load Balancer (NLB).
     shared_ptr<string> resourceProduct_ {};
   };
 

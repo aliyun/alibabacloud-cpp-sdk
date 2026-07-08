@@ -103,10 +103,10 @@ namespace Models
       shared_ptr<int64_t> eventLow_ {};
       // The number of medium-risk events.
       shared_ptr<int64_t> eventMedium_ {};
-      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-      // >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
+      // The statistics time, in UNIX timestamp format (UTC). Unit: seconds.
+      // >Notice: This parameter is deprecated. Use the Timestamp parameter instead.
       shared_ptr<int64_t> timeStamp_ {};
-      // The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+      // The statistics time, in UNIX timestamp format (UTC). Unit: seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -131,7 +131,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The trends of attacks.
+    // The attack trend list.
     shared_ptr<vector<DescribeUserEventTrendResponseBody::Trend>> trend_ {};
   };
 

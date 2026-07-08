@@ -136,14 +136,85 @@ namespace Models
 
 
     protected:
+      // The CVE ID of the vulnerability that is associated with the system protection rule.
       shared_ptr<string> cveId_ {};
+      // The description of the system protection rule.
       shared_ptr<string> description_ {};
+      // The type of attack that the system protection rule detects. Valid values:
+      // 
+      // - **sqli**: SQL injection.
+      // 
+      // - **xss**: cross-site scripting (XSS).
+      // 
+      // - **cmdi**: OS command injection.
+      // 
+      // - **expression_injection**: expression injection.
+      // 
+      // - **java_deserialization**: Java deserialization.
+      // 
+      // - **dot_net_deserialization**: .NET deserialization.
+      // 
+      // - **php_deserialization**: PHP deserialization.
+      // 
+      // - **code_exec**: code execution.
+      // 
+      // - **ssrf**: server-side request forgery (SSRF).
+      // 
+      // - **path_traversal**: path traversal.
+      // 
+      // - **arbitrary_file_uploading**: arbitrary file upload.
+      // 
+      // - **webshell**: webshell.
+      // 
+      // - **rfilei**: remote file inclusion (RFI).
+      // 
+      // - **lfilei**: local file inclusion (LFI).
+      // 
+      // - **protocol_violation**: protocol violation.
+      // 
+      // - **scanner_behavior**: scanner behavior.
+      // 
+      // - **logic_flaw**: logic flaw.
+      // 
+      // - **arbitrary_file_reading**: arbitrary file read.
+      // 
+      // - **arbitrary_file_download**: arbitrary file download.
+      // 
+      // - **xxe**: external entity injection.
+      // 
+      // - **csrf**: cross-site request forgery (CSRF).
+      // 
+      // - **crlf**: CRLF injection.
+      // 
+      // - **other**: other.
       shared_ptr<string> detectType_ {};
+      // The risk level of the system protection rule. Valid values:
+      // 
+      // - **super_strict**: Very Strict.
+      // 
+      // - **strict**: Strict.
+      // 
+      // - **medium**: Medium.
+      // 
+      // - **loose**: Loose.
       shared_ptr<string> riskLevel_ {};
+      // The action of the system protection rule. Valid values:
+      // 
+      // - **block**: Block.
+      // 
+      // - **monitor**: Monitor.
       shared_ptr<string> ruleAction_ {};
+      // The ID of the system protection rule.
       shared_ptr<int64_t> ruleId_ {};
+      // The name of the system protection rule.
       shared_ptr<string> ruleName_ {};
+      // The status of the system protection rule. Valid values:
+      // 
+      // - **1**: disabled.
+      // 
+      // - **0**: enabled.
       shared_ptr<int32_t> ruleStatus_ {};
+      // The time when the system protection rule was last updated. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -173,8 +244,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of system protection rules.
     shared_ptr<vector<DescribeBaseSystemRulesResponseBody::Rules>> rules_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

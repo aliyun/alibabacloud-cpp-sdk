@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -150,39 +150,40 @@ namespace Models
 
 
   protected:
-    // The mode in which you want to add the domain name to WAF. Valid values:
+    // The access type of the WAF instance. Valid values:
     // 
-    // *   **share:** adds the domain name to WAF in CNAME record mode. This is the default value.
-    // *   **hybrid_cloud_cname:** adds the domain name to WAF in hybrid cloud reverse proxy mode.
+    // - **share** (default): CNAME access.
+    // 
+    // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
     shared_ptr<string> accessType_ {};
-    // The domain name that you want to add to WAF.
+    // The domain name to query.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
-    // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // The ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configurations.
+    // The listening configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
-    // The forwarding configurations.
+    // The forwarding configuration.
     // 
     // This parameter is required.
     shared_ptr<string> redirectShrink_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: the Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The tags. You can specify up to 20 tags.
+    // The tag list, which contains a maximum of 20 items.
     shared_ptr<vector<CreateDomainShrinkRequest::Tag>> tag_ {};
   };
 

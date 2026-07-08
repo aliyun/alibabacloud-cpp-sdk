@@ -84,12 +84,33 @@ namespace Models
 
 
   protected:
+    // The ID of the WAF instance.
+    // 
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to query for default log fields.
+    // 
+    // - **true**: Queries for default log fields.
+    // 
+    // - **false**: Queries for non-default log fields.
     shared_ptr<bool> isDefault_ {};
+    // Specifies whether to query for required log fields.
+    // 
+    // - **true**: Queries for required log fields.
+    // 
+    // - **false**: Queries for non-required log fields.
     shared_ptr<bool> isRequired_ {};
+    // The list of log fields to query.
     shared_ptr<string> logKeyListShrink_ {};
+    // The region where the WAF instance resides. Valid values:
+    // 
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

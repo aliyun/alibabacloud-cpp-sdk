@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The ID of the billing module.
       shared_ptr<string> moduleCode_ {};
+      // The number of SeCUs for the billing module.
       shared_ptr<double> seCu_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // The billing calculation results for each module.
     shared_ptr<vector<DescribeChargeResultResponseBody::ModuleDetails>> moduleDetails_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of calculated Security Capacity Units (SeCUs).
     shared_ptr<double> totalSeCu_ {};
   };
 

@@ -87,9 +87,29 @@ namespace Models
 
 
     protected:
+      // The cause of the alert. If **Type** is set to **sandbox**, valid values:
+      // 
+      // - **fivefold**: The queries per second (QPS) of your service exceeds five times the upper limit of your plan.
+      // 
+      // - **4count**: The QPS of your service has exceeded the upper limit of your plan for four or more days.
+      // 
+      // - **exceed10w**: The peak QPS of your service exceeds 100,000.
+      // 
+      // - **costProtection**: Billing protection is triggered.
       shared_ptr<string> cause_ {};
+      // The count associated with the alert at the time it was triggered.
+      // 
+      // - If **Type** is set to **sandbox**, this parameter indicates the number of days that the QPS has exceeded the upper limit of your plan.
       shared_ptr<int32_t> count_ {};
+      // Indicates whether an alert is triggered. Valid values:
+      // 
+      // - **true**: An alert is triggered. If **Type** is set to **sandbox**, the instance is in the sandbox.
+      // 
+      // - **false**: No alert is triggered. If **Type** is set to **sandbox**, the instance is not in the sandbox.
       shared_ptr<bool> status_ {};
+      // The alert type. Valid value:
+      // 
+      // - **sandbox**: a sandbox alert.
       shared_ptr<string> type_ {};
     };
 
@@ -112,7 +132,9 @@ namespace Models
 
 
   protected:
+    // The status information of the alert banner.
     shared_ptr<DescribeAlarmBannerResponseBody::BannerStatus> bannerStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

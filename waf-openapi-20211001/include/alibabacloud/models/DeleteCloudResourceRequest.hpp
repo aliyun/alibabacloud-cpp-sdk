@@ -94,31 +94,39 @@ namespace Models
 
 
   protected:
+    // The ID of the protected resource. WAF automatically generates this ID when you add the cloud service to WAF.
+    // 
+    // > Call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to add a resource and then view the resource ID in the response.
     shared_ptr<string> cloudResourceId_ {};
     // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of your WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The port of the resource that is added to WAF.
+    // The port of the cloud service that is added to WAF.
     shared_ptr<int32_t> port_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: the Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the instance.
+    // The ID of the cloud service instance.
     shared_ptr<string> resourceInstanceId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The cloud service. Valid values:
+    // The type of the cloud service. Valid values:
     // 
-    // *   **clb4**: Layer 4 CLB.
-    // *   **clb7**: Layer 7 CLB.
-    // *   **ecs**: ECS.
+    // - **clb4**: Layer 4 CLB.
+    // 
+    // - **clb7**: Layer 7 CLB.
+    // 
+    // - **ecs**: ECS.
+    // 
+    // - **nlb**: Network Load Balancer (NLB).
     shared_ptr<string> resourceProduct_ {};
   };
 

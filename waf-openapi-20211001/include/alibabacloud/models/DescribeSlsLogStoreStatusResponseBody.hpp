@@ -50,10 +50,11 @@ namespace Models
   protected:
     // Indicates whether a Logstore is created for WAF. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: A Logstore is created.
+    // 
+    // - **false**: No Logstore is created.
     shared_ptr<bool> existStatus_ {};
-    // The request ID.
+    // The request ID
     shared_ptr<string> requestId_ {};
   };
 

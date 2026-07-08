@@ -241,105 +241,96 @@ namespace Models
 
 
   protected:
-    // The API.
+    // The API operation.
     shared_ptr<string> apiFormat_ {};
     // The ID of the API.
     shared_ptr<string> apiId_ {};
     // The request method of the API. Valid values:
-    // 
-    // * **GET**
-    // * **POST**
-    // * **HEAD**
-    // * **PUT**
-    // * **DELETE**
-    // * **CONNECT**
-    // * **PATCH**
-    // * **OPTIONS**
+    // - **GET**: GET request.
+    // - **POST**: POST request.
+    // - **HEAD**: HEAD request.
+    // - **PUT**: PUT request.
+    // - **DELETE**: DELETE request.
+    // - **CONNECT**: CONNECT request.
+    // - **PATCH**: PATCH request.
+    // - **OPTIONS**: OPTIONS request.
     shared_ptr<string> apiMethod_ {};
-    // The API status. Valid values:
-    // 
-    // * **NewbornInterface**: The API is newly added.
-    // * **OfflineInterface**: The API is inactive.
-    // * **normal**: The API is normal.
+    // The status of the API. Valid values:
+    // - **NewbornInterface**: newly added.
+    // - **OfflineInterface**: inactive.
+    // - **normal**: normal.
     shared_ptr<string> apiStatus_ {};
     // The business purpose of the API.
     // 
-    // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
+    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
     shared_ptr<string> apiTag_ {};
     // The service object. Valid values:
-    // 
-    // * **PublicAPI**: public services
-    // * **ThirdpartAPI**: cooperation with third-party partners
-    // * **InternalAPI**: internal office
+    // - **PublicAPI**: public service.
+    // - **ThirdpartAPI**: third-party collaboration.
+    // - **InternalAPI**: internal office.
     shared_ptr<string> apiType_ {};
-    // Specifies whether authentication is required. Valid values:
-    // 
-    // * **0**: Authentication is required.
-    // * **1**: Authentication is not required.
+    // Specifies whether the API has an authentication field. Valid values:
+    // - **0**: has authentication.
+    // - **1**: does not have authentication.
     shared_ptr<string> authFlag_ {};
     // The ID of the hybrid cloud cluster.
-    // 
-    // >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
+    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+    // The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to follow the API. Valid values:
-    // 
-    // * **1**: follows the API.
-    // * **0**: does not follow the API.
+    // Specifies whether the API is followed. Valid values:
+    // - **1**: followed.
+    // - **0**: not followed.
     shared_ptr<int64_t> follow_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The domain name or IP address of the API.
+    // The domain name or IP address to which the API operation belongs.
     shared_ptr<string> matchedHost_ {};
     // The remarks.
     shared_ptr<string> note_ {};
-    // The name of the sorting field. Valid values:
-    // 
-    // * **allCnt**: the total number of calls to the API in the previous 30 days
-    // * **botCnt**: the number of bot-initiated requests in the previous 30 days
-    // * **crossBorderCnt**: the number of cross-border requests in the previous 30 days
-    // * **abnormalNum**: the number of API-related risks
-    // * **eventNum**: the number of API-related security events
-    // * **farthestTs**: the time when the API was first detected
-    // * **lastestTs**: the time of the most recent access to the API
+    // The name of the field used for sorting. Valid values:
+    // - **allCnt**: total access volume in the last 30 days.
+    // - **botCnt**: bot access volume in the last 30 days.
+    // - **crossBorderCnt**: cross-border access volume in the last 30 days.
+    // - **abnormalNum**: number of risks associated with the API.
+    // - **eventNum**: number of events associated with the API.
+    // - **farthestTs**: first discovery time.
+    // - **lastestTs**: most recent access time.
     shared_ptr<string> orderKey_ {};
-    // The sorting method. Valid values:
-    // 
-    // * **desc** (default): descending order
-    // * **asc**: ascending order
+    // The sort order. Valid values:
+    // - **desc**: descending order (default).
+    // - **asc**: ascending order.
     shared_ptr<string> orderWay_ {};
-    // The page number. Default value: **1**.
+    // The page number to return in a paging query. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries to return on each page in a paging query. Default value: **10**, which indicates that each page contains 10 entries.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the WAF instance. Value:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The sensitive data type in the request.
+    // The type of sensitive information in the request.
     // 
-    // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive information types.
     shared_ptr<string> requestSensitiveType_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The sensitivity level of the API. Valid values:
-    // 
-    // * **L1**: high sensitivity
-    // * **L2**: moderate sensitivity
-    // * **L3**: low sensitivity
-    // * **N**: non-sensitivity
+    // - **L1**: high sensitivity.
+    // - **L2**: medium sensitivity.
+    // - **L3**: low sensitivity.
+    // - **N**: not sensitive.
     shared_ptr<string> sensitiveLevel_ {};
-    // The sensitive data type in the response.
-    // 
-    // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+    // The type of sensitive data in the response.
+    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
     shared_ptr<string> sensitiveType_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+    // The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
     shared_ptr<string> startTime_ {};
   };
 

@@ -70,7 +70,17 @@ namespace Models
 
 
     protected:
+      // The expiration time of the POC feature trial. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTime_ {};
+      // The type of the POC feature trial. Valid values:
+      // 
+      // - **apisec**: API security.
+      // 
+      // - **botWeb**: bot management for websites.
+      // 
+      // - **botApp**: bot management for apps.
+      // 
+      // - **largeLanguageModel**: AI-powered application protection.
       shared_ptr<string> type_ {};
     };
 
@@ -93,7 +103,9 @@ namespace Models
 
 
   protected:
+    // A list of the POC feature details.
     shared_ptr<vector<DescribePocFunctionsResponseBody::Functions>> functions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

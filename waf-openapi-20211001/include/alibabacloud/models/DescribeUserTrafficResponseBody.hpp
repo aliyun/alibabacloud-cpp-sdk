@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The sequence number sorted in chronological order.
       shared_ptr<int64_t> index_ {};
+      // The usage.
       shared_ptr<int64_t> pv_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of user traffic data.
     shared_ptr<vector<DescribeUserTrafficResponseBody::UserTraffic>> userTraffic_ {};
   };
 

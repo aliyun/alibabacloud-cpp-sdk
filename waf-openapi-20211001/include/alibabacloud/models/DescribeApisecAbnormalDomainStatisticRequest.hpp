@@ -113,33 +113,35 @@ namespace Models
 
   protected:
     // The ID of the hybrid cloud cluster.
-    // >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+    // > This parameter is applicable only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
+    // The end of the time range to query. The value is a UNIX timestamp (UTC) in seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The sorting order. Valid values:
+    // The sort order of the list. Valid values:
     // 
     // - **asc**: ascending order.
+    // 
     // - **desc**: descending order.
     shared_ptr<string> orderWay_ {};
-    // The page number. Default value: **1**.
+    // The page number when using paging. Sets the current page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: **5**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
+    // The beginning of the time range to query. The value is a UNIX timestamp (UTC) in seconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

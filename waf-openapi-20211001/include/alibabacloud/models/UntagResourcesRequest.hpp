@@ -82,13 +82,15 @@ namespace Models
   protected:
     // Specifies whether to remove all tags from the specified resource groups or members. Valid values:
     // 
-    // *   false (default)
-    // *   true
+    // - false (default)
+    // 
+    // - true
     shared_ptr<bool> all_ {};
     // The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
     // 
-    // *   **cn-hangzhou**: Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: Chinese mainland.
+    // 
+    // - **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

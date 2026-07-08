@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceGroup, resourceGroup_);
         DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
         DARABONBA_PTR_TO_JSON(ResourceOrigin, resourceOrigin_);
+        DARABONBA_PTR_TO_JSON(ResourceStatus, resourceStatus_);
         DARABONBA_PTR_TO_JSON(ResponseHeaders, responseHeaders_);
         DARABONBA_PTR_TO_JSON(XffStatus, xffStatus_);
       };
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceGroup, resourceGroup_);
         DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
         DARABONBA_PTR_FROM_JSON(ResourceOrigin, resourceOrigin_);
+        DARABONBA_PTR_FROM_JSON(ResourceStatus, resourceStatus_);
         DARABONBA_PTR_FROM_JSON(ResponseHeaders, responseHeaders_);
         DARABONBA_PTR_FROM_JSON(XffStatus, xffStatus_);
       };
@@ -123,9 +125,9 @@ namespace Models
 
 
       protected:
-        // Specifies the key for a custom response header.
+        // The key of the specified custom response header.
         shared_ptr<string> key_ {};
-        // Specifies the value for a custom response header.
+        // The value of the specified custom response header.
         shared_ptr<string> value_ {};
       };
 
@@ -133,7 +135,7 @@ namespace Models
         && this->acwSecureStatus_ == nullptr && this->acwV3SecureStatus_ == nullptr && this->customHeaders_ == nullptr && this->description_ == nullptr && this->detail_ == nullptr
         && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->instanceId_ == nullptr && this->ownerUserId_ == nullptr && this->pattern_ == nullptr
         && this->product_ == nullptr && this->resource_ == nullptr && this->resourceGroup_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceOrigin_ == nullptr
-        && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
+        && this->resourceStatus_ == nullptr && this->responseHeaders_ == nullptr && this->xffStatus_ == nullptr; };
       // acwCookieStatus Field Functions 
       bool hasAcwCookieStatus() const { return this->acwCookieStatus_ != nullptr;};
       void deleteAcwCookieStatus() { this->acwCookieStatus_ = nullptr;};
@@ -250,6 +252,13 @@ namespace Models
       inline Resource& setResourceOrigin(string resourceOrigin) { DARABONBA_PTR_SET_VALUE(resourceOrigin_, resourceOrigin) };
 
 
+      // resourceStatus Field Functions 
+      bool hasResourceStatus() const { return this->resourceStatus_ != nullptr;};
+      void deleteResourceStatus() { this->resourceStatus_ = nullptr;};
+      inline string getResourceStatus() const { DARABONBA_PTR_GET_DEFAULT(resourceStatus_, "") };
+      inline Resource& setResourceStatus(string resourceStatus) { DARABONBA_PTR_SET_VALUE(resourceStatus_, resourceStatus) };
+
+
       // responseHeaders Field Functions 
       bool hasResponseHeaders() const { return this->responseHeaders_ != nullptr;};
       void deleteResponseHeaders() { this->responseHeaders_ = nullptr;};
@@ -267,57 +276,70 @@ namespace Models
 
 
     protected:
-      // The status of the tracking cookie.
+      // The status of the tracking cookie. Valid values:
       // 
-      // *   **0**: disabled.
-      // *   **1**: enabled.
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int32_t> acwCookieStatus_ {};
-      // The status of the secure attribute of the tracking cookie.
+      // The status of the secure attribute of the tracking cookie. Valid values:
       // 
-      // *   **0**: disabled.
-      // *   **1**: enabled.
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int32_t> acwSecureStatus_ {};
-      // The status of the secure attribute of the slider CAPTCHA cookie.
+      // The status of the secure attribute of the slider cookie. Valid values:
       // 
-      // *   **0**: disabled.
-      // *   **1**: enabled.
+      // - **0**: disabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int32_t> acwV3SecureStatus_ {};
-      // The custom header fields.
-      // 
-      // >  If the value of XffStatus is 1, the first IP address in the specified header field is used as the originating IP address of the client to prevent X-Forwarded-For (XFF) forgery. If you specify multiple header fields, WAF reads the values of the header fields in sequence until the originating IP address is obtained. If the originating IP address cannot be obtained, the first IP address in the XFF header field is used as the originating IP address of the client.
+      // The list of specified header fields.
+      // > When XffStatus is set to 1, the first IP address in the specified header field is used as the client source IP address to prevent XFF forgery. If multiple header fields are specified, they are tried in order to obtain the source IP address. If the source IP address cannot be obtained from the first header field, the second header field is tried, and so on. If the source IP address cannot be obtained from any of the specified header fields, the first IP address in X-Forwarded-For is used. When XffStatus is set to 1, it indicates that the source IP address is obtained from the first header field.
       shared_ptr<vector<string>> customHeaders_ {};
-      // The description of the protected object.
+      // The description.
       shared_ptr<string> description_ {};
-      // The details of the protected object. Different key-value pairs indicate different attributes of the protected object.
+      // The detailed description of the protected object. Different key-value pairs in the Map represent different attributes of the protected object.
       Darabonba::Json detail_ {};
       // The time when the protected object was created. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The time when the protected object was modified. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
+      // The ID of the WAF instance.
       shared_ptr<string> instanceId_ {};
-      // The user ID (UID) of the Alibaba Cloud account to which the protected object belongs.
+      // The UID of the owner of the protected object.
       shared_ptr<string> ownerUserId_ {};
-      // The pattern used for the protected object.
+      // The protection form of the protected object.
       shared_ptr<string> pattern_ {};
       // The name of the cloud service.
       shared_ptr<string> product_ {};
       // The name of the protected object.
       shared_ptr<string> resource_ {};
-      // The name of the protected object group to which the protected object belongs.
+      // The name of the protected object group to which the protected object is added.
       shared_ptr<string> resourceGroup_ {};
       // The ID of the Alibaba Cloud resource group.
       shared_ptr<string> resourceManagerResourceGroupId_ {};
       // The origin of the protected object. Valid values:
       // 
-      // *   **custom**
-      // *   **access**
-      shared_ptr<string> resourceOrigin_ {};
-      // The response header.
-      shared_ptr<vector<Resource::ResponseHeaders>> responseHeaders_ {};
-      // Indicates whether a Layer 7 proxy is deployed in front of WAF, such as Anti-DDoS Proxy and Alibaba Cloud CDN. Valid values:
+      // - **custom**: the protected object created from Access Management.
       // 
-      // *   **0**: No Layer 7 proxy is deployed.
-      // *   **1**: A Layer 7 proxy is deployed.
+      // - **access**: the protected object created by the user.
+      shared_ptr<string> resourceOrigin_ {};
+      // The status of the protected object. Valid values:
+      // 
+      // - **initializing**: default protection is being initialized.
+      // 
+      // - **active**: running normally.
+      // 
+      // - **init_failed**: default protection initialization failed.
+      shared_ptr<string> resourceStatus_ {};
+      // The response header parameters.
+      shared_ptr<vector<Resource::ResponseHeaders>> responseHeaders_ {};
+      // Indicates whether a Layer 7 proxy (Anti-DDoS/CDN, etc.) is deployed in front of WAF. Valid values:
+      // 
+      // - **0**: not enabled.
+      // 
+      // - **1**: enabled.
       shared_ptr<int32_t> xffStatus_ {};
     };
 
@@ -342,7 +364,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The protected object.
+    // The information about the protected object.
     shared_ptr<DescribeDefenseResourceResponseBody::Resource> resource_ {};
   };
 

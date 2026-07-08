@@ -97,36 +97,41 @@ namespace Models
 
 
   protected:
-    // The risk IDs.
+    // A list of API security risk IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> abnormalIds_ {};
     // The ID of the hybrid cloud cluster.
     // 
-    // >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
+    // > This parameter is available only for hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud clusters.
     shared_ptr<string> clusterId_ {};
     // The ID of the Web Application Firewall (WAF) instance.
     // 
-    // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The description.
+    // The remarks for the status change.
     shared_ptr<string> note_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // *   **cn-hangzhou**: the Chinese mainland.
-    // *   **ap-southeast-1**: outside the Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
+    // 
+    // - **ap-southeast-1**: a region outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The risk status. Valid values:
+    // The status of the security risk. Valid values:
     // 
-    // *   **toBeConfirmed**
-    // *   **confirmed**
-    // *   **toBeFixed**
-    // *   **fixed**
-    // *   **ignored**
+    // - **toBeConfirmed**: The security risk is to be confirmed.
+    // 
+    // - **confirmed**: The security risk is confirmed.
+    // 
+    // - **toBeFixed**: The security risk is to be fixed.
+    // 
+    // - **fixed**: The security risk is fixed.
+    // 
+    // - **ignored**: The security risk is ignored.
     // 
     // This parameter is required.
     shared_ptr<string> userStatus_ {};
