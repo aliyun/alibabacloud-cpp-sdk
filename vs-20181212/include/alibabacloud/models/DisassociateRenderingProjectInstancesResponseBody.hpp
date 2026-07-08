@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The result message.
       shared_ptr<string> message_ {};
+      // A cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The reason for failure.
       shared_ptr<string> message_ {};
+      // A cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -164,11 +168,15 @@ namespace Models
 
 
   protected:
+    // The number of cloud application service instances that failed to dissociate.
     shared_ptr<string> failedInstanceCount_ {};
+    // A list of instances that failed to dissociate.
     shared_ptr<vector<DisassociateRenderingProjectInstancesResponseBody::FailedInstances>> failedInstances_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The number of cloud application service instances that were successfully dissociated.
     shared_ptr<string> successInstanceCount_ {};
+    // A list of instances that were successfully dissociated.
     shared_ptr<vector<DisassociateRenderingProjectInstancesResponseBody::SuccessInstances>> successInstances_ {};
   };
 

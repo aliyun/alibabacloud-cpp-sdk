@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Stream ID.
     shared_ptr<string> id_ {};
+    // Stream name.
     shared_ptr<string> name_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

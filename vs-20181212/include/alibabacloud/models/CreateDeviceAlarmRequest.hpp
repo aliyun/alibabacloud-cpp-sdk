@@ -112,20 +112,45 @@ namespace Models
 
 
   protected:
+    // The Alarm Metric. Valid values:
+    // 
+    // - 0: other
+    // - 1: motion detection alerting
+    // - 2: intelligent alerting
+    // - 3: switch alerting
+    // - 4: video loss alerting.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> alarm_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> channelId_ {};
+    // The end time. Unit: milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The expiration time of the media upload URL. Unit: seconds. Default value: 60.
     shared_ptr<int64_t> expire_ {};
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The media object type. Valid values:
+    // - 0: none
+    // - 1: JPEG image
+    // - 2: video
+    // - 3: GIF image.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> objectType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The start time. Unit: milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // The alert subtype.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> subAlarm_ {};
   };

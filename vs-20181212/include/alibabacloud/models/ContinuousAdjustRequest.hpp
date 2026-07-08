@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Zoom speed parameter. A positive value increases the focal length.<br>Value range: -1.0 to 1.0<br>
     shared_ptr<string> focus_ {};
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Aperture speed parameter. A positive value increases the aperture.<br>Value range: -1.0 to 1.0<br>
     shared_ptr<string> iris_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

@@ -162,11 +162,16 @@ namespace Models
 
 
   protected:
+    // This static field defines the time interval for each record, with a value of either 1 hour or 1 day.
     shared_ptr<string> dataInterval_ {};
+    // The domain name for Visual Edge Computing Service.
     shared_ptr<string> domainName_ {};
+    // The end of the time range.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVsDomainPvDataResponseBody::PvDataInterval> pvDataInterval_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The beginning of the time range.
     shared_ptr<string> startTime_ {};
   };
 

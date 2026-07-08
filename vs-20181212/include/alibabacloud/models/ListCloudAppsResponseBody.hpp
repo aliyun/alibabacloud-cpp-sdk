@@ -158,16 +158,35 @@ namespace Models
 
 
     protected:
+      // Application ID.
       shared_ptr<string> appId_ {};
+      // Application name.
       shared_ptr<string> appName_ {};
+      // Application version.
       shared_ptr<string> appVersion_ {};
+      // Application description.
       shared_ptr<string> description_ {};
+      // Package format.
       shared_ptr<string> pkgFormat_ {};
+      // Package type: android/win.
       shared_ptr<string> pkgType_ {};
+      // Stable patch package ID.
       shared_ptr<string> stablePatchId_ {};
+      // The application upload status. Valid values:
+      // 
+      // 1. Created
+      // 
+      // 2. Doing
+      // 
+      // 3. Success: The desired state.
+      // 
+      // 4. Failed: The desired state.
       shared_ptr<string> status_ {};
+      // Status description.
       shared_ptr<string> statusDescription_ {};
+      // Latest status update time.
       shared_ptr<string> updateTime_ {};
+      // Application upload time.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -211,10 +230,15 @@ namespace Models
 
 
   protected:
+    // List of cloud application information.
     shared_ptr<vector<ListCloudAppsResponseBody::CloudApps>> cloudApps_ {};
+    // Page number of the query list.
     shared_ptr<int64_t> pageNumber_ {};
+    // Number of rows per page for paged queries.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of matching cloud application entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

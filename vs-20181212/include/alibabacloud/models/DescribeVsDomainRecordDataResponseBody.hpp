@@ -137,6 +137,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsDomainRecordDataResponseBody::RecordDataPerInterval> recordDataPerInterval_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

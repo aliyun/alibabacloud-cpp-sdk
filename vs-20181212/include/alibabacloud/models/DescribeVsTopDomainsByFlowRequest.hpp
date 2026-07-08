@@ -66,9 +66,12 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The end time must be later than the start time. The date format follows the ISO 8601 standard and uses UTC.<br>Format: YYYY-MM-DDThh:mm:ssZ<br>
     shared_ptr<string> endTime_ {};
+    // The maximum number of domain names to return. The default value is 20. Valid values: 1 to 100.
     shared_ptr<int64_t> limit_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The start of the time range to query. The date format follows the ISO 8601 standard and uses UTC.<br>Format: YYYY-MM-DDThh:mm:ssZ<br>The minimum data granularity is 5 minutes.<br>If you do not specify this parameter, data for the current month is queried.<br><br><br>
     shared_ptr<string> startTime_ {};
   };
 

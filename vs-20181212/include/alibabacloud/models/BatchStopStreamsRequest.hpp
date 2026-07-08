@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
+    // The stream IDs. To specify multiple IDs, separate them with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The time to stop the streams. You can specify a future time to stop the streams.
     shared_ptr<string> startTime_ {};
   };
 

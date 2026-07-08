@@ -79,8 +79,12 @@ namespace Models
 
 
     protected:
+      // The device ID.
       shared_ptr<string> deviceId_ {};
+      // The error message.
+      // > This parameter is returned only when an error occurs.
       shared_ptr<string> error_ {};
+      // The ID of the parent platform.
       shared_ptr<string> parentPlatformId_ {};
     };
 
@@ -103,7 +107,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<BatchUnbindParentPlatformDevicesResponseBody::Results>> results_ {};
   };
 

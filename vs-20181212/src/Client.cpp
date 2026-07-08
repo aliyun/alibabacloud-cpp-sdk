@@ -18,6 +18,12 @@ namespace Vs20181212
 
 AlibabaCloud::Vs20181212::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shenzhen" , "vs.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "vs.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "vs.cn-qingdao.aliyuncs.com"},
+    {"cn-beijing" , "vs.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("vs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,10 +42,13 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加负载到集群
+ * @summary Adds one or more instances to a specified cluster.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Usage notes
+ * - **HiveId** is a required parameter that specifies the ID of the target cluster.
+ * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
+ * - Adding an instance that already exists in the target cluster returns an error message.
+ * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
  *
  * @param tmpReq AddHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -80,10 +89,13 @@ AddHiveEdgeWorkersResponse Client::addHiveEdgeWorkersWithOptions(const AddHiveEd
 }
 
 /**
- * @summary 添加负载到集群
+ * @summary Adds one or more instances to a specified cluster.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Usage notes
+ * - **HiveId** is a required parameter that specifies the ID of the target cluster.
+ * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
+ * - Adding an instance that already exists in the target cluster returns an error message.
+ * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
  *
  * @param request AddHiveEdgeWorkersRequest
  * @return AddHiveEdgeWorkersResponse
@@ -94,6 +106,8 @@ AddHiveEdgeWorkersResponse Client::addHiveEdgeWorkers(const AddHiveEdgeWorkersRe
 }
 
 /**
+ * @summary Adds a stream pulling configuration.
+ *
  * @param request AddVsPullStreamInfoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddVsPullStreamInfoConfigResponse
@@ -151,6 +165,8 @@ AddVsPullStreamInfoConfigResponse Client::addVsPullStreamInfoConfigWithOptions(c
 }
 
 /**
+ * @summary Adds a stream pulling configuration.
+ *
  * @param request AddVsPullStreamInfoConfigRequest
  * @return AddVsPullStreamInfoConfigResponse
  */
@@ -160,10 +176,10 @@ AddVsPullStreamInfoConfigResponse Client::addVsPullStreamInfoConfig(const AddVsP
 }
 
 /**
- * @summary 云应用服务实例与项目进行关联。
+ * @summary Associates cloud application service instances with a project.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Request description
+ * - This operation associates instances that meet specific conditions with a specified project.
  *
  * @param tmpReq AssociateRenderingProjectInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -204,10 +220,10 @@ AssociateRenderingProjectInstancesResponse Client::associateRenderingProjectInst
 }
 
 /**
- * @summary 云应用服务实例与项目进行关联。
+ * @summary Associates cloud application service instances with a project.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Request description
+ * - This operation associates instances that meet specific conditions with a specified project.
  *
  * @param request AssociateRenderingProjectInstancesRequest
  * @return AssociateRenderingProjectInstancesResponse
@@ -218,6 +234,8 @@ AssociateRenderingProjectInstancesResponse Client::associateRenderingProjectInst
 }
 
 /**
+ * @summary Binds multiple devices to directories in a single operation.
+ *
  * @param request BatchBindDirectoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchBindDirectoriesResponse
@@ -255,6 +273,8 @@ BatchBindDirectoriesResponse Client::batchBindDirectoriesWithOptions(const Batch
 }
 
 /**
+ * @summary Binds multiple devices to directories in a single operation.
+ *
  * @param request BatchBindDirectoriesRequest
  * @return BatchBindDirectoriesResponse
  */
@@ -264,6 +284,8 @@ BatchBindDirectoriesResponse Client::batchBindDirectories(const BatchBindDirecto
 }
 
 /**
+ * @summary Binds multiple devices to a parent platform for push in batches.
+ *
  * @param request BatchBindParentPlatformDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchBindParentPlatformDevicesResponse
@@ -301,6 +323,8 @@ BatchBindParentPlatformDevicesResponse Client::batchBindParentPlatformDevicesWit
 }
 
 /**
+ * @summary Binds multiple devices to a parent platform for push in batches.
+ *
  * @param request BatchBindParentPlatformDevicesRequest
  * @return BatchBindParentPlatformDevicesResponse
  */
@@ -310,6 +334,8 @@ BatchBindParentPlatformDevicesResponse Client::batchBindParentPlatformDevices(co
 }
 
 /**
+ * @summary Binds multiple purchased devices.
+ *
  * @param request BatchBindPurchasedDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchBindPurchasedDevicesResponse
@@ -351,6 +377,8 @@ BatchBindPurchasedDevicesResponse Client::batchBindPurchasedDevicesWithOptions(c
 }
 
 /**
+ * @summary Binds multiple purchased devices.
+ *
  * @param request BatchBindPurchasedDevicesRequest
  * @return BatchBindPurchasedDevicesResponse
  */
@@ -360,6 +388,8 @@ BatchBindPurchasedDevicesResponse Client::batchBindPurchasedDevices(const BatchB
 }
 
 /**
+ * @summary Bind templates to multiple specified instances, such as instances bound to spaces and streams.
+ *
  * @param request BatchBindTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchBindTemplateResponse
@@ -409,6 +439,8 @@ BatchBindTemplateResponse Client::batchBindTemplateWithOptions(const BatchBindTe
 }
 
 /**
+ * @summary Bind templates to multiple specified instances, such as instances bound to spaces and streams.
+ *
  * @param request BatchBindTemplateRequest
  * @return BatchBindTemplateResponse
  */
@@ -418,6 +450,8 @@ BatchBindTemplateResponse Client::batchBindTemplate(const BatchBindTemplateReque
 }
 
 /**
+ * @summary Binds multiple templates in a single operation.
+ *
  * @param request BatchBindTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchBindTemplatesResponse
@@ -471,6 +505,8 @@ BatchBindTemplatesResponse Client::batchBindTemplatesWithOptions(const BatchBind
 }
 
 /**
+ * @summary Binds multiple templates in a single operation.
+ *
  * @param request BatchBindTemplatesRequest
  * @return BatchBindTemplatesResponse
  */
@@ -480,6 +516,72 @@ BatchBindTemplatesResponse Client::batchBindTemplates(const BatchBindTemplatesRe
 }
 
 /**
+ * @summary Retrieves screenshots of cloud application service instances.
+ *
+ * @description ## Request description
+ * - **Authentication**: Requests must include the `AliUid` parameter for identity verification.
+ * - **Instance specification**: Use `RenderingInstanceIds` to specify the instances to capture screenshots from.
+ * - **Screenshot quality**: Use the `Quality` parameter to set the image quality of screenshots. The default value is 75 (if not configured). Valid values: 1 to 100.
+ * - **Response handling**: The response contains lists of successful and failed instances with related information, including download URLs and screenshot completion times.
+ *
+ * @param tmpReq BatchCaptureRenderingInstanceScreenshotRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCaptureRenderingInstanceScreenshotResponse
+ */
+BatchCaptureRenderingInstanceScreenshotResponse Client::batchCaptureRenderingInstanceScreenshotWithOptions(const BatchCaptureRenderingInstanceScreenshotRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCaptureRenderingInstanceScreenshotShrinkRequest request = BatchCaptureRenderingInstanceScreenshotShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRenderingInstanceIds()) {
+    request.setRenderingInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRenderingInstanceIds(), "RenderingInstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasQuality()) {
+    query["Quality"] = request.getQuality();
+  }
+
+  if (!!request.hasRenderingInstanceIdsShrink()) {
+    query["RenderingInstanceIds"] = request.getRenderingInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchCaptureRenderingInstanceScreenshot"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCaptureRenderingInstanceScreenshotResponse>();
+}
+
+/**
+ * @summary Retrieves screenshots of cloud application service instances.
+ *
+ * @description ## Request description
+ * - **Authentication**: Requests must include the `AliUid` parameter for identity verification.
+ * - **Instance specification**: Use `RenderingInstanceIds` to specify the instances to capture screenshots from.
+ * - **Screenshot quality**: Use the `Quality` parameter to set the image quality of screenshots. The default value is 75 (if not configured). Valid values: 1 to 100.
+ * - **Response handling**: The response contains lists of successful and failed instances with related information, including download URLs and screenshot completion times.
+ *
+ * @param request BatchCaptureRenderingInstanceScreenshotRequest
+ * @return BatchCaptureRenderingInstanceScreenshotResponse
+ */
+BatchCaptureRenderingInstanceScreenshotResponse Client::batchCaptureRenderingInstanceScreenshot(const BatchCaptureRenderingInstanceScreenshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCaptureRenderingInstanceScreenshotWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes multiple devices in a single operation.
+ *
  * @param request BatchDeleteDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchDeleteDevicesResponse
@@ -513,6 +615,8 @@ BatchDeleteDevicesResponse Client::batchDeleteDevicesWithOptions(const BatchDele
 }
 
 /**
+ * @summary Deletes multiple devices in a single operation.
+ *
  * @param request BatchDeleteDevicesRequest
  * @return BatchDeleteDevicesResponse
  */
@@ -522,6 +626,8 @@ BatchDeleteDevicesResponse Client::batchDeleteDevices(const BatchDeleteDevicesRe
 }
 
 /**
+ * @summary Deletes domain name configurations in a batch.
+ *
  * @param request BatchDeleteVsDomainConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchDeleteVsDomainConfigsResponse
@@ -559,6 +665,8 @@ BatchDeleteVsDomainConfigsResponse Client::batchDeleteVsDomainConfigsWithOptions
 }
 
 /**
+ * @summary Deletes domain name configurations in a batch.
+ *
  * @param request BatchDeleteVsDomainConfigsRequest
  * @return BatchDeleteVsDomainConfigsResponse
  */
@@ -568,6 +676,8 @@ BatchDeleteVsDomainConfigsResponse Client::batchDeleteVsDomainConfigs(const Batc
 }
 
 /**
+ * @summary Stop stream ingest for one or more streams. You can schedule when to resume ingest.
+ *
  * @param request BatchForbidVsStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchForbidVsStreamResponse
@@ -621,6 +731,8 @@ BatchForbidVsStreamResponse Client::batchForbidVsStreamWithOptions(const BatchFo
 }
 
 /**
+ * @summary Stop stream ingest for one or more streams. You can schedule when to resume ingest.
+ *
  * @param request BatchForbidVsStreamRequest
  * @return BatchForbidVsStreamResponse
  */
@@ -630,6 +742,8 @@ BatchForbidVsStreamResponse Client::batchForbidVsStream(const BatchForbidVsStrea
 }
 
 /**
+ * @summary Resumes stream ingest for one or more streams.
+ *
  * @param request BatchResumeVsStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchResumeVsStreamResponse
@@ -675,6 +789,8 @@ BatchResumeVsStreamResponse Client::batchResumeVsStreamWithOptions(const BatchRe
 }
 
 /**
+ * @summary Resumes stream ingest for one or more streams.
+ *
  * @param request BatchResumeVsStreamRequest
  * @return BatchResumeVsStreamResponse
  */
@@ -684,6 +800,8 @@ BatchResumeVsStreamResponse Client::batchResumeVsStream(const BatchResumeVsStrea
 }
 
 /**
+ * @summary Configure multiple domain names in batch.
+ *
  * @param request BatchSetVsDomainConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchSetVsDomainConfigsResponse
@@ -721,6 +839,8 @@ BatchSetVsDomainConfigsResponse Client::batchSetVsDomainConfigsWithOptions(const
 }
 
 /**
+ * @summary Configure multiple domain names in batch.
+ *
  * @param request BatchSetVsDomainConfigsRequest
  * @return BatchSetVsDomainConfigsResponse
  */
@@ -730,6 +850,8 @@ BatchSetVsDomainConfigsResponse Client::batchSetVsDomainConfigs(const BatchSetVs
 }
 
 /**
+ * @summary Start stream pulling for multiple devices at once.
+ *
  * @param request BatchStartDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchStartDevicesResponse
@@ -763,6 +885,8 @@ BatchStartDevicesResponse Client::batchStartDevicesWithOptions(const BatchStartD
 }
 
 /**
+ * @summary Start stream pulling for multiple devices at once.
+ *
  * @param request BatchStartDevicesRequest
  * @return BatchStartDevicesResponse
  */
@@ -772,6 +896,8 @@ BatchStartDevicesResponse Client::batchStartDevices(const BatchStartDevicesReque
 }
 
 /**
+ * @summary Starts multiple streams.
+ *
  * @param request BatchStartStreamsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchStartStreamsResponse
@@ -805,6 +931,8 @@ BatchStartStreamsResponse Client::batchStartStreamsWithOptions(const BatchStartS
 }
 
 /**
+ * @summary Starts multiple streams.
+ *
  * @param request BatchStartStreamsRequest
  * @return BatchStartStreamsResponse
  */
@@ -814,6 +942,8 @@ BatchStartStreamsResponse Client::batchStartStreams(const BatchStartStreamsReque
 }
 
 /**
+ * @summary Stops stream pulling for multiple devices.
+ *
  * @param request BatchStopDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchStopDevicesResponse
@@ -851,6 +981,8 @@ BatchStopDevicesResponse Client::batchStopDevicesWithOptions(const BatchStopDevi
 }
 
 /**
+ * @summary Stops stream pulling for multiple devices.
+ *
  * @param request BatchStopDevicesRequest
  * @return BatchStopDevicesResponse
  */
@@ -860,6 +992,8 @@ BatchStopDevicesResponse Client::batchStopDevices(const BatchStopDevicesRequest 
 }
 
 /**
+ * @summary Stops multiple streams in a batch.
+ *
  * @param request BatchStopStreamsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchStopStreamsResponse
@@ -897,6 +1031,8 @@ BatchStopStreamsResponse Client::batchStopStreamsWithOptions(const BatchStopStre
 }
 
 /**
+ * @summary Stops multiple streams in a batch.
+ *
  * @param request BatchStopStreamsRequest
  * @return BatchStopStreamsResponse
  */
@@ -906,6 +1042,8 @@ BatchStopStreamsResponse Client::batchStopStreams(const BatchStopStreamsRequest 
 }
 
 /**
+ * @summary Detaches multiple devices from a folder in bulk.
+ *
  * @param request BatchUnbindDirectoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchUnbindDirectoriesResponse
@@ -943,6 +1081,8 @@ BatchUnbindDirectoriesResponse Client::batchUnbindDirectoriesWithOptions(const B
 }
 
 /**
+ * @summary Detaches multiple devices from a folder in bulk.
+ *
  * @param request BatchUnbindDirectoriesRequest
  * @return BatchUnbindDirectoriesResponse
  */
@@ -952,6 +1092,8 @@ BatchUnbindDirectoriesResponse Client::batchUnbindDirectories(const BatchUnbindD
 }
 
 /**
+ * @summary Batch unbind multiple devices from parent platform push.
+ *
  * @param request BatchUnbindParentPlatformDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchUnbindParentPlatformDevicesResponse
@@ -989,6 +1131,8 @@ BatchUnbindParentPlatformDevicesResponse Client::batchUnbindParentPlatformDevice
 }
 
 /**
+ * @summary Batch unbind multiple devices from parent platform push.
+ *
  * @param request BatchUnbindParentPlatformDevicesRequest
  * @return BatchUnbindParentPlatformDevicesResponse
  */
@@ -998,6 +1142,8 @@ BatchUnbindParentPlatformDevicesResponse Client::batchUnbindParentPlatformDevice
 }
 
 /**
+ * @summary Detach multiple purchased devices from a space in a single operation.
+ *
  * @param request BatchUnbindPurchasedDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchUnbindPurchasedDevicesResponse
@@ -1031,6 +1177,8 @@ BatchUnbindPurchasedDevicesResponse Client::batchUnbindPurchasedDevicesWithOptio
 }
 
 /**
+ * @summary Detach multiple purchased devices from a space in a single operation.
+ *
  * @param request BatchUnbindPurchasedDevicesRequest
  * @return BatchUnbindPurchasedDevicesResponse
  */
@@ -1040,6 +1188,10 @@ BatchUnbindPurchasedDevicesResponse Client::batchUnbindPurchasedDevices(const Ba
 }
 
 /**
+ * @summary Detach a template from multiple specified instances, such as space instances or stream instances.
+ *
+ * @description > Specify at least one of TemplateId or TemplateType.
+ *
  * @param request BatchUnbindTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchUnbindTemplateResponse
@@ -1085,6 +1237,10 @@ BatchUnbindTemplateResponse Client::batchUnbindTemplateWithOptions(const BatchUn
 }
 
 /**
+ * @summary Detach a template from multiple specified instances, such as space instances or stream instances.
+ *
+ * @description > Specify at least one of TemplateId or TemplateType.
+ *
  * @param request BatchUnbindTemplateRequest
  * @return BatchUnbindTemplateResponse
  */
@@ -1094,6 +1250,8 @@ BatchUnbindTemplateResponse Client::batchUnbindTemplate(const BatchUnbindTemplat
 }
 
 /**
+ * @summary Unbind multiple templates simultaneously.
+ *
  * @param request BatchUnbindTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchUnbindTemplatesResponse
@@ -1139,6 +1297,8 @@ BatchUnbindTemplatesResponse Client::batchUnbindTemplatesWithOptions(const Batch
 }
 
 /**
+ * @summary Unbind multiple templates simultaneously.
+ *
  * @param request BatchUnbindTemplatesRequest
  * @return BatchUnbindTemplatesResponse
  */
@@ -1148,6 +1308,8 @@ BatchUnbindTemplatesResponse Client::batchUnbindTemplates(const BatchUnbindTempl
 }
 
 /**
+ * @summary Attach a device to a folder.
+ *
  * @param request BindDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BindDirectoryResponse
@@ -1185,6 +1347,8 @@ BindDirectoryResponse Client::bindDirectoryWithOptions(const BindDirectoryReques
 }
 
 /**
+ * @summary Attach a device to a folder.
+ *
  * @param request BindDirectoryRequest
  * @return BindDirectoryResponse
  */
@@ -1194,6 +1358,8 @@ BindDirectoryResponse Client::bindDirectory(const BindDirectoryRequest &request)
 }
 
 /**
+ * @summary Binds a device to push streams to a parent platform.
+ *
  * @param request BindParentPlatformDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BindParentPlatformDeviceResponse
@@ -1231,6 +1397,8 @@ BindParentPlatformDeviceResponse Client::bindParentPlatformDeviceWithOptions(con
 }
 
 /**
+ * @summary Binds a device to push streams to a parent platform.
+ *
  * @param request BindParentPlatformDeviceRequest
  * @return BindParentPlatformDeviceResponse
  */
@@ -1240,6 +1408,8 @@ BindParentPlatformDeviceResponse Client::bindParentPlatformDevice(const BindPare
 }
 
 /**
+ * @summary Attach purchased devices to a space.
+ *
  * @param request BindPurchasedDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BindPurchasedDeviceResponse
@@ -1281,6 +1451,8 @@ BindPurchasedDeviceResponse Client::bindPurchasedDeviceWithOptions(const BindPur
 }
 
 /**
+ * @summary Attach purchased devices to a space.
+ *
  * @param request BindPurchasedDeviceRequest
  * @return BindPurchasedDeviceResponse
  */
@@ -1290,6 +1462,8 @@ BindPurchasedDeviceResponse Client::bindPurchasedDevice(const BindPurchasedDevic
 }
 
 /**
+ * @summary Binds a template to a specified instance, such as a group or stream.
+ *
  * @param request BindTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BindTemplateResponse
@@ -1343,6 +1517,8 @@ BindTemplateResponse Client::bindTemplateWithOptions(const BindTemplateRequest &
 }
 
 /**
+ * @summary Binds a template to a specified instance, such as a group or stream.
+ *
  * @param request BindTemplateRequest
  * @return BindTemplateResponse
  */
@@ -1352,7 +1528,9 @@ BindTemplateResponse Client::bindTemplate(const BindTemplateRequest &request) {
 }
 
 /**
- * @summary 上传用户数据文件
+ * @summary Cancels a Comfy task.
+ *
+ * @description > Stop the parent platform before canceling the task.
  *
  * @param request CancelComfyTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1561,9 @@ CancelComfyTaskResponse Client::cancelComfyTaskWithOptions(const CancelComfyTask
 }
 
 /**
- * @summary 上传用户数据文件
+ * @summary Cancels a Comfy task.
+ *
+ * @description > Stop the parent platform before canceling the task.
  *
  * @param request CancelComfyTaskRequest
  * @return CancelComfyTaskResponse
@@ -1394,6 +1574,8 @@ CancelComfyTaskResponse Client::cancelComfyTask(const CancelComfyTaskRequest &re
 }
 
 /**
+ * @summary Continuously adjust lens parameters such as aperture and zoom.
+ *
  * @param request ContinuousAdjustRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ContinuousAdjustResponse
@@ -1435,6 +1617,8 @@ ContinuousAdjustResponse Client::continuousAdjustWithOptions(const ContinuousAdj
 }
 
 /**
+ * @summary Continuously adjust lens parameters such as aperture and zoom.
+ *
  * @param request ContinuousAdjustRequest
  * @return ContinuousAdjustResponse
  */
@@ -1444,6 +1628,8 @@ ContinuousAdjustResponse Client::continuousAdjust(const ContinuousAdjustRequest 
 }
 
 /**
+ * @summary Rotate the camera continuously by panning, tilting, or zooming.
+ *
  * @param request ContinuousMoveRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ContinuousMoveResponse
@@ -1489,6 +1675,8 @@ ContinuousMoveResponse Client::continuousMoveWithOptions(const ContinuousMoveReq
 }
 
 /**
+ * @summary Rotate the camera continuously by panning, tilting, or zooming.
+ *
  * @param request ContinuousMoveRequest
  * @return ContinuousMoveResponse
  */
@@ -1498,7 +1686,9 @@ ContinuousMoveResponse Client::continuousMove(const ContinuousMoveRequest &reque
 }
 
 /**
- * @summary 上传用户数据文件
+ * @summary Starts a Comfy task.
+ *
+ * @description > You must first enable the on-demand screenshot feature in the associated screenshot template.
  *
  * @param request CreateComfyTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1537,7 +1727,9 @@ CreateComfyTaskResponse Client::createComfyTaskWithOptions(const CreateComfyTask
 }
 
 /**
- * @summary 上传用户数据文件
+ * @summary Starts a Comfy task.
+ *
+ * @description > You must first enable the on-demand screenshot feature in the associated screenshot template.
  *
  * @param request CreateComfyTaskRequest
  * @return CreateComfyTaskResponse
@@ -1548,7 +1740,9 @@ CreateComfyTaskResponse Client::createComfyTask(const CreateComfyTaskRequest &re
 }
 
 /**
- * @summary 创建一个用户数据的目录
+ * @summary Creates a directory for user data.
+ *
+ * @description > You must specify either a template ID or a template type.
  *
  * @param request CreateComfyUserDataDirRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1579,7 +1773,9 @@ CreateComfyUserDataDirResponse Client::createComfyUserDataDirWithOptions(const C
 }
 
 /**
- * @summary 创建一个用户数据的目录
+ * @summary Creates a directory for user data.
+ *
+ * @description > You must specify either a template ID or a template type.
  *
  * @param request CreateComfyUserDataDirRequest
  * @return CreateComfyUserDataDirResponse
@@ -1590,7 +1786,9 @@ CreateComfyUserDataDirResponse Client::createComfyUserDataDir(const CreateComfyU
 }
 
 /**
- * @summary 创建Comfy工作流
+ * @summary Creates a Comfy workflow.
+ *
+ * @description > You must enable the on-demand screenshot feature in the associated screenshot template before calling this operation.
  *
  * @param request CreateComfyWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1629,7 +1827,9 @@ CreateComfyWorkflowResponse Client::createComfyWorkflowWithOptions(const CreateC
 }
 
 /**
- * @summary 创建Comfy工作流
+ * @summary Creates a Comfy workflow.
+ *
+ * @description > You must enable the on-demand screenshot feature in the associated screenshot template before calling this operation.
  *
  * @param request CreateComfyWorkflowRequest
  * @return CreateComfyWorkflowResponse
@@ -1640,6 +1840,8 @@ CreateComfyWorkflowResponse Client::createComfyWorkflow(const CreateComfyWorkflo
 }
 
 /**
+ * @summary Add a new device.
+ *
  * @param request CreateDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDeviceResponse
@@ -1757,6 +1959,8 @@ CreateDeviceResponse Client::createDeviceWithOptions(const CreateDeviceRequest &
 }
 
 /**
+ * @summary Add a new device.
+ *
  * @param request CreateDeviceRequest
  * @return CreateDeviceResponse
  */
@@ -1766,6 +1970,8 @@ CreateDeviceResponse Client::createDevice(const CreateDeviceRequest &request) {
 }
 
 /**
+ * @summary Reports a device alert.
+ *
  * @param request CreateDeviceAlarmRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDeviceAlarmResponse
@@ -1827,6 +2033,8 @@ CreateDeviceAlarmResponse Client::createDeviceAlarmWithOptions(const CreateDevic
 }
 
 /**
+ * @summary Reports a device alert.
+ *
  * @param request CreateDeviceAlarmRequest
  * @return CreateDeviceAlarmResponse
  */
@@ -1836,6 +2044,8 @@ CreateDeviceAlarmResponse Client::createDeviceAlarm(const CreateDeviceAlarmReque
 }
 
 /**
+ * @summary Creates a new folder.
+ *
  * @param request CreateDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDirectoryResponse
@@ -1881,6 +2091,8 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
 }
 
 /**
+ * @summary Creates a new folder.
+ *
  * @param request CreateDirectoryRequest
  * @return CreateDirectoryResponse
  */
@@ -1890,6 +2102,8 @@ CreateDirectoryResponse Client::createDirectory(const CreateDirectoryRequest &re
 }
 
 /**
+ * @summary Create a new workspace.
+ *
  * @param request CreateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateGroupResponse
@@ -1959,6 +2173,8 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
+ * @summary Create a new workspace.
+ *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
  */
@@ -1968,10 +2184,10 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary 创建集群
+ * @summary Creates a cluster.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Description
+ * - This operation creates an empty cluster to manage workloads.
  *
  * @param request CreateHiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2006,10 +2222,10 @@ CreateHiveResponse Client::createHiveWithOptions(const CreateHiveRequest &reques
 }
 
 /**
- * @summary 创建集群
+ * @summary Creates a cluster.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Description
+ * - This operation creates an empty cluster to manage workloads.
  *
  * @param request CreateHiveRequest
  * @return CreateHiveResponse
@@ -2020,6 +2236,8 @@ CreateHiveResponse Client::createHive(const CreateHiveRequest &request) {
 }
 
 /**
+ * @summary Adds a new parent platform.
+ *
  * @param request CreateParentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateParentPlatformResponse
@@ -2089,6 +2307,8 @@ CreateParentPlatformResponse Client::createParentPlatformWithOptions(const Creat
 }
 
 /**
+ * @summary Adds a new parent platform.
+ *
  * @param request CreateParentPlatformRequest
  * @return CreateParentPlatformResponse
  */
@@ -2098,7 +2318,7 @@ CreateParentPlatformResponse Client::createParentPlatform(const CreateParentPlat
 }
 
 /**
- * @summary 创建云渲染数据包
+ * @summary Creates a data pack for a cloud application service.
  *
  * @param request CreateRenderingDataPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2141,7 +2361,7 @@ CreateRenderingDataPackageResponse Client::createRenderingDataPackageWithOptions
 }
 
 /**
- * @summary 创建云渲染数据包
+ * @summary Creates a data pack for a cloud application service.
  *
  * @param request CreateRenderingDataPackageRequest
  * @return CreateRenderingDataPackageResponse
@@ -2152,7 +2372,7 @@ CreateRenderingDataPackageResponse Client::createRenderingDataPackage(const Crea
 }
 
 /**
- * @summary 申请云渲染资源实例
+ * @summary Call CreateRenderingInstance to create a cloud application service instance.
  *
  * @param tmpReq CreateRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2229,7 +2449,7 @@ CreateRenderingInstanceResponse Client::createRenderingInstanceWithOptions(const
 }
 
 /**
- * @summary 申请云渲染资源实例
+ * @summary Call CreateRenderingInstance to create a cloud application service instance.
  *
  * @param request CreateRenderingInstanceRequest
  * @return CreateRenderingInstanceResponse
@@ -2240,7 +2460,9 @@ CreateRenderingInstanceResponse Client::createRenderingInstance(const CreateRend
 }
 
 /**
- * @summary 创建自定义网关
+ * @summary Creates a custom gateway.
+ *
+ * @description > You can specify a template ID or a template type.
  *
  * @param request CreateRenderingInstanceGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2275,7 +2497,9 @@ CreateRenderingInstanceGatewayResponse Client::createRenderingInstanceGatewayWit
 }
 
 /**
- * @summary 创建自定义网关
+ * @summary Creates a custom gateway.
+ *
+ * @description > You can specify a template ID or a template type.
  *
  * @param request CreateRenderingInstanceGatewayRequest
  * @return CreateRenderingInstanceGatewayResponse
@@ -2286,7 +2510,7 @@ CreateRenderingInstanceGatewayResponse Client::createRenderingInstanceGateway(co
 }
 
 /**
- * @summary 创建一个新的云应用服务项目，并设置相关属性。
+ * @summary Creates a cloud application service project and configures its properties, such as session attributes.
  *
  * @param tmpReq CreateRenderingProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2331,7 +2555,7 @@ CreateRenderingProjectResponse Client::createRenderingProjectWithOptions(const C
 }
 
 /**
- * @summary 创建一个新的云应用服务项目，并设置相关属性。
+ * @summary Creates a cloud application service project and configures its properties, such as session attributes.
  *
  * @param request CreateRenderingProjectRequest
  * @return CreateRenderingProjectResponse
@@ -2342,6 +2566,10 @@ CreateRenderingProjectResponse Client::createRenderingProject(const CreateRender
 }
 
 /**
+ * @summary Creates an on-demand snapshot for the specified stream.
+ *
+ * @description > You must first enable the on-demand snapshot feature in the attached snapshot template.
+ *
  * @param request CreateStreamSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateStreamSnapshotResponse
@@ -2379,6 +2607,10 @@ CreateStreamSnapshotResponse Client::createStreamSnapshotWithOptions(const Creat
 }
 
 /**
+ * @summary Creates an on-demand snapshot for the specified stream.
+ *
+ * @description > You must first enable the on-demand snapshot feature in the attached snapshot template.
+ *
  * @param request CreateStreamSnapshotRequest
  * @return CreateStreamSnapshotResponse
  */
@@ -2388,6 +2620,8 @@ CreateStreamSnapshotResponse Client::createStreamSnapshot(const CreateStreamSnap
 }
 
 /**
+ * @summary Create a new template.
+ *
  * @param request CreateTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateTemplateResponse
@@ -2497,6 +2731,8 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 }
 
 /**
+ * @summary Create a new template.
+ *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
  */
@@ -2509,7 +2745,9 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
  * @summary 从集群删除负载
  *
  * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * - **HiveId** 是必填参数，表示要操作的集群ID。
+ * - **InstanceIds** 是必填参数，需要提供一个负载ID列表，用于指定要从集群中解绑的负载实例。
+ * - 解绑操作成功后，会返回成功和失败的负载实例列表及其相关信息。
  *
  * @param tmpReq DelHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2553,7 +2791,9 @@ DelHiveEdgeWorkersResponse Client::delHiveEdgeWorkersWithOptions(const DelHiveEd
  * @summary 从集群删除负载
  *
  * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * - **HiveId** 是必填参数，表示要操作的集群ID。
+ * - **InstanceIds** 是必填参数，需要提供一个负载ID列表，用于指定要从集群中解绑的负载实例。
+ * - 解绑操作成功后，会返回成功和失败的负载实例列表及其相关信息。
  *
  * @param request DelHiveEdgeWorkersRequest
  * @return DelHiveEdgeWorkersResponse
@@ -2564,7 +2804,7 @@ DelHiveEdgeWorkersResponse Client::delHiveEdgeWorkers(const DelHiveEdgeWorkersRe
 }
 
 /**
- * @summary 删除云应用
+ * @summary Deletes a cloud application. You cannot delete a cloud application that is in use.
  *
  * @param request DeleteCloudAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2595,7 +2835,7 @@ DeleteCloudAppResponse Client::deleteCloudAppWithOptions(const DeleteCloudAppReq
 }
 
 /**
- * @summary 删除云应用
+ * @summary Deletes a cloud application. You cannot delete a cloud application that is in use.
  *
  * @param request DeleteCloudAppRequest
  * @return DeleteCloudAppResponse
@@ -2606,7 +2846,9 @@ DeleteCloudAppResponse Client::deleteCloudApp(const DeleteCloudAppRequest &reque
 }
 
 /**
- * @summary 删除用户的生成结果
+ * @summary Deleting artifacts
+ *
+ * @description > Stop the parent platform before you delete a production.
  *
  * @param request DeleteComfyProductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2637,7 +2879,9 @@ DeleteComfyProductionResponse Client::deleteComfyProductionWithOptions(const Del
 }
 
 /**
- * @summary 删除用户的生成结果
+ * @summary Deleting artifacts
+ *
+ * @description > Stop the parent platform before you delete a production.
  *
  * @param request DeleteComfyProductionRequest
  * @return DeleteComfyProductionResponse
@@ -2648,7 +2892,9 @@ DeleteComfyProductionResponse Client::deleteComfyProduction(const DeleteComfyPro
 }
 
 /**
- * @summary 删除用户数据的中的文件或目录
+ * @summary Deletes a file or directory from user data.
+ *
+ * @description > You must stop the upper-level platform before performing this operation.
  *
  * @param request DeleteComfyUserDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2679,7 +2925,9 @@ DeleteComfyUserDataResponse Client::deleteComfyUserDataWithOptions(const DeleteC
 }
 
 /**
- * @summary 删除用户数据的中的文件或目录
+ * @summary Deletes a file or directory from user data.
+ *
+ * @description > You must stop the upper-level platform before performing this operation.
  *
  * @param request DeleteComfyUserDataRequest
  * @return DeleteComfyUserDataResponse
@@ -2690,7 +2938,9 @@ DeleteComfyUserDataResponse Client::deleteComfyUserData(const DeleteComfyUserDat
 }
 
 /**
- * @summary 删除Comfy工作流
+ * @summary Deletes a Comfy workflow.
+ *
+ * @description > You must stop the parent platform before you can delete the workflow.
  *
  * @param request DeleteComfyWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2721,7 +2971,9 @@ DeleteComfyWorkflowResponse Client::deleteComfyWorkflowWithOptions(const DeleteC
 }
 
 /**
- * @summary 删除Comfy工作流
+ * @summary Deletes a Comfy workflow.
+ *
+ * @description > You must stop the parent platform before you can delete the workflow.
  *
  * @param request DeleteComfyWorkflowRequest
  * @return DeleteComfyWorkflowResponse
@@ -2732,6 +2984,8 @@ DeleteComfyWorkflowResponse Client::deleteComfyWorkflow(const DeleteComfyWorkflo
 }
 
 /**
+ * @summary Deletes a device from a space.
+ *
  * @param request DeleteDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDeviceResponse
@@ -2765,6 +3019,8 @@ DeleteDeviceResponse Client::deleteDeviceWithOptions(const DeleteDeviceRequest &
 }
 
 /**
+ * @summary Deletes a device from a space.
+ *
  * @param request DeleteDeviceRequest
  * @return DeleteDeviceResponse
  */
@@ -2774,6 +3030,8 @@ DeleteDeviceResponse Client::deleteDevice(const DeleteDeviceRequest &request) {
 }
 
 /**
+ * @summary Deletes a folder.
+ *
  * @param request DeleteDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDirectoryResponse
@@ -2807,6 +3065,8 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
 }
 
 /**
+ * @summary Deletes a folder.
+ *
  * @param request DeleteDirectoryRequest
  * @return DeleteDirectoryResponse
  */
@@ -2816,7 +3076,7 @@ DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &re
 }
 
 /**
- * @summary 删除文件对象。
+ * @summary You cannot delete a file while it is uploading or pre-pushing. After deletion, all related push records become invalid. You can push a file with the same name again.
  *
  * @param request DeleteFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2847,7 +3107,7 @@ DeleteFileResponse Client::deleteFileWithOptions(const DeleteFileRequest &reques
 }
 
 /**
- * @summary 删除文件对象。
+ * @summary You cannot delete a file while it is uploading or pre-pushing. After deletion, all related push records become invalid. You can push a file with the same name again.
  *
  * @param request DeleteFileRequest
  * @return DeleteFileResponse
@@ -2858,6 +3118,8 @@ DeleteFileResponse Client::deleteFile(const DeleteFileRequest &request) {
 }
 
 /**
+ * @summary Delete a workspace.
+ *
  * @param request DeleteGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGroupResponse
@@ -2891,6 +3153,8 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const DeleteGroupRequest &req
 }
 
 /**
+ * @summary Delete a workspace.
+ *
  * @param request DeleteGroupRequest
  * @return DeleteGroupResponse
  */
@@ -2903,7 +3167,8 @@ DeleteGroupResponse Client::deleteGroup(const DeleteGroupRequest &request) {
  * @summary 删除集群
  *
  * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * - 需要确保该集群内所有应用服务已清空，否则无法执行删除操作。
+ * - `HiveId` 是必填参数，用于标识待删除的集群。
  *
  * @param request DeleteHiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +3202,8 @@ DeleteHiveResponse Client::deleteHiveWithOptions(const DeleteHiveRequest &reques
  * @summary 删除集群
  *
  * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * - 需要确保该集群内所有应用服务已清空，否则无法执行删除操作。
+ * - `HiveId` 是必填参数，用于标识待删除的集群。
  *
  * @param request DeleteHiveRequest
  * @return DeleteHiveResponse
@@ -2948,6 +3214,10 @@ DeleteHiveResponse Client::deleteHive(const DeleteHiveRequest &request) {
 }
 
 /**
+ * @summary Deletes a parent platform.
+ *
+ * @description > You must stop the parent platform before you delete it.
+ *
  * @param request DeleteParentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteParentPlatformResponse
@@ -2981,6 +3251,10 @@ DeleteParentPlatformResponse Client::deleteParentPlatformWithOptions(const Delet
 }
 
 /**
+ * @summary Deletes a parent platform.
+ *
+ * @description > You must stop the parent platform before you delete it.
+ *
  * @param request DeleteParentPlatformRequest
  * @return DeleteParentPlatformResponse
  */
@@ -2990,6 +3264,8 @@ DeleteParentPlatformResponse Client::deleteParentPlatform(const DeleteParentPlat
 }
 
 /**
+ * @summary Deletes a preset.
+ *
  * @param request DeletePresetRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeletePresetResponse
@@ -3027,6 +3303,8 @@ DeletePresetResponse Client::deletePresetWithOptions(const DeletePresetRequest &
 }
 
 /**
+ * @summary Deletes a preset.
+ *
  * @param request DeletePresetRequest
  * @return DeletePresetResponse
  */
@@ -3036,7 +3314,7 @@ DeletePresetResponse Client::deletePreset(const DeletePresetRequest &request) {
 }
 
 /**
- * @summary 删除公钥信息
+ * @summary Deletes a specified public key. This action automatically revokes logon authorization for all associated cloud application service instances.
  *
  * @param request DeletePublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3067,7 +3345,7 @@ DeletePublicKeyResponse Client::deletePublicKeyWithOptions(const DeletePublicKey
 }
 
 /**
- * @summary 删除公钥信息
+ * @summary Deletes a specified public key. This action automatically revokes logon authorization for all associated cloud application service instances.
  *
  * @param request DeletePublicKeyRequest
  * @return DeletePublicKeyResponse
@@ -3078,7 +3356,7 @@ DeletePublicKeyResponse Client::deletePublicKey(const DeletePublicKeyRequest &re
 }
 
 /**
- * @summary 删除云渲染实例配置参数
+ * @summary Deletes the configuration of a cloud application service instance. This operation deletes only module properties that are configured using the UpdateRenderingInstanceConfiguration operation.
  *
  * @param tmpReq DeleteRenderingInstanceConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3121,7 +3399,7 @@ DeleteRenderingInstanceConfigurationResponse Client::deleteRenderingInstanceConf
 }
 
 /**
- * @summary 删除云渲染实例配置参数
+ * @summary Deletes the configuration of a cloud application service instance. This operation deletes only module properties that are configured using the UpdateRenderingInstanceConfiguration operation.
  *
  * @param request DeleteRenderingInstanceConfigurationRequest
  * @return DeleteRenderingInstanceConfigurationResponse
@@ -3132,7 +3410,9 @@ DeleteRenderingInstanceConfigurationResponse Client::deleteRenderingInstanceConf
 }
 
 /**
- * @summary 删除自定义网关
+ * @summary Deletes a custom gateway.
+ *
+ * @description > Stop the parent platform before you delete the gateway.
  *
  * @param request DeleteRenderingInstanceGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3163,7 +3443,9 @@ DeleteRenderingInstanceGatewayResponse Client::deleteRenderingInstanceGatewayWit
 }
 
 /**
- * @summary 删除自定义网关
+ * @summary Deletes a custom gateway.
+ *
+ * @description > Stop the parent platform before you delete the gateway.
  *
  * @param request DeleteRenderingInstanceGatewayRequest
  * @return DeleteRenderingInstanceGatewayResponse
@@ -3174,7 +3456,7 @@ DeleteRenderingInstanceGatewayResponse Client::deleteRenderingInstanceGateway(co
 }
 
 /**
- * @summary 清除实例设置
+ * @summary You can call DeleteRenderingInstanceSettings to delete the settings of a cloud application service instance.
  *
  * @param tmpReq DeleteRenderingInstanceSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3215,7 +3497,7 @@ DeleteRenderingInstanceSettingsResponse Client::deleteRenderingInstanceSettingsW
 }
 
 /**
- * @summary 清除实例设置
+ * @summary You can call DeleteRenderingInstanceSettings to delete the settings of a cloud application service instance.
  *
  * @param request DeleteRenderingInstanceSettingsRequest
  * @return DeleteRenderingInstanceSettingsResponse
@@ -3226,7 +3508,7 @@ DeleteRenderingInstanceSettingsResponse Client::deleteRenderingInstanceSettings(
 }
 
 /**
- * @summary 删除一个云应用服务项目，有在线会话等业务调度数据的项目不允许删除。
+ * @summary Delete a Data Service Project. Projects that have business scheduling data, such as active sessions, cannot be deleted.
  *
  * @param request DeleteRenderingProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3257,7 +3539,7 @@ DeleteRenderingProjectResponse Client::deleteRenderingProjectWithOptions(const D
 }
 
 /**
- * @summary 删除一个云应用服务项目，有在线会话等业务调度数据的项目不允许删除。
+ * @summary Delete a Data Service Project. Projects that have business scheduling data, such as active sessions, cannot be deleted.
  *
  * @param request DeleteRenderingProjectRequest
  * @return DeleteRenderingProjectResponse
@@ -3268,6 +3550,8 @@ DeleteRenderingProjectResponse Client::deleteRenderingProject(const DeleteRender
 }
 
 /**
+ * @summary Deletes a template.
+ *
  * @param request DeleteTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteTemplateResponse
@@ -3301,6 +3585,8 @@ DeleteTemplateResponse Client::deleteTemplateWithOptions(const DeleteTemplateReq
 }
 
 /**
+ * @summary Deletes a template.
+ *
  * @param request DeleteTemplateRequest
  * @return DeleteTemplateResponse
  */
@@ -3310,6 +3596,8 @@ DeleteTemplateResponse Client::deleteTemplate(const DeleteTemplateRequest &reque
 }
 
 /**
+ * @summary Delete stream pulling information.
+ *
  * @param request DeleteVsPullStreamInfoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteVsPullStreamInfoConfigResponse
@@ -3351,6 +3639,8 @@ DeleteVsPullStreamInfoConfigResponse Client::deleteVsPullStreamInfoConfigWithOpt
 }
 
 /**
+ * @summary Delete stream pulling information.
+ *
  * @param request DeleteVsPullStreamInfoConfigRequest
  * @return DeleteVsPullStreamInfoConfigResponse
  */
@@ -3360,6 +3650,8 @@ DeleteVsPullStreamInfoConfigResponse Client::deleteVsPullStreamInfoConfig(const 
 }
 
 /**
+ * @summary Deletes the callback configuration for stream ingest.
+ *
  * @param request DeleteVsStreamsNotifyUrlConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteVsStreamsNotifyUrlConfigResponse
@@ -3393,6 +3685,8 @@ DeleteVsStreamsNotifyUrlConfigResponse Client::deleteVsStreamsNotifyUrlConfigWit
 }
 
 /**
+ * @summary Deletes the callback configuration for stream ingest.
+ *
  * @param request DeleteVsStreamsNotifyUrlConfigRequest
  * @return DeleteVsStreamsNotifyUrlConfigResponse
  */
@@ -3402,6 +3696,8 @@ DeleteVsStreamsNotifyUrlConfigResponse Client::deleteVsStreamsNotifyUrlConfig(co
 }
 
 /**
+ * @summary Query all resource information for an account in a specified region.
+ *
  * @param request DescribeAccountStatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeAccountStatResponse
@@ -3435,6 +3731,8 @@ DescribeAccountStatResponse Client::describeAccountStatWithOptions(const Describ
 }
 
 /**
+ * @summary Query all resource information for an account in a specified region.
+ *
  * @param request DescribeAccountStatRequest
  * @return DescribeAccountStatResponse
  */
@@ -3444,7 +3742,9 @@ DescribeAccountStatResponse Client::describeAccountStat(const DescribeAccountSta
 }
 
 /**
- * @summary 获取用户生成结果的下载链接
+ * @summary Retrieves a download link for a production.
+ *
+ * @description > Screenshot queries do not support pagination and must be performed iteratively. To fetch the next page, use the extStartTime value from the response as the StartTime for your subsequent request.
  *
  * @param request DescribeComfyProductionDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3475,7 +3775,9 @@ DescribeComfyProductionDownloadUrlResponse Client::describeComfyProductionDownlo
 }
 
 /**
- * @summary 获取用户生成结果的下载链接
+ * @summary Retrieves a download link for a production.
+ *
+ * @description > Screenshot queries do not support pagination and must be performed iteratively. To fetch the next page, use the extStartTime value from the response as the StartTime for your subsequent request.
  *
  * @param request DescribeComfyProductionDownloadUrlRequest
  * @return DescribeComfyProductionDownloadUrlResponse
@@ -3486,7 +3788,9 @@ DescribeComfyProductionDownloadUrlResponse Client::describeComfyProductionDownlo
 }
 
 /**
- * @summary 本接口支持根据不同请求条件查询Comfy生成物列表
+ * @summary Lists a user\\"s productions.
+ *
+ * @description > This API uses pagination. Use the PageNumber and PageSize parameters to navigate through the results.
  *
  * @param request DescribeComfyProductionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3525,7 +3829,9 @@ DescribeComfyProductionsResponse Client::describeComfyProductionsWithOptions(con
 }
 
 /**
- * @summary 本接口支持根据不同请求条件查询Comfy生成物列表
+ * @summary Lists a user\\"s productions.
+ *
+ * @description > This API uses pagination. Use the PageNumber and PageSize parameters to navigate through the results.
  *
  * @param request DescribeComfyProductionsRequest
  * @return DescribeComfyProductionsResponse
@@ -3536,7 +3842,9 @@ DescribeComfyProductionsResponse Client::describeComfyProductions(const Describe
 }
 
 /**
- * @summary 列举用户数据的中所有文件和目录的信息。
+ * @summary Queries a list of Comfy tasks.
+ *
+ * @description > Querying by screenshot does not support pagination and only supports iteration. To request the next page, use the extStartTime parameter value from the response as the StartTime for the new request.
  *
  * @param request DescribeComfyTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3579,7 +3887,9 @@ DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeC
 }
 
 /**
- * @summary 列举用户数据的中所有文件和目录的信息。
+ * @summary Queries a list of Comfy tasks.
+ *
+ * @description > Querying by screenshot does not support pagination and only supports iteration. To request the next page, use the extStartTime parameter value from the response as the StartTime for the new request.
  *
  * @param request DescribeComfyTasksRequest
  * @return DescribeComfyTasksResponse
@@ -3590,7 +3900,7 @@ DescribeComfyTasksResponse Client::describeComfyTasks(const DescribeComfyTasksRe
 }
 
 /**
- * @summary 上传用户数据文件
+ * @summary Gets a download URL for user data.
  *
  * @param request DescribeComfyUserDataDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3621,7 +3931,7 @@ DescribeComfyUserDataDownloadUrlResponse Client::describeComfyUserDataDownloadUr
 }
 
 /**
- * @summary 上传用户数据文件
+ * @summary Gets a download URL for user data.
  *
  * @param request DescribeComfyUserDataDownloadUrlRequest
  * @return DescribeComfyUserDataDownloadUrlResponse
@@ -3632,7 +3942,9 @@ DescribeComfyUserDataDownloadUrlResponse Client::describeComfyUserDataDownloadUr
 }
 
 /**
- * @summary 获取用户数据文件上传的URL，进行用户文件上传
+ * @summary Retrieves a URL to upload a user file.
+ *
+ * @description You can upload files using the retrieved URL and the Alibaba Cloud OSS software development kit (SDK).
  *
  * @param request DescribeComfyUserDataUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3675,7 +3987,9 @@ DescribeComfyUserDataUploadUrlResponse Client::describeComfyUserDataUploadUrlWit
 }
 
 /**
- * @summary 获取用户数据文件上传的URL，进行用户文件上传
+ * @summary Retrieves a URL to upload a user file.
+ *
+ * @description You can upload files using the retrieved URL and the Alibaba Cloud OSS software development kit (SDK).
  *
  * @param request DescribeComfyUserDataUploadUrlRequest
  * @return DescribeComfyUserDataUploadUrlResponse
@@ -3686,7 +4000,12 @@ DescribeComfyUserDataUploadUrlResponse Client::describeComfyUserDataUploadUrl(co
 }
 
 /**
- * @summary 列举用户数据的中所有文件和目录的信息。
+ * @summary Lists all files and folders in the user data.
+ *
+ * @description If StartTime and EndTime are not specified, data from the last 24 hours is read by default. To query a specific time range, you must specify both StartTime and EndTime. The maximum time range for a query is 31 days.
+ * - You can query multiple domain names in a batch. Separate the domain names with a comma (,).
+ * - You can retrieve data from the last 90 days.
+ * - The time granularity is one hour.
  *
  * @param request DescribeComfyUserDatasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3725,7 +4044,12 @@ DescribeComfyUserDatasResponse Client::describeComfyUserDatasWithOptions(const D
 }
 
 /**
- * @summary 列举用户数据的中所有文件和目录的信息。
+ * @summary Lists all files and folders in the user data.
+ *
+ * @description If StartTime and EndTime are not specified, data from the last 24 hours is read by default. To query a specific time range, you must specify both StartTime and EndTime. The maximum time range for a query is 31 days.
+ * - You can query multiple domain names in a batch. Separate the domain names with a comma (,).
+ * - You can retrieve data from the last 90 days.
+ * - The time granularity is one hour.
  *
  * @param request DescribeComfyUserDatasRequest
  * @return DescribeComfyUserDatasResponse
@@ -3736,7 +4060,9 @@ DescribeComfyUserDatasResponse Client::describeComfyUserDatas(const DescribeComf
 }
 
 /**
- * @summary 获取Comfy工作流列表
+ * @summary This operation retrieves a paginated list of your Comfy workflows.
+ *
+ * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
  *
  * @param request DescribeComfyWorkflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3775,7 +4101,9 @@ DescribeComfyWorkflowsResponse Client::describeComfyWorkflowsWithOptions(const D
 }
 
 /**
- * @summary 获取Comfy工作流列表
+ * @summary This operation retrieves a paginated list of your Comfy workflows.
+ *
+ * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
  *
  * @param request DescribeComfyWorkflowsRequest
  * @return DescribeComfyWorkflowsResponse
@@ -3786,6 +4114,8 @@ DescribeComfyWorkflowsResponse Client::describeComfyWorkflows(const DescribeComf
 }
 
 /**
+ * @summary Query information about a device.
+ *
  * @param request DescribeDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDeviceResponse
@@ -3827,6 +4157,8 @@ DescribeDeviceResponse Client::describeDeviceWithOptions(const DescribeDeviceReq
 }
 
 /**
+ * @summary Query information about a device.
+ *
  * @param request DescribeDeviceRequest
  * @return DescribeDeviceResponse
  */
@@ -3836,6 +4168,8 @@ DescribeDeviceResponse Client::describeDevice(const DescribeDeviceRequest &reque
 }
 
 /**
+ * @summary Queries a list of device channels.
+ *
  * @param request DescribeDeviceChannelsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDeviceChannelsResponse
@@ -3877,6 +4211,8 @@ DescribeDeviceChannelsResponse Client::describeDeviceChannelsWithOptions(const D
 }
 
 /**
+ * @summary Queries a list of device channels.
+ *
  * @param request DescribeDeviceChannelsRequest
  * @return DescribeDeviceChannelsResponse
  */
@@ -3886,6 +4222,8 @@ DescribeDeviceChannelsResponse Client::describeDeviceChannels(const DescribeDevi
 }
 
 /**
+ * @summary Queries a device gateway.
+ *
  * @param request DescribeDeviceGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDeviceGatewayResponse
@@ -3927,6 +4265,8 @@ DescribeDeviceGatewayResponse Client::describeDeviceGatewayWithOptions(const Des
 }
 
 /**
+ * @summary Queries a device gateway.
+ *
  * @param request DescribeDeviceGatewayRequest
  * @return DescribeDeviceGatewayResponse
  */
@@ -3936,6 +4276,8 @@ DescribeDeviceGatewayResponse Client::describeDeviceGateway(const DescribeDevice
 }
 
 /**
+ * @summary Queries the URL information for a device stream.
+ *
  * @param request DescribeDeviceURLRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDeviceURLResponse
@@ -3993,6 +4335,8 @@ DescribeDeviceURLResponse Client::describeDeviceURLWithOptions(const DescribeDev
 }
 
 /**
+ * @summary Queries the URL information for a device stream.
+ *
  * @param request DescribeDeviceURLRequest
  * @return DescribeDeviceURLResponse
  */
@@ -4002,6 +4346,8 @@ DescribeDeviceURLResponse Client::describeDeviceURL(const DescribeDeviceURLReque
 }
 
 /**
+ * @summary Queries a list of devices.
+ *
  * @param request DescribeDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDevicesResponse
@@ -4095,6 +4441,8 @@ DescribeDevicesResponse Client::describeDevicesWithOptions(const DescribeDevices
 }
 
 /**
+ * @summary Queries a list of devices.
+ *
  * @param request DescribeDevicesRequest
  * @return DescribeDevicesResponse
  */
@@ -4104,6 +4452,8 @@ DescribeDevicesResponse Client::describeDevices(const DescribeDevicesRequest &re
 }
 
 /**
+ * @summary Query the list of directories.
+ *
  * @param request DescribeDirectoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDirectoriesResponse
@@ -4161,6 +4511,8 @@ DescribeDirectoriesResponse Client::describeDirectoriesWithOptions(const Describ
 }
 
 /**
+ * @summary Query the list of directories.
+ *
  * @param request DescribeDirectoriesRequest
  * @return DescribeDirectoriesResponse
  */
@@ -4170,6 +4522,8 @@ DescribeDirectoriesResponse Client::describeDirectories(const DescribeDirectorie
 }
 
 /**
+ * @summary Queries a directory.
+ *
  * @param request DescribeDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDirectoryResponse
@@ -4203,6 +4557,8 @@ DescribeDirectoryResponse Client::describeDirectoryWithOptions(const DescribeDir
 }
 
 /**
+ * @summary Queries a directory.
+ *
  * @param request DescribeDirectoryRequest
  * @return DescribeDirectoryResponse
  */
@@ -4212,6 +4568,8 @@ DescribeDirectoryResponse Client::describeDirectory(const DescribeDirectoryReque
 }
 
 /**
+ * @summary Retrieves information about a space.
+ *
  * @param request DescribeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGroupResponse
@@ -4249,6 +4607,8 @@ DescribeGroupResponse Client::describeGroupWithOptions(const DescribeGroupReques
 }
 
 /**
+ * @summary Retrieves information about a space.
+ *
  * @param request DescribeGroupRequest
  * @return DescribeGroupResponse
  */
@@ -4258,6 +4618,8 @@ DescribeGroupResponse Client::describeGroup(const DescribeGroupRequest &request)
 }
 
 /**
+ * @summary You can query the list of spaces.
+ *
  * @param request DescribeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGroupsResponse
@@ -4327,6 +4689,8 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
 }
 
 /**
+ * @summary You can query the list of spaces.
+ *
  * @param request DescribeGroupsRequest
  * @return DescribeGroupsResponse
  */
@@ -4336,6 +4700,8 @@ DescribeGroupsResponse Client::describeGroups(const DescribeGroupsRequest &reque
 }
 
 /**
+ * @summary Queries information about a parent platform.
+ *
  * @param request DescribeParentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeParentPlatformResponse
@@ -4369,6 +4735,8 @@ DescribeParentPlatformResponse Client::describeParentPlatformWithOptions(const D
 }
 
 /**
+ * @summary Queries information about a parent platform.
+ *
  * @param request DescribeParentPlatformRequest
  * @return DescribeParentPlatformResponse
  */
@@ -4378,6 +4746,8 @@ DescribeParentPlatformResponse Client::describeParentPlatform(const DescribePare
 }
 
 /**
+ * @summary Queries the list of devices under a parent platform.
+ *
  * @param request DescribeParentPlatformDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeParentPlatformDevicesResponse
@@ -4427,6 +4797,8 @@ DescribeParentPlatformDevicesResponse Client::describeParentPlatformDevicesWithO
 }
 
 /**
+ * @summary Queries the list of devices under a parent platform.
+ *
  * @param request DescribeParentPlatformDevicesRequest
  * @return DescribeParentPlatformDevicesResponse
  */
@@ -4436,6 +4808,8 @@ DescribeParentPlatformDevicesResponse Client::describeParentPlatformDevices(cons
 }
 
 /**
+ * @summary Query the list of parent platforms.
+ *
  * @param request DescribeParentPlatformsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeParentPlatformsResponse
@@ -4489,6 +4863,8 @@ DescribeParentPlatformsResponse Client::describeParentPlatformsWithOptions(const
 }
 
 /**
+ * @summary Query the list of parent platforms.
+ *
  * @param request DescribeParentPlatformsRequest
  * @return DescribeParentPlatformsResponse
  */
@@ -4498,6 +4874,8 @@ DescribeParentPlatformsResponse Client::describeParentPlatforms(const DescribePa
 }
 
 /**
+ * @summary Retrieve the list of presets.
+ *
  * @param request DescribePresetsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePresetsResponse
@@ -4531,6 +4909,8 @@ DescribePresetsResponse Client::describePresetsWithOptions(const DescribePresets
 }
 
 /**
+ * @summary Retrieve the list of presets.
+ *
  * @param request DescribePresetsRequest
  * @return DescribePresetsResponse
  */
@@ -4582,6 +4962,8 @@ DescribePublishStreamStatusResponse Client::describePublishStreamStatus(const De
 }
 
 /**
+ * @summary Queries information about purchased devices.
+ *
  * @param request DescribePurchasedDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePurchasedDeviceResponse
@@ -4615,6 +4997,8 @@ DescribePurchasedDeviceResponse Client::describePurchasedDeviceWithOptions(const
 }
 
 /**
+ * @summary Queries information about purchased devices.
+ *
  * @param request DescribePurchasedDeviceRequest
  * @return DescribePurchasedDeviceResponse
  */
@@ -4624,6 +5008,8 @@ DescribePurchasedDeviceResponse Client::describePurchasedDevice(const DescribePu
 }
 
 /**
+ * @summary Queries the list of purchased devices.
+ *
  * @param request DescribePurchasedDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePurchasedDevicesResponse
@@ -4693,6 +5079,8 @@ DescribePurchasedDevicesResponse Client::describePurchasedDevicesWithOptions(con
 }
 
 /**
+ * @summary Queries the list of purchased devices.
+ *
  * @param request DescribePurchasedDevicesRequest
  * @return DescribePurchasedDevicesResponse
  */
@@ -4702,6 +5090,10 @@ DescribePurchasedDevicesResponse Client::describePurchasedDevices(const Describe
 }
 
 /**
+ * @summary Queries a list of recordings.
+ *
+ * @description > Paging is not supported for snapshot queries. Only iteration is supported. To request the next page, use the NextStartTime value from the response as the StartTime for the new request.
+ *
  * @param request DescribeRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRecordsResponse
@@ -4767,6 +5159,10 @@ DescribeRecordsResponse Client::describeRecordsWithOptions(const DescribeRecords
 }
 
 /**
+ * @summary Queries a list of recordings.
+ *
+ * @description > Paging is not supported for snapshot queries. Only iteration is supported. To request the next page, use the NextStartTime value from the response as the StartTime for the new request.
+ *
  * @param request DescribeRecordsRequest
  * @return DescribeRecordsResponse
  */
@@ -4776,7 +5172,7 @@ DescribeRecordsResponse Client::describeRecords(const DescribeRecordsRequest &re
 }
 
 /**
- * @summary 查询云渲染实例详细信息。
+ * @summary Queries the details of a cloud application service instance.
  *
  * @param request DescribeRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4807,7 +5203,7 @@ DescribeRenderingInstanceResponse Client::describeRenderingInstanceWithOptions(c
 }
 
 /**
- * @summary 查询云渲染实例详细信息。
+ * @summary Queries the details of a cloud application service instance.
  *
  * @param request DescribeRenderingInstanceRequest
  * @return DescribeRenderingInstanceResponse
@@ -4818,7 +5214,7 @@ DescribeRenderingInstanceResponse Client::describeRenderingInstance(const Descri
 }
 
 /**
- * @summary 查询云渲染实例模块配置参数
+ * @summary Queries the real-time configuration of a cloud application service instance.
  *
  * @param tmpReq DescribeRenderingInstanceConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4851,7 +5247,7 @@ DescribeRenderingInstanceConfigurationResponse Client::describeRenderingInstance
 }
 
 /**
- * @summary 查询云渲染实例模块配置参数
+ * @summary Queries the real-time configuration of a cloud application service instance.
  *
  * @param request DescribeRenderingInstanceConfigurationRequest
  * @return DescribeRenderingInstanceConfigurationResponse
@@ -4862,7 +5258,7 @@ DescribeRenderingInstanceConfigurationResponse Client::describeRenderingInstance
 }
 
 /**
- * @summary 查询实例配置
+ * @summary DescribeRenderingInstanceSettings queries the configuration of a Cloud Application service instance.
  *
  * @param tmpReq DescribeRenderingInstanceSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4903,7 +5299,7 @@ DescribeRenderingInstanceSettingsResponse Client::describeRenderingInstanceSetti
 }
 
 /**
- * @summary 查询实例配置
+ * @summary DescribeRenderingInstanceSettings queries the configuration of a Cloud Application service instance.
  *
  * @param request DescribeRenderingInstanceSettingsRequest
  * @return DescribeRenderingInstanceSettingsResponse
@@ -4914,7 +5310,7 @@ DescribeRenderingInstanceSettingsResponse Client::describeRenderingInstanceSetti
 }
 
 /**
- * @summary 输出会话的详情信息，包含关联的实例、网络出口等信息。
+ * @summary Retrieve details about a rendering session, including the current session state, network access IP address and port, and the location of the cloud application service instance.
  *
  * @param request DescribeRenderingSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4953,7 +5349,7 @@ DescribeRenderingSessionResponse Client::describeRenderingSessionWithOptions(con
 }
 
 /**
- * @summary 输出会话的详情信息，包含关联的实例、网络出口等信息。
+ * @summary Retrieve details about a rendering session, including the current session state, network access IP address and port, and the location of the cloud application service instance.
  *
  * @param request DescribeRenderingSessionRequest
  * @return DescribeRenderingSessionResponse
@@ -4964,6 +5360,8 @@ DescribeRenderingSessionResponse Client::describeRenderingSession(const Describe
 }
 
 /**
+ * @summary Queries information about a stream.
+ *
  * @param request DescribeStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeStreamResponse
@@ -4997,6 +5395,8 @@ DescribeStreamResponse Client::describeStreamWithOptions(const DescribeStreamReq
 }
 
 /**
+ * @summary Queries information about a stream.
+ *
  * @param request DescribeStreamRequest
  * @return DescribeStreamResponse
  */
@@ -5006,6 +5406,8 @@ DescribeStreamResponse Client::describeStream(const DescribeStreamRequest &reque
 }
 
 /**
+ * @summary Retrieves the URL of a stream.
+ *
  * @param request DescribeStreamURLRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeStreamURLResponse
@@ -5071,6 +5473,8 @@ DescribeStreamURLResponse Client::describeStreamURLWithOptions(const DescribeStr
 }
 
 /**
+ * @summary Retrieves the URL of a stream.
+ *
  * @param request DescribeStreamURLRequest
  * @return DescribeStreamURLResponse
  */
@@ -5080,6 +5484,8 @@ DescribeStreamURLResponse Client::describeStreamURL(const DescribeStreamURLReque
 }
 
 /**
+ * @summary Get the stream VOD record list, such as historical stream list from NVR.
+ *
  * @param request DescribeStreamVodListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeStreamVodListResponse
@@ -5121,6 +5527,8 @@ DescribeStreamVodListResponse Client::describeStreamVodListWithOptions(const Des
 }
 
 /**
+ * @summary Get the stream VOD record list, such as historical stream list from NVR.
+ *
  * @param request DescribeStreamVodListRequest
  * @return DescribeStreamVodListResponse
  */
@@ -5130,6 +5538,8 @@ DescribeStreamVodListResponse Client::describeStreamVodList(const DescribeStream
 }
 
 /**
+ * @summary Lists video streams. You can filter the results by stream ID, name, group ID, device ID, or other criteria.
+ *
  * @param request DescribeStreamsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeStreamsResponse
@@ -5203,6 +5613,8 @@ DescribeStreamsResponse Client::describeStreamsWithOptions(const DescribeStreams
 }
 
 /**
+ * @summary Lists video streams. You can filter the results by stream ID, name, group ID, device ID, or other criteria.
+ *
  * @param request DescribeStreamsRequest
  * @return DescribeStreamsResponse
  */
@@ -5212,6 +5624,8 @@ DescribeStreamsResponse Client::describeStreams(const DescribeStreamsRequest &re
 }
 
 /**
+ * @summary Query information about a template.
+ *
  * @param request DescribeTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeTemplateResponse
@@ -5245,6 +5659,8 @@ DescribeTemplateResponse Client::describeTemplateWithOptions(const DescribeTempl
 }
 
 /**
+ * @summary Query information about a template.
+ *
  * @param request DescribeTemplateRequest
  * @return DescribeTemplateResponse
  */
@@ -5254,6 +5670,8 @@ DescribeTemplateResponse Client::describeTemplate(const DescribeTemplateRequest 
 }
 
 /**
+ * @summary List templates.
+ *
  * @param request DescribeTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeTemplatesResponse
@@ -5311,6 +5729,8 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const DescribeTem
 }
 
 /**
+ * @summary List templates.
+ *
  * @param request DescribeTemplatesRequest
  * @return DescribeTemplatesResponse
  */
@@ -5320,6 +5740,8 @@ DescribeTemplatesResponse Client::describeTemplates(const DescribeTemplatesReque
 }
 
 /**
+ * @summary Retrieves the URL information of a video-on-demand (VOD) stream.
+ *
  * @param request DescribeVodStreamURLRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVodStreamURLResponse
@@ -5353,6 +5775,8 @@ DescribeVodStreamURLResponse Client::describeVodStreamURLWithOptions(const Descr
 }
 
 /**
+ * @summary Retrieves the URL information of a video-on-demand (VOD) stream.
+ *
  * @param request DescribeVodStreamURLRequest
  * @return DescribeVodStreamURLResponse
  */
@@ -5362,6 +5786,8 @@ DescribeVodStreamURLResponse Client::describeVodStreamURL(const DescribeVodStrea
 }
 
 /**
+ * @summary Retrieve certificate details.
+ *
  * @param request DescribeVsCertificateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsCertificateDetailResponse
@@ -5395,6 +5821,8 @@ DescribeVsCertificateDetailResponse Client::describeVsCertificateDetailWithOptio
 }
 
 /**
+ * @summary Retrieve certificate details.
+ *
  * @param request DescribeVsCertificateDetailRequest
  * @return DescribeVsCertificateDetailResponse
  */
@@ -5404,6 +5832,8 @@ DescribeVsCertificateDetailResponse Client::describeVsCertificateDetail(const De
 }
 
 /**
+ * @summary Retrieves a list of domain name certificates.
+ *
  * @param request DescribeVsCertificateListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsCertificateListResponse
@@ -5437,6 +5867,8 @@ DescribeVsCertificateListResponse Client::describeVsCertificateListWithOptions(c
 }
 
 /**
+ * @summary Retrieves a list of domain name certificates.
+ *
  * @param request DescribeVsCertificateListRequest
  * @return DescribeVsCertificateListResponse
  */
@@ -5446,6 +5878,13 @@ DescribeVsCertificateListResponse Client::describeVsCertificateList(const Descri
 }
 
 /**
+ * @summary Retrieves usage data for connected devices.
+ *
+ * @description If you do not specify \\`StartTime\\` and \\`EndTime\\`, the API retrieves data from the last 24 hours by default. To query data for a specific time range, you must specify both \\`StartTime\\` and \\`EndTime\\`. The maximum time range for a single query is 31 days.
+ * - You can query multiple domain names at once. Separate the domain names with commas.
+ * - You can retrieve data from the last 90 days.
+ * - The time granularity is one hour.
+ *
  * @param request DescribeVsDevicesDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDevicesDataResponse
@@ -5487,6 +5926,13 @@ DescribeVsDevicesDataResponse Client::describeVsDevicesDataWithOptions(const Des
 }
 
 /**
+ * @summary Retrieves usage data for connected devices.
+ *
+ * @description If you do not specify \\`StartTime\\` and \\`EndTime\\`, the API retrieves data from the last 24 hours by default. To query data for a specific time range, you must specify both \\`StartTime\\` and \\`EndTime\\`. The maximum time range for a single query is 31 days.
+ * - You can query multiple domain names at once. Separate the domain names with commas.
+ * - You can retrieve data from the last 90 days.
+ * - The time granularity is one hour.
+ *
  * @param request DescribeVsDevicesDataRequest
  * @return DescribeVsDevicesDataResponse
  */
@@ -5496,6 +5942,8 @@ DescribeVsDevicesDataResponse Client::describeVsDevicesData(const DescribeVsDevi
 }
 
 /**
+ * @summary Queries network bandwidth monitoring data for Domain Names.
+ *
  * @param request DescribeVsDomainBpsDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainBpsDataResponse
@@ -5549,6 +5997,8 @@ DescribeVsDomainBpsDataResponse Client::describeVsDomainBpsDataWithOptions(const
 }
 
 /**
+ * @summary Queries network bandwidth monitoring data for Domain Names.
+ *
  * @param request DescribeVsDomainBpsDataRequest
  * @return DescribeVsDomainBpsDataResponse
  */
@@ -5558,6 +6008,8 @@ DescribeVsDomainBpsDataResponse Client::describeVsDomainBpsData(const DescribeVs
 }
 
 /**
+ * @summary Retrieves the certificate information for a specified accelerated domain name.
+ *
  * @param request DescribeVsDomainCertificateInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainCertificateInfoResponse
@@ -5591,6 +6043,8 @@ DescribeVsDomainCertificateInfoResponse Client::describeVsDomainCertificateInfoW
 }
 
 /**
+ * @summary Retrieves the certificate information for a specified accelerated domain name.
+ *
  * @param request DescribeVsDomainCertificateInfoRequest
  * @return DescribeVsDomainCertificateInfoResponse
  */
@@ -5600,6 +6054,8 @@ DescribeVsDomainCertificateInfoResponse Client::describeVsDomainCertificateInfo(
 }
 
 /**
+ * @summary Queries domain name configurations. You can query the configurations of multiple features in a single request.
+ *
  * @param request DescribeVsDomainConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainConfigsResponse
@@ -5637,6 +6093,8 @@ DescribeVsDomainConfigsResponse Client::describeVsDomainConfigsWithOptions(const
 }
 
 /**
+ * @summary Queries domain name configurations. You can query the configurations of multiple features in a single request.
+ *
  * @param request DescribeVsDomainConfigsRequest
  * @return DescribeVsDomainConfigsResponse
  */
@@ -5646,6 +6104,8 @@ DescribeVsDomainConfigsResponse Client::describeVsDomainConfigs(const DescribeVs
 }
 
 /**
+ * @summary Obtains the basic configuration information for a specified Visual Edge Computing Service domain name.
+ *
  * @param request DescribeVsDomainDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainDetailResponse
@@ -5679,6 +6139,8 @@ DescribeVsDomainDetailResponse Client::describeVsDomainDetailWithOptions(const D
 }
 
 /**
+ * @summary Obtains the basic configuration information for a specified Visual Edge Computing Service domain name.
+ *
  * @param request DescribeVsDomainDetailRequest
  * @return DescribeVsDomainDetailResponse
  */
@@ -5688,6 +6150,8 @@ DescribeVsDomainDetailResponse Client::describeVsDomainDetail(const DescribeVsDo
 }
 
 /**
+ * @summary Queries the page view (PV) data for a domain name.
+ *
  * @param request DescribeVsDomainPvDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainPvDataResponse
@@ -5729,6 +6193,8 @@ DescribeVsDomainPvDataResponse Client::describeVsDomainPvDataWithOptions(const D
 }
 
 /**
+ * @summary Queries the page view (PV) data for a domain name.
+ *
  * @param request DescribeVsDomainPvDataRequest
  * @return DescribeVsDomainPvDataResponse
  */
@@ -5738,6 +6204,8 @@ DescribeVsDomainPvDataResponse Client::describeVsDomainPvData(const DescribeVsDo
 }
 
 /**
+ * @summary Retrieve page view (PV) and unique visitor (UV) data for a Visual Edge Computing Service domain.
+ *
  * @param request DescribeVsDomainPvUvDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainPvUvDataResponse
@@ -5779,6 +6247,8 @@ DescribeVsDomainPvUvDataResponse Client::describeVsDomainPvUvDataWithOptions(con
 }
 
 /**
+ * @summary Retrieve page view (PV) and unique visitor (UV) data for a Visual Edge Computing Service domain.
+ *
  * @param request DescribeVsDomainPvUvDataRequest
  * @return DescribeVsDomainPvUvDataResponse
  */
@@ -5788,6 +6258,8 @@ DescribeVsDomainPvUvDataResponse Client::describeVsDomainPvUvData(const Describe
 }
 
 /**
+ * @summary Retrieve domain name record data.
+ *
  * @param request DescribeVsDomainRecordDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainRecordDataResponse
@@ -5833,6 +6305,8 @@ DescribeVsDomainRecordDataResponse Client::describeVsDomainRecordDataWithOptions
 }
 
 /**
+ * @summary Retrieve domain name record data.
+ *
  * @param request DescribeVsDomainRecordDataRequest
  * @return DescribeVsDomainRecordDataResponse
  */
@@ -5842,6 +6316,8 @@ DescribeVsDomainRecordDataResponse Client::describeVsDomainRecordData(const Desc
 }
 
 /**
+ * @summary Retrieves domain region data.
+ *
  * @param request DescribeVsDomainRegionDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainRegionDataResponse
@@ -5883,6 +6359,8 @@ DescribeVsDomainRegionDataResponse Client::describeVsDomainRegionDataWithOptions
 }
 
 /**
+ * @summary Retrieves domain region data.
+ *
  * @param request DescribeVsDomainRegionDataRequest
  * @return DescribeVsDomainRegionDataResponse
  */
@@ -5892,6 +6370,8 @@ DescribeVsDomainRegionDataResponse Client::describeVsDomainRegionData(const Desc
 }
 
 /**
+ * @summary Query network request monitoring data for a domain name.
+ *
  * @param request DescribeVsDomainReqBpsDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainReqBpsDataResponse
@@ -5945,6 +6425,8 @@ DescribeVsDomainReqBpsDataResponse Client::describeVsDomainReqBpsDataWithOptions
 }
 
 /**
+ * @summary Query network request monitoring data for a domain name.
+ *
  * @param request DescribeVsDomainReqBpsDataRequest
  * @return DescribeVsDomainReqBpsDataResponse
  */
@@ -5954,6 +6436,8 @@ DescribeVsDomainReqBpsDataResponse Client::describeVsDomainReqBpsData(const Desc
 }
 
 /**
+ * @summary Obtain traffic data for domain name requests.
+ *
  * @param request DescribeVsDomainReqTrafficDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainReqTrafficDataResponse
@@ -6007,6 +6491,8 @@ DescribeVsDomainReqTrafficDataResponse Client::describeVsDomainReqTrafficDataWit
 }
 
 /**
+ * @summary Obtain traffic data for domain name requests.
+ *
  * @param request DescribeVsDomainReqTrafficDataRequest
  * @return DescribeVsDomainReqTrafficDataResponse
  */
@@ -6016,6 +6502,8 @@ DescribeVsDomainReqTrafficDataResponse Client::describeVsDomainReqTrafficData(co
 }
 
 /**
+ * @summary Retrieves snapshot data for a domain name.
+ *
  * @param request DescribeVsDomainSnapshotDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainSnapshotDataResponse
@@ -6057,6 +6545,8 @@ DescribeVsDomainSnapshotDataResponse Client::describeVsDomainSnapshotDataWithOpt
 }
 
 /**
+ * @summary Retrieves snapshot data for a domain name.
+ *
  * @param request DescribeVsDomainSnapshotDataRequest
  * @return DescribeVsDomainSnapshotDataResponse
  */
@@ -6066,6 +6556,8 @@ DescribeVsDomainSnapshotDataResponse Client::describeVsDomainSnapshotData(const 
 }
 
 /**
+ * @summary Retrieve traffic data for a domain name.
+ *
  * @param request DescribeVsDomainTrafficDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainTrafficDataResponse
@@ -6119,6 +6611,8 @@ DescribeVsDomainTrafficDataResponse Client::describeVsDomainTrafficDataWithOptio
 }
 
 /**
+ * @summary Retrieve traffic data for a domain name.
+ *
  * @param request DescribeVsDomainTrafficDataRequest
  * @return DescribeVsDomainTrafficDataResponse
  */
@@ -6128,6 +6622,8 @@ DescribeVsDomainTrafficDataResponse Client::describeVsDomainTrafficData(const De
 }
 
 /**
+ * @summary Retrieve UV data by domain name.
+ *
  * @param request DescribeVsDomainUvDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsDomainUvDataResponse
@@ -6169,6 +6665,8 @@ DescribeVsDomainUvDataResponse Client::describeVsDomainUvDataWithOptions(const D
 }
 
 /**
+ * @summary Retrieve UV data by domain name.
+ *
  * @param request DescribeVsDomainUvDataRequest
  * @return DescribeVsDomainUvDataResponse
  */
@@ -6178,6 +6676,8 @@ DescribeVsDomainUvDataResponse Client::describeVsDomainUvData(const DescribeVsDo
 }
 
 /**
+ * @summary Queries the pull stream configurations for a domain name.
+ *
  * @param request DescribeVsPullStreamInfoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsPullStreamInfoConfigResponse
@@ -6211,6 +6711,8 @@ DescribeVsPullStreamInfoConfigResponse Client::describeVsPullStreamInfoConfigWit
 }
 
 /**
+ * @summary Queries the pull stream configurations for a domain name.
+ *
  * @param request DescribeVsPullStreamInfoConfigRequest
  * @return DescribeVsPullStreamInfoConfigResponse
  */
@@ -6220,6 +6722,8 @@ DescribeVsPullStreamInfoConfigResponse Client::describeVsPullStreamInfoConfig(co
 }
 
 /**
+ * @summary Queries the stream ingest callback configuration.
+ *
  * @param request DescribeVsStreamsNotifyUrlConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsStreamsNotifyUrlConfigResponse
@@ -6253,6 +6757,8 @@ DescribeVsStreamsNotifyUrlConfigResponse Client::describeVsStreamsNotifyUrlConfi
 }
 
 /**
+ * @summary Queries the stream ingest callback configuration.
+ *
  * @param request DescribeVsStreamsNotifyUrlConfigRequest
  * @return DescribeVsStreamsNotifyUrlConfigResponse
  */
@@ -6262,6 +6768,8 @@ DescribeVsStreamsNotifyUrlConfigResponse Client::describeVsStreamsNotifyUrlConfi
 }
 
 /**
+ * @summary Retrieves information about all active streams for a specified domain name or application.
+ *
  * @param request DescribeVsStreamsOnlineListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsStreamsOnlineListResponse
@@ -6331,6 +6839,8 @@ DescribeVsStreamsOnlineListResponse Client::describeVsStreamsOnlineListWithOptio
 }
 
 /**
+ * @summary Retrieves information about all active streams for a specified domain name or application.
+ *
  * @param request DescribeVsStreamsOnlineListRequest
  * @return DescribeVsStreamsOnlineListResponse
  */
@@ -6340,6 +6850,8 @@ DescribeVsStreamsOnlineListResponse Client::describeVsStreamsOnlineList(const De
 }
 
 /**
+ * @summary Retrieve stream ingest records for a domain, an application under that domain, or a specific stream within a specified time range.
+ *
  * @param request DescribeVsStreamsPublishListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsStreamsPublishListResponse
@@ -6409,6 +6921,8 @@ DescribeVsStreamsPublishListResponse Client::describeVsStreamsPublishListWithOpt
 }
 
 /**
+ * @summary Retrieve stream ingest records for a domain, an application under that domain, or a specific stream within a specified time range.
+ *
  * @param request DescribeVsStreamsPublishListRequest
  * @return DescribeVsStreamsPublishListResponse
  */
@@ -6418,6 +6932,10 @@ DescribeVsStreamsPublishListResponse Client::describeVsStreamsPublishList(const 
 }
 
 /**
+ * @summary Retrieves a user\\"s domain names ranked by traffic.
+ * If you do not specify StartTime and EndTime, data for the current month is retrieved by default. To query data over a specific time range, you must specify both StartTime and EndTime.
+ * \\* You can retrieve data for a maximum of 90 days.
+ *
  * @param request DescribeVsTopDomainsByFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsTopDomainsByFlowResponse
@@ -6459,6 +6977,10 @@ DescribeVsTopDomainsByFlowResponse Client::describeVsTopDomainsByFlowWithOptions
 }
 
 /**
+ * @summary Retrieves a user\\"s domain names ranked by traffic.
+ * If you do not specify StartTime and EndTime, data for the current month is retrieved by default. To query data over a specific time range, you must specify both StartTime and EndTime.
+ * \\* You can retrieve data for a maximum of 90 days.
+ *
  * @param request DescribeVsTopDomainsByFlowRequest
  * @return DescribeVsTopDomainsByFlowResponse
  */
@@ -6468,6 +6990,8 @@ DescribeVsTopDomainsByFlowResponse Client::describeVsTopDomainsByFlow(const Desc
 }
 
 /**
+ * @summary Queries the daily peak number of concurrent stream ingest operations.
+ *
  * @param request DescribeVsUpPeakPublishStreamDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsUpPeakPublishStreamDataResponse
@@ -6513,6 +7037,8 @@ DescribeVsUpPeakPublishStreamDataResponse Client::describeVsUpPeakPublishStreamD
 }
 
 /**
+ * @summary Queries the daily peak number of concurrent stream ingest operations.
+ *
  * @param request DescribeVsUpPeakPublishStreamDataRequest
  * @return DescribeVsUpPeakPublishStreamDataResponse
  */
@@ -6564,6 +7090,8 @@ DescribeVsUserResourcePackageResponse Client::describeVsUserResourcePackage(cons
 }
 
 /**
+ * @summary DescribeVsVerifyContent
+ *
  * @param request DescribeVsVerifyContentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeVsVerifyContentResponse
@@ -6597,6 +7125,8 @@ DescribeVsVerifyContentResponse Client::describeVsVerifyContentWithOptions(const
 }
 
 /**
+ * @summary DescribeVsVerifyContent
+ *
  * @param request DescribeVsVerifyContentRequest
  * @return DescribeVsVerifyContentResponse
  */
@@ -6606,7 +7136,7 @@ DescribeVsVerifyContentResponse Client::describeVsVerifyContent(const DescribeVs
 }
 
 /**
- * @summary 云应用服务实例与项目解除关联
+ * @summary Disassociate cloud application service instances from a project.
  *
  * @param tmpReq DisassociateRenderingProjectInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6647,7 +7177,7 @@ DisassociateRenderingProjectInstancesResponse Client::disassociateRenderingProje
 }
 
 /**
- * @summary 云应用服务实例与项目解除关联
+ * @summary Disassociate cloud application service instances from a project.
  *
  * @param request DisassociateRenderingProjectInstancesRequest
  * @return DisassociateRenderingProjectInstancesResponse
@@ -6658,6 +7188,8 @@ DisassociateRenderingProjectInstancesResponse Client::disassociateRenderingProje
 }
 
 /**
+ * @summary Forbids pushing a specific stream. You can schedule a time to resume the stream.
+ *
  * @param request ForbidVsStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ForbidVsStreamResponse
@@ -6715,6 +7247,8 @@ ForbidVsStreamResponse Client::forbidVsStreamWithOptions(const ForbidVsStreamReq
 }
 
 /**
+ * @summary Forbids pushing a specific stream. You can schedule a time to resume the stream.
+ *
  * @param request ForbidVsStreamRequest
  * @return ForbidVsStreamResponse
  */
@@ -6724,7 +7258,7 @@ ForbidVsStreamResponse Client::forbidVsStream(const ForbidVsStreamRequest &reque
 }
 
 /**
- * @summary 查询命令的执行状态与结果。
+ * @summary Queries the execution status of a control command to determine whether the command was successful and to retrieve the result string.
  *
  * @param request GetRenderingInstanceCommandsStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6759,7 +7293,7 @@ GetRenderingInstanceCommandsStatusResponse Client::getRenderingInstanceCommandsS
 }
 
 /**
- * @summary 查询命令的执行状态与结果。
+ * @summary Queries the execution status of a control command to determine whether the command was successful and to retrieve the result string.
  *
  * @param request GetRenderingInstanceCommandsStatusRequest
  * @return GetRenderingInstanceCommandsStatusResponse
@@ -6770,7 +7304,7 @@ GetRenderingInstanceCommandsStatusResponse Client::getRenderingInstanceCommandsS
 }
 
 /**
- * @summary 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息
+ * @summary Retrieves the streaming connection information for a cloud application service instance. Call this operation before establishing each streaming connection to obtain the latest connection details.
  *
  * @param request GetRenderingInstanceStreamingInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6801,7 +7335,7 @@ GetRenderingInstanceStreamingInfoResponse Client::getRenderingInstanceStreamingI
 }
 
 /**
- * @summary 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息
+ * @summary Retrieves the streaming connection information for a cloud application service instance. Call this operation before establishing each streaming connection to obtain the latest connection details.
  *
  * @param request GetRenderingInstanceStreamingInfoRequest
  * @return GetRenderingInstanceStreamingInfoResponse
@@ -6812,7 +7346,7 @@ GetRenderingInstanceStreamingInfoResponse Client::getRenderingInstanceStreamingI
 }
 
 /**
- * @summary 输出满足特定条件的资源各状态数据量统计值。
+ * @summary Queries the data volume statistics for the states of project instances that meet specified conditions.
  *
  * @param request GetRenderingProjectInstanceStateMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6843,7 +7377,7 @@ GetRenderingProjectInstanceStateMetricsResponse Client::getRenderingProjectInsta
 }
 
 /**
- * @summary 输出满足特定条件的资源各状态数据量统计值。
+ * @summary Queries the data volume statistics for the states of project instances that meet specified conditions.
  *
  * @param request GetRenderingProjectInstanceStateMetricsRequest
  * @return GetRenderingProjectInstanceStateMetricsResponse
@@ -6854,6 +7388,8 @@ GetRenderingProjectInstanceStateMetricsResponse Client::getRenderingProjectInsta
 }
 
 /**
+ * @summary Moves to a specified preset.
+ *
  * @param request GotoPresetRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GotoPresetResponse
@@ -6891,6 +7427,8 @@ GotoPresetResponse Client::gotoPresetWithOptions(const GotoPresetRequest &reques
 }
 
 /**
+ * @summary Moves to a specified preset.
+ *
  * @param request GotoPresetRequest
  * @return GotoPresetResponse
  */
@@ -6900,7 +7438,7 @@ GotoPresetResponse Client::gotoPreset(const GotoPresetRequest &request) {
 }
 
 /**
- * @summary 安装云应用
+ * @summary Installs a cloud application to a specified cloud application instance. This is an asynchronous interface. To monitor the installation progress, use the ListCloudAppInstallations interface.
  *
  * @param tmpReq InstallCloudAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6961,7 +7499,7 @@ InstallCloudAppResponse Client::installCloudAppWithOptions(const InstallCloudApp
 }
 
 /**
- * @summary 安装云应用
+ * @summary Installs a cloud application to a specified cloud application instance. This is an asynchronous interface. To monitor the installation progress, use the ListCloudAppInstallations interface.
  *
  * @param request InstallCloudAppRequest
  * @return InstallCloudAppResponse
@@ -6972,7 +7510,7 @@ InstallCloudAppResponse Client::installCloudApp(const InstallCloudAppRequest &re
 }
 
 /**
- * @summary 查询云应用安装信息列表
+ * @summary Lists cloud application installations. The response includes the installation status of cloud application service instances and supports paged queries.
  *
  * @param request ListCloudAppInstallationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6999,7 +7537,7 @@ ListCloudAppInstallationsResponse Client::listCloudAppInstallationsWithOptions(c
 }
 
 /**
- * @summary 查询云应用安装信息列表
+ * @summary Lists cloud application installations. The response includes the installation status of cloud application service instances and supports paged queries.
  *
  * @param request ListCloudAppInstallationsRequest
  * @return ListCloudAppInstallationsResponse
@@ -7010,7 +7548,9 @@ ListCloudAppInstallationsResponse Client::listCloudAppInstallations(const ListCl
 }
 
 /**
- * @summary 查询一个云应用的Patch列表。
+ * @summary Queries the list of patches for a cloud application.
+ *
+ * @description > Specify at least one of the template ID or the template type.
  *
  * @param request ListCloudAppPatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7065,7 +7605,9 @@ ListCloudAppPatchesResponse Client::listCloudAppPatchesWithOptions(const ListClo
 }
 
 /**
- * @summary 查询一个云应用的Patch列表。
+ * @summary Queries the list of patches for a cloud application.
+ *
+ * @description > Specify at least one of the template ID or the template type.
  *
  * @param request ListCloudAppPatchesRequest
  * @return ListCloudAppPatchesResponse
@@ -7076,7 +7618,7 @@ ListCloudAppPatchesResponse Client::listCloudAppPatches(const ListCloudAppPatche
 }
 
 /**
- * @summary 查询云应用列表
+ * @summary Queries a list of cloud applications. This operation supports paged queries.
  *
  * @param request ListCloudAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7103,7 +7645,7 @@ ListCloudAppsResponse Client::listCloudAppsWithOptions(const ListCloudAppsReques
 }
 
 /**
- * @summary 查询云应用列表
+ * @summary Queries a list of cloud applications. This operation supports paged queries.
  *
  * @param request ListCloudAppsRequest
  * @return ListCloudAppsResponse
@@ -7114,7 +7656,13 @@ ListCloudAppsResponse Client::listCloudApps(const ListCloudAppsRequest &request)
 }
 
 /**
- * @summary 查询所有负载信息，支持分页查询。
+ * @summary Queries payload information for cloud application services. This operation supports paged queries.
+ *
+ * @description ## Request description
+ * - This API queries payload information for cloud application services and supports filtering and paged queries using various parameters.
+ * - Optional parameters include `Spec`, `Statuses`, `InstanceIds`, `PlanIds`, and `HiveIds`.
+ * - For paged queries, you can use the `PageNumber` and `PageSize` parameters to control the amount of data returned. The default page size is 10 records, and the maximum is 100 records.
+ * - You can specify a time range for the query using the `StartTime` and `EndTime` parameters.
  *
  * @param tmpReq ListEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7195,7 +7743,13 @@ ListEdgeWorkersResponse Client::listEdgeWorkersWithOptions(const ListEdgeWorkers
 }
 
 /**
- * @summary 查询所有负载信息，支持分页查询。
+ * @summary Queries payload information for cloud application services. This operation supports paged queries.
+ *
+ * @description ## Request description
+ * - This API queries payload information for cloud application services and supports filtering and paged queries using various parameters.
+ * - Optional parameters include `Spec`, `Statuses`, `InstanceIds`, `PlanIds`, and `HiveIds`.
+ * - For paged queries, you can use the `PageNumber` and `PageSize` parameters to control the amount of data returned. The default page size is 10 records, and the maximum is 100 records.
+ * - You can specify a time range for the query using the `StartTime` and `EndTime` parameters.
  *
  * @param request ListEdgeWorkersRequest
  * @return ListEdgeWorkersResponse
@@ -7206,7 +7760,7 @@ ListEdgeWorkersResponse Client::listEdgeWorkers(const ListEdgeWorkersRequest &re
 }
 
 /**
- * @summary 查询文件的实例推送状态信息列表。
+ * @summary Lists the push status records for a file pushed to cloud application service instances. It supports paged query.
  *
  * @param request ListFilePushStatusesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7233,7 +7787,7 @@ ListFilePushStatusesResponse Client::listFilePushStatusesWithOptions(const ListF
 }
 
 /**
- * @summary 查询文件的实例推送状态信息列表。
+ * @summary Lists the push status records for a file pushed to cloud application service instances. It supports paged query.
  *
  * @param request ListFilePushStatusesRequest
  * @return ListFilePushStatusesResponse
@@ -7244,7 +7798,7 @@ ListFilePushStatusesResponse Client::listFilePushStatuses(const ListFilePushStat
 }
 
 /**
- * @summary 查询可用文件列表。
+ * @summary Lists uploaded files. The response includes the upload status for each file and supports paged queries.
  *
  * @param request ListFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7271,7 +7825,7 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &request, 
 }
 
 /**
- * @summary 查询可用文件列表。
+ * @summary Lists uploaded files. The response includes the upload status for each file and supports paged queries.
  *
  * @param request ListFilesRequest
  * @return ListFilesResponse
@@ -7283,6 +7837,12 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 
 /**
  * @summary 查询所有集群信息，支持分页查询。
+ *
+ * @description ## 请求说明
+ * - 该 API 用于查询用户创建的所有集群信息。
+ * - 支持通过 `HiveId` 和 `Name` 参数进行过滤查询。
+ * - 分页参数 `PageNumber` 和 `PageSize` 可以控制返回结果的数量和页码，默认每页显示10条记录，最大支持100条。
+ * - `StartTime` 和 `EndTime` 参数可用于指定时间范围内的集群信息查询，但非必填项。
  *
  * @param request ListHivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7335,6 +7895,12 @@ ListHivesResponse Client::listHivesWithOptions(const ListHivesRequest &request, 
 /**
  * @summary 查询所有集群信息，支持分页查询。
  *
+ * @description ## 请求说明
+ * - 该 API 用于查询用户创建的所有集群信息。
+ * - 支持通过 `HiveId` 和 `Name` 参数进行过滤查询。
+ * - 分页参数 `PageNumber` 和 `PageSize` 可以控制返回结果的数量和页码，默认每页显示10条记录，最大支持100条。
+ * - `StartTime` 和 `EndTime` 参数可用于指定时间范围内的集群信息查询，但非必填项。
+ *
  * @param request ListHivesRequest
  * @return ListHivesResponse
  */
@@ -7344,7 +7910,7 @@ ListHivesResponse Client::listHives(const ListHivesRequest &request) {
 }
 
 /**
- * @summary 查询公钥信息
+ * @summary Retrieves a list of public keys that match the specified criteria. This operation supports pagination.
  *
  * @param request ListPublicKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7371,7 +7937,7 @@ ListPublicKeysResponse Client::listPublicKeysWithOptions(const ListPublicKeysReq
 }
 
 /**
- * @summary 查询公钥信息
+ * @summary Retrieves a list of public keys that match the specified criteria. This operation supports pagination.
  *
  * @param request ListPublicKeysRequest
  * @return ListPublicKeysResponse
@@ -7382,7 +7948,7 @@ ListPublicKeysResponse Client::listPublicKeys(const ListPublicKeysRequest &reque
 }
 
 /**
- * @summary 查询所有云应用数据包信息，支持分页查询。
+ * @summary Queries information about the data packets of cloud applications. Paged queries are supported.
  *
  * @param request ListRenderingDataPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7441,7 +8007,7 @@ ListRenderingDataPackagesResponse Client::listRenderingDataPackagesWithOptions(c
 }
 
 /**
- * @summary 查询所有云应用数据包信息，支持分页查询。
+ * @summary Queries information about the data packets of cloud applications. Paged queries are supported.
  *
  * @param request ListRenderingDataPackagesRequest
  * @return ListRenderingDataPackagesResponse
@@ -7452,7 +8018,9 @@ ListRenderingDataPackagesResponse Client::listRenderingDataPackages(const ListRe
 }
 
 /**
- * @summary 查询自定义网关
+ * @summary Queries custom gateways.
+ *
+ * @description > Specify at least the template ID or the template type.
  *
  * @param request ListRenderingInstanceGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7503,7 +8071,9 @@ ListRenderingInstanceGatewayResponse Client::listRenderingInstanceGatewayWithOpt
 }
 
 /**
- * @summary 查询自定义网关
+ * @summary Queries custom gateways.
+ *
+ * @description > Specify at least the template ID or the template type.
  *
  * @param request ListRenderingInstanceGatewayRequest
  * @return ListRenderingInstanceGatewayResponse
@@ -7514,7 +8084,7 @@ ListRenderingInstanceGatewayResponse Client::listRenderingInstanceGateway(const 
 }
 
 /**
- * @summary 查询所有云渲染实例信息，支持分页查询。
+ * @summary Lists basic information about cloud application service instances and supports paged queries.
  *
  * @param request ListRenderingInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7541,7 +8111,7 @@ ListRenderingInstancesResponse Client::listRenderingInstancesWithOptions(const L
 }
 
 /**
- * @summary 查询所有云渲染实例信息，支持分页查询。
+ * @summary Lists basic information about cloud application service instances and supports paged queries.
  *
  * @param request ListRenderingInstancesRequest
  * @return ListRenderingInstancesResponse
@@ -7552,10 +8122,10 @@ ListRenderingInstancesResponse Client::listRenderingInstances(const ListRenderin
 }
 
 /**
- * @summary 分页查询项目关联的云应用服务实例列表。
+ * @summary Retrieve a paginated list of cloud application service instances associated with a project.
  *
- * @description ## 请求说明
- * - 该接口支持通过多种筛选条件（如状态、实例ID等）来查询指定项目下的云应用服务实例。
+ * @description ## Request description
+ * - This operation enables you to query cloud application service instances in a project using multiple filter conditions, such as status and instance ID.
  *
  * @param request ListRenderingProjectInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7610,10 +8180,10 @@ ListRenderingProjectInstancesResponse Client::listRenderingProjectInstancesWithO
 }
 
 /**
- * @summary 分页查询项目关联的云应用服务实例列表。
+ * @summary Retrieve a paginated list of cloud application service instances associated with a project.
  *
- * @description ## 请求说明
- * - 该接口支持通过多种筛选条件（如状态、实例ID等）来查询指定项目下的云应用服务实例。
+ * @description ## Request description
+ * - This operation enables you to query cloud application service instances in a project using multiple filter conditions, such as status and instance ID.
  *
  * @param request ListRenderingProjectInstancesRequest
  * @return ListRenderingProjectInstancesResponse
@@ -7624,11 +8194,11 @@ ListRenderingProjectInstancesResponse Client::listRenderingProjectInstances(cons
 }
 
 /**
- * @summary 分页查询用户下的云应用服务项目基本信息列表。
+ * @summary Obtain a paged list of basic information about cloud application projects for the current user.
  *
- * @description ## 请求说明
- * - 该接口用于分页查询指定用户下的渲染项目基本信息列表。
- * - 可通过 `ProjectId` 和 `ProjectName` 进行过滤查询。
+ * @description ## Request details
+ * - This operation returns a paged list of basic information about rendering projects for a specified user.
+ * - Filter results by `ProjectId` or `ProjectName`.
  *
  * @param request ListRenderingProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7679,11 +8249,11 @@ ListRenderingProjectsResponse Client::listRenderingProjectsWithOptions(const Lis
 }
 
 /**
- * @summary 分页查询用户下的云应用服务项目基本信息列表。
+ * @summary Obtain a paged list of basic information about cloud application projects for the current user.
  *
- * @description ## 请求说明
- * - 该接口用于分页查询指定用户下的渲染项目基本信息列表。
- * - 可通过 `ProjectId` 和 `ProjectName` 进行过滤查询。
+ * @description ## Request details
+ * - This operation returns a paged list of basic information about rendering projects for a specified user.
+ * - Filter results by `ProjectId` or `ProjectName`.
  *
  * @param request ListRenderingProjectsRequest
  * @return ListRenderingProjectsResponse
@@ -7694,11 +8264,11 @@ ListRenderingProjectsResponse Client::listRenderingProjects(const ListRenderingP
 }
 
 /**
- * @summary 分页查询指定条件下的渲染会话列表。
+ * @summary Performs a paged query for the list of cloud application service sessions based on specified conditions.
  *
- * @description ## 请求说明
- * - 该接口支持通过多种参数组合来过滤和分页查询用户的渲染会话列表。
- * - `SessionId` 和 `ClientId` 参数至少需要提供一个，但两者都不是必选的。如果同时提供了两个参数，则将根据这两个参数进行更精确的匹配。
+ * @description ## Request Description
+ * - This API supports filtering and paged query of user rendering session lists with various parameter combinations.
+ * - You must provide at least one of the `SessionId` or `ClientId` parameters. Neither parameter is mandatory independently. If both parameters are provided, a more precise match is performed based on these two parameters.
  *
  * @param request ListRenderingSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7769,11 +8339,11 @@ ListRenderingSessionsResponse Client::listRenderingSessionsWithOptions(const Lis
 }
 
 /**
- * @summary 分页查询指定条件下的渲染会话列表。
+ * @summary Performs a paged query for the list of cloud application service sessions based on specified conditions.
  *
- * @description ## 请求说明
- * - 该接口支持通过多种参数组合来过滤和分页查询用户的渲染会话列表。
- * - `SessionId` 和 `ClientId` 参数至少需要提供一个，但两者都不是必选的。如果同时提供了两个参数，则将根据这两个参数进行更精确的匹配。
+ * @description ## Request Description
+ * - This API supports filtering and paged query of user rendering session lists with various parameter combinations.
+ * - You must provide at least one of the `SessionId` or `ClientId` parameters. Neither parameter is mandatory independently. If both parameters are provided, a more precise match is performed based on these two parameters.
  *
  * @param request ListRenderingSessionsRequest
  * @return ListRenderingSessionsResponse
@@ -7785,6 +8355,11 @@ ListRenderingSessionsResponse Client::listRenderingSessions(const ListRenderingS
 
 /**
  * @summary 查询规格信息，支持分页查询。
+ *
+ * @description ## 请求说明
+ * - 该 API 用于查询所有可用的云应用服务规格信息。
+ * - 支持通过 `Specification` 参数过滤特定规格。
+ * - 分页查询时，可以通过 `PageNumber` 和 `PageSize` 参数控制返回的数据量。
  *
  * @param request ListSpecificationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7825,6 +8400,11 @@ ListSpecificationsResponse Client::listSpecificationsWithOptions(const ListSpeci
 /**
  * @summary 查询规格信息，支持分页查询。
  *
+ * @description ## 请求说明
+ * - 该 API 用于查询所有可用的云应用服务规格信息。
+ * - 支持通过 `Specification` 参数过滤特定规格。
+ * - 分页查询时，可以通过 `PageNumber` 和 `PageSize` 参数控制返回的数据量。
+ *
  * @param request ListSpecificationsRequest
  * @return ListSpecificationsResponse
  */
@@ -7834,7 +8414,7 @@ ListSpecificationsResponse Client::listSpecifications(const ListSpecificationsRe
 }
 
 /**
- * @summary 安全登陆管理
+ * @summary Manages secure logons.
  *
  * @param request ManageLoginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7877,7 +8457,7 @@ ManageLoginResponse Client::manageLoginWithOptions(const ManageLoginRequest &req
 }
 
 /**
- * @summary 安全登陆管理
+ * @summary Manages secure logons.
  *
  * @param request ManageLoginRequest
  * @return ManageLoginResponse
@@ -7888,7 +8468,9 @@ ManageLoginResponse Client::manageLogin(const ManageLoginRequest &request) {
 }
 
 /**
- * @summary 查询Comfy的工作流详细信息
+ * @summary Modifies the metadata of a specified workflow.
+ *
+ * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
  *
  * @param request ModifyComfyWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7927,7 +8509,9 @@ ModifyComfyWorkflowResponse Client::modifyComfyWorkflowWithOptions(const ModifyC
 }
 
 /**
- * @summary 查询Comfy的工作流详细信息
+ * @summary Modifies the metadata of a specified workflow.
+ *
+ * @description \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
  *
  * @param request ModifyComfyWorkflowRequest
  * @return ModifyComfyWorkflowResponse
@@ -7938,6 +8522,8 @@ ModifyComfyWorkflowResponse Client::modifyComfyWorkflow(const ModifyComfyWorkflo
 }
 
 /**
+ * @summary Update device information.
+ *
  * @param request ModifyDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDeviceResponse
@@ -8055,6 +8641,8 @@ ModifyDeviceResponse Client::modifyDeviceWithOptions(const ModifyDeviceRequest &
 }
 
 /**
+ * @summary Update device information.
+ *
  * @param request ModifyDeviceRequest
  * @return ModifyDeviceResponse
  */
@@ -8064,6 +8652,8 @@ ModifyDeviceResponse Client::modifyDevice(const ModifyDeviceRequest &request) {
 }
 
 /**
+ * @summary Updates the alarm status of a device.
+ *
  * @param request ModifyDeviceAlarmRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDeviceAlarmResponse
@@ -8109,6 +8699,8 @@ ModifyDeviceAlarmResponse Client::modifyDeviceAlarmWithOptions(const ModifyDevic
 }
 
 /**
+ * @summary Updates the alarm status of a device.
+ *
  * @param request ModifyDeviceAlarmRequest
  * @return ModifyDeviceAlarmResponse
  */
@@ -8118,6 +8710,8 @@ ModifyDeviceAlarmResponse Client::modifyDeviceAlarm(const ModifyDeviceAlarmReque
 }
 
 /**
+ * @summary Modify the device image capture configuration.
+ *
  * @param request ModifyDeviceCaptureRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDeviceCaptureResponse
@@ -8159,6 +8753,8 @@ ModifyDeviceCaptureResponse Client::modifyDeviceCaptureWithOptions(const ModifyD
 }
 
 /**
+ * @summary Modify the device image capture configuration.
+ *
  * @param request ModifyDeviceCaptureRequest
  * @return ModifyDeviceCaptureResponse
  */
@@ -8168,6 +8764,8 @@ ModifyDeviceCaptureResponse Client::modifyDeviceCapture(const ModifyDeviceCaptur
 }
 
 /**
+ * @summary Updates the list of channels for a device.
+ *
  * @param request ModifyDeviceChannelsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDeviceChannelsResponse
@@ -8213,6 +8811,8 @@ ModifyDeviceChannelsResponse Client::modifyDeviceChannelsWithOptions(const Modif
 }
 
 /**
+ * @summary Updates the list of channels for a device.
+ *
  * @param request ModifyDeviceChannelsRequest
  * @return ModifyDeviceChannelsResponse
  */
@@ -8222,6 +8822,8 @@ ModifyDeviceChannelsResponse Client::modifyDeviceChannels(const ModifyDeviceChan
 }
 
 /**
+ * @summary Modifies the information of a directory.
+ *
  * @param request ModifyDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDirectoryResponse
@@ -8263,6 +8865,8 @@ ModifyDirectoryResponse Client::modifyDirectoryWithOptions(const ModifyDirectory
 }
 
 /**
+ * @summary Modifies the information of a directory.
+ *
  * @param request ModifyDirectoryRequest
  * @return ModifyDirectoryResponse
  */
@@ -8272,6 +8876,8 @@ ModifyDirectoryResponse Client::modifyDirectory(const ModifyDirectoryRequest &re
 }
 
 /**
+ * @summary You can modify the details of a space.
+ *
  * @param request ModifyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyGroupResponse
@@ -8345,6 +8951,8 @@ ModifyGroupResponse Client::modifyGroupWithOptions(const ModifyGroupRequest &req
 }
 
 /**
+ * @summary You can modify the details of a space.
+ *
  * @param request ModifyGroupRequest
  * @return ModifyGroupResponse
  */
@@ -8354,10 +8962,12 @@ ModifyGroupResponse Client::modifyGroup(const ModifyGroupRequest &request) {
 }
 
 /**
- * @summary 更新集群
+ * @summary Updates the name or description of a specified cluster.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Request
+ * - This API modifies the name and/or description of an existing cluster.
+ * - `HiveId` is a required parameter that identifies the cluster to modify.
+ * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
  *
  * @param request ModifyHiveAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8396,10 +9006,12 @@ ModifyHiveAttributeResponse Client::modifyHiveAttributeWithOptions(const ModifyH
 }
 
 /**
- * @summary 更新集群
+ * @summary Updates the name or description of a specified cluster.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Request
+ * - This API modifies the name and/or description of an existing cluster.
+ * - `HiveId` is a required parameter that identifies the cluster to modify.
+ * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
  *
  * @param request ModifyHiveAttributeRequest
  * @return ModifyHiveAttributeResponse
@@ -8410,6 +9022,8 @@ ModifyHiveAttributeResponse Client::modifyHiveAttribute(const ModifyHiveAttribut
 }
 
 /**
+ * @summary Modifies the information of a parent platform.
+ *
  * @param request ModifyParentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyParentPlatformResponse
@@ -8479,6 +9093,8 @@ ModifyParentPlatformResponse Client::modifyParentPlatformWithOptions(const Modif
 }
 
 /**
+ * @summary Modifies the information of a parent platform.
+ *
  * @param request ModifyParentPlatformRequest
  * @return ModifyParentPlatformResponse
  */
@@ -8488,7 +9104,7 @@ ModifyParentPlatformResponse Client::modifyParentPlatform(const ModifyParentPlat
 }
 
 /**
- * @summary 变配云渲染资源实例付费类型
+ * @summary Change the billing method for a Graphic Computing Service instance.
  *
  * @param request ModifyRenderingChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8535,7 +9151,7 @@ ModifyRenderingChargeTypeResponse Client::modifyRenderingChargeTypeWithOptions(c
 }
 
 /**
- * @summary 变配云渲染资源实例付费类型
+ * @summary Change the billing method for a Graphic Computing Service instance.
  *
  * @param request ModifyRenderingChargeTypeRequest
  * @return ModifyRenderingChargeTypeResponse
@@ -8546,7 +9162,7 @@ ModifyRenderingChargeTypeResponse Client::modifyRenderingChargeType(const Modify
 }
 
 /**
- * @summary 变配云渲染资源实例
+ * @summary Upgrades or downgrades a cloud application service instance.
  *
  * @param request ModifyRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8585,7 +9201,7 @@ ModifyRenderingInstanceResponse Client::modifyRenderingInstanceWithOptions(const
 }
 
 /**
- * @summary 变配云渲染资源实例
+ * @summary Upgrades or downgrades a cloud application service instance.
  *
  * @param request ModifyRenderingInstanceRequest
  * @return ModifyRenderingInstanceResponse
@@ -8596,7 +9212,7 @@ ModifyRenderingInstanceResponse Client::modifyRenderingInstance(const ModifyRend
 }
 
 /**
- * @summary 修改云应用服务实例密码
+ * @summary Modifies the attributes of a cloud application service instance.
  *
  * @param request ModifyRenderingInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8631,7 +9247,7 @@ ModifyRenderingInstanceAttributeResponse Client::modifyRenderingInstanceAttribut
 }
 
 /**
- * @summary 修改云应用服务实例密码
+ * @summary Modifies the attributes of a cloud application service instance.
  *
  * @param request ModifyRenderingInstanceAttributeRequest
  * @return ModifyRenderingInstanceAttributeResponse
@@ -8642,7 +9258,7 @@ ModifyRenderingInstanceAttributeResponse Client::modifyRenderingInstanceAttribut
 }
 
 /**
- * @summary 修改云渲染实例限速带宽
+ * @summary Updates the rate limiting bandwidth for a cloud application service instance. You can call the DescribeRenderingInstance operation to retrieve the current rate limiting value and check the status of the rate limiting update.
  *
  * @param request ModifyRenderingInstanceBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8681,7 +9297,7 @@ ModifyRenderingInstanceBandwidthResponse Client::modifyRenderingInstanceBandwidt
 }
 
 /**
- * @summary 修改云渲染实例限速带宽
+ * @summary Updates the rate limiting bandwidth for a cloud application service instance. You can call the DescribeRenderingInstance operation to retrieve the current rate limiting value and check the status of the rate limiting update.
  *
  * @param request ModifyRenderingInstanceBandwidthRequest
  * @return ModifyRenderingInstanceBandwidthResponse
@@ -8692,6 +9308,8 @@ ModifyRenderingInstanceBandwidthResponse Client::modifyRenderingInstanceBandwidt
 }
 
 /**
+ * @summary Modifies template information.
+ *
  * @param request ModifyTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyTemplateResponse
@@ -8801,6 +9419,8 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
 }
 
 /**
+ * @summary Modifies template information.
+ *
  * @param request ModifyTemplateRequest
  * @return ModifyTemplateResponse
  */
@@ -8810,10 +9430,10 @@ ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &reque
 }
 
 /**
- * @summary 移动负载到集群
+ * @summary Moves the specified cloud application service instances from their current cluster to the target Hive.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Request
+ * - Ensure the target Hive has sufficient resources to accommodate the instances.
  *
  * @param tmpReq MoveHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8854,10 +9474,10 @@ MoveHiveEdgeWorkersResponse Client::moveHiveEdgeWorkersWithOptions(const MoveHiv
 }
 
 /**
- * @summary 移动负载到集群
+ * @summary Moves the specified cloud application service instances from their current cluster to the target Hive.
  *
- * @description ## 请求说明
- * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ * @description ## Request
+ * - Ensure the target Hive has sufficient resources to accommodate the instances.
  *
  * @param request MoveHiveEdgeWorkersRequest
  * @return MoveHiveEdgeWorkersResponse
@@ -8868,6 +9488,8 @@ MoveHiveEdgeWorkersResponse Client::moveHiveEdgeWorkers(const MoveHiveEdgeWorker
 }
 
 /**
+ * @summary Activates the service.
+ *
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenVsServiceResponse
  */
@@ -8888,6 +9510,8 @@ OpenVsServiceResponse Client::openVsServiceWithOptions(const Darabonba::RuntimeO
 }
 
 /**
+ * @summary Activates the service.
+ *
  * @return OpenVsServiceResponse
  */
 OpenVsServiceResponse Client::openVsService() {
@@ -8896,7 +9520,7 @@ OpenVsServiceResponse Client::openVsService() {
 }
 
 /**
- * @summary 预推文件到云渲染实例。
+ * @summary Push a file to a specified cloud application service instance. This is an asynchronous operation. You can query the push progress using the ListFilePushStatuses operation.
  *
  * @param request PushFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8931,7 +9555,7 @@ PushFileResponse Client::pushFileWithOptions(const PushFileRequest &request, con
 }
 
 /**
- * @summary 预推文件到云渲染实例。
+ * @summary Push a file to a specified cloud application service instance. This is an asynchronous operation. You can query the push progress using the ListFilePushStatuses operation.
  *
  * @param request PushFileRequest
  * @return PushFileResponse
@@ -8942,7 +9566,7 @@ PushFileResponse Client::pushFile(const PushFileRequest &request) {
 }
 
 /**
- * @summary 重启云渲染实例
+ * @summary Restarts a cloud application service instance. You can call the DescribeRenderingInstance API to monitor the restart progress.
  *
  * @param request RebootRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8973,7 +9597,7 @@ RebootRenderingInstanceResponse Client::rebootRenderingInstanceWithOptions(const
 }
 
 /**
- * @summary 重启云渲染实例
+ * @summary Restarts a cloud application service instance. You can call the DescribeRenderingInstance API to monitor the restart progress.
  *
  * @param request RebootRenderingInstanceRequest
  * @return RebootRenderingInstanceResponse
@@ -8984,7 +9608,7 @@ RebootRenderingInstanceResponse Client::rebootRenderingInstance(const RebootRend
 }
 
 /**
- * @summary 云应用服务实例主机重启
+ * @summary Restarts the host of a cloud application service instance.
  *
  * @param tmpReq RebootRenderingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9021,7 +9645,7 @@ RebootRenderingServerResponse Client::rebootRenderingServerWithOptions(const Reb
 }
 
 /**
- * @summary 云应用服务实例主机重启
+ * @summary Restarts the host of a cloud application service instance.
  *
  * @param request RebootRenderingServerRequest
  * @return RebootRenderingServerResponse
@@ -9032,7 +9656,7 @@ RebootRenderingServerResponse Client::rebootRenderingServer(const RebootRenderin
 }
 
 /**
- * @summary 恢复数据到云渲染实例
+ * @summary Recover data to a Graphic Computing Service instance
  *
  * @param request RecoverRenderingDataPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9071,7 +9695,7 @@ RecoverRenderingDataPackageResponse Client::recoverRenderingDataPackageWithOptio
 }
 
 /**
- * @summary 恢复数据到云渲染实例
+ * @summary Recover data to a Graphic Computing Service instance
  *
  * @param request RecoverRenderingDataPackageRequest
  * @return RecoverRenderingDataPackageResponse
@@ -9082,7 +9706,9 @@ RecoverRenderingDataPackageResponse Client::recoverRenderingDataPackage(const Re
 }
 
 /**
- * @summary 更新实例流连接信息
+ * @summary Call RefreshRenderingInstanceStreaming to refresh the stream connection for a cloud application service instance.
+ *
+ * @description > Specify at least one of the template ID or template type.
  *
  * @param tmpReq RefreshRenderingInstanceStreamingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9123,7 +9749,9 @@ RefreshRenderingInstanceStreamingResponse Client::refreshRenderingInstanceStream
 }
 
 /**
- * @summary 更新实例流连接信息
+ * @summary Call RefreshRenderingInstanceStreaming to refresh the stream connection for a cloud application service instance.
+ *
+ * @description > Specify at least one of the template ID or template type.
  *
  * @param request RefreshRenderingInstanceStreamingRequest
  * @return RefreshRenderingInstanceStreamingResponse
@@ -9134,7 +9762,7 @@ RefreshRenderingInstanceStreamingResponse Client::refreshRenderingInstanceStream
 }
 
 /**
- * @summary 释放云渲染数据包
+ * @summary Release a cloud application service data pack
  *
  * @param request ReleaseRenderingDataPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9165,7 +9793,7 @@ ReleaseRenderingDataPackageResponse Client::releaseRenderingDataPackageWithOptio
 }
 
 /**
- * @summary 释放云渲染数据包
+ * @summary Release a cloud application service data pack
  *
  * @param request ReleaseRenderingDataPackageRequest
  * @return ReleaseRenderingDataPackageResponse
@@ -9176,7 +9804,7 @@ ReleaseRenderingDataPackageResponse Client::releaseRenderingDataPackage(const Re
 }
 
 /**
- * @summary 释放云渲染实例
+ * @summary Invoke ReleaseRenderingInstance to release a Graphic Computing Service application instance.
  *
  * @param request ReleaseRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9207,7 +9835,7 @@ ReleaseRenderingInstanceResponse Client::releaseRenderingInstanceWithOptions(con
 }
 
 /**
- * @summary 释放云渲染实例
+ * @summary Invoke ReleaseRenderingInstance to release a Graphic Computing Service application instance.
  *
  * @param request ReleaseRenderingInstanceRequest
  * @return ReleaseRenderingInstanceResponse
@@ -9218,7 +9846,7 @@ ReleaseRenderingInstanceResponse Client::releaseRenderingInstance(const ReleaseR
 }
 
 /**
- * @summary 续费云渲染资源实例
+ * @summary Invoke RenewRenderingInstance to renew a cloud application service instance.
  *
  * @param request RenewRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9257,7 +9885,7 @@ RenewRenderingInstanceResponse Client::renewRenderingInstanceWithOptions(const R
 }
 
 /**
- * @summary 续费云渲染资源实例
+ * @summary Invoke RenewRenderingInstance to renew a cloud application service instance.
  *
  * @param request RenewRenderingInstanceRequest
  * @return RenewRenderingInstanceResponse
@@ -9268,7 +9896,7 @@ RenewRenderingInstanceResponse Client::renewRenderingInstance(const RenewRenderi
 }
 
 /**
- * @summary 重置云渲染实例
+ * @summary Resets a cloud application service instance. You can query the DescribeRenderingInstance interface to obtain the reset progress.
  *
  * @param request ResetRenderingInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9307,7 +9935,7 @@ ResetRenderingInstanceResponse Client::resetRenderingInstanceWithOptions(const R
 }
 
 /**
- * @summary 重置云渲染实例
+ * @summary Resets a cloud application service instance. You can query the DescribeRenderingInstance interface to obtain the reset progress.
  *
  * @param request ResetRenderingInstanceRequest
  * @return ResetRenderingInstanceResponse
@@ -9318,6 +9946,8 @@ ResetRenderingInstanceResponse Client::resetRenderingInstance(const ResetRenderi
 }
 
 /**
+ * @summary Resumes pushing for a stream.
+ *
  * @param request ResumeVsStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ResumeVsStreamResponse
@@ -9367,6 +9997,8 @@ ResumeVsStreamResponse Client::resumeVsStreamWithOptions(const ResumeVsStreamReq
 }
 
 /**
+ * @summary Resumes pushing for a stream.
+ *
  * @param request ResumeVsStreamRequest
  * @return ResumeVsStreamResponse
  */
@@ -9376,7 +10008,7 @@ ResumeVsStreamResponse Client::resumeVsStream(const ResumeVsStreamRequest &reque
 }
 
 /**
- * @summary 下发shell命令，支持同步/异步响应命令。
+ * @summary Sends shell control instructions to a cloud application service instance. This operation supports both sync and asynchronous command responses. The sync scenario is not suitable for time-consuming commands. The maximum execution time cannot exceed 30 s. In an asynchronous scenario, you can call the GetRenderingInstanceCommandsStatus operation to query the execution status and result of a command.
  *
  * @param request SendRenderingInstanceCommandsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9421,7 +10053,7 @@ SendRenderingInstanceCommandsResponse Client::sendRenderingInstanceCommandsWithO
 }
 
 /**
- * @summary 下发shell命令，支持同步/异步响应命令。
+ * @summary Sends shell control instructions to a cloud application service instance. This operation supports both sync and asynchronous command responses. The sync scenario is not suitable for time-consuming commands. The maximum execution time cannot exceed 30 s. In an asynchronous scenario, you can call the GetRenderingInstanceCommandsStatus operation to query the execution status and result of a command.
  *
  * @param request SendRenderingInstanceCommandsRequest
  * @return SendRenderingInstanceCommandsResponse
@@ -9432,6 +10064,8 @@ SendRenderingInstanceCommandsResponse Client::sendRenderingInstanceCommands(cons
 }
 
 /**
+ * @summary Set a preset position.
+ *
  * @param request SetPresetRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SetPresetResponse
@@ -9469,6 +10103,8 @@ SetPresetResponse Client::setPresetWithOptions(const SetPresetRequest &request, 
 }
 
 /**
+ * @summary Set a preset position.
+ *
  * @param request SetPresetRequest
  * @return SetPresetResponse
  */
@@ -9478,6 +10114,8 @@ SetPresetResponse Client::setPreset(const SetPresetRequest &request) {
 }
 
 /**
+ * @summary Enable or disable the certificate feature for a domain name.
+ *
  * @param request SetVsDomainCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SetVsDomainCertificateResponse
@@ -9539,6 +10177,8 @@ SetVsDomainCertificateResponse Client::setVsDomainCertificateWithOptions(const S
 }
 
 /**
+ * @summary Enable or disable the certificate feature for a domain name.
+ *
  * @param request SetVsDomainCertificateRequest
  * @return SetVsDomainCertificateResponse
  */
@@ -9548,6 +10188,8 @@ SetVsDomainCertificateResponse Client::setVsDomainCertificate(const SetVsDomainC
 }
 
 /**
+ * @summary Configure stream ingest callbacks.
+ *
  * @param request SetVsStreamsNotifyUrlConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SetVsStreamsNotifyUrlConfigResponse
@@ -9593,6 +10235,8 @@ SetVsStreamsNotifyUrlConfigResponse Client::setVsStreamsNotifyUrlConfigWithOptio
 }
 
 /**
+ * @summary Configure stream ingest callbacks.
+ *
  * @param request SetVsStreamsNotifyUrlConfigRequest
  * @return SetVsStreamsNotifyUrlConfigResponse
  */
@@ -9602,6 +10246,10 @@ SetVsStreamsNotifyUrlConfigResponse Client::setVsStreamsNotifyUrlConfig(const Se
 }
 
 /**
+ * @summary Start stream pulling from a device. This action starts all streams on the device.
+ *
+ * @description Each device currently supports only one ingest endpoint. The effect is the same as StartStream.
+ *
  * @param request StartDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartDeviceResponse
@@ -9635,6 +10283,10 @@ StartDeviceResponse Client::startDeviceWithOptions(const StartDeviceRequest &req
 }
 
 /**
+ * @summary Start stream pulling from a device. This action starts all streams on the device.
+ *
+ * @description Each device currently supports only one ingest endpoint. The effect is the same as StartStream.
+ *
  * @param request StartDeviceRequest
  * @return StartDeviceResponse
  */
@@ -9644,6 +10296,8 @@ StartDeviceResponse Client::startDevice(const StartDeviceRequest &request) {
 }
 
 /**
+ * @summary Starts interactions with the parent platform, such as registration and keep-alive.
+ *
  * @param request StartParentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartParentPlatformResponse
@@ -9677,6 +10331,8 @@ StartParentPlatformResponse Client::startParentPlatformWithOptions(const StartPa
 }
 
 /**
+ * @summary Starts interactions with the parent platform, such as registration and keep-alive.
+ *
  * @param request StartParentPlatformRequest
  * @return StartParentPlatformResponse
  */
@@ -9732,6 +10388,12 @@ StartPublishStreamResponse Client::startPublishStream(const StartPublishStreamRe
 }
 
 /**
+ * @summary Starts on-demand recording for the specified stream.
+ *
+ * @description > - An on-demand record template is required. You must first attach one to the space or stream.
+ * >
+ * > - You can specify a stream in two ways: using its ID or its PlayDomain/App/Name.
+ *
  * @param request StartRecordStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartRecordStreamResponse
@@ -9777,6 +10439,12 @@ StartRecordStreamResponse Client::startRecordStreamWithOptions(const StartRecord
 }
 
 /**
+ * @summary Starts on-demand recording for the specified stream.
+ *
+ * @description > - An on-demand record template is required. You must first attach one to the space or stream.
+ * >
+ * > - You can specify a stream in two ways: using its ID or its PlayDomain/App/Name.
+ *
  * @param request StartRecordStreamRequest
  * @return StartRecordStreamResponse
  */
@@ -9786,7 +10454,7 @@ StartRecordStreamResponse Client::startRecordStream(const StartRecordStreamReque
 }
 
 /**
- * @summary 调度一个空闲云应用服务实例，并完成服务启动。
+ * @summary Schedules an idle cloud application service instance for the requesting client (ClientId) and starts the service. If the requesting client (ClientId) sends another start request after a successful start and the associated session is in the SessionStartSuspended state, the session is restarted. If the session is in any other state, the session information is returned directly.
  *
  * @param tmpReq StartRenderingSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9839,7 +10507,7 @@ StartRenderingSessionResponse Client::startRenderingSessionWithOptions(const Sta
 }
 
 /**
- * @summary 调度一个空闲云应用服务实例，并完成服务启动。
+ * @summary Schedules an idle cloud application service instance for the requesting client (ClientId) and starts the service. If the requesting client (ClientId) sends another start request after a successful start and the associated session is in the SessionStartSuspended state, the session is restarted. If the session is in any other state, the session information is returned directly.
  *
  * @param request StartRenderingSessionRequest
  * @return StartRenderingSessionResponse
@@ -9850,6 +10518,8 @@ StartRenderingSessionResponse Client::startRenderingSession(const StartRendering
 }
 
 /**
+ * @summary Start a stream.
+ *
  * @param request StartStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartStreamResponse
@@ -9891,6 +10561,8 @@ StartStreamResponse Client::startStreamWithOptions(const StartStreamRequest &req
 }
 
 /**
+ * @summary Start a stream.
+ *
  * @param request StartStreamRequest
  * @return StartStreamResponse
  */
@@ -9900,6 +10572,8 @@ StartStreamResponse Client::startStream(const StartStreamRequest &request) {
 }
 
 /**
+ * @summary Starts forwarding a stream to an external address.
+ *
  * @param request StartTransferStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartTransferStreamResponse
@@ -9941,6 +10615,8 @@ StartTransferStreamResponse Client::startTransferStreamWithOptions(const StartTr
 }
 
 /**
+ * @summary Starts forwarding a stream to an external address.
+ *
  * @param request StartTransferStreamRequest
  * @return StartTransferStreamResponse
  */
@@ -9950,6 +10626,8 @@ StartTransferStreamResponse Client::startTransferStream(const StartTransferStrea
 }
 
 /**
+ * @summary Stops lens adjustments, such as aperture or zoom changes.
+ *
  * @param request StopAdjustRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopAdjustResponse
@@ -9991,6 +10669,8 @@ StopAdjustResponse Client::stopAdjustWithOptions(const StopAdjustRequest &reques
 }
 
 /**
+ * @summary Stops lens adjustments, such as aperture or zoom changes.
+ *
  * @param request StopAdjustRequest
  * @return StopAdjustResponse
  */
@@ -10000,6 +10680,10 @@ StopAdjustResponse Client::stopAdjust(const StopAdjustRequest &request) {
 }
 
 /**
+ * @summary Stops stream pulling for a device. This operation terminates all streams on that device.
+ *
+ * @description Stops stream pulling for a device. This operation terminates all streams on that device.
+ *
  * @param request StopDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopDeviceResponse
@@ -10037,6 +10721,10 @@ StopDeviceResponse Client::stopDeviceWithOptions(const StopDeviceRequest &reques
 }
 
 /**
+ * @summary Stops stream pulling for a device. This operation terminates all streams on that device.
+ *
+ * @description Stops stream pulling for a device. This operation terminates all streams on that device.
+ *
  * @param request StopDeviceRequest
  * @return StopDeviceResponse
  */
@@ -10046,6 +10734,8 @@ StopDeviceResponse Client::stopDevice(const StopDeviceRequest &request) {
 }
 
 /**
+ * @summary Stops camera movement, such as panning, tilting, and zooming.
+ *
  * @param request StopMoveRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopMoveResponse
@@ -10091,6 +10781,8 @@ StopMoveResponse Client::stopMoveWithOptions(const StopMoveRequest &request, con
 }
 
 /**
+ * @summary Stops camera movement, such as panning, tilting, and zooming.
+ *
  * @param request StopMoveRequest
  * @return StopMoveResponse
  */
@@ -10142,6 +10834,10 @@ StopPublishStreamResponse Client::stopPublishStream(const StopPublishStreamReque
 }
 
 /**
+ * @summary Stops on-demand recording for a specified stream.
+ *
+ * @description > You can specify a stream by ID or by PlayDomain/App/Name.
+ *
  * @param request StopRecordStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopRecordStreamResponse
@@ -10187,6 +10883,10 @@ StopRecordStreamResponse Client::stopRecordStreamWithOptions(const StopRecordStr
 }
 
 /**
+ * @summary Stops on-demand recording for a specified stream.
+ *
+ * @description > You can specify a stream by ID or by PlayDomain/App/Name.
+ *
  * @param request StopRecordStreamRequest
  * @return StopRecordStreamResponse
  */
@@ -10196,9 +10896,9 @@ StopRecordStreamResponse Client::stopRecordStream(const StopRecordStreamRequest 
 }
 
 /**
- * @summary 关闭指定的云应用服务会话并回收相关实例资源。
+ * @summary Shut down the specified cloud application service session and revoke the associated instance resources.
  *
- * @description ## 请求说明
+ * @description ## Request information
  *
  * @param request StopRenderingSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10237,9 +10937,9 @@ StopRenderingSessionResponse Client::stopRenderingSessionWithOptions(const StopR
 }
 
 /**
- * @summary 关闭指定的云应用服务会话并回收相关实例资源。
+ * @summary Shut down the specified cloud application service session and revoke the associated instance resources.
  *
- * @description ## 请求说明
+ * @description ## Request information
  *
  * @param request StopRenderingSessionRequest
  * @return StopRenderingSessionResponse
@@ -10250,6 +10950,8 @@ StopRenderingSessionResponse Client::stopRenderingSession(const StopRenderingSes
 }
 
 /**
+ * @summary Stops a stream.
+ *
  * @param request StopStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopStreamResponse
@@ -10291,6 +10993,8 @@ StopStreamResponse Client::stopStreamWithOptions(const StopStreamRequest &reques
 }
 
 /**
+ * @summary Stops a stream.
+ *
  * @param request StopStreamRequest
  * @return StopStreamResponse
  */
@@ -10300,6 +11004,8 @@ StopStreamResponse Client::stopStream(const StopStreamRequest &request) {
 }
 
 /**
+ * @summary Stops a stream.
+ *
  * @param request StopTransferStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopTransferStreamResponse
@@ -10337,6 +11043,8 @@ StopTransferStreamResponse Client::stopTransferStreamWithOptions(const StopTrans
 }
 
 /**
+ * @summary Stops a stream.
+ *
  * @param request StopTransferStreamRequest
  * @return StopTransferStreamResponse
  */
@@ -10346,6 +11054,8 @@ StopTransferStreamResponse Client::stopTransferStream(const StopTransferStreamRe
 }
 
 /**
+ * @summary Synchronizes platform channel information.
+ *
  * @param request SyncCatalogsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SyncCatalogsResponse
@@ -10379,6 +11089,8 @@ SyncCatalogsResponse Client::syncCatalogsWithOptions(const SyncCatalogsRequest &
 }
 
 /**
+ * @summary Synchronizes platform channel information.
+ *
  * @param request SyncCatalogsRequest
  * @return SyncCatalogsResponse
  */
@@ -10388,6 +11100,8 @@ SyncCatalogsResponse Client::syncCatalogs(const SyncCatalogsRequest &request) {
 }
 
 /**
+ * @summary Detach a device from a folder.
+ *
  * @param request UnbindDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnbindDirectoryResponse
@@ -10425,6 +11139,8 @@ UnbindDirectoryResponse Client::unbindDirectoryWithOptions(const UnbindDirectory
 }
 
 /**
+ * @summary Detach a device from a folder.
+ *
  * @param request UnbindDirectoryRequest
  * @return UnbindDirectoryResponse
  */
@@ -10434,6 +11150,8 @@ UnbindDirectoryResponse Client::unbindDirectory(const UnbindDirectoryRequest &re
 }
 
 /**
+ * @summary Dissociates a device from a parent platform push configuration so that the device is no longer pushed.
+ *
  * @param request UnbindParentPlatformDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnbindParentPlatformDeviceResponse
@@ -10471,6 +11189,8 @@ UnbindParentPlatformDeviceResponse Client::unbindParentPlatformDeviceWithOptions
 }
 
 /**
+ * @summary Dissociates a device from a parent platform push configuration so that the device is no longer pushed.
+ *
  * @param request UnbindParentPlatformDeviceRequest
  * @return UnbindParentPlatformDeviceResponse
  */
@@ -10480,6 +11200,8 @@ UnbindParentPlatformDeviceResponse Client::unbindParentPlatformDevice(const Unbi
 }
 
 /**
+ * @summary Unbinds a purchased device from a space.
+ *
  * @param request UnbindPurchasedDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnbindPurchasedDeviceResponse
@@ -10513,6 +11235,8 @@ UnbindPurchasedDeviceResponse Client::unbindPurchasedDeviceWithOptions(const Unb
 }
 
 /**
+ * @summary Unbinds a purchased device from a space.
+ *
  * @param request UnbindPurchasedDeviceRequest
  * @return UnbindPurchasedDeviceResponse
  */
@@ -10522,6 +11246,10 @@ UnbindPurchasedDeviceResponse Client::unbindPurchasedDevice(const UnbindPurchase
 }
 
 /**
+ * @summary Unbind a template from a specified instance, such as a group instance or a stream.
+ *
+ * @description > Specify at least one of TemplateId or TemplateType.
+ *
  * @param request UnbindTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnbindTemplateResponse
@@ -10567,6 +11295,10 @@ UnbindTemplateResponse Client::unbindTemplateWithOptions(const UnbindTemplateReq
 }
 
 /**
+ * @summary Unbind a template from a specified instance, such as a group instance or a stream.
+ *
+ * @description > Specify at least one of TemplateId or TemplateType.
+ *
  * @param request UnbindTemplateRequest
  * @return UnbindTemplateResponse
  */
@@ -10576,7 +11308,7 @@ UnbindTemplateResponse Client::unbindTemplate(const UnbindTemplateRequest &reque
 }
 
 /**
- * @summary 卸载云应用
+ * @summary You can uninstall a specified cloud application from a specified cloud application instance. This operation is asynchronous. You can use the ListCloudAppInstallations operation to check the uninstallation progress. After successful uninstallation, the query operation no longer returns related information.
  *
  * @param tmpReq UninstallCloudAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10637,7 +11369,7 @@ UninstallCloudAppResponse Client::uninstallCloudAppWithOptions(const UninstallCl
 }
 
 /**
- * @summary 卸载云应用
+ * @summary You can uninstall a specified cloud application from a specified cloud application instance. This operation is asynchronous. You can use the ListCloudAppInstallations operation to check the uninstallation progress. After successful uninstallation, the query operation no longer returns related information.
  *
  * @param request UninstallCloudAppRequest
  * @return UninstallCloudAppResponse
@@ -10648,6 +11380,8 @@ UninstallCloudAppResponse Client::uninstallCloudApp(const UninstallCloudAppReque
 }
 
 /**
+ * @summary Unlock a device.
+ *
  * @param request UnlockDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UnlockDeviceResponse
@@ -10681,6 +11415,8 @@ UnlockDeviceResponse Client::unlockDeviceWithOptions(const UnlockDeviceRequest &
 }
 
 /**
+ * @summary Unlock a device.
+ *
  * @param request UnlockDeviceRequest
  * @return UnlockDeviceResponse
  */
@@ -10690,7 +11426,7 @@ UnlockDeviceResponse Client::unlockDevice(const UnlockDeviceRequest &request) {
 }
 
 /**
- * @summary 更新云应用信息
+ * @summary Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
  *
  * @param tmpReq UpdateCloudAppInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10749,7 +11485,7 @@ UpdateCloudAppInfoResponse Client::updateCloudAppInfoWithOptions(const UpdateClo
 }
 
 /**
- * @summary 更新云应用信息
+ * @summary Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
  *
  * @param request UpdateCloudAppInfoRequest
  * @return UpdateCloudAppInfoResponse
@@ -10760,7 +11496,7 @@ UpdateCloudAppInfoResponse Client::updateCloudAppInfo(const UpdateCloudAppInfoRe
 }
 
 /**
- * @summary 更新文件信息。
+ * @summary Update basic information for a file, such as its description.
  *
  * @param request UpdateFileInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10795,7 +11531,7 @@ UpdateFileInfoResponse Client::updateFileInfoWithOptions(const UpdateFileInfoReq
 }
 
 /**
- * @summary 更新文件信息。
+ * @summary Update basic information for a file, such as its description.
  *
  * @param request UpdateFileInfoRequest
  * @return UpdateFileInfoResponse
@@ -10806,7 +11542,9 @@ UpdateFileInfoResponse Client::updateFileInfo(const UpdateFileInfoRequest &reque
 }
 
 /**
- * @summary 更新云渲染实例配置参数
+ * @summary This operation updates the configuration parameters of a cloud application service instance. It lets you modify various configurations of the Cloud Android system, such as prop, location, and network, to create a real device simulation.
+ * You can retrieve the configured values for the real device simulation by calling the DescribeRenderingInstance API.
+ * To query the configuration parameters of the real-time environment, see the DescribeRenderingInstanceConfiguration API.
  *
  * @param tmpReq UpdateRenderingInstanceConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10849,7 +11587,9 @@ UpdateRenderingInstanceConfigurationResponse Client::updateRenderingInstanceConf
 }
 
 /**
- * @summary 更新云渲染实例配置参数
+ * @summary This operation updates the configuration parameters of a cloud application service instance. It lets you modify various configurations of the Cloud Android system, such as prop, location, and network, to create a real device simulation.
+ * You can retrieve the configured values for the real device simulation by calling the DescribeRenderingInstance API.
+ * To query the configuration parameters of the real-time environment, see the DescribeRenderingInstanceConfiguration API.
  *
  * @param request UpdateRenderingInstanceConfigurationRequest
  * @return UpdateRenderingInstanceConfigurationResponse
@@ -10860,7 +11600,7 @@ UpdateRenderingInstanceConfigurationResponse Client::updateRenderingInstanceConf
 }
 
 /**
- * @summary 更新实例设置
+ * @summary Updates the settings of a cloud application service instance.
  *
  * @param tmpReq UpdateRenderingInstanceSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10901,7 +11641,7 @@ UpdateRenderingInstanceSettingsResponse Client::updateRenderingInstanceSettingsW
 }
 
 /**
- * @summary 更新实例设置
+ * @summary Updates the settings of a cloud application service instance.
  *
  * @param request UpdateRenderingInstanceSettingsRequest
  * @return UpdateRenderingInstanceSettingsResponse
@@ -10912,7 +11652,7 @@ UpdateRenderingInstanceSettingsResponse Client::updateRenderingInstanceSettings(
 }
 
 /**
- * @summary 更新一个项目的属性信息
+ * @summary Updates a project’s properties.
  *
  * @param tmpReq UpdateRenderingProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10961,7 +11701,7 @@ UpdateRenderingProjectResponse Client::updateRenderingProjectWithOptions(const U
 }
 
 /**
- * @summary 更新一个项目的属性信息
+ * @summary Updates a project’s properties.
  *
  * @param request UpdateRenderingProjectRequest
  * @return UpdateRenderingProjectResponse
@@ -10972,6 +11712,8 @@ UpdateRenderingProjectResponse Client::updateRenderingProject(const UpdateRender
 }
 
 /**
+ * @summary Updates the configuration for stream pulling. You can modify the start and end times of origin server addresses in an existing stream pulling task.
+ *
  * @param request UpdateVsPullStreamInfoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateVsPullStreamInfoConfigResponse
@@ -11029,6 +11771,8 @@ UpdateVsPullStreamInfoConfigResponse Client::updateVsPullStreamInfoConfigWithOpt
 }
 
 /**
+ * @summary Updates the configuration for stream pulling. You can modify the start and end times of origin server addresses in an existing stream pulling task.
+ *
  * @param request UpdateVsPullStreamInfoConfigRequest
  * @return UpdateVsPullStreamInfoConfigResponse
  */
@@ -11038,7 +11782,7 @@ UpdateVsPullStreamInfoConfigResponse Client::updateVsPullStreamInfoConfig(const 
 }
 
 /**
- * @summary 应用上架
+ * @summary Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
  *
  * @param tmpReq UploadCloudAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11103,7 +11847,7 @@ UploadCloudAppResponse Client::uploadCloudAppWithOptions(const UploadCloudAppReq
 }
 
 /**
- * @summary 应用上架
+ * @summary Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
  *
  * @param request UploadCloudAppRequest
  * @return UploadCloudAppResponse
@@ -11114,7 +11858,7 @@ UploadCloudAppResponse Client::uploadCloudApp(const UploadCloudAppRequest &reque
 }
 
 /**
- * @summary 文件上传
+ * @summary Uploads a file from a public URL to local or cloud storage. This is an asynchronous operation. You can call the ListFiles operation to monitor the upload progress.
  *
  * @param request UploadFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11161,7 +11905,7 @@ UploadFileResponse Client::uploadFileWithOptions(const UploadFileRequest &reques
 }
 
 /**
- * @summary 文件上传
+ * @summary Uploads a file from a public URL to local or cloud storage. This is an asynchronous operation. You can call the ListFiles operation to monitor the upload progress.
  *
  * @param request UploadFileRequest
  * @return UploadFileResponse
@@ -11172,7 +11916,7 @@ UploadFileResponse Client::uploadFile(const UploadFileRequest &request) {
 }
 
 /**
- * @summary 上传公钥，用于安全登陆鉴权。
+ * @summary Upload a new public key.
  *
  * @param request UploadPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11219,7 +11963,7 @@ UploadPublicKeyResponse Client::uploadPublicKeyWithOptions(const UploadPublicKey
 }
 
 /**
- * @summary 上传公钥，用于安全登陆鉴权。
+ * @summary Upload a new public key.
  *
  * @param request UploadPublicKeyRequest
  * @return UploadPublicKeyResponse
@@ -11230,6 +11974,8 @@ UploadPublicKeyResponse Client::uploadPublicKey(const UploadPublicKeyRequest &re
 }
 
 /**
+ * @summary VerifyVsDomainOwner
+ *
  * @param request VerifyVsDomainOwnerRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return VerifyVsDomainOwnerResponse
@@ -11267,6 +12013,8 @@ VerifyVsDomainOwnerResponse Client::verifyVsDomainOwnerWithOptions(const VerifyV
 }
 
 /**
+ * @summary VerifyVsDomainOwner
+ *
  * @param request VerifyVsDomainOwnerRequest
  * @return VerifyVsDomainOwnerResponse
  */

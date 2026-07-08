@@ -66,8 +66,12 @@ namespace Models
 
 
   protected:
+    // Client IP address.
     shared_ptr<string> clientIp_ {};
+    // Time-to-live (TTL).
     shared_ptr<int64_t> expire_ {};
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};

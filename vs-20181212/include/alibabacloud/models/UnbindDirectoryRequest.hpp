@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // Folder ID.
+    // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
     shared_ptr<int64_t> ownerId_ {};

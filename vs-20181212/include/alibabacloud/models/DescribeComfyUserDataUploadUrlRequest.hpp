@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The content type of the file.
+    // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
+    // The MD5 hash of the file to be uploaded. This value must be the file\\"s actual MD5 hash. The file size is also verified during the upload.
+    // 
     // This parameter is required.
     shared_ptr<string> fileMd5_ {};
+    // The name of the file to upload. The filename can be a single file, such as \\`1.jpg\\`, or include a path, such as \\`directory1/1.jpg\\`.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // The actual size of the file in bytes. This value must be the exact size of the file. The file size is verified when you use the upload URL.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> fileSizeBytes_ {};
   };

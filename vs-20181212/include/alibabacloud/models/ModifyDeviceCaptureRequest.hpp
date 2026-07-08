@@ -66,10 +66,24 @@ namespace Models
 
 
   protected:
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Image capture control. Valid values:
+    // 
+    // - 0 (shutdown)
+    // 
+    // - 1 (enable)
     shared_ptr<int32_t> image_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Video recording control. Valid values:
+    // 
+    // - 0 (shutdown)
+    // 
+    // - 1 (enable short recording)
+    // 
+    // - 2 (enable long recording)
     shared_ptr<int32_t> video_ {};
   };
 

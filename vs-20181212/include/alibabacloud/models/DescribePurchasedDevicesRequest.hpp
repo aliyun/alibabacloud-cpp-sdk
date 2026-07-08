@@ -130,16 +130,44 @@ namespace Models
 
 
   protected:
+    // Queries by the ID of the group to which the device belongs.
     shared_ptr<string> groupId_ {};
+    // Queries by device ID.
     shared_ptr<string> id_ {};
+    // Queries by device name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The default is 1.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page. The default is 20.
     shared_ptr<int64_t> pageSize_ {};
+    // The field to sort by. Valid value:
+    // 
+    // - id (default)
     shared_ptr<string> sortBy_ {};
+    // The sorting order. The default is ascending. Valid values:
+    // 
+    // - asc (ascending)
+    // 
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
+    // Queries by device subtype. Valid values:
+    // 
+    // - bullet (bullet camera)
+    // 
+    // - dome (dome camera)
+    // 
+    // - ptz (PTZ camera)
     shared_ptr<string> subType_ {};
+    // Queries by device type. Valid values:
+    // 
+    // - ipc (camera)
+    // 
+    // - platform (platform)
+    // 
+    // - ied (intelligent edge device)
     shared_ptr<string> type_ {};
+    // Queries by device vendor.
     shared_ptr<string> vendor_ {};
   };
 

@@ -206,21 +206,45 @@ namespace Models
 
 
     protected:
+      // Whether to enable automatically. Valid values:
+      // - false (default)
+      // - true
       shared_ptr<bool> autoStart_ {};
+      // Whether to enable local authentication. Valid values:
+      // - true (default)
+      // - false
       shared_ptr<bool> clientAuth_ {};
+      // Local GB ID.
       shared_ptr<string> clientGbId_ {};
+      // Local SIP service IP.
       shared_ptr<string> clientIp_ {};
+      // Local password.
       shared_ptr<string> clientPassword_ {};
+      // Local SIP service port.
       shared_ptr<int64_t> clientPort_ {};
+      // Local username.
       shared_ptr<string> clientUsername_ {};
+      // Parent platform creation time.
       shared_ptr<string> createdTime_ {};
+      // Parent platform description.
       shared_ptr<string> description_ {};
+      // Parent platform GB ID.
       shared_ptr<string> gbId_ {};
+      // Parent platform ID.
       shared_ptr<string> id_ {};
+      // Parent platform SIP service IP.
       shared_ptr<string> ip_ {};
+      // Parent platform name.
       shared_ptr<string> name_ {};
+      // Parent platform SIP service port.
       shared_ptr<int64_t> port_ {};
+      // Parent platform protocol. Valid values:
+      // - gb28181 (GB standard)
       shared_ptr<string> protocol_ {};
+      // Parent platform status. Valid values:
+      // - on (online)
+      // - off (offline)
+      // - failed (failed)
       shared_ptr<string> status_ {};
     };
 
@@ -271,11 +295,17 @@ namespace Models
 
 
   protected:
+    // Total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // Page number.
     shared_ptr<int64_t> pageNum_ {};
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
+    // List of parent platforms.
     shared_ptr<vector<DescribeParentPlatformsResponseBody::Platforms>> platforms_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of parent platforms.
     shared_ptr<int64_t> totalCount_ {};
   };
 

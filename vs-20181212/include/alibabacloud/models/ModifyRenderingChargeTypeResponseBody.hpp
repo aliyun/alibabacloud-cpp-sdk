@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The ID of the Graphic Computing Service instance
     shared_ptr<string> renderingInstanceId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -234,10 +234,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsStreamsOnlineListResponseBody::OnlineInfo> onlineInfo_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that meet the criteria.
     shared_ptr<int32_t> totalNum_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -66,10 +66,14 @@ namespace Models
 
 
   protected:
+    // For an NVR historical stream, the End Time (UNIX timestamp, in seconds).
     shared_ptr<int64_t> endTime_ {};
+    // Stream ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // For an NVR historical stream, the Start Time (UNIX timestamp, in seconds).
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The name of the stream in the AppName/StreamName format. To specify multiple streams, separate the stream names with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
     shared_ptr<string> controlStreamAction_ {};
+    // The accelerated domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The type of live stream. Only publisher is supported, which indicates that the stream is ingested by a streamer.
+    // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};
     shared_ptr<int64_t> ownerId_ {};

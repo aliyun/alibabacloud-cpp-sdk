@@ -162,10 +162,15 @@ namespace Models
 
 
   protected:
+    // The time interval between data records. Unit: seconds. This is a static field with a value of 3600, which indicates 1 hour.
     shared_ptr<string> dataInterval_ {};
+    // The domain name of Visual Edge Computing Service.
     shared_ptr<string> domainName_ {};
+    // The end of the time range.
     shared_ptr<string> endTime_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The beginning of the time range.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeVsDomainUvDataResponseBody::UvDataInterval> uvDataInterval_ {};
   };

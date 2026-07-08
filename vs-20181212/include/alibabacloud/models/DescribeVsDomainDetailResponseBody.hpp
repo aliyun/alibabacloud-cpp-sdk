@@ -142,15 +142,43 @@ namespace Models
 
 
     protected:
+      // The CNAME assigned to the Visual Edge Computing Service domain. You must configure your DNS provider to point your domain to this CNAME.
       shared_ptr<string> cname_ {};
+      // The domain description.
       shared_ptr<string> description_ {};
+      // The Visual Edge Computing Service domain name.
       shared_ptr<string> domainName_ {};
+      // The status of the Visual Edge Computing Service accelerated domain. Valid values:
+      // 
+      // - **online**: Enabled.
+      // 
+      // - **offline**: Disabled.
+      // 
+      // - **configuring**: Being configured.
       shared_ptr<string> domainStatus_ {};
+      // The domain type.
+      // 
+      // > Static value: vs
       shared_ptr<string> domainType_ {};
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The most recent modification time.
       shared_ptr<string> gmtModified_ {};
+      // The region where the domain is located.
       shared_ptr<string> region_ {};
+      // Indicates whether HTTPS is enabled. Valid values:
+      // 
+      // - **on**: Enabled.
+      // 
+      // - **off** (default): Disabled.
       shared_ptr<string> SSLProtocol_ {};
+      // The acceleration region. Valid values:
+      // 
+      // - **domestic**
+      // 
+      // - **overseas**
+      // 
+      // - **global**
       shared_ptr<string> scope_ {};
     };
 
@@ -173,7 +201,9 @@ namespace Models
 
 
   protected:
+    // Domain configuration details.
     shared_ptr<DescribeVsDomainDetailResponseBody::DomainConfig> domainConfig_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

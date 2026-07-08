@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The unique ID of the command request. The ID is valid for one day by default. In asynchronous scenarios, if you need the result, query it promptly within the validity period, preferably before the command times out.
     shared_ptr<string> cmdId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result of the command response.
     shared_ptr<string> result_ {};
   };
 

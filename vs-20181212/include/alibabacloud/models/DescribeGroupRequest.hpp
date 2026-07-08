@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Space ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Specifies whether to return the statistics of devices in the group. The default value is false.
     shared_ptr<bool> includeStats_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

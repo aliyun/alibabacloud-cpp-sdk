@@ -94,12 +94,26 @@ namespace Models
 
 
   protected:
+    // Visual Edge Computing Service domain name.
     shared_ptr<string> domainName_ {};
+    // End time of the query. Must be later than the start time. Specify in ISO 8601 format using UTC time.<br>Format: YYYY-MM-DDThh:mm:ssZ<br>
     shared_ptr<string> endTime_ {};
+    // Time granularity of the query. Unit: seconds. Valid values:
+    // 
+    // - **300** (default).
+    // 
+    // - **3600**.
+    // 
+    // - **86400**.
+    // 
+    // > If you omit this parameter or specify an unsupported value, the default value **300** is used.
     shared_ptr<string> interval_ {};
+    // ISP name in English. Call DescribeCdnRegionAndIsp to get valid values. If you omit this parameter, the system returns data for all ISPs.
     shared_ptr<string> ispNameEn_ {};
+    // Region name in English. Call DescribeCdnRegionAndIsp to get valid values. If you omit this parameter, the system returns data for all regions.
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Start time of the query. Specify in ISO 8601 format using UTC time.<br>Format: YYYY-MM-DDThh:mm:ssZ<br>Minimum time granularity is 5 minutes.<br>If you omit this parameter, the system returns data for the last 24 hours.<br><br><br>
     shared_ptr<string> startTime_ {};
   };
 

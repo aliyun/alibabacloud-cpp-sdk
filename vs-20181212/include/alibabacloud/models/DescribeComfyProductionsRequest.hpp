@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The page number of the results to return. Pages are 1-indexed. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the Comfy task whose productions you want to list.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

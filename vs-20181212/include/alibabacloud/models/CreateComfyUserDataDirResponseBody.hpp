@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 0 indicates success.
     shared_ptr<int64_t> code_ {};
+    // The returned message. If the request fails, this parameter contains the failure reason.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,12 +75,26 @@ namespace Models
 
 
   protected:
+    // The instance ID. Separate multiple IDs with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The instance type. Valid values:
+    // 
+    // - group
+    // 
+    // - stream
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The template ID. If omitted, all bindings that match the conditions on the instance are detached.
     shared_ptr<string> templateId_ {};
+    // The template type. Valid values:
+    // 
+    // - record
+    // 
+    // - snapshot
     shared_ptr<string> templateType_ {};
   };
 

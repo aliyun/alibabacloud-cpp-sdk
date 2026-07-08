@@ -194,13 +194,21 @@ namespace Models
 
 
       protected:
+        // Video frame rate in fps.
         shared_ptr<int64_t> fps_ {};
+        // Video GOP in frames.
         shared_ptr<int64_t> gop_ {};
+        // Video height.
         shared_ptr<int64_t> height_ {};
+        // Transcoding rule name. This name becomes the suffix of the transcoded stream. Use a descriptive suffix such as sd or 200k. Only letters and numbers are allowed.
         shared_ptr<string> name_ {};
+        // Video bitrate in kbps.
         shared_ptr<int64_t> videoBitrate_ {};
+        // Video encoding.
         shared_ptr<string> videoCodec_ {};
+        // Video width.
         shared_ptr<int64_t> width_ {};
+        // Transcoding configuration ID.
         shared_ptr<string> id_ {};
       };
 
@@ -367,27 +375,81 @@ namespace Models
 
 
     protected:
+      // Callback URL after template execution.
       shared_ptr<string> callback_ {};
+      // Template creation time.
       shared_ptr<string> createdTime_ {};
+      // Template description.
       shared_ptr<string> description_ {};
+      // Storage file format. Separate multiple values with commas. Valid values: mp4, flv, hls, jpg.
       shared_ptr<string> fileFormat_ {};
+      // FLV storage path.
+      // 
+      // > This applies only to recording templates.
       shared_ptr<string> flv_ {};
+      // HLS storage path for M3U8 files.
+      // 
+      // > This applies only to recording templates.
       shared_ptr<string> hlsM3u8_ {};
+      // HLS storage path for TS files.
+      // 
+      // > This applies only to recording templates.
       shared_ptr<string> hlsTs_ {};
+      // Template ID.
       shared_ptr<string> id_ {};
+      // Operation interval in seconds.
       shared_ptr<int64_t> interval_ {};
+      // JPG storage path for on-demand snapshots.
+      // 
+      // > This applies only to snapshot templates.
       shared_ptr<string> jpgOnDemand_ {};
+      // JPG storage path for overwrite snapshots.
+      // 
+      // > This applies only to snapshot templates.
       shared_ptr<string> jpgOverwrite_ {};
+      // JPG storage path for sequential snapshots.
+      // 
+      // > This applies only to snapshot templates.
       shared_ptr<string> jpgSequence_ {};
+      // MP4 storage path.
+      // 
+      // > This applies only to recording templates.
       shared_ptr<string> mp4_ {};
+      // Template name.
       shared_ptr<string> name_ {};
+      // The OSS bucket.
       shared_ptr<string> ossBucket_ {};
+      // OSS domain name.
       shared_ptr<string> ossEndpoint_ {};
+      // OSS file prefix.
       shared_ptr<string> ossFilePrefix_ {};
+      // OSS region, also known as service center.
       shared_ptr<string> region_ {};
+      // Time-shifting retention period in days.
+      // 
+      // > This applies only to time-shifting templates.
       shared_ptr<int64_t> retention_ {};
+      // Transcoding configuration list.
+      // 
+      // > This applies only to transcoding templates.
       shared_ptr<vector<Templates::TransConfigs>> transConfigs_ {};
+      // Template trigger type. Valid values:
+      // 
+      // - auto (automatic)
+      // 
+      // - ondemand (on demand)
+      // 
+      // > This applies only to recording templates.
       shared_ptr<string> trigger_ {};
+      // Template type. Valid values:
+      // 
+      // - record (recording)
+      // 
+      // - snapshot (snapshot)
+      // 
+      // - transcode (transcoding)
+      // 
+      // - timeshift (time shifting)
       shared_ptr<string> type_ {};
     };
 
@@ -438,11 +500,17 @@ namespace Models
 
 
   protected:
+    // Total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // Page number.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Template list.
     shared_ptr<vector<DescribeTemplatesResponseBody::Templates>> templates_ {};
+    // Total number of templates.
     shared_ptr<int64_t> totalCount_ {};
   };
 

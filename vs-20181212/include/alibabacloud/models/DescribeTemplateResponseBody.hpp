@@ -167,13 +167,21 @@ namespace Models
 
 
     protected:
+      // Video frame rate, in fps.
       shared_ptr<int64_t> fps_ {};
+      // Video GOP, in frames.
       shared_ptr<int64_t> gop_ {};
+      // Video height.
       shared_ptr<int64_t> height_ {};
+      // Transcoding configuration ID.
       shared_ptr<string> id_ {};
+      // Transcoding rule name. The name appears as a suffix in the transcoded stream. We recommend using recognizable suffixes such as sd or 200k. Only letters and digits are supported.
       shared_ptr<string> name_ {};
+      // Video bitrate, in kbps.
       shared_ptr<int64_t> videoBitrate_ {};
+      // Video encoding.
       shared_ptr<string> videoCodec_ {};
+      // Video width.
       shared_ptr<int64_t> width_ {};
     };
 
@@ -347,28 +355,83 @@ namespace Models
 
 
   protected:
+    // Callback URL triggered after template execution.
     shared_ptr<string> callback_ {};
+    // Template creation time.
     shared_ptr<string> createdTime_ {};
+    // Template description.
     shared_ptr<string> description_ {};
+    // Storage file format. Separate multiple values with commas. Valid values: mp4, flv, hls, jpg
     shared_ptr<string> fileFormat_ {};
+    // Storage path for FLV files.
+    // 
+    // > Applies only to recording templates.
     shared_ptr<string> flv_ {};
+    // Storage path for HLS .m3u8 files.
+    // 
+    // > Applies only to recording templates.
     shared_ptr<string> hlsM3u8_ {};
+    // Storage path for HLS .ts files.
+    // 
+    // > Applies only to recording templates.
     shared_ptr<string> hlsTs_ {};
+    // Template ID.
     shared_ptr<string> id_ {};
+    // Operation interval, in seconds.
     shared_ptr<int64_t> interval_ {};
+    // Storage path for JPG files used for on-demand snapshots.
+    // 
+    // > Applies only to snapshot templates.
     shared_ptr<string> jpgOnDemand_ {};
+    // Storage path for JPG files used to overwrite snapshots.
+    // 
+    // > Applies only to snapshot templates.
     shared_ptr<string> jpgOverwrite_ {};
+    // Storage path for JPG files used for sequential snapshots.
+    // 
+    // > Applies only to snapshot templates.
     shared_ptr<string> jpgSequence_ {};
+    // Storage path for MP4 files.
+    // 
+    // > Applies only to recording templates.
     shared_ptr<string> mp4_ {};
+    // Template name.
     shared_ptr<string> name_ {};
+    // OSS bucket.
     shared_ptr<string> ossBucket_ {};
+    // OSS domain name.
     shared_ptr<string> ossEndpoint_ {};
+    // OSS file prefix.
     shared_ptr<string> ossFilePrefix_ {};
+    // OSS region, which is the service center.
     shared_ptr<string> region_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Timeshift retention period, in days.
+    // 
+    // > Applies only to timeshift templates.
     shared_ptr<int64_t> retention_ {};
+    // List of transcoding configurations.
+    // 
+    // > Applies only to transcoding templates.
     shared_ptr<vector<DescribeTemplateResponseBody::TransConfigs>> transConfigs_ {};
+    // Template trigger type. Valid values:
+    // 
+    // - auto
+    // 
+    // - ondemand
+    // 
+    // > Applies only to recording templates.
     shared_ptr<string> trigger_ {};
+    // Template type. Valid values:
+    // 
+    // - record
+    // 
+    // - snapshot
+    // 
+    // - transcode
+    // 
+    // - timeshift
     shared_ptr<string> type_ {};
   };
 

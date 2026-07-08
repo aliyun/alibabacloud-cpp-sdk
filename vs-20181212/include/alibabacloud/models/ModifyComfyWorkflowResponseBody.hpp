@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is returned only if the request fails.
     shared_ptr<string> code_ {};
+    // The creation time.
     shared_ptr<string> creationTime_ {};
+    // The workflow description.
     shared_ptr<string> description_ {};
+    // The returned message. This parameter provides error details if the request fails.
     shared_ptr<string> message_ {};
+    // The workflow name.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The update time.
     shared_ptr<string> updatedTime_ {};
+    // The workflow ID.
     shared_ptr<string> workflowId_ {};
   };
 

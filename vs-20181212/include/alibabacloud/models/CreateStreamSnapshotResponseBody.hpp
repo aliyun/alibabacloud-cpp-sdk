@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // Image format.
     shared_ptr<string> format_ {};
+    // Image height.
     shared_ptr<int64_t> height_ {};
+    // Stream ID.
     shared_ptr<string> id_ {};
+    // The OSS bucket of the snapshot file.
     shared_ptr<string> ossBucket_ {};
+    // The OSS endpoint of the snapshot file.
     shared_ptr<string> ossEndpoint_ {};
+    // The OSS object of the snapshot file.
     shared_ptr<string> ossObject_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The snapshot timestamp.
     shared_ptr<int64_t> timestamp_ {};
+    // The URL of the snapshot file.
     shared_ptr<string> url_ {};
+    // Image width.
     shared_ptr<int64_t> width_ {};
   };
 

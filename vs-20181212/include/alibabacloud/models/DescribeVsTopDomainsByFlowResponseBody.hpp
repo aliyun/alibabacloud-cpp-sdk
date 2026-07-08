@@ -213,10 +213,15 @@ namespace Models
 
 
   protected:
+    // The total number of domain names under your account.
     shared_ptr<int64_t> domainCount_ {};
+    // The total number of **running** domain names under your account.
     shared_ptr<int64_t> domainOnlineCount_ {};
+    // The end time of the query time range.
     shared_ptr<string> endTime_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The start time of the query.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeVsTopDomainsByFlowResponseBody::TopDomains> topDomains_ {};
   };

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Cloud application service data pack ID
     shared_ptr<string> dataPackageId_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

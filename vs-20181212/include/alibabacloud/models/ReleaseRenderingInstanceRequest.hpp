@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Graphic Computing Service application instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

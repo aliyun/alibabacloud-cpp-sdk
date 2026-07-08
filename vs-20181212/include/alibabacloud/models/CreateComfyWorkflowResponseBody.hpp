@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<int64_t> code_ {};
+    // The returned message. If `Status` is `Failed`, this parameter provides the reason for the failure.
     shared_ptr<string> message_ {};
+    // A list of missing nodes.
     shared_ptr<vector<string>> missingNodes_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The workflow status.
     shared_ptr<string> status_ {};
+    // The workflow ID.
     shared_ptr<string> workflowId_ {};
   };
 

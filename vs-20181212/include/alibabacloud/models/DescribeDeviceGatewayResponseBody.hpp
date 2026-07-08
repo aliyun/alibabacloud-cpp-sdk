@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Alibaba Cloud service endpoint.
     shared_ptr<string> host_ {};
+    // Port number.
     shared_ptr<int64_t> port_ {};
+    // Device registration protocol.
     shared_ptr<string> protocol_ {};
+    // Request ID for this task.
     shared_ptr<string> requestId_ {};
+    // Token code.
     shared_ptr<string> token_ {};
   };
 

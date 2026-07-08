@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The ID of the parent platform.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};

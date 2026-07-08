@@ -79,8 +79,13 @@ namespace Models
 
 
     protected:
+      // Error message for the stream.
+      // 
+      // > This field appears only if the stream fails.
       shared_ptr<string> error_ {};
+      // Stream ID.
       shared_ptr<string> id_ {};
+      // Stream name.
       shared_ptr<string> name_ {};
     };
 
@@ -103,7 +108,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Results list.
     shared_ptr<vector<BatchStartStreamsResponseBody::Results>> results_ {};
   };
 

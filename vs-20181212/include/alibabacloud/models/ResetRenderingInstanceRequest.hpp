@@ -58,7 +58,10 @@ namespace Models
 
   protected:
     shared_ptr<string> actionName_ {};
+    // Data baseline ID
     shared_ptr<string> dataPackageId_ {};
+    // Service instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

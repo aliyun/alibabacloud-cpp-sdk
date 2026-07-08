@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // List of cloud application service instance IDs
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceIdsShrink_ {};
   };

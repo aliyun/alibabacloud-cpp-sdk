@@ -170,17 +170,41 @@ namespace Models
 
 
     protected:
+      // The time the device was created.
       shared_ptr<string> createdTime_ {};
+      // The device description.
       shared_ptr<string> description_ {};
+      // The ID of the group to which the device belongs.
       shared_ptr<string> groupId_ {};
+      // Group name.
       shared_ptr<string> groupName_ {};
+      // The device ID.
       shared_ptr<string> id_ {};
+      // The device name.
       shared_ptr<string> name_ {};
+      // The order ID.
       shared_ptr<string> orderId_ {};
+      // The region to which the space belongs. This is the service center.
       shared_ptr<string> region_ {};
+      // The device registration code.
       shared_ptr<string> registerCode_ {};
+      // The device subtype. Valid values:
+      // 
+      // - bullet (bullet camera)
+      // 
+      // - dome (dome camera)
+      // 
+      // - ptz (PTZ camera)
       shared_ptr<string> subType_ {};
+      // The device type. Valid values:
+      // 
+      // - ipc (camera)
+      // 
+      // - platform (platform)
+      // 
+      // - ied (intelligent edge device)
       shared_ptr<string> type_ {};
+      // The device vendor.
       shared_ptr<string> vendor_ {};
     };
 
@@ -231,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The list of devices.
     shared_ptr<vector<DescribePurchasedDevicesResponseBody::Devices>> devices_ {};
+    // The total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of devices.
     shared_ptr<int64_t> totalCount_ {};
   };
 

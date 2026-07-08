@@ -107,10 +107,15 @@ namespace Models
 
 
     protected:
+      // The time when the workflow was created.
       shared_ptr<string> creationTime_ {};
+      // The workflow description.
       shared_ptr<string> description_ {};
+      // The workflow name.
       shared_ptr<string> name_ {};
+      // The time when the workflow was last updated.
       shared_ptr<string> updatedTime_ {};
+      // The workflow ID.
       shared_ptr<string> workflowId_ {};
     };
 
@@ -169,12 +174,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<int64_t> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of workflows on the current page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of workflows that match the query.
     shared_ptr<int32_t> totalCount_ {};
+    // A list of Comfy workflows.
     shared_ptr<vector<DescribeComfyWorkflowsResponseBody::Workflows>> workflows_ {};
   };
 

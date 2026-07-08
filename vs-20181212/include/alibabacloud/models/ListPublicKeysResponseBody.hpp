@@ -112,11 +112,21 @@ namespace Models
 
 
     protected:
+      // The content of the public key. The content is encoded in Base64 format by default.
       shared_ptr<string> content_ {};
+      // The description of the public key.
       shared_ptr<string> description_ {};
+      // The public key group.
       shared_ptr<string> keyGroup_ {};
+      // The name of the public key.
       shared_ptr<string> keyName_ {};
+      // The type of the public key. Valid values:
+      // 
+      // - **adb**: ADB key
+      // 
+      // - **ssh**: SSH key
       shared_ptr<string> keyType_ {};
+      // The time when the public key was uploaded.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -160,10 +170,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries returned on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // A list of public keys.
     shared_ptr<vector<ListPublicKeysResponseBody::PublicKeys>> publicKeys_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

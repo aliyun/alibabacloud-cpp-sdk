@@ -184,10 +184,15 @@ namespace Models
 
 
       protected:
+        // The number of channels.
         shared_ptr<int64_t> channelNum_ {};
+        // The number of failed streams.
         shared_ptr<int64_t> failedNum_ {};
+        // The number of offline streams.
         shared_ptr<int64_t> offlineNum_ {};
+        // The number of online streams.
         shared_ptr<int64_t> onlineNum_ {};
+        // The number of streams.
         shared_ptr<int64_t> streamNum_ {};
       };
 
@@ -265,11 +270,17 @@ namespace Models
 
 
       protected:
+        // The time when the directory was created.
         shared_ptr<string> createdTime_ {};
+        // The description of the directory.
         shared_ptr<string> description_ {};
+        // The ID of the group to which the directory belongs.
         shared_ptr<string> groupId_ {};
+        // The directory ID.
         shared_ptr<string> id_ {};
+        // The name of the directory.
         shared_ptr<string> name_ {};
+        // The ID of the parent directory.
         shared_ptr<string> parentId_ {};
       };
 
@@ -502,36 +513,95 @@ namespace Models
 
 
     protected:
+      // The GB/T 28181 alarm subscription method. Valid values:
+      // 
+      // - 0 (all)
+      // 
+      // - 5 (video alarm)
+      // 
+      // - 7 (other alarm)
+      // 
+      // > * An empty value indicates that no alarm is subscribed.
+      // >
+      // > * Specify multiple values. Separate them with commas (,).
       shared_ptr<string> alarmMethod_ {};
+      // Indicates whether directory reporting is enabled for the platform device.
       shared_ptr<bool> autoDirectory_ {};
+      // Indicates whether to enable position subscription for the device.
       shared_ptr<bool> autoPos_ {};
+      // Indicates whether to automatically start the stream.
       shared_ptr<bool> autoStart_ {};
+      // The time when the channels were synchronized.
       shared_ptr<string> channelSyncTime_ {};
+      // The time when the device was created.
       shared_ptr<string> createdTime_ {};
+      // The description of the device.
       shared_ptr<string> description_ {};
+      // The directory information.
       shared_ptr<Devices::Directory> directory_ {};
+      // The directory ID.
       shared_ptr<string> directoryId_ {};
+      // The serial number of the device.
+      // 
+      // > This parameter applies only to the AUVSP and ODCAP protocols.
       shared_ptr<string> dsn_ {};
+      // Indicates whether the device is enabled.
       shared_ptr<bool> enabled_ {};
+      // The GB/T 28181 ID of the device.
+      // 
+      // > This parameter applies only to the GB/T 28181 protocol.
       shared_ptr<string> gbId_ {};
+      // The ID of the group to which the device belongs.
       shared_ptr<string> groupId_ {};
+      // The device ID.
       shared_ptr<string> id_ {};
+      // The IP address of the device.
       shared_ptr<string> ip_ {};
+      // The latitude of the device.
       shared_ptr<string> latitude_ {};
+      // The longitude of the device.
       shared_ptr<string> longitude_ {};
+      // The device name.
       shared_ptr<string> name_ {};
+      // Other parameters of the device.
       shared_ptr<string> params_ {};
+      // The ID of the parent device, such as the ID of the platform to which a camera belongs.
       shared_ptr<string> parentId_ {};
+      // The device password.
       shared_ptr<string> password_ {};
+      // The device port.
       shared_ptr<int64_t> port_ {};
+      // The position subscription interval, in seconds.
       shared_ptr<int64_t> posInterval_ {};
+      // The device protocol.
       shared_ptr<string> protocol_ {};
+      // The time when the device was registered.
       shared_ptr<string> registeredTime_ {};
+      // The stream statistics of the device.
       shared_ptr<Devices::Stats> stats_ {};
+      // The device status. Valid values:
+      // 
+      // - on (online)
+      // 
+      // - off (offline)
+      // 
+      // - failed
+      // 
+      // - new (unregistered)
       shared_ptr<string> status_ {};
+      // The device type. Valid values:
+      // 
+      // - ipc (camera)
+      // 
+      // - platform
+      // 
+      // - ied (intelligent edge device)
       shared_ptr<string> type_ {};
+      // The stream URL on the device.
       shared_ptr<string> url_ {};
+      // The username for the device.
       shared_ptr<string> username_ {};
+      // The manufacturer of the device.
       shared_ptr<string> vendor_ {};
     };
 
@@ -582,11 +652,17 @@ namespace Models
 
 
   protected:
+    // The list of devices.
     shared_ptr<vector<DescribeDevicesResponseBody::Devices>> devices_ {};
+    // The total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of devices.
     shared_ptr<int64_t> totalCount_ {};
   };
 

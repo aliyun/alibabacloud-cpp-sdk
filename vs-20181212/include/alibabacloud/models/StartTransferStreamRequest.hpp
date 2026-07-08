@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Stream ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The name of the transcoding rule (a transcoding template must be bound first).
     shared_ptr<string> transcode_ {};
+    // The destination address for stream forwarding.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
   };

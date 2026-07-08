@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // 校验内容。
+    // 
+    // > 
+    // 调用成功不返回该参数，调用失败返回校验内容。
     shared_ptr<string> content_ {};
+    // 请求ID。
     shared_ptr<string> requestId_ {};
   };
 

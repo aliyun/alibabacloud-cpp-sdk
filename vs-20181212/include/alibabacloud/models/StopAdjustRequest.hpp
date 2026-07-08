@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Stop adjusting the zoom. Default is false.
     shared_ptr<bool> focus_ {};
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Stop adjusting the aperture. Default is false.
     shared_ptr<bool> iris_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

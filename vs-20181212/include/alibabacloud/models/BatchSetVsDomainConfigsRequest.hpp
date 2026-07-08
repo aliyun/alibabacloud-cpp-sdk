@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Your accelerated domain names.
+    // 
+    // > Supports multiple domain names separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> domainNames_ {};
+    // List of features.
+    // 
     // This parameter is required.
     shared_ptr<string> functions_ {};
     shared_ptr<int64_t> ownerId_ {};

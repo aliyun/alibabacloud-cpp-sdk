@@ -130,17 +130,32 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically enable the platform. Valid values:
+    // - true
+    // - false (default)
     shared_ptr<bool> autoStart_ {};
+    // Specifies whether to enable local authentication. Valid values:
+    // - true (default)
+    // - false
     shared_ptr<bool> clientAuth_ {};
+    // The local password.
     shared_ptr<string> clientPassword_ {};
+    // The local username.
     shared_ptr<string> clientUsername_ {};
+    // The description of the parent platform.
     shared_ptr<string> description_ {};
+    // The GB ID of the parent platform.
     shared_ptr<string> gbId_ {};
+    // The ID of the parent platform.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The SIP service IP of the parent platform.
     shared_ptr<string> ip_ {};
+    // The name of the parent platform.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The SIP service port of the parent platform.
     shared_ptr<int64_t> port_ {};
   };
 

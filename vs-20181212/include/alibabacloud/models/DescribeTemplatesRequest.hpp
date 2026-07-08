@@ -103,13 +103,24 @@ namespace Models
 
 
   protected:
+    // Template ID.
     shared_ptr<string> id_ {};
+    // Filter templates by the bound instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Page number. Default: 1.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of entries per page. Default: 20.
     shared_ptr<int64_t> pageSize_ {};
+    // Sort results by the specified field. Default: sort by ID.
     shared_ptr<string> sortBy_ {};
+    // Sort order. Default: ascending. Valid values:
+    // 
+    // - asc (ascending)
+    // 
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
+    // Filter templates by template type.
     shared_ptr<string> type_ {};
   };
 

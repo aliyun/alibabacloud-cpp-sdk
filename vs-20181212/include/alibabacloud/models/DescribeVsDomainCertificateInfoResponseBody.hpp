@@ -208,6 +208,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsDomainCertificateInfoResponseBody::CertInfos> certInfos_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -140,18 +140,44 @@ namespace Models
 
 
   protected:
+    // Callback URL for device or stream status updates in the group.
     shared_ptr<string> callback_ {};
+    // Description of the space.
     shared_ptr<string> description_ {};
+    // Indicates whether the space is enabled.
     shared_ptr<bool> enabled_ {};
+    // The ID of the space.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Ingest protocol used by the group. Valid values:
+    // 
+    // - gb28181
+    // 
+    // - rtmp
     shared_ptr<string> inProtocol_ {};
+    // Whether on-demand stream pulling is enabled. Valid values:
+    // 
+    // - false (default)
+    // 
+    // - true
     shared_ptr<bool> lazyPull_ {};
+    // Space name.
     shared_ptr<string> name_ {};
+    // Playback protocols used by the group. Separate multiple values with commas. Valid values:
+    // 
+    // - flv
+    // 
+    // - hls
+    // 
+    // - rtmp
     shared_ptr<string> outProtocol_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Streaming domain used by the group.
     shared_ptr<string> playDomain_ {};
+    // Ingest domain used by the group. Applies only to groups that use the RTMP ingest protocol.
     shared_ptr<string> pushDomain_ {};
+    // The region where the space is located. This region serves as the service center.
     shared_ptr<string> region_ {};
   };
 

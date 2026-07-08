@@ -162,11 +162,16 @@ namespace Models
 
 
   protected:
+    // Time granularity of the query.
     shared_ptr<string> dataInterval_ {};
+    // Domain name of the Visual Edge Computing Service
     shared_ptr<string> domainName_ {};
+    // End time of the query.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVsDomainReqTrafficDataResponseBody::ReqTrafficDataPerInterval> reqTrafficDataPerInterval_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Start time of the query.
     shared_ptr<string> startTime_ {};
   };
 

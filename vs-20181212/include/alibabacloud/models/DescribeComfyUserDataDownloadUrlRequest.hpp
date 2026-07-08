@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The name of the file to download.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
   };

@@ -70,7 +70,11 @@ namespace Models
 
 
     protected:
+      // Device ID.
       shared_ptr<string> deviceId_ {};
+      // Error message.
+      // 
+      // > This field appears only when an error occurs.
       shared_ptr<string> error_ {};
     };
 
@@ -93,7 +97,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Result list.
     shared_ptr<vector<BatchUnbindPurchasedDevicesResponseBody::Results>> results_ {};
   };
 

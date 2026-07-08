@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the space.
     shared_ptr<string> id_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

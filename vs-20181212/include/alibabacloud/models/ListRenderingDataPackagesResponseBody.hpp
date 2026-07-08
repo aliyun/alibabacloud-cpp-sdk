@@ -127,13 +127,29 @@ namespace Models
 
 
     protected:
+      // The category. Valid values:
+      // 
+      // - Package
+      // 
+      // - Baseline
       shared_ptr<string> category_ {};
+      // The creation time of the Graphic Computing Service instance.
       shared_ptr<string> creationTime_ {};
+      // The ID of the data pack.
       shared_ptr<string> dataPackageId_ {};
+      // Remarks.
       shared_ptr<string> description_ {};
+      // The ID of the Graphic Computing Service instance.
       shared_ptr<string> renderingInstanceId_ {};
+      // The size of the data pack.
       shared_ptr<int32_t> size_ {};
+      // The status of the data pack. Valid values:
+      // available
+      // packing
+      // failed
+      // bonded
       shared_ptr<string> status_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -163,9 +179,11 @@ namespace Models
 
 
   protected:
+    // A list of data packages for the cloud application service.
     shared_ptr<vector<ListRenderingDataPackagesResponseBody::DataPackages>> dataPackages_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of Graphic Computing Service instances.
     shared_ptr<int64_t> totalCount_ {};
   };
 

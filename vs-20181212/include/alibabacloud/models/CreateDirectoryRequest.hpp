@@ -75,12 +75,21 @@ namespace Models
 
 
   protected:
+    // Folder description.
     shared_ptr<string> description_ {};
+    // Space ID to which the folder belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
+    // Folder name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Parent folder ID.
+    // 
+    // > When you create a device space, the system automatically creates a root directory for that space. Use the [DescribeDirectories](https://next.api.aliyun.com/document/vs/2018-12-12/DescribeDirectories) API to query the corresponding root directory.
+    // 
     // This parameter is required.
     shared_ptr<string> parentId_ {};
   };

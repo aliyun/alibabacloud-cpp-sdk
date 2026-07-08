@@ -75,13 +75,25 @@ namespace Models
 
 
   protected:
+    // The alarm ID.
+    // 
     // This parameter is required.
     shared_ptr<string> alarmId_ {};
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> channelId_ {};
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The alarm status. Valid values:
+    // 
+    // - 1 (upload completed)
+    // - 2 (upload failed)
+    // - 3 (general error)
+    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
   };

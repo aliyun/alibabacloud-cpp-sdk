@@ -75,11 +75,16 @@ namespace Models
 
 
   protected:
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to stop panning. The default value is false.
     shared_ptr<bool> pan_ {};
+    // Specifies whether to stop tilting. The default value is false.
     shared_ptr<bool> tilt_ {};
+    // Specifies whether to stop zooming. The default value is false.
     shared_ptr<bool> zoom_ {};
   };
 

@@ -28,6 +28,10 @@
 #include <alibabacloud/models/BatchBindTemplatesRequest.hpp>
 #include <alibabacloud/models/BatchBindTemplatesResponseBody.hpp>
 #include <alibabacloud/models/BatchBindTemplatesResponse.hpp>
+#include <alibabacloud/models/BatchCaptureRenderingInstanceScreenshotRequest.hpp>
+#include <alibabacloud/models/BatchCaptureRenderingInstanceScreenshotShrinkRequest.hpp>
+#include <alibabacloud/models/BatchCaptureRenderingInstanceScreenshotResponseBody.hpp>
+#include <alibabacloud/models/BatchCaptureRenderingInstanceScreenshotResponse.hpp>
 #include <alibabacloud/models/BatchDeleteDevicesRequest.hpp>
 #include <alibabacloud/models/BatchDeleteDevicesResponseBody.hpp>
 #include <alibabacloud/models/BatchDeleteDevicesResponse.hpp>

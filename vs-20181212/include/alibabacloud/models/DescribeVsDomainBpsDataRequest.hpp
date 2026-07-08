@@ -94,12 +94,18 @@ namespace Models
 
 
   protected:
+    // Domain Names. If this parameter is empty, the system returns merged data for all accelerated Domain Names. Enter the accelerated Domain Names to query. Separate multiple Domain Names with commas.
     shared_ptr<string> domainName_ {};
+    // The end time must be later than the start time. The date format follows ISO8601 notation and uses UTC time. Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // The time granularity for query data. Supports 300, 3600, and 86400 seconds. If this parameter is not specified or the specified value is not supported, the system uses 300 seconds by default.
     shared_ptr<string> interval_ {};
+    // The English name of the carrier (ISP). Obtain this from the DescribeCdnRegionAndIsp interface. If not specified, the system queries all carriers (ISPs).
     shared_ptr<string> ispNameEn_ {};
+    // The English name of the region. Obtain this from the DescribeCdnRegionAndIsp interface. If not specified, the system queries all regions.
     shared_ptr<string> locationNameEn_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The start time for data retrieval. The date format follows ISO8601 notation and uses UTC time. Format: YYYY-MM-DDThh:mm:ssZ. The minimum data granularity is 5 minutes. If not specified, the system reads data from the past 24 hours.
     shared_ptr<string> startTime_ {};
   };
 

@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The time when the directory was created.
     shared_ptr<string> createdTime_ {};
+    // The directory description.
     shared_ptr<string> description_ {};
+    // The ID of the group that owns the folder.
     shared_ptr<string> groupId_ {};
+    // The directory ID.
     shared_ptr<string> id_ {};
+    // The directory name.
     shared_ptr<string> name_ {};
+    // The parent directory ID.
     shared_ptr<string> parentId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

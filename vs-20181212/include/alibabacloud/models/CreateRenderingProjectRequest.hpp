@@ -61,6 +61,11 @@ namespace Models
 
 
     protected:
+      // The mode to start the cloud application service for the session. Valid values:
+      // 
+      // 1. Async: asynchronous
+      // 
+      // 2. Sync: synchronous
       shared_ptr<string> startMode_ {};
     };
 
@@ -90,9 +95,20 @@ namespace Models
 
 
   protected:
+    // The description of the project. The description can be 0 to 255 characters in length.
     shared_ptr<string> description_ {};
+    // The custom name of the project. This name is the unique identifier for the project.
+    // The name must meet the following requirements:
+    // 
+    // 1. Be 1 to 128 characters in length.
+    // 
+    // 2. Contain only lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
+    // 
+    // 3. Start and end with a letter or a digit.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The session properties.
     shared_ptr<CreateRenderingProjectRequest::SessionAttribs> sessionAttribs_ {};
   };
 

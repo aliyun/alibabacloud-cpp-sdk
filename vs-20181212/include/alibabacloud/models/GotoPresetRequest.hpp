@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Preset ID.
+    // 
     // This parameter is required.
     shared_ptr<string> presetId_ {};
   };

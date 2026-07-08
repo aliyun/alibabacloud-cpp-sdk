@@ -162,11 +162,16 @@ namespace Models
 
 
   protected:
+    // Time interval between records, in seconds.
     shared_ptr<string> dataInterval_ {};
+    // The domain name of the Visual Edge Computing Service.
     shared_ptr<string> domainName_ {};
+    // End time.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVsDomainReqBpsDataResponseBody::ReqBpsDataPerInterval> reqBpsDataPerInterval_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Start time.
     shared_ptr<string> startTime_ {};
   };
 

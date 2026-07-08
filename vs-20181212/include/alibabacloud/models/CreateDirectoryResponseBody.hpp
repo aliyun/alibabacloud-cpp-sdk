@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Folder ID.
     shared_ptr<string> id_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -179,18 +179,35 @@ namespace Models
 
 
     protected:
+      // Application that owns this stream.
       shared_ptr<string> app_ {};
+      // Time when the stream was created.
       shared_ptr<string> createdTime_ {};
+      // Device ID of this stream.
       shared_ptr<string> deviceId_ {};
+      // Indicates whether the stream is enabled.
       shared_ptr<bool> enabled_ {};
+      // The ID of the group to which the stream belongs.
       shared_ptr<string> groupId_ {};
+      // Video stream height in pixels.
       shared_ptr<int32_t> height_ {};
+      // Stream ID.
       shared_ptr<string> id_ {};
+      // Stream name.
       shared_ptr<string> name_ {};
+      // Streaming domain for this stream.
       shared_ptr<string> playDomain_ {};
+      // Stream protocol.
       shared_ptr<string> protocol_ {};
+      // Ingest domain for this stream.
       shared_ptr<string> pushDomain_ {};
+      // Stream status. Valid values:
+      // 
+      // - on (online)
+      // 
+      // - off (offline)
       shared_ptr<string> status_ {};
+      // Video stream width in pixels.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -241,11 +258,17 @@ namespace Models
 
 
   protected:
+    // Total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // Page number.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of items per page.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // List of streams.
     shared_ptr<vector<DescribeStreamsResponseBody::Streams>> streams_ {};
+    // Total number of streams.
     shared_ptr<int64_t> totalCount_ {};
   };
 

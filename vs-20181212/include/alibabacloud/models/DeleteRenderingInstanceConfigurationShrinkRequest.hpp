@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Configuration content. Purge all configured modules by default.
     shared_ptr<string> configurationShrink_ {};
+    // Cloud application service instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

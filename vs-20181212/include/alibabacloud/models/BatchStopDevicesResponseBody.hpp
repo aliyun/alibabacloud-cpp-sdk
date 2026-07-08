@@ -100,8 +100,11 @@ namespace Models
 
 
       protected:
+        // Stream error message. (Appears only when an error occurs)
         shared_ptr<string> error_ {};
+        // Stream ID.
         shared_ptr<string> id_ {};
+        // Name
         shared_ptr<string> name_ {};
       };
 
@@ -124,7 +127,9 @@ namespace Models
 
 
     protected:
+      // Device ID.
       shared_ptr<string> id_ {};
+      // Device stream list.
       shared_ptr<vector<Results::Streams>> streams_ {};
     };
 
@@ -147,7 +152,9 @@ namespace Models
 
 
   protected:
+    // Request ID for this task.
     shared_ptr<string> requestId_ {};
+    // Result list.
     shared_ptr<vector<BatchStopDevicesResponseBody::Results>> results_ {};
   };
 

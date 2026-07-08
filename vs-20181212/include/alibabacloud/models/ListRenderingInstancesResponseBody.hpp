@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // Creation time of the cloud application service instance
       shared_ptr<string> creationTime_ {};
+      // ID of the cloud application service instance
       shared_ptr<string> renderingInstanceId_ {};
+      // Instance type of the cloud application service
       shared_ptr<string> renderingSpec_ {};
+      // Storage capacity, in GB
       shared_ptr<int32_t> storageSize_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // List of cloud application service instances
     shared_ptr<vector<ListRenderingInstancesResponseBody::RenderingInstances>> renderingInstances_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Total number of cloud application service instances
     shared_ptr<int64_t> totalCount_ {};
   };
 

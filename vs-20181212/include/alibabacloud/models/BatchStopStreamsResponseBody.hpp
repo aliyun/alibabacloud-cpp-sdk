@@ -79,8 +79,13 @@ namespace Models
 
 
     protected:
+      // The error message for the stream.
+      // 
+      // > This parameter is returned only if an error occurs on the stream.
       shared_ptr<string> error_ {};
+      // The stream ID.
       shared_ptr<string> id_ {};
+      // The stream name.
       shared_ptr<string> name_ {};
     };
 
@@ -103,7 +108,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<BatchStopStreamsResponseBody::Results>> results_ {};
   };
 

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The configuration to query. By default, the configurations of all modules are returned.
     shared_ptr<string> configurationShrink_ {};
+    // The ID of the cloud application service instance.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

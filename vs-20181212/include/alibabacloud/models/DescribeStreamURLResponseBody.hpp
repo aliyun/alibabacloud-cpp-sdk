@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The time when the URL expires.<br>
+    // A UNIX timestamp. Unit: seconds.<br>
     shared_ptr<int64_t> expireTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The URL of the stream.
     shared_ptr<string> url_ {};
   };
 

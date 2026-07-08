@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // Cloud application instance ID
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -116,8 +117,11 @@ namespace Models
 
 
     protected:
+      // Error code
       shared_ptr<int32_t> errCode_ {};
+      // Error message
       shared_ptr<string> errMessage_ {};
+      // Cloud application instance ID
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -163,10 +167,15 @@ namespace Models
 
 
   protected:
+    // The number of cloud application service instances that failed.
     shared_ptr<int32_t> failedInstanceCount_ {};
+    // List of failed cloud application service instances
     shared_ptr<vector<UninstallCloudAppResponseBody::FailedInstances>> failedInstances_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Number of successfully uninstalled cloud application instances
     shared_ptr<int32_t> successInstanceCount_ {};
+    // A list of service instances for which the cloud application was uninstalled successfully.
     shared_ptr<vector<UninstallCloudAppResponseBody::SuccessInstances>> successInstances_ {};
   };
 

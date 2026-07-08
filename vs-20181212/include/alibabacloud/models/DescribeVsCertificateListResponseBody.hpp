@@ -127,11 +127,17 @@ namespace Models
 
 
       protected:
+        // ID of the certificate.
         shared_ptr<int64_t> certId_ {};
+        // Name of the certificate.
         shared_ptr<string> certName_ {};
+        // Common Name (CN) field in the certificate. Usually a domain name.
         shared_ptr<string> common_ {};
+        // Fingerprint of the certificate.
         shared_ptr<string> fingerprint_ {};
+        // Issuer of the certificate.
         shared_ptr<string> issuer_ {};
+        // Timestamp.
         shared_ptr<int64_t> lastTime_ {};
       };
 
@@ -154,7 +160,9 @@ namespace Models
 
 
     protected:
+      // List of certificates.
       shared_ptr<vector<CertificateListModel::CertList>> certList_ {};
+      // Number of certificates.
       shared_ptr<int32_t> count_ {};
     };
 
@@ -177,7 +185,9 @@ namespace Models
 
 
   protected:
+    // Certificate ID.
     shared_ptr<DescribeVsCertificateListResponseBody::CertificateListModel> certificateListModel_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

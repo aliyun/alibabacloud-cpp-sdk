@@ -167,6 +167,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsPullStreamInfoConfigResponseBody::LiveAppRecordList> liveAppRecordList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

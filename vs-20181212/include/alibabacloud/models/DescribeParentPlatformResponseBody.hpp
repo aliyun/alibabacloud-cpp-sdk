@@ -186,22 +186,47 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the parent platform automatically. Valid values:
+    // - false (default)
+    // - true
     shared_ptr<bool> autoStart_ {};
+    // Specifies whether to enable local authentication. Valid values:
+    // - true (default)
+    // - false
     shared_ptr<bool> clientAuth_ {};
+    // The local GB ID.
     shared_ptr<string> clientGbId_ {};
+    // The local SIP service IP address.
     shared_ptr<string> clientIp_ {};
+    // The local password.
     shared_ptr<string> clientPassword_ {};
+    // The local SIP service port.
     shared_ptr<int64_t> clientPort_ {};
+    // The local username.
     shared_ptr<string> clientUsername_ {};
+    // The time when the parent platform was created.
     shared_ptr<string> createdTime_ {};
+    // The description of the parent platform.
     shared_ptr<string> description_ {};
+    // The GB ID of the parent platform.
     shared_ptr<string> gbId_ {};
+    // The ID of the parent platform.
     shared_ptr<string> id_ {};
+    // The SIP service IP address of the parent platform.
     shared_ptr<string> ip_ {};
+    // The name of the parent platform.
     shared_ptr<string> name_ {};
+    // The SIP service port of the parent platform.
     shared_ptr<int64_t> port_ {};
+    // The protocol of the parent platform. Valid values:
+    // - gb28181 (GB standard)
     shared_ptr<string> protocol_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the parent platform. Valid values:
+    // - on (online)
+    // - off (offline)
+    // - failed (failed)
     shared_ptr<string> status_ {};
   };
 

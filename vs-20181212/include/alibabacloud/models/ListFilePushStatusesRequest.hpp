@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // A time range filter parameter. Specify the value in ISO8601 format using UTC time: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // The file ID, which uniquely identifies a file.
     shared_ptr<string> fileId_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The page number of the results to return. Pages start from 1.Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page in a paged query. Valid values: 1 to 100.Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // The cloud application service instance ID. Use this parameter to query files installed on a specific instance.
     shared_ptr<string> renderingInstanceId_ {};
+    // A time range filter parameter. Specify the value in ISO8601 format using UTC time: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

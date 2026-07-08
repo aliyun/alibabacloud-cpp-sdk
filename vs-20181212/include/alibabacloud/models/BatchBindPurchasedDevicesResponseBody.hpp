@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The ID of the device.
       shared_ptr<string> deviceId_ {};
+      // The error message for the device. This parameter is returned only when an error occurs.
       shared_ptr<string> error_ {};
+      // Space ID.
       shared_ptr<string> groupId_ {};
+      // The region.
       shared_ptr<string> region_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<BatchBindPurchasedDevicesResponseBody::Results>> results_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The certificate content.
     shared_ptr<string> cert_ {};
+    // The certificate ID.
     shared_ptr<int64_t> certId_ {};
+    // The certificate name.
     shared_ptr<string> certName_ {};
+    // The key.
     shared_ptr<string> key_ {};
+    // The request ID for this operation.
     shared_ptr<string> requestId_ {};
   };
 

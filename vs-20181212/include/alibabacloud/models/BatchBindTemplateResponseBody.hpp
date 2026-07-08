@@ -88,9 +88,15 @@ namespace Models
 
 
     protected:
+      // Error message.
+      // 
+      // > This field exists only when the operation fails.
       shared_ptr<string> error_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Instance type.
       shared_ptr<string> instanceType_ {};
+      // Template ID.
       shared_ptr<string> templateId_ {};
     };
 
@@ -113,7 +119,9 @@ namespace Models
 
 
   protected:
+    // Result list.
     shared_ptr<vector<BatchBindTemplateResponseBody::Bindings>> bindings_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

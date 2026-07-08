@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // Number of instances
       shared_ptr<string> count_ {};
+      // Project instance state
       shared_ptr<string> state_ {};
     };
 
@@ -93,8 +95,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // List of project instance state statistics
     shared_ptr<vector<GetRenderingProjectInstanceStateMetricsResponseBody::StateMetrics>> stateMetrics_ {};
   };
 

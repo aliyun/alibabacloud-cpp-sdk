@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // Domain name to query. Returns data at the domain granularity.
     shared_ptr<string> domainName_ {};
+    // Enables or disables domain-level statistics. Valid values: on or off. When set to on, the response shows domain-level data. When set to off or omitted, the response shows user-level data. Default is user-level data.
     shared_ptr<string> domainSwitch_ {};
+    // End time of stream ingest, in UTC format. The time range between StartTime and EndTime must be within 30 days. EndTime must be later than the current time.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Start time of stream ingest, in UTC format. The time range between StartTime and EndTime must be within 30 days.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

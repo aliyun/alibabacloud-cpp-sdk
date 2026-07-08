@@ -121,18 +121,41 @@ namespace Models
 
 
   protected:
+    // Specify the end time for the query.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
+    // Page size. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
+    // Specifies whether to use a private bucket.
     shared_ptr<bool> privateBucket_ {};
+    // The field to sort the records by. Valid value:
+    // 
+    // - Id (default)
     shared_ptr<string> sortBy_ {};
+    // The sorting method. Valid values:
+    // 
+    // - asc (ascending, default)
+    // 
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
+    // Query records by start time.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // Query by stream ID.
+    // 
     // This parameter is required.
     shared_ptr<string> streamId_ {};
+    // The type of the recording record to query. Valid values:
+    // 
+    // - record (Recording)
+    // 
+    // - snapshot
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

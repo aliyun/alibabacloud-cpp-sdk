@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Cloud application service data pack ID
+    // 
     // This parameter is required.
     shared_ptr<string> dataPackageId_ {};
+    // Data loading mode. Valid values: System or Process. Default value: System. System indicates system-level loading, which offers high stability but takes longer. Process indicates process-level loading, which provides high timeliness but relatively lower stability.
     shared_ptr<string> loadMode_ {};
+    // Cloud application service instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

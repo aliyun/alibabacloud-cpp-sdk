@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // Preset ID.
       shared_ptr<string> id_ {};
+      // Preset name.
       shared_ptr<string> name_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // Device ID.
     shared_ptr<string> id_ {};
+    // List of presets.
     shared_ptr<vector<DescribePresetsResponseBody::Presets>> presets_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

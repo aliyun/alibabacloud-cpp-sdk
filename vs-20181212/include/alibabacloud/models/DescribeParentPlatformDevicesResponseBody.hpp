@@ -105,10 +105,15 @@ namespace Models
 
 
     protected:
+      // The GB ID of the device.
       shared_ptr<string> gbId_ {};
+      // The ID of the space to which the device belongs.
       shared_ptr<string> groupId_ {};
+      // The device ID.
       shared_ptr<string> id_ {};
+      // The name of the device.
       shared_ptr<string> name_ {};
+      // The parent device ID.
       shared_ptr<string> parentId_ {};
     };
 
@@ -159,11 +164,17 @@ namespace Models
 
 
   protected:
+    // The list of devices.
     shared_ptr<vector<DescribeParentPlatformDevicesResponseBody::Devices>> devices_ {};
+    // The total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of devices.
     shared_ptr<int64_t> totalCount_ {};
   };
 

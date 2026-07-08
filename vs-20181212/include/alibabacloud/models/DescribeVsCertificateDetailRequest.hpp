@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The certificate name.
+    // 
     // This parameter is required.
     shared_ptr<string> certName_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The cloud application ID, which uniquely identifies the application package.
     shared_ptr<string> appId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

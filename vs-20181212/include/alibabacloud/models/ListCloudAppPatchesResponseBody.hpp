@@ -112,11 +112,29 @@ namespace Models
 
 
     protected:
+      // The ID of the patch package.
       shared_ptr<string> patchId_ {};
+      // The name of the patch package.
       shared_ptr<string> patchName_ {};
+      // The upload status of the application. Valid values:
+      // 
+      // 1. Created
+      // 
+      // 2. Doing
+      // 
+      // 3. Success: A final state.
+      // 
+      // 4. Failed: A final state.
+      // 
+      // 5. Deleting
+      // 
+      // 6. DeleteFailed: A final state.
       shared_ptr<string> status_ {};
+      // The description of the status.
       shared_ptr<string> statusDescription_ {};
+      // The time when the status was last updated.
       shared_ptr<string> updateTime_ {};
+      // The time when the patch was uploaded.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -160,11 +178,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned page.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries returned on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The list of cloud application patches.
     shared_ptr<vector<ListCloudAppPatchesResponseBody::Patches>> patches_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -121,17 +121,46 @@ namespace Models
 
 
   protected:
+    // Specifies whether to generate a signed URL. Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<bool> auth_ {};
+    // The primary key associated with the playback domain name. This key is used to generate the authentication URL.
+    // 
+    // > Call the [DescribeVsDomainConfigs](https://next.api.aliyun.com/document/vs/2018-12-12/DescribeVsDomainConfigs) operation to query the \\`AuthKey\\` information.
     shared_ptr<string> authKey_ {};
+    // The end time. This parameter applies to \\`vod\\` streams.<br>
+    // A UNIX timestamp. Unit: seconds.<br>
     shared_ptr<int64_t> endTime_ {};
+    // The time-to-live (TTL) of the URL. Unit: seconds.
     shared_ptr<int64_t> expire_ {};
+    // The stream ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The playback protocol for the stream. Valid values:
+    // 
+    // - rtmp
+    // 
+    // - flv
+    // 
+    // - hls
+    // 
     // This parameter is required.
     shared_ptr<string> outProtocol_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The start time. This parameter applies to \\`vod\\` streams.<br>
+    // A UNIX timestamp. Unit: seconds.<br>
     shared_ptr<int64_t> startTime_ {};
+    // The name of the transcoding rule. This parameter is valid only after a transcoding template is attached.
     shared_ptr<string> transcode_ {};
+    // The type of the stream. The default value is \\`live\\`. Valid values:
+    // 
+    // - \\`live\\`: a live stream.
+    // 
+    // - \\`vod\\`: a video-on-demand (VOD) stream, such as a historical stream from a Network Video Recorder (NVR).
     shared_ptr<string> type_ {};
   };
 

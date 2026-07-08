@@ -241,29 +241,69 @@ namespace Models
 
 
   protected:
+    // GB-compliant alarm method to subscribe to. Valid values:
+    // 
+    // - 0 (all)
+    // 
+    // - 5 (video alarm)
+    // 
+    // - 7 (other alarms)
+    // 
+    // > * An empty value means no subscription.
+    // >
+    // > * Multiple values are supported. Separate them with commas.
     shared_ptr<string> alarmMethod_ {};
     shared_ptr<bool> autoDirectory_ {};
+    // Whether to enable location subscription for the device. Default value: false.
     shared_ptr<bool> autoPos_ {};
+    // Whether to automatically start the stream. Default value: false.
     shared_ptr<bool> autoStart_ {};
+    // Device description.
     shared_ptr<string> description_ {};
+    // Directory ID for the device.
     shared_ptr<string> directoryId_ {};
+    // GB-compliant device ID.
+    // 
+    // > This parameter applies only to GB-compliant protocols.
     shared_ptr<string> gbId_ {};
+    // Space ID.
     shared_ptr<string> groupId_ {};
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // IP address of the device.
     shared_ptr<string> ip_ {};
+    // The device dimension.
     shared_ptr<string> latitude_ {};
+    // Longitude of the device.
     shared_ptr<string> longitude_ {};
+    // Device name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Additional device parameters, formatted as a JSON-serialized string.
     shared_ptr<string> params_ {};
+    // Parent device ID.
     shared_ptr<string> parentId_ {};
+    // Password for the device.
     shared_ptr<string> password_ {};
+    // Port number of the device.
     shared_ptr<int64_t> port_ {};
+    // Location subscription interval, in seconds.
     shared_ptr<int64_t> posInterval_ {};
+    // Device type. Valid values:
+    // 
+    // - ipc (camera)
+    // 
+    // - platform (platform)
+    // 
+    // - ied (intelligent device)
     shared_ptr<string> type_ {};
+    // Stream URL on the device.
     shared_ptr<string> url_ {};
+    // Username for the device.
     shared_ptr<string> username_ {};
+    // Device vendor.
     shared_ptr<string> vendor_ {};
   };
 

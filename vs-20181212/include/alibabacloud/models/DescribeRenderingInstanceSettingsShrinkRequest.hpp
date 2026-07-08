@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The list of instance configuration names.
     shared_ptr<string> attributeNamesShrink_ {};
+    // The ID of the Cloud Application service instance.
     shared_ptr<string> renderingInstanceId_ {};
   };
 

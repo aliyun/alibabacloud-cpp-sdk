@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // Device ID. Separate multiple IDs with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
     shared_ptr<int64_t> ownerId_ {};

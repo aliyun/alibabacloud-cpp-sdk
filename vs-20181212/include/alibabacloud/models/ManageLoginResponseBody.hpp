@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // Port for ADB connections.
       shared_ptr<int32_t> adbLoginPort_ {};
+      // Host for SSH connections.
       shared_ptr<string> loginHostname_ {};
+      // Port for SSH connections.
       shared_ptr<int32_t> loginPort_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // Connection information.
     shared_ptr<ManageLoginResponseBody::LoginInfo> loginInfo_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

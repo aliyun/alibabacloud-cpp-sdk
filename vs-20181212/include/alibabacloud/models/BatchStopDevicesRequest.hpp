@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
+    // Device ID. Separate multiple values with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Stream restart trigger time.
     shared_ptr<string> startTime_ {};
   };
 

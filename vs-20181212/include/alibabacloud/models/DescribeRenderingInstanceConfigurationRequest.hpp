@@ -72,7 +72,10 @@ namespace Models
 
 
     protected:
+      // The list of attribute names to query. By default, all attributes are returned.
       shared_ptr<vector<string>> attributeNames_ {};
+      // The name of the module.
+      // 
       // This parameter is required.
       shared_ptr<string> moduleName_ {};
     };
@@ -96,7 +99,10 @@ namespace Models
 
 
   protected:
+    // The configuration to query. By default, the configurations of all modules are returned.
     shared_ptr<vector<DescribeRenderingInstanceConfigurationRequest::Configuration>> configuration_ {};
+    // The ID of the cloud application service instance.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

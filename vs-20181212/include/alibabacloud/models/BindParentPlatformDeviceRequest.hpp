@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the device.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the parent platform.
+    // 
     // This parameter is required.
     shared_ptr<string> parentPlatformId_ {};
   };

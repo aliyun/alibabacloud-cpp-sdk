@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of device spaces.
     shared_ptr<int64_t> groupLimit_ {};
+    // Number of device groups in the current region.
     shared_ptr<int64_t> groupNum_ {};
-    // ID
+    // Alibaba Cloud account ID.
     shared_ptr<string> id_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Maximum number of templates.
     shared_ptr<int64_t> templateLimit_ {};
+    // Current number of templates.
     shared_ptr<int64_t> templateNum_ {};
   };
 

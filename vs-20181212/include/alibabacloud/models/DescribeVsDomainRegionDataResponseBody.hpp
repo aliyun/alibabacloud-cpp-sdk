@@ -264,10 +264,15 @@ namespace Models
 
 
   protected:
+    // Time interval, in seconds.
     shared_ptr<string> dataInterval_ {};
+    // The domain name that is accelerated by Visual Edge Computing Service.
     shared_ptr<string> domainName_ {};
+    // End time.
     shared_ptr<string> endTime_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Start time.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeVsDomainRegionDataResponseBody::Value> value_ {};
   };

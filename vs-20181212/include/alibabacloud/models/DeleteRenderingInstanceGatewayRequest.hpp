@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Cloud application service instance ID
     shared_ptr<string> renderingInstanceId_ {};
   };
 

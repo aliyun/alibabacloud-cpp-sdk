@@ -116,7 +116,6 @@ namespace Models
       shared_ptr<int32_t> cores_ {};
       shared_ptr<int32_t> memory_ {};
       shared_ptr<int32_t> shard_ {};
-      // `RenderingSpec`
       shared_ptr<string> specification_ {};
       shared_ptr<int32_t> storage_ {};
     };

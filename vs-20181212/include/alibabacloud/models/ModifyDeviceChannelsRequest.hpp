@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // An array of channels in a JSON-formatted string.
+    // 
     // This parameter is required.
     shared_ptr<string> channels_ {};
+    // The status of the device. Valid values:
+    // 
+    // - on: online
+    // 
+    // - off: offline
     shared_ptr<string> deviceStatus_ {};
+    // The device serial number.
     shared_ptr<string> dsn_ {};
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};

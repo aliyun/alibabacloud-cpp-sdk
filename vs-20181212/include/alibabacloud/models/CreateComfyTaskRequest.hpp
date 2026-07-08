@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The ID of the resource pool.
+    // 
     // This parameter is required.
     shared_ptr<string> hiveId_ {};
+    // The parameters to replace in the workflow.
+    // 
     // This parameter is required.
     shared_ptr<string> userParameters_ {};
+    // The ID of the Comfy workflow to start.
+    // 
     // This parameter is required.
     shared_ptr<string> workflowId_ {};
   };

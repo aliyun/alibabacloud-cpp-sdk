@@ -103,14 +103,26 @@ namespace Models
 
 
   protected:
+    // ID of the group to which the directory belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
+    // Disable paging. Default is false.
     shared_ptr<bool> noPagination_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Page number. Default is 1.
     shared_ptr<int64_t> pageNum_ {};
+    // Page size. Default is 20.
     shared_ptr<int64_t> pageSize_ {};
+    // Query by parent directory ID.
     shared_ptr<string> parentId_ {};
+    // Sort by the specified field. Default is by ID.
     shared_ptr<string> sortBy_ {};
+    // Sort order. Default is ascending. Values:
+    // 
+    // - asc (ascending)
+    // 
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
   };
 

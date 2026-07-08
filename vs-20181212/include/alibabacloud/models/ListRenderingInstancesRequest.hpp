@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The time range for filtering. The time must be in UTC and specified in the ISO 8601 format yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // Page number for the paged query. Minimum value: 1. Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page for the paged query. Valid values: 1 to 100. Default value: 10
     shared_ptr<int32_t> pageSize_ {};
+    // ID of the cloud application service instance
     shared_ptr<string> renderingInstanceId_ {};
+    // Instance type of the cloud application service
     shared_ptr<string> renderingSpec_ {};
+    // Start time of the time range filter. Specify the time in ISO 8601 format in UTC. Format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> startTime_ {};
+    // Storage capacity of the cloud application service instance
     shared_ptr<int32_t> storageSize_ {};
   };
 

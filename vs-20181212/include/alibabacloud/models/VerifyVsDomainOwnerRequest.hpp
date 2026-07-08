@@ -57,9 +57,16 @@ namespace Models
 
 
   protected:
+    // The domain name of Visual Edge Computing Service.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The verification method. Valid values:
+    // 
+    // - **dnsCheck**: DNS verification.
+    // - **fileCheck**: File verification.
+    // 
     // This parameter is required.
     shared_ptr<string> verifyType_ {};
   };

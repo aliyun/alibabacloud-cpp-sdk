@@ -66,10 +66,14 @@ namespace Models
 
 
   protected:
+    // Query by device ID
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The default value is 1.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page. The default value is 20.
     shared_ptr<int64_t> pageSize_ {};
   };
 

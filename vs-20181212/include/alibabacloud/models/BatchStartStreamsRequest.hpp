@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // Stream ID. Separate multiple IDs with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};

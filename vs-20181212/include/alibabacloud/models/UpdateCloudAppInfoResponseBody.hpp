@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the patch package.
     shared_ptr<string> patchId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

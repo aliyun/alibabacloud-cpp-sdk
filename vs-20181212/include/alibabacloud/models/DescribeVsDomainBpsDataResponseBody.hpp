@@ -163,10 +163,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsDomainBpsDataResponseBody::BpsDataPerInterval> bpsDataPerInterval_ {};
+    // The time interval for each record. Unit: seconds.
     shared_ptr<string> dataInterval_ {};
+    // Domain name
     shared_ptr<string> domainName_ {};
+    // End time
     shared_ptr<string> endTime_ {};
+    // Request ID for this operation
     shared_ptr<string> requestId_ {};
+    // Start time
     shared_ptr<string> startTime_ {};
   };
 

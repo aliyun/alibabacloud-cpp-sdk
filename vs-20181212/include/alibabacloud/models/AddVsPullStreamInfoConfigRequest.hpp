@@ -104,15 +104,31 @@ namespace Models
 
   protected:
     shared_ptr<string> always_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // The accelerated domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The end time for stream pulling.
+    // 
+    // > The time must be in UTC format. The interval between StartTime and EndTime cannot exceed 7 days. EndTime must be later than the current time.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The source URL of the live stream.
+    // 
+    // > Multiple source URLs are supported. Separate them with semicolons (;).
+    // 
     // This parameter is required.
     shared_ptr<string> sourceUrl_ {};
+    // The start time for stream pulling.
+    // 
+    // > The time must be in UTC format. The interval between StartTime and EndTime cannot exceed 7 days.
     shared_ptr<string> startTime_ {};
+    // The stream name.
+    // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
   };

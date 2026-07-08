@@ -155,9 +155,13 @@ namespace Models
 
 
       protected:
+        // Total number of devices in the group.
         shared_ptr<int64_t> deviceNum_ {};
+        // Number of intelligent devices in the group.
         shared_ptr<int64_t> iedNum_ {};
+        // Number of cameras in the group.
         shared_ptr<int64_t> ipcNum_ {};
+        // Number of platforms in the group.
         shared_ptr<int64_t> platformNum_ {};
       };
 
@@ -320,26 +324,55 @@ namespace Models
 
 
     protected:
+      // Alias for the group ID.
       shared_ptr<string> aliasId_ {};
+      // Application name used by the group.
       shared_ptr<string> app_ {};
+      // Callback URL for device status updates in the group.
       shared_ptr<string> callback_ {};
+      // Time when the group was created.
       shared_ptr<string> createdTime_ {};
+      // Group description.
       shared_ptr<string> description_ {};
+      // Whether the group is enabled.
       shared_ptr<bool> enabled_ {};
+      // GB ID provided by the group.
+      // 
+      // > This applies only to groups that use the GB protocol.
       shared_ptr<string> gbId_ {};
+      // GB signaling server IP address provided by the group.
+      // 
+      // > This applies only to groups that use the GB protocol.
       shared_ptr<string> gbIp_ {};
+      // GB signaling server port associated with the group.
+      // 
+      // > This applies only to groups that use the GB protocol.
       shared_ptr<int64_t> gbPort_ {};
       shared_ptr<vector<string>> gbTcpPorts_ {};
       shared_ptr<vector<string>> gbUdpPorts_ {};
+      // Group ID.
       shared_ptr<string> id_ {};
+      // Ingest protocol used by the group.
       shared_ptr<string> inProtocol_ {};
+      // Whether on-demand stream pulling is enabled.
       shared_ptr<bool> lazyPull_ {};
+      // Group name.
       shared_ptr<string> name_ {};
+      // Playback protocol used by the group.
       shared_ptr<string> outProtocol_ {};
+      // Streaming domain used by the group.
       shared_ptr<string> playDomain_ {};
+      // Ingest domain used by the group.
       shared_ptr<string> pushDomain_ {};
+      // The region where the space is located. This region serves as the service center.
       shared_ptr<string> region_ {};
+      // Device statistics for the group.
       shared_ptr<Groups::Stats> stats_ {};
+      // Group status. Valid values:
+      // 
+      // - on (enabled)
+      // 
+      // - off (disabled)
       shared_ptr<string> status_ {};
     };
 
@@ -390,11 +423,17 @@ namespace Models
 
 
   protected:
+    // List of groups.
     shared_ptr<vector<DescribeGroupsResponseBody::Groups>> groups_ {};
+    // Total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // Page number.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of groups.
     shared_ptr<int64_t> totalCount_ {};
   };
 

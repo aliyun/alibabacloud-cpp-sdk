@@ -57,9 +57,12 @@ namespace Models
 
 
   protected:
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Time to restart the stream.
     shared_ptr<string> startTime_ {};
   };
 

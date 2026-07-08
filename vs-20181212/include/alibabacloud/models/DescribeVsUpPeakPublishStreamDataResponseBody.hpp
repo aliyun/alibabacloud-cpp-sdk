@@ -157,6 +157,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsUpPeakPublishStreamDataResponseBody::DescribeVsUpPeakPublishStreamDatas> describeVsUpPeakPublishStreamDatas_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -181,6 +181,7 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<BatchResumeVsStreamResponseBody::ResumeResult> resumeResult_ {};
   };

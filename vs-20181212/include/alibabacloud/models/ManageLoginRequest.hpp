@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // Name of the management action. Valid values:
+    // 
+    // 1. open — Activate the public key. This is the default value.
+    // 
+    // 2. close — Deactivate the public key.
     shared_ptr<string> actionName_ {};
+    // Name of the public key group. If you do not specify KeyName, all public keys in this group are applied.
     shared_ptr<string> keyGroup_ {};
+    // Name of the public key. You must specify either KeyName or KeyGroup.
     shared_ptr<string> keyName_ {};
+    // ID of the Cloud Application Service instance.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

@@ -126,6 +126,7 @@ namespace Models
 
 
   protected:
+    // ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeVsDomainSnapshotDataResponseBody::SnapshotDataPerInterval> snapshotDataPerInterval_ {};
   };

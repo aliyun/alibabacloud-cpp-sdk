@@ -172,11 +172,16 @@ namespace Models
 
 
   protected:
+    // Time interval in seconds.
     shared_ptr<string> dataInterval_ {};
+    // Visual Edge Computing Service domain name.
     shared_ptr<string> domainName_ {};
+    // End time.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeVsDomainPvUvDataResponseBody::PvUvDataInfos> pvUvDataInfos_ {};
+    // Request ID for this operation.
     shared_ptr<string> requestId_ {};
+    // Start time.
     shared_ptr<string> startTime_ {};
   };
 

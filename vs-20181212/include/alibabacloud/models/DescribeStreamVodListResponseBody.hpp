@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // VOD record end time (unix timestamp, unit: seconds)
       shared_ptr<int64_t> endTime_ {};
+      // VOD record start time (unix timestamp, unit: seconds)
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // VOD record list
     shared_ptr<vector<DescribeStreamVodListResponseBody::Records>> records_ {};
+    // Request ID of this task.
     shared_ptr<string> requestId_ {};
   };
 

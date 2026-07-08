@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Client information.
     shared_ptr<string> clientInfoShrink_ {};
+    // Cloud application service instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

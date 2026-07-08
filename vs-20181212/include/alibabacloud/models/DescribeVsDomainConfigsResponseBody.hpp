@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The name of the configuration.
         shared_ptr<string> argName_ {};
+        // The argument value.
         shared_ptr<string> argValue_ {};
       };
 
@@ -132,9 +134,21 @@ namespace Models
 
 
     protected:
+      // The configuration ID.
       shared_ptr<string> configId_ {};
+      // Each function.
       shared_ptr<vector<DomainConfigs::FunctionArgs>> functionArgs_ {};
+      // The function name.
       shared_ptr<string> functionName_ {};
+      // Status. Valid values:
+      // 
+      // - success
+      // 
+      // - testing
+      // 
+      // - failed
+      // 
+      // - configuring
       shared_ptr<string> status_ {};
     };
 
@@ -157,7 +171,9 @@ namespace Models
 
 
   protected:
+    // Domain name configurations.
     shared_ptr<vector<DescribeVsDomainConfigsResponseBody::DomainConfigs>> domainConfigs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

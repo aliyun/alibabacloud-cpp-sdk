@@ -94,15 +94,37 @@ namespace Models
 
 
   protected:
+    // The stream name.
+    // 
+    // > - Format: AppName/StreamName.
+    // >
+    // > - Specify multiple names, separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
     shared_ptr<string> controlStreamAction_ {};
+    // Your accelerated domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Specifies whether the operation applies to stream ingest by a streamer or stream pulling by a client. Valid values:
+    // 
+    // - publisher (streamer ingest)
+    // 
+    // > Only publisher is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};
+    // Specifies whether to stop ingest without adding the stream to the blacklist. Valid values:
+    // 
+    // - yes
+    // 
+    // - no
     shared_ptr<string> oneshot_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The time to resume ingest.
+    // 
+    // > Use UTC format. Example: 2015-12-01T17:37:00Z
     shared_ptr<string> resumeTime_ {};
   };
 

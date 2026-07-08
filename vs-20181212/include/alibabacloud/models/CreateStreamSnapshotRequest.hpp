@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // Stream ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Screenshot method. Valid values:
+    // 
+    // - center (cloud screenshot) (default)
+    // 
+    // - device (device screenshot)
     shared_ptr<string> location_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

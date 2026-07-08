@@ -84,13 +84,25 @@ namespace Models
 
 
   protected:
+    // Apply to all streams within the scope. Default value: false.
     shared_ptr<bool> applyAll_ {};
+    // Instance ID. Separate multiple values with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Instance type. Valid values:
+    // 
+    // - group (space)
+    // 
+    // - stream (stream)
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Replace existing bindings. Default value: false.
     shared_ptr<bool> replace_ {};
+    // Template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
   };

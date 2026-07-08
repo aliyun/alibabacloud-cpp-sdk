@@ -66,10 +66,14 @@ namespace Models
 
 
   protected:
+    // The ID of the stream.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The name of the stream.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The time to restart the stream.
     shared_ptr<string> startTime_ {};
   };
 

@@ -140,17 +140,48 @@ namespace Models
 
 
   protected:
+    // Filter by application.
     shared_ptr<string> app_ {};
+    // Filter by device ID.
     shared_ptr<string> deviceId_ {};
+    // Filter by domain name.
     shared_ptr<string> domain_ {};
+    // The ID of the space to query.
     shared_ptr<string> groupId_ {};
+    // Stream ID.
+    // 
+    // > Enter multiple IDs separated by commas (,).
     shared_ptr<string> id_ {};
+    // Filter by stream name.
+    // 
+    // > Enter multiple names separated by commas (,).
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of items per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
+    // Parent device ID of the device that hosts this stream.
     shared_ptr<string> parentId_ {};
+    // Sort results by a field. Valid values:
+    // 
+    // - Id (default)
+    // 
+    // - GroupId
+    // 
+    // - Name
+    // 
+    // - DeviceId
+    // 
+    // - Protocol
+    // 
+    // > You can specify only one field.
     shared_ptr<string> sortBy_ {};
+    // Sort order. Valid values:
+    // 
+    // - asc (ascending, default)
+    // 
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
   };
 

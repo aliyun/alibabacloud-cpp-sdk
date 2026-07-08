@@ -130,17 +130,45 @@ namespace Models
 
 
   protected:
+    // Cloud application ID
     shared_ptr<string> appId_ {};
+    // Unique ID of the client.
     shared_ptr<string> clientId_ {};
+    // Time range filter parameter. Represented in ISO8601 standard and must use UTC time, in the format yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // Page number, starting from 1
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of rows per page set for paged queries.
     shared_ptr<int32_t> pageSize_ {};
+    // Cloud application patch ID.
+    // 
+    // 1. When you enter origin, only sessions that started the original version of the app are filtered.
     shared_ptr<string> patchId_ {};
+    // Project ID
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // Cloud application service instance ID
     shared_ptr<string> renderingInstanceId_ {};
+    // Session ID
     shared_ptr<string> sessionId_ {};
+    // Time range filter parameter. Represented in ISO8601 standard and must use UTC time, in the format yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
+    // Session state. Valid values:
+    // 
+    // 1. SessionStarting: The session is starting.
+    // 
+    // 2. SessionStartSuspended: Session startup is paused. Retry by initiating start again.
+    // 
+    // 3. SessionStarted: The session has started/is in use.
+    // 
+    // 4. SessionStartFailed: Session startup failed.
+    // 
+    // 5. SessionAbnormal: The session is abnormal after successful startup.
+    // 
+    // 6. SessionStopping: The session is stopping.
+    // 
+    // 7. SessionStopFailed: Session stop failed.
     shared_ptr<string> state_ {};
   };
 

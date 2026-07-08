@@ -130,17 +130,54 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The accelerated domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The end of the time range to query.
+    // 
+    // > - Specify the time in the UTC format. Example: 2016-06-30T19:00:00Z.
+    // >
+    // > - The time range between EndTime and StartTime cannot exceed 30 days.
     shared_ptr<string> endTime_ {};
+    // The sorting method. Valid values:
+    // 
+    // - stream_name_desc: sorts by stream name in descending order.
+    // 
+    // - stream_name_asc: sorts by stream name in ascending order.
+    // 
+    // - publish_time_desc: sorts by ingest time in descending order.
+    // 
+    // - publish_time_asc (default): sorts by ingest time in ascending order.
     shared_ptr<string> orderBy_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: 3000.
+    // 
+    // Valid values: 1 to 3000.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether to perform a fuzzy match for the stream name. Valid values:
+    // 
+    // - fuzzy: fuzzy match
+    // 
+    // - strict: exact match
     shared_ptr<string> queryType_ {};
+    // The start of the time range to query.
+    // 
+    // > Specify the time in the UTC format. Example: 2016-06-29T19:00:00Z.
     shared_ptr<string> startTime_ {};
+    // The stream name.
     shared_ptr<string> streamName_ {};
+    // The stream type. Valid values:
+    // 
+    // - all (default): all streams
+    // 
+    // - raw: raw streams
+    // 
+    // - trans: transcoded streams
     shared_ptr<string> streamType_ {};
   };
 

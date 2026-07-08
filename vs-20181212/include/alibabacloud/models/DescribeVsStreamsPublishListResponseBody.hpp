@@ -274,11 +274,16 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<DescribeVsStreamsPublishListResponseBody::PublishInfo> publishInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching entries.
     shared_ptr<int32_t> totalNum_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

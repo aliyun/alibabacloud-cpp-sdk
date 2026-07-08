@@ -66,10 +66,21 @@ namespace Models
 
 
   protected:
+    // Project description
     shared_ptr<string> description_ {};
+    // Project ID
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // Default naming rules:
+    // 
+    // 1. Length 1-128
+    // 
+    // 2. Lowercase letters, numbers, underscores (_), hyphens (-), and periods (.).
+    // 
+    // 3. The first and last characters must be letters or digits. At least one of ProjectName, SessionAttribs, or Description must be specified.
     shared_ptr<string> projectName_ {};
+    // Session attributes
     shared_ptr<string> sessionAttribsShrink_ {};
   };
 

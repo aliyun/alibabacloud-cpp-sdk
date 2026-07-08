@@ -84,14 +84,24 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
     shared_ptr<string> controlStreamAction_ {};
+    // Your accelerated domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The stream type.
+    // 
+    // > Only publisher is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> liveStreamType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The stream name.
+    // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
   };

@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // Cloud application service instance ID
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -116,8 +117,11 @@ namespace Models
 
 
     protected:
+      // Error code
       shared_ptr<int32_t> errCode_ {};
+      // Reason for failure
       shared_ptr<string> errMessage_ {};
+      // Cloud application service instance ID
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -163,10 +167,15 @@ namespace Models
 
 
   protected:
+    // Number of cloud application service instances that failed to restart
     shared_ptr<int32_t> failedInstanceCount_ {};
+    // Cloud application service instance IDs and their failure details
     shared_ptr<vector<RebootRenderingServerResponseBody::FailedInstances>> failedInstances_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Number of successful cloud application service instances
     shared_ptr<int32_t> successInstanceCount_ {};
+    // The instance ID of the cloud application service and the description of the result.
     shared_ptr<vector<RebootRenderingServerResponseBody::SuccessInstances>> successInstances_ {};
   };
 

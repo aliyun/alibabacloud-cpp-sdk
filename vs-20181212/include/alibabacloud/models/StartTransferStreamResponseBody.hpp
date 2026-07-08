@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The request ID of this task.
     shared_ptr<string> requestId_ {};
   };
 

@@ -79,8 +79,13 @@ namespace Models
 
 
     protected:
+      // Folder ID.
       shared_ptr<string> deviceId_ {};
+      // The folder ID.
       shared_ptr<string> directoryId_ {};
+      // The error message for the detach operation.
+      // 
+      // > This field appears only if an error occurs.
       shared_ptr<string> error_ {};
     };
 
@@ -103,7 +108,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of results.
     shared_ptr<vector<BatchUnbindDirectoriesResponseBody::Results>> results_ {};
   };
 

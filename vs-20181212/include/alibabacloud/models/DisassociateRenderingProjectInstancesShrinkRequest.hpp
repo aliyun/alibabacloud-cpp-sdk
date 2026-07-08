@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the project.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // A list of cloud application service instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceIdsShrink_ {};
   };

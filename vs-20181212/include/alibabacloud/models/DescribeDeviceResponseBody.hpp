@@ -156,10 +156,15 @@ namespace Models
 
 
     protected:
+      // Number of channels.
       shared_ptr<int64_t> channelNum_ {};
+      // Number of failed streams.
       shared_ptr<int64_t> failedNum_ {};
+      // Number of offline streams.
       shared_ptr<int64_t> offlineNum_ {};
+      // Number of online streams.
       shared_ptr<int64_t> onlineNum_ {};
+      // Number of streams.
       shared_ptr<int64_t> streamNum_ {};
     };
 
@@ -237,11 +242,17 @@ namespace Models
 
 
     protected:
+      // Directory creation time.
       shared_ptr<string> createdTime_ {};
+      // Directory description.
       shared_ptr<string> description_ {};
+      // Space ID to which the directory belongs.
       shared_ptr<string> groupId_ {};
+      // Directory ID.
       shared_ptr<string> id_ {};
+      // Directory name.
       shared_ptr<string> name_ {};
+      // Parent directory ID.
       shared_ptr<string> parentId_ {};
     };
 
@@ -482,37 +493,94 @@ namespace Models
 
 
   protected:
+    // Subscribed GB alarm method. Valid values:
+    // 
+    // - 0 (all)
+    // 
+    // - 5 (video alarm)
+    // 
+    // - 7 (other alarms)
+    // 
+    // > * An empty value means no subscription.
+    // >
+    // > * Multiple values are supported, separated by commas (,).
     shared_ptr<string> alarmMethod_ {};
     shared_ptr<bool> autoDirectory_ {};
+    // Indicates whether device location subscription is enabled.
     shared_ptr<bool> autoPos_ {};
+    // Automatically start the stream.
     shared_ptr<bool> autoStart_ {};
+    // Channel synchronization time.
     shared_ptr<string> channelSyncTime_ {};
+    // Device creation time.
     shared_ptr<string> createdTime_ {};
+    // Device description.
     shared_ptr<string> description_ {};
+    // Directory information.
     shared_ptr<DescribeDeviceResponseBody::Directory> directory_ {};
+    // Directory ID.
     shared_ptr<string> directoryId_ {};
+    // Device serial number.
     shared_ptr<string> dsn_ {};
+    // Whether the device is enabled.
     shared_ptr<bool> enabled_ {};
+    // GB device ID.
+    // 
+    // > This applies only to GB protocols.
     shared_ptr<string> gbId_ {};
+    // Space ID to which the device belongs.
     shared_ptr<string> groupId_ {};
+    // Device ID.
     shared_ptr<string> id_ {};
+    // Device IP address.
     shared_ptr<string> ip_ {};
+    // Device latitude.
     shared_ptr<string> latitude_ {};
+    // Device longitude.
     shared_ptr<string> longitude_ {};
+    // Device name.
     shared_ptr<string> name_ {};
+    // Other device parameters.
     shared_ptr<string> params_ {};
+    // Parent device ID. For example, the platform ID to which a camera belongs.
     shared_ptr<string> parentId_ {};
+    // Device password.
     shared_ptr<string> password_ {};
+    // Device port.
     shared_ptr<int64_t> port_ {};
+    // Position subscription interval, in seconds.
     shared_ptr<int64_t> posInterval_ {};
+    // Device registration protocol.
     shared_ptr<string> protocol_ {};
+    // Device registration time.
     shared_ptr<string> registeredTime_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Device stream statistics.
     shared_ptr<DescribeDeviceResponseBody::Stats> stats_ {};
+    // Device status. Valid values:
+    // 
+    // - on (online)
+    // 
+    // - off (offline)
+    // 
+    // - failed (locked)
+    // 
+    // - new (unregistered)
     shared_ptr<string> status_ {};
+    // Device type. Valid values:
+    // 
+    // - ipc (camera)
+    // 
+    // - platform (platform)
+    // 
+    // - ied (intelligent device)
     shared_ptr<string> type_ {};
+    // Stream URL on the device.
     shared_ptr<string> url_ {};
+    // Device username.
     shared_ptr<string> username_ {};
+    // Device vendor.
     shared_ptr<string> vendor_ {};
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // List of attribute names.
     shared_ptr<vector<string>> attributeNames_ {};
+    // ID of the cloud application service instance.
     shared_ptr<string> renderingInstanceId_ {};
   };
 

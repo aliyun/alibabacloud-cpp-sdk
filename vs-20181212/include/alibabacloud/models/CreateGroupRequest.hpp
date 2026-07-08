@@ -130,18 +130,44 @@ namespace Models
 
 
   protected:
+    // Application name used by the workspace. Default value: live
     shared_ptr<string> app_ {};
+    // Callback URL triggered when device or stream status updates in the workspace
     shared_ptr<string> callback_ {};
+    // Workspace description
     shared_ptr<string> description_ {};
+    // Ingest protocol used by the workspace. Valid values:
+    // 
+    // - gb28181
+    // 
+    // - rtmp
+    // 
     // This parameter is required.
     shared_ptr<string> inProtocol_ {};
+    // Whether to enable on-demand stream pulling. Valid values:
+    // 
+    // - false (default)
+    // 
+    // - true
     shared_ptr<bool> lazyPull_ {};
+    // Workspace name
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Playback protocols used by the workspace. Separate multiple values with commas. Valid values:
+    // 
+    // - flv
+    // 
+    // - hls
+    // 
+    // - rtmp
     shared_ptr<string> outProtocol_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Streaming domain used by the workspace
     shared_ptr<string> playDomain_ {};
+    // Ingest domain used by the workspace
     shared_ptr<string> pushDomain_ {};
+    // Region where the workspace is located, that is, the service center
     shared_ptr<string> region_ {};
   };
 

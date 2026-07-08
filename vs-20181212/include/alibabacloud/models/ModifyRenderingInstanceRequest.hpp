@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // ID of the cloud application service instance. You can only upgrade or downgrade to another instance type in the same series.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
+    // Instance type of the cloud application service instance.
     shared_ptr<string> renderingSpec_ {};
+    // Cloud storage capacity used by the cloud application service instance. This is not local storage.
     shared_ptr<string> storageSize_ {};
   };
 

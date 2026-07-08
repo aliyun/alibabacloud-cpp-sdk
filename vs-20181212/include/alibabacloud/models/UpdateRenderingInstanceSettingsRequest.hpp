@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // Name of the instance setting.
       shared_ptr<string> attributeName_ {};
+      // Value of the instance setting.
       shared_ptr<string> attributeValue_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // ID of the cloud application service instance.
     shared_ptr<string> renderingInstanceId_ {};
+    // List of instance settings.
     shared_ptr<vector<UpdateRenderingInstanceSettingsRequest::Settings>> settings_ {};
   };
 

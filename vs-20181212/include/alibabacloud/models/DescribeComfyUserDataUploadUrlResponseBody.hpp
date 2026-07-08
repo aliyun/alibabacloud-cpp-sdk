@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<int64_t> code_ {};
+    // The expiration time of the upload URL.
     shared_ptr<string> expiredTime_ {};
+    // The description.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The URL for uploading the user file.
     shared_ptr<string> uploadUrl_ {};
   };
 

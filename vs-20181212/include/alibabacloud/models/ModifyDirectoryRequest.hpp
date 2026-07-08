@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description of the directory.
     shared_ptr<string> description_ {};
+    // The ID of the directory.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The name of the directory.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

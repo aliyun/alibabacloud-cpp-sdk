@@ -222,27 +222,73 @@ namespace Models
 
 
   protected:
+    // Callback URL to be invoked after template execution.  
+    // 
+    // > Note: Templates triggered on demand do not support callback parameters.
     shared_ptr<string> callback_ {};
+    // Template description.
     shared_ptr<string> description_ {};
+    // Storage file format. Multiple values are separated by commas. Valid values:
+    // - mp4
+    // - flv
+    // - hls
+    // > The Qingdao ingest endpoint does not support recording in FLV or MP4 formats.
     shared_ptr<string> fileFormat_ {};
+    // Storage path for FLV files. For the format, see the description for Mp4.
     shared_ptr<string> flv_ {};
+    // Storage path for HLS m3u8 files. For the format, see the description for Mp4.
     shared_ptr<string> hlsM3u8_ {};
+    // Storage path for HLS .ts files.
+    // - Variables can be used in the path. Supported variables include {AppName}, {StreamName}, {UnixTimestamp}, and {Sequence}.
+    // - The variables {UnixTimestamp} and {Sequence} must both be included.
     shared_ptr<string> hlsTs_ {};
+    // Operation epoch, in seconds.
     shared_ptr<int64_t> interval_ {};
+    // Storage path for on-demand JPG screenshots.
+    // - Only JPG images are currently supported.
+    // - Variables can be used in the path. Supported variables include {AppName}, {StreamName}, {UnixTimestamp}, and {Sequence}.
+    // - Either {UnixTimestamp} or {Sequence} must be included.
     shared_ptr<string> jpgOnDemand_ {};
+    // Storage path for JPG files used in overwrite snapshots.  
+    // - Only JPG images are currently supported.  
+    // - Supports variable substitution with {AppName} and {StreamName}.
     shared_ptr<string> jpgOverwrite_ {};
+    // Storage path for JPG files used in sequential snapshots.  
+    // - Only JPG images are currently supported.  
+    // - Supports variable substitution with {AppName}, {StreamName}, {UnixTimestamp}, and {Sequence}.  
+    // - Either {UnixTimestamp} or {Sequence} is required.
     shared_ptr<string> jpgSequence_ {};
+    // Storage path for MP4 files.  
+    // - The path supports variable substitution. Available variables include {AppName}, {StreamName}, {Sequence}, {EscapedStartTime}, and {EscapedEndTime}.  
+    // - {EscapedStartTime} and {EscapedEndTime} are required.
     shared_ptr<string> mp4_ {};
+    // Template Name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // OSS bucket.
     shared_ptr<string> ossBucket_ {};
+    // Domain name of OSS.
     shared_ptr<string> ossEndpoint_ {};
+    // OSS file prefix.
     shared_ptr<string> ossFilePrefix_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Region where the OSS bucket resides, that is, the service center.
     shared_ptr<string> region_ {};
+    // Time-shift retention period, in days.
     shared_ptr<int64_t> retention_ {};
+    // An array of TransConfig-type transcoding configurations, formatted as a JSON string.
     shared_ptr<string> transConfigsJSON_ {};
+    // Template trigger type. Default value: auto. Valid values:  
+    // - auto (automatic)  
+    // - ondemand (on-demand)
     shared_ptr<string> trigger_ {};
+    // Template type. Valid values:  
+    // - record (recording)  
+    // - snapshot (snapshot)  
+    // - transcode (transcoding)  
+    // - timeshift (time shifting)
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

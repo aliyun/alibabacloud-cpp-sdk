@@ -75,10 +75,14 @@ namespace Models
 
 
   protected:
+    // The stream\\"s App name.
     shared_ptr<string> app_ {};
+    // Stream ID.
     shared_ptr<string> id_ {};
+    // Stream name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The stream\\"s playback domain name.
     shared_ptr<string> playDomain_ {};
   };
 

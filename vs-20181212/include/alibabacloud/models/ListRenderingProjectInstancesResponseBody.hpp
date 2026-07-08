@@ -104,8 +104,11 @@ namespace Models
 
 
       protected:
+        // Description of the current status
         shared_ptr<string> comment_ {};
+        // Instance status
         shared_ptr<string> state_ {};
+        // Time when the status was last updated
         shared_ptr<string> updateTime_ {};
       };
 
@@ -135,8 +138,11 @@ namespace Models
 
 
     protected:
+      // Time when the instance was associated with the project
       shared_ptr<string> associationTime_ {};
+      // Cloud application service instance
       shared_ptr<string> renderingInstanceId_ {};
+      // Status information for the project instance
       shared_ptr<RenderingInstances::StateInfo> stateInfo_ {};
     };
 
@@ -166,8 +172,11 @@ namespace Models
 
 
   protected:
+    // List of cloud application service instances
     shared_ptr<vector<ListRenderingProjectInstancesResponseBody::RenderingInstances>> renderingInstances_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Total number of cloud application service instances
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -66,10 +66,14 @@ namespace Models
 
 
   protected:
+    // Visual Edge Computing Service domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // End time in UTC format. For example: 2016-06-30T19:00:00Z
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Start time in UTC format. For example: 2016-06-29T19:00:00Z
     shared_ptr<string> startTime_ {};
   };
 

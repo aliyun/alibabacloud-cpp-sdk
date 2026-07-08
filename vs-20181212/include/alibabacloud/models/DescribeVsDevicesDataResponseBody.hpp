@@ -127,6 +127,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeVsDevicesDataResponseBody::DevicesDataPerInterval> devicesDataPerInterval_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // Client IP address. This IP address is used by default for scheduling instances based on proximity.
       shared_ptr<string> clientIp_ {};
     };
 
@@ -108,11 +109,22 @@ namespace Models
 
 
   protected:
+    // Cloud application ID
     shared_ptr<string> appId_ {};
+    // Unique ID of the client
+    // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
+    // Client parameter information
     shared_ptr<StartRenderingSessionRequest::ClientParams> clientParams_ {};
+    // Cloud application patch ID.
+    // 
+    // 1. By default, start the stable version of the AppId (if no stable patch version is set, the original version is used).
+    // 
+    // 2. If you enter "origin", start the original version.
     shared_ptr<string> patchId_ {};
+    // Project ID
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
   };

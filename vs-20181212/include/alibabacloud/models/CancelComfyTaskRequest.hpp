@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the Comfy task to cancel.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

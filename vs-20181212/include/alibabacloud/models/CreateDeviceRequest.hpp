@@ -241,30 +241,71 @@ namespace Models
 
 
   protected:
+    // GB-compliant alarm method to subscribe to. Valid values:
+    // 
+    // - 0 (all)
+    // 
+    // - 5 (video alarm)
+    // 
+    // - 7 (other alarms)
+    // 
+    // > * An empty value means no subscription.
+    // >
+    // > * You can specify multiple values, separated by commas (,).
     shared_ptr<string> alarmMethod_ {};
     shared_ptr<bool> autoDirectory_ {};
+    // Whether to enable location subscription for the device. Default value: false.
     shared_ptr<bool> autoPos_ {};
+    // Whether to automatically start the stream. Default value: false.
     shared_ptr<bool> autoStart_ {};
+    // Device description.
     shared_ptr<string> description_ {};
+    // ID of the folder that contains the device.
     shared_ptr<string> directoryId_ {};
+    // Device serial number.
     shared_ptr<string> dsn_ {};
+    // GB-compliant device ID.
+    // 
+    // > This parameter applies only to GB-compliant protocols.
     shared_ptr<string> gbId_ {};
+    // ID of the space that contains the device.
+    // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
+    // Device IP address.
     shared_ptr<string> ip_ {};
+    // The dimension of the device.
     shared_ptr<string> latitude_ {};
+    // Device longitude.
     shared_ptr<string> longitude_ {};
+    // Device name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Additional device parameters, formatted as a JSON string.
     shared_ptr<string> params_ {};
+    // ID of the parent device. For example, the ID of the platform that hosts the camera.
     shared_ptr<string> parentId_ {};
+    // Device password.
     shared_ptr<string> password_ {};
+    // Device port.
     shared_ptr<int64_t> port_ {};
+    // Location subscription interval, in seconds.
     shared_ptr<int64_t> posInterval_ {};
+    // Device type. Valid values:
+    // 
+    // - ipc (camera)
+    // 
+    // - platform (platform)
+    // 
+    // - ied (intelligent device)
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // Stream URL on the device.
     shared_ptr<string> url_ {};
+    // Device username.
     shared_ptr<string> username_ {};
+    // Device vendor.
     shared_ptr<string> vendor_ {};
   };
 

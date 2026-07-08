@@ -91,6 +91,7 @@ namespace Models
 
 
       protected:
+        // Startup mode
         shared_ptr<string> startMode_ {};
       };
 
@@ -141,11 +142,17 @@ namespace Models
 
 
     protected:
+      // Project creation time
       shared_ptr<string> creationTime_ {};
+      // Project description
       shared_ptr<string> description_ {};
+      // Project ID
       shared_ptr<string> projectId_ {};
+      // Project name
       shared_ptr<string> projectName_ {};
+      // Project session attributes
       shared_ptr<Projects::SessionAttribs> sessionAttribs_ {};
+      // Last update time
       shared_ptr<string> updateTime_ {};
     };
 
@@ -175,8 +182,11 @@ namespace Models
 
 
   protected:
+    // Project list
     shared_ptr<vector<ListRenderingProjectsResponseBody::Projects>> projects_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Total number of matching projects
     shared_ptr<int64_t> totalCount_ {};
   };
 

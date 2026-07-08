@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Cloud application service data pack ID
+    // 
     // This parameter is required.
     shared_ptr<string> dataPackageId_ {};
   };

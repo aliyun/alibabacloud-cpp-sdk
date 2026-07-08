@@ -149,18 +149,43 @@ namespace Models
 
 
   protected:
+    // Device creation time.
     shared_ptr<string> createdTime_ {};
+    // Device description.
     shared_ptr<string> description_ {};
+    // Space ID.
     shared_ptr<string> groupId_ {};
+    // Space name.
     shared_ptr<string> groupName_ {};
+    // Device ID.
     shared_ptr<string> id_ {};
+    // Device name.
     shared_ptr<string> name_ {};
+    // Order ID.
     shared_ptr<string> orderId_ {};
+    // Region where the space belongs, also known as the service center.
     shared_ptr<string> region_ {};
+    // Device registration code.
     shared_ptr<string> registerCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Device child type. Valid values:
+    // 
+    // - bullet (bullet camera)
+    // 
+    // - dome (dome camera)
+    // 
+    // - ptz (PTZ)
     shared_ptr<string> subType_ {};
+    // Device type. Valid values:
+    // 
+    // - ipc (camera)
+    // 
+    // - platform
+    // 
+    // - ied (intelligent device)
     shared_ptr<string> type_ {};
+    // Device vendor.
     shared_ptr<string> vendor_ {};
   };
 

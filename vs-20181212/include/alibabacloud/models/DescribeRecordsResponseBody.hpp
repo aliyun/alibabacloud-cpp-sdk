@@ -181,18 +181,45 @@ namespace Models
 
 
     protected:
+      // The end time of the stored record.
       shared_ptr<string> endTime_ {};
+      // The format of the stored file. Valid values:
+      // 
+      // - mp4
+      // 
+      // - flv
+      // 
+      // - hls
+      // 
+      // - jpg
       shared_ptr<string> fileFormat_ {};
+      // The height.
       shared_ptr<int64_t> height_ {};
+      // The ID of the stored record.
+      // 
+      // > Applies only to recording queries.
       shared_ptr<string> id_ {};
+      // The bucket where the file is stored.
       shared_ptr<string> ossBucket_ {};
+      // The OSS endpoint.
       shared_ptr<string> ossEndpoint_ {};
+      // The object of the stored file.
       shared_ptr<string> ossObject_ {};
+      // The start time of the stored record.
       shared_ptr<string> startTime_ {};
+      // The stream ID.
       shared_ptr<string> streamId_ {};
+      // The template ID.
       shared_ptr<string> templateId_ {};
+      // The type of the stored record. Valid values:
+      // 
+      // - record
+      // 
+      // - snapshot
       shared_ptr<string> type_ {};
+      // The URL of the stored file.
       shared_ptr<string> url_ {};
+      // The width.
       shared_ptr<int64_t> width_ {};
     };
 
@@ -251,12 +278,29 @@ namespace Models
 
 
   protected:
+    // The start time to query the next record.
+    // 
+    // > Applies only to snapshot queries.
     shared_ptr<string> nextStartTime_ {};
+    // The total number of pages.
+    // 
+    // > Applies only to recording queries.
     shared_ptr<int64_t> pageCount_ {};
+    // The page number.
+    // 
+    // > Applies only to recording queries.
     shared_ptr<int64_t> pageNum_ {};
+    // The page size.
+    // 
+    // > Applies only to recording queries.
     shared_ptr<int64_t> pageSize_ {};
+    // The list of stored records.
     shared_ptr<vector<DescribeRecordsResponseBody::Records>> records_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of stored records.
+    // 
+    // > Applies only to recording queries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

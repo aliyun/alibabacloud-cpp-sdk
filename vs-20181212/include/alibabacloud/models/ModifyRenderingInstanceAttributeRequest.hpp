@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Password for the device.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // ID of the cloud application service instance.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

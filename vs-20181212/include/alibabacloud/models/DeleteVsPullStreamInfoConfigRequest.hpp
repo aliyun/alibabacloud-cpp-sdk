@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The application name for the live stream.
+    // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
+    // Your stream pulling domain.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The name of the live stream.
+    // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
   };

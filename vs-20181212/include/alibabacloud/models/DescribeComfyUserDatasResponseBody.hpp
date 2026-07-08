@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The name of the file or folder.
       shared_ptr<string> fileName_ {};
+      // The file size in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The entry type. Valid values are \\`file\\` and \\`dir\\`.
       shared_ptr<string> type_ {};
+      // The time the file was last modified.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -159,12 +163,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<int64_t> code_ {};
+    // The description.
     shared_ptr<string> message_ {};
+    // The page number of the returned list.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
     shared_ptr<vector<DescribeComfyUserDatasResponseBody::UserDatas>> userDatas_ {};
   };

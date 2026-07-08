@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The workflow name.
     shared_ptr<string> name_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of Comfy workflows per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

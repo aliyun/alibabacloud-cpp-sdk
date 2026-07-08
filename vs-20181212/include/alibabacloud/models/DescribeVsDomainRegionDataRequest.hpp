@@ -66,9 +66,12 @@ namespace Models
 
 
   protected:
+    // Visual Edge Computing Service domain name.
     shared_ptr<string> domainName_ {};
+    // End time of the data range. The end time must be later than the start time. Specify the time in ISO 8601 format in UTC.<br>Format: YYYY-MM-DDThh:mm:ssZ.<br>
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Start time of the data range. Specify the time in ISO 8601 format in UTC.<br>Format: YYYY-MM-DDThh:mm:ssZ.<br>Minimum data granularity is 5 minutes.<br>If you do not specify this parameter, data from the last 24 hours is returned by default.<br><br><br>
     shared_ptr<string> startTime_ {};
   };
 

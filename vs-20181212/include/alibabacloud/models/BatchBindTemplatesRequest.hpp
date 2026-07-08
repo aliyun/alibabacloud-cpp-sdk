@@ -94,15 +94,32 @@ namespace Models
 
 
   protected:
+    // Specifies whether to apply the template to all streams in the scope. The default value is false.
     shared_ptr<bool> applyAll_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The instance type. Valid values:
+    // 
+    // - group
+    // 
+    // - stream
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to replace existing bindings. The default value is false.
     shared_ptr<bool> replace_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The template type. Valid values:
+    // 
+    // - record (recording)
+    // 
+    // - snapshot (snapshotting)
     shared_ptr<string> templateType_ {};
   };
 

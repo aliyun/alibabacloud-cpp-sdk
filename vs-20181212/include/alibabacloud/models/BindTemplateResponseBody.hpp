@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The type of the instance.
     shared_ptr<string> instanceType_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the template.
     shared_ptr<string> templateId_ {};
   };
 

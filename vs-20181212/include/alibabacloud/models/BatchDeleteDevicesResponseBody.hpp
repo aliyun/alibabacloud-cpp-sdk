@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // Device error message. (Only present if an error occurs)
       shared_ptr<string> error_ {};
+      // Device ID.
       shared_ptr<string> id_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The request ID of this task.
     shared_ptr<string> requestId_ {};
+    // Result list.
     shared_ptr<vector<BatchDeleteDevicesResponseBody::Results>> results_ {};
   };
 

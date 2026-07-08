@@ -133,13 +133,21 @@ namespace Models
 
 
     protected:
+      // The channel ID.
       shared_ptr<int64_t> channelId_ {};
+      // The device ID.
       shared_ptr<string> deviceId_ {};
+      // The status of the device.
       shared_ptr<string> deviceStatus_ {};
+      // The GB ID.
       shared_ptr<string> gbId_ {};
+      // The name of the channel.
       shared_ptr<string> name_ {};
+      // Other configurations of the device.
       shared_ptr<string> params_ {};
+      // The stream ID.
       shared_ptr<string> streamId_ {};
+      // The status of the stream.
       shared_ptr<string> streamStatus_ {};
     };
 
@@ -190,11 +198,17 @@ namespace Models
 
 
   protected:
+    // The list of channels.
     shared_ptr<vector<DescribeDeviceChannelsResponseBody::Channels>> channels_ {};
+    // The total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of channels.
     shared_ptr<int64_t> totalCount_ {};
   };
 

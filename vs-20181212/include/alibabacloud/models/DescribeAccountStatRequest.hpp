@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // Alibaba Cloud account ID.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

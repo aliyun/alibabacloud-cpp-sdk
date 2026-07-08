@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Request ID of this operation.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The ID of the device.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // The ID of the device group.
+    // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
   };

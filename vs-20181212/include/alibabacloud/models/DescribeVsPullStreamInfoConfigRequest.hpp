@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The stream pulling domain.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // National standard ID associated with the workspace. (Applies only to workspaces using national standard ingest.)
     shared_ptr<string> gbId_ {};
+    // IP address of the national standard signaling gateway server associated with the workspace. (Applies only to workspaces using national standard ingest.)
     shared_ptr<string> gbIp_ {};
+    // National standard signaling server port provided by the workspace. (Applies only to workspaces using national standard ingest.)
     shared_ptr<int64_t> gbPort_ {};
+    // Workspace ID
     shared_ptr<string> id_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

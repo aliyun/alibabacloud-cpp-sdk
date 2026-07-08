@@ -112,16 +112,38 @@ namespace Models
 
 
   protected:
+    // The certificate name.
     shared_ptr<string> certName_ {};
+    // The certificate type.
+    // 
+    // - upload: Upload certificate
+    // 
+    // - cas: Alibaba Cloud Security certificate
+    // 
+    // - free: Personal test certificate (Free Edition)
     shared_ptr<string> certType_ {};
+    // The accelerated domain name to which the certificate belongs.
+    // 
+    // > The domain must use HTTPS acceleration.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Set to 1 to skip the certificate name duplication check and overwrite an existing certificate with the same name.
     shared_ptr<string> forceSet_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region.
     shared_ptr<string> region_ {};
+    // The private key content. Omit this parameter if you disable the certificate. Provide the private key content if you configure a certificate.
     shared_ptr<string> SSLPri_ {};
+    // Whether to enable the HTTPS certificate. Valid values:
+    // 
+    // - **on**: Enable.
+    // 
+    // - **off** (default): Disable.
+    // 
     // This parameter is required.
     shared_ptr<string> SSLProtocol_ {};
+    // The public certificate content. Omit this parameter if you disable the certificate. Provide the certificate content if you configure a certificate.
     shared_ptr<string> SSLPub_ {};
   };
 

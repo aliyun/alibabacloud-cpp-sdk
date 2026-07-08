@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of tasks per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The task state. If specified, the operation returns only tasks in that state.
     shared_ptr<string> taskState_ {};
+    // If you specify this parameter, the operation returns only tasks for the specified workflow.
     shared_ptr<string> workflowId_ {};
   };
 

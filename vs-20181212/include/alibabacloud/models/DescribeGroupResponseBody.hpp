@@ -128,9 +128,13 @@ namespace Models
 
 
     protected:
+      // The total number of devices in the group.
       shared_ptr<int64_t> deviceNum_ {};
+      // The number of intelligent electronic devices (IEDs) in the group.
       shared_ptr<int64_t> iedNum_ {};
+      // The number of cameras in the group.
       shared_ptr<int64_t> ipcNum_ {};
+      // The number of platforms in the group.
       shared_ptr<int64_t> platformNum_ {};
     };
 
@@ -301,27 +305,71 @@ namespace Models
 
 
   protected:
+    // Alias for the space ID.
     shared_ptr<string> aliasId_ {};
+    // The name of the application used by the group.
     shared_ptr<string> app_ {};
+    // The callback URL that is used to receive device status updates in the group.
     shared_ptr<string> callback_ {};
+    // The time when the group was created.
     shared_ptr<string> createdTime_ {};
+    // A description of the group.
     shared_ptr<string> description_ {};
+    // Indicates whether the group is enabled.
     shared_ptr<bool> enabled_ {};
+    // The GB/T 28181 ID that is associated with the group.
+    // 
+    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
     shared_ptr<string> gbId_ {};
+    // The IP address of the GB/T 28181 signaling server that is associated with the group.
+    // 
+    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
     shared_ptr<string> gbIp_ {};
+    // The port of the GB/T 28181 signaling server that is associated with the group.
+    // 
+    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
     shared_ptr<int64_t> gbPort_ {};
+    // The TCP ports of the GB/T 28181 signaling server that are provided by the group.
+    // 
+    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
     shared_ptr<vector<string>> gbTcpPorts_ {};
+    // The UDP ports of the GB/T 28181 signaling server that are provided by the group.
+    // 
+    // > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
     shared_ptr<vector<string>> gbUdpPorts_ {};
+    // The ID of the space.
     shared_ptr<string> id_ {};
+    // The ingest protocol used by the group. Valid values:
+    // 
+    // - gb28181
+    // 
+    // - rtmp
     shared_ptr<string> inProtocol_ {};
+    // Indicates whether on-demand stream pulling is enabled.
     shared_ptr<bool> lazyPull_ {};
+    // The name of the space.
     shared_ptr<string> name_ {};
+    // The streaming protocol used by the group. Valid values:
+    // 
+    // - flv
+    // 
+    // - hls
+    // 
+    // - rtmp
+    // 
+    // > You can specify multiple protocols. Separate them with commas (,).
     shared_ptr<string> outProtocol_ {};
+    // The streaming domain used by the group.
     shared_ptr<string> playDomain_ {};
+    // The ingest domain used by the group.
     shared_ptr<string> pushDomain_ {};
+    // The region where the space is located, which is the service center.
     shared_ptr<string> region_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The statistics of devices in the group.
     shared_ptr<DescribeGroupResponseBody::Stats> stats_ {};
+    // The status of the group.
     shared_ptr<string> status_ {};
   };
 

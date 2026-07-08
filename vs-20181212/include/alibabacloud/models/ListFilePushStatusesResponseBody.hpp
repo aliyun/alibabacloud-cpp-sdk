@@ -122,12 +122,27 @@ namespace Models
 
 
     protected:
+      // The file ID.
       shared_ptr<string> fileId_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The scheduled push start time.
       shared_ptr<string> pushTime_ {};
+      // The cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
+      // The file push status. Valid values:
+      // 
+      // 1. Created
+      // 
+      // 2. Doing
+      // 
+      // 3. Success: desired state
+      // 
+      // 4. Failed: desired state
       shared_ptr<string> status_ {};
+      // The status description.
       shared_ptr<string> statusDescription_ {};
+      // The latest update time of the status.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -171,10 +186,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned results.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page in a paged query.
     shared_ptr<int64_t> pageSize_ {};
+    // The list of file push status records.
     shared_ptr<vector<ListFilePushStatusesResponseBody::PushStatuses>> pushStatuses_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching file push records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

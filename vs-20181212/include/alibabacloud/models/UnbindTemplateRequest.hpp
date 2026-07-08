@@ -75,12 +75,26 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The type of the instance. Valid values:
+    // 
+    // - group
+    // 
+    // - stream
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the template.
     shared_ptr<string> templateId_ {};
+    // The type of the template. Valid values:
+    // 
+    // - record
+    // 
+    // - snapshot
     shared_ptr<string> templateType_ {};
   };
 

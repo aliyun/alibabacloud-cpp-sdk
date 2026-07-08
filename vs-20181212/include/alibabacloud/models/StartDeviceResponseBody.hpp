@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Device ID.
     shared_ptr<string> id_ {};
+    // Request ID for this task.
     shared_ptr<string> requestId_ {};
   };
 

@@ -89,7 +89,9 @@ namespace Models
     protected:
       shared_ptr<string> authKey_ {};
       shared_ptr<string> authType_ {};
+      // Your ingest domain.
       shared_ptr<string> domainName_ {};
+      // Webhook address.
       shared_ptr<string> notifyUrl_ {};
     };
 
@@ -112,7 +114,9 @@ namespace Models
 
 
   protected:
+    // Configuration information.
     shared_ptr<DescribeVsStreamsNotifyUrlConfigResponseBody::LiveStreamsNotifyConfig> liveStreamsNotifyConfig_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

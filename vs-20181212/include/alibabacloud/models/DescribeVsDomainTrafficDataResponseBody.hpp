@@ -162,10 +162,15 @@ namespace Models
 
 
   protected:
+    // The time interval, in seconds.
     shared_ptr<string> dataInterval_ {};
+    // The domain name of the Visual Edge Computing Service.
     shared_ptr<string> domainName_ {};
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The request ID for this task.
     shared_ptr<string> requestId_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeVsDomainTrafficDataResponseBody::TrafficDataPerInterval> trafficDataPerInterval_ {};
   };

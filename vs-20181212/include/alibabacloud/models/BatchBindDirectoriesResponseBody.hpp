@@ -79,8 +79,13 @@ namespace Models
 
 
     protected:
+      // Device ID.
       shared_ptr<string> deviceId_ {};
+      // Directory ID.
       shared_ptr<string> directoryId_ {};
+      // Error message for the binding.
+      // 
+      // > Appears only if an error occurs.
       shared_ptr<string> error_ {};
     };
 
@@ -103,7 +108,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Results list.
     shared_ptr<vector<BatchBindDirectoriesResponseBody::Results>> results_ {};
   };
 

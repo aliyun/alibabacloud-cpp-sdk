@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // Space ID
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};

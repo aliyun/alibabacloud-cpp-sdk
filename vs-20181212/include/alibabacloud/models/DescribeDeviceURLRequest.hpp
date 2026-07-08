@@ -104,13 +104,33 @@ namespace Models
 
   protected:
     shared_ptr<bool> auth_ {};
+    // Authentication validity period, in seconds.
     shared_ptr<int64_t> expire_ {};
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Stream mode. Valid values:
+    // 
+    // - play
+    // 
+    // - push
     shared_ptr<string> mode_ {};
+    // Stream protocol. Valid values:
+    // 
+    // - rtmp
+    // 
+    // - flv
+    // 
+    // - hls
+    // 
+    // > When Mode is set to push, only rtmp is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> outProtocol_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Stream name.
+    // 
     // This parameter is required.
     shared_ptr<string> stream_ {};
     shared_ptr<string> type_ {};

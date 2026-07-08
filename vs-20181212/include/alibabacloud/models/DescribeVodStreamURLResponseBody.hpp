@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // 流播放协议
     shared_ptr<string> outProtocol_ {};
+    // 流播放端口
     shared_ptr<int64_t> port_ {};
+    // 该条任务请求ID。
     shared_ptr<string> requestId_ {};
+    // 流播放URL
     shared_ptr<string> url_ {};
   };
 

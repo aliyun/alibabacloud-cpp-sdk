@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the stream.
     shared_ptr<string> id_ {};
+    // The request ID of this operation.
     shared_ptr<string> requestId_ {};
   };
 

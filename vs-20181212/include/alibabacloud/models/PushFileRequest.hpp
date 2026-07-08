@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // File ID
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // Cloud application service instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> renderingInstanceId_ {};
   };

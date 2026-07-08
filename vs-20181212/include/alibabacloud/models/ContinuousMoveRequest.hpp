@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
+    // Device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Pan speed. A positive value moves the camera left.<br>
+    // Valid values: -1.0 to 1.0<br>
     shared_ptr<string> pan_ {};
+    // Tilt speed. A positive value moves the camera up.<br>
+    // Valid values: -1.0 to 1.0<br>
     shared_ptr<string> tilt_ {};
+    // Zoom speed. A positive value zooms in.<br>
+    // Valid values: -1.0 to 1.0<br>
     shared_ptr<string> zoom_ {};
   };
 

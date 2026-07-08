@@ -94,12 +94,20 @@ namespace Models
 
 
   protected:
+    // Query by the GB ID of the parent platform.
     shared_ptr<string> gbId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Page number. Default value is 1.
     shared_ptr<int64_t> pageNum_ {};
+    // Page size. Default value is 20.
     shared_ptr<int64_t> pageSize_ {};
+    // Sort by the specified field. Sorted by id by default.
     shared_ptr<string> sortBy_ {};
+    // Sort order. Ascending by default. Valid values:
+    // - asc (ascending)
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
+    // Query by the status of the parent platform.
     shared_ptr<string> status_ {};
   };
 

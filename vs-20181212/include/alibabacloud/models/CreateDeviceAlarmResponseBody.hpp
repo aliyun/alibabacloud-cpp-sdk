@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // 下次相同告警的最小间隔。（单位：秒）
     shared_ptr<int64_t> alarmDelay_ {};
+    // 告警ID。
     shared_ptr<string> alarmId_ {};
+    // URL的过期时长。（单位：秒）
     shared_ptr<int64_t> expire_ {};
+    // 请求ID。
     shared_ptr<string> requestId_ {};
+    // 媒体上传的URL，可使用PUT上传。
     shared_ptr<string> url_ {};
   };
 

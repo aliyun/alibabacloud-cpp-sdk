@@ -121,15 +121,27 @@ namespace Models
 
 
   protected:
+    // Cloud application ID. Each ID maps to a unique application package.
     shared_ptr<string> appId_ {};
+    // Application name.
     shared_ptr<string> appName_ {};
+    // Application version.
     shared_ptr<string> appVersion_ {};
+    // Time range filter. Use ISO 8601 format and UTC time, such as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // Page number of the returned list. Minimum value: 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // Number of entries per page for paged queries. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // Patch package ID. Supported only in Windows scenarios.
+    // 
+    // 1. Set to origin to return only original versions.
     shared_ptr<string> patchId_ {};
+    // Project ID.
     shared_ptr<string> projectId_ {};
+    // Cloud application service instance ID. Use this to list installations on a specific instance.
     shared_ptr<string> renderingInstanceId_ {};
+    // Start time of the time range filter. Specify in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

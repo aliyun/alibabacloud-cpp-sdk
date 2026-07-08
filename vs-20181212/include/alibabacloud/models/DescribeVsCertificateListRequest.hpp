@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // Domain name.
     shared_ptr<string> domainName_ {};
     shared_ptr<int64_t> ownerId_ {};
   };

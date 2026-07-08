@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The device ID. Separate multiple values with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // The folder ID.
+    // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
     shared_ptr<int64_t> ownerId_ {};

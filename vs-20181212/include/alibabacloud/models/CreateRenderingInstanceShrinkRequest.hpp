@@ -121,16 +121,75 @@ namespace Models
 
 
   protected:
+    // > Unless you have specific requirements, keep the default values. For customers with special requirements, fill in the relevant parameters after communication and confirmation.
+    // 
+    // Attribute information.
     shared_ptr<string> attributesShrink_ {};
+    // > This value is valid only when `InstanceChargeType` is `PrePaid` (subscription).
+    // 
+    // Enable or disable auto-renewal. Values:
+    // 
+    // - **true**: Enable.
+    // 
+    // - **false**: Disable.
     shared_ptr<bool> autoRenew_ {};
+    // Client information.
     shared_ptr<string> clientInfoShrink_ {};
+    // > This value is valid only when `InstanceChargeType` is `PostPaid` (pay-as-you-go).
+    // 
+    // Billing type. Valid values:
+    // 
+    // - Hour: Hourly.
     shared_ptr<string> instanceBillingCycle_ {};
+    // The billing method for the instance. Valid values:
+    // 
+    // - PrePaid (default): Subscription.
+    // 
+    // - PostPaid: Pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
+    // > Only one billing method is allowed. If a billing method already exists, the new value is invalid by default, and the existing one prevails. Note that this field is required when a user makes the first purchase.
+    // 
+    // Network billing type. Value:
+    // 
+    // - 95BandwidthByMonth: Monthly 95th percentile bandwidth.
     shared_ptr<string> internetChargeType_ {};
+    // Maximum bandwidth, in Mbps. Default is 10.
     shared_ptr<int64_t> internetMaxBandwidth_ {};
+    // > This value is valid only when `InstanceChargeType` is `PrePaid` (subscription).
+    // 
+    // The subscription period. Valid values (Note: 12 is converted to one year; other values are in months):
+    // 
+    // - 1 (default)
+    // 
+    // - 2
+    // 
+    // - 3
+    // 
+    // - 4
+    // 
+    // - 5
+    // 
+    // - 6
+    // 
+    // - 7
+    // 
+    // - 8
+    // 
+    // - 9
+    // 
+    // - 12
     shared_ptr<string> period_ {};
+    // Cloud application service instance specifications.
+    // 
+    // - For crs.cp.\\* series specifications, choose between subscription or pay-as-you-go billing.
+    // 
+    // - For crs.vm.\\* series specifications, choose between subscription or pay-as-you-go billing.
+    // 
+    // - For other series, only subscription billing is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> renderingSpec_ {};
+    // The cloud storage capacity used by the cloud application service instance (Note: not local storage).
     shared_ptr<string> storageSize_ {};
   };
 

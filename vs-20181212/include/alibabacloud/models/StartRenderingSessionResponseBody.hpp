@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // State description
       shared_ptr<string> comment_ {};
+      // Session state
       shared_ptr<string> state_ {};
+      // Last update time of the state
       shared_ptr<string> updateTime_ {};
     };
 
@@ -134,7 +137,9 @@ namespace Models
 
 
     protected:
+      // External port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
       shared_ptr<string> externalPort_ {};
+      // Internal port or port range. Ports correspond one-to-one with external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
       shared_ptr<string> internalPort_ {};
     };
 
@@ -166,6 +171,7 @@ namespace Models
 
 
     protected:
+      // Province code of the cloud application service instance
       shared_ptr<string> provinceCode_ {};
     };
 
@@ -235,13 +241,21 @@ namespace Models
 
 
   protected:
+    // Instance hostname. By default, this is the EIP used for access.
     shared_ptr<string> hostname_ {};
+    // Is this a repeated request
     shared_ptr<bool> isRepeatedRequest_ {};
+    // Cloud application service instance location information
     shared_ptr<StartRenderingSessionResponseBody::Location> location_ {};
+    // Port mapping information
     shared_ptr<vector<StartRenderingSessionResponseBody::PortMappings>> portMappings_ {};
+    // Cloud application service instance ID
     shared_ptr<string> renderingInstanceId_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Session ID
     shared_ptr<string> sessionId_ {};
+    // Session state information
     shared_ptr<StartRenderingSessionResponseBody::StateInfo> stateInfo_ {};
   };
 

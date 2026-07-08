@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // 校验内容。
     shared_ptr<string> content_ {};
+    // 请求ID。
     shared_ptr<string> requestId_ {};
   };
 

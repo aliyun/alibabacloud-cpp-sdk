@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The project ID. Call ListRenderingProjects to view the project ID.
     shared_ptr<string> projectId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

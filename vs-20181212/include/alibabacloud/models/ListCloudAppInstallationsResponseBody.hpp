@@ -140,14 +140,27 @@ namespace Models
 
 
     protected:
+      // Application ID.
       shared_ptr<string> appId_ {};
+      // Application name.
       shared_ptr<string> appName_ {};
+      // Application version.
       shared_ptr<string> appVersion_ {};
+      // Installation time.
       shared_ptr<string> installationTime_ {};
+      // Patch package ID.
       shared_ptr<string> patchId_ {};
+      // Cloud application service instance ID.
       shared_ptr<string> renderingInstanceId_ {};
+      // Cloud application installation status. Valid values:
+      // 
+      // 1. Intermediate states: install-init, installing
+      // 
+      // 2. Final states: installed, install-failed
       shared_ptr<string> status_ {};
+      // Status description.
       shared_ptr<string> statusDescription_ {};
+      // Time when the status was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -191,10 +204,15 @@ namespace Models
 
 
   protected:
+    // List of installation records.
     shared_ptr<vector<ListCloudAppInstallationsResponseBody::InstallationInfos>> installationInfos_ {};
+    // Page number of the returned list.
     shared_ptr<int64_t> pageNumber_ {};
+    // Number of entries per page for paged queries.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of installation records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

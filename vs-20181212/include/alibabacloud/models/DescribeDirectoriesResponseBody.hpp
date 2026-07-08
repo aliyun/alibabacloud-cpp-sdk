@@ -114,11 +114,17 @@ namespace Models
 
 
     protected:
+      // Directory creation time.
       shared_ptr<string> createdTime_ {};
+      // Directory description.
       shared_ptr<string> description_ {};
+      // ID of the group to which the directory belongs.
       shared_ptr<string> groupId_ {};
+      // Directory ID.
       shared_ptr<string> id_ {};
+      // Directory name.
       shared_ptr<string> name_ {};
+      // Parent directory ID.
       shared_ptr<string> parentId_ {};
     };
 
@@ -169,11 +175,17 @@ namespace Models
 
 
   protected:
+    // List of directories.
     shared_ptr<vector<DescribeDirectoriesResponseBody::Directories>> directories_ {};
+    // Total number of pages.
     shared_ptr<int64_t> pageCount_ {};
+    // Page number.
     shared_ptr<int64_t> pageNum_ {};
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of directories.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // A parameter that specifies the time range to filter by. The time must be in UTC and follow the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // Page number. The first page is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Project ID
     shared_ptr<string> projectId_ {};
+    // Project name
     shared_ptr<string> projectName_ {};
+    // Start time of the time range filter. Use ISO 8601 format in UTC, such as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

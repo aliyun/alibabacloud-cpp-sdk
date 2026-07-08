@@ -131,13 +131,29 @@ namespace Models
 
 
     protected:
+      // File description.
       shared_ptr<string> description_ {};
+      // File ID.
       shared_ptr<string> fileId_ {};
+      // File name.
       shared_ptr<string> fileName_ {};
+      // Upload status. Valid values:
+      // 
+      // 1. Created
+      // 
+      // 2. Doing
+      // 
+      // 3. Success (desired state)
+      // 
+      // 4. Failed (desired state)
       shared_ptr<string> status_ {};
+      // Status description.
       shared_ptr<string> statusDescription_ {};
+      // Destination path for pushing the file to the service instance.
       shared_ptr<string> targetPath_ {};
+      // Most recent status update time.
       shared_ptr<string> updateTime_ {};
+      // Upload start time.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -181,10 +197,15 @@ namespace Models
 
 
   protected:
+    // List of file information.
     shared_ptr<vector<ListFilesResponseBody::Files>> files_ {};
+    // Page number of the list.
     shared_ptr<int64_t> pageNumber_ {};
+    // Number of entries per page for paged queries.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of matching file records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -158,19 +158,37 @@ namespace Models
 
 
   protected:
+    // The application to which the stream belongs.
     shared_ptr<string> app_ {};
+    // The time when the stream was created.
     shared_ptr<string> createdTime_ {};
+    // The ID of the device to which the stream belongs.
     shared_ptr<string> deviceId_ {};
+    // Indicates whether the stream is enabled.
     shared_ptr<bool> enabled_ {};
+    // The ID of the group to which the stream belongs.
     shared_ptr<string> groupId_ {};
+    // The height of the video stream resolution.
     shared_ptr<int32_t> height_ {};
+    // The stream ID.
     shared_ptr<string> id_ {};
+    // The name of the stream.
     shared_ptr<string> name_ {};
+    // The streaming domain to which the stream belongs.
     shared_ptr<string> playDomain_ {};
+    // The protocol of the stream.
     shared_ptr<string> protocol_ {};
+    // The ingest domain to which the stream belongs.
     shared_ptr<string> pushDomain_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the stream. Valid values:
+    // 
+    // - on (online)
+    // 
+    // - off (offline)
     shared_ptr<string> status_ {};
+    // The width of the video stream resolution.
     shared_ptr<int32_t> width_ {};
   };
 

@@ -130,16 +130,40 @@ namespace Models
 
 
   protected:
+    // The space ID.
     shared_ptr<string> id_ {};
+    // Ingest protocol used by the group. Valid values:
+    // 
+    // - gb28181
+    // 
+    // - rtmp
     shared_ptr<string> inProtocol_ {};
+    // Whether to return device statistics for the group. Default: false.
     shared_ptr<bool> includeStats_ {};
+    // Space name.
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Page number. Default: 1.
     shared_ptr<int64_t> pageNum_ {};
+    // Number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The service region where the group is located.
     shared_ptr<string> region_ {};
+    // Field to sort by. Valid values:
+    // 
+    // - Id (default)
     shared_ptr<string> sortBy_ {};
+    // Sort order. Valid values:
+    // 
+    // - asc (ascending, default)
+    // 
+    // - desc (descending)
     shared_ptr<string> sortDirection_ {};
+    // Group status. Valid values:
+    // 
+    // - on (enabled)
+    // 
+    // - off (disabled)
     shared_ptr<string> status_ {};
   };
 
