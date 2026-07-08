@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the image translation task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

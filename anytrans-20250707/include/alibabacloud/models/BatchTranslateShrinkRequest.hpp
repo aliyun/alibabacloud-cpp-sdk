@@ -103,16 +103,28 @@ namespace Models
 
 
   protected:
+    // The name of the calling application.
     shared_ptr<string> appName_ {};
+    // The extended parameters that control translation features.
     shared_ptr<string> extShrink_ {};
+    // The translation format.
     shared_ptr<string> format_ {};
+    // The translation model.
     shared_ptr<string> scene_ {};
+    // The source language.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // The target language.
+    // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
+    // A map of texts to translate, in which the key is a custom identifier and the value is the source text.
+    // 
     // This parameter is required.
     shared_ptr<string> textShrink_ {};
+    // The ID of the Model Studio workspace used for this request.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

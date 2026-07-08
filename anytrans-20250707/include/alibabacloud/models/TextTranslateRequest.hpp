@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // Convert to lowercase
         shared_ptr<bool> toLower_ {};
+        // First letter capitalized
         shared_ptr<bool> toTitle_ {};
+        // Convert to uppercase
         shared_ptr<bool> toUpper_ {};
       };
 
@@ -169,7 +172,9 @@ namespace Models
 
 
       protected:
+        // Source text
         shared_ptr<string> src_ {};
+        // Target text
         shared_ptr<string> tgt_ {};
       };
 
@@ -211,7 +216,9 @@ namespace Models
 
 
       protected:
+        // Source text
         shared_ptr<string> src_ {};
+        // Target text
         shared_ptr<string> tgt_ {};
       };
 
@@ -243,6 +250,7 @@ namespace Models
 
 
       protected:
+        // Whether to skip the Green Web check. (To use this option, you must first complete the process to disable Green Web before making the API call.)
         shared_ptr<bool> skipCsiCheck_ {};
       };
 
@@ -332,15 +340,24 @@ namespace Models
 
 
     protected:
+      // Expert agent
       shared_ptr<string> agent_ {};
+      // Translation Behavior Control
       shared_ptr<Ext::Config> config_ {};
+      // Domain hint
       shared_ptr<string> domainHint_ {};
+      // List of Translation Examples
       shared_ptr<vector<Ext::Examples>> examples_ {};
       shared_ptr<bool> langDetect_ {};
+      // Extended parameter configuration (bizUserld: A business-level user ID that distinguishes between different business users. It implements "user-based isolation" for terminology intervention so that interventions for one user do not affect others. bizType: A business scenario type or identifier that distinguishes between different scenarios. It implements "scenario-based isolation" for terminology intervention so that interventions for one scenario do not affect others.)
       Darabonba::Json paramMap_ {};
+      // Prefix Configuration
       shared_ptr<string> prefix_ {};
+      // Sensitive word list
       shared_ptr<vector<string>> sensitives_ {};
+      // Translation terminology
       shared_ptr<vector<Ext::Terminologies>> terminologies_ {};
+      // Translated Text Conversion
       shared_ptr<Ext::TextTransform> textTransform_ {};
     };
 
@@ -399,15 +416,26 @@ namespace Models
 
 
   protected:
+    // Extended parameters to control translation behavior
     shared_ptr<TextTranslateRequest::Ext> ext_ {};
+    // text format
     shared_ptr<string> format_ {};
+    // Model type
     shared_ptr<string> scene_ {};
+    // Source language code
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // Target Language Code
+    // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
+    // Text to be translated
+    // 
     // This parameter is required.
     shared_ptr<string> text_ {};
+    // Workspace ID
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

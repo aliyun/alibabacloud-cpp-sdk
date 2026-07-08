@@ -135,8 +135,11 @@ namespace Models
 
 
         protected:
+          // The number of tokens in the source text.
           shared_ptr<int64_t> inputTokens_ {};
+          // The number of tokens in the generated translation.
           shared_ptr<int64_t> outputTokens_ {};
+          // The total number of tokens processed for the translation (the sum of `inputTokens` and `outputTokens`).
           shared_ptr<int64_t> totalTokens_ {};
         };
 
@@ -187,11 +190,17 @@ namespace Models
 
 
       protected:
+        // The status code for the individual translation within the batch.
         shared_ptr<int64_t> code_ {};
+        // The language code of the detected source language.
         shared_ptr<string> detectedLang_ {};
+        // The zero-based index of this result, which corresponds to the order of the source text in the original request.
         shared_ptr<string> index_ {};
+        // The status message for the individual translation.
         shared_ptr<string> message_ {};
+        // The translated text.
         shared_ptr<string> translation_ {};
+        // An object detailing the token usage for this translation.
         shared_ptr<TranslationList::Usage> usage_ {};
       };
 
@@ -206,6 +215,7 @@ namespace Models
 
 
     protected:
+      // An array of translation results, one for each text provided in the request.
       shared_ptr<vector<Data::TranslationList>> translationList_ {};
     };
 
@@ -256,11 +266,17 @@ namespace Models
 
 
   protected:
+    // The status code for the overall API call.
     shared_ptr<string> code_ {};
+    // The response payload that contains the translation results.
     shared_ptr<BatchTranslateResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The unique identifier for the request. Use this ID for tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

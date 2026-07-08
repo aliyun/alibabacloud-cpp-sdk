@@ -84,14 +84,24 @@ namespace Models
 
 
   protected:
+    // Extended parameters.
     shared_ptr<string> extShrink_ {};
+    // The translation model.
+    // 
     // This parameter is required.
     shared_ptr<string> scene_ {};
+    // The source language.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // The target language.
+    // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
+    // The source text to search for intervention terms.
     shared_ptr<string> text_ {};
+    // The ID of the Model Studio workspace used for the request.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

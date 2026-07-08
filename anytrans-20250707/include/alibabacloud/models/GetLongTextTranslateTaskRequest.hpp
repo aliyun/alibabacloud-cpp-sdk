@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The ID of the long-text translation task.
     shared_ptr<string> taskId_ {};
+    // The ID of the Model Studio workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

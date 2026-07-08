@@ -107,8 +107,11 @@ namespace Models
 
 
       protected:
+        // The number of tokens in the input.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of tokens in the output.
         shared_ptr<int64_t> outputTokens_ {};
+        // The total number of tokens for the request.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -131,7 +134,9 @@ namespace Models
 
 
     protected:
+      // Translation Result
       shared_ptr<string> translation_ {};
+      // Details about token usage.
       shared_ptr<Data::Usage> usage_ {};
     };
 
@@ -182,11 +187,17 @@ namespace Models
 
 
   protected:
+    // The operation status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetHtmlTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code returned by the server.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request. Use this ID to trace the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

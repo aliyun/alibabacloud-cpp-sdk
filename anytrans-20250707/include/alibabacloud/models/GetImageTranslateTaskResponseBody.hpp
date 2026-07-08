@@ -190,7 +190,9 @@ namespace Models
 
 
             protected:
+              // The x-coordinate.
               shared_ptr<int64_t> x_ {};
+              // The y-coordinate.
               shared_ptr<int64_t> y_ {};
             };
 
@@ -249,12 +251,19 @@ namespace Models
 
 
           protected:
+            // An array of coordinates defining the cell\\"s bounding box.
             shared_ptr<vector<CellInfos::Pos>> pos_ {};
+            // The cell ID.
             shared_ptr<int64_t> tableCellId_ {};
+            // The text content of the cell.
             shared_ptr<string> text_ {};
+            // The ending column index of the cell. The index starts from 1.
             shared_ptr<int64_t> xec_ {};
+            // The starting column index of the cell. The index starts from 1.
             shared_ptr<int64_t> xsc_ {};
+            // The ending row index of the cell. The index starts from 1.
             shared_ptr<int64_t> yec_ {};
+            // The starting row index of the cell. The index starts from 1.
             shared_ptr<int64_t> ysc_ {};
           };
 
@@ -291,9 +300,13 @@ namespace Models
 
 
         protected:
+          // Information about the cells within the table.
           shared_ptr<vector<TableInfos::CellInfos>> cellInfos_ {};
+          // The ID of the table.
           shared_ptr<int64_t> tableId_ {};
+          // The number of columns in the table.
           shared_ptr<int64_t> xCellSize_ {};
+          // The number of rows in the table.
           shared_ptr<int64_t> yCellSize_ {};
         };
 
@@ -372,7 +385,9 @@ namespace Models
 
 
           protected:
+            // The x-coordinate.
             shared_ptr<int64_t> x_ {};
+            // The y-coordinate.
             shared_ptr<int64_t> y_ {};
           };
 
@@ -414,7 +429,9 @@ namespace Models
 
 
           protected:
+            // The x-coordinate.
             shared_ptr<int64_t> x_ {};
+            // The y-coordinate.
             shared_ptr<int64_t> y_ {};
           };
 
@@ -456,7 +473,9 @@ namespace Models
 
 
           protected:
+            // The x-coordinate.
             shared_ptr<int64_t> x_ {};
+            // The y-coordinate.
             shared_ptr<int64_t> y_ {};
           };
 
@@ -498,7 +517,9 @@ namespace Models
 
 
           protected:
+            // The x-coordinate.
             shared_ptr<int64_t> x_ {};
+            // The y-coordinate.
             shared_ptr<int64_t> y_ {};
           };
 
@@ -586,15 +607,25 @@ namespace Models
 
 
         protected:
+          // The confidence score for the recognized text. The value ranges from 0 (lowest confidence) to 1 (highest confidence).
           shared_ptr<float> confidence_ {};
+          // The text direction. Valid values: `0` (horizontal) and `1` (vertical).
           shared_ptr<int64_t> direction_ {};
+          // The coordinates of the lower-left corner of the bounding box.
           shared_ptr<BoundingBoxes::DownLeft> downLeft_ {};
+          // The coordinates of the lower-right corner of the bounding box.
           shared_ptr<BoundingBoxes::DownRight> downRight_ {};
+          // The cell ID of the bounding box. If the bounding box is not part of a table, the value is `-1`.
           shared_ptr<int64_t> tableCellId_ {};
+          // The ID of the table that contains the bounding box. If the bounding box is not part of a table, the value is `-1`.
           shared_ptr<int64_t> tableId_ {};
+          // The source-language text within the bounding box.
           shared_ptr<string> text_ {};
+          // An object containing the translated text, keyed by the target language code.
           Darabonba::Json translation_ {};
+          // The coordinates of the upper-left corner of the bounding box.
           shared_ptr<BoundingBoxes::UpLeft> upLeft_ {};
+          // The coordinates of the upper-right corner of the bounding box.
           shared_ptr<BoundingBoxes::UpRight> upRight_ {};
         };
 
@@ -662,13 +693,21 @@ namespace Models
 
 
       protected:
+        // The rotation angle of the image in degrees.
         shared_ptr<int64_t> angle_ {};
+        // An array of detected bounding boxes.
         shared_ptr<vector<Translation::BoundingBoxes>> boundingBoxes_ {};
+        // The number of detected bounding boxes.
         shared_ptr<int64_t> boxesCount_ {};
+        // The height of the image after rotation, in pixels.
         shared_ptr<int64_t> height_ {};
+        // The height of the original image, in pixels.
         shared_ptr<int64_t> orgHeight_ {};
+        // The width of the original image, in pixels.
         shared_ptr<int64_t> orgWidth_ {};
+        // Information about tables detected in the image.
         shared_ptr<vector<Translation::TableInfos>> tableInfos_ {};
+        // The width of the image after rotation, in pixels.
         shared_ptr<int64_t> width_ {};
       };
 
@@ -691,7 +730,9 @@ namespace Models
 
 
     protected:
+      // The trace ID.
       shared_ptr<string> traceId_ {};
+      // An object containing the translation result.
       shared_ptr<Data::Translation> translation_ {};
     };
 
@@ -750,12 +791,19 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // A JSON object that contains the returned data.
     shared_ptr<GetImageTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID, used to trace the API call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
+    // Indicates whether the request is synchronous.
     shared_ptr<bool> synchro_ {};
   };
 

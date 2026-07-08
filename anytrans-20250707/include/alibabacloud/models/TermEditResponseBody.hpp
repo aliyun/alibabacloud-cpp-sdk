@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The source text.
         shared_ptr<string> src_ {};
+        // The term ID.
         shared_ptr<string> termId_ {};
+        // The target text.
         shared_ptr<string> tgt_ {};
       };
 
@@ -132,7 +135,9 @@ namespace Models
 
 
     protected:
+      // The number of items that failed to be processed.
       shared_ptr<int64_t> failCount_ {};
+      // An array of intervention term objects.
       shared_ptr<vector<Data::Terms>> terms_ {};
     };
 
@@ -183,11 +188,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<TermEditResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call is successful.
     shared_ptr<bool> success_ {};
   };
 

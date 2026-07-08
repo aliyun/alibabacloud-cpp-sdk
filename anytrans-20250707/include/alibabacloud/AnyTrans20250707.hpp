@@ -21,7 +21,7 @@ namespace AnyTrans20250707
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 通义多模态翻译批量翻译
+       * @summary Tongyi Multimodal Translation: Batch Translation
        *
        * @param tmpReq BatchTranslateRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace AnyTrans20250707
       Models::BatchTranslateResponse batchTranslateWithOptions(const Models::BatchTranslateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译批量翻译
+       * @summary Tongyi Multimodal Translation: Batch Translation
        *
        * @param request BatchTranslateRequest
        * @return BatchTranslateResponse
@@ -57,7 +57,9 @@ namespace AnyTrans20250707
       Models::BatchTranslateForHtmlResponse batchTranslateForHtml(const Models::BatchTranslateForHtmlRequest &request);
 
       /**
-       * @summary 通义多模态翻译获文档翻译任务
+       * @summary Gets the results of a document translation task from Tongyi Multimodal Translation.
+       *
+       * @description Gets the results of a document translation task.
        *
        * @param request GetDocTranslateTaskRequest
        * @param headers map
@@ -67,7 +69,9 @@ namespace AnyTrans20250707
       Models::GetDocTranslateTaskResponse getDocTranslateTaskWithOptions(const Models::GetDocTranslateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译获文档翻译任务
+       * @summary Gets the results of a document translation task from Tongyi Multimodal Translation.
+       *
+       * @description Gets the results of a document translation task.
        *
        * @param request GetDocTranslateTaskRequest
        * @return GetDocTranslateTaskResponse
@@ -75,7 +79,7 @@ namespace AnyTrans20250707
       Models::GetDocTranslateTaskResponse getDocTranslateTask(const Models::GetDocTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译获取html翻译结果
+       * @summary Retrieves the result of an HTML translation task from Tongyi Multimodal Translation.
        *
        * @param request GetHtmlTranslateTaskRequest
        * @param headers map
@@ -85,7 +89,7 @@ namespace AnyTrans20250707
       Models::GetHtmlTranslateTaskResponse getHtmlTranslateTaskWithOptions(const Models::GetHtmlTranslateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译获取html翻译结果
+       * @summary Retrieves the result of an HTML translation task from Tongyi Multimodal Translation.
        *
        * @param request GetHtmlTranslateTaskRequest
        * @return GetHtmlTranslateTaskResponse
@@ -93,7 +97,7 @@ namespace AnyTrans20250707
       Models::GetHtmlTranslateTaskResponse getHtmlTranslateTask(const Models::GetHtmlTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译获取图片翻译任务
+       * @summary Tongyi Multimodal Translation: Getting image translation results
        *
        * @param request GetImageTranslateTaskRequest
        * @param headers map
@@ -103,7 +107,7 @@ namespace AnyTrans20250707
       Models::GetImageTranslateTaskResponse getImageTranslateTaskWithOptions(const Models::GetImageTranslateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译获取图片翻译任务
+       * @summary Tongyi Multimodal Translation: Getting image translation results
        *
        * @param request GetImageTranslateTaskRequest
        * @return GetImageTranslateTaskResponse
@@ -111,7 +115,7 @@ namespace AnyTrans20250707
       Models::GetImageTranslateTaskResponse getImageTranslateTask(const Models::GetImageTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译获取长文翻译结果
+       * @summary Get document translations from Tongyi Multimodal Translation.
        *
        * @param request GetLongTextTranslateTaskRequest
        * @param headers map
@@ -121,7 +125,7 @@ namespace AnyTrans20250707
       Models::GetLongTextTranslateTaskResponse getLongTextTranslateTaskWithOptions(const Models::GetLongTextTranslateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译获取长文翻译结果
+       * @summary Get document translations from Tongyi Multimodal Translation.
        *
        * @param request GetLongTextTranslateTaskRequest
        * @return GetLongTextTranslateTaskResponse
@@ -129,7 +133,7 @@ namespace AnyTrans20250707
       Models::GetLongTextTranslateTaskResponse getLongTextTranslateTask(const Models::GetLongTextTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译提交文档翻译任务
+       * @summary Submit a document translation task to Tongyi Multimodal Translation.
        *
        * @param tmpReq SubmitDocTranslateTaskRequest
        * @param headers map
@@ -139,7 +143,7 @@ namespace AnyTrans20250707
       Models::SubmitDocTranslateTaskResponse submitDocTranslateTaskWithOptions(const Models::SubmitDocTranslateTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译提交文档翻译任务
+       * @summary Submit a document translation task to Tongyi Multimodal Translation.
        *
        * @param request SubmitDocTranslateTaskRequest
        * @return SubmitDocTranslateTaskResponse
@@ -147,7 +151,7 @@ namespace AnyTrans20250707
       Models::SubmitDocTranslateTaskResponse submitDocTranslateTask(const Models::SubmitDocTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译提交html翻译任务
+       * @summary Submitting an HTML translation task with Tongyi Multimodal Translation
        *
        * @param tmpReq SubmitHtmlTranslateTaskRequest
        * @param headers map
@@ -157,7 +161,7 @@ namespace AnyTrans20250707
       Models::SubmitHtmlTranslateTaskResponse submitHtmlTranslateTaskWithOptions(const Models::SubmitHtmlTranslateTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译提交html翻译任务
+       * @summary Submitting an HTML translation task with Tongyi Multimodal Translation
        *
        * @param request SubmitHtmlTranslateTaskRequest
        * @return SubmitHtmlTranslateTaskResponse
@@ -165,7 +169,7 @@ namespace AnyTrans20250707
       Models::SubmitHtmlTranslateTaskResponse submitHtmlTranslateTask(const Models::SubmitHtmlTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译提交图片翻译任务
+       * @summary Use Tongyi multimodal translation to submit an image for translation.
        *
        * @param tmpReq SubmitImageTranslateTaskRequest
        * @param headers map
@@ -175,7 +179,7 @@ namespace AnyTrans20250707
       Models::SubmitImageTranslateTaskResponse submitImageTranslateTaskWithOptions(const Models::SubmitImageTranslateTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译提交图片翻译任务
+       * @summary Use Tongyi multimodal translation to submit an image for translation.
        *
        * @param request SubmitImageTranslateTaskRequest
        * @return SubmitImageTranslateTaskResponse
@@ -183,7 +187,7 @@ namespace AnyTrans20250707
       Models::SubmitImageTranslateTaskResponse submitImageTranslateTask(const Models::SubmitImageTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译提交长文翻译任务
+       * @summary Submitting a long text translation task using Translate Multimodal.
        *
        * @param tmpReq SubmitLongTextTranslateTaskRequest
        * @param headers map
@@ -193,7 +197,7 @@ namespace AnyTrans20250707
       Models::SubmitLongTextTranslateTaskResponse submitLongTextTranslateTaskWithOptions(const Models::SubmitLongTextTranslateTaskRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译提交长文翻译任务
+       * @summary Submitting a long text translation task using Translate Multimodal.
        *
        * @param request SubmitLongTextTranslateTaskRequest
        * @return SubmitLongTextTranslateTaskResponse
@@ -201,7 +205,7 @@ namespace AnyTrans20250707
       Models::SubmitLongTextTranslateTaskResponse submitLongTextTranslateTask(const Models::SubmitLongTextTranslateTaskRequest &request);
 
       /**
-       * @summary 通义多模态翻译术语编辑
+       * @summary Editing the Tongyi Multimodal Translation termbase
        *
        * @param tmpReq TermEditRequest
        * @param headers map
@@ -211,7 +215,7 @@ namespace AnyTrans20250707
       Models::TermEditResponse termEditWithOptions(const Models::TermEditRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译术语编辑
+       * @summary Editing the Tongyi Multimodal Translation termbase
        *
        * @param request TermEditRequest
        * @return TermEditResponse
@@ -219,7 +223,7 @@ namespace AnyTrans20250707
       Models::TermEditResponse termEdit(const Models::TermEditRequest &request);
 
       /**
-       * @summary 通义多模态翻译术语查询
+       * @summary Queries the Tongyi Multimodal Translation termbase for intervention terms.
        *
        * @param tmpReq TermQueryRequest
        * @param headers map
@@ -229,7 +233,7 @@ namespace AnyTrans20250707
       Models::TermQueryResponse termQueryWithOptions(const Models::TermQueryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译术语查询
+       * @summary Queries the Tongyi Multimodal Translation termbase for intervention terms.
        *
        * @param request TermQueryRequest
        * @return TermQueryResponse
@@ -237,7 +241,7 @@ namespace AnyTrans20250707
       Models::TermQueryResponse termQuery(const Models::TermQueryRequest &request);
 
       /**
-       * @summary 通义多模态翻译文本翻译
+       * @summary Tongyi Multimodal Translation: Text Translation
        *
        * @param tmpReq TextTranslateRequest
        * @param headers map
@@ -247,7 +251,7 @@ namespace AnyTrans20250707
       Models::TextTranslateResponse textTranslateWithOptions(const Models::TextTranslateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通义多模态翻译文本翻译
+       * @summary Tongyi Multimodal Translation: Text Translation
        *
        * @param request TextTranslateRequest
        * @return TextTranslateResponse

@@ -17,7 +17,10 @@ namespace AnyTrans20250707
 {
 
 AlibabaCloud::AnyTrans20250707::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "anytrans.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("anytrans", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +39,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 通义多模态翻译批量翻译
+ * @summary Tongyi Multimodal Translation: Batch Translation
  *
  * @param tmpReq BatchTranslateRequest
  * @param headers map
@@ -107,7 +110,7 @@ BatchTranslateResponse Client::batchTranslateWithOptions(const BatchTranslateReq
 }
 
 /**
- * @summary 通义多模态翻译批量翻译
+ * @summary Tongyi Multimodal Translation: Batch Translation
  *
  * @param request BatchTranslateRequest
  * @return BatchTranslateResponse
@@ -202,7 +205,9 @@ BatchTranslateForHtmlResponse Client::batchTranslateForHtml(const BatchTranslate
 }
 
 /**
- * @summary 通义多模态翻译获文档翻译任务
+ * @summary Gets the results of a document translation task from Tongyi Multimodal Translation.
+ *
+ * @description Gets the results of a document translation task.
  *
  * @param request GetDocTranslateTaskRequest
  * @param headers map
@@ -239,7 +244,9 @@ GetDocTranslateTaskResponse Client::getDocTranslateTaskWithOptions(const GetDocT
 }
 
 /**
- * @summary 通义多模态翻译获文档翻译任务
+ * @summary Gets the results of a document translation task from Tongyi Multimodal Translation.
+ *
+ * @description Gets the results of a document translation task.
  *
  * @param request GetDocTranslateTaskRequest
  * @return GetDocTranslateTaskResponse
@@ -251,7 +258,7 @@ GetDocTranslateTaskResponse Client::getDocTranslateTask(const GetDocTranslateTas
 }
 
 /**
- * @summary 通义多模态翻译获取html翻译结果
+ * @summary Retrieves the result of an HTML translation task from Tongyi Multimodal Translation.
  *
  * @param request GetHtmlTranslateTaskRequest
  * @param headers map
@@ -288,7 +295,7 @@ GetHtmlTranslateTaskResponse Client::getHtmlTranslateTaskWithOptions(const GetHt
 }
 
 /**
- * @summary 通义多模态翻译获取html翻译结果
+ * @summary Retrieves the result of an HTML translation task from Tongyi Multimodal Translation.
  *
  * @param request GetHtmlTranslateTaskRequest
  * @return GetHtmlTranslateTaskResponse
@@ -300,7 +307,7 @@ GetHtmlTranslateTaskResponse Client::getHtmlTranslateTask(const GetHtmlTranslate
 }
 
 /**
- * @summary 通义多模态翻译获取图片翻译任务
+ * @summary Tongyi Multimodal Translation: Getting image translation results
  *
  * @param request GetImageTranslateTaskRequest
  * @param headers map
@@ -337,7 +344,7 @@ GetImageTranslateTaskResponse Client::getImageTranslateTaskWithOptions(const Get
 }
 
 /**
- * @summary 通义多模态翻译获取图片翻译任务
+ * @summary Tongyi Multimodal Translation: Getting image translation results
  *
  * @param request GetImageTranslateTaskRequest
  * @return GetImageTranslateTaskResponse
@@ -349,7 +356,7 @@ GetImageTranslateTaskResponse Client::getImageTranslateTask(const GetImageTransl
 }
 
 /**
- * @summary 通义多模态翻译获取长文翻译结果
+ * @summary Get document translations from Tongyi Multimodal Translation.
  *
  * @param request GetLongTextTranslateTaskRequest
  * @param headers map
@@ -386,7 +393,7 @@ GetLongTextTranslateTaskResponse Client::getLongTextTranslateTaskWithOptions(con
 }
 
 /**
- * @summary 通义多模态翻译获取长文翻译结果
+ * @summary Get document translations from Tongyi Multimodal Translation.
  *
  * @param request GetLongTextTranslateTaskRequest
  * @return GetLongTextTranslateTaskResponse
@@ -398,7 +405,7 @@ GetLongTextTranslateTaskResponse Client::getLongTextTranslateTask(const GetLongT
 }
 
 /**
- * @summary 通义多模态翻译提交文档翻译任务
+ * @summary Submit a document translation task to Tongyi Multimodal Translation.
  *
  * @param tmpReq SubmitDocTranslateTaskRequest
  * @param headers map
@@ -461,7 +468,7 @@ SubmitDocTranslateTaskResponse Client::submitDocTranslateTaskWithOptions(const S
 }
 
 /**
- * @summary 通义多模态翻译提交文档翻译任务
+ * @summary Submit a document translation task to Tongyi Multimodal Translation.
  *
  * @param request SubmitDocTranslateTaskRequest
  * @return SubmitDocTranslateTaskResponse
@@ -473,7 +480,7 @@ SubmitDocTranslateTaskResponse Client::submitDocTranslateTask(const SubmitDocTra
 }
 
 /**
- * @summary 通义多模态翻译提交html翻译任务
+ * @summary Submitting an HTML translation task with Tongyi Multimodal Translation
  *
  * @param tmpReq SubmitHtmlTranslateTaskRequest
  * @param headers map
@@ -536,7 +543,7 @@ SubmitHtmlTranslateTaskResponse Client::submitHtmlTranslateTaskWithOptions(const
 }
 
 /**
- * @summary 通义多模态翻译提交html翻译任务
+ * @summary Submitting an HTML translation task with Tongyi Multimodal Translation
  *
  * @param request SubmitHtmlTranslateTaskRequest
  * @return SubmitHtmlTranslateTaskResponse
@@ -548,7 +555,7 @@ SubmitHtmlTranslateTaskResponse Client::submitHtmlTranslateTask(const SubmitHtml
 }
 
 /**
- * @summary 通义多模态翻译提交图片翻译任务
+ * @summary Use Tongyi multimodal translation to submit an image for translation.
  *
  * @param tmpReq SubmitImageTranslateTaskRequest
  * @param headers map
@@ -615,7 +622,7 @@ SubmitImageTranslateTaskResponse Client::submitImageTranslateTaskWithOptions(con
 }
 
 /**
- * @summary 通义多模态翻译提交图片翻译任务
+ * @summary Use Tongyi multimodal translation to submit an image for translation.
  *
  * @param request SubmitImageTranslateTaskRequest
  * @return SubmitImageTranslateTaskResponse
@@ -627,7 +634,7 @@ SubmitImageTranslateTaskResponse Client::submitImageTranslateTask(const SubmitIm
 }
 
 /**
- * @summary 通义多模态翻译提交长文翻译任务
+ * @summary Submitting a long text translation task using Translate Multimodal.
  *
  * @param tmpReq SubmitLongTextTranslateTaskRequest
  * @param headers map
@@ -690,7 +697,7 @@ SubmitLongTextTranslateTaskResponse Client::submitLongTextTranslateTaskWithOptio
 }
 
 /**
- * @summary 通义多模态翻译提交长文翻译任务
+ * @summary Submitting a long text translation task using Translate Multimodal.
  *
  * @param request SubmitLongTextTranslateTaskRequest
  * @return SubmitLongTextTranslateTaskResponse
@@ -702,7 +709,7 @@ SubmitLongTextTranslateTaskResponse Client::submitLongTextTranslateTask(const Su
 }
 
 /**
- * @summary 通义多模态翻译术语编辑
+ * @summary Editing the Tongyi Multimodal Translation termbase
  *
  * @param tmpReq TermEditRequest
  * @param headers map
@@ -761,7 +768,7 @@ TermEditResponse Client::termEditWithOptions(const TermEditRequest &tmpReq, cons
 }
 
 /**
- * @summary 通义多模态翻译术语编辑
+ * @summary Editing the Tongyi Multimodal Translation termbase
  *
  * @param request TermEditRequest
  * @return TermEditResponse
@@ -773,7 +780,7 @@ TermEditResponse Client::termEdit(const TermEditRequest &request) {
 }
 
 /**
- * @summary 通义多模态翻译术语查询
+ * @summary Queries the Tongyi Multimodal Translation termbase for intervention terms.
  *
  * @param tmpReq TermQueryRequest
  * @param headers map
@@ -832,7 +839,7 @@ TermQueryResponse Client::termQueryWithOptions(const TermQueryRequest &tmpReq, c
 }
 
 /**
- * @summary 通义多模态翻译术语查询
+ * @summary Queries the Tongyi Multimodal Translation termbase for intervention terms.
  *
  * @param request TermQueryRequest
  * @return TermQueryResponse
@@ -844,7 +851,7 @@ TermQueryResponse Client::termQuery(const TermQueryRequest &request) {
 }
 
 /**
- * @summary 通义多模态翻译文本翻译
+ * @summary Tongyi Multimodal Translation: Text Translation
  *
  * @param tmpReq TextTranslateRequest
  * @param headers map
@@ -907,7 +914,7 @@ TextTranslateResponse Client::textTranslateWithOptions(const TextTranslateReques
 }
 
 /**
- * @summary 通义多模态翻译文本翻译
+ * @summary Tongyi Multimodal Translation: Text Translation
  *
  * @param request TextTranslateRequest
  * @return TextTranslateResponse

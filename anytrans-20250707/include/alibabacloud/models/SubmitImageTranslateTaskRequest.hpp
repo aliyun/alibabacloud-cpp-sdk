@@ -120,8 +120,11 @@ namespace Models
 
 
       protected:
+        // Set to `true` to convert the entire translated text to lowercase.
         shared_ptr<bool> toLower_ {};
+        // Set to `true` to convert the entire translated text to title case.
         shared_ptr<bool> toTitle_ {};
+        // Set to `true` to convert the entire translated text to uppercase.
         shared_ptr<bool> toUpper_ {};
       };
 
@@ -163,7 +166,9 @@ namespace Models
 
 
       protected:
+        // The source text.
         shared_ptr<string> src_ {};
+        // The custom translation for the source text.
         shared_ptr<string> tgt_ {};
       };
 
@@ -205,7 +210,9 @@ namespace Models
 
 
       protected:
+        // The source text.
         shared_ptr<string> src_ {};
+        // The target text.
         shared_ptr<string> tgt_ {};
       };
 
@@ -272,12 +279,19 @@ namespace Models
 
 
     protected:
+      // An English string that guides the translation style of the large language model (LLM).
       shared_ptr<string> domainHint_ {};
+      // A list of translation examples.
       shared_ptr<vector<Ext::Examples>> examples_ {};
+      // Parameters for isolating terminology to prevent interference between different users or business scenarios. Use `bizUserId` for user-level isolation and `bizType` for scenario-level isolation.
       Darabonba::Json paramMap_ {};
+      // A list of sensitive words.
       shared_ptr<vector<string>> sensitives_ {};
+      // A list of custom term pairs to apply to the translation.
       shared_ptr<vector<Ext::Terminologies>> terminologies_ {};
+      // Specifies case conversion for the translated text.
       shared_ptr<Ext::TextTransform> textTransform_ {};
+      // User-defined pass-through data that the service returns unmodified in the response. This is typically used for analytics tracking.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -338,16 +352,28 @@ namespace Models
 
 
   protected:
+    // Extended parameters to control translation features.
     shared_ptr<SubmitImageTranslateTaskRequest::Ext> ext_ {};
+    // The translation format.
     shared_ptr<string> format_ {};
+    // Specifies the translation model.
+    // 
     // This parameter is required.
     shared_ptr<string> scene_ {};
+    // The source language.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // A list of target languages.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> targetLanguage_ {};
+    // The URL of the image to translate.
+    // 
     // This parameter is required.
     shared_ptr<string> text_ {};
+    // The ID of the Model Studio workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

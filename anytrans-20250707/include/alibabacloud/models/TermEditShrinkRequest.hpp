@@ -84,16 +84,28 @@ namespace Models
 
 
   protected:
+    // The action type.
+    // 
     // This parameter is required.
     shared_ptr<string> action_ {};
+    // The extended parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> extShrink_ {};
+    // The model type.
+    // 
     // This parameter is required.
     shared_ptr<string> scene_ {};
+    // The source language. The value must be a valid BCP-47 language code.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // The target language. The value must be a valid BCP-47 language code.
+    // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
+    // The ID of the Model Studio workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The status of the translation task.
       shared_ptr<string> status_ {};
+      // The ID of the image translation task.
       shared_ptr<string> taskId_ {};
+      // User-defined passthrough data returned unmodified in the response, which is useful for tracking purposes.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The response error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<SubmitImageTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID, used for tracing API calls.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

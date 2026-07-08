@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // The source text that the custom translation will replace.
         shared_ptr<string> src_ {};
+        // The custom translation for the corresponding source term.
         shared_ptr<string> tgt_ {};
       };
 
@@ -149,7 +151,9 @@ namespace Models
 
 
       protected:
+        // Specifies whether to generate a bilingual document containing both the source and target text.
         shared_ptr<bool> isBilingual_ {};
+        // Specifies whether to translate images in PDF documents.
         shared_ptr<bool> skipImgTrans_ {};
       };
 
@@ -197,10 +201,15 @@ namespace Models
 
 
     protected:
+      // Configuration settings for the translation job.
       shared_ptr<Ext::Config> config_ {};
+      // A prompt that tailors the translation style to a specific domain.
       shared_ptr<string> domainHint_ {};
+      // A map for advanced configuration. Use `bizUserId` to apply terminologies on a per-user basis and `bizType` to apply them on a per-scenario basis. This prevents terminology conflicts between different users or scenarios.
       Darabonba::Json paramMap_ {};
+      // The glossary to apply to the translation.
       shared_ptr<vector<Ext::Terminologies>> terminologies_ {};
+      // User-defined pass-through data. The service does not process this data and returns it as-is in the response. This is useful for scenarios such as tracking.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -259,15 +268,26 @@ namespace Models
 
 
   protected:
+    // Extension parameters that control translation features.
     shared_ptr<SubmitDocTranslateTaskRequest::Ext> ext_ {};
+    // The format for the translation.
     shared_ptr<string> format_ {};
+    // The translation model.
+    // 
     // This parameter is required.
     shared_ptr<string> scene_ {};
+    // The source language code.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // The target language code.
     shared_ptr<string> targetLanguage_ {};
+    // The URL of the document to translate.
+    // 
     // This parameter is required.
     shared_ptr<string> text_ {};
+    // The ID of the Model Studio workspace for the current request.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

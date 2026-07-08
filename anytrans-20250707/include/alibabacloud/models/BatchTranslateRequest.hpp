@@ -124,8 +124,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to convert the entire translated text to lowercase.
         shared_ptr<bool> toLower_ {};
+        // Specifies whether to convert the entire translated text to title case.
         shared_ptr<bool> toTitle_ {};
+        // Specifies whether to convert the entire translated text to uppercase.
         shared_ptr<bool> toUpper_ {};
       };
 
@@ -167,7 +170,9 @@ namespace Models
 
 
       protected:
+        // The source text to be overridden.
         shared_ptr<string> src_ {};
+        // The target text to use for the override.
         shared_ptr<string> tgt_ {};
       };
 
@@ -209,7 +214,9 @@ namespace Models
 
 
       protected:
+        // The source text.
         shared_ptr<string> src_ {};
+        // The target text.
         shared_ptr<string> tgt_ {};
       };
 
@@ -241,6 +248,7 @@ namespace Models
 
 
       protected:
+        // Specifies whether to skip the Content Moderation check. To set this to true, you must first complete the required process to disable Content Moderation.
         shared_ptr<bool> skipCsiCheck_ {};
       };
 
@@ -316,13 +324,21 @@ namespace Models
 
 
     protected:
+      // Controls the translation behavior.
       shared_ptr<Ext::Config> config_ {};
+      // A natural language instruction in English that guides the model\\"s translation style.
       shared_ptr<string> domainHint_ {};
+      // A list of translation examples.
       shared_ptr<vector<Ext::Examples>> examples_ {};
+      // Specifies whether to enable automatic detection of the source language. If set to true, the `sourceLanguage` parameter is ignored.
       shared_ptr<bool> langDetect_ {};
+      // Extended parameters for applying custom terminology that is isolated by user or business scenario.
       Darabonba::Json paramMap_ {};
+      // A list of sensitive terms.
       shared_ptr<vector<string>> sensitives_ {};
+      // A list of custom terminology for overriding translations.
       shared_ptr<vector<Ext::Terminologies>> terminologies_ {};
+      // Specifies case transformations for the translated text.
       shared_ptr<Ext::TextTransform> textTransform_ {};
     };
 
@@ -390,16 +406,28 @@ namespace Models
 
 
   protected:
+    // The name of the calling application.
     shared_ptr<string> appName_ {};
+    // The extended parameters that control translation features.
     shared_ptr<BatchTranslateRequest::Ext> ext_ {};
+    // The translation format.
     shared_ptr<string> format_ {};
+    // The translation model.
     shared_ptr<string> scene_ {};
+    // The source language.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
+    // The target language.
+    // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
+    // A map of texts to translate, in which the key is a custom identifier and the value is the source text.
+    // 
     // This parameter is required.
     Darabonba::Json text_ {};
+    // The ID of the Model Studio workspace used for this request.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -122,8 +122,11 @@ namespace Models
 
 
       protected:
+        // Converts the entire translated text to lowercase.
         shared_ptr<bool> toLower_ {};
+        // Converts the translated text to title case.
         shared_ptr<bool> toTitle_ {};
+        // Converts the entire translated text to uppercase.
         shared_ptr<bool> toUpper_ {};
       };
 
@@ -165,7 +168,9 @@ namespace Models
 
 
       protected:
+        // The source text for the terminology pair.
         shared_ptr<string> src_ {};
+        // The target text for the terminology pair.
         shared_ptr<string> tgt_ {};
       };
 
@@ -207,7 +212,9 @@ namespace Models
 
 
       protected:
+        // The source text in the example.
         shared_ptr<string> src_ {};
+        // The target text in the example.
         shared_ptr<string> tgt_ {};
       };
 
@@ -249,7 +256,9 @@ namespace Models
 
 
       protected:
+        // The callback URL for receiving translation results.
         shared_ptr<string> callbackUrl_ {};
+        // Specifies whether to skip the Content Moderation check. To skip this check, you must first complete the Content Moderation disablement process before calling the API.
         shared_ptr<bool> skipCsiCheck_ {};
       };
 
@@ -325,13 +334,21 @@ namespace Models
 
 
     protected:
+      // Provides specific configuration settings for the translation task.
       shared_ptr<Ext::Config> config_ {};
+      // A natural language prompt in English to guide the model\\"s translation style.
       shared_ptr<string> domainHint_ {};
+      // A list of translation examples.
       shared_ptr<vector<Ext::Examples>> examples_ {};
+      // Provides extended parameter configuration. The `bizUserId` key specifies the business user ID to isolate custom terminology enforcement by user. The `bizType` key specifies the business scenario type to isolate custom terminology enforcement by scenario.
       Darabonba::Json paramMap_ {};
+      // A list of sensitive words to filter from the translation.
       shared_ptr<vector<string>> sensitives_ {};
+      // A list of custom terminology pairs to apply to the translation.
       shared_ptr<vector<Ext::Terminologies>> terminologies_ {};
+      // Specifies case transformations for the translated text.
       shared_ptr<Ext::TextTransform> textTransform_ {};
+      // Custom passthrough data that the service returns unprocessed in the response. Useful for tasks such as event tracking.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -390,12 +407,20 @@ namespace Models
 
 
   protected:
+    // Extended parameters to control translation behavior.
     shared_ptr<SubmitHtmlTranslateTaskRequest::Ext> ext_ {};
+    // The format of the input text.
     shared_ptr<string> format_ {};
+    // The translation model.
     shared_ptr<string> scene_ {};
+    // The source language.
     shared_ptr<string> sourceLanguage_ {};
+    // The target language.
     shared_ptr<string> targetLanguage_ {};
+    // The HTML content to be translated.
     shared_ptr<string> text_ {};
+    // The ID of the Model Studio workspace used for this request.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

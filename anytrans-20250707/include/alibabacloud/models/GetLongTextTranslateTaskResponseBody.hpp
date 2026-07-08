@@ -107,8 +107,11 @@ namespace Models
 
 
       protected:
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
+        // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
       };
 
@@ -131,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The translation result.
       shared_ptr<string> translation_ {};
+      // The token usage.
       shared_ptr<Data::Usage> usage_ {};
     };
 
@@ -182,11 +187,17 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetLongTextTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID, used to trace the API call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

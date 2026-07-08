@@ -94,12 +94,20 @@ namespace Models
 
 
   protected:
+    // A container for extended parameters that control translation features.
     shared_ptr<string> extShrink_ {};
+    // The format of the source text.
     shared_ptr<string> format_ {};
+    // The translation model.
     shared_ptr<string> scene_ {};
+    // The language code of the source language.
     shared_ptr<string> sourceLanguage_ {};
+    // The language code of the target language.
     shared_ptr<string> targetLanguage_ {};
+    // The long source text to translate.
     shared_ptr<string> text_ {};
+    // The ID of the Model Studio workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

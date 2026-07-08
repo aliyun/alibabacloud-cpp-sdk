@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The status of the translation task.
       shared_ptr<string> status_ {};
+      // The ID of the long-text translation task.
       shared_ptr<string> taskId_ {};
+      // A custom string passed from the request to the response unmodified. This is useful for tracking or correlating API calls.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -138,12 +141,17 @@ namespace Models
 
 
   protected:
+    // The result code of the API call.
     shared_ptr<string> code_ {};
+    // The object that contains the returned data.
     shared_ptr<SubmitLongTextTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // A message that corresponds to the code.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The unique ID for the API request, used for tracing.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

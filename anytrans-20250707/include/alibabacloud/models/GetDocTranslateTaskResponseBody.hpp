@@ -104,10 +104,15 @@ namespace Models
 
 
     protected:
+      // The character count.
       shared_ptr<int32_t> charactersCount_ {};
+      // The page count.
       shared_ptr<int32_t> pageCount_ {};
+      // The translation status. Valid values:
       shared_ptr<string> status_ {};
+      // The document translation task ID.
       shared_ptr<string> taskId_ {};
+      // The translation result URL.
       shared_ptr<string> translateFileUrl_ {};
     };
 
@@ -158,11 +163,17 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetDocTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP response code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

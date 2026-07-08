@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The task status.
       shared_ptr<string> status_ {};
+      // The document translation task ID.
       shared_ptr<string> taskId_ {};
+      // User-defined passthrough data. The translation service returns this data without processing it. This is useful for analytics tracking.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<SubmitDocTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID, used to trace the API call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

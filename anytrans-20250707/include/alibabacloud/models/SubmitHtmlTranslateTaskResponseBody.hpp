@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The translation task status.
       shared_ptr<string> status_ {};
+      // The HTML translation task ID.
       shared_ptr<string> taskId_ {};
+      // User-defined tracking data that the service returns as-is. Use this parameter for data tracking.
       shared_ptr<string> trackingData_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<SubmitHtmlTranslateTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID. Use it to trace the API call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 
