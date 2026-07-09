@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetAuthCodeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(AdDomain, adDomain_);
+      DARABONBA_PTR_TO_JSON(AdPassword, adPassword_);
       DARABONBA_PTR_TO_JSON(AutoCreateUser, autoCreateUser_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetAuthCodeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(AdDomain, adDomain_);
+      DARABONBA_PTR_FROM_JSON(AdPassword, adPassword_);
       DARABONBA_PTR_FROM_JSON(AutoCreateUser, autoCreateUser_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountType_ == nullptr
-        && this->adDomain_ == nullptr && this->autoCreateUser_ == nullptr && this->endUserId_ == nullptr && this->externalUserId_ == nullptr && this->policy_ == nullptr
-        && this->tokenType_ == nullptr; };
+        && this->adDomain_ == nullptr && this->adPassword_ == nullptr && this->autoCreateUser_ == nullptr && this->endUserId_ == nullptr && this->externalUserId_ == nullptr
+        && this->policy_ == nullptr && this->tokenType_ == nullptr; };
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteAdDomain() { this->adDomain_ = nullptr;};
     inline string getAdDomain() const { DARABONBA_PTR_GET_DEFAULT(adDomain_, "") };
     inline GetAuthCodeRequest& setAdDomain(string adDomain) { DARABONBA_PTR_SET_VALUE(adDomain_, adDomain) };
+
+
+    // adPassword Field Functions 
+    bool hasAdPassword() const { return this->adPassword_ != nullptr;};
+    void deleteAdPassword() { this->adPassword_ = nullptr;};
+    inline string getAdPassword() const { DARABONBA_PTR_GET_DEFAULT(adPassword_, "") };
+    inline GetAuthCodeRequest& setAdPassword(string adPassword) { DARABONBA_PTR_SET_VALUE(adPassword_, adPassword) };
 
 
     // autoCreateUser Field Functions 
@@ -96,13 +105,14 @@ namespace Models
   protected:
     shared_ptr<string> accountType_ {};
     shared_ptr<string> adDomain_ {};
-    // Specifies whether to synchronously create an EndUserId based on `ExternalUserId`. This parameter takes effect only when `EndUserId` is empty.
+    shared_ptr<string> adPassword_ {};
+    // Specifies whether to synchronously create an EndUserId based on ExternalUserId. This parameter takes effect only when EndUserId is empty.
     shared_ptr<bool> autoCreateUser_ {};
-    // The username of the China Desktop Service (China Desktop Service) convenience account, which is unique within an Alibaba Cloud account. This parameter and `ExternalUserId` cannot both be empty.
+    // The username of the China Desktop Service (China Desktop Service) convenience account. The username must be unique within an Alibaba Cloud account. This parameter and ExternalUserId cannot both be empty.
     shared_ptr<string> endUserId_ {};
-    // The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and `EndUserId` cannot both be empty.
+    // The external user ID. This ID is defined by the caller and must be unique within an Alibaba Cloud account. This parameter and EndUserId cannot both be empty.
     shared_ptr<string> externalUserId_ {};
-    // The access policy that restricts the access permissions of the authorization code. An empty value indicates no restrictions.
+    // The access policy that restricts the access permissions of the authorization code. If this parameter is left empty, no restrictions are applied.
     // 
     // Syntax:
     // 

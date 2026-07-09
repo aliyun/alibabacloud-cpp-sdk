@@ -116,6 +116,10 @@ GetAuthCodeResponse Client::getAuthCodeWithOptions(const GetAuthCodeRequest &req
     body["AdDomain"] = request.getAdDomain();
   }
 
+  if (!!request.hasAdPassword()) {
+    body["AdPassword"] = request.getAdPassword();
+  }
+
   if (!!request.hasAutoCreateUser()) {
     body["AutoCreateUser"] = request.getAutoCreateUser();
   }
