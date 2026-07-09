@@ -48,6 +48,9 @@
 #include <alibabacloud/models/CreateChartRepositoryRequest.hpp>
 #include <alibabacloud/models/CreateChartRepositoryResponseBody.hpp>
 #include <alibabacloud/models/CreateChartRepositoryResponse.hpp>
+#include <alibabacloud/models/CreateInstanceCustomizedDomainRequest.hpp>
+#include <alibabacloud/models/CreateInstanceCustomizedDomainResponseBody.hpp>
+#include <alibabacloud/models/CreateInstanceCustomizedDomainResponse.hpp>
 #include <alibabacloud/models/CreateInstanceEndpointAclPolicyRequest.hpp>
 #include <alibabacloud/models/CreateInstanceEndpointAclPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/CreateInstanceEndpointAclPolicyResponseBody.hpp>
@@ -115,6 +118,9 @@
 #include <alibabacloud/models/DeleteEventCenterRuleRequest.hpp>
 #include <alibabacloud/models/DeleteEventCenterRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteEventCenterRuleResponse.hpp>
+#include <alibabacloud/models/DeleteInstanceCustomizedDomainRequest.hpp>
+#include <alibabacloud/models/DeleteInstanceCustomizedDomainResponseBody.hpp>
+#include <alibabacloud/models/DeleteInstanceCustomizedDomainResponse.hpp>
 #include <alibabacloud/models/DeleteInstanceEndpointAclPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteInstanceEndpointAclPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteInstanceEndpointAclPolicyResponseBody.hpp>
@@ -181,6 +187,9 @@
 #include <alibabacloud/models/GetInstanceResponse.hpp>
 #include <alibabacloud/models/GetInstanceCountResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceCountResponse.hpp>
+#include <alibabacloud/models/GetInstanceCustomizedDomainRequest.hpp>
+#include <alibabacloud/models/GetInstanceCustomizedDomainResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceCustomizedDomainResponse.hpp>
 #include <alibabacloud/models/GetInstanceEndpointRequest.hpp>
 #include <alibabacloud/models/GetInstanceEndpointResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceEndpointResponse.hpp>
@@ -335,6 +344,9 @@
 #include <alibabacloud/models/UpdateEventCenterRuleShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateEventCenterRuleResponseBody.hpp>
 #include <alibabacloud/models/UpdateEventCenterRuleResponse.hpp>
+#include <alibabacloud/models/UpdateInstanceCustomizedDomainRequest.hpp>
+#include <alibabacloud/models/UpdateInstanceCustomizedDomainResponseBody.hpp>
+#include <alibabacloud/models/UpdateInstanceCustomizedDomainResponse.hpp>
 #include <alibabacloud/models/UpdateInstanceEndpointStatusRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceEndpointStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceEndpointStatusResponse.hpp>

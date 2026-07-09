@@ -823,6 +823,64 @@ CreateChartRepositoryResponse Client::createChartRepository(const CreateChartRep
 }
 
 /**
+ * @summary Creates a custom domain name for an instance.
+ *
+ * @param request CreateInstanceCustomizedDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInstanceCustomizedDomainResponse
+ */
+CreateInstanceCustomizedDomainResponse Client::createInstanceCustomizedDomainWithOptions(const CreateInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertId()) {
+    query["CertId"] = request.getCertId();
+  }
+
+  if (!!request.hasCertRegionId()) {
+    query["CertRegionId"] = request.getCertRegionId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModuleName()) {
+    query["ModuleName"] = request.getModuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInstanceCustomizedDomain"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInstanceCustomizedDomainResponse>();
+}
+
+/**
+ * @summary Creates a custom domain name for an instance.
+ *
+ * @param request CreateInstanceCustomizedDomainRequest
+ * @return CreateInstanceCustomizedDomainResponse
+ */
+CreateInstanceCustomizedDomainResponse Client::createInstanceCustomizedDomain(const CreateInstanceCustomizedDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInstanceCustomizedDomainWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a whitelist policy for an instance access endpoint (public network only).
  *
  * @param tmpReq CreateInstanceEndpointAclPolicyRequest
@@ -2117,6 +2175,56 @@ DeleteEventCenterRuleResponse Client::deleteEventCenterRule(const DeleteEventCen
 }
 
 /**
+ * @summary 删除实例自定义域名
+ *
+ * @param request DeleteInstanceCustomizedDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInstanceCustomizedDomainResponse
+ */
+DeleteInstanceCustomizedDomainResponse Client::deleteInstanceCustomizedDomainWithOptions(const DeleteInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModuleName()) {
+    query["ModuleName"] = request.getModuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteInstanceCustomizedDomain"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInstanceCustomizedDomainResponse>();
+}
+
+/**
+ * @summary 删除实例自定义域名
+ *
+ * @param request DeleteInstanceCustomizedDomainRequest
+ * @return DeleteInstanceCustomizedDomainResponse
+ */
+DeleteInstanceCustomizedDomainResponse Client::deleteInstanceCustomizedDomain(const DeleteInstanceCustomizedDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteInstanceCustomizedDomainWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a whitelist policy from the public access endpoint of an instance.
  *
  * @param tmpReq DeleteInstanceEndpointAclPolicyRequest
@@ -3132,6 +3240,52 @@ GetInstanceCountResponse Client::getInstanceCountWithOptions(const Darabonba::Ru
 GetInstanceCountResponse Client::getInstanceCount() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getInstanceCountWithOptions(runtime);
+}
+
+/**
+ * @param request GetInstanceCustomizedDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceCustomizedDomainResponse
+ */
+GetInstanceCustomizedDomainResponse Client::getInstanceCustomizedDomainWithOptions(const GetInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModuleName()) {
+    query["ModuleName"] = request.getModuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceCustomizedDomain"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceCustomizedDomainResponse>();
+}
+
+/**
+ * @param request GetInstanceCustomizedDomainRequest
+ * @return GetInstanceCustomizedDomainResponse
+ */
+GetInstanceCustomizedDomainResponse Client::getInstanceCustomizedDomain(const GetInstanceCustomizedDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceCustomizedDomainWithOptions(request, runtime);
 }
 
 /**
@@ -5876,6 +6030,64 @@ UpdateEventCenterRuleResponse Client::updateEventCenterRuleWithOptions(const Upd
 UpdateEventCenterRuleResponse Client::updateEventCenterRule(const UpdateEventCenterRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateEventCenterRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例自定义域名
+ *
+ * @param request UpdateInstanceCustomizedDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstanceCustomizedDomainResponse
+ */
+UpdateInstanceCustomizedDomainResponse Client::updateInstanceCustomizedDomainWithOptions(const UpdateInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertId()) {
+    query["CertId"] = request.getCertId();
+  }
+
+  if (!!request.hasCertRegionId()) {
+    query["CertRegionId"] = request.getCertRegionId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModuleName()) {
+    query["ModuleName"] = request.getModuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateInstanceCustomizedDomain"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstanceCustomizedDomainResponse>();
+}
+
+/**
+ * @summary 更新实例自定义域名
+ *
+ * @param request UpdateInstanceCustomizedDomainRequest
+ * @return UpdateInstanceCustomizedDomainResponse
+ */
+UpdateInstanceCustomizedDomainResponse Client::updateInstanceCustomizedDomain(const UpdateInstanceCustomizedDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInstanceCustomizedDomainWithOptions(request, runtime);
 }
 
 /**

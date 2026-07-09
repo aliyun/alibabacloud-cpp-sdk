@@ -248,6 +248,23 @@ namespace Cr20181201
       Models::CreateChartRepositoryResponse createChartRepository(const Models::CreateChartRepositoryRequest &request);
 
       /**
+       * @summary Creates a custom domain name for an instance.
+       *
+       * @param request CreateInstanceCustomizedDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInstanceCustomizedDomainResponse
+       */
+      Models::CreateInstanceCustomizedDomainResponse createInstanceCustomizedDomainWithOptions(const Models::CreateInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a custom domain name for an instance.
+       *
+       * @param request CreateInstanceCustomizedDomainRequest
+       * @return CreateInstanceCustomizedDomainResponse
+       */
+      Models::CreateInstanceCustomizedDomainResponse createInstanceCustomizedDomain(const Models::CreateInstanceCustomizedDomainRequest &request);
+
+      /**
        * @summary Creates a whitelist policy for an instance access endpoint (public network only).
        *
        * @param tmpReq CreateInstanceEndpointAclPolicyRequest
@@ -619,6 +636,23 @@ namespace Cr20181201
        * @return DeleteEventCenterRuleResponse
        */
       Models::DeleteEventCenterRuleResponse deleteEventCenterRule(const Models::DeleteEventCenterRuleRequest &request);
+
+      /**
+       * @summary 删除实例自定义域名
+       *
+       * @param request DeleteInstanceCustomizedDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInstanceCustomizedDomainResponse
+       */
+      Models::DeleteInstanceCustomizedDomainResponse deleteInstanceCustomizedDomainWithOptions(const Models::DeleteInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除实例自定义域名
+       *
+       * @param request DeleteInstanceCustomizedDomainRequest
+       * @return DeleteInstanceCustomizedDomainResponse
+       */
+      Models::DeleteInstanceCustomizedDomainResponse deleteInstanceCustomizedDomain(const Models::DeleteInstanceCustomizedDomainRequest &request);
 
       /**
        * @summary Deletes a whitelist policy from the public access endpoint of an instance.
@@ -1017,6 +1051,19 @@ namespace Cr20181201
        * @return GetInstanceCountResponse
        */
       Models::GetInstanceCountResponse getInstanceCount();
+
+      /**
+       * @param request GetInstanceCustomizedDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceCustomizedDomainResponse
+       */
+      Models::GetInstanceCustomizedDomainResponse getInstanceCustomizedDomainWithOptions(const Models::GetInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request GetInstanceCustomizedDomainRequest
+       * @return GetInstanceCustomizedDomainResponse
+       */
+      Models::GetInstanceCustomizedDomainResponse getInstanceCustomizedDomain(const Models::GetInstanceCustomizedDomainRequest &request);
 
       /**
        * @summary Queries an endpoint of an instance.
@@ -1920,6 +1967,23 @@ namespace Cr20181201
        * @return UpdateEventCenterRuleResponse
        */
       Models::UpdateEventCenterRuleResponse updateEventCenterRule(const Models::UpdateEventCenterRuleRequest &request);
+
+      /**
+       * @summary 更新实例自定义域名
+       *
+       * @param request UpdateInstanceCustomizedDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInstanceCustomizedDomainResponse
+       */
+      Models::UpdateInstanceCustomizedDomainResponse updateInstanceCustomizedDomainWithOptions(const Models::UpdateInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新实例自定义域名
+       *
+       * @param request UpdateInstanceCustomizedDomainRequest
+       * @return UpdateInstanceCustomizedDomainResponse
+       */
+      Models::UpdateInstanceCustomizedDomainResponse updateInstanceCustomizedDomain(const Models::UpdateInstanceCustomizedDomainRequest &request);
 
       /**
        * @summary Updates the status of an instance endpoint.
