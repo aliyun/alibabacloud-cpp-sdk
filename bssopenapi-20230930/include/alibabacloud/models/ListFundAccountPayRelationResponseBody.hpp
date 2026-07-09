@@ -188,19 +188,40 @@ namespace Models
 
 
     protected:
+      // The account ID of the user associated with the payment relationship, that is, the account that uses this account for payment.
       shared_ptr<string> accountId_ {};
+      // The user name.
       shared_ptr<string> accountName_ {};
+      // The enterprise entity ID of the user associated with the payment relationship.
       shared_ptr<string> ecid_ {};
+      // The time when the payment relationship takes effect.
       shared_ptr<string> effectiveTime_ {};
+      // The account ID.
       shared_ptr<string> fundAccountId_ {};
+      // The Alibaba Cloud account ID of the account owner.
       shared_ptr<string> fundAccountOwnerAccountId_ {};
+      // The time when the payment relationship expires.
       shared_ptr<string> ineffectiveTime_ {};
+      // The primary marketplace.
       shared_ptr<string> nbid_ {};
+      // The operator name.
+      // When the operator type is aliyun_pk, the operator name is the Alibaba Cloud nickname.
+      // When the operator type is system, the operator name is "Alibaba Cloud assistant".
       shared_ptr<string> operatorName_ {};
+      // The authorized operator.
+      // When the operator type is aliyun_pk, operatorNo is the Alibaba Cloud account ID.
       shared_ptr<string> operatorNo_ {};
+      // The type of the authorized operator.
+      // aliyun_pk: user.
+      // system: Alibaba Cloud system.
       shared_ptr<string> operatorType_ {};
+      // The relationship type, which can be collection relationship or payment relationship.
       shared_ptr<string> relationType_ {};
+      // The site.
       shared_ptr<string> site_ {};
+      // The relationship status.
+      // valid: valid.
+      // expired: invalid.
       shared_ptr<string> status_ {};
     };
 
@@ -253,11 +274,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The data list.
     shared_ptr<vector<ListFundAccountPayRelationResponseBody::Data>> data_ {};
+    // The response metadata.
     Darabonba::Json metadata_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

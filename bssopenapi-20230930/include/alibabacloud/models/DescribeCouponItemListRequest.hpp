@@ -80,7 +80,10 @@ namespace Models
 
 
     protected:
+      // The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
+      // The enterprise entity ID.
+      // 
       // This parameter is required.
       shared_ptr<string> ecId_ {};
     };
@@ -132,11 +135,17 @@ namespace Models
 
 
   protected:
+    // The coupon ID.
     shared_ptr<int64_t> couponId_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<DescribeCouponItemListRequest::EcIdAccountIds>> ecIdAccountIds_ {};
+    // The product name. Fuzzy matching is supported.
     shared_ptr<string> name_ {};
+    // The level-1 sales channel ID. If this parameter is left empty, the channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

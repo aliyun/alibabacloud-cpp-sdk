@@ -167,28 +167,51 @@ namespace Models
 
 
   protected:
+    // The budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetName_ {};
+    // The budget type.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetType_ {};
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The end period of the cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleEndPeriod_ {};
+    // The quota specified for each cycle.
     shared_ptr<string> cycleQuotaShrink_ {};
+    // The start period of the cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleStartPeriod_ {};
+    // The cycle type.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
+    // The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
+    // The budget metric.
+    // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
+    // The primary sales channel ID. If this parameter is left empty, the sales channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The original budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> originalBudgetName_ {};
+    // The filter conditions.
     shared_ptr<string> queryFilterShrink_ {};
+    // The fixed quota value.
     shared_ptr<string> quota_ {};
+    // The quota type.
+    // 
     // This parameter is required.
     shared_ptr<string> quotaType_ {};
+    // The alert configurations.
     shared_ptr<string> warnConfsShrink_ {};
   };
 

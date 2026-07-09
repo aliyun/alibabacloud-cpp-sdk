@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // AccountId of the user who pays with the account.
       shared_ptr<string> accountId_ {};
+      // Name of the user who pays with the account.
       shared_ptr<string> accountName_ {};
+      // Account ID.
       shared_ptr<string> fundAccountId_ {};
+      // Result code.
       shared_ptr<string> resultCode_ {};
+      // Result message.
       shared_ptr<string> resultMessage_ {};
     };
 
@@ -134,8 +139,11 @@ namespace Models
 
 
   protected:
+    // Data list.
     shared_ptr<vector<CreateFundAccountPayRelationResponseBody::Data>> data_ {};
+    // Response metadata.
     Darabonba::Json metadata_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The list of sharing rules to create.
     shared_ptr<string> createShareRuleListShrink_ {};
+    // The list of sharing rules to modify.
     shared_ptr<string> modifyShareRuleListShrink_ {};
+    // The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The user ID of the cost center owner.
     shared_ptr<int64_t> ownerAccountId_ {};
+    // The list of sharing rules to delete.
     shared_ptr<string> removeShareRuleListShrink_ {};
   };
 

@@ -186,24 +186,38 @@ namespace Models
 
 
   protected:
+    // The coupon ID.
     shared_ptr<int64_t> couponId_ {};
+    // The coupon code.
     shared_ptr<string> couponNo_ {};
     shared_ptr<string> couponTemplateIdListShrink_ {};
+    // The coupon type.
     shared_ptr<string> couponType_ {};
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The enterprise and account list. If this parameter is left empty, the current account is queried.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
+    // The effective end time.
     shared_ptr<int64_t> effectiveEndTime_ {};
+    // The effective start time.
     shared_ptr<int64_t> effectiveStartTime_ {};
+    // The expiration end time.
     shared_ptr<int64_t> expireEndDate_ {};
+    // The expiration start time.
     shared_ptr<int64_t> expireStartDate_ {};
     shared_ptr<bool> includeShare_ {};
     shared_ptr<int32_t> maxResults_ {};
+    // The primary campaign information.
     shared_ptr<string> nbid_ {};
     shared_ptr<string> nextToken_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> productCode_ {};
+    // The status.
     shared_ptr<string> status_ {};
   };
 

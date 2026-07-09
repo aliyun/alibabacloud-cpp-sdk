@@ -158,26 +158,47 @@ namespace Models
 
 
   protected:
+    // The budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetName_ {};
+    // The budget type.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetType_ {};
+    // The remarks.
     shared_ptr<string> comment_ {};
+    // The end cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleEndPeriod_ {};
+    // The per-cycle specified quota. This parameter is required when QuotaType is set to `SPECIFY`.
     shared_ptr<string> cycleQuotaShrink_ {};
+    // The start cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleStartPeriod_ {};
+    // The cycle type.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
+    // The list of enterprises and accounts. An empty value indicates the current account.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
+    // The budget metric.
+    // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
+    // The level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The filter conditions.
     shared_ptr<string> queryFilterShrink_ {};
+    // The fixed quota value. If the type is quota, the unit is percentage.
     shared_ptr<string> quota_ {};
+    // The quota type.
+    // 
     // This parameter is required.
     shared_ptr<string> quotaType_ {};
+    // The alert configurations.
     shared_ptr<string> warnConfsShrink_ {};
   };
 

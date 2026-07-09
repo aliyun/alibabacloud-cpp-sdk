@@ -160,7 +160,7 @@ AddCouponDeductTagResponse Client::addCouponDeductTag(const AddCouponDeductTagRe
 }
 
 /**
- * @summary 财务单元实例重分配
+ * @summary Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
  *
  * @param tmpReq AllocateCostCenterResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -215,7 +215,7 @@ AllocateCostCenterResourceResponse Client::allocateCostCenterResourceWithOptions
 }
 
 /**
- * @summary 财务单元实例重分配
+ * @summary Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
  *
  * @param request AllocateCostCenterResourceRequest
  * @return AllocateCostCenterResourceResponse
@@ -226,7 +226,9 @@ AllocateCostCenterResourceResponse Client::allocateCostCenterResource(const Allo
 }
 
 /**
- * @summary 取消资金账户低额预警
+ * @summary Cancels the low balance alert for a fund account.
+ *
+ * @description Cancels the low balance alert for a fund account.
  *
  * @param request CancelFundAccountLowAvailableAmountAlarmRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +259,9 @@ CancelFundAccountLowAvailableAmountAlarmResponse Client::cancelFundAccountLowAva
 }
 
 /**
- * @summary 取消资金账户低额预警
+ * @summary Cancels the low balance alert for a fund account.
+ *
+ * @description Cancels the low balance alert for a fund account.
  *
  * @param request CancelFundAccountLowAvailableAmountAlarmRequest
  * @return CancelFundAccountLowAvailableAmountAlarmResponse
@@ -324,7 +328,7 @@ CheckAccountExistResponse Client::checkAccountExist(const CheckAccountExistReque
 }
 
 /**
- * @summary Check whether budgetName exists
+ * @summary Checks whether a specified budgetName exists.
  *
  * @param request CheckBudgetNameExistsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -361,7 +365,7 @@ CheckBudgetNameExistsResponse Client::checkBudgetNameExistsWithOptions(const Che
 }
 
 /**
- * @summary Check whether budgetName exists
+ * @summary Checks whether a specified budgetName exists.
  *
  * @param request CheckBudgetNameExistsRequest
  * @return CheckBudgetNameExistsResponse
@@ -372,7 +376,7 @@ CheckBudgetNameExistsResponse Client::checkBudgetNameExists(const CheckBudgetNam
 }
 
 /**
- * @summary Create Budget
+ * @summary Creates a budget.
  *
  * @param tmpReq CreateBudgetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +479,7 @@ CreateBudgetResponse Client::createBudgetWithOptions(const CreateBudgetRequest &
 }
 
 /**
- * @summary Create Budget
+ * @summary Creates a budget.
  *
  * @param request CreateBudgetRequest
  * @return CreateBudgetResponse
@@ -486,7 +490,9 @@ CreateBudgetResponse Client::createBudget(const CreateBudgetRequest &request) {
 }
 
 /**
- * @summary 创建财务单元
+ * @summary Create Cost Center
+ *
+ * @description Creates one or more cost centers.
  *
  * @param tmpReq CreateCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +533,9 @@ CreateCostCenterResponse Client::createCostCenterWithOptions(const CreateCostCen
 }
 
 /**
- * @summary 创建财务单元
+ * @summary Create Cost Center
+ *
+ * @description Creates one or more cost centers.
  *
  * @param request CreateCostCenterRequest
  * @return CreateCostCenterResponse
@@ -538,7 +546,7 @@ CreateCostCenterResponse Client::createCostCenter(const CreateCostCenterRequest 
 }
 
 /**
- * @summary 新建财务单元规则
+ * @summary Create a financial unit auto-allocation rule
  *
  * @param tmpReq CreateCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -585,7 +593,7 @@ CreateCostCenterRuleResponse Client::createCostCenterRuleWithOptions(const Creat
 }
 
 /**
- * @summary 新建财务单元规则
+ * @summary Create a financial unit auto-allocation rule
  *
  * @param request CreateCostCenterRuleRequest
  * @return CreateCostCenterRuleResponse
@@ -596,7 +604,7 @@ CreateCostCenterRuleResponse Client::createCostCenterRule(const CreateCostCenter
 }
 
 /**
- * @summary 创建资金账户付款关系
+ * @summary Create payment relationships for a fund account
  *
  * @param tmpReq CreateFundAccountPayRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -643,7 +651,7 @@ CreateFundAccountPayRelationResponse Client::createFundAccountPayRelationWithOpt
 }
 
 /**
- * @summary 创建资金账户付款关系
+ * @summary Create payment relationships for a fund account
  *
  * @param request CreateFundAccountPayRelationRequest
  * @return CreateFundAccountPayRelationResponse
@@ -654,7 +662,7 @@ CreateFundAccountPayRelationResponse Client::createFundAccountPayRelation(const 
 }
 
 /**
- * @summary 创建资金账户划拨/回收
+ * @summary Creates an account transfer or revocation.
  *
  * @param request CreateFundAccountTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -709,7 +717,7 @@ CreateFundAccountTransferResponse Client::createFundAccountTransferWithOptions(c
 }
 
 /**
- * @summary 创建资金账户划拨/回收
+ * @summary Creates an account transfer or revocation.
  *
  * @param request CreateFundAccountTransferRequest
  * @return CreateFundAccountTransferResponse
@@ -720,7 +728,7 @@ CreateFundAccountTransferResponse Client::createFundAccountTransfer(const Create
 }
 
 /**
- * @summary 申请发票
+ * @summary Apply for Invoice
  *
  * @param tmpReq CreateInvoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -797,7 +805,7 @@ CreateInvoiceResponse Client::createInvoiceWithOptions(const CreateInvoiceReques
 }
 
 /**
- * @summary 申请发票
+ * @summary Apply for Invoice
  *
  * @param request CreateInvoiceRequest
  * @return CreateInvoiceResponse
@@ -809,6 +817,26 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
 
 /**
  * @summary Creates a billing report subscription.
+ *
+ * @description When you call this API operation, note the following information:
+ * - You can subscribe to one type of billing file at a time.
+ * - Except for monthly bill PDFs, starting from the day after the subscription, the system pushes daily billing files that contain full detailed data from the beginning of the current month to the present. Before the 4th of each month, the system pushes full billing files for the complete billing cycle of the previous month.
+ * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
+ * - Billing files generated on a daily basis may have delays. Delayed billing files are pushed on the day after they are generated and may also contain bills that were delayed from before the previous day and generated on the previous day. We recommend that you pull the full files for the previous month at the beginning of each month.
+ * > Apply for the required permissions by following the procedure described in the documentation: [Billing Subscription](https://help.aliyun.com/zh/user-center/user-guide/billing-subscription?spm=5176.21213303.J_v8LsmxMG6alneH-O7TCPa.1.3ef82f3d5ZIf08&scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@2861820._.ID_help@@%E6%96%87%E6%A1%A3@@2861820-RL_%E8%B4%A6%E5%8D%95%E8%AE%A2%E9%98%85-LOC_2024SPHelpResult-OR_ser-PAR1_2150419517478292121114501eaee8-V_4-RE_new5-P0_0-P1_0)
+ * - This subscription and the Expenses and Costs - Billing Subscription are the same feature, and subscriptions are interchangeable.
+ * - When subscribing to a directory under a bucket, follow the directory naming conventions:
+ *     - Emojis are not allowed. Use compliant UTF-8 characters.
+ *     - Forward slashes (/) are used to separate paths and can quickly create subdirectories. However, do not start with / or \\, and do not use consecutive forward slashes (/).
+ *     - Subdirectories named .. are not allowed.
+ *     - The total length must be 1 to 254 characters.
+ * - File names:
+ *     - Example: **consumeDetailBillV2** (billing item details)
+ *     
+ *         - Daily push file name format: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+ *     
+ *         - Full file name format at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
+ * - Monthly bill PDF files are in .pdf format, and other file types are in .csv format. When the data volume is large, the system automatically splits the exported bills into multiple files and compresses them into one or more .zip files. The .zip file name format is the same.
  *
  * @param request CreateReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -891,6 +919,26 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 /**
  * @summary Creates a billing report subscription.
  *
+ * @description When you call this API operation, note the following information:
+ * - You can subscribe to one type of billing file at a time.
+ * - Except for monthly bill PDFs, starting from the day after the subscription, the system pushes daily billing files that contain full detailed data from the beginning of the current month to the present. Before the 4th of each month, the system pushes full billing files for the complete billing cycle of the previous month.
+ * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
+ * - Billing files generated on a daily basis may have delays. Delayed billing files are pushed on the day after they are generated and may also contain bills that were delayed from before the previous day and generated on the previous day. We recommend that you pull the full files for the previous month at the beginning of each month.
+ * > Apply for the required permissions by following the procedure described in the documentation: [Billing Subscription](https://help.aliyun.com/zh/user-center/user-guide/billing-subscription?spm=5176.21213303.J_v8LsmxMG6alneH-O7TCPa.1.3ef82f3d5ZIf08&scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@2861820._.ID_help@@%E6%96%87%E6%A1%A3@@2861820-RL_%E8%B4%A6%E5%8D%95%E8%AE%A2%E9%98%85-LOC_2024SPHelpResult-OR_ser-PAR1_2150419517478292121114501eaee8-V_4-RE_new5-P0_0-P1_0)
+ * - This subscription and the Expenses and Costs - Billing Subscription are the same feature, and subscriptions are interchangeable.
+ * - When subscribing to a directory under a bucket, follow the directory naming conventions:
+ *     - Emojis are not allowed. Use compliant UTF-8 characters.
+ *     - Forward slashes (/) are used to separate paths and can quickly create subdirectories. However, do not start with / or \\, and do not use consecutive forward slashes (/).
+ *     - Subdirectories named .. are not allowed.
+ *     - The total length must be 1 to 254 characters.
+ * - File names:
+ *     - Example: **consumeDetailBillV2** (billing item details)
+ *     
+ *         - Daily push file name format: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+ *     
+ *         - Full file name format at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
+ * - Monthly bill PDF files are in .pdf format, and other file types are in .csv format. When the data volume is large, the system automatically splits the exported bills into multiple files and compresses them into one or more .zip files. The .zip file name format is the same.
+ *
  * @param request CreateReportDefinitionRequest
  * @return CreateReportDefinitionResponse
  */
@@ -900,7 +948,7 @@ CreateReportDefinitionResponse Client::createReportDefinition(const CreateReport
 }
 
 /**
- * @summary 删除预算
+ * @summary Deletes a budget.
  *
  * @param request DeleteBudgetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -937,7 +985,7 @@ DeleteBudgetResponse Client::deleteBudgetWithOptions(const DeleteBudgetRequest &
 }
 
 /**
- * @summary 删除预算
+ * @summary Deletes a budget.
  *
  * @param request DeleteBudgetRequest
  * @return DeleteBudgetResponse
@@ -948,7 +996,9 @@ DeleteBudgetResponse Client::deleteBudget(const DeleteBudgetRequest &request) {
 }
 
 /**
- * @summary 删除财务单元
+ * @summary Delete Cost Center
+ *
+ * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
  *
  * @param request DeleteCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -987,7 +1037,9 @@ DeleteCostCenterResponse Client::deleteCostCenterWithOptions(const DeleteCostCen
 }
 
 /**
- * @summary 删除财务单元
+ * @summary Delete Cost Center
+ *
+ * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
  *
  * @param request DeleteCostCenterRequest
  * @return DeleteCostCenterResponse
@@ -998,7 +1050,9 @@ DeleteCostCenterResponse Client::deleteCostCenter(const DeleteCostCenterRequest 
 }
 
 /**
- * @summary 删除财务单元规则
+ * @summary Delete financial unit automatic allocation rule
+ *
+ * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
  *
  * @param tmpReq DeleteCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1045,7 +1099,9 @@ DeleteCostCenterRuleResponse Client::deleteCostCenterRuleWithOptions(const Delet
 }
 
 /**
- * @summary 删除财务单元规则
+ * @summary Delete financial unit automatic allocation rule
+ *
+ * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
  *
  * @param request DeleteCostCenterRuleRequest
  * @return DeleteCostCenterRuleResponse
@@ -1120,7 +1176,7 @@ DeleteCouponDeductTagResponse Client::deleteCouponDeductTag(const DeleteCouponDe
 }
 
 /**
- * @summary 取消账单订阅
+ * @summary Deletes a bill report export subscription.
  *
  * @param request DeleteReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,7 +1211,7 @@ DeleteReportDefinitionResponse Client::deleteReportDefinitionWithOptions(const D
 }
 
 /**
- * @summary 取消账单订阅
+ * @summary Deletes a bill report export subscription.
  *
  * @param request DeleteReportDefinitionRequest
  * @return DeleteReportDefinitionResponse
@@ -1278,7 +1334,7 @@ DescribeBudgetsResponse Client::describeBudgets(const DescribeBudgetsRequest &re
 }
 
 /**
- * @summary Queries the list of coupons.
+ * @summary Queries a list of coupons.
  *
  * @param tmpReq DescribeCouponRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1439,7 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
 }
 
 /**
- * @summary Queries the list of coupons.
+ * @summary Queries a list of coupons.
  *
  * @param request DescribeCouponRequest
  * @return DescribeCouponResponse
@@ -1394,7 +1450,7 @@ DescribeCouponResponse Client::describeCoupon(const DescribeCouponRequest &reque
 }
 
 /**
- * @summary Query the list of products for which a coupon is applicable.
+ * @summary Queries the list of products available for a coupon.
  *
  * @param tmpReq DescribeCouponItemListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1451,7 +1507,7 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
 }
 
 /**
- * @summary Query the list of products for which a coupon is applicable.
+ * @summary Queries the list of products available for a coupon.
  *
  * @param request DescribeCouponItemListRequest
  * @return DescribeCouponItemListResponse
@@ -1459,6 +1515,222 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
 DescribeCouponItemListResponse Client::describeCouponItemList(const DescribeCouponItemListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCouponItemListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries resource plan deduction records.
+ *
+ * @param tmpReq DescribeDeductLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDeductLogsResponse
+ */
+DescribeDeductLogsResponse Client::describeDeductLogsWithOptions(const DescribeDeductLogsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeDeductLogsShrinkRequest request = DescribeDeductLogsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEcIdAccountIds()) {
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
+  }
+
+  if (!!tmpReq.hasRelationAccountIds()) {
+    request.setRelationAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRelationAccountIds(), "RelationAccountIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBillInstanceId()) {
+    query["BillInstanceId"] = request.getBillInstanceId();
+  }
+
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBillingCommodityCode()) {
+    body["BillingCommodityCode"] = request.getBillingCommodityCode();
+  }
+
+  if (!!request.hasBillingEndTime()) {
+    body["BillingEndTime"] = request.getBillingEndTime();
+  }
+
+  if (!!request.hasBillingStartTime()) {
+    body["BillingStartTime"] = request.getBillingStartTime();
+  }
+
+  if (!!request.hasCommodityCode()) {
+    body["CommodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasGroup()) {
+    body["Group"] = request.getGroup();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNum()) {
+    body["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRelationAccountIdsShrink()) {
+    body["RelationAccountIds"] = request.getRelationAccountIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeDeductLogs"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDeductLogsResponse>();
+}
+
+/**
+ * @summary Queries resource plan deduction records.
+ *
+ * @param request DescribeDeductLogsRequest
+ * @return DescribeDeductLogsResponse
+ */
+DescribeDeductLogsResponse Client::describeDeductLogs(const DescribeDeductLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDeductLogsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries resource plan instances.
+ *
+ * @param tmpReq DescribeFrInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFrInstancesResponse
+ */
+DescribeFrInstancesResponse Client::describeFrInstancesWithOptions(const DescribeFrInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeFrInstancesShrinkRequest request = DescribeFrInstancesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEcIdAccountIds()) {
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasInstanceTag()) {
+    query["InstanceTag"] = request.getInstanceTag();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasCapacityType()) {
+    body["CapacityType"] = request.getCapacityType();
+  }
+
+  if (!!request.hasCommodityCode()) {
+    body["CommodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasCycleType()) {
+    body["CycleType"] = request.getCycleType();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGroup()) {
+    body["Group"] = request.getGroup();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNum()) {
+    body["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasSortField()) {
+    body["SortField"] = request.getSortField();
+  }
+
+  if (!!request.hasSortRule()) {
+    body["SortRule"] = request.getSortRule();
+  }
+
+  if (!!request.hasSpec()) {
+    body["Spec"] = request.getSpec();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTemplateCode()) {
+    body["TemplateCode"] = request.getTemplateCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeFrInstances"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFrInstancesResponse>();
+}
+
+/**
+ * @summary Queries resource plan instances.
+ *
+ * @param request DescribeFrInstancesRequest
+ * @return DescribeFrInstancesResponse
+ */
+DescribeFrInstancesResponse Client::describeFrInstances(const DescribeFrInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFrInstancesWithOptions(request, runtime);
 }
 
 /**
@@ -1514,7 +1786,7 @@ DescribeUserSpnSummaryInfoResponse Client::describeUserSpnSummaryInfo(const Desc
 }
 
 /**
- * @summary 查询资金账户可用金
+ * @summary Query available balance of fund account
  *
  * @param request GetFundAccountAvailableAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1545,7 +1817,7 @@ GetFundAccountAvailableAmountResponse Client::getFundAccountAvailableAmountWithO
 }
 
 /**
- * @summary 查询资金账户可用金
+ * @summary Query available balance of fund account
  *
  * @param request GetFundAccountAvailableAmountRequest
  * @return GetFundAccountAvailableAmountResponse
@@ -1556,7 +1828,7 @@ GetFundAccountAvailableAmountResponse Client::getFundAccountAvailableAmount(cons
 }
 
 /**
- * @summary 查询资金账户可分配信控额度
+ * @summary Query allocatable credit limit of a fund account
  *
  * @param request GetFundAccountCanAllocateCreditAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1587,7 +1859,7 @@ GetFundAccountCanAllocateCreditAmountResponse Client::getFundAccountCanAllocateC
 }
 
 /**
- * @summary 查询资金账户可分配信控额度
+ * @summary Query allocatable credit limit of a fund account
  *
  * @param request GetFundAccountCanAllocateCreditAmountRequest
  * @return GetFundAccountCanAllocateCreditAmountResponse
@@ -1598,7 +1870,7 @@ GetFundAccountCanAllocateCreditAmountResponse Client::getFundAccountCanAllocateC
 }
 
 /**
- * @summary 查询资金账户可回收金额
+ * @summary Queries the reclaimable amount of a fund account.
  *
  * @param request GetFundAccountCanRecycleAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1633,7 +1905,7 @@ GetFundAccountCanRecycleAmountResponse Client::getFundAccountCanRecycleAmountWit
 }
 
 /**
- * @summary 查询资金账户可回收金额
+ * @summary Queries the reclaimable amount of a fund account.
  *
  * @param request GetFundAccountCanRecycleAmountRequest
  * @return GetFundAccountCanRecycleAmountResponse
@@ -1644,7 +1916,7 @@ GetFundAccountCanRecycleAmountResponse Client::getFundAccountCanRecycleAmount(co
 }
 
 /**
- * @summary 查询资金账户的可转出金额
+ * @summary Query the transferable amount of a fund account
  *
  * @param request GetFundAccountCanTransferAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1679,7 +1951,7 @@ GetFundAccountCanTransferAmountResponse Client::getFundAccountCanTransferAmountW
 }
 
 /**
- * @summary 查询资金账户的可转出金额
+ * @summary Query the transferable amount of a fund account
  *
  * @param request GetFundAccountCanTransferAmountRequest
  * @return GetFundAccountCanTransferAmountResponse
@@ -1690,7 +1962,7 @@ GetFundAccountCanTransferAmountResponse Client::getFundAccountCanTransferAmount(
 }
 
 /**
- * @summary 查询资金账户可提现金额
+ * @summary Query Withdrawable Amount of Fund Account
  *
  * @param request GetFundAccountCanWithdrawAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1993,7 @@ GetFundAccountCanWithdrawAmountResponse Client::getFundAccountCanWithdrawAmountW
 }
 
 /**
- * @summary 查询资金账户可提现金额
+ * @summary Query Withdrawable Amount of Fund Account
  *
  * @param request GetFundAccountCanWithdrawAmountRequest
  * @return GetFundAccountCanWithdrawAmountResponse
@@ -1732,7 +2004,7 @@ GetFundAccountCanWithdrawAmountResponse Client::getFundAccountCanWithdrawAmount(
 }
 
 /**
- * @summary 查询资金账户低额预警
+ * @summary Query Fund Account Low Balance Alert
  *
  * @param request GetFundAccountLowAvailableAmountAlarmRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1763,7 +2035,7 @@ GetFundAccountLowAvailableAmountAlarmResponse Client::getFundAccountLowAvailable
 }
 
 /**
- * @summary 查询资金账户低额预警
+ * @summary Query Fund Account Low Balance Alert
  *
  * @param request GetFundAccountLowAvailableAmountAlarmRequest
  * @return GetFundAccountLowAvailableAmountAlarmResponse
@@ -1774,7 +2046,7 @@ GetFundAccountLowAvailableAmountAlarmResponse Client::getFundAccountLowAvailable
 }
 
 /**
- * @summary 查询资金账户收支明细
+ * @summary Query fund account transaction details
  *
  * @param tmpReq GetFundAccountTransactionDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1861,7 +2133,7 @@ GetFundAccountTransactionDetailsResponse Client::getFundAccountTransactionDetail
 }
 
 /**
- * @summary 查询资金账户收支明细
+ * @summary Query fund account transaction details
  *
  * @param request GetFundAccountTransactionDetailsRequest
  * @return GetFundAccountTransactionDetailsResponse
@@ -1872,7 +2144,7 @@ GetFundAccountTransactionDetailsResponse Client::getFundAccountTransactionDetail
 }
 
 /**
- * @summary 订单详情查询
+ * @summary Queries the details of a specific order for a user or a reseller\\"s customer.
  *
  * @param request GetOrderDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1911,7 +2183,7 @@ GetOrderDetailResponse Client::getOrderDetailWithOptions(const GetOrderDetailReq
 }
 
 /**
- * @summary 订单详情查询
+ * @summary Queries the details of a specific order for a user or a reseller\\"s customer.
  *
  * @param request GetOrderDetailRequest
  * @return GetOrderDetailResponse
@@ -1922,7 +2194,7 @@ GetOrderDetailResponse Client::getOrderDetail(const GetOrderDetailRequest &reque
 }
 
 /**
- * @summary 订单列表查询
+ * @summary Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request GetOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1993,7 +2265,7 @@ GetOrdersResponse Client::getOrdersWithOptions(const GetOrdersRequest &request, 
 }
 
 /**
- * @summary 订单列表查询
+ * @summary Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request GetOrdersRequest
  * @return GetOrdersResponse
@@ -2240,7 +2512,7 @@ ListCouponDeductTagResponse Client::listCouponDeductTag(const ListCouponDeductTa
 }
 
 /**
- * @summary 查询资金账户列表
+ * @summary Query fund account list
  *
  * @param request ListFundAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2281,7 +2553,7 @@ ListFundAccountResponse Client::listFundAccountWithOptions(const ListFundAccount
 }
 
 /**
- * @summary 查询资金账户列表
+ * @summary Query fund account list
  *
  * @param request ListFundAccountRequest
  * @return ListFundAccountResponse
@@ -2292,7 +2564,7 @@ ListFundAccountResponse Client::listFundAccount(const ListFundAccountRequest &re
 }
 
 /**
- * @summary 查询资金账户的付款关系
+ * @summary Query payment relationships of an account
  *
  * @param request ListFundAccountPayRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2341,7 +2613,7 @@ ListFundAccountPayRelationResponse Client::listFundAccountPayRelationWithOptions
 }
 
 /**
- * @summary 查询资金账户的付款关系
+ * @summary Query payment relationships of an account
  *
  * @param request ListFundAccountPayRelationRequest
  * @return ListFundAccountPayRelationResponse
@@ -2352,7 +2624,7 @@ ListFundAccountPayRelationResponse Client::listFundAccountPayRelation(const List
 }
 
 /**
- * @summary 对客OpenAPI开票对象查询
+ * @summary Query invoice candidate data, which can be used for invoicing.
  *
  * @param tmpReq ListInvoiceCandidateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2449,7 +2721,7 @@ ListInvoiceCandidateResponse Client::listInvoiceCandidateWithOptions(const ListI
 }
 
 /**
- * @summary 对客OpenAPI开票对象查询
+ * @summary Query invoice candidate data, which can be used for invoicing.
  *
  * @param request ListInvoiceCandidateRequest
  * @return ListInvoiceCandidateResponse
@@ -2460,7 +2732,7 @@ ListInvoiceCandidateResponse Client::listInvoiceCandidate(const ListInvoiceCandi
 }
 
 /**
- * @summary 发票抬头查询服务
+ * @summary Query the list of available invoice titles
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInvoiceTitleResponse
@@ -2482,7 +2754,7 @@ ListInvoiceTitleResponse Client::listInvoiceTitleWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary 发票抬头查询服务
+ * @summary Query the list of available invoice titles
  *
  * @return ListInvoiceTitleResponse
  */
@@ -2492,7 +2764,7 @@ ListInvoiceTitleResponse Client::listInvoiceTitle() {
 }
 
 /**
- * @summary 查看已订阅的报告列表
+ * @summary Queries the list of subscribed reports.
  *
  * @param request ListReportDefinitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2523,7 +2795,7 @@ ListReportDefinitionsResponse Client::listReportDefinitionsWithOptions(const Lis
 }
 
 /**
- * @summary 查看已订阅的报告列表
+ * @summary Queries the list of subscribed reports.
  *
  * @param request ListReportDefinitionsRequest
  * @return ListReportDefinitionsResponse
@@ -2534,7 +2806,9 @@ ListReportDefinitionsResponse Client::listReportDefinitions(const ListReportDefi
 }
 
 /**
- * @summary 修改财务单元
+ * @summary Modify cost centers
+ *
+ * @description Modifies one or more cost centers.
  *
  * @param tmpReq ModifyCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2575,7 +2849,9 @@ ModifyCostCenterResponse Client::modifyCostCenterWithOptions(const ModifyCostCen
 }
 
 /**
- * @summary 修改财务单元
+ * @summary Modify cost centers
+ *
+ * @description Modifies one or more cost centers.
  *
  * @param request ModifyCostCenterRequest
  * @return ModifyCostCenterResponse
@@ -2586,7 +2862,9 @@ ModifyCostCenterResponse Client::modifyCostCenter(const ModifyCostCenterRequest 
 }
 
 /**
- * @summary 修改财务单元规则
+ * @summary Modify financial unit rules
+ *
+ * @description Modify one or more financial units
  *
  * @param tmpReq ModifyCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2637,7 +2915,9 @@ ModifyCostCenterRuleResponse Client::modifyCostCenterRuleWithOptions(const Modif
 }
 
 /**
- * @summary 修改财务单元规则
+ * @summary Modify financial unit rules
+ *
+ * @description Modify one or more financial units
  *
  * @param request ModifyCostCenterRuleRequest
  * @return ModifyCostCenterRuleResponse
@@ -2714,7 +2994,9 @@ PayOrderResponse Client::payOrder(const PayOrderRequest &request) {
 }
 
 /**
- * @summary Query Cost Overview of a Cost Center
+ * @summary Query cost center expense overview
+ *
+ * @description Query cost center expense overview results for a specified billing period
  *
  * @param request QueryCostByCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2761,7 +3043,9 @@ QueryCostByCostCenterResponse Client::queryCostByCostCenterWithOptions(const Que
 }
 
 /**
- * @summary Query Cost Overview of a Cost Center
+ * @summary Query cost center expense overview
+ *
+ * @description Query cost center expense overview results for a specified billing period
  *
  * @param request QueryCostByCostCenterRequest
  * @return QueryCostByCostCenterResponse
@@ -2772,7 +3056,9 @@ QueryCostByCostCenterResponse Client::queryCostByCostCenter(const QueryCostByCos
 }
 
 /**
- * @summary 查询财务单元
+ * @summary Queries financial units.
+ *
+ * @description Queries a parent financial unit and its child financial units.
  *
  * @param tmpReq QueryCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2829,7 +3115,9 @@ QueryCostCenterResponse Client::queryCostCenterWithOptions(const QueryCostCenter
 }
 
 /**
- * @summary 查询财务单元
+ * @summary Queries financial units.
+ *
+ * @description Queries a parent financial unit and its child financial units.
  *
  * @param request QueryCostCenterRequest
  * @return QueryCostCenterResponse
@@ -2840,7 +3128,7 @@ QueryCostCenterResponse Client::queryCostCenter(const QueryCostCenterRequest &re
 }
 
 /**
- * @summary 查询财务单元下资源信息
+ * @summary Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
  *
  * @param request QueryCostCenterResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2893,7 +3181,7 @@ QueryCostCenterResourceResponse Client::queryCostCenterResourceWithOptions(const
 }
 
 /**
- * @summary 查询财务单元下资源信息
+ * @summary Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
  *
  * @param request QueryCostCenterResourceRequest
  * @return QueryCostCenterResourceResponse
@@ -2904,7 +3192,9 @@ QueryCostCenterResourceResponse Client::queryCostCenterResource(const QueryCostC
 }
 
 /**
- * @summary 查询财务单元规则
+ * @summary Query cost center rules
+ *
+ * @description Query parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2945,7 +3235,9 @@ QueryCostCenterRuleResponse Client::queryCostCenterRuleWithOptions(const QueryCo
 }
 
 /**
- * @summary 查询财务单元规则
+ * @summary Query cost center rules
+ *
+ * @description Query parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRuleRequest
  * @return QueryCostCenterRuleResponse
@@ -2956,7 +3248,9 @@ QueryCostCenterRuleResponse Client::queryCostCenterRule(const QueryCostCenterRul
 }
 
 /**
- * @summary 查询财务单元分摊规则
+ * @summary Query cost center sharing rules
+ *
+ * @description Queries the sharing rules of user cost centers.
  *
  * @param request QueryCostCenterShareRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3003,7 +3297,9 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRuleWithOptions(con
 }
 
 /**
- * @summary 查询财务单元分摊规则
+ * @summary Query cost center sharing rules
+ *
+ * @description Queries the sharing rules of user cost centers.
  *
  * @param request QueryCostCenterShareRuleRequest
  * @return QueryCostCenterShareRuleResponse
@@ -3014,7 +3310,9 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRule(const QueryCos
 }
 
 /**
- * @summary 查询SLA优惠券
+ * @summary Queries the SLA compensation list of a user.
+ *
+ * @description Queries the SLA compensation details list of a user. Only data from the last two months is available.
  *
  * @param request QueryMonthlySlaListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3075,7 +3373,9 @@ QueryMonthlySlaListResponse Client::queryMonthlySlaListWithOptions(const QueryMo
 }
 
 /**
- * @summary 查询SLA优惠券
+ * @summary Queries the SLA compensation list of a user.
+ *
+ * @description Queries the SLA compensation details list of a user. Only data from the last two months is available.
  *
  * @param request QueryMonthlySlaListRequest
  * @return QueryMonthlySlaListResponse
@@ -3086,7 +3386,7 @@ QueryMonthlySlaListResponse Client::queryMonthlySlaList(const QueryMonthlySlaLis
 }
 
 /**
- * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
+ * @summary Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
  *
  * @param tmpReq SaveCostCenterShareRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3147,7 +3447,7 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRuleWithOptions(const
 }
 
 /**
- * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
+ * @summary Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
  *
  * @param request SaveCostCenterShareRuleRequest
  * @return SaveCostCenterShareRuleResponse
@@ -3158,7 +3458,7 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRule(const SaveCostCe
 }
 
 /**
- * @summary 设置资金账户的信控限额
+ * @summary Set the credit control limit for a fund account
  *
  * @param request SetFundAccountCreditAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3197,7 +3497,7 @@ SetFundAccountCreditAmountResponse Client::setFundAccountCreditAmountWithOptions
 }
 
 /**
- * @summary 设置资金账户的信控限额
+ * @summary Set the credit control limit for a fund account
  *
  * @param request SetFundAccountCreditAmountRequest
  * @return SetFundAccountCreditAmountResponse
@@ -3208,7 +3508,7 @@ SetFundAccountCreditAmountResponse Client::setFundAccountCreditAmount(const SetF
 }
 
 /**
- * @summary 设置资金账户低额预警
+ * @summary Set Fund Account Low Balance Alert
  *
  * @param request SetFundAccountLowAvailableAmountAlarmRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3243,7 +3543,7 @@ SetFundAccountLowAvailableAmountAlarmResponse Client::setFundAccountLowAvailable
 }
 
 /**
- * @summary 设置资金账户低额预警
+ * @summary Set Fund Account Low Balance Alert
  *
  * @param request SetFundAccountLowAvailableAmountAlarmRequest
  * @return SetFundAccountLowAvailableAmountAlarmResponse
@@ -3320,7 +3620,11 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRule(const Se
 }
 
 /**
- * @summary SLA优惠券申领
+ * @summary User claims coupons for the last two months.
+ *
+ * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+ * 2. Claim by month or by record.
+ * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
  *
  * @param request SubmitSlaCouponApplyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3365,7 +3669,11 @@ SubmitSlaCouponApplyResponse Client::submitSlaCouponApplyWithOptions(const Submi
 }
 
 /**
- * @summary SLA优惠券申领
+ * @summary User claims coupons for the last two months.
+ *
+ * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+ * 2. Claim by month or by record.
+ * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
  *
  * @param request SubmitSlaCouponApplyRequest
  * @return SubmitSlaCouponApplyResponse
@@ -3376,7 +3684,7 @@ SubmitSlaCouponApplyResponse Client::submitSlaCouponApply(const SubmitSlaCouponA
 }
 
 /**
- * @summary 更新预算
+ * @summary Updates a budget.
  *
  * @param tmpReq UpdateBudgetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3483,7 +3791,7 @@ UpdateBudgetResponse Client::updateBudgetWithOptions(const UpdateBudgetRequest &
 }
 
 /**
- * @summary 更新预算
+ * @summary Updates a budget.
  *
  * @param request UpdateBudgetRequest
  * @return UpdateBudgetResponse

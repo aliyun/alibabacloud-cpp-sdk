@@ -136,14 +136,26 @@ namespace Models
 
 
     protected:
+      // The start billing cycle for push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter does not take effect for monthly bill PDF subscriptions, and historical data is not re-pushed. Data within the last year can be pushed.
       shared_ptr<string> beginBillingCycle_ {};
+      // The name of the OSS bucket that stores the files.
       shared_ptr<string> ossBucketName_ {};
+      // The UID of the OSS bucket owner that stores the files. Specify this parameter when a Bid/Reseller subscription needs to push data to the OSS bucket of a sub-account. The specified account must be a sub-account of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. The calling account is used by default.
       shared_ptr<int64_t> ossBucketOwnerAccountId_ {};
+      // The storage path of the OSS bucket.
       shared_ptr<string> ossBucketPath_ {};
+      // The subscription source name.
       shared_ptr<string> reportSourceName_ {};
+      // The subscription source. Valid values: OSS and MC.
       shared_ptr<string> reportSourceType_ {};
+      // The bill subscription task ID.
       shared_ptr<int64_t> reportTaskId_ {};
+      // The subscription type. Valid values:
+      // - BillingItemDetailForBillingPeriod: billable item consumption details.
+      // - InstanceDetailForBillingPeriod: instance consumption details.
+      // - BillingItemDetailMonthly: billable item consumption summary by billing cycle.
       shared_ptr<string> reportType_ {};
+      // The time when the subscription was created.
       shared_ptr<string> subscribeCreateTime_ {};
     };
 
@@ -175,8 +187,11 @@ namespace Models
 
 
   protected:
+    // The metadata of the response struct.
     Darabonba::Json metadata_ {};
+    // The data list.
     shared_ptr<vector<ListReportDefinitionsResponseBody::ReportDefinitions>> reportDefinitions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

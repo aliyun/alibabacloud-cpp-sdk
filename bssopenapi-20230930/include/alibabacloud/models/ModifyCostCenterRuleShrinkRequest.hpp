@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Financial unit ID
     shared_ptr<int64_t> costCenterId_ {};
+    // Rule expression
     shared_ptr<string> filterExpressionShrink_ {};
+    // Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // Owner of the financial unit (deprecated)
     shared_ptr<int64_t> ownerAccountId_ {};
   };
 

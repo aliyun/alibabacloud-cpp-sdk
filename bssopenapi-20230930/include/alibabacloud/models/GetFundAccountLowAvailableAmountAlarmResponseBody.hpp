@@ -68,9 +68,13 @@ namespace Models
 
 
   protected:
+    // Whether the alert is enabled
     shared_ptr<bool> alarmEnabled_ {};
+    // Response structure metadata
     Darabonba::Json metadata_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Alert threshold
     shared_ptr<string> thresholdAmount_ {};
   };
 

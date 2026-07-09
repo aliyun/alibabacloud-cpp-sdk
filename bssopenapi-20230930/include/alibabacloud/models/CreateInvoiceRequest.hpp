@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // List of accounts to access. If empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
+      // Enterprise entity ID.
       shared_ptr<string> ecId_ {};
     };
 
@@ -163,18 +165,39 @@ namespace Models
 
 
   protected:
+    // Specifies the invoice amount. Supports up to two decimal places.
+    // - If not specified, the invoice will be issued for the total invoiceable amount of all invoiceCandidateIds.
+    // - If specified, the invoice will be issued for the specified amount. The specified amount cannot exceed the total invoiceable amount of all invoiceCandidateIds.
     shared_ptr<string> amount_ {};
+    // Enterprise and account list. If empty, the current account is queried.
     shared_ptr<vector<CreateInvoiceRequest::EcIdAccountIds>> ecIdAccountIds_ {};
+    // List of invoice candidate IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> invoiceCandidateIds_ {};
+    // Invoice mode.
+    // - 0: Independent invoicing. Expenses of multiple accounts under the enterprise are invoiced separately for each account.
+    // - 1: Consolidated invoicing. Expenses of multiple accounts under the enterprise are consolidated and invoiced under the invoicing entity.
+    // If only one account is passed in the AccountIds parameter, independent invoicing is applied.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> invoiceMode_ {};
+    // Invoice remark.
     shared_ptr<string> invoiceRemark_ {};
+    // Invoice title ID.
+    // 
+    // - The ID parameter returned by the ListInvoiceTitle API for the current logged-in account.
+    // 
     // This parameter is required.
     shared_ptr<string> invoiceTitleId_ {};
+    // Invoice type.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> invoiceType_ {};
+    // Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // List of email addresses to receive the invoice. A maximum of 3 can be specified.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> recipientEmails_ {};
   };

@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The list of cost center entities.
+    // 
     // This parameter is required.
     shared_ptr<string> costCenterEntityListShrink_ {};
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

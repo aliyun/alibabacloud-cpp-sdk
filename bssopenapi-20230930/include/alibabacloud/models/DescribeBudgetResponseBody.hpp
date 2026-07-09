@@ -164,14 +164,23 @@ namespace Models
 
 
     protected:
+      // Remarks.
       shared_ptr<string> comment_ {};
+      // Specifies whether to enable EventBridge.
       shared_ptr<bool> eventBridge_ {};
+      // Message center notification channel list.
       shared_ptr<vector<string>> mscChannels_ {};
+      // Message center contact list.
       shared_ptr<vector<string>> mscContacts_ {};
+      // Alert name. User-defined and optional. If not specified, the backend automatically generates a name.
       shared_ptr<string> name_ {};
+      // Sequence number. Only present in responses. Alerts are numbered in ascending order of alert ID, starting from 1.
       shared_ptr<int32_t> sequence_ {};
+      // Threshold type.
       shared_ptr<string> thresholdType_ {};
+      // Threshold value.
       shared_ptr<string> thresholdValue_ {};
+      // Alert target.
       shared_ptr<string> warnTarget_ {};
     };
 
@@ -224,8 +233,11 @@ namespace Models
 
 
     protected:
+      // Parameter code.
       shared_ptr<string> code_ {};
+      // Selection mode.
       shared_ptr<string> selectType_ {};
+      // Filter value list.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -269,7 +281,9 @@ namespace Models
 
 
     protected:
+      // Member account IDs.
       shared_ptr<vector<int64_t>> accountIds_ {};
+      // Enterprise entity ID.
       shared_ptr<string> ecId_ {};
     };
 
@@ -311,7 +325,9 @@ namespace Models
 
 
     protected:
+      // Cycle period.
       shared_ptr<string> cyclePeriod_ {};
+      // Quota.
       shared_ptr<string> quota_ {};
     };
 
@@ -435,20 +451,35 @@ namespace Models
 
 
   protected:
+    // Budget name.
     shared_ptr<string> budgetName_ {};
+    // Budget type.
     shared_ptr<string> budgetType_ {};
+    // Remarks.
     shared_ptr<string> comment_ {};
+    // End cycle period.
     shared_ptr<string> cycleEndPeriod_ {};
+    // Quota specified per cycle.
     shared_ptr<vector<DescribeBudgetResponseBody::CycleQuota>> cycleQuota_ {};
+    // Start cycle period.
     shared_ptr<string> cycleStartPeriod_ {};
+    // Cycle type.
     shared_ptr<string> cycleType_ {};
+    // Enterprise multi-account filter conditions.
     shared_ptr<DescribeBudgetResponseBody::EcIdAccountIdsFilter> ecIdAccountIdsFilter_ {};
+    // Response structure metadata.
     Darabonba::Json metadata_ {};
+    // Budget metric.
     shared_ptr<string> metric_ {};
+    // Filter conditions.
     shared_ptr<vector<DescribeBudgetResponseBody::QueryFilter>> queryFilter_ {};
+    // Fixed quota value.
     shared_ptr<string> quota_ {};
+    // Quota type.
     shared_ptr<string> quotaType_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Alert configurations.
     shared_ptr<vector<DescribeBudgetResponseBody::WarnConfs>> warnConfs_ {};
   };
 

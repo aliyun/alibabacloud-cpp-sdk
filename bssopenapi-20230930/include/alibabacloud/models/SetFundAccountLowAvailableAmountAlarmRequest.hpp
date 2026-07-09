@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Fund account ID. If not specified, the account ID owned by the current account (owner) is used by default.
     shared_ptr<int64_t> fundAccountId_ {};
+    // Low balance alert threshold.
+    // 
     // This parameter is required.
     shared_ptr<string> thresholdAmount_ {};
   };

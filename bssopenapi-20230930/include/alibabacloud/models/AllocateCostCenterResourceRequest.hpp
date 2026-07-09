@@ -204,21 +204,41 @@ namespace Models
 
 
     protected:
+      // The attached resource type of the attached-resource instance. This parameter is required only for attached-resource product instances.
+      // - Currently, eight commodities support attached resources. The commodity codes are oss, dcdn, snapshot, vod, cdn, live, and cbwp.
+      // - You can call the QueryCostUnitResource operation to obtain all billing instances (including attached-resource instances with their attached resources) under a specific cost center (including the unallocated cost center) of a user.
       shared_ptr<string> apportionCode_ {};
+      // The attached resource name.
       shared_ptr<string> apportionName_ {};
+      // The commodity code of the billing instance. This parameter is required.
       shared_ptr<string> commodityCode_ {};
+      // The commodity name of the resource.
       shared_ptr<string> commodityName_ {};
+      // The billing granularity ID. This parameter is required.
       shared_ptr<string> instanceId_ {};
+      // The product code, which is the same as the product code in User Center bills.
       shared_ptr<string> pipCode_ {};
+      // The resources related to the resource instance.
       shared_ptr<string> relatedResources_ {};
+      // The resource group.
       shared_ptr<string> resourceGroup_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The custom nickname of the resource.
       shared_ptr<string> resourceNick_ {};
+      // The resource source. Valid values:
+      // - AUTO_ALLOCATE: automatic allocation.
+      // - MANUAL_ALLOCATE: manual allocation.
       shared_ptr<string> resourceSource_ {};
+      // The resource status.
       shared_ptr<string> resourceStatus_ {};
+      // The tag of the resource.
       shared_ptr<string> resourceTag_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The ID of the owner of the billing instance. This parameter is required.
       shared_ptr<int64_t> resourceUserId_ {};
+      // The resource ownership username.
       shared_ptr<string> resourceUserName_ {};
     };
 
@@ -262,11 +282,23 @@ namespace Models
 
 
   protected:
+    // The ID of the source cost center. This parameter is required.
+    // 
+    // - 0 indicates that the cost center is unallocated.
+    // - A value greater than 0 indicates an allocated cost center ID.
     shared_ptr<int64_t> fromCostCenterId_ {};
+    // The ID of the owner of the source cost center.
     shared_ptr<int64_t> fromOwnerAccountId_ {};
+    // The primary sales channel ID. If this parameter is left empty, the sales channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The list of resource instances.
+    // 
     // This parameter is required.
     shared_ptr<vector<AllocateCostCenterResourceRequest::ResourceInstanceList>> resourceInstanceList_ {};
+    // The ID of the destination cost center. Valid values:
+    // 
+    // - -1: moves the allocated resource to the unallocated state.
+    // - A value greater than 0: allocates the resource to the specified cost center.
     shared_ptr<int64_t> toCostCenterId_ {};
   };
 

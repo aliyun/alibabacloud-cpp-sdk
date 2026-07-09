@@ -77,10 +77,15 @@ namespace Models
 
 
   protected:
+    // The cost center ID.
     shared_ptr<int64_t> costCenterId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> isSuccess_ {};
+    // The metadata of the response struct.
     Darabonba::Json metadata_ {};
+    // The owner of the cost center.
     shared_ptr<int64_t> ownerAccountId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

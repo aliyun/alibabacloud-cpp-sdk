@@ -155,13 +155,21 @@ namespace Models
 
 
     protected:
+      // The comment.
       shared_ptr<string> comment_ {};
+      // Specifies whether to enable EventBridge.
       shared_ptr<bool> eventBridge_ {};
+      // The list of Message Center notification channels.
       shared_ptr<vector<string>> mscChannels_ {};
+      // The list of Message Center contacts.
       shared_ptr<vector<string>> mscContacts_ {};
+      // The alert name. This is user-defined and optional. If not specified, the backend automatically generates a name.
       shared_ptr<string> name_ {};
+      // The threshold type.
       shared_ptr<string> thresholdType_ {};
+      // The threshold value.
       shared_ptr<string> thresholdValue_ {};
+      // The alert target.
       shared_ptr<string> warnTarget_ {};
     };
 
@@ -214,8 +222,11 @@ namespace Models
 
 
     protected:
+      // The parameter code.
       shared_ptr<string> code_ {};
+      // The selection mode.
       shared_ptr<string> selectType_ {};
+      // The list of filter values.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -259,7 +270,9 @@ namespace Models
 
 
     protected:
+      // The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
+      // The enterprise entity ID.
       shared_ptr<string> ecId_ {};
     };
 
@@ -301,7 +314,9 @@ namespace Models
 
 
     protected:
+      // The cycle period.
       shared_ptr<string> cyclePeriod_ {};
+      // The quota.
       shared_ptr<string> quota_ {};
     };
 
@@ -423,28 +438,51 @@ namespace Models
 
 
   protected:
+    // The budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetName_ {};
+    // The budget type.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetType_ {};
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The end period of the cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleEndPeriod_ {};
+    // The quota specified for each cycle.
     shared_ptr<vector<UpdateBudgetRequest::CycleQuota>> cycleQuota_ {};
+    // The start period of the cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleStartPeriod_ {};
+    // The cycle type.
+    // 
     // This parameter is required.
     shared_ptr<string> cycleType_ {};
+    // The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<UpdateBudgetRequest::EcIdAccountIds>> ecIdAccountIds_ {};
+    // The budget metric.
+    // 
     // This parameter is required.
     shared_ptr<string> metric_ {};
+    // The primary sales channel ID. If this parameter is left empty, the sales channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The original budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> originalBudgetName_ {};
+    // The filter conditions.
     shared_ptr<vector<UpdateBudgetRequest::QueryFilter>> queryFilter_ {};
+    // The fixed quota value.
     shared_ptr<string> quota_ {};
+    // The quota type.
+    // 
     // This parameter is required.
     shared_ptr<string> quotaType_ {};
+    // The alert configurations.
     shared_ptr<vector<UpdateBudgetRequest::WarnConfs>> warnConfs_ {};
   };
 

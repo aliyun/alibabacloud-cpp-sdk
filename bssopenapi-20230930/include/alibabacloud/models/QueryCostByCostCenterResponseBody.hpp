@@ -166,17 +166,29 @@ namespace Models
 
 
     protected:
+      // Shared allocation amount
       shared_ptr<string> allocatedAmount_ {};
+      // Cost center code
       shared_ptr<string> costCenterCode_ {};
+      // Cost center ID
       shared_ptr<int64_t> costCenterId_ {};
+      // Cost center name
       shared_ptr<string> costCenterName_ {};
+      // Cost type amount
       shared_ptr<string> directAmount_ {};
+      // Level
       shared_ptr<int32_t> level_ {};
+      // Account ID that owns the resource
       shared_ptr<int64_t> ownerAccountId_ {};
+      // Account name that owns the resource
       shared_ptr<string> ownerAccountName_ {};
+      // Parent cost center ID
       shared_ptr<int64_t> parentCostCenterId_ {};
+      // Previous cost center ID
       shared_ptr<int64_t> preCostCenterId_ {};
+      // Total (sum of cost type amount and shared allocation amount)
       shared_ptr<string> totalAllocatedAmount_ {};
+      // Cost type amount percentage
       shared_ptr<string> totalAllocatedAmountPercent_ {};
     };
 
@@ -215,9 +227,13 @@ namespace Models
 
 
   protected:
+    // Cost center consumption amount details list
     shared_ptr<vector<QueryCostByCostCenterResponseBody::ConsumeAmountList>> consumeAmountList_ {};
+    // Response structure metadata
     Darabonba::Json metadata_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Sum of totalAllocatedAmount across all cost centers
     shared_ptr<string> totalAmount_ {};
   };
 

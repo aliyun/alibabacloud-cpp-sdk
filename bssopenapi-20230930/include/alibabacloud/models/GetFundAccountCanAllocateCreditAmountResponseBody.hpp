@@ -151,18 +151,31 @@ namespace Models
 
 
   protected:
+    // The enterprise entity ID.
     shared_ptr<string> ecid_ {};
+    // The allocated credit limit of the enterprise.
     shared_ptr<string> ecidAllocatedCreditAmount_ {};
+    // The enterprise credit quota.
     shared_ptr<string> ecidCreditAmount_ {};
+    // The account ECID.
     shared_ptr<string> fundAccountEcid_ {};
+    // The account ID.
     shared_ptr<int64_t> fundAccountId_ {};
+    // The account name.
     shared_ptr<string> fundAccountName_ {};
+    // The Alibaba Cloud account ID of the account owner.
     shared_ptr<int64_t> fundAccountOwnerAccountId_ {};
+    // The maximum allocatable credit limit of the current account.
     shared_ptr<string> maxCanAllocateCreditAmount_ {};
+    // Response structure metadata.
     Darabonba::Json metadata_ {};
+    // The minimum allocatable credit limit of the current account.
     shared_ptr<string> minCanAllocateCreditAmount_ {};
+    // The primary marketplace.
     shared_ptr<string> nbid_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The site.
     shared_ptr<string> site_ {};
   };
 

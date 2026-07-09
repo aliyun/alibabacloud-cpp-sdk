@@ -118,13 +118,21 @@ namespace Models
 
 
     protected:
+      // The list of source cost centers.
       shared_ptr<vector<int64_t>> fromCostCenterList_ {};
+      // The list of sharing ratios.
       shared_ptr<vector<double>> shareRatioList_ {};
+      // The ID of the sharing rule.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> shareRuleId_ {};
+      // The name of the sharing rule.
       shared_ptr<string> shareRuleName_ {};
+      // The type of the sharing rule.
+      // 
       // This parameter is required.
       shared_ptr<string> shareType_ {};
+      // The list of target cost centers.
       shared_ptr<vector<int64_t>> toCostCenterList_ {};
     };
 
@@ -199,11 +207,17 @@ namespace Models
 
 
     protected:
+      // The list of source cost centers.
       shared_ptr<vector<int64_t>> fromCostCenterList_ {};
+      // The list of sharing ratios.
       shared_ptr<vector<double>> shareRatioList_ {};
+      // The name of the sharing rule.
       shared_ptr<string> shareRuleName_ {};
+      // The type of the sharing rule.
+      // 
       // This parameter is required.
       shared_ptr<string> shareType_ {};
+      // The list of target cost centers.
       shared_ptr<vector<int64_t>> toCostCenterList_ {};
     };
 
@@ -251,10 +265,15 @@ namespace Models
 
 
   protected:
+    // The list of sharing rules to create.
     shared_ptr<vector<SaveCostCenterShareRuleRequest::CreateShareRuleList>> createShareRuleList_ {};
+    // The list of sharing rules to modify.
     shared_ptr<vector<SaveCostCenterShareRuleRequest::ModifyShareRuleList>> modifyShareRuleList_ {};
+    // The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The user ID of the cost center owner.
     shared_ptr<int64_t> ownerAccountId_ {};
+    // The list of sharing rules to delete.
     shared_ptr<vector<int64_t>> removeShareRuleList_ {};
   };
 

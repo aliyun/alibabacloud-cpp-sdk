@@ -135,9 +135,15 @@ namespace Models
 
 
       protected:
+        // The condition filter key.
         shared_ptr<string> code_ {};
+        // The condition filter key name (deprecated).
         shared_ptr<string> codeName_ {};
+        // The association between code and value.
         shared_ptr<string> selectType_ {};
+        // The attribute value types corresponding to the module code. Valid values:
+        // - single_float: single value type.
+        // - range_float: range value type.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -185,10 +191,15 @@ namespace Models
 
 
     protected:
+      // The operation type.
       shared_ptr<string> expressionType_ {};
+      // The sub-condition filter.
       shared_ptr<FilterExpression::FilterValues> filterValues_ {};
+      // The filter condition (deprecated).
       Darabonba::Json operand_ {};
+      // The condition expression.
       shared_ptr<vector<Darabonba::Json>> operands_ {};
+      // The relational expression.
       shared_ptr<string> operatorType_ {};
     };
 
@@ -277,17 +288,31 @@ namespace Models
 
 
   protected:
+    // The cost center ID.
     shared_ptr<int64_t> costCenterId_ {};
+    // The rule expression.
     shared_ptr<QueryCostCenterRuleResponseBody::FilterExpression> filterExpression_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The ID of the cost center auto-allocation rule.
     shared_ptr<int64_t> id_ {};
+    // The deletion status. Valid values:
+    // * **0**: active.
+    // * **1**: inactive.
     shared_ptr<int32_t> isDeleted_ {};
+    // Response structure metadata.
     Darabonba::Json metadata_ {};
+    // The owner user of the cost center.
     shared_ptr<int64_t> ownerAccountId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The root cost center ID.
     shared_ptr<int64_t> rootCostCenterId_ {};
+    // The status. Valid values:
+    // - on: active.
+    // - off: inactive.
     shared_ptr<string> status_ {};
   };
 

@@ -140,17 +140,59 @@ namespace Models
 
 
   protected:
+    // Transaction order number
     shared_ptr<string> billNumber_ {};
+    // Transaction channel serial number
     shared_ptr<string> channelTransactionNumber_ {};
+    // Current page number
     shared_ptr<int32_t> currentPage_ {};
+    // Query end timestamp (milliseconds)
     shared_ptr<int64_t> endTime_ {};
+    // Fund account ID. If not specified, the account ID owned by the current account (owner) is used by default.
     shared_ptr<int64_t> fundAccountId_ {};
+    // Page size (maximum 200)
     shared_ptr<int32_t> pageSize_ {};
+    // Query start timestamp (milliseconds)
     shared_ptr<int64_t> startTime_ {};
+    // Transaction channel. If specified, the query filters by transaction channel. If not specified, all channels are queried by default.
+    // 
+    // User balance: ACCT_CASH.
+    // 
+    // Alipay: ALIPAY.
+    // 
+    // Alipay Zhifutong: ALIPAY_ZHIFUTONG.
+    // 
+    // Offline remittance: OFFLINE_REMIT.
+    // 
+    // Credit control quota refund: REFUND.
+    // 
+    // Online banking: UNION_PAY_BANK.
+    // 
+    // Credit card: CREDIT_CARD. (International site only)
+    // 
+    // PayPal: PAYPAL. (International site only)
     shared_ptr<string> transactionChannelListShrink_ {};
+    // Transaction direction: in/out (fund inflow/outflow)
     shared_ptr<string> transactionDirection_ {};
+    // Transaction serial number
     shared_ptr<int64_t> transactionNumber_ {};
+    // Transaction type. If a transaction type is specified, only results of that type are returned. If the specified type does not exist, the result is empty. If not specified, all types are returned by default.
+    // 
+    // Top-up: CHARGE.
+    // 
+    // Withdrawal: WITHDRAW.
+    // 
+    // Refund: REFUND.
+    // 
+    // Payment: PAY.
+    // 
+    // Transfer: TRANSFER.
+    // 
+    // Adjustment: ADJUST.
+    // 
+    // Order expiration refund: PAY_FAILED.
     shared_ptr<string> transactionType_ {};
+    // Transaction type list. Supports querying with multiple parameters.
     shared_ptr<string> transactionTypeListShrink_ {};
   };
 

@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetName_ {};
+    // The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

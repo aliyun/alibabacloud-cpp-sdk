@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The budget name.
+    // 
     // This parameter is required.
     shared_ptr<string> budgetName_ {};
+    // The primary sales channel ID. If this parameter is left empty, the channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

@@ -79,10 +79,16 @@ namespace Models
 
 
     protected:
+      // The ID of the cost center.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> costCenterId_ {};
+      // The new name of the cost center. The name must be unique within the same account.
+      // 
       // This parameter is required.
       shared_ptr<string> costCenterName_ {};
+      // The ID of the owner to which the cost center belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> ownerAccountId_ {};
     };
@@ -106,8 +112,11 @@ namespace Models
 
 
   protected:
+    // The list of cost center entities.
+    // 
     // This parameter is required.
     shared_ptr<vector<ModifyCostCenterRequest::CostCenterEntityList>> costCenterEntityList_ {};
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

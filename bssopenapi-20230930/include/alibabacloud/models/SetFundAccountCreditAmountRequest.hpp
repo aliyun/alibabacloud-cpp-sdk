@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Credit limit
+    // 
     // This parameter is required.
     shared_ptr<string> creditAmount_ {};
+    // Currency for the credit control limit. Currently, only CNY is supported in mainland China, and only USD is supported for international use.
+    // 
     // This parameter is required.
     shared_ptr<string> currency_ {};
+    // Fund account ID. If not specified, the account owned by the current account (owner) is used by default.
     shared_ptr<int64_t> fundAccountId_ {};
   };
 

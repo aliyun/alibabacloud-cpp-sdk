@@ -94,18 +94,35 @@ namespace Models
 
 
   protected:
+    // The transfer amount.
+    // 
     // This parameter is required.
     shared_ptr<string> amount_ {};
+    // The currency.
+    // 
     // This parameter is required.
     shared_ptr<string> currency_ {};
+    // The asset type. Currently, only cash is supported. Valid values:
+    // - cash: cash.
+    // 
     // This parameter is required.
     shared_ptr<string> financeType_ {};
+    // The ID of the source account (payer account ID).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> fromFundAccountId_ {};
+    // The remarks.
+    // 
     // This parameter is required.
     shared_ptr<string> remark_ {};
+    // The ID of the destination account (payee account ID).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> toFundAccountId_ {};
+    // The transfer type. Valid values:
+    // - grant: transfer.
+    // - recycle: revocation.
+    // 
     // This parameter is required.
     shared_ptr<string> transferType_ {};
   };

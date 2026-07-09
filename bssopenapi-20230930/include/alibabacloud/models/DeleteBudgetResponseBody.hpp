@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The budget name.
     shared_ptr<string> budgetName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

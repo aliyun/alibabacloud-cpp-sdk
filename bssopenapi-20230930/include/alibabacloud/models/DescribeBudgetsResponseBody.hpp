@@ -189,14 +189,23 @@ namespace Models
 
 
       protected:
+        // The remarks.
         shared_ptr<string> comment_ {};
+        // Indicates whether EventBridge is enabled.
         shared_ptr<bool> eventBridge_ {};
+        // The list of message center notification channels.
         shared_ptr<vector<string>> mscChannels_ {};
+        // The list of message center contacts.
         shared_ptr<vector<string>> mscContacts_ {};
+        // The alert name. This parameter is user-defined and optional. If not specified, the backend automatically generates a name.
         shared_ptr<string> name_ {};
+        // The sort sequence number. This parameter is present only in responses. Alerts are numbered in ascending order by alert ID, starting from 1.
         shared_ptr<int32_t> sequence_ {};
+        // The threshold type.
         shared_ptr<string> thresholdType_ {};
+        // The threshold value.
         shared_ptr<string> thresholdValue_ {};
+        // The alert target.
         shared_ptr<string> warnTarget_ {};
       };
 
@@ -249,8 +258,11 @@ namespace Models
 
 
       protected:
+        // The parameter code.
         shared_ptr<string> code_ {};
+        // The selection mode.
         shared_ptr<string> selectType_ {};
+        // The filter value list.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -294,7 +306,9 @@ namespace Models
 
 
       protected:
+        // The member account IDs.
         shared_ptr<vector<int64_t>> accountIds_ {};
+        // The enterprise entity ID.
         shared_ptr<string> ecId_ {};
       };
 
@@ -336,7 +350,9 @@ namespace Models
 
 
       protected:
+        // The cycle period.
         shared_ptr<string> cyclePeriod_ {};
+        // The quota.
         shared_ptr<string> quota_ {};
       };
 
@@ -451,19 +467,33 @@ namespace Models
 
 
     protected:
+      // The budget name.
       shared_ptr<string> budgetName_ {};
+      // The budget type.
       shared_ptr<string> budgetType_ {};
+      // The remarks.
       shared_ptr<string> comment_ {};
+      // The end period.
       shared_ptr<string> cycleEndPeriod_ {};
+      // The specified quota per cycle.
       shared_ptr<vector<Data::CycleQuota>> cycleQuota_ {};
+      // The start period.
       shared_ptr<string> cycleStartPeriod_ {};
+      // The cycle type.
       shared_ptr<string> cycleType_ {};
+      // The enterprise multi-account filter conditions.
       shared_ptr<Data::EcIdAccountIdsFilter> ecIdAccountIdsFilter_ {};
+      // The expiration status.
       shared_ptr<string> expireStatus_ {};
+      // The budget metric.
       shared_ptr<string> metric_ {};
+      // The filter conditions.
       shared_ptr<vector<Data::QueryFilter>> queryFilter_ {};
+      // The fixed quota value.
       shared_ptr<string> quota_ {};
+      // The quota type.
       shared_ptr<string> quotaType_ {};
+      // The alert configurations.
       shared_ptr<vector<Data::WarnConfs>> warnConfs_ {};
     };
 
@@ -507,10 +537,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The data list.
     shared_ptr<vector<DescribeBudgetsResponseBody::Data>> data_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OwnerAccountId, ownerAccountId_);
         DARABONBA_PTR_TO_JSON(ParentCostCenterId, parentCostCenterId_);
         DARABONBA_PTR_TO_JSON(PrevCostCenterId, prevCostCenterId_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
       };
       friend void from_json(const Darabonba::Json& j, CostCenterDtoList& obj) { 
         DARABONBA_PTR_FROM_JSON(CostCenterCode, costCenterCode_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OwnerAccountId, ownerAccountId_);
         DARABONBA_PTR_FROM_JSON(ParentCostCenterId, parentCostCenterId_);
         DARABONBA_PTR_FROM_JSON(PrevCostCenterId, prevCostCenterId_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
       };
       CostCenterDtoList() = default ;
       CostCenterDtoList(const CostCenterDtoList &) = default ;
@@ -73,7 +75,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->costCenterCode_ == nullptr
         && this->costCenterId_ == nullptr && this->costCenterName_ == nullptr && this->level_ == nullptr && this->ownerAccountId_ == nullptr && this->parentCostCenterId_ == nullptr
-        && this->prevCostCenterId_ == nullptr; };
+        && this->prevCostCenterId_ == nullptr && this->priority_ == nullptr; };
       // costCenterCode Field Functions 
       bool hasCostCenterCode() const { return this->costCenterCode_ != nullptr;};
       void deleteCostCenterCode() { this->costCenterCode_ = nullptr;};
@@ -123,14 +125,29 @@ namespace Models
       inline CostCenterDtoList& setPrevCostCenterId(int64_t prevCostCenterId) { DARABONBA_PTR_SET_VALUE(prevCostCenterId_, prevCostCenterId) };
 
 
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline CostCenterDtoList& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
     protected:
+      // The code of the financial unit.
       shared_ptr<string> costCenterCode_ {};
+      // The ID of the financial unit.
       shared_ptr<int64_t> costCenterId_ {};
+      // The name of the financial unit. The name must be unique within the same account.
       shared_ptr<string> costCenterName_ {};
+      // The level of the financial unit node.
       shared_ptr<int32_t> level_ {};
+      // The ID of the user who owns the financial unit.
       shared_ptr<int64_t> ownerAccountId_ {};
+      // The ID of the parent financial unit.
       shared_ptr<int64_t> parentCostCenterId_ {};
+      // The ID of the previous financial unit.
       shared_ptr<int64_t> prevCostCenterId_ {};
+      shared_ptr<int32_t> priority_ {};
     };
 
     virtual bool empty() const override { return this->costCenterDtoList_ == nullptr
@@ -182,12 +199,17 @@ namespace Models
 
 
   protected:
+    // The list of financial unit data.
     shared_ptr<vector<QueryCostCenterResponseBody::CostCenterDtoList>> costCenterDtoList_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The metadata of the response struct.
     Darabonba::Json metadata_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

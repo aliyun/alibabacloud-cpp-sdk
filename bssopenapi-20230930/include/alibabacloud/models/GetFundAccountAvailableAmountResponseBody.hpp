@@ -110,7 +110,9 @@ namespace Models
 
 
     protected:
+      // Amount
       shared_ptr<string> amount_ {};
+      // Currency
       shared_ptr<string> currency_ {};
     };
 
@@ -161,8 +163,11 @@ namespace Models
 
 
     protected:
+      // Currency of the ledger amount, such as CNY and USD.
       shared_ptr<string> currency_ {};
+      // Ledger name
       shared_ptr<string> ledgerName_ {};
+      // Ledger balance
       shared_ptr<string> originalAmount_ {};
     };
 
@@ -333,27 +338,51 @@ namespace Models
 
 
   protected:
+    // Available amount
     shared_ptr<string> availableAmount_ {};
+    // Available credit amount
     shared_ptr<string> availableCreditAmount_ {};
+    // Bank acceptance bill amount
     shared_ptr<string> bankAcceptanceAmount_ {};
+    // Cash balance
     shared_ptr<string> cashAmount_ {};
+    // Credit quota
     shared_ptr<string> creditAmount_ {};
+    // Credit refund balance
     shared_ptr<string> creditRefundAmount_ {};
+    // Indicates whether credit control is enabled
     shared_ptr<bool> creditUser_ {};
+    // Currency
     shared_ptr<string> currency_ {};
+    // Current month uncleared amount
     shared_ptr<string> currentMonthUnclearedAmount_ {};
+    // Extended ledger list
     shared_ptr<vector<GetFundAccountAvailableAmountResponseBody::ExtendLedgerList>> extendLedgerList_ {};
+    // Account ID
     shared_ptr<string> fundAccountId_ {};
+    // Account ID of the fund account owner
     shared_ptr<string> fundAccountOwnerAccountId_ {};
+    // Account status
     shared_ptr<string> fundAccountStatus_ {};
+    // Fund account type. Valid values:
+    // DIRECT_USER: Alibaba Cloud direct customer account.
+    // RESELLER_QUOTA: ecosystem account.
     shared_ptr<string> fundAccountType_ {};
+    // Historical months uncleared amount
     shared_ptr<string> historyMonthUnclearedAmount_ {};
+    // Response metadata
     Darabonba::Json metadata_ {};
+    // Negative bill amount
     shared_ptr<string> negativeBillAmount_ {};
+    // Original cash ledger list. International site users may have cash ledgers in multiple currencies.
     shared_ptr<vector<GetFundAccountAvailableAmountResponseBody::OriginalCashAmountList>> originalCashAmountList_ {};
+    // Ecosystem end customer quota
     shared_ptr<string> quotaAmount_ {};
+    // Consumed quota of ecosystem end customer
     shared_ptr<string> quotaConsumedAmount_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Uncleared amount (current month uncleared + historical months uncleared)
     shared_ptr<string> unclearedAmount_ {};
   };
 

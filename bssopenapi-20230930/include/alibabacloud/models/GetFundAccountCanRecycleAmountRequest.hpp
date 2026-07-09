@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The currency.
+    // 
     // This parameter is required.
     shared_ptr<string> currency_ {};
+    // The ID of the source account (payer account) from which funds are reclaimed. If not specified, the account ID owned by the current account is used by default.
     shared_ptr<string> recycleFromFundAccountId_ {};
   };
 

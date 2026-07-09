@@ -156,16 +156,35 @@ namespace Models
 
 
     protected:
+      // Account creation time
       shared_ptr<string> createDate_ {};
+      // Account ID of the MA user associated with the account
       shared_ptr<string> fundAccountAdminAccountId_ {};
+      // Name of the MA user associated with the account
       shared_ptr<string> fundAccountAdminAccountName_ {};
+      // Account ID
       shared_ptr<string> fundAccountId_ {};
+      // Account name
       shared_ptr<string> fundAccountName_ {};
+      // Account ID of the fund account owner
       shared_ptr<string> fundAccountOwnerAccountId_ {};
+      // Account status.
+      // VALID: valid.
+      // FROZEN: frozen.
+      // CLOSED: closed.
       shared_ptr<string> fundAccountStatus_ {};
+      // Account type.
+      // DIRECT_USER: Alibaba Cloud direct customer account.
+      // RESELLER_QUOTA: ecosystem account.
       shared_ptr<string> fundAccountType_ {};
+      // Level-1 marketplace
       shared_ptr<string> nbid_ {};
+      // Set of account permissions that the user has.
+      // using: use.
+      // manage: manage.
+      // owner: own.
       shared_ptr<vector<string>> permissions_ {};
+      // Site
       shared_ptr<string> site_ {};
     };
 
@@ -197,8 +216,11 @@ namespace Models
 
 
   protected:
+    // Data list
     shared_ptr<vector<ListFundAccountResponseBody::Data>> data_ {};
+    // Response metadata
     Darabonba::Json metadata_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

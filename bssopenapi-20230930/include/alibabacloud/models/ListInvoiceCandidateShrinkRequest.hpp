@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // List of billing cycles.
     shared_ptr<string> billingCyclesShrink_ {};
+    // List of business document numbers.
     shared_ptr<string> businessIdsShrink_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // List of enterprises and accounts. If empty, the current account itself is queried.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
+    // The end time. Format: yyyy-mm-dd hh:mm:ss.
     shared_ptr<string> endTime_ {};
+    // List of invoice issuers.
     shared_ptr<string> invoiceIssuersShrink_ {};
+    // Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time. Format: yyyy-mm-dd hh:mm:ss.
     shared_ptr<string> startTime_ {};
+    // List of invoice candidate statuses.
     shared_ptr<string> statusShrink_ {};
+    // List of invoice candidate types.
     shared_ptr<string> typesShrink_ {};
   };
 

@@ -132,16 +132,27 @@ namespace Models
 
 
   protected:
+    // Amount withdrawable via original payment method
     shared_ptr<string> canOriginalWithdrawAmount_ {};
+    // Withdrawable amount = Cash balance - Transfer ledger amount - (Outstanding invoice amount + Historical months unsettled amount + Current month unsettled amount - Transfer ledger amount) - Pay-as-you-go reserved amount
     shared_ptr<string> canWithdrawAmount_ {};
+    // Amount not withdrawable via original payment method
     shared_ptr<string> cannotOriginalWithdrawAmount_ {};
+    // Cash balance
     shared_ptr<string> cashAmount_ {};
+    // Outstanding invoice amount
     shared_ptr<string> creditMemoAmount_ {};
+    // Current month unsettled amount
     shared_ptr<string> currentMonthUnclearedAmount_ {};
+    // Historical months unsettled amount
     shared_ptr<string> historyMonthUnclearedAmount_ {};
+    // Response structure metadata
     Darabonba::Json metadata_ {};
+    // Pay-as-you-go reserved amount
     shared_ptr<string> payAsYouGoReversedAmount_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Transfer amount
     shared_ptr<string> transferAmount_ {};
   };
 

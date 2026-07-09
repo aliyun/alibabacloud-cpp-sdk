@@ -252,26 +252,47 @@ namespace Models
 
 
     protected:
+      // The accepted offset amount.
       shared_ptr<string> acceptedOffsetAmount_ {};
+      // The account ID.
       shared_ptr<int64_t> accountId_ {};
+      // The account name.
       shared_ptr<string> accountName_ {};
+      // The billing cycle.
       shared_ptr<int32_t> billingCycle_ {};
+      // The business document number.
       shared_ptr<string> businessId_ {};
+      // The time when the business event occurred.
       shared_ptr<string> businessTime_ {};
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
+      // The commodity name.
       shared_ptr<string> commodityName_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The ID of the invoice candidate.
       shared_ptr<string> id_ {};
+      // The invoice issuer.
       shared_ptr<string> invoiceIssuer_ {};
+      // The invoiceable amount.
       shared_ptr<string> invoiceableAmount_ {};
+      // The invoiced amount.
       shared_ptr<string> invoicedAmount_ {};
+      // The offset amount.
       shared_ptr<string> offsetAmount_ {};
+      // The product code.
       shared_ptr<string> productCode_ {};
+      // The product name.
       shared_ptr<string> productName_ {};
+      // The ID of the resource owner account.
       shared_ptr<int64_t> resourceOwnerAccountId_ {};
+      // The name of the resource owner account.
       shared_ptr<string> resourceOwnerAccountName_ {};
+      // The status of the invoice candidate.
       shared_ptr<int32_t> status_ {};
+      // The total amount.
       shared_ptr<string> totalAmount_ {};
+      // The type of the invoice candidate.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -324,11 +345,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of data entries.
     shared_ptr<vector<ListInvoiceCandidateResponseBody::Data>> data_ {};
+    // The metadata of the response.
     Darabonba::Json metadata_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

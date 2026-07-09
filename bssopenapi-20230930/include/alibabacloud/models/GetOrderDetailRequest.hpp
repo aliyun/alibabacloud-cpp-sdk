@@ -57,7 +57,10 @@ namespace Models
 
 
   protected:
+    // The UID of the enterprise multi-account member managed by the current account. Leave this parameter empty if this scenario does not apply.
     shared_ptr<int64_t> memberUid_ {};
+    // The order ID.
+    // 
     // This parameter is required.
     shared_ptr<string> orderId_ {};
     shared_ptr<int64_t> ownerId_ {};

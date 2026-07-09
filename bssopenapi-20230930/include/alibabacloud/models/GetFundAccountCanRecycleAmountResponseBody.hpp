@@ -107,10 +107,15 @@ namespace Models
 
 
     protected:
+      // The ID of the target account to which funds can be reclaimed.
       shared_ptr<string> fundAccountId_ {};
+      // The name of the target account to which funds can be reclaimed.
       shared_ptr<string> fundAccountName_ {};
+      // The account ID that owns the target account to which funds can be reclaimed.
       shared_ptr<string> fundAccountOwnerAccountId_ {};
+      // The maximum reclaimable amount.
       shared_ptr<string> maxRecyclableAmount_ {};
+      // The remaining transfer amount that can be reclaimed through the original transfer path.
       shared_ptr<string> originalTransferRemainAmount_ {};
     };
 
@@ -171,12 +176,19 @@ namespace Models
 
 
   protected:
+    // The available balance of the account from which funds are reclaimed.
     shared_ptr<string> availableAmount_ {};
+    // The currency.
     shared_ptr<string> currency_ {};
+    // The metadata of the response struct.
     Darabonba::Json metadata_ {};
+    // The ID of the source account from which funds are reclaimed.
     shared_ptr<string> recycleFromFundAccountId_ {};
+    // The list of accounts to which funds can be reclaimed.
     shared_ptr<vector<GetFundAccountCanRecycleAmountResponseBody::RecycleToFundAccountList>> recycleToFundAccountList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The transfer ledger balance.
     shared_ptr<string> transferAmount_ {};
   };
 

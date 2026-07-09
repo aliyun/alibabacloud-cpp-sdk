@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The condition filter key.
         shared_ptr<string> code_ {};
+        // The condition filter key name.
         shared_ptr<string> codeName_ {};
+        // The association between Code and value.
         shared_ptr<string> selectType_ {};
+        // The condition filter values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -169,10 +173,15 @@ namespace Models
 
 
     protected:
+      // The operation type.
       shared_ptr<string> expressionType_ {};
+      // The sub-expression filter conditions.
       shared_ptr<FilterExpression::FilterValues> filterValues_ {};
+      // The filter condition (no longer used).
       Darabonba::Json operand_ {};
+      // The conditional expressions.
       shared_ptr<vector<Darabonba::Json>> operands_ {};
+      // The relational expression.
       shared_ptr<string> operatorType_ {};
     };
 
@@ -202,8 +211,12 @@ namespace Models
 
 
   protected:
+    // Financial unit ID.
     shared_ptr<int64_t> costCenterId_ {};
+    // Rule expression.
+    // **This field does not need to be entered during the delete operation.**
     shared_ptr<DeleteCostCenterRuleRequest::FilterExpression> filterExpression_ {};
+    // Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

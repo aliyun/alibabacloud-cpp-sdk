@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The ID of the cost center.
       shared_ptr<int64_t> costCenterId_ {};
+      // Indicates whether the operation is successful.
       shared_ptr<bool> isSuccess_ {};
+      // The ID of the owner to which the cost center belongs.
       shared_ptr<int64_t> ownerAccountId_ {};
     };
 
@@ -114,8 +117,11 @@ namespace Models
 
 
   protected:
+    // The list of data entries.
     shared_ptr<vector<ModifyCostCenterResponseBody::CostCenterOperateDto>> costCenterOperateDto_ {};
+    // The metadata of the response.
     Darabonba::Json metadata_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The budget name.
     shared_ptr<string> budgetName_ {};
+    // Indicates whether the budget name already exists.
     shared_ptr<bool> exists_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

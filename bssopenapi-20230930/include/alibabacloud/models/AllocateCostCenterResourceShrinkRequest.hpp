@@ -75,11 +75,23 @@ namespace Models
 
 
   protected:
+    // The ID of the source cost center. This parameter is required.
+    // 
+    // - 0 indicates that the cost center is unallocated.
+    // - A value greater than 0 indicates an allocated cost center ID.
     shared_ptr<int64_t> fromCostCenterId_ {};
+    // The ID of the owner of the source cost center.
     shared_ptr<int64_t> fromOwnerAccountId_ {};
+    // The primary sales channel ID. If this parameter is left empty, the sales channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The list of resource instances.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceInstanceListShrink_ {};
+    // The ID of the destination cost center. Valid values:
+    // 
+    // - -1: moves the allocated resource to the unallocated state.
+    // - A value greater than 0: allocates the resource to the specified cost center.
     shared_ptr<int64_t> toCostCenterId_ {};
   };
 

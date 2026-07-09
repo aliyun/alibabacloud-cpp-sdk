@@ -130,16 +130,45 @@ namespace Models
 
 
   protected:
+    // The end of the order creation time range. If not specified, orders created within the most recent hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
     shared_ptr<string> createTimeEnd_ {};
+    // The start of the order creation time range. If not specified, orders created within the most recent hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
     shared_ptr<string> createTimeStart_ {};
+    // The UID of a member account in an enterprise with multiple member accounts. Leave this parameter empty if this scenario does not apply.
     shared_ptr<int64_t> memberUid_ {};
+    // The order type. Valid values:
+    // - New: new purchase.
+    // - Renew: renewal.
+    // - Upgrade: upgrade.
+    // - TempUpgrade: temporary upgrade.
+    // - Downgrade: downgrade.
+    // - Refund: refund.
+    // - Convert: billing method conversion.
+    // - ResizeDisk: cloud disk resizing.
+    // - CompensatoryRenew: compensatory renewal.
+    // - IncreaseUpgrade: bandwidth upgrade.
+    // - Exchange: exchange.
+    // - ChangeOperatingSystem: operating system change.
     shared_ptr<string> orderType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The payment status. For non-refund orders, valid values:
+    // - Unpaid: unpaid.
+    // - Paid: paid.
+    // - Cancelled: canceled.
+    // 
+    // > For refund orders, set this parameter to NULL.
     shared_ptr<string> paymentStatus_ {};
+    // The product code.
     shared_ptr<string> productCode_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
+    // The subscription type. Valid values:
+    // - Subscription: upfront.
+    // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};
   };
 

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Cost center ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> costCenterId_ {};
+    // First-level marketplace ID. If left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // User ID of the cost center owner.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ownerAccountId_ {};
   };

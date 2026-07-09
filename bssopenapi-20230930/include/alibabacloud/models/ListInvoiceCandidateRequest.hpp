@@ -90,7 +90,9 @@ namespace Models
 
 
     protected:
+      // List of accounts to access. If empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
+      // Enterprise entity ID.
       shared_ptr<string> ecId_ {};
     };
 
@@ -187,16 +189,27 @@ namespace Models
 
 
   protected:
+    // List of billing cycles.
     shared_ptr<vector<int32_t>> billingCycles_ {};
+    // List of business document numbers.
     shared_ptr<vector<string>> businessIds_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // List of enterprises and accounts. If empty, the current account itself is queried.
     shared_ptr<vector<ListInvoiceCandidateRequest::EcIdAccountIds>> ecIdAccountIds_ {};
+    // The end time. Format: yyyy-mm-dd hh:mm:ss.
     shared_ptr<string> endTime_ {};
+    // List of invoice issuers.
     shared_ptr<vector<string>> invoiceIssuers_ {};
+    // Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time. Format: yyyy-mm-dd hh:mm:ss.
     shared_ptr<string> startTime_ {};
+    // List of invoice candidate statuses.
     shared_ptr<vector<int32_t>> status_ {};
+    // List of invoice candidate types.
     shared_ptr<vector<int32_t>> types_ {};
   };
 

@@ -826,10 +826,14 @@ namespace Models
 
 
     protected:
+      // The hostname.
       shared_ptr<string> hostName_ {};
       shared_ptr<Data::OrderList> orderList_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -873,10 +877,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetOrderDetailResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

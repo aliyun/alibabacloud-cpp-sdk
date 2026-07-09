@@ -136,14 +136,23 @@ namespace Models
 
 
     protected:
+      // Bank name.
       shared_ptr<string> accountBankName_ {};
+      // Account ID.
       shared_ptr<int64_t> accountId_ {};
+      // Basic bank account number.
       shared_ptr<string> bankAccountNumber_ {};
+      // The time when the invoice title was created.
       shared_ptr<string> createTime_ {};
+      // Invoice title ID.
       shared_ptr<string> id_ {};
+      // Invoice title.
       shared_ptr<string> invoiceTitle_ {};
+      // Registered address.
       shared_ptr<string> registeredAddress_ {};
+      // Registered landline number.
       shared_ptr<string> registeredLandline_ {};
+      // Unified social credit code. 15, 17, 18, or 20 characters.
       shared_ptr<string> unifiedSocialCreditCode_ {};
     };
 
@@ -175,8 +184,11 @@ namespace Models
 
 
   protected:
+    // Invoice title list
     shared_ptr<vector<ListInvoiceTitleResponseBody::Data>> data_ {};
+    // Response metadata.
     Darabonba::Json metadata_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

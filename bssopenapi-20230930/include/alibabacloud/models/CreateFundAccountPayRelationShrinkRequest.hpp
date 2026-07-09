@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // List of enterprises and accounts.
+    // 
     // This parameter is required.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
+    // Fund account ID.
+    // 
     // This parameter is required.
     shared_ptr<string> fundAccountId_ {};
+    // Primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // Indicates whether the subscription is deleted.
     shared_ptr<bool> data_ {};
+    // The metadata of the response struct.
     Darabonba::Json metadata_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

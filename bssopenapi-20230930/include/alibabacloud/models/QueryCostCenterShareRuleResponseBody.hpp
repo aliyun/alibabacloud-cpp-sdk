@@ -182,15 +182,25 @@ namespace Models
 
 
       protected:
+        // The cost center code.
         shared_ptr<string> costCenterCode_ {};
+        // The cost center ID.
         shared_ptr<int64_t> costCenterId_ {};
+        // The cost center name.
         shared_ptr<string> costCenterName_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
+        // The owner account ID of the cost center.
         shared_ptr<int64_t> ownerAccountId_ {};
+        // The parent cost center ID.
         shared_ptr<int64_t> parentCostCenterId_ {};
+        // The previous cost center ID.
         shared_ptr<int64_t> prevCostCenterId_ {};
+        // The root cost center ID.
         shared_ptr<int64_t> rootCostCenterId_ {};
+        // The sharing ratio.
         shared_ptr<double> shareRatio_ {};
       };
 
@@ -296,14 +306,23 @@ namespace Models
 
 
       protected:
+        // The cost center code.
         shared_ptr<string> costCenterCode_ {};
+        // The cost center ID.
         shared_ptr<int64_t> costCenterId_ {};
+        // The cost center name.
         shared_ptr<string> costCenterName_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
+        // The owner account ID of the cost center.
         shared_ptr<int64_t> ownerAccountId_ {};
+        // The parent cost center ID.
         shared_ptr<int64_t> parentCostCenterId_ {};
+        // The previous cost center ID.
         shared_ptr<int64_t> prevCostCenterId_ {};
+        // The root cost center ID.
         shared_ptr<int64_t> rootCostCenterId_ {};
       };
 
@@ -364,12 +383,18 @@ namespace Models
 
 
     protected:
+      // The source cost center rule details.
       shared_ptr<vector<Data::FromCostCenterShareRuleDetails>> fromCostCenterShareRuleDetails_ {};
       shared_ptr<string> gmtModified_ {};
+      // The owner account ID of the cost center.
       shared_ptr<int64_t> ownerAccountId_ {};
+      // The sharing rule ID.
       shared_ptr<int64_t> shareRuleId_ {};
+      // The sharing rule name.
       shared_ptr<string> shareRuleName_ {};
+      // The sharing rule type.
       shared_ptr<string> shareRuleType_ {};
+      // The target cost center rule details.
       shared_ptr<vector<Data::ToCostCenterShareRuleDetails>> toCostCenterShareRuleDetails_ {};
     };
 
@@ -422,11 +447,17 @@ namespace Models
 
 
   protected:
+    // The returned data list.
     shared_ptr<vector<QueryCostCenterShareRuleResponseBody::Data>> data_ {};
+    // Reserved field.
     shared_ptr<int32_t> maxResults_ {};
+    // The response metadata.
     Darabonba::Json metadata_ {};
+    // Reserved field.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // Account ID.
       shared_ptr<int64_t> accountId_ {};
+      // Invoice amount.
       shared_ptr<string> amount_ {};
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Invoice issuer.
       shared_ptr<string> invoiceIssuer_ {};
+      // Error message.
       shared_ptr<string> message_ {};
     };
 
@@ -134,8 +139,11 @@ namespace Models
 
 
   protected:
+    // Data list.
     shared_ptr<vector<CreateInvoiceResponseBody::Data>> data_ {};
+    // Response metadata.
     Darabonba::Json metadata_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

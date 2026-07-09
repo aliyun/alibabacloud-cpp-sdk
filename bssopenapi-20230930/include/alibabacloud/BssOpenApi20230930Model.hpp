@@ -82,6 +82,14 @@
 #include <alibabacloud/models/DescribeCouponItemListShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeCouponItemListResponseBody.hpp>
 #include <alibabacloud/models/DescribeCouponItemListResponse.hpp>
+#include <alibabacloud/models/DescribeDeductLogsRequest.hpp>
+#include <alibabacloud/models/DescribeDeductLogsShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeDeductLogsResponseBody.hpp>
+#include <alibabacloud/models/DescribeDeductLogsResponse.hpp>
+#include <alibabacloud/models/DescribeFrInstancesRequest.hpp>
+#include <alibabacloud/models/DescribeFrInstancesShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeFrInstancesResponseBody.hpp>
+#include <alibabacloud/models/DescribeFrInstancesResponse.hpp>
 #include <alibabacloud/models/DescribeUserSpnSummaryInfoRequest.hpp>
 #include <alibabacloud/models/DescribeUserSpnSummaryInfoShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeUserSpnSummaryInfoResponseBody.hpp>

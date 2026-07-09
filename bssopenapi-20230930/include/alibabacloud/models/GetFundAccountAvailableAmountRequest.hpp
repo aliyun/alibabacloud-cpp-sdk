@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Account ID. If not specified, the account ID owned by the current account (owner) is used by default.
     shared_ptr<string> fundAccountId_ {};
   };
 

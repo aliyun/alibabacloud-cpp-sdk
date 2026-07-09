@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Fund account ID. If not specified, the account owned by the current account is used by default.
     shared_ptr<int64_t> fundAccountId_ {};
   };
 

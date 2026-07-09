@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The product code.
       shared_ptr<string> code_ {};
+      // The product name.
       shared_ptr<string> name_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The data list.
     shared_ptr<vector<DescribeCouponItemListResponseBody::Data>> data_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 
