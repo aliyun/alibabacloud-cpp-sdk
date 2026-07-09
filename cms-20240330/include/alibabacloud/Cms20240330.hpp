@@ -417,6 +417,24 @@ namespace Cms20240330
       Models::CreateServiceObservabilityResponse createServiceObservability(const string &workspace, const string &type, const Models::CreateServiceObservabilityRequest &request);
 
       /**
+       * @summary Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+       *
+       * @param request CreateServiceRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceRecordResponse
+       */
+      Models::CreateServiceRecordResponse createServiceRecordWithOptions(const string &workspace, const string &serviceId, const Models::CreateServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+       *
+       * @param request CreateServiceRecordRequest
+       * @return CreateServiceRecordResponse
+       */
+      Models::CreateServiceRecordResponse createServiceRecord(const string &workspace, const string &serviceId, const Models::CreateServiceRecordRequest &request);
+
+      /**
        * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
        *
        * @param request CreateTicketRequest
@@ -839,6 +857,28 @@ namespace Cms20240330
        * @return DeleteServiceResponse
        */
       Models::DeleteServiceResponse deleteService(const string &workspace, const string &serviceId, const Models::DeleteServiceRequest &request);
+
+      /**
+       * @summary Deletes a service association entry.
+       *
+       * @description Deletes a created service association entry.
+       *
+       * @param request DeleteServiceRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServiceRecordResponse
+       */
+      Models::DeleteServiceRecordResponse deleteServiceRecordWithOptions(const string &workspace, const string &serviceId, const Models::DeleteServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a service association entry.
+       *
+       * @description Deletes a created service association entry.
+       *
+       * @param request DeleteServiceRecordRequest
+       * @return DeleteServiceRecordResponse
+       */
+      Models::DeleteServiceRecordResponse deleteServiceRecord(const string &workspace, const string &serviceId, const Models::DeleteServiceRecordRequest &request);
 
       /**
        * @summary Deletes a Umodel configuration.
@@ -1517,6 +1557,28 @@ namespace Cms20240330
       Models::GetServiceObservabilityResponse getServiceObservability(const string &workspace, const string &type, const Models::GetServiceObservabilityRequest &request);
 
       /**
+       * @summary Queries a service-linked entry.
+       *
+       * @description Retrieves a service-linked entry.
+       *
+       * @param request GetServiceRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceRecordResponse
+       */
+      Models::GetServiceRecordResponse getServiceRecordWithOptions(const string &workspace, const string &serviceId, const Models::GetServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a service-linked entry.
+       *
+       * @description Retrieves a service-linked entry.
+       *
+       * @param request GetServiceRecordRequest
+       * @return GetServiceRecordResponse
+       */
+      Models::GetServiceRecordResponse getServiceRecord(const string &workspace, const string &serviceId, const Models::GetServiceRecordRequest &request);
+
+      /**
        * @summary Retrieves the configuration of a Umodel.
        *
        * @description Retrieves the configuration of a Umodel.
@@ -1821,7 +1883,9 @@ namespace Cms20240330
       Models::ListDatasetsResponse listDatasets(const string &workspace, const Models::ListDatasetsRequest &request);
 
       /**
-       * @summary Retrieves a list of data delivery tasks.
+       * @summary Retrieves the list of data delivery tasks.
+       *
+       * @description Deletes a specified site monitoring task.
        *
        * @param tmpReq ListDeliveryTasksRequest
        * @param headers map
@@ -1831,7 +1895,9 @@ namespace Cms20240330
       Models::ListDeliveryTasksResponse listDeliveryTasksWithOptions(const Models::ListDeliveryTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of data delivery tasks.
+       * @summary Retrieves the list of data delivery tasks.
+       *
+       * @description Deletes a specified site monitoring task.
        *
        * @param request ListDeliveryTasksRequest
        * @return ListDeliveryTasksResponse
@@ -2123,6 +2189,28 @@ namespace Cms20240330
        * @return ListPrometheusVirtualInstancesResponse
        */
       Models::ListPrometheusVirtualInstancesResponse listPrometheusVirtualInstances(const Models::ListPrometheusVirtualInstancesRequest &request);
+
+      /**
+       * @summary Lists service-linked entries.
+       *
+       * @description Queries a paginated list of service-linked entries.
+       *
+       * @param request ListServiceRecordsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServiceRecordsResponse
+       */
+      Models::ListServiceRecordsResponse listServiceRecordsWithOptions(const string &workspace, const Models::ListServiceRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists service-linked entries.
+       *
+       * @description Queries a paginated list of service-linked entries.
+       *
+       * @param request ListServiceRecordsRequest
+       * @return ListServiceRecordsResponse
+       */
+      Models::ListServiceRecordsResponse listServiceRecords(const string &workspace, const Models::ListServiceRecordsRequest &request);
 
       /**
        * @summary Queries a list of application observability services.
@@ -2673,6 +2761,28 @@ namespace Cms20240330
        * @return UpdateServiceResponse
        */
       Models::UpdateServiceResponse updateService(const string &workspace, const string &serviceId, const Models::UpdateServiceRequest &request);
+
+      /**
+       * @summary Updates a service-linked entry.
+       *
+       * @description Updates an existing service-linked entry.
+       *
+       * @param request UpdateServiceRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateServiceRecordResponse
+       */
+      Models::UpdateServiceRecordResponse updateServiceRecordWithOptions(const string &workspace, const string &serviceId, const Models::UpdateServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a service-linked entry.
+       *
+       * @description Updates an existing service-linked entry.
+       *
+       * @param request UpdateServiceRecordRequest
+       * @return UpdateServiceRecordResponse
+       */
+      Models::UpdateServiceRecordResponse updateServiceRecord(const string &workspace, const string &serviceId, const Models::UpdateServiceRecordRequest &request);
 
       /**
        * @summary Updates a subscription.

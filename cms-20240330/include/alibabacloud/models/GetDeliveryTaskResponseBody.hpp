@@ -116,9 +116,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The tag key of the resource group.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The tag value of the resource group.
         shared_ptr<string> value_ {};
       };
 
@@ -162,9 +162,9 @@ namespace Models
 
 
       protected:
-        // The detailed configuration of the delivery target. The meaning of key/value pairs varies depending on the sinkType. For more information, see [CreateDeliveryTask](~~CreateDeliveryTask~~).
+        // The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType. For more information, see CreateDeliveryTask.
         shared_ptr<map<string, string>> sinkConfigs_ {};
-        // The type of the delivery target.
+        // The delivery target type.
         shared_ptr<string> sinkType_ {};
       };
 
@@ -198,7 +198,7 @@ namespace Models
 
 
       protected:
-        // The list of EventBridge tasks.
+        // The EventBridge task list.
         shared_ptr<vector<string>> taskNameList_ {};
       };
 
@@ -315,7 +315,7 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
@@ -335,7 +335,7 @@ namespace Models
       shared_ptr<vector<DeliveryTask::SinkList>> sinkList_ {};
       // The current status of the task.
       shared_ptr<string> status_ {};
-      // The resource tags.
+      // The resource group tags.
       shared_ptr<vector<DeliveryTask::Tags>> tags_ {};
       // The task description.
       shared_ptr<string> taskDescription_ {};
@@ -343,7 +343,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task name.
       shared_ptr<string> taskName_ {};
-      // The time when the task was last updated.
+      // The update time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
@@ -368,7 +368,7 @@ namespace Models
 
 
   protected:
-    // The details of the delivery task.
+    // The delivery task details.
     shared_ptr<GetDeliveryTaskResponseBody::DeliveryTask> deliveryTask_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

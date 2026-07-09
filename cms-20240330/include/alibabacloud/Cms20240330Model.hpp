@@ -212,6 +212,9 @@
 #include <alibabacloud/models/CreateServiceObservabilityRequest.hpp>
 #include <alibabacloud/models/CreateServiceObservabilityResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceObservabilityResponse.hpp>
+#include <alibabacloud/models/CreateServiceRecordRequest.hpp>
+#include <alibabacloud/models/CreateServiceRecordResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceRecordResponse.hpp>
 #include <alibabacloud/models/CreateTicketRequest.hpp>
 #include <alibabacloud/models/CreateTicketResponseBody.hpp>
 #include <alibabacloud/models/CreateTicketResponse.hpp>
@@ -281,6 +284,9 @@
 #include <alibabacloud/models/DeleteServiceRequest.hpp>
 #include <alibabacloud/models/DeleteServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceResponse.hpp>
+#include <alibabacloud/models/DeleteServiceRecordRequest.hpp>
+#include <alibabacloud/models/DeleteServiceRecordResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceRecordResponse.hpp>
 #include <alibabacloud/models/DeleteUmodelRequest.hpp>
 #include <alibabacloud/models/DeleteUmodelResponseBody.hpp>
 #include <alibabacloud/models/DeleteUmodelResponse.hpp>
@@ -383,6 +389,9 @@
 #include <alibabacloud/models/GetServiceObservabilityRequest.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponseBody.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponse.hpp>
+#include <alibabacloud/models/GetServiceRecordRequest.hpp>
+#include <alibabacloud/models/GetServiceRecordResponseBody.hpp>
+#include <alibabacloud/models/GetServiceRecordResponse.hpp>
 #include <alibabacloud/models/GetUmodelRequest.hpp>
 #include <alibabacloud/models/GetUmodelResponseBody.hpp>
 #include <alibabacloud/models/GetUmodelResponse.hpp>
@@ -486,6 +495,9 @@
 #include <alibabacloud/models/ListPrometheusVirtualInstancesRequest.hpp>
 #include <alibabacloud/models/ListPrometheusVirtualInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListPrometheusVirtualInstancesResponse.hpp>
+#include <alibabacloud/models/ListServiceRecordsRequest.hpp>
+#include <alibabacloud/models/ListServiceRecordsResponseBody.hpp>
+#include <alibabacloud/models/ListServiceRecordsResponse.hpp>
 #include <alibabacloud/models/ListServicesRequest.hpp>
 #include <alibabacloud/models/ListServicesShrinkRequest.hpp>
 #include <alibabacloud/models/ListServicesResponseBody.hpp>
@@ -576,6 +588,9 @@
 #include <alibabacloud/models/UpdateServiceRequest.hpp>
 #include <alibabacloud/models/UpdateServiceResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceResponse.hpp>
+#include <alibabacloud/models/UpdateServiceRecordRequest.hpp>
+#include <alibabacloud/models/UpdateServiceRecordResponseBody.hpp>
+#include <alibabacloud/models/UpdateServiceRecordResponse.hpp>
 #include <alibabacloud/models/UpdateSubscriptionRequest.hpp>
 #include <alibabacloud/models/UpdateSubscriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateSubscriptionResponse.hpp>

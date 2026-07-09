@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The keyword.
     shared_ptr<string> keywords_ {};
-    // Filters resources by label. The following labels are supported:
+    // Filters resources by label. The following labels are available:
     // - metricCategory: the metric category description.
     // - alertEnable: specifies whether alerting is required.
     // - alertUnit: the recommended alert unit.
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<string> labelsShrink_ {};
     // The metadata source. Valid values:
     // - CMS: CloudMonitor Basic monitoring metrics.
-    // - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
+    // - PROM_BASIC: Prometheus CloudMonitor basic monitoring metrics.
     shared_ptr<string> metaFormat_ {};
     // The metric name.
     shared_ptr<string> metricName_ {};

@@ -1465,6 +1465,55 @@ CreateServiceObservabilityResponse Client::createServiceObservability(const stri
 }
 
 /**
+ * @summary Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+ *
+ * @param request CreateServiceRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceRecordResponse
+ */
+CreateServiceRecordResponse Client::createServiceRecordWithOptions(const string &workspace, const string &serviceId, const CreateServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRecordContent()) {
+    body["recordContent"] = request.getRecordContent();
+  }
+
+  if (!!request.hasRecordType()) {
+    body["recordType"] = request.getRecordType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateServiceRecord"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/service/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/record")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceRecordResponse>();
+}
+
+/**
+ * @summary Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+ *
+ * @param request CreateServiceRecordRequest
+ * @return CreateServiceRecordResponse
+ */
+CreateServiceRecordResponse Client::createServiceRecord(const string &workspace, const string &serviceId, const CreateServiceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
+}
+
+/**
  * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
  *
  * @param request CreateTicketRequest
@@ -2444,6 +2493,55 @@ DeleteServiceResponse Client::deleteService(const string &workspace, const strin
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteServiceWithOptions(workspace, serviceId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a service association entry.
+ *
+ * @description Deletes a created service association entry.
+ *
+ * @param request DeleteServiceRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteServiceRecordResponse
+ */
+DeleteServiceRecordResponse Client::deleteServiceRecordWithOptions(const string &workspace, const string &serviceId, const DeleteServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRecordType()) {
+    query["recordType"] = request.getRecordType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteServiceRecord"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/service/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/record")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteServiceRecordResponse>();
+}
+
+/**
+ * @summary Deletes a service association entry.
+ *
+ * @description Deletes a created service association entry.
+ *
+ * @param request DeleteServiceRecordRequest
+ * @return DeleteServiceRecordResponse
+ */
+DeleteServiceRecordResponse Client::deleteServiceRecord(const string &workspace, const string &serviceId, const DeleteServiceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
 }
 
 /**
@@ -4065,6 +4163,55 @@ GetServiceObservabilityResponse Client::getServiceObservability(const string &wo
 }
 
 /**
+ * @summary Queries a service-linked entry.
+ *
+ * @description Retrieves a service-linked entry.
+ *
+ * @param request GetServiceRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServiceRecordResponse
+ */
+GetServiceRecordResponse Client::getServiceRecordWithOptions(const string &workspace, const string &serviceId, const GetServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRecordType()) {
+    query["recordType"] = request.getRecordType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetServiceRecord"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/service/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/record")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServiceRecordResponse>();
+}
+
+/**
+ * @summary Queries a service-linked entry.
+ *
+ * @description Retrieves a service-linked entry.
+ *
+ * @param request GetServiceRecordRequest
+ * @return GetServiceRecordResponse
+ */
+GetServiceRecordResponse Client::getServiceRecord(const string &workspace, const string &serviceId, const GetServiceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the configuration of a Umodel.
  *
  * @description Retrieves the configuration of a Umodel.
@@ -5013,7 +5160,9 @@ ListDatasetsResponse Client::listDatasets(const string &workspace, const ListDat
 }
 
 /**
- * @summary Retrieves a list of data delivery tasks.
+ * @summary Retrieves the list of data delivery tasks.
+ *
+ * @description Deletes a specified site monitoring task.
  *
  * @param tmpReq ListDeliveryTasksRequest
  * @param headers map
@@ -5068,7 +5217,9 @@ ListDeliveryTasksResponse Client::listDeliveryTasksWithOptions(const ListDeliver
 }
 
 /**
- * @summary Retrieves a list of data delivery tasks.
+ * @summary Retrieves the list of data delivery tasks.
+ *
+ * @description Deletes a specified site monitoring task.
  *
  * @param request ListDeliveryTasksRequest
  * @return ListDeliveryTasksResponse
@@ -5957,6 +6108,67 @@ ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstances(co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listPrometheusVirtualInstancesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Lists service-linked entries.
+ *
+ * @description Queries a paginated list of service-linked entries.
+ *
+ * @param request ListServiceRecordsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServiceRecordsResponse
+ */
+ListServiceRecordsResponse Client::listServiceRecordsWithOptions(const string &workspace, const ListServiceRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRecordType()) {
+    query["recordType"] = request.getRecordType();
+  }
+
+  if (!!request.hasSearch()) {
+    query["search"] = request.getSearch();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListServiceRecords"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/service-records")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServiceRecordsResponse>();
+}
+
+/**
+ * @summary Lists service-linked entries.
+ *
+ * @description Queries a paginated list of service-linked entries.
+ *
+ * @param request ListServiceRecordsRequest
+ * @return ListServiceRecordsResponse
+ */
+ListServiceRecordsResponse Client::listServiceRecords(const string &workspace, const ListServiceRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listServiceRecordsWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -7767,6 +7979,59 @@ UpdateServiceResponse Client::updateService(const string &workspace, const strin
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateServiceWithOptions(workspace, serviceId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a service-linked entry.
+ *
+ * @description Updates an existing service-linked entry.
+ *
+ * @param request UpdateServiceRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateServiceRecordResponse
+ */
+UpdateServiceRecordResponse Client::updateServiceRecordWithOptions(const string &workspace, const string &serviceId, const UpdateServiceRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRecordContent()) {
+    body["recordContent"] = request.getRecordContent();
+  }
+
+  if (!!request.hasRecordType()) {
+    body["recordType"] = request.getRecordType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateServiceRecord"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/service/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/record")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateServiceRecordResponse>();
+}
+
+/**
+ * @summary Updates a service-linked entry.
+ *
+ * @description Updates an existing service-linked entry.
+ *
+ * @param request UpdateServiceRecordRequest
+ * @return UpdateServiceRecordResponse
+ */
+UpdateServiceRecordResponse Client::updateServiceRecord(const string &workspace, const string &serviceId, const UpdateServiceRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
 }
 
 /**

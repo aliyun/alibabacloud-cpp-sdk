@@ -168,7 +168,7 @@ namespace Models
 
 
       protected:
-        // The detailed configuration of the delivery target. The meanings of the key/value pairs vary depending on the sinkType.
+        // The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
         shared_ptr<map<string, string>> sinkConfigs_ {};
         // The type of the delivery target.
         shared_ptr<string> sinkType_ {};
@@ -321,7 +321,7 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
@@ -349,7 +349,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task name.
       shared_ptr<string> taskName_ {};
-      // The time when the task was last updated.
+      // The update time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
