@@ -39,6 +39,7 @@ namespace Models
     class PolicyGroupModel : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const PolicyGroupModel& obj) { 
+        DARABONBA_PTR_TO_JSON(AccessPolicies, accessPolicies_);
         DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_TO_JSON(Clipboard, clipboard_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Watermark, watermark_);
       };
       friend void from_json(const Darabonba::Json& j, PolicyGroupModel& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccessPolicies, accessPolicies_);
         DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_FROM_JSON(Clipboard, clipboard_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
@@ -155,17 +157,17 @@ namespace Models
 
 
       protected:
-        // The font color of the watermark. Valid values: 0 to 16777215.
+        // The watermark font color. Valid values: 0 to 16777215.
         shared_ptr<int32_t> watermarkColor_ {};
-        // The custom text for the watermark. The text can be up to 10 characters in length and cannot contain emoji characters.
+        // The custom watermark content. The value can be up to 10 characters in length and does not support emoji characters.
         shared_ptr<string> watermarkCustomText_ {};
-        // The font size of the watermark. Valid values: 10 to 20.
+        // The watermark font size. Valid values: 10 to 20.
         shared_ptr<int32_t> watermarkFontSize_ {};
-        // Specifies whether to enable the screen watermark.
+        // The screen watermark switch.
         shared_ptr<string> watermarkSwitch_ {};
-        // The opacity of the watermark. A larger value makes the watermark more opaque. Valid values: 10 to 100.
+        // The watermark opacity. A larger value indicates lower transparency. Valid values: 10 to 100.
         shared_ptr<int32_t> watermarkTransparencyValue_ {};
-        // The content of the screen watermark.
+        // The screen watermark content.
         shared_ptr<vector<string>> watermarkTypes_ {};
       };
 
@@ -211,9 +213,9 @@ namespace Models
 
 
       protected:
-        // The instance group IDs.
+        // The list of instance group IDs.
         shared_ptr<vector<string>> androidInstanceGroupIds_ {};
-        // The matrix IDs.
+        // The list of matrix IDs.
         shared_ptr<vector<string>> cloudPhoneMatrixIds_ {};
       };
 
@@ -288,9 +290,9 @@ namespace Models
 
 
         protected:
-          // The type of the rule.
+          // The rule type.
           shared_ptr<string> ruleType_ {};
-          // The name of the application package or domain name.
+          // The application package name or domain name.
           shared_ptr<string> target_ {};
         };
 
@@ -356,28 +358,109 @@ namespace Models
 
 
       protected:
-        // Indicates whether to manually configure a custom proxy.
+        // Indicates whether a transparent proxy is manually configured.
         shared_ptr<string> customProxy_ {};
-        // The IPv4 address of the custom proxy.
+        // The proxy IP address of the transparent proxy. The value must be in IPv4 format.
         shared_ptr<string> hostAddr_ {};
-        // Indicates whether the network redirection feature is enabled. When this feature is enabled, network traffic is automatically redirected to the on-premises network by default.
+        // Indicates whether network redirection is enabled. After this feature is enabled, traffic is redirected to the client-side network by default.
         shared_ptr<string> netRedirect_ {};
-        // The port of the custom proxy. Valid values: 1 to 65535.
+        // The port of the transparent proxy. Valid values: 1 to 65535.
         shared_ptr<string> port_ {};
-        // The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
+        // The proxy password. The value must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
         shared_ptr<string> proxyPassword_ {};
-        // The type of the proxy protocol.
+        // The proxy protocol type.
         shared_ptr<string> proxyType_ {};
-        // The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
+        // The proxy username. The value must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
         shared_ptr<string> proxyUserName_ {};
-        // The proxy rules.
+        // The list of proxy rules.
         shared_ptr<vector<NetRedirectPolicy::Rules>> rules_ {};
       };
 
-      virtual bool empty() const override { return this->cameraRedirect_ == nullptr
-        && this->clipboard_ == nullptr && this->gmtCreate_ == nullptr && this->html5FileTransfer_ == nullptr && this->localDrive_ == nullptr && this->lockResolution_ == nullptr
-        && this->netRedirectPolicy_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupName_ == nullptr && this->policyRelatedResources_ == nullptr && this->sessionResolutionHeight_ == nullptr
-        && this->sessionResolutionWidth_ == nullptr && this->watermark_ == nullptr; };
+      class AccessPolicies : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AccessPolicies& obj) { 
+          DARABONBA_PTR_TO_JSON(AccessPolicyRuleId, accessPolicyRuleId_);
+          DARABONBA_PTR_TO_JSON(CidrIp, cidrIp_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Policy, policy_);
+          DARABONBA_PTR_TO_JSON(Priority, priority_);
+        };
+        friend void from_json(const Darabonba::Json& j, AccessPolicies& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccessPolicyRuleId, accessPolicyRuleId_);
+          DARABONBA_PTR_FROM_JSON(CidrIp, cidrIp_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Policy, policy_);
+          DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        };
+        AccessPolicies() = default ;
+        AccessPolicies(const AccessPolicies &) = default ;
+        AccessPolicies(AccessPolicies &&) = default ;
+        AccessPolicies(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AccessPolicies() = default ;
+        AccessPolicies& operator=(const AccessPolicies &) = default ;
+        AccessPolicies& operator=(AccessPolicies &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->accessPolicyRuleId_ == nullptr
+        && this->cidrIp_ == nullptr && this->description_ == nullptr && this->policy_ == nullptr && this->priority_ == nullptr; };
+        // accessPolicyRuleId Field Functions 
+        bool hasAccessPolicyRuleId() const { return this->accessPolicyRuleId_ != nullptr;};
+        void deleteAccessPolicyRuleId() { this->accessPolicyRuleId_ = nullptr;};
+        inline int64_t getAccessPolicyRuleId() const { DARABONBA_PTR_GET_DEFAULT(accessPolicyRuleId_, 0L) };
+        inline AccessPolicies& setAccessPolicyRuleId(int64_t accessPolicyRuleId) { DARABONBA_PTR_SET_VALUE(accessPolicyRuleId_, accessPolicyRuleId) };
+
+
+        // cidrIp Field Functions 
+        bool hasCidrIp() const { return this->cidrIp_ != nullptr;};
+        void deleteCidrIp() { this->cidrIp_ = nullptr;};
+        inline string getCidrIp() const { DARABONBA_PTR_GET_DEFAULT(cidrIp_, "") };
+        inline AccessPolicies& setCidrIp(string cidrIp) { DARABONBA_PTR_SET_VALUE(cidrIp_, cidrIp) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline AccessPolicies& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // policy Field Functions 
+        bool hasPolicy() const { return this->policy_ != nullptr;};
+        void deletePolicy() { this->policy_ = nullptr;};
+        inline string getPolicy() const { DARABONBA_PTR_GET_DEFAULT(policy_, "") };
+        inline AccessPolicies& setPolicy(string policy) { DARABONBA_PTR_SET_VALUE(policy_, policy) };
+
+
+        // priority Field Functions 
+        bool hasPriority() const { return this->priority_ != nullptr;};
+        void deletePriority() { this->priority_ = nullptr;};
+        inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+        inline AccessPolicies& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+      protected:
+        shared_ptr<int64_t> accessPolicyRuleId_ {};
+        shared_ptr<string> cidrIp_ {};
+        shared_ptr<string> description_ {};
+        shared_ptr<string> policy_ {};
+        shared_ptr<int32_t> priority_ {};
+      };
+
+      virtual bool empty() const override { return this->accessPolicies_ == nullptr
+        && this->cameraRedirect_ == nullptr && this->clipboard_ == nullptr && this->gmtCreate_ == nullptr && this->html5FileTransfer_ == nullptr && this->localDrive_ == nullptr
+        && this->lockResolution_ == nullptr && this->netRedirectPolicy_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupName_ == nullptr && this->policyRelatedResources_ == nullptr
+        && this->sessionResolutionHeight_ == nullptr && this->sessionResolutionWidth_ == nullptr && this->watermark_ == nullptr; };
+      // accessPolicies Field Functions 
+      bool hasAccessPolicies() const { return this->accessPolicies_ != nullptr;};
+      void deleteAccessPolicies() { this->accessPolicies_ = nullptr;};
+      inline const vector<PolicyGroupModel::AccessPolicies> & getAccessPolicies() const { DARABONBA_PTR_GET_CONST(accessPolicies_, vector<PolicyGroupModel::AccessPolicies>) };
+      inline vector<PolicyGroupModel::AccessPolicies> getAccessPolicies() { DARABONBA_PTR_GET(accessPolicies_, vector<PolicyGroupModel::AccessPolicies>) };
+      inline PolicyGroupModel& setAccessPolicies(const vector<PolicyGroupModel::AccessPolicies> & accessPolicies) { DARABONBA_PTR_SET_VALUE(accessPolicies_, accessPolicies) };
+      inline PolicyGroupModel& setAccessPolicies(vector<PolicyGroupModel::AccessPolicies> && accessPolicies) { DARABONBA_PTR_SET_RVALUE(accessPolicies_, accessPolicies) };
+
+
       // cameraRedirect Field Functions 
       bool hasCameraRedirect() const { return this->cameraRedirect_ != nullptr;};
       void deleteCameraRedirect() { this->cameraRedirect_ = nullptr;};
@@ -476,23 +559,24 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the webcam redirection feature.
+      shared_ptr<vector<PolicyGroupModel::AccessPolicies>> accessPolicies_ {};
+      // Indicates whether local camera redirection is enabled.
       shared_ptr<string> cameraRedirect_ {};
-      // The read/write permissions on the clipboard.
+      // The clipboard permission.
       shared_ptr<string> clipboard_ {};
-      // The time when the policy was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The file transfer policy of the HTML5 client.
+      // The file transfer policy for the HTML5 client.
       shared_ptr<string> html5FileTransfer_ {};
-      // The read/write permissions on the on-premises drive.
+      // The local disk mapping permission.
       shared_ptr<string> localDrive_ {};
-      // Identifies whether the resolution is locked.
+      // The locked resolution.
       shared_ptr<string> lockResolution_ {};
-      // The network redirection policy.
+      // The network redirection settings.
       shared_ptr<PolicyGroupModel::NetRedirectPolicy> netRedirectPolicy_ {};
-      // The ID of the policy.
+      // The policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The name of the policy.
+      // The policy name.
       shared_ptr<string> policyGroupName_ {};
       // The resources associated with the policy.
       shared_ptr<PolicyGroupModel::PolicyRelatedResources> policyRelatedResources_ {};
@@ -500,7 +584,7 @@ namespace Models
       shared_ptr<int32_t> sessionResolutionHeight_ {};
       // The width of the resolution.
       shared_ptr<int32_t> sessionResolutionWidth_ {};
-      // The screen watermark.
+      // The screen watermark settings.
       shared_ptr<PolicyGroupModel::Watermark> watermark_ {};
     };
 
@@ -537,13 +621,13 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The policies.
+    // The policy information.
     shared_ptr<vector<ListPolicyGroupsResponseBody::PolicyGroupModel>> policyGroupModel_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

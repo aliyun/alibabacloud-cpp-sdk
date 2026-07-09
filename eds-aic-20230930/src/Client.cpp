@@ -4580,7 +4580,7 @@ ListInstanceAdbAttributesResponse Client::listInstanceAdbAttributes(const ListIn
 }
 
 /**
- * @summary Queries policies.
+ * @summary Queries the details of a policy.
  *
  * @param request ListPolicyGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4627,7 +4627,7 @@ ListPolicyGroupsResponse Client::listPolicyGroupsWithOptions(const ListPolicyGro
 }
 
 /**
- * @summary Queries policies.
+ * @summary Queries the details of a policy.
  *
  * @param request ListPolicyGroupsRequest
  * @return ListPolicyGroupsResponse

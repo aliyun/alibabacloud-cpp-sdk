@@ -78,13 +78,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page. Value range: 1 to 100. Default value: 20.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+    // The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The IDs of the policies.
+    // The list of policy IDs.
     shared_ptr<vector<string>> policyGroupIds_ {};
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> policyGroupName_ {};
     // The policy type.
     shared_ptr<string> policyType_ {};

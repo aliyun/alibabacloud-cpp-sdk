@@ -1421,7 +1421,7 @@ namespace EdsAic20230930
       Models::ListInstanceAdbAttributesResponse listInstanceAdbAttributes(const Models::ListInstanceAdbAttributesRequest &request);
 
       /**
-       * @summary Queries policies.
+       * @summary Queries the details of a policy.
        *
        * @param request ListPolicyGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1430,7 +1430,7 @@ namespace EdsAic20230930
       Models::ListPolicyGroupsResponse listPolicyGroupsWithOptions(const Models::ListPolicyGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries policies.
+       * @summary Queries the details of a policy.
        *
        * @param request ListPolicyGroupsRequest
        * @return ListPolicyGroupsResponse
