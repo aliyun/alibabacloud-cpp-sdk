@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The key of the label.
+      // The label name.
       shared_ptr<string> name_ {};
-      // The value of the label.
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -141,30 +141,27 @@ namespace Models
 
 
   protected:
+    // The keyword.
     shared_ptr<string> keywords_ {};
-    // The labels used to filter resources. The following labels are supported:
-    // 
-    // - `metricCategory`: The metric category.
-    // 
-    // - `alertEnable`: Indicates whether to enable alerts.
-    // 
-    // - `alertUnit`: The recommended unit for alerts.
-    // 
-    // - `unitFactor`: The unit conversion factor.
-    // 
-    // - `minAlertPeriod`: The minimum alert period.
-    // 
-    // - `productCategory`: The product category.
+    // Filters resources by label. The following labels are supported:
+    // - metricCategory: the metric category description.
+    // - alertEnable: specifies whether alerting is required.
+    // - alertUnit: the recommended alert unit.
+    // - unitFactor: the unit conversion factor.
+    // - minAlertPeriod: the minimum alert period.
+    // - productCategory: the service type category.
     shared_ptr<vector<DescribeMetricMetaListRequest::Labels>> labels_ {};
-    // The source of the metadata. Valid values: `CMS` for CloudMonitor metrics and `PROM_BASIC` for basic Prometheus metrics.
+    // The metadata source. Valid values:
+    // - CMS: CloudMonitor Basic monitoring metrics.
+    // - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
     shared_ptr<string> metaFormat_ {};
-    // The name of the metric.
+    // The metric name.
     shared_ptr<string> metricName_ {};
-    // The namespace of the product.
+    // The namespace, which is used to distinguish between services.
     shared_ptr<string> namespace_ {};
-    // The number of the page to return. Default value: `1`.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: `2000`.
+    // The number of entries per page. Default value: 2000.
     shared_ptr<int32_t> pageSize_ {};
   };
 

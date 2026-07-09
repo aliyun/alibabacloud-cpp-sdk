@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_TO_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_TO_JSON(pushingSetting, pushingSetting_);
+      DARABONBA_PTR_TO_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_TO_JSON(subscriptionId, subscriptionId_);
       DARABONBA_PTR_TO_JSON(subscriptionName, subscriptionName_);
       DARABONBA_PTR_TO_JSON(subscriptionType, subscriptionType_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_FROM_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_FROM_JSON(pushingSetting, pushingSetting_);
+      DARABONBA_PTR_FROM_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_FROM_JSON(subscriptionId, subscriptionId_);
       DARABONBA_PTR_FROM_JSON(subscriptionName, subscriptionName_);
       DARABONBA_PTR_FROM_JSON(subscriptionType, subscriptionType_);
@@ -121,13 +123,13 @@ namespace Models
 
 
     protected:
-      // A list of action integration IDs for alert pushes.
+      // The list of action integration IDs for alert pushing.
       shared_ptr<vector<string>> alertActionIds_ {};
       // The action plan ID.
       shared_ptr<string> responsePlanId_ {};
-      // A list of action integration IDs for recovery pushes.
+      // The list of action integration IDs for recovery pushing.
       shared_ptr<vector<string>> restoreActionIds_ {};
-      // The template UUID.
+      // The UUID of the template.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -177,8 +179,8 @@ namespace Models
 
     virtual bool empty() const override { return this->agentConfig_ == nullptr
         && this->createTime_ == nullptr && this->description_ == nullptr && this->enable_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr
-        && this->pushingSetting_ == nullptr && this->subscriptionId_ == nullptr && this->subscriptionName_ == nullptr && this->subscriptionType_ == nullptr && this->syncFromType_ == nullptr
-        && this->updateTime_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
+        && this->pushingSetting_ == nullptr && this->subscribeLegacyEvent_ == nullptr && this->subscriptionId_ == nullptr && this->subscriptionName_ == nullptr && this->subscriptionType_ == nullptr
+        && this->syncFromType_ == nullptr && this->updateTime_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
     // agentConfig Field Functions 
     bool hasAgentConfig() const { return this->agentConfig_ != nullptr;};
     void deleteAgentConfig() { this->agentConfig_ = nullptr;};
@@ -232,6 +234,13 @@ namespace Models
     inline SubscriptionForView::PushingSetting getPushingSetting() { DARABONBA_PTR_GET(pushingSetting_, SubscriptionForView::PushingSetting) };
     inline SubscriptionForView& setPushingSetting(const SubscriptionForView::PushingSetting & pushingSetting) { DARABONBA_PTR_SET_VALUE(pushingSetting_, pushingSetting) };
     inline SubscriptionForView& setPushingSetting(SubscriptionForView::PushingSetting && pushingSetting) { DARABONBA_PTR_SET_RVALUE(pushingSetting_, pushingSetting) };
+
+
+    // subscribeLegacyEvent Field Functions 
+    bool hasSubscribeLegacyEvent() const { return this->subscribeLegacyEvent_ != nullptr;};
+    void deleteSubscribeLegacyEvent() { this->subscribeLegacyEvent_ = nullptr;};
+    inline bool getSubscribeLegacyEvent() const { DARABONBA_PTR_GET_DEFAULT(subscribeLegacyEvent_, false) };
+    inline SubscriptionForView& setSubscribeLegacyEvent(bool subscribeLegacyEvent) { DARABONBA_PTR_SET_VALUE(subscribeLegacyEvent_, subscribeLegacyEvent) };
 
 
     // subscriptionId Field Functions 
@@ -306,7 +315,11 @@ namespace Models
     shared_ptr<string> notifyStrategyId_ {};
     // The push settings.
     shared_ptr<SubscriptionForView::PushingSetting> pushingSetting_ {};
-    // The UUID.
+    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
+    // - true: Subscribe.
+    // - false or null: Do not subscribe.
+    shared_ptr<bool> subscribeLegacyEvent_ {};
+    // UUID
     shared_ptr<string> subscriptionId_ {};
     // The name.
     // 
@@ -319,7 +332,7 @@ namespace Models
     shared_ptr<string> updateTime_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
-    // Specifies the workspace.
+    // workspace
     shared_ptr<string> workspace_ {};
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };

@@ -122,9 +122,9 @@ namespace Models
 
 
       protected:
-        // The key of the resource tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the resource tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -168,9 +168,9 @@ namespace Models
 
 
       protected:
-        // Detailed configuration for the sink. The available key-value pairs depend on the specified `sinkType`.
+        // The detailed configuration of the delivery target. The meanings of the key/value pairs vary depending on the sinkType.
         shared_ptr<map<string, string>> sinkConfigs_ {};
-        // The type of the sink.
+        // The type of the delivery target.
         shared_ptr<string> sinkType_ {};
       };
 
@@ -204,7 +204,7 @@ namespace Models
 
 
       protected:
-        // A list of EventBridge tasks.
+        // The list of EventBridge tasks.
         shared_ptr<vector<string>> taskNameList_ {};
       };
 
@@ -321,33 +321,33 @@ namespace Models
 
 
     protected:
-      // The time when the delivery task was created.
+      // The time when the task was created.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The ID of the Prometheus instance that serves as the data source.
+      // The data source ID (Prometheus instance ID).
       shared_ptr<string> dataSourceId_ {};
-      // A key-value map of additional labels to attach to all delivered metrics.
+      // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
       shared_ptr<map<string, string>> externalLabels_ {};
-      // Additional information.
+      // The extended information.
       shared_ptr<DeliveryTasks::ExtraInfo> extraInfo_ {};
-      // A key-value map of metric label filters. These filters are used with `labelFiltersType` to determine which metrics to deliver.
+      // The metric filter conditions. Used together with labelFiltersType. The key is the metric label name and the value is the match value.
       shared_ptr<map<string, string>> labelFilters_ {};
-      // The filtering mode for metric labels.
+      // The metric filtering mode.
       shared_ptr<string> labelFiltersType_ {};
-      // The ID of the resource group to which the task belongs.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // A list of sinks.
+      // The list of delivery targets. Multiple sinks can be configured.
       shared_ptr<vector<DeliveryTasks::SinkList>> sinkList_ {};
-      // The current status of the delivery task.
+      // The current status of the task.
       shared_ptr<string> status_ {};
-      // The resource tags attached to the task.
+      // The tags.
       shared_ptr<vector<DeliveryTasks::Tags>> tags_ {};
-      // The description of the delivery task.
+      // The task description.
       shared_ptr<string> taskDescription_ {};
-      // The ID of the delivery task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The name of the delivery task.
+      // The task name.
       shared_ptr<string> taskName_ {};
       // The time when the task was last updated.
       // 
@@ -395,13 +395,13 @@ namespace Models
 
 
   protected:
-    // A list of delivery tasks.
+    // The list of delivery tasks.
     shared_ptr<vector<ListDeliveryTasksResponseBody::DeliveryTasks>> deliveryTasks_ {};
-    // The maximum number of results to return. The maximum value is 100.
+    // The maximum number of entries returned. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to retrieve the next page of results. If this parameter is not returned, no more results are available.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The unique ID for the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};

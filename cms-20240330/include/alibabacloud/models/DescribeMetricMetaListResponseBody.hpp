@@ -106,7 +106,7 @@ namespace Models
 
 
       protected:
-        // The name of the dimension.
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -199,27 +199,32 @@ namespace Models
     protected:
       // The description.
       shared_ptr<string> description_ {};
-      // The descriptions of the dimensions.
+      // The dimension description.
       shared_ptr<vector<Resources::DimensionDescription>> dimensionDescription_ {};
-      // The dimensions for filtering resources in CloudMonitor.
+      // The resource filtering dimensions of CloudMonitor Basic.
       shared_ptr<vector<string>> dimensions_ {};
-      // The CloudMonitor labels. This parameter is returned only when `metaFormat` is set to `CMS`.
+      // The CloudMonitor labels. This parameter is returned only when metaFormat is set to CMS.
       shared_ptr<map<string, string>> labels_ {};
-      // The metadata format.
+      // The metadata source. Valid values:
+      // - CMS: CloudMonitor Basic monitoring metrics.
+      // - PROM_BASIC: Managed Service for Prometheus monitoring metrics.
+      // 
+      // Sample value:
+      // CMS
+      // Valid values:
+      // CMS
+      // PROM_BASIC.
       shared_ptr<string> metaFormat_ {};
       // The metric name.
       shared_ptr<string> metricName_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The aggregation period.
+      // The period.
       shared_ptr<string> periods_ {};
-      // The statistic of the metric. Examples:
-      // 
-      // - `Maximum`: the maximum value.
-      // 
-      // - `Minimum`: the minimum value.
-      // 
-      // - `Average`: the average value.
+      // The statistical method of the metric. Example values:
+      // - Maximum: the maximum value.
+      // - Minimum: the minimum value.
+      // - Average: the average value.
       shared_ptr<string> statistics_ {};
       // The metric type.
       shared_ptr<string> type_ {};
@@ -267,13 +272,13 @@ namespace Models
 
 
   protected:
-    // The page number. The default value is `1`.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The configurations of the metrics in the resource.
+    // The metric configuration information of the resources.
     shared_ptr<vector<DescribeMetricMetaListResponseBody::Resources>> resources_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

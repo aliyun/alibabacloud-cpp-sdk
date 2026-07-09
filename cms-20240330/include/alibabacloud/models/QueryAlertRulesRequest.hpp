@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The request parameters for querying alert rules.
+    // The request body for querying alert rules.
     shared_ptr<QueryAlertRulesInput> body_ {};
-    // The client token used to ensure the idempotency of the request.
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The maximum number of results to return per page.
+    // The maximum number of data records to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. If you do not specify this parameter, the query starts from the beginning.
+    // The token that marks the position from which you want to start reading data. If you leave this parameter empty, data is read from the beginning.
     shared_ptr<string> nextToken_ {};
   };
 

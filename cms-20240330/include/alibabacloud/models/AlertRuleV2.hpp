@@ -8,6 +8,7 @@
 #include <alibabacloud/models/ConditionConfigUnified.hpp>
 #include <alibabacloud/models/DatasourceConfigUnified.hpp>
 #include <alibabacloud/models/NotifyConfigUnified.hpp>
+#include <vector>
 #include <alibabacloud/models/QueryConfigUnified.hpp>
 #include <alibabacloud/models/ScheduleConfigUnified.hpp>
 using namespace std;
@@ -26,7 +27,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(armsIntegrationConfig, armsIntegrationConfig_);
       DARABONBA_PTR_TO_JSON(conditionConfig, conditionConfig_);
       DARABONBA_PTR_TO_JSON(contentTemplate, contentTemplate_);
-      DARABONBA_PTR_TO_JSON(coveredSeverityLevels, coveredSeverityLevels_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(datasourceConfig, datasourceConfig_);
       DARABONBA_PTR_TO_JSON(datasourceType, datasourceType_);
@@ -34,11 +34,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(notifyConfig, notifyConfig_);
+      DARABONBA_PTR_TO_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_TO_JSON(observeResourceGlobalScope, observeResourceGlobalScope_);
       DARABONBA_PTR_TO_JSON(observeResourceList, observeResourceList_);
       DARABONBA_PTR_TO_JSON(observeResourceType, observeResourceType_);
+      DARABONBA_PTR_TO_JSON(partitionKey, partitionKey_);
       DARABONBA_PTR_TO_JSON(queryConfig, queryConfig_);
       DARABONBA_PTR_TO_JSON(scheduleConfig, scheduleConfig_);
+      DARABONBA_PTR_TO_JSON(severityLevels, severityLevels_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_TO_JSON(uuid, uuid_);
@@ -50,7 +53,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(armsIntegrationConfig, armsIntegrationConfig_);
       DARABONBA_PTR_FROM_JSON(conditionConfig, conditionConfig_);
       DARABONBA_PTR_FROM_JSON(contentTemplate, contentTemplate_);
-      DARABONBA_PTR_FROM_JSON(coveredSeverityLevels, coveredSeverityLevels_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(datasourceConfig, datasourceConfig_);
       DARABONBA_PTR_FROM_JSON(datasourceType, datasourceType_);
@@ -58,11 +60,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(notifyConfig, notifyConfig_);
+      DARABONBA_PTR_FROM_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_FROM_JSON(observeResourceGlobalScope, observeResourceGlobalScope_);
       DARABONBA_PTR_FROM_JSON(observeResourceList, observeResourceList_);
       DARABONBA_PTR_FROM_JSON(observeResourceType, observeResourceType_);
+      DARABONBA_PTR_FROM_JSON(partitionKey, partitionKey_);
       DARABONBA_PTR_FROM_JSON(queryConfig, queryConfig_);
       DARABONBA_PTR_FROM_JSON(scheduleConfig, scheduleConfig_);
+      DARABONBA_PTR_FROM_JSON(severityLevels, severityLevels_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_FROM_JSON(uuid, uuid_);
@@ -80,11 +85,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionIntegrationConfig_ == nullptr
-        && this->annotations_ == nullptr && this->armsIntegrationConfig_ == nullptr && this->conditionConfig_ == nullptr && this->contentTemplate_ == nullptr && this->coveredSeverityLevels_ == nullptr
-        && this->createdAt_ == nullptr && this->datasourceConfig_ == nullptr && this->datasourceType_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr
-        && this->labels_ == nullptr && this->notifyConfig_ == nullptr && this->observeResourceGlobalScope_ == nullptr && this->observeResourceList_ == nullptr && this->observeResourceType_ == nullptr
-        && this->queryConfig_ == nullptr && this->scheduleConfig_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr && this->uuid_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->annotations_ == nullptr && this->armsIntegrationConfig_ == nullptr && this->conditionConfig_ == nullptr && this->contentTemplate_ == nullptr && this->createdAt_ == nullptr
+        && this->datasourceConfig_ == nullptr && this->datasourceType_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr
+        && this->notifyConfig_ == nullptr && this->notifyStrategyId_ == nullptr && this->observeResourceGlobalScope_ == nullptr && this->observeResourceList_ == nullptr && this->observeResourceType_ == nullptr
+        && this->partitionKey_ == nullptr && this->queryConfig_ == nullptr && this->scheduleConfig_ == nullptr && this->severityLevels_ == nullptr && this->status_ == nullptr
+        && this->updatedAt_ == nullptr && this->uuid_ == nullptr && this->workspace_ == nullptr; };
     // actionIntegrationConfig Field Functions 
     bool hasActionIntegrationConfig() const { return this->actionIntegrationConfig_ != nullptr;};
     void deleteActionIntegrationConfig() { this->actionIntegrationConfig_ = nullptr;};
@@ -126,13 +131,6 @@ namespace Models
     void deleteContentTemplate() { this->contentTemplate_ = nullptr;};
     inline string getContentTemplate() const { DARABONBA_PTR_GET_DEFAULT(contentTemplate_, "") };
     inline AlertRuleV2& setContentTemplate(string contentTemplate) { DARABONBA_PTR_SET_VALUE(contentTemplate_, contentTemplate) };
-
-
-    // coveredSeverityLevels Field Functions 
-    bool hasCoveredSeverityLevels() const { return this->coveredSeverityLevels_ != nullptr;};
-    void deleteCoveredSeverityLevels() { this->coveredSeverityLevels_ = nullptr;};
-    inline string getCoveredSeverityLevels() const { DARABONBA_PTR_GET_DEFAULT(coveredSeverityLevels_, "") };
-    inline AlertRuleV2& setCoveredSeverityLevels(string coveredSeverityLevels) { DARABONBA_PTR_SET_VALUE(coveredSeverityLevels_, coveredSeverityLevels) };
 
 
     // createdAt Field Functions 
@@ -190,6 +188,13 @@ namespace Models
     inline AlertRuleV2& setNotifyConfig(NotifyConfigUnified && notifyConfig) { DARABONBA_PTR_SET_RVALUE(notifyConfig_, notifyConfig) };
 
 
+    // notifyStrategyId Field Functions 
+    bool hasNotifyStrategyId() const { return this->notifyStrategyId_ != nullptr;};
+    void deleteNotifyStrategyId() { this->notifyStrategyId_ = nullptr;};
+    inline string getNotifyStrategyId() const { DARABONBA_PTR_GET_DEFAULT(notifyStrategyId_, "") };
+    inline AlertRuleV2& setNotifyStrategyId(string notifyStrategyId) { DARABONBA_PTR_SET_VALUE(notifyStrategyId_, notifyStrategyId) };
+
+
     // observeResourceGlobalScope Field Functions 
     bool hasObserveResourceGlobalScope() const { return this->observeResourceGlobalScope_ != nullptr;};
     void deleteObserveResourceGlobalScope() { this->observeResourceGlobalScope_ = nullptr;};
@@ -200,8 +205,10 @@ namespace Models
     // observeResourceList Field Functions 
     bool hasObserveResourceList() const { return this->observeResourceList_ != nullptr;};
     void deleteObserveResourceList() { this->observeResourceList_ = nullptr;};
-    inline string getObserveResourceList() const { DARABONBA_PTR_GET_DEFAULT(observeResourceList_, "") };
-    inline AlertRuleV2& setObserveResourceList(string observeResourceList) { DARABONBA_PTR_SET_VALUE(observeResourceList_, observeResourceList) };
+    inline const vector<string> & getObserveResourceList() const { DARABONBA_PTR_GET_CONST(observeResourceList_, vector<string>) };
+    inline vector<string> getObserveResourceList() { DARABONBA_PTR_GET(observeResourceList_, vector<string>) };
+    inline AlertRuleV2& setObserveResourceList(const vector<string> & observeResourceList) { DARABONBA_PTR_SET_VALUE(observeResourceList_, observeResourceList) };
+    inline AlertRuleV2& setObserveResourceList(vector<string> && observeResourceList) { DARABONBA_PTR_SET_RVALUE(observeResourceList_, observeResourceList) };
 
 
     // observeResourceType Field Functions 
@@ -209,6 +216,13 @@ namespace Models
     void deleteObserveResourceType() { this->observeResourceType_ = nullptr;};
     inline string getObserveResourceType() const { DARABONBA_PTR_GET_DEFAULT(observeResourceType_, "") };
     inline AlertRuleV2& setObserveResourceType(string observeResourceType) { DARABONBA_PTR_SET_VALUE(observeResourceType_, observeResourceType) };
+
+
+    // partitionKey Field Functions 
+    bool hasPartitionKey() const { return this->partitionKey_ != nullptr;};
+    void deletePartitionKey() { this->partitionKey_ = nullptr;};
+    inline string getPartitionKey() const { DARABONBA_PTR_GET_DEFAULT(partitionKey_, "") };
+    inline AlertRuleV2& setPartitionKey(string partitionKey) { DARABONBA_PTR_SET_VALUE(partitionKey_, partitionKey) };
 
 
     // queryConfig Field Functions 
@@ -227,6 +241,13 @@ namespace Models
     inline ScheduleConfigUnified getScheduleConfig() { DARABONBA_PTR_GET(scheduleConfig_, ScheduleConfigUnified) };
     inline AlertRuleV2& setScheduleConfig(const ScheduleConfigUnified & scheduleConfig) { DARABONBA_PTR_SET_VALUE(scheduleConfig_, scheduleConfig) };
     inline AlertRuleV2& setScheduleConfig(ScheduleConfigUnified && scheduleConfig) { DARABONBA_PTR_SET_RVALUE(scheduleConfig_, scheduleConfig) };
+
+
+    // severityLevels Field Functions 
+    bool hasSeverityLevels() const { return this->severityLevels_ != nullptr;};
+    void deleteSeverityLevels() { this->severityLevels_ = nullptr;};
+    inline string getSeverityLevels() const { DARABONBA_PTR_GET_DEFAULT(severityLevels_, "") };
+    inline AlertRuleV2& setSeverityLevels(string severityLevels) { DARABONBA_PTR_SET_VALUE(severityLevels_, severityLevels) };
 
 
     // status Field Functions 
@@ -268,7 +289,6 @@ namespace Models
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
     // The template for the alert notification content.
     shared_ptr<string> contentTemplate_ {};
-    shared_ptr<string> coveredSeverityLevels_ {};
     // The time the alert rule was created.
     shared_ptr<string> createdAt_ {};
     // The configuration for the data source to be evaluated.
@@ -283,16 +303,22 @@ namespace Models
     shared_ptr<map<string, string>> labels_ {};
     // The configuration for sending notifications when an alert is triggered.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
+    // The ID of the notification strategy to use for this alert rule.
+    shared_ptr<string> notifyStrategyId_ {};
     // Indicates whether the alert rule monitors all resources of the specified type. If `true`, the rule applies globally within the workspace.
     shared_ptr<bool> observeResourceGlobalScope_ {};
     // A list of specific resource IDs to monitor, used only when `observeResourceGlobalScope` is `false`.
-    shared_ptr<string> observeResourceList_ {};
+    shared_ptr<vector<string>> observeResourceList_ {};
     // The type of resource that the alert rule monitors.
     shared_ptr<string> observeResourceType_ {};
+    // The partition key used to group alerts. Alerts with the same partition key are treated as a single incident.
+    shared_ptr<string> partitionKey_ {};
     // The configuration for querying and processing data from the data source.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
     // The configuration for how often the alert rule is evaluated.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
+    // The severity level of the alert. Examples: `critical`, `warning`.
+    shared_ptr<string> severityLevels_ {};
     // The current status of the alert rule. Examples: `RUNNING`, `STOPPED`.
     shared_ptr<string> status_ {};
     // The time the alert rule was last updated.

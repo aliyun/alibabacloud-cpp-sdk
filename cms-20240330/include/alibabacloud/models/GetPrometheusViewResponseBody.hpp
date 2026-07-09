@@ -145,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The integration key for PagerDuty.
+        // The integration key of PagerDuty.
         shared_ptr<string> key_ {};
         // The tag value.
         shared_ptr<string> value_ {};
@@ -423,55 +423,57 @@ namespace Models
 
 
     protected:
-      // The password-free read policy. It supports IP address segments and VPC IDs.
+      // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeReadPolicy_ {};
-      // The authToken string.
+      // The authentication token string.
       shared_ptr<string> authToken_ {};
-      // The time when the instance was created. The time is in UTC and follows the yyyy-MM-ddTHH:mmZ format.
+      // The time when the instance was created. The time is in UTC+0 and in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
-      // Indicates whether password-free read is enabled.
+      // Indicates whether authentication-free read is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
-      // Indicates whether authToken is enabled.
+      // Indicates whether the authentication token is enabled.
       shared_ptr<bool> enableAuthToken_ {};
-      // The URL of the observability dashboard.
+      // The dashboard URL.
       shared_ptr<string> folderUrl_ {};
-      // The ID of the attached managed Grafana instance.
+      // The instance ID of the attached managed Grafana instance.
       shared_ptr<string> grafanaInstanceId_ {};
-      // The name of the attached managed Grafana instance.
+      // The name of the associated managed Grafana instance.
       shared_ptr<string> grafanaInstanceName_ {};
-      // The HTTP API endpoint for the Internet.
+      // The public HTTP URL.
       shared_ptr<string> httpApiInterUrl_ {};
+      // The internal HTTP URL.
       shared_ptr<string> httpApiInternalUrl_ {};
-      // The HTTP API endpoint for the internal network.
+      // The internal HTTP URL.
       shared_ptr<string> httpApiIntraUrl_ {};
-      // The instance type. The value is fixed to prom-view.
+      // The instance type. The value is fixed as prom-view.
       shared_ptr<string> instanceType_ {};
-      // The billing method. The value is fixed to FREE.
+      // The billing type. The value is currently fixed as FREE.
       shared_ptr<string> paymentType_ {};
       // The product to which the Prometheus instance belongs.
       shared_ptr<string> product_ {};
-      // A list of Prometheus instances.
+      // The list of Prometheus instances.
       shared_ptr<vector<PrometheusView::PrometheusInstances>> prometheusInstances_ {};
-      // The ID of the Prometheus view.
+      // The Prometheus view ID.
       shared_ptr<string> prometheusViewId_ {};
-      // The name of the Prometheus view.
+      // The Prometheus view name.
       shared_ptr<string> prometheusViewName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The remote read URL for the Internet.
+      // The public URL for remote read.
       shared_ptr<string> remoteReadInterUrl_ {};
+      // The internal endpoint for remote read.
       shared_ptr<string> remoteReadInternalUrl_ {};
-      // The remote read URL for the internal network.
+      // The internal URL for remote read.
       shared_ptr<string> remoteReadIntraUrl_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The value is fixed to PrometheusView.
+      // The resource type. The value is fixed as PrometheusView.
       shared_ptr<string> resourceType_ {};
       // The status of the backend data storage.
       shared_ptr<string> status_ {};
       // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};
-      // The tags of the instance.
+      // The tag keys of the instance.
       shared_ptr<vector<PrometheusView::Tags>> tags_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -502,7 +504,7 @@ namespace Models
   protected:
     // The view instance.
     shared_ptr<GetPrometheusViewResponseBody::PrometheusView> prometheusView_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

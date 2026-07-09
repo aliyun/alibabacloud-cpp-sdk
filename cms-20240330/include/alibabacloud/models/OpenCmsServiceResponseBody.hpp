@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Whether the specified monitoring services are enabled.
+    // Indicates whether the service or commodity is activated.
     shared_ptr<bool> enabled_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

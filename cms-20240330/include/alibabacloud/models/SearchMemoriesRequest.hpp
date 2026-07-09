@@ -134,14 +134,15 @@ namespace Models
   protected:
     // The agent ID.
     shared_ptr<string> agentId_ {};
-    // The app ID assigned by the merchant.
+    // The app key of the project assigned by the merchant.
     shared_ptr<string> appId_ {};
     // The filter conditions.
     Darabonba::Json filters_ {};
-    // The query text.
+    // The query content.
     shared_ptr<string> query_ {};
-    // Specifies whether to rerank the search results.
+    // Specifies whether to enable reranking.
     shared_ptr<bool> rerank_ {};
+    // The retrieval option.
     shared_ptr<string> retrievalOption_ {};
     // The run ID.
     shared_ptr<string> runId_ {};
@@ -149,7 +150,7 @@ namespace Models
     shared_ptr<string> searchType_ {};
     // The similarity threshold.
     shared_ptr<double> threshold_ {};
-    // The number of top-K results to return.
+    // The top-K entries to return in the results.
     shared_ptr<int32_t> topK_ {};
     // The user ID.
     shared_ptr<string> userId_ {};

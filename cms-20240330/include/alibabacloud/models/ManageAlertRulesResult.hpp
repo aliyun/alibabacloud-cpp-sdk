@@ -18,11 +18,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(alertRule, alertRule_);
       DARABONBA_PTR_TO_JSON(deletedCount, deletedCount_);
       DARABONBA_PTR_TO_JSON(deletedUuidList, deletedUuidList_);
+      DARABONBA_PTR_TO_JSON(updatedCount, updatedCount_);
+      DARABONBA_PTR_TO_JSON(updatedUuidList, updatedUuidList_);
     };
     friend void from_json(const Darabonba::Json& j, ManageAlertRulesResult& obj) { 
       DARABONBA_PTR_FROM_JSON(alertRule, alertRule_);
       DARABONBA_PTR_FROM_JSON(deletedCount, deletedCount_);
       DARABONBA_PTR_FROM_JSON(deletedUuidList, deletedUuidList_);
+      DARABONBA_PTR_FROM_JSON(updatedCount, updatedCount_);
+      DARABONBA_PTR_FROM_JSON(updatedUuidList, updatedUuidList_);
     };
     ManageAlertRulesResult() = default ;
     ManageAlertRulesResult(const ManageAlertRulesResult &) = default ;
@@ -36,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertRule_ == nullptr
-        && this->deletedCount_ == nullptr && this->deletedUuidList_ == nullptr; };
+        && this->deletedCount_ == nullptr && this->deletedUuidList_ == nullptr && this->updatedCount_ == nullptr && this->updatedUuidList_ == nullptr; };
     // alertRule Field Functions 
     bool hasAlertRule() const { return this->alertRule_ != nullptr;};
     void deleteAlertRule() { this->alertRule_ = nullptr;};
@@ -62,6 +66,22 @@ namespace Models
     inline ManageAlertRulesResult& setDeletedUuidList(vector<string> && deletedUuidList) { DARABONBA_PTR_SET_RVALUE(deletedUuidList_, deletedUuidList) };
 
 
+    // updatedCount Field Functions 
+    bool hasUpdatedCount() const { return this->updatedCount_ != nullptr;};
+    void deleteUpdatedCount() { this->updatedCount_ = nullptr;};
+    inline int32_t getUpdatedCount() const { DARABONBA_PTR_GET_DEFAULT(updatedCount_, 0) };
+    inline ManageAlertRulesResult& setUpdatedCount(int32_t updatedCount) { DARABONBA_PTR_SET_VALUE(updatedCount_, updatedCount) };
+
+
+    // updatedUuidList Field Functions 
+    bool hasUpdatedUuidList() const { return this->updatedUuidList_ != nullptr;};
+    void deleteUpdatedUuidList() { this->updatedUuidList_ = nullptr;};
+    inline const vector<string> & getUpdatedUuidList() const { DARABONBA_PTR_GET_CONST(updatedUuidList_, vector<string>) };
+    inline vector<string> getUpdatedUuidList() { DARABONBA_PTR_GET(updatedUuidList_, vector<string>) };
+    inline ManageAlertRulesResult& setUpdatedUuidList(const vector<string> & updatedUuidList) { DARABONBA_PTR_SET_VALUE(updatedUuidList_, updatedUuidList) };
+    inline ManageAlertRulesResult& setUpdatedUuidList(vector<string> && updatedUuidList) { DARABONBA_PTR_SET_RVALUE(updatedUuidList_, updatedUuidList) };
+
+
   protected:
     // The details of the created or updated alert rule.
     shared_ptr<AlertRuleV2> alertRule_ {};
@@ -69,6 +89,10 @@ namespace Models
     shared_ptr<int32_t> deletedCount_ {};
     // A list of UUIDs of deleted alert rules.
     shared_ptr<vector<string>> deletedUuidList_ {};
+    // The number of updated alert rules.
+    shared_ptr<int32_t> updatedCount_ {};
+    // A list of UUIDs of updated alert rules.
+    shared_ptr<vector<string>> updatedUuidList_ {};
   };
 
   } // namespace Models

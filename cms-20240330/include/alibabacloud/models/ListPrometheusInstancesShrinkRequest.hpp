@@ -121,24 +121,27 @@ namespace Models
 
 
   protected:
-    // A list of region IDs to filter by, separated by commas.
+    // The region IDs for filtering, separated by commas.
     shared_ptr<string> filterRegionIds_ {};
     // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
     // The query token.
     shared_ptr<string> nextToken_ {};
-    // A list of instance IDs, separated by commas.
+    // The instance IDs, separated by commas.
     shared_ptr<string> prometheusInstanceIds_ {};
-    // The instance name. Partial match is supported.
+    // The instance name. Fuzzy match is supported.
     shared_ptr<string> prometheusInstanceName_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The resource type of the instance.
     shared_ptr<string> resourceType_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<string> tagShrink_ {};
-    // The instance version. Valid values: V1 and V2.
+    // The instance version. Valid values:
+    // - V1: V1 version.
+    // - V2: V2 version.
     shared_ptr<string> version_ {};
+    // The workspace to which the instance belongs.
     shared_ptr<string> workspace_ {};
   };
 

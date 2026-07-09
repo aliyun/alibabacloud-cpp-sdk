@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AlertRuleTemplate& obj) { 
       DARABONBA_PTR_TO_JSON(alertType, alertType_);
       DARABONBA_PTR_TO_JSON(applyCount, applyCount_);
+      DARABONBA_PTR_TO_JSON(bizType, bizType_);
+      DARABONBA_PTR_TO_JSON(datasource, datasource_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
@@ -22,6 +24,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(isSystem, isSystem_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(ruleConfigs, ruleConfigs_);
+      DARABONBA_PTR_TO_JSON(scenes, scenes_);
+      DARABONBA_PTR_TO_JSON(schemaVersion, schemaVersion_);
+      DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(subType, subType_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
@@ -31,6 +36,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AlertRuleTemplate& obj) { 
       DARABONBA_PTR_FROM_JSON(alertType, alertType_);
       DARABONBA_PTR_FROM_JSON(applyCount, applyCount_);
+      DARABONBA_PTR_FROM_JSON(bizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(datasource, datasource_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
@@ -38,6 +45,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(isSystem, isSystem_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(ruleConfigs, ruleConfigs_);
+      DARABONBA_PTR_FROM_JSON(scenes, scenes_);
+      DARABONBA_PTR_FROM_JSON(schemaVersion, schemaVersion_);
+      DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(subType, subType_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
@@ -56,8 +66,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertType_ == nullptr
-        && this->applyCount_ == nullptr && this->description_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
-        && this->isSystem_ == nullptr && this->labels_ == nullptr && this->ruleConfigs_ == nullptr && this->status_ == nullptr && this->subType_ == nullptr
+        && this->applyCount_ == nullptr && this->bizType_ == nullptr && this->datasource_ == nullptr && this->description_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->isSystem_ == nullptr && this->labels_ == nullptr && this->ruleConfigs_ == nullptr
+        && this->scenes_ == nullptr && this->schemaVersion_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr && this->subType_ == nullptr
         && this->templateName_ == nullptr && this->userId_ == nullptr && this->uuid_ == nullptr; };
     // alertType Field Functions 
     bool hasAlertType() const { return this->alertType_ != nullptr;};
@@ -71,6 +82,20 @@ namespace Models
     void deleteApplyCount() { this->applyCount_ = nullptr;};
     inline int64_t getApplyCount() const { DARABONBA_PTR_GET_DEFAULT(applyCount_, 0L) };
     inline AlertRuleTemplate& setApplyCount(int64_t applyCount) { DARABONBA_PTR_SET_VALUE(applyCount_, applyCount) };
+
+
+    // bizType Field Functions 
+    bool hasBizType() const { return this->bizType_ != nullptr;};
+    void deleteBizType() { this->bizType_ = nullptr;};
+    inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline AlertRuleTemplate& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // datasource Field Functions 
+    bool hasDatasource() const { return this->datasource_ != nullptr;};
+    void deleteDatasource() { this->datasource_ = nullptr;};
+    inline string getDatasource() const { DARABONBA_PTR_GET_DEFAULT(datasource_, "") };
+    inline AlertRuleTemplate& setDatasource(string datasource) { DARABONBA_PTR_SET_VALUE(datasource_, datasource) };
 
 
     // description Field Functions 
@@ -122,6 +147,27 @@ namespace Models
     inline AlertRuleTemplate& setRuleConfigs(string ruleConfigs) { DARABONBA_PTR_SET_VALUE(ruleConfigs_, ruleConfigs) };
 
 
+    // scenes Field Functions 
+    bool hasScenes() const { return this->scenes_ != nullptr;};
+    void deleteScenes() { this->scenes_ = nullptr;};
+    inline string getScenes() const { DARABONBA_PTR_GET_DEFAULT(scenes_, "") };
+    inline AlertRuleTemplate& setScenes(string scenes) { DARABONBA_PTR_SET_VALUE(scenes_, scenes) };
+
+
+    // schemaVersion Field Functions 
+    bool hasSchemaVersion() const { return this->schemaVersion_ != nullptr;};
+    void deleteSchemaVersion() { this->schemaVersion_ = nullptr;};
+    inline string getSchemaVersion() const { DARABONBA_PTR_GET_DEFAULT(schemaVersion_, "") };
+    inline AlertRuleTemplate& setSchemaVersion(string schemaVersion) { DARABONBA_PTR_SET_VALUE(schemaVersion_, schemaVersion) };
+
+
+    // sourceType Field Functions 
+    bool hasSourceType() const { return this->sourceType_ != nullptr;};
+    void deleteSourceType() { this->sourceType_ = nullptr;};
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline AlertRuleTemplate& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -158,33 +204,24 @@ namespace Models
 
 
   protected:
-    // The type of the alert.
     shared_ptr<string> alertType_ {};
-    // The number of alert rules created from this template.
     shared_ptr<int64_t> applyCount_ {};
-    // The description of the template.
+    shared_ptr<string> bizType_ {};
+    shared_ptr<string> datasource_ {};
     shared_ptr<string> description_ {};
-    // The creation time of the template, as a UNIX timestamp.
     shared_ptr<int64_t> gmtCreate_ {};
-    // The time the template was last modified, as a UNIX timestamp.
     shared_ptr<int64_t> gmtModified_ {};
-    // The ID of the alert rule template.
     shared_ptr<int64_t> id_ {};
-    // Indicates whether the template is system-defined. Valid values: `0` (user-defined) and `1` (system-defined).
     shared_ptr<int32_t> isSystem_ {};
-    // The labels associated with the template, formatted as a JSON string.
     shared_ptr<string> labels_ {};
-    // The rule configuration, formatted as a JSON string.
     shared_ptr<string> ruleConfigs_ {};
-    // The status of the template.
+    shared_ptr<string> scenes_ {};
+    shared_ptr<string> schemaVersion_ {};
+    shared_ptr<string> sourceType_ {};
     shared_ptr<int32_t> status_ {};
-    // The subtype of the alert.
     shared_ptr<string> subType_ {};
-    // The name of the alert rule template.
     shared_ptr<string> templateName_ {};
-    // The ID of the user who owns the template.
     shared_ptr<string> userId_ {};
-    // The universally unique identifier (UUID) of the template.
     shared_ptr<string> uuid_ {};
   };
 

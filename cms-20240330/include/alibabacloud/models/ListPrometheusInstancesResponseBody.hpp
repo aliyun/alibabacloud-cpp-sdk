@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prometheusInstanceId, prometheusInstanceId_);
         DARABONBA_PTR_TO_JSON(prometheusInstanceName, prometheusInstanceName_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
+        DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(supportAuthTypes, supportAuthTypes_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prometheusInstanceId, prometheusInstanceId_);
         DARABONBA_PTR_FROM_JSON(prometheusInstanceName, prometheusInstanceName_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(supportAuthTypes, supportAuthTypes_);
@@ -85,8 +87,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessType_ == nullptr
         && this->createTime_ == nullptr && this->instanceType_ == nullptr && this->paymentType_ == nullptr && this->product_ == nullptr && this->prometheusInstanceId_ == nullptr
-        && this->prometheusInstanceName_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->supportAuthTypes_ == nullptr
-        && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
+        && this->prometheusInstanceName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
+        && this->supportAuthTypes_ == nullptr && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
@@ -143,6 +145,13 @@ namespace Models
       inline PrometheusInstances& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline PrometheusInstances& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // resourceType Field Functions 
       bool hasResourceType() const { return this->resourceType_ != nullptr;};
       void deleteResourceType() { this->resourceType_ = nullptr;};
@@ -188,16 +197,20 @@ namespace Models
 
 
     protected:
-      // The permission type. Valid values: readWrite, readOnly, and httpReadOnly.
+      // The access type. Valid values:
+      // - readWrite
+      // - readOnly
+      // - httpReadOnly
       shared_ptr<string> accessType_ {};
-      // The time when the instance was created. The time is in UTC and the format is yyyy-MM-ddTHH:mmZ.
+      // The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
       shared_ptr<string> createTime_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
-      // POSTPAY: Pay-as-you-go, billed by metrics.
-      // POSTPAY_GB: Pay-as-you-go, billed by data written.
-      // PREPAY: Subscription.
-      // FREE: Free.
+      // The billing method. Valid values:
+      // - POSTPAY: pay-as-you-go by metric volume.
+      // - POSTPAY_GB: pay-as-you-go by write volume.
+      // - PREPAY: subscription.
+      // - FREE: free.
       shared_ptr<string> paymentType_ {};
       // The product to which the Prometheus instance belongs.
       shared_ptr<string> product_ {};
@@ -207,9 +220,11 @@ namespace Models
       shared_ptr<string> prometheusInstanceName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource group ID.
+      shared_ptr<string> resourceGroupId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The status of the backend data storage.
+      // The backend data storage status.
       shared_ptr<string> status_ {};
       // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};
@@ -261,13 +276,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned.
+    // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The list of Prometheus instances.
     shared_ptr<vector<ListPrometheusInstancesResponseBody::PrometheusInstances>> prometheusInstances_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};

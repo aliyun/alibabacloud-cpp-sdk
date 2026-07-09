@@ -180,7 +180,7 @@ namespace Models
       shared_ptr<string> memory_ {};
       // The metadata.
       Darabonba::Json metadata_ {};
-      // The sender\\"s role.
+      // The role that initiated the message.
       shared_ptr<string> role_ {};
       // The run ID.
       shared_ptr<string> runId_ {};
@@ -241,7 +241,7 @@ namespace Models
     protected:
       // The destination.
       shared_ptr<string> destination_ {};
-      // The relationship.
+      // The relations.
       shared_ptr<string> relationship_ {};
       // The source.
       shared_ptr<string> source_ {};
@@ -275,11 +275,11 @@ namespace Models
 
 
   protected:
-    // A list of relationships.
+    // The relations.
     shared_ptr<vector<SearchMemoriesResponseBody::Relations>> relations_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of search results.
+    // The returned results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
   };
 

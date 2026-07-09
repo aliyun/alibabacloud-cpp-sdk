@@ -19,7 +19,52 @@ namespace Cms20240330
 {
 
 AlibabaCloud::Cms20240330::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "metrics.us-west-1.aliyuncs.com"},
+    {"us-southeast-1" , "metrics.us-southeast-1.aliyuncs.com"},
+    {"us-east-1" , "metrics.us-east-1.aliyuncs.com"},
+    {"na-south-1" , "metrics.na-south-1.aliyuncs.com"},
+    {"me-east-1" , "metrics.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "metrics.me-central-1.aliyuncs.com"},
+    {"eu-west-2" , "metrics.eu-west-2.aliyuncs.com"},
+    {"eu-west-1" , "metrics.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "metrics.eu-central-1.aliyuncs.com"},
+    {"cn-zhongwei" , "metrics.cn-zhongwei.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "metrics.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "metrics.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "metrics.cn-wulanchabu-gic-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "metrics.cn-wulanchabu.aliyuncs.com"},
+    {"cn-wuhan-lr" , "metrics.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "metrics.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "metrics.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "metrics.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "metrics.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "metrics.cn-qingdao.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "metrics.cn-north-2-gov-1.aliyuncs.com"},
+    {"cn-nanjing" , "metrics.cn-nanjing.aliyuncs.com"},
+    {"cn-huhehaote" , "metrics.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "metrics.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "metrics.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-heyuan" , "metrics.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "metrics.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "metrics.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "metrics.cn-guangzhou.aliyuncs.com"},
+    {"cn-fuzhou" , "metrics.cn-fuzhou.aliyuncs.com"},
+    {"cn-chengdu" , "metrics.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "metrics.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "metrics.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-8" , "metrics.ap-southeast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "metrics.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "metrics.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "metrics.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "metrics.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-2" , "metrics.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-1" , "metrics.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "metrics.ap-south-1.aliyuncs.com"},
+    {"ap-northeast-2" , "metrics.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "metrics.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -310,7 +355,7 @@ CreateAddonReleaseResponse Client::createAddonRelease(const string &policyId, co
 }
 
 /**
- * @summary Creates an aggregation task group.
+ * @summary Create an aggregation task group.
  *
  * @param request CreateAggTaskGroupRequest
  * @param headers map
@@ -409,7 +454,7 @@ CreateAggTaskGroupResponse Client::createAggTaskGroupWithOptions(const string &i
 }
 
 /**
- * @summary Creates an aggregation task group.
+ * @summary Create an aggregation task group.
  *
  * @param request CreateAggTaskGroupRequest
  * @return CreateAggTaskGroupResponse
@@ -1073,7 +1118,7 @@ CreatePipelineResponse Client::createPipeline(const string &workspace, const Cre
 }
 
 /**
- * @summary Creates a Prometheus instance for monitoring.
+ * @summary Creates a Managed Service for Prometheus instance.
  *
  * @param request CreatePrometheusInstanceRequest
  * @param headers map
@@ -1115,6 +1160,10 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstanceWithOptions(con
     body["prometheusInstanceName"] = request.getPrometheusInstanceName();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasStatus()) {
     body["status"] = request.getStatus();
   }
@@ -1150,7 +1199,7 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary Creates a Prometheus instance for monitoring.
+ * @summary Creates a Managed Service for Prometheus instance.
  *
  * @param request CreatePrometheusInstanceRequest
  * @return CreatePrometheusInstanceResponse
@@ -1164,7 +1213,7 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstance(const CreatePr
 /**
  * @summary Creates a Prometheus view.
  *
- * @description 用于创建一个站点监控任务
+ * @description Creates a site monitoring task.
  *
  * @param request CreatePrometheusViewRequest
  * @param headers map
@@ -1235,7 +1284,7 @@ CreatePrometheusViewResponse Client::createPrometheusViewWithOptions(const Creat
 /**
  * @summary Creates a Prometheus view.
  *
- * @description 用于创建一个站点监控任务
+ * @description Creates a site monitoring task.
  *
  * @param request CreatePrometheusViewRequest
  * @return CreatePrometheusViewResponse
@@ -2582,9 +2631,9 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName, con
 }
 
 /**
- * @summary Query metadata
+ * @summary Queries metric metadata.
  *
- * @description Queries the details of CloudMonitor metric metadata.
+ * @description Queries the details of CloudMonitor monitoring metrics metadata.
  *
  * @param tmpReq DescribeMetricMetaListRequest
  * @param headers map
@@ -2647,9 +2696,9 @@ DescribeMetricMetaListResponse Client::describeMetricMetaListWithOptions(const D
 }
 
 /**
- * @summary Query metadata
+ * @summary Queries metric metadata.
  *
- * @description Queries the details of CloudMonitor metric metadata.
+ * @description Queries the details of CloudMonitor monitoring metrics metadata.
  *
  * @param request DescribeMetricMetaListRequest
  * @return DescribeMetricMetaListResponse
@@ -3075,7 +3124,14 @@ GetCloudResourceResponse Client::getCloudResource() {
 }
 
 /**
- * @summary Queries data from the Cloud Resource Center.
+ * @summary Queries all entity information of a specific cloud service within a specified time range.
+ *
+ * @description ## Operation description
+ * - This operation queries all entities of a specific cloud service within a specified time range.
+ * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
+ * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
+ * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+ * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
  *
  * @param request GetCloudResourceDataRequest
  * @param headers map
@@ -3116,7 +3172,14 @@ GetCloudResourceDataResponse Client::getCloudResourceDataWithOptions(const GetCl
 }
 
 /**
- * @summary Queries data from the Cloud Resource Center.
+ * @summary Queries all entity information of a specific cloud service within a specified time range.
+ *
+ * @description ## Operation description
+ * - This operation queries all entities of a specific cloud service within a specified time range.
+ * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
+ * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
+ * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+ * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
  *
  * @param request GetCloudResourceDataRequest
  * @return GetCloudResourceDataResponse
@@ -3304,7 +3367,9 @@ GetDatasetResponse Client::getDataset(const string &workspace, const string &dat
 }
 
 /**
- * @summary View data delivery task details
+ * @summary Retrieves the details of a data delivery task.
+ *
+ * @description Deletes a specified site monitoring task.
  *
  * @param request GetDeliveryTaskRequest
  * @param headers map
@@ -3331,7 +3396,9 @@ GetDeliveryTaskResponse Client::getDeliveryTaskWithOptions(const string &taskId,
 }
 
 /**
- * @summary View data delivery task details
+ * @summary Retrieves the details of a data delivery task.
+ *
+ * @description Deletes a specified site monitoring task.
  *
  * @param request GetDeliveryTaskRequest
  * @return GetDeliveryTaskResponse
@@ -3444,7 +3511,7 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 }
 
 /**
- * @summary Retrieves the details of an Integration Center policy.
+ * @summary Query integration center policy information.
  *
  * @param request GetIntegrationPolicyRequest
  * @param headers map
@@ -3471,7 +3538,7 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const strin
 }
 
 /**
- * @summary Retrieves the details of an Integration Center policy.
+ * @summary Query integration center policy information.
  *
  * @param request GetIntegrationPolicyRequest
  * @return GetIntegrationPolicyResponse
@@ -3683,7 +3750,11 @@ GetMemoryHistoryResponse Client::getMemoryHistory(const string &workspace, const
 }
 
 /**
- * @summary Query a memory store.
+ * @summary Queries a memory store.
+ *
+ * @description Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+ * ## Request type 
+ * POST|GET.
  *
  * @param request GetMemoryStoreRequest
  * @param headers map
@@ -3710,7 +3781,11 @@ GetMemoryStoreResponse Client::getMemoryStoreWithOptions(const string &workspace
 }
 
 /**
- * @summary Query a memory store.
+ * @summary Queries a memory store.
+ *
+ * @description Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+ * ## Request type 
+ * POST|GET.
  *
  * @param request GetMemoryStoreRequest
  * @return GetMemoryStoreResponse
@@ -3761,9 +3836,9 @@ GetPipelineResponse Client::getPipeline(const string &workspace, const string &p
 }
 
 /**
- * @summary Retrieves the details of a specific Prometheus instance.
+ * @summary Queries the details of a specified Managed Service for Prometheus instance.
  *
- * @description Gets the details of a Prometheus instance.
+ * @description Retrieves the details of a Managed Service for Prometheus instance.
  *
  * @param request GetPrometheusInstanceRequest
  * @param headers map
@@ -3800,9 +3875,9 @@ GetPrometheusInstanceResponse Client::getPrometheusInstanceWithOptions(const str
 }
 
 /**
- * @summary Retrieves the details of a specific Prometheus instance.
+ * @summary Queries the details of a specified Managed Service for Prometheus instance.
  *
- * @description Gets the details of a Prometheus instance.
+ * @description Retrieves the details of a Managed Service for Prometheus instance.
  *
  * @param request GetPrometheusInstanceRequest
  * @return GetPrometheusInstanceResponse
@@ -3859,9 +3934,9 @@ GetPrometheusUserSettingResponse Client::getPrometheusUserSetting(const GetProme
 }
 
 /**
- * @summary Retrieves the details of a specified Prometheus view instance.
+ * @summary Queries the details of a specified Prometheus view instance.
  *
- * @description Retrieves the details of a specified Prometheus view instance.
+ * @description Queries a specified Prometheus view instance.
  *
  * @param request GetPrometheusViewRequest
  * @param headers map
@@ -3898,9 +3973,9 @@ GetPrometheusViewResponse Client::getPrometheusViewWithOptions(const string &pro
 }
 
 /**
- * @summary Retrieves the details of a specified Prometheus view instance.
+ * @summary Queries the details of a specified Prometheus view instance.
  *
- * @description Retrieves the details of a specified Prometheus view instance.
+ * @description Queries a specified Prometheus view instance.
  *
  * @param request GetPrometheusViewRequest
  * @return GetPrometheusViewResponse
@@ -4288,7 +4363,7 @@ ListAddonsResponse Client::listAddons(const ListAddonsRequest &request) {
 }
 
 /**
- * @summary Queries a list of aggregation task groups.
+ * @summary Queries the list of aggregation task groups.
  *
  * @param tmpReq ListAggTaskGroupsRequest
  * @param headers map
@@ -4355,7 +4430,7 @@ ListAggTaskGroupsResponse Client::listAggTaskGroupsWithOptions(const string &ins
 }
 
 /**
- * @summary Queries a list of aggregation task groups.
+ * @summary Queries the list of aggregation task groups.
  *
  * @param request ListAggTaskGroupsRequest
  * @return ListAggTaskGroupsResponse
@@ -4434,7 +4509,7 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
- * @summary Queries a list of alert webhooks.
+ * @summary Queries alert chatbots.
  *
  * @param tmpReq ListAlertRobotsRequest
  * @param headers map
@@ -4497,7 +4572,7 @@ ListAlertRobotsResponse Client::listAlertRobotsWithOptions(const ListAlertRobots
 }
 
 /**
- * @summary Queries a list of alert webhooks.
+ * @summary Queries alert chatbots.
  *
  * @param request ListAlertRobotsRequest
  * @return ListAlertRobotsResponse
@@ -5005,9 +5080,9 @@ ListDeliveryTasksResponse Client::listDeliveryTasks(const ListDeliveryTasksReque
 }
 
 /**
- * @summary Queries a list of policies in the Integration Center.
+ * @summary Queries the list of access center policies.
  *
- * @description Queries a list of integrations.
+ * @description Queries the integration list.
  *
  * @param tmpReq ListIntegrationPoliciesRequest
  * @param headers map
@@ -5098,9 +5173,9 @@ ListIntegrationPoliciesResponse Client::listIntegrationPoliciesWithOptions(const
 }
 
 /**
- * @summary Queries a list of policies in the Integration Center.
+ * @summary Queries the list of access center policies.
  *
- * @description Queries a list of integrations.
+ * @description Queries the integration list.
  *
  * @param request ListIntegrationPoliciesRequest
  * @return ListIntegrationPoliciesResponse
@@ -5540,7 +5615,7 @@ ListMemoryStoresResponse Client::listMemoryStores(const string &workspace, const
 }
 
 /**
- * @summary Queries a list of pipelines in a workspace.
+ * @summary Lists pipelines.
  *
  * @param request ListPipelinesRequest
  * @param headers map
@@ -5581,7 +5656,7 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const string &workspace, 
 }
 
 /**
- * @summary Queries a list of pipelines in a workspace.
+ * @summary Lists pipelines.
  *
  * @param request ListPipelinesRequest
  * @return ListPipelinesResponse
@@ -5646,9 +5721,9 @@ ListPrometheusDashboardsResponse Client::listPrometheusDashboards(const string &
 }
 
 /**
- * @summary Lists Prometheus instances.
+ * @summary Retrieves a list of Managed Service for Prometheus instances.
  *
- * @description Lists Prometheus instances.
+ * @description Retrieves a list of Managed Service for Prometheus instances.
  *
  * @param tmpReq ListPrometheusInstancesRequest
  * @param headers map
@@ -5723,9 +5798,9 @@ ListPrometheusInstancesResponse Client::listPrometheusInstancesWithOptions(const
 }
 
 /**
- * @summary Lists Prometheus instances.
+ * @summary Retrieves a list of Managed Service for Prometheus instances.
  *
- * @description Lists Prometheus instances.
+ * @description Retrieves a list of Managed Service for Prometheus instances.
  *
  * @param request ListPrometheusInstancesRequest
  * @return ListPrometheusInstancesResponse
@@ -5737,9 +5812,9 @@ ListPrometheusInstancesResponse Client::listPrometheusInstances(const ListPromet
 }
 
 /**
- * @summary Lists the Prometheus view instances.
+ * @summary Queries the list of Prometheus view instances.
  *
- * @description Lists the Prometheus view instances.
+ * @description Queries the list of Prometheus view instances.
  *
  * @param tmpReq ListPrometheusViewsRequest
  * @param headers map
@@ -5814,9 +5889,9 @@ ListPrometheusViewsResponse Client::listPrometheusViewsWithOptions(const ListPro
 }
 
 /**
- * @summary Lists the Prometheus view instances.
+ * @summary Queries the list of Prometheus view instances.
  *
- * @description Lists the Prometheus view instances.
+ * @description Queries the list of Prometheus view instances.
  *
  * @param request ListPrometheusViewsRequest
  * @return ListPrometheusViewsResponse
@@ -6145,7 +6220,7 @@ ManageAlertRulesResponse Client::manageAlertRules(const ManageAlertRulesRequest 
 }
 
 /**
- * @summary This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+ * @summary Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
  *
  * @param request OpenCmsServiceRequest
  * @param headers map
@@ -6172,7 +6247,7 @@ OpenCmsServiceResponse Client::openCmsServiceWithOptions(const OpenCmsServiceReq
 }
 
 /**
- * @summary This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+ * @summary Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
  *
  * @param request OpenCmsServiceRequest
  * @return OpenCmsServiceResponse
@@ -6237,9 +6312,9 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 }
 
 /**
- * @summary Retrieves a list of alert rules.
+ * @summary Queries alert rules.
  *
- * @description This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param tmpReq QueryAlertRulesRequest
  * @param headers map
@@ -6292,9 +6367,9 @@ QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRules
 }
 
 /**
- * @summary Retrieves a list of alert rules.
+ * @summary Queries alert rules.
  *
- * @description This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request QueryAlertRulesRequest
  * @return QueryAlertRulesResponse
@@ -6371,7 +6446,10 @@ SearchContextResponse Client::searchContext(const string &workspace, const strin
 }
 
 /**
- * @summary Search memories using query conditions and filters.
+ * @summary Searches for memories based on query conditions and filters.
+ *
+ * @description This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+ * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request SearchMemoriesRequest
  * @param headers map
@@ -6444,7 +6522,10 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspace
 }
 
 /**
- * @summary Search memories using query conditions and filters.
+ * @summary Searches for memories based on query conditions and filters.
+ *
+ * @description This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+ * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
  *
  * @param request SearchMemoriesRequest
  * @return SearchMemoriesResponse
@@ -6966,7 +7047,10 @@ UpdateContextResponse Client::updateContext(const string &workspace, const strin
 }
 
 /**
- * @summary Updates the configuration of a context store.
+ * @summary Modifies the configuration of a context store.
+ *
+ * @description Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
+ * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
  *
  * @param request UpdateContextStoreRequest
  * @param headers map
@@ -7011,7 +7095,10 @@ UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &w
 }
 
 /**
- * @summary Updates the configuration of a context store.
+ * @summary Modifies the configuration of a context store.
+ *
+ * @description Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
+ * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
  *
  * @param request UpdateContextStoreRequest
  * @return UpdateContextStoreResponse
@@ -7068,7 +7155,9 @@ UpdateDatasetResponse Client::updateDataset(const string &workspace, const strin
 }
 
 /**
- * @summary Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
+ * @summary Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
+ *
+ * @description Deletes a specified site monitoring task.
  *
  * @param request UpdateDeliveryTaskRequest
  * @param headers map
@@ -7133,7 +7222,9 @@ UpdateDeliveryTaskResponse Client::updateDeliveryTaskWithOptions(const string &t
 }
 
 /**
- * @summary Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
+ * @summary Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
+ *
+ * @description Deletes a specified site monitoring task.
  *
  * @param request UpdateDeliveryTaskRequest
  * @return UpdateDeliveryTaskResponse
@@ -7415,9 +7506,9 @@ UpdatePipelineResponse Client::updatePipeline(const string &workspace, const str
 }
 
 /**
- * @summary Updates the information of a Prometheus instance.
+ * @summary Updates the information of a Managed Service for Prometheus instance.
  *
- * @description This topic describes how to update a Prometheus instance.
+ * @description Updates the information of a Managed Service for Prometheus instance.
  *
  * @param request UpdatePrometheusInstanceRequest
  * @param headers map
@@ -7490,9 +7581,9 @@ UpdatePrometheusInstanceResponse Client::updatePrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary Updates the information of a Prometheus instance.
+ * @summary Updates the information of a Managed Service for Prometheus instance.
  *
- * @description This topic describes how to update a Prometheus instance.
+ * @description Updates the information of a Managed Service for Prometheus instance.
  *
  * @param request UpdatePrometheusInstanceRequest
  * @return UpdatePrometheusInstanceResponse

@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The detailed configuration of the sink. The meaning of the key-value pairs depends on the specified sinkType.
+      // The detailed configuration of the delivery target. The meanings of keys and values vary depending on the sinkType.
       shared_ptr<map<string, string>> sinkConfigs_ {};
-      // The sink type.
+      // The delivery target type.
       shared_ptr<string> sinkType_ {};
     };
 
@@ -166,23 +166,23 @@ namespace Models
 
 
   protected:
-    // The data source ID (Prometheus instance ID).
+    // The data source ID, which is the Managed Service for Prometheus instance ID.
     shared_ptr<string> dataSourceId_ {};
-    // Additional labels to attach to all delivered metrics, specified as key-value pairs.
+    // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
     shared_ptr<map<string, string>> externalLabels_ {};
-    // The labels for filtering metrics. This operation replaces the entire existing filter; incremental updates are not supported.
+    // The metric filter conditions. The entire value is replaced rather than incrementally merged.
     shared_ptr<map<string, string>> labelFilters_ {};
     // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of sinks.
+    // The list of delivery targets.
     shared_ptr<vector<UpdateDeliveryTaskRequest::SinkList>> sinkList_ {};
-    // The status of the delivery task.
+    // The task status. This parameter is used to enable or disable the task.
     shared_ptr<string> status_ {};
     // The task description.
     shared_ptr<string> taskDescription_ {};
-    // The name of the delivery task. The name can include Chinese characters, English letters, underscores (_), and hyphens (-).
+    // The task name. The name can contain letters, digits, underscores (_), and hyphens (-).
     shared_ptr<string> taskName_ {};
   };
 

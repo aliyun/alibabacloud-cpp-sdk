@@ -33,6 +33,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(notifyConfig, notifyConfig_);
+      DARABONBA_PTR_TO_JSON(observeResourceInstanceId, observeResourceInstanceId_);
+      DARABONBA_PTR_TO_JSON(observeResourceType, observeResourceType_);
       DARABONBA_PTR_TO_JSON(queryConfig, queryConfig_);
       DARABONBA_PTR_TO_JSON(scheduleConfig, scheduleConfig_);
       DARABONBA_PTR_TO_JSON(uuid, uuid_);
@@ -51,6 +53,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(notifyConfig, notifyConfig_);
+      DARABONBA_PTR_FROM_JSON(observeResourceInstanceId, observeResourceInstanceId_);
+      DARABONBA_PTR_FROM_JSON(observeResourceType, observeResourceType_);
       DARABONBA_PTR_FROM_JSON(queryConfig, queryConfig_);
       DARABONBA_PTR_FROM_JSON(scheduleConfig, scheduleConfig_);
       DARABONBA_PTR_FROM_JSON(uuid, uuid_);
@@ -71,7 +75,8 @@ namespace Models
     virtual bool empty() const override { return this->action_ == nullptr
         && this->actionIntegrationConfig_ == nullptr && this->annotations_ == nullptr && this->armsIntegrationConfig_ == nullptr && this->conditionConfig_ == nullptr && this->contentTemplate_ == nullptr
         && this->datasourceConfig_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->notifyConfig_ == nullptr
-        && this->queryConfig_ == nullptr && this->scheduleConfig_ == nullptr && this->uuid_ == nullptr && this->uuidList_ == nullptr && this->workspace_ == nullptr; };
+        && this->observeResourceInstanceId_ == nullptr && this->observeResourceType_ == nullptr && this->queryConfig_ == nullptr && this->scheduleConfig_ == nullptr && this->uuid_ == nullptr
+        && this->uuidList_ == nullptr && this->workspace_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -163,6 +168,20 @@ namespace Models
     inline ManageAlertRulesUnifiedActionInput& setNotifyConfig(NotifyConfigUnified && notifyConfig) { DARABONBA_PTR_SET_RVALUE(notifyConfig_, notifyConfig) };
 
 
+    // observeResourceInstanceId Field Functions 
+    bool hasObserveResourceInstanceId() const { return this->observeResourceInstanceId_ != nullptr;};
+    void deleteObserveResourceInstanceId() { this->observeResourceInstanceId_ = nullptr;};
+    inline string getObserveResourceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(observeResourceInstanceId_, "") };
+    inline ManageAlertRulesUnifiedActionInput& setObserveResourceInstanceId(string observeResourceInstanceId) { DARABONBA_PTR_SET_VALUE(observeResourceInstanceId_, observeResourceInstanceId) };
+
+
+    // observeResourceType Field Functions 
+    bool hasObserveResourceType() const { return this->observeResourceType_ != nullptr;};
+    void deleteObserveResourceType() { this->observeResourceType_ = nullptr;};
+    inline string getObserveResourceType() const { DARABONBA_PTR_GET_DEFAULT(observeResourceType_, "") };
+    inline ManageAlertRulesUnifiedActionInput& setObserveResourceType(string observeResourceType) { DARABONBA_PTR_SET_VALUE(observeResourceType_, observeResourceType) };
+
+
     // queryConfig Field Functions 
     bool hasQueryConfig() const { return this->queryConfig_ != nullptr;};
     void deleteQueryConfig() { this->queryConfig_ = nullptr;};
@@ -205,39 +224,24 @@ namespace Models
 
 
   protected:
-    // The action to perform on the alert rule. For example, `create` or `update`.
-    // 
     // This parameter is required.
     shared_ptr<string> action_ {};
-    // The action integration configuration for triggering automated workflows or actions in external systems.
     shared_ptr<ActionIntegrationConfig> actionIntegrationConfig_ {};
-    // A collection of key-value pairs attached to the alert as annotations. Use annotations to provide additional, non-identifying information, such as descriptions or runbook links.
     shared_ptr<map<string, string>> annotations_ {};
-    // Configuration for integrating with Application Real-Time Monitoring Service (ARMS).
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
-    // The condition configuration that specifies the trigger criteria for the alert.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
-    // The content template for the alert notification. You can use variables to customize the message.
     shared_ptr<string> contentTemplate_ {};
-    // The data source configuration for the alert rule.
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
-    // The display name of the alert rule, as shown in the console.
     shared_ptr<string> displayName_ {};
-    // Specifies whether the alert rule is enabled. A value of `true` indicates the rule is active, and `false` indicates it is inactive. Default: `true`.
     shared_ptr<bool> enabled_ {};
-    // A collection of key-value pairs attached to the alert rule as labels. Use labels for categorization and filtering.
     shared_ptr<map<string, string>> labels_ {};
-    // The notification configuration that specifies how and where to send alert notifications.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
-    // The query configuration that defines the data for rule evaluation.
+    shared_ptr<string> observeResourceInstanceId_ {};
+    shared_ptr<string> observeResourceType_ {};
     shared_ptr<QueryConfigUnified> queryConfig_ {};
-    // The schedule configuration that determines how often the system evaluates the rule.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // The unique identifier (UUID) of the alert rule. This parameter is required when you update or delete an existing rule.
     shared_ptr<string> uuid_ {};
-    // A list of UUIDs. Use this parameter to perform bulk actions on multiple rules, such as batch deletion.
     shared_ptr<vector<string>> uuidList_ {};
-    // The ID of the workspace that contains the alert rule.
     shared_ptr<string> workspace_ {};
   };
 

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(activeEndTime, activeEndTime_);
       DARABONBA_PTR_TO_JSON(activeStartTime, activeStartTime_);
       DARABONBA_PTR_TO_JSON(channels, channels_);
+      DARABONBA_PTR_TO_JSON(notifyStrategies, notifyStrategies_);
       DARABONBA_PTR_TO_JSON(silenceTimeSecs, silenceTimeSecs_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(utcOffset, utcOffset_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(activeEndTime, activeEndTime_);
       DARABONBA_PTR_FROM_JSON(activeStartTime, activeStartTime_);
       DARABONBA_PTR_FROM_JSON(channels, channels_);
+      DARABONBA_PTR_FROM_JSON(notifyStrategies, notifyStrategies_);
       DARABONBA_PTR_FROM_JSON(silenceTimeSecs, silenceTimeSecs_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(utcOffset, utcOffset_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeDays_ == nullptr
-        && this->activeEndTime_ == nullptr && this->activeStartTime_ == nullptr && this->channels_ == nullptr && this->silenceTimeSecs_ == nullptr && this->type_ == nullptr
-        && this->utcOffset_ == nullptr; };
+        && this->activeEndTime_ == nullptr && this->activeStartTime_ == nullptr && this->channels_ == nullptr && this->notifyStrategies_ == nullptr && this->silenceTimeSecs_ == nullptr
+        && this->type_ == nullptr && this->utcOffset_ == nullptr; };
     // activeDays Field Functions 
     bool hasActiveDays() const { return this->activeDays_ != nullptr;};
     void deleteActiveDays() { this->activeDays_ = nullptr;};
@@ -78,6 +80,15 @@ namespace Models
     inline NotifyConfigUnified& setChannels(vector<DirectNotifyChannel> && channels) { DARABONBA_PTR_SET_RVALUE(channels_, channels) };
 
 
+    // notifyStrategies Field Functions 
+    bool hasNotifyStrategies() const { return this->notifyStrategies_ != nullptr;};
+    void deleteNotifyStrategies() { this->notifyStrategies_ = nullptr;};
+    inline const vector<string> & getNotifyStrategies() const { DARABONBA_PTR_GET_CONST(notifyStrategies_, vector<string>) };
+    inline vector<string> getNotifyStrategies() { DARABONBA_PTR_GET(notifyStrategies_, vector<string>) };
+    inline NotifyConfigUnified& setNotifyStrategies(const vector<string> & notifyStrategies) { DARABONBA_PTR_SET_VALUE(notifyStrategies_, notifyStrategies) };
+    inline NotifyConfigUnified& setNotifyStrategies(vector<string> && notifyStrategies) { DARABONBA_PTR_SET_RVALUE(notifyStrategies_, notifyStrategies) };
+
+
     // silenceTimeSecs Field Functions 
     bool hasSilenceTimeSecs() const { return this->silenceTimeSecs_ != nullptr;};
     void deleteSilenceTimeSecs() { this->silenceTimeSecs_ = nullptr;};
@@ -100,23 +111,14 @@ namespace Models
 
 
   protected:
-    // The active days of the week.
     shared_ptr<vector<int32_t>> activeDays_ {};
-    // The end of the daily active time window. On active days, the system sends notifications only before this time. Format: `HH:mm`.
     shared_ptr<string> activeEndTime_ {};
-    // The start of the daily active time window. On active days, the system sends notifications only after this time. Format: `HH:mm`.
     shared_ptr<string> activeStartTime_ {};
-    // The notification channels that receive alerts.
-    // 
-    // This parameter is required.
     shared_ptr<vector<DirectNotifyChannel>> channels_ {};
-    // The silence time in seconds. After sending a notification, the system suppresses new notifications for the same alert for this duration.
+    shared_ptr<vector<string>> notifyStrategies_ {};
     shared_ptr<int32_t> silenceTimeSecs_ {};
-    // The type of the notification configuration.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UTC offset for `activeStartTime` and `activeEndTime`. The format is `[+/-]HH:mm`. For example, `+08:00` represents the UTC+8 time zone.
     shared_ptr<string> utcOffset_ {};
   };
 

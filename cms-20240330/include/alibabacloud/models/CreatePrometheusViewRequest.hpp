@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -225,33 +225,33 @@ namespace Models
 
 
   protected:
-    // This parameter is not in use.
+    // Not in use.
     shared_ptr<string> authFreeReadPolicy_ {};
-    // Specifies whether to enable password-free read access.
+    // Specifies whether anonymous read is supported.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable an authentication token.
+    // Specifies whether authToken is supported.
     shared_ptr<bool> enableAuthToken_ {};
     // The list of Prometheus instances.
     // 
     // This parameter is required.
     shared_ptr<vector<CreatePrometheusViewRequest::PrometheusInstances>> prometheusInstances_ {};
-    // The name of the Prometheus view.
+    // The Prometheus view name.
     // 
     // This parameter is required.
     shared_ptr<string> prometheusViewName_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // This parameter is not in use.
+    // Not in use.
     shared_ptr<string> status_ {};
-    // Specifies the operation to execute.
+    // The tags.
     shared_ptr<vector<CreatePrometheusViewRequest::Tags>> tags_ {};
-    // - V1: The old version.
-    // 
-    // - V2: The new version.
+    // Valid values:
+    // - V1: legacy version
+    // - V2: new version.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};
-    // The default value is default-cms-{userId}-{regionId}.
+    // Default value: default-cms-{userId}-{regionId}.
     shared_ptr<string> workspace_ {};
   };
 

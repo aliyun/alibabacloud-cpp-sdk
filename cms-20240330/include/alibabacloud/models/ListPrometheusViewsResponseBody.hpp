@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prometheusViewId, prometheusViewId_);
         DARABONBA_PTR_TO_JSON(prometheusViewName, prometheusViewName_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
+        DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(userId, userId_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prometheusViewId, prometheusViewId_);
         DARABONBA_PTR_FROM_JSON(prometheusViewName, prometheusViewName_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(userId, userId_);
@@ -83,8 +85,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->instanceType_ == nullptr && this->paymentType_ == nullptr && this->product_ == nullptr && this->prometheusInstanceCount_ == nullptr && this->prometheusViewId_ == nullptr
-        && this->prometheusViewName_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr
-        && this->version_ == nullptr && this->workspace_ == nullptr; };
+        && this->prometheusViewName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
+        && this->userId_ == nullptr && this->version_ == nullptr && this->workspace_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -141,6 +143,13 @@ namespace Models
       inline PrometheusViews& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline PrometheusViews& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // resourceType Field Functions 
       bool hasResourceType() const { return this->resourceType_ != nullptr;};
       void deleteResourceType() { this->resourceType_ = nullptr;};
@@ -177,25 +186,29 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created. The time is in UTC and in the \\`yyyy-MM-ddTHH:mmZ\\` format.
+      // The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
       shared_ptr<string> createTime_ {};
-      // The instance type. Valid values are \\`prom-view\\` for a new-version aggregation view and \\`global-view\\` for an old-version aggregation view.
+      // The instance type:
+      // prom-view: aggregated view of the new version.
+      // global-view: aggregated view of the legacy version.
       shared_ptr<string> instanceType_ {};
-      // The billing method. The value is fixed to \\`FREE\\`.
+      // The billing type. Currently, the fixed value is FREE.
       shared_ptr<string> paymentType_ {};
-      // The product to which the Prometheus instance belongs. Valid values: \\`arms\\` and \\`cms\\`.
+      // The product to which the Prometheus instance belongs (arms or cms).
       shared_ptr<string> product_ {};
-      // The number of Prometheus instances in the view.
+      // The number of Prometheus instances included in the view.
       shared_ptr<int32_t> prometheusInstanceCount_ {};
       // The Prometheus view ID.
       shared_ptr<string> prometheusViewId_ {};
-      // The name of the Prometheus view.
+      // The Prometheus view name.
       shared_ptr<string> prometheusViewName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource type. The value is fixed to \\`PrometheusView\\`.
+      // The resource group ID.
+      shared_ptr<string> resourceGroupId_ {};
+      // The fixed value: PrometheusView.
       shared_ptr<string> resourceType_ {};
-      // The status of the backend data storage.
+      // The backend data storage status.
       shared_ptr<string> status_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -245,13 +258,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned.
+    // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The list of Prometheus view instances.
     shared_ptr<vector<ListPrometheusViewsResponseBody::PrometheusViews>> prometheusViews_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};

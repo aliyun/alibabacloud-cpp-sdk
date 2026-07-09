@@ -57,19 +57,19 @@ namespace Models
 
 
   protected:
-    // The start of the time range to query.
+    // The start of the query time range.
     // 
-    // This is a UNIX timestamp. It represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+    // The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // This parameter is required.
     shared_ptr<int32_t> from_ {};
-    // The search statement.
+    // The query statement.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // The end of the time range to query.
+    // The end of the query time range.
     // 
-    // This is a UNIX timestamp. It represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+    // The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     // 
     // This parameter is required.
     shared_ptr<int32_t> to_ {};

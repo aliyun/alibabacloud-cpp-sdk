@@ -18,15 +18,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(caseList, caseList_);
       DARABONBA_PTR_TO_JSON(compareList, compareList_);
       DARABONBA_PTR_TO_JSON(compositeEscalation, compositeEscalation_);
+      DARABONBA_PTR_TO_JSON(countOperator, countOperator_);
+      DARABONBA_PTR_TO_JSON(countThreshold, countThreshold_);
       DARABONBA_PTR_TO_JSON(enableSeveritySuppression, enableSeveritySuppression_);
       DARABONBA_PTR_TO_JSON(escalationType, escalationType_);
       DARABONBA_PTR_TO_JSON(expressEscalation, expressEscalation_);
+      DARABONBA_PTR_TO_JSON(matchField, matchField_);
+      DARABONBA_PTR_TO_JSON(matchOperator, matchOperator_);
+      DARABONBA_PTR_TO_JSON(matchValue, matchValue_);
+      DARABONBA_PTR_TO_JSON(max, max_);
+      DARABONBA_PTR_TO_JSON(min, min_);
       DARABONBA_PTR_TO_JSON(noDataAlertLevel, noDataAlertLevel_);
       DARABONBA_PTR_TO_JSON(noDataAppendValue, noDataAppendValue_);
       DARABONBA_PTR_TO_JSON(noDataPolicy, noDataPolicy_);
       DARABONBA_PTR_TO_JSON(oper, oper_);
       DARABONBA_PTR_TO_JSON(relation, relation_);
       DARABONBA_PTR_TO_JSON(simpleEscalation, simpleEscalation_);
+      DARABONBA_PTR_TO_JSON(thresholdList, thresholdList_);
       DARABONBA_PTR_TO_JSON(triggers, triggers_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(value, value_);
@@ -36,15 +44,23 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(caseList, caseList_);
       DARABONBA_PTR_FROM_JSON(compareList, compareList_);
       DARABONBA_PTR_FROM_JSON(compositeEscalation, compositeEscalation_);
+      DARABONBA_PTR_FROM_JSON(countOperator, countOperator_);
+      DARABONBA_PTR_FROM_JSON(countThreshold, countThreshold_);
       DARABONBA_PTR_FROM_JSON(enableSeveritySuppression, enableSeveritySuppression_);
       DARABONBA_PTR_FROM_JSON(escalationType, escalationType_);
       DARABONBA_PTR_FROM_JSON(expressEscalation, expressEscalation_);
+      DARABONBA_PTR_FROM_JSON(matchField, matchField_);
+      DARABONBA_PTR_FROM_JSON(matchOperator, matchOperator_);
+      DARABONBA_PTR_FROM_JSON(matchValue, matchValue_);
+      DARABONBA_PTR_FROM_JSON(max, max_);
+      DARABONBA_PTR_FROM_JSON(min, min_);
       DARABONBA_PTR_FROM_JSON(noDataAlertLevel, noDataAlertLevel_);
       DARABONBA_PTR_FROM_JSON(noDataAppendValue, noDataAppendValue_);
       DARABONBA_PTR_FROM_JSON(noDataPolicy, noDataPolicy_);
       DARABONBA_PTR_FROM_JSON(oper, oper_);
       DARABONBA_PTR_FROM_JSON(relation, relation_);
       DARABONBA_PTR_FROM_JSON(simpleEscalation, simpleEscalation_);
+      DARABONBA_PTR_FROM_JSON(thresholdList, thresholdList_);
       DARABONBA_PTR_FROM_JSON(triggers, triggers_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(value, value_);
@@ -230,6 +246,68 @@ namespace Models
       shared_ptr<string> severity_ {};
     };
 
+    class ThresholdList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ThresholdList& obj) { 
+        DARABONBA_PTR_TO_JSON(max, max_);
+        DARABONBA_PTR_TO_JSON(min, min_);
+        DARABONBA_PTR_TO_JSON(severity, severity_);
+        DARABONBA_PTR_TO_JSON(threshold, threshold_);
+      };
+      friend void from_json(const Darabonba::Json& j, ThresholdList& obj) { 
+        DARABONBA_PTR_FROM_JSON(max, max_);
+        DARABONBA_PTR_FROM_JSON(min, min_);
+        DARABONBA_PTR_FROM_JSON(severity, severity_);
+        DARABONBA_PTR_FROM_JSON(threshold, threshold_);
+      };
+      ThresholdList() = default ;
+      ThresholdList(const ThresholdList &) = default ;
+      ThresholdList(ThresholdList &&) = default ;
+      ThresholdList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ThresholdList() = default ;
+      ThresholdList& operator=(const ThresholdList &) = default ;
+      ThresholdList& operator=(ThresholdList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->max_ == nullptr
+        && this->min_ == nullptr && this->severity_ == nullptr && this->threshold_ == nullptr; };
+      // max Field Functions 
+      bool hasMax() const { return this->max_ != nullptr;};
+      void deleteMax() { this->max_ = nullptr;};
+      inline double getMax() const { DARABONBA_PTR_GET_DEFAULT(max_, 0.0) };
+      inline ThresholdList& setMax(double max) { DARABONBA_PTR_SET_VALUE(max_, max) };
+
+
+      // min Field Functions 
+      bool hasMin() const { return this->min_ != nullptr;};
+      void deleteMin() { this->min_ = nullptr;};
+      inline double getMin() const { DARABONBA_PTR_GET_DEFAULT(min_, 0.0) };
+      inline ThresholdList& setMin(double min) { DARABONBA_PTR_SET_VALUE(min_, min) };
+
+
+      // severity Field Functions 
+      bool hasSeverity() const { return this->severity_ != nullptr;};
+      void deleteSeverity() { this->severity_ = nullptr;};
+      inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+      inline ThresholdList& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
+
+
+      // threshold Field Functions 
+      bool hasThreshold() const { return this->threshold_ != nullptr;};
+      void deleteThreshold() { this->threshold_ = nullptr;};
+      inline double getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
+      inline ThresholdList& setThreshold(double threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
+    protected:
+      shared_ptr<double> max_ {};
+      shared_ptr<double> min_ {};
+      shared_ptr<string> severity_ {};
+      shared_ptr<double> threshold_ {};
+    };
+
     class SimpleEscalation : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SimpleEscalation& obj) { 
@@ -318,41 +396,28 @@ namespace Models
 
 
       protected:
-        // The comparison operator for the threshold. Valid values:
+        // The threshold comparison operator. Valid values:
         // 
         // - GreaterThanOrEqualToThreshold: Greater than or equal to.
-        // 
         // - GreaterThanThreshold: Greater than.
-        // 
         // - LessThanOrEqualToThreshold: Less than or equal to.
-        // 
         // - LessThanThreshold: Less than.
-        // 
         // - NotEqualToThreshold: Not equal to.
-        // 
         // - EqualToThreshold: Equal to.
-        // 
-        // - GreaterThanYesterday: Higher than the value at the same time yesterday.
-        // 
-        // - LessThanYesterday: Lower than the value at the same time yesterday.
-        // 
-        // - GreaterThanLastWeek: Higher than the value at the same time last week.
-        // 
-        // - LessThanLastWeek: Lower than the value at the same time last week.
-        // 
-        // - GreaterThanLastPeriod: Higher than the value in the previous period.
-        // 
-        // - LessThanLastPeriod: Lower than the value in the previous period.
+        // - GreaterThanYesterday: Year-over-year increase compared with the same time yesterday.
+        // - LessThanYesterday: Year-over-year decrease compared with the same time yesterday.
+        // - GreaterThanLastWeek: Year-over-year increase compared with the same time last week.
+        // - LessThanLastWeek: Year-over-year decrease compared with the same time last week.
+        // - GreaterThanLastPeriod: Period-over-period increase compared with the previous period.
+        // - LessThanLastPeriod: Period-over-period decrease compared with the previous period.
         shared_ptr<string> comparisonOperator_ {};
-        // The alert level that is triggered when the condition is met. Expression-based alerts support only one level.
+        // The alert level triggered when the condition is met. Expression-based alerts support only one level.
         // 
         // - CRITICAL
-        // 
         // - WARNING
-        // 
         // - INFO
         shared_ptr<string> level_ {};
-        // The statistical method. The valid values for this parameter are determined by the Statistics column that corresponds to the MetricName of the specified cloud product. Examples: Maximum, Minimum, and Average.
+        // The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Examples: Maximum, Minimum, and Average.
         shared_ptr<string> statistics_ {};
         // The alert threshold.
         shared_ptr<double> threshold_ {};
@@ -386,13 +451,13 @@ namespace Models
 
 
     protected:
-      // A list of conditions. If an alert rule has multiple levels, each level has a corresponding condition object.
+      // The list of conditions. When an alert rule corresponds to multiple levels, each level has a condition object.
       shared_ptr<vector<SimpleEscalation::Escalations>> escalations_ {};
-      // Applicable to the CMS_BASIC_CONDITION type.
+      // Applicable condition type: CMS_BASIC_CONDITION.
       // 
       // The metric associated with the alert condition.
       shared_ptr<string> metricName_ {};
-      // The time window for the metric, in seconds.
+      // The time window of the metric. Unit: seconds.
       shared_ptr<int64_t> period_ {};
     };
 
@@ -443,12 +508,10 @@ namespace Models
 
 
     protected:
-      // The alert level that is triggered when the condition is met. Expression-based alerts support only one level.
+      // The alert level triggered when the condition is met. Expression-based alerts support only one level.
       // 
       // - CRITICAL
-      // 
       // - WARNING
-      // 
       // - INFO
       shared_ptr<string> level_ {};
       // The alert condition expression.
@@ -547,47 +610,33 @@ namespace Models
 
 
       protected:
-        // The comparison operator for the threshold. Valid values:
+        // The threshold comparison operator. Valid values:
         // 
         // - GreaterThanOrEqualToThreshold: Greater than or equal to.
-        // 
         // - GreaterThanThreshold: Greater than.
-        // 
         // - LessThanOrEqualToThreshold: Less than or equal to.
-        // 
         // - LessThanThreshold: Less than.
-        // 
         // - NotEqualToThreshold: Not equal to.
-        // 
         // - EqualToThreshold: Equal to.
-        // 
-        // - GreaterThanYesterday: Higher than the value at the same time yesterday.
-        // 
-        // - LessThanYesterday: Lower than the value at the same time yesterday.
-        // 
-        // - GreaterThanLastWeek: Higher than the value at the same time last week.
-        // 
-        // - LessThanLastWeek: Lower than the value at the same time last week.
-        // 
-        // - GreaterThanLastPeriod: Higher than the value in the previous period.
-        // 
-        // - LessThanLastPeriod: Lower than the value in the previous period.
+        // - GreaterThanYesterday: Year-over-year increase compared with the same time yesterday.
+        // - LessThanYesterday: Year-over-year decrease compared with the same time yesterday.
+        // - GreaterThanLastWeek: Year-over-year increase compared with the same time last week.
+        // - LessThanLastWeek: Year-over-year decrease compared with the same time last week.
+        // - GreaterThanLastPeriod: Period-over-period increase compared with the previous period.
+        // - LessThanLastPeriod: Period-over-period decrease compared with the previous period.
         shared_ptr<string> comparisonOperator_ {};
-        // The name of the metric.
+        // The metric name.
         shared_ptr<string> metricName_ {};
-        // The time window for the metric.
+        // The time window of the metric.
         shared_ptr<int64_t> period_ {};
-        // The statistical method. The valid values for this parameter are determined by the Statistics column that corresponds to the MetricName of the specified cloud product. Examples of statistical methods for metrics:
+        // The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Example values for the statistical method of a metric:
         // 
-        // - $Maximum: The maximum value.
+        // - $Maximum: Maximum value.
+        // - $Minimum: Minimum value.
+        // - $Average: Average value.
+        // - $Availability: Availability rate (typically used for site monitoring).
         // 
-        // - $Minimum: The minimum value.
-        // 
-        // - $Average: The average value.
-        // 
-        // - $Availability: The availability rate. This is typically used for site monitoring.
-        // 
-        // Note: The dollar sign ($) is a standard prefix for metrics.
+        // Note: $ is the unified prefix symbol for metrics.
         shared_ptr<string> statistics_ {};
         // The alert threshold.
         shared_ptr<double> threshold_ {};
@@ -626,11 +675,11 @@ namespace Models
 
 
     protected:
-      // A list of composite conditions for multiple metrics.
+      // The list of composite conditions for multiple metrics.
       shared_ptr<vector<CompositeEscalation::Escalations>> escalations_ {};
-      // The alert level that is triggered when the condition is met. Composite metric alerts support only one level.
+      // The alert level triggered when the condition is met. Composite metric alerts support only one level.
       shared_ptr<string> level_ {};
-      // The relationship between multiple metric conditions. Valid values: and or or.
+      // The relationship between multiple metric conditions. Valid values: and, or.
       shared_ptr<string> relation_ {};
       // The number of times the condition must be met to trigger an alert.
       shared_ptr<int32_t> times_ {};
@@ -709,7 +758,7 @@ namespace Models
       protected:
         // The level corresponding to the threshold.
         shared_ptr<string> level_ {};
-        // The threshold for comparison.
+        // The comparison threshold.
         shared_ptr<double> value_ {};
       };
 
@@ -775,53 +824,40 @@ namespace Models
 
 
     protected:
-      // The aggregate function for the time series.
+      // The aggregate functions applied after time series aggregation.
       // 
       // - count
-      // 
       // - sum
-      // 
       // - avg
-      // 
       // - min
-      // 
       // - max
-      // 
       // - p90
-      // 
       // - p95
-      // 
       // - p99
       shared_ptr<string> aggregate_ {};
-      // The unit of the data.
+      // The data unit.
       shared_ptr<string> baseUnit_ {};
-      // The unit for display.
+      // The display unit.
       shared_ptr<string> displayUnit_ {};
-      // The comparison operation. It determines whether to perform a year-over-year or period-over-period comparison.
+      // The comparison operator. Determines whether year-over-year or period-over-period comparison is used.
       // 
-      // - GT: Greater than.
-      // 
-      // - GTE: Greater than or equal to.
-      // 
-      // - LT: Less than.
-      // 
-      // - LTE: Less than or equal to.
-      // 
-      // - EQ: Equal to.
-      // 
-      // - NE: Not equal to.
-      // 
-      // - YOY_UP: Year-over-year increase.
-      // 
-      // - YOY_DOWN: Year-over-year decrease.
+      // - Greater than: GT
+      // - Greater than or equal to: GTE
+      // - Less than: LT
+      // - Less than or equal to: LTE
+      // - Equal to: EQ
+      // - Not equal to: NE
+      // - Year-over-year increase: YOY_UP
+      // - Year-over-year decrease: YOY_DOWN
       shared_ptr<string> oper_ {};
-      // The threshold for comparison.
+      // The comparison threshold.
       shared_ptr<double> value_ {};
-      // A list of alert levels for different values.
+      // The list of alert levels for different values.
       shared_ptr<vector<CompareList::ValueLevelList>> valueLevelList_ {};
-      // The time unit for year-over-year comparison. This parameter is valid only when oper is set to YOY_UP or YOY_DOWN. Valid values: minute, hour, day, week, and month.
+      // The time unit for year-over-year comparison. Valid only when oper is set to YOY_UP or YOY_DOWN.
+      // Valid values: minute, hour, day, week, month.
       shared_ptr<string> yoyTimeUnit_ {};
-      // The time value for year-over-year comparison. Used with yoyTimeUnit.
+      // The value of the year-over-year time period. Used together with yoyTimeUnit.
       shared_ptr<int32_t> yoyTimeValue_ {};
     };
 
@@ -881,32 +917,30 @@ namespace Models
 
 
     protected:
-      // The matching expression. Example: logLevel: error
+      // The match expression. Example: logLevel: error.
       shared_ptr<string> condition_ {};
-      // The expression for matching a quantity. Examples:
-      // Combined range: **count** >= 3 && **count** <= 10
-      // Single range: **count** >= 3
+      // The count match expression. Examples:
+      // Range combination: __count__ >= 3 && __count__ <= 10
+      // Single range: __count__ >= 3
       shared_ptr<string> countCondition_ {};
       // The alert level when the condition is met.
       shared_ptr<string> level_ {};
-      // The match type. It can be data availability, a specific number of data entries, a data match, or a specific number of data entry matches.
+      // The match type: has data, has a specific number of data entries, has data match, or has a specific number of data matches.
       // 
       // Valid values:
-      // 
-      // - HasData: Data is available.
-      // 
-      // - HasDataCount: A specific number of data entries are available.
-      // 
-      // - HasDataMatch: Data matches the condition.
-      // 
-      // - HasDataMatchCount: A specific number of data entries match the condition.
+      // - HasData: has data
+      // - HasDataCount: has a specific number of data entries
+      // - HasDataMatch: has data match
+      // - HasDataMatchCount: has a specific number of data matches
       shared_ptr<string> type_ {};
     };
 
     virtual bool empty() const override { return this->alertCount_ == nullptr
-        && this->caseList_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr
-        && this->expressEscalation_ == nullptr && this->noDataAlertLevel_ == nullptr && this->noDataAppendValue_ == nullptr && this->noDataPolicy_ == nullptr && this->oper_ == nullptr
-        && this->relation_ == nullptr && this->simpleEscalation_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
+        && this->caseList_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->countOperator_ == nullptr && this->countThreshold_ == nullptr
+        && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr && this->expressEscalation_ == nullptr && this->matchField_ == nullptr && this->matchOperator_ == nullptr
+        && this->matchValue_ == nullptr && this->max_ == nullptr && this->min_ == nullptr && this->noDataAlertLevel_ == nullptr && this->noDataAppendValue_ == nullptr
+        && this->noDataPolicy_ == nullptr && this->oper_ == nullptr && this->relation_ == nullptr && this->simpleEscalation_ == nullptr && this->thresholdList_ == nullptr
+        && this->triggers_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
     // alertCount Field Functions 
     bool hasAlertCount() const { return this->alertCount_ != nullptr;};
     void deleteAlertCount() { this->alertCount_ = nullptr;};
@@ -941,6 +975,20 @@ namespace Models
     inline AlertRuleCondition& setCompositeEscalation(AlertRuleCondition::CompositeEscalation && compositeEscalation) { DARABONBA_PTR_SET_RVALUE(compositeEscalation_, compositeEscalation) };
 
 
+    // countOperator Field Functions 
+    bool hasCountOperator() const { return this->countOperator_ != nullptr;};
+    void deleteCountOperator() { this->countOperator_ = nullptr;};
+    inline string getCountOperator() const { DARABONBA_PTR_GET_DEFAULT(countOperator_, "") };
+    inline AlertRuleCondition& setCountOperator(string countOperator) { DARABONBA_PTR_SET_VALUE(countOperator_, countOperator) };
+
+
+    // countThreshold Field Functions 
+    bool hasCountThreshold() const { return this->countThreshold_ != nullptr;};
+    void deleteCountThreshold() { this->countThreshold_ = nullptr;};
+    inline int64_t getCountThreshold() const { DARABONBA_PTR_GET_DEFAULT(countThreshold_, 0L) };
+    inline AlertRuleCondition& setCountThreshold(int64_t countThreshold) { DARABONBA_PTR_SET_VALUE(countThreshold_, countThreshold) };
+
+
     // enableSeveritySuppression Field Functions 
     bool hasEnableSeveritySuppression() const { return this->enableSeveritySuppression_ != nullptr;};
     void deleteEnableSeveritySuppression() { this->enableSeveritySuppression_ = nullptr;};
@@ -962,6 +1010,41 @@ namespace Models
     inline AlertRuleCondition::ExpressEscalation getExpressEscalation() { DARABONBA_PTR_GET(expressEscalation_, AlertRuleCondition::ExpressEscalation) };
     inline AlertRuleCondition& setExpressEscalation(const AlertRuleCondition::ExpressEscalation & expressEscalation) { DARABONBA_PTR_SET_VALUE(expressEscalation_, expressEscalation) };
     inline AlertRuleCondition& setExpressEscalation(AlertRuleCondition::ExpressEscalation && expressEscalation) { DARABONBA_PTR_SET_RVALUE(expressEscalation_, expressEscalation) };
+
+
+    // matchField Field Functions 
+    bool hasMatchField() const { return this->matchField_ != nullptr;};
+    void deleteMatchField() { this->matchField_ = nullptr;};
+    inline string getMatchField() const { DARABONBA_PTR_GET_DEFAULT(matchField_, "") };
+    inline AlertRuleCondition& setMatchField(string matchField) { DARABONBA_PTR_SET_VALUE(matchField_, matchField) };
+
+
+    // matchOperator Field Functions 
+    bool hasMatchOperator() const { return this->matchOperator_ != nullptr;};
+    void deleteMatchOperator() { this->matchOperator_ = nullptr;};
+    inline string getMatchOperator() const { DARABONBA_PTR_GET_DEFAULT(matchOperator_, "") };
+    inline AlertRuleCondition& setMatchOperator(string matchOperator) { DARABONBA_PTR_SET_VALUE(matchOperator_, matchOperator) };
+
+
+    // matchValue Field Functions 
+    bool hasMatchValue() const { return this->matchValue_ != nullptr;};
+    void deleteMatchValue() { this->matchValue_ = nullptr;};
+    inline string getMatchValue() const { DARABONBA_PTR_GET_DEFAULT(matchValue_, "") };
+    inline AlertRuleCondition& setMatchValue(string matchValue) { DARABONBA_PTR_SET_VALUE(matchValue_, matchValue) };
+
+
+    // max Field Functions 
+    bool hasMax() const { return this->max_ != nullptr;};
+    void deleteMax() { this->max_ = nullptr;};
+    inline double getMax() const { DARABONBA_PTR_GET_DEFAULT(max_, 0.0) };
+    inline AlertRuleCondition& setMax(double max) { DARABONBA_PTR_SET_VALUE(max_, max) };
+
+
+    // min Field Functions 
+    bool hasMin() const { return this->min_ != nullptr;};
+    void deleteMin() { this->min_ = nullptr;};
+    inline double getMin() const { DARABONBA_PTR_GET_DEFAULT(min_, 0.0) };
+    inline AlertRuleCondition& setMin(double min) { DARABONBA_PTR_SET_VALUE(min_, min) };
 
 
     // noDataAlertLevel Field Functions 
@@ -1008,6 +1091,15 @@ namespace Models
     inline AlertRuleCondition& setSimpleEscalation(AlertRuleCondition::SimpleEscalation && simpleEscalation) { DARABONBA_PTR_SET_RVALUE(simpleEscalation_, simpleEscalation) };
 
 
+    // thresholdList Field Functions 
+    bool hasThresholdList() const { return this->thresholdList_ != nullptr;};
+    void deleteThresholdList() { this->thresholdList_ = nullptr;};
+    inline const vector<AlertRuleCondition::ThresholdList> & getThresholdList() const { DARABONBA_PTR_GET_CONST(thresholdList_, vector<AlertRuleCondition::ThresholdList>) };
+    inline vector<AlertRuleCondition::ThresholdList> getThresholdList() { DARABONBA_PTR_GET(thresholdList_, vector<AlertRuleCondition::ThresholdList>) };
+    inline AlertRuleCondition& setThresholdList(const vector<AlertRuleCondition::ThresholdList> & thresholdList) { DARABONBA_PTR_SET_VALUE(thresholdList_, thresholdList) };
+    inline AlertRuleCondition& setThresholdList(vector<AlertRuleCondition::ThresholdList> && thresholdList) { DARABONBA_PTR_SET_RVALUE(thresholdList_, thresholdList) };
+
+
     // triggers Field Functions 
     bool hasTriggers() const { return this->triggers_ != nullptr;};
     void deleteTriggers() { this->triggers_ = nullptr;};
@@ -1032,97 +1124,89 @@ namespace Models
 
 
   protected:
-    // Applicable to the SLS_CONDITION type.
+    // Applicable condition type: SLS_CONDITION.
     // 
-    // The number of times the condition must be met to trigger an alert. The default value is 1.
+    // The number of times the condition must be met before an alert is triggered. Default value: 1.
     shared_ptr<int32_t> alertCount_ {};
-    // Applicable to the SLS_CONDITION type.
+    // Applicable condition type: SLS_CONDITION.
     // 
-    // A list of SLS alert conditions.
+    // The list of Simple Log Service alert conditions.
     shared_ptr<vector<AlertRuleCondition::CaseList>> caseList_ {};
-    // Applicable to the APM_CONDITION type.
+    // Applicable condition type: APM_CONDITION.
     // 
-    // A list of Application Performance Management (APM) alert comparison conditions.
+    // The list of Application Performance Monitoring (APM) alert comparison conditions.
     shared_ptr<vector<AlertRuleCondition::CompareList>> compareList_ {};
-    // Applicable to the CMS_BASIC_CONDITION type.
+    // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // This parameter is valid only when escalationType is set to composite. It specifies the alert condition for composite metrics.
+    // This parameter takes effect only when escalationType is set to composite. The composite metric alert condition.
     shared_ptr<AlertRuleCondition::CompositeEscalation> compositeEscalation_ {};
+    shared_ptr<string> countOperator_ {};
+    shared_ptr<int64_t> countThreshold_ {};
     shared_ptr<bool> enableSeveritySuppression_ {};
-    // Applicable to the CMS_BASIC_CONDITION type.
+    // Applicable condition type: CMS_BASIC_CONDITION.
     // 
     // Valid values:
     // 
-    // - simple: A simple metric condition.
-    // 
-    // - composite: A composite metric condition.
-    // 
-    // - express: An expression-based condition.
+    // - simple: simple metric condition.
+    // - composite: composite metric condition.
+    // - express: expression condition.
     shared_ptr<string> escalationType_ {};
-    // This parameter is applicable only to the CMS_BASIC_CONDITION condition type.
+    // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // This parameter takes effect when escalationType is set to composite. It defines the conditions for a composite alert based on multiple metrics.
+    // This parameter takes effect only when escalationType is set to composite. The multi-metric composite alert condition.
     shared_ptr<AlertRuleCondition::ExpressEscalation> expressEscalation_ {};
-    // Applicable to the APM_CONDITION type.
+    shared_ptr<string> matchField_ {};
+    shared_ptr<string> matchOperator_ {};
+    shared_ptr<string> matchValue_ {};
+    shared_ptr<double> max_ {};
+    shared_ptr<double> min_ {};
+    // Applicable condition type: APM_CONDITION.
     // 
-    // The alert level for when no data is available. If you do not specify this parameter, no alert is triggered when no data is available.
+    // The alert level when no data is available. If this parameter is not specified, no alert is triggered when no data is available.
     shared_ptr<string> noDataAlertLevel_ {};
-    // Applicable to the APM_CONDITION type.
+    // Applicable condition type: APM_CONDITION.
     // 
-    // The value to use when no data is available.
+    // The compensation value when no data is available.
     shared_ptr<string> noDataAppendValue_ {};
-    // Applicable to the CMS_BASIC_CONDITION type.
+    // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // The method for handling alerts when no monitoring data is available. Valid values:
+    // The method used to handle alerts when no monitoring data is available. Valid values:
     // 
     // - KEEP_LAST_STATE (default): No action is taken.
-    // 
     // - INSUFFICIENT_DATA: The alert content indicates that no data is available.
-    // 
-    // - OK: The status is normal.
+    // - OK: Normal.
     shared_ptr<string> noDataPolicy_ {};
-    // The comparison operation. It determines whether to perform a year-over-year or period-over-period comparison.
+    // The comparison operator. Specifies whether to use year-over-year or period-over-period comparison. Valid values:
     // 
-    // - GT: Greater than.
-    // 
-    // - GTE: Greater than or equal to.
-    // 
-    // - LT: Less than.
-    // 
-    // - LTE: Less than or equal to.
-    // 
-    // - EQ: Equal to.
-    // 
-    // - NE: Not equal to.
-    // 
-    // - YOY_UP: Year-over-year increase.
-    // 
-    // - YOY_DOWN: Year-over-year decrease.
+    // - GT: greater than.
+    // - GTE: greater than or equal to.
+    // - LT: less than.
+    // - LTE: less than or equal to.
+    // - EQ: equal to.
+    // - NE: not equal to.
+    // - YOY_UP: year-over-year increase.
+    // - YOY_DOWN: year-over-year decrease.
     shared_ptr<string> oper_ {};
-    // Applicable to the APM_CONDITION type.
+    // Applicable condition type: APM_CONDITION.
     // 
     // The logical relationship between multiple conditions. Valid values:
-    // 
     // - and
-    // 
     // - or
     shared_ptr<string> relation_ {};
-    // Applicable to the CMS_BASIC_CONDITION type.
+    // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // This parameter is valid only when escalationType is set to simple. It specifies the alert condition for a single metric.
+    // This parameter takes effect only when escalationType is set to simple. The alert condition configured for a single metric.
     shared_ptr<AlertRuleCondition::SimpleEscalation> simpleEscalation_ {};
+    shared_ptr<vector<AlertRuleCondition::ThresholdList>> thresholdList_ {};
     shared_ptr<vector<AlertRuleCondition::Triggers>> triggers_ {};
-    // The type of the rule condition. Valid values:
-    // 
-    // - SLS_CONDITION: An SLS alert condition.
-    // 
-    // - APM_CONDITION: An APM alert condition.
-    // 
-    // - CMS_BASIC_CONDITION: A basic Cloud Monitor alert condition.
+    // The rule condition type. Valid values:
+    // - SLS_CONDITION: Simple Log Service alert condition.
+    // - APM_CONDITION: APM alert condition.
+    // - CMS_BASIC_CONDITION: CloudMonitor Basic monitoring alert condition.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The threshold that triggers an alert.
+    // The threshold that triggers the alert.
     shared_ptr<double> value_ {};
   };
 

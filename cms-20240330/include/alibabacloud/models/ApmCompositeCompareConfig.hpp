@@ -16,11 +16,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(aggregate, aggregate_);
       DARABONBA_PTR_TO_JSON(operator, operator_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
+      DARABONBA_PTR_TO_JSON(yoyTimeUnit, yoyTimeUnit_);
+      DARABONBA_PTR_TO_JSON(yoyTimeValue, yoyTimeValue_);
     };
     friend void from_json(const Darabonba::Json& j, ApmCompositeCompareConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(aggregate, aggregate_);
       DARABONBA_PTR_FROM_JSON(operator, operator_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
+      DARABONBA_PTR_FROM_JSON(yoyTimeUnit, yoyTimeUnit_);
+      DARABONBA_PTR_FROM_JSON(yoyTimeValue, yoyTimeValue_);
     };
     ApmCompositeCompareConfig() = default ;
     ApmCompositeCompareConfig(const ApmCompositeCompareConfig &) = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregate_ == nullptr
-        && this->operator_ == nullptr && this->threshold_ == nullptr; };
+        && this->operator_ == nullptr && this->threshold_ == nullptr && this->yoyTimeUnit_ == nullptr && this->yoyTimeValue_ == nullptr; };
     // aggregate Field Functions 
     bool hasAggregate() const { return this->aggregate_ != nullptr;};
     void deleteAggregate() { this->aggregate_ = nullptr;};
@@ -56,6 +60,20 @@ namespace Models
     inline ApmCompositeCompareConfig& setThreshold(float threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
 
 
+    // yoyTimeUnit Field Functions 
+    bool hasYoyTimeUnit() const { return this->yoyTimeUnit_ != nullptr;};
+    void deleteYoyTimeUnit() { this->yoyTimeUnit_ = nullptr;};
+    inline string getYoyTimeUnit() const { DARABONBA_PTR_GET_DEFAULT(yoyTimeUnit_, "") };
+    inline ApmCompositeCompareConfig& setYoyTimeUnit(string yoyTimeUnit) { DARABONBA_PTR_SET_VALUE(yoyTimeUnit_, yoyTimeUnit) };
+
+
+    // yoyTimeValue Field Functions 
+    bool hasYoyTimeValue() const { return this->yoyTimeValue_ != nullptr;};
+    void deleteYoyTimeValue() { this->yoyTimeValue_ = nullptr;};
+    inline int32_t getYoyTimeValue() const { DARABONBA_PTR_GET_DEFAULT(yoyTimeValue_, 0) };
+    inline ApmCompositeCompareConfig& setYoyTimeValue(int32_t yoyTimeValue) { DARABONBA_PTR_SET_VALUE(yoyTimeValue_, yoyTimeValue) };
+
+
   protected:
     // The aggregation method for metric data. For example, `AVG`, `SUM`, or `MAX`.
     // 
@@ -69,6 +87,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<float> threshold_ {};
+    // The time unit for the year-over-year (YoY) comparison. Use this parameter with `yoyTimeValue` to define the comparison period. Valid values are `day` and `week`.
+    shared_ptr<string> yoyTimeUnit_ {};
+    // The time value for the YoY comparison. For example, if `yoyTimeUnit` is `day` and `yoyTimeValue` is `7`, the system compares current data with data from 7 days ago.
+    shared_ptr<int32_t> yoyTimeValue_ {};
   };
 
   } // namespace Models

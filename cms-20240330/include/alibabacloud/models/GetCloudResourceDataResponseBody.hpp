@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The status code.
         shared_ptr<string> code_ {};
+        // The status level.
         shared_ptr<string> level_ {};
+        // The message content.
         shared_ptr<string> message_ {};
+        // The suggestion when an execution error occurs.
         shared_ptr<string> suggestion_ {};
       };
 
@@ -165,10 +169,15 @@ namespace Models
 
 
     protected:
+      // The information during execution.
       shared_ptr<string> executionStates_ {};
+      // The status level.
       shared_ptr<string> level_ {};
+      // The execution result.
       shared_ptr<string> result_ {};
+      // The retry policy.
       shared_ptr<string> retryPolicy_ {};
+      // The detailed status information.
       shared_ptr<vector<ResponseStatus::StatusItem>> statusItem_ {};
     };
 
@@ -209,12 +218,13 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The total list of returned data.
     shared_ptr<vector<vector<string>>> data_ {};
-    // The list of column headers.
+    // The list of headers.
     shared_ptr<vector<string>> header_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result status.
     shared_ptr<GetCloudResourceDataResponseBody::ResponseStatus> responseStatus_ {};
   };
 

@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_TO_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_TO_JSON(pushingSetting, pushingSetting_);
+      DARABONBA_PTR_TO_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_TO_JSON(subscriptionName, subscriptionName_);
       DARABONBA_PTR_TO_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_FROM_JSON(notifyStrategyId, notifyStrategyId_);
       DARABONBA_PTR_FROM_JSON(pushingSetting, pushingSetting_);
+      DARABONBA_PTR_FROM_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_FROM_JSON(subscriptionName, subscriptionName_);
       DARABONBA_PTR_FROM_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
@@ -105,13 +107,13 @@ namespace Models
 
 
     protected:
-      // A list of alert push action plan IDs.
+      // The list of action plan IDs for alert pushing.
       shared_ptr<vector<string>> alertActionIds_ {};
-      // Action plan ID.
+      // The action plan ID.
       shared_ptr<string> responsePlanId_ {};
-      // A list of action integration plan IDs.
+      // The list of action integration plan IDs for recovery pushing.
       shared_ptr<vector<string>> restoreActionIds_ {};
-      // Template UUID.
+      // The UUID of the template.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -160,8 +162,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->agentConfig_ == nullptr
-        && this->description_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr && this->pushingSetting_ == nullptr && this->subscriptionName_ == nullptr
-        && this->workspaceFilterSetting_ == nullptr; };
+        && this->description_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr && this->pushingSetting_ == nullptr && this->subscribeLegacyEvent_ == nullptr
+        && this->subscriptionName_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
     // agentConfig Field Functions 
     bool hasAgentConfig() const { return this->agentConfig_ != nullptr;};
     void deleteAgentConfig() { this->agentConfig_ = nullptr;};
@@ -203,6 +205,13 @@ namespace Models
     inline SubscriptionForModify& setPushingSetting(SubscriptionForModify::PushingSetting && pushingSetting) { DARABONBA_PTR_SET_RVALUE(pushingSetting_, pushingSetting) };
 
 
+    // subscribeLegacyEvent Field Functions 
+    bool hasSubscribeLegacyEvent() const { return this->subscribeLegacyEvent_ != nullptr;};
+    void deleteSubscribeLegacyEvent() { this->subscribeLegacyEvent_ = nullptr;};
+    inline bool getSubscribeLegacyEvent() const { DARABONBA_PTR_GET_DEFAULT(subscribeLegacyEvent_, false) };
+    inline SubscriptionForModify& setSubscribeLegacyEvent(bool subscribeLegacyEvent) { DARABONBA_PTR_SET_VALUE(subscribeLegacyEvent_, subscribeLegacyEvent) };
+
+
     // subscriptionName Field Functions 
     bool hasSubscriptionName() const { return this->subscriptionName_ != nullptr;};
     void deleteSubscriptionName() { this->subscriptionName_ = nullptr;};
@@ -221,15 +230,19 @@ namespace Models
 
   protected:
     shared_ptr<SubscriptionForModify::AgentConfig> agentConfig_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Filter settings.
+    // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Notification policy UUID.
+    // The UUID of the notification policy.
     shared_ptr<string> notifyStrategyId_ {};
-    // Push settings.
+    // The push settings.
     shared_ptr<SubscriptionForModify::PushingSetting> pushingSetting_ {};
-    // Name.
+    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
+    // - true: Subscribe.
+    // - false or null: Do not subscribe.
+    shared_ptr<bool> subscribeLegacyEvent_ {};
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};

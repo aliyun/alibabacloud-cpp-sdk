@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enableAuthToken, enableAuthToken_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
       DARABONBA_PTR_TO_JSON(prometheusInstanceName, prometheusInstanceName_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(storageDuration, storageDuration_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enableAuthToken, enableAuthToken_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
       DARABONBA_PTR_FROM_JSON(prometheusInstanceName, prometheusInstanceName_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(storageDuration, storageDuration_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
@@ -98,8 +100,8 @@ namespace Models
 
     virtual bool empty() const override { return this->archiveDuration_ == nullptr
         && this->authFreeReadPolicy_ == nullptr && this->authFreeWritePolicy_ == nullptr && this->enableAuthFreeRead_ == nullptr && this->enableAuthFreeWrite_ == nullptr && this->enableAuthToken_ == nullptr
-        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr && this->tags_ == nullptr
-        && this->workspace_ == nullptr; };
+        && this->paymentType_ == nullptr && this->prometheusInstanceName_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->storageDuration_ == nullptr
+        && this->tags_ == nullptr && this->workspace_ == nullptr; };
     // archiveDuration Field Functions 
     bool hasArchiveDuration() const { return this->archiveDuration_ != nullptr;};
     void deleteArchiveDuration() { this->archiveDuration_ = nullptr;};
@@ -156,6 +158,13 @@ namespace Models
     inline CreatePrometheusInstanceRequest& setPrometheusInstanceName(string prometheusInstanceName) { DARABONBA_PTR_SET_VALUE(prometheusInstanceName_, prometheusInstanceName) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreatePrometheusInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -187,43 +196,40 @@ namespace Models
 
 
   protected:
-    // The number of days that data is automatically archived after the storage duration expires. A value of 0 indicates that data is not archived. Valid values:
-    // 
-    // - V1 instances: 60 to 365.
-    // 
-    // - V2 instances: 60 to 3650. A value of 3650 indicates that the data is permanently stored.
+    // The number of days that data is automatically archived after the storage period expires. A value of 0 indicates that data is not archived. Valid values for the archive duration:
+    // * V1: 60 to 365 days.
+    // * V2: 60 to 3650 days (3650 indicates permanent retention).
     shared_ptr<int32_t> archiveDuration_ {};
-    // The policy for password-free read access. IP address ranges and VPC IDs are supported.
+    // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
     shared_ptr<string> authFreeReadPolicy_ {};
-    // The policy for password-free write access.
+    // The authentication-free write policy.
     shared_ptr<string> authFreeWritePolicy_ {};
-    // Specifies whether to enable password-free read access. This feature is supported only for V2 instances.
+    // Specifies whether to enable authentication-free read. This parameter is supported only for V2 instances.
     shared_ptr<bool> enableAuthFreeRead_ {};
-    // Specifies whether to enable password-free write access. This feature is supported only for V2 instances.
+    // Specifies whether to enable authentication-free write. This parameter is supported only for V2 instances.
     shared_ptr<bool> enableAuthFreeWrite_ {};
-    // Specifies whether to enable an authorization token. This feature is supported only for V1 instances.
+    // Specifies whether to enable the authorization token. This parameter is supported only for V1 instances.
     shared_ptr<bool> enableAuthToken_ {};
-    // The billing method.
-    // 
-    // - POSTPAY: pay-as-you-go based on the volume of reported metrics.
-    // 
-    // - Note: If you leave this parameter empty, the default billing method is used. If a default billing method is not configured, POSTPAY is used.
+    // The billable methods. Valid values:
+    // * POSTPAY: pay-as-you-go by metric reporting volume.
+    // * POSTPAY_GB: pay-as-you-go by metric write volume.
+    // If this parameter is left empty, the default billing method configured by the user is used. If the user has not configured a default billing method, the system uses pay-as-you-go by metric reporting volume.
     shared_ptr<string> paymentType_ {};
-    // The name of the instance.
+    // The instance name.
     // 
     // This parameter is required.
     shared_ptr<string> prometheusInstanceName_ {};
+    // The resource group ID.
+    shared_ptr<string> resourceGroupId_ {};
     // The instance status.
     shared_ptr<string> status_ {};
-    // The storage duration of the instance in days. The valid values depend on the billing method:
-    // 
-    // - For instances billed based on data written: 90 and 180.
-    // 
-    // - For instances billed based on reported metrics: 15, 30, 60, 90, and 180.
+    // The storage duration (in days):
+    // * By write volume: 90 or 180.
+    // * By metric reporting volume: 15, 30, 60, 90, or 180.
     shared_ptr<int32_t> storageDuration_ {};
     // The tags.
     shared_ptr<vector<CreatePrometheusInstanceRequest::Tags>> tags_ {};
-    // The workspace to which the instance belongs. The default value is default-cms-{userId}-{regionId}.
+    // The workspace to which the instance belongs. Default value: default-cms-{userId}-{regionId}.
     shared_ptr<string> workspace_ {};
   };
 

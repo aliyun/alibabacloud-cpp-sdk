@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<SubscriptionForModify> body_ {};
-    // The name of the workspace.
+    // The workspace name.
     shared_ptr<string> workspace_ {};
   };
 

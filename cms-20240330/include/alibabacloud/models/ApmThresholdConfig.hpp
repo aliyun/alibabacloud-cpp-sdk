@@ -13,10 +13,14 @@ namespace Models
   class ApmThresholdConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ApmThresholdConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(max, max_);
+      DARABONBA_PTR_TO_JSON(min, min_);
       DARABONBA_PTR_TO_JSON(severity, severity_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
     };
     friend void from_json(const Darabonba::Json& j, ApmThresholdConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(max, max_);
+      DARABONBA_PTR_FROM_JSON(min, min_);
       DARABONBA_PTR_FROM_JSON(severity, severity_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
     };
@@ -31,8 +35,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->severity_ == nullptr
-        && this->threshold_ == nullptr; };
+    virtual bool empty() const override { return this->max_ == nullptr
+        && this->min_ == nullptr && this->severity_ == nullptr && this->threshold_ == nullptr; };
+    // max Field Functions 
+    bool hasMax() const { return this->max_ != nullptr;};
+    void deleteMax() { this->max_ = nullptr;};
+    inline double getMax() const { DARABONBA_PTR_GET_DEFAULT(max_, 0.0) };
+    inline ApmThresholdConfig& setMax(double max) { DARABONBA_PTR_SET_VALUE(max_, max) };
+
+
+    // min Field Functions 
+    bool hasMin() const { return this->min_ != nullptr;};
+    void deleteMin() { this->min_ = nullptr;};
+    inline double getMin() const { DARABONBA_PTR_GET_DEFAULT(min_, 0.0) };
+    inline ApmThresholdConfig& setMin(double min) { DARABONBA_PTR_SET_VALUE(min_, min) };
+
+
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
@@ -48,13 +66,10 @@ namespace Models
 
 
   protected:
-    // The severity of the alert.
-    // 
+    shared_ptr<double> max_ {};
+    shared_ptr<double> min_ {};
     // This parameter is required.
     shared_ptr<string> severity_ {};
-    // The metric value that triggers the alert.
-    // 
-    // This parameter is required.
     shared_ptr<float> threshold_ {};
   };
 

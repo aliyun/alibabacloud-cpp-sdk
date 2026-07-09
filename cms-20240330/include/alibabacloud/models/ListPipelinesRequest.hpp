@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return. The service may return fewer results than the specified value.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. If this parameter is not empty, use it in a subsequent request to get the next page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The pipeline name.
+    // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
   };
 

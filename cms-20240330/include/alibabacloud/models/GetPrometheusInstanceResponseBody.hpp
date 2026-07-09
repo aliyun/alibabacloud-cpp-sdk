@@ -479,79 +479,84 @@ namespace Models
 
 
     protected:
-      // The permission type. Valid values: `readWrite`, `readOnly`, and `httpReadOnly`.
+      // The access type. Valid values:
+      // - readWrite
+      // - readOnly
+      // - httpReadOnly
       shared_ptr<string> accessType_ {};
-      // The number of days to automatically archive data after the storage duration expires. A value of `0` means data is not archived. A value of `3650` means data is permanently archived.
+      // The number of days that data is automatically archived after the storage period expires. A value of 0 indicates that data is not archived. A value of 3650 indicates that data is permanently retained.
       shared_ptr<int32_t> archiveDuration_ {};
-      // The password-free read policy, which supports IP address ranges and VPC IDs.
+      // The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeReadPolicy_ {};
-      // The password-free write policy, which supports IP address ranges and VPC IDs.
+      // The authentication-free write policy. IP CIDR blocks and VPC IDs are supported.
       shared_ptr<string> authFreeWritePolicy_ {};
       // The authentication token.
       shared_ptr<string> authToken_ {};
-      // The time when the instance was created. The value is in UTC and follows the `yyyy-MM-ddTHH:mmZ` format.
+      // The time when the instance was created. The time is in UTC+0 and in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
-      // Indicates whether password-free read access is enabled.
+      // Indicates whether authentication-free read is enabled.
       shared_ptr<bool> enableAuthFreeRead_ {};
-      // Indicates whether password-free write access is enabled.
+      // Indicates whether authentication-free write is enabled.
       shared_ptr<bool> enableAuthFreeWrite_ {};
-      // Indicates whether token-based authentication is enabled.
+      // Indicates whether the authentication token is enabled.
       shared_ptr<bool> enableAuthToken_ {};
-      // Additional information.
+      // The extended information.
       shared_ptr<map<string, string>> extraInfo_ {};
-      // The URL of the visualization dashboard folder.
+      // The dashboard directory URL.
       shared_ptr<string> folderUrl_ {};
-      // The ID of the associated managed Grafana instance.
+      // The instance ID of the attached managed Grafana instance.
       shared_ptr<string> grafanaInstanceId_ {};
       // The name of the associated managed Grafana instance.
       shared_ptr<string> grafanaInstanceName_ {};
-      // The public HTTP API endpoint.
+      // The HTTP public endpoint.
       shared_ptr<string> httpApiInterUrl_ {};
-      // The internal HTTP API endpoint.
+      // The HTTP internal endpoint.
       shared_ptr<string> httpApiInternalUrl_ {};
-      // The private HTTP API endpoint.
+      // The HTTP private endpoint.
       shared_ptr<string> httpApiIntraUrl_ {};
-      // The type of the Prometheus instance.
+      // The Prometheus instance type.
       shared_ptr<string> instanceType_ {};
-      // The billing method. Valid values:<br>`POSTPAY`: pay-as-you-go based on the number of reported metrics.<br>`POSTPAY_GB`: pay-as-you-go based on the volume of data written.<br><br>
+      // The billing method. Valid values:
+      // - POSTPAY: pay-as-you-go based on the number of reported metrics.
+      // - POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
       shared_ptr<string> paymentType_ {};
-      // The time when the billing method for the instance was last updated.
+      // The time when the billing method of the instance was last modified, in UTC format.
       shared_ptr<string> paymentTypeUpdateTime_ {};
-      // The Alibaba Cloud service that the instance belongs to. Valid values: `arms` and `cms`.
+      // The product to which the Prometheus instance belongs (arms or cms).
       shared_ptr<string> product_ {};
       // The instance ID.
       shared_ptr<string> prometheusInstanceId_ {};
       // The instance name.
       shared_ptr<string> prometheusInstanceName_ {};
-      // The public Pushgateway endpoint.
+      // The PushGateway public endpoint.
       shared_ptr<string> pushGatewayInterUrl_ {};
-      // The internal Pushgateway endpoint.
+      // The PushGateway internal endpoint.
       shared_ptr<string> pushGatewayInternalUrl_ {};
-      // The private Pushgateway endpoint.
+      // The PushGateway private endpoint.
       shared_ptr<string> pushGatewayIntraUrl_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The public remote read endpoint.
+      // The public read endpoint.
       shared_ptr<string> remoteReadInterUrl_ {};
-      // The internal remote read endpoint.
+      // The RemoteRead internal endpoint.
       shared_ptr<string> remoteReadInternalUrl_ {};
-      // The private remote read endpoint.
+      // The private read endpoint.
       shared_ptr<string> remoteReadIntraUrl_ {};
-      // The public remote write endpoint.
+      // The public write endpoint.
       shared_ptr<string> remoteWriteInterUrl_ {};
-      // The internal remote write endpoint.
+      // The RemoteWrite internal endpoint.
       shared_ptr<string> remoteWriteInternalUrl_ {};
-      // The private remote write endpoint.
+      // The private write endpoint.
       shared_ptr<string> remoteWriteIntraUrl_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The resource type. The value is fixed as `PrometheusInstance`.
+      // Fixed value: PrometheusInstance.
       shared_ptr<string> resourceType_ {};
       // The instance status.
       shared_ptr<string> status_ {};
       // The storage duration, in days.
       shared_ptr<int32_t> storageDuration_ {};
-      // The supported types of authentication and authorization.
+      // The supported authentication types.
       shared_ptr<vector<string>> supportAuthTypes_ {};
       // The list of tags.
       shared_ptr<vector<PrometheusInstance::Tags>> tags_ {};
@@ -559,7 +564,7 @@ namespace Models
       shared_ptr<string> userId_ {};
       // The version.
       shared_ptr<string> version_ {};
-      // The workspace of the Prometheus instance.
+      // The workspace to which the Prometheus instance belongs.
       shared_ptr<string> workspace_ {};
     };
 
