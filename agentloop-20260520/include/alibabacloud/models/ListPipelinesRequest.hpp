@@ -16,11 +16,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(pipelineName, pipelineName_);
+      DARABONBA_PTR_TO_JSON(scheduleStatus, scheduleStatus_);
+      DARABONBA_PTR_TO_JSON(scheduleType, scheduleType_);
     };
     friend void from_json(const Darabonba::Json& j, ListPipelinesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(pipelineName, pipelineName_);
+      DARABONBA_PTR_FROM_JSON(scheduleStatus, scheduleStatus_);
+      DARABONBA_PTR_FROM_JSON(scheduleType, scheduleType_);
     };
     ListPipelinesRequest() = default ;
     ListPipelinesRequest(const ListPipelinesRequest &) = default ;
@@ -34,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->pipelineName_ == nullptr; };
+        && this->nextToken_ == nullptr && this->pipelineName_ == nullptr && this->scheduleStatus_ == nullptr && this->scheduleType_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -56,10 +60,26 @@ namespace Models
     inline ListPipelinesRequest& setPipelineName(string pipelineName) { DARABONBA_PTR_SET_VALUE(pipelineName_, pipelineName) };
 
 
+    // scheduleStatus Field Functions 
+    bool hasScheduleStatus() const { return this->scheduleStatus_ != nullptr;};
+    void deleteScheduleStatus() { this->scheduleStatus_ = nullptr;};
+    inline string getScheduleStatus() const { DARABONBA_PTR_GET_DEFAULT(scheduleStatus_, "") };
+    inline ListPipelinesRequest& setScheduleStatus(string scheduleStatus) { DARABONBA_PTR_SET_VALUE(scheduleStatus_, scheduleStatus) };
+
+
+    // scheduleType Field Functions 
+    bool hasScheduleType() const { return this->scheduleType_ != nullptr;};
+    void deleteScheduleType() { this->scheduleType_ = nullptr;};
+    inline string getScheduleType() const { DARABONBA_PTR_GET_DEFAULT(scheduleType_, "") };
+    inline ListPipelinesRequest& setScheduleType(string scheduleType) { DARABONBA_PTR_SET_VALUE(scheduleType_, scheduleType) };
+
+
   protected:
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> pipelineName_ {};
+    shared_ptr<string> scheduleStatus_ {};
+    shared_ptr<string> scheduleType_ {};
   };
 
   } // namespace Models

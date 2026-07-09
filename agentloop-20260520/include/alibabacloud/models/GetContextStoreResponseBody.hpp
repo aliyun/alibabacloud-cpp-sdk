@@ -112,7 +112,10 @@ namespace Models
 
 
       protected:
+        // The AgentSpace where the trace data source resides. This is the same as the AgentSpace specified during creation.
         shared_ptr<string> agentSpace_ {};
+        // The start time for data backfill, in ISO 8601 UTC format.
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
       };
@@ -154,9 +157,13 @@ namespace Models
 
 
     protected:
+      // The metadata field mapping. The key is the business field and the value is the storage field.
       shared_ptr<map<string, string>> metadataField_ {};
+      // The experience mining interval. Valid values: 1h, 6h, 12h, and 1d. Default value: 1d.
       shared_ptr<string> miningInterval_ {};
+      // The list of service names. This works together with source.agentSpace to locate the trace data source. This value cannot be changed in the current version.
       shared_ptr<vector<string>> serviceNames_ {};
+      // The datasource config passed in by the user. This serves only as the root identifier of the data source.
       shared_ptr<Config::Source> source_ {};
     };
 
@@ -236,16 +243,31 @@ namespace Models
 
 
   protected:
+    // The name of the AgentSpace to which the context store belongs.
     shared_ptr<string> agentSpace_ {};
+    // The configuration of the context store.
     shared_ptr<GetContextStoreResponseBody::Config> config_ {};
+    // The context store name.
     shared_ptr<string> contextStoreName_ {};
+    // The type of the context store, such as experience or memory.
     shared_ptr<string> contextType_ {};
+    // The time when the context store was created, in ISO 8601 UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The description of the context store.
     shared_ptr<string> description_ {};
+    // The region ID of the context store.
     shared_ptr<string> regionId_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The status of the context store. Valid values:
+    // - ACTIVE
+    // - INITIALIZING
+    // - FAILED
     shared_ptr<string> status_ {};
+    // The time when the context store was last updated, in ISO 8601 UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
   };

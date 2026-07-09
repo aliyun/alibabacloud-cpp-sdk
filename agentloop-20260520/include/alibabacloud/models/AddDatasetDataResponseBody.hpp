@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of log rows scanned or processed.
     shared_ptr<int32_t> affectedRows_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

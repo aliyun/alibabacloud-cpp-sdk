@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete the associated Hybrid Cloud Monitoring workspace.
     shared_ptr<bool> deleteCmsWorkspace_ {};
+    // Specifies whether to delete the associated MSE namespace.
     shared_ptr<bool> deleteMseNamespace_ {};
+    // Specifies whether to delete the associated SLS project.
     shared_ptr<bool> deleteSlsProject_ {};
   };
 

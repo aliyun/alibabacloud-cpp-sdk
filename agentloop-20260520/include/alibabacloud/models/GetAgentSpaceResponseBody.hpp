@@ -85,7 +85,9 @@ namespace Models
 
 
     protected:
+      // The ID of the MSE namespace.
       shared_ptr<string> namespaceId_ {};
+      // The name of the MSE namespace.
       shared_ptr<string> namespaceName_ {};
     };
 
@@ -165,16 +167,28 @@ namespace Models
 
 
   protected:
+    // The name of the AgentSpace.
     shared_ptr<string> agentSpace_ {};
+    // The CloudMonitor workspace.
     shared_ptr<string> cmsWorkspace_ {};
+    // The binding type of the CloudMonitor 2.0 workspace.
     shared_ptr<string> cmsWorkspaceBindType_ {};
+    // The time when the AgentSpace was created.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The Microservices Engine (MSE) namespace.
     shared_ptr<GetAgentSpaceResponseBody::MseNamespace> mseNamespace_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the Simple Log Service project.
     shared_ptr<string> slsProject_ {};
+    // The time when the AgentSpace was last updated.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
   };

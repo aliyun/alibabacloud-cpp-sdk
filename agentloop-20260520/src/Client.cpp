@@ -21,10 +21,14 @@ AlibabaCloud::AgentLoop20260520::Client::Client(Config &config): OpenApiClient(c
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-zhangjiakou" , "agentloop.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "agentloop.cn-shenzhen.aliyuncs.com"},
     {"cn-shanghai" , "agentloop.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "agentloop.cn-hongkong.aliyuncs.com"},
     {"cn-hangzhou" , "agentloop.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "agentloop.cn-beijing.aliyuncs.com"}
+    {"cn-guangzhou" , "agentloop.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "agentloop.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "agentloop.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "agentloop.ap-southeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agentloop", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -44,7 +48,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
+ * @summary Appends structured data rows to a specified dataset without requiring the client to construct SQL statements.
  *
  * @param request AddDatasetDataRequest
  * @param headers map
@@ -83,7 +87,7 @@ AddDatasetDataResponse Client::addDatasetDataWithOptions(const string &agentSpac
 }
 
 /**
- * @summary 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
+ * @summary Appends structured data rows to a specified dataset without requiring the client to construct SQL statements.
  *
  * @param request AddDatasetDataRequest
  * @return AddDatasetDataResponse
@@ -95,7 +99,46 @@ AddDatasetDataResponse Client::addDatasetData(const string &agentSpace, const st
 }
 
 /**
- * @summary 创建AgentSpace
+ * @summary Cancels a pipeline run.
+ *
+ * @param request CancelPipelineRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelPipelineRunResponse
+ */
+CancelPipelineRunResponse Client::cancelPipelineRunWithOptions(const string &agentSpace, const string &pipelineName, const string &runId, const CancelPipelineRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelPipelineRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/runs/" , Darabonba::Encode::Encoder::percentEncode(runId) , "/cancel")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelPipelineRunResponse>();
+}
+
+/**
+ * @summary Cancels a pipeline run.
+ *
+ * @param request CancelPipelineRunRequest
+ * @return CancelPipelineRunResponse
+ */
+CancelPipelineRunResponse Client::cancelPipelineRun(const string &agentSpace, const string &pipelineName, const string &runId, const CancelPipelineRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cancelPipelineRunWithOptions(agentSpace, pipelineName, runId, request, headers, runtime);
+}
+
+/**
+ * @summary Creates an AgentSpace.
  *
  * @param request CreateAgentSpaceRequest
  * @param headers map
@@ -122,6 +165,10 @@ CreateAgentSpaceResponse Client::createAgentSpaceWithOptions(const CreateAgentSp
     body["description"] = request.getDescription();
   }
 
+  if (!!request.hasTrajectoryStoreEnabled()) {
+    body["trajectoryStoreEnabled"] = request.getTrajectoryStoreEnabled();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
@@ -142,7 +189,7 @@ CreateAgentSpaceResponse Client::createAgentSpaceWithOptions(const CreateAgentSp
 }
 
 /**
- * @summary 创建AgentSpace
+ * @summary Creates an AgentSpace.
  *
  * @param request CreateAgentSpaceRequest
  * @return CreateAgentSpaceResponse
@@ -154,7 +201,7 @@ CreateAgentSpaceResponse Client::createAgentSpace(const CreateAgentSpaceRequest 
 }
 
 /**
- * @summary 创建上下文库
+ * @summary Creates a context store.
  *
  * @param request CreateContextStoreRequest
  * @param headers map
@@ -205,7 +252,7 @@ CreateContextStoreResponse Client::createContextStoreWithOptions(const string &a
 }
 
 /**
- * @summary 创建上下文库
+ * @summary Creates a context store.
  *
  * @param request CreateContextStoreRequest
  * @return CreateContextStoreResponse
@@ -217,7 +264,7 @@ CreateContextStoreResponse Client::createContextStore(const string &agentSpace, 
 }
 
 /**
- * @summary 创建 API Key
+ * @summary Creates an API key.
  *
  * @param request CreateContextStoreAPIKeyRequest
  * @param headers map
@@ -256,7 +303,7 @@ CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKeyWithOptions(con
 }
 
 /**
- * @summary 创建 API Key
+ * @summary Creates an API key.
  *
  * @param request CreateContextStoreAPIKeyRequest
  * @return CreateContextStoreAPIKeyResponse
@@ -268,7 +315,7 @@ CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKey(const string &
 }
 
 /**
- * @summary 创建数据集
+ * @summary Creates a dataset.
  *
  * @param request CreateDatasetRequest
  * @param headers map
@@ -315,7 +362,7 @@ CreateDatasetResponse Client::createDatasetWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary 创建数据集
+ * @summary Creates a dataset.
  *
  * @param request CreateDatasetRequest
  * @return CreateDatasetResponse
@@ -327,7 +374,258 @@ CreateDatasetResponse Client::createDataset(const string &agentSpace, const Crea
 }
 
 /**
- * @summary 删除AgentSpace
+ * @summary Creates an evaluation task.
+ *
+ * @description Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+ * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+ *
+ * @param request CreateEvaluationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEvaluationTaskResponse
+ */
+CreateEvaluationTaskResponse Client::createEvaluationTaskWithOptions(const string &agentSpace, const CreateEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasChannel()) {
+    body["channel"] = request.getChannel();
+  }
+
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasDataFilter()) {
+    body["dataFilter"] = request.getDataFilter();
+  }
+
+  if (!!request.hasDataType()) {
+    body["dataType"] = request.getDataType();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasEvaluators()) {
+    body["evaluators"] = request.getEvaluators();
+  }
+
+  if (!!request.hasRunStrategies()) {
+    body["runStrategies"] = request.getRunStrategies();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
+  }
+
+  if (!!request.hasTaskMode()) {
+    body["taskMode"] = request.getTaskMode();
+  }
+
+  if (!!request.hasTaskName()) {
+    body["taskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateEvaluationTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEvaluationTaskResponse>();
+}
+
+/**
+ * @summary Creates an evaluation task.
+ *
+ * @description Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+ * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+ *
+ * @param request CreateEvaluationTaskRequest
+ * @return CreateEvaluationTaskResponse
+ */
+CreateEvaluationTaskResponse Client::createEvaluationTask(const string &agentSpace, const CreateEvaluationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createEvaluationTaskWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
+ * @summary Creates an evaluator.
+ *
+ * @param request CreateEvaluatorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEvaluatorResponse
+ */
+CreateEvaluatorResponse Client::createEvaluatorWithOptions(const string &agentSpace, const CreateEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasAnnotations()) {
+    body["annotations"] = request.getAnnotations();
+  }
+
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasMetricName()) {
+    body["metricName"] = request.getMetricName();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasProperties()) {
+    body["properties"] = request.getProperties();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  if (!!request.hasVersionDescription()) {
+    body["versionDescription"] = request.getVersionDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateEvaluator"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluators/" , Darabonba::Encode::Encoder::percentEncode(agentSpace))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEvaluatorResponse>();
+}
+
+/**
+ * @summary Creates an evaluator.
+ *
+ * @param request CreateEvaluatorRequest
+ * @return CreateEvaluatorResponse
+ */
+CreateEvaluatorResponse Client::createEvaluator(const string &agentSpace, const CreateEvaluatorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createEvaluatorWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
+ * @summary Creates an evaluator skill.
+ *
+ * @param request CreateEvaluatorSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEvaluatorSkillResponse
+ */
+CreateEvaluatorSkillResponse Client::createEvaluatorSkillWithOptions(const string &name, const CreateEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasFiles()) {
+    body["files"] = request.getFiles();
+  }
+
+  if (!!request.hasSkillName()) {
+    body["skillName"] = request.getSkillName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateEvaluatorSkill"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluator/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEvaluatorSkillResponse>();
+}
+
+/**
+ * @summary Creates an evaluator skill.
+ *
+ * @param request CreateEvaluatorSkillRequest
+ * @return CreateEvaluatorSkillResponse
+ */
+CreateEvaluatorSkillResponse Client::createEvaluatorSkill(const string &name, const CreateEvaluatorSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createEvaluatorSkillWithOptions(name, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an AgentSpace.
  *
  * @param request DeleteAgentSpaceRequest
  * @param headers map
@@ -368,7 +666,7 @@ DeleteAgentSpaceResponse Client::deleteAgentSpaceWithOptions(const string &agent
 }
 
 /**
- * @summary 删除AgentSpace
+ * @summary Deletes an AgentSpace.
  *
  * @param request DeleteAgentSpaceRequest
  * @return DeleteAgentSpaceResponse
@@ -380,7 +678,7 @@ DeleteAgentSpaceResponse Client::deleteAgentSpace(const string &agentSpace, cons
 }
 
 /**
- * @summary 删除上下文库
+ * @summary Deletes a context store.
  *
  * @param request DeleteContextStoreRequest
  * @param headers map
@@ -407,7 +705,7 @@ DeleteContextStoreResponse Client::deleteContextStoreWithOptions(const string &a
 }
 
 /**
- * @summary 删除上下文库
+ * @summary Deletes a context store.
  *
  * @param request DeleteContextStoreRequest
  * @return DeleteContextStoreResponse
@@ -419,7 +717,7 @@ DeleteContextStoreResponse Client::deleteContextStore(const string &agentSpace, 
 }
 
 /**
- * @summary 删除 API Key
+ * @summary Deletes an API key.
  *
  * @param request DeleteContextStoreAPIKeyRequest
  * @param headers map
@@ -446,7 +744,7 @@ DeleteContextStoreAPIKeyResponse Client::deleteContextStoreAPIKeyWithOptions(con
 }
 
 /**
- * @summary 删除 API Key
+ * @summary Deletes an API key.
  *
  * @param request DeleteContextStoreAPIKeyRequest
  * @return DeleteContextStoreAPIKeyResponse
@@ -458,7 +756,7 @@ DeleteContextStoreAPIKeyResponse Client::deleteContextStoreAPIKey(const string &
 }
 
 /**
- * @summary 删除数据集
+ * @summary Deletes a dataset.
  *
  * @param request DeleteDatasetRequest
  * @param headers map
@@ -485,7 +783,7 @@ DeleteDatasetResponse Client::deleteDatasetWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary 删除数据集
+ * @summary Deletes a dataset.
  *
  * @param request DeleteDatasetRequest
  * @return DeleteDatasetResponse
@@ -497,7 +795,175 @@ DeleteDatasetResponse Client::deleteDataset(const string &agentSpace, const stri
 }
 
 /**
- * @summary 删除流水线
+ * @summary Deletes an evaluation run.
+ *
+ * @param request DeleteEvaluationRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEvaluationRunResponse
+ */
+DeleteEvaluationRunResponse Client::deleteEvaluationRunWithOptions(const string &agentSpace, const string &taskId, const string &runId, const DeleteEvaluationRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEvaluationRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/run/" , Darabonba::Encode::Encoder::percentEncode(runId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEvaluationRunResponse>();
+}
+
+/**
+ * @summary Deletes an evaluation run.
+ *
+ * @param request DeleteEvaluationRunRequest
+ * @return DeleteEvaluationRunResponse
+ */
+DeleteEvaluationRunResponse Client::deleteEvaluationRun(const string &agentSpace, const string &taskId, const string &runId, const DeleteEvaluationRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteEvaluationRunWithOptions(agentSpace, taskId, runId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an evaluation task.
+ *
+ * @param request DeleteEvaluationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEvaluationTaskResponse
+ */
+DeleteEvaluationTaskResponse Client::deleteEvaluationTaskWithOptions(const string &agentSpace, const string &taskId, const DeleteEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEvaluationTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEvaluationTaskResponse>();
+}
+
+/**
+ * @summary Deletes an evaluation task.
+ *
+ * @param request DeleteEvaluationTaskRequest
+ * @return DeleteEvaluationTaskResponse
+ */
+DeleteEvaluationTaskResponse Client::deleteEvaluationTask(const string &agentSpace, const string &taskId, const DeleteEvaluationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteEvaluationTaskWithOptions(agentSpace, taskId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an evaluator.
+ *
+ * @param request DeleteEvaluatorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEvaluatorResponse
+ */
+DeleteEvaluatorResponse Client::deleteEvaluatorWithOptions(const string &agentSpace, const string &name, const DeleteEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEvaluator"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluators/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEvaluatorResponse>();
+}
+
+/**
+ * @summary Deletes an evaluator.
+ *
+ * @param request DeleteEvaluatorRequest
+ * @return DeleteEvaluatorResponse
+ */
+DeleteEvaluatorResponse Client::deleteEvaluator(const string &agentSpace, const string &name, const DeleteEvaluatorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteEvaluatorWithOptions(agentSpace, name, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an evaluator skill.
+ *
+ * @param request DeleteEvaluatorSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEvaluatorSkillResponse
+ */
+DeleteEvaluatorSkillResponse Client::deleteEvaluatorSkillWithOptions(const string &name, const string &skillName, const DeleteEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEvaluatorSkill"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluator/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEvaluatorSkillResponse>();
+}
+
+/**
+ * @summary Deletes an evaluator skill.
+ *
+ * @param request DeleteEvaluatorSkillRequest
+ * @return DeleteEvaluatorSkillResponse
+ */
+DeleteEvaluatorSkillResponse Client::deleteEvaluatorSkill(const string &name, const string &skillName, const DeleteEvaluatorSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a pipeline.
  *
  * @param request DeletePipelineRequest
  * @param headers map
@@ -524,7 +990,7 @@ DeletePipelineResponse Client::deletePipelineWithOptions(const string &agentSpac
 }
 
 /**
- * @summary 删除流水线
+ * @summary Deletes a pipeline.
  *
  * @param request DeletePipelineRequest
  * @return DeletePipelineResponse
@@ -536,7 +1002,7 @@ DeletePipelineResponse Client::deletePipeline(const string &agentSpace, const st
 }
 
 /**
- * @summary 查询Regions
+ * @summary Queries regions.
  *
  * @param request DescribeRegionsRequest
  * @param headers map
@@ -577,7 +1043,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary 查询Regions
+ * @summary Queries regions.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -589,7 +1055,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary 执行查询语句
+ * @summary Executes a query statement.
  *
  * @param request ExecuteQueryRequest
  * @param headers map
@@ -599,8 +1065,28 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 ExecuteQueryResponse Client::executeQueryWithOptions(const string &agentSpace, const string &datasetName, const ExecuteQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasFrom()) {
+    body["from"] = request.getFrom();
+  }
+
+  if (!!request.hasLength()) {
+    body["length"] = request.getLength();
+  }
+
+  if (!!request.hasMaxOutputLength()) {
+    body["maxOutputLength"] = request.getMaxOutputLength();
+  }
+
+  if (!!request.hasOffset()) {
+    body["offset"] = request.getOffset();
+  }
+
   if (!!request.hasQuery()) {
     body["query"] = request.getQuery();
+  }
+
+  if (!!request.hasTo()) {
+    body["to"] = request.getTo();
   }
 
   if (!!request.hasType()) {
@@ -626,7 +1112,7 @@ ExecuteQueryResponse Client::executeQueryWithOptions(const string &agentSpace, c
 }
 
 /**
- * @summary 执行查询语句
+ * @summary Executes a query statement.
  *
  * @param request ExecuteQueryRequest
  * @return ExecuteQueryResponse
@@ -638,7 +1124,7 @@ ExecuteQueryResponse Client::executeQuery(const string &agentSpace, const string
 }
 
 /**
- * @summary 查询AgentSpace
+ * @summary Queries an AgentSpace.
  *
  * @param request GetAgentSpaceRequest
  * @param headers map
@@ -665,7 +1151,7 @@ GetAgentSpaceResponse Client::getAgentSpaceWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary 查询AgentSpace
+ * @summary Queries an AgentSpace.
  *
  * @param request GetAgentSpaceRequest
  * @return GetAgentSpaceResponse
@@ -677,7 +1163,7 @@ GetAgentSpaceResponse Client::getAgentSpace(const string &agentSpace, const GetA
 }
 
 /**
- * @summary 查询上下文库
+ * @summary Queries a context store.
  *
  * @param request GetContextStoreRequest
  * @param headers map
@@ -704,7 +1190,7 @@ GetContextStoreResponse Client::getContextStoreWithOptions(const string &agentSp
 }
 
 /**
- * @summary 查询上下文库
+ * @summary Queries a context store.
  *
  * @param request GetContextStoreRequest
  * @return GetContextStoreResponse
@@ -716,7 +1202,7 @@ GetContextStoreResponse Client::getContextStore(const string &agentSpace, const 
 }
 
 /**
- * @summary 获取 API Key
+ * @summary Retrieves an API key.
  *
  * @param request GetContextStoreAPIKeyRequest
  * @param headers map
@@ -743,7 +1229,7 @@ GetContextStoreAPIKeyResponse Client::getContextStoreAPIKeyWithOptions(const str
 }
 
 /**
- * @summary 获取 API Key
+ * @summary Retrieves an API key.
  *
  * @param request GetContextStoreAPIKeyRequest
  * @return GetContextStoreAPIKeyResponse
@@ -755,7 +1241,7 @@ GetContextStoreAPIKeyResponse Client::getContextStoreAPIKey(const string &agentS
 }
 
 /**
- * @summary 查询数据集
+ * @summary Queries a dataset.
  *
  * @param request GetDatasetRequest
  * @param headers map
@@ -782,7 +1268,7 @@ GetDatasetResponse Client::getDatasetWithOptions(const string &agentSpace, const
 }
 
 /**
- * @summary 查询数据集
+ * @summary Queries a dataset.
  *
  * @param request GetDatasetRequest
  * @return GetDatasetResponse
@@ -794,7 +1280,179 @@ GetDatasetResponse Client::getDataset(const string &agentSpace, const string &da
 }
 
 /**
- * @summary 查询流水线
+ * @summary Retrieves the details of an evaluation run.
+ *
+ * @param request GetEvaluationRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEvaluationRunResponse
+ */
+GetEvaluationRunResponse Client::getEvaluationRunWithOptions(const string &agentSpace, const string &taskId, const string &runId, const GetEvaluationRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEvaluationRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/run/" , Darabonba::Encode::Encoder::percentEncode(runId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEvaluationRunResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an evaluation run.
+ *
+ * @param request GetEvaluationRunRequest
+ * @return GetEvaluationRunResponse
+ */
+GetEvaluationRunResponse Client::getEvaluationRun(const string &agentSpace, const string &taskId, const string &runId, const GetEvaluationRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getEvaluationRunWithOptions(agentSpace, taskId, runId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an evaluation task.
+ *
+ * @param request GetEvaluationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEvaluationTaskResponse
+ */
+GetEvaluationTaskResponse Client::getEvaluationTaskWithOptions(const string &agentSpace, const string &taskId, const GetEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEvaluationTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEvaluationTaskResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an evaluation task.
+ *
+ * @param request GetEvaluationTaskRequest
+ * @return GetEvaluationTaskResponse
+ */
+GetEvaluationTaskResponse Client::getEvaluationTask(const string &agentSpace, const string &taskId, const GetEvaluationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getEvaluationTaskWithOptions(agentSpace, taskId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an evaluator.
+ *
+ * @param request GetEvaluatorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEvaluatorResponse
+ */
+GetEvaluatorResponse Client::getEvaluatorWithOptions(const string &agentSpace, const string &name, const GetEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEvaluator"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluators/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEvaluatorResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an evaluator.
+ *
+ * @param request GetEvaluatorRequest
+ * @return GetEvaluatorResponse
+ */
+GetEvaluatorResponse Client::getEvaluator(const string &agentSpace, const string &name, const GetEvaluatorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getEvaluatorWithOptions(agentSpace, name, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an evaluator skill.
+ *
+ * @param request GetEvaluatorSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEvaluatorSkillResponse
+ */
+GetEvaluatorSkillResponse Client::getEvaluatorSkillWithOptions(const string &name, const string &skillName, const GetEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEvaluatorSkill"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluator/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEvaluatorSkillResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an evaluator skill.
+ *
+ * @param request GetEvaluatorSkillRequest
+ * @return GetEvaluatorSkillResponse
+ */
+GetEvaluatorSkillResponse Client::getEvaluatorSkill(const string &name, const string &skillName, const GetEvaluatorSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a CI/CD pipeline.
  *
  * @param request GetPipelineRequest
  * @param headers map
@@ -821,7 +1479,7 @@ GetPipelineResponse Client::getPipelineWithOptions(const string &agentSpace, con
 }
 
 /**
- * @summary 查询流水线
+ * @summary Queries a CI/CD pipeline.
  *
  * @param request GetPipelineRequest
  * @return GetPipelineResponse
@@ -833,7 +1491,99 @@ GetPipelineResponse Client::getPipeline(const string &agentSpace, const string &
 }
 
 /**
- * @summary 查询AgentSpace列表
+ * @summary Queries the details of a single pipeline run.
+ *
+ * @param request GetPipelineRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPipelineRunResponse
+ */
+GetPipelineRunResponse Client::getPipelineRunWithOptions(const string &agentSpace, const string &pipelineName, const string &runId, const GetPipelineRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPipelineRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/runs/" , Darabonba::Encode::Encoder::percentEncode(runId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPipelineRunResponse>();
+}
+
+/**
+ * @summary Queries the details of a single pipeline run.
+ *
+ * @param request GetPipelineRunRequest
+ * @return GetPipelineRunResponse
+ */
+GetPipelineRunResponse Client::getPipelineRun(const string &agentSpace, const string &pipelineName, const string &runId, const GetPipelineRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPipelineRunWithOptions(agentSpace, pipelineName, runId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries pipeline run statistics.
+ *
+ * @param request GetPipelineStatsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPipelineStatsResponse
+ */
+GetPipelineStatsResponse Client::getPipelineStatsWithOptions(const string &agentSpace, const string &pipelineName, const GetPipelineStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPipelineStats"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/stats")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPipelineStatsResponse>();
+}
+
+/**
+ * @summary Queries pipeline run statistics.
+ *
+ * @param request GetPipelineStatsRequest
+ * @return GetPipelineStatsResponse
+ */
+GetPipelineStatsResponse Client::getPipelineStats(const string &agentSpace, const string &pipelineName, const GetPipelineStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPipelineStatsWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of AgentSpaces.
  *
  * @param request ListAgentSpacesRequest
  * @param headers map
@@ -855,6 +1605,10 @@ ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpaces
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -874,7 +1628,7 @@ ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpaces
 }
 
 /**
- * @summary 查询AgentSpace列表
+ * @summary Queries a list of AgentSpaces.
  *
  * @param request ListAgentSpacesRequest
  * @return ListAgentSpacesResponse
@@ -886,7 +1640,7 @@ ListAgentSpacesResponse Client::listAgentSpaces(const ListAgentSpacesRequest &re
 }
 
 /**
- * @summary 获取 API Key 列表
+ * @summary Retrieves a list of API keys.
  *
  * @param request ListContextStoreAPIKeysRequest
  * @param headers map
@@ -923,7 +1677,7 @@ ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeysWithOptions(const
 }
 
 /**
- * @summary 获取 API Key 列表
+ * @summary Retrieves a list of API keys.
  *
  * @param request ListContextStoreAPIKeysRequest
  * @return ListContextStoreAPIKeysResponse
@@ -935,7 +1689,7 @@ ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeys(const string &ag
 }
 
 /**
- * @summary 查询上下文库列表
+ * @summary Queries a list of context stores.
  *
  * @param request ListContextStoresRequest
  * @param headers map
@@ -980,7 +1734,7 @@ ListContextStoresResponse Client::listContextStoresWithOptions(const string &age
 }
 
 /**
- * @summary 查询上下文库列表
+ * @summary Queries a list of context stores.
  *
  * @param request ListContextStoresRequest
  * @return ListContextStoresResponse
@@ -992,7 +1746,7 @@ ListContextStoresResponse Client::listContextStores(const string &agentSpace, co
 }
 
 /**
- * @summary 查询数据集列表
+ * @summary Queries a list of datasets.
  *
  * @param request ListDatasetsRequest
  * @param headers map
@@ -1033,7 +1787,7 @@ ListDatasetsResponse Client::listDatasetsWithOptions(const string &agentSpace, c
 }
 
 /**
- * @summary 查询数据集列表
+ * @summary Queries a list of datasets.
  *
  * @param request ListDatasetsRequest
  * @return ListDatasetsResponse
@@ -1045,7 +1799,320 @@ ListDatasetsResponse Client::listDatasets(const string &agentSpace, const ListDa
 }
 
 /**
- * @summary 查询流水线列表
+ * @summary Queries the list of evaluation runs.
+ *
+ * @param request ListEvaluationRunsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEvaluationRunsResponse
+ */
+ListEvaluationRunsResponse Client::listEvaluationRunsWithOptions(const string &agentSpace, const string &taskId, const ListEvaluationRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRunType()) {
+    query["runType"] = request.getRunType();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEvaluationRuns"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/runs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEvaluationRunsResponse>();
+}
+
+/**
+ * @summary Queries the list of evaluation runs.
+ *
+ * @param request ListEvaluationRunsRequest
+ * @return ListEvaluationRunsResponse
+ */
+ListEvaluationRunsResponse Client::listEvaluationRuns(const string &agentSpace, const string &taskId, const ListEvaluationRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listEvaluationRunsWithOptions(agentSpace, taskId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of evaluation tasks.
+ *
+ * @param request ListEvaluationTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEvaluationTasksResponse
+ */
+ListEvaluationTasksResponse Client::listEvaluationTasksWithOptions(const ListEvaluationTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  if (!!request.hasChannel()) {
+    query["channel"] = request.getChannel();
+  }
+
+  if (!!request.hasDataType()) {
+    query["dataType"] = request.getDataType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTaskMode()) {
+    query["taskMode"] = request.getTaskMode();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["taskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEvaluationTasks"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-tasks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEvaluationTasksResponse>();
+}
+
+/**
+ * @summary Queries a list of evaluation tasks.
+ *
+ * @param request ListEvaluationTasksRequest
+ * @return ListEvaluationTasksResponse
+ */
+ListEvaluationTasksResponse Client::listEvaluationTasks(const ListEvaluationTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listEvaluationTasksWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the skill list of an evaluator.
+ *
+ * @param request ListEvaluatorSkillsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEvaluatorSkillsResponse
+ */
+ListEvaluatorSkillsResponse Client::listEvaluatorSkillsWithOptions(const string &name, const ListEvaluatorSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEvaluatorSkills"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluator/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skills")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEvaluatorSkillsResponse>();
+}
+
+/**
+ * @summary Queries the skill list of an evaluator.
+ *
+ * @param request ListEvaluatorSkillsRequest
+ * @return ListEvaluatorSkillsResponse
+ */
+ListEvaluatorSkillsResponse Client::listEvaluatorSkills(const string &name, const ListEvaluatorSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listEvaluatorSkillsWithOptions(name, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of evaluators.
+ *
+ * @param request ListEvaluatorsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEvaluatorsResponse
+ */
+ListEvaluatorsResponse Client::listEvaluatorsWithOptions(const ListEvaluatorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSource()) {
+    query["source"] = request.getSource();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEvaluators"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluators")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEvaluatorsResponse>();
+}
+
+/**
+ * @summary Queries a list of evaluators.
+ *
+ * @param request ListEvaluatorsRequest
+ * @return ListEvaluatorsResponse
+ */
+ListEvaluatorsResponse Client::listEvaluators(const ListEvaluatorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listEvaluatorsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the execution history list of a pipeline.
+ *
+ * @param request ListPipelineRunsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPipelineRunsResponse
+ */
+ListPipelineRunsResponse Client::listPipelineRunsWithOptions(const string &agentSpace, const string &pipelineName, const ListPipelineRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTriggerType()) {
+    query["triggerType"] = request.getTriggerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPipelineRuns"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/runs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPipelineRunsResponse>();
+}
+
+/**
+ * @summary Queries the execution history list of a pipeline.
+ *
+ * @param request ListPipelineRunsRequest
+ * @return ListPipelineRunsResponse
+ */
+ListPipelineRunsResponse Client::listPipelineRuns(const string &agentSpace, const string &pipelineName, const ListPipelineRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPipelineRunsWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Lists CI/CD pipelines.
  *
  * @param request ListPipelinesRequest
  * @param headers map
@@ -1067,6 +2134,14 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const string &agentSpace,
     query["pipelineName"] = request.getPipelineName();
   }
 
+  if (!!request.hasScheduleStatus()) {
+    query["scheduleStatus"] = request.getScheduleStatus();
+  }
+
+  if (!!request.hasScheduleType()) {
+    query["scheduleType"] = request.getScheduleType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -1086,7 +2161,7 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary 查询流水线列表
+ * @summary Lists CI/CD pipelines.
  *
  * @param request ListPipelinesRequest
  * @return ListPipelinesResponse
@@ -1098,7 +2173,144 @@ ListPipelinesResponse Client::listPipelines(const string &agentSpace, const List
 }
 
 /**
- * @summary 搜索上下文
+ * @summary Pauses a pipeline.
+ *
+ * @param request PausePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PausePipelineResponse
+ */
+PausePipelineResponse Client::pausePipelineWithOptions(const string &agentSpace, const string &pipelineName, const PausePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasReason()) {
+    body["reason"] = request.getReason();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PausePipeline"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/pause")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PausePipelineResponse>();
+}
+
+/**
+ * @summary Pauses a pipeline.
+ *
+ * @param request PausePipelineRequest
+ * @return PausePipelineResponse
+ */
+PausePipelineResponse Client::pausePipeline(const string &agentSpace, const string &pipelineName, const PausePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return pausePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Resumes a pipeline.
+ *
+ * @param request ResumePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumePipelineResponse
+ */
+ResumePipelineResponse Client::resumePipelineWithOptions(const string &agentSpace, const string &pipelineName, const ResumePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumePipeline"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/resume")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumePipelineResponse>();
+}
+
+/**
+ * @summary Resumes a pipeline.
+ *
+ * @param request ResumePipelineRequest
+ * @return ResumePipelineResponse
+ */
+ResumePipelineResponse Client::resumePipeline(const string &agentSpace, const string &pipelineName, const ResumePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resumePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Manually triggers a pipeline execution.
+ *
+ * @param request RunPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunPipelineResponse
+ */
+RunPipelineResponse Client::runPipelineWithOptions(const string &agentSpace, const string &pipelineName, const RunPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFromTime()) {
+    body["fromTime"] = request.getFromTime();
+  }
+
+  if (!!request.hasOutput()) {
+    body["output"] = request.getOutput();
+  }
+
+  if (!!request.hasToTime()) {
+    body["toTime"] = request.getToTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RunPipeline"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/run")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunPipelineResponse>();
+}
+
+/**
+ * @summary Manually triggers a pipeline execution.
+ *
+ * @param request RunPipelineRequest
+ * @return RunPipelineResponse
+ */
+RunPipelineResponse Client::runPipeline(const string &agentSpace, const string &pipelineName, const RunPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return runPipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Searches contexts.
  *
  * @param request SearchContextRequest
  * @param headers map
@@ -1151,7 +2363,7 @@ SearchContextResponse Client::searchContextWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary 搜索上下文
+ * @summary Searches contexts.
  *
  * @param request SearchContextRequest
  * @return SearchContextResponse
@@ -1163,7 +2375,52 @@ SearchContextResponse Client::searchContext(const string &agentSpace, const stri
 }
 
 /**
- * @summary 更新AgentSpace
+ * @summary Stops a pipeline.
+ *
+ * @param request TerminatePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TerminatePipelineResponse
+ */
+TerminatePipelineResponse Client::terminatePipelineWithOptions(const string &agentSpace, const string &pipelineName, const TerminatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasReason()) {
+    body["reason"] = request.getReason();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TerminatePipeline"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName) , "/terminate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TerminatePipelineResponse>();
+}
+
+/**
+ * @summary Stops a pipeline.
+ *
+ * @param request TerminatePipelineRequest
+ * @return TerminatePipelineResponse
+ */
+TerminatePipelineResponse Client::terminatePipeline(const string &agentSpace, const string &pipelineName, const TerminatePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return terminatePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an AgentSpace.
  *
  * @param request UpdateAgentSpaceRequest
  * @param headers map
@@ -1206,7 +2463,7 @@ UpdateAgentSpaceResponse Client::updateAgentSpaceWithOptions(const string &agent
 }
 
 /**
- * @summary 更新AgentSpace
+ * @summary Updates an AgentSpace.
  *
  * @param request UpdateAgentSpaceRequest
  * @return UpdateAgentSpaceResponse
@@ -1218,7 +2475,7 @@ UpdateAgentSpaceResponse Client::updateAgentSpace(const string &agentSpace, cons
 }
 
 /**
- * @summary 修改上下文库配置
+ * @summary Modifies the configuration of a context store.
  *
  * @param request UpdateContextStoreRequest
  * @param headers map
@@ -1265,7 +2522,7 @@ UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &a
 }
 
 /**
- * @summary 修改上下文库配置
+ * @summary Modifies the configuration of a context store.
  *
  * @param request UpdateContextStoreRequest
  * @return UpdateContextStoreResponse
@@ -1277,7 +2534,7 @@ UpdateContextStoreResponse Client::updateContextStore(const string &agentSpace, 
 }
 
 /**
- * @summary 更新数据集
+ * @summary Updates a dataset.
  *
  * @param request UpdateDatasetRequest
  * @param headers map
@@ -1320,7 +2577,7 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary 更新数据集
+ * @summary Updates a dataset.
  *
  * @param request UpdateDatasetRequest
  * @return UpdateDatasetResponse
@@ -1332,7 +2589,269 @@ UpdateDatasetResponse Client::updateDataset(const string &agentSpace, const stri
 }
 
 /**
- * @summary 更新流水线
+ * @summary Updates an evaluation run.
+ *
+ * @param request UpdateEvaluationRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEvaluationRunResponse
+ */
+UpdateEvaluationRunResponse Client::updateEvaluationRunWithOptions(const string &agentSpace, const string &taskId, const string &runId, const UpdateEvaluationRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateEvaluationRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/run/" , Darabonba::Encode::Encoder::percentEncode(runId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEvaluationRunResponse>();
+}
+
+/**
+ * @summary Updates an evaluation run.
+ *
+ * @param request UpdateEvaluationRunRequest
+ * @return UpdateEvaluationRunResponse
+ */
+UpdateEvaluationRunResponse Client::updateEvaluationRun(const string &agentSpace, const string &taskId, const string &runId, const UpdateEvaluationRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateEvaluationRunWithOptions(agentSpace, taskId, runId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an evaluation task.
+ *
+ * @param request UpdateEvaluationTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEvaluationTaskResponse
+ */
+UpdateEvaluationTaskResponse Client::updateEvaluationTaskWithOptions(const string &agentSpace, const string &taskId, const UpdateEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasDataFilter()) {
+    body["dataFilter"] = request.getDataFilter();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasEvaluators()) {
+    body["evaluators"] = request.getEvaluators();
+  }
+
+  if (!!request.hasRunStrategies()) {
+    body["runStrategies"] = request.getRunStrategies();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateEvaluationTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluation-task/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEvaluationTaskResponse>();
+}
+
+/**
+ * @summary Updates an evaluation task.
+ *
+ * @param request UpdateEvaluationTaskRequest
+ * @return UpdateEvaluationTaskResponse
+ */
+UpdateEvaluationTaskResponse Client::updateEvaluationTask(const string &agentSpace, const string &taskId, const UpdateEvaluationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateEvaluationTaskWithOptions(agentSpace, taskId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an evaluator.
+ *
+ * @param request UpdateEvaluatorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEvaluatorResponse
+ */
+UpdateEvaluatorResponse Client::updateEvaluatorWithOptions(const string &agentSpace, const string &name, const UpdateEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasAnnotations()) {
+    body["annotations"] = request.getAnnotations();
+  }
+
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasProperties()) {
+    body["properties"] = request.getProperties();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  if (!!request.hasVersionDescription()) {
+    body["versionDescription"] = request.getVersionDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateEvaluator"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluators/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEvaluatorResponse>();
+}
+
+/**
+ * @summary Updates an evaluator.
+ *
+ * @param request UpdateEvaluatorRequest
+ * @return UpdateEvaluatorResponse
+ */
+UpdateEvaluatorResponse Client::updateEvaluator(const string &agentSpace, const string &name, const UpdateEvaluatorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateEvaluatorWithOptions(agentSpace, name, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an evaluator skill.
+ *
+ * @param request UpdateEvaluatorSkillRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEvaluatorSkillResponse
+ */
+UpdateEvaluatorSkillResponse Client::updateEvaluatorSkillWithOptions(const string &name, const string &skillName, const UpdateEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentSpace()) {
+    query["agentSpace"] = request.getAgentSpace();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasFiles()) {
+    body["files"] = request.getFiles();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateEvaluatorSkill"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/evaluator/" , Darabonba::Encode::Encoder::percentEncode(name) , "/skill/" , Darabonba::Encode::Encoder::percentEncode(skillName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEvaluatorSkillResponse>();
+}
+
+/**
+ * @summary Updates an evaluator skill.
+ *
+ * @param request UpdateEvaluatorSkillRequest
+ * @return UpdateEvaluatorSkillResponse
+ */
+UpdateEvaluatorSkillResponse Client::updateEvaluatorSkill(const string &name, const string &skillName, const UpdateEvaluatorSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a pipeline.
  *
  * @param request UpdatePipelineRequest
  * @param headers map
@@ -1387,7 +2906,7 @@ UpdatePipelineResponse Client::updatePipelineWithOptions(const string &agentSpac
 }
 
 /**
- * @summary 更新流水线
+ * @summary Updates a pipeline.
  *
  * @param request UpdatePipelineRequest
  * @return UpdatePipelineResponse

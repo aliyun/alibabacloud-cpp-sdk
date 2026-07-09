@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The language. Valid values:
+    // - zh: Chinese
+    // - en: English
+    // 
     // This parameter is required.
     shared_ptr<string> language_ {};
+    // The maximum number of entries to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 

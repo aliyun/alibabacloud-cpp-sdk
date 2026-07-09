@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentSpace, agentSpace_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(regionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListAgentSpacesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentSpace, agentSpace_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(regionId, regionId_);
     };
     ListAgentSpacesRequest() = default ;
     ListAgentSpacesRequest(const ListAgentSpacesRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr; };
     // agentSpace Field Functions 
     bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
     void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -56,10 +58,21 @@ namespace Models
     inline ListAgentSpacesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline ListAgentSpacesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
   protected:
+    // The AgentSpace name.
     shared_ptr<string> agentSpace_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

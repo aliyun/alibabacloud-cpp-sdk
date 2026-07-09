@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The MSE namespace ID.
         shared_ptr<string> namespaceId_ {};
+        // The MSE namespace name.
         shared_ptr<string> namespaceName_ {};
       };
 
@@ -175,14 +177,24 @@ namespace Models
 
 
     protected:
+      // The AgentSpace name.
       shared_ptr<string> agentSpace_ {};
+      // The CMS workspace.
       shared_ptr<string> cmsWorkspace_ {};
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The MSE namespace.
       shared_ptr<AgentSpaces::MseNamespace> mseNamespace_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The Simple Log Service project name.
       shared_ptr<string> slsProject_ {};
+      // The update time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -227,10 +239,15 @@ namespace Models
 
 
   protected:
+    // The AgentSpaces information.
     shared_ptr<vector<ListAgentSpacesResponseBody::AgentSpaces>> agentSpaces_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. This parameter is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

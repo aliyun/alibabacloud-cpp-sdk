@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The request ID. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The list of retrieval results, sorted by similarity in descending order.
     shared_ptr<vector<Darabonba::Json>> results_ {};
   };
 

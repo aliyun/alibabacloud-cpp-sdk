@@ -112,12 +112,20 @@ namespace Models
 
 
     protected:
+      // The name of the agent space.
       shared_ptr<string> agentSpace_ {};
+      // The time when the dataset was created.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The name of the dataset.
       shared_ptr<string> datasetName_ {};
+      // The description of the dataset.
       shared_ptr<string> description_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The time when the dataset was last updated.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -162,10 +170,17 @@ namespace Models
 
 
   protected:
+    // The result set.
     shared_ptr<vector<ListDatasetsResponseBody::Datasets>> datasets_ {};
+    // The maximum number of results specified in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page of results.
+    // 
+    // If the total number of results exceeds the maxResults limit, the results are truncated. You can use this token to query the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

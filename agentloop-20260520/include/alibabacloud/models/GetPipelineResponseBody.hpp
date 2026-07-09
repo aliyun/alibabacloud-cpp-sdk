@@ -14,26 +14,32 @@ namespace Models
   class GetPipelineResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetPipelineResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(committedWatermark, committedWatermark_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(executePolicy, executePolicy_);
+      DARABONBA_PTR_TO_JSON(nextTriggerTime, nextTriggerTime_);
       DARABONBA_PTR_TO_JSON(pipeline, pipeline_);
       DARABONBA_PTR_TO_JSON(pipelineName, pipelineName_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(scheduleStatus, scheduleStatus_);
       DARABONBA_PTR_TO_JSON(sink, sink_);
       DARABONBA_PTR_TO_JSON(source, source_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
     };
     friend void from_json(const Darabonba::Json& j, GetPipelineResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(committedWatermark, committedWatermark_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(executePolicy, executePolicy_);
+      DARABONBA_PTR_FROM_JSON(nextTriggerTime, nextTriggerTime_);
       DARABONBA_PTR_FROM_JSON(pipeline, pipeline_);
       DARABONBA_PTR_FROM_JSON(pipelineName, pipelineName_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(scheduleStatus, scheduleStatus_);
       DARABONBA_PTR_FROM_JSON(sink, sink_);
       DARABONBA_PTR_FROM_JSON(source, source_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
@@ -459,9 +465,17 @@ namespace Models
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
-    virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->executePolicy_ == nullptr && this->pipeline_ == nullptr && this->pipelineName_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->sink_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr && this->workspace_ == nullptr; };
+    virtual bool empty() const override { return this->committedWatermark_ == nullptr
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->executePolicy_ == nullptr && this->nextTriggerTime_ == nullptr && this->pipeline_ == nullptr
+        && this->pipelineName_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->scheduleStatus_ == nullptr && this->sink_ == nullptr
+        && this->source_ == nullptr && this->updateTime_ == nullptr && this->workspace_ == nullptr; };
+    // committedWatermark Field Functions 
+    bool hasCommittedWatermark() const { return this->committedWatermark_ != nullptr;};
+    void deleteCommittedWatermark() { this->committedWatermark_ = nullptr;};
+    inline int64_t getCommittedWatermark() const { DARABONBA_PTR_GET_DEFAULT(committedWatermark_, 0L) };
+    inline GetPipelineResponseBody& setCommittedWatermark(int64_t committedWatermark) { DARABONBA_PTR_SET_VALUE(committedWatermark_, committedWatermark) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -483,6 +497,13 @@ namespace Models
     inline GetPipelineResponseBody::ExecutePolicy getExecutePolicy() { DARABONBA_PTR_GET(executePolicy_, GetPipelineResponseBody::ExecutePolicy) };
     inline GetPipelineResponseBody& setExecutePolicy(const GetPipelineResponseBody::ExecutePolicy & executePolicy) { DARABONBA_PTR_SET_VALUE(executePolicy_, executePolicy) };
     inline GetPipelineResponseBody& setExecutePolicy(GetPipelineResponseBody::ExecutePolicy && executePolicy) { DARABONBA_PTR_SET_RVALUE(executePolicy_, executePolicy) };
+
+
+    // nextTriggerTime Field Functions 
+    bool hasNextTriggerTime() const { return this->nextTriggerTime_ != nullptr;};
+    void deleteNextTriggerTime() { this->nextTriggerTime_ = nullptr;};
+    inline int64_t getNextTriggerTime() const { DARABONBA_PTR_GET_DEFAULT(nextTriggerTime_, 0L) };
+    inline GetPipelineResponseBody& setNextTriggerTime(int64_t nextTriggerTime) { DARABONBA_PTR_SET_VALUE(nextTriggerTime_, nextTriggerTime) };
 
 
     // pipeline Field Functions 
@@ -513,6 +534,13 @@ namespace Models
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetPipelineResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // scheduleStatus Field Functions 
+    bool hasScheduleStatus() const { return this->scheduleStatus_ != nullptr;};
+    void deleteScheduleStatus() { this->scheduleStatus_ = nullptr;};
+    inline string getScheduleStatus() const { DARABONBA_PTR_GET_DEFAULT(scheduleStatus_, "") };
+    inline GetPipelineResponseBody& setScheduleStatus(string scheduleStatus) { DARABONBA_PTR_SET_VALUE(scheduleStatus_, scheduleStatus) };
 
 
     // sink Field Functions 
@@ -548,14 +576,17 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> committedWatermark_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
     shared_ptr<string> description_ {};
     shared_ptr<GetPipelineResponseBody::ExecutePolicy> executePolicy_ {};
+    shared_ptr<int64_t> nextTriggerTime_ {};
     shared_ptr<GetPipelineResponseBody::Pipeline> pipeline_ {};
     shared_ptr<string> pipelineName_ {};
     shared_ptr<string> regionId_ {};
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> scheduleStatus_ {};
     shared_ptr<GetPipelineResponseBody::Sink> sink_ {};
     shared_ptr<GetPipelineResponseBody::Source> source_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ

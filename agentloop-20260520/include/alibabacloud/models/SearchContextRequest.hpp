@@ -86,12 +86,19 @@ namespace Models
 
 
   protected:
+    // The structured filter conditions. The key is the field name, and the value is the expected matching value.
     Darabonba::Json filter_ {};
+    // Specifies whether to apply structured formatting to the returned results.
     shared_ptr<bool> formatted_ {};
+    // The maximum number of returned results (similarity Top-N).
     shared_ptr<int32_t> limit_ {};
+    // The retrieval query text. Natural language is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The retrieval options that control the retrieval strategy.
     shared_ptr<string> retrievalOption_ {};
+    // The similarity threshold. Results with a similarity score lower than this value are filtered out. Valid values: 0 to 1.
     shared_ptr<double> threshold_ {};
   };
 

@@ -45,12 +45,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(count, count_);
         DARABONBA_PTR_TO_JSON(elapsedMillisecond, elapsedMillisecond_);
         DARABONBA_PTR_TO_JSON(progress, progress_);
+        DARABONBA_PTR_TO_JSON(truncation, truncation_);
       };
       friend void from_json(const Darabonba::Json& j, Meta& obj) { 
         DARABONBA_PTR_FROM_JSON(affectedRows, affectedRows_);
         DARABONBA_PTR_FROM_JSON(count, count_);
         DARABONBA_PTR_FROM_JSON(elapsedMillisecond, elapsedMillisecond_);
         DARABONBA_PTR_FROM_JSON(progress, progress_);
+        DARABONBA_PTR_FROM_JSON(truncation, truncation_);
       };
       Meta() = default ;
       Meta(const Meta &) = default ;
@@ -63,8 +65,52 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Truncation : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Truncation& obj) { 
+          DARABONBA_PTR_TO_JSON(truncated, truncated_);
+          DARABONBA_PTR_TO_JSON(truncatedColumnIndexes, truncatedColumnIndexes_);
+        };
+        friend void from_json(const Darabonba::Json& j, Truncation& obj) { 
+          DARABONBA_PTR_FROM_JSON(truncated, truncated_);
+          DARABONBA_PTR_FROM_JSON(truncatedColumnIndexes, truncatedColumnIndexes_);
+        };
+        Truncation() = default ;
+        Truncation(const Truncation &) = default ;
+        Truncation(Truncation &&) = default ;
+        Truncation(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Truncation() = default ;
+        Truncation& operator=(const Truncation &) = default ;
+        Truncation& operator=(Truncation &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->truncated_ == nullptr
+        && this->truncatedColumnIndexes_ == nullptr; };
+        // truncated Field Functions 
+        bool hasTruncated() const { return this->truncated_ != nullptr;};
+        void deleteTruncated() { this->truncated_ = nullptr;};
+        inline bool getTruncated() const { DARABONBA_PTR_GET_DEFAULT(truncated_, false) };
+        inline Truncation& setTruncated(bool truncated) { DARABONBA_PTR_SET_VALUE(truncated_, truncated) };
+
+
+        // truncatedColumnIndexes Field Functions 
+        bool hasTruncatedColumnIndexes() const { return this->truncatedColumnIndexes_ != nullptr;};
+        void deleteTruncatedColumnIndexes() { this->truncatedColumnIndexes_ = nullptr;};
+        inline const vector<vector<int32_t>> & getTruncatedColumnIndexes() const { DARABONBA_PTR_GET_CONST(truncatedColumnIndexes_, vector<vector<int32_t>>) };
+        inline vector<vector<int32_t>> getTruncatedColumnIndexes() { DARABONBA_PTR_GET(truncatedColumnIndexes_, vector<vector<int32_t>>) };
+        inline Truncation& setTruncatedColumnIndexes(const vector<vector<int32_t>> & truncatedColumnIndexes) { DARABONBA_PTR_SET_VALUE(truncatedColumnIndexes_, truncatedColumnIndexes) };
+        inline Truncation& setTruncatedColumnIndexes(vector<vector<int32_t>> && truncatedColumnIndexes) { DARABONBA_PTR_SET_RVALUE(truncatedColumnIndexes_, truncatedColumnIndexes) };
+
+
+      protected:
+        shared_ptr<bool> truncated_ {};
+        shared_ptr<vector<vector<int32_t>>> truncatedColumnIndexes_ {};
+      };
+
       virtual bool empty() const override { return this->affectedRows_ == nullptr
-        && this->count_ == nullptr && this->elapsedMillisecond_ == nullptr && this->progress_ == nullptr; };
+        && this->count_ == nullptr && this->elapsedMillisecond_ == nullptr && this->progress_ == nullptr && this->truncation_ == nullptr; };
       // affectedRows Field Functions 
       bool hasAffectedRows() const { return this->affectedRows_ != nullptr;};
       void deleteAffectedRows() { this->affectedRows_ = nullptr;};
@@ -93,11 +139,25 @@ namespace Models
       inline Meta& setProgress(string progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
+      // truncation Field Functions 
+      bool hasTruncation() const { return this->truncation_ != nullptr;};
+      void deleteTruncation() { this->truncation_ = nullptr;};
+      inline const Meta::Truncation & getTruncation() const { DARABONBA_PTR_GET_CONST(truncation_, Meta::Truncation) };
+      inline Meta::Truncation getTruncation() { DARABONBA_PTR_GET(truncation_, Meta::Truncation) };
+      inline Meta& setTruncation(const Meta::Truncation & truncation) { DARABONBA_PTR_SET_VALUE(truncation_, truncation) };
+      inline Meta& setTruncation(Meta::Truncation && truncation) { DARABONBA_PTR_SET_RVALUE(truncation_, truncation) };
+
+
     protected:
+      // The number of log rows scanned or processed.
       shared_ptr<int32_t> affectedRows_ {};
+      // The number of log rows returned by this query request.
       shared_ptr<int32_t> count_ {};
+      // The time consumed by this execution, in milliseconds.
       shared_ptr<int64_t> elapsedMillisecond_ {};
+      // Indicates whether the query result is complete.
       shared_ptr<string> progress_ {};
+      shared_ptr<Meta::Truncation> truncation_ {};
     };
 
     virtual bool empty() const override { return this->columnTypes_ == nullptr
@@ -146,10 +206,15 @@ namespace Models
 
 
   protected:
+    // The result column types.
     shared_ptr<vector<string>> columnTypes_ {};
+    // The result column information.
     shared_ptr<vector<string>> columns_ {};
+    // The metadata of the returned data.
     shared_ptr<ExecuteQueryResponseBody::Meta> meta_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result rows.
     shared_ptr<vector<vector<Darabonba::Json>>> rows_ {};
   };
 

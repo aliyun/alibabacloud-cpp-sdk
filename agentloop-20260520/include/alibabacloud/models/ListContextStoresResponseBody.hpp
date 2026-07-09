@@ -142,15 +142,26 @@ namespace Models
 
 
     protected:
+      // The name of the AgentSpace to which the context store belongs.
       shared_ptr<string> agentSpace_ {};
+      // The name of the context store.
       shared_ptr<string> contextStoreName_ {};
+      // The type of the context store, such as experience or memory.
       shared_ptr<string> contextType_ {};
+      // The time when the context store was created, in ISO 8601 UTC format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description of the context store.
       shared_ptr<string> description_ {};
+      // The region ID of the context store.
       shared_ptr<string> regionId_ {};
+      // The list of service names. This parameter has a value only for context stores of the experience type. The service names are used together with the data source AgentSpace to locate trace data sources.
       shared_ptr<vector<string>> serviceNames_ {};
+      // The status of the context store. Valid values: ACTIVE, INITIALIZING, and FAILED.
       shared_ptr<string> status_ {};
+      // The time when the context store was last updated, in ISO 8601 UTC format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -195,10 +206,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page that was specified in the request. This value is echoed back.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page. An empty string indicates that the current page is the last page.
     shared_ptr<string> nextToken_ {};
+    // The request ID. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The list of context stores.
     shared_ptr<vector<ListContextStoresResponseBody::Results>> results_ {};
+    // The total number of context stores that match the query conditions.
     shared_ptr<int32_t> total_ {};
   };
 

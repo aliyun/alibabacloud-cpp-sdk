@@ -16,47 +16,49 @@ namespace Models
   class ExperimentRecord : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ExperimentRecord& obj) { 
-      DARABONBA_PTR_TO_JSON(batchId, batchId_);
       DARABONBA_PTR_TO_JSON(completedAt, completedAt_);
       DARABONBA_PTR_TO_JSON(completedTasks, completedTasks_);
       DARABONBA_PTR_TO_JSON(dataSourceType, dataSourceType_);
       DARABONBA_PTR_TO_JSON(datasetId, datasetId_);
       DARABONBA_PTR_TO_JSON(datasetProject, datasetProject_);
       DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(evaluationTaskId, evaluationTaskId_);
       DARABONBA_PTR_TO_JSON(evaluators, evaluators_);
       DARABONBA_PTR_TO_JSON(executedAt, executedAt_);
       DARABONBA_PTR_TO_JSON(experimentConfig, experimentConfig_);
-      DARABONBA_PTR_TO_JSON(experimentName, experimentName_);
+      DARABONBA_PTR_TO_JSON(experimentPlanId, experimentPlanId_);
       DARABONBA_PTR_TO_JSON(failedTasks, failedTasks_);
       DARABONBA_ANY_TO_JSON(input, input_);
-      DARABONBA_PTR_TO_JSON(modelName, modelName_);
-      DARABONBA_PTR_TO_JSON(planId, planId_);
+      DARABONBA_PTR_TO_JSON(modelNames, modelNames_);
       DARABONBA_PTR_TO_JSON(planName, planName_);
       DARABONBA_PTR_TO_JSON(progress, progress_);
+      DARABONBA_PTR_TO_JSON(querySql, querySql_);
       DARABONBA_PTR_TO_JSON(recordId, recordId_);
+      DARABONBA_PTR_TO_JSON(recordName, recordName_);
       DARABONBA_PTR_TO_JSON(selectedItemIds, selectedItemIds_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(totalTasks, totalTasks_);
     };
     friend void from_json(const Darabonba::Json& j, ExperimentRecord& obj) { 
-      DARABONBA_PTR_FROM_JSON(batchId, batchId_);
       DARABONBA_PTR_FROM_JSON(completedAt, completedAt_);
       DARABONBA_PTR_FROM_JSON(completedTasks, completedTasks_);
       DARABONBA_PTR_FROM_JSON(dataSourceType, dataSourceType_);
       DARABONBA_PTR_FROM_JSON(datasetId, datasetId_);
       DARABONBA_PTR_FROM_JSON(datasetProject, datasetProject_);
       DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(evaluationTaskId, evaluationTaskId_);
       DARABONBA_PTR_FROM_JSON(evaluators, evaluators_);
       DARABONBA_PTR_FROM_JSON(executedAt, executedAt_);
       DARABONBA_PTR_FROM_JSON(experimentConfig, experimentConfig_);
-      DARABONBA_PTR_FROM_JSON(experimentName, experimentName_);
+      DARABONBA_PTR_FROM_JSON(experimentPlanId, experimentPlanId_);
       DARABONBA_PTR_FROM_JSON(failedTasks, failedTasks_);
       DARABONBA_ANY_FROM_JSON(input, input_);
-      DARABONBA_PTR_FROM_JSON(modelName, modelName_);
-      DARABONBA_PTR_FROM_JSON(planId, planId_);
+      DARABONBA_PTR_FROM_JSON(modelNames, modelNames_);
       DARABONBA_PTR_FROM_JSON(planName, planName_);
       DARABONBA_PTR_FROM_JSON(progress, progress_);
+      DARABONBA_PTR_FROM_JSON(querySql, querySql_);
       DARABONBA_PTR_FROM_JSON(recordId, recordId_);
+      DARABONBA_PTR_FROM_JSON(recordName, recordName_);
       DARABONBA_PTR_FROM_JSON(selectedItemIds, selectedItemIds_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(totalTasks, totalTasks_);
@@ -72,18 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->completedAt_ == nullptr && this->completedTasks_ == nullptr && this->dataSourceType_ == nullptr && this->datasetId_ == nullptr && this->datasetProject_ == nullptr
-        && this->errorMessage_ == nullptr && this->evaluators_ == nullptr && this->executedAt_ == nullptr && this->experimentConfig_ == nullptr && this->experimentName_ == nullptr
-        && this->failedTasks_ == nullptr && this->input_ == nullptr && this->modelName_ == nullptr && this->planId_ == nullptr && this->planName_ == nullptr
-        && this->progress_ == nullptr && this->recordId_ == nullptr && this->selectedItemIds_ == nullptr && this->status_ == nullptr && this->totalTasks_ == nullptr; };
-    // batchId Field Functions 
-    bool hasBatchId() const { return this->batchId_ != nullptr;};
-    void deleteBatchId() { this->batchId_ = nullptr;};
-    inline string getBatchId() const { DARABONBA_PTR_GET_DEFAULT(batchId_, "") };
-    inline ExperimentRecord& setBatchId(string batchId) { DARABONBA_PTR_SET_VALUE(batchId_, batchId) };
-
-
+    virtual bool empty() const override { return this->completedAt_ == nullptr
+        && this->completedTasks_ == nullptr && this->dataSourceType_ == nullptr && this->datasetId_ == nullptr && this->datasetProject_ == nullptr && this->errorMessage_ == nullptr
+        && this->evaluationTaskId_ == nullptr && this->evaluators_ == nullptr && this->executedAt_ == nullptr && this->experimentConfig_ == nullptr && this->experimentPlanId_ == nullptr
+        && this->failedTasks_ == nullptr && this->input_ == nullptr && this->modelNames_ == nullptr && this->planName_ == nullptr && this->progress_ == nullptr
+        && this->querySql_ == nullptr && this->recordId_ == nullptr && this->recordName_ == nullptr && this->selectedItemIds_ == nullptr && this->status_ == nullptr
+        && this->totalTasks_ == nullptr; };
     // completedAt Field Functions 
     bool hasCompletedAt() const { return this->completedAt_ != nullptr;};
     void deleteCompletedAt() { this->completedAt_ = nullptr;};
@@ -126,6 +122,13 @@ namespace Models
     inline ExperimentRecord& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
+    // evaluationTaskId Field Functions 
+    bool hasEvaluationTaskId() const { return this->evaluationTaskId_ != nullptr;};
+    void deleteEvaluationTaskId() { this->evaluationTaskId_ = nullptr;};
+    inline string getEvaluationTaskId() const { DARABONBA_PTR_GET_DEFAULT(evaluationTaskId_, "") };
+    inline ExperimentRecord& setEvaluationTaskId(string evaluationTaskId) { DARABONBA_PTR_SET_VALUE(evaluationTaskId_, evaluationTaskId) };
+
+
     // evaluators Field Functions 
     bool hasEvaluators() const { return this->evaluators_ != nullptr;};
     void deleteEvaluators() { this->evaluators_ = nullptr;};
@@ -145,17 +148,17 @@ namespace Models
     // experimentConfig Field Functions 
     bool hasExperimentConfig() const { return this->experimentConfig_ != nullptr;};
     void deleteExperimentConfig() { this->experimentConfig_ = nullptr;};
-    inline const ExperimentConfig & getExperimentConfig() const { DARABONBA_PTR_GET_CONST(experimentConfig_, ExperimentConfig) };
-    inline ExperimentConfig getExperimentConfig() { DARABONBA_PTR_GET(experimentConfig_, ExperimentConfig) };
-    inline ExperimentRecord& setExperimentConfig(const ExperimentConfig & experimentConfig) { DARABONBA_PTR_SET_VALUE(experimentConfig_, experimentConfig) };
-    inline ExperimentRecord& setExperimentConfig(ExperimentConfig && experimentConfig) { DARABONBA_PTR_SET_RVALUE(experimentConfig_, experimentConfig) };
+    inline const vector<ExperimentConfig> & getExperimentConfig() const { DARABONBA_PTR_GET_CONST(experimentConfig_, vector<ExperimentConfig>) };
+    inline vector<ExperimentConfig> getExperimentConfig() { DARABONBA_PTR_GET(experimentConfig_, vector<ExperimentConfig>) };
+    inline ExperimentRecord& setExperimentConfig(const vector<ExperimentConfig> & experimentConfig) { DARABONBA_PTR_SET_VALUE(experimentConfig_, experimentConfig) };
+    inline ExperimentRecord& setExperimentConfig(vector<ExperimentConfig> && experimentConfig) { DARABONBA_PTR_SET_RVALUE(experimentConfig_, experimentConfig) };
 
 
-    // experimentName Field Functions 
-    bool hasExperimentName() const { return this->experimentName_ != nullptr;};
-    void deleteExperimentName() { this->experimentName_ = nullptr;};
-    inline string getExperimentName() const { DARABONBA_PTR_GET_DEFAULT(experimentName_, "") };
-    inline ExperimentRecord& setExperimentName(string experimentName) { DARABONBA_PTR_SET_VALUE(experimentName_, experimentName) };
+    // experimentPlanId Field Functions 
+    bool hasExperimentPlanId() const { return this->experimentPlanId_ != nullptr;};
+    void deleteExperimentPlanId() { this->experimentPlanId_ = nullptr;};
+    inline string getExperimentPlanId() const { DARABONBA_PTR_GET_DEFAULT(experimentPlanId_, "") };
+    inline ExperimentRecord& setExperimentPlanId(string experimentPlanId) { DARABONBA_PTR_SET_VALUE(experimentPlanId_, experimentPlanId) };
 
 
     // failedTasks Field Functions 
@@ -174,18 +177,13 @@ namespace Models
     inline ExperimentRecord& setInput(Darabonba::Json && input) { DARABONBA_SET_RVALUE(input_, input) };
 
 
-    // modelName Field Functions 
-    bool hasModelName() const { return this->modelName_ != nullptr;};
-    void deleteModelName() { this->modelName_ = nullptr;};
-    inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
-    inline ExperimentRecord& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
-
-
-    // planId Field Functions 
-    bool hasPlanId() const { return this->planId_ != nullptr;};
-    void deletePlanId() { this->planId_ = nullptr;};
-    inline string getPlanId() const { DARABONBA_PTR_GET_DEFAULT(planId_, "") };
-    inline ExperimentRecord& setPlanId(string planId) { DARABONBA_PTR_SET_VALUE(planId_, planId) };
+    // modelNames Field Functions 
+    bool hasModelNames() const { return this->modelNames_ != nullptr;};
+    void deleteModelNames() { this->modelNames_ = nullptr;};
+    inline const vector<string> & getModelNames() const { DARABONBA_PTR_GET_CONST(modelNames_, vector<string>) };
+    inline vector<string> getModelNames() { DARABONBA_PTR_GET(modelNames_, vector<string>) };
+    inline ExperimentRecord& setModelNames(const vector<string> & modelNames) { DARABONBA_PTR_SET_VALUE(modelNames_, modelNames) };
+    inline ExperimentRecord& setModelNames(vector<string> && modelNames) { DARABONBA_PTR_SET_RVALUE(modelNames_, modelNames) };
 
 
     // planName Field Functions 
@@ -202,11 +200,25 @@ namespace Models
     inline ExperimentRecord& setProgress(float progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
+    // querySql Field Functions 
+    bool hasQuerySql() const { return this->querySql_ != nullptr;};
+    void deleteQuerySql() { this->querySql_ = nullptr;};
+    inline string getQuerySql() const { DARABONBA_PTR_GET_DEFAULT(querySql_, "") };
+    inline ExperimentRecord& setQuerySql(string querySql) { DARABONBA_PTR_SET_VALUE(querySql_, querySql) };
+
+
     // recordId Field Functions 
     bool hasRecordId() const { return this->recordId_ != nullptr;};
     void deleteRecordId() { this->recordId_ = nullptr;};
     inline string getRecordId() const { DARABONBA_PTR_GET_DEFAULT(recordId_, "") };
     inline ExperimentRecord& setRecordId(string recordId) { DARABONBA_PTR_SET_VALUE(recordId_, recordId) };
+
+
+    // recordName Field Functions 
+    bool hasRecordName() const { return this->recordName_ != nullptr;};
+    void deleteRecordName() { this->recordName_ = nullptr;};
+    inline string getRecordName() const { DARABONBA_PTR_GET_DEFAULT(recordName_, "") };
+    inline ExperimentRecord& setRecordName(string recordName) { DARABONBA_PTR_SET_VALUE(recordName_, recordName) };
 
 
     // selectedItemIds Field Functions 
@@ -233,24 +245,25 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> batchId_ {};
     shared_ptr<int64_t> completedAt_ {};
     shared_ptr<int32_t> completedTasks_ {};
     shared_ptr<string> dataSourceType_ {};
     shared_ptr<string> datasetId_ {};
     shared_ptr<string> datasetProject_ {};
     shared_ptr<string> errorMessage_ {};
+    shared_ptr<string> evaluationTaskId_ {};
     shared_ptr<vector<Evaluator>> evaluators_ {};
     shared_ptr<int64_t> executedAt_ {};
-    shared_ptr<ExperimentConfig> experimentConfig_ {};
-    shared_ptr<string> experimentName_ {};
+    shared_ptr<vector<ExperimentConfig>> experimentConfig_ {};
+    shared_ptr<string> experimentPlanId_ {};
     shared_ptr<int32_t> failedTasks_ {};
     Darabonba::Json input_ {};
-    shared_ptr<string> modelName_ {};
-    shared_ptr<string> planId_ {};
+    shared_ptr<vector<string>> modelNames_ {};
     shared_ptr<string> planName_ {};
     shared_ptr<float> progress_ {};
+    shared_ptr<string> querySql_ {};
     shared_ptr<string> recordId_ {};
+    shared_ptr<string> recordName_ {};
     shared_ptr<vector<string>> selectedItemIds_ {};
     shared_ptr<string> status_ {};
     shared_ptr<int32_t> totalTasks_ {};

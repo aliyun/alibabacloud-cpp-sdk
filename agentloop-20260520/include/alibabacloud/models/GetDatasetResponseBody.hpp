@@ -107,14 +107,24 @@ namespace Models
 
 
   protected:
+    // The agent space name.
     shared_ptr<string> agentSpace_ {};
+    // The creation time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
+    // The dataset description.
     shared_ptr<string> description_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The table schema of the dataset.
     shared_ptr<map<string, IndexKey>> schema_ {};
+    // The update time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
   };

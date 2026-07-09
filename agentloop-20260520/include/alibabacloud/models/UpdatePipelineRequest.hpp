@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // The name of the SLS Logstore.
         shared_ptr<string> logstore_ {};
+        // The data filtered query statement in SLS query/analysis syntax.
         shared_ptr<string> query_ {};
       };
 
@@ -122,7 +124,9 @@ namespace Models
 
 
     protected:
+      // The SLS Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
+      // The data source type, such as SLS.
       shared_ptr<string> type_ {};
     };
 
@@ -186,6 +190,7 @@ namespace Models
 
       protected:
         shared_ptr<string> agentSpace_ {};
+        // The name of the destination dataset.
         shared_ptr<string> dataset_ {};
       };
 
@@ -208,7 +213,9 @@ namespace Models
 
 
     protected:
+      // The destination dataset configuration.
       shared_ptr<Sink::Dataset> dataset_ {};
+      // The sink type, such as Dataset.
       shared_ptr<string> type_ {};
     };
 
@@ -280,8 +287,11 @@ namespace Models
 
 
       protected:
+        // The node ID.
         shared_ptr<string> id_ {};
+        // The node parameters in key-value format. The parameters vary by node type.
         Darabonba::Json parameters_ {};
+        // The node type.
         shared_ptr<string> type_ {};
       };
 
@@ -296,6 +306,7 @@ namespace Models
 
 
     protected:
+      // The list of nodes.
       shared_ptr<vector<Pipeline::Nodes>> nodes_ {};
     };
 
@@ -360,7 +371,9 @@ namespace Models
 
 
       protected:
+        // The scheduling start time, in UNIX millisecond timestamp.
         shared_ptr<int64_t> fromTime_ {};
+        // The scheduling interval, such as 1h.
         shared_ptr<string> interval_ {};
       };
 
@@ -402,7 +415,9 @@ namespace Models
 
 
       protected:
+        // The data processing start time, in UNIX millisecond timestamp.
         shared_ptr<int64_t> fromTime_ {};
+        // The data processing end time, in UNIX millisecond timestamp.
         shared_ptr<int64_t> toTime_ {};
       };
 
@@ -434,8 +449,11 @@ namespace Models
 
 
     protected:
+      // The scheduling mode, such as Scheduled (timed scheduling) or RunOnce (one-time execution).
       shared_ptr<string> mode_ {};
+      // The configuration for one-time execution.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
+      // The timed scheduling configuration.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -492,10 +510,15 @@ namespace Models
 
 
   protected:
+    // The description of the pipeline, which helps users understand its purpose.
     shared_ptr<string> description_ {};
+    // The execution policy. If specified, the existing execution policy is entirely overwritten.
     shared_ptr<UpdatePipelineRequest::ExecutePolicy> executePolicy_ {};
+    // The pipeline configuration (node orchestration). If specified, the existing pipeline configuration is entirely overwritten.
     shared_ptr<UpdatePipelineRequest::Pipeline> pipeline_ {};
+    // The pipeline sink (data write destination). If specified, the existing sink configuration is entirely overwritten.
     shared_ptr<UpdatePipelineRequest::Sink> sink_ {};
+    // The pipeline data source. If specified, the existing source configuration is entirely overwritten.
     shared_ptr<UpdatePipelineRequest::Source> source_ {};
     shared_ptr<string> clientToken_ {};
   };

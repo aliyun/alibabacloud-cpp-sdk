@@ -21,7 +21,7 @@ namespace AgentLoop20260520
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
+       * @summary Appends structured data rows to a specified dataset without requiring the client to construct SQL statements.
        *
        * @param request AddDatasetDataRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace AgentLoop20260520
       Models::AddDatasetDataResponse addDatasetDataWithOptions(const string &agentSpace, const string &datasetName, const Models::AddDatasetDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
+       * @summary Appends structured data rows to a specified dataset without requiring the client to construct SQL statements.
        *
        * @param request AddDatasetDataRequest
        * @return AddDatasetDataResponse
@@ -39,7 +39,25 @@ namespace AgentLoop20260520
       Models::AddDatasetDataResponse addDatasetData(const string &agentSpace, const string &datasetName, const Models::AddDatasetDataRequest &request);
 
       /**
-       * @summary 创建AgentSpace
+       * @summary Cancels a pipeline run.
+       *
+       * @param request CancelPipelineRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelPipelineRunResponse
+       */
+      Models::CancelPipelineRunResponse cancelPipelineRunWithOptions(const string &agentSpace, const string &pipelineName, const string &runId, const Models::CancelPipelineRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cancels a pipeline run.
+       *
+       * @param request CancelPipelineRunRequest
+       * @return CancelPipelineRunResponse
+       */
+      Models::CancelPipelineRunResponse cancelPipelineRun(const string &agentSpace, const string &pipelineName, const string &runId, const Models::CancelPipelineRunRequest &request);
+
+      /**
+       * @summary Creates an AgentSpace.
        *
        * @param request CreateAgentSpaceRequest
        * @param headers map
@@ -49,7 +67,7 @@ namespace AgentLoop20260520
       Models::CreateAgentSpaceResponse createAgentSpaceWithOptions(const Models::CreateAgentSpaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建AgentSpace
+       * @summary Creates an AgentSpace.
        *
        * @param request CreateAgentSpaceRequest
        * @return CreateAgentSpaceResponse
@@ -57,7 +75,7 @@ namespace AgentLoop20260520
       Models::CreateAgentSpaceResponse createAgentSpace(const Models::CreateAgentSpaceRequest &request);
 
       /**
-       * @summary 创建上下文库
+       * @summary Creates a context store.
        *
        * @param request CreateContextStoreRequest
        * @param headers map
@@ -67,7 +85,7 @@ namespace AgentLoop20260520
       Models::CreateContextStoreResponse createContextStoreWithOptions(const string &agentSpace, const Models::CreateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建上下文库
+       * @summary Creates a context store.
        *
        * @param request CreateContextStoreRequest
        * @return CreateContextStoreResponse
@@ -75,7 +93,7 @@ namespace AgentLoop20260520
       Models::CreateContextStoreResponse createContextStore(const string &agentSpace, const Models::CreateContextStoreRequest &request);
 
       /**
-       * @summary 创建 API Key
+       * @summary Creates an API key.
        *
        * @param request CreateContextStoreAPIKeyRequest
        * @param headers map
@@ -85,7 +103,7 @@ namespace AgentLoop20260520
       Models::CreateContextStoreAPIKeyResponse createContextStoreAPIKeyWithOptions(const string &agentSpace, const string &contextStoreName, const Models::CreateContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 API Key
+       * @summary Creates an API key.
        *
        * @param request CreateContextStoreAPIKeyRequest
        * @return CreateContextStoreAPIKeyResponse
@@ -93,7 +111,7 @@ namespace AgentLoop20260520
       Models::CreateContextStoreAPIKeyResponse createContextStoreAPIKey(const string &agentSpace, const string &contextStoreName, const Models::CreateContextStoreAPIKeyRequest &request);
 
       /**
-       * @summary 创建数据集
+       * @summary Creates a dataset.
        *
        * @param request CreateDatasetRequest
        * @param headers map
@@ -103,7 +121,7 @@ namespace AgentLoop20260520
       Models::CreateDatasetResponse createDatasetWithOptions(const string &agentSpace, const Models::CreateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据集
+       * @summary Creates a dataset.
        *
        * @param request CreateDatasetRequest
        * @return CreateDatasetResponse
@@ -111,7 +129,67 @@ namespace AgentLoop20260520
       Models::CreateDatasetResponse createDataset(const string &agentSpace, const Models::CreateDatasetRequest &request);
 
       /**
-       * @summary 删除AgentSpace
+       * @summary Creates an evaluation task.
+       *
+       * @description Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+       * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+       *
+       * @param request CreateEvaluationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEvaluationTaskResponse
+       */
+      Models::CreateEvaluationTaskResponse createEvaluationTaskWithOptions(const string &agentSpace, const Models::CreateEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an evaluation task.
+       *
+       * @description Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+       * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+       *
+       * @param request CreateEvaluationTaskRequest
+       * @return CreateEvaluationTaskResponse
+       */
+      Models::CreateEvaluationTaskResponse createEvaluationTask(const string &agentSpace, const Models::CreateEvaluationTaskRequest &request);
+
+      /**
+       * @summary Creates an evaluator.
+       *
+       * @param request CreateEvaluatorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEvaluatorResponse
+       */
+      Models::CreateEvaluatorResponse createEvaluatorWithOptions(const string &agentSpace, const Models::CreateEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an evaluator.
+       *
+       * @param request CreateEvaluatorRequest
+       * @return CreateEvaluatorResponse
+       */
+      Models::CreateEvaluatorResponse createEvaluator(const string &agentSpace, const Models::CreateEvaluatorRequest &request);
+
+      /**
+       * @summary Creates an evaluator skill.
+       *
+       * @param request CreateEvaluatorSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEvaluatorSkillResponse
+       */
+      Models::CreateEvaluatorSkillResponse createEvaluatorSkillWithOptions(const string &name, const Models::CreateEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an evaluator skill.
+       *
+       * @param request CreateEvaluatorSkillRequest
+       * @return CreateEvaluatorSkillResponse
+       */
+      Models::CreateEvaluatorSkillResponse createEvaluatorSkill(const string &name, const Models::CreateEvaluatorSkillRequest &request);
+
+      /**
+       * @summary Deletes an AgentSpace.
        *
        * @param request DeleteAgentSpaceRequest
        * @param headers map
@@ -121,7 +199,7 @@ namespace AgentLoop20260520
       Models::DeleteAgentSpaceResponse deleteAgentSpaceWithOptions(const string &agentSpace, const Models::DeleteAgentSpaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除AgentSpace
+       * @summary Deletes an AgentSpace.
        *
        * @param request DeleteAgentSpaceRequest
        * @return DeleteAgentSpaceResponse
@@ -129,7 +207,7 @@ namespace AgentLoop20260520
       Models::DeleteAgentSpaceResponse deleteAgentSpace(const string &agentSpace, const Models::DeleteAgentSpaceRequest &request);
 
       /**
-       * @summary 删除上下文库
+       * @summary Deletes a context store.
        *
        * @param request DeleteContextStoreRequest
        * @param headers map
@@ -139,7 +217,7 @@ namespace AgentLoop20260520
       Models::DeleteContextStoreResponse deleteContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const Models::DeleteContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除上下文库
+       * @summary Deletes a context store.
        *
        * @param request DeleteContextStoreRequest
        * @return DeleteContextStoreResponse
@@ -147,7 +225,7 @@ namespace AgentLoop20260520
       Models::DeleteContextStoreResponse deleteContextStore(const string &agentSpace, const string &contextStoreName, const Models::DeleteContextStoreRequest &request);
 
       /**
-       * @summary 删除 API Key
+       * @summary Deletes an API key.
        *
        * @param request DeleteContextStoreAPIKeyRequest
        * @param headers map
@@ -157,7 +235,7 @@ namespace AgentLoop20260520
       Models::DeleteContextStoreAPIKeyResponse deleteContextStoreAPIKeyWithOptions(const string &agentSpace, const string &contextStoreName, const string &name, const Models::DeleteContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 API Key
+       * @summary Deletes an API key.
        *
        * @param request DeleteContextStoreAPIKeyRequest
        * @return DeleteContextStoreAPIKeyResponse
@@ -165,7 +243,7 @@ namespace AgentLoop20260520
       Models::DeleteContextStoreAPIKeyResponse deleteContextStoreAPIKey(const string &agentSpace, const string &contextStoreName, const string &name, const Models::DeleteContextStoreAPIKeyRequest &request);
 
       /**
-       * @summary 删除数据集
+       * @summary Deletes a dataset.
        *
        * @param request DeleteDatasetRequest
        * @param headers map
@@ -175,7 +253,7 @@ namespace AgentLoop20260520
       Models::DeleteDatasetResponse deleteDatasetWithOptions(const string &agentSpace, const string &datasetName, const Models::DeleteDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据集
+       * @summary Deletes a dataset.
        *
        * @param request DeleteDatasetRequest
        * @return DeleteDatasetResponse
@@ -183,7 +261,79 @@ namespace AgentLoop20260520
       Models::DeleteDatasetResponse deleteDataset(const string &agentSpace, const string &datasetName, const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary 删除流水线
+       * @summary Deletes an evaluation run.
+       *
+       * @param request DeleteEvaluationRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEvaluationRunResponse
+       */
+      Models::DeleteEvaluationRunResponse deleteEvaluationRunWithOptions(const string &agentSpace, const string &taskId, const string &runId, const Models::DeleteEvaluationRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an evaluation run.
+       *
+       * @param request DeleteEvaluationRunRequest
+       * @return DeleteEvaluationRunResponse
+       */
+      Models::DeleteEvaluationRunResponse deleteEvaluationRun(const string &agentSpace, const string &taskId, const string &runId, const Models::DeleteEvaluationRunRequest &request);
+
+      /**
+       * @summary Deletes an evaluation task.
+       *
+       * @param request DeleteEvaluationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEvaluationTaskResponse
+       */
+      Models::DeleteEvaluationTaskResponse deleteEvaluationTaskWithOptions(const string &agentSpace, const string &taskId, const Models::DeleteEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an evaluation task.
+       *
+       * @param request DeleteEvaluationTaskRequest
+       * @return DeleteEvaluationTaskResponse
+       */
+      Models::DeleteEvaluationTaskResponse deleteEvaluationTask(const string &agentSpace, const string &taskId, const Models::DeleteEvaluationTaskRequest &request);
+
+      /**
+       * @summary Deletes an evaluator.
+       *
+       * @param request DeleteEvaluatorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEvaluatorResponse
+       */
+      Models::DeleteEvaluatorResponse deleteEvaluatorWithOptions(const string &agentSpace, const string &name, const Models::DeleteEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an evaluator.
+       *
+       * @param request DeleteEvaluatorRequest
+       * @return DeleteEvaluatorResponse
+       */
+      Models::DeleteEvaluatorResponse deleteEvaluator(const string &agentSpace, const string &name, const Models::DeleteEvaluatorRequest &request);
+
+      /**
+       * @summary Deletes an evaluator skill.
+       *
+       * @param request DeleteEvaluatorSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEvaluatorSkillResponse
+       */
+      Models::DeleteEvaluatorSkillResponse deleteEvaluatorSkillWithOptions(const string &name, const string &skillName, const Models::DeleteEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an evaluator skill.
+       *
+       * @param request DeleteEvaluatorSkillRequest
+       * @return DeleteEvaluatorSkillResponse
+       */
+      Models::DeleteEvaluatorSkillResponse deleteEvaluatorSkill(const string &name, const string &skillName, const Models::DeleteEvaluatorSkillRequest &request);
+
+      /**
+       * @summary Deletes a pipeline.
        *
        * @param request DeletePipelineRequest
        * @param headers map
@@ -193,7 +343,7 @@ namespace AgentLoop20260520
       Models::DeletePipelineResponse deletePipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::DeletePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除流水线
+       * @summary Deletes a pipeline.
        *
        * @param request DeletePipelineRequest
        * @return DeletePipelineResponse
@@ -201,7 +351,7 @@ namespace AgentLoop20260520
       Models::DeletePipelineResponse deletePipeline(const string &agentSpace, const string &pipelineName, const Models::DeletePipelineRequest &request);
 
       /**
-       * @summary 查询Regions
+       * @summary Queries regions.
        *
        * @param request DescribeRegionsRequest
        * @param headers map
@@ -211,7 +361,7 @@ namespace AgentLoop20260520
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Regions
+       * @summary Queries regions.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -219,7 +369,7 @@ namespace AgentLoop20260520
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary 执行查询语句
+       * @summary Executes a query statement.
        *
        * @param request ExecuteQueryRequest
        * @param headers map
@@ -229,7 +379,7 @@ namespace AgentLoop20260520
       Models::ExecuteQueryResponse executeQueryWithOptions(const string &agentSpace, const string &datasetName, const Models::ExecuteQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行查询语句
+       * @summary Executes a query statement.
        *
        * @param request ExecuteQueryRequest
        * @return ExecuteQueryResponse
@@ -237,7 +387,7 @@ namespace AgentLoop20260520
       Models::ExecuteQueryResponse executeQuery(const string &agentSpace, const string &datasetName, const Models::ExecuteQueryRequest &request);
 
       /**
-       * @summary 查询AgentSpace
+       * @summary Queries an AgentSpace.
        *
        * @param request GetAgentSpaceRequest
        * @param headers map
@@ -247,7 +397,7 @@ namespace AgentLoop20260520
       Models::GetAgentSpaceResponse getAgentSpaceWithOptions(const string &agentSpace, const Models::GetAgentSpaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询AgentSpace
+       * @summary Queries an AgentSpace.
        *
        * @param request GetAgentSpaceRequest
        * @return GetAgentSpaceResponse
@@ -255,7 +405,7 @@ namespace AgentLoop20260520
       Models::GetAgentSpaceResponse getAgentSpace(const string &agentSpace, const Models::GetAgentSpaceRequest &request);
 
       /**
-       * @summary 查询上下文库
+       * @summary Queries a context store.
        *
        * @param request GetContextStoreRequest
        * @param headers map
@@ -265,7 +415,7 @@ namespace AgentLoop20260520
       Models::GetContextStoreResponse getContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const Models::GetContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询上下文库
+       * @summary Queries a context store.
        *
        * @param request GetContextStoreRequest
        * @return GetContextStoreResponse
@@ -273,7 +423,7 @@ namespace AgentLoop20260520
       Models::GetContextStoreResponse getContextStore(const string &agentSpace, const string &contextStoreName, const Models::GetContextStoreRequest &request);
 
       /**
-       * @summary 获取 API Key
+       * @summary Retrieves an API key.
        *
        * @param request GetContextStoreAPIKeyRequest
        * @param headers map
@@ -283,7 +433,7 @@ namespace AgentLoop20260520
       Models::GetContextStoreAPIKeyResponse getContextStoreAPIKeyWithOptions(const string &agentSpace, const string &contextStoreName, const string &name, const Models::GetContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 API Key
+       * @summary Retrieves an API key.
        *
        * @param request GetContextStoreAPIKeyRequest
        * @return GetContextStoreAPIKeyResponse
@@ -291,7 +441,7 @@ namespace AgentLoop20260520
       Models::GetContextStoreAPIKeyResponse getContextStoreAPIKey(const string &agentSpace, const string &contextStoreName, const string &name, const Models::GetContextStoreAPIKeyRequest &request);
 
       /**
-       * @summary 查询数据集
+       * @summary Queries a dataset.
        *
        * @param request GetDatasetRequest
        * @param headers map
@@ -301,7 +451,7 @@ namespace AgentLoop20260520
       Models::GetDatasetResponse getDatasetWithOptions(const string &agentSpace, const string &datasetName, const Models::GetDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据集
+       * @summary Queries a dataset.
        *
        * @param request GetDatasetRequest
        * @return GetDatasetResponse
@@ -309,7 +459,79 @@ namespace AgentLoop20260520
       Models::GetDatasetResponse getDataset(const string &agentSpace, const string &datasetName, const Models::GetDatasetRequest &request);
 
       /**
-       * @summary 查询流水线
+       * @summary Retrieves the details of an evaluation run.
+       *
+       * @param request GetEvaluationRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEvaluationRunResponse
+       */
+      Models::GetEvaluationRunResponse getEvaluationRunWithOptions(const string &agentSpace, const string &taskId, const string &runId, const Models::GetEvaluationRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an evaluation run.
+       *
+       * @param request GetEvaluationRunRequest
+       * @return GetEvaluationRunResponse
+       */
+      Models::GetEvaluationRunResponse getEvaluationRun(const string &agentSpace, const string &taskId, const string &runId, const Models::GetEvaluationRunRequest &request);
+
+      /**
+       * @summary Retrieves the details of an evaluation task.
+       *
+       * @param request GetEvaluationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEvaluationTaskResponse
+       */
+      Models::GetEvaluationTaskResponse getEvaluationTaskWithOptions(const string &agentSpace, const string &taskId, const Models::GetEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an evaluation task.
+       *
+       * @param request GetEvaluationTaskRequest
+       * @return GetEvaluationTaskResponse
+       */
+      Models::GetEvaluationTaskResponse getEvaluationTask(const string &agentSpace, const string &taskId, const Models::GetEvaluationTaskRequest &request);
+
+      /**
+       * @summary Retrieves the details of an evaluator.
+       *
+       * @param request GetEvaluatorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEvaluatorResponse
+       */
+      Models::GetEvaluatorResponse getEvaluatorWithOptions(const string &agentSpace, const string &name, const Models::GetEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an evaluator.
+       *
+       * @param request GetEvaluatorRequest
+       * @return GetEvaluatorResponse
+       */
+      Models::GetEvaluatorResponse getEvaluator(const string &agentSpace, const string &name, const Models::GetEvaluatorRequest &request);
+
+      /**
+       * @summary Retrieves the details of an evaluator skill.
+       *
+       * @param request GetEvaluatorSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEvaluatorSkillResponse
+       */
+      Models::GetEvaluatorSkillResponse getEvaluatorSkillWithOptions(const string &name, const string &skillName, const Models::GetEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an evaluator skill.
+       *
+       * @param request GetEvaluatorSkillRequest
+       * @return GetEvaluatorSkillResponse
+       */
+      Models::GetEvaluatorSkillResponse getEvaluatorSkill(const string &name, const string &skillName, const Models::GetEvaluatorSkillRequest &request);
+
+      /**
+       * @summary Queries a CI/CD pipeline.
        *
        * @param request GetPipelineRequest
        * @param headers map
@@ -319,7 +541,7 @@ namespace AgentLoop20260520
       Models::GetPipelineResponse getPipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::GetPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询流水线
+       * @summary Queries a CI/CD pipeline.
        *
        * @param request GetPipelineRequest
        * @return GetPipelineResponse
@@ -327,7 +549,43 @@ namespace AgentLoop20260520
       Models::GetPipelineResponse getPipeline(const string &agentSpace, const string &pipelineName, const Models::GetPipelineRequest &request);
 
       /**
-       * @summary 查询AgentSpace列表
+       * @summary Queries the details of a single pipeline run.
+       *
+       * @param request GetPipelineRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPipelineRunResponse
+       */
+      Models::GetPipelineRunResponse getPipelineRunWithOptions(const string &agentSpace, const string &pipelineName, const string &runId, const Models::GetPipelineRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a single pipeline run.
+       *
+       * @param request GetPipelineRunRequest
+       * @return GetPipelineRunResponse
+       */
+      Models::GetPipelineRunResponse getPipelineRun(const string &agentSpace, const string &pipelineName, const string &runId, const Models::GetPipelineRunRequest &request);
+
+      /**
+       * @summary Queries pipeline run statistics.
+       *
+       * @param request GetPipelineStatsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPipelineStatsResponse
+       */
+      Models::GetPipelineStatsResponse getPipelineStatsWithOptions(const string &agentSpace, const string &pipelineName, const Models::GetPipelineStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries pipeline run statistics.
+       *
+       * @param request GetPipelineStatsRequest
+       * @return GetPipelineStatsResponse
+       */
+      Models::GetPipelineStatsResponse getPipelineStats(const string &agentSpace, const string &pipelineName, const Models::GetPipelineStatsRequest &request);
+
+      /**
+       * @summary Queries a list of AgentSpaces.
        *
        * @param request ListAgentSpacesRequest
        * @param headers map
@@ -337,7 +595,7 @@ namespace AgentLoop20260520
       Models::ListAgentSpacesResponse listAgentSpacesWithOptions(const Models::ListAgentSpacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询AgentSpace列表
+       * @summary Queries a list of AgentSpaces.
        *
        * @param request ListAgentSpacesRequest
        * @return ListAgentSpacesResponse
@@ -345,7 +603,7 @@ namespace AgentLoop20260520
       Models::ListAgentSpacesResponse listAgentSpaces(const Models::ListAgentSpacesRequest &request);
 
       /**
-       * @summary 获取 API Key 列表
+       * @summary Retrieves a list of API keys.
        *
        * @param request ListContextStoreAPIKeysRequest
        * @param headers map
@@ -355,7 +613,7 @@ namespace AgentLoop20260520
       Models::ListContextStoreAPIKeysResponse listContextStoreAPIKeysWithOptions(const string &agentSpace, const string &contextStoreName, const Models::ListContextStoreAPIKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 API Key 列表
+       * @summary Retrieves a list of API keys.
        *
        * @param request ListContextStoreAPIKeysRequest
        * @return ListContextStoreAPIKeysResponse
@@ -363,7 +621,7 @@ namespace AgentLoop20260520
       Models::ListContextStoreAPIKeysResponse listContextStoreAPIKeys(const string &agentSpace, const string &contextStoreName, const Models::ListContextStoreAPIKeysRequest &request);
 
       /**
-       * @summary 查询上下文库列表
+       * @summary Queries a list of context stores.
        *
        * @param request ListContextStoresRequest
        * @param headers map
@@ -373,7 +631,7 @@ namespace AgentLoop20260520
       Models::ListContextStoresResponse listContextStoresWithOptions(const string &agentSpace, const Models::ListContextStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询上下文库列表
+       * @summary Queries a list of context stores.
        *
        * @param request ListContextStoresRequest
        * @return ListContextStoresResponse
@@ -381,7 +639,7 @@ namespace AgentLoop20260520
       Models::ListContextStoresResponse listContextStores(const string &agentSpace, const Models::ListContextStoresRequest &request);
 
       /**
-       * @summary 查询数据集列表
+       * @summary Queries a list of datasets.
        *
        * @param request ListDatasetsRequest
        * @param headers map
@@ -391,7 +649,7 @@ namespace AgentLoop20260520
       Models::ListDatasetsResponse listDatasetsWithOptions(const string &agentSpace, const Models::ListDatasetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据集列表
+       * @summary Queries a list of datasets.
        *
        * @param request ListDatasetsRequest
        * @return ListDatasetsResponse
@@ -399,7 +657,97 @@ namespace AgentLoop20260520
       Models::ListDatasetsResponse listDatasets(const string &agentSpace, const Models::ListDatasetsRequest &request);
 
       /**
-       * @summary 查询流水线列表
+       * @summary Queries the list of evaluation runs.
+       *
+       * @param request ListEvaluationRunsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEvaluationRunsResponse
+       */
+      Models::ListEvaluationRunsResponse listEvaluationRunsWithOptions(const string &agentSpace, const string &taskId, const Models::ListEvaluationRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of evaluation runs.
+       *
+       * @param request ListEvaluationRunsRequest
+       * @return ListEvaluationRunsResponse
+       */
+      Models::ListEvaluationRunsResponse listEvaluationRuns(const string &agentSpace, const string &taskId, const Models::ListEvaluationRunsRequest &request);
+
+      /**
+       * @summary Queries a list of evaluation tasks.
+       *
+       * @param request ListEvaluationTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEvaluationTasksResponse
+       */
+      Models::ListEvaluationTasksResponse listEvaluationTasksWithOptions(const Models::ListEvaluationTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of evaluation tasks.
+       *
+       * @param request ListEvaluationTasksRequest
+       * @return ListEvaluationTasksResponse
+       */
+      Models::ListEvaluationTasksResponse listEvaluationTasks(const Models::ListEvaluationTasksRequest &request);
+
+      /**
+       * @summary Queries the skill list of an evaluator.
+       *
+       * @param request ListEvaluatorSkillsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEvaluatorSkillsResponse
+       */
+      Models::ListEvaluatorSkillsResponse listEvaluatorSkillsWithOptions(const string &name, const Models::ListEvaluatorSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the skill list of an evaluator.
+       *
+       * @param request ListEvaluatorSkillsRequest
+       * @return ListEvaluatorSkillsResponse
+       */
+      Models::ListEvaluatorSkillsResponse listEvaluatorSkills(const string &name, const Models::ListEvaluatorSkillsRequest &request);
+
+      /**
+       * @summary Queries a list of evaluators.
+       *
+       * @param request ListEvaluatorsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEvaluatorsResponse
+       */
+      Models::ListEvaluatorsResponse listEvaluatorsWithOptions(const Models::ListEvaluatorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of evaluators.
+       *
+       * @param request ListEvaluatorsRequest
+       * @return ListEvaluatorsResponse
+       */
+      Models::ListEvaluatorsResponse listEvaluators(const Models::ListEvaluatorsRequest &request);
+
+      /**
+       * @summary Queries the execution history list of a pipeline.
+       *
+       * @param request ListPipelineRunsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPipelineRunsResponse
+       */
+      Models::ListPipelineRunsResponse listPipelineRunsWithOptions(const string &agentSpace, const string &pipelineName, const Models::ListPipelineRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the execution history list of a pipeline.
+       *
+       * @param request ListPipelineRunsRequest
+       * @return ListPipelineRunsResponse
+       */
+      Models::ListPipelineRunsResponse listPipelineRuns(const string &agentSpace, const string &pipelineName, const Models::ListPipelineRunsRequest &request);
+
+      /**
+       * @summary Lists CI/CD pipelines.
        *
        * @param request ListPipelinesRequest
        * @param headers map
@@ -409,7 +757,7 @@ namespace AgentLoop20260520
       Models::ListPipelinesResponse listPipelinesWithOptions(const string &agentSpace, const Models::ListPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询流水线列表
+       * @summary Lists CI/CD pipelines.
        *
        * @param request ListPipelinesRequest
        * @return ListPipelinesResponse
@@ -417,7 +765,61 @@ namespace AgentLoop20260520
       Models::ListPipelinesResponse listPipelines(const string &agentSpace, const Models::ListPipelinesRequest &request);
 
       /**
-       * @summary 搜索上下文
+       * @summary Pauses a pipeline.
+       *
+       * @param request PausePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PausePipelineResponse
+       */
+      Models::PausePipelineResponse pausePipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::PausePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Pauses a pipeline.
+       *
+       * @param request PausePipelineRequest
+       * @return PausePipelineResponse
+       */
+      Models::PausePipelineResponse pausePipeline(const string &agentSpace, const string &pipelineName, const Models::PausePipelineRequest &request);
+
+      /**
+       * @summary Resumes a pipeline.
+       *
+       * @param request ResumePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumePipelineResponse
+       */
+      Models::ResumePipelineResponse resumePipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::ResumePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resumes a pipeline.
+       *
+       * @param request ResumePipelineRequest
+       * @return ResumePipelineResponse
+       */
+      Models::ResumePipelineResponse resumePipeline(const string &agentSpace, const string &pipelineName, const Models::ResumePipelineRequest &request);
+
+      /**
+       * @summary Manually triggers a pipeline execution.
+       *
+       * @param request RunPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunPipelineResponse
+       */
+      Models::RunPipelineResponse runPipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::RunPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Manually triggers a pipeline execution.
+       *
+       * @param request RunPipelineRequest
+       * @return RunPipelineResponse
+       */
+      Models::RunPipelineResponse runPipeline(const string &agentSpace, const string &pipelineName, const Models::RunPipelineRequest &request);
+
+      /**
+       * @summary Searches contexts.
        *
        * @param request SearchContextRequest
        * @param headers map
@@ -427,7 +829,7 @@ namespace AgentLoop20260520
       Models::SearchContextResponse searchContextWithOptions(const string &agentSpace, const string &contextStoreName, const Models::SearchContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索上下文
+       * @summary Searches contexts.
        *
        * @param request SearchContextRequest
        * @return SearchContextResponse
@@ -435,7 +837,25 @@ namespace AgentLoop20260520
       Models::SearchContextResponse searchContext(const string &agentSpace, const string &contextStoreName, const Models::SearchContextRequest &request);
 
       /**
-       * @summary 更新AgentSpace
+       * @summary Stops a pipeline.
+       *
+       * @param request TerminatePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TerminatePipelineResponse
+       */
+      Models::TerminatePipelineResponse terminatePipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::TerminatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops a pipeline.
+       *
+       * @param request TerminatePipelineRequest
+       * @return TerminatePipelineResponse
+       */
+      Models::TerminatePipelineResponse terminatePipeline(const string &agentSpace, const string &pipelineName, const Models::TerminatePipelineRequest &request);
+
+      /**
+       * @summary Updates an AgentSpace.
        *
        * @param request UpdateAgentSpaceRequest
        * @param headers map
@@ -445,7 +865,7 @@ namespace AgentLoop20260520
       Models::UpdateAgentSpaceResponse updateAgentSpaceWithOptions(const string &agentSpace, const Models::UpdateAgentSpaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新AgentSpace
+       * @summary Updates an AgentSpace.
        *
        * @param request UpdateAgentSpaceRequest
        * @return UpdateAgentSpaceResponse
@@ -453,7 +873,7 @@ namespace AgentLoop20260520
       Models::UpdateAgentSpaceResponse updateAgentSpace(const string &agentSpace, const Models::UpdateAgentSpaceRequest &request);
 
       /**
-       * @summary 修改上下文库配置
+       * @summary Modifies the configuration of a context store.
        *
        * @param request UpdateContextStoreRequest
        * @param headers map
@@ -463,7 +883,7 @@ namespace AgentLoop20260520
       Models::UpdateContextStoreResponse updateContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const Models::UpdateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改上下文库配置
+       * @summary Modifies the configuration of a context store.
        *
        * @param request UpdateContextStoreRequest
        * @return UpdateContextStoreResponse
@@ -471,7 +891,7 @@ namespace AgentLoop20260520
       Models::UpdateContextStoreResponse updateContextStore(const string &agentSpace, const string &contextStoreName, const Models::UpdateContextStoreRequest &request);
 
       /**
-       * @summary 更新数据集
+       * @summary Updates a dataset.
        *
        * @param request UpdateDatasetRequest
        * @param headers map
@@ -481,7 +901,7 @@ namespace AgentLoop20260520
       Models::UpdateDatasetResponse updateDatasetWithOptions(const string &agentSpace, const string &datasetName, const Models::UpdateDatasetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据集
+       * @summary Updates a dataset.
        *
        * @param request UpdateDatasetRequest
        * @return UpdateDatasetResponse
@@ -489,7 +909,79 @@ namespace AgentLoop20260520
       Models::UpdateDatasetResponse updateDataset(const string &agentSpace, const string &datasetName, const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary 更新流水线
+       * @summary Updates an evaluation run.
+       *
+       * @param request UpdateEvaluationRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEvaluationRunResponse
+       */
+      Models::UpdateEvaluationRunResponse updateEvaluationRunWithOptions(const string &agentSpace, const string &taskId, const string &runId, const Models::UpdateEvaluationRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an evaluation run.
+       *
+       * @param request UpdateEvaluationRunRequest
+       * @return UpdateEvaluationRunResponse
+       */
+      Models::UpdateEvaluationRunResponse updateEvaluationRun(const string &agentSpace, const string &taskId, const string &runId, const Models::UpdateEvaluationRunRequest &request);
+
+      /**
+       * @summary Updates an evaluation task.
+       *
+       * @param request UpdateEvaluationTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEvaluationTaskResponse
+       */
+      Models::UpdateEvaluationTaskResponse updateEvaluationTaskWithOptions(const string &agentSpace, const string &taskId, const Models::UpdateEvaluationTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an evaluation task.
+       *
+       * @param request UpdateEvaluationTaskRequest
+       * @return UpdateEvaluationTaskResponse
+       */
+      Models::UpdateEvaluationTaskResponse updateEvaluationTask(const string &agentSpace, const string &taskId, const Models::UpdateEvaluationTaskRequest &request);
+
+      /**
+       * @summary Updates an evaluator.
+       *
+       * @param request UpdateEvaluatorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEvaluatorResponse
+       */
+      Models::UpdateEvaluatorResponse updateEvaluatorWithOptions(const string &agentSpace, const string &name, const Models::UpdateEvaluatorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an evaluator.
+       *
+       * @param request UpdateEvaluatorRequest
+       * @return UpdateEvaluatorResponse
+       */
+      Models::UpdateEvaluatorResponse updateEvaluator(const string &agentSpace, const string &name, const Models::UpdateEvaluatorRequest &request);
+
+      /**
+       * @summary Updates an evaluator skill.
+       *
+       * @param request UpdateEvaluatorSkillRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEvaluatorSkillResponse
+       */
+      Models::UpdateEvaluatorSkillResponse updateEvaluatorSkillWithOptions(const string &name, const string &skillName, const Models::UpdateEvaluatorSkillRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an evaluator skill.
+       *
+       * @param request UpdateEvaluatorSkillRequest
+       * @return UpdateEvaluatorSkillResponse
+       */
+      Models::UpdateEvaluatorSkillResponse updateEvaluatorSkill(const string &name, const string &skillName, const Models::UpdateEvaluatorSkillRequest &request);
+
+      /**
+       * @summary Updates a pipeline.
        *
        * @param request UpdatePipelineRequest
        * @param headers map
@@ -499,7 +991,7 @@ namespace AgentLoop20260520
       Models::UpdatePipelineResponse updatePipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::UpdatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新流水线
+       * @summary Updates a pipeline.
        *
        * @param request UpdatePipelineRequest
        * @return UpdatePipelineResponse

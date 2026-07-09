@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The public endpoint.
       shared_ptr<string> internetEndpoint_ {};
+      // The region name.
       shared_ptr<string> localName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The internal endpoint.
       shared_ptr<string> vpcEndpoint_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. If no more pages are available, this parameter is empty.
     shared_ptr<string> nextToken_ {};
+    // The region information.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

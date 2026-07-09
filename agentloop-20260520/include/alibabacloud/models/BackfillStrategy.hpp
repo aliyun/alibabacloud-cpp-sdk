@@ -15,13 +15,11 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const BackfillStrategy& obj) { 
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
-      DARABONBA_PTR_TO_JSON(immediate, immediate_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, BackfillStrategy& obj) { 
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
-      DARABONBA_PTR_FROM_JSON(immediate, immediate_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
     };
     BackfillStrategy() = default ;
@@ -36,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enabled_ == nullptr
-        && this->endTime_ == nullptr && this->immediate_ == nullptr && this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->startTime_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
@@ -51,13 +49,6 @@ namespace Models
     inline BackfillStrategy& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
-    // immediate Field Functions 
-    bool hasImmediate() const { return this->immediate_ != nullptr;};
-    void deleteImmediate() { this->immediate_ = nullptr;};
-    inline bool getImmediate() const { DARABONBA_PTR_GET_DEFAULT(immediate_, false) };
-    inline BackfillStrategy& setImmediate(bool immediate) { DARABONBA_PTR_SET_VALUE(immediate_, immediate) };
-
-
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -66,9 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether the backfill policy is enabled. If this parameter is not specified or is set to true, the policy is enabled. If this parameter is set to false, the policy is disabled but the configuration is retained.
     shared_ptr<bool> enabled_ {};
+    // The end of the backfill time range, in UNIX millisecond timestamp. Provide a complete time range when you need to manually start a backfill.
     shared_ptr<int64_t> endTime_ {};
-    shared_ptr<bool> immediate_ {};
+    // The start of the backfill time range, in UNIX millisecond timestamp. Provide a complete time range when you need to manually start a backfill.
     shared_ptr<int64_t> startTime_ {};
   };
 

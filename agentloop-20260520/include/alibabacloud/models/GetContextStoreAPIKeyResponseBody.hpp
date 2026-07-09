@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The name of the AgentSpace to which the API key belongs.
     shared_ptr<string> agentSpace_ {};
+    // The masked prefix of the API key (for example, sk-abcd****). For security purposes, the full plaintext is not returned.
     shared_ptr<string> apiKey_ {};
+    // The name of the context store to which the API key belongs.
     shared_ptr<string> contextStoreName_ {};
+    // The creation time of the API key, in ISO 8601 UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The display name of the API key.
     shared_ptr<string> name_ {};
+    // The region ID of the API key.
     shared_ptr<string> regionId_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

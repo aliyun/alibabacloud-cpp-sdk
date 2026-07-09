@@ -13,20 +13,16 @@ namespace Models
   class DataFilter : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DataFilter& obj) { 
-      DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(maxRecords, maxRecords_);
       DARABONBA_ANY_TO_JSON(provided, provided_);
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(samplingRate, samplingRate_);
-      DARABONBA_PTR_TO_JSON(startTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DataFilter& obj) { 
-      DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(maxRecords, maxRecords_);
       DARABONBA_ANY_FROM_JSON(provided, provided_);
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(samplingRate, samplingRate_);
-      DARABONBA_PTR_FROM_JSON(startTime, startTime_);
     };
     DataFilter() = default ;
     DataFilter(const DataFilter &) = default ;
@@ -39,15 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->maxRecords_ == nullptr && this->provided_ == nullptr && this->query_ == nullptr && this->samplingRate_ == nullptr && this->startTime_ == nullptr; };
-    // endTime Field Functions 
-    bool hasEndTime() const { return this->endTime_ != nullptr;};
-    void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
-    inline DataFilter& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
-
-
+    virtual bool empty() const override { return this->maxRecords_ == nullptr
+        && this->provided_ == nullptr && this->query_ == nullptr && this->samplingRate_ == nullptr; };
     // maxRecords Field Functions 
     bool hasMaxRecords() const { return this->maxRecords_ != nullptr;};
     void deleteMaxRecords() { this->maxRecords_ = nullptr;};
@@ -78,20 +67,15 @@ namespace Models
     inline DataFilter& setSamplingRate(int32_t samplingRate) { DARABONBA_PTR_SET_VALUE(samplingRate_, samplingRate) };
 
 
-    // startTime Field Functions 
-    bool hasStartTime() const { return this->startTime_ != nullptr;};
-    void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
-    inline DataFilter& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
-
-
   protected:
-    shared_ptr<int64_t> endTime_ {};
+    // The maximum number of evaluation records. This takes effect for both backfill and continuous runs. If not specified, the backend does not write a default value.
     shared_ptr<int32_t> maxRecords_ {};
+    // The one-time temporary evaluation input content, primarily used for oneshot tasks. The value is stored as a string. Object or array values are serialized to a JSON string.
     Darabonba::Json provided_ {};
+    // The data query filter condition. This takes effect together with the evaluator-level filters.query. In Trace scenarios, you can specify filter expressions such as service name, environment, or labels.
     shared_ptr<string> query_ {};
+    // The sampling rate percentage. Valid values: 0 to 100. A value of 0 or not specified indicates no sampling. A value of 100 indicates full data. If the value is less than 100, random sampling is applied first, and then the maxRecords limit is applied.
     shared_ptr<int32_t> samplingRate_ {};
-    shared_ptr<int64_t> startTime_ {};
   };
 
   } // namespace Models
