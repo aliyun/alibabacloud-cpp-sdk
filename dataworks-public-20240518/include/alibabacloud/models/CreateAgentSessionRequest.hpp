@@ -81,10 +81,14 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const InitialConfigOptions& obj) { 
             DARABONBA_PTR_TO_JSON(ExecutionLane, executionLane_);
             DARABONBA_PTR_TO_JSON(Mode, mode_);
+            DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+            DARABONBA_PTR_TO_JSON(Skills, skills_);
           };
           friend void from_json(const Darabonba::Json& j, InitialConfigOptions& obj) { 
             DARABONBA_PTR_FROM_JSON(ExecutionLane, executionLane_);
             DARABONBA_PTR_FROM_JSON(Mode, mode_);
+            DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+            DARABONBA_PTR_FROM_JSON(Skills, skills_);
           };
           InitialConfigOptions() = default ;
           InitialConfigOptions(const InitialConfigOptions &) = default ;
@@ -98,7 +102,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->executionLane_ == nullptr
-        && this->mode_ == nullptr; };
+        && this->mode_ == nullptr && this->resourceGroupId_ == nullptr && this->skills_ == nullptr; };
           // executionLane Field Functions 
           bool hasExecutionLane() const { return this->executionLane_ != nullptr;};
           void deleteExecutionLane() { this->executionLane_ = nullptr;};
@@ -113,9 +117,25 @@ namespace Models
           inline InitialConfigOptions& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
+          // resourceGroupId Field Functions 
+          bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+          void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+          inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+          inline InitialConfigOptions& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+          // skills Field Functions 
+          bool hasSkills() const { return this->skills_ != nullptr;};
+          void deleteSkills() { this->skills_ = nullptr;};
+          inline string getSkills() const { DARABONBA_PTR_GET_DEFAULT(skills_, "") };
+          inline InitialConfigOptions& setSkills(string skills) { DARABONBA_PTR_SET_VALUE(skills_, skills) };
+
+
         protected:
           shared_ptr<string> executionLane_ {};
           shared_ptr<string> mode_ {};
+          shared_ptr<string> resourceGroupId_ {};
+          shared_ptr<string> skills_ {};
         };
 
         class Config : public Darabonba::Model {

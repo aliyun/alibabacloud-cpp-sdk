@@ -13,18 +13,24 @@ namespace Models
   class ListDataAssetsShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDataAssetsShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AssetDomainId, assetDomainId_);
+      DARABONBA_PTR_TO_JSON(CategoryUuid, categoryUuid_);
       DARABONBA_PTR_TO_JSON(DataAssetIds, dataAssetIdsShrink_);
       DARABONBA_PTR_TO_JSON(DataAssetType, dataAssetType_);
       DARABONBA_PTR_TO_JSON(EnvType, envType_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ListDataAssetsShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AssetDomainId, assetDomainId_);
+      DARABONBA_PTR_FROM_JSON(CategoryUuid, categoryUuid_);
       DARABONBA_PTR_FROM_JSON(DataAssetIds, dataAssetIdsShrink_);
       DARABONBA_PTR_FROM_JSON(DataAssetType, dataAssetType_);
       DARABONBA_PTR_FROM_JSON(EnvType, envType_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
@@ -41,9 +47,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dataAssetIdsShrink_ == nullptr
-        && this->dataAssetType_ == nullptr && this->envType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
-        && this->tagsShrink_ == nullptr; };
+    virtual bool empty() const override { return this->assetDomainId_ == nullptr
+        && this->categoryUuid_ == nullptr && this->dataAssetIdsShrink_ == nullptr && this->dataAssetType_ == nullptr && this->envType_ == nullptr && this->name_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->tagsShrink_ == nullptr; };
+    // assetDomainId Field Functions 
+    bool hasAssetDomainId() const { return this->assetDomainId_ != nullptr;};
+    void deleteAssetDomainId() { this->assetDomainId_ = nullptr;};
+    inline int64_t getAssetDomainId() const { DARABONBA_PTR_GET_DEFAULT(assetDomainId_, 0L) };
+    inline ListDataAssetsShrinkRequest& setAssetDomainId(int64_t assetDomainId) { DARABONBA_PTR_SET_VALUE(assetDomainId_, assetDomainId) };
+
+
+    // categoryUuid Field Functions 
+    bool hasCategoryUuid() const { return this->categoryUuid_ != nullptr;};
+    void deleteCategoryUuid() { this->categoryUuid_ = nullptr;};
+    inline string getCategoryUuid() const { DARABONBA_PTR_GET_DEFAULT(categoryUuid_, "") };
+    inline ListDataAssetsShrinkRequest& setCategoryUuid(string categoryUuid) { DARABONBA_PTR_SET_VALUE(categoryUuid_, categoryUuid) };
+
+
     // dataAssetIdsShrink Field Functions 
     bool hasDataAssetIdsShrink() const { return this->dataAssetIdsShrink_ != nullptr;};
     void deleteDataAssetIdsShrink() { this->dataAssetIdsShrink_ = nullptr;};
@@ -63,6 +83,13 @@ namespace Models
     void deleteEnvType() { this->envType_ = nullptr;};
     inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
     inline ListDataAssetsShrinkRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ListDataAssetsShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // pageNumber Field Functions 
@@ -94,33 +121,30 @@ namespace Models
 
 
   protected:
-    // The data asset IDs.
+    shared_ptr<int64_t> assetDomainId_ {};
+    shared_ptr<string> categoryUuid_ {};
+    // The list of unique data asset IDs.
     shared_ptr<string> dataAssetIdsShrink_ {};
-    // The type of the data asset. Valid values:
+    // The Asset Type of the data asset. Valid values:
     // 
-    // - ACS::DataWorks::Table
+    // - ACS::DataWorks::Table: table.
     // 
-    // - ACS::DataWorks::Task
+    // - ACS::DataWorks::Task: scheduling node.
     shared_ptr<string> dataAssetType_ {};
-    // The environment of the workspace to which the data asset belongs. Valid values:
-    // 
-    // - Dev: development environment
-    // 
-    // - Prod: production environment
+    // The workspace environment to which the data asset belongs. Valid values:
+    // - Dev: development environment.
+    // - Prod: production environment.
     shared_ptr<string> envType_ {};
+    shared_ptr<string> name_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID.
+    // The workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The tags that are added to data assets. This parameter specifies a filter condition.
-    // 
-    // - You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
-    // 
-    // - If you do not configure this parameter, tag-based filtering is not performed.
-    // 
-    // This parameter is required.
+    // The list of tags associated with data assets. Tags are used as query filters:
+    // - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any of the specified tags.
+    // - If this parameter is not specified or is left empty, no tag-based filtering is applied.
     shared_ptr<string> tagsShrink_ {};
   };
 

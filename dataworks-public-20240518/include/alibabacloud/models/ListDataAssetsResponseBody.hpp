@@ -60,6 +60,7 @@ namespace Models
       class DataAssets : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DataAssets& obj) { 
+          DARABONBA_PTR_TO_JSON(AssetCategories, assetCategories_);
           DARABONBA_PTR_TO_JSON(DataAssetTagMappings, dataAssetTagMappings_);
           DARABONBA_PTR_TO_JSON(EnvType, envType_);
           DARABONBA_PTR_TO_JSON(Id, id_);
@@ -68,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, DataAssets& obj) { 
+          DARABONBA_PTR_FROM_JSON(AssetCategories, assetCategories_);
           DARABONBA_PTR_FROM_JSON(DataAssetTagMappings, dataAssetTagMappings_);
           DARABONBA_PTR_FROM_JSON(EnvType, envType_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
@@ -160,7 +162,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether the lineage-based automatic backtrack feature is enabled for the mapping.
+          // Indicates whether automatic lineage tracing is enabled.
           shared_ptr<bool> autoTraceEnabled_ {};
           // The creator of the mapping between the data asset and the tag.
           shared_ptr<string> creator_ {};
@@ -168,18 +170,79 @@ namespace Models
           shared_ptr<string> dataAssetId_ {};
           // The tag key.
           shared_ptr<string> key_ {};
-          // The way in which the mapping between the data asset and the tag is created. Valid values:
+          // The source of the mapping between the data asset and the tag. Valid values:
           // 
-          // - System
-          // 
-          // - UserDefined
+          // - System: The mapping is created by the data asset governance system.
+          // - UserDefined: The mapping is manually created by a user.
           shared_ptr<string> tagSource_ {};
           // The tag value.
           shared_ptr<string> value_ {};
         };
 
-        virtual bool empty() const override { return this->dataAssetTagMappings_ == nullptr
-        && this->envType_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->projectId_ == nullptr && this->type_ == nullptr; };
+        class AssetCategories : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AssetCategories& obj) { 
+            DARABONBA_PTR_TO_JSON(AssetDomainId, assetDomainId_);
+            DARABONBA_PTR_TO_JSON(Id, id_);
+            DARABONBA_PTR_TO_JSON(Name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, AssetCategories& obj) { 
+            DARABONBA_PTR_FROM_JSON(AssetDomainId, assetDomainId_);
+            DARABONBA_PTR_FROM_JSON(Id, id_);
+            DARABONBA_PTR_FROM_JSON(Name, name_);
+          };
+          AssetCategories() = default ;
+          AssetCategories(const AssetCategories &) = default ;
+          AssetCategories(AssetCategories &&) = default ;
+          AssetCategories(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AssetCategories() = default ;
+          AssetCategories& operator=(const AssetCategories &) = default ;
+          AssetCategories& operator=(AssetCategories &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->assetDomainId_ == nullptr
+        && this->id_ == nullptr && this->name_ == nullptr; };
+          // assetDomainId Field Functions 
+          bool hasAssetDomainId() const { return this->assetDomainId_ != nullptr;};
+          void deleteAssetDomainId() { this->assetDomainId_ = nullptr;};
+          inline string getAssetDomainId() const { DARABONBA_PTR_GET_DEFAULT(assetDomainId_, "") };
+          inline AssetCategories& setAssetDomainId(string assetDomainId) { DARABONBA_PTR_SET_VALUE(assetDomainId_, assetDomainId) };
+
+
+          // id Field Functions 
+          bool hasId() const { return this->id_ != nullptr;};
+          void deleteId() { this->id_ = nullptr;};
+          inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+          inline AssetCategories& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline AssetCategories& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          shared_ptr<string> assetDomainId_ {};
+          shared_ptr<string> id_ {};
+          shared_ptr<string> name_ {};
+        };
+
+        virtual bool empty() const override { return this->assetCategories_ == nullptr
+        && this->dataAssetTagMappings_ == nullptr && this->envType_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->projectId_ == nullptr
+        && this->type_ == nullptr; };
+        // assetCategories Field Functions 
+        bool hasAssetCategories() const { return this->assetCategories_ != nullptr;};
+        void deleteAssetCategories() { this->assetCategories_ = nullptr;};
+        inline const vector<DataAssets::AssetCategories> & getAssetCategories() const { DARABONBA_PTR_GET_CONST(assetCategories_, vector<DataAssets::AssetCategories>) };
+        inline vector<DataAssets::AssetCategories> getAssetCategories() { DARABONBA_PTR_GET(assetCategories_, vector<DataAssets::AssetCategories>) };
+        inline DataAssets& setAssetCategories(const vector<DataAssets::AssetCategories> & assetCategories) { DARABONBA_PTR_SET_VALUE(assetCategories_, assetCategories) };
+        inline DataAssets& setAssetCategories(vector<DataAssets::AssetCategories> && assetCategories) { DARABONBA_PTR_SET_RVALUE(assetCategories_, assetCategories) };
+
+
         // dataAssetTagMappings Field Functions 
         bool hasDataAssetTagMappings() const { return this->dataAssetTagMappings_ != nullptr;};
         void deleteDataAssetTagMappings() { this->dataAssetTagMappings_ = nullptr;};
@@ -225,13 +288,12 @@ namespace Models
 
 
       protected:
-        // The mappings between data assets and tags.
+        shared_ptr<vector<DataAssets::AssetCategories>> assetCategories_ {};
+        // The list of tags associated with the data asset.
         shared_ptr<vector<DataAssets::DataAssetTagMappings>> dataAssetTagMappings_ {};
-        // The environment of the workspace to which the data asset belongs. Valid values:
-        // 
-        // - Dev: development environment
-        // 
-        // - Prod: production environment
+        // The workspace environment to which the data asset belongs. Valid values:
+        // - Dev: development environment.
+        // - Prod: production environment.
         shared_ptr<string> envType_ {};
         // The data asset ID.
         shared_ptr<string> id_ {};
@@ -239,11 +301,11 @@ namespace Models
         shared_ptr<string> name_ {};
         // The DataWorks workspace ID.
         shared_ptr<int64_t> projectId_ {};
-        // The type of the data asset. Valid values:
+        // The Asset Type of the data asset. Valid values:
         // 
-        // - ACS::DataWorks::Table
+        // - ACS::DataWorks::Table: table.
         // 
-        // - ACS::DataWorks::Task
+        // - ACS::DataWorks::Task: scheduling node.
         shared_ptr<string> type_ {};
       };
 
@@ -280,13 +342,13 @@ namespace Models
 
 
     protected:
-      // The data assets.
+      // The list of data assets.
       shared_ptr<vector<PagingInfo::DataAssets>> dataAssets_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -311,7 +373,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListDataAssetsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

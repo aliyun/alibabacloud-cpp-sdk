@@ -204,59 +204,52 @@ namespace Models
 
 
   protected:
-    // The unique code of the client. This code uniquely identifies a task. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the task, the system automatically generates a unique code. The unique code is uniquely associated with the task ID. If you specify this parameter when you update or delete the task, the value of this parameter must be the unique code that is used to create the task.
+    // The client unique code of the node, used to uniquely identify a node. This code is used to implement asynchronous operations and idempotence. If not specified during creation, the system automatically generates one, and the code is uniquely bound to the resource ID. When updating or deleting a resource, if this parameter is specified, it must be consistent with the client unique code used during creation.
     shared_ptr<string> clientUniqueCode_ {};
-    // The information about the associated data source.
+    // The associated data source information.
     shared_ptr<string> dataSourceShrink_ {};
     // The dependency information.
     shared_ptr<string> dependenciesShrink_ {};
-    // The description of the task.
+    // The description.
     shared_ptr<string> description_ {};
-    // The project environment.
-    // 
-    // - Prod
-    // 
-    // - Dev
+    // The project environment. Valid values:
+    // - Prod: production.
+    // - Dev: development.
     shared_ptr<string> envType_ {};
-    // The task ID.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
     // The input information.
     shared_ptr<string> inputsShrink_ {};
-    // The instance generation mode.
-    // 
-    // - T+1: the next day
-    // 
-    // - Immediately Note: Scheduled instances are generated only if the scheduled time is at least 10 minutes after the publish time. Real-time instance generation is unavailable during the global instance generation period (23:30 to 24:00). You can publish nodes during this period, but instances for the new nodes will not be generated automatically.
+    // The instance generation mode. Valid values:
+    // - T+1: The instance is generated the next day.
+    // - Immediately: The instance is generated immediately. Note: Only periodic instances whose scheduled time is at least ten minutes after the node publish time are generated normally. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and publish nodes, but new nodes do not automatically generate instances.
     shared_ptr<string> instanceMode_ {};
-    // Name.
+    // The name.
     shared_ptr<string> name_ {};
     // The output information.
     shared_ptr<string> outputsShrink_ {};
-    // The account ID of the task owner.
+    // The account ID of the node owner.
     shared_ptr<string> owner_ {};
-    // The rerun interval. Unit: milliseconds. Must not exceed 1800000.
+    // The retry time interval, in milliseconds. The value cannot exceed 1800000.
     shared_ptr<int32_t> rerunInterval_ {};
-    // The rerun mode. Valid values:
-    // 
-    // - AllDenied: The task cannot be rerun.
-    // 
-    // - FailureAllowed: The task can be rerun only after it fails.
-    // 
-    // - AllAllowed: The task can always be rerun.
+    // Specifies whether the node can be rerun. Valid values:
+    // - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
+    // - FailureAllowed: The node can be rerun only when it fails.
+    // - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
     shared_ptr<string> rerunMode_ {};
-    // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+    // The number of retries. This parameter takes effect when the node is configured to allow reruns.
     shared_ptr<int32_t> rerunTimes_ {};
-    // Runtime environment configurations, such as resource group information.
+    // The environment configuration, such as resource group information.
     shared_ptr<string> runtimeResourceShrink_ {};
-    // The run script information.
+    // The script information.
     shared_ptr<string> scriptShrink_ {};
-    // The tags.
+    // The list of node tags.
     shared_ptr<string> tagsShrink_ {};
-    // Task execution timeout in seconds. Must be greater than 3600.
+    // The node execution timeout period, in seconds. The value must be greater than 3600.
     shared_ptr<int32_t> timeout_ {};
-    // The triggering method.
+    // The node trigger method.
     shared_ptr<string> triggerShrink_ {};
   };
 
