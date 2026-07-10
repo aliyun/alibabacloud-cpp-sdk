@@ -338,62 +338,62 @@ namespace Models
 
 
       protected:
-        // Application Type
+        // The application type.
         shared_ptr<string> appType_ {};
-        // bizId of the associated application instance
+        // The BizId of the associated application instance.
         shared_ptr<string> bizId_ {};
-        // Color
+        // The color.
         shared_ptr<string> colorScheme_ {};
-        // Color scheme name
+        // The color name.
         shared_ptr<string> colorSchemeName_ {};
-        // The actual data volume of the original table copied during DMS lockless change.
+        // The actual amount of data copied from the original table during a DMS lock-free schema change.
         shared_ptr<int32_t> copyCount_ {};
-        // Tenant User Information
+        // The tenant user information.
         shared_ptr<string> creator_ {};
-        // Creation Time
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Updated At
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Primary key
+        // The primary key.
         shared_ptr<int64_t> id_ {};
-        // Industry. Default value: **common** (General Industry). Valid values:  
+        // The industry. Default value: **common** (general industry). Valid values:
         // 
-        // - **microVideo**: Short Video Industry.  
+        // - **microVideo**: short video industry.
         // 
-        // - **common**: General Industry.
+        // - **common**: general industry.
         shared_ptr<string> industry_ {};
-        // Industry Name
+        // The industry name.
         shared_ptr<string> industryName_ {};
-        // ID of the last modifier
+        // The ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
-        // Like count.
+        // The number of likes.
         shared_ptr<int32_t> likeCount_ {};
-        // Whether the current user has liked the item.
+        // Indicates whether the current user has liked this template.
         shared_ptr<bool> liked_ {};
-        // Fix Content.
+        // The remediation content.
         shared_ptr<string> metadata_ {};
-        // Preview URL
+        // The preview URL.
         shared_ptr<string> previewUrl_ {};
-        // Edition. Valid values:  
-        // - **BasicVersion**: Basic Edition.  
-        // - **EnterpriseVersion**: Enterprise Edition.  
+        // The product version. Valid values:
+        // - **BasicVersion**: Basic edition.
+        // - **EnterpriseVersion**: Enterprise edition.
         // > This parameter is required only when ProductForm is set to IntegrationForm.
         shared_ptr<string> productVersion_ {};
-        // Edition name.
+        // The Edition name.
         shared_ptr<string> productVersionName_ {};
-        // Share Count
+        // The number of shares.
         shared_ptr<int32_t> shareCount_ {};
-        // Possible values: unknown, init, testing, online
+        // Valid values: unknown, init, testing, online.
         shared_ptr<string> status_ {};
-        // Template ID
+        // The template ID.
         shared_ptr<string> templateId_ {};
-        // Template Name
+        // The template name.
         shared_ptr<string> templateName_ {};
-        // Application thumbnail
+        // The application thumbnail URL.
         shared_ptr<string> thumbnailUrl_ {};
-        // View count.
+        // The number of views.
         shared_ptr<int32_t> viewCount_ {};
-        // Weight
+        // The weight.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -646,65 +646,65 @@ namespace Models
 
 
       protected:
-        // application Type
+        // The application type.
         shared_ptr<string> appType_ {};
-        // application instance ID
+        // The application instance ID.
         shared_ptr<string> bizId_ {};
-        // Color
+        // The color.
         shared_ptr<string> colorScheme_ {};
-        // Color name
+        // The color name.
         shared_ptr<string> colorSchemeName_ {};
-        // The actual data volume of the original table copied during DMS lockless change.
+        // The actual amount of data copied from the original table during a DMS lock-free schema change.
         shared_ptr<int32_t> copyCount_ {};
-        // Creator ID.
+        // The creator ID.
         shared_ptr<string> creator_ {};
-        // Creation Time
+        // The creation time.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
-        // Updated At
+        // The modification time.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtModifiedTime_ {};
-        // primary key
+        // The primary key.
         shared_ptr<int64_t> id_ {};
-        // Industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry to enable the backend to match an algorithm combination suitable for that industry. Valid values:  
+        // The industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry so that the backend matches the applicable algorithm combination. Valid values: 
         // 
-        // - **microVideo**: Short video industry.  
-        // - **common**: General industry.
+        // - **microVideo**: short video industry.
+        // - **common**: general industry.
         shared_ptr<string> industry_ {};
-        // Industry Name
+        // The industry name.
         shared_ptr<string> industryName_ {};
-        // Editor ID
+        // The ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
-        // Number of likes.
+        // The number of likes.
         shared_ptr<int32_t> likeCount_ {};
-        // Whether the current user has liked it
+        // Indicates whether the current user has liked this template.
         shared_ptr<bool> liked_ {};
-        // Remediation action.
+        // The remediation action.
         shared_ptr<string> metadata_ {};
-        // Preview URL
+        // The preview URL.
         shared_ptr<string> previewUrl_ {};
-        // Edition. Valid values:  
-        // - **BasicVersion**: Basic Edition.  
-        // - **EnterpriseVersion**: Enterprise Edition.
+        // The product version. Valid values:
+        // - **BasicVersion**: Basic edition.
+        // - **EnterpriseVersion**: Enterprise edition.
         shared_ptr<string> productVersion_ {};
-        // Edition name.
+        // The Edition name.
         shared_ptr<string> productVersionName_ {};
-        // Share Count
+        // The number of shares.
         shared_ptr<int32_t> shareCount_ {};
-        // File Status
+        // The file status.
         shared_ptr<string> status_ {};
-        // Template ID
+        // The template ID.
         shared_ptr<string> templateId_ {};
-        // Template Name.  
-        // - Maximum length: 128 characters.
+        // The template name.
+        // - Maximum length: 128.
         shared_ptr<string> templateName_ {};
-        // Application thumbnail
+        // The application thumbnail URL.
         shared_ptr<string> thumbnailUrl_ {};
-        // View Count.
+        // The number of views.
         shared_ptr<int32_t> viewCount_ {};
-        // weight
+        // The weight.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -779,23 +779,23 @@ namespace Models
 
 
     protected:
-      // Current page number.
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // Request Result.
+      // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
-      // Decision weight
+      // The decision weight.
       shared_ptr<Module::Next> next_ {};
-      // Whether there is a next page.
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // Page size.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Indicates whether there is a previous page.
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // For the current query, aside from paging limits, the server-side processes at most the latest 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**; you should narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
-      // Total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -899,33 +899,33 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Ignore it.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Faulty parameters
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results returned per query.  
+    // The number of entries per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Response data
+    // The response data.
     shared_ptr<ListAppTemplatesResponseBody::Module> module_ {};
-    // Token for starting the next query. It is empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -31,6 +31,9 @@
 #include <alibabacloud/models/AllocateSupabaseForAdminRequest.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminResponseBody.hpp>
 #include <alibabacloud/models/AllocateSupabaseForAdminResponse.hpp>
+#include <alibabacloud/models/AuthorizeAppProxyOpsRequest.hpp>
+#include <alibabacloud/models/AuthorizeAppProxyOpsResponseBody.hpp>
+#include <alibabacloud/models/AuthorizeAppProxyOpsResponse.hpp>
 #include <alibabacloud/models/BatchCheckResourceMeasureRequest.hpp>
 #include <alibabacloud/models/BatchCheckResourceMeasureResponseBody.hpp>
 #include <alibabacloud/models/BatchCheckResourceMeasureResponse.hpp>

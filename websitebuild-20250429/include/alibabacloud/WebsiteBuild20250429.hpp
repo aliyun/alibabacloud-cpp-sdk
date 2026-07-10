@@ -42,6 +42,23 @@ namespace WebsiteBuild20250429
       Models::AllocateSupabaseForAdminResponse allocateSupabaseForAdmin(const Models::AllocateSupabaseForAdminRequest &request);
 
       /**
+       * @summary Grants proxy-based O&M permissions for an application instance.
+       *
+       * @param request AuthorizeAppProxyOpsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AuthorizeAppProxyOpsResponse
+       */
+      Models::AuthorizeAppProxyOpsResponse authorizeAppProxyOpsWithOptions(const Models::AuthorizeAppProxyOpsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Grants proxy-based O&M permissions for an application instance.
+       *
+       * @param request AuthorizeAppProxyOpsRequest
+       * @return AuthorizeAppProxyOpsResponse
+       */
+      Models::AuthorizeAppProxyOpsResponse authorizeAppProxyOps(const Models::AuthorizeAppProxyOpsRequest &request);
+
+      /**
        * @summary Checks resource usage in batches.
        *
        * @description The Supabase instance information corresponding to the operated resources.
@@ -1728,9 +1745,9 @@ namespace WebsiteBuild20250429
       Models::ListAppTemplateDictsResponse listAppTemplateDicts(const Models::ListAppTemplateDictsRequest &request);
 
       /**
-       * @summary Query template list
+       * @summary Queries the list of website templates.
        *
-       * @description Obtain barcode generation plugin configuration information
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request ListAppTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1739,9 +1756,9 @@ namespace WebsiteBuild20250429
       Models::ListAppTemplatesResponse listAppTemplatesWithOptions(const Models::ListAppTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query template list
+       * @summary Queries the list of website templates.
        *
-       * @description Obtain barcode generation plugin configuration information
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request ListAppTemplatesRequest
        * @return ListAppTemplatesResponse

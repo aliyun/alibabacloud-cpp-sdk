@@ -111,6 +111,48 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 }
 
 /**
+ * @summary Grants proxy-based O&M permissions for an application instance.
+ *
+ * @param request AuthorizeAppProxyOpsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AuthorizeAppProxyOpsResponse
+ */
+AuthorizeAppProxyOpsResponse Client::authorizeAppProxyOpsWithOptions(const AuthorizeAppProxyOpsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AuthorizeAppProxyOps"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AuthorizeAppProxyOpsResponse>();
+}
+
+/**
+ * @summary Grants proxy-based O&M permissions for an application instance.
+ *
+ * @param request AuthorizeAppProxyOpsRequest
+ * @return AuthorizeAppProxyOpsResponse
+ */
+AuthorizeAppProxyOpsResponse Client::authorizeAppProxyOps(const AuthorizeAppProxyOpsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return authorizeAppProxyOpsWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks resource usage in batches.
  *
  * @description The Supabase instance information corresponding to the operated resources.
@@ -4854,9 +4896,9 @@ ListAppTemplateDictsResponse Client::listAppTemplateDicts(const ListAppTemplateD
 }
 
 /**
- * @summary Query template list
+ * @summary Queries the list of website templates.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ListAppTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4923,9 +4965,9 @@ ListAppTemplatesResponse Client::listAppTemplatesWithOptions(const ListAppTempla
 }
 
 /**
- * @summary Query template list
+ * @summary Queries the list of website templates.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ListAppTemplatesRequest
  * @return ListAppTemplatesResponse

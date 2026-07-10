@@ -121,27 +121,27 @@ namespace Models
 
 
   protected:
-    // Application Type
+    // The application type.
     shared_ptr<string> appType_ {};
-    // Color scheme
+    // The color scheme.
     shared_ptr<string> colorScheme_ {};
-    // industry categorization
+    // The industry category.
     shared_ptr<string> industry_ {};
-    // Search keyword
+    // The search keyword.
     shared_ptr<string> keyword_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Value range: 10–100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token indicating the start of the next query. It is empty when there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // Page size
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Edition
+    // The Edition.
     shared_ptr<string> productVersion_ {};
-    // template Status
+    // The template status.
     shared_ptr<string> status_ {};
   };
 
