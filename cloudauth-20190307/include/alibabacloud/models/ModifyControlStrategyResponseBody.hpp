@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // Information returned by the API call.
+    // The response message returned by the operation.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the response was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
   };
 

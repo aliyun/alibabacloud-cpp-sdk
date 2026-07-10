@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // Product code.
+      // The product code.
       shared_ptr<string> productCode_ {};
-      // Name corresponding to the product code.
+      // The name corresponding to the product code.
       shared_ptr<string> productName_ {};
     };
 
@@ -131,17 +131,17 @@ namespace Models
 
 
   protected:
-    // Current query page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // List of product code information.
+    // The list of product code information.
     shared_ptr<vector<DescribeProductCodeResponseBody::Items>> items_ {};
-    // Number of products per page.
+    // The number of products displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of returned results.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

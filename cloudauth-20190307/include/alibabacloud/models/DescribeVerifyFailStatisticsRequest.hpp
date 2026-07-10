@@ -94,38 +94,38 @@ namespace Models
 
 
   protected:
-    // Age greater than 14 years old:
-    // - **T**: Greater than
-    // - **F**: Less than
+    // Specifies whether the age is greater than 14. Valid values:
+    // - **T**: greater than 14.
+    // - **F**: less than 14.
     shared_ptr<string> ageGt_ {};
-    // API code:
-    // - **INIT_SERVICE**: Server-side initialization failure
-    // - **INIT_DEVICE**: Client-side failure
-    // - **VERIFY_DEVICE**: Authentication failed
+    // The API code. Valid values:
+    // - **INIT_SERVICE**: server-side initialization failure.
+    // - **INIT_DEVICE**: client-side failure.
+    // - **VERIFY_DEVICE**: authentication not passed.
     // 
     // This parameter is required.
     shared_ptr<string> api_ {};
-    // Device type.
+    // The device type. Valid values:
     // - ios
     // - android
-    // - websdk
+    // - websdk.
     shared_ptr<string> deviceType_ {};
-    // End time of the query.
+    // The end time of the query.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
-    // Product code.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Service type:
-    // - **antcloudauth**: Financial-grade real-person authentication.
-    // - **cloudauthst** (discontinued): Enhanced real-person authentication.
-    // - **cloudauth** (discontinued): Real-person authentication.
+    // The service type. Valid values:
+    // - **antcloudauth**: financial-grade ID Verification.
+    // - **cloudauthst** (discontinued): ID Verification Enhanced Edition.
+    // - **cloudauth** (discontinued): ID Verification.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Start time of the query.
+    // The start time of the query.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};

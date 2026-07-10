@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // End time of the query.
+    // The query end time.
     shared_ptr<int64_t> gmtEnd_ {};
-    // Start time of the query.
+    // The query start time.
     shared_ptr<int64_t> gmtStart_ {};
-    // Product Code, currently deprecated.
+    // The product code. This parameter is deprecated.
     shared_ptr<string> name_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
   };
 

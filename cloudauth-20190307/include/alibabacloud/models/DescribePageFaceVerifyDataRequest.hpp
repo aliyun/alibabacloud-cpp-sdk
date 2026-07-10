@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Current page number, default is 1.
+    // The current page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
-    // Required, end time, format is yyyy-MM-dd, default is yyyy-MM-dd 00:00:00, the query interval cannot exceed 90 days.
+    // Required. The end time in the yyyy-MM-dd format. The default value is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
     shared_ptr<string> endDate_ {};
-    // Number of items per page, default is 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Product code.
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
-    // Required, start time, format is yyyy-MM-dd, default is yyyy-MM-dd 00:00:00, the query interval cannot exceed 90 days.
+    // Required. The start time in the yyyy-MM-dd format. The default value is yyyy-MM-dd 00:00:00. The maximum query interval is 90 days.
     shared_ptr<string> startDate_ {};
   };
 

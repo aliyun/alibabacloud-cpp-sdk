@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Download task ID.
+    // The download task ID.
     shared_ptr<string> downloadTaskId_ {};
   };
 

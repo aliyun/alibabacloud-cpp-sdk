@@ -73,15 +73,15 @@ namespace Models
 
 
     protected:
-      // Verification result:
-      // - 1: Consistent verification
-      // - 2: Inconsistent verification
-      // - 3: No record found
+      // The verification result. Valid values:
+      // - 1: Consistent.
+      // - 2: Inconsistent.
+      // - 3: No record found.
       shared_ptr<string> bizCode_ {};
-      // Operator name:
+      // The carrier name. Valid values:
       // - CMCC: China Mobile
       // - CUCC: China Unicom
-      // - CTCC: China Telecom
+      // - CTCC: China Telecom.
       shared_ptr<string> ispName_ {};
     };
 
@@ -118,13 +118,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result object.
+    // The result object.
     shared_ptr<Mobile2MetaVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

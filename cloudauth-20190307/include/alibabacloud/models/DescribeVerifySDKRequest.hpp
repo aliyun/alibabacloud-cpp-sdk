@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The task ID for generating the SDK.
+    // The ID of the SDK generation task.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

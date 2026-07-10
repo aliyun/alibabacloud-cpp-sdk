@@ -38,10 +38,10 @@ namespace Models
 
 
   protected:
-    // Product type:
-    // - **FINANCE_VERIFY**: Financial Grade Real Person Verification
-    // - **SMART_VERIFY**: Enhanced Real Person Verification (discontinued)
-    // - **FACE_VERIFY**: Real Person Verification (discontinued)
+    // The product type. Valid values:
+    // - **FINANCE_VERIFY**: Financial-Grade ID Verification
+    // - **SMART_VERIFY**: Enhanced ID Verification (discontinued)
+    // - **FACE_VERIFY**: ID Verification (discontinued).
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

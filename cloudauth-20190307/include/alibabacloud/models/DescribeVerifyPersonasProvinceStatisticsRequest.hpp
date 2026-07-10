@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Cloud product code.
+    // The cloud product code.
     shared_ptr<string> productCode_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
-    // Service type:
-    // - **antcloudauth**: Financial-grade real-person authentication.
-    // - **cloudauthst** (discontinued): Enhanced real-person authentication.
+    // The service type. Valid values:
+    // - **antcloudauth**: financial-grade ID Verification.
+    // - **cloudauthst** (discontinued): enhanced ID Verification.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Time range, search range is for the previous N days, TimeRange of 1 indicates the previous 1 day.
+    // The time range. The search scope is the previous N days. For example, a value of 1 indicates the previous day.
     // 
     // This parameter is required.
     shared_ptr<string> timeRange_ {};

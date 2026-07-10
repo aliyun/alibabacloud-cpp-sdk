@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The key that can be used for authorization activation. The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+    // The key that can be used for authorization activation. The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
     shared_ptr<string> authKey_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -99,24 +99,24 @@ namespace Models
 
 
     protected:
-      // API name, same as **ProductCode**.
+      // The API name, which is the same as **ProductCode**.
       shared_ptr<string> apiName_ {};
-      // Rule configuration type:
+      // The rule configuration type. Valid values:
       // - **QPS**: QPS greater than
-      // - **SUCCESS_RATE_5_MIN**: Success rate in the last 5 minutes less than
-      // - **RESP_TIME_5_MIN**: Average response time in the last 5 minutes greater than
-      // - **AMOUNT_RISE**: Call volume growth ratio greater than
-      // - **AMOUNT_FALL**: Call volume decline ratio less than
-      // - **PASSED_RATE_1_HOUR**: Verification consistency rate in the last hour less than
-      // - **PARAM_ERROR_RATE_1_HOUR**: Parameter error rate in the last hour greater than
+      // - **SUCCESS_RATE_5_MIN**: success rate in the last 5 minutes less than
+      // - **RESP_TIME_5_MIN**: average response time in the last 5 minutes greater than
+      // - **AMOUNT_RISE**: call volume increase compared to the previous period greater than
+      // - **AMOUNT_FALL**: call volume decrease compared to the previous period less than
+      // - **PASSED_RATE_1_HOUR**: verification consistency rate in the last hour less than
+      // - **PARAM_ERROR_RATE_1_HOUR**: parameter error rate in the last hour greater than.
       shared_ptr<string> bizType_ {};
-      // Rule ID.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // Status:
-      // - **disabled**: Disabled
-      // - **normal**: Enabled
+      // The status. Valid values:
+      // - **disabled**: Disabled.
+      // - **normal**: Enabled.
       shared_ptr<string> status_ {};
-      // Alarm threshold for the rule.
+      // The alert threshold of the rule.
       shared_ptr<double> threshold_ {};
     };
 
@@ -146,11 +146,11 @@ namespace Models
 
 
   protected:
-    // List of security alarm rules.
+    // The list of security alert rules.
     shared_ptr<vector<ModifyControlStrategyRequest::ControlStrategyList>> controlStrategyList_ {};
-    // Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others are phased out.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
     shared_ptr<string> productType_ {};
-    // Region ID of the intelligent access gateway instance.
+    // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};
   };
 

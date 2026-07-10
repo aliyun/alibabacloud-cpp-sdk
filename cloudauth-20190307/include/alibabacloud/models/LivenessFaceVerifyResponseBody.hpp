@@ -91,17 +91,17 @@ namespace Models
 
 
     protected:
-      // Unique identifier for the real-person authentication request.
+      // The unique identity of the ID Verification request.
       shared_ptr<string> certifyId_ {};
-      // Attachment information of the face authentication subject, including data such as face quality, face attack, face or OCR image, and intent verification.
+      // The attachment information of the facial verification subject, including face quality, face attack detection, face or OCR images, and intent verification data.
       shared_ptr<string> materialInfo_ {};
-      // Authentication result, values:
+      // The verification result. Valid values:
       // 
-      // - T: Passed
+      // - T: Passed.
       // 
-      // - F: Not passed
+      // - F: Failed.
       shared_ptr<string> passed_ {};
-      // Authentication result code.
+      // The verification result code.
       shared_ptr<string> subCode_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates successful API response.
+    // The return code. **200** indicates that the API operation is successful.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of this request.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
-    // Return result.
+    // The returned result.
     shared_ptr<LivenessFaceVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

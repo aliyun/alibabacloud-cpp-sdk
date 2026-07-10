@@ -75,14 +75,38 @@ namespace Models
 
 
   protected:
+    // Product API:
+    // - **ID_CARD_2_META**: ID Card Two-Element Verification
+    // - **ID_PERIOD**: ID Card Validity Verification Period
+    // - **MOBILE_ONLINE_LENGTH**: Mobile Online Duration
+    // - **MOBILE_ONLINE_STATUS**: Mobile Online Status
+    // - **MOBILE_3_META_SIMPLE**: Mobile Number Three-Element Verification (Simple)
+    // - **MOBILE_3_META**: Mobile Number Three-Element Verification (Detailed)
+    // - **MOBILE_2_META**: Mobile Number Two-Element Verification
+    // - **BANK_CARD_N_META**: Bank Card Verification (Detailed)
+    // - **MOBILE_DETECT**: Number Detection
+    // - **VEHICLE_N_META**: Vehicle Element Verification (Enhanced)
+    // - **VEHICLE_PENTA_INFO**: Vehicle Five-Element Information Recognition
+    // - **VEHICLE_LICENSE_INFO**: Vehicle Information Recognition
+    // - **VEHICLE_INSURE_DATE**: Vehicle Insurance Date Query
+    // - **VEHICLE_CHECK**: Vehicle Element Verification
+    // 
     // This parameter is required.
     shared_ptr<string> api_ {};
+    // Current page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // Query end time. Unix timestamp.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // Number of data entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Query start time. The timestamp is in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
   };

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // User ID
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userId_ {};

@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // Indicates whether financial-grade real-person authentication is activated. Values:
-    // - **true**: Activated
-    // - **false**: Not activated
+    // Indicates whether financial-grade ID Verification is activated. Valid values:
+    // - **true**: Activated.
+    // - **false**: Not activated.
     shared_ptr<bool> antcloudauthEnabled_ {};
-    // Indicates whether real-person authentication is activated. Values:
-    // - **true**: Activated
-    // - **false**: Not activated
+    // Indicates whether ID Verification is activated. Valid values:
+    // - **true**: Activated.
+    // - **false**: Not activated.
     shared_ptr<bool> cloudauthEnabled_ {};
-    // Indicates whether the enhanced version of real-person authentication is activated. Values:
-    // - **true**: Activated
-    // - **false**: Not activated
+    // Indicates whether enhanced ID Verification is activated. Valid values:
+    // - **true**: Activated.
+    // - **false**: Not activated.
     shared_ptr<bool> cloudauthstEnabled_ {};
-    // Indicates whether information verification is activated. Values:
-    // - **true**: Activated
-    // - **false**: Not activated
+    // Indicates whether information verification is activated. Valid values:
+    // - **true**: Activated.
+    // - **false**: Not activated.
     shared_ptr<bool> inforverifyEnabled_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

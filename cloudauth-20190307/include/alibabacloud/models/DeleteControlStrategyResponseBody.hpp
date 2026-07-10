@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates successful API response.
+    // The response code. **200** indicates a successful API response.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<int32_t> data_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the response was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
   };
 

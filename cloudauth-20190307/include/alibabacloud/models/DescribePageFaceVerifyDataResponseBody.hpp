@@ -120,17 +120,17 @@ namespace Models
 
 
     protected:
-      // Date.
+      // The date.
       shared_ptr<string> date_ {};
-      // Product scheme code, please refer to the financial-grade real-person help documentation.
+      // The product solution code. For more information, refer to the financial-grade ID Verification documentation.
       shared_ptr<string> productCode_ {};
-      // Scene ID.
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
-      // Scene name.
+      // The scene name.
       shared_ptr<string> sceneName_ {};
-      // Number of successful calls.
+      // The number of successful calls.
       shared_ptr<string> successCount_ {};
-      // Total count.
+      // The total number of entries.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -203,23 +203,23 @@ namespace Models
 
 
   protected:
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
-    // List of returned data.
+    // The list of returned data.
     shared_ptr<vector<DescribePageFaceVerifyDataResponseBody::Items>> items_ {};
-    // Return message.
+    // The return message.
     shared_ptr<string> message_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Whether the response was successful.
+    // Indicates whether the response is successful.
     shared_ptr<string> success_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<string> totalPage_ {};
   };
 

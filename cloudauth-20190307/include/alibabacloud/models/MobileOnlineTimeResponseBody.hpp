@@ -82,22 +82,23 @@ namespace Models
 
 
     protected:
-      // Verification result code.
-      // - 1: Verification consistent
-      // - 2: Verification inconsistent
-      // - 3: No record found
+      // The verification result code. Valid values:
+      // - 1: Consistent.
+      // - 2: Inconsistent.
+      // - 3: No record found.
       shared_ptr<string> bizCode_ {};
-      // Operator name
+      // The name of the telecommunications service provider. Valid values:
       // 
-      // - CMCC: China Mobile 
-      // - CUCC: China Unicom 
-      // - CTCC: China Telecom
+      // - CMCC: China Mobile. 
+      // - CUCC: China Unicom. 
+      // - CTCC: China Telecom.
       shared_ptr<string> ispName_ {};
-      // - 1: [0,3) indicates the online duration is 0~3 months 
-      // - 2: [3,6) indicates the online duration is 3~6 months 
-      // - 3: [6,12) indicates the online duration is 6~12 months 
-      // - 4: [12,24) indicates the online duration is 12~24 months 
-      // - 5: [24,+) indicates the online duration is more than 24 months
+      // The network duration code. Valid values:
+      // - 1: [0,3) indicates a network duration of 0 to 3 months.
+      // - 2: [3,6) indicates a network duration of 3 to 6 months.
+      // - 3: [6,12) indicates a network duration of 6 to 12 months.
+      // - 4: [12,24) indicates a network duration of 12 to 24 months.
+      // - 5: [24,+) indicates a network duration of more than 24 months.
       shared_ptr<string> timeCode_ {};
     };
 
@@ -134,13 +135,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result information
+    // The result information.
     shared_ptr<MobileOnlineTimeResponseBody::ResultObject> resultObject_ {};
   };
 

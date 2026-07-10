@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // Input stream for the portrait side of the ID card image.
-    // Choose one between CertUrl and CertFile.
+    // The input stream of the portrait side image of the ID card.
+    // Specify either CertUrl or CertFile.
     shared_ptr<Darabonba::IStream> certFileObject_ {};
-    // National emblem side of the ID card image address.
-    // Choose one between CertNationalUrl and CertNationalFile, or omit both.
+    // The image of the national emblem side of the ID card.
+    // Specify either CertNationalUrl or CertNationalFile. You can also leave both empty.
     shared_ptr<Darabonba::IStream> certNationalFileObject_ {};
-    // National emblem side of the ID card image URL. National emblem side
-    // A publicly accessible HTTP or HTTPS link.
-    // Choose one between CertNationalUrl and CertNationalFile, or omit both.
+    // The URL of the national emblem side image of the ID card.
+    // A publicly accessible HTTP or HTTPS URL.
+    // Specify either CertNationalUrl or CertNationalFile. You can also leave both empty.
     shared_ptr<string> certNationalUrl_ {};
-    // Portrait side of the ID card image.
-    // A publicly accessible HTTP or HTTPS link.
-    // Choose one between CertUrl and CertFile.
+    // The image of the portrait side of the ID card.
+    // A publicly accessible HTTP or HTTPS URL.
+    // Specify either CertUrl or CertFile.
     shared_ptr<string> certUrl_ {};
   };
 

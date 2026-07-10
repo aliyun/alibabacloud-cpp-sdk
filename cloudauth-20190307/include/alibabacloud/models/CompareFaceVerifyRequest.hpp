@@ -158,51 +158,58 @@ namespace Models
 
 
   protected:
-    // Whether cropping is allowed. Default is not allowed, T/F.
+    // Specifies whether cropping is allowed. Default value: F.
     // 
-    // - T: Indicates that cropping is required
-    // - F: Indicates that cropping is not required (default F)
+    // - T: detection is required.
+    // - F: detection is required. (Default: F).
     shared_ptr<string> crop_ {};
-    // A unique identifier for the merchant\\"s request. The value is a 32-character alphanumeric combination, where the first few characters are a custom abbreviation defined by the merchant, followed by a period, and the latter part can be a random or incrementing sequence.
+    // The unique identifier of the merchant request.
+    // 
+    // The value is a 32-character alphanumeric string. The first few characters are a custom abbreviation defined by the merchant, the middle part can be a time segment, and the last part can be a random or incremental sequence.
     shared_ptr<string> outerOrderNo_ {};
     // Fixed value: PV_FC.
     shared_ptr<string> productCode_ {};
-    // Authentication scenario ID.
+    // The verification scenario ID.
     shared_ptr<int64_t> sceneId_ {};
-    // The CertifyId of a previously successful real-person verification, where the photo taken during that verification is used as the face comparison photo.
-    // > Among the four ways to input facial photos (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, OSS), choose one to provide.
+    // The CertifyId from a previous successful ID Verification. The photo captured during that verification is used as the face comparison photo.
+    // 
+    // > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> sourceCertifyId_ {};
-    // Base64 encoding of the photo.
-    // > Choose one of the four ways to input a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // The Base64-encoded photo.
+    // 
+    // > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> sourceFaceContrastPicture_ {};
-    // OSS photo URL, currently only supports authorized OSS photo URLs.
-    // > Four ways to input face photos: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS. Choose one of them to input.
+    // The OSS photo URL. Only authorized OSS photo URLs are supported.
+    // 
+    // > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> sourceFaceContrastPictureUrl_ {};
-    // Name of the authorized OSS bucket.
-    // > Choose one of the four ways to input face photos: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // The bucket name of the authorized OSS space.
+    // 
+    // > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> sourceOssBucketName_ {};
-    // Filename of the authorized OSS space.
-    // > Choose one of the four ways to input face photos: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // The file name in the authorized OSS space.
+    // 
+    // > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> sourceOssObjectName_ {};
-    // CertifyId from a previously successful real-person authentication, where the photo taken during the authentication is used for face comparison.
+    // The CertifyId from a previous successful ID Verification. The photo captured during that verification is used as the face comparison photo.
     // 
-    // > Choose one of the four methods to provide the reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> targetCertifyId_ {};
-    // Base64 encoding of the reference photo.
+    // The Base64-encoded reference photo.
     // 
-    // > Choose one of the four methods to provide the reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> targetFaceContrastPicture_ {};
-    // OSS address of the reference photo. Currently, only authorized OSS addresses are supported.
+    // The OSS URL of the reference photo. Only authorized OSS photo URLs are supported.
     // 
-    // > Choose one of the four methods to provide the reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> targetFaceContrastPictureUrl_ {};
-    // Name of the authorized OSS bucket.
+    // The bucket name of the authorized OSS space.
     // 
-    // > Choose one of the four methods to provide the reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> targetOssBucketName_ {};
-    // File name in the authorized OSS space.
+    // The file name in the authorized OSS space.
     // 
-    // > Choose one of the four methods to provide the reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS.
+    // > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
     shared_ptr<string> targetOssObjectName_ {};
   };
 

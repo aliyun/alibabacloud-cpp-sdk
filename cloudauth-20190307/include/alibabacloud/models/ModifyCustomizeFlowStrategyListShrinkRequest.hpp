@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade real person), all others have been phased out.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
     shared_ptr<string> productType_ {};
-    // Strategy list.
+    // The policy list.
     shared_ptr<string> strategyObjectShrink_ {};
   };
 

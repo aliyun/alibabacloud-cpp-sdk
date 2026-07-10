@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The SDK download URL. When not empty, it indicates that the generation is complete.
+    // The download URL of the SDK. A non-empty value indicates that the SDK has been generated.
     shared_ptr<string> sdkUrl_ {};
   };
 

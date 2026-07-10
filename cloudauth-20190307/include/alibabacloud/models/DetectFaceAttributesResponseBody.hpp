@@ -430,9 +430,9 @@ namespace Models
 
     protected:
       shared_ptr<Data::FaceInfos> faceInfos_ {};
-      // Original image height, in pixels.
+      // The height of the original image, in pixels.
       shared_ptr<int32_t> imgHeight_ {};
-      // Original image width, in pixels.
+      // The width of the original image, in pixels.
       shared_ptr<int32_t> imgWidth_ {};
     };
 
@@ -476,15 +476,15 @@ namespace Models
 
 
   protected:
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<string> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<DetectFaceAttributesResponseBody::Data> data_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> message_ {};
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the response was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

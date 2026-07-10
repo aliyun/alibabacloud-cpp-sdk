@@ -66,32 +66,32 @@ namespace Models
 
 
   protected:
-    // ID number:
+    // ID card number:
     // 
     // Note
-    // Only supports the ID numbers of second-generation resident IDs and Hong Kong, Macao, and Taiwan residence permits.
+    // Only the ID numbers of the second-generation resident ID card and Hong Kong, Macao, and Taiwan residence permits are supported.
     // 
-    // - When paramType is normal: enter the plaintext ID number.
+    // - When paramType is set to normal: pass in the ID card number in plaintext.
     // 
-    // - When paramType is md5: enter the encrypted ID number.
+    // - When paramType is set to md5: pass in the encrypted ID card number.
     shared_ptr<string> identifyNum_ {};
-    // Mobile phone number:
+    // Mobile number:
     // 
-    // - When paramType is normal: enter the plaintext mobile phone number.
+    // - When paramType is set to normal: pass in the mobile number in plaintext.
     // 
-    // - When paramType is md5: enter the encrypted mobile phone number.
+    // - When paramType is set to md5: pass in the encrypted mobile number.
     shared_ptr<string> mobile_ {};
     // Encryption method:
     // 
-    // - normal: plaintext, not encrypted
+    // - normal: plaintext, no encryption
     // 
     // - md5: MD5 encryption
     shared_ptr<string> paramType_ {};
     // Name:
     // 
-    // - When paramType is normal: enter the plaintext name.
+    // - When paramType is set to normal: pass in the name in plaintext.
     // 
-    // - When paramType is md5: enter the encrypted name.
+    // - When paramType is set to md5: pass in the encrypted name.
     shared_ptr<string> userName_ {};
   };
 

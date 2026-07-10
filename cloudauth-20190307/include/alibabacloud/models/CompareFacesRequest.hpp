@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // Type of Image 1, with values:
+    // The type of image 1. Valid values:
     // 
-    // - **FacePic**: User\\"s face photo
-    // - **IDPic**: Headshot from the user\\"s second-generation ID card chip (typically obtained and decoded by a second-generation ID card reader)
+    // - **FacePic**: A face photo of the user.
+    // - **IDPic**: A headshot photo from the chip of the user\\"s second-generation ID card (typically read and decoded by a second-generation ID card reader device).
     shared_ptr<string> sourceImageType_ {};
-    // Address of Image 1. Please refer to the instructions on uploading image addresses.
+    // The URL of image 1. For more information, see the description of image URL upload.
     shared_ptr<string> sourceImageValue_ {};
-    // Type of Image 2, with values:
+    // The type of image 2. Valid values:
     // 
-    // - **FacePic**: User\\"s face photo
-    // - **IDPic**: Headshot from the user\\"s second-generation ID card chip (typically obtained and decoded by a second-generation ID card reader)
+    // - **FacePic**: A face photo of the user.
+    // - **IDPic**: A headshot photo from the chip of the user\\"s second-generation ID card (typically read and decoded by a second-generation ID card reader device).
     shared_ptr<string> targetImageType_ {};
-    // Address of Image 2. Please refer to the instructions on uploading image addresses.
+    // The URL of image 2. For more information, see the description of image URL upload.
     shared_ptr<string> targetImageValue_ {};
   };
 

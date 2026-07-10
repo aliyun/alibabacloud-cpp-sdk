@@ -188,35 +188,35 @@ namespace Models
 
 
     protected:
-      // Number of users under 14 years old.
+      // The number of authenticated users aged 14 and under.
       shared_ptr<int64_t> age0To14Cnt_ {};
-      // Proportion of users under 14 years old.
+      // The proportion of authenticated users aged 14 and under.
       shared_ptr<string> age0To14Rate_ {};
-      // Number of users between 14 and 18 years old.
+      // The number of authenticated users aged 14 to 18.
       shared_ptr<int64_t> age14To18Cnt_ {};
-      // Proportion of users between 14 and 18 years old.
+      // The proportion of authenticated users aged 14 to 18.
       shared_ptr<string> age14To18Rate_ {};
-      // Number of authenticated users between 18 and 35 years old.
+      // The number of authenticated users aged 18 to 35.
       shared_ptr<int64_t> age18To35Cnt_ {};
-      // Proportion of authenticated users between 18 and 35 years old.
+      // The proportion of authenticated users aged 18 to 35.
       shared_ptr<string> age18To35Rate_ {};
-      // Number of authenticated users between 35 and 50 years old.
+      // The number of authenticated users aged 35 to 50.
       shared_ptr<int64_t> age35To50Cnt_ {};
-      // Proportion of users between 35 and 50 years old.
+      // The proportion of authenticated users aged 35 to 50.
       shared_ptr<string> age35To50Rate_ {};
-      // Number of authenticated users over 50 years old.
+      // The number of authenticated users aged 50 and over.
       shared_ptr<int64_t> age50To999Cnt_ {};
-      // Proportion of authenticated users over 50 years old.
+      // The number of authenticated users aged 50 and over.
       shared_ptr<string> age50To999Rate_ {};
-      // Total number of authenticated users.
+      // The total number of authenticated users.
       shared_ptr<int64_t> allUserCnt_ {};
-      // Number of female users.
+      // The number of female authenticated users.
       shared_ptr<int64_t> femaleCnt_ {};
-      // Proportion of female authenticated users.
+      // The proportion of female authenticated users.
       shared_ptr<string> femaleRate_ {};
-      // Number of male users.
+      // The number of male authenticated users.
       shared_ptr<int64_t> maleCnt_ {};
-      // Proportion of male users.
+      // The proportion of male authenticated users.
       shared_ptr<string> maleRate_ {};
     };
 
@@ -239,9 +239,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<DescribeVerifyPersonasSexStatisticsResponseBody::ResultObject> resultObject_ {};
   };
 

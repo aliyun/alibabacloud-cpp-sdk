@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // Failure reasons.
+    // The failure reasons.
     Darabonba::Json failReasons_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

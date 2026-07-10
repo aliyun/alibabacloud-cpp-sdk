@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // OSS link for file download.
+    // The OSS download link for the file.
     shared_ptr<string> resultObject_ {};
   };
 

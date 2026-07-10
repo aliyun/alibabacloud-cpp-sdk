@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // ID number.
+    // The certificate number.
     shared_ptr<string> certNo_ {};
-    // Unique identifier for real person authentication.
+    // The unique identifier of the ID Verification request.
     shared_ptr<string> certifyId_ {};
-    // Remark, with a length less than 32 characters.
+    // The remarks. The maximum length is 32 characters.
     shared_ptr<string> remark_ {};
-    // Authentication scene ID. This ID is automatically generated after creating an authentication scene in the console. For instructions on how to create an authentication scene, see Adding an Authentication Scene.
+    // The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For information about how to create a verification scenario, see Add a verification scenario.
     shared_ptr<int64_t> sceneId_ {};
-    // ServiceCode for the real person cloud product, value: **antcloudauth**.
+    // The ServiceCode of the ID Verification cloud service. Set this parameter to **antcloudauth**.
     shared_ptr<string> serviceCode_ {};
-    // Whitelist validity period in days (only supports 3, 7, 30).
+    // The number of days the whitelist entry is valid. Valid values: 3, 7, and 30.
     shared_ptr<int32_t> validDay_ {};
   };
 

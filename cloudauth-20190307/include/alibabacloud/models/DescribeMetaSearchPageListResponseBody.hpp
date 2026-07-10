@@ -370,31 +370,60 @@ namespace Models
 
 
         protected:
+          // The approved number of passengers.
           shared_ptr<string> approvedCount_ {};
+          // The approved passenger capacity.
           shared_ptr<string> approvedLoad_ {};
+          // The number of axles.
           shared_ptr<string> axleCount_ {};
+          // The rear wheel track.
           shared_ptr<string> backWheelDistance_ {};
+          // The bank card number.
           shared_ptr<string> bankCard_ {};
+          // The verification status. Valid values:
+          // - **1**: Verification passed.
+          // - **2**: Verification failed.
+          // - **3**: No record found.
           shared_ptr<string> bizCode_ {};
+          // The brand name.
           shared_ptr<string> brand_ {};
+          // The body color.
           shared_ptr<string> color_ {};
+          // The displacement.
           shared_ptr<string> displacement_ {};
+          // The engine number.
           shared_ptr<string> engineNum_ {};
+          // The engine model.
           shared_ptr<string> engineType_ {};
+          // The front wheel track.
           shared_ptr<string> frontWheelDistance_ {};
+          // The fuel type.
           shared_ptr<string> fuelType_ {};
+          // The inspection validity expiration date.
           shared_ptr<string> inspectionDate_ {};
+          // The vehicle model number.
           shared_ptr<string> modelNum_ {};
+          // The power.
           shared_ptr<string> power_ {};
+          // The initial registration date.
           shared_ptr<string> registrationDate_ {};
+          // The manufacturing date.
           shared_ptr<string> releaseDate_ {};
+          // The mandatory retirement date.
           shared_ptr<string> retirementDate_ {};
+          // The gross mass.
           shared_ptr<string> totalMass_ {};
+          // The vehicle type.
           shared_ptr<string> type_ {};
+          // The curb weight.
           shared_ptr<string> unladenMass_ {};
+          // The usage property.
           shared_ptr<string> useProperty_ {};
+          // The motor vehicle status.
           shared_ptr<string> vehicleState_ {};
+          // The vehicle identification number (VIN).
           shared_ptr<string> vin_ {};
+          // The wheelbase.
           shared_ptr<string> wheelBase_ {};
         };
 
@@ -424,8 +453,11 @@ namespace Models
 
 
       protected:
+        // The HTTP return code.
         shared_ptr<string> code_ {};
+        // The response data.
         shared_ptr<Response::Data> data_ {};
+        // The message.
         shared_ptr<string> message_ {};
       };
 
@@ -476,8 +508,35 @@ namespace Models
 
 
       protected:
+        // The vehicle number.
         shared_ptr<string> vehicleNum_ {};
+        // The vehicle type. Valid values:
+        // - **01**: large vehicle  
+        // - **02**: small vehicle  
+        // - **03**: embassy vehicle  
+        // - **04**: consulate vehicle  
+        // - **05**: overseas vehicle  
+        // - **06**: foreign vehicle  
+        // - **07**: standard motorcycle  
+        // - **08**: light motorcycle  
+        // - **09**: embassy motorcycle  
+        // - **10**: consulate motorcycle  
+        // - **11**: overseas motorcycle  
+        // - **12**: foreign motorcycle  
+        // - **13**: low-speed vehicle  
+        // - **14**: tractor  
+        // - **15**: trailer  
+        // - **16**: training vehicle  
+        // - **17**: training motorcycle  
+        // - **20**: temporary entry vehicle  
+        // - **21**: temporary entry motorcycle  
+        // - **22**: temporary driving vehicle  
+        // - **23**: police vehicle  
+        // - **24**: police motorcycle  
+        // - **51**: new energy large vehicle  
+        // - **52**: new energy small vehicle.
         shared_ptr<string> vehicleType_ {};
+        // The vehicle type name.
         shared_ptr<string> vehicleTypeName_ {};
       };
 
@@ -602,21 +661,71 @@ namespace Models
 
 
     protected:
+      // The product API. Valid values:
+      // - **ID_CARD_2_META**: ID card two-element verification
+      // - **ID_PERIOD**: ID card validity period verification
+      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration
+      // - **MOBILE_ONLINE_STATUS**: mobile number online status
+      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
+      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
+      // - **MOBILE_2_META**: mobile number two-element verification
+      // - **BANK_CARD_N_META**: bank card verification (detailed edition)
+      // - **MOBILE_DETECT**: phone number detection 
+      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
+      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
+      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
+      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+      // - **VEHICLE_CHECK**: vehicle element verification.
       shared_ptr<string> api_ {};
+      // The name corresponding to the API. Valid values:
+      // - **ID_CARD_2_META**: ID card two-element verification
+      // - **ID_PERIOD**: ID card validity period verification
+      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration
+      // - **MOBILE_ONLINE_STATUS**: mobile number online status
+      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
+      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
+      // - **MOBILE_2_META**: mobile number two-element verification
+      // - **BANK_CARD_N_META**: bank card verification (detailed edition)
+      // - **MOBILE_DETECT**: phone number detection 
+      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
+      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
+      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
+      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+      // - **VEHICLE_CHECK**: vehicle element verification.
       shared_ptr<string> apiName_ {};
+      // The bank card ID.
       shared_ptr<string> bankCard_ {};
+      // The verification status. Valid values:
+      // - **1**: Verification passed.
+      // - **2**: Verification failed.
+      // - **3**: No record found.
       shared_ptr<string> bizCode_ {};
+      // The verification date.
       shared_ptr<string> date_ {};
+      // The ID card number.
       shared_ptr<string> identifyNum_ {};
+      // The name of the telecommunications service provider. Valid values:
+      // - **CMCC**: China Mobile
+      // - **CUCC**: China Unicom
+      // - **CTCC**: China Telecom.
       shared_ptr<string> ispName_ {};
+      // The mobile phone number.
       shared_ptr<string> mobile_ {};
+      // The request parameters.
       shared_ptr<Items::Request> request_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The HTTP request parameters.
       shared_ptr<string> requestJson_ {};
+      // The response content.
       shared_ptr<Items::Response> response_ {};
+      // The response content.
       shared_ptr<string> responseJson_ {};
+      // The result code. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
       shared_ptr<string> subCode_ {};
+      // The name.
       shared_ptr<string> userName_ {};
+      // The vehicle number.
       shared_ptr<string> vehicleNum_ {};
     };
 
@@ -667,11 +776,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The paginated list data.
     shared_ptr<vector<DescribeMetaSearchPageListResponseBody::Items>> items_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

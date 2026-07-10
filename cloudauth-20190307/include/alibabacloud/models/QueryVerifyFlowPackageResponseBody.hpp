@@ -162,21 +162,21 @@ namespace Models
 
 
       protected:
-        // Total amount.
+        // The total capacity.
         shared_ptr<double> capacity_ {};
-        // Name of the flow package.
+        // The name of the data transfer plan.
         shared_ptr<string> commodityName_ {};
-        // Remaining amount.
+        // The remaining capacity.
         shared_ptr<double> currCapacity_ {};
-        // Proportion of remaining amount.
+        // The ratio of the remaining capacity to the total capacity.
         shared_ptr<string> currProportion_ {};
-        // Expiration date.
+        // The expiration time.
         shared_ptr<string> expireDate_ {};
-        // Instance name
+        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // Status.
+        // The status.
         shared_ptr<string> status_ {};
-        // Effective date.
+        // The effective period.
         shared_ptr<string> takeEffectDate_ {};
       };
 
@@ -227,17 +227,17 @@ namespace Models
 
 
     protected:
-      // Name of the resource package.
+      // The name of the resource plan.
       shared_ptr<string> commodityName_ {};
-      // Current available capacity.
+      // The current remaining available capacity.
       shared_ptr<double> currCapacity_ {};
-      // Proportion of current remaining capacity to total capacity.
+      // The ratio of the current remaining capacity to the total capacity.
       shared_ptr<string> currProportion_ {};
-      // Details of the flow package.
+      // The data transfer plan details.
       shared_ptr<vector<Items::FlowDetails>> flowDetails_ {};
-      // Total quota.
+      // The total quota.
       shared_ptr<double> totalCapacity_ {};
-      // Used capacity.
+      // The used capacity.
       shared_ptr<double> usedCapacity_ {};
     };
 
@@ -288,17 +288,17 @@ namespace Models
 
 
   protected:
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // List of returned data.
+    // The list of returned data.
     shared_ptr<vector<QueryVerifyFlowPackageResponseBody::Items>> items_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the response was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Total count.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

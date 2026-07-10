@@ -181,25 +181,25 @@ namespace Models
 
 
       protected:
-        // Address.
+        // The address.
         shared_ptr<string> address_ {};
-        // Issuing authority.
+        // The issuing authority.
         shared_ptr<string> authority_ {};
-        // HTTP or HTTPS link to the national emblem side of the ID card. The link is valid for 5 minutes. It is recommended to store it in your business system to avoid any impact on usage.
+        // The HTTP or HTTPS URL of the national emblem side of the ID card. The URL is valid for 5 minutes. Save the image to your own storage to avoid access issues.
         shared_ptr<string> backImageUrl_ {};
-        // Date of birth.
+        // The date of birth.
         shared_ptr<string> birth_ {};
-        // End date of the document\\"s validity period. Format: yyyymmdd.
+        // The expiration date of the ID card. Format: yyyymmdd.
         shared_ptr<string> endDate_ {};
-        // HTTP or HTTPS link to the portrait side of the ID card. The link is valid for 5 minutes. It is recommended to store it in your business system to avoid any impact on usage.
+        // The HTTP or HTTPS URL of the portrait side of the ID card. The URL is valid for 5 minutes. Save the image to your own storage to avoid access issues.
         shared_ptr<string> frontImageUrl_ {};
-        // Name.
+        // The name.
         shared_ptr<string> name_ {};
-        // Nationality.
+        // The ethnicity.
         shared_ptr<string> nationality_ {};
-        // ID number.
+        // The ID card number.
         shared_ptr<string> number_ {};
-        // Start date of the document\\"s validity period. Format: yyyymmdd.
+        // The start date of the ID card validity period. Format: yyyymmdd.
         shared_ptr<string> startDate_ {};
       };
 
@@ -258,29 +258,29 @@ namespace Models
 
 
     protected:
-      // Global camera image captured by the real-person authentication SDK.
+      // The global camera image captured by the ID Verification SDK.
       // 
-      // > This parameter will take effect after configuration. If you need to use this parameter, please submit a [ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us.
+      // > This parameter takes effect only after configuration. If you need to use this parameter, [submit a ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us.
       shared_ptr<string> faceGlobalUrl_ {};
-      // HTTP or HTTPS link to the frontal face image, corresponding to the request parameter **FaceImageUrl**. The link is valid for 5 minutes, and it is recommended to store it in your business to avoid affecting usage.
+      // The HTTP or HTTPS URL of the front-facing facial photo, corresponding to the request parameter **FaceImageUrl**. The URL is valid for 5 minutes. Save the image to your own storage to avoid access issues.
       shared_ptr<string> faceImageUrl_ {};
-      // Whether the face is wearing a mask. Values:
-      // - **true**: Wearing a mask
-      // - **false**: Not wearing a mask
+      // Indicates whether the face is wearing a mask. Valid values:
+      // - **true**: A mask is detected.
+      // - **false**: No mask is detected.
       shared_ptr<string> faceMask_ {};
-      // The quality of the frontal face image. Possible values:
-      // - **UNQUALIFIED**: Poor quality
-      // - **LOW**: Low
-      // - **NORMAL**: Average
-      // - **HIGH**: High
+      // The quality of the front-facing facial photo. Valid values:
+      // - **UNQUALIFIED**: poor quality
+      // - **LOW**: low quality
+      // - **NORMAL**: moderate quality
+      // - **HIGH**: high quality.
       shared_ptr<string> faceQuality_ {};
-      // OCR result of the ID card information.
+      // The OCR result of the ID card information.
       // 
-      // > If there is no front or back of the ID card during the verification process, the OCR result of the ID card information will not be returned. Even if the front and back of the ID card are present during the verification process, it does not guarantee that all the information on the ID card will be returned. Due to issues such as poor ID card photography, the OCR may fail to recognize some information, leading to incomplete OCR results. It is recommended that the business side does not heavily rely on the ID card OCR information.
+      // > If the front and back photos of the ID card are not provided during verification, the OCR result of the ID card information is not returned. Even if both photos are provided, not all information on the ID card is guaranteed to be returned. OCR may fail to recognize certain information due to issues such as poor photo quality. We recommend that your business logic does not strictly depend on the ID card OCR information.
       shared_ptr<Material::IdCardInfo> idCardInfo_ {};
-      // Name, corresponding to the request parameter **Name**.
+      // The name, corresponding to the request parameter **Name**.
       shared_ptr<string> idCardName_ {};
-      // ID number, corresponding to the request parameter **IdCardNumber**.
+      // The ID card number, corresponding to the request parameter **IdCardNumber**.
       shared_ptr<string> idCardNumber_ {};
     };
 
@@ -331,34 +331,34 @@ namespace Models
 
 
   protected:
-    // Comparison score between the facial photo submitted during the authentication process and authoritative data, with a range of **0**~**100**.
+    // The comparison score between the facial photo submitted during verification and the authoritative data. Value range: **0** to **100**.
     // 
-    // Confidence threshold references:
-    // - False recognition rate 0.001% corresponds to a threshold of 95.
-    // - False recognition rate 0.01% corresponds to a threshold of 90.
-    // - False recognition rate 0.1% corresponds to a threshold of 80.
-    // - False recognition rate 1% corresponds to a threshold of 60.
+    // Confidence thresholds for reference:
+    // - At a false acceptance rate of 0.001%, the corresponding threshold is 95.
+    // - At a false acceptance rate of 0.01%, the corresponding threshold is 90.
+    // - At a false acceptance rate of 0.1%, the corresponding threshold is 80.
+    // - At a false acceptance rate of 1%, the corresponding threshold is 60.
     // 
-    // > This field only indicates the comparison result between the face and authoritative data, serving as a reference score. It is generally not recommended to use this score alone as the pass/fail criterion. For the comprehensive authentication result, please refer to the **VerifyStatus** field. The **VerifyStatus** result integrates the face-to-authoritative data comparison and other various strategies, enhancing security levels.
+    // > This field only represents the comparison result between the face and the authoritative data and serves as a reference score. We do not recommend using this score alone as the pass/fail criterion. For the comprehensive verification result, refer to the **VerifyStatus** field. The **VerifyStatus** result combines the face-to-authoritative-data comparison with multiple other strategies to improve the security level.
     shared_ptr<float> authorityComparisionScore_ {};
-    // Comparison score between the facial photo submitted during the authentication process and the face on the portrait side of the ID card image, with a range of **0**~**100**.
+    // The comparison score between the facial photo submitted during verification and the face on the portrait side of the ID card. Value range: **0** to **100**.
     // 
-    // Confidence threshold references:
-    // - False recognition rate 0.001% corresponds to a threshold of 95.
-    // - False recognition rate 0.01% corresponds to a threshold of 90.
-    // - False recognition rate 0.1% corresponds to a threshold of 80.
-    // - False recognition rate 1% corresponds to a threshold of 60.
+    // Confidence thresholds for reference:
+    // - At a false acceptance rate of 0.001%, the corresponding threshold is 95.
+    // - At a false acceptance rate of 0.01%, the corresponding threshold is 90.
+    // - At a false acceptance rate of 0.1%, the corresponding threshold is 80.
+    // - At a false acceptance rate of 1%, the corresponding threshold is 60.
     shared_ptr<float> idCardFaceComparisonScore_ {};
-    // Authentication materials.
+    // The verification materials.
     shared_ptr<VerifyMaterialResponseBody::Material> material_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Authentication status. Values:
+    // The verification status. Valid values:
     // 
-    // - **1**: Authentication passed.
-    // - **2**~**n**: Authentication failed due to various reasons. For detailed descriptions, see the **Authentication Status Explanation** below.
+    // - **1**: Verification passed.
+    // - **2** to **n**: Verification failed due to various reasons. For detailed descriptions, see **Verification status description** below.
     shared_ptr<int32_t> verifyStatus_ {};
-    // Token for this authentication, used to link various interfaces in the authentication request, valid for 30 minutes.
+    // The token for this verification, used to correlate the various operations within a verification request. The token is valid for 30 minutes.
     shared_ptr<string> verifyToken_ {};
   };
 

@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // Mobile number:
+    // The phone number. Valid values:
     // 
-    // - When `paramType` is `normal`: provide the plaintext mobile number.
-    // - When `paramType` is `md5`: provide the encrypted mobile number.
+    // - If paramType is set to normal, pass in the phone number in plaintext.
+    // - If paramType is set to md5, pass in the MD5-encrypted phone number.
     shared_ptr<string> mobile_ {};
-    // Parameter type:
+    // The parameter type. Valid values:
     // 
-    // - normal: unencrypted.
-    // - md5: md5 encrypted.
+    // - normal: not encrypted.
+    // - md5: MD5-encrypted.
     shared_ptr<string> paramType_ {};
   };
 

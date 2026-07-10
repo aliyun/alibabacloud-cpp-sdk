@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Blacklist rule.
+    // The blacklist rule.
     shared_ptr<string> blackListStrategyShrink_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

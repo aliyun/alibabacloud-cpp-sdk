@@ -140,41 +140,41 @@ namespace Models
 
 
   protected:
-    // Update Ant Blockchain Transaction Scenario
+    // Specifies whether to bind a mini program. Valid values:
+    // - **Y**: enabled.
+    // - **N (default)**: disabled.
+    // >Notice: If you enable mini program binding, make sure that you specify all parameters related to the mini program binding..
     shared_ptr<string> bindMiniProgram_ {};
-    // Whether to enable binding with a mini program:
-    // - **Y**: Enable
-    // - **N (default)**: Disable
-    // >Notice: If you enable binding with a mini program, please ensure that all parameters for the mini program are passed.
+    // The content of the uploaded verification file.
     shared_ptr<string> checkFileBody_ {};
-    // Scenario name.
+    // The name of the uploaded verification file.
     shared_ptr<string> checkFileName_ {};
-    // Name of the uploaded verification file.
+    // Specifies whether to enable enhanced device risk detection. Valid values:
+    // - **Y**: enabled.
+    // - **N**: disabled.
     shared_ptr<string> deviceRiskPlus_ {};
-    // System-defined parameter. Value: **UpdateAntCloudAuthScene**.
+    // The name of the mini program.
     shared_ptr<string> miniProgramName_ {};
-    // Currently meaningless, can be omitted.
-    shared_ptr<string> platform_ {};
-    // Mini program name.
-    shared_ptr<int64_t> returnPicCount_ {};
-    // Platform for binding the mini program:
+    // The mini program platform. Valid values:
     // - **WECHAT**: WeChat
     // - **ALIPAY**: Alipay
-    // - **TIKTOK**: TikTok
+    // - **TIKTOK**: TikTok.
+    shared_ptr<string> platform_ {};
+    // The number of returned photos (1 to 5). This parameter takes effect only after StoreImage is enabled for certification file retention.
+    shared_ptr<int64_t> returnPicCount_ {};
+    // The duration of the returned video (1 to 2 seconds). This parameter takes effect only after StoreImage is enabled.
     shared_ptr<int64_t> returnVideoLength_ {};
-    // Update Financial-Level Authentication Scenario
+    // The scenario ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};
-    // Update the information of a financial-level authentication scenario based on the scenario ID.
-    // - Service address: cloudauth.aliyuncs.com.
-    // - Request method: HTTPS POST.
+    // The scenario name.
     shared_ptr<string> sceneName_ {};
-    // Update Ant Blockchain Transaction Scenario
+    // This parameter is not used. You do not need to specify this parameter.
     shared_ptr<int32_t> status_ {};
-    // Update the information of a financial-level authentication scenario based on the scenario ID.
-    // - Service address: cloudauth.aliyuncs.com.
-    // - Request method: HTTPS POST.
+    // Specifies whether to deliver certification files generated during the certification process to the user\\"s OSS bucket. Valid values:
+    // - **Y**: enabled.
+    // - **N (default)**: disabled.
     shared_ptr<string> storeImage_ {};
   };
 

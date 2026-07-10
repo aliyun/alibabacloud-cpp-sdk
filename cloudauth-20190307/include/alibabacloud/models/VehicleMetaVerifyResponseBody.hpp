@@ -63,11 +63,11 @@ namespace Models
 
 
     protected:
-      // Verification result.
+      // The verification result. Valid values:
       // 
-      // - 1: Consistent (billable)
-      // - 2: Inconsistent (billable)
-      // - 3: No record found (non-billable)
+      // - 1: Consistent (billable).
+      // - 2: Inconsistent (billable).
+      // - 3: No record found (not billable).
       shared_ptr<string> bizCode_ {};
     };
 
@@ -104,13 +104,13 @@ namespace Models
 
 
   protected:
-    // Response code, **200** indicates that the API response was successful.
+    // The return code. **200** indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The result information.
     shared_ptr<VehicleMetaVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -75,25 +75,24 @@ namespace Models
 
 
   protected:
-    // ID number:
+    // The ID card number.
     // 
-    // - When `paramType` is `normal`: Enter the plain text of the ID number.
-    // - When `paramType` is `md5`:
-    // The first 6 digits (plain text) + date of birth (encrypted) + last 4 digits (plain text).
+    // - If paramType is set to normal, enter the ID card number in plaintext.
+    // - If paramType is set to md5, the value is in the following format: first 6 digits of the ID card number (plaintext) + date of birth (ciphertext) + last 4 digits of the ID card number (plaintext).
     shared_ptr<string> identifyNum_ {};
-    // Parameter type:
+    // The parameter type. Valid values:
     // 
-    // - normal: Unencrypted.
-    // - md5: MD5 encrypted.
+    // - normal: not encrypted.
+    // - md5: MD5-encrypted.
     shared_ptr<string> paramType_ {};
-    // Name.
+    // The name.
     // 
-    // - When `paramType` = `normal`: Enter the plain text of the name.
-    // - When `paramType` = `md5`: The first character of the name MD5 encrypted (32 lowercase MD5) + the rest of the name in plain text.
+    // - paramType = normal: enter the name in plaintext.
+    // - paramType = md5: the first character of the name is MD5-encrypted (32-bit lowercase MD5) + the remaining characters of the name in plaintext.
     shared_ptr<string> userName_ {};
-    // End date of ID validity, format: YYYYMMDD
+    // The expiration date of the ID card validity period. Format: YYYYMMDD.
     shared_ptr<string> validityEndDate_ {};
-    // Start date of ID validity, format: YYYYMMDD
+    // The start date of the ID card validity period. Format: YYYYMMDD.
     shared_ptr<string> validityStartDate_ {};
   };
 

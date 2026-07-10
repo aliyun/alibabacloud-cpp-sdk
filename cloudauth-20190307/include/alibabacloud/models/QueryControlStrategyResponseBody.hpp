@@ -110,26 +110,28 @@ namespace Models
 
 
     protected:
-      // API name, same as the **ProductCode** of the authentication interface.
+      // The API name, which is the same as the ProductCode of the verification operation.
       shared_ptr<string> apiName_ {};
-      // Rule configuration type:
+      // The rule configuration type. Valid values:
+      // 
       // - **QPS**: QPS greater than
-      // - **SUCCESS_RATE_5_MIN**: Success rate in the last 5 minutes less than
-      // - **RESP_TIME_5_MIN**: Average response time in the last 5 minutes greater than
-      // - **AMOUNT_RISE**: Call volume growth ratio greater than
-      // - **AMOUNT_FALL**: Call volume decline ratio less than
-      // - **PASSED_RATE_1_HOUR**: Verification consistency rate in the last hour less than
-      // - **PARAM_ERROR_RATE_1_HOUR**: Parameter error rate in the last hour greater than
+      // - **SUCCESS_RATE_5_MIN**: success rate in the last 5 minutes less than
+      // - **RESP_TIME_5_MIN**: average response time in the last 5 minutes greater than
+      // - **AMOUNT_RISE**: call volume increase compared to the previous period greater than
+      // - **AMOUNT_FALL**: call volume decrease compared to the previous period less than
+      // - **PASSED_RATE_1_HOUR**: verification consistency rate in the last hour less than
+      // - **PARAM_ERROR_RATE_1_HOUR**: parameter error rate in the last hour greater than.
       shared_ptr<string> bizType_ {};
-      // Rule ID.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // Status:
-      // - **disabled**: Disabled
-      // - **normal**: Enabled
+      // The status. Valid values:
+      // 
+      // - **disabled**: Disabled.
+      // - **normal**: Enabled.
       shared_ptr<string> status_ {};
-      // Alarm threshold for rule configuration.
+      // The alert threshold for configure alerting of the rule.
       shared_ptr<double> threshold_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -166,13 +168,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The response code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Processing result.
+    // The processing result.
     shared_ptr<vector<QueryControlStrategyResponseBody::ResultObject>> resultObject_ {};
   };
 

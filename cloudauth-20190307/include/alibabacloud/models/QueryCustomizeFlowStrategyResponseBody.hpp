@@ -144,27 +144,27 @@ namespace Models
     protected:
       // AccumulateKey
       shared_ptr<string> accumulateKey_ {};
-      // Flow control statistical window, unit: **minutes**.
+      // The rate limiting statistical window. Unit: **minutes**.
       shared_ptr<string> accumulateWindow_ {};
-      // API name, same as **ProductCode**.
+      // The API name, which is the same as **ProductCode**.
       shared_ptr<string> apiName_ {};
-      // Flow type:
-      // - **ACCUMULATE**: ID card reappears
-      // - **PASSED_RATE**: Pass rate less than
-      // - **SUB_CODE_205**: Authentication failed and liveness attack 205 ratio greater than
-      // - **SUB_CODE_206**: Authentication failed and liveness attack 206 ratio greater than
+      // The flow type. Valid values:
+      // - **ACCUMULATE**: repeated occurrence of an ID card number.
+      // - **PASSED_RATE**: pass rate less than the threshold.
+      // - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than the threshold.
+      // - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than the threshold.
       shared_ptr<string> flowType_ {};
-      // Rule ID.
+      // The rule ID.
       shared_ptr<string> id_ {};
-      // Operation.
+      // The operation.
       shared_ptr<string> operation_ {};
-      // Status:
-      // - **disabled**: Disabled
-      // - **normal**: Enabled
+      // The status. Valid values:
+      // - **disabled**: Disabled.
+      // - **normal**: Enabled.
       shared_ptr<string> status_ {};
-      // Threshold.
+      // The threshold.
       shared_ptr<string> threshold_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -215,17 +215,17 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Processing result.
+    // The processing result.
     shared_ptr<vector<QueryCustomizeFlowStrategyResponseBody::ResultObject>> resultObject_ {};
-    // Whether the response was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
   };
 

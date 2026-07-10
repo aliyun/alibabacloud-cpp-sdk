@@ -96,26 +96,26 @@ namespace Models
 
 
     protected:
-      // Blacklist string, with each blacklist entry separated by commas.
+      // The blacklist string. Separate multiple entries with commas (,).
       shared_ptr<string> bizContent_ {};
-      // List Type:
-      // - **mobile**: Mobile number blacklist
-      // - **ip**: IP blacklist
-      // - **identifyNum**: ID number blacklist
-      // - **bankCard**: Bank card blacklist
+      // The blacklist type. Valid values:
+      // - **mobile**: mobile number blacklist.
+      // - **ip**: IP blacklist.
+      // - **identifyNum**: ID card blacklist.
+      // - **bankCard**: bank card blacklist.
       shared_ptr<string> bizKey_ {};
-      // Rule ID:
-      // - **Empty**: Add a new rule
-      // - **Non-empty**: Modify an existing rule
+      // The rule ID. Valid values:
+      // - **Empty**: creates a rule.
+      // - **Not empty**: modifies a rule.
       shared_ptr<int64_t> id_ {};
-      // Product Name:
-      // - **id2meta**: ID card two-factor verification
-      // - **mobile3Meta**: Mobile number factor verification
-      // - **bankcardMeta**: Bank card factor verification
+      // The product name. Valid values:
+      // - **id2meta**: ID card two-element verification.
+      // - **mobile3Meta**: mobile number element verification.
+      // - **bankcardMeta**: bank card element verification.
       shared_ptr<string> productName_ {};
-      // Verification Status:
-      // - **1**: Verification passed
-      // - **2**: Verification failed
+      // The authentication status. Valid values:
+      // - **1**: Authentication passed.
+      // - **2**: Authentication failed.
       shared_ptr<string> status_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // Blacklist rule.
+    // The blacklist rule.
     shared_ptr<ModifyBlackListStrategyRequest::BlackListStrategy> blackListStrategy_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

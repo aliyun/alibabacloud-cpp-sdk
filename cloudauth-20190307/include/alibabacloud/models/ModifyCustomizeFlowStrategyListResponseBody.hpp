@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates the interface responded successfully.
+    // The return code. **200** indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // Result data.
+    // The result data.
     shared_ptr<int32_t> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the response was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -158,37 +158,37 @@ namespace Models
 
 
   protected:
-    // Unique identifier for real-person authentication.
+    // The unique identity of the ID Verification request.
     shared_ptr<string> certifyId_ {};
-    // Whether to allow cropping of the face image:
+    // Specifies whether to allow trim of the face image. Valid values:
     // 
-    // - T: Allow cropping
+    // - T: Trim is allowed.
     // 
-    // - F (default): Do not allow cropping.
+    // - F (default): Trim is not allowed.
     shared_ptr<string> crop_ {};
-    // Device token, used for risk identification.
+    // The device token, which is used for risk identification.
     shared_ptr<string> deviceToken_ {};
-    // Base64 encoded photo.
+    // The Base64 encoding of the photo.
     shared_ptr<string> faceContrastPicture_ {};
-    // Image URL.
+    // The URL of the image.
     shared_ptr<string> faceContrastPictureUrl_ {};
-    // User\\"s network IP address.
+    // The IP address of the user network.
     shared_ptr<string> ip_ {};
-    // User\\"s mobile phone number.
+    // The mobile phone number of the user.
     shared_ptr<string> mobile_ {};
-    // Liveness detection parameters.
+    // The liveness detection parameter.
     shared_ptr<string> model_ {};
-    // Authorized OSS bucket name.
+    // The bucket name of the authorization-granted OSS bucket.
     shared_ptr<string> ossBucketName_ {};
-    // Authorized OSS file name.
+    // The file name in the authorization-granted OSS bucket.
     shared_ptr<string> ossObjectName_ {};
-    // A unique business identifier defined by the client side, used for subsequent troubleshooting. The value should be a combination of letters and numbers up to 32 characters long, ensuring uniqueness.
+    // The custom business unique identity on the client side, which is used for subsequent troubleshooting. The value can contain up to 32 alphanumeric characters. Make sure the value is unique.
     shared_ptr<string> outerOrderNo_ {};
     // Fixed value: LR_FR_MIN.
     shared_ptr<string> productCode_ {};
-    // Authentication scenario ID. This ID is automatically generated after creating an authentication scenario in the console.
+    // The ID of the authentication scenario. This ID is automatically generated after you create an authentication scenario in the console.
     shared_ptr<int64_t> sceneId_ {};
-    // Your custom user ID (up to 100 characters), please ensure it is unique.
+    // The custom user ID (up to 100 characters). Make sure the value is unique.
     shared_ptr<string> userId_ {};
   };
 

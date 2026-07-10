@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // Verification scenario name.
+    // The name of the verification scenario.
     shared_ptr<string> bizName_ {};
-    // Verification scenario identifier.
+    // The identifier of the verification scenario.
     shared_ptr<string> bizType_ {};
-    // ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Authentication solution name.
+    // The name of the verification solution.
     shared_ptr<string> solution_ {};
-    // Authentication steps
+    // The verification steps. guide indicates the guide step, and privacy indicates the authorization step.
     shared_ptr<vector<string>> stepList_ {};
   };
 

@@ -82,11 +82,11 @@ namespace Models
 
 
     protected:
-      // Unique identifier for the real-person authentication request.
+      // The unique identifier of the ID Verification request.
       shared_ptr<string> certifyId_ {};
-      // Whether the verification passed, T for pass, F for fail.
+      // Indicates whether the verification passed. A value of T indicates passed. A value of F indicates not passed.
       shared_ptr<string> passed_ {};
-      // Face comparison score.
+      // The face comparison score.
       shared_ptr<float> verifyScore_ {};
     };
 
@@ -123,13 +123,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, other values indicate failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Face comparison result information.
+    // The face comparison result.
     shared_ptr<CompareFaceVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

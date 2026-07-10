@@ -103,9 +103,9 @@ namespace Models
 
 
       protected:
-        // Number of occurrences of the statistic.
+        // The count of the statistical value.
         shared_ptr<string> statisticsCount_ {};
-        // ProductCode。
+        // The product code.
         shared_ptr<string> statisticsType_ {};
       };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
     protected:
-      // List of statistical data.
+      // The list of statistics data.
       shared_ptr<vector<Items::Data>> data_ {};
-      // Statistics date.
+      // The statistics date.
       shared_ptr<string> statisticsDate_ {};
     };
 
@@ -196,21 +196,21 @@ namespace Models
 
 
   protected:
-    // Response code, **200** indicates a successful response.
+    // The response code. **200** indicates a successful response.
     shared_ptr<string> code_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // List of returned data.
+    // The list of returned data.
     shared_ptr<vector<QueryVerifyInvokeSatisticResponseBody::Items>> items_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Whether the response was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int64_t> totalPage_ {};
   };
 

@@ -40,10 +40,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ResultObject& obj) { 
         DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
         DARABONBA_PTR_TO_JSON(FaceDetail, faceDetail_);
+        DARABONBA_PTR_TO_JSON(SubCode, subCode_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
         DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
         DARABONBA_PTR_FROM_JSON(FaceDetail, faceDetail_);
+        DARABONBA_PTR_FROM_JSON(SubCode, subCode_);
       };
       ResultObject() = default ;
       ResultObject(const ResultObject &) = default ;
@@ -57,7 +59,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bizCode_ == nullptr
-        && this->faceDetail_ == nullptr; };
+        && this->faceDetail_ == nullptr && this->subCode_ == nullptr; };
       // bizCode Field Functions 
       bool hasBizCode() const { return this->bizCode_ != nullptr;};
       void deleteBizCode() { this->bizCode_ = nullptr;};
@@ -72,15 +74,23 @@ namespace Models
       inline ResultObject& setFaceDetail(string faceDetail) { DARABONBA_PTR_SET_VALUE(faceDetail_, faceDetail) };
 
 
+      // subCode Field Functions 
+      bool hasSubCode() const { return this->subCode_ != nullptr;};
+      void deleteSubCode() { this->subCode_ = nullptr;};
+      inline string getSubCode() const { DARABONBA_PTR_GET_DEFAULT(subCode_, "") };
+      inline ResultObject& setSubCode(string subCode) { DARABONBA_PTR_SET_VALUE(subCode_, subCode) };
+
+
     protected:
-      // Identity verification result:
+      // The identity verification result. Valid values:
       // 
-      // - 1: Consistent
-      // - 2: Inconsistent
-      // - 3: No record found
+      // - 1: Consistent.
+      // - 2: Inconsistent.
+      // - 3: No record found.
       shared_ptr<string> bizCode_ {};
-      // Image comparison score.
+      // The face comparison score.
       shared_ptr<string> faceDetail_ {};
+      shared_ptr<string> subCode_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -116,20 +126,22 @@ namespace Models
 
 
   protected:
-    // Return code: 200 indicates success, others indicate failure.
+    // The response code. A value of 200 indicates success. Other values indicate failure.
+    // 
     // **Important**
-    // - This parameter indicates whether the interface was called correctly. For detailed return code explanations, please refer to the error codes.
-    // - Check the business verification result through the fields in `ResultObject`.
+    // 
+    // - This parameter indicates only whether the API call is successful. For more information about return codes, see error codes.
+    // - Check the fields in ResultObject for the business verification result.
     shared_ptr<string> code_ {};
-    // Interface call return message.
+    // The response message of the API call.
     // 
     // **Important**
     // 
-    // This parameter only indicates whether there was an exception with the interface.
+    // This parameter indicates only whether the API call is abnormal.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result object.
+    // The result object.
     shared_ptr<Id3MetaVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

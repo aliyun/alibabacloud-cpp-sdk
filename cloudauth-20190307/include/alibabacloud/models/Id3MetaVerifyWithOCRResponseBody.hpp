@@ -82,15 +82,15 @@ namespace Models
 
 
     protected:
-      // Identity verification result:
+      // The identity verification result. Valid values:
       // 
-      // - 1: Consistent
-      // - 2: Inconsistent
-      // - 3: No record found
+      // - 1: consistent.
+      // - 2: inconsistent.
+      // - 3: no record found.
       shared_ptr<string> bizCode_ {};
-      // Card ocr result.
+      // {"address":"浙江省杭州市余*****","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}.
       shared_ptr<string> cardInfo_ {};
-      // Face comparison score.
+      // The face comparison score.
       shared_ptr<string> faceDetail_ {};
     };
 
@@ -127,16 +127,16 @@ namespace Models
 
 
   protected:
-    // Return code: 200 indicates success, any other value indicates failure. **Important**
+    // The response code. 200 indicates success. Other values indicate failure. **Important**
     // 
-    // - This parameter indicates whether the interface was called correctly. For a detailed explanation of return codes, please refer to the error codes.
-    // - The business verification result can be viewed through the fields in ResultObject.
+    // - This parameter indicates only whether the API call was made correctly. For more information about return codes, see error codes.
+    // - Check the fields in ResultObject for the business verification result.
     shared_ptr<string> code_ {};
-    // Interface call return message. **Important** This parameter only indicates whether there was an exception with the interface.
+    // The response message of the API call. This parameter indicates only whether an exception occurred during the API call.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result object.
+    // The result object.
     shared_ptr<Id3MetaVerifyWithOCRResponseBody::ResultObject> resultObject_ {};
   };
 

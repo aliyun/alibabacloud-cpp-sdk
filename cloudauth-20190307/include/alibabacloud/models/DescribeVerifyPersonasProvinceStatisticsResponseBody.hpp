@@ -100,11 +100,11 @@ namespace Models
 
 
       protected:
-        // Total number of devices in the province.
+        // The total number of devices in the province.
         shared_ptr<int64_t> provinceCnt_ {};
-        // Province name.
+        // The province name.
         shared_ptr<string> provinceName_ {};
-        // Percentage of the total for this province.
+        // The percentage of the province relative to the total.
         shared_ptr<string> provinceRate_ {};
       };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // Total number of devices.
+      // The total number of devices.
       shared_ptr<int64_t> allUserCnt_ {};
-      // Data items.
+      // The data items.
       shared_ptr<vector<ResultObject::Items>> items_ {};
     };
 
@@ -152,9 +152,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Query result.
+    // The query result.
     shared_ptr<DescribeVerifyPersonasProvinceStatisticsResponseBody::ResultObject> resultObject_ {};
   };
 

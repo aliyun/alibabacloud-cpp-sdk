@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Unique identifier for real-person authentication.
+    // The unique identifier of the ID Verification request.
     shared_ptr<string> certifyId_ {};
-    // Image return type.
+    // The image return type.
     shared_ptr<string> pictureReturnType_ {};
-    // Authentication scene ID.
+    // The ID of the verification scenario.
     shared_ptr<int64_t> sceneId_ {};
   };
 

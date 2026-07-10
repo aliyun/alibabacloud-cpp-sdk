@@ -112,27 +112,27 @@ namespace Models
 
 
   protected:
-    // ID number.
+    // The certificate number.
     shared_ptr<string> certNo_ {};
-    // Unique identifier for real person authentication.
+    // The unique identifier of the ID Verification request.
     shared_ptr<string> certifyId_ {};
-    // Current page number, default is 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // Number of items per page, default is 10
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Authentication scene ID. This ID is automatically generated after creating an authentication scene in the console. For how to create an authentication scene, see Adding an Authentication Scene.
+    // The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, refer to Add a verification scenario.
     shared_ptr<int64_t> sceneId_ {};
-    // ServiceCode of the real person cloud product, value: **antcloudauth**.
+    // The ServiceCode of the ID Verification cloud service. Value: **antcloudauth**.
     shared_ptr<string> serviceCode_ {};
-    // Status:
+    // The status. Valid values:
     // 
-    // - DELETE: Deleted
-    // - VALID: Not deleted and within the validity period, valid
-    // - INVALID: Not deleted but outside the validity period, invalid
+    // - DELETE: Deleted.
+    // - VALID: Not deleted and within the validity period (valid).
+    // - INVALID: Not deleted but outside the validity period (invalid).
     shared_ptr<string> status_ {};
-    // End date of validity (timestamp in milliseconds)
+    // The end date of the validity period (timestamp in milliseconds).
     shared_ptr<string> validEndDate_ {};
-    // Start date of validity (timestamp in milliseconds)
+    // The start date of the validity period (timestamp in milliseconds).
     shared_ptr<string> validStartDate_ {};
   };
 

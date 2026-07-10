@@ -73,13 +73,13 @@ namespace Models
 
 
     protected:
-      // Verification result code:
+      // The verification result code. Valid values:
       // 
       // > 
-      // > - 1: Found (charged)
-      // > - 3: No record found (not charged)
+      // > - 1: match found (billable).
+      // > - 3: no record found (not billable).
       shared_ptr<string> bizCode_ {};
-      // Vehicle information.
+      // The vehicle information.
       shared_ptr<string> vehicleInfo_ {};
     };
 
@@ -116,13 +116,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Request result
+    // The request result.
     shared_ptr<VehicleQueryResponseBody::ResultObject> resultObject_ {};
   };
 

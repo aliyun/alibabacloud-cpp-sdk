@@ -82,17 +82,17 @@ namespace Models
 
 
     protected:
-      // Unique identifier for real-person authentication.
+      // The unique identifier for real-person authentication.
       shared_ptr<string> certifyId_ {};
-      // Deletion result. Possible values are as follows:
+      // The deletion result. Valid values:
       // 
       // - Y: Deletion successful.
       // - N: Deletion failed.
       shared_ptr<string> deleteResult_ {};
-      // Reason for deletion failure
+      // The reason for deletion failure.
       // 
-      // - NOT_DELETE_REPEATEDLY: Cannot be deleted repeatedly
-      // - NEED_QUERY_VERIFY_RESULT: Need to query the verification result first, then delete
+      // - NOT_DELETE_REPEATEDLY: The data cannot be deleted repeatedly.
+      // - NEED_QUERY_VERIFY_RESULT: You must query the authentication result before deleting.
       shared_ptr<string> failReason_ {};
     };
 
@@ -129,13 +129,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // Return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
     // Return message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The returned result.
     shared_ptr<DeleteFaceVerifyResultResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // List of phone numbers.
+    // The list of phone numbers.
     shared_ptr<string> mobiles_ {};
-    // Encryption method:
-    // - normal: plaintext, no encryption
-    // - md5: MD5 encryption
+    // The encryption method. Valid values:
+    // - normal: plaintext without encryption
+    // - md5: MD5 encryption.
     shared_ptr<string> paramType_ {};
   };
 

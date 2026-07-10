@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Intention authentication configuration, as a JSON string.
+    // The willingness authentication configuration, in JSON string format.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
-    // Scene ID.
+    // The scenario ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};
-    // Configuration type.
+    // The configuration type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -100,11 +100,11 @@ namespace Models
 
 
       protected:
-        // Number of devices.
+        // The number of devices.
         shared_ptr<int64_t> deviceCnt_ {};
-        // Device model
+        // The device model.
         shared_ptr<string> deviceModel_ {};
-        // The ratio of this device model to the total number of devices.
+        // The ratio of devices of this model to the total number of devices.
         shared_ptr<string> deviceRate_ {};
       };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // Total number of devices.
+      // The total number of devices.
       shared_ptr<int64_t> allDeviceCnt_ {};
-      // List of data for different phone models.
+      // The list of data for different phone models.
       shared_ptr<vector<ResultObject::Items>> items_ {};
     };
 
@@ -152,9 +152,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Query result.
+    // The query result.
     shared_ptr<DescribeVerifyPersonasDeviceModelStatisticsResponseBody::ResultObject> resultObject_ {};
   };
 

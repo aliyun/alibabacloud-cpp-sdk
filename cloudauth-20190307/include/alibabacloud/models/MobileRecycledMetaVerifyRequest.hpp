@@ -57,10 +57,20 @@ namespace Models
 
 
   protected:
+    // The phone number. Valid values:
+    // - If ParamType is set to normal, pass in the phone number in plaintext.
+    // - If ParamType is set to md5, pass in the MD5-encrypted phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> mobile_ {};
+    // The encryption method. Valid values:
+    // - normal: plaintext without encryption
+    // - md5: MD5 encryption.
+    // 
     // This parameter is required.
     shared_ptr<string> paramType_ {};
+    // The registration date in the format YYYYMMDD. For example, 19800101 indicates January 1, 1980.
+    // 
     // This parameter is required.
     shared_ptr<string> registerDate_ {};
   };

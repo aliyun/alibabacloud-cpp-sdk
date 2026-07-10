@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // IDs of the whitelist to be deleted in bulk.
+    // The IDs of the whitelists to delete in batch.
     shared_ptr<vector<int64_t>> ids_ {};
-    // ServiceCode for the real person cloud product, only value: **antcloudauth**.
+    // The ServiceCode of the ID Verification service. Set this parameter to **antcloudauth**.
     shared_ptr<string> serviceCode_ {};
   };
 

@@ -198,44 +198,46 @@ namespace Models
 
 
     protected:
-      // Application ID.
+      // The application ID.
       shared_ptr<int64_t> appId_ {};
-      // Whether to enable binding to a mini program:
-      // - **Y**: Enabled
-      // - **N (default)**: Not enabled
+      // Specifies whether to enable mini program binding. Valid values:
+      // - **Y**: Enabled.
+      // - **N (default)**: Disabled.
       shared_ptr<string> bindMiniProgram_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // Creator.
+      // The creator.
       shared_ptr<string> creator_ {};
-      // Enhanced device detection capability: - **Y**: Enable - **N**: Disable
+      // Specifies whether to enable enhanced device risk detection. Valid values:
+      // - **Y**: Enabled.
+      // - **N**: Disabled.
       shared_ptr<string> deviceRiskPlus_ {};
-      // Bound domain.
+      // The bound domain name.
       shared_ptr<string> domain_ {};
-      // Mini program name.
+      // The mini program name.
       shared_ptr<string> miniProgramName_ {};
-      // Modifier.
+      // The modifier.
       shared_ptr<string> modifier_ {};
-      // Bound mini program platform:
+      // The mini program platform. Valid values:
       // - **WECHAT**: WeChat
       // - **ALIPAY**: Alipay
-      // - **TIKTOK**: TikTok
+      // - **TIKTOK**: TikTok.
       shared_ptr<string> platform_ {};
-      // Number of face photos stored (1-5).
+      // The number of evidence face photos (1 to 5).
       shared_ptr<int64_t> returnPicCount_ {};
-      // Duration of the stored video (in seconds).
+      // The duration of the evidence video, in seconds.
       shared_ptr<int64_t> returnVideoLength_ {};
-      // Scenario ID.
+      // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
-      // Scenario name.
+      // The scene name.
       shared_ptr<string> sceneName_ {};
-      // Whether it is enabled, with a value of 1 indicating enabled.
+      // Indicates whether the scene is enabled. The value 1 indicates enabled.
       shared_ptr<int32_t> status_ {};
-      // Whether to deliver the files generated from the authentication to the customer\\"s OSS:
-      // - **Y**: Enabled
-      // - **N**: Disabled
+      // Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
+      // - **Y**: Enabled.
+      // - **N**: Disabled.
       shared_ptr<string> storeImage_ {};
-      // The last update time of the instance.
+      // The time when the instance was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -258,9 +260,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of scenarios.
+    // The list of scenes.
     shared_ptr<vector<DescribeListAntCloudAuthScenesResponseBody::Scenes>> scenes_ {};
   };
 

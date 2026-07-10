@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Scene type.
+    // The scenario type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

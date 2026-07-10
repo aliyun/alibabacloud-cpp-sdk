@@ -100,20 +100,20 @@ namespace Models
 
 
     protected:
-      // Identity verification result:
-      // - 1: Consistent
-      // - 2: Inconsistent
-      // - 3: No Record Found
+      // The identity verification result. Valid values:
+      // - 1: consistent
+      // - 2: inconsistent
+      // - 3: no record found.
       shared_ptr<string> bizCode_ {};
-      // Submitted ID card information for verification.
+      // The ID card information submitted for verification.
       shared_ptr<string> cardInfo_ {};
-      // Image comparison score.
+      // The image comparison score.
       shared_ptr<string> faceDetail_ {};
-      // ID card information read by OCR.
+      // The ID card information read by OCR.
       shared_ptr<string> ocrCardInfo_ {};
-      // Returned photo URLs.
-      // - certUrl  Front side
-      // - certNationalUrl  National emblem side
+      // The returned photo URLs.
+      // - certUrl: front side
+      // - certNationalUrl: national emblem side.
       shared_ptr<string> pictureInfo_ {};
     };
 
@@ -150,18 +150,18 @@ namespace Models
 
 
   protected:
-    // Return code: 200 indicates success, all others indicate failure.
-    // Important
-    // - This parameter indicates whether the interface was called correctly. For detailed return code explanations, please refer to the error codes.
-    // - Please check the business verification results through the fields in ResultObject.
+    // The response code. 200 indicates success. Other values indicate failure.
+    // > **Important**
+    // > - This parameter indicates whether the operation is called correctly. For more information about return codes, refer to error codes.
+    // > - Check the business verification result by viewing the fields in ResultObject.
     shared_ptr<string> code_ {};
-    // Interface call return message.
-    // Important
-    // - This parameter only indicates whether there was an exception with the interface.
+    // The response message of the operation.
+    // > **Important**
+    // > - This parameter only indicates whether the operation is abnormal.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result object.
+    // The result object.
     shared_ptr<DescribeCardVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

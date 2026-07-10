@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(ValidDay, validDay_);
+      DARABONBA_PTR_TO_JSON(WhitelistType, whitelistType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWhitelistSettingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CertNo, certNo_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(ValidDay, validDay_);
+      DARABONBA_PTR_FROM_JSON(WhitelistType, whitelistType_);
     };
     CreateWhitelistSettingRequest() = default ;
     CreateWhitelistSettingRequest(const CreateWhitelistSettingRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certNo_ == nullptr
         && this->certifyId_ == nullptr && this->lang_ == nullptr && this->remark_ == nullptr && this->sceneId_ == nullptr && this->serviceCode_ == nullptr
-        && this->sourceIp_ == nullptr && this->validDay_ == nullptr; };
+        && this->sourceIp_ == nullptr && this->validDay_ == nullptr && this->whitelistType_ == nullptr; };
     // certNo Field Functions 
     bool hasCertNo() const { return this->certNo_ != nullptr;};
     void deleteCertNo() { this->certNo_ = nullptr;};
@@ -102,29 +104,37 @@ namespace Models
     inline CreateWhitelistSettingRequest& setValidDay(int32_t validDay) { DARABONBA_PTR_SET_VALUE(validDay_, validDay) };
 
 
+    // whitelistType Field Functions 
+    bool hasWhitelistType() const { return this->whitelistType_ != nullptr;};
+    void deleteWhitelistType() { this->whitelistType_ = nullptr;};
+    inline string getWhitelistType() const { DARABONBA_PTR_GET_DEFAULT(whitelistType_, "") };
+    inline CreateWhitelistSettingRequest& setWhitelistType(string whitelistType) { DARABONBA_PTR_SET_VALUE(whitelistType_, whitelistType) };
+
+
   protected:
-    // ID number to be whitelisted.
+    // The ID card number to add to the whitelist.
     shared_ptr<string> certNo_ {};
-    // Certificate ID, used for whitelisting this specific authenticated user.
+    // The certificate ID. The user associated with this authentication is added to the whitelist.
     shared_ptr<string> certifyId_ {};
-    // User language.
+    // The user language.
     shared_ptr<string> lang_ {};
-    // Whitelist remarks.
+    // The remarks for the whitelist.
     shared_ptr<string> remark_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
-    // Service type:
-    // - **antcloudauth**: Financial-grade real-person authentication.
-    // - **cloudauthst** (discontinued): Enhanced real-person authentication.
+    // The service type. Valid values:
+    // - **antcloudauth**: Financial-grade ID Verification.
+    // - **cloudauthst** (discontinued): ID Verification Enhanced Edition.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Visitor\\"s source IP address. No need to fill in, the system will automatically obtain it.
+    // The source IP address of the visitor. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
-    // Number of valid days after creating the whitelist.
+    // The number of valid days after the whitelist is created.
     // 
     // This parameter is required.
     shared_ptr<int32_t> validDay_ {};
+    shared_ptr<string> whitelistType_ {};
   };
 
   } // namespace Models

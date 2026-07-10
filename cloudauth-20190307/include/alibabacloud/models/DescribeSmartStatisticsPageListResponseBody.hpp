@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // Date. Format: <i>month/day</i>
+      // The date. Format: <i>month/day</i>.
       shared_ptr<string> date_ {};
-      // Pass rate.
+      // The pass rate.
       shared_ptr<string> passRate_ {};
-      // Product solution Code, please refer to the Enhanced Real Person Help Documentation.
+      // The product solution code. For more information, refer to the enhanced ID Verification documentation.
       shared_ptr<string> productCode_ {};
-      // Scene ID.
+      // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
-      // Scene name.
+      // The scene name.
       shared_ptr<string> sceneName_ {};
-      // Number of successful calls.
+      // The number of successful calls.
       shared_ptr<int32_t> successCount_ {};
-      // Total count.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -187,17 +187,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Returned data list.
+    // The list of returned data.
     shared_ptr<vector<DescribeSmartStatisticsPageListResponseBody::Items>> items_ {};
-    // Number of items displayed per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

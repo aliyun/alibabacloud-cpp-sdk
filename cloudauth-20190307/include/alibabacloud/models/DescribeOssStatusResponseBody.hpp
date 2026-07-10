@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The name of the OSS bucket for delivering authentication information.
+      // The name of the OSS bucket to which verification information is delivered.
       shared_ptr<string> bucketName_ {};
-      // User activation status, SUCCESS indicates activated.
+      // The activation status of the user. A value of SUCCESS indicates that the service is activated.
       shared_ptr<string> userStatus_ {};
     };
 
@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<DescribeOssStatusResponseBody::Data> data_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

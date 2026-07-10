@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Return result, whether the creation was successful:
-    // - true: Success
-    // - false: Failure
+    // The returned result that indicates whether the whitelist is created. Valid values:
+    // - true: Succeeded.
+    // - false: Failed.
     shared_ptr<bool> resultObject_ {};
   };
 

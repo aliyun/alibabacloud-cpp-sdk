@@ -78,7 +78,7 @@ namespace Models
       // - **2**: Verification inconsistent.
       // - **3**: No record found.
       shared_ptr<string> bizCode_ {};
-      // ISP name:
+      // Carrier name:
       // 
       // - **CMCC**: China Mobile.
       // - **CUCC**: China Unicom.
@@ -119,13 +119,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // Response code: 200 indicates success, other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // Response message.
     shared_ptr<string> message_ {};
     // Request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result.
+    // The returned result.
     shared_ptr<Mobile3MetaSimpleVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -82,25 +82,25 @@ namespace Models
 
 
     protected:
-      // Verification result code:
-      // - **1**: Verification matches.
-      // - **2**: Verification does not match.
+      // The verification result code. Valid values:
+      // - **1**: Verification is consistent.
+      // - **2**: Verification is inconsistent.
       // - **3**: No record found.
       shared_ptr<string> bizCode_ {};
-      // ISP name:
+      // The carrier name. Valid values:
       // 
       // - **CMCC**: China Mobile.
       // - **CUCC**: China Unicom.
       // - **CTCC**: China Telecom.
-      // - **CBCC**: China Broadcasting Network.
+      // - **CBCC**: China Broadnet.
       shared_ptr<string> ispName_ {};
-      // Detailed verification results:
+      // The detailed verification result. Valid values:
       // 
-      // - 101: Passed, three elements are consistent.
-      // - 201: The phone number does not match the name and ID number.
-      // - 202: The phone number matches the name but does not match the ID number.
-      // - 203: The phone number does not match the name but matches the ID number.
-      // - 204: Other inconsistencies.
+      // - 101: Verification passed. All three elements are consistent.
+      // - 201: The phone number is inconsistent with both the name and the ID card number.
+      // - 202: The phone number is consistent with the name but inconsistent with the ID card number.
+      // - 203: The phone number is inconsistent with the name but consistent with the ID card number.
+      // - 204: Other inconsistency.
       // - 301: No record found.
       shared_ptr<string> subCode_ {};
     };
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates a successful API response.
+    // The return code. **200** indicates a successful response.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Returned result information
+    // The result information.
     shared_ptr<Mobile3MetaDetailStandardVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

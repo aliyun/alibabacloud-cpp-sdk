@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // Rule ID.
+    // The rule ID.
     shared_ptr<int64_t> id_ {};
-    // Product Name:
-    // - **id2meta**: ID card two-factor verification
-    // - **mobile3Meta**: Mobile phone number factor verification
-    // - **bankcardMeta**: Bank card factor verification
+    // The product name. Valid values:
+    // - **id2meta**: ID card two-element verification.
+    // - **mobile3Meta**: Mobile number element verification.
+    // - **bankcardMeta**: Bank card element verification.
     shared_ptr<string> productName_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

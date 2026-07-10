@@ -84,37 +84,37 @@ namespace Models
 
 
   protected:
-    // ID number.
+    // The ID card number.
     // 
-    // This is a required field when VerifyMetaType is VEHICLE_3_META.
+    // This parameter is required when VerifyMetaType is set to VEHICLE_3_META.
     // 
     // > 
-    // > - When paramType is normal, enter plain text.
-    // > - When paramType is md5, enter the first 6 digits in plain text + MD5 (32 lowercase) of the birth date + the last 4 digits in plain text.
+    // > - If ParamType is set to normal, enter the plaintext value.
+    // > - If ParamType is set to md5, enter the first 6 digits of the ID card number in plaintext + the MD5-encrypted date of birth (32-bit lowercase MD5) + the last 4 digits of the ID card number.
     shared_ptr<string> identifyNum_ {};
-    // Parameter type:
+    // The parameter type. Valid values:
     // 
-    // - normal: Unencrypted.
-    // - md5: Md5 encrypted.
+    // - normal: not encrypted.
+    // - md5: MD5-encrypted.
     shared_ptr<string> paramType_ {};
-    // Name
+    // The name.
     // > 
-    // > - When paramType is normal, enter plain text.
-    // > - When paramType is md5, enter the first character of the name as MD5 (32 lowercase) + the rest of the name in plain text.
+    // > - If ParamType is set to normal, enter the plaintext value.
+    // > - If ParamType is set to md5, enter the MD5-encrypted first character of the name (32-bit lowercase MD5) + the remaining characters of the name in plaintext.
     shared_ptr<string> userName_ {};
-    // License plate number
+    // The license plate number.
     // 
     // > 
-    // > - When paramType is normal, enter plain text.
-    // > - When paramType is md5, enter all but the last two characters in plain text + the last two characters as MD5 (32 lowercase).
+    // > - If ParamType is set to normal, enter the plaintext value.
+    // > - If ParamType is set to md5, enter the license plate number excluding the last two characters in plaintext + the MD5-encrypted last two characters (32-bit lowercase MD5).
     shared_ptr<string> vehicleNum_ {};
-    // Vehicle type
+    // The vehicle type.
     shared_ptr<string> vehicleType_ {};
-    // Verification type
+    // The verification type.
     // 
     // > 
-    // > - VEHICLE_2_META: Two-element verification, name + license plate number verification;
-    // > - VEHICLE_3_META: Three-element verification, name + license plate number + ID number verification;
+    // > - VEHICLE_2_META: two-element verification. Verifies the name and license plate number.
+    // > - VEHICLE_3_META: three-element verification. Verifies the name, license plate number, and ID card number.
     shared_ptr<string> verifyMetaType_ {};
   };
 

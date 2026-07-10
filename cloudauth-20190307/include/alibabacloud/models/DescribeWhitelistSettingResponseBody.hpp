@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(ValidEndDate, validEndDate_);
         DARABONBA_PTR_TO_JSON(ValidStartDate, validStartDate_);
+        DARABONBA_PTR_TO_JSON(WhitelistType, whitelistType_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(CertNo, certNo_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(ValidEndDate, validEndDate_);
         DARABONBA_PTR_FROM_JSON(ValidStartDate, validStartDate_);
+        DARABONBA_PTR_FROM_JSON(WhitelistType, whitelistType_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -77,7 +79,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->certNo_ == nullptr
         && this->certifyId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->remark_ == nullptr
-        && this->sceneId_ == nullptr && this->status_ == nullptr && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr; };
+        && this->sceneId_ == nullptr && this->status_ == nullptr && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr && this->whitelistType_ == nullptr; };
       // certNo Field Functions 
       bool hasCertNo() const { return this->certNo_ != nullptr;};
       void deleteCertNo() { this->certNo_ = nullptr;};
@@ -148,30 +150,38 @@ namespace Models
       inline Items& setValidStartDate(string validStartDate) { DARABONBA_PTR_SET_VALUE(validStartDate_, validStartDate) };
 
 
+      // whitelistType Field Functions 
+      bool hasWhitelistType() const { return this->whitelistType_ != nullptr;};
+      void deleteWhitelistType() { this->whitelistType_ = nullptr;};
+      inline string getWhitelistType() const { DARABONBA_PTR_GET_DEFAULT(whitelistType_, "") };
+      inline Items& setWhitelistType(string whitelistType) { DARABONBA_PTR_SET_VALUE(whitelistType_, whitelistType) };
+
+
     protected:
-      // Certificate number.
+      // The certificate number.
       shared_ptr<string> certNo_ {};
-      // Certificate ID.
+      // The certificate ID.
       shared_ptr<string> certifyId_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // Whitelist ID.
+      // The whitelist ID.
       shared_ptr<int64_t> id_ {};
-      // Remark.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // Scene ID.
+      // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
-      // Whitelist status:
+      // The whitelist status. Valid values:
       // - **VALID**: Valid.
       // - **INVALID**: Invalid.
       // - **DELETED**: Deleted.
       shared_ptr<string> status_ {};
-      // Effective end date.
+      // The expiration date.
       shared_ptr<string> validEndDate_ {};
-      // Effective start time.
+      // The effective period.
       shared_ptr<string> validStartDate_ {};
+      shared_ptr<string> whitelistType_ {};
     };
 
     virtual bool empty() const override { return this->currentPage_ == nullptr
@@ -214,15 +224,15 @@ namespace Models
 
 
   protected:
-    // Pagination parameter: current page number, default value is 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // List of certification details.
+    // The list of certification details.
     shared_ptr<vector<DescribeWhitelistSettingResponseBody::Items>> items_ {};
-    // Number of items per page for pagination.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

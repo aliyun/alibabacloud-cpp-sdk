@@ -57,18 +57,18 @@ namespace Models
 
 
   protected:
-    // Parameter type:
+    // The parameter type. Valid values:
     // 
-    // - **normal**: Unencrypted.
-    // - **md5**: MD5 encrypted.
+    // - **normal**: not encrypted.
+    // - **md5**: MD5-encrypted.
     shared_ptr<string> paramType_ {};
-    // License plate number
+    // The license plate number.
     // 
     // > 
-    // > - When paramType is set to normal, enter the plain text.
-    // > - When paramType is set to md5, enter the unencrypted part of the license plate number except for the last two characters + the MD5 (32 lowercase) encryption of the last two characters of the license plate.
+    // > - If ParamType is set to normal, enter the plaintext license plate number.
+    // > - If ParamType is set to md5, enter the plaintext of the license plate number excluding the last two characters, concatenated with the MD5-encrypted value of the last two characters (32-bit lowercase MD5).
     shared_ptr<string> vehicleNum_ {};
-    // Vehicle type
+    // The vehicle type.
     shared_ptr<string> vehicleType_ {};
   };
 

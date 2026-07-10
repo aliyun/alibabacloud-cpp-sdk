@@ -82,26 +82,26 @@ namespace Models
 
 
     protected:
-      // Verification result
+      // The verification result. Valid values:
       // 
-      // - 1: Available online 
-      // - 2: Not available online (see subCode for details)
-      // - 3: No query result
+      // - 1: active and available. 
+      // - 2: not in an active and available state. For more information, see subCode.
+      // - 3: no query result.
       shared_ptr<string> bizCode_ {};
-      // ISP name
+      // The name of the telecommunications service provider. Valid values:
       // 
-      // - CMCC: China Mobile 
-      // - CUCC: China Unicom 
-      // - CTCC: China Telecom
+      // - CMCC: China Mobile. 
+      // - CUCC: China Unicom. 
+      // - CTCC: China Telecom.
       shared_ptr<string> ispName_ {};
-      // Verification details
+      // The verification details. Valid values:
       // 
-      // - 101: Available online 
-      // - 201: Suspended 
-      // - 202: Disconnected 
-      // - 203: Online but not available 
-      // - 204: Not online 
-      // - 301: No record found
+      // - 101: active and available. 
+      // - 201: suspended. 
+      // - 202: canceled. 
+      // - 203: active but unavailable. 
+      // - 204: not active. 
+      // - 301: no record found.
       shared_ptr<string> subCode_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result information
+    // The result information.
     shared_ptr<MobileOnlineStatusResponseBody::ResultObject> resultObject_ {};
   };
 

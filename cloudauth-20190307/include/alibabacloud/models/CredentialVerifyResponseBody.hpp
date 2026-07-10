@@ -107,16 +107,12 @@ namespace Models
 
 
       protected:
-        // Indicates whether the call was successful. Valid values:
+        // Indicates whether the Qwen interpretation is successful. Valid values:
         // 
-        // - **true**: The call was successful.
-        // - **false**: The call failed.
+        // - true: Successful.
+        // - false: Failed.
         shared_ptr<bool> success_ {};
-        // Image understanding result:
-        // 
-        // - When PromptModel is DEFAULT, the output format refers to the example on the right.
-        // 
-        // - When PromptModel is CUSTOM, the output format follows the agreed format of the Prompt.
+        // The Qwen interpretation content.
         shared_ptr<string> vlContent_ {};
       };
 
@@ -184,32 +180,34 @@ namespace Models
 
 
     protected:
-      // Additional information in JSON format.
+      // The additional information in JSON format.
       shared_ptr<string> materialInfo_ {};
-      // OCR recognition result.
+      // The OCR recognition result.
       shared_ptr<string> ocrInfo_ {};
-      // Risk result
+      // The risk result. Valid values:
       // 
-      // - **0**: Low risk
-      // - **1**: High risk
-      // - **2**: Suspicious
+      // - **0**: Low risk.
+      // - **1**: High risk.
+      // - **2**: Suspicious.
       shared_ptr<string> result_ {};
-      // Risk score map.
+      // The risk score map.
       shared_ptr<map<string, string>> riskScore_ {};
-      // Risk tags, separated by commas (,), including:
+      // The risk tags, separated by commas (,). Valid values:
       // 
-      // - **PS**: Image manipulation.
-      // - **SCREEN_PHOTO**: Screen recapture.
-      // - **SCREENSHOT**: Screenshot.
-      // - **WATERMARK**: Watermark.
-      // - **SAME_BACKGROUND**: Similar background.
-      // - **ORIGINAL_PHOTO**: Not the original image
+      // - PS: image manipulation.
+      // - SCREEN_PHOTO: screen recapture.
+      // - SCREENSHOT: screenshot.
+      // - WATERMARK: watermark.
+      // - COLOR_PRINT: color print copy.
+      // - WEB_IMAGE: web image.
+      // - SAME_FACE: similar face.
+      // - SAME_BACKGROUND: similar background.
       shared_ptr<string> riskTag_ {};
-      // Authority verification details.
+      // The authoritative verification details.
       shared_ptr<string> verifyDetail_ {};
-      // The verification result.
+      // The authoritative verification result.
       shared_ptr<string> verifyResult_ {};
-      // Qwen interpretation.
+      // The Qwen interpretation.
       shared_ptr<ResultObject::VlResult> vlResult_ {};
     };
 
@@ -246,13 +244,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The response code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result
+    // The result information.
     shared_ptr<CredentialVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

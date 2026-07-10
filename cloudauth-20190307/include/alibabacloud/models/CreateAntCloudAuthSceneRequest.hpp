@@ -121,31 +121,36 @@ namespace Models
 
 
   protected:
-    // Whether to enable binding of the mini program:
-    // - **Y**: Enable
-    // - **N (default)**: Not enabled
+    // Specifies whether to enable mini program binding. Valid values:
+    // - **Y**: enabled
+    // - **N (default)**: disabled.
     shared_ptr<string> bindMiniProgram_ {};
-    // Content of the uploaded verification file.
+    // The content of the uploaded verification file.
     shared_ptr<string> checkFileBody_ {};
-    // Name of the uploaded verification file.
+    // The name of the uploaded verification file.
     shared_ptr<string> checkFileName_ {};
+    // Specifies whether to enable enhanced device risk detection. Valid values:
+    // - **Y**: enabled
+    // - **N**: disabled.
     shared_ptr<string> deviceRiskPlus_ {};
-    // Mini program name.
+    // The mini program name.
     shared_ptr<string> miniProgramName_ {};
-    // Binding platform for the mini program:
+    // The mini program platform to bind. Valid values:
     // - **WECHAT**: WeChat
     // - **ALIPAY**: Alipay
-    // - **TIKTOK**: TikTok
+    // - **TIKTOK**: TikTok.
     shared_ptr<string> platform_ {};
+    // The number of face photos for evidence storage (1-5).
     shared_ptr<int64_t> returnPicCount_ {};
+    // The duration of the evidence storage video, in seconds.
     shared_ptr<int64_t> returnVideoLength_ {};
-    // Scene name.
+    // The scenario name.
     // 
     // This parameter is required.
     shared_ptr<string> sceneName_ {};
-    // Whether to deliver the files generated from the authentication to the customer\\"s OSS:
-    // - **Y**: Yes
-    // - **N**: No
+    // Specifies whether to deliver the files generated during authentication to the customer\\"s OSS. Valid values:
+    // - **Y**: Yes.
+    // - **N**: No.
     shared_ptr<string> storeImage_ {};
   };
 

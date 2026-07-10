@@ -232,65 +232,65 @@ namespace Models
 
 
   protected:
-    // ID number.
+    // The ID card number.
     shared_ptr<string> certNo_ {};
-    // Authentication ID.
+    // The certification ID.
     shared_ptr<string> certifyId_ {};
-    // Current page number.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // End time of the query. Format is Unix timestamp, in milliseconds.
+    // The query end time. The format is a Unix timestamp in milliseconds.
     shared_ptr<string> endDate_ {};
-    // Whether there is a device risk (pass true if root = 1 or simulator = 1 or virtual_video = 1).
+    // Specifies whether there is a device risk. Setting this parameter to true indicates that root = 1, simulator = 1, or virtual_video = 1.
     shared_ptr<bool> hasDeviceRisk_ {};
-    // Model for liveness detection.
+    // The liveness detection model.
     shared_ptr<string> model_ {};
-    // Unique identifier for the customer request.
+    // The unique identifier for the customer request.
     shared_ptr<string> outerOrderNo_ {};
-    // Number of items per page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // Whether the authentication passed:
-    // - **T**: Passed
-    // - **F**: Not passed
+    // Specifies whether the authentication passed:
+    // - **T**: Passed.
+    // - **F**: Failed.
     shared_ptr<string> passed_ {};
-    // Product code.
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // Business scenario risk
-    // - **0**: No risk
-    // - **1**: Risk present
+    // The business scenario risk:
+    // - **0**: No risk.
+    // - **1**: Risk detected.
     shared_ptr<int32_t> riskBizScenario_ {};
-    // Device risk:
-    // - **0**: No risk
-    // - **1**: Risk present
+    // The device risk:
+    // - **0**: No risk.
+    // - **1**: Risk detected.
     shared_ptr<int32_t> riskDevice_ {};
-    // DeviceToken risk:
-    // - **0**: No risk
-    // - **1**: Risk present
+    // The DeviceToken risk:
+    // - **0**: No risk.
+    // - **1**: Risk detected.
     shared_ptr<int32_t> riskDeviceToken_ {};
-    // General risk
-    // - **0**: No risk
-    // - **1**: Risk present
+    // The generic risk:
+    // - **0**: No risk.
+    // - **1**: Risk detected.
     shared_ptr<int32_t> riskGeneric_ {};
-    // Large model mining risk
-    // - **0**: No risk
-    // - **1**: Risk present
+    // The large model mining risk:
+    // - **0**: No risk.
+    // - **1**: Risk detected.
     shared_ptr<int32_t> riskModelMining_ {};
-    // Whether it is rooted (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
+    // Specifies whether the device is rooted. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the identity tag risk type.
     shared_ptr<int32_t> root_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
-    // Whether it is a simulator (pass 1 if selected, otherwise do not pass; corresponds to device label risk type).
+    // Specifies whether the device is a simulator. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the device tag risk type.
     shared_ptr<int32_t> simulator_ {};
-    // Start time of the query.
+    // The query start time.
     shared_ptr<string> startDate_ {};
-    // Result Code. For detailed values, please refer to: [SubCode Explanation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
+    // The result code. For details, see [SubCode Description](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
     shared_ptr<string> subCode_ {};
-    // Comma-separated Result Codes. For detailed values, please refer to: [SubCode Explanation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
+    // Comma-separated result codes. For details, see [SubCode Description](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/error-code-person-verify?spm=a2c4g.11186623.0.0.6015566ebArcFw#d88910e172fgg).
     shared_ptr<string> subCodes_ {};
-    // Whether it is a virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
+    // Specifies whether virtual video is used. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the behavior tag risk type.
     shared_ptr<int32_t> virtualVideo_ {};
   };
 

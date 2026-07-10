@@ -119,15 +119,15 @@ namespace Models
 
 
     protected:
-      // OSS file storage bucket.
+      // The OSS bucket for file storage.
       shared_ptr<string> bucket_ {};
-      // Access endpoint.
+      // The endpoint.
       shared_ptr<string> endPoint_ {};
-      // Expiration time. Expressed in timestamp format, unit: milliseconds.
+      // The expiration time. The value is in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> expired_ {};
       // The key required for file upload.
       shared_ptr<string> key_ {};
-      // File storage path.
+      // The file storage path.
       shared_ptr<string> path_ {};
       // The secret required for file upload.
       shared_ptr<string> secret_ {};
@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // OSS upload token information.
+    // The OSS upload token information.
     shared_ptr<DescribeVerifyTokenResponseBody::OssUploadToken> ossUploadToken_ {};
     // The ID of this request.
     shared_ptr<string> requestId_ {};
-    // The entry link for the original H5 verification scheme, which has been discontinued and no longer supports new integrations. If you need to integrate an H5 verification scheme, it is recommended to use the [PC or mobile H5 web integration solution](https://help.aliyun.com/document_detail/173779.html) of financial-grade real-person authentication.
+    // The entry URL for the legacy H5 authentication scheme. This scheme has been discontinued and no longer accepts new integrations. If you need H5 authentication, use the [PC or mobile H5 web integration scheme](https://help.aliyun.com/document_detail/173779.html) of financial-grade ID Verification.
     shared_ptr<string> verifyPageUrl_ {};
-    // The token for this verification, used to link various interfaces in the verification request, valid for 30 minutes.
+    // The token for this authentication, which is used to connect the various operations in the authentication request. The token is valid for 30 minutes.
     shared_ptr<string> verifyToken_ {};
   };
 

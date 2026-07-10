@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // API name, same as **ProductCode**.
+    // The API name, same as **ProductCode**.
     shared_ptr<string> apiName_ {};
-    // Security rule ID.
+    // The security rule ID.
     shared_ptr<int64_t> id_ {};
-    // Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others have been phased out.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade real-person authentication) is supported. All other types have been discontinued.
     shared_ptr<string> productType_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

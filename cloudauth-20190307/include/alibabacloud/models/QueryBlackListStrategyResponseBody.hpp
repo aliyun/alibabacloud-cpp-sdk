@@ -120,28 +120,28 @@ namespace Models
 
 
     protected:
-      // Blacklist string, separated by **commas**.
+      // The blacklist string. Multiple blacklist entries are separated by **commas**.
       shared_ptr<string> bizContent_ {};
-      // List type:
-      // - mobile: Phone number blacklist
+      // The blacklist type. Valid values:
+      // - mobile: phone number blacklist
       // - ip: IP blacklist
-      // - identifyNum: ID number blacklist
-      // - bankCard: Bank card blacklist
+      // - identifyNum: ID card blacklist
+      // - bankCard: bank card blacklist.
       shared_ptr<string> bizKey_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
-      // Rule ID.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // Product name:
-      // - id2meta: ID number two-factor verification
-      // - mobile3Meta: Phone number factor verification
-      // - bankcardMeta: Bank card factor verification
+      // The product name. Valid values:
+      // - id2meta: ID card two-factor verification.
+      // - mobile3Meta: Phone number factor verification.
+      // - bankcardMeta: Bank card factor verification.
       shared_ptr<string> productName_ {};
-      // Status:
-      // - **disabled**: Disabled
-      // - **normal**: Enabled
+      // The status. Valid values:
+      // - **disabled**: Disabled.
+      // - **normal**: Enabled.
       shared_ptr<string> status_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -178,13 +178,13 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates successful API response.
+    // The return code. **200** indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The returned result.
     shared_ptr<vector<QueryBlackListStrategyResponseBody::ResultObject>> resultObject_ {};
   };
 

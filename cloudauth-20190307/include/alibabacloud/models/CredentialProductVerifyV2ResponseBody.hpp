@@ -94,18 +94,19 @@ namespace Models
 
 
     protected:
-      // Additional information in JSON format.
+      // The additional information in JSON format.
       shared_ptr<string> materialInfo_ {};
-      // - 0: Low risk
-      // - 1: High risk
-      // - 2: Suspicious
+      // Valid values:
+      // - 0: low risk
+      // - 1: high risk
+      // - 2: suspicious.
       shared_ptr<string> result_ {};
-      // Map of risk scores.
+      // The risk score map.
       shared_ptr<map<string, string>> riskScore_ {};
-      // Risk tags, separated by commas, including:
-      // - PS: Image has been photoshopped
-      // - LOW_QUALITY_PRODUCT: Low quality (low clarity)
-      // - SAME_BACKGROUND: Similar background
+      // The risk labels. Multiple labels are separated by commas. Valid values:
+      // - PS: image manipulation
+      // - LOW_QUALITY_PRODUCT: low quality (low clarity)
+      // - SAME_BACKGROUND: similar image.
       shared_ptr<string> riskTag_ {};
     };
 
@@ -142,13 +143,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result object.
+    // The result object.
     shared_ptr<CredentialProductVerifyV2ResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -125,17 +125,17 @@ namespace Models
 
 
       protected:
-        // Verification statistics time.
+        // The authentication statistics time.
         shared_ptr<string> conDate_ {};
-        // Number of failed verifications.
+        // The number of authentication-failed transactions.
         shared_ptr<string> failCnt_ {};
-        // Verification scheme.
+        // The authentication solution.
         shared_ptr<string> name_ {};
-        // Scene ID.
+        // The scene ID.
         shared_ptr<string> sceneId_ {};
-        // Number of successful verifications.
+        // The number of authentication-passed transactions.
         shared_ptr<string> succCnt_ {};
-        // Total number of verifications.
+        // The total number of authentication requests.
         shared_ptr<string> totalCnt_ {};
       };
 
@@ -150,7 +150,7 @@ namespace Models
 
 
     protected:
-      // Face verification data.
+      // The facial recognition data.
       shared_ptr<vector<MonitorData::FaceVerifyData>> faceVerifyData_ {};
     };
 
@@ -173,9 +173,9 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<DescribeListFaceVerifyDataResponseBody::MonitorData> monitorData_ {};
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

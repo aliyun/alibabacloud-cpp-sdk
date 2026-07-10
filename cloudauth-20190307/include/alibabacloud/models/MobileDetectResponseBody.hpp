@@ -122,30 +122,30 @@ namespace Models
 
 
       protected:
-        // Phone number\\"s area (only for plaintext phone numbers)
+        // The location to which the phone number belongs. This field is available only for plaintext phone numbers.
         shared_ptr<string> area_ {};
-        // Verification result
+        // The verification result. Valid values:
         // 
-        // - 1: Available online 
-        // - 2: Not available online
-        // - 3: No query result
+        // - 1: Active and available. 
+        // - 2: Not in active and available status.
+        // - 3: No query results.
         shared_ptr<string> bizCode_ {};
-        // Operator name
+        // The carrier name. Valid values:
         // 
         // - CMCC: China Mobile 
         // - CUCC: China Unicom 
-        // - CTCC: China Telecom
+        // - CTCC: China Telecom.
         shared_ptr<string> ispName_ {};
-        // Phone number
+        // The phone number.
         shared_ptr<string> mobile_ {};
-        // Verification details
+        // The verification details. Valid values:
         // 
-        // - 101: Available number
-        // - 102: Empty number
-        // - 103: Suspended 
-        // - 104: Silent number (inactive small number, new number, non-smartphone user within the last six months) 
-        // - 105: Risky number (long-term shutdown or no voice service activated and prone to complaints)
-        // - 301: No record found
+        // - 101: Available number.
+        // - 102: Empty number.
+        // - 103: Suspended. 
+        // - 104: Silent number (inactive secondary number in the past six months, new number, or non-smartphone user). 
+        // - 105: Risky number (user with prolonged shutdown, voice service not activated, or prone to complaints).
+        // - 301: No record found.
         shared_ptr<string> subCode_ {};
       };
 
@@ -168,9 +168,9 @@ namespace Models
 
 
     protected:
-      // Billing count, the total billing count in one request
+      // The total number of billing counts in a single request.
       shared_ptr<string> chargeCount_ {};
-      // Verification results set
+      // The verification result set.
       shared_ptr<vector<ResultObject::Items>> items_ {};
     };
 
@@ -207,13 +207,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 for success, others for failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result information
+    // The result information.
     shared_ptr<MobileDetectResponseBody::ResultObject> resultObject_ {};
   };
 

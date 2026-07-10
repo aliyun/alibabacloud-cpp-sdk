@@ -85,22 +85,20 @@ namespace Models
 
 
     protected:
-      // Risk result:
+      // The risk result. Valid values:
       // 
-      // - **0**: Low risk
-      // - **1**: High risk
-      // - **2**: Suspicious
+      // - **0**: Low risk.
+      // - **1**: High risk.
+      // - **2**: Suspicious.
       shared_ptr<string> result_ {};
-      // Risk score map.
+      // The risk score map.
       shared_ptr<map<string, string>> riskScore_ {};
-      // Risk tags. Multiple tags are separated by commas (,). Includes:
+      // The risk labels. Multiple labels are separated by commas (,). Valid values:
       // 
-      // - Suspected deep forgery  SuspectDeepForgery
-      // - Suspected synthetic attack  SuspectPSFace
-      // - Suspected watermark  SuspectWarterMark
-      // - Suspected black industry attack  SuspectTemple
-      // - Suspected generated face  SuspectAIGC Face
-      // - Suspected rephotographed face  SuspectRemake
+      // - SuspectDeepForgery: suspected deepfake
+      // - SuspectPSFace: suspected synthetic attack
+      // - SuspectTemple: suspected fraudulent attack
+      // - SuspectRemake: suspected recaptured face.
       shared_ptr<string> riskTag_ {};
     };
 
@@ -137,13 +135,13 @@ namespace Models
 
 
   protected:
-    // Return code: 200 indicates success, others indicate failure.
+    // The return code. A value of 200 indicates success. Other values indicate failure.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The result information.
     shared_ptr<DeepfakeDetectResponseBody::ResultObject> resultObject_ {};
   };
 

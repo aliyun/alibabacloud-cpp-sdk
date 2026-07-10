@@ -136,33 +136,33 @@ namespace Models
     protected:
       // AccumulateKey
       shared_ptr<string> accumulateKey_ {};
-      // Flow control statistical window size, in minutes.
+      // The size of the rate limiting statistical window, in minutes.
       shared_ptr<int64_t> accumulateWindow_ {};
-      // API name, same as **ProductCode**.
+      // The API name, which is the same as **ProductCode**.
       // 
       // This parameter is required.
       shared_ptr<string> apiName_ {};
-      // Flow type:
-      // - **ACCUMULATE**: Repeated appearance of ID card
-      // - **PASSED_RATE**: Pass rate less than
-      // - **SUB_CODE_205**: Authentication failed and liveness attack 205 ratio greater than
-      // - **SUB_CODE_206**: Authentication failed and liveness attack 206 ratio greater than
+      // The flow type. Valid values:
+      // - **ACCUMULATE**: repeated occurrence of an ID card.
+      // - **PASSED_RATE**: pass rate is less than.
+      // - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than.
+      // - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than.
       shared_ptr<string> flowType_ {};
-      // Rule ID.
+      // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // Operation.
+      // The operation.
       shared_ptr<string> operation_ {};
-      // Status:
-      // - **disabled**: Disabled
-      // - **normal**: Enabled
+      // The status. Valid values:
+      // - **disabled**: disabled.
+      // - **normal**: enabled.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
-      // Flow control threshold.
+      // The rate limiting threshold.
       // 
       // This parameter is required.
       shared_ptr<int32_t> threshold_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
   protected:
-    // Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade real person), all others have been phased out.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
     shared_ptr<string> productType_ {};
-    // Strategy list.
+    // The policy list.
     shared_ptr<vector<ModifyCustomizeFlowStrategyListRequest::StrategyObject>> strategyObject_ {};
   };
 

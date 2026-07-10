@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // Daily call count.
+        // The number of daily transactions.
         shared_ptr<int64_t> dailyCallCount_ {};
-        // Date.
+        // The date.
         shared_ptr<string> date_ {};
-        // Abnormal device risk ratio.
+        // The abnormal device risk ratio.
         shared_ptr<string> deviceRiskRate_ {};
-        // Abnormal identity risk ratio.
+        // The abnormal identity risk ratio.
         shared_ptr<string> identityRiskRate_ {};
       };
 
@@ -184,19 +184,19 @@ namespace Models
 
 
     protected:
-      // Suspected fake face percentage: total number of suspected fake faces / total number of risks.
+      // The suspected fake face percentage: total number of suspected fake faces / total number of risks.
       shared_ptr<string> faceAttackRate_ {};
-      // Total number of suspected fake identities.
+      // The total number of suspected fake identities.
       shared_ptr<string> idFakeRate_ {};
-      // Data items in the response.
+      // The data items in the response.
       shared_ptr<vector<ResultObject::Items>> items_ {};
-      // Number of risks.
+      // The number of risks.
       shared_ptr<int64_t> riskCount_ {};
-      // Root percentage: total number of root / total number of risks.
+      // The root percentage: total number of rooted devices / total number of risks.
       shared_ptr<string> rootRate_ {};
-      // Simulator percentage: total number of simulators / total number of risks.
+      // The emulator percentage: total number of emulators / total number of risks.
       shared_ptr<string> simulatorRate_ {};
-      // Virtual video percentage: total number of virtual videos / total number of risks.
+      // The virtual video percentage: total number of virtual videos / total number of risks.
       shared_ptr<string> virtualVideoRate_ {};
     };
 
@@ -219,9 +219,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Authentication result.
+    // The verification result.
     shared_ptr<DescribeVerifyDeviceRiskStatisticsResponseBody::ResultObject> resultObject_ {};
   };
 

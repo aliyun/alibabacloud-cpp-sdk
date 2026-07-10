@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // Product code.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Scene name.
+    // The scenario name.
     // 
     // This parameter is required.
     shared_ptr<string> sceneName_ {};
-    // Whether to deliver the files generated from the authentication to the customer\\"s OSS:
-    // - **Y**: Enable
-    // - **N**: Disable
+    // Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
+    // - **Y**: Enabled.
+    // - **N**: Disabled.
     shared_ptr<string> storeImage_ {};
   };
 

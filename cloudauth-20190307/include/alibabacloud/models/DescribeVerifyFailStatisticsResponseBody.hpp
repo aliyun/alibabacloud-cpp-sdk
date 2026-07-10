@@ -142,11 +142,11 @@ namespace Models
 
 
           protected:
-            // Error code.
+            // The error code.
             shared_ptr<string> code_ {};
-            // Count.
+            // The count.
             shared_ptr<int64_t> count_ {};
-            // Date.
+            // The date.
             shared_ptr<string> date_ {};
           };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
         protected:
-          // Error code.
+          // The error code.
           shared_ptr<string> code_ {};
-          // Returned quantity data.
+          // The returned count data.
           shared_ptr<vector<Items::Data>> data_ {};
         };
 
@@ -194,9 +194,9 @@ namespace Models
 
 
       protected:
-        // Column information.
+        // The column information.
         shared_ptr<vector<Line::Items>> items_ {};
-        // Total count.
+        // The total count.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -268,11 +268,11 @@ namespace Models
 
 
         protected:
-          // Error code.
+          // The error code.
           shared_ptr<string> code_ {};
-          // Failure count.
+          // The number of failures.
           shared_ptr<int64_t> count_ {};
-          // Date: Date
+          // Date: the date.
           shared_ptr<string> rate_ {};
         };
 
@@ -295,9 +295,9 @@ namespace Models
 
 
       protected:
-        // Column information.
+        // The column information.
         shared_ptr<vector<Column::Items>> items_ {};
-        // Total count.
+        // The total count.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -322,9 +322,9 @@ namespace Models
 
 
     protected:
-      // Line chart of failure reasons.
+      // The line chart of failure reasons.
       shared_ptr<ResultObject::Column> column_ {};
-      // Bar chart of failure reasons.
+      // The bar chart of failure reasons.
       shared_ptr<ResultObject::Line> line_ {};
     };
 
@@ -347,9 +347,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Authentication result.
+    // The authentication result.
     shared_ptr<DescribeVerifyFailStatisticsResponseBody::ResultObject> resultObject_ {};
   };
 

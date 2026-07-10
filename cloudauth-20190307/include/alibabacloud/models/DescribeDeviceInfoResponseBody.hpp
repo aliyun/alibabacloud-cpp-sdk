@@ -183,14 +183,14 @@ namespace Models
 
 
   protected:
-    // The current page number being queried.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<DescribeDeviceInfoResponseBody::DeviceInfoList> deviceInfoList_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -166,31 +166,31 @@ namespace Models
 
 
     protected:
-      // ID number.
+      // The certificate number.
       shared_ptr<string> certNo_ {};
-      // Unique identifier for real person authentication.
+      // The unique identifier of the ID Verification request.
       shared_ptr<string> certifyId_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Whitelist ID.
+      // The whitelist ID.
       shared_ptr<int64_t> id_ {};
-      // Remark information.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // Authentication scene ID.
+      // The verification scenario ID.
       shared_ptr<int64_t> sceneId_ {};
-      // ServiceCode of the real person cloud product
+      // The ServiceCode of the ID Verification cloud service.
       shared_ptr<string> serviceCode_ {};
-      // Status:
+      // The status. Valid values:
       // 
-      // - DELETE: Deleted
-      // - VALID: Not deleted and within the validity period, valid
-      // - INVALID: Not deleted but outside the validity period, invalid
+      // - DELETE: Deleted.
+      // - VALID: Not deleted and within the validity period (valid).
+      // - INVALID: Not deleted but outside the validity period (invalid).
       shared_ptr<string> status_ {};
-      // End date of validity
+      // The end date of the validity period.
       shared_ptr<string> validEndDate_ {};
-      // Start date of validity
+      // The start date of the validity period.
       shared_ptr<string> validStartDate_ {};
     };
 
@@ -263,23 +263,23 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates a successful API response.
+    // The response code. **200** indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Request result
+    // The request result.
     shared_ptr<vector<PageQueryWhiteListSettingResponseBody::ResultObject>> resultObject_ {};
-    // Whether the response was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int32_t> totalItem_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // List of rule IDs to be deleted.
+    // The list of rule IDs to delete.
     // 
     // This parameter is required.
     shared_ptr<string> ids_ {};
-    // Specify the language of the user information to be deleted. Values: -**zh**: Chinese. -**en**: English.
+    // The language of the user information to delete. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // ServiceCode for the real-person cloud product, only takes the value: **antcloudauth**.
+    // The service code of the ID Verification product. Set the value to **antcloudauth**.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Set the source IP address of the visitor. Supports IP addresses in CIDR and IPv4 formats. Example: 10.0.3.0/24.
+    // The source IP address of the visitor. CIDR format and IPv4 format are supported. Example: 10.0.3.0/24.
     shared_ptr<string> sourceIp_ {};
   };
 

@@ -94,24 +94,24 @@ namespace Models
 
 
   protected:
-    // Base64 encoded photo.
-    // > Choose one of the three ways to input images: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+    // The Base64-encoded photo.
+    // > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
     shared_ptr<string> faceContrastPicture_ {};
-    // Portrait address, accessible via public HTTP or HTTPS link.
+    // The URL of the face image. The URL must be a publicly accessible HTTP or HTTPS link.
     // 
-    // > Choose one of the three ways to input images: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+    // > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
     shared_ptr<string> faceContrastPictureUrl_ {};
-    // Authorized OSS bucket name.
-    // > Choose one of the three ways to input images: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+    // The name of the authorized OSS bucket.
+    // > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
     shared_ptr<string> ossBucketName_ {};
-    // Authorized OSS file name.
-    // > Choose one of the three ways to input images: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+    // The file name in the authorized OSS bucket.
+    // > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
     shared_ptr<string> ossObjectName_ {};
-    // A unique business identifier defined by the client side, used for subsequent troubleshooting. The value should be a combination of letters and numbers with a maximum length of 32 characters, please ensure its uniqueness.
+    // The custom business unique identifier on the client side, used for subsequent troubleshooting. The value can contain up to 32 characters, including letters and digits. Make sure the value is unique.
     shared_ptr<string> outerOrderNo_ {};
-    // Product solution
+    // The product plan.
     shared_ptr<string> productCode_ {};
-    // Authentication scene ID. This ID is automatically generated after creating an authentication scene in the console. For how to create an authentication scene, see Adding an Authentication Scene.
+    // The ID of the verification scenario. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, refer to Add a verification scenario.
     shared_ptr<int64_t> sceneId_ {};
   };
 

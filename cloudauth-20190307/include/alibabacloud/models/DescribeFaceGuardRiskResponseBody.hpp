@@ -91,16 +91,19 @@ namespace Models
 
 
     protected:
-      // Unique real-person authentication identifier.
+      // The unique identifier for ID Verification.
       shared_ptr<string> certifyId_ {};
+      // The device risk probability predicted by the device assistant algorithm. A higher score indicates a higher device risk.
+      // 
+      // Value range: 0 to 100.
       shared_ptr<double> guardRiskScore_ {};
-      // Extended information, in JSON format. (Customized return based on tenant requirements)
+      // The extended information in JSON format. The returned content is customized based on tenant requirements.
       shared_ptr<string> riskExtends_ {};
-      // Device risk tags.
+      // The device risk labels.
       // 
-      // - Multiple device risk tags are separated by commas (,). For example, “ROOT,VPN,HOOK”,
+      // - Multiple device risk labels are separated by commas (,), such as "ROOT,VPN,HOOK".
       // 
-      // - For more information about device risk tags and their meanings, please refer to the official documentation on Face Guard Tag Descriptions.
+      // - For more information about device risk labels and their descriptions, see the Face Guard label description in the official documentation.
       shared_ptr<string> riskTags_ {};
     };
 
@@ -137,13 +140,13 @@ namespace Models
 
 
   protected:
-    // Return code, **200** indicates successful response from the interface.
+    // The response code. **200** indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The result information.
     shared_ptr<DescribeFaceGuardRiskResponseBody::ResultObject> resultObject_ {};
   };
 

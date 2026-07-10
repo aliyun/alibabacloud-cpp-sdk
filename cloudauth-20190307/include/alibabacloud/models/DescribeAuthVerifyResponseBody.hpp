@@ -91,9 +91,41 @@ namespace Models
 
 
     protected:
+      // - Card information read by OCR (ocrIdCardInfo)
+      // - Card information photo edited by the client (ocrIdEditInfo)
+      // - OSS storage location and link of the OCR photo (ocrPictureFront).
       shared_ptr<string> materialInfo_ {};
+      // The anti-spoofing detection result for the back side of the document, including the risk determination result and risk type:
+      // > - 
+      // Card front anti-spoofing detection is enabled only when IdSpoof = Y is set in the Initialize operation. Otherwise, spoofRiskResult returns N by default, and spoofType is empty.
+      // 
+      // spoofRiskResult:
+      // - Y: Risk detected.
+      //  - N: No risk detected.
+      // 
+      // spoofType:
+      // - SCREEN_REMARK: Recaptured photo.
+      // - PHOTO_COPY: Photocopy.
+      // - TAMPER: Digitally tampered.
+      // 
+      // > - This is an algorithm prediction result. This field may not be returned. Avoid setting a mandatory dependency on this field in your business logic.
       shared_ptr<string> spoofBackInfo_ {};
+      // The anti-spoofing detection result for the front side of the document, including the risk determination result and risk type:
+      // > - 
+      // Card front anti-spoofing detection is enabled only when IdSpoof = Y is set in the Initialize operation. Otherwise, spoofRiskResult returns N by default, and spoofType is empty.
+      // 
+      // spoofRiskResult:
+      // - Y: Risk detected.
+      //  - N: No risk detected.
+      // 
+      // spoofType:
+      // - SCREEN_REMARK: Recaptured photo.
+      // - PHOTO_COPY: Photocopy.
+      // - TAMPER: Digitally tampered.
+      // 
+      // > - This is an algorithm prediction result. This field may not be returned. Avoid setting a mandatory dependency on this field in your business logic.
       shared_ptr<string> spoofInfo_ {};
+      // The result description.
       shared_ptr<string> subCode_ {};
     };
 
@@ -130,9 +162,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result.
     shared_ptr<DescribeAuthVerifyResponseBody::Result> result_ {};
   };
 

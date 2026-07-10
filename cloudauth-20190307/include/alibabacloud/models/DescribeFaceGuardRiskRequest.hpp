@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Authentication ID
+    // The authentication ID.
     shared_ptr<string> bizId_ {};
-    // Risk identification - device token.
+    // The device token for risk identification.
     shared_ptr<string> deviceToken_ {};
-    // This identifier is used for subsequent troubleshooting, and you need to ensure that this value is unique in your business.
+    // The identifier used for subsequent troubleshooting. Ensure that this value is unique within your business.
     // 
-    // Supports the use of English letters (including uppercase and lowercase) and numbers, with a maximum length of 32 characters.
+    // The value can contain letters (both uppercase and lowercase) and digits, with a maximum length of 32 characters.
     shared_ptr<string> outerOrderNo_ {};
-    // Product code, fixed value: FACE_GUARD
+    // The product code. Set this to FACE_GUARD.
     shared_ptr<string> productCode_ {};
   };
 

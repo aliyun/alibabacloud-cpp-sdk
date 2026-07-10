@@ -86,11 +86,11 @@ namespace Models
 
 
     protected:
-      // Bucket name.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // Region.
+      // The region.
       shared_ptr<string> region_ {};
-      // User activation status, **SUCCESS** indicates activated.
+      // The activation status of the user. A value of **SUCCESS** indicates that the service is activated.
       shared_ptr<string> userStatus_ {};
     };
 
@@ -141,17 +141,17 @@ namespace Models
 
 
   protected:
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Returned result information.
+    // The result information.
     shared_ptr<DescribeOssStatusV2ResponseBody::ResultObject> resultObject_ {};
-    // Whether the response was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

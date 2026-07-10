@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(ValidEndDate, validEndDate_);
       DARABONBA_PTR_TO_JSON(ValidStartDate, validStartDate_);
+      DARABONBA_PTR_TO_JSON(WhitelistType, whitelistType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeWhitelistSettingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CertNo, certNo_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(ValidEndDate, validEndDate_);
       DARABONBA_PTR_FROM_JSON(ValidStartDate, validStartDate_);
+      DARABONBA_PTR_FROM_JSON(WhitelistType, whitelistType_);
     };
     DescribeWhitelistSettingRequest() = default ;
     DescribeWhitelistSettingRequest(const DescribeWhitelistSettingRequest &) = default ;
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certNo_ == nullptr
         && this->certifyId_ == nullptr && this->currentPage_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->sceneId_ == nullptr
-        && this->serviceCode_ == nullptr && this->sourceIp_ == nullptr && this->status_ == nullptr && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr; };
+        && this->serviceCode_ == nullptr && this->sourceIp_ == nullptr && this->status_ == nullptr && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr
+        && this->whitelistType_ == nullptr; };
     // certNo Field Functions 
     bool hasCertNo() const { return this->certNo_ != nullptr;};
     void deleteCertNo() { this->certNo_ = nullptr;};
@@ -129,42 +132,50 @@ namespace Models
     inline DescribeWhitelistSettingRequest& setValidStartDate(int64_t validStartDate) { DARABONBA_PTR_SET_VALUE(validStartDate_, validStartDate) };
 
 
+    // whitelistType Field Functions 
+    bool hasWhitelistType() const { return this->whitelistType_ != nullptr;};
+    void deleteWhitelistType() { this->whitelistType_ = nullptr;};
+    inline string getWhitelistType() const { DARABONBA_PTR_GET_DEFAULT(whitelistType_, "") };
+    inline DescribeWhitelistSettingRequest& setWhitelistType(string whitelistType) { DARABONBA_PTR_SET_VALUE(whitelistType_, whitelistType) };
+
+
   protected:
-    // ID Number
+    // The ID card number.
     shared_ptr<string> certNo_ {};
-    // Certification ID
+    // The certification ID.
     shared_ptr<string> certifyId_ {};
-    // Pagination parameter: current page number, default value is 1.
+    // The current page number. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // Specify the language to query. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the query result. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Number of items per page for pagination.
+    // The number of entries per page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
-    // Service Code:
-    // - **Enhanced Financial Grade**: cloudauthst
-    // - **Financial Grade**: antcloudauth
+    // The service code. Valid values:
+    // - **cloudauthst**: enhanced financial-grade edition.
+    // - **antcloudauth**: financial-grade edition.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Visitor\\"s source IP address.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
-    // Whitelist status:
-    // - **VALID**: Valid
-    // - **INVALID**: Invalid
-    // - **DELETED**: Deleted
+    // The whitelist status. Valid values:
+    // - **VALID**: valid.
+    // - **INVALID**: invalid.
+    // - **DELETED**: deleted.
     shared_ptr<string> status_ {};
-    // Expiration date.
+    // The end time of the validity period.
     shared_ptr<int64_t> validEndDate_ {};
-    // Effective start time (in seconds timestamp).
+    // The start time of the validity period. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> validStartDate_ {};
+    shared_ptr<string> whitelistType_ {};
   };
 
   } // namespace Models

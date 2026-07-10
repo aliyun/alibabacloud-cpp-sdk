@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // ServiceCode for Real Person Cloud products:
-    // - **antcloudauth**: Financial-grade real person authentication
-    // - **cloudauthst (discontinued)**: Enhanced real person authentication
+    // The ServiceCode of the ID Verification product. Valid values:
+    // - **antcloudauth**: financial-grade ID Verification.
+    // - **cloudauthst (discontinued)**: enhanced ID Verification.
     shared_ptr<string> serviceCode_ {};
-    // Visitor\\"s source IP address.
+    // The source IP address of the visitor.
     shared_ptr<string> sourceIp_ {};
   };
 

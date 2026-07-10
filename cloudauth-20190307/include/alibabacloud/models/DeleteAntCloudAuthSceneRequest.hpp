@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // ID of the scene to be deleted.
+    // The ID of the scene to delete.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};

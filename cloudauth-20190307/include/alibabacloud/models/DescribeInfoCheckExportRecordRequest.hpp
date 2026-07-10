@@ -75,10 +75,29 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The end time of the query.
     shared_ptr<string> endDate_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The product type. Valid values:
+    // - **ID_CARD_2_META**: ID card two-element verification.
+    // - **ID_PERIOD**: ID card validity period verification.
+    // - **MOBILE_ONLINE_LENGTH**: mobile number online duration.
+    // - **MOBILE_ONLINE_STATUS**: mobile number online status.
+    // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition).
+    // - **MOBILE_3_META**: mobile number three-element verification (detailed edition).
+    // - **MOBILE_2_META**: mobile number two-element verification.
+    // - **BANK_CARD_N_META**: bank card verification (detailed edition).
+    // - **MOBILE_DETECT**: phone number detection.
+    // - **VEHICLE_N_META**: vehicle element verification (enhanced edition).
+    // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition.
+    // - **VEHICLE_LICENSE_INFO**: vehicle information recognition.
+    // - **VEHICLE_INSURE_DATE**: vehicle insurance date query.
+    // - **VEHICLE_CHECK**: vehicle element verification.
     shared_ptr<string> productType_ {};
+    // The start time of the query.
     shared_ptr<string> startDate_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Product Code
+    // The commodity code.
     shared_ptr<string> productCode_ {};
   };
 

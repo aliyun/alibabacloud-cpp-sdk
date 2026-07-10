@@ -96,15 +96,15 @@ namespace Models
 
 
     protected:
-      // Total number of authenticated devices.
+      // The total number of devices used for ID Verification.
       shared_ptr<int64_t> allDeviceCnt_ {};
-      // Number of authenticated Android devices.
+      // The number of Android devices used for ID Verification.
       shared_ptr<int64_t> deviceAndroidCnt_ {};
-      // Proportion of Android devices.
+      // The proportion of Android devices.
       shared_ptr<string> deviceAndroidRate_ {};
-      // Number of authenticated iOS devices.
+      // The number of iOS devices used for ID Verification.
       shared_ptr<int64_t> deviceIosCnt_ {};
-      // Proportion of iOS devices.
+      // The proportion of iOS devices.
       shared_ptr<string> deviceIosRate_ {};
     };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
   protected:
-    // ID of this request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Processing result.
+    // The processing result.
     shared_ptr<DescribeVerifyPersonasOsStatisticsResponseBody::ResultObject> resultObject_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Product type, currently only supports **ANT_CLOUD_AUTH** (Financial-grade Real Person), all others have been phased out.
+    // The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
     shared_ptr<string> productType_ {};
-    // regionId
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // User ID
+    // The user ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userId_ {};

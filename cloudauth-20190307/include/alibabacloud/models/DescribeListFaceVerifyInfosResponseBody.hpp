@@ -124,21 +124,21 @@ namespace Models
 
 
     protected:
-      // Business code.
+      // The business code.
       shared_ptr<string> bizCode_ {};
-      // Name.
+      // The name.
       shared_ptr<string> certName_ {};
-      // ID number.
+      // The certificate number.
       shared_ptr<string> certNo_ {};
-      // ID of the certificate.
+      // The certificate ID.
       shared_ptr<string> certifyId_ {};
-      // Creation time of the face recognition record.
+      // The creation time of the facial recognition record.
       shared_ptr<string> createTime_ {};
-      // Scene ID.
+      // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
-      // Verification status:
-      // - **1**: Verification passed.
-      // - **2**: Verification failed.
+      // The authentication status. Valid values:
+      // - **1**: Authentication passed.
+      // - **2**: Authentication failed.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -189,17 +189,17 @@ namespace Models
 
 
   protected:
-    // List of face verification records.
+    // The list of facial recognition authentication records.
     shared_ptr<vector<DescribeListFaceVerifyInfosResponseBody::FaceVerifyInfos>> faceVerifyInfos_ {};
-    // Number of items per page.
+    // The specified page number returned.
     shared_ptr<int32_t> itemsPerPage_ {};
-    // Pagination parameter: current page number.
+    // The current page number for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // ID of the current request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of verifications.
+    // The total number of authentication records.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

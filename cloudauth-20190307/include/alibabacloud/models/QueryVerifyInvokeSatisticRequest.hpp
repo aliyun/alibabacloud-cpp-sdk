@@ -103,26 +103,26 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // End date of the query.
+    // The end time of the query.
     shared_ptr<int64_t> endDate_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // List of product codes to query. Please refer to the productCode under the corresponding ProductType.
+    // The list of product codes to query. For more information, refer to the productCode under the corresponding ProductType.
     shared_ptr<string> productProgramList_ {};
-    // Product type:
-    // - **FINANCE_VERIFY**: Financial-grade real-person verification
-    // - **SMART_VERIFY**: Enhanced real-person verification (discontinued)
-    // - **FACE_VERIFY**: Real-person verification (discontinued)
+    // The product type. Valid values:
+    // - **FINANCE_VERIFY**: financial-grade ID Verification
+    // - **SMART_VERIFY**: enhanced ID Verification (discontinued)
+    // - **FACE_VERIFY**: ID Verification (discontinued).
     shared_ptr<string> productType_ {};
-    // List of application scenarios.
+    // The list of common scenarios.
     shared_ptr<string> sceneIdList_ {};
-    // Start date of the query.
+    // The start time of the query.
     shared_ptr<int64_t> startDate_ {};
-    // Statistics dimension:
+    // The statistical dimension. Valid values:
     // - **day**: daily
-    // - **month**: monthly
+    // - **month**: monthly.
     shared_ptr<string> statisticsType_ {};
   };
 

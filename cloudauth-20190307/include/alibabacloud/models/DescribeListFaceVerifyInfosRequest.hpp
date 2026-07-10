@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // Verification ID.
+    // The authentication ID.
     shared_ptr<string> certifyId_ {};
-    // Query the end time of the verification.
+    // The end time of the authentication query.
     shared_ptr<int64_t> gmtEnd_ {};
-    // Query the start time of the verification.
+    // The start time of the authentication query.
     shared_ptr<int64_t> gmtStart_ {};
-    // Pagination parameter: current page number.
+    // The current page number for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page for paginated queries. Maximum value: 100, default value: 10.
+    // The number of entries per page in a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
-    // Verification status:
-    // - **1**: Verification passed.
-    // - **2**: Verification failed.
+    // The authentication status. Valid values:
+    // - **1**: Authentication passed.
+    // - **2**: Authentication failed.
     shared_ptr<int32_t> status_ {};
   };
 

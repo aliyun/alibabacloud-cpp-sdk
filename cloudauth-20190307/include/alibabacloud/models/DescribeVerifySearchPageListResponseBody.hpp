@@ -258,37 +258,37 @@ namespace Models
 
 
       protected:
-        // Desensitized name.
+        // The desensitized name.
         shared_ptr<string> certName_ {};
-        // Facial bodyguard label.
+        // The Face Guard tags.
         shared_ptr<string> deviceRisk_ {};
-        // 是否是人脸攻击：
-        // - **T**：是
-        // - **F**：否
+        // Specifies whether a face attack is detected:
+        // - **T**: Yes.
+        // - **F**: No.
         shared_ptr<string> faceAttack_ {};
-        // Face attack score, ranging from 0 to 1, with values closer to 1 indicating a higher likelihood of an attack.
+        // The face attack score. The value ranges from 0 to 1. A value closer to 1 indicates a higher likelihood of an attack.
         shared_ptr<float> faceAttackScore_ {};
-        // Whether the face is occluded. T if occluded, otherwise F.
+        // Specifies whether the face is occluded. T indicates occlusion detected. F indicates no occlusion.
         shared_ptr<string> faceOcclusion_ {};
-        // Face-to-ID card comparison score.
+        // The face-to-ID card comparison score.
         shared_ptr<float> idCardVerifyScore_ {};
-        // Photo OSS bucket.
+        // The OSS bucket for photos.
         shared_ptr<string> ossBucketName_ {};
-        // OCR ID card face file name.
+        // The file name of the OCR ID card face image.
         shared_ptr<string> ossIdFaceObjectName_ {};
-        // OCR ID card national emblem file name.
+        // The file name of the OCR ID card national emblem image.
         shared_ptr<string> ossIdNationalEmblemObjectName_ {};
-        // Storage object name.
+        // The storage object name.
         shared_ptr<string> ossObjectName_ {};
-        // Liveness face quality score.
+        // The liveness face quality score.
         shared_ptr<float> qualityScore_ {};
-        // Face comparison score.
+        // The face comparison score.
         shared_ptr<float> verifyScore_ {};
-        // ASR text list.
+        // The list of ASR texts.
         shared_ptr<vector<string>> asrTexts_ {};
-        // Screen recording file OSS name list.
+        // The list of screen recording file OSS object names.
         shared_ptr<vector<string>> screenVideoObjectNames_ {};
-        // Audio file OSS name list.
+        // The list of audio file OSS object names.
         shared_ptr<vector<string>> voiceObjectNames_ {};
       };
 
@@ -433,55 +433,55 @@ namespace Models
 
 
     protected:
-      // Desensitized ID card number.
+      // The desensitized ID card number.
       shared_ptr<string> certNo_ {};
-      // Authentication ID.
+      // The certification ID.
       shared_ptr<string> certifyId_ {};
-      // Extended information.
+      // The extended information.
       shared_ptr<Items::ExtInfo> extInfo_ {};
-      // Verification time for this authentication.
+      // The verification time of this authentication record.
       shared_ptr<string> gmtVerify_ {};
-      // Liveness detection scheme.
+      // The liveness detection scheme.
       shared_ptr<string> model_ {};
-      // Unique identifier for the customer request.
+      // The unique identifier for the customer request.
       shared_ptr<string> outerOrderNo_ {};
-      // Whether the authentication passed. Values:
+      // Specifies whether the authentication passed. Valid values:
       // - **T**: Passed.
-      // - **F**: Not passed.
+      // - **F**: Failed.
       shared_ptr<string> passed_ {};
-      // Product code.
+      // The product code.
       shared_ptr<string> productCode_ {};
-      // Business scenario risk:
-      // - **0**: No risk
-      // - **1**: Risk present
+      // The business scenario risk:
+      // - **0**: No risk.
+      // - **1**: Risk detected.
       shared_ptr<int32_t> riskBizScenario_ {};
-      // Device risk:
-      // - **0**: No risk
-      // - **1**: Risk present
+      // The device risk:
+      // - **0**: No risk.
+      // - **1**: Risk detected.
       shared_ptr<int32_t> riskDevice_ {};
-      // DeviceToken risk:
-      // - **0**: No risk
-      // - **1**: Risk present
+      // The DeviceToken risk:
+      // - **0**: No risk.
+      // - **1**: Risk detected.
       shared_ptr<int32_t> riskDeviceToken_ {};
-      // General risk:
-      // - **0**: No risk
-      // - **1**: Risk present
+      // The generic risk:
+      // - **0**: No risk.
+      // - **1**: Risk detected.
       shared_ptr<int32_t> riskGeneric_ {};
-      // Large model mining risk:
-      // - **0**: No risk
-      // - **1**: Risk present
+      // The large model mining risk:
+      // - **0**: No risk.
+      // - **1**: Risk detected.
       shared_ptr<int32_t> riskModelMining_ {};
-      // Whether it is root (pass 1 if selected, otherwise do not pass; corresponds to identity label risk type).
+      // Specifies whether the device is rooted. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the identity tag risk type.
       shared_ptr<int32_t> root_ {};
-      // Scene ID.
+      // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
-      // Whether it is a simulator (pass 1 if selected, otherwise do not pass; corresponds to device label risk type).
+      // Specifies whether the device is a simulator. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the device tag risk type.
       shared_ptr<int32_t> simulator_ {};
-      // System returned error code.
+      // The error code returned by the system.
       shared_ptr<string> subCode_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // Whether it is virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
+      // Specifies whether virtual video is used. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the behavior tag risk type.
       shared_ptr<int32_t> virtualVideo_ {};
     };
 
@@ -532,17 +532,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Paged list data.
+    // The paginated list data.
     shared_ptr<vector<DescribeVerifySearchPageListResponseBody::Items>> items_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID of the current request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of pages.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

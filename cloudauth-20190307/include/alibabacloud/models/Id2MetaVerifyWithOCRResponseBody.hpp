@@ -73,12 +73,12 @@ namespace Models
 
 
     protected:
-      // Identity verification result:
-      // - 1: Consistent
-      // - 2: Inconsistent
-      // - 3: No record found
+      // The identity verification result. Valid values:
+      // - 1: consistent.
+      // - 2: inconsistent.
+      // - 3: no record found.
       shared_ptr<string> bizCode_ {};
-      // {"address":"Zhejiang Province, Hangzhou City, Yu*****","birthDate":"19901226","certName":"Zhang San","certNo":"1234561990122*****","nationality":"Han","authority":"xxx Public Security Bureau","startDate":"20201130","endDate":"20301130"}
+      // {"address":"浙江省杭州市余*****","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}.
       shared_ptr<string> cardInfo_ {};
     };
 
@@ -115,18 +115,18 @@ namespace Models
 
 
   protected:
-    // Return code: 200 indicates success, any other value indicates failure.
+    // The response code. A value of 200 indicates success. Any other value indicates failure.
     // **Important**
-    // - This parameter indicates whether the API was called correctly. For detailed return code explanations, please refer to the error codes.
-    // - Check the business verification results through the fields in ResultObject.
+    // - This parameter indicates only whether the API call was made correctly. For detailed response codes, see error codes.
+    // - Check the fields in ResultObject for the business verification result.
     shared_ptr<string> code_ {};
-    // API call return message.
+    // The response message of the API call.
     // **Important**
-    // This parameter only indicates if there was an exception with the API call.
+    // This parameter indicates only whether the API call is abnormal.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Result object
+    // The result object.
     shared_ptr<Id2MetaVerifyWithOCRResponseBody::ResultObject> resultObject_ {};
   };
 

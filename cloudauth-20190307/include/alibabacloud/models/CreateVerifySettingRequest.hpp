@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // Verification scenario name, supporting Chinese, English, numbers, and hyphens (-), with a maximum of 20 characters.
+    // The name of the verification scenario.
     // 
     // This parameter is required.
     shared_ptr<string> bizName_ {};
-    // Verification scenario identifier, supporting English letters, numbers, and hyphens (-), with a maximum of 20 characters.
+    // The identifier of the verification scenario.
     // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
-    // Whether to use the system\\"s default guide page.
+    // Specifies whether to use the default system guide page.
     shared_ptr<bool> guideStep_ {};
-    // Whether to use the system\\"s default authorization page.
+    // Specifies whether to use the default system authorization page.
     shared_ptr<bool> privacyStep_ {};
-    // Whether to use the system\\"s default result page.
+    // Specifies whether to use the default system result page.
     shared_ptr<bool> resultStep_ {};
-    // The name of the authentication solution to use, such as **RPBasic**, **RPBioOnly**, etc. For all supported authentication solutions, see [Authentication Solutions](https://help.aliyun.com/document_detail/127521.html).
+    // The name of the verification solution.
     // 
     // This parameter is required.
     shared_ptr<string> solution_ {};

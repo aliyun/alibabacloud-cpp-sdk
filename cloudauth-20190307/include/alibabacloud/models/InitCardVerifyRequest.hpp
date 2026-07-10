@@ -121,53 +121,52 @@ namespace Models
 
 
   protected:
-    // Security Token, used for anti-replay and anti-tampering checks. If this parameter is passed, the CallbackToken field will be displayed in the callback address.
+    // The security token used for anti-replay and anti-tampering verification. If you specify this parameter, the CallbackToken field is included in the callback URL.
     shared_ptr<string> callbackToken_ {};
-    // - The callback notification address for the authentication result, which must start with https.
-    // - The platform will call back this address after completing the authentication and automatically add the certifyId and passed fields, example: https://www.aliyun.com?certifyId=xxxx&passed=T
-    // - Warning
-    // The callback is triggered only when the authentication is completed. If the authentication is abandoned, interrupted abnormally, or not performed, no notification will be sent. It is recommended that when you receive the callback notification, if necessary, you can obtain detailed authentication information through the query interface.
-    shared_ptr<string> callbackUrl_ {};
-    // Number of card pages collected by the SDK
-    // - You can input 1 or 2; input 1 to collect the front side, input 2 to collect both the front and back sides.
+    // The callback URL for authentication results. The URL must start with https. After the authentication is complete, the system sends a callback to this URL with the certifyId and passed fields automatically appended. Example: https://www.aliyun.com?certifyId=xxxx&passed=T
     // 
-    // - If the verification type is ID period (VerifyMeta value is ID_PERIOD), you must input 2.
+    // > **Warning** The callback is triggered only when the authentication is complete. No notification is sent if the authentication is abandoned, interrupted, or not performed. After you receive the callback notification, call the query operation to obtain the authentication details if needed.
+    shared_ptr<string> callbackUrl_ {};
+    // The number of card pages to be collected by the SDK. Valid values:
+    // - 1: collects the front side only.
+    // - 2: collects both the front and back sides.
+    // 
+    // - If the verification type is ID card validity period (VerifyMeta is set to ID_PERIOD), set this parameter to 2.
     // 
     // This parameter is required.
     shared_ptr<string> cardPageNumber_ {};
-    // Type of identification
-    // - Resident Second Generation ID Card: IDENTITY_CARD
+    // The document type. Valid values:
+    // - IDENTITY_CARD: resident identity card.
     // 
     // This parameter is required.
     shared_ptr<string> cardType_ {};
-    // Enumeration of photo-taking methods (manual/auto)
-    // - Take a photo: shoot
-    // - Scan: scan 
-    // - Auto switch: auto
+    // The photo capture mode (manual or automatic). Valid values:
+    // - shoot: manual capture
+    // - scan: scan mode 
+    // - auto: automatic switchover.
     shared_ptr<string> docScanMode_ {};
-    // A unique business identifier you define, used for subsequent troubleshooting.
-    // Supports a combination of 32 alphanumeric characters, please ensure uniqueness.
+    // A custom business unique identifier that you define for subsequent troubleshooting. The value is a combination of letters and digits up to 32 characters in length. Make sure the value is unique.
     // 
     // This parameter is required.
     shared_ptr<string> merchantBizId_ {};
-    // MetaInfo environment parameter, which needs to be obtained through the client SDK.
+    // The MetaInfo environment parameter. Obtain this value by using the client SDK.
     // 
     // This parameter is required.
     shared_ptr<string> metaInfo_ {};
-    // Verification method, value:
-    // - OCR_VERIFY: OCR recognition and verification mode.
+    // The verification mode. Valid values:
+    // - OCR_VERIFY: OCR recognition and authentication mode.
     // 
     // This parameter is required.
     shared_ptr<string> model_ {};
-    // Whether to temporarily store the images collected by the app.
-    // - Y: Yes
-    // - N: No
-    // - If \\"Yes\\" is selected here, the query interface will support returning the card image information.
+    // Specifies whether to temporarily store images collected by the app. Valid values:
+    // - Y: Yes.
+    // - N: No.
+    // - If you set this parameter to Y, the query operation returns card image information.
     // 
     // This parameter is required.
     shared_ptr<string> pictureSave_ {};
-    // Verification type, value:
-    // - Identity two elements (name + ID number): ID_2_META
+    // The verification type. Valid values:
+    // - ID_2_META: two-factor identity verification (name + ID card number).
     // 
     // This parameter is required.
     shared_ptr<string> verifyMeta_ {};

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // If the Duration in the request parameters is not empty, this field represents the start time of the authorization after the device validity period has been extended. One year of Duration is calculated as 365 days. Example: 20180101.
+    // If the Duration request parameter is not empty, this field indicates the authorization start time after the device validity period is extended. One year in Duration is calculated as 365 days. Example: 20180101.
     shared_ptr<string> beginDay_ {};
-    // Corresponds to the BizType in the request parameters.
+    // The value corresponds to the BizType in the request parameters.
     shared_ptr<string> bizType_ {};
-    // Corresponds to the DeviceId in the request parameters.
+    // The value corresponds to the DeviceId in the request parameters.
     shared_ptr<string> deviceId_ {};
-    // If the Duration in the request parameters is not empty, this field represents the expiration time of the authorization after the device validity period has been extended. One year of Duration is calculated as 365 days. Example: 20180101.
+    // If the Duration request parameter is not empty, this field indicates the authorization expiration time after the device validity period is extended. One year in Duration is calculated as 365 days. Example: 20180101.
     shared_ptr<string> expiredDay_ {};
     // The ID of this request.
     shared_ptr<string> requestId_ {};
-    // Corresponds to the UserDeviceId in the request parameters.
+    // The value corresponds to the UserDeviceId in the request parameters.
     shared_ptr<string> userDeviceId_ {};
   };
 

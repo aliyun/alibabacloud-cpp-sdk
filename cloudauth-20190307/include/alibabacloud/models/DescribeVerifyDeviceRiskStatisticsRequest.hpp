@@ -75,22 +75,22 @@ namespace Models
 
 
   protected:
-    // End time.
+    // The end time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
-    // Cloud product code.
+    // The code of the cloud service.
     shared_ptr<string> productCode_ {};
-    // Scene ID.
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
-    // Service type:
-    // - **antcloudauth**: Financial-grade real-person authentication.
-    // - **cloudauthst** (discontinued): Enhanced real-person authentication.
-    // - **cloudauth** (discontinued): Real-person authentication.
+    // The service type. Valid values:
+    // - **antcloudauth**: financial-grade ID Verification.
+    // - **cloudauthst** (discontinued): ID Verification - Enhanced Edition.
+    // - **cloudauth** (discontinued): ID Verification.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // Start time of the query, in Unix timestamp format, in milliseconds.
+    // The start time of the query. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
