@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProgrammingLanguage, programmingLanguage_);
       DARABONBA_PTR_TO_JSON(Reverse, reverse_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProgrammingLanguage, programmingLanguage_);
       DARABONBA_PTR_FROM_JSON(Reverse, reverse_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->appSource_ == nullptr && this->currentPage_ == nullptr && this->fieldType_ == nullptr && this->fieldValue_ == nullptr && this->isStateful_ == nullptr
-        && this->namespaceId_ == nullptr && this->newSaeVersion_ == nullptr && this->orderBy_ == nullptr && this->pageSize_ == nullptr && this->reverse_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->namespaceId_ == nullptr && this->newSaeVersion_ == nullptr && this->orderBy_ == nullptr && this->pageSize_ == nullptr && this->programmingLanguage_ == nullptr
+        && this->reverse_ == nullptr && this->tags_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     inline ListApplicationsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // programmingLanguage Field Functions 
+    bool hasProgrammingLanguage() const { return this->programmingLanguage_ != nullptr;};
+    void deleteProgrammingLanguage() { this->programmingLanguage_ = nullptr;};
+    inline string getProgrammingLanguage() const { DARABONBA_PTR_GET_DEFAULT(programmingLanguage_, "") };
+    inline ListApplicationsRequest& setProgrammingLanguage(string programmingLanguage) { DARABONBA_PTR_SET_VALUE(programmingLanguage_, programmingLanguage) };
+
+
     // reverse Field Functions 
     bool hasReverse() const { return this->reverse_ != nullptr;};
     void deleteReverse() { this->reverse_ = nullptr;};
@@ -142,85 +151,66 @@ namespace Models
   protected:
     // The application name.
     shared_ptr<string> appName_ {};
-    // The type of the SAE application.
+    // The Serverless App Engine (SAE) application type.
     // 
-    // - **micro_service**
-    // 
-    // - **web**
-    // 
-    // - **job**
+    // - **micro_service.**
+    // - **web.**
+    // - **job.**
     shared_ptr<string> appSource_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The field to filter applications by. Valid values:
+    // The dimension by which to filter applications. Valid values:
     // 
-    // - **appName**: The application name.
-    // 
-    // - **appIds**: The application ID.
-    // 
-    // - **slbIps**: The SLB IP address.
-    // 
-    // - **instanceIps**: The instance IP address.
+    // - **appName**: application name.
+    // - **appIds**: application ID.
+    // - **slbIps**: SLB IP address.
+    // - **instanceIps**: instance IP address.
     shared_ptr<string> fieldType_ {};
-    // The value for the field specified by `FieldType`. This can be an application name, application ID, SLB IP address, or instance IP address.
+    // The application name, application ID, SLB IP address, or instance IP address of the target application.
     shared_ptr<string> fieldValue_ {};
-    // Filters applications by whether they are stateful. Set this parameter to `true` to return only stateful applications, or to `false` to return only stateless applications.
+    // Specifies whether the application is stateful.
     shared_ptr<string> isStateful_ {};
     // The namespace ID.
     shared_ptr<string> namespaceId_ {};
-    // The edition of the application:
+    // The application version. Valid values:
     // 
-    // - `lite`: Lite
-    // 
-    // - `std`: Standard
-    // 
-    // - `pro`: Pro
+    // - lite: Lite Edition
+    // - std: Standard Edition
+    // - pro: Professional Edition
     shared_ptr<string> newSaeVersion_ {};
-    // The field to sort the applications by. Valid values:
+    // The field by which to sort applications. Valid values:
     // 
-    // - **runnings**: Sorts the applications by the current instance count.
-    // 
-    // - **instances**: Sorts the applications by the target instance count.
+    // - **runnings**: sorts by the current number target instances.
+    // - **instances**: sorts by the target number target instances.
     shared_ptr<string> orderBy_ {};
-    // The number of entries to return per page. Valid values: 0 to 10000.
+    // The number of entries per page in a paging query. Valid values: [0,10000].
     shared_ptr<int32_t> pageSize_ {};
-    // The sort order. Valid values:
+    shared_ptr<string> programmingLanguage_ {};
+    // Specifies whether to sort application instances by running status. If instances have the same status, they are sorted by instance ID. Valid values:
+    //   - **true**: sorts in ascending order. Instances are arranged based on the startup sequence. For example, to reach the running state, an instance must go through steps such as starting the container, pulling the image, and initializing the instance.
+    //   - **false**: sorts in descending order.
     // 
-    // - **true**: Sorts the results in ascending order.
+    // The ascending order of instances is as follows:
     // 
-    // - **false**: Sorts the results in descending order.
-    // 
-    // 1. ****
-    // 
-    // 2. ****
-    // 
-    // 3. ****
-    // 
-    // 4. ****
-    // 
-    // 5. ****
-    // 
-    // 6. ****
-    // 
-    // 7. ****
-    // 
-    // 8. ****
-    // 
-    // 9. ****
-    // 
-    // 10. ****
-    // 
-    // 11. ****
+    // 1. **Error**: an error occurred during instance startup.
+    // 2. **CrashLoopBackOff**: the container failed to start, encountered an error during startup, and encountered an error again after restart.
+    // 3. **ErrImagePull**: an error occurred while pulling the container image for the instance.
+    // 4. **ImagePullBackOff**: the container image cannot be obtained.
+    // 5. **Pending**: the instance is waiting to be scheduled.
+    // 6. **Unknown**: an unknown exception occurred.
+    // 7. **Terminating**: the instance is being terminated.
+    // 8. **NotFound**: the instance cannot be found.
+    // 9. **PodInitializing**: the instance is being initialized.
+    // 10. **Init:0/1**: the instance is initializing.
+    // 11. **Running**: the instance is running.
     shared_ptr<bool> reverse_ {};
-    // Filters applications by tags. The tags are specified as a JSON string that contains an array of key-value pairs.
+    // The tag key-value pairs. Valid values:
+    // - **key**: the tag key. The length must be in the range of [1,128].
+    // - **value**: the tag value. The length must be in the range of [1,128].
     // 
-    // - **key**: The tag key, which can be 1 to 128 characters in length.
+    // Tags are case-sensitive. If you specify multiple tags, all specified tags are created and attached to the resource. Each tag key on the same resource can have only one tag value. If you add a tag key that already exists, the corresponding tag value is updated to the new value.
     // 
-    // - **value**: The tag value, which can be 1 to 128 characters in length.
-    // 
-    // This parameter is case-sensitive. An application is returned only if it matches all specified tags. On a resource, a tag key can have only one tag value.
-    // 
-    // The tag key and tag value cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+    // Tags cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
     shared_ptr<string> tags_ {};
   };
 

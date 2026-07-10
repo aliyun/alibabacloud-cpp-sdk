@@ -97,6 +97,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(NewSaeVersion, newSaeVersion_);
           DARABONBA_PTR_TO_JSON(PackageUrl, packageUrl_);
           DARABONBA_PTR_TO_JSON(ProgrammingLanguage, programmingLanguage_);
+          DARABONBA_PTR_TO_JSON(RaspEnabled, raspEnabled_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
           DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
           DARABONBA_PTR_TO_JSON(RunningInstances, runningInstances_);
@@ -126,6 +127,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(NewSaeVersion, newSaeVersion_);
           DARABONBA_PTR_FROM_JSON(PackageUrl, packageUrl_);
           DARABONBA_PTR_FROM_JSON(ProgrammingLanguage, programmingLanguage_);
+          DARABONBA_PTR_FROM_JSON(RaspEnabled, raspEnabled_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
           DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
           DARABONBA_PTR_FROM_JSON(RunningInstances, runningInstances_);
@@ -455,41 +457,39 @@ namespace Models
 
 
         protected:
-          // Indicates whether the canary release application is being deleted.
+          // Indicates whether the application is being deleted.
           shared_ptr<bool> appDeletingStatus_ {};
           // The application description.
           shared_ptr<string> appDescription_ {};
-          // The ID of the canary release application.
+          // The application ID.
           shared_ptr<string> appId_ {};
-          // The name of the canary release application.
+          // The application name.
           shared_ptr<string> appName_ {};
-          // The application\\"s deployment method.
+          // The deployment type of the application.
           shared_ptr<string> appType_ {};
-          // The ID of the base application.
+          // The base application ID.
           shared_ptr<string> baseAppId_ {};
-          // The CPU specification.
+          // The CPU size.
           shared_ptr<int32_t> cpu_ {};
-          // Indicates if the application is configured to stop automatically when idle.
+          // Indicates whether idle mode is enabled.
           shared_ptr<string> enableIdle_ {};
-          // The configured number of instances for the canary release application.
+          // The number of instances.
           shared_ptr<int32_t> instances_ {};
-          // Indicates whether the canary release application is stateful.
+          // Specifies whether the application is stateful.
           shared_ptr<bool> isStateful_ {};
-          // The memory specification.
+          // The memory size.
           shared_ptr<int32_t> mem_ {};
-          // Indicates whether Microservices Engine (MSE) is enabled for the application.
+          // Indicates whether MSE microservice governance is enabled for the application.
           shared_ptr<bool> mseEnabled_ {};
           // The namespace ID.
           shared_ptr<string> namespaceId_ {};
-          // The name of the namespace.
+          // The namespace name.
           shared_ptr<string> namespaceName_ {};
-          // The edition of the application:
+          // The application version. Valid values:
           // 
-          // - lite: Lite
-          // 
-          // - std: Standard
-          // 
-          // - pro: Pro
+          // - lite: Lite Edition
+          // - std: Standard Edition
+          // - pro: Professional Edition
           shared_ptr<string> newSaeVersion_ {};
           // The programming language of the application.
           shared_ptr<string> programmingLanguage_ {};
@@ -499,11 +499,11 @@ namespace Models
           shared_ptr<string> resourceType_ {};
           // The number of running instances.
           shared_ptr<int32_t> runningInstances_ {};
-          // Indicates whether an auto scaling policy is enabled.
+          // Indicates whether the elastic scaling policy is enabled.
           shared_ptr<bool> scaleRuleEnabled_ {};
-          // The type of the auto scaling policy.
+          // The type of the elastic scaling rule.
           shared_ptr<string> scaleRuleType_ {};
-          // An array of tags assigned to the canary release application.
+          // The application tags.
           shared_ptr<vector<Children::Tags>> tags_ {};
         };
 
@@ -512,8 +512,8 @@ namespace Models
         && this->children_ == nullptr && this->cpu_ == nullptr && this->diskSize_ == nullptr && this->enableIdle_ == nullptr && this->imageUrl_ == nullptr
         && this->instances_ == nullptr && this->isStateful_ == nullptr && this->labels_ == nullptr && this->mem_ == nullptr && this->mseEnabled_ == nullptr
         && this->mseNamespaceId_ == nullptr && this->namespaceId_ == nullptr && this->namespaceName_ == nullptr && this->newSaeVersion_ == nullptr && this->packageUrl_ == nullptr
-        && this->programmingLanguage_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->runningInstances_ == nullptr && this->tags_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->programmingLanguage_ == nullptr && this->raspEnabled_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->runningInstances_ == nullptr
+        && this->tags_ == nullptr && this->vpcId_ == nullptr; };
         // appDeletingStatus Field Functions 
         bool hasAppDeletingStatus() const { return this->appDeletingStatus_ != nullptr;};
         void deleteAppDeletingStatus() { this->appDeletingStatus_ = nullptr;};
@@ -672,6 +672,13 @@ namespace Models
         inline Applications& setProgrammingLanguage(string programmingLanguage) { DARABONBA_PTR_SET_VALUE(programmingLanguage_, programmingLanguage) };
 
 
+        // raspEnabled Field Functions 
+        bool hasRaspEnabled() const { return this->raspEnabled_ != nullptr;};
+        void deleteRaspEnabled() { this->raspEnabled_ = nullptr;};
+        inline bool getRaspEnabled() const { DARABONBA_PTR_GET_DEFAULT(raspEnabled_, false) };
+        inline Applications& setRaspEnabled(bool raspEnabled) { DARABONBA_PTR_SET_VALUE(raspEnabled_, raspEnabled) };
+
+
         // regionId Field Functions 
         bool hasRegionId() const { return this->regionId_ != nullptr;};
         void deleteRegionId() { this->regionId_ = nullptr;};
@@ -713,106 +720,89 @@ namespace Models
         // Indicates whether the application is being deleted. Valid values:
         // 
         // - **true**: The application is being deleted.
-        // 
         // - **false**: The application is not being deleted.
         shared_ptr<bool> appDeletingStatus_ {};
-        // The description of the application.
+        // The application description.
         shared_ptr<string> appDescription_ {};
-        // The ID of the application.
+        // The application ID.
         shared_ptr<string> appId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The application\\"s deployment method.
+        // The deployment type of the application.
         shared_ptr<string> appType_ {};
-        // The ID of the base application. This parameter is returned only for canary release applications.
+        // The base application ID. This property exists only for canary release applications.
         shared_ptr<string> baseAppId_ {};
-        // An array of canary release applications associated with this application.
+        // The list of canary release applications for this application.
         shared_ptr<vector<Applications::Children>> children_ {};
-        // The CPU allocated to each instance, measured in millicores. This value cannot be 0. Valid values:
+        // The CPU required for each instance, in millicores. This value cannot be 0. Only the following defined specifications are supported:
         // 
         // - **500**
-        // 
         // - **1000**
-        // 
         // - **2000**
-        // 
         // - **4000**
-        // 
         // - **8000**
-        // 
         // - **16000**
-        // 
         // - **32000**
         shared_ptr<int32_t> cpu_ {};
-        // The disk size in GB.
+        // The disk storage size, in GB.
         shared_ptr<int32_t> diskSize_ {};
-        // Indicates if the application is configured to stop automatically when idle.
+        // Indicates whether idle mode is enabled.
         shared_ptr<string> enableIdle_ {};
-        // The URL of the container image.
+        // The image URL.
         shared_ptr<string> imageUrl_ {};
-        // The configured number of application instances.
+        // The number of application instances.
         shared_ptr<int32_t> instances_ {};
-        // Indicates whether the application is stateful.
+        // Specifies whether the application is stateful.
         shared_ptr<bool> isStateful_ {};
-        // The labels of the application.
+        // The labels.
         shared_ptr<map<string, string>> labels_ {};
-        // The memory allocated to each instance, measured in megabytes (MB). This value cannot be 0 and must be compatible with the CPU allocation. The following options are available:
+        // The memory required for each instance, in MB. This value cannot be 0. The memory has a one-to-one mapping with CPU. Only the following defined specifications are supported:
         // 
-        // - **1024**: For a CPU allocation of 500 or 1,000 millicores.
-        // 
-        // - **2048**: For a CPU allocation of 500, 1,000, or 2,000 millicores.
-        // 
-        // - **4096**: For a CPU allocation of 1,000, 2,000, or 4,000 millicores.
-        // 
-        // - **8192**: For a CPU allocation of 2,000, 4,000, or 8,000 millicores.
-        // 
-        // - **12288**: For a CPU allocation of 12,000 millicores.
-        // 
-        // - **16384**: For a CPU allocation of 4,000, 8,000, or 16,000 millicores.
-        // 
-        // - **24576**: For a CPU allocation of 12,000 millicores.
-        // 
-        // - **32768**: For a CPU allocation of 16,000 millicores.
-        // 
-        // - **65536**: For a CPU allocation of 8,000, 16,000, or 32,000 millicores.
-        // 
-        // - **131072**: For a CPU allocation of 32,000 millicores.
+        // - **1024**: corresponds to 500 and 1000 millicores of CPU.
+        // - **2048**: corresponds to 500, 1000, and 2000 millicores of CPU.
+        // - **4096**: corresponds to 1000, 2000, and 4000 millicores of CPU.
+        // - **8192**: corresponds to 2000, 4000, and 8000 millicores of CPU.
+        // - **12288**: corresponds to 12000 millicores of CPU.
+        // - **16384**: corresponds to 4000, 8000, and 16000 millicores of CPU.
+        // - **24576**: corresponds to 12000 millicores of CPU.
+        // - **32768**: corresponds to 16000 millicores of CPU.
+        // - **65536**: corresponds to 8000, 16000, and 32000 millicores of CPU.
+        // - **131072**: corresponds to 32000 millicores of CPU.
         shared_ptr<int32_t> mem_ {};
-        // Indicates whether Microservices Engine (MSE) is enabled for the application.
+        // Indicates whether MSE microservice governance is enabled for the application.
         shared_ptr<bool> mseEnabled_ {};
-        // The ID of the MSE namespace. This value determines the service edition.
+        // The MSE microservice governance namespace.
         // 
-        // - default: Free edition
+        // - default: Free Edition
         // 
-        // - sae-pro: Professional edition
+        // - sae-pro: Professional Edition
         // 
-        // - sae-ent: Enterprise edition
+        // - sae-ent: Enterprise Edition
         shared_ptr<string> mseNamespaceId_ {};
-        // The ID of the namespace.
+        // The namespace ID.
         shared_ptr<string> namespaceId_ {};
-        // The name of the namespace.
+        // The namespace name.
         shared_ptr<string> namespaceName_ {};
-        // The edition of the application:
+        // The application version. Valid values:
         // 
-        // - lite: Lite
-        // 
-        // - std: Standard
-        // 
-        // - pro: Pro
+        // - lite: Lite Edition
+        // - std: Standard Edition
+        // - pro: Professional Edition
         shared_ptr<string> newSaeVersion_ {};
-        // The URL of the application\\"s deployment package.
+        // The deployment package URL.
         shared_ptr<string> packageUrl_ {};
         // The programming language of the application.
         shared_ptr<string> programmingLanguage_ {};
-        // The ID of the region where the application is deployed.
+        shared_ptr<bool> raspEnabled_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
         // The number of running instances.
         shared_ptr<int32_t> runningInstances_ {};
-        // An array of tags assigned to the application.
+        // The application tags.
         shared_ptr<vector<Applications::Tags>> tags_ {};
-        // The ID of the VPC.
+        // VPC ID。
         shared_ptr<string> vpcId_ {};
       };
 
@@ -849,11 +839,11 @@ namespace Models
 
 
     protected:
-      // An array of application objects.
+      // The application list.
       shared_ptr<vector<Data::Applications>> applications_ {};
       // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of applications.
       shared_ptr<int32_t> totalSize_ {};
@@ -928,39 +918,34 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The API status or POP error code. Valid values:
     // 
-    // - **2xx**: The request was successful.
-    // 
-    // - **3xx**: The request was redirected.
-    // 
-    // - **4xx**: The request was invalid.
-    // 
-    // - **5xx**: A server error occurred.
+    // - **2xx**: Success.
+    // - **3xx**: Redirection.
+    // - **4xx**: Request error.
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The object that contains pagination details and the array of applications.
+    // The application list.
     shared_ptr<ListApplicationsResponseBody::Data> data_ {};
-    // The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
+    // The error code. Valid values:
     // 
-    // - A successful request does not return the **ErrorCode** field.
-    // 
-    // - A failed request returns the **ErrorCode** field. For more information, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information about the call result.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the application list is retrieved. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: Retrieved.
+    // - **false**: Not retrieved.
     shared_ptr<bool> success_ {};
-    // Total number of applications.
+    // The total number of applications.
     shared_ptr<int32_t> totalSize_ {};
   };
 

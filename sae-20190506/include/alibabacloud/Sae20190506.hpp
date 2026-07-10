@@ -165,7 +165,7 @@ namespace Sae20190506
       Models::ConfirmPipelineBatchResponse confirmPipelineBatch(const Models::ConfirmPipelineBatchRequest &request);
 
       /**
-       * @summary Create an application.
+       * @summary Creates an application.
        *
        * @param tmpReq CreateApplicationRequest
        * @param headers map
@@ -175,7 +175,7 @@ namespace Sae20190506
       Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an application.
+       * @summary Creates an application.
        *
        * @param request CreateApplicationRequest
        * @return CreateApplicationResponse
@@ -671,7 +671,7 @@ namespace Sae20190506
       Models::DeleteWebCustomDomainResponse deleteWebCustomDomain(const string &DomainName, const Models::DeleteWebCustomDomainRequest &request);
 
       /**
-       * @summary Deploy an application.
+       * @summary Deploys an application.
        *
        * @param tmpReq DeployApplicationRequest
        * @param headers map
@@ -681,7 +681,7 @@ namespace Sae20190506
       Models::DeployApplicationResponse deployApplicationWithOptions(const Models::DeployApplicationRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploy an application.
+       * @summary Deploys an application.
        *
        * @param request DeployApplicationRequest
        * @return DeployApplicationResponse
@@ -707,7 +707,7 @@ namespace Sae20190506
       Models::DescribeAppServiceDetailResponse describeAppServiceDetail(const Models::DescribeAppServiceDetailRequest &request);
 
       /**
-       * @summary Retrieves the configuration of an application.
+       * @summary Retrieves the configuration information of an application.
        *
        * @param request DescribeApplicationConfigRequest
        * @param headers map
@@ -717,7 +717,7 @@ namespace Sae20190506
       Models::DescribeApplicationConfigResponse describeApplicationConfigWithOptions(const Models::DescribeApplicationConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configuration of an application.
+       * @summary Retrieves the configuration information of an application.
        *
        * @param request DescribeApplicationConfigRequest
        * @return DescribeApplicationConfigResponse
@@ -1751,7 +1751,7 @@ namespace Sae20190506
       Models::ListApplicationCenterServiceInstancesResponse listApplicationCenterServiceInstances(const Models::ListApplicationCenterServiceInstancesRequest &request);
 
       /**
-       * @summary Get a list of applications.
+       * @summary Retrieves a list of applications.
        *
        * @param request ListApplicationsRequest
        * @param headers map
@@ -1761,7 +1761,7 @@ namespace Sae20190506
       Models::ListApplicationsResponse listApplicationsWithOptions(const Models::ListApplicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get a list of applications.
+       * @summary Retrieves a list of applications.
        *
        * @param request ListApplicationsRequest
        * @return ListApplicationsResponse

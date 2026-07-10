@@ -90,13 +90,12 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The returned change order ID. Use it to query task execution status.
+      // The returned change order ID, which is used to query the task execution status.
       shared_ptr<string> changeOrderId_ {};
-      // Whether RAM users need approval to deploy changes. Values:
+      // Indicates whether the change published by a Resource Access Management (RAM) user requires approval. Valid values:
       // 
-      // - **true**: Approval required.
-      // 
-      // - **false**: No approval required.
+      // - **true**: approval is required.
+      // - **false**: approval is not required.
       shared_ptr<bool> isNeedApproval_ {};
     };
 
@@ -155,39 +154,33 @@ namespace Models
 
 
   protected:
-    // The API status or POP error code. Values:
+    // The API status or POP error code. Valid values:
     // 
-    // - **2xx**: Success.
-    // 
-    // - **3xx**: Redirection.
-    // 
-    // - **4xx**: Request error.
-    // 
-    // - **5xx**: Server error.
+    // - **2xx**: success.
+    // - **3xx**: redirection.
+    // - **4xx**: request error.
+    // - **5xx**: server error.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<DeployApplicationResponseBody::Data> data_ {};
-    // The error code. Values:
+    // The error code. Valid values:
     // 
-    // - On success: This field is not returned.
-    // 
-    // - On failure: This field is returned. For details, see the **Error codes** section in this topic.
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
     shared_ptr<string> errorCode_ {};
-    // Additional information. Values:
+    // The additional information. Valid values:
     // 
-    // - On success, returns **success**.
-    // 
-    // - On failure, returns a specific error code.
+    // - If the request is successful, **success** is returned.
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the deployment succeeded. Values:
+    // Indicates whether the application deployment is successful. Valid values:
     // 
-    // - **true**: Deployment succeeded.
-    // 
-    // - **false**: Deployment failed.
+    // - **true**: the deployment is successful.
+    // - **false**: the deployment failed.
     shared_ptr<bool> success_ {};
-    // The trace ID for precise query of call information.
+    // The trace ID, which is used to query the details of a request.
     shared_ptr<string> traceId_ {};
   };
 

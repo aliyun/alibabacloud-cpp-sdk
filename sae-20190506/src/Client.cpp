@@ -482,7 +482,7 @@ ConfirmPipelineBatchResponse Client::confirmPipelineBatch(const ConfirmPipelineB
 }
 
 /**
- * @summary Create an application.
+ * @summary Creates an application.
  *
  * @param tmpReq CreateApplicationRequest
  * @param headers map
@@ -499,6 +499,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!tmpReq.hasLabels()) {
     request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
+  }
+
+  if (!!tmpReq.hasRaspConfig()) {
+    request.setRaspConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRaspConfig(), "RaspConfig", "json"));
   }
 
   if (!!tmpReq.hasSidecarContainersConfig()) {
@@ -730,6 +734,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["PythonModules"] = request.getPythonModules();
   }
 
+  if (!!request.hasRaspConfigShrink()) {
+    query["RaspConfig"] = request.getRaspConfigShrink();
+  }
+
   if (!!request.hasReadiness()) {
     query["Readiness"] = request.getReadiness();
   }
@@ -875,7 +883,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Create an application.
+ * @summary Creates an application.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -2560,7 +2568,7 @@ DeleteWebCustomDomainResponse Client::deleteWebCustomDomain(const string &Domain
 }
 
 /**
- * @summary Deploy an application.
+ * @summary Deploys an application.
  *
  * @param tmpReq DeployApplicationRequest
  * @param headers map
@@ -2577,6 +2585,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!tmpReq.hasLabels()) {
     request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "Labels", "json"));
+  }
+
+  if (!!tmpReq.hasRaspConfig()) {
+    request.setRaspConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRaspConfig(), "RaspConfig", "json"));
   }
 
   if (!!tmpReq.hasSidecarContainersConfig()) {
@@ -2808,6 +2820,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
     query["PythonModules"] = request.getPythonModules();
   }
 
+  if (!!request.hasRaspConfigShrink()) {
+    query["RaspConfig"] = request.getRaspConfigShrink();
+  }
+
   if (!!request.hasReadiness()) {
     query["Readiness"] = request.getReadiness();
   }
@@ -2945,7 +2961,7 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 }
 
 /**
- * @summary Deploy an application.
+ * @summary Deploys an application.
  *
  * @param request DeployApplicationRequest
  * @return DeployApplicationResponse
@@ -3026,7 +3042,7 @@ DescribeAppServiceDetailResponse Client::describeAppServiceDetail(const Describe
 }
 
 /**
- * @summary Retrieves the configuration of an application.
+ * @summary Retrieves the configuration information of an application.
  *
  * @param request DescribeApplicationConfigRequest
  * @param headers map
@@ -3063,7 +3079,7 @@ DescribeApplicationConfigResponse Client::describeApplicationConfigWithOptions(c
 }
 
 /**
- * @summary Retrieves the configuration of an application.
+ * @summary Retrieves the configuration information of an application.
  *
  * @param request DescribeApplicationConfigRequest
  * @return DescribeApplicationConfigResponse
@@ -5980,7 +5996,7 @@ ListApplicationCenterServiceInstancesResponse Client::listApplicationCenterServi
 }
 
 /**
- * @summary Get a list of applications.
+ * @summary Retrieves a list of applications.
  *
  * @param request ListApplicationsRequest
  * @param headers map
@@ -6030,6 +6046,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasProgrammingLanguage()) {
+    query["ProgrammingLanguage"] = request.getProgrammingLanguage();
+  }
+
   if (!!request.hasReverse()) {
     query["Reverse"] = request.getReverse();
   }
@@ -6057,7 +6077,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Get a list of applications.
+ * @summary Retrieves a list of applications.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
