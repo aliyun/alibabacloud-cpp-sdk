@@ -320,9 +320,9 @@ CloseSessionResponse Client::closeSession(const CloseSessionRequest &request) {
 }
 
 /**
- * @summary Creates a new LINGJUN Cluster.
+ * @summary Creates a Lingjun AI Computing Service cluster.
  *
- * @description 关闭远程会话的接口。
+ * @description Closes a remote session.
  *
  * @param tmpReq CreateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -417,9 +417,9 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 }
 
 /**
- * @summary Creates a new LINGJUN Cluster.
+ * @summary Creates a Lingjun AI Computing Service cluster.
  *
- * @description 关闭远程会话的接口。
+ * @description Closes a remote session.
  *
  * @param request CreateClusterRequest
  * @return CreateClusterResponse
@@ -578,9 +578,9 @@ CreateNetTestTaskResponse Client::createNetTestTask(const CreateNetTestTaskReque
 }
 
 /**
- * @summary Create a node group in a cluster.
+ * @summary Creates a node group in a cluster.
  *
- * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
  *
  * @param tmpReq CreateNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -629,9 +629,9 @@ CreateNodeGroupResponse Client::createNodeGroupWithOptions(const CreateNodeGroup
 }
 
 /**
- * @summary Create a node group in a cluster.
+ * @summary Creates a node group in a cluster.
  *
- * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
  *
  * @param request CreateNodeGroupRequest
  * @return CreateNodeGroupResponse
@@ -1562,7 +1562,7 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Extends a cluster.
+ * @summary Scales out a cluster.
  *
  * @description Closes a remote session.
  *
@@ -1629,7 +1629,7 @@ ExtendClusterResponse Client::extendClusterWithOptions(const ExtendClusterReques
 }
 
 /**
- * @summary Extends a cluster.
+ * @summary Scales out a cluster.
  *
  * @description Closes a remote session.
  *
@@ -2658,7 +2658,7 @@ RebootNodesResponse Client::rebootNodes(const RebootNodesRequest &request) {
 }
 
 /**
- * @summary Reimages the specified nodes.
+ * @summary Reinstalls machines.
  *
  * @param tmpReq ReimageNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2707,7 +2707,7 @@ ReimageNodesResponse Client::reimageNodesWithOptions(const ReimageNodesRequest &
 }
 
 /**
- * @summary Reimages the specified nodes.
+ * @summary Reinstalls machines.
  *
  * @param request ReimageNodesRequest
  * @return ReimageNodesResponse
@@ -3264,14 +3264,20 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 /**
  * @summary Updates a node group.
  *
- * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
  *
- * @param request UpdateNodeGroupRequest
+ * @param tmpReq UpdateNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateNodeGroupResponse
  */
-UpdateNodeGroupResponse Client::updateNodeGroupWithOptions(const UpdateNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateNodeGroupResponse Client::updateNodeGroupWithOptions(const UpdateNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateNodeGroupShrinkRequest request = UpdateNodeGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSystemDisk()) {
+    request.setSystemDiskShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSystemDisk(), "SystemDisk", "json"));
+  }
+
   json body = {};
   if (!!request.hasFileSystemMountEnabled()) {
     body["FileSystemMountEnabled"] = request.getFileSystemMountEnabled();
@@ -3301,6 +3307,10 @@ UpdateNodeGroupResponse Client::updateNodeGroupWithOptions(const UpdateNodeGroup
     body["RamRoleName"] = request.getRamRoleName();
   }
 
+  if (!!request.hasSystemDiskShrink()) {
+    body["SystemDisk"] = request.getSystemDiskShrink();
+  }
+
   if (!!request.hasUserData()) {
     body["UserData"] = request.getUserData();
   }
@@ -3325,7 +3335,7 @@ UpdateNodeGroupResponse Client::updateNodeGroupWithOptions(const UpdateNodeGroup
 /**
  * @summary Updates a node group.
  *
- * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
  *
  * @param request UpdateNodeGroupRequest
  * @return UpdateNodeGroupResponse

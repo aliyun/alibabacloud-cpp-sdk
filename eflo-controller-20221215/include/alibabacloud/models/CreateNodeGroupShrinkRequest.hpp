@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the node group belongs.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The configurations of the node group.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupShrink_ {};
-    // The configuration of the node unit.
+    // The node information.
     shared_ptr<string> nodeUnitShrink_ {};
   };
 

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Cluster ID.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Whether to allow skipping failed nodes. Default value: False.
+    // Specifies whether to skip failed nodes. Default value: False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // Combined policy for IP allocation. Each policy can only select one policy type, and multiple policies can be combined.
+    // The combined IP allocation policy. Each policy can use only one policy type, and multiple policies can be combined.
     shared_ptr<string> ipAllocationPolicyShrink_ {};
-    // Node groups.
+    // The node groups.
     shared_ptr<string> nodeGroupsShrink_ {};
-    // vSwitch zone ID.
+    // The zone ID of the vSwitch.
     shared_ptr<string> vSwitchZoneId_ {};
-    // Cluster subnet list.
+    // The list of cluster subnets.
     shared_ptr<string> vpdSubnetsShrink_ {};
   };
 

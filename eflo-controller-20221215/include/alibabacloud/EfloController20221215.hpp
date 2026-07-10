@@ -114,9 +114,9 @@ namespace EfloController20221215
       Models::CloseSessionResponse closeSession(const Models::CloseSessionRequest &request);
 
       /**
-       * @summary Creates a new LINGJUN Cluster.
+       * @summary Creates a Lingjun AI Computing Service cluster.
        *
-       * @description 关闭远程会话的接口。
+       * @description Closes a remote session.
        *
        * @param tmpReq CreateClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -125,9 +125,9 @@ namespace EfloController20221215
       Models::CreateClusterResponse createClusterWithOptions(const Models::CreateClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new LINGJUN Cluster.
+       * @summary Creates a Lingjun AI Computing Service cluster.
        *
-       * @description 关闭远程会话的接口。
+       * @description Closes a remote session.
        *
        * @param request CreateClusterRequest
        * @return CreateClusterResponse
@@ -169,9 +169,9 @@ namespace EfloController20221215
       Models::CreateNetTestTaskResponse createNetTestTask(const Models::CreateNetTestTaskRequest &request);
 
       /**
-       * @summary Create a node group in a cluster.
+       * @summary Creates a node group in a cluster.
        *
-       * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
        *
        * @param tmpReq CreateNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -180,9 +180,9 @@ namespace EfloController20221215
       Models::CreateNodeGroupResponse createNodeGroupWithOptions(const Models::CreateNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a node group in a cluster.
+       * @summary Creates a node group in a cluster.
        *
-       * @description Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
        *
        * @param request CreateNodeGroupRequest
        * @return CreateNodeGroupResponse
@@ -554,7 +554,7 @@ namespace EfloController20221215
       Models::DescribeZonesResponse describeZones(const Models::DescribeZonesRequest &request);
 
       /**
-       * @summary Extends a cluster.
+       * @summary Scales out a cluster.
        *
        * @description Closes a remote session.
        *
@@ -565,7 +565,7 @@ namespace EfloController20221215
       Models::ExtendClusterResponse extendClusterWithOptions(const Models::ExtendClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Extends a cluster.
+       * @summary Scales out a cluster.
        *
        * @description Closes a remote session.
        *
@@ -874,7 +874,7 @@ namespace EfloController20221215
       Models::RebootNodesResponse rebootNodes(const Models::RebootNodesRequest &request);
 
       /**
-       * @summary Reimages the specified nodes.
+       * @summary Reinstalls machines.
        *
        * @param tmpReq ReimageNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -883,7 +883,7 @@ namespace EfloController20221215
       Models::ReimageNodesResponse reimageNodesWithOptions(const Models::ReimageNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reimages the specified nodes.
+       * @summary Reinstalls machines.
        *
        * @param request ReimageNodesRequest
        * @return ReimageNodesResponse
@@ -1033,18 +1033,18 @@ namespace EfloController20221215
       /**
        * @summary Updates a node group.
        *
-       * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
        *
-       * @param request UpdateNodeGroupRequest
+       * @param tmpReq UpdateNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateNodeGroupResponse
        */
-      Models::UpdateNodeGroupResponse updateNodeGroupWithOptions(const Models::UpdateNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateNodeGroupResponse updateNodeGroupWithOptions(const Models::UpdateNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Updates a node group.
        *
-       * @description Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
        *
        * @param request UpdateNodeGroupRequest
        * @return UpdateNodeGroupResponse

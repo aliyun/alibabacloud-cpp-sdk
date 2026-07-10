@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -187,21 +187,21 @@ namespace Models
 
 
   protected:
-    // The description of the cluster.
+    // The cluster description.
     shared_ptr<string> clusterDescription_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The type of the cluster.
+    // The cluster type.
     shared_ptr<string> clusterType_ {};
     // The components (software instances).
     shared_ptr<string> componentsShrink_ {};
     // The cluster number.
     shared_ptr<string> hpnZone_ {};
-    // Specifies whether to skip failed nodes. The default value is False.
+    // Specifies whether to skip failed nodes. Default value: False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
     // The network information.
     shared_ptr<string> networksShrink_ {};
-    // The vSwitches for the node.
+    // The node vSwitches.
     shared_ptr<string> nimizVSwitchesShrink_ {};
     // The list of node groups.
     shared_ptr<string> nodeGroupsShrink_ {};

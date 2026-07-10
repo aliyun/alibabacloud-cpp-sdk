@@ -188,6 +188,7 @@
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateNodeGroupRequest.hpp>
+#include <alibabacloud/models/UpdateNodeGroupShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateNodeGroupResponseBody.hpp>
 #include <alibabacloud/models/UpdateNodeGroupResponse.hpp>
 

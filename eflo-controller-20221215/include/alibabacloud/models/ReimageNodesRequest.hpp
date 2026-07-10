@@ -94,7 +94,7 @@ namespace Models
     protected:
       // The hostname.
       shared_ptr<string> hostname_ {};
-      // The OS image ID.
+      // The system image ID.
       shared_ptr<string> imageId_ {};
       // The logon password.
       shared_ptr<string> loginPassword_ {};
@@ -137,11 +137,11 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to skip failed nodes. The default value is False.
+    // Specifies whether to skip failed nodes. Default value: False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
     // The list of nodes.
     shared_ptr<vector<ReimageNodesRequest::Nodes>> nodes_ {};
-    // The custom data.
+    // The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
     shared_ptr<string> userData_ {};
   };
 

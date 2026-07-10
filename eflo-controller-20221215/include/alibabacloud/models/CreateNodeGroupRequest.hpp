@@ -121,17 +121,15 @@ namespace Models
 
 
       protected:
-        // The type of the system disk. Valid values:
+        // The cloud disk type. Valid values:
         // 
-        // - `cloud_essd`: ESSD.
+        //  - cloud_essd: Enterprise SSD (ESSD) cloud disk.
         shared_ptr<string> category_ {};
-        // The performance level of the ESSD system disk. Valid values:
-        // 
-        // - `PL0`: A single disk delivers up to 10,000 random read/write IOPS.
-        // 
-        // - `PL1`: A single disk delivers up to 50,000 random read/write IOPS.
+        // The performance level (PL) of the ESSD cloud disk used as the system disk. Valid values:
+        // - PL0: a maximum of 10,000 random read/write IOPS per cloud disk.
+        // - PL1: a maximum of 50,000 random read/write IOPS per cloud disk.
         shared_ptr<string> performanceLevel_ {};
-        // The size of the system disk, in GB.
+        // The disk size. Unit: GB.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -226,37 +224,38 @@ namespace Models
 
 
     protected:
-      // The availability zone of the node group.
+      // The zone.
       // 
       // This parameter is required.
       shared_ptr<string> az_ {};
-      // Specifies whether to enable file system mounting.
+      // Specifies whether file storage mounting is supported.
       shared_ptr<bool> fileSystemMountEnabled_ {};
-      // The image ID for the nodes.
+      // The image ID.
       // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
-      // The name of the key pair for SSH login.
+      // The key pair name.
       shared_ptr<string> keyPairName_ {};
-      // The password to log in to the nodes.
+      // The logon password.
       shared_ptr<string> loginPassword_ {};
-      // The machine type for the nodes.
+      // The machine type.
       // 
       // This parameter is required.
       shared_ptr<string> machineType_ {};
-      // The description of the node group.
+      // The node group description.
       shared_ptr<string> nodeGroupDescription_ {};
-      // The name of the node group.
+      // The node group name.
       // 
       // This parameter is required.
       shared_ptr<string> nodeGroupName_ {};
-      // The name of the RAM role to attach to the nodes. You can call the RAM API `ListRoles` operation to query the RAM roles that you have created. The trust entity of the specified role must be Intelligent Computing Lingjun.<br>**Note:** You cannot detach an existing role by clearing this parameter.<br>
+      // The RAM role name of the node. You can call the RAM API ListRoles to query the RAM roles you have created. The trusted entity of the role must be set to Lingjun AI Computing Service.
+      // > Note: Clearing an existing role is not currently supported.
       shared_ptr<string> ramRoleName_ {};
-      // The system disk configuration for the nodes.
+      // The system disk configuration of the node.
       shared_ptr<NodeGroup::SystemDisk> systemDisk_ {};
-      // The user data passed to the nodes at launch.
+      // A custom executable shell script that must be Base64-encoded. The maximum size of the raw data is 16 KB.
       shared_ptr<string> userData_ {};
-      // Specifies whether to enable GPU virtualization.
+      // Specifies whether GPU virtualization splitting is enabled.
       shared_ptr<bool> virtualGpuEnabled_ {};
     };
 
@@ -288,15 +287,15 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the node group belongs.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The configurations of the node group.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<CreateNodeGroupRequest::NodeGroup> nodeGroup_ {};
-    // The configuration of the node unit.
+    // The node information.
     Darabonba::Json nodeUnit_ {};
   };
 
