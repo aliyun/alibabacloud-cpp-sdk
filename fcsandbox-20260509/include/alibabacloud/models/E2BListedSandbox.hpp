@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_E2BLISTEDSANDBOX_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <vector>
-#include <alibabacloud/models/E2BVolumeMount.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,12 +14,9 @@ namespace Models
   class E2BListedSandbox : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const E2BListedSandbox& obj) { 
-      DARABONBA_PTR_TO_JSON(alias, alias_);
-      DARABONBA_PTR_TO_JSON(clientID, clientID_);
       DARABONBA_PTR_TO_JSON(cpuCount, cpuCount_);
       DARABONBA_PTR_TO_JSON(diskSizeMB, diskSizeMB_);
       DARABONBA_PTR_TO_JSON(endAt, endAt_);
-      DARABONBA_PTR_TO_JSON(envdVersion, envdVersion_);
       DARABONBA_PTR_TO_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_TO_JSON(metadata, metadata_);
       DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
@@ -33,15 +28,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(userID, userID_);
-      DARABONBA_PTR_TO_JSON(volumeMounts, volumeMounts_);
     };
     friend void from_json(const Darabonba::Json& j, E2BListedSandbox& obj) { 
-      DARABONBA_PTR_FROM_JSON(alias, alias_);
-      DARABONBA_PTR_FROM_JSON(clientID, clientID_);
       DARABONBA_PTR_FROM_JSON(cpuCount, cpuCount_);
       DARABONBA_PTR_FROM_JSON(diskSizeMB, diskSizeMB_);
       DARABONBA_PTR_FROM_JSON(endAt, endAt_);
-      DARABONBA_PTR_FROM_JSON(envdVersion, envdVersion_);
       DARABONBA_PTR_FROM_JSON(memoryMB, memoryMB_);
       DARABONBA_PTR_FROM_JSON(metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
@@ -53,7 +44,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(userID, userID_);
-      DARABONBA_PTR_FROM_JSON(volumeMounts, volumeMounts_);
     };
     E2BListedSandbox() = default ;
     E2BListedSandbox(const E2BListedSandbox &) = default ;
@@ -66,25 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->alias_ == nullptr
-        && this->clientID_ == nullptr && this->cpuCount_ == nullptr && this->diskSizeMB_ == nullptr && this->endAt_ == nullptr && this->envdVersion_ == nullptr
-        && this->memoryMB_ == nullptr && this->metadata_ == nullptr && this->resourceGroupID_ == nullptr && this->sandboxID_ == nullptr && this->startedAt_ == nullptr
-        && this->state_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr && this->templateName_ == nullptr
-        && this->userID_ == nullptr && this->volumeMounts_ == nullptr; };
-    // alias Field Functions 
-    bool hasAlias() const { return this->alias_ != nullptr;};
-    void deleteAlias() { this->alias_ = nullptr;};
-    inline string getAlias() const { DARABONBA_PTR_GET_DEFAULT(alias_, "") };
-    inline E2BListedSandbox& setAlias(string alias) { DARABONBA_PTR_SET_VALUE(alias_, alias) };
-
-
-    // clientID Field Functions 
-    bool hasClientID() const { return this->clientID_ != nullptr;};
-    void deleteClientID() { this->clientID_ = nullptr;};
-    inline string getClientID() const { DARABONBA_PTR_GET_DEFAULT(clientID_, "") };
-    inline E2BListedSandbox& setClientID(string clientID) { DARABONBA_PTR_SET_VALUE(clientID_, clientID) };
-
-
+    virtual bool empty() const override { return this->cpuCount_ == nullptr
+        && this->diskSizeMB_ == nullptr && this->endAt_ == nullptr && this->memoryMB_ == nullptr && this->metadata_ == nullptr && this->resourceGroupID_ == nullptr
+        && this->sandboxID_ == nullptr && this->startedAt_ == nullptr && this->state_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr
+        && this->templateID_ == nullptr && this->templateName_ == nullptr && this->userID_ == nullptr; };
     // cpuCount Field Functions 
     bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
     void deleteCpuCount() { this->cpuCount_ = nullptr;};
@@ -104,13 +79,6 @@ namespace Models
     void deleteEndAt() { this->endAt_ = nullptr;};
     inline string getEndAt() const { DARABONBA_PTR_GET_DEFAULT(endAt_, "") };
     inline E2BListedSandbox& setEndAt(string endAt) { DARABONBA_PTR_SET_VALUE(endAt_, endAt) };
-
-
-    // envdVersion Field Functions 
-    bool hasEnvdVersion() const { return this->envdVersion_ != nullptr;};
-    void deleteEnvdVersion() { this->envdVersion_ = nullptr;};
-    inline string getEnvdVersion() const { DARABONBA_PTR_GET_DEFAULT(envdVersion_, "") };
-    inline E2BListedSandbox& setEnvdVersion(string envdVersion) { DARABONBA_PTR_SET_VALUE(envdVersion_, envdVersion) };
 
 
     // memoryMB Field Functions 
@@ -192,22 +160,10 @@ namespace Models
     inline E2BListedSandbox& setUserID(string userID) { DARABONBA_PTR_SET_VALUE(userID_, userID) };
 
 
-    // volumeMounts Field Functions 
-    bool hasVolumeMounts() const { return this->volumeMounts_ != nullptr;};
-    void deleteVolumeMounts() { this->volumeMounts_ = nullptr;};
-    inline const vector<E2BVolumeMount> & getVolumeMounts() const { DARABONBA_PTR_GET_CONST(volumeMounts_, vector<E2BVolumeMount>) };
-    inline vector<E2BVolumeMount> getVolumeMounts() { DARABONBA_PTR_GET(volumeMounts_, vector<E2BVolumeMount>) };
-    inline E2BListedSandbox& setVolumeMounts(const vector<E2BVolumeMount> & volumeMounts) { DARABONBA_PTR_SET_VALUE(volumeMounts_, volumeMounts) };
-    inline E2BListedSandbox& setVolumeMounts(vector<E2BVolumeMount> && volumeMounts) { DARABONBA_PTR_SET_RVALUE(volumeMounts_, volumeMounts) };
-
-
   protected:
-    shared_ptr<string> alias_ {};
-    shared_ptr<string> clientID_ {};
     shared_ptr<int32_t> cpuCount_ {};
     shared_ptr<int32_t> diskSizeMB_ {};
     shared_ptr<string> endAt_ {};
-    shared_ptr<string> envdVersion_ {};
     shared_ptr<int32_t> memoryMB_ {};
     shared_ptr<map<string, string>> metadata_ {};
     shared_ptr<string> resourceGroupID_ {};
@@ -219,7 +175,6 @@ namespace Models
     shared_ptr<string> templateID_ {};
     shared_ptr<string> templateName_ {};
     shared_ptr<string> userID_ {};
-    shared_ptr<vector<E2BVolumeMount>> volumeMounts_ {};
   };
 
   } // namespace Models
