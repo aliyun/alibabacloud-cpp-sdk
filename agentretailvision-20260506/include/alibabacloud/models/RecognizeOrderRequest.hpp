@@ -80,10 +80,15 @@ namespace Models
 
 
   protected:
+    // Callback URL for this task. If not provided, the registered default address is used.
     shared_ptr<string> callbackUrl_ {};
+    // List of candidate items. It is recommended to pass platform_item_id.
     shared_ptr<vector<string>> candidateItems_ {};
+    // Device ID
     shared_ptr<string> deviceId_ {};
+    // Unique idempotent ID of the business party, unique within the same business party
     shared_ptr<string> orderUniqueId_ {};
+    // List of shopping video OSS addresses (currently only one is supported)
     shared_ptr<vector<string>> videoUrls_ {};
   };
 

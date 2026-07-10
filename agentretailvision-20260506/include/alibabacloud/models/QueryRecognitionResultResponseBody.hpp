@@ -131,8 +131,11 @@ namespace Models
 
 
         protected:
+          // Business Item ID
           shared_ptr<string> itemUniqueId_ {};
+          // Platform Item ID
           shared_ptr<string> platformItemId_ {};
+          // Item quantity
           shared_ptr<int32_t> quantity_ {};
         };
 
@@ -164,6 +167,7 @@ namespace Models
 
 
         protected:
+          // Checkout status
           shared_ptr<string> checkoutStatus_ {};
         };
 
@@ -188,7 +192,9 @@ namespace Models
 
 
       protected:
+        // Checkout information
         shared_ptr<Result::CheckoutInfo> checkoutInfo_ {};
+        // List of recognized items
         shared_ptr<vector<Result::Items>> items_ {};
       };
 
@@ -225,9 +231,13 @@ namespace Models
 
 
     protected:
+      // Business unique idempotent ID
       shared_ptr<string> orderUniqueId_ {};
+      // Recognition result
       shared_ptr<Data::Result> result_ {};
+      // Platform Task ID
       shared_ptr<string> taskId_ {};
+      // Task status
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -271,11 +281,15 @@ namespace Models
 
 
   protected:
+    // Error code. This parameter is not returned for a successful call.
     shared_ptr<string> code_ {};
+    // Task details
     shared_ptr<QueryRecognitionResultResponseBody::Data> data_ {};
+    // Error message. This parameter is not returned for a successful call.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

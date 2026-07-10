@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The device ID, which is used to establish the vector association between the device and the item.
     shared_ptr<string> deviceId_ {};
+    // The list of additional image URLs that can be provided.
     shared_ptr<string> extraImagesShrink_ {};
+    // The title of the item.
     shared_ptr<string> imageTitle_ {};
+    // The business-side item ID, which is unique within the same business party.
     shared_ptr<string> itemUniqueId_ {};
+    // The list of main image URLs for the item. At least one image is required.
     shared_ptr<string> mainImageShrink_ {};
+    // The list of multi-angle images for the item.
     shared_ptr<string> multiViewImagesShrink_ {};
+    // The platform item ID, which is globally unique.
     shared_ptr<string> platformItemId_ {};
   };
 

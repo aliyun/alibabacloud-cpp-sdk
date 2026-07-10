@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Business idempotent request ID
     shared_ptr<string> orderUniqueId_ {};
+    // Platform Task ID
     shared_ptr<string> taskId_ {};
   };
 

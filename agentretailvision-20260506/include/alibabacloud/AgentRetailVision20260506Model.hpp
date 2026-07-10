@@ -2,6 +2,10 @@
 #ifndef ALIBABACLOUD_AGENTRETAILVISION20260506MODEL_HPP_
 #define ALIBABACLOUD_AGENTRETAILVISION20260506MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/GenerateGroupImageRequest.hpp>
+#include <alibabacloud/models/GenerateGroupImageShrinkRequest.hpp>
+#include <alibabacloud/models/GenerateGroupImageResponseBody.hpp>
+#include <alibabacloud/models/GenerateGroupImageResponse.hpp>
 #include <alibabacloud/models/ImportProductsRequest.hpp>
 #include <alibabacloud/models/ImportProductsShrinkRequest.hpp>
 #include <alibabacloud/models/ImportProductsResponseBody.hpp>

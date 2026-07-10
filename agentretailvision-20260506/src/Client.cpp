@@ -17,7 +17,10 @@ namespace AgentRetailVision20260506
 {
 
 AlibabaCloud::AgentRetailVision20260506::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "agentretailvision.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agentretailvision", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +39,86 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 商品导入
+ * @summary Generates a composite image for single-item multi-image or multi-item scenarios.
+ *
+ * @description ## Request description
+ * - When `groupType=1`, `platformItemIdList` must contain only one element.
+ * - When `groupType=2`, `platformItemIdList` can contain 1 to 10 elements.
+ *
+ * @param tmpReq GenerateGroupImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateGroupImageResponse
+ */
+GenerateGroupImageResponse Client::generateGroupImageWithOptions(const GenerateGroupImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GenerateGroupImageShrinkRequest request = GenerateGroupImageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPlatformItemIdList()) {
+    request.setPlatformItemIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlatformItemIdList(), "PlatformItemIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCallbackSecret()) {
+    query["CallbackSecret"] = request.getCallbackSecret();
+  }
+
+  if (!!request.hasCallbackUrl()) {
+    query["CallbackUrl"] = request.getCallbackUrl();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasGroupType()) {
+    query["GroupType"] = request.getGroupType();
+  }
+
+  if (!!request.hasPlatformItemIdListShrink()) {
+    query["PlatformItemIdList"] = request.getPlatformItemIdListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateGroupImage"},
+    {"version" , "2026-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateGroupImageResponse>();
+}
+
+/**
+ * @summary Generates a composite image for single-item multi-image or multi-item scenarios.
+ *
+ * @description ## Request description
+ * - When `groupType=1`, `platformItemIdList` must contain only one element.
+ * - When `groupType=2`, `platformItemIdList` can contain 1 to 10 elements.
+ *
+ * @param request GenerateGroupImageRequest
+ * @return GenerateGroupImageResponse
+ */
+GenerateGroupImageResponse Client::generateGroupImage(const GenerateGroupImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateGroupImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds product information. After a successful import, the platform returns a globally unique platform_item_id for subsequent updates and recognition result association.
+ *
+ * @description ## Operation description
+ * - This operation is used to add product information.
+ * - After you import products to the product library, they are stored in Alibaba Cloud OSS for direct recall and retrieval by the product recognition API.
+ * - You must provide at least one main image URL, and the `item_unique_id` must be unique within the same business party.
+ * - You can optionally provide multi-angle views and extra images to improve recognition accuracy.
+ * - The `device_id` field can be used to establish an association between a device and product vectors, but it is not required.
  *
  * @param tmpReq ImportProductsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -101,7 +183,14 @@ ImportProductsResponse Client::importProductsWithOptions(const ImportProductsReq
 }
 
 /**
- * @summary 商品导入
+ * @summary Adds product information. After a successful import, the platform returns a globally unique platform_item_id for subsequent updates and recognition result association.
+ *
+ * @description ## Operation description
+ * - This operation is used to add product information.
+ * - After you import products to the product library, they are stored in Alibaba Cloud OSS for direct recall and retrieval by the product recognition API.
+ * - You must provide at least one main image URL, and the `item_unique_id` must be unique within the same business party.
+ * - You can optionally provide multi-angle views and extra images to improve recognition accuracy.
+ * - The `device_id` field can be used to establish an association between a device and product vectors, but it is not required.
  *
  * @param request ImportProductsRequest
  * @return ImportProductsResponse
@@ -112,7 +201,9 @@ ImportProductsResponse Client::importProducts(const ImportProductsRequest &reque
 }
 
 /**
- * @summary 查询任务状态
+ * @summary At least one result retrieval method must be integrated: webhook callback or task status query. Both methods can be used simultaneously.
+ * 	•	If the user chooses the webhook callback method, the receiving endpoint must be prepared in advance and implemented according to the following request and response parameters.
+ * 	•	After the recognition task is completed, the platform will push the results to the business party based on the callback URL bound to the task.
  *
  * @param request QueryRecognitionResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -147,7 +238,9 @@ QueryRecognitionResultResponse Client::queryRecognitionResultWithOptions(const Q
 }
 
 /**
- * @summary 查询任务状态
+ * @summary At least one result retrieval method must be integrated: webhook callback or task status query. Both methods can be used simultaneously.
+ * 	•	If the user chooses the webhook callback method, the receiving endpoint must be prepared in advance and implemented according to the following request and response parameters.
+ * 	•	After the recognition task is completed, the platform will push the results to the business party based on the callback URL bound to the task.
  *
  * @param request QueryRecognitionResultRequest
  * @return QueryRecognitionResultResponse
@@ -158,7 +251,14 @@ QueryRecognitionResultResponse Client::queryRecognitionResult(const QueryRecogni
 }
 
 /**
- * @summary 购物识别
+ * @summary Used for intelligent recognition scenarios. Requires uploading the OSS address of shopping videos. The platform creates an asynchronous recognition task and immediately returns a task_id. Notifications are sent via webhook, and the results need to be actively retrieved through the query API.
+ *
+ * @description ## Request Description
+ * - The user must provide `caller_uid` and `order_unique_id` as required parameters.
+ * - The `video_urls` parameter supports video files in mp4, avi, mov, and mkv formats, with a size limit of 100 MB, a duration of no more than 3 minutes, a resolution between 480p and 1080p, and specific aspect ratio requirements.
+ * - At least one of `device_id` or `candidate_items` must be provided to specify the recognition scope. If both are provided, the system first filters by the device product library and then further filters based on the candidate items list.
+ * - Optionally, the user can specify a `callback_url` to receive notifications of the recognition results. If not provided, the pre-registered default webhook address is used.
+ * - If a request is submitted repeatedly with the same `order_unique_id`, the system directly returns the previously existing task status.
  *
  * @param tmpReq RecognizeOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -215,7 +315,14 @@ RecognizeOrderResponse Client::recognizeOrderWithOptions(const RecognizeOrderReq
 }
 
 /**
- * @summary 购物识别
+ * @summary Used for intelligent recognition scenarios. Requires uploading the OSS address of shopping videos. The platform creates an asynchronous recognition task and immediately returns a task_id. Notifications are sent via webhook, and the results need to be actively retrieved through the query API.
+ *
+ * @description ## Request Description
+ * - The user must provide `caller_uid` and `order_unique_id` as required parameters.
+ * - The `video_urls` parameter supports video files in mp4, avi, mov, and mkv formats, with a size limit of 100 MB, a duration of no more than 3 minutes, a resolution between 480p and 1080p, and specific aspect ratio requirements.
+ * - At least one of `device_id` or `candidate_items` must be provided to specify the recognition scope. If both are provided, the system first filters by the device product library and then further filters based on the candidate items list.
+ * - Optionally, the user can specify a `callback_url` to receive notifications of the recognition results. If not provided, the pre-registered default webhook address is used.
+ * - If a request is submitted repeatedly with the same `order_unique_id`, the system directly returns the previously existing task status.
  *
  * @param request RecognizeOrderRequest
  * @return RecognizeOrderResponse
@@ -226,7 +333,7 @@ RecognizeOrderResponse Client::recognizeOrder(const RecognizeOrderRequest &reque
 }
 
 /**
- * @summary Webhook注册
+ * @summary Registers or updates the default webhook callback URL.
  *
  * @param request RegisterWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -261,7 +368,7 @@ RegisterWebhookResponse Client::registerWebhookWithOptions(const RegisterWebhook
 }
 
 /**
- * @summary Webhook注册
+ * @summary Registers or updates the default webhook callback URL.
  *
  * @param request RegisterWebhookRequest
  * @return RegisterWebhookResponse
@@ -272,7 +379,14 @@ RegisterWebhookResponse Client::registerWebhook(const RegisterWebhookRequest &re
 }
 
 /**
- * @summary 商品更新
+ * @summary Updates the information of an existing item on the platform.
+ *
+ * @description ## Operation description
+ * - The platform_item_id parameter is used as the primary identifier for the update.
+ * - If both platform_item_id and item_unique_id are specified, they must point to the same item.
+ * - The item title (image_title) and the list of main image URLs (main_image) are required. The main_image parameter must contain at least one image.
+ * - Optional parameters include the multi-angle image list (multi_view_images), the list of additional image URLs (extra_images), and the device ID (device_id).
+ * - In multi_view_images, each object must contain the image OSS address (url) and the shooting angle (angle). Valid values of angle: top view (up), bottom view (down), left view (left), right view (right), front view (front), and back view (back).
  *
  * @param tmpReq UpdateProductRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +455,14 @@ UpdateProductResponse Client::updateProductWithOptions(const UpdateProductReques
 }
 
 /**
- * @summary 商品更新
+ * @summary Updates the information of an existing item on the platform.
+ *
+ * @description ## Operation description
+ * - The platform_item_id parameter is used as the primary identifier for the update.
+ * - If both platform_item_id and item_unique_id are specified, they must point to the same item.
+ * - The item title (image_title) and the list of main image URLs (main_image) are required. The main_image parameter must contain at least one image.
+ * - Optional parameters include the multi-angle image list (multi_view_images), the list of additional image URLs (extra_images), and the device ID (device_id).
+ * - In multi_view_images, each object must contain the image OSS address (url) and the shooting angle (angle). Valid values of angle: top view (up), bottom view (down), left view (left), right view (right), front view (front), and back view (back).
  *
  * @param request UpdateProductRequest
  * @return UpdateProductResponse

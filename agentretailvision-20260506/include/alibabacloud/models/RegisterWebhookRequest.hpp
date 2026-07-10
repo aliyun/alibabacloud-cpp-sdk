@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key used for callback signature verification.
     shared_ptr<string> callbackSecret_ {};
+    // The default callback URL. A public HTTPS URL is required.
     shared_ptr<string> callbackUrl_ {};
   };
 

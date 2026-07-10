@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The business-side item ID, which is unique within the same business party.
       shared_ptr<string> itemUniqueId_ {};
+      // The platform item ID, which is globally unique.
       shared_ptr<string> platformItemId_ {};
     };
 
@@ -119,11 +121,17 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
+    // The item information.
     shared_ptr<UpdateProductResponseBody::Data> data_ {};
+    // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

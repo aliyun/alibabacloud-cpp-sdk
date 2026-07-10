@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The device ID. This ID is used to establish an association between the device and product vectors.
     shared_ptr<string> deviceId_ {};
+    // The list of additional image URLs that can be provided.
     shared_ptr<string> extraImagesShrink_ {};
+    // The product title.
     shared_ptr<string> imageTitle_ {};
+    // The product ID assigned by the business party. This ID must be unique within the same business party.
     shared_ptr<string> itemUniqueId_ {};
+    // The list of main product image URLs. At least one URL is required.
     shared_ptr<string> mainImageShrink_ {};
+    // The list of multi-angle product images.
     shared_ptr<string> multiViewImagesShrink_ {};
   };
 

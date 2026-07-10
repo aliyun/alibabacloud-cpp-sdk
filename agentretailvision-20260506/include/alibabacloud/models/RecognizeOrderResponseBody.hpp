@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // Unique idempotent ID of the business party
       shared_ptr<string> orderUniqueId_ {};
+      // Platform task ID
       shared_ptr<string> taskId_ {};
+      // Task status
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -129,11 +132,15 @@ namespace Models
 
 
   protected:
+    // Error code. This parameter is not returned during a normal call.
     shared_ptr<string> code_ {};
+    // Recognition task information
     shared_ptr<RecognizeOrderResponseBody::Data> data_ {};
+    // Error message. This parameter is not returned during a normal call.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. true: The call is successful. false: The call has failed.
     shared_ptr<bool> success_ {};
   };
 

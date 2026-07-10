@@ -78,7 +78,15 @@ namespace Models
 
 
     protected:
+      // The digital human angle. Valid values:
+      // 
+      // - 0: front view, which is the default angle
+      // - 1: left side at 30 degrees
+      // - 2: right side at 30 degrees
+      // 
+      // For a preview of each angle, refer to [3D Digital Human Video Synthesis User Guide](https://help.aliyun.com/document_detail/447834.html#a989eb5075t9y).
       shared_ptr<string> angle_ {};
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -133,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The device ID. This ID is used to establish an association between the device and product vectors.
     shared_ptr<string> deviceId_ {};
+    // The list of additional image URLs that can be provided.
     shared_ptr<vector<string>> extraImages_ {};
+    // The product title.
     shared_ptr<string> imageTitle_ {};
+    // The product ID assigned by the business party. This ID must be unique within the same business party.
     shared_ptr<string> itemUniqueId_ {};
+    // The list of main product image URLs. At least one URL is required.
     shared_ptr<vector<string>> mainImage_ {};
+    // The list of multi-angle product images.
     shared_ptr<vector<ImportProductsRequest::MultiViewImages>> multiViewImages_ {};
   };
 
