@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelPath, modelPath_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(TaskInfo, taskInfo_);
+      DARABONBA_PTR_TO_JSON(TuneArch, tuneArch_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelPath, modelPath_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(TaskInfo, taskInfo_);
+      DARABONBA_PTR_FROM_JSON(TuneArch, tuneArch_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
@@ -163,15 +165,14 @@ namespace Models
     protected:
       // The task completion time.
       shared_ptr<string> completedTime_ {};
-      // The base model.
+      // The foundation model.
       shared_ptr<string> modelName_ {};
-      // The path to the custom model.
+      // The path of the custom model.
       shared_ptr<string> modelPath_ {};
-      // The source of the model. Valid values:
+      // The model source. Valid values:
       // 
-      // - **public**: A pre-built model.
-      // 
-      // - **custom**: A custom model.
+      // * **public**: pre-trained model.
+      // * **custom**: custom model.
       shared_ptr<string> modelSource_ {};
       // The runtime parameters.
       shared_ptr<string> runningTimes_ {};
@@ -179,15 +180,13 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The task type. Valid values:
       // 
-      // - **sft**: Supervised Fine-tuning.
-      // 
-      // - **grpo**: Reinforcement learning.
+      // * **sft**: SFT-efficient training.
+      // * **grpo**: GRPO-reinforcement learning.
       shared_ptr<string> trainMode_ {};
       // The training method. Valid values:
       // 
-      // - **lora**: Low-Rank Adaptation (LoRA) training.
-      // 
-      // - **full**: Full training.
+      // * **lora**
+      // * **full**: full-parameter training.
       shared_ptr<string> trainType_ {};
     };
 
@@ -251,13 +250,12 @@ namespace Models
       shared_ptr<string> datasetName_ {};
       // The dataset path.
       shared_ptr<string> path_ {};
-      // The proportion of the training set reserved for validation.
+      // The ratio of data split from the training set.
       shared_ptr<string> splitDatasetRatio_ {};
-      // The type of the dataset. Valid values:
+      // The type. Valid values:
       // 
-      // - **train**: The training set.
-      // 
-      // - **eval**: The validation set.
+      // * **train**: training set.
+      // * **eval**: validation set.
       shared_ptr<string> type_ {};
     };
 
@@ -265,7 +263,7 @@ namespace Models
         && this->clusterNetworkType_ == nullptr && this->createTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr
         && this->DBClusterStatusDesc_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->dataSets_ == nullptr && this->extraInfo_ == nullptr
         && this->kindCode_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->modelPath_ == nullptr
-        && this->requestId_ == nullptr && this->taskInfo_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->requestId_ == nullptr && this->taskInfo_ == nullptr && this->tuneArch_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr; };
     // accessInfo Field Functions 
     bool hasAccessInfo() const { return this->accessInfo_ != nullptr;};
     void deleteAccessInfo() { this->accessInfo_ = nullptr;};
@@ -398,6 +396,13 @@ namespace Models
     inline DescribeAIDBClusterTaskAttributeResponseBody& setTaskInfo(vector<DescribeAIDBClusterTaskAttributeResponseBody::TaskInfo> && taskInfo) { DARABONBA_PTR_SET_RVALUE(taskInfo_, taskInfo) };
 
 
+    // tuneArch Field Functions 
+    bool hasTuneArch() const { return this->tuneArch_ != nullptr;};
+    void deleteTuneArch() { this->tuneArch_ = nullptr;};
+    inline string getTuneArch() const { DARABONBA_PTR_GET_DEFAULT(tuneArch_, "") };
+    inline DescribeAIDBClusterTaskAttributeResponseBody& setTuneArch(string tuneArch) { DARABONBA_PTR_SET_VALUE(tuneArch_, tuneArch) };
+
+
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
@@ -413,63 +418,59 @@ namespace Models
 
 
   protected:
-    // The access information for the model in a test deployment.
+    // The access information of the model in the test deployment scenario.
     shared_ptr<string> accessInfo_ {};
-    // The cluster network type.
+    // The network type of the cluster.
     shared_ptr<string> clusterNetworkType_ {};
-    // The task creation time.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // The cluster description.
+    // The task name.
     shared_ptr<string> DBClusterDescription_ {};
-    // The cluster ID.
+    // The task ID.
     shared_ptr<string> DBClusterId_ {};
     // The training status. Valid values:
     // 
-    // - **ACTIVATION**: Training in progress.
-    // 
-    // - **COMPLETED**: Training successful.
-    // 
-    // - **FAILED**: Training failed.
+    // * **ACTIVATION**: Training in progress.
+    // * **COMPLETED**: Training succeeded.
+    // * **FAILED**: Training failed.
     shared_ptr<string> DBClusterStatus_ {};
-    // The training status description. Valid values:
+    // The training status. Valid values:
     // 
-    // - **ACTIVATION**: Training in progress.
-    // 
-    // - **COMPLETED**: Training successful.
-    // 
-    // - **FAILED**: Training failed.
+    // * **ACTIVATION**: Training in progress.
+    // * **COMPLETED**: Training succeeded.
+    // * **FAILED**: Training failed.
     shared_ptr<string> DBClusterStatusDesc_ {};
     // The engine type.
     shared_ptr<string> DBType_ {};
-    // The version. Valid value:
+    // The version. Valid values:
     // 
-    // - **3.1**: Model operator tuning.
+    // * **3.1**: model operator tuning.
     shared_ptr<string> DBVersion_ {};
-    // The datasets used for the task.
+    // The datasets.
     shared_ptr<vector<DescribeAIDBClusterTaskAttributeResponseBody::DataSets>> dataSets_ {};
-    // A list of objects containing additional information about the task.
+    // The additional information, including runtime parameters.
     shared_ptr<vector<Darabonba::Json>> extraInfo_ {};
-    // The instance type. Valid value:
+    // The type of the instance. Valid values:
     // 
     // - **18**.
     shared_ptr<int64_t> kindCode_ {};
     // The lock mode. Valid values:
     // 
-    // - **0**: Locked.
-    // 
-    // - **1**: Unlocked.
+    // * **0**: Locked.
+    // * **1**: Unlocked.
     shared_ptr<string> lockMode_ {};
     // The maintenance end time.
     shared_ptr<string> maintainEndTime_ {};
     // The maintenance start time.
     shared_ptr<string> maintainStartTime_ {};
-    // A comma-separated list of output model paths from the model fine-tuning task.
+    // The list of output model paths in the model fine-tuning scenario.
     shared_ptr<string> modelPath_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of objects containing information about each training task.
+    // The task information.
     shared_ptr<vector<DescribeAIDBClusterTaskAttributeResponseBody::TaskInfo>> taskInfo_ {};
-    // The VPC ID.
+    shared_ptr<string> tuneArch_ {};
+    // The virtual private cloud (VPC) ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

@@ -25,12 +25,17 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(CustomBucketPath, customBucketPath_);
       DARABONBA_PTR_TO_JSON(CustomBucketPathList, customBucketPathList_);
+      DARABONBA_PTR_TO_JSON(DBEndpointId, DBEndpointId_);
       DARABONBA_PTR_TO_JSON(DBType, DBType_);
+      DARABONBA_PTR_TO_JSON(EndpointItems, endpointItems_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
+      DARABONBA_PTR_TO_JSON(MaxscaleEndpointId, maxscaleEndpointId_);
+      DARABONBA_PTR_TO_JSON(MetaConnString, metaConnString_);
       DARABONBA_PTR_TO_JSON(MetaInstanceName, metaInstanceName_);
+      DARABONBA_PTR_TO_JSON(MetaMxsConnString, metaMxsConnString_);
       DARABONBA_PTR_TO_JSON(MetaUrl, metaUrl_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_TO_JSON(MountInfo, mountInfo_);
@@ -48,6 +53,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageSpace, storageSpace_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(StorageUsed, storageUsed_);
+      DARABONBA_PTR_TO_JSON(UserDefaultAccName, userDefaultAccName_);
+      DARABONBA_PTR_TO_JSON(UserDefaultAccSk, userDefaultAccSk_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -64,12 +71,17 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(CustomBucketPath, customBucketPath_);
       DARABONBA_PTR_FROM_JSON(CustomBucketPathList, customBucketPathList_);
+      DARABONBA_PTR_FROM_JSON(DBEndpointId, DBEndpointId_);
       DARABONBA_PTR_FROM_JSON(DBType, DBType_);
+      DARABONBA_PTR_FROM_JSON(EndpointItems, endpointItems_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
+      DARABONBA_PTR_FROM_JSON(MaxscaleEndpointId, maxscaleEndpointId_);
+      DARABONBA_PTR_FROM_JSON(MetaConnString, metaConnString_);
       DARABONBA_PTR_FROM_JSON(MetaInstanceName, metaInstanceName_);
+      DARABONBA_PTR_FROM_JSON(MetaMxsConnString, metaMxsConnString_);
       DARABONBA_PTR_FROM_JSON(MetaUrl, metaUrl_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_FROM_JSON(MountInfo, mountInfo_);
@@ -87,6 +99,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StorageSpace, storageSpace_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(StorageUsed, storageUsed_);
+      DARABONBA_PTR_FROM_JSON(UserDefaultAccName, userDefaultAccName_);
+      DARABONBA_PTR_FROM_JSON(UserDefaultAccSk, userDefaultAccSk_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -157,6 +171,142 @@ namespace Models
       shared_ptr<string> token_ {};
     };
 
+    class EndpointItems : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EndpointItems& obj) { 
+        DARABONBA_PTR_TO_JSON(AddressItems, addressItems_);
+        DARABONBA_PTR_TO_JSON(DBEndpointId, DBEndpointId_);
+        DARABONBA_PTR_TO_JSON(EndpointType, endpointType_);
+      };
+      friend void from_json(const Darabonba::Json& j, EndpointItems& obj) { 
+        DARABONBA_PTR_FROM_JSON(AddressItems, addressItems_);
+        DARABONBA_PTR_FROM_JSON(DBEndpointId, DBEndpointId_);
+        DARABONBA_PTR_FROM_JSON(EndpointType, endpointType_);
+      };
+      EndpointItems() = default ;
+      EndpointItems(const EndpointItems &) = default ;
+      EndpointItems(EndpointItems &&) = default ;
+      EndpointItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EndpointItems() = default ;
+      EndpointItems& operator=(const EndpointItems &) = default ;
+      EndpointItems& operator=(EndpointItems &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AddressItems : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AddressItems& obj) { 
+          DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
+          DARABONBA_PTR_TO_JSON(IPAddress, IPAddress_);
+          DARABONBA_PTR_TO_JSON(NetType, netType_);
+          DARABONBA_PTR_TO_JSON(Port, port_);
+          DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
+          DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+        };
+        friend void from_json(const Darabonba::Json& j, AddressItems& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
+          DARABONBA_PTR_FROM_JSON(IPAddress, IPAddress_);
+          DARABONBA_PTR_FROM_JSON(NetType, netType_);
+          DARABONBA_PTR_FROM_JSON(Port, port_);
+          DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
+          DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+        };
+        AddressItems() = default ;
+        AddressItems(const AddressItems &) = default ;
+        AddressItems(AddressItems &&) = default ;
+        AddressItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AddressItems() = default ;
+        AddressItems& operator=(const AddressItems &) = default ;
+        AddressItems& operator=(AddressItems &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->connectionString_ == nullptr
+        && this->IPAddress_ == nullptr && this->netType_ == nullptr && this->port_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr; };
+        // connectionString Field Functions 
+        bool hasConnectionString() const { return this->connectionString_ != nullptr;};
+        void deleteConnectionString() { this->connectionString_ = nullptr;};
+        inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+        inline AddressItems& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
+
+
+        // IPAddress Field Functions 
+        bool hasIPAddress() const { return this->IPAddress_ != nullptr;};
+        void deleteIPAddress() { this->IPAddress_ = nullptr;};
+        inline string getIPAddress() const { DARABONBA_PTR_GET_DEFAULT(IPAddress_, "") };
+        inline AddressItems& setIPAddress(string IPAddress) { DARABONBA_PTR_SET_VALUE(IPAddress_, IPAddress) };
+
+
+        // netType Field Functions 
+        bool hasNetType() const { return this->netType_ != nullptr;};
+        void deleteNetType() { this->netType_ = nullptr;};
+        inline string getNetType() const { DARABONBA_PTR_GET_DEFAULT(netType_, "") };
+        inline AddressItems& setNetType(string netType) { DARABONBA_PTR_SET_VALUE(netType_, netType) };
+
+
+        // port Field Functions 
+        bool hasPort() const { return this->port_ != nullptr;};
+        void deletePort() { this->port_ = nullptr;};
+        inline string getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, "") };
+        inline AddressItems& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+        // VPCId Field Functions 
+        bool hasVPCId() const { return this->VPCId_ != nullptr;};
+        void deleteVPCId() { this->VPCId_ = nullptr;};
+        inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+        inline AddressItems& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
+
+
+        // vSwitchId Field Functions 
+        bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+        void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+        inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+        inline AddressItems& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+      protected:
+        shared_ptr<string> connectionString_ {};
+        shared_ptr<string> IPAddress_ {};
+        shared_ptr<string> netType_ {};
+        shared_ptr<string> port_ {};
+        shared_ptr<string> VPCId_ {};
+        shared_ptr<string> vSwitchId_ {};
+      };
+
+      virtual bool empty() const override { return this->addressItems_ == nullptr
+        && this->DBEndpointId_ == nullptr && this->endpointType_ == nullptr; };
+      // addressItems Field Functions 
+      bool hasAddressItems() const { return this->addressItems_ != nullptr;};
+      void deleteAddressItems() { this->addressItems_ = nullptr;};
+      inline const vector<EndpointItems::AddressItems> & getAddressItems() const { DARABONBA_PTR_GET_CONST(addressItems_, vector<EndpointItems::AddressItems>) };
+      inline vector<EndpointItems::AddressItems> getAddressItems() { DARABONBA_PTR_GET(addressItems_, vector<EndpointItems::AddressItems>) };
+      inline EndpointItems& setAddressItems(const vector<EndpointItems::AddressItems> & addressItems) { DARABONBA_PTR_SET_VALUE(addressItems_, addressItems) };
+      inline EndpointItems& setAddressItems(vector<EndpointItems::AddressItems> && addressItems) { DARABONBA_PTR_SET_RVALUE(addressItems_, addressItems) };
+
+
+      // DBEndpointId Field Functions 
+      bool hasDBEndpointId() const { return this->DBEndpointId_ != nullptr;};
+      void deleteDBEndpointId() { this->DBEndpointId_ = nullptr;};
+      inline string getDBEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBEndpointId_, "") };
+      inline EndpointItems& setDBEndpointId(string DBEndpointId) { DARABONBA_PTR_SET_VALUE(DBEndpointId_, DBEndpointId) };
+
+
+      // endpointType Field Functions 
+      bool hasEndpointType() const { return this->endpointType_ != nullptr;};
+      void deleteEndpointType() { this->endpointType_ = nullptr;};
+      inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+      inline EndpointItems& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
+
+
+    protected:
+      shared_ptr<vector<EndpointItems::AddressItems>> addressItems_ {};
+      shared_ptr<string> DBEndpointId_ {};
+      shared_ptr<string> endpointType_ {};
+    };
+
     class CustomBucketPathList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CustomBucketPathList& obj) { 
@@ -204,12 +354,13 @@ namespace Models
     virtual bool empty() const override { return this->accelerateType_ == nullptr
         && this->acceleratedStorageSpace_ == nullptr && this->acceleratingEnable_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthBaseLine_ == nullptr && this->bucketId_ == nullptr
         && this->category_ == nullptr && this->clientDownloadPath_ == nullptr && this->createTime_ == nullptr && this->customBucketPath_ == nullptr && this->customBucketPathList_ == nullptr
-        && this->DBType_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->fileSystemId_ == nullptr && this->lockMode_ == nullptr
-        && this->metaInstanceName_ == nullptr && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr && this->mountInfo_ == nullptr && this->payType_ == nullptr
+        && this->DBEndpointId_ == nullptr && this->DBType_ == nullptr && this->endpointItems_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
+        && this->fileSystemId_ == nullptr && this->lockMode_ == nullptr && this->maxscaleEndpointId_ == nullptr && this->metaConnString_ == nullptr && this->metaInstanceName_ == nullptr
+        && this->metaMxsConnString_ == nullptr && this->metaUrl_ == nullptr && this->minorVersion_ == nullptr && this->mountInfo_ == nullptr && this->payType_ == nullptr
         && this->polarFsInstanceDescription_ == nullptr && this->polarFsInstanceId_ == nullptr && this->polarFsStatus_ == nullptr && this->polarFsType_ == nullptr && this->polarFsVersion_ == nullptr
         && this->regionId_ == nullptr && this->relativeDbClusterId_ == nullptr && this->relativePfsClusterId_ == nullptr && this->requestId_ == nullptr && this->securityGroupId_ == nullptr
-        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->storageUsed_ == nullptr && this->userDefaultAccName_ == nullptr && this->userDefaultAccSk_ == nullptr
+        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // accelerateType Field Functions 
     bool hasAccelerateType() const { return this->accelerateType_ != nullptr;};
     void deleteAccelerateType() { this->accelerateType_ = nullptr;};
@@ -289,11 +440,27 @@ namespace Models
     inline DescribePolarFsAttributeResponseBody& setCustomBucketPathList(vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList> && customBucketPathList) { DARABONBA_PTR_SET_RVALUE(customBucketPathList_, customBucketPathList) };
 
 
+    // DBEndpointId Field Functions 
+    bool hasDBEndpointId() const { return this->DBEndpointId_ != nullptr;};
+    void deleteDBEndpointId() { this->DBEndpointId_ = nullptr;};
+    inline string getDBEndpointId() const { DARABONBA_PTR_GET_DEFAULT(DBEndpointId_, "") };
+    inline DescribePolarFsAttributeResponseBody& setDBEndpointId(string DBEndpointId) { DARABONBA_PTR_SET_VALUE(DBEndpointId_, DBEndpointId) };
+
+
     // DBType Field Functions 
     bool hasDBType() const { return this->DBType_ != nullptr;};
     void deleteDBType() { this->DBType_ = nullptr;};
     inline string getDBType() const { DARABONBA_PTR_GET_DEFAULT(DBType_, "") };
     inline DescribePolarFsAttributeResponseBody& setDBType(string DBType) { DARABONBA_PTR_SET_VALUE(DBType_, DBType) };
+
+
+    // endpointItems Field Functions 
+    bool hasEndpointItems() const { return this->endpointItems_ != nullptr;};
+    void deleteEndpointItems() { this->endpointItems_ = nullptr;};
+    inline const vector<DescribePolarFsAttributeResponseBody::EndpointItems> & getEndpointItems() const { DARABONBA_PTR_GET_CONST(endpointItems_, vector<DescribePolarFsAttributeResponseBody::EndpointItems>) };
+    inline vector<DescribePolarFsAttributeResponseBody::EndpointItems> getEndpointItems() { DARABONBA_PTR_GET(endpointItems_, vector<DescribePolarFsAttributeResponseBody::EndpointItems>) };
+    inline DescribePolarFsAttributeResponseBody& setEndpointItems(const vector<DescribePolarFsAttributeResponseBody::EndpointItems> & endpointItems) { DARABONBA_PTR_SET_VALUE(endpointItems_, endpointItems) };
+    inline DescribePolarFsAttributeResponseBody& setEndpointItems(vector<DescribePolarFsAttributeResponseBody::EndpointItems> && endpointItems) { DARABONBA_PTR_SET_RVALUE(endpointItems_, endpointItems) };
 
 
     // expireTime Field Functions 
@@ -324,11 +491,32 @@ namespace Models
     inline DescribePolarFsAttributeResponseBody& setLockMode(string lockMode) { DARABONBA_PTR_SET_VALUE(lockMode_, lockMode) };
 
 
+    // maxscaleEndpointId Field Functions 
+    bool hasMaxscaleEndpointId() const { return this->maxscaleEndpointId_ != nullptr;};
+    void deleteMaxscaleEndpointId() { this->maxscaleEndpointId_ = nullptr;};
+    inline string getMaxscaleEndpointId() const { DARABONBA_PTR_GET_DEFAULT(maxscaleEndpointId_, "") };
+    inline DescribePolarFsAttributeResponseBody& setMaxscaleEndpointId(string maxscaleEndpointId) { DARABONBA_PTR_SET_VALUE(maxscaleEndpointId_, maxscaleEndpointId) };
+
+
+    // metaConnString Field Functions 
+    bool hasMetaConnString() const { return this->metaConnString_ != nullptr;};
+    void deleteMetaConnString() { this->metaConnString_ = nullptr;};
+    inline string getMetaConnString() const { DARABONBA_PTR_GET_DEFAULT(metaConnString_, "") };
+    inline DescribePolarFsAttributeResponseBody& setMetaConnString(string metaConnString) { DARABONBA_PTR_SET_VALUE(metaConnString_, metaConnString) };
+
+
     // metaInstanceName Field Functions 
     bool hasMetaInstanceName() const { return this->metaInstanceName_ != nullptr;};
     void deleteMetaInstanceName() { this->metaInstanceName_ = nullptr;};
     inline string getMetaInstanceName() const { DARABONBA_PTR_GET_DEFAULT(metaInstanceName_, "") };
     inline DescribePolarFsAttributeResponseBody& setMetaInstanceName(string metaInstanceName) { DARABONBA_PTR_SET_VALUE(metaInstanceName_, metaInstanceName) };
+
+
+    // metaMxsConnString Field Functions 
+    bool hasMetaMxsConnString() const { return this->metaMxsConnString_ != nullptr;};
+    void deleteMetaMxsConnString() { this->metaMxsConnString_ = nullptr;};
+    inline string getMetaMxsConnString() const { DARABONBA_PTR_GET_DEFAULT(metaMxsConnString_, "") };
+    inline DescribePolarFsAttributeResponseBody& setMetaMxsConnString(string metaMxsConnString) { DARABONBA_PTR_SET_VALUE(metaMxsConnString_, metaMxsConnString) };
 
 
     // metaUrl Field Functions 
@@ -452,6 +640,20 @@ namespace Models
     inline DescribePolarFsAttributeResponseBody& setStorageUsed(double storageUsed) { DARABONBA_PTR_SET_VALUE(storageUsed_, storageUsed) };
 
 
+    // userDefaultAccName Field Functions 
+    bool hasUserDefaultAccName() const { return this->userDefaultAccName_ != nullptr;};
+    void deleteUserDefaultAccName() { this->userDefaultAccName_ = nullptr;};
+    inline string getUserDefaultAccName() const { DARABONBA_PTR_GET_DEFAULT(userDefaultAccName_, "") };
+    inline DescribePolarFsAttributeResponseBody& setUserDefaultAccName(string userDefaultAccName) { DARABONBA_PTR_SET_VALUE(userDefaultAccName_, userDefaultAccName) };
+
+
+    // userDefaultAccSk Field Functions 
+    bool hasUserDefaultAccSk() const { return this->userDefaultAccSk_ != nullptr;};
+    void deleteUserDefaultAccSk() { this->userDefaultAccSk_ = nullptr;};
+    inline string getUserDefaultAccSk() const { DARABONBA_PTR_GET_DEFAULT(userDefaultAccSk_, "") };
+    inline DescribePolarFsAttributeResponseBody& setUserDefaultAccSk(string userDefaultAccSk) { DARABONBA_PTR_SET_VALUE(userDefaultAccSk_, userDefaultAccSk) };
+
+
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
@@ -476,17 +678,17 @@ namespace Models
   protected:
     // The acceleration type.
     shared_ptr<string> accelerateType_ {};
-    // The acceleration storage space, in GB.
+    // The acceleration storage space. Unit: GB.
     shared_ptr<double> acceleratedStorageSpace_ {};
-    // Indicates whether the acceleration cache is enabled. Valid values:
-    // - **ON**: enabled.
-    // - **OFF**: disabled.
+    // Specifies whether the acceleration cache is enabled. Valid values:
+    // - **ON**: Enabled.
+    // - **OFF**: Disabled.
     shared_ptr<string> acceleratingEnable_ {};
-    // The bandwidth, in MB/s.
+    // The bandwidth. Unit: MB/s.
     shared_ptr<double> bandwidth_ {};
-    // The bandwidth baseline, in MB/s/TiB.
+    // The bandwidth baseline. Unit: MB/s/TiB.
     shared_ptr<double> bandwidthBaseLine_ {};
-    // The storage bucket ID.
+    // The bucket ID.
     shared_ptr<string> bucketId_ {};
     // The PolarLakebase edition. Valid values:
     // 
@@ -504,27 +706,32 @@ namespace Models
     shared_ptr<string> customBucketPath_ {};
     // The list of custom storage paths.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::CustomBucketPathList>> customBucketPathList_ {};
+    shared_ptr<string> DBEndpointId_ {};
     // The database ecosystem type. Valid values: 
     // * **MySQL**
-    // * **PostgreSQL**.
+    // * **PostgreSQL**
     shared_ptr<string> DBType_ {};
+    shared_ptr<vector<DescribePolarFsAttributeResponseBody::EndpointItems>> endpointItems_ {};
     // The expiration time of the cluster.
     // 
-    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+    // > This parameter is returned only for clusters that use the **Prepaid** (subscription) billing method. An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
-    // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
+    // > This parameter is returned only for clusters that use the **Prepaid** (subscription) billing method.
     shared_ptr<string> expired_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};
     // The lock mode. Valid values: 
     // 
-    // - **Unlock**: not locked.
-    // - **ManualLock**: manually locked. 
-    // - **LockByExpiration**: automatically locked due to cluster expiration.
+    // - **Unlock**: Not locked.
+    // - **ManualLock**: Manually locked. 
+    // - **LockByExpiration**: Automatically locked due to cluster expiration.
     shared_ptr<string> lockMode_ {};
+    shared_ptr<string> maxscaleEndpointId_ {};
+    shared_ptr<string> metaConnString_ {};
     shared_ptr<string> metaInstanceName_ {};
-    // The metadata URL for Fuse mounting (encrypted).
+    shared_ptr<string> metaMxsConnString_ {};
+    // The encrypted metadata URL for Fuse mounting.
     shared_ptr<string> metaUrl_ {};
     // The minor version of the instance.
     shared_ptr<string> minorVersion_ {};
@@ -542,7 +749,7 @@ namespace Models
     // The PolarLakebase instance status.
     shared_ptr<string> polarFsStatus_ {};
     // The instance version. Valid values:
-    // - **PolarFS 2.0**: 2.0
+    // - **PolarFS 2.0**: 2.0.
     // - **PolarFS 1.0**: 1.0.
     shared_ptr<string> polarFsType_ {};
     // The version.
@@ -557,17 +764,19 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The managed security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The storage space, in GB.
+    // The storage space. Unit: GB.
     shared_ptr<double> storageSpace_ {};
-    // Valid values for the High-performance Edition storage type:
+    // The storage type for the High-performance Edition. Valid values:
     // * **ESSDPL1**
     // * **ESSDPL0**
     // 
-    // Valid values for the Basic Edition storage type:
+    // The storage type for the Basic Edition. Valid values:
     // * **city_redundancy**: zone-redundant storage.
     shared_ptr<string> storageType_ {};
-    // The used storage space, in bytes.
+    // The used storage space. Unit: bytes.
     shared_ptr<double> storageUsed_ {};
+    shared_ptr<string> userDefaultAccName_ {};
+    shared_ptr<string> userDefaultAccSk_ {};
     // The VPC ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.

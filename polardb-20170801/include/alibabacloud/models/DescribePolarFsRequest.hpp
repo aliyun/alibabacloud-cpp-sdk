@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -157,15 +159,31 @@ namespace Models
 
 
   protected:
+    // The instance ID of the PolarDB instance on which the application depends.
     shared_ptr<string> DBClusterId_ {};
+    // The page number. The value must be an integer greater than 0 and not exceeding the maximum value of Integer.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // 
+    // - **30**
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The description of the PolarFS instance.
     shared_ptr<string> polarFsInstanceDescription_ {};
+    // The list of PolarFS instance IDs, separated by commas (,).
     shared_ptr<string> polarFsInstanceIds_ {};
+    // The PolarFS type.
     shared_ptr<string> polarFsType_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the associated PolarDB cluster.
     shared_ptr<string> relativeDbClusterId_ {};
+    // The tags.
     shared_ptr<vector<DescribePolarFsRequest::Tag>> tag_ {};
   };
 

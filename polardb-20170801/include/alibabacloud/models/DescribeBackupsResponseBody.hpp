@@ -71,6 +71,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BackupStatus, backupStatus_);
           DARABONBA_PTR_TO_JSON(BackupType, backupType_);
           DARABONBA_PTR_TO_JSON(BackupsLevel, backupsLevel_);
+          DARABONBA_PTR_TO_JSON(Comment, comment_);
           DARABONBA_PTR_TO_JSON(ConsistentTime, consistentTime_);
           DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
           DARABONBA_PTR_TO_JSON(ExpectExpireTime, expectExpireTime_);
@@ -88,6 +89,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BackupStatus, backupStatus_);
           DARABONBA_PTR_FROM_JSON(BackupType, backupType_);
           DARABONBA_PTR_FROM_JSON(BackupsLevel, backupsLevel_);
+          DARABONBA_PTR_FROM_JSON(Comment, comment_);
           DARABONBA_PTR_FROM_JSON(ConsistentTime, consistentTime_);
           DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
           DARABONBA_PTR_FROM_JSON(ExpectExpireTime, expectExpireTime_);
@@ -108,8 +110,8 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->backupEndTime_ == nullptr
         && this->backupId_ == nullptr && this->backupMethod_ == nullptr && this->backupMode_ == nullptr && this->backupSetSize_ == nullptr && this->backupStartTime_ == nullptr
-        && this->backupStatus_ == nullptr && this->backupType_ == nullptr && this->backupsLevel_ == nullptr && this->consistentTime_ == nullptr && this->DBClusterId_ == nullptr
-        && this->expectExpireTime_ == nullptr && this->expectExpireType_ == nullptr && this->isAvail_ == nullptr && this->tableRestoreMetaStatus_ == nullptr; };
+        && this->backupStatus_ == nullptr && this->backupType_ == nullptr && this->backupsLevel_ == nullptr && this->comment_ == nullptr && this->consistentTime_ == nullptr
+        && this->DBClusterId_ == nullptr && this->expectExpireTime_ == nullptr && this->expectExpireType_ == nullptr && this->isAvail_ == nullptr && this->tableRestoreMetaStatus_ == nullptr; };
         // backupEndTime Field Functions 
         bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
         void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};
@@ -173,6 +175,13 @@ namespace Models
         inline Backup& setBackupsLevel(string backupsLevel) { DARABONBA_PTR_SET_VALUE(backupsLevel_, backupsLevel) };
 
 
+        // comment Field Functions 
+        bool hasComment() const { return this->comment_ != nullptr;};
+        void deleteComment() { this->comment_ = nullptr;};
+        inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+        inline Backup& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
         // consistentTime Field Functions 
         bool hasConsistentTime() const { return this->consistentTime_ != nullptr;};
         void deleteConsistentTime() { this->consistentTime_ = nullptr;};
@@ -225,6 +234,7 @@ namespace Models
         shared_ptr<string> backupStatus_ {};
         shared_ptr<string> backupType_ {};
         shared_ptr<string> backupsLevel_ {};
+        shared_ptr<string> comment_ {};
         shared_ptr<string> consistentTime_ {};
         shared_ptr<string> DBClusterId_ {};
         shared_ptr<string> expectExpireTime_ {};
@@ -301,13 +311,10 @@ namespace Models
     shared_ptr<string> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total size of level-2 backups in the specified region, in bytes.
-    // 
-    // > - Supported only for storage classes PSL4 and PSL5.
-    // >
-    // > - Supported only for clusters with the level-2 backup feature enabled.
-    // >
-    // > - If this field is not returned, the level-2 backup size is 0.
+    // The total size of level-2 backups in the specified region. Unit: bytes.
+    // > - Only PSL4 and PSL5 storage types are supported.
+    // > - Only clusters with the level-2 backup feature enabled are supported.
+    // > - If this parameter is not returned, the level-2 backup size is 0.
     shared_ptr<string> totalLevel2BackupSize_ {};
     // The total number of records.
     shared_ptr<string> totalRecordCount_ {};

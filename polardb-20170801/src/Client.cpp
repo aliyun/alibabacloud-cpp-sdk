@@ -2059,7 +2059,7 @@ CreateAIDBClusterDatasetResponse Client::createAIDBClusterDataset(const CreateAI
 }
 
 /**
- * @summary Creates a model operator instance.
+ * @summary Creates a model creation operator instance.
  *
  * @param request CreateAIDBClusterTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2132,6 +2132,10 @@ CreateAIDBClusterTaskResponse Client::createAIDBClusterTaskWithOptions(const Cre
     query["TaskName"] = request.getTaskName();
   }
 
+  if (!!request.hasTuneArch()) {
+    query["TuneArch"] = request.getTuneArch();
+  }
+
   if (!!request.hasVPCId()) {
     query["VPCId"] = request.getVPCId();
   }
@@ -2162,7 +2166,7 @@ CreateAIDBClusterTaskResponse Client::createAIDBClusterTaskWithOptions(const Cre
 }
 
 /**
- * @summary Creates a model operator instance.
+ * @summary Creates a model creation operator instance.
  *
  * @param request CreateAIDBClusterTaskRequest
  * @return CreateAIDBClusterTaskResponse
@@ -2989,11 +2993,9 @@ CreateApplicationPromptResponse Client::createApplicationPrompt(const CreateAppl
 /**
  * @summary Creates a full snapshot backup for a PolarDB cluster.
  *
- * @description > - Each cluster can have up to three manually created backups at a time.
- * >
- * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
- * >
- * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
+ * @description > * Each cluster can have up to three manually created backups at the same time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3004,6 +3006,10 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
   }
 
   if (!!request.hasDBClusterId()) {
@@ -3046,11 +3052,9 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 /**
  * @summary Creates a full snapshot backup for a PolarDB cluster.
  *
- * @description > - Each cluster can have up to three manually created backups at a time.
- * >
- * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
- * >
- * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
+ * @description > * Each cluster can have up to three manually created backups at the same time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -8895,7 +8899,7 @@ DescribeAIDBClusterPerformanceResponse Client::describeAIDBClusterPerformance(co
 }
 
 /**
- * @summary Get task instance details
+ * @summary Retrieves the details of a task instance.
  *
  * @param request DescribeAIDBClusterTaskAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8950,7 +8954,7 @@ DescribeAIDBClusterTaskAttributeResponse Client::describeAIDBClusterTaskAttribut
 }
 
 /**
- * @summary Get task instance details
+ * @summary Retrieves the details of a task instance.
  *
  * @param request DescribeAIDBClusterTaskAttributeRequest
  * @return DescribeAIDBClusterTaskAttributeResponse
@@ -9105,11 +9109,11 @@ DescribeAIDBClusterTaskMetricsResponse Client::describeAIDBClusterTaskMetrics(co
 }
 
 /**
- * @summary Retrieves a list of model operators for a specified PolarDB instance.
+ * @summary Retrieves the list of model operators for a specified PolarDB database instance.
  *
- * @description ## Request
- * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
- * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
+ * @description ## Description
+ * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+ * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
  *
  * @param request DescribeAIDBClusterTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9164,11 +9168,11 @@ DescribeAIDBClusterTasksResponse Client::describeAIDBClusterTasksWithOptions(con
 }
 
 /**
- * @summary Retrieves a list of model operators for a specified PolarDB instance.
+ * @summary Retrieves the list of model operators for a specified PolarDB database instance.
  *
- * @description ## Request
- * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
- * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
+ * @description ## Description
+ * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+ * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
  *
  * @param request DescribeAIDBClusterTasksRequest
  * @return DescribeAIDBClusterTasksResponse
@@ -10445,7 +10449,7 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttribute(const 
 }
 
 /**
- * @summary AI Application Log Details
+ * @summary Queries the log details of an AI application.
  *
  * @param request DescribeApplicationLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10528,7 +10532,7 @@ DescribeApplicationLogsResponse Client::describeApplicationLogsWithOptions(const
 }
 
 /**
- * @summary AI Application Log Details
+ * @summary Queries the log details of an AI application.
  *
  * @param request DescribeApplicationLogsRequest
  * @return DescribeApplicationLogsResponse
@@ -10955,7 +10959,7 @@ DescribeAvailableCrossRegionsResponse Client::describeAvailableCrossRegions(cons
 }
 
 /**
- * @summary Lists the available models in an AI cluster.
+ * @summary Retrieves the list of AI cluster models.
  *
  * @param request DescribeAvailableModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10990,7 +10994,7 @@ DescribeAvailableModelsResponse Client::describeAvailableModelsWithOptions(const
 }
 
 /**
- * @summary Lists the available models in an AI cluster.
+ * @summary Retrieves the list of AI cluster models.
  *
  * @param request DescribeAvailableModelsRequest
  * @return DescribeAvailableModelsResponse
@@ -11261,7 +11265,7 @@ DescribeBackupTasksResponse Client::describeBackupTasks(const DescribeBackupTask
 }
 
 /**
- * @summary Queries backup information for a PolarDB cluster.
+ * @summary Queries the backup information of a PolarDB cluster.
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11340,7 +11344,7 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary Queries backup information for a PolarDB cluster.
+ * @summary Queries the backup information of a PolarDB cluster.
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -11461,7 +11465,7 @@ DescribeBatchTasksResponse Client::describeBatchTasks(const DescribeBatchTasksRe
 }
 
 /**
- * @summary Querying budget policies
+ * @summary Queries cost budget policies.
  *
  * @param request DescribeBudgetPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11498,6 +11502,10 @@ DescribeBudgetPoliciesResponse Client::describeBudgetPoliciesWithOptions(const D
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasScopeRefName()) {
+    query["ScopeRefName"] = request.getScopeRefName();
+  }
+
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
   }
@@ -11520,7 +11528,7 @@ DescribeBudgetPoliciesResponse Client::describeBudgetPoliciesWithOptions(const D
 }
 
 /**
- * @summary Querying budget policies
+ * @summary Queries cost budget policies.
  *
  * @param request DescribeBudgetPoliciesRequest
  * @return DescribeBudgetPoliciesResponse
@@ -11823,7 +11831,7 @@ DescribeConsumerGroupsResponse Client::describeConsumerGroups(const DescribeCons
 }
 
 /**
- * @summary Returns a list of consumers.
+ * @summary Queries the list of consumers.
  *
  * @param request DescribeConsumersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11838,6 +11846,14 @@ DescribeConsumersResponse Client::describeConsumersWithOptions(const DescribeCon
 
   if (!!request.hasConsumerId()) {
     query["ConsumerId"] = request.getConsumerId();
+  }
+
+  if (!!request.hasConsumerName()) {
+    query["ConsumerName"] = request.getConsumerName();
+  }
+
+  if (!!request.hasConsumerNameList()) {
+    query["ConsumerNameList"] = request.getConsumerNameList();
   }
 
   if (!!request.hasGwClusterId()) {
@@ -11874,7 +11890,7 @@ DescribeConsumersResponse Client::describeConsumersWithOptions(const DescribeCon
 }
 
 /**
- * @summary Returns a list of consumers.
+ * @summary Queries the list of consumers.
  *
  * @param request DescribeConsumersRequest
  * @return DescribeConsumersResponse
@@ -12175,7 +12191,7 @@ DescribeCrossCloudRegionMappingToAliyunResponse Client::describeCrossCloudRegion
 }
 
 /**
- * @summary Queries the IP whitelists and security groups that are allowed to access a database cluster.
+ * @summary Queries the IP whitelist and security groups that are allowed to access a database cluster.
  *
  * @param request DescribeDBClusterAccessWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12194,6 +12210,10 @@ DescribeDBClusterAccessWhitelistResponse Client::describeDBClusterAccessWhitelis
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -12222,7 +12242,7 @@ DescribeDBClusterAccessWhitelistResponse Client::describeDBClusterAccessWhitelis
 }
 
 /**
- * @summary Queries the IP whitelists and security groups that are allowed to access a database cluster.
+ * @summary Queries the IP whitelist and security groups that are allowed to access a database cluster.
  *
  * @param request DescribeDBClusterAccessWhitelistRequest
  * @return DescribeDBClusterAccessWhitelistResponse
@@ -13031,6 +13051,134 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformance(const 
 }
 
 /**
+ * @summary Queries the price of a cluster.
+ *
+ * @param tmpReq DescribeDBClusterPriceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClusterPriceResponse
+ */
+DescribeDBClusterPriceResponse Client::describeDBClusterPriceWithOptions(const DescribeDBClusterPriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeDBClusterPriceShrinkRequest request = DescribeDBClusterPriceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDBNodes()) {
+    request.setDBNodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDBNodes(), "DBNodes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCreationCategory()) {
+    query["CreationCategory"] = request.getCreationCategory();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBNodeClass()) {
+    query["DBNodeClass"] = request.getDBNodeClass();
+  }
+
+  if (!!request.hasDBNodeIds()) {
+    query["DBNodeIds"] = request.getDBNodeIds();
+  }
+
+  if (!!request.hasDBNodeNum()) {
+    query["DBNodeNum"] = request.getDBNodeNum();
+  }
+
+  if (!!request.hasDBNodesShrink()) {
+    query["DBNodes"] = request.getDBNodesShrink();
+  }
+
+  if (!!request.hasDBType()) {
+    query["DBType"] = request.getDBType();
+  }
+
+  if (!!request.hasDBVersion()) {
+    query["DBVersion"] = request.getDBVersion();
+  }
+
+  if (!!request.hasHotStandbyCluster()) {
+    query["HotStandbyCluster"] = request.getHotStandbyCluster();
+  }
+
+  if (!!request.hasModifyType()) {
+    query["ModifyType"] = request.getModifyType();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasProvisionedIops()) {
+    query["ProvisionedIops"] = request.getProvisionedIops();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServerlessType()) {
+    query["ServerlessType"] = request.getServerlessType();
+  }
+
+  if (!!request.hasStorageChargeType()) {
+    query["StorageChargeType"] = request.getStorageChargeType();
+  }
+
+  if (!!request.hasStorageSpace()) {
+    query["StorageSpace"] = request.getStorageSpace();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClusterPrice"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClusterPriceResponse>();
+}
+
+/**
+ * @summary Queries the price of a cluster.
+ *
+ * @param request DescribeDBClusterPriceRequest
+ * @return DescribeDBClusterPriceResponse
+ */
+DescribeDBClusterPriceResponse Client::describeDBClusterPrice(const DescribeDBClusterPriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClusterPriceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a database cluster proxy.
  *
  * @param request DescribeDBClusterProxyRequest
@@ -13116,6 +13264,10 @@ DescribeDBClusterSSLResponse Client::describeDBClusterSSLWithOptions(const Descr
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -17451,7 +17603,7 @@ DescribePolarClawTaskResponse Client::describePolarClawTask(const DescribePolarC
 }
 
 /**
- * @summary 查看polarfs信息
+ * @summary Queries PolarFS information.
  *
  * @param request DescribePolarFsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17514,7 +17666,7 @@ DescribePolarFsResponse Client::describePolarFsWithOptions(const DescribePolarFs
 }
 
 /**
- * @summary 查看polarfs信息
+ * @summary Queries PolarFS information.
  *
  * @param request DescribePolarFsRequest
  * @return DescribePolarFsResponse
@@ -22678,7 +22830,7 @@ ModifyDBClusterResponse Client::modifyDBCluster(const ModifyDBClusterRequest &re
 }
 
 /**
- * @summary Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
+ * @summary Creates or modifies the whitelist of a cluster, including the IP whitelist and security groups.
  *
  * @param request ModifyDBClusterAccessWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22709,6 +22861,10 @@ ModifyDBClusterAccessWhitelistResponse Client::modifyDBClusterAccessWhitelistWit
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -22749,7 +22905,7 @@ ModifyDBClusterAccessWhitelistResponse Client::modifyDBClusterAccessWhitelistWit
 }
 
 /**
- * @summary Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
+ * @summary Creates or modifies the whitelist of a cluster, including the IP whitelist and security groups.
  *
  * @param request ModifyDBClusterAccessWhitelistRequest
  * @return ModifyDBClusterAccessWhitelistResponse
@@ -23906,7 +24062,7 @@ ModifyDBClusterResourceGroupResponse Client::modifyDBClusterResourceGroup(const 
 }
 
 /**
- * @summary Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
+ * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23915,6 +24071,10 @@ ModifyDBClusterResourceGroupResponse Client::modifyDBClusterResourceGroup(const 
 ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBClusterSSLRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConnectionString()) {
+    query["ConnectionString"] = request.getConnectionString();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
   }
@@ -23933,6 +24093,10 @@ ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBC
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -23969,7 +24133,7 @@ ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBC
 }
 
 /**
- * @summary Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
+ * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @return ModifyDBClusterSSLResponse

@@ -569,6 +569,10 @@
 #include <alibabacloud/models/DescribeDBClusterPerformanceRequest.hpp>
 #include <alibabacloud/models/DescribeDBClusterPerformanceResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBClusterPerformanceResponse.hpp>
+#include <alibabacloud/models/DescribeDBClusterPriceRequest.hpp>
+#include <alibabacloud/models/DescribeDBClusterPriceShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeDBClusterPriceResponseBody.hpp>
+#include <alibabacloud/models/DescribeDBClusterPriceResponse.hpp>
 #include <alibabacloud/models/DescribeDBClusterProxyRequest.hpp>
 #include <alibabacloud/models/DescribeDBClusterProxyResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBClusterProxyResponse.hpp>

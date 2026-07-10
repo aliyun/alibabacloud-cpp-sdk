@@ -40,8 +40,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RunType, runType_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      DARABONBA_PTR_TO_JSON(TimeSlicesInfo, timeSlicesInfo_);
+      DARABONBA_PTR_TO_JSON(TimeSlicesType, timeSlicesType_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VnodeKubernetesConfig, vnodeKubernetesConfig_);
       DARABONBA_PTR_TO_JSON(Volumes, volumes_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       DARABONBA_PTR_TO_JSON(ZoneIds, zoneIds_);
@@ -73,8 +76,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RunType, runType_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      DARABONBA_PTR_FROM_JSON(TimeSlicesInfo, timeSlicesInfo_);
+      DARABONBA_PTR_FROM_JSON(TimeSlicesType, timeSlicesType_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VnodeKubernetesConfig, vnodeKubernetesConfig_);
       DARABONBA_PTR_FROM_JSON(Volumes, volumes_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
       DARABONBA_PTR_FROM_JSON(ZoneIds, zoneIds_);
@@ -155,7 +161,7 @@ namespace Models
 
 
     protected:
-      // The mount path in the container.
+      // The mount path inside the container.
       shared_ptr<string> mountPath_ {};
       // The cloud disk name.
       shared_ptr<string> name_ {};
@@ -165,6 +171,221 @@ namespace Models
       shared_ptr<string> storageCategory_ {};
       // The storage class.
       shared_ptr<string> storageType_ {};
+    };
+
+    class VnodeKubernetesConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const VnodeKubernetesConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(Labels, labels_);
+        DARABONBA_PTR_TO_JSON(Taints, taints_);
+      };
+      friend void from_json(const Darabonba::Json& j, VnodeKubernetesConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(Labels, labels_);
+        DARABONBA_PTR_FROM_JSON(Taints, taints_);
+      };
+      VnodeKubernetesConfig() = default ;
+      VnodeKubernetesConfig(const VnodeKubernetesConfig &) = default ;
+      VnodeKubernetesConfig(VnodeKubernetesConfig &&) = default ;
+      VnodeKubernetesConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~VnodeKubernetesConfig() = default ;
+      VnodeKubernetesConfig& operator=(const VnodeKubernetesConfig &) = default ;
+      VnodeKubernetesConfig& operator=(VnodeKubernetesConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Taints : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Taints& obj) { 
+          DARABONBA_PTR_TO_JSON(Effect, effect_);
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Taints& obj) { 
+          DARABONBA_PTR_FROM_JSON(Effect, effect_);
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Taints() = default ;
+        Taints(const Taints &) = default ;
+        Taints(Taints &&) = default ;
+        Taints(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Taints() = default ;
+        Taints& operator=(const Taints &) = default ;
+        Taints& operator=(Taints &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->effect_ == nullptr
+        && this->key_ == nullptr && this->value_ == nullptr; };
+        // effect Field Functions 
+        bool hasEffect() const { return this->effect_ != nullptr;};
+        void deleteEffect() { this->effect_ = nullptr;};
+        inline string getEffect() const { DARABONBA_PTR_GET_DEFAULT(effect_, "") };
+        inline Taints& setEffect(string effect) { DARABONBA_PTR_SET_VALUE(effect_, effect) };
+
+
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Taints& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Taints& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> effect_ {};
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      class Labels : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Labels& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Labels& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Labels() = default ;
+        Labels(const Labels &) = default ;
+        Labels(Labels &&) = default ;
+        Labels(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Labels() = default ;
+        Labels& operator=(const Labels &) = default ;
+        Labels& operator=(Labels &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Labels& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Labels& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->labels_ == nullptr
+        && this->taints_ == nullptr; };
+      // labels Field Functions 
+      bool hasLabels() const { return this->labels_ != nullptr;};
+      void deleteLabels() { this->labels_ = nullptr;};
+      inline const vector<VnodeKubernetesConfig::Labels> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, vector<VnodeKubernetesConfig::Labels>) };
+      inline vector<VnodeKubernetesConfig::Labels> getLabels() { DARABONBA_PTR_GET(labels_, vector<VnodeKubernetesConfig::Labels>) };
+      inline VnodeKubernetesConfig& setLabels(const vector<VnodeKubernetesConfig::Labels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+      inline VnodeKubernetesConfig& setLabels(vector<VnodeKubernetesConfig::Labels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+      // taints Field Functions 
+      bool hasTaints() const { return this->taints_ != nullptr;};
+      void deleteTaints() { this->taints_ = nullptr;};
+      inline const vector<VnodeKubernetesConfig::Taints> & getTaints() const { DARABONBA_PTR_GET_CONST(taints_, vector<VnodeKubernetesConfig::Taints>) };
+      inline vector<VnodeKubernetesConfig::Taints> getTaints() { DARABONBA_PTR_GET(taints_, vector<VnodeKubernetesConfig::Taints>) };
+      inline VnodeKubernetesConfig& setTaints(const vector<VnodeKubernetesConfig::Taints> & taints) { DARABONBA_PTR_SET_VALUE(taints_, taints) };
+      inline VnodeKubernetesConfig& setTaints(vector<VnodeKubernetesConfig::Taints> && taints) { DARABONBA_PTR_SET_RVALUE(taints_, taints) };
+
+
+    protected:
+      shared_ptr<vector<VnodeKubernetesConfig::Labels>> labels_ {};
+      shared_ptr<vector<VnodeKubernetesConfig::Taints>> taints_ {};
+    };
+
+    class TimeSlicesInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TimeSlicesInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(TimeSlices, timeSlices_);
+      };
+      friend void from_json(const Darabonba::Json& j, TimeSlicesInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(TimeSlices, timeSlices_);
+      };
+      TimeSlicesInfo() = default ;
+      TimeSlicesInfo(const TimeSlicesInfo &) = default ;
+      TimeSlicesInfo(TimeSlicesInfo &&) = default ;
+      TimeSlicesInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TimeSlicesInfo() = default ;
+      TimeSlicesInfo& operator=(const TimeSlicesInfo &) = default ;
+      TimeSlicesInfo& operator=(TimeSlicesInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class TimeSlices : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const TimeSlices& obj) { 
+          DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
+          DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, TimeSlices& obj) { 
+          DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
+          DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        };
+        TimeSlices() = default ;
+        TimeSlices(const TimeSlices &) = default ;
+        TimeSlices(TimeSlices &&) = default ;
+        TimeSlices(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TimeSlices() = default ;
+        TimeSlices& operator=(const TimeSlices &) = default ;
+        TimeSlices& operator=(TimeSlices &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->beginTime_ == nullptr
+        && this->endTime_ == nullptr; };
+        // beginTime Field Functions 
+        bool hasBeginTime() const { return this->beginTime_ != nullptr;};
+        void deleteBeginTime() { this->beginTime_ = nullptr;};
+        inline string getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, "") };
+        inline TimeSlices& setBeginTime(string beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+
+
+        // endTime Field Functions 
+        bool hasEndTime() const { return this->endTime_ != nullptr;};
+        void deleteEndTime() { this->endTime_ = nullptr;};
+        inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+        inline TimeSlices& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      protected:
+        shared_ptr<string> beginTime_ {};
+        shared_ptr<string> endTime_ {};
+      };
+
+      virtual bool empty() const override { return this->timeSlices_ == nullptr; };
+      // timeSlices Field Functions 
+      bool hasTimeSlices() const { return this->timeSlices_ != nullptr;};
+      void deleteTimeSlices() { this->timeSlices_ = nullptr;};
+      inline const vector<TimeSlicesInfo::TimeSlices> & getTimeSlices() const { DARABONBA_PTR_GET_CONST(timeSlices_, vector<TimeSlicesInfo::TimeSlices>) };
+      inline vector<TimeSlicesInfo::TimeSlices> getTimeSlices() { DARABONBA_PTR_GET(timeSlices_, vector<TimeSlicesInfo::TimeSlices>) };
+      inline TimeSlicesInfo& setTimeSlices(const vector<TimeSlicesInfo::TimeSlices> & timeSlices) { DARABONBA_PTR_SET_VALUE(timeSlices_, timeSlices) };
+      inline TimeSlicesInfo& setTimeSlices(vector<TimeSlicesInfo::TimeSlices> && timeSlices) { DARABONBA_PTR_SET_RVALUE(timeSlices_, timeSlices) };
+
+
+    protected:
+      shared_ptr<vector<TimeSlicesInfo::TimeSlices>> timeSlices_ {};
     };
 
     class EndpointList : public Darabonba::Model {
@@ -238,7 +459,7 @@ namespace Models
         // The network type of the connection string. Valid values:
         // * **Public**: public endpoint
         // * **Private**: private endpoint
-        // * **Inner**: private endpoint (classic network).
+        // * **Inner**: private endpoint (classic network)
         shared_ptr<string> netType_ {};
         // The port number.
         shared_ptr<string> port_ {};
@@ -511,13 +732,13 @@ namespace Models
       // * **Creating**: being created 
       // * **Running**: running 
       // * **Deleting**: being deleted  
-      // * **Rebooting**: restarting  
+      // * **Rebooting**: being restarted  
       // * **DBNodeCreating**: adding a node  
       // * **DBNodeDeleting**: deleting a node 
       // * **ClassChanging**: changing node specifications  
-      // * **MinorVersionUpgrading**: upgrading the minor engine version
+      // * **MinorVersionUpgrading**: upgrading the minor version
       // * **Maintaining**: under maintenance  
-      // * **Switching**: switching.
+      // * **Switching**: being switched
       shared_ptr<string> DBNodeStatus_ {};
       // The number of GPU cards.
       shared_ptr<string> GPU_ {};
@@ -543,7 +764,8 @@ namespace Models
         && this->expired_ == nullptr && this->gatewayId_ == nullptr && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr && this->kubeClusterId_ == nullptr
         && this->lockMode_ == nullptr && this->maxQPM_ == nullptr && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr
         && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runType_ == nullptr && this->storageType_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->timeSlicesInfo_ == nullptr && this->timeSlicesType_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vnodeKubernetesConfig_ == nullptr
+        && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -730,6 +952,22 @@ namespace Models
     inline DescribeAIDBClusterAttributeResponseBody& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
+    // timeSlicesInfo Field Functions 
+    bool hasTimeSlicesInfo() const { return this->timeSlicesInfo_ != nullptr;};
+    void deleteTimeSlicesInfo() { this->timeSlicesInfo_ = nullptr;};
+    inline const DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo & getTimeSlicesInfo() const { DARABONBA_PTR_GET_CONST(timeSlicesInfo_, DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo) };
+    inline DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo getTimeSlicesInfo() { DARABONBA_PTR_GET(timeSlicesInfo_, DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo) };
+    inline DescribeAIDBClusterAttributeResponseBody& setTimeSlicesInfo(const DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo & timeSlicesInfo) { DARABONBA_PTR_SET_VALUE(timeSlicesInfo_, timeSlicesInfo) };
+    inline DescribeAIDBClusterAttributeResponseBody& setTimeSlicesInfo(DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo && timeSlicesInfo) { DARABONBA_PTR_SET_RVALUE(timeSlicesInfo_, timeSlicesInfo) };
+
+
+    // timeSlicesType Field Functions 
+    bool hasTimeSlicesType() const { return this->timeSlicesType_ != nullptr;};
+    void deleteTimeSlicesType() { this->timeSlicesType_ = nullptr;};
+    inline string getTimeSlicesType() const { DARABONBA_PTR_GET_DEFAULT(timeSlicesType_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setTimeSlicesType(string timeSlicesType) { DARABONBA_PTR_SET_VALUE(timeSlicesType_, timeSlicesType) };
+
+
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
@@ -742,6 +980,15 @@ namespace Models
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
     inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+    // vnodeKubernetesConfig Field Functions 
+    bool hasVnodeKubernetesConfig() const { return this->vnodeKubernetesConfig_ != nullptr;};
+    void deleteVnodeKubernetesConfig() { this->vnodeKubernetesConfig_ = nullptr;};
+    inline const DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig & getVnodeKubernetesConfig() const { DARABONBA_PTR_GET_CONST(vnodeKubernetesConfig_, DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig) };
+    inline DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig getVnodeKubernetesConfig() { DARABONBA_PTR_GET(vnodeKubernetesConfig_, DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig) };
+    inline DescribeAIDBClusterAttributeResponseBody& setVnodeKubernetesConfig(const DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig & vnodeKubernetesConfig) { DARABONBA_PTR_SET_VALUE(vnodeKubernetesConfig_, vnodeKubernetesConfig) };
+    inline DescribeAIDBClusterAttributeResponseBody& setVnodeKubernetesConfig(DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig && vnodeKubernetesConfig) { DARABONBA_PTR_SET_RVALUE(vnodeKubernetesConfig_, vnodeKubernetesConfig) };
 
 
     // volumes Field Functions 
@@ -769,9 +1016,9 @@ namespace Models
 
   protected:
     // The node type. Valid values:
-    // - vnode: managed by ACK
-    // - container: logon-enabled container
-    // - maas: model service.
+    // - vnode: ACK-managed
+    // - container: loginable container
+    // - maas: model service
     shared_ptr<string> aiNodeType_ {};
     // The API key.
     shared_ptr<string> apiKey_ {};
@@ -789,7 +1036,7 @@ namespace Models
     // - **DBNodeCreating**: adding a node
     // - **DBNodeDeleting**: deleting a node
     // - **ClassChanging**: changing node specifications 
-    // - **Deleted**: released.
+    // - **Deleted**: released
     shared_ptr<string> DBClusterStatus_ {};
     // The node details.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::DBNodes>> DBNodes_ {};
@@ -799,7 +1046,7 @@ namespace Models
     // 
     // **2.0**
     // 
-    // **3.0**.
+    // **3.0**
     shared_ptr<string> DBVersion_ {};
     // The security group ID.
     shared_ptr<string> ecsSecurityGroupId_ {};
@@ -807,13 +1054,13 @@ namespace Models
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::EndpointList>> endpointList_ {};
     // The cluster expiration time.
     // 
-    // > This parameter is returned only for **Prepaid** (subscription) clusters. An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+    // > This parameter returns a value only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
     // - **true**
     // 
-    // - **false**.
+    // - **false**
     shared_ptr<bool> expired_ {};
     shared_ptr<string> gatewayId_ {};
     // The internal IP address.
@@ -822,7 +1069,7 @@ namespace Models
     shared_ptr<string> KVCacheInstanceId_ {};
     // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
-    // The instance lock mode. The value **lock** indicates that the instance is automatically locked due to expiration or overdue payment.
+    // The instance lock mode. The value **lock** indicates that the instance is automatically expired or has an overdue payment.
     shared_ptr<string> lockMode_ {};
     // The maximum number of requests per minute.
     shared_ptr<string> maxQPM_ {};
@@ -843,30 +1090,33 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The architecture type. Valid values:
     // - container: AI container
-    // - ainode: AI node.
+    // - ainode: AI node
     shared_ptr<string> runType_ {};
-    // Valid values for PolarDB Enterprise Edition:
+    // Valid values for Enterprise Edition storage type:
     // - **PSL5**
     // - **PSL4**
     // 
-    // Valid values for PolarDB for MySQL Standard Edition:
+    // Valid values for Standard Edition storage type:
     // - **ESSDPL0**
     // - **ESSDPL1**
     // - **ESSDPL2**
     // - **ESSDPL3**
-    // - **ESSDAUTOPL**.
+    // - **ESSDAUTOPL**
     shared_ptr<string> storageType_ {};
+    shared_ptr<DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo> timeSlicesInfo_ {};
+    shared_ptr<string> timeSlicesType_ {};
     // The VPC ID specified for the zone switchover.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     // 
     // > If VPCId is specified, VSwitchId is required.
     shared_ptr<string> vSwitchId_ {};
+    shared_ptr<DescribeAIDBClusterAttributeResponseBody::VnodeKubernetesConfig> vnodeKubernetesConfig_ {};
     // The list of data cloud disks.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::Volumes>> volumes_ {};
     // The zone ID of the PolarDB cluster node.
     shared_ptr<string> zoneId_ {};
-    // The zone ID.
+    // The zone IDs.
     shared_ptr<string> zoneIds_ {};
   };
 

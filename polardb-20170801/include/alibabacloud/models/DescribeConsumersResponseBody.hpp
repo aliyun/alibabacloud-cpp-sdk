@@ -179,31 +179,31 @@ namespace Models
 
 
     protected:
-      // The models that the consumer is allowed to access, specified as a JSON array in string format.
+      // The list of supported models.
       shared_ptr<string> allowedModels_ {};
-      // The full API key. This value is returned only by this operation.
+      // The full API key, returned only in this response.
       shared_ptr<string> apiKey_ {};
-      // The consumer group ID.
+      // The user group ID.
       shared_ptr<string> consumerGroupId_ {};
-      // The consumer group name.
+      // The user group name.
       shared_ptr<string> consumerGroupName_ {};
-      // The consumer ID.
+      // The user ID.
       shared_ptr<string> consumerId_ {};
-      // The time when the consumer was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the consumer was last modified.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The total usage.
+      // The total cumulative usage.
       shared_ptr<int64_t> lifetimeCostCount_ {};
-      // The total number of tokens consumed.
+      // The total cost for the current month.
       shared_ptr<int64_t> lifetimeTokenCount_ {};
-      // The month-to-date usage.
+      // The usage for the current month.
       shared_ptr<int64_t> mtdCostCount_ {};
-      // The number of tokens consumed month-to-date.
+      // The total cumulative cost.
       shared_ptr<int64_t> mtdTokenCount_ {};
-      // The consumer name.
+      // The username.
       shared_ptr<string> name_ {};
-      // The consumer nickname.
+      // The nickname.
       shared_ptr<string> nickName_ {};
     };
 
@@ -254,15 +254,15 @@ namespace Models
 
 
   protected:
-    // A list of consumers.
+    // The list of users.
     shared_ptr<vector<DescribeConsumersResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The page size. Valid values: 30, 50, and 100. The default value is 30.
+    // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};

@@ -13,22 +13,26 @@ namespace Models
   class ModifyDBClusterSSLRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBClusterSSLRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBEndpointId, DBEndpointId_);
       DARABONBA_PTR_TO_JSON(NetType, netType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PfsInstanceId, pfsInstanceId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SSLAutoRotate, SSLAutoRotate_);
       DARABONBA_PTR_TO_JSON(SSLEnabled, SSLEnabled_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterSSLRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBEndpointId, DBEndpointId_);
       DARABONBA_PTR_FROM_JSON(NetType, netType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PfsInstanceId, pfsInstanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SSLAutoRotate, SSLAutoRotate_);
@@ -45,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->DBEndpointId_ == nullptr && this->netType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->SSLAutoRotate_ == nullptr && this->SSLEnabled_ == nullptr; };
+    virtual bool empty() const override { return this->connectionString_ == nullptr
+        && this->DBClusterId_ == nullptr && this->DBEndpointId_ == nullptr && this->netType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->pfsInstanceId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->SSLAutoRotate_ == nullptr && this->SSLEnabled_ == nullptr; };
+    // connectionString Field Functions 
+    bool hasConnectionString() const { return this->connectionString_ != nullptr;};
+    void deleteConnectionString() { this->connectionString_ = nullptr;};
+    inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
+    inline ModifyDBClusterSSLRequest& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
+
+
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -83,6 +94,13 @@ namespace Models
     inline ModifyDBClusterSSLRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // pfsInstanceId Field Functions 
+    bool hasPfsInstanceId() const { return this->pfsInstanceId_ != nullptr;};
+    void deletePfsInstanceId() { this->pfsInstanceId_ = nullptr;};
+    inline string getPfsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(pfsInstanceId_, "") };
+    inline ModifyDBClusterSSLRequest& setPfsInstanceId(string pfsInstanceId) { DARABONBA_PTR_SET_VALUE(pfsInstanceId_, pfsInstanceId) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -112,49 +130,42 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> connectionString_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the endpoint.
+    // The endpoint ID.
     // 
-    // > - This parameter is required for PolarDB for MySQL clusters.
-    // >
-    // > - This parameter is not required for PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) clusters. By default, SSL encryption is enabled for all endpoints of the clusters.
-    // >
-    // > - You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to view the details of the endpoint.
+    // >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
+    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+    // >* You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to query endpoint details.
     shared_ptr<string> DBEndpointId_ {};
-    // The network type of the endpoint. The value must be the same as the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
+    // The network type of the endpoint. The value must be the same as the network type of the endpoint specified by **DBEndpointId**. Valid values:
+    // * **Public**: public network
+    // * **Private**: private network
+    // * **Inner**: private network (classic network)
     // 
-    // - **Public**
-    // 
-    // - **Private**
-    // 
-    // - **Inner**
-    // 
-    // > * This parameter is required for PolarDB for MySQL clusters.
-    // >
-    // > * This parameter is not required for PolarDB for PostgreSQL or PolarDB for PostgreSQL (Compatible with Oracle) clusters. By default, SSL encryption is enabled for all endpoints of the clusters.
+    // >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
+    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
     shared_ptr<string> netType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> pfsInstanceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether automatic rotation of SSL certificates is enabled.
+    // Specifies whether to enable automatic SSL certificate rotation. Valid values:
     // 
-    // - **Enable**
+    // - **Enable**: enables automatic SSL certificate rotation.
     // 
-    // - **Disable**
+    // - **Disable**: disables automatic SSL certificate rotation.
     shared_ptr<string> SSLAutoRotate_ {};
-    // The SSL encryption status. Valid values:
+    // The SSL status. Valid values:
+    // * **Disable**: shutdown SSL encryption.
+    // * **Enable**: enables SSL encryption.
+    // * **Update**: updates the CA certificate.
     // 
-    // - **Disabled**
-    // 
-    // - **Enabled**
-    // 
-    // - **Update**: The SSL certificate is updated.
-    // 
-    // > After you enable SSL encryption or update the SSL certificate, you must download and configure the certificate. See [Configure SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+    // > After you enable SSL encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
     shared_ptr<string> SSLEnabled_ {};
   };
 

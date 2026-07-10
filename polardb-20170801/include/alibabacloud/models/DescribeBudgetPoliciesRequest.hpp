@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ScopeRefName, scopeRefName_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeBudgetPoliciesRequest& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ScopeRefName, scopeRefName_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     DescribeBudgetPoliciesRequest() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->budgetDimensionRefId_ == nullptr
         && this->budgetDimensionType_ == nullptr && this->budgetPolicyId_ == nullptr && this->gwClusterId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->status_ == nullptr; };
+        && this->regionId_ == nullptr && this->scopeRefName_ == nullptr && this->status_ == nullptr; };
     // budgetDimensionRefId Field Functions 
     bool hasBudgetDimensionRefId() const { return this->budgetDimensionRefId_ != nullptr;};
     void deleteBudgetDimensionRefId() { this->budgetDimensionRefId_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline DescribeBudgetPoliciesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // scopeRefName Field Functions 
+    bool hasScopeRefName() const { return this->scopeRefName_ != nullptr;};
+    void deleteScopeRefName() { this->scopeRefName_ = nullptr;};
+    inline string getScopeRefName() const { DARABONBA_PTR_GET_DEFAULT(scopeRefName_, "") };
+    inline DescribeBudgetPoliciesRequest& setScopeRefName(string scopeRefName) { DARABONBA_PTR_SET_VALUE(scopeRefName_, scopeRefName) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -103,13 +112,12 @@ namespace Models
 
 
   protected:
-    // The ID of the consumer group or user. This parameter is required if BudgetDimensionType is set to ConsumerGroup or Consumer.
+    // The dimension object ID. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
     shared_ptr<string> budgetDimensionRefId_ {};
     // The policy type. Valid values:
     // 
-    // - **ConsumerGroup**: The policy applies to a consumer group.
-    // 
-    // - **Consumer**: The policy applies to a user.
+    // - **ConsumerGroup**: total budget for a user group
+    // - **Consumer**: total budget for a user
     shared_ptr<string> budgetDimensionType_ {};
     // The budget policy ID.
     shared_ptr<string> budgetPolicyId_ {};
@@ -119,23 +127,20 @@ namespace Models
     shared_ptr<string> gwClusterId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries per page. Valid values: 
+    // * **30**
+    // * **50**
+    // * **100**
     // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
-    // 
-    // The default value is **30**.
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> scopeRefName_ {};
     // The policy status. Valid values:
     // 
-    // - **Enabled**
-    // 
-    // - **Disabled**
+    // - **Enabled**: enabled
+    // - **Disenabled**: disabled
     shared_ptr<string> status_ {};
   };
 

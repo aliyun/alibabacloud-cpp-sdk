@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ModelName, modelName_);
         DARABONBA_PTR_TO_JSON(ModelSeries, modelSeries_);
         DARABONBA_PTR_TO_JSON(SupportedGpuModels, supportedGpuModels_);
+        DARABONBA_PTR_TO_JSON(TuneArch, tuneArch_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(GpuRequired, gpuRequired_);
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
         DARABONBA_PTR_FROM_JSON(ModelSeries, modelSeries_);
         DARABONBA_PTR_FROM_JSON(SupportedGpuModels, supportedGpuModels_);
+        DARABONBA_PTR_FROM_JSON(TuneArch, tuneArch_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -103,14 +105,15 @@ namespace Models
 
 
       protected:
-        // The minimum number of GPUs required.
+        // The minimum number of GPUs.
         shared_ptr<string> gpuMinCount_ {};
         // The GPU model.
         shared_ptr<string> gpuModel_ {};
       };
 
       virtual bool empty() const override { return this->gpuRequired_ == nullptr
-        && this->minimumCpu_ == nullptr && this->minimumMemory_ == nullptr && this->modelName_ == nullptr && this->modelSeries_ == nullptr && this->supportedGpuModels_ == nullptr; };
+        && this->minimumCpu_ == nullptr && this->minimumMemory_ == nullptr && this->modelName_ == nullptr && this->modelSeries_ == nullptr && this->supportedGpuModels_ == nullptr
+        && this->tuneArch_ == nullptr; };
       // gpuRequired Field Functions 
       bool hasGpuRequired() const { return this->gpuRequired_ != nullptr;};
       void deleteGpuRequired() { this->gpuRequired_ = nullptr;};
@@ -157,12 +160,19 @@ namespace Models
       inline Items& setSupportedGpuModels(vector<string> && supportedGpuModels) { DARABONBA_PTR_SET_RVALUE(supportedGpuModels_, supportedGpuModels) };
 
 
+      // tuneArch Field Functions 
+      bool hasTuneArch() const { return this->tuneArch_ != nullptr;};
+      void deleteTuneArch() { this->tuneArch_ = nullptr;};
+      inline string getTuneArch() const { DARABONBA_PTR_GET_DEFAULT(tuneArch_, "") };
+      inline Items& setTuneArch(string tuneArch) { DARABONBA_PTR_SET_VALUE(tuneArch_, tuneArch) };
+
+
     protected:
-      // The required GPU configurations.
+      // The supported GPU types.
       shared_ptr<vector<Items::GpuRequired>> gpuRequired_ {};
-      // The minimum number of CPU cores required.
+      // The minimum number of CPUs.
       shared_ptr<int64_t> minimumCpu_ {};
-      // The minimum memory required, in MiB.
+      // The minimum memory size.
       shared_ptr<int64_t> minimumMemory_ {};
       // The model name.
       shared_ptr<string> modelName_ {};
@@ -170,6 +180,7 @@ namespace Models
       shared_ptr<string> modelSeries_ {};
       // The supported GPU models.
       shared_ptr<vector<string>> supportedGpuModels_ {};
+      shared_ptr<string> tuneArch_ {};
     };
 
     virtual bool empty() const override { return this->engine_ == nullptr
@@ -207,11 +218,11 @@ namespace Models
   protected:
     // The database engine.
     shared_ptr<string> engine_ {};
-    // The engine version.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
     // The list of models.
     shared_ptr<vector<DescribeAvailableModelsResponseBody::Items>> items_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -162,34 +162,34 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The component instance ID.
+    // The subcomponent instance ID.
     shared_ptr<string> componentName_ {};
     // The container name.
     shared_ptr<string> containerName_ {};
-    // The end time for the query. Specify the time in `YYYY-MM-DDTHH:mmZ` format (UTC).
+    // The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The keyword to search for. This parameter applies only to polarclaw instances.
+    // The search keyword. This parameter is used for PolarClaw instances.
     shared_ptr<string> keyword_ {};
-    // The log level. This parameter applies only to polarclaw instances.
+    // The log level. This parameter is used for PolarClaw instances.
     shared_ptr<string> level_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number to return. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **30**. Valid values: 30 to 100.
+    // The number of entries per page. Default value: **30**. Valid values: 30 to 100.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The start time for the query. Specify the time in `YYYY-MM-DDTHH:mmZ` format (UTC).
+    // The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The log type. This parameter applies only to polarclaw instances. Currently, only `gateway` is supported.
+    // The log type. This parameter is used for PolarClaw instances. Currently, only gateway is supported.
     shared_ptr<string> type_ {};
   };
 

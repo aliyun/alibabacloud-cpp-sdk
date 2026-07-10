@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The service type. The value must be set to `aideploy`.
+    // aideploy
     shared_ptr<string> kubeType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

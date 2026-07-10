@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the model operator instance.
+    // The instance ID of the generated model service.
     shared_ptr<string> DBClusterId_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

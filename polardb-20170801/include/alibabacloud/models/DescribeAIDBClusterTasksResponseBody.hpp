@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(TrainMode, trainMode_);
         DARABONBA_PTR_TO_JSON(TrainType, trainType_);
+        DARABONBA_PTR_TO_JSON(TuneArch, tuneArch_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(CompletedTime, completedTime_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(TrainMode, trainMode_);
         DARABONBA_PTR_FROM_JSON(TrainType, trainType_);
+        DARABONBA_PTR_FROM_JSON(TuneArch, tuneArch_);
       };
       Items() = default ;
       Items(const Items &) = default ;
@@ -92,7 +94,8 @@ namespace Models
       virtual bool empty() const override { return this->completedTime_ == nullptr
         && this->creationTime_ == nullptr && this->DBNodeDescription_ == nullptr && this->DBNodeId_ == nullptr && this->DBNodeStatus_ == nullptr && this->DBNodeStatusDesc_ == nullptr
         && this->dataZoneId_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->modelName_ == nullptr && this->modelPath_ == nullptr
-        && this->modelSource_ == nullptr && this->runningTimes_ == nullptr && this->startTime_ == nullptr && this->trainMode_ == nullptr && this->trainType_ == nullptr; };
+        && this->modelSource_ == nullptr && this->runningTimes_ == nullptr && this->startTime_ == nullptr && this->trainMode_ == nullptr && this->trainType_ == nullptr
+        && this->tuneArch_ == nullptr; };
       // completedTime Field Functions 
       bool hasCompletedTime() const { return this->completedTime_ != nullptr;};
       void deleteCompletedTime() { this->completedTime_ = nullptr;};
@@ -205,39 +208,47 @@ namespace Models
       inline Items& setTrainType(string trainType) { DARABONBA_PTR_SET_VALUE(trainType_, trainType) };
 
 
+      // tuneArch Field Functions 
+      bool hasTuneArch() const { return this->tuneArch_ != nullptr;};
+      void deleteTuneArch() { this->tuneArch_ = nullptr;};
+      inline string getTuneArch() const { DARABONBA_PTR_GET_DEFAULT(tuneArch_, "") };
+      inline Items& setTuneArch(string tuneArch) { DARABONBA_PTR_SET_VALUE(tuneArch_, tuneArch) };
+
+
     protected:
-      // The completion time.
+      // The task completion time.
       shared_ptr<string> completedTime_ {};
       // The creation time.
       shared_ptr<string> creationTime_ {};
       // The node description.
       shared_ptr<string> DBNodeDescription_ {};
-      // The model operator instance ID.
+      // The instance ID of the model operator.
       shared_ptr<string> DBNodeId_ {};
-      // The instance status. This parameter is not always returned.
+      // The instance status. This parameter may not be returned.
       shared_ptr<string> DBNodeStatus_ {};
-      // The description of the instance status.
+      // The instance status.
       shared_ptr<string> DBNodeStatusDesc_ {};
-      // The availability zone.
+      // The zone.
       shared_ptr<string> dataZoneId_ {};
-      // The engine.
+      // The cluster engine.
       shared_ptr<string> engine_ {};
-      // The engine version.
+      // The database engine version.
       shared_ptr<string> engineVersion_ {};
       // The model name.
       shared_ptr<string> modelName_ {};
-      // The model path.
+      // The path.
       shared_ptr<string> modelPath_ {};
       // The model source.
       shared_ptr<string> modelSource_ {};
-      // The runtime parameters.
+      // The running parameters.
       shared_ptr<string> runningTimes_ {};
-      // The start time.
+      // The task start time.
       shared_ptr<string> startTime_ {};
-      // The training mode.
+      // The mode.
       shared_ptr<string> trainMode_ {};
-      // The training type.
+      // The type.
       shared_ptr<string> trainType_ {};
+      shared_ptr<string> tuneArch_ {};
     };
 
     virtual bool empty() const override { return this->engine_ == nullptr
@@ -287,15 +298,15 @@ namespace Models
 
 
   protected:
-    // The engine.
+    // The cluster engine.
     shared_ptr<string> engine_ {};
-    // The engine version.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // A list of model operators.
+    // The cluster endpoint details.
     shared_ptr<vector<DescribeAIDBClusterTasksResponseBody::Items>> items_ {};
-    // The PolarDB cluster ID.
+    // The ID of the PolarDB cluster.
     shared_ptr<string> relativeDBClusterId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The task type.
     shared_ptr<string> taskType_ {};

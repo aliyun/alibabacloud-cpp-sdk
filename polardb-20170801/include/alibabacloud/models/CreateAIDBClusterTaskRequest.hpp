@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RunningParameter, runningParameter_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
+      DARABONBA_PTR_TO_JSON(TuneArch, tuneArch_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RunningParameter, runningParameter_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
+      DARABONBA_PTR_FROM_JSON(TuneArch, tuneArch_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -69,7 +71,7 @@ namespace Models
         && this->DBInstanceClass_ == nullptr && this->datasetPath_ == nullptr && this->evalDatasetPath_ == nullptr && this->kubeType_ == nullptr && this->modelName_ == nullptr
         && this->modelSource_ == nullptr && this->modelType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
         && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->runningParameter_ == nullptr && this->securityGroupId_ == nullptr && this->taskName_ == nullptr
-        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->tuneArch_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -182,6 +184,13 @@ namespace Models
     inline CreateAIDBClusterTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
+    // tuneArch Field Functions 
+    bool hasTuneArch() const { return this->tuneArch_ != nullptr;};
+    void deleteTuneArch() { this->tuneArch_ = nullptr;};
+    inline string getTuneArch() const { DARABONBA_PTR_GET_DEFAULT(tuneArch_, "") };
+    inline CreateAIDBClusterTaskRequest& setTuneArch(string tuneArch) { DARABONBA_PTR_SET_VALUE(tuneArch_, tuneArch) };
+
+
     // VPCId Field Functions 
     bool hasVPCId() const { return this->VPCId_ != nullptr;};
     void deleteVPCId() { this->VPCId_ = nullptr;};
@@ -210,33 +219,28 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The instance type.
     shared_ptr<string> DBInstanceClass_ {};
-    // The ID of the training dataset. This parameter is required for fine-tuning.
+    // The training dataset ID. This parameter is required for fine-tuning.
     shared_ptr<string> datasetPath_ {};
-    // The ID of the validation dataset. This parameter is required for evaluation.
+    // The validation dataset ID. This parameter is required for evaluation.
     shared_ptr<string> evalDatasetPath_ {};
-    // The type of model service. Valid values:
-    // 
-    // - **aitrain**: For model operator tuning.
+    // The model service type. Valid values:
+    //  * **aitrain**: model operator tuning
     // 
     // This parameter is required.
     shared_ptr<string> kubeType_ {};
     // The model name.
-    // 
-    // - For a **preset model**, specify the model name.
-    // 
-    // - For a **custom model**, specify the path to the model. This option is for models trained in a cold storage edition instance.
+    // * **For a preset model, specify the name of the selected model.**
+    // * **For a custom model, specify the path where the model is stored (the model trained in a cold storage instance).**
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
     // The model source. Valid values:
-    // 
-    // - **public**: A preset model.
-    // 
-    // - **custom**: A custom model.
+    // * **public**: preset model
+    // * **custom**: custom model
     // 
     // This parameter is required.
     shared_ptr<string> modelSource_ {};
-    // The type of the custom model.
+    // The custom model type.
     shared_ptr<string> modelType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -244,15 +248,16 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The runtime parameters, specified as a JSON string.
+    // The running parameters in JSON string format.
     // 
     // This parameter is required.
     shared_ptr<string> runningParameter_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The name of the task.
+    // The description of the model service.
     shared_ptr<string> taskName_ {};
-    // The VPC ID.
+    shared_ptr<string> tuneArch_ {};
+    // The virtual private cloud (VPC) ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

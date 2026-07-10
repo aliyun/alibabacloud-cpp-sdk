@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModifyMode, modifyMode_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PfsInstanceId, pfsInstanceId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModifyMode, modifyMode_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PfsInstanceId, pfsInstanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterIPArrayAttribute_ == nullptr
         && this->DBClusterIPArrayName_ == nullptr && this->DBClusterId_ == nullptr && this->modifyMode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityIps_ == nullptr && this->whiteListType_ == nullptr; };
+        && this->pfsInstanceId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityIps_ == nullptr
+        && this->whiteListType_ == nullptr; };
     // DBClusterIPArrayAttribute Field Functions 
     bool hasDBClusterIPArrayAttribute() const { return this->DBClusterIPArrayAttribute_ != nullptr;};
     void deleteDBClusterIPArrayAttribute() { this->DBClusterIPArrayAttribute_ = nullptr;};
@@ -94,6 +97,13 @@ namespace Models
     inline ModifyDBClusterAccessWhitelistRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // pfsInstanceId Field Functions 
+    bool hasPfsInstanceId() const { return this->pfsInstanceId_ != nullptr;};
+    void deletePfsInstanceId() { this->pfsInstanceId_ = nullptr;};
+    inline string getPfsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(pfsInstanceId_, "") };
+    inline ModifyDBClusterAccessWhitelistRequest& setPfsInstanceId(string pfsInstanceId) { DARABONBA_PTR_SET_VALUE(pfsInstanceId_, pfsInstanceId) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -130,63 +140,54 @@ namespace Models
 
 
   protected:
-    // The attribute of the IP address whitelist group. If you set this parameter to \\`hidden\\`, the whitelist group is not visible in the console.
+    // The attribute of the IP whitelist group. If this parameter is set to **hidden**, the group is not displayed in the console.
     // 
-    // > - You cannot hide an IP address whitelist group that is already visible in the console.
-    // >
-    // > - This parameter is available only when **WhiteListType** is set to **IP**.
+    // > - IP whitelist groups that are already displayed in the console cannot be hidden.
+    // > - This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> DBClusterIPArrayAttribute_ {};
-    // The name of the IP address whitelist group. The name must be 2 to 120 characters in length. It must consist of lowercase letters and digits. The name must start with a letter and end with a letter or a digit.
+    // The name of the IP whitelist group. The name must be 2 to 120 characters in length and can contain lowercase letters and digits. The name must start with a letter and end with a letter or digit.
     // 
     // - If the specified whitelist group name does not exist, a new whitelist group is created.
-    // 
     // - If the specified whitelist group name already exists, the whitelist group is modified.
+    // - If this parameter is not specified, the default group is modified. 
     // 
-    // - If you do not specify this parameter, the \\`default\\` group is modified.
-    // 
-    // > * A cluster can have up to 50 IP address whitelist groups.
-    // >
-    // > * This parameter is available only when **WhiteListType** is set to **IP**.
+    // > - A maximum of 50 IP whitelist groups are supported for a cluster.
+    // > - This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> DBClusterIPArrayName_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The method used to modify the IP address whitelist. Valid values:
+    // The method used to modify the IP whitelist. Valid values:
+    // - **Cover**: overwrites the original IP whitelist (default value).
+    // - **Append**: appends IP addresses to the whitelist.
+    // - **Delete**: removes IP addresses from the whitelist.
     // 
-    // - **Cover**: Overwrites the original IP address whitelist. This is the default value.
-    // 
-    // - **Append**: Appends IP addresses to the whitelist.
-    // 
-    // - **Delete**: Deletes IP addresses from the whitelist.
-    // 
-    // > This parameter is available only when **WhiteListType** is set to **IP**.
+    // > This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> modifyMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    shared_ptr<string> pfsInstanceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The security group ID. Separate multiple security group IDs with commas (,).
+    // The security group IDs. Separate multiple security group IDs with commas (,).
     // 
-    // > - A cluster can be associated with up to three security groups.
-    // >
-    // > - This parameter is available only when **WhiteListType** is set to **SecurityGroup**.
+    // > - A maximum of 3 security groups are supported for a cluster.
+    // > - This parameter takes effect only when **WhiteListType** is set to **SecurityGroup**.
     shared_ptr<string> securityGroupIds_ {};
-    // The IP addresses or CIDR blocks in the IP address whitelist group. All IP address whitelist groups can contain a total of 1,000 IP addresses or CIDR blocks. Separate multiple IP addresses with commas (,). The following formats are supported:
+    // The IP addresses or CIDR blocks in the IP whitelist group. A maximum of 1,000 IP addresses or CIDR blocks can be added to all IP whitelist groups. Separate multiple IP addresses with commas (,). The following two formats are supported: 
     // 
-    // - IP address format. For example: 10.23.12.24.
+    // - IP address format, such as 10.23.12.24.
+    // - CIDR format, such as 10.23.12.24/24, where 24 indicates the prefix length of the CIDR block. The prefix length ranges from 1 to 32.
     // 
-    // - CIDR format. For example: 10.23.12.24/24. The number 24 indicates the prefix length of the IP address. The prefix length can range from 1 to 32.
-    // 
-    // > This parameter is available only when **WhiteListType** is set to **IP**.
+    // > This parameter takes effect only when **WhiteListType** is set to **IP**.
     shared_ptr<string> securityIps_ {};
     // The type of the whitelist. Valid values:
     // 
-    // - **IP**: IP address whitelist group.
+    // - **IP**: IP whitelist group.
+    // - **SecurityGroup**: security group.
     // 
-    // - **SecurityGroup**: Security group.
-    // 
-    // The default value is **IP**.
+    // Default value: **IP**.
     shared_ptr<string> whiteListType_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The backup job ID.
+    // The backup set ID.
     shared_ptr<string> backupJobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

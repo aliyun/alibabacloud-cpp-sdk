@@ -15,6 +15,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeConsumersRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ConsumerGroupId, consumerGroupId_);
       DARABONBA_PTR_TO_JSON(ConsumerId, consumerId_);
+      DARABONBA_PTR_TO_JSON(ConsumerName, consumerName_);
+      DARABONBA_PTR_TO_JSON(ConsumerNameList, consumerNameList_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -23,6 +25,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeConsumersRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConsumerGroupId, consumerGroupId_);
       DARABONBA_PTR_FROM_JSON(ConsumerId, consumerId_);
+      DARABONBA_PTR_FROM_JSON(ConsumerName, consumerName_);
+      DARABONBA_PTR_FROM_JSON(ConsumerNameList, consumerNameList_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->consumerGroupId_ == nullptr
-        && this->consumerId_ == nullptr && this->gwClusterId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->consumerId_ == nullptr && this->consumerName_ == nullptr && this->consumerNameList_ == nullptr && this->gwClusterId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
     // consumerGroupId Field Functions 
     bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
     void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
@@ -53,6 +58,20 @@ namespace Models
     void deleteConsumerId() { this->consumerId_ = nullptr;};
     inline string getConsumerId() const { DARABONBA_PTR_GET_DEFAULT(consumerId_, "") };
     inline DescribeConsumersRequest& setConsumerId(string consumerId) { DARABONBA_PTR_SET_VALUE(consumerId_, consumerId) };
+
+
+    // consumerName Field Functions 
+    bool hasConsumerName() const { return this->consumerName_ != nullptr;};
+    void deleteConsumerName() { this->consumerName_ = nullptr;};
+    inline string getConsumerName() const { DARABONBA_PTR_GET_DEFAULT(consumerName_, "") };
+    inline DescribeConsumersRequest& setConsumerName(string consumerName) { DARABONBA_PTR_SET_VALUE(consumerName_, consumerName) };
+
+
+    // consumerNameList Field Functions 
+    bool hasConsumerNameList() const { return this->consumerNameList_ != nullptr;};
+    void deleteConsumerNameList() { this->consumerNameList_ = nullptr;};
+    inline string getConsumerNameList() const { DARABONBA_PTR_GET_DEFAULT(consumerNameList_, "") };
+    inline DescribeConsumersRequest& setConsumerNameList(string consumerNameList) { DARABONBA_PTR_SET_VALUE(consumerNameList_, consumerNameList) };
 
 
     // gwClusterId Field Functions 
@@ -84,23 +103,23 @@ namespace Models
 
 
   protected:
-    // The consumer group ID.
+    // The user group ID.
     shared_ptr<string> consumerGroupId_ {};
-    // The consumer ID.
+    // The user ID.
     shared_ptr<string> consumerId_ {};
+    shared_ptr<string> consumerName_ {};
+    shared_ptr<string> consumerNameList_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The page number. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values are:
-    // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**. The default is **30**.
+    // The number of entries per page. Valid values:
+    // * **30**
+    // * **50**
+    // * **100**
+    // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

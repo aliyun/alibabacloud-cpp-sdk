@@ -151,47 +151,40 @@ namespace Models
   protected:
     // The backup ID.
     shared_ptr<string> backupId_ {};
-    // The backup mode. Valid values:
-    // 
-    // - **Automated**: System automatic backup.
-    // 
-    // - **Manual**: Manual backup.
+    // The backup mode. Valid values: 
+    // * **Automated**: automatic backup.
+    // * **Manual**: manual backup.
     shared_ptr<string> backupMode_ {};
-    // The destination region for cross-region backup.
+    // The destination region for cross-region backups.
     // 
-    // > This parameter is supported only for PolarDB for MySQL.
+    // > Currently, only PolarDB for MySQL supports this parameter.
     shared_ptr<string> backupRegion_ {};
     // The backup status. Valid values:
-    // 
-    // - **Success**: The backup is complete.
-    // 
-    // - **Failed**: The backup failed.
+    // * **Success**: The backup is complete.
+    // * **Failed**: The backup failed.
     shared_ptr<string> backupStatus_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end time of the query. The end time must be later than the start time. Specify the time in `YYYY-MM-DDThh:mmZ` format (UTC time).
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer greater than 0 and no greater than the maximum value of the Integer type. Default value: **1**.
+    // The page number. Set the value to an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
-    // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
+    // The number of entries per page. Valid values: 
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start time of the query. Specify the time in `YYYY-MM-DDThh:mmZ` format (UTC time).
+    // The beginning of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

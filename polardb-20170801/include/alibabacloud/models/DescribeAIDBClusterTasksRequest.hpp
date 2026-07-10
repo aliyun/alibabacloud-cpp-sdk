@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The model operator type.
+    // The template operator type.
     shared_ptr<string> kubeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the PolarDB instance.
+    // The instance ID of the PolarDB instance.
     shared_ptr<string> relativeDBClusterId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
