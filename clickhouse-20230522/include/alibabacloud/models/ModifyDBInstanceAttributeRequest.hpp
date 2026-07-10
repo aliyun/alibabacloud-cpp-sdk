@@ -75,14 +75,15 @@ namespace Models
 
 
   protected:
-    // The configuration that you want to modify.
+    // The type of attribute to modify. Valid values:
     // 
-    // *   MaintainTime: the O\\&M time
-    // *   DBInstanceDescription: the cluster name
+    // - MaintainTime: Modify the O\\&M window.
+    // 
+    // - DBInstanceDescription: Modify the instance name.
     // 
     // This parameter is required.
     shared_ptr<string> attributeType_ {};
-    // The new value of the configuration.
+    // The new value for the attribute.
     // 
     // This parameter is required.
     shared_ptr<string> attributeValue_ {};
@@ -90,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The code of the cloud service.
+    // The product code.
     shared_ptr<string> product_ {};
     // The region ID.
     // 

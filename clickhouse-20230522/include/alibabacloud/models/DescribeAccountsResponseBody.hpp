@@ -117,16 +117,19 @@ namespace Models
         shared_ptr<string> account_ {};
         // The type of the database account. Valid values:
         // 
-        // *   **1**: standard account
-        // *   **6**: privileged account
+        // - **1**: standard account
+        // 
+        // - **6**: privileged account
         shared_ptr<string> accountType_ {};
         // The description.
         shared_ptr<string> description_ {};
         // The state of the database account. Valid values:
         // 
-        // *   **0**: The database account is being created.
-        // *   **1**: The database account is in use.
-        // *   **3**: The database account is being deleted.
+        // - **0**: The database account is being created.
+        // 
+        // - **1**: The database account is in use.
+        // 
+        // - **3**: The database account is being deleted.
         shared_ptr<string> status_ {};
       };
 
@@ -169,9 +172,11 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Valid values:
       // 
-      // *   **30** (default)
-      // *   **50**
-      // *   **100**
+      // - **30** (default)
+      // 
+      // - **50**
+      // 
+      // - **100**
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};

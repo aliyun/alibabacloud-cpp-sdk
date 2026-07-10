@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the destination cluster.
+    // The ID of the target cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

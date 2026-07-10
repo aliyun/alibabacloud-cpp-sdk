@@ -137,12 +137,22 @@ namespace Models
 
 
       protected:
+        // Indicates whether the configuration takes effect:
+        // 
+        // - true: The execution plan takes effect.
+        // - false: The execution plan does not take effect.
         shared_ptr<bool> applied_ {};
+        // The time when the change was created.
         shared_ptr<string> gmtCreated_ {};
+        // The time when the change was modified.
         shared_ptr<string> gmtModified_ {};
+        // The operation ID.
         shared_ptr<int64_t> ID_ {};
+        // The name of the parameter.
         shared_ptr<string> name_ {};
+        // The new parameter value.
         shared_ptr<string> newValue_ {};
+        // The old parameter value.
         shared_ptr<string> oldValue_ {};
       };
 
@@ -165,7 +175,9 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The parameter change records.
       shared_ptr<vector<Data::ParamChangeLogs>> paramChangeLogs_ {};
     };
 
@@ -188,6 +200,7 @@ namespace Models
 
 
   protected:
+    // The result set.
     shared_ptr<DescribeDBInstanceConfigChangeLogResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

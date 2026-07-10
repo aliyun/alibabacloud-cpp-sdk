@@ -177,27 +177,27 @@ namespace Models
 
 
       protected:
-        // The address to which the query statement is sent.
+        // The IP address from which the query was initiated.
         shared_ptr<string> initialAddress_ {};
         // The query ID.
         shared_ptr<string> initialQueryId_ {};
-        // The user who executes the query statement.
+        // The user who initiated the query.
         shared_ptr<string> initialUser_ {};
         // The peak memory usage for the query. Unit: bytes.
         shared_ptr<int64_t> memoryUsage_ {};
-        // The query statement that is running.
+        // The statement that was being executed.
         shared_ptr<string> query_ {};
-        // The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+        // The execution duration of the slow query. The minimum value is **1000**. Unit: milliseconds.
         shared_ptr<int64_t> queryDurationMs_ {};
-        // The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+        // The start time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> queryStartTime_ {};
-        // The size of the data that is scanned. Unit: bytes.
+        // The size of the scanned data. Unit: bytes.
         shared_ptr<int64_t> readBytes_ {};
-        // The number of read rows.
+        // The number of rows read.
         shared_ptr<int64_t> readRows_ {};
         // The size of the result data. Unit: bytes.
         shared_ptr<int64_t> resultBytes_ {};
-        // The type of the slow query logs.
+        // The type of the slow query log.
         shared_ptr<string> type_ {};
       };
 
@@ -238,9 +238,9 @@ namespace Models
       shared_ptr<int32_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The result sets.
+      // The list of slow log records.
       shared_ptr<vector<Data::ResultSet>> resultSet_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -263,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The result.
     shared_ptr<DescribeSlowLogRecordsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

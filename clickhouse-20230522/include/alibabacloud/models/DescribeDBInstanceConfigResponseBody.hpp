@@ -146,13 +146,21 @@ namespace Models
 
 
       protected:
+        // The parameter description.
         shared_ptr<string> comment_ {};
+        // The default value of the parameter.
         shared_ptr<string> defaultValue_ {};
+        // Indicates whether the parameter takes effect dynamically (without requiring a restart).
         shared_ptr<int32_t> isDynamic_ {};
+        // Indicates whether the parameter can be modified by users.
         shared_ptr<int32_t> isUserModifiable_ {};
+        // The parameter name.
         shared_ptr<string> name_ {};
+        // The valid values of the parameter.
         shared_ptr<string> optional_ {};
+        // The parameter dependencies.
         shared_ptr<string> paramRelyRule_ {};
+        // The value of the parameter.
         shared_ptr<string> value_ {};
       };
 
@@ -175,7 +183,9 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The user parameters.
       shared_ptr<vector<Data::Params>> params_ {};
     };
 
@@ -198,8 +208,9 @@ namespace Models
 
 
   protected:
+    // The returned results.
     shared_ptr<DescribeDBInstanceConfigResponseBody::Data> data_ {};
-    // Id of the request
+    // The ID of the request
     shared_ptr<string> requestId_ {};
   };
 

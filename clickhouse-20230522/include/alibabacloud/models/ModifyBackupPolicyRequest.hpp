@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The number of days to retain backups.
     shared_ptr<string> backupRetentionPeriod_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The backup cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> preferredBackupPeriod_ {};
+    // The backup time.
+    // 
     // This parameter is required.
     shared_ptr<string> preferredBackupTime_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

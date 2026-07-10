@@ -167,9 +167,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -211,7 +211,7 @@ namespace Models
 
 
       protected:
-        // The node status.
+        // The status of the node.
         shared_ptr<string> nodeStatus_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
@@ -257,7 +257,7 @@ namespace Models
 
 
       protected:
-        // The vSwitch IDs.
+        // An array of vSwitch IDs.
         shared_ptr<vector<string>> vSwitchIds_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
@@ -561,81 +561,92 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
       // The channel ID.
       shared_ptr<string> bid_ {};
+      // The edition of the cluster. Valid value:
+      // 
+      // - `enterprise`: enterprise edition
       shared_ptr<string> category_ {};
-      // The billing method. Enterprise Edition clusters use the pay-as-you-go billing method.
+      // The billing method of the cluster.
+      // enterprise edition clusters are billed on a pay-as-you-go basis.
       shared_ptr<string> chargeType_ {};
+      // The status of the ClickObserve service.
       shared_ptr<string> clickObserveServiceStatus_ {};
-      // The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The creation time of the cluster, in `YYYY-MM-DDTHH:mm:ssZ` format.
       shared_ptr<string> createTime_ {};
       // The cluster ID.
       shared_ptr<string> DBInstanceId_ {};
-      // Indicates whether the release protection feature is enabled for the cluster.
+      // Whether deletion protection is enabled.
       shared_ptr<bool> deletionProtection_ {};
-      // The deployment mode of the cluster. Valid values: single_az and multi_az.
+      // The deployment architecture of the cluster. Valid values: `single_az` and `multi_az`.
       // 
-      // *   single_az: indicates that the server nodes are deployed in the primary zone. The ID of the primary zone is specified by the ZoneID parameter.
-      // *   multi_az: indicates that the server nodes are deployed in multiple zones. The information about the zones is specified by the MultiZones parameter.
+      // - `single_az`: The nodes are deployed in the primary zone specified by `ZoneId`.
       // 
-      // The keeper nodes are deployed in multiple zones.
+      // - `multi_az`: The nodes are deployed across the zones specified in `MultiZones`.
+      // 
+      // Keeper nodes are always deployed across the zones specified in `MultiZones`.
       shared_ptr<string> deploySchema_ {};
       // The cluster description.
       shared_ptr<string> description_ {};
-      // The disabled database ports. Multiple database ports are separated by commas (,).
+      // A comma-separated list of disabled database ports.
       shared_ptr<string> disabledPorts_ {};
-      // The engine type.
+      // The engine.
       shared_ptr<string> engine_ {};
-      // The minor engine version of the cluster.
+      // The minor version of the cluster engine.
       shared_ptr<string> engineMinorVersion_ {};
       // The engine version.
       shared_ptr<string> engineVersion_ {};
-      // The time when the cluster expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The expiration time of the cluster, in `YYYY-MM-DDTHH:mm:ssZ` format.
       // 
-      // >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
+      // > Pay-as-you-go clusters do not expire. An empty string is returned.
       shared_ptr<string> expireTime_ {};
+      // A list of Langfuse instance IDs.
       shared_ptr<vector<string>> langfuseInstanceIds_ {};
-      // The latest minor engine version.
+      // The latest minor version of the cluster engine.
       shared_ptr<string> latestEngineMinorVersion_ {};
       // The lock mode of the cluster.
       shared_ptr<string> lockMode_ {};
-      // The reason why the cluster was locked.
+      // The reason for the lock.
       shared_ptr<string> lockReason_ {};
       // The end time of the maintenance window.
       shared_ptr<string> maintainEndTime_ {};
       // The start time of the maintenance window.
       shared_ptr<string> maintainStartTime_ {};
-      // The information about the zones.
+      // The zones for a multi-zone deployment.
       shared_ptr<vector<Data::MultiZones>> multiZones_ {};
+      // The number of nodes.
       shared_ptr<string> nodeCount_ {};
+      // The maximum number of nodes for auto scaling of a serverless cluster.
       shared_ptr<string> nodeScaleMax_ {};
+      // The minimum number of nodes for auto scaling of a serverless cluster.
       shared_ptr<string> nodeScaleMin_ {};
-      // The nodes.
+      // The cluster nodes.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
-      // The size of the object storage space.
+      // The storage capacity of Object Storage Service (OSS).
       shared_ptr<string> objectStoreSize_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The maximum capacity for elastic scaling.
+      // The maximum value for serverless auto scaling.
       shared_ptr<int32_t> scaleMax_ {};
-      // The minimum capacity for elastic scaling.
+      // The minimum value for serverless auto scaling.
       shared_ptr<int32_t> scaleMin_ {};
-      // The cluster status.
+      // The status of the instance.
       shared_ptr<string> status_ {};
+      // The provisioned storage, in GB.
       shared_ptr<string> storageQuota_ {};
-      // The size of the storage space. Unit: GB.
+      // The storage space, in GB.
       shared_ptr<int32_t> storageSize_ {};
       // The storage type.
       shared_ptr<string> storageType_ {};
-      // The details of the tags.
+      // The cluster tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       shared_ptr<string> webUISnatStatus_ {};
       // The zone ID.
@@ -661,7 +672,7 @@ namespace Models
 
 
   protected:
-    // The result returned.
+    // The returned data.
     shared_ptr<DescribeDBInstanceAttributeResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

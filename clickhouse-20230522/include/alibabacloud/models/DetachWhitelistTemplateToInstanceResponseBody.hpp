@@ -129,6 +129,7 @@ namespace Models
 
 
           protected:
+            // The instance ID.
             shared_ptr<string> DBInstanceId_ {};
           };
 
@@ -165,9 +166,13 @@ namespace Models
 
 
         protected:
+          // A list of associated instances.
           shared_ptr<vector<Templates::DbInstances>> dbInstances_ {};
+          // The IP whitelist.
           shared_ptr<string> securityIPList_ {};
+          // The whitelist template ID.
           shared_ptr<string> templateId_ {};
+          // The whitelist template name.
           shared_ptr<string> templateName_ {};
         };
 
@@ -190,7 +195,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
+        // A list of whitelist templates.
         shared_ptr<vector<DetachSuccessedList::Templates>> templates_ {};
       };
 
@@ -232,7 +239,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
+        // The reason the detach operation failed.
         shared_ptr<string> reason_ {};
       };
 
@@ -264,8 +273,11 @@ namespace Models
 
 
     protected:
+      // A list of instances that failed to detach.
       shared_ptr<vector<Data::DetachFailList>> detachFailList_ {};
+      // A list of successfully detached instances.
       shared_ptr<vector<Data::DetachSuccessedList>> detachSuccessedList_ {};
+      // The status of the operation. A value of `ok` indicates success.
       shared_ptr<string> status_ {};
     };
 
@@ -288,8 +300,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<DetachWhitelistTemplateToInstanceResponseBody::Data> data_ {};
-    // Request ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -343,53 +343,55 @@ namespace Models
 
 
       protected:
-        // The user ID.
+        // The account ID.
         shared_ptr<string> aliUid_ {};
         // The channel ID.
         shared_ptr<string> bid_ {};
-        // The billing method. Valid values:
+        // The billing method for the instance. Valid values:
         // 
-        // *   PrePaid: subscription
-        // *   PostPaid: pay-as-you-go
+        // - `PrePaid`: subscription.
+        // 
+        // - `PostPaid`: pay-as-you-go.
         shared_ptr<string> chargeType_ {};
-        // The time when the cluster was created.
+        // The instance creation time.
         shared_ptr<string> createTime_ {};
-        // The cluster ID.
+        // The instance ID.
         shared_ptr<string> DBInstanceId_ {};
-        // Indicates whether the release protection feature is enabled for the cluster.
+        // Indicates whether deletion protection is enabled.
         shared_ptr<string> deletionProtection_ {};
-        // The cluster description.
+        // The instance description.
         shared_ptr<string> description_ {};
-        // The engine type.
+        // The engine.
         shared_ptr<string> engine_ {};
         // The engine version.
         shared_ptr<string> engineVersion_ {};
-        // The time when the cluster expires.
+        // The expiration time.
         shared_ptr<string> expireTime_ {};
         // The lock mode.
         shared_ptr<string> lockMode_ {};
-        // The reason why the cluster was locked.
+        // The reason for the lock.
         shared_ptr<string> lockReason_ {};
-        // The end time of the maintenance window.
+        // The maintenance window end time.
         shared_ptr<string> maintainEndTime_ {};
-        // The start time of the maintenance window.
+        // The maintenance window start time.
         shared_ptr<string> maintainStartTime_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The maximum capacity for elastic scaling.
+        // The maximum compute capacity for serverless elastic scaling.
         shared_ptr<int32_t> scaleMax_ {};
-        // The minimum capacity for elastic scaling.
+        // The minimum compute capacity for serverless elastic scaling.
         shared_ptr<int32_t> scaleMin_ {};
-        // The cluster status.
+        // The instance status.
         shared_ptr<string> status_ {};
+        // The instance storage type.
         shared_ptr<string> storageType_ {};
-        // The tags.
+        // The tags attached to the instance.
         shared_ptr<vector<DBInstances::Tags>> tags_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
@@ -428,13 +430,13 @@ namespace Models
 
 
     protected:
-      // The clusters.
+      // The list of instance details.
       shared_ptr<vector<Data::DBInstances>> DBInstances_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -457,7 +459,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response data.
     shared_ptr<DescribeDBInstancesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

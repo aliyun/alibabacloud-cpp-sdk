@@ -116,6 +116,7 @@ namespace Models
 
 
         protected:
+          // The instance ID.
           shared_ptr<string> DBInstanceId_ {};
         };
 
@@ -152,9 +153,13 @@ namespace Models
 
 
       protected:
+        // The list of associated instances.
         shared_ptr<vector<Templates::DbInstances>> dbInstances_ {};
+        // The IP address whitelist.
         shared_ptr<string> securityIPList_ {};
+        // The whitelist template ID.
         shared_ptr<string> templateId_ {};
+        // The whitelist template name.
         shared_ptr<string> templateName_ {};
       };
 
@@ -213,12 +218,19 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> currPageNumbers_ {};
+      // Whether a next page exists.
       shared_ptr<bool> hasNext_ {};
+      // Whether a previous page exists.
       shared_ptr<bool> hasPrev_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The list of whitelist templates.
       shared_ptr<vector<Data::Templates>> templates_ {};
+      // The total number of templates.
       shared_ptr<int32_t> totalCount_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNumbers_ {};
     };
 
@@ -241,8 +253,9 @@ namespace Models
 
 
   protected:
+    // The query results.
     shared_ptr<ListWhitelistTemplatesResponseBody::Data> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -128,17 +128,21 @@ namespace Models
 
 
         protected:
-          // The port used to connect to the cluster. Valid values:
+          // The port number. The value varies based on the protocol type. For example:
           // 
-          // *   8123: This value is returned when the value of Protocol is HttpPort.
-          // *   8443: This value is returned when the value of Protocol is HttpsPort.
-          // *   9000: This value is returned when the value of Protocol is TcpPort.
+          // - HttpPort: 8123
+          // 
+          // - HttpsPort: 8443
+          // 
+          // - TcpPort: 9000
           shared_ptr<int32_t> port_ {};
           // The protocol type. Valid values:
           // 
-          // *   HttpPort
-          // *   HttpsPort
-          // *   TcpPort
+          // - HttpPort: HTTP port.
+          // 
+          // - HttpsPort: HTTPS port.
+          // 
+          // - TcpPort: TCP port.
           shared_ptr<string> protocol_ {};
         };
 
@@ -218,26 +222,29 @@ namespace Models
 
 
       protected:
+        // The computing group ID.
         shared_ptr<string> computingGroupId_ {};
-        // The endpoint of the cluster.
+        // The instance connection string.
         shared_ptr<string> connectionString_ {};
+        // The endpoint name.
         shared_ptr<string> endpointName_ {};
         // The IP address.
         shared_ptr<string> IPAddress_ {};
         // The network type of the endpoint. Valid values:
         // 
-        // *   VPC
-        // *   PUBLIC
+        // - VPC
+        // 
+        // - PUBLIC: Internet.
         shared_ptr<string> netType_ {};
-        // The details of the ports.
+        // The ports.
         shared_ptr<vector<Endpoints::Ports>> ports_ {};
-        // The state of the cluster.
+        // The status of the endpoint.
         shared_ptr<string> status_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The ID of the virtual private cloud (VPC).
-        shared_ptr<string> vpcId_ {};
         // The VPC ID.
+        shared_ptr<string> vpcId_ {};
+        // The VPC instance ID.
         shared_ptr<string> vpcInstanceId_ {};
       };
 
@@ -260,12 +267,13 @@ namespace Models
 
 
     protected:
-      // The details of the endpoints.
+      // The endpoints.
       shared_ptr<vector<Data::Endpoints>> endpoints_ {};
-      // The network type of the cluster. Valid values:
+      // The network type of the instance. Valid values:
       // 
-      // *   **VPC**
-      // *   **PUBLIC**
+      // - **VPC**
+      // 
+      // - **PUBLIC**: Internet.
       shared_ptr<string> instanceNetworkType_ {};
     };
 
@@ -288,7 +296,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response data.
     shared_ptr<DescribeEndpointsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

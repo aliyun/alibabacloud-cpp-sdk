@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The end time of the query. Format: yyyy-MM-dd hh:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page. Default value: 30. Valid values:
+    // 
+    // - **30** (default)
+    // - **50**
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time of the query. Format: yyyy-MM-dd hh:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

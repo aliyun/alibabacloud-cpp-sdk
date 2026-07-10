@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on each page. Valid values:
+    // 
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
   };
 

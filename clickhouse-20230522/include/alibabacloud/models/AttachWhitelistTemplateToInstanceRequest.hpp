@@ -57,12 +57,16 @@ namespace Models
 
 
   protected:
+    // The ClickHouse instance ID. Separate multiple instance IDs with commas. A maximum of 20 instances can be attached at a time.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // RegionId
+    // Region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the whitelist template.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
   };

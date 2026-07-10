@@ -66,19 +66,23 @@ namespace Models
 
 
   protected:
-    // Database remark information.
+    // The description of the database.
     shared_ptr<string> comment_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database name. The name must meet the following requirements:
+    // The name of the database. The name must meet the following requirements:
     // 
-    // *   The name can contain lowercase letters, digits, underscores (_), and hyphens (-).
-    // *   The name must start with a lowercase letter and end with a lowercase letter or digit.
-    // *   The name can be up to 64 characters in length.
+    // - Consist of lowercase letters, digits, underscores (_), and hyphens (-).
     // 
-    // >  An underscore (_) is counted as two characters.
+    // - Start with a lowercase letter and end with a lowercase letter or a digit.
+    // 
+    // - Be up to 64 characters in length.
+    // 
+    // >Notice: 
+    // 
+    // An underscore (_) is counted as two characters.
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

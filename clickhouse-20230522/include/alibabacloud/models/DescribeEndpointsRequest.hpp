@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // The computing group ID.
     shared_ptr<string> computingGroupId_ {};
     // The cluster ID.
     // 

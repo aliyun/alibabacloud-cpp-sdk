@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the destination database.
+    // The name of the target database.
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

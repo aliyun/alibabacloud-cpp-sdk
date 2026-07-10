@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the whitelist template.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
   };

@@ -66,12 +66,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // RegionId
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The whitelist template name. Fuzzy search is supported.
     shared_ptr<string> templateName_ {};
   };
 

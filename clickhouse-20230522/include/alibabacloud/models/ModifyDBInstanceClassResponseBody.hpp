@@ -105,14 +105,15 @@ namespace Models
 
 
     protected:
+      // The compute group ID.
       shared_ptr<string> computingGroupId_ {};
       // The cluster ID.
       shared_ptr<int64_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The maximum capacity for elastic scaling.
+      // The maximum capacity for serverless autoscaling.
       shared_ptr<int64_t> scaleMax_ {};
-      // The minimum capacity for elastic scaling.
+      // The minimum capacity for serverless autoscaling.
       shared_ptr<int64_t> scaleMin_ {};
       // The task ID.
       shared_ptr<int64_t> taskId_ {};
@@ -137,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response data.
     shared_ptr<ModifyDBInstanceClassResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

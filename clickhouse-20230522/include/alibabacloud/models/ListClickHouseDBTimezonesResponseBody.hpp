@@ -60,6 +60,7 @@ namespace Models
 
 
     protected:
+      // The enumeration value for the time zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -84,6 +85,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of time zones that ClickHouse supports.
     shared_ptr<vector<ListClickHouseDBTimezonesResponseBody::TimeZones>> timeZones_ {};
   };
 

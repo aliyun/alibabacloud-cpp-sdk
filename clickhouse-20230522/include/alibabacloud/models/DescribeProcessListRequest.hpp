@@ -121,6 +121,7 @@ namespace Models
 
 
   protected:
+    // The computing group ID.
     shared_ptr<string> computingGroupId_ {};
     // The cluster ID.
     // 
@@ -128,21 +129,23 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The query ID.
     shared_ptr<string> initialQueryId_ {};
-    // The user who executes the query statement.
+    // The query user.
     shared_ptr<string> initialUser_ {};
-    // The keyword of the query statement.
+    // The keyword in the query statement.
     shared_ptr<string> keyword_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The execution duration of slow SQL queries. Minimum value: 1000. Unit: milliseconds.
+    // The minimum query execution duration, in milliseconds (ms). Only queries that run for this duration or longer are returned. The minimum value is 1,000.
     shared_ptr<string> queryDurationMs_ {};
-    // Specifies the columns by which the query results are sorted in descending order.
+    // The criteria by which to sort the results. The results are sorted in descending order. Valid values:
     // 
-    // *   0: The query results are sorted by the query_duration_ms column.
-    // *   1: The query results are sorted by the query_duration_ms and query_start_time columns.
-    // *   2: The query results are sorted by the query_duration_ms, query_start_time, and user columns.
+    // - 0: Sorts by `query_duration_ms`.
+    // 
+    // - 1: Sorts by `query_duration_ms` and `query_start_time`.
+    // 
+    // - 2: Sorts by `query_duration_ms`, `query_start_time`, and `user`.
     shared_ptr<int64_t> queryOrder_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

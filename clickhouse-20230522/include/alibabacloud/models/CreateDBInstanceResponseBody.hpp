@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The data returned.
     shared_ptr<CreateDBInstanceResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

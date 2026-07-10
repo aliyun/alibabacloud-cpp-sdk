@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> DBName_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<CreateDBResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

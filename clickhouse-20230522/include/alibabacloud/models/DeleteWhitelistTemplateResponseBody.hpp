@@ -102,6 +102,7 @@ namespace Models
 
 
         protected:
+          // The ID of the instance.
           shared_ptr<string> dbInstanceName_ {};
         };
 
@@ -131,8 +132,11 @@ namespace Models
 
 
       protected:
+        // The instances associated with the template.
         shared_ptr<vector<Templates::DbInstances>> dbInstances_ {};
+        // The IP whitelist.
         shared_ptr<string> securityIPList_ {};
+        // The whitelist template ID.
         shared_ptr<string> templateId_ {};
       };
 
@@ -147,6 +151,7 @@ namespace Models
 
 
     protected:
+      // The whitelist templates.
       shared_ptr<vector<Data::Templates>> templates_ {};
     };
 
@@ -169,7 +174,9 @@ namespace Models
 
 
   protected:
+    // The data returned from the call.
     shared_ptr<DeleteWhitelistTemplateResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

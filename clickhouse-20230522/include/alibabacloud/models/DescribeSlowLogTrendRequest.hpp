@@ -94,20 +94,21 @@ namespace Models
 
 
   protected:
+    // The computing group ID.
     shared_ptr<string> computingGroupId_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+    // The end of the time range to query. The time is in UTC and uses the yyyy-MM-dd hh:mm:ss format.
     shared_ptr<string> endTime_ {};
-    // The code of the cloud service.
+    // The product code.
     shared_ptr<string> product_ {};
-    // The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+    // The minimum execution duration of a slow SQL query, in milliseconds. The minimum value is **1000**.
     shared_ptr<string> queryDurationMs_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+    // The start of the time range to query. The time is in UTC and uses the yyyy-MM-dd hh:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

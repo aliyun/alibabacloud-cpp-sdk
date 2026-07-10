@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The IDs of the ClickHouse instances, separated by commas. You can specify up to 20 IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The whitelist template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
   };

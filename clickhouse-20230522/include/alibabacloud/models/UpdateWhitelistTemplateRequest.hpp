@@ -66,14 +66,20 @@ namespace Models
 
 
   protected:
-    // RegionId
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The IP address whitelist. You can add up to 100 IP addresses, separated by commas.
+    // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};
+    // The whitelist template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
+    // The whitelist template name.
+    // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
   };

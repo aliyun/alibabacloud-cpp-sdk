@@ -149,15 +149,30 @@ namespace Models
 
 
     protected:
+      // The end time of the backup. The time is in UTC.
       shared_ptr<string> backupEndTime_ {};
+      // The backup record ID.
       shared_ptr<string> backupId_ {};
+      // The backup method.
       shared_ptr<string> backupMethod_ {};
+      // The information about the backup set.
       shared_ptr<string> backupSetInfo_ {};
+      // The size of the backup file in MB.
       shared_ptr<int64_t> backupSize_ {};
+      // The start time of the backup.
       shared_ptr<string> backupStartTime_ {};
+      // The status of the backup set.
       shared_ptr<string> backupStatus_ {};
+      // The backup type.
+      // Valid values:
+      // 
+      // - **FullBackup**: full backup.
+      // 
+      // - **IncrementalBackup**: incremental backup.
       shared_ptr<string> backupType_ {};
+      // The cluster ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The expiration time of the backup set.
       shared_ptr<string> expireDate_ {};
     };
 
@@ -201,10 +216,15 @@ namespace Models
 
 
   protected:
+    // The list of backup sets.
     shared_ptr<vector<DescribeBackupsResponseBody::Items>> items_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<string> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of backups.
     shared_ptr<string> totalCount_ {};
   };
 

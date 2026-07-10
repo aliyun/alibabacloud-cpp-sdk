@@ -84,11 +84,28 @@ namespace Models
 
 
   protected:
+    // The number of days for which the backup files are retained.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
+    // The size of the backup file. Unit: MB.
     shared_ptr<string> backupSize_ {};
+    // The backup cycle. Valid values:
+    // 
+    // - **Monday**
+    // - **Tuesday**
+    // - **Wednesday**
+    // - **Thursday**
+    // - **Friday**
+    // - **Saturday**
+    // - **Sunday**
     shared_ptr<string> preferredBackupPeriod_ {};
+    // The backup time. The time is in UTC.
     shared_ptr<string> preferredBackupTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the backup feature is enabled. Valid values:
+    // 
+    // - **true**: The backup feature is enabled.
+    // - **false**: The backup feature is disabled.
     shared_ptr<string> switch_ {};
   };
 

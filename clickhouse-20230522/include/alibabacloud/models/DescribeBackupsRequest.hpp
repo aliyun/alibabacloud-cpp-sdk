@@ -94,15 +94,26 @@ namespace Models
 
 
   protected:
+    // The backup record ID.
     shared_ptr<string> backupId_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The end of the time range to query. The time is in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The beginning of the time range to query. The time is in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

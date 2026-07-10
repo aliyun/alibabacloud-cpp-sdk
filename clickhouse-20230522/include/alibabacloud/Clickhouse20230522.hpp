@@ -21,7 +21,7 @@ namespace Clickhouse20230522
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 白名单模板关联实例
+       * @summary Attaches a whitelist template to instances.
        *
        * @param request AttachWhitelistTemplateToInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Clickhouse20230522
       Models::AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstanceWithOptions(const Models::AttachWhitelistTemplateToInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 白名单模板关联实例
+       * @summary Attaches a whitelist template to instances.
        *
        * @param request AttachWhitelistTemplateToInstanceRequest
        * @return AttachWhitelistTemplateToInstanceResponse
@@ -38,7 +38,7 @@ namespace Clickhouse20230522
       Models::AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstance(const Models::AttachWhitelistTemplateToInstanceRequest &request);
 
       /**
-       * @summary 资源转组
+       * @summary Changes the resource group of a ClickHouse Enterprise instance.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Clickhouse20230522
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源转组
+       * @summary Changes the resource group of a ClickHouse Enterprise instance.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -72,7 +72,7 @@ namespace Clickhouse20230522
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
 
       /**
-       * @summary Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
        *
        * @param request CreateBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Clickhouse20230522
       Models::CreateBackupPolicyResponse createBackupPolicyWithOptions(const Models::CreateBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
        *
        * @param request CreateBackupPolicyRequest
        * @return CreateBackupPolicyResponse
@@ -89,7 +89,7 @@ namespace Clickhouse20230522
       Models::CreateBackupPolicyResponse createBackupPolicy(const Models::CreateBackupPolicyRequest &request);
 
       /**
-       * @summary Creates an ApsaraDB for ClickHouse database.
+       * @summary Creates a database.
        *
        * @param request CreateDBRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Clickhouse20230522
       Models::CreateDBResponse createDBWithOptions(const Models::CreateDBRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an ApsaraDB for ClickHouse database.
+       * @summary Creates a database.
        *
        * @param request CreateDBRequest
        * @return CreateDBResponse
@@ -106,7 +106,7 @@ namespace Clickhouse20230522
       Models::CreateDBResponse createDB(const Models::CreateDBRequest &request);
 
       /**
-       * @summary Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
        *
        * @param tmpReq CreateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Clickhouse20230522
       Models::CreateDBInstanceResponse createDBInstanceWithOptions(const Models::CreateDBInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
        *
        * @param request CreateDBInstanceRequest
        * @return CreateDBInstanceResponse
@@ -123,7 +123,7 @@ namespace Clickhouse20230522
       Models::CreateDBInstanceResponse createDBInstance(const Models::CreateDBInstanceRequest &request);
 
       /**
-       * @summary Applies for a public endpoint.
+       * @summary Creates a public endpoint that provides a public address to access a cluster.
        *
        * @param request CreateEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace Clickhouse20230522
       Models::CreateEndpointResponse createEndpointWithOptions(const Models::CreateEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies for a public endpoint.
+       * @summary Creates a public endpoint that provides a public address to access a cluster.
        *
        * @param request CreateEndpointRequest
        * @return CreateEndpointResponse
@@ -140,7 +140,75 @@ namespace Clickhouse20230522
       Models::CreateEndpointResponse createEndpoint(const Models::CreateEndpointRequest &request);
 
       /**
-       * @summary 新增白名单模板
+       * @summary Creates a Langfuse organization.
+       *
+       * @param request CreateLangfuseOrgRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLangfuseOrgResponse
+       */
+      Models::CreateLangfuseOrgResponse createLangfuseOrgWithOptions(const Models::CreateLangfuseOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Langfuse organization.
+       *
+       * @param request CreateLangfuseOrgRequest
+       * @return CreateLangfuseOrgResponse
+       */
+      Models::CreateLangfuseOrgResponse createLangfuseOrg(const Models::CreateLangfuseOrgRequest &request);
+
+      /**
+       * @summary Adds a user to a Langfuse organization.
+       *
+       * @param request CreateLangfuseOrgMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLangfuseOrgMemberResponse
+       */
+      Models::CreateLangfuseOrgMemberResponse createLangfuseOrgMemberWithOptions(const Models::CreateLangfuseOrgMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds a user to a Langfuse organization.
+       *
+       * @param request CreateLangfuseOrgMemberRequest
+       * @return CreateLangfuseOrgMemberResponse
+       */
+      Models::CreateLangfuseOrgMemberResponse createLangfuseOrgMember(const Models::CreateLangfuseOrgMemberRequest &request);
+
+      /**
+       * @summary Creates a Langfuse project.
+       *
+       * @param request CreateLangfuseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLangfuseProjectResponse
+       */
+      Models::CreateLangfuseProjectResponse createLangfuseProjectWithOptions(const Models::CreateLangfuseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Langfuse project.
+       *
+       * @param request CreateLangfuseProjectRequest
+       * @return CreateLangfuseProjectResponse
+       */
+      Models::CreateLangfuseProjectResponse createLangfuseProject(const Models::CreateLangfuseProjectRequest &request);
+
+      /**
+       * @summary Creates a Langfuse user.
+       *
+       * @param request CreateLangfuseUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLangfuseUserResponse
+       */
+      Models::CreateLangfuseUserResponse createLangfuseUserWithOptions(const Models::CreateLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Langfuse user.
+       *
+       * @param request CreateLangfuseUserRequest
+       * @return CreateLangfuseUserResponse
+       */
+      Models::CreateLangfuseUserResponse createLangfuseUser(const Models::CreateLangfuseUserRequest &request);
+
+      /**
+       * @summary Creates a whitelist template.
        *
        * @param request CreateWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +217,7 @@ namespace Clickhouse20230522
       Models::CreateWhitelistTemplateResponse createWhitelistTemplateWithOptions(const Models::CreateWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增白名单模板
+       * @summary Creates a whitelist template.
        *
        * @param request CreateWhitelistTemplateRequest
        * @return CreateWhitelistTemplateResponse
@@ -174,7 +242,7 @@ namespace Clickhouse20230522
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
        *
        * @param request DeleteBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +251,7 @@ namespace Clickhouse20230522
       Models::DeleteBackupPolicyResponse deleteBackupPolicyWithOptions(const Models::DeleteBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
        *
        * @param request DeleteBackupPolicyRequest
        * @return DeleteBackupPolicyResponse
@@ -191,7 +259,7 @@ namespace Clickhouse20230522
       Models::DeleteBackupPolicyResponse deleteBackupPolicy(const Models::DeleteBackupPolicyRequest &request);
 
       /**
-       * @summary Deletes an ApsaraDB for ClickHouse database.
+       * @summary Call this operation to delete a database.
        *
        * @param request DeleteDBRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +268,7 @@ namespace Clickhouse20230522
       Models::DeleteDBResponse deleteDBWithOptions(const Models::DeleteDBRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an ApsaraDB for ClickHouse database.
+       * @summary Call this operation to delete a database.
        *
        * @param request DeleteDBRequest
        * @return DeleteDBResponse
@@ -208,7 +276,7 @@ namespace Clickhouse20230522
       Models::DeleteDBResponse deleteDB(const Models::DeleteDBRequest &request);
 
       /**
-       * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +285,7 @@ namespace Clickhouse20230522
       Models::DeleteDBInstanceResponse deleteDBInstanceWithOptions(const Models::DeleteDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
@@ -225,7 +293,7 @@ namespace Clickhouse20230522
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
 
       /**
-       * @summary Releases a public endpoint.
+       * @summary Deletes a public endpoint.
        *
        * @param request DeleteEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +302,7 @@ namespace Clickhouse20230522
       Models::DeleteEndpointResponse deleteEndpointWithOptions(const Models::DeleteEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a public endpoint.
+       * @summary Deletes a public endpoint.
        *
        * @param request DeleteEndpointRequest
        * @return DeleteEndpointResponse
@@ -242,7 +310,92 @@ namespace Clickhouse20230522
       Models::DeleteEndpointResponse deleteEndpoint(const Models::DeleteEndpointRequest &request);
 
       /**
-       * @summary 删除白名单模板
+       * @summary Releases a Langfuse instance.
+       *
+       * @param request DeleteLangfuseInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLangfuseInstanceResponse
+       */
+      Models::DeleteLangfuseInstanceResponse deleteLangfuseInstanceWithOptions(const Models::DeleteLangfuseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases a Langfuse instance.
+       *
+       * @param request DeleteLangfuseInstanceRequest
+       * @return DeleteLangfuseInstanceResponse
+       */
+      Models::DeleteLangfuseInstanceResponse deleteLangfuseInstance(const Models::DeleteLangfuseInstanceRequest &request);
+
+      /**
+       * @summary Deletes a Langfuse organization.
+       *
+       * @param request DeleteLangfuseOrgRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLangfuseOrgResponse
+       */
+      Models::DeleteLangfuseOrgResponse deleteLangfuseOrgWithOptions(const Models::DeleteLangfuseOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a Langfuse organization.
+       *
+       * @param request DeleteLangfuseOrgRequest
+       * @return DeleteLangfuseOrgResponse
+       */
+      Models::DeleteLangfuseOrgResponse deleteLangfuseOrg(const Models::DeleteLangfuseOrgRequest &request);
+
+      /**
+       * @summary Removes a user from a Langfuse organization.
+       *
+       * @param request DeleteLangfuseOrgMembershipRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLangfuseOrgMembershipResponse
+       */
+      Models::DeleteLangfuseOrgMembershipResponse deleteLangfuseOrgMembershipWithOptions(const Models::DeleteLangfuseOrgMembershipRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes a user from a Langfuse organization.
+       *
+       * @param request DeleteLangfuseOrgMembershipRequest
+       * @return DeleteLangfuseOrgMembershipResponse
+       */
+      Models::DeleteLangfuseOrgMembershipResponse deleteLangfuseOrgMembership(const Models::DeleteLangfuseOrgMembershipRequest &request);
+
+      /**
+       * @summary Deletes a Langfuse project.
+       *
+       * @param request DeleteLangfuseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLangfuseProjectResponse
+       */
+      Models::DeleteLangfuseProjectResponse deleteLangfuseProjectWithOptions(const Models::DeleteLangfuseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a Langfuse project.
+       *
+       * @param request DeleteLangfuseProjectRequest
+       * @return DeleteLangfuseProjectResponse
+       */
+      Models::DeleteLangfuseProjectResponse deleteLangfuseProject(const Models::DeleteLangfuseProjectRequest &request);
+
+      /**
+       * @summary Deletes a Langfuse user.
+       *
+       * @param request DeleteLangfuseUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLangfuseUserResponse
+       */
+      Models::DeleteLangfuseUserResponse deleteLangfuseUserWithOptions(const Models::DeleteLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a Langfuse user.
+       *
+       * @param request DeleteLangfuseUserRequest
+       * @return DeleteLangfuseUserResponse
+       */
+      Models::DeleteLangfuseUserResponse deleteLangfuseUser(const Models::DeleteLangfuseUserRequest &request);
+
+      /**
+       * @summary Deletes a whitelist template.
        *
        * @param request DeleteWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +404,7 @@ namespace Clickhouse20230522
       Models::DeleteWhitelistTemplateResponse deleteWhitelistTemplateWithOptions(const Models::DeleteWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除白名单模板
+       * @summary Deletes a whitelist template.
        *
        * @param request DeleteWhitelistTemplateRequest
        * @return DeleteWhitelistTemplateResponse
@@ -259,7 +412,7 @@ namespace Clickhouse20230522
       Models::DeleteWhitelistTemplateResponse deleteWhitelistTemplate(const Models::DeleteWhitelistTemplateRequest &request);
 
       /**
-       * @summary Queries the permissions of a database account.
+       * @summary Call the DescribeAccountAuthority operation to query the permissions of an account.
        *
        * @param request DescribeAccountAuthorityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +421,7 @@ namespace Clickhouse20230522
       Models::DescribeAccountAuthorityResponse describeAccountAuthorityWithOptions(const Models::DescribeAccountAuthorityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the permissions of a database account.
+       * @summary Call the DescribeAccountAuthority operation to query the permissions of an account.
        *
        * @param request DescribeAccountAuthorityRequest
        * @return DescribeAccountAuthorityResponse
@@ -293,7 +446,7 @@ namespace Clickhouse20230522
       Models::DescribeAccountsResponse describeAccounts(const Models::DescribeAccountsRequest &request);
 
       /**
-       * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Queries the backup policy of a ClickHouse Enterprise Edition cluster.
        *
        * @param request DescribeBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +455,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupPolicyResponse describeBackupPolicyWithOptions(const Models::DescribeBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Queries the backup policy of a ClickHouse Enterprise Edition cluster.
        *
        * @param request DescribeBackupPolicyRequest
        * @return DescribeBackupPolicyResponse
@@ -310,7 +463,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupPolicyResponse describeBackupPolicy(const Models::DescribeBackupPolicyRequest &request);
 
       /**
-       * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Queries the backup sets of a ClickHouse Enterprise Edition cluster.
        *
        * @param request DescribeBackupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +472,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupsResponse describeBackupsWithOptions(const Models::DescribeBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Queries the backup sets of a ClickHouse Enterprise Edition cluster.
        *
        * @param request DescribeBackupsRequest
        * @return DescribeBackupsResponse
@@ -327,7 +480,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupsResponse describeBackups(const Models::DescribeBackupsRequest &request);
 
       /**
-       * @summary Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +489,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttributeWithOptions(const Models::DescribeDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @return DescribeDBInstanceAttributeResponse
@@ -344,7 +497,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttribute(const Models::DescribeDBInstanceAttributeRequest &request);
 
       /**
-       * @summary 查询实例参数配置
+       * @summary Queries the parameter configuration of an instance
        *
        * @param request DescribeDBInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +506,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceConfigResponse describeDBInstanceConfigWithOptions(const Models::DescribeDBInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例参数配置
+       * @summary Queries the parameter configuration of an instance
        *
        * @param request DescribeDBInstanceConfigRequest
        * @return DescribeDBInstanceConfigResponse
@@ -361,7 +514,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceConfigResponse describeDBInstanceConfig(const Models::DescribeDBInstanceConfigRequest &request);
 
       /**
-       * @summary 查询实例参数配置记录
+       * @summary Queries the parameter configuration records of an instance
        *
        * @param request DescribeDBInstanceConfigChangeLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +523,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceConfigChangeLogResponse describeDBInstanceConfigChangeLogWithOptions(const Models::DescribeDBInstanceConfigChangeLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例参数配置记录
+       * @summary Queries the parameter configuration records of an instance
        *
        * @param request DescribeDBInstanceConfigChangeLogRequest
        * @return DescribeDBInstanceConfigChangeLogResponse
@@ -395,7 +548,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceDataSourcesResponse describeDBInstanceDataSources(const Models::DescribeDBInstanceDataSourcesRequest &request);
 
       /**
-       * @summary Queries a list of ApsaraDB for ClickHouse clusters.
+       * @summary Call the DescribeDBInstances API to query a list of DB instances.
        *
        * @param request DescribeDBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +557,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of ApsaraDB for ClickHouse clusters.
+       * @summary Call the DescribeDBInstances API to query a list of DB instances.
        *
        * @param request DescribeDBInstancesRequest
        * @return DescribeDBInstancesResponse
@@ -412,7 +565,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstancesResponse describeDBInstances(const Models::DescribeDBInstancesRequest &request);
 
       /**
-       * @summary Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+       * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
        *
        * @param request DescribeEndpointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +574,7 @@ namespace Clickhouse20230522
       Models::DescribeEndpointsResponse describeEndpointsWithOptions(const Models::DescribeEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+       * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
        *
        * @param request DescribeEndpointsRequest
        * @return DescribeEndpointsResponse
@@ -429,7 +582,143 @@ namespace Clickhouse20230522
       Models::DescribeEndpointsResponse describeEndpoints(const Models::DescribeEndpointsRequest &request);
 
       /**
-       * @summary Views running queries.
+       * @summary Queries the access endpoint of a Langfuse instance.
+       *
+       * @param request DescribeLangfuseEndpointsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseEndpointsResponse
+       */
+      Models::DescribeLangfuseEndpointsResponse describeLangfuseEndpointsWithOptions(const Models::DescribeLangfuseEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the access endpoint of a Langfuse instance.
+       *
+       * @param request DescribeLangfuseEndpointsRequest
+       * @return DescribeLangfuseEndpointsResponse
+       */
+      Models::DescribeLangfuseEndpointsResponse describeLangfuseEndpoints(const Models::DescribeLangfuseEndpointsRequest &request);
+
+      /**
+       * @summary Queries the member information of a Langfuse organization.
+       *
+       * @param request DescribeLangfuseOrgMembershipsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseOrgMembershipsResponse
+       */
+      Models::DescribeLangfuseOrgMembershipsResponse describeLangfuseOrgMembershipsWithOptions(const Models::DescribeLangfuseOrgMembershipsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the member information of a Langfuse organization.
+       *
+       * @param request DescribeLangfuseOrgMembershipsRequest
+       * @return DescribeLangfuseOrgMembershipsResponse
+       */
+      Models::DescribeLangfuseOrgMembershipsResponse describeLangfuseOrgMemberships(const Models::DescribeLangfuseOrgMembershipsRequest &request);
+
+      /**
+       * @summary 查询Langfuse实例组织列表
+       *
+       * @param request DescribeLangfuseOrgsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseOrgsResponse
+       */
+      Models::DescribeLangfuseOrgsResponse describeLangfuseOrgsWithOptions(const Models::DescribeLangfuseOrgsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Langfuse实例组织列表
+       *
+       * @param request DescribeLangfuseOrgsRequest
+       * @return DescribeLangfuseOrgsResponse
+       */
+      Models::DescribeLangfuseOrgsResponse describeLangfuseOrgs(const Models::DescribeLangfuseOrgsRequest &request);
+
+      /**
+       * @summary Queries user roles in a Langfuse project.
+       *
+       * @param request DescribeLangfuseProjectMembershipsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseProjectMembershipsResponse
+       */
+      Models::DescribeLangfuseProjectMembershipsResponse describeLangfuseProjectMembershipsWithOptions(const Models::DescribeLangfuseProjectMembershipsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries user roles in a Langfuse project.
+       *
+       * @param request DescribeLangfuseProjectMembershipsRequest
+       * @return DescribeLangfuseProjectMembershipsResponse
+       */
+      Models::DescribeLangfuseProjectMembershipsResponse describeLangfuseProjectMemberships(const Models::DescribeLangfuseProjectMembershipsRequest &request);
+
+      /**
+       * @summary Queries the list of Langfuse projects.
+       *
+       * @param request DescribeLangfuseProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseProjectsResponse
+       */
+      Models::DescribeLangfuseProjectsResponse describeLangfuseProjectsWithOptions(const Models::DescribeLangfuseProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of Langfuse projects.
+       *
+       * @param request DescribeLangfuseProjectsRequest
+       * @return DescribeLangfuseProjectsResponse
+       */
+      Models::DescribeLangfuseProjectsResponse describeLangfuseProjects(const Models::DescribeLangfuseProjectsRequest &request);
+
+      /**
+       * @summary Queries the Langfuse whitelist.
+       *
+       * @param request DescribeLangfuseSecurityIPListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseSecurityIPListResponse
+       */
+      Models::DescribeLangfuseSecurityIPListResponse describeLangfuseSecurityIPListWithOptions(const Models::DescribeLangfuseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Langfuse whitelist.
+       *
+       * @param request DescribeLangfuseSecurityIPListRequest
+       * @return DescribeLangfuseSecurityIPListResponse
+       */
+      Models::DescribeLangfuseSecurityIPListResponse describeLangfuseSecurityIPList(const Models::DescribeLangfuseSecurityIPListRequest &request);
+
+      /**
+       * @summary Queries the details of a Langfuse user.
+       *
+       * @param request DescribeLangfuseUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseUserResponse
+       */
+      Models::DescribeLangfuseUserResponse describeLangfuseUserWithOptions(const Models::DescribeLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a Langfuse user.
+       *
+       * @param request DescribeLangfuseUserRequest
+       * @return DescribeLangfuseUserResponse
+       */
+      Models::DescribeLangfuseUserResponse describeLangfuseUser(const Models::DescribeLangfuseUserRequest &request);
+
+      /**
+       * @summary Queries the list of Langfuse users.
+       *
+       * @param request DescribeLangfuseUsersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLangfuseUsersResponse
+       */
+      Models::DescribeLangfuseUsersResponse describeLangfuseUsersWithOptions(const Models::DescribeLangfuseUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of Langfuse users.
+       *
+       * @param request DescribeLangfuseUsersRequest
+       * @return DescribeLangfuseUsersResponse
+       */
+      Models::DescribeLangfuseUsersResponse describeLangfuseUsers(const Models::DescribeLangfuseUsersRequest &request);
+
+      /**
+       * @summary Describes currently running queries.
        *
        * @param request DescribeProcessListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +727,7 @@ namespace Clickhouse20230522
       Models::DescribeProcessListResponse describeProcessListWithOptions(const Models::DescribeProcessListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Views running queries.
+       * @summary Describes currently running queries.
        *
        * @param request DescribeProcessListRequest
        * @return DescribeProcessListResponse
@@ -446,7 +735,7 @@ namespace Clickhouse20230522
       Models::DescribeProcessListResponse describeProcessList(const Models::DescribeProcessListRequest &request);
 
       /**
-       * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+       * @summary Returns information about the available regions and zones for ApsaraDB for ClickHouse.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
@@ -454,14 +743,14 @@ namespace Clickhouse20230522
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+       * @summary Returns information about the available regions and zones for ApsaraDB for ClickHouse.
        *
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+       * @summary Queries a whitelist.
        *
        * @param request DescribeSecurityIPListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -470,7 +759,7 @@ namespace Clickhouse20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPListWithOptions(const Models::DescribeSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+       * @summary Queries a whitelist.
        *
        * @param request DescribeSecurityIPListRequest
        * @return DescribeSecurityIPListResponse
@@ -478,7 +767,7 @@ namespace Clickhouse20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPList(const Models::DescribeSecurityIPListRequest &request);
 
       /**
-       * @summary Queries the details of slow query logs.
+       * @summary Call DescribeSlowLogRecords to query slow log records.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -487,7 +776,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecordsWithOptions(const Models::DescribeSlowLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of slow query logs.
+       * @summary Call DescribeSlowLogRecords to query slow log records.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @return DescribeSlowLogRecordsResponse
@@ -495,7 +784,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecords(const Models::DescribeSlowLogRecordsRequest &request);
 
       /**
-       * @summary Queries the trend of slow query logs.
+       * @summary Queries the slow log trend.
        *
        * @param request DescribeSlowLogTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -504,7 +793,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogTrendResponse describeSlowLogTrendWithOptions(const Models::DescribeSlowLogTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the trend of slow query logs.
+       * @summary Queries the slow log trend.
        *
        * @param request DescribeSlowLogTrendRequest
        * @return DescribeSlowLogTrendResponse
@@ -512,7 +801,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogTrendResponse describeSlowLogTrend(const Models::DescribeSlowLogTrendRequest &request);
 
       /**
-       * @summary 取消白名单模板和实例关联关系
+       * @summary Disassociate a whitelist template from an instance.
        *
        * @param request DetachWhitelistTemplateToInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -521,7 +810,7 @@ namespace Clickhouse20230522
       Models::DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstanceWithOptions(const Models::DetachWhitelistTemplateToInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消白名单模板和实例关联关系
+       * @summary Disassociate a whitelist template from an instance.
        *
        * @param request DetachWhitelistTemplateToInstanceRequest
        * @return DetachWhitelistTemplateToInstanceResponse
@@ -529,7 +818,7 @@ namespace Clickhouse20230522
       Models::DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstance(const Models::DetachWhitelistTemplateToInstanceRequest &request);
 
       /**
-       * @summary 查询白名单模板详情
+       * @summary Queries the details of a whitelist template.
        *
        * @param request GetWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -538,7 +827,7 @@ namespace Clickhouse20230522
       Models::GetWhitelistTemplateResponse getWhitelistTemplateWithOptions(const Models::GetWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询白名单模板详情
+       * @summary Queries the details of a whitelist template.
        *
        * @param request GetWhitelistTemplateRequest
        * @return GetWhitelistTemplateResponse
@@ -546,7 +835,7 @@ namespace Clickhouse20230522
       Models::GetWhitelistTemplateResponse getWhitelistTemplate(const Models::GetWhitelistTemplateRequest &request);
 
       /**
-       * @summary Terminates an ongoing query.
+       * @summary Terminates a running task.
        *
        * @param request KillProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -555,7 +844,7 @@ namespace Clickhouse20230522
       Models::KillProcessResponse killProcessWithOptions(const Models::KillProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates an ongoing query.
+       * @summary Terminates a running task.
        *
        * @param request KillProcessRequest
        * @return KillProcessResponse
@@ -563,7 +852,7 @@ namespace Clickhouse20230522
       Models::KillProcessResponse killProcess(const Models::KillProcessRequest &request);
 
       /**
-       * @summary 列举ClickHouse时区参数枚举值
+       * @summary Lists the available time zones for ClickHouse.
        *
        * @param request ListClickHouseDBTimezonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -572,7 +861,7 @@ namespace Clickhouse20230522
       Models::ListClickHouseDBTimezonesResponse listClickHouseDBTimezonesWithOptions(const Models::ListClickHouseDBTimezonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举ClickHouse时区参数枚举值
+       * @summary Lists the available time zones for ClickHouse.
        *
        * @param request ListClickHouseDBTimezonesRequest
        * @return ListClickHouseDBTimezonesResponse
@@ -580,7 +869,7 @@ namespace Clickhouse20230522
       Models::ListClickHouseDBTimezonesResponse listClickHouseDBTimezones(const Models::ListClickHouseDBTimezonesRequest &request);
 
       /**
-       * @summary 查询实例关联的白名单模板清单
+       * @summary Lists the IP address whitelist templates linked to an instance.
        *
        * @param request ListInstanceLinkedWhitelistTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -589,7 +878,7 @@ namespace Clickhouse20230522
       Models::ListInstanceLinkedWhitelistTemplatesResponse listInstanceLinkedWhitelistTemplatesWithOptions(const Models::ListInstanceLinkedWhitelistTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例关联的白名单模板清单
+       * @summary Lists the IP address whitelist templates linked to an instance.
        *
        * @param request ListInstanceLinkedWhitelistTemplatesRequest
        * @return ListInstanceLinkedWhitelistTemplatesResponse
@@ -597,7 +886,7 @@ namespace Clickhouse20230522
       Models::ListInstanceLinkedWhitelistTemplatesResponse listInstanceLinkedWhitelistTemplates(const Models::ListInstanceLinkedWhitelistTemplatesRequest &request);
 
       /**
-       * @summary 查询白名单模板清单
+       * @summary Queries the whitelist templates associated with an instance.
        *
        * @param request ListWhitelistTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -606,7 +895,7 @@ namespace Clickhouse20230522
       Models::ListWhitelistTemplatesResponse listWhitelistTemplatesWithOptions(const Models::ListWhitelistTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询白名单模板清单
+       * @summary Queries the whitelist templates associated with an instance.
        *
        * @param request ListWhitelistTemplatesRequest
        * @return ListWhitelistTemplatesResponse
@@ -648,7 +937,9 @@ namespace Clickhouse20230522
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
-       * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+       *
+       * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
        *
        * @param request ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -657,7 +948,9 @@ namespace Clickhouse20230522
       Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+       *
+       * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse
@@ -665,7 +958,7 @@ namespace Clickhouse20230522
       Models::ModifyBackupPolicyResponse modifyBackupPolicy(const Models::ModifyBackupPolicyRequest &request);
 
       /**
-       * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+       * @summary You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
        *
        * @param request ModifyDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -674,7 +967,7 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceAttributeResponse modifyDBInstanceAttributeWithOptions(const Models::ModifyDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+       * @summary You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
        *
        * @param request ModifyDBInstanceAttributeRequest
        * @return ModifyDBInstanceAttributeResponse
@@ -682,16 +975,20 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceAttributeResponse modifyDBInstanceAttribute(const Models::ModifyDBInstanceAttributeRequest &request);
 
       /**
-       * @summary Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+       * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
        *
-       * @param request ModifyDBInstanceClassRequest
+       * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+       *
+       * @param tmpReq ModifyDBInstanceClassRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyDBInstanceClassResponse
        */
-      Models::ModifyDBInstanceClassResponse modifyDBInstanceClassWithOptions(const Models::ModifyDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyDBInstanceClassResponse modifyDBInstanceClassWithOptions(const Models::ModifyDBInstanceClassRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+       * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+       *
+       * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
        *
        * @param request ModifyDBInstanceClassRequest
        * @return ModifyDBInstanceClassResponse
@@ -699,7 +996,7 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceClassResponse modifyDBInstanceClass(const Models::ModifyDBInstanceClassRequest &request);
 
       /**
-       * @summary 修改实例参数配置
+       * @summary Modifies the parameter settings for a DB instance.
        *
        * @param request ModifyDBInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -708,7 +1005,7 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceConfigResponse modifyDBInstanceConfigWithOptions(const Models::ModifyDBInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例参数配置
+       * @summary Modifies the parameter settings for a DB instance.
        *
        * @param request ModifyDBInstanceConfigRequest
        * @return ModifyDBInstanceConfigResponse
@@ -716,7 +1013,7 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceConfigResponse modifyDBInstanceConfig(const Models::ModifyDBInstanceConfigRequest &request);
 
       /**
-       * @summary Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+       * @summary Modifies the connection string of a cluster.
        *
        * @param request ModifyDBInstanceConnectionStringRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -725,12 +1022,46 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceConnectionStringResponse modifyDBInstanceConnectionStringWithOptions(const Models::ModifyDBInstanceConnectionStringRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+       * @summary Modifies the connection string of a cluster.
        *
        * @param request ModifyDBInstanceConnectionStringRequest
        * @return ModifyDBInstanceConnectionStringResponse
        */
       Models::ModifyDBInstanceConnectionStringResponse modifyDBInstanceConnectionString(const Models::ModifyDBInstanceConnectionStringRequest &request);
+
+      /**
+       * @summary Modifies the permissions of a user in a Langfuse organization.
+       *
+       * @param request ModifyLangfuseOrgMembershipRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyLangfuseOrgMembershipResponse
+       */
+      Models::ModifyLangfuseOrgMembershipResponse modifyLangfuseOrgMembershipWithOptions(const Models::ModifyLangfuseOrgMembershipRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the permissions of a user in a Langfuse organization.
+       *
+       * @param request ModifyLangfuseOrgMembershipRequest
+       * @return ModifyLangfuseOrgMembershipResponse
+       */
+      Models::ModifyLangfuseOrgMembershipResponse modifyLangfuseOrgMembership(const Models::ModifyLangfuseOrgMembershipRequest &request);
+
+      /**
+       * @summary Modifies the permissions of a user in a Langfuse project.
+       *
+       * @param request ModifyLangfuseProjectMembershipRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyLangfuseProjectMembershipResponse
+       */
+      Models::ModifyLangfuseProjectMembershipResponse modifyLangfuseProjectMembershipWithOptions(const Models::ModifyLangfuseProjectMembershipRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the permissions of a user in a Langfuse project.
+       *
+       * @param request ModifyLangfuseProjectMembershipRequest
+       * @return ModifyLangfuseProjectMembershipResponse
+       */
+      Models::ModifyLangfuseProjectMembershipResponse modifyLangfuseProjectMembership(const Models::ModifyLangfuseProjectMembershipRequest &request);
 
       /**
        * @summary Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
@@ -765,6 +1096,23 @@ namespace Clickhouse20230522
        * @return ResetAccountPasswordResponse
        */
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
+
+      /**
+       * @summary Resets the password of a Langfuse user.
+       *
+       * @param request ResetLangfuseUserPasswordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetLangfuseUserPasswordResponse
+       */
+      Models::ResetLangfuseUserPasswordResponse resetLangfuseUserPasswordWithOptions(const Models::ResetLangfuseUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resets the password of a Langfuse user.
+       *
+       * @param request ResetLangfuseUserPasswordRequest
+       * @return ResetLangfuseUserPasswordResponse
+       */
+      Models::ResetLangfuseUserPasswordResponse resetLangfuseUserPassword(const Models::ResetLangfuseUserPasswordRequest &request);
 
       /**
        * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
@@ -818,7 +1166,7 @@ namespace Clickhouse20230522
       Models::StopDBInstanceResponse stopDBInstance(const Models::StopDBInstanceRequest &request);
 
       /**
-       * @summary 更新白名单模板
+       * @summary Updates a whitelist template.
        *
        * @param request UpdateWhitelistTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +1175,7 @@ namespace Clickhouse20230522
       Models::UpdateWhitelistTemplateResponse updateWhitelistTemplateWithOptions(const Models::UpdateWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新白名单模板
+       * @summary Updates a whitelist template.
        *
        * @param request UpdateWhitelistTemplateRequest
        * @return UpdateWhitelistTemplateResponse

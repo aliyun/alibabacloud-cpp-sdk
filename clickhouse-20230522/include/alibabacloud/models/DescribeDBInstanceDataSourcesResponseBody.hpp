@@ -139,8 +139,9 @@ namespace Models
         shared_ptr<string> DBName_ {};
         // Indicates whether the column is the primary key of the table. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<string> primaryKey_ {};
         // The table name.
         shared_ptr<string> tableName_ {};

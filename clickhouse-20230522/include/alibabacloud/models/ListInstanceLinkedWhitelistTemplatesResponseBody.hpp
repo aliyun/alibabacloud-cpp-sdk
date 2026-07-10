@@ -98,8 +98,11 @@ namespace Models
 
 
       protected:
+        // The comma-separated IP addresses in the whitelist.
         shared_ptr<string> securityIPList_ {};
+        // The IP address whitelist template ID.
         shared_ptr<string> templateId_ {};
+        // The IP address whitelist template name.
         shared_ptr<string> templateName_ {};
       };
 
@@ -114,6 +117,7 @@ namespace Models
 
 
     protected:
+      // A list of IP address whitelist templates.
       shared_ptr<vector<Data::Templates>> templates_ {};
     };
 
@@ -136,8 +140,9 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<ListInstanceLinkedWhitelistTemplatesResponseBody::Data> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

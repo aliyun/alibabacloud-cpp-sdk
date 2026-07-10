@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The endpoint of the cluster.
+      // The connection string.
       shared_ptr<string> connectionString_ {};
       // The cluster ID.
       shared_ptr<int32_t> DBInstanceID_ {};
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<ModifyDBInstanceConnectionStringResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

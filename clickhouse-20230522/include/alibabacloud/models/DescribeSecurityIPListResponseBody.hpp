@@ -120,11 +120,11 @@ namespace Models
 
 
       protected:
-        // The name of the whitelist.
+        // The name of the whitelist group.
         shared_ptr<string> groupName_ {};
-        // The tag of the whitelist.
+        // The group tag.
         shared_ptr<string> groupTag_ {};
-        // The IP addresses and CIDR blocks in the whitelist.
+        // The IP addresses in the whitelist group.
         shared_ptr<string> securityIPList_ {};
         // The IP address type.
         shared_ptr<string> securityIPType_ {};
@@ -162,7 +162,7 @@ namespace Models
       shared_ptr<int32_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The details about the whitelists.
+      // The whitelist groups.
       shared_ptr<vector<Data::GroupItems>> groupItems_ {};
     };
 

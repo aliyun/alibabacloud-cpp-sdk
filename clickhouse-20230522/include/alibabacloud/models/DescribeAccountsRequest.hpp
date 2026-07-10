@@ -83,9 +83,11 @@ namespace Models
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<string> pageSize_ {};
     // The code of the cloud service.
     shared_ptr<string> product_ {};

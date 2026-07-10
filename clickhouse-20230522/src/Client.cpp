@@ -62,7 +62,19 @@ AlibabaCloud::Clickhouse20230522::Client::Client(Config &config): OpenApiClient(
     {"me-east-1" , "clickhouse.aliyuncs.com"},
     {"rus-west-1-pop" , "clickhouse.aliyuncs.com"},
     {"us-east-1" , "clickhouse.aliyuncs.com"},
-    {"us-west-1" , "clickhouse.aliyuncs.com"}
+    {"us-west-1" , "clickhouse.aliyuncs.com"},
+    {"me-central-1" , "clickhouse.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "clickhouse.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "clickhouse.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "clickhouse.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "clickhouse.aliyuncs.com"},
+    {"cn-huhehaote" , "clickhouse.cn-huhehaote.aliyuncs.com"},
+    {"cn-guangzhou" , "clickhouse.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "clickhouse.cn-chengdu.aliyuncs.com"},
+    {"ap-southeast-6" , "clickhouse.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "clickhouse.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "clickhouse.aliyuncs.com"},
+    {"ap-northeast-1" , "clickhouse.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("clickhouse", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -82,7 +94,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 白名单模板关联实例
+ * @summary Attaches a whitelist template to instances.
  *
  * @param request AttachWhitelistTemplateToInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -121,7 +133,7 @@ AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInsta
 }
 
 /**
- * @summary 白名单模板关联实例
+ * @summary Attaches a whitelist template to instances.
  *
  * @param request AttachWhitelistTemplateToInstanceRequest
  * @return AttachWhitelistTemplateToInstanceResponse
@@ -132,7 +144,7 @@ AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInsta
 }
 
 /**
- * @summary 资源转组
+ * @summary Changes the resource group of a ClickHouse Enterprise instance.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -175,7 +187,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 资源转组
+ * @summary Changes the resource group of a ClickHouse Enterprise instance.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -262,7 +274,7 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
  *
  * @param request CreateBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -309,7 +321,7 @@ CreateBackupPolicyResponse Client::createBackupPolicyWithOptions(const CreateBac
 }
 
 /**
- * @summary Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
  *
  * @param request CreateBackupPolicyRequest
  * @return CreateBackupPolicyResponse
@@ -320,7 +332,7 @@ CreateBackupPolicyResponse Client::createBackupPolicy(const CreateBackupPolicyRe
 }
 
 /**
- * @summary Creates an ApsaraDB for ClickHouse database.
+ * @summary Creates a database.
  *
  * @param request CreateDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -363,7 +375,7 @@ CreateDBResponse Client::createDBWithOptions(const CreateDBRequest &request, con
 }
 
 /**
- * @summary Creates an ApsaraDB for ClickHouse database.
+ * @summary Creates a database.
  *
  * @param request CreateDBRequest
  * @return CreateDBResponse
@@ -374,7 +386,7 @@ CreateDBResponse Client::createDB(const CreateDBRequest &request) {
 }
 
 /**
- * @summary Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
  *
  * @param tmpReq CreateDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -499,7 +511,7 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 }
 
 /**
- * @summary Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
  *
  * @param request CreateDBInstanceRequest
  * @return CreateDBInstanceResponse
@@ -510,7 +522,7 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 }
 
 /**
- * @summary Applies for a public endpoint.
+ * @summary Creates a public endpoint that provides a public address to access a cluster.
  *
  * @param request CreateEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +569,7 @@ CreateEndpointResponse Client::createEndpointWithOptions(const CreateEndpointReq
 }
 
 /**
- * @summary Applies for a public endpoint.
+ * @summary Creates a public endpoint that provides a public address to access a cluster.
  *
  * @param request CreateEndpointRequest
  * @return CreateEndpointResponse
@@ -568,7 +580,239 @@ CreateEndpointResponse Client::createEndpoint(const CreateEndpointRequest &reque
 }
 
 /**
- * @summary 新增白名单模板
+ * @summary Creates a Langfuse organization.
+ *
+ * @param request CreateLangfuseOrgRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLangfuseOrgResponse
+ */
+CreateLangfuseOrgResponse Client::createLangfuseOrgWithOptions(const CreateLangfuseOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwnerEmail()) {
+    query["OwnerEmail"] = request.getOwnerEmail();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLangfuseOrg"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLangfuseOrgResponse>();
+}
+
+/**
+ * @summary Creates a Langfuse organization.
+ *
+ * @param request CreateLangfuseOrgRequest
+ * @return CreateLangfuseOrgResponse
+ */
+CreateLangfuseOrgResponse Client::createLangfuseOrg(const CreateLangfuseOrgRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLangfuseOrgWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds a user to a Langfuse organization.
+ *
+ * @param request CreateLangfuseOrgMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLangfuseOrgMemberResponse
+ */
+CreateLangfuseOrgMemberResponse Client::createLangfuseOrgMemberWithOptions(const CreateLangfuseOrgMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLangfuseOrgMember"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLangfuseOrgMemberResponse>();
+}
+
+/**
+ * @summary Adds a user to a Langfuse organization.
+ *
+ * @param request CreateLangfuseOrgMemberRequest
+ * @return CreateLangfuseOrgMemberResponse
+ */
+CreateLangfuseOrgMemberResponse Client::createLangfuseOrgMember(const CreateLangfuseOrgMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLangfuseOrgMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a Langfuse project.
+ *
+ * @param request CreateLangfuseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLangfuseProjectResponse
+ */
+CreateLangfuseProjectResponse Client::createLangfuseProjectWithOptions(const CreateLangfuseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLangfuseProject"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLangfuseProjectResponse>();
+}
+
+/**
+ * @summary Creates a Langfuse project.
+ *
+ * @param request CreateLangfuseProjectRequest
+ * @return CreateLangfuseProjectResponse
+ */
+CreateLangfuseProjectResponse Client::createLangfuseProject(const CreateLangfuseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLangfuseProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a Langfuse user.
+ *
+ * @param request CreateLangfuseUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLangfuseUserResponse
+ */
+CreateLangfuseUserResponse Client::createLangfuseUserWithOptions(const CreateLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOrgRole()) {
+    query["OrgRole"] = request.getOrgRole();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLangfuseUser"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLangfuseUserResponse>();
+}
+
+/**
+ * @summary Creates a Langfuse user.
+ *
+ * @param request CreateLangfuseUserRequest
+ * @return CreateLangfuseUserResponse
+ */
+CreateLangfuseUserResponse Client::createLangfuseUser(const CreateLangfuseUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLangfuseUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a whitelist template.
  *
  * @param request CreateWhitelistTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -609,7 +853,7 @@ CreateWhitelistTemplateResponse Client::createWhitelistTemplateWithOptions(const
 }
 
 /**
- * @summary 新增白名单模板
+ * @summary Creates a whitelist template.
  *
  * @param request CreateWhitelistTemplateRequest
  * @return CreateWhitelistTemplateResponse
@@ -674,7 +918,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
- * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -709,7 +953,7 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicyWithOptions(const DeleteBac
 }
 
 /**
- * @summary Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteBackupPolicyRequest
  * @return DeleteBackupPolicyResponse
@@ -720,7 +964,7 @@ DeleteBackupPolicyResponse Client::deleteBackupPolicy(const DeleteBackupPolicyRe
 }
 
 /**
- * @summary Deletes an ApsaraDB for ClickHouse database.
+ * @summary Call this operation to delete a database.
  *
  * @param request DeleteDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -759,7 +1003,7 @@ DeleteDBResponse Client::deleteDBWithOptions(const DeleteDBRequest &request, con
 }
 
 /**
- * @summary Deletes an ApsaraDB for ClickHouse database.
+ * @summary Call this operation to delete a database.
  *
  * @param request DeleteDBRequest
  * @return DeleteDBResponse
@@ -770,7 +1014,7 @@ DeleteDBResponse Client::deleteDB(const DeleteDBRequest &request) {
 }
 
 /**
- * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -805,7 +1049,7 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 }
 
 /**
- * @summary Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteDBInstanceRequest
  * @return DeleteDBInstanceResponse
@@ -816,7 +1060,7 @@ DeleteDBInstanceResponse Client::deleteDBInstance(const DeleteDBInstanceRequest 
 }
 
 /**
- * @summary Releases a public endpoint.
+ * @summary Deletes a public endpoint.
  *
  * @param request DeleteEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +1107,7 @@ DeleteEndpointResponse Client::deleteEndpointWithOptions(const DeleteEndpointReq
 }
 
 /**
- * @summary Releases a public endpoint.
+ * @summary Deletes a public endpoint.
  *
  * @param request DeleteEndpointRequest
  * @return DeleteEndpointResponse
@@ -874,7 +1118,261 @@ DeleteEndpointResponse Client::deleteEndpoint(const DeleteEndpointRequest &reque
 }
 
 /**
- * @summary 删除白名单模板
+ * @summary Releases a Langfuse instance.
+ *
+ * @param request DeleteLangfuseInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLangfuseInstanceResponse
+ */
+DeleteLangfuseInstanceResponse Client::deleteLangfuseInstanceWithOptions(const DeleteLangfuseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLangfuseInstance"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLangfuseInstanceResponse>();
+}
+
+/**
+ * @summary Releases a Langfuse instance.
+ *
+ * @param request DeleteLangfuseInstanceRequest
+ * @return DeleteLangfuseInstanceResponse
+ */
+DeleteLangfuseInstanceResponse Client::deleteLangfuseInstance(const DeleteLangfuseInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLangfuseInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a Langfuse organization.
+ *
+ * @param request DeleteLangfuseOrgRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLangfuseOrgResponse
+ */
+DeleteLangfuseOrgResponse Client::deleteLangfuseOrgWithOptions(const DeleteLangfuseOrgRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLangfuseOrg"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLangfuseOrgResponse>();
+}
+
+/**
+ * @summary Deletes a Langfuse organization.
+ *
+ * @param request DeleteLangfuseOrgRequest
+ * @return DeleteLangfuseOrgResponse
+ */
+DeleteLangfuseOrgResponse Client::deleteLangfuseOrg(const DeleteLangfuseOrgRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLangfuseOrgWithOptions(request, runtime);
+}
+
+/**
+ * @summary Removes a user from a Langfuse organization.
+ *
+ * @param request DeleteLangfuseOrgMembershipRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLangfuseOrgMembershipResponse
+ */
+DeleteLangfuseOrgMembershipResponse Client::deleteLangfuseOrgMembershipWithOptions(const DeleteLangfuseOrgMembershipRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLangfuseOrgMembership"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLangfuseOrgMembershipResponse>();
+}
+
+/**
+ * @summary Removes a user from a Langfuse organization.
+ *
+ * @param request DeleteLangfuseOrgMembershipRequest
+ * @return DeleteLangfuseOrgMembershipResponse
+ */
+DeleteLangfuseOrgMembershipResponse Client::deleteLangfuseOrgMembership(const DeleteLangfuseOrgMembershipRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLangfuseOrgMembershipWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a Langfuse project.
+ *
+ * @param request DeleteLangfuseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLangfuseProjectResponse
+ */
+DeleteLangfuseProjectResponse Client::deleteLangfuseProjectWithOptions(const DeleteLangfuseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLangfuseProject"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLangfuseProjectResponse>();
+}
+
+/**
+ * @summary Deletes a Langfuse project.
+ *
+ * @param request DeleteLangfuseProjectRequest
+ * @return DeleteLangfuseProjectResponse
+ */
+DeleteLangfuseProjectResponse Client::deleteLangfuseProject(const DeleteLangfuseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLangfuseProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a Langfuse user.
+ *
+ * @param request DeleteLangfuseUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLangfuseUserResponse
+ */
+DeleteLangfuseUserResponse Client::deleteLangfuseUserWithOptions(const DeleteLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLangfuseUser"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLangfuseUserResponse>();
+}
+
+/**
+ * @summary Deletes a Langfuse user.
+ *
+ * @param request DeleteLangfuseUserRequest
+ * @return DeleteLangfuseUserResponse
+ */
+DeleteLangfuseUserResponse Client::deleteLangfuseUser(const DeleteLangfuseUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLangfuseUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a whitelist template.
  *
  * @param request DeleteWhitelistTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -913,7 +1411,7 @@ DeleteWhitelistTemplateResponse Client::deleteWhitelistTemplateWithOptions(const
 }
 
 /**
- * @summary 删除白名单模板
+ * @summary Deletes a whitelist template.
  *
  * @param request DeleteWhitelistTemplateRequest
  * @return DeleteWhitelistTemplateResponse
@@ -924,7 +1422,7 @@ DeleteWhitelistTemplateResponse Client::deleteWhitelistTemplate(const DeleteWhit
 }
 
 /**
- * @summary Queries the permissions of a database account.
+ * @summary Call the DescribeAccountAuthority operation to query the permissions of an account.
  *
  * @param request DescribeAccountAuthorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -963,7 +1461,7 @@ DescribeAccountAuthorityResponse Client::describeAccountAuthorityWithOptions(con
 }
 
 /**
- * @summary Queries the permissions of a database account.
+ * @summary Call the DescribeAccountAuthority operation to query the permissions of an account.
  *
  * @param request DescribeAccountAuthorityRequest
  * @return DescribeAccountAuthorityResponse
@@ -1032,7 +1530,7 @@ DescribeAccountsResponse Client::describeAccounts(const DescribeAccountsRequest 
 }
 
 /**
- * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Queries the backup policy of a ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1565,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
- * @summary View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Queries the backup policy of a ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
@@ -1078,7 +1576,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Queries the backup sets of a ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1133,7 +1631,7 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Queries the backup sets of a ClickHouse Enterprise Edition cluster.
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -1144,7 +1642,7 @@ DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &re
 }
 
 /**
- * @summary Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1179,7 +1677,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 }
 
 /**
- * @summary Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -1190,7 +1688,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttribute(const De
 }
 
 /**
- * @summary 查询实例参数配置
+ * @summary Queries the parameter configuration of an instance
  *
  * @param request DescribeDBInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1715,7 @@ DescribeDBInstanceConfigResponse Client::describeDBInstanceConfigWithOptions(con
 }
 
 /**
- * @summary 查询实例参数配置
+ * @summary Queries the parameter configuration of an instance
  *
  * @param request DescribeDBInstanceConfigRequest
  * @return DescribeDBInstanceConfigResponse
@@ -1228,7 +1726,7 @@ DescribeDBInstanceConfigResponse Client::describeDBInstanceConfig(const Describe
 }
 
 /**
- * @summary 查询实例参数配置记录
+ * @summary Queries the parameter configuration records of an instance
  *
  * @param request DescribeDBInstanceConfigChangeLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1255,7 +1753,7 @@ DescribeDBInstanceConfigChangeLogResponse Client::describeDBInstanceConfigChange
 }
 
 /**
- * @summary 查询实例参数配置记录
+ * @summary Queries the parameter configuration records of an instance
  *
  * @param request DescribeDBInstanceConfigChangeLogRequest
  * @return DescribeDBInstanceConfigChangeLogResponse
@@ -1320,7 +1818,7 @@ DescribeDBInstanceDataSourcesResponse Client::describeDBInstanceDataSources(cons
 }
 
 /**
- * @summary Queries a list of ApsaraDB for ClickHouse clusters.
+ * @summary Call the DescribeDBInstances API to query a list of DB instances.
  *
  * @param request DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1881,7 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of ApsaraDB for ClickHouse clusters.
+ * @summary Call the DescribeDBInstances API to query a list of DB instances.
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
@@ -1394,7 +1892,7 @@ DescribeDBInstancesResponse Client::describeDBInstances(const DescribeDBInstance
 }
 
 /**
- * @summary Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+ * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
  *
  * @param request DescribeEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1433,7 +1931,7 @@ DescribeEndpointsResponse Client::describeEndpointsWithOptions(const DescribeEnd
 }
 
 /**
- * @summary Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+ * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
  *
  * @param request DescribeEndpointsRequest
  * @return DescribeEndpointsResponse
@@ -1444,7 +1942,435 @@ DescribeEndpointsResponse Client::describeEndpoints(const DescribeEndpointsReque
 }
 
 /**
- * @summary Views running queries.
+ * @summary Queries the access endpoint of a Langfuse instance.
+ *
+ * @param request DescribeLangfuseEndpointsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseEndpointsResponse
+ */
+DescribeLangfuseEndpointsResponse Client::describeLangfuseEndpointsWithOptions(const DescribeLangfuseEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseEndpoints"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseEndpointsResponse>();
+}
+
+/**
+ * @summary Queries the access endpoint of a Langfuse instance.
+ *
+ * @param request DescribeLangfuseEndpointsRequest
+ * @return DescribeLangfuseEndpointsResponse
+ */
+DescribeLangfuseEndpointsResponse Client::describeLangfuseEndpoints(const DescribeLangfuseEndpointsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseEndpointsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the member information of a Langfuse organization.
+ *
+ * @param request DescribeLangfuseOrgMembershipsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseOrgMembershipsResponse
+ */
+DescribeLangfuseOrgMembershipsResponse Client::describeLangfuseOrgMembershipsWithOptions(const DescribeLangfuseOrgMembershipsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseOrgMemberships"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseOrgMembershipsResponse>();
+}
+
+/**
+ * @summary Queries the member information of a Langfuse organization.
+ *
+ * @param request DescribeLangfuseOrgMembershipsRequest
+ * @return DescribeLangfuseOrgMembershipsResponse
+ */
+DescribeLangfuseOrgMembershipsResponse Client::describeLangfuseOrgMemberships(const DescribeLangfuseOrgMembershipsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseOrgMembershipsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Langfuse实例组织列表
+ *
+ * @param request DescribeLangfuseOrgsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseOrgsResponse
+ */
+DescribeLangfuseOrgsResponse Client::describeLangfuseOrgsWithOptions(const DescribeLangfuseOrgsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseOrgs"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseOrgsResponse>();
+}
+
+/**
+ * @summary 查询Langfuse实例组织列表
+ *
+ * @param request DescribeLangfuseOrgsRequest
+ * @return DescribeLangfuseOrgsResponse
+ */
+DescribeLangfuseOrgsResponse Client::describeLangfuseOrgs(const DescribeLangfuseOrgsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseOrgsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries user roles in a Langfuse project.
+ *
+ * @param request DescribeLangfuseProjectMembershipsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseProjectMembershipsResponse
+ */
+DescribeLangfuseProjectMembershipsResponse Client::describeLangfuseProjectMembershipsWithOptions(const DescribeLangfuseProjectMembershipsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseProjectMemberships"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseProjectMembershipsResponse>();
+}
+
+/**
+ * @summary Queries user roles in a Langfuse project.
+ *
+ * @param request DescribeLangfuseProjectMembershipsRequest
+ * @return DescribeLangfuseProjectMembershipsResponse
+ */
+DescribeLangfuseProjectMembershipsResponse Client::describeLangfuseProjectMemberships(const DescribeLangfuseProjectMembershipsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseProjectMembershipsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of Langfuse projects.
+ *
+ * @param request DescribeLangfuseProjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseProjectsResponse
+ */
+DescribeLangfuseProjectsResponse Client::describeLangfuseProjectsWithOptions(const DescribeLangfuseProjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseProjects"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseProjectsResponse>();
+}
+
+/**
+ * @summary Queries the list of Langfuse projects.
+ *
+ * @param request DescribeLangfuseProjectsRequest
+ * @return DescribeLangfuseProjectsResponse
+ */
+DescribeLangfuseProjectsResponse Client::describeLangfuseProjects(const DescribeLangfuseProjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the Langfuse whitelist.
+ *
+ * @param request DescribeLangfuseSecurityIPListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseSecurityIPListResponse
+ */
+DescribeLangfuseSecurityIPListResponse Client::describeLangfuseSecurityIPListWithOptions(const DescribeLangfuseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseSecurityIPList"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseSecurityIPListResponse>();
+}
+
+/**
+ * @summary Queries the Langfuse whitelist.
+ *
+ * @param request DescribeLangfuseSecurityIPListRequest
+ * @return DescribeLangfuseSecurityIPListResponse
+ */
+DescribeLangfuseSecurityIPListResponse Client::describeLangfuseSecurityIPList(const DescribeLangfuseSecurityIPListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseSecurityIPListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a Langfuse user.
+ *
+ * @param request DescribeLangfuseUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseUserResponse
+ */
+DescribeLangfuseUserResponse Client::describeLangfuseUserWithOptions(const DescribeLangfuseUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseUser"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseUserResponse>();
+}
+
+/**
+ * @summary Queries the details of a Langfuse user.
+ *
+ * @param request DescribeLangfuseUserRequest
+ * @return DescribeLangfuseUserResponse
+ */
+DescribeLangfuseUserResponse Client::describeLangfuseUser(const DescribeLangfuseUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of Langfuse users.
+ *
+ * @param request DescribeLangfuseUsersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLangfuseUsersResponse
+ */
+DescribeLangfuseUsersResponse Client::describeLangfuseUsersWithOptions(const DescribeLangfuseUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLangfuseUsers"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLangfuseUsersResponse>();
+}
+
+/**
+ * @summary Queries the list of Langfuse users.
+ *
+ * @param request DescribeLangfuseUsersRequest
+ * @return DescribeLangfuseUsersResponse
+ */
+DescribeLangfuseUsersResponse Client::describeLangfuseUsers(const DescribeLangfuseUsersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLangfuseUsersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Describes currently running queries.
  *
  * @param request DescribeProcessListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1511,7 +2437,7 @@ DescribeProcessListResponse Client::describeProcessListWithOptions(const Describ
 }
 
 /**
- * @summary Views running queries.
+ * @summary Describes currently running queries.
  *
  * @param request DescribeProcessListRequest
  * @return DescribeProcessListResponse
@@ -1522,7 +2448,7 @@ DescribeProcessListResponse Client::describeProcessList(const DescribeProcessLis
 }
 
 /**
- * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+ * @summary Returns information about the available regions and zones for ApsaraDB for ClickHouse.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
@@ -1544,7 +2470,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary 查询云数据库ClickHouse所有地域和可用区的信息
+ * @summary Returns information about the available regions and zones for ApsaraDB for ClickHouse.
  *
  * @return DescribeRegionsResponse
  */
@@ -1554,7 +2480,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries a whitelist.
  *
  * @param request DescribeSecurityIPListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1589,7 +2515,7 @@ DescribeSecurityIPListResponse Client::describeSecurityIPListWithOptions(const D
 }
 
 /**
- * @summary Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+ * @summary Queries a whitelist.
  *
  * @param request DescribeSecurityIPListRequest
  * @return DescribeSecurityIPListResponse
@@ -1600,7 +2526,7 @@ DescribeSecurityIPListResponse Client::describeSecurityIPList(const DescribeSecu
 }
 
 /**
- * @summary Queries the details of slow query logs.
+ * @summary Call DescribeSlowLogRecords to query slow log records.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1659,7 +2585,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const D
 }
 
 /**
- * @summary Queries the details of slow query logs.
+ * @summary Call DescribeSlowLogRecords to query slow log records.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @return DescribeSlowLogRecordsResponse
@@ -1670,7 +2596,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 }
 
 /**
- * @summary Queries the trend of slow query logs.
+ * @summary Queries the slow log trend.
  *
  * @param request DescribeSlowLogTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1725,7 +2651,7 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrendWithOptions(const Descr
 }
 
 /**
- * @summary Queries the trend of slow query logs.
+ * @summary Queries the slow log trend.
  *
  * @param request DescribeSlowLogTrendRequest
  * @return DescribeSlowLogTrendResponse
@@ -1736,7 +2662,7 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrend(const DescribeSlowLogT
 }
 
 /**
- * @summary 取消白名单模板和实例关联关系
+ * @summary Disassociate a whitelist template from an instance.
  *
  * @param request DetachWhitelistTemplateToInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1775,7 +2701,7 @@ DetachWhitelistTemplateToInstanceResponse Client::detachWhitelistTemplateToInsta
 }
 
 /**
- * @summary 取消白名单模板和实例关联关系
+ * @summary Disassociate a whitelist template from an instance.
  *
  * @param request DetachWhitelistTemplateToInstanceRequest
  * @return DetachWhitelistTemplateToInstanceResponse
@@ -1786,7 +2712,7 @@ DetachWhitelistTemplateToInstanceResponse Client::detachWhitelistTemplateToInsta
 }
 
 /**
- * @summary 查询白名单模板详情
+ * @summary Queries the details of a whitelist template.
  *
  * @param request GetWhitelistTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1821,7 +2747,7 @@ GetWhitelistTemplateResponse Client::getWhitelistTemplateWithOptions(const GetWh
 }
 
 /**
- * @summary 查询白名单模板详情
+ * @summary Queries the details of a whitelist template.
  *
  * @param request GetWhitelistTemplateRequest
  * @return GetWhitelistTemplateResponse
@@ -1832,7 +2758,7 @@ GetWhitelistTemplateResponse Client::getWhitelistTemplate(const GetWhitelistTemp
 }
 
 /**
- * @summary Terminates an ongoing query.
+ * @summary Terminates a running task.
  *
  * @param request KillProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1875,7 +2801,7 @@ KillProcessResponse Client::killProcessWithOptions(const KillProcessRequest &req
 }
 
 /**
- * @summary Terminates an ongoing query.
+ * @summary Terminates a running task.
  *
  * @param request KillProcessRequest
  * @return KillProcessResponse
@@ -1886,7 +2812,7 @@ KillProcessResponse Client::killProcess(const KillProcessRequest &request) {
 }
 
 /**
- * @summary 列举ClickHouse时区参数枚举值
+ * @summary Lists the available time zones for ClickHouse.
  *
  * @param request ListClickHouseDBTimezonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1921,7 +2847,7 @@ ListClickHouseDBTimezonesResponse Client::listClickHouseDBTimezonesWithOptions(c
 }
 
 /**
- * @summary 列举ClickHouse时区参数枚举值
+ * @summary Lists the available time zones for ClickHouse.
  *
  * @param request ListClickHouseDBTimezonesRequest
  * @return ListClickHouseDBTimezonesResponse
@@ -1932,7 +2858,7 @@ ListClickHouseDBTimezonesResponse Client::listClickHouseDBTimezones(const ListCl
 }
 
 /**
- * @summary 查询实例关联的白名单模板清单
+ * @summary Lists the IP address whitelist templates linked to an instance.
  *
  * @param request ListInstanceLinkedWhitelistTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1967,7 +2893,7 @@ ListInstanceLinkedWhitelistTemplatesResponse Client::listInstanceLinkedWhitelist
 }
 
 /**
- * @summary 查询实例关联的白名单模板清单
+ * @summary Lists the IP address whitelist templates linked to an instance.
  *
  * @param request ListInstanceLinkedWhitelistTemplatesRequest
  * @return ListInstanceLinkedWhitelistTemplatesResponse
@@ -1978,7 +2904,7 @@ ListInstanceLinkedWhitelistTemplatesResponse Client::listInstanceLinkedWhitelist
 }
 
 /**
- * @summary 查询白名单模板清单
+ * @summary Queries the whitelist templates associated with an instance.
  *
  * @param request ListWhitelistTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2021,7 +2947,7 @@ ListWhitelistTemplatesResponse Client::listWhitelistTemplatesWithOptions(const L
 }
 
 /**
- * @summary 查询白名单模板清单
+ * @summary Queries the whitelist templates associated with an instance.
  *
  * @param request ListWhitelistTemplatesRequest
  * @return ListWhitelistTemplatesResponse
@@ -2146,7 +3072,9 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 }
 
 /**
- * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+ *
+ * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
  *
  * @param request ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2193,7 +3121,9 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+ *
+ * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse
@@ -2204,7 +3134,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
  *
  * @param request ModifyDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2251,7 +3181,7 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+ * @summary You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
  *
  * @param request ModifyDBInstanceAttributeRequest
  * @return ModifyDBInstanceAttributeResponse
@@ -2262,15 +3192,27 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttribute(const Modify
 }
 
 /**
- * @summary Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
  *
- * @param request ModifyDBInstanceClassRequest
+ * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+ *
+ * @param tmpReq ModifyDBInstanceClassRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDBInstanceClassResponse
  */
-ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const ModifyDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const ModifyDBInstanceClassRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyDBInstanceClassShrinkRequest request = ModifyDBInstanceClassShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAutoScaleConfig()) {
+    request.setAutoScaleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAutoScaleConfig(), "AutoScaleConfig", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAutoScaleConfigShrink()) {
+    query["AutoScaleConfig"] = request.getAutoScaleConfigShrink();
+  }
+
   if (!!request.hasComputingGroupId()) {
     query["ComputingGroupId"] = request.getComputingGroupId();
   }
@@ -2329,7 +3271,9 @@ ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+ *
+ * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
  * @param request ModifyDBInstanceClassRequest
  * @return ModifyDBInstanceClassResponse
@@ -2340,7 +3284,7 @@ ModifyDBInstanceClassResponse Client::modifyDBInstanceClass(const ModifyDBInstan
 }
 
 /**
- * @summary 修改实例参数配置
+ * @summary Modifies the parameter settings for a DB instance.
  *
  * @param request ModifyDBInstanceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2379,7 +3323,7 @@ ModifyDBInstanceConfigResponse Client::modifyDBInstanceConfigWithOptions(const M
 }
 
 /**
- * @summary 修改实例参数配置
+ * @summary Modifies the parameter settings for a DB instance.
  *
  * @param request ModifyDBInstanceConfigRequest
  * @return ModifyDBInstanceConfigResponse
@@ -2390,7 +3334,7 @@ ModifyDBInstanceConfigResponse Client::modifyDBInstanceConfig(const ModifyDBInst
 }
 
 /**
- * @summary Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the connection string of a cluster.
  *
  * @param request ModifyDBInstanceConnectionStringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2445,7 +3389,7 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
 }
 
 /**
- * @summary Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the connection string of a cluster.
  *
  * @param request ModifyDBInstanceConnectionStringRequest
  * @return ModifyDBInstanceConnectionStringResponse
@@ -2453,6 +3397,126 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
 ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionString(const ModifyDBInstanceConnectionStringRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyDBInstanceConnectionStringWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the permissions of a user in a Langfuse organization.
+ *
+ * @param request ModifyLangfuseOrgMembershipRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLangfuseOrgMembershipResponse
+ */
+ModifyLangfuseOrgMembershipResponse Client::modifyLangfuseOrgMembershipWithOptions(const ModifyLangfuseOrgMembershipRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLangfuseOrgMembership"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLangfuseOrgMembershipResponse>();
+}
+
+/**
+ * @summary Modifies the permissions of a user in a Langfuse organization.
+ *
+ * @param request ModifyLangfuseOrgMembershipRequest
+ * @return ModifyLangfuseOrgMembershipResponse
+ */
+ModifyLangfuseOrgMembershipResponse Client::modifyLangfuseOrgMembership(const ModifyLangfuseOrgMembershipRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLangfuseOrgMembershipWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the permissions of a user in a Langfuse project.
+ *
+ * @param request ModifyLangfuseProjectMembershipRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLangfuseProjectMembershipResponse
+ */
+ModifyLangfuseProjectMembershipResponse Client::modifyLangfuseProjectMembershipWithOptions(const ModifyLangfuseProjectMembershipRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasOrganizationId()) {
+    query["OrganizationId"] = request.getOrganizationId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLangfuseProjectMembership"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLangfuseProjectMembershipResponse>();
+}
+
+/**
+ * @summary Modifies the permissions of a user in a Langfuse project.
+ *
+ * @param request ModifyLangfuseProjectMembershipRequest
+ * @return ModifyLangfuseProjectMembershipResponse
+ */
+ModifyLangfuseProjectMembershipResponse Client::modifyLangfuseProjectMembership(const ModifyLangfuseProjectMembershipRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLangfuseProjectMembershipWithOptions(request, runtime);
 }
 
 /**
@@ -2569,6 +3633,60 @@ ResetAccountPasswordResponse Client::resetAccountPasswordWithOptions(const Reset
 ResetAccountPasswordResponse Client::resetAccountPassword(const ResetAccountPasswordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetAccountPasswordWithOptions(request, runtime);
+}
+
+/**
+ * @summary Resets the password of a Langfuse user.
+ *
+ * @param request ResetLangfuseUserPasswordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetLangfuseUserPasswordResponse
+ */
+ResetLangfuseUserPasswordResponse Client::resetLangfuseUserPasswordWithOptions(const ResetLangfuseUserPasswordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasNewPassword()) {
+    query["NewPassword"] = request.getNewPassword();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetLangfuseUserPassword"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetLangfuseUserPasswordResponse>();
+}
+
+/**
+ * @summary Resets the password of a Langfuse user.
+ *
+ * @param request ResetLangfuseUserPasswordRequest
+ * @return ResetLangfuseUserPasswordResponse
+ */
+ResetLangfuseUserPasswordResponse Client::resetLangfuseUserPassword(const ResetLangfuseUserPasswordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resetLangfuseUserPasswordWithOptions(request, runtime);
 }
 
 /**
@@ -2710,7 +3828,7 @@ StopDBInstanceResponse Client::stopDBInstance(const StopDBInstanceRequest &reque
 }
 
 /**
- * @summary 更新白名单模板
+ * @summary Updates a whitelist template.
  *
  * @param request UpdateWhitelistTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2753,7 +3871,7 @@ UpdateWhitelistTemplateResponse Client::updateWhitelistTemplateWithOptions(const
 }
 
 /**
- * @summary 更新白名单模板
+ * @summary Updates a whitelist template.
  *
  * @param request UpdateWhitelistTemplateRequest
  * @return UpdateWhitelistTemplateResponse

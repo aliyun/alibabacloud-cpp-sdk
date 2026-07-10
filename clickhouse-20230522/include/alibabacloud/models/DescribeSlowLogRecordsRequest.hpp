@@ -103,26 +103,29 @@ namespace Models
 
 
   protected:
+    // The computing group ID.
     shared_ptr<string> computingGroupId_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+    // The end time of the query. The time must be in UTC and in `yyyy-MM-dd HH:mm:ss` format.
     shared_ptr<string> endTime_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   30 (default)
-    // *   50
-    // *   100
+    // - 30 (default)
+    // 
+    // - 50
+    // 
+    // - 100
     shared_ptr<int32_t> pageSize_ {};
-    // The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+    // The minimum duration, in milliseconds, for a slow SQL query to be returned. The minimum value is **1000**.
     shared_ptr<string> queryDurationMs_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+    // The start time of the query. The time must be in UTC and in `yyyy-MM-dd HH:mm:ss` format.
     shared_ptr<string> startTime_ {};
   };
 
