@@ -113,11 +113,13 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const PaymentInfos& obj) { 
           DARABONBA_PTR_TO_JSON(amount, amount_);
+          DARABONBA_PTR_TO_JSON(cnaps_code, cnapsCode_);
           DARABONBA_PTR_TO_JSON(payee_account_number, payeeAccountNumber_);
           DARABONBA_PTR_TO_JSON(payee_user_id, payeeUserId_);
         };
         friend void from_json(const Darabonba::Json& j, PaymentInfos& obj) { 
           DARABONBA_PTR_FROM_JSON(amount, amount_);
+          DARABONBA_PTR_FROM_JSON(cnaps_code, cnapsCode_);
           DARABONBA_PTR_FROM_JSON(payee_account_number, payeeAccountNumber_);
           DARABONBA_PTR_FROM_JSON(payee_user_id, payeeUserId_);
         };
@@ -133,12 +135,19 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->amount_ == nullptr
-        && this->payeeAccountNumber_ == nullptr && this->payeeUserId_ == nullptr; };
+        && this->cnapsCode_ == nullptr && this->payeeAccountNumber_ == nullptr && this->payeeUserId_ == nullptr; };
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
         inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
         inline PaymentInfos& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+        // cnapsCode Field Functions 
+        bool hasCnapsCode() const { return this->cnapsCode_ != nullptr;};
+        void deleteCnapsCode() { this->cnapsCode_ = nullptr;};
+        inline string getCnapsCode() const { DARABONBA_PTR_GET_DEFAULT(cnapsCode_, "") };
+        inline PaymentInfos& setCnapsCode(string cnapsCode) { DARABONBA_PTR_SET_VALUE(cnapsCode_, cnapsCode) };
 
 
         // payeeAccountNumber Field Functions 
@@ -157,6 +166,7 @@ namespace Models
 
       protected:
         shared_ptr<string> amount_ {};
+        shared_ptr<string> cnapsCode_ {};
         shared_ptr<string> payeeAccountNumber_ {};
         shared_ptr<string> payeeUserId_ {};
       };
@@ -850,10 +860,8 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<QueryReimbursementOrderResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

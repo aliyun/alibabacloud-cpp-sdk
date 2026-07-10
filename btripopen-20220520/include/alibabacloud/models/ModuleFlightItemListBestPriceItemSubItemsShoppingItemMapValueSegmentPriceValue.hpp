@@ -318,7 +318,6 @@ namespace Models
     shared_ptr<int32_t> firstStandardPrice_ {};
     shared_ptr<int32_t> businessStandardPrice_ {};
     shared_ptr<int32_t> commonStandardPrice_ {};
-    // fdPrice
     shared_ptr<int32_t> interTicketPrice_ {};
     shared_ptr<int32_t> subtractedPrice_ {};
     shared_ptr<int32_t> originCommonPrice_ {};

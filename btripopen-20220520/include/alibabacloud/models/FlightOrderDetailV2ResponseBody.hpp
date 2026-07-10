@@ -345,7 +345,6 @@ namespace Models
           shared_ptr<string> channel_ {};
           shared_ptr<string> journeyTitle_ {};
           shared_ptr<string> openTicketStatus_ {};
-          // pcc/office
           shared_ptr<string> pcc_ {};
           shared_ptr<vector<Tickets::SegmentOpenTicketList>> segmentOpenTicketList_ {};
           shared_ptr<string> ticketAuthMemo_ {};
@@ -1583,12 +1582,9 @@ namespace Models
             shared_ptr<string> arrCityName_ {};
             shared_ptr<string> arrTime_ {};
             shared_ptr<string> arriveTerminal_ {};
-            // cabin
             shared_ptr<string> cabin_ {};
             shared_ptr<string> cabinAndDiscount_ {};
-            // cabin_class
             shared_ptr<string> cabinClass_ {};
-            // cabin_class_name
             shared_ptr<string> cabinClassName_ {};
             shared_ptr<bool> codeShare_ {};
             shared_ptr<string> deadlineText_ {};
@@ -1617,7 +1613,6 @@ namespace Models
             shared_ptr<string> planeType_ {};
             shared_ptr<int64_t> raisePrice_ {};
             shared_ptr<string> segmentId_ {};
-            // segmentIndex
             shared_ptr<int32_t> segmentIndex_ {};
             shared_ptr<SegmentList::SegmentPosition> segmentPosition_ {};
             shared_ptr<string> stopAirport_ {};
@@ -1766,7 +1761,6 @@ namespace Models
           shared_ptr<string> depCityName_ {};
           shared_ptr<string> depTime_ {};
           shared_ptr<string> flightStatus_ {};
-          // iata_no
           shared_ptr<string> iataNo_ {};
           shared_ptr<bool> isReshopJourney_ {};
           shared_ptr<bool> isTransfer_ {};
@@ -2069,9 +2063,6 @@ namespace Models
       shared_ptr<int64_t> orderPrice_ {};
       shared_ptr<string> outOrderId_ {};
       shared_ptr<vector<Module::PassengerList>> passengerList_ {};
-      // key :passengerId
-      // 
-      // value :segmentId
       shared_ptr<map<string, string>> passengerSegmentMap_ {};
       shared_ptr<string> payTime_ {};
       shared_ptr<int64_t> saleprice_ {};
@@ -2129,12 +2120,9 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // module
     shared_ptr<FlightOrderDetailV2ResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

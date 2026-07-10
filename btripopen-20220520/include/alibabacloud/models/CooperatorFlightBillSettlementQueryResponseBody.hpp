@@ -1555,7 +1555,6 @@ namespace Models
     shared_ptr<CooperatorFlightBillSettlementQueryResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // trace_id
     shared_ptr<string> traceId_ {};
   };
 

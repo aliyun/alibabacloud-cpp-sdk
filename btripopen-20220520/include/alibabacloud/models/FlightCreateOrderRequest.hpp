@@ -205,9 +205,7 @@ namespace Models
       shared_ptr<string> certValidDate_ {};
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // 国籍
       shared_ptr<string> nationality_ {};
-      // 国籍二字码
       shared_ptr<string> nationalityCode_ {};
       // This parameter is required.
       shared_ptr<string> outUserId_ {};

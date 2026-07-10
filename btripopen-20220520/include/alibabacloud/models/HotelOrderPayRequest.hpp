@@ -94,8 +94,6 @@ namespace Models
 
 
   protected:
-    // 供应商订单号（取自创单返回的订单号）
-    // 
     // This parameter is required.
     shared_ptr<int64_t> btripOrderId_ {};
     // This parameter is required.

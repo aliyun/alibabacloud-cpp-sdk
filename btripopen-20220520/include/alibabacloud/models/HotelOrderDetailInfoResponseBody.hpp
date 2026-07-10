@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(early_departure, earlyDeparture_);
         DARABONBA_PTR_TO_JSON(guest_count, guestCount_);
         DARABONBA_PTR_TO_JSON(hotel_detail_info, hotelDetailInfo_);
+        DARABONBA_PTR_TO_JSON(hotel_on_site_price_detail, hotelOnSitePriceDetail_);
         DARABONBA_PTR_TO_JSON(hotel_sale_order_room_infos, hotelSaleOrderRoomInfos_);
         DARABONBA_PTR_TO_JSON(invoice_info, invoiceInfo_);
         DARABONBA_PTR_TO_JSON(item_id, itemId_);
@@ -100,6 +101,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(early_departure, earlyDeparture_);
         DARABONBA_PTR_FROM_JSON(guest_count, guestCount_);
         DARABONBA_PTR_FROM_JSON(hotel_detail_info, hotelDetailInfo_);
+        DARABONBA_PTR_FROM_JSON(hotel_on_site_price_detail, hotelOnSitePriceDetail_);
         DARABONBA_PTR_FROM_JSON(hotel_sale_order_room_infos, hotelSaleOrderRoomInfos_);
         DARABONBA_PTR_FROM_JSON(invoice_info, invoiceInfo_);
         DARABONBA_PTR_FROM_JSON(item_id, itemId_);
@@ -896,6 +898,101 @@ namespace Models
         shared_ptr<string> travelerName_ {};
       };
 
+      class HotelOnSitePriceDetail : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const HotelOnSitePriceDetail& obj) { 
+          DARABONBA_PTR_TO_JSON(total_on_site_price, totalOnSitePrice_);
+        };
+        friend void from_json(const Darabonba::Json& j, HotelOnSitePriceDetail& obj) { 
+          DARABONBA_PTR_FROM_JSON(total_on_site_price, totalOnSitePrice_);
+        };
+        HotelOnSitePriceDetail() = default ;
+        HotelOnSitePriceDetail(const HotelOnSitePriceDetail &) = default ;
+        HotelOnSitePriceDetail(HotelOnSitePriceDetail &&) = default ;
+        HotelOnSitePriceDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~HotelOnSitePriceDetail() = default ;
+        HotelOnSitePriceDetail& operator=(const HotelOnSitePriceDetail &) = default ;
+        HotelOnSitePriceDetail& operator=(HotelOnSitePriceDetail &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class TotalOnSitePrice : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TotalOnSitePrice& obj) { 
+            DARABONBA_PTR_TO_JSON(currency, currency_);
+            DARABONBA_PTR_TO_JSON(foreign_currency, foreignCurrency_);
+            DARABONBA_PTR_TO_JSON(foreign_price, foreignPrice_);
+            DARABONBA_PTR_TO_JSON(price, price_);
+          };
+          friend void from_json(const Darabonba::Json& j, TotalOnSitePrice& obj) { 
+            DARABONBA_PTR_FROM_JSON(currency, currency_);
+            DARABONBA_PTR_FROM_JSON(foreign_currency, foreignCurrency_);
+            DARABONBA_PTR_FROM_JSON(foreign_price, foreignPrice_);
+            DARABONBA_PTR_FROM_JSON(price, price_);
+          };
+          TotalOnSitePrice() = default ;
+          TotalOnSitePrice(const TotalOnSitePrice &) = default ;
+          TotalOnSitePrice(TotalOnSitePrice &&) = default ;
+          TotalOnSitePrice(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TotalOnSitePrice() = default ;
+          TotalOnSitePrice& operator=(const TotalOnSitePrice &) = default ;
+          TotalOnSitePrice& operator=(TotalOnSitePrice &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->currency_ == nullptr
+        && this->foreignCurrency_ == nullptr && this->foreignPrice_ == nullptr && this->price_ == nullptr; };
+          // currency Field Functions 
+          bool hasCurrency() const { return this->currency_ != nullptr;};
+          void deleteCurrency() { this->currency_ = nullptr;};
+          inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+          inline TotalOnSitePrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+
+
+          // foreignCurrency Field Functions 
+          bool hasForeignCurrency() const { return this->foreignCurrency_ != nullptr;};
+          void deleteForeignCurrency() { this->foreignCurrency_ = nullptr;};
+          inline string getForeignCurrency() const { DARABONBA_PTR_GET_DEFAULT(foreignCurrency_, "") };
+          inline TotalOnSitePrice& setForeignCurrency(string foreignCurrency) { DARABONBA_PTR_SET_VALUE(foreignCurrency_, foreignCurrency) };
+
+
+          // foreignPrice Field Functions 
+          bool hasForeignPrice() const { return this->foreignPrice_ != nullptr;};
+          void deleteForeignPrice() { this->foreignPrice_ = nullptr;};
+          inline int64_t getForeignPrice() const { DARABONBA_PTR_GET_DEFAULT(foreignPrice_, 0L) };
+          inline TotalOnSitePrice& setForeignPrice(int64_t foreignPrice) { DARABONBA_PTR_SET_VALUE(foreignPrice_, foreignPrice) };
+
+
+          // price Field Functions 
+          bool hasPrice() const { return this->price_ != nullptr;};
+          void deletePrice() { this->price_ = nullptr;};
+          inline int64_t getPrice() const { DARABONBA_PTR_GET_DEFAULT(price_, 0L) };
+          inline TotalOnSitePrice& setPrice(int64_t price) { DARABONBA_PTR_SET_VALUE(price_, price) };
+
+
+        protected:
+          shared_ptr<string> currency_ {};
+          shared_ptr<string> foreignCurrency_ {};
+          shared_ptr<int64_t> foreignPrice_ {};
+          shared_ptr<int64_t> price_ {};
+        };
+
+        virtual bool empty() const override { return this->totalOnSitePrice_ == nullptr; };
+        // totalOnSitePrice Field Functions 
+        bool hasTotalOnSitePrice() const { return this->totalOnSitePrice_ != nullptr;};
+        void deleteTotalOnSitePrice() { this->totalOnSitePrice_ = nullptr;};
+        inline const HotelOnSitePriceDetail::TotalOnSitePrice & getTotalOnSitePrice() const { DARABONBA_PTR_GET_CONST(totalOnSitePrice_, HotelOnSitePriceDetail::TotalOnSitePrice) };
+        inline HotelOnSitePriceDetail::TotalOnSitePrice getTotalOnSitePrice() { DARABONBA_PTR_GET(totalOnSitePrice_, HotelOnSitePriceDetail::TotalOnSitePrice) };
+        inline HotelOnSitePriceDetail& setTotalOnSitePrice(const HotelOnSitePriceDetail::TotalOnSitePrice & totalOnSitePrice) { DARABONBA_PTR_SET_VALUE(totalOnSitePrice_, totalOnSitePrice) };
+        inline HotelOnSitePriceDetail& setTotalOnSitePrice(HotelOnSitePriceDetail::TotalOnSitePrice && totalOnSitePrice) { DARABONBA_PTR_SET_RVALUE(totalOnSitePrice_, totalOnSitePrice) };
+
+
+      protected:
+        shared_ptr<HotelOnSitePriceDetail::TotalOnSitePrice> totalOnSitePrice_ {};
+      };
+
       class HotelDetailInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const HotelDetailInfo& obj) { 
@@ -1100,11 +1197,11 @@ namespace Models
         && this->actualCheckOutTime_ == nullptr && this->btripHotelCancelPolicyDTO_ == nullptr && this->btripOrderId_ == nullptr && this->cancelFine_ == nullptr && this->cancelInfo_ == nullptr
         && this->checkIn_ == nullptr && this->checkOut_ == nullptr && this->confirmOrderTime_ == nullptr && this->contractName_ == nullptr && this->contractTel_ == nullptr
         && this->createOrderTime_ == nullptr && this->earlyArrivalTime_ == nullptr && this->earlyDeparture_ == nullptr && this->guestCount_ == nullptr && this->hotelDetailInfo_ == nullptr
-        && this->hotelSaleOrderRoomInfos_ == nullptr && this->invoiceInfo_ == nullptr && this->itemId_ == nullptr && this->lastArrivalTime_ == nullptr && this->occupantInfoList_ == nullptr
-        && this->orderStatus_ == nullptr && this->orderStatusDesc_ == nullptr && this->outConfirmCode_ == nullptr && this->payTime_ == nullptr && this->productType_ == nullptr
-        && this->purchaseOrderId_ == nullptr && this->refundPrice_ == nullptr && this->refundReason_ == nullptr && this->refundServiceFee_ == nullptr && this->roomNightPriceInfoList_ == nullptr
-        && this->roomNumber_ == nullptr && this->roomTypeName_ == nullptr && this->sellerId_ == nullptr && this->sellerName_ == nullptr && this->serviceFee_ == nullptr
-        && this->settleType_ == nullptr && this->supplierOrderId_ == nullptr && this->totalPrice_ == nullptr; };
+        && this->hotelOnSitePriceDetail_ == nullptr && this->hotelSaleOrderRoomInfos_ == nullptr && this->invoiceInfo_ == nullptr && this->itemId_ == nullptr && this->lastArrivalTime_ == nullptr
+        && this->occupantInfoList_ == nullptr && this->orderStatus_ == nullptr && this->orderStatusDesc_ == nullptr && this->outConfirmCode_ == nullptr && this->payTime_ == nullptr
+        && this->productType_ == nullptr && this->purchaseOrderId_ == nullptr && this->refundPrice_ == nullptr && this->refundReason_ == nullptr && this->refundServiceFee_ == nullptr
+        && this->roomNightPriceInfoList_ == nullptr && this->roomNumber_ == nullptr && this->roomTypeName_ == nullptr && this->sellerId_ == nullptr && this->sellerName_ == nullptr
+        && this->serviceFee_ == nullptr && this->settleType_ == nullptr && this->supplierOrderId_ == nullptr && this->totalPrice_ == nullptr; };
       // actualCheckInTime Field Functions 
       bool hasActualCheckInTime() const { return this->actualCheckInTime_ != nullptr;};
       void deleteActualCheckInTime() { this->actualCheckInTime_ = nullptr;};
@@ -1221,6 +1318,15 @@ namespace Models
       inline Module::HotelDetailInfo getHotelDetailInfo() { DARABONBA_PTR_GET(hotelDetailInfo_, Module::HotelDetailInfo) };
       inline Module& setHotelDetailInfo(const Module::HotelDetailInfo & hotelDetailInfo) { DARABONBA_PTR_SET_VALUE(hotelDetailInfo_, hotelDetailInfo) };
       inline Module& setHotelDetailInfo(Module::HotelDetailInfo && hotelDetailInfo) { DARABONBA_PTR_SET_RVALUE(hotelDetailInfo_, hotelDetailInfo) };
+
+
+      // hotelOnSitePriceDetail Field Functions 
+      bool hasHotelOnSitePriceDetail() const { return this->hotelOnSitePriceDetail_ != nullptr;};
+      void deleteHotelOnSitePriceDetail() { this->hotelOnSitePriceDetail_ = nullptr;};
+      inline const Module::HotelOnSitePriceDetail & getHotelOnSitePriceDetail() const { DARABONBA_PTR_GET_CONST(hotelOnSitePriceDetail_, Module::HotelOnSitePriceDetail) };
+      inline Module::HotelOnSitePriceDetail getHotelOnSitePriceDetail() { DARABONBA_PTR_GET(hotelOnSitePriceDetail_, Module::HotelOnSitePriceDetail) };
+      inline Module& setHotelOnSitePriceDetail(const Module::HotelOnSitePriceDetail & hotelOnSitePriceDetail) { DARABONBA_PTR_SET_VALUE(hotelOnSitePriceDetail_, hotelOnSitePriceDetail) };
+      inline Module& setHotelOnSitePriceDetail(Module::HotelOnSitePriceDetail && hotelOnSitePriceDetail) { DARABONBA_PTR_SET_RVALUE(hotelOnSitePriceDetail_, hotelOnSitePriceDetail) };
 
 
       // hotelSaleOrderRoomInfos Field Functions 
@@ -1409,6 +1515,7 @@ namespace Models
       shared_ptr<bool> earlyDeparture_ {};
       shared_ptr<int32_t> guestCount_ {};
       shared_ptr<Module::HotelDetailInfo> hotelDetailInfo_ {};
+      shared_ptr<Module::HotelOnSitePriceDetail> hotelOnSitePriceDetail_ {};
       shared_ptr<vector<Module::HotelSaleOrderRoomInfos>> hotelSaleOrderRoomInfos_ {};
       shared_ptr<Module::InvoiceInfo> invoiceInfo_ {};
       shared_ptr<string> itemId_ {};

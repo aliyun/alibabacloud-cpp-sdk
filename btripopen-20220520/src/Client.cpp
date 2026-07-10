@@ -19,7 +19,7 @@ namespace BtripOpen20220520
 {
 
 AlibabaCloud::BtripOpen20220520::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("btripopen", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -448,6 +448,74 @@ AddInvoiceEntityResponse Client::addInvoiceEntity(const AddInvoiceEntityRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   AddInvoiceEntityHeaders headers = AddInvoiceEntityHeaders();
   return addInvoiceEntityWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 新增项目负责人
+ *
+ * @param tmpReq AddProjectManagerRequest
+ * @param headers AddProjectManagerHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddProjectManagerResponse
+ */
+AddProjectManagerResponse Client::addProjectManagerWithOptions(const AddProjectManagerRequest &tmpReq, const AddProjectManagerHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddProjectManagerShrinkRequest request = AddProjectManagerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOrgEntities()) {
+    request.setOrgEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrgEntities(), "org_entities", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOrgEntitiesShrink()) {
+    body["org_entities"] = request.getOrgEntitiesShrink();
+  }
+
+  if (!!request.hasOutProjectId()) {
+    body["out_project_id"] = request.getOutProjectId();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["project_id"] = request.getProjectId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddProjectManager"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cost/v1/project/manager/add")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddProjectManagerResponse>();
+}
+
+/**
+ * @summary 新增项目负责人
+ *
+ * @param request AddProjectManagerRequest
+ * @return AddProjectManagerResponse
+ */
+AddProjectManagerResponse Client::addProjectManager(const AddProjectManagerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  AddProjectManagerHeaders headers = AddProjectManagerHeaders();
+  return addProjectManagerWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1678,6 +1746,148 @@ BaseCityInfoSearchResponse Client::baseCityInfoSearch(const BaseCityInfoSearchRe
 }
 
 /**
+ * @summary 批量/单个查询部门
+ *
+ * @param request BatchQueryDepartmentRequest
+ * @param headers BatchQueryDepartmentHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchQueryDepartmentResponse
+ */
+BatchQueryDepartmentResponse Client::batchQueryDepartmentWithOptions(const BatchQueryDepartmentRequest &request, const BatchQueryDepartmentHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModifiedTimeGreaterOrEqualThan()) {
+    body["modified_time_greater_or_equal_than"] = request.getModifiedTimeGreaterOrEqualThan();
+  }
+
+  if (!!request.hasOutDeptId()) {
+    body["out_dept_id"] = request.getOutDeptId();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["page_size"] = request.getPageSize();
+  }
+
+  if (!!request.hasPageToken()) {
+    body["page_token"] = request.getPageToken();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchQueryDepartment"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/department/v2/batch_query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchQueryDepartmentResponse>();
+}
+
+/**
+ * @summary 批量/单个查询部门
+ *
+ * @param request BatchQueryDepartmentRequest
+ * @return BatchQueryDepartmentResponse
+ */
+BatchQueryDepartmentResponse Client::batchQueryDepartment(const BatchQueryDepartmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  BatchQueryDepartmentHeaders headers = BatchQueryDepartmentHeaders();
+  return batchQueryDepartmentWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Submits a batch.
+ *
+ * @param tmpReq BatchSubmitPreBillRequest
+ * @param headers BatchSubmitPreBillHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchSubmitPreBillResponse
+ */
+BatchSubmitPreBillResponse Client::batchSubmitPreBillWithOptions(const BatchSubmitPreBillRequest &tmpReq, const BatchSubmitPreBillHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchSubmitPreBillShrinkRequest request = BatchSubmitPreBillShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasValues()) {
+    request.setValuesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValues(), "values", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppIp()) {
+    query["app_ip"] = request.getAppIp();
+  }
+
+  if (!!request.hasBillBatch()) {
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasCustomerDecision()) {
+    query["customer_decision"] = request.getCustomerDecision();
+  }
+
+  if (!!request.hasDimension()) {
+    query["dimension"] = request.getDimension();
+  }
+
+  if (!!request.hasValuesShrink()) {
+    query["values"] = request.getValuesShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripSoCorpToken()) {
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchSubmitPreBill"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prebill/v1/batchSubmit")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchSubmitPreBillResponse>();
+}
+
+/**
+ * @summary Submits a batch.
+ *
+ * @param request BatchSubmitPreBillRequest
+ * @return BatchSubmitPreBillResponse
+ */
+BatchSubmitPreBillResponse Client::batchSubmitPreBill(const BatchSubmitPreBillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  BatchSubmitPreBillHeaders headers = BatchSubmitPreBillHeaders();
+  return batchSubmitPreBillWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 商旅账单内容修改
  *
  * @param request BtripBillInfoAdjustRequest
@@ -1752,7 +1962,11 @@ BtripBillInfoAdjustResponse Client::btripBillInfoAdjust(const BtripBillInfoAdjus
 }
 
 /**
- * @summary 同步市内用车审批单
+ * @summary Synchronizes an intra-city car service approval form.
+ *
+ * @description Synchronizes an intra-city car service approval form for a specified enterprise.
+ * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+ * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param tmpReq CarApplyAddRequest
  * @param headers CarApplyAddHeaders
@@ -1763,6 +1977,10 @@ CarApplyAddResponse Client::carApplyAddWithOptions(const CarApplyAddRequest &tmp
   tmpReq.validate();
   CarApplyAddShrinkRequest request = CarApplyAddShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasItineraryList()) {
+    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItineraryList(), "itinerary_list", "json"));
+  }
+
   if (!!tmpReq.hasTravelerStandard()) {
     request.setTravelerStandardShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTravelerStandard(), "traveler_standard", "json"));
   }
@@ -1786,6 +2004,10 @@ CarApplyAddResponse Client::carApplyAddWithOptions(const CarApplyAddRequest &tmp
 
   if (!!request.hasFinishedDate()) {
     body["finished_date"] = request.getFinishedDate();
+  }
+
+  if (!!request.hasItineraryListShrink()) {
+    body["itinerary_list"] = request.getItineraryListShrink();
   }
 
   if (!!request.hasProjectCode()) {
@@ -1864,7 +2086,11 @@ CarApplyAddResponse Client::carApplyAddWithOptions(const CarApplyAddRequest &tmp
 }
 
 /**
- * @summary 同步市内用车审批单
+ * @summary Synchronizes an intra-city car service approval form.
+ *
+ * @description Synchronizes an intra-city car service approval form for a specified enterprise.
+ * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+ * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param request CarApplyAddRequest
  * @return CarApplyAddResponse
@@ -2030,6 +2256,10 @@ CarApplyQueryResponse Client::carApplyQuery(const CarApplyQueryRequest &request)
 CarBillSettlementQueryResponse Client::carBillSettlementQueryWithOptions(const CarBillSettlementQueryRequest &request, const CarBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -2317,6 +2547,10 @@ CarSceneQueryResponse Client::carSceneQuery() {
 ChannelCorpCreateResponse Client::channelCorpCreateWithOptions(const ChannelCorpCreateRequest &request, const ChannelCorpCreateHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAdministratorEmail()) {
+    body["administrator_email"] = request.getAdministratorEmail();
+  }
+
   if (!!request.hasAdministratorName()) {
     body["administrator_name"] = request.getAdministratorName();
   }
@@ -2325,12 +2559,28 @@ ChannelCorpCreateResponse Client::channelCorpCreateWithOptions(const ChannelCorp
     body["administrator_phone"] = request.getAdministratorPhone();
   }
 
+  if (!!request.hasBaseCurrency()) {
+    body["base_currency"] = request.getBaseCurrency();
+  }
+
+  if (!!request.hasBtripRegion()) {
+    body["btrip_region"] = request.getBtripRegion();
+  }
+
   if (!!request.hasCity()) {
     body["city"] = request.getCity();
   }
 
   if (!!request.hasCorpName()) {
     body["corp_name"] = request.getCorpName();
+  }
+
+  if (!!request.hasCorpNameEn()) {
+    body["corp_name_en"] = request.getCorpNameEn();
+  }
+
+  if (!!request.hasExtendField()) {
+    body["extend_field"] = request.getExtendField();
   }
 
   if (!!request.hasProvince()) {
@@ -2583,6 +2833,60 @@ CommonApplySyncResponse Client::commonApplySync(const CommonApplySyncRequest &re
 }
 
 /**
+ * @summary Confirms a pre-billing bill.
+ *
+ * @param request ConfirmPreBillRequest
+ * @param headers ConfirmPreBillHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfirmPreBillResponse
+ */
+ConfirmPreBillResponse Client::confirmPreBillWithOptions(const ConfirmPreBillRequest &request, const ConfirmPreBillHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBillBatch()) {
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripSoCorpToken()) {
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfirmPreBill"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prebill/v1/confirm")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfirmPreBillResponse>();
+}
+
+/**
+ * @summary Confirms a pre-billing bill.
+ *
+ * @param request ConfirmPreBillRequest
+ * @return ConfirmPreBillResponse
+ */
+ConfirmPreBillResponse Client::confirmPreBill(const ConfirmPreBillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ConfirmPreBillHeaders headers = ConfirmPreBillHeaders();
+  return confirmPreBillWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询服务商机票记账数据
  *
  * @param request CooperatorFlightBillSettlementQueryRequest
@@ -2593,6 +2897,10 @@ CommonApplySyncResponse Client::commonApplySync(const CommonApplySyncRequest &re
 CooperatorFlightBillSettlementQueryResponse Client::cooperatorFlightBillSettlementQueryWithOptions(const CooperatorFlightBillSettlementQueryRequest &request, const CooperatorFlightBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -2687,6 +2995,10 @@ CooperatorFlightBillSettlementQueryResponse Client::cooperatorFlightBillSettleme
 CooperatorHotelBillSettlementQueryResponse Client::cooperatorHotelBillSettlementQueryWithOptions(const CooperatorHotelBillSettlementQueryRequest &request, const CooperatorHotelBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -4449,6 +4761,10 @@ ExternalUserUpdateResponse Client::externalUserUpdate(const string &externalUser
 FlightBillSettlementQueryResponse Client::flightBillSettlementQueryWithOptions(const FlightBillSettlementQueryRequest &request, const FlightBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -5863,7 +6179,7 @@ FlightOrderDetailV2Response Client::flightOrderDetailV2(const FlightOrderDetailV
 }
 
 /**
- * @summary 查询机票订单列表
+ * @summary 国内查询机票订单列表
  *
  * @param request FlightOrderListQueryRequest
  * @param headers FlightOrderListQueryHeaders
@@ -5945,7 +6261,7 @@ FlightOrderListQueryResponse Client::flightOrderListQueryWithOptions(const Fligh
 }
 
 /**
- * @summary 查询机票订单列表
+ * @summary 国内查询机票订单列表
  *
  * @param request FlightOrderListQueryRequest
  * @return FlightOrderListQueryResponse
@@ -5957,7 +6273,7 @@ FlightOrderListQueryResponse Client::flightOrderListQuery(const FlightOrderListQ
 }
 
 /**
- * @summary 机票订单列表查询
+ * @summary 国内机票订单列表查询
  *
  * @param tmpReq FlightOrderListQueryV2Request
  * @param headers FlightOrderListQueryV2Headers
@@ -6061,7 +6377,7 @@ FlightOrderListQueryV2Response Client::flightOrderListQueryV2WithOptions(const F
 }
 
 /**
- * @summary 机票订单列表查询
+ * @summary 国内机票订单列表查询
  *
  * @param request FlightOrderListQueryV2Request
  * @return FlightOrderListQueryV2Response
@@ -6073,7 +6389,7 @@ FlightOrderListQueryV2Response Client::flightOrderListQueryV2(const FlightOrderL
 }
 
 /**
- * @summary 查询机票订单详情（含票信息）
+ * @summary 国内查询机票订单详情（含票信息）
  *
  * @param request FlightOrderQueryRequest
  * @param headers FlightOrderQueryHeaders
@@ -6119,7 +6435,7 @@ FlightOrderQueryResponse Client::flightOrderQueryWithOptions(const FlightOrderQu
 }
 
 /**
- * @summary 查询机票订单详情（含票信息）
+ * @summary 国内查询机票订单详情（含票信息）
  *
  * @param request FlightOrderQueryRequest
  * @return FlightOrderQueryResponse
@@ -7137,6 +7453,10 @@ FlightSearchListResponse Client::flightSearchList(const FlightSearchListRequest 
 FuPointBillSettlementQueryResponse Client::fuPointBillSettlementQueryWithOptions(const FuPointBillSettlementQueryRequest &request, const FuPointBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -7581,6 +7901,10 @@ HotelAskingPriceResponse Client::hotelAskingPrice(const HotelAskingPriceRequest 
 HotelBillSettlementQueryResponse Client::hotelBillSettlementQueryWithOptions(const HotelBillSettlementQueryRequest &request, const HotelBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -7889,6 +8213,10 @@ HotelIndexInfoResponse Client::hotelIndexInfoWithOptions(const HotelIndexInfoReq
     query["hotel_status"] = request.getHotelStatus();
   }
 
+  if (!!request.hasInternation()) {
+    query["internation"] = request.getInternation();
+  }
+
   if (!!request.hasPageSize()) {
     query["page_size"] = request.getPageSize();
   }
@@ -8165,6 +8493,10 @@ HotelOrderCreateResponse Client::hotelOrderCreateWithOptions(const HotelOrderCre
   }
 
   json body = {};
+  if (!!request.hasArrivalTime()) {
+    body["arrival_time"] = request.getArrivalTime();
+  }
+
   if (!!request.hasBtripUserId()) {
     body["btrip_user_id"] = request.getBtripUserId();
   }
@@ -8213,6 +8545,10 @@ HotelOrderCreateResponse Client::hotelOrderCreateWithOptions(const HotelOrderCre
     body["itinerary_no"] = request.getItineraryNo();
   }
 
+  if (!!request.hasLeaveTime()) {
+    body["leave_time"] = request.getLeaveTime();
+  }
+
   if (!!request.hasMemberInfoShrink()) {
     body["member_info"] = request.getMemberInfoShrink();
   }
@@ -8239,6 +8575,10 @@ HotelOrderCreateResponse Client::hotelOrderCreateWithOptions(const HotelOrderCre
 
   if (!!request.hasRoomNum()) {
     body["room_num"] = request.getRoomNum();
+  }
+
+  if (!!request.hasRpType()) {
+    body["rp_type"] = request.getRpType();
   }
 
   if (!!request.hasSellerId()) {
@@ -8640,6 +8980,10 @@ HotelOrderPreValidateResponse Client::hotelOrderPreValidateWithOptions(const Hot
     query["room_num"] = request.getRoomNum();
   }
 
+  if (!!request.hasRpType()) {
+    query["rp_type"] = request.getRpType();
+  }
+
   if (!!request.hasSearchRoomPrice()) {
     query["search_room_price"] = request.getSearchRoomPrice();
   }
@@ -8982,6 +9326,10 @@ HotelSearchResponse Client::hotelSearchWithOptions(const HotelSearchRequest &tmp
     query["payment_type"] = request.getPaymentType();
   }
 
+  if (!!request.hasPoi()) {
+    query["poi"] = request.getPoi();
+  }
+
   if (!!request.hasShidsShrink()) {
     query["shids"] = request.getShidsShrink();
   }
@@ -9168,7 +9516,7 @@ HotelSuggestV2Response Client::hotelSuggestV2(const HotelSuggestV2Request &reque
 }
 
 /**
- * @summary International Flight Order Details
+ * @summary 国际机票订单详情
  *
  * @param request IFlightOrderDetailQueryRequest
  * @param headers IFlightOrderDetailQueryHeaders
@@ -9210,7 +9558,7 @@ IFlightOrderDetailQueryResponse Client::iFlightOrderDetailQueryWithOptions(const
 }
 
 /**
- * @summary International Flight Order Details
+ * @summary 国际机票订单详情
  *
  * @param request IFlightOrderDetailQueryRequest
  * @return IFlightOrderDetailQueryResponse
@@ -9332,6 +9680,10 @@ IFlightOrderListQueryResponse Client::iFlightOrderListQuery(const IFlightOrderLi
 IeCarBillSettlementQueryResponse Client::ieCarBillSettlementQueryWithOptions(const IeCarBillSettlementQueryRequest &request, const IeCarBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -9422,6 +9774,10 @@ IeCarBillSettlementQueryResponse Client::ieCarBillSettlementQuery(const IeCarBil
 IeFlightBillSettlementQueryResponse Client::ieFlightBillSettlementQueryWithOptions(const IeFlightBillSettlementQueryRequest &request, const IeFlightBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -9512,6 +9868,10 @@ IeFlightBillSettlementQueryResponse Client::ieFlightBillSettlementQuery(const Ie
 IeHotelBillSettlementQueryResponse Client::ieHotelBillSettlementQueryWithOptions(const IeHotelBillSettlementQueryRequest &request, const IeHotelBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -12459,6 +12819,118 @@ MealApplyApproveResponse Client::mealApplyApprove(const MealApplyApproveRequest 
 }
 
 /**
+ * @summary 修改用餐审批单
+ *
+ * @param tmpReq MealApplyModifyRequest
+ * @param headers MealApplyModifyHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MealApplyModifyResponse
+ */
+MealApplyModifyResponse Client::mealApplyModifyWithOptions(const MealApplyModifyRequest &tmpReq, const MealApplyModifyHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MealApplyModifyShrinkRequest request = MealApplyModifyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApplyUser()) {
+    request.setApplyUserShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyUser(), "apply_user", "json"));
+  }
+
+  if (!!tmpReq.hasItineraryList()) {
+    request.setItineraryListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItineraryList(), "itinerary_list", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApplyUserShrink()) {
+    body["apply_user"] = request.getApplyUserShrink();
+  }
+
+  if (!!request.hasCostCenterId()) {
+    body["cost_center_id"] = request.getCostCenterId();
+  }
+
+  if (!!request.hasExtendField()) {
+    body["extend_field"] = request.getExtendField();
+  }
+
+  if (!!request.hasInvoiceId()) {
+    body["invoice_id"] = request.getInvoiceId();
+  }
+
+  if (!!request.hasItineraryListShrink()) {
+    body["itinerary_list"] = request.getItineraryListShrink();
+  }
+
+  if (!!request.hasMealAmount()) {
+    body["meal_amount"] = request.getMealAmount();
+  }
+
+  if (!!request.hasMealCause()) {
+    body["meal_cause"] = request.getMealCause();
+  }
+
+  if (!!request.hasProjectCode()) {
+    body["project_code"] = request.getProjectCode();
+  }
+
+  if (!!request.hasProjectTitle()) {
+    body["project_title"] = request.getProjectTitle();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasThirdPartApplyId()) {
+    body["third_part_apply_id"] = request.getThirdPartApplyId();
+  }
+
+  if (!!request.hasThirdPartCostCenterId()) {
+    body["third_part_cost_center_id"] = request.getThirdPartCostCenterId();
+  }
+
+  if (!!request.hasThirdPartInvoiceId()) {
+    body["third_part_invoice_id"] = request.getThirdPartInvoiceId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MealApplyModify"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/apply/v1/meal/modify")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MealApplyModifyResponse>();
+}
+
+/**
+ * @summary 修改用餐审批单
+ *
+ * @param request MealApplyModifyRequest
+ * @return MealApplyModifyResponse
+ */
+MealApplyModifyResponse Client::mealApplyModify(const MealApplyModifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  MealApplyModifyHeaders headers = MealApplyModifyHeaders();
+  return mealApplyModifyWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询用餐申请单
  *
  * @param request MealApplyQueryRequest
@@ -12523,6 +12995,10 @@ MealApplyQueryResponse Client::mealApplyQuery(const MealApplyQueryRequest &reque
 MealBillSettlementQueryResponse Client::mealBillSettlementQueryWithOptions(const MealBillSettlementQueryRequest &request, const MealBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -12899,6 +13375,64 @@ MonthBillSplitGetResponse Client::monthBillSplitGet(const MonthBillSplitGetReque
 }
 
 /**
+ * @summary 查询企业预出账月账单
+ *
+ * @param request MonthPreBillGetRequest
+ * @param headers MonthPreBillGetHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MonthPreBillGetResponse
+ */
+MonthPreBillGetResponse Client::monthPreBillGetWithOptions(const MonthPreBillGetRequest &request, const MonthPreBillGetHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBillBatch()) {
+    query["bill_batch"] = request.getBillBatch();
+  }
+
+  if (!!request.hasBillMonth()) {
+    query["bill_month"] = request.getBillMonth();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripSoCorpToken()) {
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MonthPreBillGet"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/open/v1/month-pre-bill")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MonthPreBillGetResponse>();
+}
+
+/**
+ * @summary 查询企业预出账月账单
+ *
+ * @param request MonthPreBillGetRequest
+ * @return MonthPreBillGetResponse
+ */
+MonthPreBillGetResponse Client::monthPreBillGet(const MonthPreBillGetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  MonthPreBillGetHeaders headers = MonthPreBillGetHeaders();
+  return monthPreBillGetWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询订单退款明细
  *
  * @param request OrderRefundDetailQueryRequest
@@ -12969,6 +13503,10 @@ ProjectAddResponse Client::projectAddWithOptions(const ProjectAddRequest &reques
   json body = {};
   if (!!request.hasCode()) {
     body["code"] = request.getCode();
+  }
+
+  if (!!request.hasHasManager()) {
+    body["has_manager"] = request.getHasManager();
   }
 
   if (!!request.hasProjectName()) {
@@ -13093,6 +13631,10 @@ ProjectModifyResponse Client::projectModifyWithOptions(const ProjectModifyReques
   json body = {};
   if (!!request.hasCode()) {
     body["code"] = request.getCode();
+  }
+
+  if (!!request.hasHasManager()) {
+    body["has_manager"] = request.getHasManager();
   }
 
   if (!!request.hasProjectName()) {
@@ -13438,6 +13980,78 @@ QueryReimbursementOrderResponse Client::queryReimbursementOrder(const QueryReimb
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   QueryReimbursementOrderHeaders headers = QueryReimbursementOrderHeaders();
   return queryReimbursementOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 删除项目负责人
+ *
+ * @param tmpReq RemoveProjectManagerRequest
+ * @param headers RemoveProjectManagerHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveProjectManagerResponse
+ */
+RemoveProjectManagerResponse Client::removeProjectManagerWithOptions(const RemoveProjectManagerRequest &tmpReq, const RemoveProjectManagerHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RemoveProjectManagerShrinkRequest request = RemoveProjectManagerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOrgEntities()) {
+    request.setOrgEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOrgEntities(), "org_entities", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOrgEntitiesShrink()) {
+    body["org_entities"] = request.getOrgEntitiesShrink();
+  }
+
+  if (!!request.hasOutProjectId()) {
+    body["out_project_id"] = request.getOutProjectId();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["project_id"] = request.getProjectId();
+  }
+
+  if (!!request.hasRemoveAll()) {
+    body["remove_all"] = request.getRemoveAll();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RemoveProjectManager"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cost/v1/project/manager/remove")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveProjectManagerResponse>();
+}
+
+/**
+ * @summary 删除项目负责人
+ *
+ * @param request RemoveProjectManagerRequest
+ * @return RemoveProjectManagerResponse
+ */
+RemoveProjectManagerResponse Client::removeProjectManager(const RemoveProjectManagerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  RemoveProjectManagerHeaders headers = RemoveProjectManagerHeaders();
+  return removeProjectManagerWithOptions(request, headers, runtime);
 }
 
 /**
@@ -14307,6 +14921,10 @@ TrainApplyRefundResponse Client::trainApplyRefund(const TrainApplyRefundRequest 
 TrainBillSettlementQueryResponse Client::trainBillSettlementQueryWithOptions(const TrainBillSettlementQueryRequest &request, const TrainBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }
@@ -16535,6 +17153,10 @@ UserQueryResponse Client::userQuery(const UserQueryRequest &request) {
 VasBillSettlementQueryResponse Client::vasBillSettlementQueryWithOptions(const VasBillSettlementQueryRequest &request, const VasBillSettlementQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApplyId()) {
+    query["apply_id"] = request.getApplyId();
+  }
+
   if (!!request.hasBillBatch()) {
     query["bill_batch"] = request.getBillBatch();
   }

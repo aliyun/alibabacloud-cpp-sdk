@@ -65,6 +65,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(itinerary_list, itineraryList_);
         DARABONBA_PTR_TO_JSON(itinerary_rule, itineraryRule_);
         DARABONBA_PTR_TO_JSON(itinerary_set_list, itinerarySetList_);
+        DARABONBA_PTR_TO_JSON(job_no, jobNo_);
         DARABONBA_PTR_TO_JSON(limit_traveler, limitTraveler_);
         DARABONBA_PTR_TO_JSON(meal_budget, mealBudget_);
         DARABONBA_PTR_TO_JSON(payment_department_id, paymentDepartmentId_);
@@ -108,6 +109,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(itinerary_list, itineraryList_);
         DARABONBA_PTR_FROM_JSON(itinerary_rule, itineraryRule_);
         DARABONBA_PTR_FROM_JSON(itinerary_set_list, itinerarySetList_);
+        DARABONBA_PTR_FROM_JSON(job_no, jobNo_);
         DARABONBA_PTR_FROM_JSON(limit_traveler, limitTraveler_);
         DARABONBA_PTR_FROM_JSON(meal_budget, mealBudget_);
         DARABONBA_PTR_FROM_JSON(payment_department_id, paymentDepartmentId_);
@@ -603,12 +605,14 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const ItinerarySetList& obj) { 
           DARABONBA_PTR_TO_JSON(arr_date, arrDate_);
           DARABONBA_PTR_TO_JSON(attribute, attribute_);
+          DARABONBA_PTR_TO_JSON(can_order_type_list, canOrderTypeList_);
           DARABONBA_PTR_TO_JSON(city_code_set, cityCodeSet_);
           DARABONBA_PTR_TO_JSON(city_set, citySet_);
           DARABONBA_PTR_TO_JSON(cost_center_name, costCenterName_);
           DARABONBA_PTR_TO_JSON(dep_date, depDate_);
           DARABONBA_PTR_TO_JSON(invoice_name, invoiceName_);
           DARABONBA_PTR_TO_JSON(itinerary_id, itineraryId_);
+          DARABONBA_PTR_TO_JSON(itinerary_no, itineraryNo_);
           DARABONBA_PTR_TO_JSON(itinerary_travel_standard, itineraryTravelStandard_);
           DARABONBA_PTR_TO_JSON(project_code, projectCode_);
           DARABONBA_PTR_TO_JSON(project_title, projectTitle_);
@@ -620,12 +624,14 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, ItinerarySetList& obj) { 
           DARABONBA_PTR_FROM_JSON(arr_date, arrDate_);
           DARABONBA_PTR_FROM_JSON(attribute, attribute_);
+          DARABONBA_PTR_FROM_JSON(can_order_type_list, canOrderTypeList_);
           DARABONBA_PTR_FROM_JSON(city_code_set, cityCodeSet_);
           DARABONBA_PTR_FROM_JSON(city_set, citySet_);
           DARABONBA_PTR_FROM_JSON(cost_center_name, costCenterName_);
           DARABONBA_PTR_FROM_JSON(dep_date, depDate_);
           DARABONBA_PTR_FROM_JSON(invoice_name, invoiceName_);
           DARABONBA_PTR_FROM_JSON(itinerary_id, itineraryId_);
+          DARABONBA_PTR_FROM_JSON(itinerary_no, itineraryNo_);
           DARABONBA_PTR_FROM_JSON(itinerary_travel_standard, itineraryTravelStandard_);
           DARABONBA_PTR_FROM_JSON(project_code, projectCode_);
           DARABONBA_PTR_FROM_JSON(project_title, projectTitle_);
@@ -677,9 +683,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->arrDate_ == nullptr
-        && this->attribute_ == nullptr && this->cityCodeSet_ == nullptr && this->citySet_ == nullptr && this->costCenterName_ == nullptr && this->depDate_ == nullptr
-        && this->invoiceName_ == nullptr && this->itineraryId_ == nullptr && this->itineraryTravelStandard_ == nullptr && this->projectCode_ == nullptr && this->projectTitle_ == nullptr
-        && this->thirdpartCostCenterId_ == nullptr && this->thirdpartInvoiceId_ == nullptr && this->thirdpartItineraryId_ == nullptr && this->trafficType_ == nullptr; };
+        && this->attribute_ == nullptr && this->canOrderTypeList_ == nullptr && this->cityCodeSet_ == nullptr && this->citySet_ == nullptr && this->costCenterName_ == nullptr
+        && this->depDate_ == nullptr && this->invoiceName_ == nullptr && this->itineraryId_ == nullptr && this->itineraryNo_ == nullptr && this->itineraryTravelStandard_ == nullptr
+        && this->projectCode_ == nullptr && this->projectTitle_ == nullptr && this->thirdpartCostCenterId_ == nullptr && this->thirdpartInvoiceId_ == nullptr && this->thirdpartItineraryId_ == nullptr
+        && this->trafficType_ == nullptr; };
         // arrDate Field Functions 
         bool hasArrDate() const { return this->arrDate_ != nullptr;};
         void deleteArrDate() { this->arrDate_ = nullptr;};
@@ -692,6 +699,15 @@ namespace Models
         void deleteAttribute() { this->attribute_ = nullptr;};
         inline string getAttribute() const { DARABONBA_PTR_GET_DEFAULT(attribute_, "") };
         inline ItinerarySetList& setAttribute(string attribute) { DARABONBA_PTR_SET_VALUE(attribute_, attribute) };
+
+
+        // canOrderTypeList Field Functions 
+        bool hasCanOrderTypeList() const { return this->canOrderTypeList_ != nullptr;};
+        void deleteCanOrderTypeList() { this->canOrderTypeList_ = nullptr;};
+        inline const vector<string> & getCanOrderTypeList() const { DARABONBA_PTR_GET_CONST(canOrderTypeList_, vector<string>) };
+        inline vector<string> getCanOrderTypeList() { DARABONBA_PTR_GET(canOrderTypeList_, vector<string>) };
+        inline ItinerarySetList& setCanOrderTypeList(const vector<string> & canOrderTypeList) { DARABONBA_PTR_SET_VALUE(canOrderTypeList_, canOrderTypeList) };
+        inline ItinerarySetList& setCanOrderTypeList(vector<string> && canOrderTypeList) { DARABONBA_PTR_SET_RVALUE(canOrderTypeList_, canOrderTypeList) };
 
 
         // cityCodeSet Field Functions 
@@ -734,6 +750,13 @@ namespace Models
         void deleteItineraryId() { this->itineraryId_ = nullptr;};
         inline string getItineraryId() const { DARABONBA_PTR_GET_DEFAULT(itineraryId_, "") };
         inline ItinerarySetList& setItineraryId(string itineraryId) { DARABONBA_PTR_SET_VALUE(itineraryId_, itineraryId) };
+
+
+        // itineraryNo Field Functions 
+        bool hasItineraryNo() const { return this->itineraryNo_ != nullptr;};
+        void deleteItineraryNo() { this->itineraryNo_ = nullptr;};
+        inline string getItineraryNo() const { DARABONBA_PTR_GET_DEFAULT(itineraryNo_, "") };
+        inline ItinerarySetList& setItineraryNo(string itineraryNo) { DARABONBA_PTR_SET_VALUE(itineraryNo_, itineraryNo) };
 
 
         // itineraryTravelStandard Field Functions 
@@ -790,12 +813,14 @@ namespace Models
       protected:
         shared_ptr<string> arrDate_ {};
         shared_ptr<string> attribute_ {};
+        shared_ptr<vector<string>> canOrderTypeList_ {};
         shared_ptr<string> cityCodeSet_ {};
         shared_ptr<string> citySet_ {};
         shared_ptr<string> costCenterName_ {};
         shared_ptr<string> depDate_ {};
         shared_ptr<string> invoiceName_ {};
         shared_ptr<string> itineraryId_ {};
+        shared_ptr<string> itineraryNo_ {};
         shared_ptr<ItinerarySetList::ItineraryTravelStandard> itineraryTravelStandard_ {};
         shared_ptr<string> projectCode_ {};
         shared_ptr<string> projectTitle_ {};
@@ -812,12 +837,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(arr_city_code, arrCityCode_);
           DARABONBA_PTR_TO_JSON(arr_date, arrDate_);
           DARABONBA_PTR_TO_JSON(attribute, attribute_);
+          DARABONBA_PTR_TO_JSON(can_order_type_list, canOrderTypeList_);
           DARABONBA_PTR_TO_JSON(cost_center_name, costCenterName_);
           DARABONBA_PTR_TO_JSON(dep_city, depCity_);
           DARABONBA_PTR_TO_JSON(dep_city_code, depCityCode_);
           DARABONBA_PTR_TO_JSON(dep_date, depDate_);
           DARABONBA_PTR_TO_JSON(invoice_name, invoiceName_);
           DARABONBA_PTR_TO_JSON(itinerary_id, itineraryId_);
+          DARABONBA_PTR_TO_JSON(itinerary_no, itineraryNo_);
           DARABONBA_PTR_TO_JSON(itinerary_travel_standard, itineraryTravelStandard_);
           DARABONBA_PTR_TO_JSON(project_code, projectCode_);
           DARABONBA_PTR_TO_JSON(project_title, projectTitle_);
@@ -832,12 +859,14 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(arr_city_code, arrCityCode_);
           DARABONBA_PTR_FROM_JSON(arr_date, arrDate_);
           DARABONBA_PTR_FROM_JSON(attribute, attribute_);
+          DARABONBA_PTR_FROM_JSON(can_order_type_list, canOrderTypeList_);
           DARABONBA_PTR_FROM_JSON(cost_center_name, costCenterName_);
           DARABONBA_PTR_FROM_JSON(dep_city, depCity_);
           DARABONBA_PTR_FROM_JSON(dep_city_code, depCityCode_);
           DARABONBA_PTR_FROM_JSON(dep_date, depDate_);
           DARABONBA_PTR_FROM_JSON(invoice_name, invoiceName_);
           DARABONBA_PTR_FROM_JSON(itinerary_id, itineraryId_);
+          DARABONBA_PTR_FROM_JSON(itinerary_no, itineraryNo_);
           DARABONBA_PTR_FROM_JSON(itinerary_travel_standard, itineraryTravelStandard_);
           DARABONBA_PTR_FROM_JSON(project_code, projectCode_);
           DARABONBA_PTR_FROM_JSON(project_title, projectTitle_);
@@ -890,10 +919,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->arrCity_ == nullptr
-        && this->arrCityCode_ == nullptr && this->arrDate_ == nullptr && this->attribute_ == nullptr && this->costCenterName_ == nullptr && this->depCity_ == nullptr
-        && this->depCityCode_ == nullptr && this->depDate_ == nullptr && this->invoiceName_ == nullptr && this->itineraryId_ == nullptr && this->itineraryTravelStandard_ == nullptr
-        && this->projectCode_ == nullptr && this->projectTitle_ == nullptr && this->thirdpartCostCenterId_ == nullptr && this->thirdpartInvoiceId_ == nullptr && this->thirdpartItineraryId_ == nullptr
-        && this->trafficType_ == nullptr && this->tripWay_ == nullptr; };
+        && this->arrCityCode_ == nullptr && this->arrDate_ == nullptr && this->attribute_ == nullptr && this->canOrderTypeList_ == nullptr && this->costCenterName_ == nullptr
+        && this->depCity_ == nullptr && this->depCityCode_ == nullptr && this->depDate_ == nullptr && this->invoiceName_ == nullptr && this->itineraryId_ == nullptr
+        && this->itineraryNo_ == nullptr && this->itineraryTravelStandard_ == nullptr && this->projectCode_ == nullptr && this->projectTitle_ == nullptr && this->thirdpartCostCenterId_ == nullptr
+        && this->thirdpartInvoiceId_ == nullptr && this->thirdpartItineraryId_ == nullptr && this->trafficType_ == nullptr && this->tripWay_ == nullptr; };
         // arrCity Field Functions 
         bool hasArrCity() const { return this->arrCity_ != nullptr;};
         void deleteArrCity() { this->arrCity_ = nullptr;};
@@ -920,6 +949,15 @@ namespace Models
         void deleteAttribute() { this->attribute_ = nullptr;};
         inline string getAttribute() const { DARABONBA_PTR_GET_DEFAULT(attribute_, "") };
         inline ItineraryList& setAttribute(string attribute) { DARABONBA_PTR_SET_VALUE(attribute_, attribute) };
+
+
+        // canOrderTypeList Field Functions 
+        bool hasCanOrderTypeList() const { return this->canOrderTypeList_ != nullptr;};
+        void deleteCanOrderTypeList() { this->canOrderTypeList_ = nullptr;};
+        inline const vector<string> & getCanOrderTypeList() const { DARABONBA_PTR_GET_CONST(canOrderTypeList_, vector<string>) };
+        inline vector<string> getCanOrderTypeList() { DARABONBA_PTR_GET(canOrderTypeList_, vector<string>) };
+        inline ItineraryList& setCanOrderTypeList(const vector<string> & canOrderTypeList) { DARABONBA_PTR_SET_VALUE(canOrderTypeList_, canOrderTypeList) };
+        inline ItineraryList& setCanOrderTypeList(vector<string> && canOrderTypeList) { DARABONBA_PTR_SET_RVALUE(canOrderTypeList_, canOrderTypeList) };
 
 
         // costCenterName Field Functions 
@@ -962,6 +1000,13 @@ namespace Models
         void deleteItineraryId() { this->itineraryId_ = nullptr;};
         inline string getItineraryId() const { DARABONBA_PTR_GET_DEFAULT(itineraryId_, "") };
         inline ItineraryList& setItineraryId(string itineraryId) { DARABONBA_PTR_SET_VALUE(itineraryId_, itineraryId) };
+
+
+        // itineraryNo Field Functions 
+        bool hasItineraryNo() const { return this->itineraryNo_ != nullptr;};
+        void deleteItineraryNo() { this->itineraryNo_ = nullptr;};
+        inline string getItineraryNo() const { DARABONBA_PTR_GET_DEFAULT(itineraryNo_, "") };
+        inline ItineraryList& setItineraryNo(string itineraryNo) { DARABONBA_PTR_SET_VALUE(itineraryNo_, itineraryNo) };
 
 
         // itineraryTravelStandard Field Functions 
@@ -1027,12 +1072,14 @@ namespace Models
         shared_ptr<string> arrCityCode_ {};
         shared_ptr<string> arrDate_ {};
         shared_ptr<string> attribute_ {};
+        shared_ptr<vector<string>> canOrderTypeList_ {};
         shared_ptr<string> costCenterName_ {};
         shared_ptr<string> depCity_ {};
         shared_ptr<string> depCityCode_ {};
         shared_ptr<string> depDate_ {};
         shared_ptr<string> invoiceName_ {};
         shared_ptr<string> itineraryId_ {};
+        shared_ptr<string> itineraryNo_ {};
         shared_ptr<ItineraryList::ItineraryTravelStandard> itineraryTravelStandard_ {};
         shared_ptr<string> projectCode_ {};
         shared_ptr<string> projectTitle_ {};
@@ -1630,10 +1677,11 @@ namespace Models
         && this->corpName_ == nullptr && this->departId_ == nullptr && this->departName_ == nullptr && this->extendField_ == nullptr && this->externalTravelerList_ == nullptr
         && this->flightBudget_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->hotelBudget_ == nullptr && this->hotelShare_ == nullptr
         && this->id_ == nullptr && this->intlFlightBudget_ == nullptr && this->intlHotelBudget_ == nullptr && this->itineraryList_ == nullptr && this->itineraryRule_ == nullptr
-        && this->itinerarySetList_ == nullptr && this->limitTraveler_ == nullptr && this->mealBudget_ == nullptr && this->paymentDepartmentId_ == nullptr && this->paymentDepartmentName_ == nullptr
-        && this->status_ == nullptr && this->statusDesc_ == nullptr && this->thirdpartBusinessId_ == nullptr && this->thirdpartId_ == nullptr && this->togetherBookRule_ == nullptr
-        && this->trainBudget_ == nullptr && this->travelerList_ == nullptr && this->tripCause_ == nullptr && this->tripDay_ == nullptr && this->tripTitle_ == nullptr
-        && this->type_ == nullptr && this->unionNo_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr && this->vehicleBudget_ == nullptr; };
+        && this->itinerarySetList_ == nullptr && this->jobNo_ == nullptr && this->limitTraveler_ == nullptr && this->mealBudget_ == nullptr && this->paymentDepartmentId_ == nullptr
+        && this->paymentDepartmentName_ == nullptr && this->status_ == nullptr && this->statusDesc_ == nullptr && this->thirdpartBusinessId_ == nullptr && this->thirdpartId_ == nullptr
+        && this->togetherBookRule_ == nullptr && this->trainBudget_ == nullptr && this->travelerList_ == nullptr && this->tripCause_ == nullptr && this->tripDay_ == nullptr
+        && this->tripTitle_ == nullptr && this->type_ == nullptr && this->unionNo_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr
+        && this->vehicleBudget_ == nullptr; };
       // applyShowId Field Functions 
       bool hasApplyShowId() const { return this->applyShowId_ != nullptr;};
       void deleteApplyShowId() { this->applyShowId_ = nullptr;};
@@ -1800,6 +1848,13 @@ namespace Models
       inline Module& setItinerarySetList(vector<Module::ItinerarySetList> && itinerarySetList) { DARABONBA_PTR_SET_RVALUE(itinerarySetList_, itinerarySetList) };
 
 
+      // jobNo Field Functions 
+      bool hasJobNo() const { return this->jobNo_ != nullptr;};
+      void deleteJobNo() { this->jobNo_ = nullptr;};
+      inline string getJobNo() const { DARABONBA_PTR_GET_DEFAULT(jobNo_, "") };
+      inline Module& setJobNo(string jobNo) { DARABONBA_PTR_SET_VALUE(jobNo_, jobNo) };
+
+
       // limitTraveler Field Functions 
       bool hasLimitTraveler() const { return this->limitTraveler_ != nullptr;};
       void deleteLimitTraveler() { this->limitTraveler_ = nullptr;};
@@ -1945,7 +2000,6 @@ namespace Models
       shared_ptr<string> corpName_ {};
       shared_ptr<string> departId_ {};
       shared_ptr<string> departName_ {};
-      // 补充描述，账单中将会体现此字段的值。可以用于企业的统计和对账
       shared_ptr<string> extendField_ {};
       shared_ptr<vector<Module::ExternalTravelerList>> externalTravelerList_ {};
       shared_ptr<int64_t> flightBudget_ {};
@@ -1959,6 +2013,7 @@ namespace Models
       shared_ptr<vector<Module::ItineraryList>> itineraryList_ {};
       shared_ptr<int32_t> itineraryRule_ {};
       shared_ptr<vector<Module::ItinerarySetList>> itinerarySetList_ {};
+      shared_ptr<string> jobNo_ {};
       shared_ptr<int32_t> limitTraveler_ {};
       shared_ptr<int64_t> mealBudget_ {};
       shared_ptr<string> paymentDepartmentId_ {};

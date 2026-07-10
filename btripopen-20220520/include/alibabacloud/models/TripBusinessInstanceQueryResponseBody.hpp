@@ -43,6 +43,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Module& obj) { 
         DARABONBA_PTR_TO_JSON(business_data, businessData_);
+        DARABONBA_PTR_TO_JSON(business_form_data, businessFormData_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
         DARABONBA_PTR_TO_JSON(gmt_create, gmtCreate_);
         DARABONBA_PTR_TO_JSON(gmt_modified, gmtModified_);
@@ -50,6 +51,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
         DARABONBA_PTR_FROM_JSON(business_data, businessData_);
+        DARABONBA_PTR_FROM_JSON(business_form_data, businessFormData_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
         DARABONBA_PTR_FROM_JSON(gmt_create, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(gmt_modified, gmtModified_);
@@ -67,12 +69,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->businessData_ == nullptr
-        && this->creator_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->status_ == nullptr; };
+        && this->businessFormData_ == nullptr && this->creator_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->status_ == nullptr; };
       // businessData Field Functions 
       bool hasBusinessData() const { return this->businessData_ != nullptr;};
       void deleteBusinessData() { this->businessData_ = nullptr;};
       inline string getBusinessData() const { DARABONBA_PTR_GET_DEFAULT(businessData_, "") };
       inline Module& setBusinessData(string businessData) { DARABONBA_PTR_SET_VALUE(businessData_, businessData) };
+
+
+      // businessFormData Field Functions 
+      bool hasBusinessFormData() const { return this->businessFormData_ != nullptr;};
+      void deleteBusinessFormData() { this->businessFormData_ = nullptr;};
+      inline string getBusinessFormData() const { DARABONBA_PTR_GET_DEFAULT(businessFormData_, "") };
+      inline Module& setBusinessFormData(string businessFormData) { DARABONBA_PTR_SET_VALUE(businessFormData_, businessFormData) };
 
 
       // creator Field Functions 
@@ -105,6 +114,7 @@ namespace Models
 
     protected:
       shared_ptr<string> businessData_ {};
+      shared_ptr<string> businessFormData_ {};
       shared_ptr<string> creator_ {};
       shared_ptr<int64_t> gmtCreate_ {};
       shared_ptr<int64_t> gmtModified_ {};
@@ -160,11 +170,9 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // module。
     shared_ptr<TripBusinessInstanceQueryResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

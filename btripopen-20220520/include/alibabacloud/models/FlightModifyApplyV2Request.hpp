@@ -186,7 +186,6 @@ namespace Models
     shared_ptr<string> outSubOrderId_ {};
     shared_ptr<vector<FlightModifyApplyV2Request::PassengerSegmentRelations>> passengerSegmentRelations_ {};
     shared_ptr<string> reason_ {};
-    // sessionId
     shared_ptr<string> sessionId_ {};
     shared_ptr<bool> voluntary_ {};
   };

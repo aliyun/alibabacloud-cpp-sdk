@@ -174,7 +174,6 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // module
     shared_ptr<CitySearchResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};

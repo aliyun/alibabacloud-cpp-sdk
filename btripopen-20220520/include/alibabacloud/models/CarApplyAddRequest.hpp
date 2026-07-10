@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(city_code_set, cityCodeSet_);
       DARABONBA_PTR_TO_JSON(date, date_);
       DARABONBA_PTR_TO_JSON(finished_date, finishedDate_);
+      DARABONBA_PTR_TO_JSON(itinerary_list, itineraryList_);
       DARABONBA_PTR_TO_JSON(project_code, projectCode_);
       DARABONBA_PTR_TO_JSON(project_name, projectName_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(city_code_set, cityCodeSet_);
       DARABONBA_PTR_FROM_JSON(date, date_);
       DARABONBA_PTR_FROM_JSON(finished_date, finishedDate_);
+      DARABONBA_PTR_FROM_JSON(itinerary_list, itineraryList_);
       DARABONBA_PTR_FROM_JSON(project_code, projectCode_);
       DARABONBA_PTR_FROM_JSON(project_name, projectName_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -121,8 +123,14 @@ namespace Models
 
 
       protected:
+        // The cross-city city code. Only 6-digit codes are supported. Separate multiple values with Chinese commas.
+        // Note: A maximum of 10 cities can be specified. The values in city_code and city_name must correspond one-to-one.
+        // 
         // This parameter is required.
         shared_ptr<string> cityCode_ {};
+        // The cross-city city name. Separate multiple values with Chinese commas.
+        // Note: A maximum of 10 cities can be specified. The values in city_code and city_name must correspond one-to-one.
+        // 
         // This parameter is required.
         shared_ptr<string> cityName_ {};
       };
@@ -146,16 +154,81 @@ namespace Models
 
 
     protected:
+      // The cross-city car service rules. This parameter is optional. If specified, cross-city rules are read from the approval form data.
       shared_ptr<vector<TravelerStandard::CarCitySet>> carCitySet_ {};
+      // The user ID of the traveler.
+      // 
       // This parameter is required.
       shared_ptr<string> userId_ {};
     };
 
+    class ItineraryList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ItineraryList& obj) { 
+        DARABONBA_PTR_TO_JSON(city, city_);
+        DARABONBA_PTR_TO_JSON(city_code_set, cityCodeSet_);
+        DARABONBA_PTR_TO_JSON(date, date_);
+        DARABONBA_PTR_TO_JSON(finished_date, finishedDate_);
+      };
+      friend void from_json(const Darabonba::Json& j, ItineraryList& obj) { 
+        DARABONBA_PTR_FROM_JSON(city, city_);
+        DARABONBA_PTR_FROM_JSON(city_code_set, cityCodeSet_);
+        DARABONBA_PTR_FROM_JSON(date, date_);
+        DARABONBA_PTR_FROM_JSON(finished_date, finishedDate_);
+      };
+      ItineraryList() = default ;
+      ItineraryList(const ItineraryList &) = default ;
+      ItineraryList(ItineraryList &&) = default ;
+      ItineraryList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ItineraryList() = default ;
+      ItineraryList& operator=(const ItineraryList &) = default ;
+      ItineraryList& operator=(ItineraryList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->city_ == nullptr
+        && this->cityCodeSet_ == nullptr && this->date_ == nullptr && this->finishedDate_ == nullptr; };
+      // city Field Functions 
+      bool hasCity() const { return this->city_ != nullptr;};
+      void deleteCity() { this->city_ = nullptr;};
+      inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+      inline ItineraryList& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
+
+
+      // cityCodeSet Field Functions 
+      bool hasCityCodeSet() const { return this->cityCodeSet_ != nullptr;};
+      void deleteCityCodeSet() { this->cityCodeSet_ = nullptr;};
+      inline string getCityCodeSet() const { DARABONBA_PTR_GET_DEFAULT(cityCodeSet_, "") };
+      inline ItineraryList& setCityCodeSet(string cityCodeSet) { DARABONBA_PTR_SET_VALUE(cityCodeSet_, cityCodeSet) };
+
+
+      // date Field Functions 
+      bool hasDate() const { return this->date_ != nullptr;};
+      void deleteDate() { this->date_ = nullptr;};
+      inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+      inline ItineraryList& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+
+
+      // finishedDate Field Functions 
+      bool hasFinishedDate() const { return this->finishedDate_ != nullptr;};
+      void deleteFinishedDate() { this->finishedDate_ = nullptr;};
+      inline string getFinishedDate() const { DARABONBA_PTR_GET_DEFAULT(finishedDate_, "") };
+      inline ItineraryList& setFinishedDate(string finishedDate) { DARABONBA_PTR_SET_VALUE(finishedDate_, finishedDate) };
+
+
+    protected:
+      shared_ptr<string> city_ {};
+      shared_ptr<string> cityCodeSet_ {};
+      shared_ptr<string> date_ {};
+      shared_ptr<string> finishedDate_ {};
+    };
+
     virtual bool empty() const override { return this->cause_ == nullptr
-        && this->city_ == nullptr && this->cityCodeSet_ == nullptr && this->date_ == nullptr && this->finishedDate_ == nullptr && this->projectCode_ == nullptr
-        && this->projectName_ == nullptr && this->status_ == nullptr && this->thirdPartApplyId_ == nullptr && this->thirdPartCostCenterId_ == nullptr && this->thirdPartInvoiceId_ == nullptr
-        && this->timesTotal_ == nullptr && this->timesType_ == nullptr && this->timesUsed_ == nullptr && this->title_ == nullptr && this->travelerStandard_ == nullptr
-        && this->userId_ == nullptr; };
+        && this->city_ == nullptr && this->cityCodeSet_ == nullptr && this->date_ == nullptr && this->finishedDate_ == nullptr && this->itineraryList_ == nullptr
+        && this->projectCode_ == nullptr && this->projectName_ == nullptr && this->status_ == nullptr && this->thirdPartApplyId_ == nullptr && this->thirdPartCostCenterId_ == nullptr
+        && this->thirdPartInvoiceId_ == nullptr && this->timesTotal_ == nullptr && this->timesType_ == nullptr && this->timesUsed_ == nullptr && this->title_ == nullptr
+        && this->travelerStandard_ == nullptr && this->userId_ == nullptr; };
     // cause Field Functions 
     bool hasCause() const { return this->cause_ != nullptr;};
     void deleteCause() { this->cause_ = nullptr;};
@@ -189,6 +262,15 @@ namespace Models
     void deleteFinishedDate() { this->finishedDate_ = nullptr;};
     inline string getFinishedDate() const { DARABONBA_PTR_GET_DEFAULT(finishedDate_, "") };
     inline CarApplyAddRequest& setFinishedDate(string finishedDate) { DARABONBA_PTR_SET_VALUE(finishedDate_, finishedDate) };
+
+
+    // itineraryList Field Functions 
+    bool hasItineraryList() const { return this->itineraryList_ != nullptr;};
+    void deleteItineraryList() { this->itineraryList_ = nullptr;};
+    inline const vector<CarApplyAddRequest::ItineraryList> & getItineraryList() const { DARABONBA_PTR_GET_CONST(itineraryList_, vector<CarApplyAddRequest::ItineraryList>) };
+    inline vector<CarApplyAddRequest::ItineraryList> getItineraryList() { DARABONBA_PTR_GET(itineraryList_, vector<CarApplyAddRequest::ItineraryList>) };
+    inline CarApplyAddRequest& setItineraryList(const vector<CarApplyAddRequest::ItineraryList> & itineraryList) { DARABONBA_PTR_SET_VALUE(itineraryList_, itineraryList) };
+    inline CarApplyAddRequest& setItineraryList(vector<CarApplyAddRequest::ItineraryList> && itineraryList) { DARABONBA_PTR_SET_RVALUE(itineraryList_, itineraryList) };
 
 
     // projectCode Field Functions 
@@ -278,31 +360,58 @@ namespace Models
 
 
   protected:
+    // The reason for the business trip.
+    // 
     // This parameter is required.
     shared_ptr<string> cause_ {};
-    // This parameter is required.
+    // The cities for car service. Separate multiple cities with Chinese commas (，).
+    // Note: A maximum of 10 cities can be specified. The values in city and city_code_set must correspond one-to-one.
     shared_ptr<string> city_ {};
+    // The city code set for intra-city car service. Separate multiple cities with Chinese commas (，).
+    // Note: 1) Either city_code_set or city is required. If both are specified, city_code_set takes precedence.
+    // A maximum of 10 cities can be specified.
     shared_ptr<string> cityCodeSet_ {};
-    // This parameter is required.
+    // The car service time. This parameter is controlled on a daily basis. For example, a value of 2021-03-18 20:26:56 indicates that the car service is available on 2021-03-18. For multi-day scenarios, use this parameter together with the finished_date parameter. The time must be in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> date_ {};
+    // The car service end time. This parameter is controlled on a daily basis. For example, if date is set to 2021-03-18 20:26:56 and finished_date is set to 2021-03-30 20:26:56, the car service is available from 2021-03-18 (inclusive) to 2021-03-30 (inclusive). If this parameter is not specified, the value of date is used as the end time. The time must be in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> finishedDate_ {};
+    shared_ptr<vector<CarApplyAddRequest::ItineraryList>> itineraryList_ {};
+    // The project code associated with the approval form.
     shared_ptr<string> projectCode_ {};
+    // The project name associated with the approval form.
     shared_ptr<string> projectName_ {};
+    // The approval status.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
+    // The ID of the third-party approval form.
+    // 
     // This parameter is required.
     shared_ptr<string> thirdPartApplyId_ {};
+    // The ID of the third-party cost center associated with the approval form.
+    // >Warning: This field is required. To make it optional, contact the operations team.
     shared_ptr<string> thirdPartCostCenterId_ {};
+    // The ID of the third-party invoice header associated with the approval form.
+    // 
+    // >Warning: This field is required. To make it optional, contact the operations team.
     shared_ptr<string> thirdPartInvoiceId_ {};
-    // This parameter is required.
+    // The total number of times the approval form can be used.
     shared_ptr<int32_t> timesTotal_ {};
-    // This parameter is required.
+    // The type of available usage count for the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0. Valid values:
+    // 
+    // - 1: unlimited.
+    // - 2: user-specified count.
     shared_ptr<int32_t> timesType_ {};
-    // This parameter is required.
+    // The number of times the approval form has been used.
     shared_ptr<int32_t> timesUsed_ {};
+    // The title of the approval form.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The intra-city car service rules.
     shared_ptr<vector<CarApplyAddRequest::TravelerStandard>> travelerStandard_ {};
+    // The third-party employee ID of the user who initiates the approval.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

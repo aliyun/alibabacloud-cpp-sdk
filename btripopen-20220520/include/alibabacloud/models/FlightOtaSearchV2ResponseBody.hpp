@@ -73,6 +73,7 @@ namespace Models
       class ItemList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ItemList& obj) { 
+          DARABONBA_PTR_TO_JSON(code_type, codeType_);
           DARABONBA_PTR_TO_JSON(flight_rule_infos, flightRuleInfos_);
           DARABONBA_PTR_TO_JSON(item_id, itemId_);
           DARABONBA_PTR_TO_JSON(shopping_item_map, shoppingItemMap_);
@@ -80,6 +81,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(sub_items, subItems_);
         };
         friend void from_json(const Darabonba::Json& j, ItemList& obj) { 
+          DARABONBA_PTR_FROM_JSON(code_type, codeType_);
           DARABONBA_PTR_FROM_JSON(flight_rule_infos, flightRuleInfos_);
           DARABONBA_PTR_FROM_JSON(item_id, itemId_);
           DARABONBA_PTR_FROM_JSON(shopping_item_map, shoppingItemMap_);
@@ -151,8 +153,15 @@ namespace Models
           shared_ptr<string> uniqKey_ {};
         };
 
-        virtual bool empty() const override { return this->flightRuleInfos_ == nullptr
-        && this->itemId_ == nullptr && this->shoppingItemMap_ == nullptr && this->subItemPositionMap_ == nullptr && this->subItems_ == nullptr; };
+        virtual bool empty() const override { return this->codeType_ == nullptr
+        && this->flightRuleInfos_ == nullptr && this->itemId_ == nullptr && this->shoppingItemMap_ == nullptr && this->subItemPositionMap_ == nullptr && this->subItems_ == nullptr; };
+        // codeType Field Functions 
+        bool hasCodeType() const { return this->codeType_ != nullptr;};
+        void deleteCodeType() { this->codeType_ = nullptr;};
+        inline string getCodeType() const { DARABONBA_PTR_GET_DEFAULT(codeType_, "") };
+        inline ItemList& setCodeType(string codeType) { DARABONBA_PTR_SET_VALUE(codeType_, codeType) };
+
+
         // flightRuleInfos Field Functions 
         bool hasFlightRuleInfos() const { return this->flightRuleInfos_ != nullptr;};
         void deleteFlightRuleInfos() { this->flightRuleInfos_ = nullptr;};
@@ -197,6 +206,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> codeType_ {};
         shared_ptr<map<string, ModuleItemListFlightRuleInfosValue>> flightRuleInfos_ {};
         shared_ptr<string> itemId_ {};
         shared_ptr<map<string, ModuleItemListShoppingItemMapValue>> shoppingItemMap_ {};
@@ -1017,7 +1027,6 @@ namespace Models
           shared_ptr<string> depCityCode_ {};
           shared_ptr<string> depCityName_ {};
           shared_ptr<string> depTime_ {};
-          // duration
           shared_ptr<int32_t> duration_ {};
           Darabonba::Json extraInfo_ {};
           shared_ptr<string> flightNo_ {};
@@ -1228,12 +1237,9 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // module
     shared_ptr<FlightOtaSearchV2ResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

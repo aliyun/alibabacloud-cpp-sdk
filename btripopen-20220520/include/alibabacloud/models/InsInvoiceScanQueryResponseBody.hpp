@@ -270,23 +270,14 @@ namespace Models
 
 
         protected:
-          // 金额
           shared_ptr<string> amount_ {};
-          // 行号
           shared_ptr<string> index_ {};
-          // 货物或应税劳务、服务名称
           shared_ptr<string> itemName_ {};
-          // 数量
           shared_ptr<string> quantity_ {};
-          // 规格型号
           shared_ptr<string> specification_ {};
-          // 税额
           shared_ptr<string> tax_ {};
-          // 税率
           shared_ptr<string> taxRate_ {};
-          // 单位
           shared_ptr<string> unit_ {};
-          // 单价
           shared_ptr<string> unitPrice_ {};
         };
 
@@ -601,59 +592,42 @@ namespace Models
         shared_ptr<string> amountWithoutTax_ {};
         shared_ptr<string> billDate_ {};
         shared_ptr<int32_t> category_ {};
-        // 校验码
         shared_ptr<string> checkCode_ {};
         shared_ptr<string> costCenter_ {};
         shared_ptr<string> department_ {};
-        // 开票人
         shared_ptr<string> drawer_ {};
-        // 应用ID
         shared_ptr<string> id_ {};
         shared_ptr<string> insuranceCompany_ {};
         shared_ptr<string> insuranceOrderId_ {};
         shared_ptr<string> insuranceType_ {};
         shared_ptr<string> invoiceCode_ {};
         shared_ptr<string> invoiceDay_ {};
-        // 发票明细
         shared_ptr<vector<Items::InvoiceDetails>> invoiceDetails_ {};
-        // 发票地区
         shared_ptr<string> invoiceLocation_ {};
         shared_ptr<string> invoiceNo_ {};
-        // 发票抬头
         shared_ptr<string> invoiceTitle_ {};
         shared_ptr<int32_t> invoiceType_ {};
-        // 机器码
         shared_ptr<string> machineCode_ {};
         shared_ptr<string> ofdOssUrl_ {};
         shared_ptr<int64_t> orderId_ {};
         shared_ptr<string> ossUrl_ {};
         shared_ptr<string> passenger_ {};
-        // 密码区
         shared_ptr<string> passwordArea_ {};
         shared_ptr<string> project_ {};
-        // 购方银行信息
         shared_ptr<string> purchaserBankAccountInfo_ {};
-        // 购方联系方式
         shared_ptr<string> purchaserContactInfo_ {};
         shared_ptr<string> purchaserName_ {};
         shared_ptr<string> purchaserTaxNo_ {};
-        // 收款人
         shared_ptr<string> recipient_ {};
-        // 备注
         shared_ptr<string> remarks_ {};
-        // 复核人
         shared_ptr<string> reviewer_ {};
-        // 销售方银行信息
         shared_ptr<string> sellerBankAccountInfo_ {};
-        // 销售方联系方式
         shared_ptr<string> sellerContactInfo_ {};
         shared_ptr<string> sellerName_ {};
         shared_ptr<string> sellerTaxNo_ {};
-        // 校验码
         shared_ptr<string> smartCheckCode_ {};
         shared_ptr<string> taxAmount_ {};
         shared_ptr<string> taxRate_ {};
-        // 大写金额
         shared_ptr<string> totalAmountInWords_ {};
         shared_ptr<string> xmlOssUrl_ {};
       };
@@ -755,10 +729,8 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<InsInvoiceScanQueryResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

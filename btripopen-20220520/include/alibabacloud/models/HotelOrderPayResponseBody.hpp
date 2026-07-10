@@ -87,7 +87,6 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<bool> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<string> traceId_ {};

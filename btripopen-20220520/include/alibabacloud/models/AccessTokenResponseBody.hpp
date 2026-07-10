@@ -197,9 +197,7 @@ namespace Models
     shared_ptr<string> message_ {};
     shared_ptr<AccessTokenResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
-    // 成功标识
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

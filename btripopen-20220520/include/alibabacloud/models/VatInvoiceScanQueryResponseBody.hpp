@@ -259,7 +259,6 @@ namespace Models
 
         protected:
           shared_ptr<string> amount_ {};
-          // 行号
           shared_ptr<string> index_ {};
           shared_ptr<string> itemName_ {};
           shared_ptr<string> quantity_ {};
@@ -548,7 +547,6 @@ namespace Models
         shared_ptr<int64_t> invoiceSubTaskId_ {};
         shared_ptr<int32_t> invoiceType_ {};
         shared_ptr<string> invoiceTypeDesc_ {};
-        // 机器码
         shared_ptr<string> machineCode_ {};
         shared_ptr<string> ofdOssUrl_ {};
         shared_ptr<string> ossUrl_ {};
@@ -669,10 +667,8 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<VatInvoiceScanQueryResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

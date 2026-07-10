@@ -113,6 +113,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const TravelerStandard& obj) { 
         DARABONBA_PTR_TO_JSON(business_discount, businessDiscount_);
         DARABONBA_PTR_TO_JSON(car_city_set, carCitySet_);
+        DARABONBA_PTR_TO_JSON(car_standard, carStandard_);
         DARABONBA_PTR_TO_JSON(economy_discount, economyDiscount_);
         DARABONBA_PTR_TO_JSON(first_discount, firstDiscount_);
         DARABONBA_PTR_TO_JSON(flight_cabins, flightCabins_);
@@ -132,6 +133,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, TravelerStandard& obj) { 
         DARABONBA_PTR_FROM_JSON(business_discount, businessDiscount_);
         DARABONBA_PTR_FROM_JSON(car_city_set, carCitySet_);
+        DARABONBA_PTR_FROM_JSON(car_standard, carStandard_);
         DARABONBA_PTR_FROM_JSON(economy_discount, economyDiscount_);
         DARABONBA_PTR_FROM_JSON(first_discount, firstDiscount_);
         DARABONBA_PTR_FROM_JSON(flight_cabins, flightCabins_);
@@ -263,6 +265,754 @@ namespace Models
         shared_ptr<int64_t> fee_ {};
       };
 
+      class CarStandard : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CarStandard& obj) { 
+          DARABONBA_PTR_TO_JSON(book_allow_info, bookAllowInfo_);
+          DARABONBA_PTR_TO_JSON(car_helper, carHelper_);
+          DARABONBA_PTR_TO_JSON(car_time_control, carTimeControl_);
+          DARABONBA_PTR_TO_JSON(city_control_info, cityControlInfo_);
+          DARABONBA_PTR_TO_JSON(cross_city_info, crossCityInfo_);
+          DARABONBA_PTR_TO_JSON(electronic_fence_info, electronicFenceInfo_);
+          DARABONBA_PTR_TO_JSON(level_codes, levelCodes_);
+          DARABONBA_PTR_TO_JSON(modify_destination_info, modifyDestinationInfo_);
+          DARABONBA_PTR_TO_JSON(times_total, timesTotal_);
+          DARABONBA_PTR_TO_JSON(times_type, timesType_);
+        };
+        friend void from_json(const Darabonba::Json& j, CarStandard& obj) { 
+          DARABONBA_PTR_FROM_JSON(book_allow_info, bookAllowInfo_);
+          DARABONBA_PTR_FROM_JSON(car_helper, carHelper_);
+          DARABONBA_PTR_FROM_JSON(car_time_control, carTimeControl_);
+          DARABONBA_PTR_FROM_JSON(city_control_info, cityControlInfo_);
+          DARABONBA_PTR_FROM_JSON(cross_city_info, crossCityInfo_);
+          DARABONBA_PTR_FROM_JSON(electronic_fence_info, electronicFenceInfo_);
+          DARABONBA_PTR_FROM_JSON(level_codes, levelCodes_);
+          DARABONBA_PTR_FROM_JSON(modify_destination_info, modifyDestinationInfo_);
+          DARABONBA_PTR_FROM_JSON(times_total, timesTotal_);
+          DARABONBA_PTR_FROM_JSON(times_type, timesType_);
+        };
+        CarStandard() = default ;
+        CarStandard(const CarStandard &) = default ;
+        CarStandard(CarStandard &&) = default ;
+        CarStandard(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CarStandard() = default ;
+        CarStandard& operator=(const CarStandard &) = default ;
+        CarStandard& operator=(CarStandard &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class ModifyDestinationInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ModifyDestinationInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(modify_destination, modifyDestination_);
+          };
+          friend void from_json(const Darabonba::Json& j, ModifyDestinationInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(modify_destination, modifyDestination_);
+          };
+          ModifyDestinationInfo() = default ;
+          ModifyDestinationInfo(const ModifyDestinationInfo &) = default ;
+          ModifyDestinationInfo(ModifyDestinationInfo &&) = default ;
+          ModifyDestinationInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ModifyDestinationInfo() = default ;
+          ModifyDestinationInfo& operator=(const ModifyDestinationInfo &) = default ;
+          ModifyDestinationInfo& operator=(ModifyDestinationInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->modifyDestination_ == nullptr; };
+          // modifyDestination Field Functions 
+          bool hasModifyDestination() const { return this->modifyDestination_ != nullptr;};
+          void deleteModifyDestination() { this->modifyDestination_ = nullptr;};
+          inline bool getModifyDestination() const { DARABONBA_PTR_GET_DEFAULT(modifyDestination_, false) };
+          inline ModifyDestinationInfo& setModifyDestination(bool modifyDestination) { DARABONBA_PTR_SET_VALUE(modifyDestination_, modifyDestination) };
+
+
+        protected:
+          // This parameter is required.
+          shared_ptr<bool> modifyDestination_ {};
+        };
+
+        class ElectronicFenceInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ElectronicFenceInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(electronic_fence_locations_from, electronicFenceLocationsFrom_);
+            DARABONBA_PTR_TO_JSON(electronic_fence_locations_to, electronicFenceLocationsTo_);
+            DARABONBA_PTR_TO_JSON(electronic_fence_type, electronicFenceType_);
+          };
+          friend void from_json(const Darabonba::Json& j, ElectronicFenceInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(electronic_fence_locations_from, electronicFenceLocationsFrom_);
+            DARABONBA_PTR_FROM_JSON(electronic_fence_locations_to, electronicFenceLocationsTo_);
+            DARABONBA_PTR_FROM_JSON(electronic_fence_type, electronicFenceType_);
+          };
+          ElectronicFenceInfo() = default ;
+          ElectronicFenceInfo(const ElectronicFenceInfo &) = default ;
+          ElectronicFenceInfo(ElectronicFenceInfo &&) = default ;
+          ElectronicFenceInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ElectronicFenceInfo() = default ;
+          ElectronicFenceInfo& operator=(const ElectronicFenceInfo &) = default ;
+          ElectronicFenceInfo& operator=(ElectronicFenceInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class ElectronicFenceLocationsTo : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ElectronicFenceLocationsTo& obj) { 
+              DARABONBA_PTR_TO_JSON(address, address_);
+              DARABONBA_PTR_TO_JSON(latitude, latitude_);
+              DARABONBA_PTR_TO_JSON(longitude, longitude_);
+              DARABONBA_PTR_TO_JSON(radius, radius_);
+            };
+            friend void from_json(const Darabonba::Json& j, ElectronicFenceLocationsTo& obj) { 
+              DARABONBA_PTR_FROM_JSON(address, address_);
+              DARABONBA_PTR_FROM_JSON(latitude, latitude_);
+              DARABONBA_PTR_FROM_JSON(longitude, longitude_);
+              DARABONBA_PTR_FROM_JSON(radius, radius_);
+            };
+            ElectronicFenceLocationsTo() = default ;
+            ElectronicFenceLocationsTo(const ElectronicFenceLocationsTo &) = default ;
+            ElectronicFenceLocationsTo(ElectronicFenceLocationsTo &&) = default ;
+            ElectronicFenceLocationsTo(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ElectronicFenceLocationsTo() = default ;
+            ElectronicFenceLocationsTo& operator=(const ElectronicFenceLocationsTo &) = default ;
+            ElectronicFenceLocationsTo& operator=(ElectronicFenceLocationsTo &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->address_ == nullptr
+        && this->latitude_ == nullptr && this->longitude_ == nullptr && this->radius_ == nullptr; };
+            // address Field Functions 
+            bool hasAddress() const { return this->address_ != nullptr;};
+            void deleteAddress() { this->address_ = nullptr;};
+            inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+            inline ElectronicFenceLocationsTo& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+            // latitude Field Functions 
+            bool hasLatitude() const { return this->latitude_ != nullptr;};
+            void deleteLatitude() { this->latitude_ = nullptr;};
+            inline string getLatitude() const { DARABONBA_PTR_GET_DEFAULT(latitude_, "") };
+            inline ElectronicFenceLocationsTo& setLatitude(string latitude) { DARABONBA_PTR_SET_VALUE(latitude_, latitude) };
+
+
+            // longitude Field Functions 
+            bool hasLongitude() const { return this->longitude_ != nullptr;};
+            void deleteLongitude() { this->longitude_ = nullptr;};
+            inline string getLongitude() const { DARABONBA_PTR_GET_DEFAULT(longitude_, "") };
+            inline ElectronicFenceLocationsTo& setLongitude(string longitude) { DARABONBA_PTR_SET_VALUE(longitude_, longitude) };
+
+
+            // radius Field Functions 
+            bool hasRadius() const { return this->radius_ != nullptr;};
+            void deleteRadius() { this->radius_ = nullptr;};
+            inline int32_t getRadius() const { DARABONBA_PTR_GET_DEFAULT(radius_, 0) };
+            inline ElectronicFenceLocationsTo& setRadius(int32_t radius) { DARABONBA_PTR_SET_VALUE(radius_, radius) };
+
+
+          protected:
+            // This parameter is required.
+            shared_ptr<string> address_ {};
+            // This parameter is required.
+            shared_ptr<string> latitude_ {};
+            // This parameter is required.
+            shared_ptr<string> longitude_ {};
+            // This parameter is required.
+            shared_ptr<int32_t> radius_ {};
+          };
+
+          class ElectronicFenceLocationsFrom : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ElectronicFenceLocationsFrom& obj) { 
+              DARABONBA_PTR_TO_JSON(address, address_);
+              DARABONBA_PTR_TO_JSON(latitude, latitude_);
+              DARABONBA_PTR_TO_JSON(longitude, longitude_);
+              DARABONBA_PTR_TO_JSON(radius, radius_);
+            };
+            friend void from_json(const Darabonba::Json& j, ElectronicFenceLocationsFrom& obj) { 
+              DARABONBA_PTR_FROM_JSON(address, address_);
+              DARABONBA_PTR_FROM_JSON(latitude, latitude_);
+              DARABONBA_PTR_FROM_JSON(longitude, longitude_);
+              DARABONBA_PTR_FROM_JSON(radius, radius_);
+            };
+            ElectronicFenceLocationsFrom() = default ;
+            ElectronicFenceLocationsFrom(const ElectronicFenceLocationsFrom &) = default ;
+            ElectronicFenceLocationsFrom(ElectronicFenceLocationsFrom &&) = default ;
+            ElectronicFenceLocationsFrom(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ElectronicFenceLocationsFrom() = default ;
+            ElectronicFenceLocationsFrom& operator=(const ElectronicFenceLocationsFrom &) = default ;
+            ElectronicFenceLocationsFrom& operator=(ElectronicFenceLocationsFrom &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->address_ == nullptr
+        && this->latitude_ == nullptr && this->longitude_ == nullptr && this->radius_ == nullptr; };
+            // address Field Functions 
+            bool hasAddress() const { return this->address_ != nullptr;};
+            void deleteAddress() { this->address_ = nullptr;};
+            inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+            inline ElectronicFenceLocationsFrom& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+            // latitude Field Functions 
+            bool hasLatitude() const { return this->latitude_ != nullptr;};
+            void deleteLatitude() { this->latitude_ = nullptr;};
+            inline string getLatitude() const { DARABONBA_PTR_GET_DEFAULT(latitude_, "") };
+            inline ElectronicFenceLocationsFrom& setLatitude(string latitude) { DARABONBA_PTR_SET_VALUE(latitude_, latitude) };
+
+
+            // longitude Field Functions 
+            bool hasLongitude() const { return this->longitude_ != nullptr;};
+            void deleteLongitude() { this->longitude_ = nullptr;};
+            inline string getLongitude() const { DARABONBA_PTR_GET_DEFAULT(longitude_, "") };
+            inline ElectronicFenceLocationsFrom& setLongitude(string longitude) { DARABONBA_PTR_SET_VALUE(longitude_, longitude) };
+
+
+            // radius Field Functions 
+            bool hasRadius() const { return this->radius_ != nullptr;};
+            void deleteRadius() { this->radius_ = nullptr;};
+            inline int32_t getRadius() const { DARABONBA_PTR_GET_DEFAULT(radius_, 0) };
+            inline ElectronicFenceLocationsFrom& setRadius(int32_t radius) { DARABONBA_PTR_SET_VALUE(radius_, radius) };
+
+
+          protected:
+            // This parameter is required.
+            shared_ptr<string> address_ {};
+            // This parameter is required.
+            shared_ptr<string> latitude_ {};
+            // This parameter is required.
+            shared_ptr<string> longitude_ {};
+            // This parameter is required.
+            shared_ptr<int32_t> radius_ {};
+          };
+
+          virtual bool empty() const override { return this->electronicFenceLocationsFrom_ == nullptr
+        && this->electronicFenceLocationsTo_ == nullptr && this->electronicFenceType_ == nullptr; };
+          // electronicFenceLocationsFrom Field Functions 
+          bool hasElectronicFenceLocationsFrom() const { return this->electronicFenceLocationsFrom_ != nullptr;};
+          void deleteElectronicFenceLocationsFrom() { this->electronicFenceLocationsFrom_ = nullptr;};
+          inline const vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom> & getElectronicFenceLocationsFrom() const { DARABONBA_PTR_GET_CONST(electronicFenceLocationsFrom_, vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom>) };
+          inline vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom> getElectronicFenceLocationsFrom() { DARABONBA_PTR_GET(electronicFenceLocationsFrom_, vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom>) };
+          inline ElectronicFenceInfo& setElectronicFenceLocationsFrom(const vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom> & electronicFenceLocationsFrom) { DARABONBA_PTR_SET_VALUE(electronicFenceLocationsFrom_, electronicFenceLocationsFrom) };
+          inline ElectronicFenceInfo& setElectronicFenceLocationsFrom(vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom> && electronicFenceLocationsFrom) { DARABONBA_PTR_SET_RVALUE(electronicFenceLocationsFrom_, electronicFenceLocationsFrom) };
+
+
+          // electronicFenceLocationsTo Field Functions 
+          bool hasElectronicFenceLocationsTo() const { return this->electronicFenceLocationsTo_ != nullptr;};
+          void deleteElectronicFenceLocationsTo() { this->electronicFenceLocationsTo_ = nullptr;};
+          inline const vector<ElectronicFenceInfo::ElectronicFenceLocationsTo> & getElectronicFenceLocationsTo() const { DARABONBA_PTR_GET_CONST(electronicFenceLocationsTo_, vector<ElectronicFenceInfo::ElectronicFenceLocationsTo>) };
+          inline vector<ElectronicFenceInfo::ElectronicFenceLocationsTo> getElectronicFenceLocationsTo() { DARABONBA_PTR_GET(electronicFenceLocationsTo_, vector<ElectronicFenceInfo::ElectronicFenceLocationsTo>) };
+          inline ElectronicFenceInfo& setElectronicFenceLocationsTo(const vector<ElectronicFenceInfo::ElectronicFenceLocationsTo> & electronicFenceLocationsTo) { DARABONBA_PTR_SET_VALUE(electronicFenceLocationsTo_, electronicFenceLocationsTo) };
+          inline ElectronicFenceInfo& setElectronicFenceLocationsTo(vector<ElectronicFenceInfo::ElectronicFenceLocationsTo> && electronicFenceLocationsTo) { DARABONBA_PTR_SET_RVALUE(electronicFenceLocationsTo_, electronicFenceLocationsTo) };
+
+
+          // electronicFenceType Field Functions 
+          bool hasElectronicFenceType() const { return this->electronicFenceType_ != nullptr;};
+          void deleteElectronicFenceType() { this->electronicFenceType_ = nullptr;};
+          inline int32_t getElectronicFenceType() const { DARABONBA_PTR_GET_DEFAULT(electronicFenceType_, 0) };
+          inline ElectronicFenceInfo& setElectronicFenceType(int32_t electronicFenceType) { DARABONBA_PTR_SET_VALUE(electronicFenceType_, electronicFenceType) };
+
+
+        protected:
+          // This parameter is required.
+          shared_ptr<vector<ElectronicFenceInfo::ElectronicFenceLocationsFrom>> electronicFenceLocationsFrom_ {};
+          // This parameter is required.
+          shared_ptr<vector<ElectronicFenceInfo::ElectronicFenceLocationsTo>> electronicFenceLocationsTo_ {};
+          // This parameter is required.
+          shared_ptr<int32_t> electronicFenceType_ {};
+        };
+
+        class CrossCityInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CrossCityInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(cross_city_list, crossCityList_);
+            DARABONBA_PTR_TO_JSON(cross_city_type, crossCityType_);
+          };
+          friend void from_json(const Darabonba::Json& j, CrossCityInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(cross_city_list, crossCityList_);
+            DARABONBA_PTR_FROM_JSON(cross_city_type, crossCityType_);
+          };
+          CrossCityInfo() = default ;
+          CrossCityInfo(const CrossCityInfo &) = default ;
+          CrossCityInfo(CrossCityInfo &&) = default ;
+          CrossCityInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CrossCityInfo() = default ;
+          CrossCityInfo& operator=(const CrossCityInfo &) = default ;
+          CrossCityInfo& operator=(CrossCityInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class CrossCityList : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const CrossCityList& obj) { 
+              DARABONBA_PTR_TO_JSON(from_adcode, fromAdcode_);
+              DARABONBA_PTR_TO_JSON(from_city_code, fromCityCode_);
+              DARABONBA_PTR_TO_JSON(from_city_name, fromCityName_);
+              DARABONBA_PTR_TO_JSON(to_adcode, toAdcode_);
+              DARABONBA_PTR_TO_JSON(to_city_code, toCityCode_);
+              DARABONBA_PTR_TO_JSON(to_city_name, toCityName_);
+            };
+            friend void from_json(const Darabonba::Json& j, CrossCityList& obj) { 
+              DARABONBA_PTR_FROM_JSON(from_adcode, fromAdcode_);
+              DARABONBA_PTR_FROM_JSON(from_city_code, fromCityCode_);
+              DARABONBA_PTR_FROM_JSON(from_city_name, fromCityName_);
+              DARABONBA_PTR_FROM_JSON(to_adcode, toAdcode_);
+              DARABONBA_PTR_FROM_JSON(to_city_code, toCityCode_);
+              DARABONBA_PTR_FROM_JSON(to_city_name, toCityName_);
+            };
+            CrossCityList() = default ;
+            CrossCityList(const CrossCityList &) = default ;
+            CrossCityList(CrossCityList &&) = default ;
+            CrossCityList(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~CrossCityList() = default ;
+            CrossCityList& operator=(const CrossCityList &) = default ;
+            CrossCityList& operator=(CrossCityList &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->fromAdcode_ == nullptr
+        && this->fromCityCode_ == nullptr && this->fromCityName_ == nullptr && this->toAdcode_ == nullptr && this->toCityCode_ == nullptr && this->toCityName_ == nullptr; };
+            // fromAdcode Field Functions 
+            bool hasFromAdcode() const { return this->fromAdcode_ != nullptr;};
+            void deleteFromAdcode() { this->fromAdcode_ = nullptr;};
+            inline string getFromAdcode() const { DARABONBA_PTR_GET_DEFAULT(fromAdcode_, "") };
+            inline CrossCityList& setFromAdcode(string fromAdcode) { DARABONBA_PTR_SET_VALUE(fromAdcode_, fromAdcode) };
+
+
+            // fromCityCode Field Functions 
+            bool hasFromCityCode() const { return this->fromCityCode_ != nullptr;};
+            void deleteFromCityCode() { this->fromCityCode_ = nullptr;};
+            inline string getFromCityCode() const { DARABONBA_PTR_GET_DEFAULT(fromCityCode_, "") };
+            inline CrossCityList& setFromCityCode(string fromCityCode) { DARABONBA_PTR_SET_VALUE(fromCityCode_, fromCityCode) };
+
+
+            // fromCityName Field Functions 
+            bool hasFromCityName() const { return this->fromCityName_ != nullptr;};
+            void deleteFromCityName() { this->fromCityName_ = nullptr;};
+            inline string getFromCityName() const { DARABONBA_PTR_GET_DEFAULT(fromCityName_, "") };
+            inline CrossCityList& setFromCityName(string fromCityName) { DARABONBA_PTR_SET_VALUE(fromCityName_, fromCityName) };
+
+
+            // toAdcode Field Functions 
+            bool hasToAdcode() const { return this->toAdcode_ != nullptr;};
+            void deleteToAdcode() { this->toAdcode_ = nullptr;};
+            inline string getToAdcode() const { DARABONBA_PTR_GET_DEFAULT(toAdcode_, "") };
+            inline CrossCityList& setToAdcode(string toAdcode) { DARABONBA_PTR_SET_VALUE(toAdcode_, toAdcode) };
+
+
+            // toCityCode Field Functions 
+            bool hasToCityCode() const { return this->toCityCode_ != nullptr;};
+            void deleteToCityCode() { this->toCityCode_ = nullptr;};
+            inline string getToCityCode() const { DARABONBA_PTR_GET_DEFAULT(toCityCode_, "") };
+            inline CrossCityList& setToCityCode(string toCityCode) { DARABONBA_PTR_SET_VALUE(toCityCode_, toCityCode) };
+
+
+            // toCityName Field Functions 
+            bool hasToCityName() const { return this->toCityName_ != nullptr;};
+            void deleteToCityName() { this->toCityName_ = nullptr;};
+            inline string getToCityName() const { DARABONBA_PTR_GET_DEFAULT(toCityName_, "") };
+            inline CrossCityList& setToCityName(string toCityName) { DARABONBA_PTR_SET_VALUE(toCityName_, toCityName) };
+
+
+          protected:
+            // This parameter is required.
+            shared_ptr<string> fromAdcode_ {};
+            // This parameter is required.
+            shared_ptr<string> fromCityCode_ {};
+            // This parameter is required.
+            shared_ptr<string> fromCityName_ {};
+            // This parameter is required.
+            shared_ptr<string> toAdcode_ {};
+            // This parameter is required.
+            shared_ptr<string> toCityCode_ {};
+            // This parameter is required.
+            shared_ptr<string> toCityName_ {};
+          };
+
+          virtual bool empty() const override { return this->crossCityList_ == nullptr
+        && this->crossCityType_ == nullptr; };
+          // crossCityList Field Functions 
+          bool hasCrossCityList() const { return this->crossCityList_ != nullptr;};
+          void deleteCrossCityList() { this->crossCityList_ = nullptr;};
+          inline const vector<CrossCityInfo::CrossCityList> & getCrossCityList() const { DARABONBA_PTR_GET_CONST(crossCityList_, vector<CrossCityInfo::CrossCityList>) };
+          inline vector<CrossCityInfo::CrossCityList> getCrossCityList() { DARABONBA_PTR_GET(crossCityList_, vector<CrossCityInfo::CrossCityList>) };
+          inline CrossCityInfo& setCrossCityList(const vector<CrossCityInfo::CrossCityList> & crossCityList) { DARABONBA_PTR_SET_VALUE(crossCityList_, crossCityList) };
+          inline CrossCityInfo& setCrossCityList(vector<CrossCityInfo::CrossCityList> && crossCityList) { DARABONBA_PTR_SET_RVALUE(crossCityList_, crossCityList) };
+
+
+          // crossCityType Field Functions 
+          bool hasCrossCityType() const { return this->crossCityType_ != nullptr;};
+          void deleteCrossCityType() { this->crossCityType_ = nullptr;};
+          inline int32_t getCrossCityType() const { DARABONBA_PTR_GET_DEFAULT(crossCityType_, 0) };
+          inline CrossCityInfo& setCrossCityType(int32_t crossCityType) { DARABONBA_PTR_SET_VALUE(crossCityType_, crossCityType) };
+
+
+        protected:
+          shared_ptr<vector<CrossCityInfo::CrossCityList>> crossCityList_ {};
+          // This parameter is required.
+          shared_ptr<int32_t> crossCityType_ {};
+        };
+
+        class CityControlInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CityControlInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(city_control_type, cityControlType_);
+            DARABONBA_PTR_TO_JSON(city_infos, cityInfos_);
+          };
+          friend void from_json(const Darabonba::Json& j, CityControlInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(city_control_type, cityControlType_);
+            DARABONBA_PTR_FROM_JSON(city_infos, cityInfos_);
+          };
+          CityControlInfo() = default ;
+          CityControlInfo(const CityControlInfo &) = default ;
+          CityControlInfo(CityControlInfo &&) = default ;
+          CityControlInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CityControlInfo() = default ;
+          CityControlInfo& operator=(const CityControlInfo &) = default ;
+          CityControlInfo& operator=(CityControlInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class CityInfos : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const CityInfos& obj) { 
+              DARABONBA_PTR_TO_JSON(adcode, adcode_);
+              DARABONBA_PTR_TO_JSON(city_code, cityCode_);
+              DARABONBA_PTR_TO_JSON(city_name, cityName_);
+            };
+            friend void from_json(const Darabonba::Json& j, CityInfos& obj) { 
+              DARABONBA_PTR_FROM_JSON(adcode, adcode_);
+              DARABONBA_PTR_FROM_JSON(city_code, cityCode_);
+              DARABONBA_PTR_FROM_JSON(city_name, cityName_);
+            };
+            CityInfos() = default ;
+            CityInfos(const CityInfos &) = default ;
+            CityInfos(CityInfos &&) = default ;
+            CityInfos(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~CityInfos() = default ;
+            CityInfos& operator=(const CityInfos &) = default ;
+            CityInfos& operator=(CityInfos &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->adcode_ == nullptr
+        && this->cityCode_ == nullptr && this->cityName_ == nullptr; };
+            // adcode Field Functions 
+            bool hasAdcode() const { return this->adcode_ != nullptr;};
+            void deleteAdcode() { this->adcode_ = nullptr;};
+            inline string getAdcode() const { DARABONBA_PTR_GET_DEFAULT(adcode_, "") };
+            inline CityInfos& setAdcode(string adcode) { DARABONBA_PTR_SET_VALUE(adcode_, adcode) };
+
+
+            // cityCode Field Functions 
+            bool hasCityCode() const { return this->cityCode_ != nullptr;};
+            void deleteCityCode() { this->cityCode_ = nullptr;};
+            inline string getCityCode() const { DARABONBA_PTR_GET_DEFAULT(cityCode_, "") };
+            inline CityInfos& setCityCode(string cityCode) { DARABONBA_PTR_SET_VALUE(cityCode_, cityCode) };
+
+
+            // cityName Field Functions 
+            bool hasCityName() const { return this->cityName_ != nullptr;};
+            void deleteCityName() { this->cityName_ = nullptr;};
+            inline string getCityName() const { DARABONBA_PTR_GET_DEFAULT(cityName_, "") };
+            inline CityInfos& setCityName(string cityName) { DARABONBA_PTR_SET_VALUE(cityName_, cityName) };
+
+
+          protected:
+            // This parameter is required.
+            shared_ptr<string> adcode_ {};
+            // This parameter is required.
+            shared_ptr<string> cityCode_ {};
+            // This parameter is required.
+            shared_ptr<string> cityName_ {};
+          };
+
+          virtual bool empty() const override { return this->cityControlType_ == nullptr
+        && this->cityInfos_ == nullptr; };
+          // cityControlType Field Functions 
+          bool hasCityControlType() const { return this->cityControlType_ != nullptr;};
+          void deleteCityControlType() { this->cityControlType_ = nullptr;};
+          inline int32_t getCityControlType() const { DARABONBA_PTR_GET_DEFAULT(cityControlType_, 0) };
+          inline CityControlInfo& setCityControlType(int32_t cityControlType) { DARABONBA_PTR_SET_VALUE(cityControlType_, cityControlType) };
+
+
+          // cityInfos Field Functions 
+          bool hasCityInfos() const { return this->cityInfos_ != nullptr;};
+          void deleteCityInfos() { this->cityInfos_ = nullptr;};
+          inline const vector<CityControlInfo::CityInfos> & getCityInfos() const { DARABONBA_PTR_GET_CONST(cityInfos_, vector<CityControlInfo::CityInfos>) };
+          inline vector<CityControlInfo::CityInfos> getCityInfos() { DARABONBA_PTR_GET(cityInfos_, vector<CityControlInfo::CityInfos>) };
+          inline CityControlInfo& setCityInfos(const vector<CityControlInfo::CityInfos> & cityInfos) { DARABONBA_PTR_SET_VALUE(cityInfos_, cityInfos) };
+          inline CityControlInfo& setCityInfos(vector<CityControlInfo::CityInfos> && cityInfos) { DARABONBA_PTR_SET_RVALUE(cityInfos_, cityInfos) };
+
+
+        protected:
+          // This parameter is required.
+          shared_ptr<int32_t> cityControlType_ {};
+          // This parameter is required.
+          shared_ptr<vector<CityControlInfo::CityInfos>> cityInfos_ {};
+        };
+
+        class CarTimeControl : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CarTimeControl& obj) { 
+            DARABONBA_PTR_TO_JSON(time_limit, timeLimit_);
+            DARABONBA_PTR_TO_JSON(time_switch, timeSwitch_);
+          };
+          friend void from_json(const Darabonba::Json& j, CarTimeControl& obj) { 
+            DARABONBA_PTR_FROM_JSON(time_limit, timeLimit_);
+            DARABONBA_PTR_FROM_JSON(time_switch, timeSwitch_);
+          };
+          CarTimeControl() = default ;
+          CarTimeControl(const CarTimeControl &) = default ;
+          CarTimeControl(CarTimeControl &&) = default ;
+          CarTimeControl(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CarTimeControl() = default ;
+          CarTimeControl& operator=(const CarTimeControl &) = default ;
+          CarTimeControl& operator=(CarTimeControl &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class TimeLimit : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const TimeLimit& obj) { 
+              DARABONBA_PTR_TO_JSON(end_time, endTime_);
+              DARABONBA_PTR_TO_JSON(start_time, startTime_);
+            };
+            friend void from_json(const Darabonba::Json& j, TimeLimit& obj) { 
+              DARABONBA_PTR_FROM_JSON(end_time, endTime_);
+              DARABONBA_PTR_FROM_JSON(start_time, startTime_);
+            };
+            TimeLimit() = default ;
+            TimeLimit(const TimeLimit &) = default ;
+            TimeLimit(TimeLimit &&) = default ;
+            TimeLimit(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~TimeLimit() = default ;
+            TimeLimit& operator=(const TimeLimit &) = default ;
+            TimeLimit& operator=(TimeLimit &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->startTime_ == nullptr; };
+            // endTime Field Functions 
+            bool hasEndTime() const { return this->endTime_ != nullptr;};
+            void deleteEndTime() { this->endTime_ = nullptr;};
+            inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+            inline TimeLimit& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+            // startTime Field Functions 
+            bool hasStartTime() const { return this->startTime_ != nullptr;};
+            void deleteStartTime() { this->startTime_ = nullptr;};
+            inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+            inline TimeLimit& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+          protected:
+            // This parameter is required.
+            shared_ptr<string> endTime_ {};
+            // This parameter is required.
+            shared_ptr<string> startTime_ {};
+          };
+
+          virtual bool empty() const override { return this->timeLimit_ == nullptr
+        && this->timeSwitch_ == nullptr; };
+          // timeLimit Field Functions 
+          bool hasTimeLimit() const { return this->timeLimit_ != nullptr;};
+          void deleteTimeLimit() { this->timeLimit_ = nullptr;};
+          inline const vector<CarTimeControl::TimeLimit> & getTimeLimit() const { DARABONBA_PTR_GET_CONST(timeLimit_, vector<CarTimeControl::TimeLimit>) };
+          inline vector<CarTimeControl::TimeLimit> getTimeLimit() { DARABONBA_PTR_GET(timeLimit_, vector<CarTimeControl::TimeLimit>) };
+          inline CarTimeControl& setTimeLimit(const vector<CarTimeControl::TimeLimit> & timeLimit) { DARABONBA_PTR_SET_VALUE(timeLimit_, timeLimit) };
+          inline CarTimeControl& setTimeLimit(vector<CarTimeControl::TimeLimit> && timeLimit) { DARABONBA_PTR_SET_RVALUE(timeLimit_, timeLimit) };
+
+
+          // timeSwitch Field Functions 
+          bool hasTimeSwitch() const { return this->timeSwitch_ != nullptr;};
+          void deleteTimeSwitch() { this->timeSwitch_ = nullptr;};
+          inline bool getTimeSwitch() const { DARABONBA_PTR_GET_DEFAULT(timeSwitch_, false) };
+          inline CarTimeControl& setTimeSwitch(bool timeSwitch) { DARABONBA_PTR_SET_VALUE(timeSwitch_, timeSwitch) };
+
+
+        protected:
+          // This parameter is required.
+          shared_ptr<vector<CarTimeControl::TimeLimit>> timeLimit_ {};
+          // This parameter is required.
+          shared_ptr<bool> timeSwitch_ {};
+        };
+
+        class CarHelper : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CarHelper& obj) { 
+            DARABONBA_PTR_TO_JSON(car_helper_type, carHelperType_);
+          };
+          friend void from_json(const Darabonba::Json& j, CarHelper& obj) { 
+            DARABONBA_PTR_FROM_JSON(car_helper_type, carHelperType_);
+          };
+          CarHelper() = default ;
+          CarHelper(const CarHelper &) = default ;
+          CarHelper(CarHelper &&) = default ;
+          CarHelper(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CarHelper() = default ;
+          CarHelper& operator=(const CarHelper &) = default ;
+          CarHelper& operator=(CarHelper &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->carHelperType_ == nullptr; };
+          // carHelperType Field Functions 
+          bool hasCarHelperType() const { return this->carHelperType_ != nullptr;};
+          void deleteCarHelperType() { this->carHelperType_ = nullptr;};
+          inline string getCarHelperType() const { DARABONBA_PTR_GET_DEFAULT(carHelperType_, "") };
+          inline CarHelper& setCarHelperType(string carHelperType) { DARABONBA_PTR_SET_VALUE(carHelperType_, carHelperType) };
+
+
+        protected:
+          // This parameter is required.
+          shared_ptr<string> carHelperType_ {};
+        };
+
+        class BookAllowInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const BookAllowInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(book_allow, bookAllow_);
+          };
+          friend void from_json(const Darabonba::Json& j, BookAllowInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(book_allow, bookAllow_);
+          };
+          BookAllowInfo() = default ;
+          BookAllowInfo(const BookAllowInfo &) = default ;
+          BookAllowInfo(BookAllowInfo &&) = default ;
+          BookAllowInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~BookAllowInfo() = default ;
+          BookAllowInfo& operator=(const BookAllowInfo &) = default ;
+          BookAllowInfo& operator=(BookAllowInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->bookAllow_ == nullptr; };
+          // bookAllow Field Functions 
+          bool hasBookAllow() const { return this->bookAllow_ != nullptr;};
+          void deleteBookAllow() { this->bookAllow_ = nullptr;};
+          inline bool getBookAllow() const { DARABONBA_PTR_GET_DEFAULT(bookAllow_, false) };
+          inline BookAllowInfo& setBookAllow(bool bookAllow) { DARABONBA_PTR_SET_VALUE(bookAllow_, bookAllow) };
+
+
+        protected:
+          // This parameter is required.
+          shared_ptr<bool> bookAllow_ {};
+        };
+
+        virtual bool empty() const override { return this->bookAllowInfo_ == nullptr
+        && this->carHelper_ == nullptr && this->carTimeControl_ == nullptr && this->cityControlInfo_ == nullptr && this->crossCityInfo_ == nullptr && this->electronicFenceInfo_ == nullptr
+        && this->levelCodes_ == nullptr && this->modifyDestinationInfo_ == nullptr && this->timesTotal_ == nullptr && this->timesType_ == nullptr; };
+        // bookAllowInfo Field Functions 
+        bool hasBookAllowInfo() const { return this->bookAllowInfo_ != nullptr;};
+        void deleteBookAllowInfo() { this->bookAllowInfo_ = nullptr;};
+        inline const CarStandard::BookAllowInfo & getBookAllowInfo() const { DARABONBA_PTR_GET_CONST(bookAllowInfo_, CarStandard::BookAllowInfo) };
+        inline CarStandard::BookAllowInfo getBookAllowInfo() { DARABONBA_PTR_GET(bookAllowInfo_, CarStandard::BookAllowInfo) };
+        inline CarStandard& setBookAllowInfo(const CarStandard::BookAllowInfo & bookAllowInfo) { DARABONBA_PTR_SET_VALUE(bookAllowInfo_, bookAllowInfo) };
+        inline CarStandard& setBookAllowInfo(CarStandard::BookAllowInfo && bookAllowInfo) { DARABONBA_PTR_SET_RVALUE(bookAllowInfo_, bookAllowInfo) };
+
+
+        // carHelper Field Functions 
+        bool hasCarHelper() const { return this->carHelper_ != nullptr;};
+        void deleteCarHelper() { this->carHelper_ = nullptr;};
+        inline const CarStandard::CarHelper & getCarHelper() const { DARABONBA_PTR_GET_CONST(carHelper_, CarStandard::CarHelper) };
+        inline CarStandard::CarHelper getCarHelper() { DARABONBA_PTR_GET(carHelper_, CarStandard::CarHelper) };
+        inline CarStandard& setCarHelper(const CarStandard::CarHelper & carHelper) { DARABONBA_PTR_SET_VALUE(carHelper_, carHelper) };
+        inline CarStandard& setCarHelper(CarStandard::CarHelper && carHelper) { DARABONBA_PTR_SET_RVALUE(carHelper_, carHelper) };
+
+
+        // carTimeControl Field Functions 
+        bool hasCarTimeControl() const { return this->carTimeControl_ != nullptr;};
+        void deleteCarTimeControl() { this->carTimeControl_ = nullptr;};
+        inline const CarStandard::CarTimeControl & getCarTimeControl() const { DARABONBA_PTR_GET_CONST(carTimeControl_, CarStandard::CarTimeControl) };
+        inline CarStandard::CarTimeControl getCarTimeControl() { DARABONBA_PTR_GET(carTimeControl_, CarStandard::CarTimeControl) };
+        inline CarStandard& setCarTimeControl(const CarStandard::CarTimeControl & carTimeControl) { DARABONBA_PTR_SET_VALUE(carTimeControl_, carTimeControl) };
+        inline CarStandard& setCarTimeControl(CarStandard::CarTimeControl && carTimeControl) { DARABONBA_PTR_SET_RVALUE(carTimeControl_, carTimeControl) };
+
+
+        // cityControlInfo Field Functions 
+        bool hasCityControlInfo() const { return this->cityControlInfo_ != nullptr;};
+        void deleteCityControlInfo() { this->cityControlInfo_ = nullptr;};
+        inline const CarStandard::CityControlInfo & getCityControlInfo() const { DARABONBA_PTR_GET_CONST(cityControlInfo_, CarStandard::CityControlInfo) };
+        inline CarStandard::CityControlInfo getCityControlInfo() { DARABONBA_PTR_GET(cityControlInfo_, CarStandard::CityControlInfo) };
+        inline CarStandard& setCityControlInfo(const CarStandard::CityControlInfo & cityControlInfo) { DARABONBA_PTR_SET_VALUE(cityControlInfo_, cityControlInfo) };
+        inline CarStandard& setCityControlInfo(CarStandard::CityControlInfo && cityControlInfo) { DARABONBA_PTR_SET_RVALUE(cityControlInfo_, cityControlInfo) };
+
+
+        // crossCityInfo Field Functions 
+        bool hasCrossCityInfo() const { return this->crossCityInfo_ != nullptr;};
+        void deleteCrossCityInfo() { this->crossCityInfo_ = nullptr;};
+        inline const CarStandard::CrossCityInfo & getCrossCityInfo() const { DARABONBA_PTR_GET_CONST(crossCityInfo_, CarStandard::CrossCityInfo) };
+        inline CarStandard::CrossCityInfo getCrossCityInfo() { DARABONBA_PTR_GET(crossCityInfo_, CarStandard::CrossCityInfo) };
+        inline CarStandard& setCrossCityInfo(const CarStandard::CrossCityInfo & crossCityInfo) { DARABONBA_PTR_SET_VALUE(crossCityInfo_, crossCityInfo) };
+        inline CarStandard& setCrossCityInfo(CarStandard::CrossCityInfo && crossCityInfo) { DARABONBA_PTR_SET_RVALUE(crossCityInfo_, crossCityInfo) };
+
+
+        // electronicFenceInfo Field Functions 
+        bool hasElectronicFenceInfo() const { return this->electronicFenceInfo_ != nullptr;};
+        void deleteElectronicFenceInfo() { this->electronicFenceInfo_ = nullptr;};
+        inline const CarStandard::ElectronicFenceInfo & getElectronicFenceInfo() const { DARABONBA_PTR_GET_CONST(electronicFenceInfo_, CarStandard::ElectronicFenceInfo) };
+        inline CarStandard::ElectronicFenceInfo getElectronicFenceInfo() { DARABONBA_PTR_GET(electronicFenceInfo_, CarStandard::ElectronicFenceInfo) };
+        inline CarStandard& setElectronicFenceInfo(const CarStandard::ElectronicFenceInfo & electronicFenceInfo) { DARABONBA_PTR_SET_VALUE(electronicFenceInfo_, electronicFenceInfo) };
+        inline CarStandard& setElectronicFenceInfo(CarStandard::ElectronicFenceInfo && electronicFenceInfo) { DARABONBA_PTR_SET_RVALUE(electronicFenceInfo_, electronicFenceInfo) };
+
+
+        // levelCodes Field Functions 
+        bool hasLevelCodes() const { return this->levelCodes_ != nullptr;};
+        void deleteLevelCodes() { this->levelCodes_ = nullptr;};
+        inline string getLevelCodes() const { DARABONBA_PTR_GET_DEFAULT(levelCodes_, "") };
+        inline CarStandard& setLevelCodes(string levelCodes) { DARABONBA_PTR_SET_VALUE(levelCodes_, levelCodes) };
+
+
+        // modifyDestinationInfo Field Functions 
+        bool hasModifyDestinationInfo() const { return this->modifyDestinationInfo_ != nullptr;};
+        void deleteModifyDestinationInfo() { this->modifyDestinationInfo_ = nullptr;};
+        inline const CarStandard::ModifyDestinationInfo & getModifyDestinationInfo() const { DARABONBA_PTR_GET_CONST(modifyDestinationInfo_, CarStandard::ModifyDestinationInfo) };
+        inline CarStandard::ModifyDestinationInfo getModifyDestinationInfo() { DARABONBA_PTR_GET(modifyDestinationInfo_, CarStandard::ModifyDestinationInfo) };
+        inline CarStandard& setModifyDestinationInfo(const CarStandard::ModifyDestinationInfo & modifyDestinationInfo) { DARABONBA_PTR_SET_VALUE(modifyDestinationInfo_, modifyDestinationInfo) };
+        inline CarStandard& setModifyDestinationInfo(CarStandard::ModifyDestinationInfo && modifyDestinationInfo) { DARABONBA_PTR_SET_RVALUE(modifyDestinationInfo_, modifyDestinationInfo) };
+
+
+        // timesTotal Field Functions 
+        bool hasTimesTotal() const { return this->timesTotal_ != nullptr;};
+        void deleteTimesTotal() { this->timesTotal_ = nullptr;};
+        inline int32_t getTimesTotal() const { DARABONBA_PTR_GET_DEFAULT(timesTotal_, 0) };
+        inline CarStandard& setTimesTotal(int32_t timesTotal) { DARABONBA_PTR_SET_VALUE(timesTotal_, timesTotal) };
+
+
+        // timesType Field Functions 
+        bool hasTimesType() const { return this->timesType_ != nullptr;};
+        void deleteTimesType() { this->timesType_ = nullptr;};
+        inline int32_t getTimesType() const { DARABONBA_PTR_GET_DEFAULT(timesType_, 0) };
+        inline CarStandard& setTimesType(int32_t timesType) { DARABONBA_PTR_SET_VALUE(timesType_, timesType) };
+
+
+      protected:
+        shared_ptr<CarStandard::BookAllowInfo> bookAllowInfo_ {};
+        shared_ptr<CarStandard::CarHelper> carHelper_ {};
+        shared_ptr<CarStandard::CarTimeControl> carTimeControl_ {};
+        shared_ptr<CarStandard::CityControlInfo> cityControlInfo_ {};
+        shared_ptr<CarStandard::CrossCityInfo> crossCityInfo_ {};
+        shared_ptr<CarStandard::ElectronicFenceInfo> electronicFenceInfo_ {};
+        shared_ptr<string> levelCodes_ {};
+        shared_ptr<CarStandard::ModifyDestinationInfo> modifyDestinationInfo_ {};
+        shared_ptr<int32_t> timesTotal_ {};
+        shared_ptr<int32_t> timesType_ {};
+      };
+
       class CarCitySet : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const CarCitySet& obj) { 
@@ -308,10 +1058,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->businessDiscount_ == nullptr
-        && this->carCitySet_ == nullptr && this->economyDiscount_ == nullptr && this->firstDiscount_ == nullptr && this->flightCabins_ == nullptr && this->flightIntlRuleCode_ == nullptr
-        && this->flightRuleCode_ == nullptr && this->hotelCitys_ == nullptr && this->hotelIntlCitys_ == nullptr && this->hotelIntlRuleCode_ == nullptr && this->hotelRuleCode_ == nullptr
-        && this->internationalFlightCabins_ == nullptr && this->premiumEconomyDiscount_ == nullptr && this->reserveType_ == nullptr && this->trainRuleCode_ == nullptr && this->trainSeats_ == nullptr
-        && this->userId_ == nullptr; };
+        && this->carCitySet_ == nullptr && this->carStandard_ == nullptr && this->economyDiscount_ == nullptr && this->firstDiscount_ == nullptr && this->flightCabins_ == nullptr
+        && this->flightIntlRuleCode_ == nullptr && this->flightRuleCode_ == nullptr && this->hotelCitys_ == nullptr && this->hotelIntlCitys_ == nullptr && this->hotelIntlRuleCode_ == nullptr
+        && this->hotelRuleCode_ == nullptr && this->internationalFlightCabins_ == nullptr && this->premiumEconomyDiscount_ == nullptr && this->reserveType_ == nullptr && this->trainRuleCode_ == nullptr
+        && this->trainSeats_ == nullptr && this->userId_ == nullptr; };
       // businessDiscount Field Functions 
       bool hasBusinessDiscount() const { return this->businessDiscount_ != nullptr;};
       void deleteBusinessDiscount() { this->businessDiscount_ = nullptr;};
@@ -326,6 +1076,15 @@ namespace Models
       inline vector<TravelerStandard::CarCitySet> getCarCitySet() { DARABONBA_PTR_GET(carCitySet_, vector<TravelerStandard::CarCitySet>) };
       inline TravelerStandard& setCarCitySet(const vector<TravelerStandard::CarCitySet> & carCitySet) { DARABONBA_PTR_SET_VALUE(carCitySet_, carCitySet) };
       inline TravelerStandard& setCarCitySet(vector<TravelerStandard::CarCitySet> && carCitySet) { DARABONBA_PTR_SET_RVALUE(carCitySet_, carCitySet) };
+
+
+      // carStandard Field Functions 
+      bool hasCarStandard() const { return this->carStandard_ != nullptr;};
+      void deleteCarStandard() { this->carStandard_ = nullptr;};
+      inline const TravelerStandard::CarStandard & getCarStandard() const { DARABONBA_PTR_GET_CONST(carStandard_, TravelerStandard::CarStandard) };
+      inline TravelerStandard::CarStandard getCarStandard() { DARABONBA_PTR_GET(carStandard_, TravelerStandard::CarStandard) };
+      inline TravelerStandard& setCarStandard(const TravelerStandard::CarStandard & carStandard) { DARABONBA_PTR_SET_VALUE(carStandard_, carStandard) };
+      inline TravelerStandard& setCarStandard(TravelerStandard::CarStandard && carStandard) { DARABONBA_PTR_SET_RVALUE(carStandard_, carStandard) };
 
 
       // economyDiscount Field Functions 
@@ -440,6 +1199,7 @@ namespace Models
     protected:
       shared_ptr<int32_t> businessDiscount_ {};
       shared_ptr<vector<TravelerStandard::CarCitySet>> carCitySet_ {};
+      shared_ptr<TravelerStandard::CarStandard> carStandard_ {};
       shared_ptr<int32_t> economyDiscount_ {};
       shared_ptr<int32_t> firstDiscount_ {};
       shared_ptr<string> flightCabins_ {};
@@ -2200,7 +2960,6 @@ namespace Models
     shared_ptr<ApplyAddRequest::DefaultStandard> defaultStandard_ {};
     shared_ptr<string> departId_ {};
     shared_ptr<string> departName_ {};
-    // 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
     shared_ptr<string> extendField_ {};
     shared_ptr<vector<ApplyAddRequest::ExternalTravelerList>> externalTravelerList_ {};
     shared_ptr<ApplyAddRequest::ExternalTravelerStandard> externalTravelerStandard_ {};

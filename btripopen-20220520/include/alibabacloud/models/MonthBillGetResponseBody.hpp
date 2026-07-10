@@ -78,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ieHotelAmount, ieHotelAmount_);
           DARABONBA_PTR_TO_JSON(mailBillDate, mailBillDate_);
           DARABONBA_PTR_TO_JSON(mealAmount, mealAmount_);
+          DARABONBA_PTR_TO_JSON(metroAmount, metroAmount_);
           DARABONBA_PTR_TO_JSON(serviceAmount, serviceAmount_);
           DARABONBA_PTR_TO_JSON(trainAmount, trainAmount_);
           DARABONBA_PTR_TO_JSON(vasAmount, vasAmount_);
@@ -93,6 +94,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ieHotelAmount, ieHotelAmount_);
           DARABONBA_PTR_FROM_JSON(mailBillDate, mailBillDate_);
           DARABONBA_PTR_FROM_JSON(mealAmount, mealAmount_);
+          DARABONBA_PTR_FROM_JSON(metroAmount, metroAmount_);
           DARABONBA_PTR_FROM_JSON(serviceAmount, serviceAmount_);
           DARABONBA_PTR_FROM_JSON(trainAmount, trainAmount_);
           DARABONBA_PTR_FROM_JSON(vasAmount, vasAmount_);
@@ -110,8 +112,8 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->billConfirmed_ == nullptr
         && this->carAmount_ == nullptr && this->damageAmount_ == nullptr && this->flightAmount_ == nullptr && this->fuPoint_ == nullptr && this->hotelAmount_ == nullptr
-        && this->ieFlightAmount_ == nullptr && this->ieHotelAmount_ == nullptr && this->mailBillDate_ == nullptr && this->mealAmount_ == nullptr && this->serviceAmount_ == nullptr
-        && this->trainAmount_ == nullptr && this->vasAmount_ == nullptr; };
+        && this->ieFlightAmount_ == nullptr && this->ieHotelAmount_ == nullptr && this->mailBillDate_ == nullptr && this->mealAmount_ == nullptr && this->metroAmount_ == nullptr
+        && this->serviceAmount_ == nullptr && this->trainAmount_ == nullptr && this->vasAmount_ == nullptr; };
         // billConfirmed Field Functions 
         bool hasBillConfirmed() const { return this->billConfirmed_ != nullptr;};
         void deleteBillConfirmed() { this->billConfirmed_ = nullptr;};
@@ -182,6 +184,13 @@ namespace Models
         inline MonthAccountBillDetail& setMealAmount(double mealAmount) { DARABONBA_PTR_SET_VALUE(mealAmount_, mealAmount) };
 
 
+        // metroAmount Field Functions 
+        bool hasMetroAmount() const { return this->metroAmount_ != nullptr;};
+        void deleteMetroAmount() { this->metroAmount_ = nullptr;};
+        inline double getMetroAmount() const { DARABONBA_PTR_GET_DEFAULT(metroAmount_, 0.0) };
+        inline MonthAccountBillDetail& setMetroAmount(double metroAmount) { DARABONBA_PTR_SET_VALUE(metroAmount_, metroAmount) };
+
+
         // serviceAmount Field Functions 
         bool hasServiceAmount() const { return this->serviceAmount_ != nullptr;};
         void deleteServiceAmount() { this->serviceAmount_ = nullptr;};
@@ -205,25 +214,17 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> billConfirmed_ {};
-        // 用车金额（单位：元）
         shared_ptr<double> carAmount_ {};
-        // 违约金金额（单位：元）
         shared_ptr<double> damageAmount_ {};
-        // 机票金额（单位：元）
         shared_ptr<double> flightAmount_ {};
-        // 福豆金额（单位：元）
         shared_ptr<double> fuPoint_ {};
-        // 酒店金额（单位：元）
         shared_ptr<double> hotelAmount_ {};
-        // 国际机票金额（单位：元）
         shared_ptr<double> ieFlightAmount_ {};
         shared_ptr<double> ieHotelAmount_ {};
-        // 账期日：YYYYMMDD
         shared_ptr<int64_t> mailBillDate_ {};
         shared_ptr<double> mealAmount_ {};
-        // 服务费金额（单位：元）
+        shared_ptr<double> metroAmount_ {};
         shared_ptr<double> serviceAmount_ {};
-        // 火车票金额（单位：元）
         shared_ptr<double> trainAmount_ {};
         shared_ptr<double> vasAmount_ {};
       };
@@ -262,7 +263,6 @@ namespace Models
 
     protected:
       shared_ptr<string> endDate_ {};
-      // CorpMonthAccountBillFeeDetail
       shared_ptr<Module::MonthAccountBillDetail> monthAccountBillDetail_ {};
       shared_ptr<string> startDate_ {};
       shared_ptr<string> url_ {};

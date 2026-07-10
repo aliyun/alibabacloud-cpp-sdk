@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(rate_plan_id, ratePlanId_);
       DARABONBA_PTR_TO_JSON(room_id, roomId_);
       DARABONBA_PTR_TO_JSON(room_num, roomNum_);
+      DARABONBA_PTR_TO_JSON(rp_type, rpType_);
       DARABONBA_PTR_TO_JSON(search_room_price, searchRoomPrice_);
       DARABONBA_PTR_TO_JSON(seller_id, sellerId_);
       DARABONBA_PTR_TO_JSON(shid, shid_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(rate_plan_id, ratePlanId_);
       DARABONBA_PTR_FROM_JSON(room_id, roomId_);
       DARABONBA_PTR_FROM_JSON(room_num, roomNum_);
+      DARABONBA_PTR_FROM_JSON(rp_type, rpType_);
       DARABONBA_PTR_FROM_JSON(search_room_price, searchRoomPrice_);
       DARABONBA_PTR_FROM_JSON(seller_id, sellerId_);
       DARABONBA_PTR_FROM_JSON(shid, shid_);
@@ -203,7 +205,7 @@ namespace Models
     virtual bool empty() const override { return this->btripUserId_ == nullptr
         && this->checkIn_ == nullptr && this->checkOut_ == nullptr && this->dailyList_ == nullptr && this->itemId_ == nullptr && this->numberOfAdultsPerRoom_ == nullptr
         && this->occupantInfoList_ == nullptr && this->rateKey_ == nullptr && this->ratePlanId_ == nullptr && this->roomId_ == nullptr && this->roomNum_ == nullptr
-        && this->searchRoomPrice_ == nullptr && this->sellerId_ == nullptr && this->shid_ == nullptr; };
+        && this->rpType_ == nullptr && this->searchRoomPrice_ == nullptr && this->sellerId_ == nullptr && this->shid_ == nullptr; };
     // btripUserId Field Functions 
     bool hasBtripUserId() const { return this->btripUserId_ != nullptr;};
     void deleteBtripUserId() { this->btripUserId_ = nullptr;};
@@ -285,6 +287,13 @@ namespace Models
     inline HotelOrderPreValidateRequest& setRoomNum(int32_t roomNum) { DARABONBA_PTR_SET_VALUE(roomNum_, roomNum) };
 
 
+    // rpType Field Functions 
+    bool hasRpType() const { return this->rpType_ != nullptr;};
+    void deleteRpType() { this->rpType_ = nullptr;};
+    inline int32_t getRpType() const { DARABONBA_PTR_GET_DEFAULT(rpType_, 0) };
+    inline HotelOrderPreValidateRequest& setRpType(int32_t rpType) { DARABONBA_PTR_SET_VALUE(rpType_, rpType) };
+
+
     // searchRoomPrice Field Functions 
     bool hasSearchRoomPrice() const { return this->searchRoomPrice_ != nullptr;};
     void deleteSearchRoomPrice() { this->searchRoomPrice_ = nullptr;};
@@ -326,6 +335,7 @@ namespace Models
     shared_ptr<int64_t> roomId_ {};
     // This parameter is required.
     shared_ptr<int32_t> roomNum_ {};
+    shared_ptr<int32_t> rpType_ {};
     // This parameter is required.
     shared_ptr<int64_t> searchRoomPrice_ {};
     // This parameter is required.

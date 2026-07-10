@@ -14,6 +14,7 @@ namespace Models
   class HotelOrderCreateRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const HotelOrderCreateRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(arrival_time, arrivalTime_);
       DARABONBA_PTR_TO_JSON(btrip_user_id, btripUserId_);
       DARABONBA_PTR_TO_JSON(check_in, checkIn_);
       DARABONBA_PTR_TO_JSON(check_out, checkOut_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(invoice_info, invoiceInfo_);
       DARABONBA_PTR_TO_JSON(item_id, itemId_);
       DARABONBA_PTR_TO_JSON(itinerary_no, itineraryNo_);
+      DARABONBA_PTR_TO_JSON(leave_time, leaveTime_);
       DARABONBA_PTR_TO_JSON(member_info, memberInfo_);
       DARABONBA_PTR_TO_JSON(occupant_info_list, occupantInfoList_);
       DARABONBA_PTR_TO_JSON(person_pay_price, personPayPrice_);
@@ -33,12 +35,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(rate_plan_id, ratePlanId_);
       DARABONBA_PTR_TO_JSON(room_id, roomId_);
       DARABONBA_PTR_TO_JSON(room_num, roomNum_);
+      DARABONBA_PTR_TO_JSON(rp_type, rpType_);
       DARABONBA_PTR_TO_JSON(seller_id, sellerId_);
       DARABONBA_PTR_TO_JSON(shid, shid_);
       DARABONBA_PTR_TO_JSON(total_order_price, totalOrderPrice_);
       DARABONBA_PTR_TO_JSON(validate_res_key, validateResKey_);
     };
     friend void from_json(const Darabonba::Json& j, HotelOrderCreateRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(arrival_time, arrivalTime_);
       DARABONBA_PTR_FROM_JSON(btrip_user_id, btripUserId_);
       DARABONBA_PTR_FROM_JSON(check_in, checkIn_);
       DARABONBA_PTR_FROM_JSON(check_out, checkOut_);
@@ -51,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(invoice_info, invoiceInfo_);
       DARABONBA_PTR_FROM_JSON(item_id, itemId_);
       DARABONBA_PTR_FROM_JSON(itinerary_no, itineraryNo_);
+      DARABONBA_PTR_FROM_JSON(leave_time, leaveTime_);
       DARABONBA_PTR_FROM_JSON(member_info, memberInfo_);
       DARABONBA_PTR_FROM_JSON(occupant_info_list, occupantInfoList_);
       DARABONBA_PTR_FROM_JSON(person_pay_price, personPayPrice_);
@@ -58,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(rate_plan_id, ratePlanId_);
       DARABONBA_PTR_FROM_JSON(room_id, roomId_);
       DARABONBA_PTR_FROM_JSON(room_num, roomNum_);
+      DARABONBA_PTR_FROM_JSON(rp_type, rpType_);
       DARABONBA_PTR_FROM_JSON(seller_id, sellerId_);
       DARABONBA_PTR_FROM_JSON(shid, shid_);
       DARABONBA_PTR_FROM_JSON(total_order_price, totalOrderPrice_);
@@ -740,12 +746,19 @@ namespace Models
       shared_ptr<string> remark_ {};
     };
 
-    virtual bool empty() const override { return this->btripUserId_ == nullptr
-        && this->checkIn_ == nullptr && this->checkOut_ == nullptr && this->contractEmail_ == nullptr && this->contractName_ == nullptr && this->contractPhone_ == nullptr
-        && this->corpPayPrice_ == nullptr && this->disOrderId_ == nullptr && this->extra_ == nullptr && this->invoiceInfo_ == nullptr && this->itemId_ == nullptr
-        && this->itineraryNo_ == nullptr && this->memberInfo_ == nullptr && this->occupantInfoList_ == nullptr && this->personPayPrice_ == nullptr && this->promotionInfo_ == nullptr
-        && this->ratePlanId_ == nullptr && this->roomId_ == nullptr && this->roomNum_ == nullptr && this->sellerId_ == nullptr && this->shid_ == nullptr
-        && this->totalOrderPrice_ == nullptr && this->validateResKey_ == nullptr; };
+    virtual bool empty() const override { return this->arrivalTime_ == nullptr
+        && this->btripUserId_ == nullptr && this->checkIn_ == nullptr && this->checkOut_ == nullptr && this->contractEmail_ == nullptr && this->contractName_ == nullptr
+        && this->contractPhone_ == nullptr && this->corpPayPrice_ == nullptr && this->disOrderId_ == nullptr && this->extra_ == nullptr && this->invoiceInfo_ == nullptr
+        && this->itemId_ == nullptr && this->itineraryNo_ == nullptr && this->leaveTime_ == nullptr && this->memberInfo_ == nullptr && this->occupantInfoList_ == nullptr
+        && this->personPayPrice_ == nullptr && this->promotionInfo_ == nullptr && this->ratePlanId_ == nullptr && this->roomId_ == nullptr && this->roomNum_ == nullptr
+        && this->rpType_ == nullptr && this->sellerId_ == nullptr && this->shid_ == nullptr && this->totalOrderPrice_ == nullptr && this->validateResKey_ == nullptr; };
+    // arrivalTime Field Functions 
+    bool hasArrivalTime() const { return this->arrivalTime_ != nullptr;};
+    void deleteArrivalTime() { this->arrivalTime_ = nullptr;};
+    inline string getArrivalTime() const { DARABONBA_PTR_GET_DEFAULT(arrivalTime_, "") };
+    inline HotelOrderCreateRequest& setArrivalTime(string arrivalTime) { DARABONBA_PTR_SET_VALUE(arrivalTime_, arrivalTime) };
+
+
     // btripUserId Field Functions 
     bool hasBtripUserId() const { return this->btripUserId_ != nullptr;};
     void deleteBtripUserId() { this->btripUserId_ = nullptr;};
@@ -832,6 +845,13 @@ namespace Models
     inline HotelOrderCreateRequest& setItineraryNo(string itineraryNo) { DARABONBA_PTR_SET_VALUE(itineraryNo_, itineraryNo) };
 
 
+    // leaveTime Field Functions 
+    bool hasLeaveTime() const { return this->leaveTime_ != nullptr;};
+    void deleteLeaveTime() { this->leaveTime_ = nullptr;};
+    inline string getLeaveTime() const { DARABONBA_PTR_GET_DEFAULT(leaveTime_, "") };
+    inline HotelOrderCreateRequest& setLeaveTime(string leaveTime) { DARABONBA_PTR_SET_VALUE(leaveTime_, leaveTime) };
+
+
     // memberInfo Field Functions 
     bool hasMemberInfo() const { return this->memberInfo_ != nullptr;};
     void deleteMemberInfo() { this->memberInfo_ = nullptr;};
@@ -887,6 +907,13 @@ namespace Models
     inline HotelOrderCreateRequest& setRoomNum(int32_t roomNum) { DARABONBA_PTR_SET_VALUE(roomNum_, roomNum) };
 
 
+    // rpType Field Functions 
+    bool hasRpType() const { return this->rpType_ != nullptr;};
+    void deleteRpType() { this->rpType_ = nullptr;};
+    inline int32_t getRpType() const { DARABONBA_PTR_GET_DEFAULT(rpType_, 0) };
+    inline HotelOrderCreateRequest& setRpType(int32_t rpType) { DARABONBA_PTR_SET_VALUE(rpType_, rpType) };
+
+
     // sellerId Field Functions 
     bool hasSellerId() const { return this->sellerId_ != nullptr;};
     void deleteSellerId() { this->sellerId_ = nullptr;};
@@ -916,6 +943,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> arrivalTime_ {};
     // This parameter is required.
     shared_ptr<string> btripUserId_ {};
     // This parameter is required.
@@ -936,6 +964,7 @@ namespace Models
     shared_ptr<int64_t> itemId_ {};
     // This parameter is required.
     shared_ptr<string> itineraryNo_ {};
+    shared_ptr<string> leaveTime_ {};
     shared_ptr<HotelOrderCreateRequest::MemberInfo> memberInfo_ {};
     // This parameter is required.
     shared_ptr<vector<HotelOrderCreateRequest::OccupantInfoList>> occupantInfoList_ {};
@@ -948,6 +977,7 @@ namespace Models
     shared_ptr<int64_t> roomId_ {};
     // This parameter is required.
     shared_ptr<int32_t> roomNum_ {};
+    shared_ptr<int32_t> rpType_ {};
     // This parameter is required.
     shared_ptr<int64_t> sellerId_ {};
     // This parameter is required.

@@ -856,7 +856,6 @@ namespace Models
         shared_ptr<double> grantNum_ {};
         shared_ptr<string> index_ {};
         shared_ptr<string> invoiceTitle_ {};
-        // Location
         shared_ptr<string> location_ {};
         shared_ptr<string> makeInvoice_ {};
         shared_ptr<string> mappingCompanyCode_ {};
@@ -882,7 +881,6 @@ namespace Models
         shared_ptr<string> settlementTime_ {};
         shared_ptr<string> settlementType_ {};
         shared_ptr<string> showSubOrderId_ {};
-        // SIO
         shared_ptr<string> sio_ {};
         shared_ptr<int32_t> status_ {};
         shared_ptr<string> statusDesc_ {};
@@ -1022,13 +1020,11 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> code_ {};
-    // module。
     shared_ptr<FuPointBillSettlementQueryResponseBody::Module> module_ {};
     shared_ptr<bool> morePage_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultMsg_ {};
     shared_ptr<bool> success_ {};
-    // trace_id
     shared_ptr<string> traceId_ {};
   };
 

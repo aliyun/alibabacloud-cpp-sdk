@@ -350,7 +350,6 @@ namespace Models
         shared_ptr<int32_t> index_ {};
         shared_ptr<int32_t> level_ {};
         shared_ptr<vector<RefundRule::RefundSubItems>> refundSubItems_ {};
-        // subTableHead
         shared_ptr<vector<string>> subTableHead_ {};
         shared_ptr<string> tableHead_ {};
         shared_ptr<string> title_ {};
@@ -638,7 +637,6 @@ namespace Models
         shared_ptr<int32_t> index_ {};
         shared_ptr<int32_t> level_ {};
         shared_ptr<vector<ChangeRule::RefundSubItems>> refundSubItems_ {};
-        // subTableHead
         shared_ptr<vector<string>> subTableHead_ {};
         shared_ptr<string> tableHead_ {};
         shared_ptr<string> title_ {};
@@ -957,7 +955,6 @@ namespace Models
 
 
           protected:
-            // baggage_desc
             shared_ptr<vector<string>> baggageDesc_ {};
             shared_ptr<int32_t> baggageSubContentType_ {};
             shared_ptr<BaggageSubContentVisualizes::Description> description_ {};
@@ -1182,12 +1179,9 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // module
     shared_ptr<FlightOtaItemDetailResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

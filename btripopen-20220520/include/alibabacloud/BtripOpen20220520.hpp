@@ -111,6 +111,24 @@ namespace BtripOpen20220520
       Models::AddInvoiceEntityResponse addInvoiceEntity(const Models::AddInvoiceEntityRequest &request);
 
       /**
+       * @summary 新增项目负责人
+       *
+       * @param tmpReq AddProjectManagerRequest
+       * @param headers AddProjectManagerHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddProjectManagerResponse
+       */
+      Models::AddProjectManagerResponse addProjectManagerWithOptions(const Models::AddProjectManagerRequest &tmpReq, const Models::AddProjectManagerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增项目负责人
+       *
+       * @param request AddProjectManagerRequest
+       * @return AddProjectManagerResponse
+       */
+      Models::AddProjectManagerResponse addProjectManager(const Models::AddProjectManagerRequest &request);
+
+      /**
        * @summary 商旅功能页跳转
        *
        * @param request AddressGetRequest
@@ -325,6 +343,42 @@ namespace BtripOpen20220520
       Models::BaseCityInfoSearchResponse baseCityInfoSearch(const Models::BaseCityInfoSearchRequest &request);
 
       /**
+       * @summary 批量/单个查询部门
+       *
+       * @param request BatchQueryDepartmentRequest
+       * @param headers BatchQueryDepartmentHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchQueryDepartmentResponse
+       */
+      Models::BatchQueryDepartmentResponse batchQueryDepartmentWithOptions(const Models::BatchQueryDepartmentRequest &request, const Models::BatchQueryDepartmentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量/单个查询部门
+       *
+       * @param request BatchQueryDepartmentRequest
+       * @return BatchQueryDepartmentResponse
+       */
+      Models::BatchQueryDepartmentResponse batchQueryDepartment(const Models::BatchQueryDepartmentRequest &request);
+
+      /**
+       * @summary Submits a batch.
+       *
+       * @param tmpReq BatchSubmitPreBillRequest
+       * @param headers BatchSubmitPreBillHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchSubmitPreBillResponse
+       */
+      Models::BatchSubmitPreBillResponse batchSubmitPreBillWithOptions(const Models::BatchSubmitPreBillRequest &tmpReq, const Models::BatchSubmitPreBillHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a batch.
+       *
+       * @param request BatchSubmitPreBillRequest
+       * @return BatchSubmitPreBillResponse
+       */
+      Models::BatchSubmitPreBillResponse batchSubmitPreBill(const Models::BatchSubmitPreBillRequest &request);
+
+      /**
        * @summary 商旅账单内容修改
        *
        * @param request BtripBillInfoAdjustRequest
@@ -343,7 +397,11 @@ namespace BtripOpen20220520
       Models::BtripBillInfoAdjustResponse btripBillInfoAdjust(const Models::BtripBillInfoAdjustRequest &request);
 
       /**
-       * @summary 同步市内用车审批单
+       * @summary Synchronizes an intra-city car service approval form.
+       *
+       * @description Synchronizes an intra-city car service approval form for a specified enterprise.
+       * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+       * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
        *
        * @param tmpReq CarApplyAddRequest
        * @param headers CarApplyAddHeaders
@@ -353,7 +411,11 @@ namespace BtripOpen20220520
       Models::CarApplyAddResponse carApplyAddWithOptions(const Models::CarApplyAddRequest &tmpReq, const Models::CarApplyAddHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步市内用车审批单
+       * @summary Synchronizes an intra-city car service approval form.
+       *
+       * @description Synchronizes an intra-city car service approval form for a specified enterprise.
+       * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+       * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
        *
        * @param request CarApplyAddRequest
        * @return CarApplyAddResponse
@@ -537,6 +599,24 @@ namespace BtripOpen20220520
        * @return CommonApplySyncResponse
        */
       Models::CommonApplySyncResponse commonApplySync(const Models::CommonApplySyncRequest &request);
+
+      /**
+       * @summary Confirms a pre-billing bill.
+       *
+       * @param request ConfirmPreBillRequest
+       * @param headers ConfirmPreBillHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfirmPreBillResponse
+       */
+      Models::ConfirmPreBillResponse confirmPreBillWithOptions(const Models::ConfirmPreBillRequest &request, const Models::ConfirmPreBillHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Confirms a pre-billing bill.
+       *
+       * @param request ConfirmPreBillRequest
+       * @return ConfirmPreBillResponse
+       */
+      Models::ConfirmPreBillResponse confirmPreBill(const Models::ConfirmPreBillRequest &request);
 
       /**
        * @summary 查询服务商机票记账数据
@@ -1343,7 +1423,7 @@ namespace BtripOpen20220520
       Models::FlightOrderDetailV2Response flightOrderDetailV2(const Models::FlightOrderDetailV2Request &request);
 
       /**
-       * @summary 查询机票订单列表
+       * @summary 国内查询机票订单列表
        *
        * @param request FlightOrderListQueryRequest
        * @param headers FlightOrderListQueryHeaders
@@ -1353,7 +1433,7 @@ namespace BtripOpen20220520
       Models::FlightOrderListQueryResponse flightOrderListQueryWithOptions(const Models::FlightOrderListQueryRequest &request, const Models::FlightOrderListQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询机票订单列表
+       * @summary 国内查询机票订单列表
        *
        * @param request FlightOrderListQueryRequest
        * @return FlightOrderListQueryResponse
@@ -1361,7 +1441,7 @@ namespace BtripOpen20220520
       Models::FlightOrderListQueryResponse flightOrderListQuery(const Models::FlightOrderListQueryRequest &request);
 
       /**
-       * @summary 机票订单列表查询
+       * @summary 国内机票订单列表查询
        *
        * @param tmpReq FlightOrderListQueryV2Request
        * @param headers FlightOrderListQueryV2Headers
@@ -1371,7 +1451,7 @@ namespace BtripOpen20220520
       Models::FlightOrderListQueryV2Response flightOrderListQueryV2WithOptions(const Models::FlightOrderListQueryV2Request &tmpReq, const Models::FlightOrderListQueryV2Headers &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机票订单列表查询
+       * @summary 国内机票订单列表查询
        *
        * @param request FlightOrderListQueryV2Request
        * @return FlightOrderListQueryV2Response
@@ -1379,7 +1459,7 @@ namespace BtripOpen20220520
       Models::FlightOrderListQueryV2Response flightOrderListQueryV2(const Models::FlightOrderListQueryV2Request &request);
 
       /**
-       * @summary 查询机票订单详情（含票信息）
+       * @summary 国内查询机票订单详情（含票信息）
        *
        * @param request FlightOrderQueryRequest
        * @param headers FlightOrderQueryHeaders
@@ -1389,7 +1469,7 @@ namespace BtripOpen20220520
       Models::FlightOrderQueryResponse flightOrderQueryWithOptions(const Models::FlightOrderQueryRequest &request, const Models::FlightOrderQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询机票订单详情（含票信息）
+       * @summary 国内查询机票订单详情（含票信息）
        *
        * @param request FlightOrderQueryRequest
        * @return FlightOrderQueryResponse
@@ -2061,7 +2141,7 @@ namespace BtripOpen20220520
       Models::HotelSuggestV2Response hotelSuggestV2(const Models::HotelSuggestV2Request &request);
 
       /**
-       * @summary International Flight Order Details
+       * @summary 国际机票订单详情
        *
        * @param request IFlightOrderDetailQueryRequest
        * @param headers IFlightOrderDetailQueryHeaders
@@ -2071,7 +2151,7 @@ namespace BtripOpen20220520
       Models::IFlightOrderDetailQueryResponse iFlightOrderDetailQueryWithOptions(const Models::IFlightOrderDetailQueryRequest &request, const Models::IFlightOrderDetailQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary International Flight Order Details
+       * @summary 国际机票订单详情
        *
        * @param request IFlightOrderDetailQueryRequest
        * @return IFlightOrderDetailQueryResponse
@@ -2833,6 +2913,24 @@ namespace BtripOpen20220520
       Models::MealApplyApproveResponse mealApplyApprove(const Models::MealApplyApproveRequest &request);
 
       /**
+       * @summary 修改用餐审批单
+       *
+       * @param tmpReq MealApplyModifyRequest
+       * @param headers MealApplyModifyHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MealApplyModifyResponse
+       */
+      Models::MealApplyModifyResponse mealApplyModifyWithOptions(const Models::MealApplyModifyRequest &tmpReq, const Models::MealApplyModifyHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改用餐审批单
+       *
+       * @param request MealApplyModifyRequest
+       * @return MealApplyModifyResponse
+       */
+      Models::MealApplyModifyResponse mealApplyModify(const Models::MealApplyModifyRequest &request);
+
+      /**
        * @summary 查询用餐申请单
        *
        * @param request MealApplyQueryRequest
@@ -2957,6 +3055,24 @@ namespace BtripOpen20220520
        * @return MonthBillSplitGetResponse
        */
       Models::MonthBillSplitGetResponse monthBillSplitGet(const Models::MonthBillSplitGetRequest &request);
+
+      /**
+       * @summary 查询企业预出账月账单
+       *
+       * @param request MonthPreBillGetRequest
+       * @param headers MonthPreBillGetHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MonthPreBillGetResponse
+       */
+      Models::MonthPreBillGetResponse monthPreBillGetWithOptions(const Models::MonthPreBillGetRequest &request, const Models::MonthPreBillGetHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询企业预出账月账单
+       *
+       * @param request MonthPreBillGetRequest
+       * @return MonthPreBillGetResponse
+       */
+      Models::MonthPreBillGetResponse monthPreBillGet(const Models::MonthPreBillGetRequest &request);
 
       /**
        * @summary 查询订单退款明细
@@ -3119,6 +3235,24 @@ namespace BtripOpen20220520
        * @return QueryReimbursementOrderResponse
        */
       Models::QueryReimbursementOrderResponse queryReimbursementOrder(const Models::QueryReimbursementOrderRequest &request);
+
+      /**
+       * @summary 删除项目负责人
+       *
+       * @param tmpReq RemoveProjectManagerRequest
+       * @param headers RemoveProjectManagerHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveProjectManagerResponse
+       */
+      Models::RemoveProjectManagerResponse removeProjectManagerWithOptions(const Models::RemoveProjectManagerRequest &tmpReq, const Models::RemoveProjectManagerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除项目负责人
+       *
+       * @param request RemoveProjectManagerRequest
+       * @return RemoveProjectManagerResponse
+       */
+      Models::RemoveProjectManagerResponse removeProjectManager(const Models::RemoveProjectManagerRequest &request);
 
       /**
        * @summary 单个人员同步

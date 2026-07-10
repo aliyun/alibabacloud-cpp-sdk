@@ -99,6 +99,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(booker_name, bookerName_);
           DARABONBA_PTR_TO_JSON(brand_group, brandGroup_);
           DARABONBA_PTR_TO_JSON(brand_name, brandName_);
+          DARABONBA_PTR_TO_JSON(budget_number, budgetNumber_);
+          DARABONBA_PTR_TO_JSON(business_reason, businessReason_);
           DARABONBA_PTR_TO_JSON(business_trip_result, businessTripResult_);
           DARABONBA_PTR_TO_JSON(cancel_or_modify_reason, cancelOrModifyReason_);
           DARABONBA_PTR_TO_JSON(cancel_or_modify_scene, cancelOrModifyScene_);
@@ -116,11 +118,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(cost_center, costCenter_);
           DARABONBA_PTR_TO_JSON(cost_center_number, costCenterNumber_);
           DARABONBA_PTR_TO_JSON(cost_department, costDepartment_);
+          DARABONBA_PTR_TO_JSON(custom_apply_id, customApplyId_);
           DARABONBA_PTR_TO_JSON(custom_content, customContent_);
           DARABONBA_PTR_TO_JSON(deductible_tax, deductibleTax_);
           DARABONBA_PTR_TO_JSON(department, department_);
           DARABONBA_PTR_TO_JSON(department_id, departmentId_);
           DARABONBA_PTR_TO_JSON(exceed_reason, exceedReason_);
+          DARABONBA_PTR_TO_JSON(external_person_type, externalPersonType_);
           DARABONBA_PTR_TO_JSON(fee_type, feeType_);
           DARABONBA_PTR_TO_JSON(fee_type_desc, feeTypeDesc_);
           DARABONBA_PTR_TO_JSON(fees, fees_);
@@ -216,6 +220,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(booker_name, bookerName_);
           DARABONBA_PTR_FROM_JSON(brand_group, brandGroup_);
           DARABONBA_PTR_FROM_JSON(brand_name, brandName_);
+          DARABONBA_PTR_FROM_JSON(budget_number, budgetNumber_);
+          DARABONBA_PTR_FROM_JSON(business_reason, businessReason_);
           DARABONBA_PTR_FROM_JSON(business_trip_result, businessTripResult_);
           DARABONBA_PTR_FROM_JSON(cancel_or_modify_reason, cancelOrModifyReason_);
           DARABONBA_PTR_FROM_JSON(cancel_or_modify_scene, cancelOrModifyScene_);
@@ -233,11 +239,13 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(cost_center, costCenter_);
           DARABONBA_PTR_FROM_JSON(cost_center_number, costCenterNumber_);
           DARABONBA_PTR_FROM_JSON(cost_department, costDepartment_);
+          DARABONBA_PTR_FROM_JSON(custom_apply_id, customApplyId_);
           DARABONBA_PTR_FROM_JSON(custom_content, customContent_);
           DARABONBA_PTR_FROM_JSON(deductible_tax, deductibleTax_);
           DARABONBA_PTR_FROM_JSON(department, department_);
           DARABONBA_PTR_FROM_JSON(department_id, departmentId_);
           DARABONBA_PTR_FROM_JSON(exceed_reason, exceedReason_);
+          DARABONBA_PTR_FROM_JSON(external_person_type, externalPersonType_);
           DARABONBA_PTR_FROM_JSON(fee_type, feeType_);
           DARABONBA_PTR_FROM_JSON(fee_type_desc, feeTypeDesc_);
           DARABONBA_PTR_FROM_JSON(fees, fees_);
@@ -323,25 +331,26 @@ namespace Models
         && this->applyDepCityName_ == nullptr && this->applyExtendField_ == nullptr && this->applyId_ == nullptr && this->approverEmail_ == nullptr && this->approverId_ == nullptr
         && this->approverName_ == nullptr && this->averageNights_ == nullptr && this->baseLocation_ == nullptr && this->billRecordTime_ == nullptr && this->billingEntity_ == nullptr
         && this->bookChannel_ == nullptr && this->bookMode_ == nullptr && this->bookReason_ == nullptr && this->bookTime_ == nullptr && this->bookerId_ == nullptr
-        && this->bookerJobNo_ == nullptr && this->bookerName_ == nullptr && this->brandGroup_ == nullptr && this->brandName_ == nullptr && this->businessTripResult_ == nullptr
-        && this->cancelOrModifyReason_ == nullptr && this->cancelOrModifyScene_ == nullptr && this->capitalDirection_ == nullptr && this->cascadeDepartment_ == nullptr && this->categoryDesc_ == nullptr
-        && this->checkInDate_ == nullptr && this->checkoutDate_ == nullptr && this->city_ == nullptr && this->cityCode_ == nullptr && this->cityCounty_ == nullptr
-        && this->cityCountyCode_ == nullptr && this->corpRefundFee_ == nullptr && this->corpTotalFee_ == nullptr && this->costCenter_ == nullptr && this->costCenterNumber_ == nullptr
-        && this->costDepartment_ == nullptr && this->customContent_ == nullptr && this->deductibleTax_ == nullptr && this->department_ == nullptr && this->departmentId_ == nullptr
-        && this->exceedReason_ == nullptr && this->feeType_ == nullptr && this->feeTypeDesc_ == nullptr && this->fees_ == nullptr && this->fines_ == nullptr
-        && this->foreignersTag_ == nullptr && this->fuPointFee_ == nullptr && this->hotelName_ == nullptr && this->index_ == nullptr && this->insOrderId_ == nullptr
-        && this->insuranceNumber_ == nullptr && this->insurancePrice_ == nullptr && this->insuranceProductName_ == nullptr && this->invoiceTitle_ == nullptr && this->isEarlyDeparture_ == nullptr
-        && this->isNegotiation_ == nullptr && this->isShareStr_ == nullptr && this->location_ == nullptr && this->mappingCompanyCode_ == nullptr && this->nights_ == nullptr
-        && this->noAdvanceBookingReason_ == nullptr && this->orderId_ == nullptr && this->orderPrice_ == nullptr && this->orderType_ == nullptr && this->originalReserveRule_ == nullptr
-        && this->overApplyId_ == nullptr && this->paymentDepartmentId_ == nullptr && this->paymentDepartmentName_ == nullptr && this->personRefundFee_ == nullptr && this->personSettlePrice_ == nullptr
-        && this->position_ == nullptr && this->positionLevel_ == nullptr && this->primaryId_ == nullptr && this->processorOaCode_ == nullptr && this->projectCode_ == nullptr
-        && this->projectName_ == nullptr && this->promotionFee_ == nullptr && this->recoverMoneyReceiptAmt_ == nullptr && this->remark_ == nullptr && this->reserveRule_ == nullptr
-        && this->roomNo_ == nullptr && this->roomNumber_ == nullptr && this->roomPrice_ == nullptr && this->roomType_ == nullptr && this->sceneId_ == nullptr
-        && this->sceneName_ == nullptr && this->serviceFee_ == nullptr && this->settleTypeDesc_ == nullptr && this->settlementFee_ == nullptr && this->settlementGrantFee_ == nullptr
-        && this->settlementTime_ == nullptr && this->settlementType_ == nullptr && this->sio_ == nullptr && this->star_ == nullptr && this->status_ == nullptr
-        && this->statusDesc_ == nullptr && this->taxRate_ == nullptr && this->thirdItineraryId_ == nullptr && this->totalNights_ == nullptr && this->tradeActionDesc_ == nullptr
-        && this->travelerEmail_ == nullptr && this->travelerId_ == nullptr && this->travelerJobNo_ == nullptr && this->travelerMemberType_ == nullptr && this->travelerMemberTypeName_ == nullptr
-        && this->travelerName_ == nullptr && this->unbookedLowestPriceReason_ == nullptr && this->voucherType_ == nullptr && this->voucherTypeDesc_ == nullptr; };
+        && this->bookerJobNo_ == nullptr && this->bookerName_ == nullptr && this->brandGroup_ == nullptr && this->brandName_ == nullptr && this->budgetNumber_ == nullptr
+        && this->businessReason_ == nullptr && this->businessTripResult_ == nullptr && this->cancelOrModifyReason_ == nullptr && this->cancelOrModifyScene_ == nullptr && this->capitalDirection_ == nullptr
+        && this->cascadeDepartment_ == nullptr && this->categoryDesc_ == nullptr && this->checkInDate_ == nullptr && this->checkoutDate_ == nullptr && this->city_ == nullptr
+        && this->cityCode_ == nullptr && this->cityCounty_ == nullptr && this->cityCountyCode_ == nullptr && this->corpRefundFee_ == nullptr && this->corpTotalFee_ == nullptr
+        && this->costCenter_ == nullptr && this->costCenterNumber_ == nullptr && this->costDepartment_ == nullptr && this->customApplyId_ == nullptr && this->customContent_ == nullptr
+        && this->deductibleTax_ == nullptr && this->department_ == nullptr && this->departmentId_ == nullptr && this->exceedReason_ == nullptr && this->externalPersonType_ == nullptr
+        && this->feeType_ == nullptr && this->feeTypeDesc_ == nullptr && this->fees_ == nullptr && this->fines_ == nullptr && this->foreignersTag_ == nullptr
+        && this->fuPointFee_ == nullptr && this->hotelName_ == nullptr && this->index_ == nullptr && this->insOrderId_ == nullptr && this->insuranceNumber_ == nullptr
+        && this->insurancePrice_ == nullptr && this->insuranceProductName_ == nullptr && this->invoiceTitle_ == nullptr && this->isEarlyDeparture_ == nullptr && this->isNegotiation_ == nullptr
+        && this->isShareStr_ == nullptr && this->location_ == nullptr && this->mappingCompanyCode_ == nullptr && this->nights_ == nullptr && this->noAdvanceBookingReason_ == nullptr
+        && this->orderId_ == nullptr && this->orderPrice_ == nullptr && this->orderType_ == nullptr && this->originalReserveRule_ == nullptr && this->overApplyId_ == nullptr
+        && this->paymentDepartmentId_ == nullptr && this->paymentDepartmentName_ == nullptr && this->personRefundFee_ == nullptr && this->personSettlePrice_ == nullptr && this->position_ == nullptr
+        && this->positionLevel_ == nullptr && this->primaryId_ == nullptr && this->processorOaCode_ == nullptr && this->projectCode_ == nullptr && this->projectName_ == nullptr
+        && this->promotionFee_ == nullptr && this->recoverMoneyReceiptAmt_ == nullptr && this->remark_ == nullptr && this->reserveRule_ == nullptr && this->roomNo_ == nullptr
+        && this->roomNumber_ == nullptr && this->roomPrice_ == nullptr && this->roomType_ == nullptr && this->sceneId_ == nullptr && this->sceneName_ == nullptr
+        && this->serviceFee_ == nullptr && this->settleTypeDesc_ == nullptr && this->settlementFee_ == nullptr && this->settlementGrantFee_ == nullptr && this->settlementTime_ == nullptr
+        && this->settlementType_ == nullptr && this->sio_ == nullptr && this->star_ == nullptr && this->status_ == nullptr && this->statusDesc_ == nullptr
+        && this->taxRate_ == nullptr && this->thirdItineraryId_ == nullptr && this->totalNights_ == nullptr && this->tradeActionDesc_ == nullptr && this->travelerEmail_ == nullptr
+        && this->travelerId_ == nullptr && this->travelerJobNo_ == nullptr && this->travelerMemberType_ == nullptr && this->travelerMemberTypeName_ == nullptr && this->travelerName_ == nullptr
+        && this->unbookedLowestPriceReason_ == nullptr && this->voucherType_ == nullptr && this->voucherTypeDesc_ == nullptr; };
         // adjustTime Field Functions 
         bool hasAdjustTime() const { return this->adjustTime_ != nullptr;};
         void deleteAdjustTime() { this->adjustTime_ = nullptr;};
@@ -517,6 +526,20 @@ namespace Models
         inline DataList& setBrandName(string brandName) { DARABONBA_PTR_SET_VALUE(brandName_, brandName) };
 
 
+        // budgetNumber Field Functions 
+        bool hasBudgetNumber() const { return this->budgetNumber_ != nullptr;};
+        void deleteBudgetNumber() { this->budgetNumber_ = nullptr;};
+        inline string getBudgetNumber() const { DARABONBA_PTR_GET_DEFAULT(budgetNumber_, "") };
+        inline DataList& setBudgetNumber(string budgetNumber) { DARABONBA_PTR_SET_VALUE(budgetNumber_, budgetNumber) };
+
+
+        // businessReason Field Functions 
+        bool hasBusinessReason() const { return this->businessReason_ != nullptr;};
+        void deleteBusinessReason() { this->businessReason_ = nullptr;};
+        inline string getBusinessReason() const { DARABONBA_PTR_GET_DEFAULT(businessReason_, "") };
+        inline DataList& setBusinessReason(string businessReason) { DARABONBA_PTR_SET_VALUE(businessReason_, businessReason) };
+
+
         // businessTripResult Field Functions 
         bool hasBusinessTripResult() const { return this->businessTripResult_ != nullptr;};
         void deleteBusinessTripResult() { this->businessTripResult_ = nullptr;};
@@ -636,6 +659,13 @@ namespace Models
         inline DataList& setCostDepartment(string costDepartment) { DARABONBA_PTR_SET_VALUE(costDepartment_, costDepartment) };
 
 
+        // customApplyId Field Functions 
+        bool hasCustomApplyId() const { return this->customApplyId_ != nullptr;};
+        void deleteCustomApplyId() { this->customApplyId_ = nullptr;};
+        inline string getCustomApplyId() const { DARABONBA_PTR_GET_DEFAULT(customApplyId_, "") };
+        inline DataList& setCustomApplyId(string customApplyId) { DARABONBA_PTR_SET_VALUE(customApplyId_, customApplyId) };
+
+
         // customContent Field Functions 
         bool hasCustomContent() const { return this->customContent_ != nullptr;};
         void deleteCustomContent() { this->customContent_ = nullptr;};
@@ -669,6 +699,13 @@ namespace Models
         void deleteExceedReason() { this->exceedReason_ = nullptr;};
         inline string getExceedReason() const { DARABONBA_PTR_GET_DEFAULT(exceedReason_, "") };
         inline DataList& setExceedReason(string exceedReason) { DARABONBA_PTR_SET_VALUE(exceedReason_, exceedReason) };
+
+
+        // externalPersonType Field Functions 
+        bool hasExternalPersonType() const { return this->externalPersonType_ != nullptr;};
+        void deleteExternalPersonType() { this->externalPersonType_ = nullptr;};
+        inline string getExternalPersonType() const { DARABONBA_PTR_GET_DEFAULT(externalPersonType_, "") };
+        inline DataList& setExternalPersonType(string externalPersonType) { DARABONBA_PTR_SET_VALUE(externalPersonType_, externalPersonType) };
 
 
         // feeType Field Functions 
@@ -1155,7 +1192,6 @@ namespace Models
         shared_ptr<string> applyArrCityName_ {};
         shared_ptr<string> applyDepCityCode_ {};
         shared_ptr<string> applyDepCityName_ {};
-        // 审批扩展自定义字段
         shared_ptr<string> applyExtendField_ {};
         shared_ptr<string> applyId_ {};
         shared_ptr<string> approverEmail_ {};
@@ -1174,6 +1210,8 @@ namespace Models
         shared_ptr<string> bookerName_ {};
         shared_ptr<string> brandGroup_ {};
         shared_ptr<string> brandName_ {};
+        shared_ptr<string> budgetNumber_ {};
+        shared_ptr<string> businessReason_ {};
         shared_ptr<string> businessTripResult_ {};
         shared_ptr<string> cancelOrModifyReason_ {};
         shared_ptr<string> cancelOrModifyScene_ {};
@@ -1191,11 +1229,13 @@ namespace Models
         shared_ptr<string> costCenter_ {};
         shared_ptr<string> costCenterNumber_ {};
         shared_ptr<string> costDepartment_ {};
+        shared_ptr<string> customApplyId_ {};
         shared_ptr<string> customContent_ {};
         shared_ptr<double> deductibleTax_ {};
         shared_ptr<string> department_ {};
         shared_ptr<string> departmentId_ {};
         shared_ptr<string> exceedReason_ {};
+        shared_ptr<string> externalPersonType_ {};
         shared_ptr<string> feeType_ {};
         shared_ptr<string> feeTypeDesc_ {};
         shared_ptr<double> fees_ {};
@@ -1251,7 +1291,6 @@ namespace Models
         shared_ptr<string> star_ {};
         shared_ptr<int32_t> status_ {};
         shared_ptr<string> statusDesc_ {};
-        // 税率
         shared_ptr<string> taxRate_ {};
         shared_ptr<string> thirdItineraryId_ {};
         shared_ptr<int32_t> totalNights_ {};

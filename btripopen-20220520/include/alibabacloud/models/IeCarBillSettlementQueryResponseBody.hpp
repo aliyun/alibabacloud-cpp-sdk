@@ -1304,7 +1304,6 @@ namespace Models
         shared_ptr<string> invoiceTitle_ {};
         shared_ptr<string> lastDepartment_ {};
         shared_ptr<string> levelName_ {};
-        // Location
         shared_ptr<string> location_ {};
         shared_ptr<string> mainApplyId_ {};
         shared_ptr<string> mappingCompanyCode_ {};
@@ -1340,7 +1339,6 @@ namespace Models
         shared_ptr<string> settlementTime_ {};
         shared_ptr<string> settlementType_ {};
         shared_ptr<string> showSubOrderId_ {};
-        // SIO
         shared_ptr<string> sio_ {};
         shared_ptr<string> specialOrder_ {};
         shared_ptr<string> specialReason_ {};
@@ -1485,7 +1483,6 @@ namespace Models
     shared_ptr<IeCarBillSettlementQueryResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

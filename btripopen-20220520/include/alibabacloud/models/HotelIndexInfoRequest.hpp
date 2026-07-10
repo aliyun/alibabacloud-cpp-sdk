@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const HotelIndexInfoRequest& obj) { 
       DARABONBA_PTR_TO_JSON(city_code, cityCode_);
       DARABONBA_PTR_TO_JSON(hotel_status, hotelStatus_);
+      DARABONBA_PTR_TO_JSON(internation, internation_);
       DARABONBA_PTR_TO_JSON(page_size, pageSize_);
       DARABONBA_PTR_TO_JSON(page_token, pageToken_);
     };
     friend void from_json(const Darabonba::Json& j, HotelIndexInfoRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(city_code, cityCode_);
       DARABONBA_PTR_FROM_JSON(hotel_status, hotelStatus_);
+      DARABONBA_PTR_FROM_JSON(internation, internation_);
       DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
       DARABONBA_PTR_FROM_JSON(page_token, pageToken_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cityCode_ == nullptr
-        && this->hotelStatus_ == nullptr && this->pageSize_ == nullptr && this->pageToken_ == nullptr; };
+        && this->hotelStatus_ == nullptr && this->internation_ == nullptr && this->pageSize_ == nullptr && this->pageToken_ == nullptr; };
     // cityCode Field Functions 
     bool hasCityCode() const { return this->cityCode_ != nullptr;};
     void deleteCityCode() { this->cityCode_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteHotelStatus() { this->hotelStatus_ = nullptr;};
     inline int32_t getHotelStatus() const { DARABONBA_PTR_GET_DEFAULT(hotelStatus_, 0) };
     inline HotelIndexInfoRequest& setHotelStatus(int32_t hotelStatus) { DARABONBA_PTR_SET_VALUE(hotelStatus_, hotelStatus) };
+
+
+    // internation Field Functions 
+    bool hasInternation() const { return this->internation_ != nullptr;};
+    void deleteInternation() { this->internation_ = nullptr;};
+    inline bool getInternation() const { DARABONBA_PTR_GET_DEFAULT(internation_, false) };
+    inline HotelIndexInfoRequest& setInternation(bool internation) { DARABONBA_PTR_SET_VALUE(internation_, internation) };
 
 
     // pageSize Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     shared_ptr<string> cityCode_ {};
     shared_ptr<int32_t> hotelStatus_ {};
+    shared_ptr<bool> internation_ {};
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> pageToken_ {};

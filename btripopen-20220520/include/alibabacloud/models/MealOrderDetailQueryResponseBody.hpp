@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(pay_type, payType_);
         DARABONBA_PTR_TO_JSON(person_pay_amount, personPayAmount_);
         DARABONBA_PTR_TO_JSON(person_refund_amount, personRefundAmount_);
+        DARABONBA_PTR_TO_JSON(receipt_image_urls, receiptImageUrls_);
         DARABONBA_PTR_TO_JSON(refund_amount, refundAmount_);
         DARABONBA_PTR_TO_JSON(scene_name, sceneName_);
         DARABONBA_PTR_TO_JSON(settle_time, settleTime_);
@@ -80,6 +81,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(pay_type, payType_);
         DARABONBA_PTR_FROM_JSON(person_pay_amount, personPayAmount_);
         DARABONBA_PTR_FROM_JSON(person_refund_amount, personRefundAmount_);
+        DARABONBA_PTR_FROM_JSON(receipt_image_urls, receiptImageUrls_);
         DARABONBA_PTR_FROM_JSON(refund_amount, refundAmount_);
         DARABONBA_PTR_FROM_JSON(scene_name, sceneName_);
         DARABONBA_PTR_FROM_JSON(settle_time, settleTime_);
@@ -101,8 +103,9 @@ namespace Models
       virtual bool empty() const override { return this->applyId_ == nullptr
         && this->corpCodeOrderId_ == nullptr && this->corpId_ == nullptr && this->corpPayAmount_ == nullptr && this->corpRefundAmount_ == nullptr && this->mealReason_ == nullptr
         && this->merchantName_ == nullptr && this->orderId_ == nullptr && this->orderStatus_ == nullptr && this->orderSubStatus_ == nullptr && this->orderType_ == nullptr
-        && this->payAmount_ == nullptr && this->payType_ == nullptr && this->personPayAmount_ == nullptr && this->personRefundAmount_ == nullptr && this->refundAmount_ == nullptr
-        && this->sceneName_ == nullptr && this->settleTime_ == nullptr && this->thirdPartApplyId_ == nullptr && this->userAlipayId_ == nullptr && this->userId_ == nullptr; };
+        && this->payAmount_ == nullptr && this->payType_ == nullptr && this->personPayAmount_ == nullptr && this->personRefundAmount_ == nullptr && this->receiptImageUrls_ == nullptr
+        && this->refundAmount_ == nullptr && this->sceneName_ == nullptr && this->settleTime_ == nullptr && this->thirdPartApplyId_ == nullptr && this->userAlipayId_ == nullptr
+        && this->userId_ == nullptr; };
       // applyId Field Functions 
       bool hasApplyId() const { return this->applyId_ != nullptr;};
       void deleteApplyId() { this->applyId_ = nullptr;};
@@ -208,6 +211,13 @@ namespace Models
       inline Module& setPersonRefundAmount(int64_t personRefundAmount) { DARABONBA_PTR_SET_VALUE(personRefundAmount_, personRefundAmount) };
 
 
+      // receiptImageUrls Field Functions 
+      bool hasReceiptImageUrls() const { return this->receiptImageUrls_ != nullptr;};
+      void deleteReceiptImageUrls() { this->receiptImageUrls_ = nullptr;};
+      inline string getReceiptImageUrls() const { DARABONBA_PTR_GET_DEFAULT(receiptImageUrls_, "") };
+      inline Module& setReceiptImageUrls(string receiptImageUrls) { DARABONBA_PTR_SET_VALUE(receiptImageUrls_, receiptImageUrls) };
+
+
       // refundAmount Field Functions 
       bool hasRefundAmount() const { return this->refundAmount_ != nullptr;};
       void deleteRefundAmount() { this->refundAmount_ = nullptr;};
@@ -266,6 +276,7 @@ namespace Models
       shared_ptr<int32_t> payType_ {};
       shared_ptr<int64_t> personPayAmount_ {};
       shared_ptr<int64_t> personRefundAmount_ {};
+      shared_ptr<string> receiptImageUrls_ {};
       shared_ptr<int64_t> refundAmount_ {};
       shared_ptr<string> sceneName_ {};
       shared_ptr<string> settleTime_ {};
@@ -326,7 +337,6 @@ namespace Models
     shared_ptr<MealOrderDetailQueryResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

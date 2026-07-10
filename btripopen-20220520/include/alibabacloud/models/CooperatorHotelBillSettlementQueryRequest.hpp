@@ -13,6 +13,7 @@ namespace Models
   class CooperatorHotelBillSettlementQueryRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CooperatorHotelBillSettlementQueryRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(apply_id, applyId_);
       DARABONBA_PTR_TO_JSON(bill_batch, billBatch_);
       DARABONBA_PTR_TO_JSON(bill_record_time_end, billRecordTimeEnd_);
       DARABONBA_PTR_TO_JSON(bill_record_time_start, billRecordTimeStart_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(scroll_mod, scrollMod_);
     };
     friend void from_json(const Darabonba::Json& j, CooperatorHotelBillSettlementQueryRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(apply_id, applyId_);
       DARABONBA_PTR_FROM_JSON(bill_batch, billBatch_);
       DARABONBA_PTR_FROM_JSON(bill_record_time_end, billRecordTimeEnd_);
       DARABONBA_PTR_FROM_JSON(bill_record_time_start, billRecordTimeStart_);
@@ -49,9 +51,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->billBatch_ == nullptr
-        && this->billRecordTimeEnd_ == nullptr && this->billRecordTimeStart_ == nullptr && this->cooperatorId_ == nullptr && this->orderId_ == nullptr && this->pageNo_ == nullptr
-        && this->pageSize_ == nullptr && this->periodEnd_ == nullptr && this->periodStart_ == nullptr && this->scrollId_ == nullptr && this->scrollMod_ == nullptr; };
+    virtual bool empty() const override { return this->applyId_ == nullptr
+        && this->billBatch_ == nullptr && this->billRecordTimeEnd_ == nullptr && this->billRecordTimeStart_ == nullptr && this->cooperatorId_ == nullptr && this->orderId_ == nullptr
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->periodEnd_ == nullptr && this->periodStart_ == nullptr && this->scrollId_ == nullptr
+        && this->scrollMod_ == nullptr; };
+    // applyId Field Functions 
+    bool hasApplyId() const { return this->applyId_ != nullptr;};
+    void deleteApplyId() { this->applyId_ = nullptr;};
+    inline string getApplyId() const { DARABONBA_PTR_GET_DEFAULT(applyId_, "") };
+    inline CooperatorHotelBillSettlementQueryRequest& setApplyId(string applyId) { DARABONBA_PTR_SET_VALUE(applyId_, applyId) };
+
+
     // billBatch Field Functions 
     bool hasBillBatch() const { return this->billBatch_ != nullptr;};
     void deleteBillBatch() { this->billBatch_ = nullptr;};
@@ -130,6 +140,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> applyId_ {};
     shared_ptr<string> billBatch_ {};
     shared_ptr<string> billRecordTimeEnd_ {};
     shared_ptr<string> billRecordTimeStart_ {};

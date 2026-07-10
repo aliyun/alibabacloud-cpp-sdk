@@ -128,6 +128,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(flight_order_insure_list, flightOrderInsureList_);
           DARABONBA_PTR_TO_JSON(flight_order_ticket_list, flightOrderTicketList_);
           DARABONBA_PTR_TO_JSON(flight_segment_list, flightSegmentList_);
+          DARABONBA_PTR_TO_JSON(itinerary_id, itineraryId_);
           DARABONBA_PTR_TO_JSON(mix_pay, mixPay_);
           DARABONBA_PTR_TO_JSON(order_create_time, orderCreateTime_);
           DARABONBA_PTR_TO_JSON(order_id, orderId_);
@@ -141,6 +142,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(person_pay_price, personPayPrice_);
           DARABONBA_PTR_TO_JSON(service_fee, serviceFee_);
           DARABONBA_PTR_TO_JSON(third_part_apply_id, thirdPartApplyId_);
+          DARABONBA_PTR_TO_JSON(thirdpart_itinerary_id, thirdpartItineraryId_);
           DARABONBA_PTR_TO_JSON(trip_type, tripType_);
         };
         friend void from_json(const Darabonba::Json& j, FlightSaleOrder& obj) { 
@@ -152,6 +154,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(flight_order_insure_list, flightOrderInsureList_);
           DARABONBA_PTR_FROM_JSON(flight_order_ticket_list, flightOrderTicketList_);
           DARABONBA_PTR_FROM_JSON(flight_segment_list, flightSegmentList_);
+          DARABONBA_PTR_FROM_JSON(itinerary_id, itineraryId_);
           DARABONBA_PTR_FROM_JSON(mix_pay, mixPay_);
           DARABONBA_PTR_FROM_JSON(order_create_time, orderCreateTime_);
           DARABONBA_PTR_FROM_JSON(order_id, orderId_);
@@ -165,6 +168,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(person_pay_price, personPayPrice_);
           DARABONBA_PTR_FROM_JSON(service_fee, serviceFee_);
           DARABONBA_PTR_FROM_JSON(third_part_apply_id, thirdPartApplyId_);
+          DARABONBA_PTR_FROM_JSON(thirdpart_itinerary_id, thirdpartItineraryId_);
           DARABONBA_PTR_FROM_JSON(trip_type, tripType_);
         };
         FlightSaleOrder() = default ;
@@ -830,10 +834,10 @@ namespace Models
 
         virtual bool empty() const override { return this->applyId_ == nullptr
         && this->bookType_ == nullptr && this->bookerInfo_ == nullptr && this->corpPayPrice_ == nullptr && this->exceedApplyId_ == nullptr && this->flightOrderInsureList_ == nullptr
-        && this->flightOrderTicketList_ == nullptr && this->flightSegmentList_ == nullptr && this->mixPay_ == nullptr && this->orderCreateTime_ == nullptr && this->orderId_ == nullptr
-        && this->orderPayTime_ == nullptr && this->orderReservePrice_ == nullptr && this->orderStatus_ == nullptr && this->orderStatusDesc_ == nullptr && this->orderType_ == nullptr
-        && this->passengerList_ == nullptr && this->payType_ == nullptr && this->personPayPrice_ == nullptr && this->serviceFee_ == nullptr && this->thirdPartApplyId_ == nullptr
-        && this->tripType_ == nullptr; };
+        && this->flightOrderTicketList_ == nullptr && this->flightSegmentList_ == nullptr && this->itineraryId_ == nullptr && this->mixPay_ == nullptr && this->orderCreateTime_ == nullptr
+        && this->orderId_ == nullptr && this->orderPayTime_ == nullptr && this->orderReservePrice_ == nullptr && this->orderStatus_ == nullptr && this->orderStatusDesc_ == nullptr
+        && this->orderType_ == nullptr && this->passengerList_ == nullptr && this->payType_ == nullptr && this->personPayPrice_ == nullptr && this->serviceFee_ == nullptr
+        && this->thirdPartApplyId_ == nullptr && this->thirdpartItineraryId_ == nullptr && this->tripType_ == nullptr; };
         // applyId Field Functions 
         bool hasApplyId() const { return this->applyId_ != nullptr;};
         void deleteApplyId() { this->applyId_ = nullptr;};
@@ -896,6 +900,13 @@ namespace Models
         inline vector<FlightSaleOrder::FlightSegmentList> getFlightSegmentList() { DARABONBA_PTR_GET(flightSegmentList_, vector<FlightSaleOrder::FlightSegmentList>) };
         inline FlightSaleOrder& setFlightSegmentList(const vector<FlightSaleOrder::FlightSegmentList> & flightSegmentList) { DARABONBA_PTR_SET_VALUE(flightSegmentList_, flightSegmentList) };
         inline FlightSaleOrder& setFlightSegmentList(vector<FlightSaleOrder::FlightSegmentList> && flightSegmentList) { DARABONBA_PTR_SET_RVALUE(flightSegmentList_, flightSegmentList) };
+
+
+        // itineraryId Field Functions 
+        bool hasItineraryId() const { return this->itineraryId_ != nullptr;};
+        void deleteItineraryId() { this->itineraryId_ = nullptr;};
+        inline string getItineraryId() const { DARABONBA_PTR_GET_DEFAULT(itineraryId_, "") };
+        inline FlightSaleOrder& setItineraryId(string itineraryId) { DARABONBA_PTR_SET_VALUE(itineraryId_, itineraryId) };
 
 
         // mixPay Field Functions 
@@ -991,6 +1002,13 @@ namespace Models
         inline FlightSaleOrder& setThirdPartApplyId(string thirdPartApplyId) { DARABONBA_PTR_SET_VALUE(thirdPartApplyId_, thirdPartApplyId) };
 
 
+        // thirdpartItineraryId Field Functions 
+        bool hasThirdpartItineraryId() const { return this->thirdpartItineraryId_ != nullptr;};
+        void deleteThirdpartItineraryId() { this->thirdpartItineraryId_ = nullptr;};
+        inline string getThirdpartItineraryId() const { DARABONBA_PTR_GET_DEFAULT(thirdpartItineraryId_, "") };
+        inline FlightSaleOrder& setThirdpartItineraryId(string thirdpartItineraryId) { DARABONBA_PTR_SET_VALUE(thirdpartItineraryId_, thirdpartItineraryId) };
+
+
         // tripType Field Functions 
         bool hasTripType() const { return this->tripType_ != nullptr;};
         void deleteTripType() { this->tripType_ = nullptr;};
@@ -1007,6 +1025,7 @@ namespace Models
         shared_ptr<vector<FlightSaleOrder::FlightOrderInsureList>> flightOrderInsureList_ {};
         shared_ptr<vector<FlightSaleOrder::FlightOrderTicketList>> flightOrderTicketList_ {};
         shared_ptr<vector<FlightSaleOrder::FlightSegmentList>> flightSegmentList_ {};
+        shared_ptr<string> itineraryId_ {};
         shared_ptr<bool> mixPay_ {};
         shared_ptr<string> orderCreateTime_ {};
         shared_ptr<string> orderId_ {};
@@ -1020,6 +1039,7 @@ namespace Models
         shared_ptr<int64_t> personPayPrice_ {};
         shared_ptr<int64_t> serviceFee_ {};
         shared_ptr<string> thirdPartApplyId_ {};
+        shared_ptr<string> thirdpartItineraryId_ {};
         shared_ptr<int32_t> tripType_ {};
       };
 

@@ -490,7 +490,6 @@ namespace Models
         protected:
           shared_ptr<string> cabinClass_ {};
           shared_ptr<string> className_ {};
-          // inner_cabin_class
           shared_ptr<int32_t> innerCabinClass_ {};
           shared_ptr<string> quantity_ {};
         };
@@ -587,7 +586,6 @@ namespace Models
         shared_ptr<AgentInfo::CabinClassInfo> cabinClassInfo_ {};
         shared_ptr<int32_t> cabinCode_ {};
         shared_ptr<string> cabinName_ {};
-        // item_id
         shared_ptr<string> itemId_ {};
         shared_ptr<string> modifyTypeDesc_ {};
         shared_ptr<string> modifyTypeName_ {};
@@ -1176,12 +1174,9 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
-    // module
     shared_ptr<FlightModifyOtaSearchV2ResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

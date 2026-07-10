@@ -775,7 +775,6 @@ namespace Models
     shared_ptr<HotelPricePullResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

@@ -81,12 +81,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(btrip_hotel_cancel_policy_d_t_o, btripHotelCancelPolicyDTO_);
           DARABONBA_PTR_TO_JSON(cert_type_list, certTypeList_);
           DARABONBA_PTR_TO_JSON(earliest_check_in_time, earliestCheckInTime_);
+          DARABONBA_PTR_TO_JSON(hour_item_arrival_time_info, hourItemArrivalTimeInfo_);
           DARABONBA_PTR_TO_JSON(latest_check_out_time, latestCheckOutTime_);
           DARABONBA_PTR_TO_JSON(max_booking_num, maxBookingNum_);
           DARABONBA_PTR_TO_JSON(max_occupancy_num, maxOccupancyNum_);
           DARABONBA_PTR_TO_JSON(need_certificate, needCertificate_);
           DARABONBA_PTR_TO_JSON(need_email, needEmail_);
           DARABONBA_PTR_TO_JSON(need_english_name, needEnglishName_);
+          DARABONBA_PTR_TO_JSON(rp_type, rpType_);
           DARABONBA_PTR_TO_JSON(total_order_price, totalOrderPrice_);
           DARABONBA_PTR_TO_JSON(total_room_price, totalRoomPrice_);
         };
@@ -95,12 +97,14 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(btrip_hotel_cancel_policy_d_t_o, btripHotelCancelPolicyDTO_);
           DARABONBA_PTR_FROM_JSON(cert_type_list, certTypeList_);
           DARABONBA_PTR_FROM_JSON(earliest_check_in_time, earliestCheckInTime_);
+          DARABONBA_PTR_FROM_JSON(hour_item_arrival_time_info, hourItemArrivalTimeInfo_);
           DARABONBA_PTR_FROM_JSON(latest_check_out_time, latestCheckOutTime_);
           DARABONBA_PTR_FROM_JSON(max_booking_num, maxBookingNum_);
           DARABONBA_PTR_FROM_JSON(max_occupancy_num, maxOccupancyNum_);
           DARABONBA_PTR_FROM_JSON(need_certificate, needCertificate_);
           DARABONBA_PTR_FROM_JSON(need_email, needEmail_);
           DARABONBA_PTR_FROM_JSON(need_english_name, needEnglishName_);
+          DARABONBA_PTR_FROM_JSON(rp_type, rpType_);
           DARABONBA_PTR_FROM_JSON(total_order_price, totalOrderPrice_);
           DARABONBA_PTR_FROM_JSON(total_room_price, totalRoomPrice_);
         };
@@ -115,6 +119,78 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class HourItemArrivalTimeInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const HourItemArrivalTimeInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(actual_live_hour, actualLiveHour_);
+            DARABONBA_PTR_TO_JSON(earliest_check_in_time, earliestCheckInTime_);
+            DARABONBA_PTR_TO_JSON(latest_check_in_time, latestCheckInTime_);
+            DARABONBA_PTR_TO_JSON(latest_check_out_time, latestCheckOutTime_);
+            DARABONBA_PTR_TO_JSON(live_hour, liveHour_);
+          };
+          friend void from_json(const Darabonba::Json& j, HourItemArrivalTimeInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(actual_live_hour, actualLiveHour_);
+            DARABONBA_PTR_FROM_JSON(earliest_check_in_time, earliestCheckInTime_);
+            DARABONBA_PTR_FROM_JSON(latest_check_in_time, latestCheckInTime_);
+            DARABONBA_PTR_FROM_JSON(latest_check_out_time, latestCheckOutTime_);
+            DARABONBA_PTR_FROM_JSON(live_hour, liveHour_);
+          };
+          HourItemArrivalTimeInfo() = default ;
+          HourItemArrivalTimeInfo(const HourItemArrivalTimeInfo &) = default ;
+          HourItemArrivalTimeInfo(HourItemArrivalTimeInfo &&) = default ;
+          HourItemArrivalTimeInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~HourItemArrivalTimeInfo() = default ;
+          HourItemArrivalTimeInfo& operator=(const HourItemArrivalTimeInfo &) = default ;
+          HourItemArrivalTimeInfo& operator=(HourItemArrivalTimeInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->actualLiveHour_ == nullptr
+        && this->earliestCheckInTime_ == nullptr && this->latestCheckInTime_ == nullptr && this->latestCheckOutTime_ == nullptr && this->liveHour_ == nullptr; };
+          // actualLiveHour Field Functions 
+          bool hasActualLiveHour() const { return this->actualLiveHour_ != nullptr;};
+          void deleteActualLiveHour() { this->actualLiveHour_ = nullptr;};
+          inline string getActualLiveHour() const { DARABONBA_PTR_GET_DEFAULT(actualLiveHour_, "") };
+          inline HourItemArrivalTimeInfo& setActualLiveHour(string actualLiveHour) { DARABONBA_PTR_SET_VALUE(actualLiveHour_, actualLiveHour) };
+
+
+          // earliestCheckInTime Field Functions 
+          bool hasEarliestCheckInTime() const { return this->earliestCheckInTime_ != nullptr;};
+          void deleteEarliestCheckInTime() { this->earliestCheckInTime_ = nullptr;};
+          inline string getEarliestCheckInTime() const { DARABONBA_PTR_GET_DEFAULT(earliestCheckInTime_, "") };
+          inline HourItemArrivalTimeInfo& setEarliestCheckInTime(string earliestCheckInTime) { DARABONBA_PTR_SET_VALUE(earliestCheckInTime_, earliestCheckInTime) };
+
+
+          // latestCheckInTime Field Functions 
+          bool hasLatestCheckInTime() const { return this->latestCheckInTime_ != nullptr;};
+          void deleteLatestCheckInTime() { this->latestCheckInTime_ = nullptr;};
+          inline string getLatestCheckInTime() const { DARABONBA_PTR_GET_DEFAULT(latestCheckInTime_, "") };
+          inline HourItemArrivalTimeInfo& setLatestCheckInTime(string latestCheckInTime) { DARABONBA_PTR_SET_VALUE(latestCheckInTime_, latestCheckInTime) };
+
+
+          // latestCheckOutTime Field Functions 
+          bool hasLatestCheckOutTime() const { return this->latestCheckOutTime_ != nullptr;};
+          void deleteLatestCheckOutTime() { this->latestCheckOutTime_ = nullptr;};
+          inline string getLatestCheckOutTime() const { DARABONBA_PTR_GET_DEFAULT(latestCheckOutTime_, "") };
+          inline HourItemArrivalTimeInfo& setLatestCheckOutTime(string latestCheckOutTime) { DARABONBA_PTR_SET_VALUE(latestCheckOutTime_, latestCheckOutTime) };
+
+
+          // liveHour Field Functions 
+          bool hasLiveHour() const { return this->liveHour_ != nullptr;};
+          void deleteLiveHour() { this->liveHour_ = nullptr;};
+          inline string getLiveHour() const { DARABONBA_PTR_GET_DEFAULT(liveHour_, "") };
+          inline HourItemArrivalTimeInfo& setLiveHour(string liveHour) { DARABONBA_PTR_SET_VALUE(liveHour_, liveHour) };
+
+
+        protected:
+          shared_ptr<string> actualLiveHour_ {};
+          shared_ptr<string> earliestCheckInTime_ {};
+          shared_ptr<string> latestCheckInTime_ {};
+          shared_ptr<string> latestCheckOutTime_ {};
+          shared_ptr<string> liveHour_ {};
+        };
+
         class BtripHotelCancelPolicyDTO : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const BtripHotelCancelPolicyDTO& obj) { 
@@ -222,9 +298,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->bedDesc_ == nullptr
-        && this->btripHotelCancelPolicyDTO_ == nullptr && this->certTypeList_ == nullptr && this->earliestCheckInTime_ == nullptr && this->latestCheckOutTime_ == nullptr && this->maxBookingNum_ == nullptr
-        && this->maxOccupancyNum_ == nullptr && this->needCertificate_ == nullptr && this->needEmail_ == nullptr && this->needEnglishName_ == nullptr && this->totalOrderPrice_ == nullptr
-        && this->totalRoomPrice_ == nullptr; };
+        && this->btripHotelCancelPolicyDTO_ == nullptr && this->certTypeList_ == nullptr && this->earliestCheckInTime_ == nullptr && this->hourItemArrivalTimeInfo_ == nullptr && this->latestCheckOutTime_ == nullptr
+        && this->maxBookingNum_ == nullptr && this->maxOccupancyNum_ == nullptr && this->needCertificate_ == nullptr && this->needEmail_ == nullptr && this->needEnglishName_ == nullptr
+        && this->rpType_ == nullptr && this->totalOrderPrice_ == nullptr && this->totalRoomPrice_ == nullptr; };
         // bedDesc Field Functions 
         bool hasBedDesc() const { return this->bedDesc_ != nullptr;};
         void deleteBedDesc() { this->bedDesc_ = nullptr;};
@@ -255,6 +331,15 @@ namespace Models
         void deleteEarliestCheckInTime() { this->earliestCheckInTime_ = nullptr;};
         inline string getEarliestCheckInTime() const { DARABONBA_PTR_GET_DEFAULT(earliestCheckInTime_, "") };
         inline RatePlanInfo& setEarliestCheckInTime(string earliestCheckInTime) { DARABONBA_PTR_SET_VALUE(earliestCheckInTime_, earliestCheckInTime) };
+
+
+        // hourItemArrivalTimeInfo Field Functions 
+        bool hasHourItemArrivalTimeInfo() const { return this->hourItemArrivalTimeInfo_ != nullptr;};
+        void deleteHourItemArrivalTimeInfo() { this->hourItemArrivalTimeInfo_ = nullptr;};
+        inline const RatePlanInfo::HourItemArrivalTimeInfo & getHourItemArrivalTimeInfo() const { DARABONBA_PTR_GET_CONST(hourItemArrivalTimeInfo_, RatePlanInfo::HourItemArrivalTimeInfo) };
+        inline RatePlanInfo::HourItemArrivalTimeInfo getHourItemArrivalTimeInfo() { DARABONBA_PTR_GET(hourItemArrivalTimeInfo_, RatePlanInfo::HourItemArrivalTimeInfo) };
+        inline RatePlanInfo& setHourItemArrivalTimeInfo(const RatePlanInfo::HourItemArrivalTimeInfo & hourItemArrivalTimeInfo) { DARABONBA_PTR_SET_VALUE(hourItemArrivalTimeInfo_, hourItemArrivalTimeInfo) };
+        inline RatePlanInfo& setHourItemArrivalTimeInfo(RatePlanInfo::HourItemArrivalTimeInfo && hourItemArrivalTimeInfo) { DARABONBA_PTR_SET_RVALUE(hourItemArrivalTimeInfo_, hourItemArrivalTimeInfo) };
 
 
         // latestCheckOutTime Field Functions 
@@ -299,6 +384,13 @@ namespace Models
         inline RatePlanInfo& setNeedEnglishName(bool needEnglishName) { DARABONBA_PTR_SET_VALUE(needEnglishName_, needEnglishName) };
 
 
+        // rpType Field Functions 
+        bool hasRpType() const { return this->rpType_ != nullptr;};
+        void deleteRpType() { this->rpType_ = nullptr;};
+        inline int32_t getRpType() const { DARABONBA_PTR_GET_DEFAULT(rpType_, 0) };
+        inline RatePlanInfo& setRpType(int32_t rpType) { DARABONBA_PTR_SET_VALUE(rpType_, rpType) };
+
+
         // totalOrderPrice Field Functions 
         bool hasTotalOrderPrice() const { return this->totalOrderPrice_ != nullptr;};
         void deleteTotalOrderPrice() { this->totalOrderPrice_ = nullptr;};
@@ -318,12 +410,14 @@ namespace Models
         shared_ptr<RatePlanInfo::BtripHotelCancelPolicyDTO> btripHotelCancelPolicyDTO_ {};
         shared_ptr<vector<string>> certTypeList_ {};
         shared_ptr<string> earliestCheckInTime_ {};
+        shared_ptr<RatePlanInfo::HourItemArrivalTimeInfo> hourItemArrivalTimeInfo_ {};
         shared_ptr<string> latestCheckOutTime_ {};
         shared_ptr<int32_t> maxBookingNum_ {};
         shared_ptr<int32_t> maxOccupancyNum_ {};
         shared_ptr<bool> needCertificate_ {};
         shared_ptr<bool> needEmail_ {};
         shared_ptr<bool> needEnglishName_ {};
+        shared_ptr<int32_t> rpType_ {};
         shared_ptr<int64_t> totalOrderPrice_ {};
         shared_ptr<int64_t> totalRoomPrice_ {};
       };
@@ -749,7 +843,6 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<HotelOrderPreValidateResponseBody::Module> module_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<string> traceId_ {};

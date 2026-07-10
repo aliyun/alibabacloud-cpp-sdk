@@ -499,7 +499,6 @@ namespace Models
 
     protected:
       shared_ptr<vector<Module::HotelFeeDetail>> hotelFeeDetail_ {};
-      // 酒店费用总额，单位为元
       shared_ptr<int64_t> totalHotelFee_ {};
       shared_ptr<Module::TrafficFee> trafficFee_ {};
     };
@@ -556,7 +555,6 @@ namespace Models
     shared_ptr<EstimatedPriceQueryResponseBody::Module> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

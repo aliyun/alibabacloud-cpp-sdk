@@ -404,7 +404,6 @@ namespace Models
     shared_ptr<string> defaultStandardShrink_ {};
     shared_ptr<string> departId_ {};
     shared_ptr<string> departName_ {};
-    // 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
     shared_ptr<string> extendField_ {};
     shared_ptr<string> externalTravelerListShrink_ {};
     shared_ptr<string> externalTravelerStandardShrink_ {};

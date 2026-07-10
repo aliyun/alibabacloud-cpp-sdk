@@ -233,7 +233,6 @@ namespace Models
       shared_ptr<vector<Module::EntityDOS>> entityDOS_ {};
       shared_ptr<int64_t> id_ {};
       shared_ptr<string> number_ {};
-      // rule code
       shared_ptr<int64_t> ruleCode_ {};
       shared_ptr<int64_t> scope_ {};
       shared_ptr<string> thirdpartId_ {};
@@ -301,7 +300,6 @@ namespace Models
     shared_ptr<bool> morePage_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

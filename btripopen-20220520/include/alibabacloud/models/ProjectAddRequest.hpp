@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ProjectAddRequest& obj) { 
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(has_manager, hasManager_);
       DARABONBA_PTR_TO_JSON(project_name, projectName_);
       DARABONBA_PTR_TO_JSON(third_part_cost_center_id, thirdPartCostCenterId_);
       DARABONBA_PTR_TO_JSON(third_part_id, thirdPartId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ProjectAddRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(has_manager, hasManager_);
       DARABONBA_PTR_FROM_JSON(project_name, projectName_);
       DARABONBA_PTR_FROM_JSON(third_part_cost_center_id, thirdPartCostCenterId_);
       DARABONBA_PTR_FROM_JSON(third_part_id, thirdPartId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->projectName_ == nullptr && this->thirdPartCostCenterId_ == nullptr && this->thirdPartId_ == nullptr && this->thirdPartInvoiceId_ == nullptr; };
+        && this->hasManager_ == nullptr && this->projectName_ == nullptr && this->thirdPartCostCenterId_ == nullptr && this->thirdPartId_ == nullptr && this->thirdPartInvoiceId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ProjectAddRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // hasManager Field Functions 
+    bool hasHasManager() const { return this->hasManager_ != nullptr;};
+    void deleteHasManager() { this->hasManager_ = nullptr;};
+    inline bool getHasManager() const { DARABONBA_PTR_GET_DEFAULT(hasManager_, false) };
+    inline ProjectAddRequest& setHasManager(bool hasManager) { DARABONBA_PTR_SET_VALUE(hasManager_, hasManager) };
 
 
     // projectName Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> code_ {};
+    shared_ptr<bool> hasManager_ {};
     // This parameter is required.
     shared_ptr<string> projectName_ {};
     shared_ptr<string> thirdPartCostCenterId_ {};

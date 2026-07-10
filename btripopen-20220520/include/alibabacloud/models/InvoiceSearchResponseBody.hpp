@@ -87,7 +87,6 @@ namespace Models
 
 
     protected:
-      // ID
       shared_ptr<int64_t> id_ {};
       shared_ptr<string> thirdPartInvoiceId_ {};
       shared_ptr<string> title_ {};
@@ -145,7 +144,6 @@ namespace Models
     shared_ptr<vector<InvoiceSearchResponseBody::Module>> module_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
-    // traceId
     shared_ptr<string> traceId_ {};
   };
 

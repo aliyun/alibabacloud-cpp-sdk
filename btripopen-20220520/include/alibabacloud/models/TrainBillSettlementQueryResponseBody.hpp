@@ -1145,7 +1145,6 @@ namespace Models
         shared_ptr<string> applyArrCityName_ {};
         shared_ptr<string> applyDepCityCode_ {};
         shared_ptr<string> applyDepCityName_ {};
-        // 审批扩展自定义字段
         shared_ptr<string> applyExtendField_ {};
         shared_ptr<string> applyId_ {};
         shared_ptr<string> approverEmail_ {};
@@ -1235,7 +1234,6 @@ namespace Models
         shared_ptr<double> speedPackageFee_ {};
         shared_ptr<int32_t> status_ {};
         shared_ptr<string> statusDesc_ {};
-        // 税率
         shared_ptr<string> taxRate_ {};
         shared_ptr<string> thirdItineraryId_ {};
         shared_ptr<string> ticketCorpPayPrice_ {};

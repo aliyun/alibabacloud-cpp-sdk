@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(page_size, pageSize_);
       DARABONBA_PTR_TO_JSON(pay_over_type, payOverType_);
       DARABONBA_PTR_TO_JSON(payment_type, paymentType_);
+      DARABONBA_PTR_TO_JSON(poi, poi_);
       DARABONBA_PTR_TO_JSON(shids, shids_);
       DARABONBA_PTR_TO_JSON(sort_code, sortCode_);
       DARABONBA_PTR_TO_JSON(super_man, superMan_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
       DARABONBA_PTR_FROM_JSON(pay_over_type, payOverType_);
       DARABONBA_PTR_FROM_JSON(payment_type, paymentType_);
+      DARABONBA_PTR_FROM_JSON(poi, poi_);
       DARABONBA_PTR_FROM_JSON(shids, shids_);
       DARABONBA_PTR_FROM_JSON(sort_code, sortCode_);
       DARABONBA_PTR_FROM_JSON(super_man, superMan_);
@@ -76,8 +78,8 @@ namespace Models
         && this->brandCode_ == nullptr && this->btripUserId_ == nullptr && this->checkInDate_ == nullptr && this->checkOutDate_ == nullptr && this->cityCode_ == nullptr
         && this->dir_ == nullptr && this->distance_ == nullptr && this->districtCode_ == nullptr && this->hotelStar_ == nullptr && this->isProtocol_ == nullptr
         && this->keyWords_ == nullptr && this->location_ == nullptr && this->maxPrice_ == nullptr && this->minPrice_ == nullptr && this->pageNo_ == nullptr
-        && this->pageSize_ == nullptr && this->payOverType_ == nullptr && this->paymentType_ == nullptr && this->shids_ == nullptr && this->sortCode_ == nullptr
-        && this->superMan_ == nullptr; };
+        && this->pageSize_ == nullptr && this->payOverType_ == nullptr && this->paymentType_ == nullptr && this->poi_ == nullptr && this->shids_ == nullptr
+        && this->sortCode_ == nullptr && this->superMan_ == nullptr; };
     // adultNum Field Functions 
     bool hasAdultNum() const { return this->adultNum_ != nullptr;};
     void deleteAdultNum() { this->adultNum_ = nullptr;};
@@ -213,6 +215,13 @@ namespace Models
     inline HotelSearchRequest& setPaymentType(int32_t paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
+    // poi Field Functions 
+    bool hasPoi() const { return this->poi_ != nullptr;};
+    void deletePoi() { this->poi_ = nullptr;};
+    inline string getPoi() const { DARABONBA_PTR_GET_DEFAULT(poi_, "") };
+    inline HotelSearchRequest& setPoi(string poi) { DARABONBA_PTR_SET_VALUE(poi_, poi) };
+
+
     // shids Field Functions 
     bool hasShids() const { return this->shids_ != nullptr;};
     void deleteShids() { this->shids_ = nullptr;};
@@ -260,6 +269,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> payOverType_ {};
     shared_ptr<int32_t> paymentType_ {};
+    shared_ptr<string> poi_ {};
     shared_ptr<vector<int64_t>> shids_ {};
     // This parameter is required.
     shared_ptr<int32_t> sortCode_ {};
