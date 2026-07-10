@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // A client token that ensures the idempotence of the request. The client must generate a unique token for each request. The token must consist of only ASCII characters and be no more than 64 characters in length. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
@@ -111,25 +111,24 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountExternalId_ {};
-    // The name of the cloud account.
+    // The cloud account name.
     shared_ptr<string> cloudAccountName_ {};
-    // The name of the identity provider.
+    // The identity provider name.
     shared_ptr<string> cloudAccountProviderName_ {};
-    // The site of the cloud account. Valid values:
+    // The cloud account site. Valid values:
     // 
-    // - global: international site
-    // 
-    // - china_mainland: China mainland site
+    // - global: international site.
+    // - china_mainland: China site.
     shared_ptr<string> cloudAccountSite_ {};
-    // The type of the cloud account. Valid value:
+    // The cloud account type. Valid values:
     // 
-    // - alibaba_cloud: Alibaba Cloud
+    // - alibaba_cloud: Alibaba Cloud.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountVendorType_ {};
     // The description of the cloud account.
     shared_ptr<string> description_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

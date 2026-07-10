@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the client application.
+    // The unique identifier of the Client application.
     // 
     // This parameter is required.
     shared_ptr<string> clientApplicationId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the resource server application.
+    // The ID of the ResourceServer application.
     // 
     // This parameter is required.
     shared_ptr<string> resourceServerApplicationId_ {};

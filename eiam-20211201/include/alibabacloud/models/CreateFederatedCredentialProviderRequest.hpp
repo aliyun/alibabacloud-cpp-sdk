@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // The content of the PEM-encoded certificate.
+        // The content of the root certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -127,11 +127,11 @@ namespace Models
 
 
     protected:
-      // The root certificates that form the trust anchor.
+      // The list of root certificates.
       shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-      // The source of the trust anchor.
+      // The method used to retrieve the root certificate.
       shared_ptr<string> trustAnchorSource_ {};
-      // The condition for trusting the root certificate.
+      // The trust condition for the root certificate.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -192,7 +192,7 @@ namespace Models
 
 
       protected:
-        // The content of the PEM-encoded certificate.
+        // The content of the root certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -243,17 +243,17 @@ namespace Models
 
 
     protected:
-      // The certificates for verifying the PKCS7 signature.
+      // The list of PKCS7 certificates.
       shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-      // The Cryptographic Message Syntax (CMS) verification mode.
+      // The CMS verification mode.
       shared_ptr<string> cmsVerificationMode_ {};
-      // The validity period of the signature, in seconds.
+      // The validity period of the signature.
       shared_ptr<int64_t> signatureEffectiveTime_ {};
-      // The expression to extract the signing time from the signature.
+      // The expression used to retrieve the signing time.
       shared_ptr<string> signingTimeValueExpression_ {};
-      // The source of the trust anchor.
+      // The source of the certificate trust anchor.
       shared_ptr<string> trustAnchorSource_ {};
-      // The condition that the signature data must meet to be trusted.
+      // The trust condition.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -333,17 +333,17 @@ namespace Models
 
 
     protected:
-      // A list of audiences. The `aud` claim in the OIDC token must match a value from this list.
+      // The list of audiences.
       shared_ptr<vector<string>> audiences_ {};
-      // The issuer identifier for the OIDC provider. This value must match the `iss` claim in the token.
+      // Issuer
       shared_ptr<string> issuer_ {};
-      // The source of the JSON Web Key Set (JWKS).
+      // The source of the JWKS.
       shared_ptr<string> jwksSource_ {};
-      // The URI of the JWKS endpoint.
+      // The JWKS endpoint.
       shared_ptr<string> jwksUri_ {};
-      // The static JWKS content in JSON format.
+      // The statically retrieved JWKS.
       shared_ptr<string> staticJwks_ {};
-      // The condition the OIDC token must meet to be trusted.
+      // The trust condition.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -454,13 +454,13 @@ namespace Models
 
   protected:
     shared_ptr<CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-    // The description of the federated credential provider.
+    // The description of the federated trust source.
     shared_ptr<string> description_ {};
-    // The name of the federated credential provider.
+    // The name of the federated trust source.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderName_ {};
-    // The type of the federated credential provider.
+    // The type of the federated trust source.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderType_ {};
@@ -468,13 +468,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The network access endpoint ID.
+    // The ID of the network access endpoint.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // The configuration for an OIDC-based provider.
+    // The OIDC configuration.
     shared_ptr<CreateFederatedCredentialProviderRequest::OidcProviderConfig> oidcProviderConfig_ {};
-    // The configuration for a PKCS7-based provider.
+    // The PKCS7 configuration.
     shared_ptr<CreateFederatedCredentialProviderRequest::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-    // The configuration for a private CA-based provider.
+    // The private CA configuration.
     shared_ptr<CreateFederatedCredentialProviderRequest::PrivateCaProviderConfig> privateCaProviderConfig_ {};
   };
 

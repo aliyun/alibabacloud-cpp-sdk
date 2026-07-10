@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Indicates if the authorization is granted.
+      // Indicates whether authorization is allowed.
       shared_ptr<bool> allowAuthorization_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};

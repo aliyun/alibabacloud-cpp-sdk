@@ -106,33 +106,25 @@ namespace Models
 
 
       protected:
-        // The client secret defined in the OAuth protocol.
+        // The client_secret in the OAuth protocol, which is the client secret.
         // 
-        // > The value must be no longer than 1024 characters.
+        // > The value cannot exceed 1024 characters in length.
         shared_ptr<string> clientSecret_ {};
-        // The scope defined in the OAuth protocol.
+        // The scope in the OAuth protocol, which specifies the permission scope.
         // 
-        // > If you do not specify the scope parameter when calling the DeveloperAPI to get an OAuth access token, the scope configured for the credential provider is used as the default.
+        // > The Scope configuration at the credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration at the credential provider is used for issuance.
         // 
-        // >Notice: 
+        // >Notice: Separate multiple Scope values with spaces. To clear the Scope configuration, pass an empty string.
         // 
-        // Separate multiple scope values with spaces. To clear the scope configuration, pass an empty string.
-        // 
-        // 
-        // 
-        // Rules for a single scope value:
-        // 
+        // Restrictions on a single Scope value:
         // 1. Allowed characters: lowercase letters, digits, and special characters `|/:_-.`
-        // 
         // 2. Must contain at least one lowercase letter or digit.
-        // 
         // 3. Must start with a special character `.`, a lowercase letter, or a digit.
-        // 
-        // 4. Must be no longer than 1024 characters.
+        // 4. Cannot exceed 1024 characters in length.
         shared_ptr<string> scope_ {};
-        // The token endpoint defined in the OAuth protocol.
+        // The token endpoint of the OAuth protocol.
         // 
-        // > The value must start with `http://` or `https://`. It must be no longer than 1024 characters.
+        // > The value must start with `http://` or `https://` and cannot exceed 1024 characters in length.
         shared_ptr<string> tokenEndpoint_ {};
       };
 
@@ -194,19 +186,17 @@ namespace Models
 
 
       protected:
-        // A list of allowed JWT issuers.
+        // The list of allowed JWT issuers.
         // 
-        // > The list must contain no more than 200 items.
+        // > The list cannot contain more than 200 entries.
         // 
-        // >Notice: 
-        // 
-        // To clear the issuer list, pass an empty array or an empty string.
+        // >Notice: To clear the issuer list, pass an empty list or an empty string.
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
-        // Whether to enable derived short tokens for JWTs.
+        // Specifies whether to enable the JWT derived short token feature.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
         // The validity period of the JWT, in seconds.
         shared_ptr<int32_t> expiration_ {};
-        // Whether to enable JWT expiration cleanup.
+        // Specifies whether to enable JWT expiration cleanup.
         shared_ptr<bool> expirationCleanupEnabled_ {};
       };
 
@@ -231,9 +221,9 @@ namespace Models
 
 
     protected:
-      // The configuration for a JWT credential provider.
+      // The configuration of the JWT credential provider.
       shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
-      // The configuration for an OAuth credential provider.
+      // The configuration of the OAuth credential provider.
       shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
     };
 
@@ -277,23 +267,23 @@ namespace Models
 
 
   protected:
-    // An idempotency token that ensures request idempotence.
+    // The idempotency token that ensures the idempotence of the request.
     // 
-    // Generate a unique value on your client for each request. ClientToken supports only ASCII characters and must be no longer than 64 characters. For more information, see [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Generate a unique parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The configuration of the credential provider.
+    // The credential provider configuration.
     shared_ptr<UpdateCredentialProviderRequest::CredentialProviderConfig> credentialProviderConfig_ {};
-    // The ID of the credential provider.
+    // The credential provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderId_ {};
-    // The name of the credential provider.
+    // The credential provider name.
     // 
-    // > The name must be no longer than 64 characters.
+    // > The name cannot exceed 64 characters in length.
     shared_ptr<string> credentialProviderName_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

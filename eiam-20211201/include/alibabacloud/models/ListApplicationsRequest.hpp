@@ -22,9 +22,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CustomFields, customFields_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(M2MClientStatus, m2MClientStatus_);
+      DARABONBA_PTR_TO_JSON(ManagedServiceCode, managedServiceCode_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceServerStatus, resourceServerStatus_);
+      DARABONBA_PTR_TO_JSON(ServiceManaged, serviceManaged_);
       DARABONBA_PTR_TO_JSON(SsoType, ssoType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
@@ -37,9 +39,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CustomFields, customFields_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(M2MClientStatus, m2MClientStatus_);
+      DARABONBA_PTR_FROM_JSON(ManagedServiceCode, managedServiceCode_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceServerStatus, resourceServerStatus_);
+      DARABONBA_PTR_FROM_JSON(ServiceManaged, serviceManaged_);
       DARABONBA_PTR_FROM_JSON(SsoType, ssoType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
@@ -93,8 +97,7 @@ namespace Models
 
     protected:
       // The custom field identifier. Valid values:
-      // 
-      // - `agent_type`: The agent type.
+      // - agent_type: the agent type.
       shared_ptr<string> fieldName_ {};
       // The custom field value.
       shared_ptr<string> fieldValue_ {};
@@ -102,8 +105,8 @@ namespace Models
 
     virtual bool empty() const override { return this->applicationCreationType_ == nullptr
         && this->applicationIdentityType_ == nullptr && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->authorizationType_ == nullptr && this->customFields_ == nullptr
-        && this->instanceId_ == nullptr && this->m2MClientStatus_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceServerStatus_ == nullptr
-        && this->ssoType_ == nullptr && this->status_ == nullptr; };
+        && this->instanceId_ == nullptr && this->m2MClientStatus_ == nullptr && this->managedServiceCode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->resourceServerStatus_ == nullptr && this->serviceManaged_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr; };
     // applicationCreationType Field Functions 
     bool hasApplicationCreationType() const { return this->applicationCreationType_ != nullptr;};
     void deleteApplicationCreationType() { this->applicationCreationType_ = nullptr;};
@@ -164,6 +167,13 @@ namespace Models
     inline ListApplicationsRequest& setM2MClientStatus(string m2MClientStatus) { DARABONBA_PTR_SET_VALUE(m2MClientStatus_, m2MClientStatus) };
 
 
+    // managedServiceCode Field Functions 
+    bool hasManagedServiceCode() const { return this->managedServiceCode_ != nullptr;};
+    void deleteManagedServiceCode() { this->managedServiceCode_ = nullptr;};
+    inline string getManagedServiceCode() const { DARABONBA_PTR_GET_DEFAULT(managedServiceCode_, "") };
+    inline ListApplicationsRequest& setManagedServiceCode(string managedServiceCode) { DARABONBA_PTR_SET_VALUE(managedServiceCode_, managedServiceCode) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -185,6 +195,13 @@ namespace Models
     inline ListApplicationsRequest& setResourceServerStatus(string resourceServerStatus) { DARABONBA_PTR_SET_VALUE(resourceServerStatus_, resourceServerStatus) };
 
 
+    // serviceManaged Field Functions 
+    bool hasServiceManaged() const { return this->serviceManaged_ != nullptr;};
+    void deleteServiceManaged() { this->serviceManaged_ = nullptr;};
+    inline bool getServiceManaged() const { DARABONBA_PTR_GET_DEFAULT(serviceManaged_, false) };
+    inline ListApplicationsRequest& setServiceManaged(bool serviceManaged) { DARABONBA_PTR_SET_VALUE(serviceManaged_, serviceManaged) };
+
+
     // ssoType Field Functions 
     bool hasSsoType() const { return this->ssoType_ != nullptr;};
     void deleteSsoType() { this->ssoType_ = nullptr;};
@@ -200,41 +217,39 @@ namespace Models
 
 
   protected:
-    // The application creation type. If unspecified, only user-created (`user_custom`) applications are returned. To query applications of all types, set this parameter to `all`.
+    // The application creation type. If this parameter is left empty, applications of the user_custom type are queried by default. To query applications of all types, set this parameter to all.
     shared_ptr<string> applicationCreationType_ {};
-    // The application identity type. If unspecified, only applications of the `application` type are returned. To query all identity types, set this parameter to `all`.
+    // The application identity type. If this parameter is left empty, applications of the application type are queried by default. To query applications of all identity types, set this parameter to all.
     shared_ptr<string> applicationIdentityType_ {};
-    // A list of application IDs.
+    // The list of application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The application name. Only prefix matching is supported.
+    // The application name. Only left fuzzy match is supported.
     shared_ptr<string> applicationName_ {};
-    // The authorization type for application access. Valid values:
-    // 
-    // - `authorize_required`: Access requires explicit authorization.
-    // 
-    // - `default_all`: All members have access by default.
+    // The application access authorization type. Valid values:
+    // - authorize_required: Explicit authorization is required for access.
+    // - default_all: All members have access permissions by default.
     shared_ptr<string> authorizationType_ {};
-    // A list of custom fields.
+    // The list of custom fields.
     shared_ptr<vector<ListApplicationsRequest::CustomFields>> customFields_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The status of the M2M client identity.
+    // Specifies whether the M2M Client identity is enabled.
     shared_ptr<string> m2MClientStatus_ {};
+    shared_ptr<string> managedServiceCode_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // The status of the resource server capability.
+    // Specifies whether the ResourceServer capability is enabled.
     shared_ptr<string> resourceServerStatus_ {};
-    // A filter for the Single Sign-On (SSO) type. You can specify multiple types, separated by a comma. Example: `oauth2/m2m,oidc+oauth2/m2m`.
+    shared_ptr<bool> serviceManaged_ {};
+    // The SSO type filter condition. Multiple types can be separated by commas, such as oauth2/m2m,oidc+oauth2/m2m.
     shared_ptr<string> ssoType_ {};
     // The application status. Valid values:
-    // 
-    // - `enabled`: Enabled.
-    // 
-    // - `disabled`: Disabled.
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> status_ {};
   };
 

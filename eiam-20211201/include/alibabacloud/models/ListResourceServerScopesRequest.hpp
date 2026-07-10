@@ -124,29 +124,29 @@ namespace Models
 
 
   protected:
-    // Application ID.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // Authorization type.
+    // The authorization type.
     shared_ptr<string> authorizationType_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Number of rows per page in paginated queries.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // Token for the next page query. Set this to the NextToken value returned by the previous API call. Leave empty for the first query.
+    // The pagination token (NextToken) used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first query.
     shared_ptr<string> nextToken_ {};
-    // Token for the previous page query. Set this to the PreviousToken value returned by the previous API call.
+    // The pagination token for the previous page. Set this parameter to the PreviousToken value returned in the previous API call.
     shared_ptr<string> previousToken_ {};
-    // List of Scope permission IDs.
+    // The list of scope permission IDs.
     shared_ptr<vector<string>> resourceServerScopeIds_ {};
-    // Scope permission name.
+    // The scope permission name.
     shared_ptr<string> resourceServerScopeName_ {};
-    // Scope permission type.
+    // The scope permission type.
     shared_ptr<string> resourceServerScopeType_ {};
-    // Scope permission value.
+    // The scope permission value.
     shared_ptr<string> resourceServerScopeValue_ {};
   };
 

@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The name of the application account.
+    // The application account name.
     // 
     // This parameter is required.
     shared_ptr<string> applicationUsername_ {};

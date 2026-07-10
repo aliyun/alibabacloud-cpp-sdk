@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The ID of the application\\"s ClientPublicKey.
+    // The ID of the application ClientPublicKey.
     // 
     // This parameter is required.
     shared_ptr<string> clientPublicKeyId_ {};

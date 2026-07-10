@@ -125,11 +125,11 @@ namespace Models
     protected:
       // The list of root certificates.
       shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-      // The method to obtain the root certificate.
+      // The method used to retrieve the root certificate.
       // 
       // This parameter is required.
       shared_ptr<string> trustAnchorSource_ {};
-      // The trust condition for the root certificate.
+      // The trust condition of the root certificate.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -243,11 +243,11 @@ namespace Models
     protected:
       // The list of PKCS7 certificates.
       shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-      // The Cryptographic Message Syntax (CMS) verification mode.
+      // The CMS verification mode.
       shared_ptr<string> cmsVerificationMode_ {};
       // The validity period of the signature.
       shared_ptr<int64_t> signatureEffectiveTime_ {};
-      // The expression to obtain the signing time.
+      // The expression used to retrieve the signing time.
       shared_ptr<string> signingTimeValueExpression_ {};
       // The source of the certificate trust anchor.
       // 
@@ -326,13 +326,13 @@ namespace Models
     protected:
       // The list of audiences.
       shared_ptr<vector<string>> audiences_ {};
-      // The source of the JSON Web Key Set (JWKS).
+      // The JWKS source.
       // 
       // This parameter is required.
       shared_ptr<string> jwksSource_ {};
-      // JWKS endpoint
+      // The JWKS endpoint.
       shared_ptr<string> jwksUri_ {};
-      // The statically obtained JWKS.
+      // The statically retrieved JWKS.
       shared_ptr<string> staticJwks_ {};
       // The trust condition.
       shared_ptr<string> trustCondition_ {};
@@ -397,11 +397,11 @@ namespace Models
 
 
   protected:
-    // The ID of the federated credential provider.
+    // The federated trust source ID.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderId_ {};
-    // The name of the federated credential provider.
+    // The federated trust source name.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderName_ {};
@@ -409,13 +409,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the network access endpoint.
+    // The network access endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // The OpenID Connect (OIDC) configuration.
+    // The OIDC configuration.
     shared_ptr<UpdateFederatedCredentialProviderRequest::OidcProviderConfig> oidcProviderConfig_ {};
     // The PKCS7 configuration.
     shared_ptr<UpdateFederatedCredentialProviderRequest::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-    // The configuration of the private certificate authority (CA).
+    // The private CA configuration.
     shared_ptr<UpdateFederatedCredentialProviderRequest::PrivateCaProviderConfig> privateCaProviderConfig_ {};
   };
 

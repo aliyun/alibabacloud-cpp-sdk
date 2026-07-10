@@ -167,9 +167,9 @@ namespace Models
 
 
           protected:
-            // The expiration time.
+            // The time when the certificate expires.
             shared_ptr<int64_t> notAfter_ {};
-            // The validity start time.
+            // The effective period of the certificate.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -199,11 +199,11 @@ namespace Models
 
 
         protected:
-          // The metadata of the certificate.
+          // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The content of the root certificate.
+          // The root certificate content.
           shared_ptr<string> content_ {};
-          // The fingerprint of the root certificate.
+          // The root certificate fingerprint.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -233,9 +233,9 @@ namespace Models
 
 
       protected:
-        // A list of root certificates.
+        // The root certificates.
         shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-        // The method for obtaining the root certificate.
+        // The method used to retrieve the root certificate.
         shared_ptr<string> trustAnchorSource_ {};
         // The trust condition.
         shared_ptr<string> trustCondition_ {};
@@ -331,9 +331,9 @@ namespace Models
 
 
           protected:
-            // The expiration time.
+            // The time when the certificate expires.
             shared_ptr<int64_t> notAfter_ {};
-            // The validity start time.
+            // The effective period of the certificate.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -363,9 +363,9 @@ namespace Models
 
 
         protected:
-          // The metadata of the certificate.
+          // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The content of the certificate.
+          // The certificate content.
           shared_ptr<string> content_ {};
           // The certificate fingerprint.
           shared_ptr<string> fingerprint_ {};
@@ -418,15 +418,15 @@ namespace Models
 
 
       protected:
-        // A list of PKCS7 certificates.
+        // The list of PKCS7 certificates.
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-        // The Cryptographic Message Syntax (CMS) verification mode.
+        // The CMS verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // The validity period of the signature.
+        // The signature effective time.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
-        // The expression used to obtain the signing time.
+        // The expression used to retrieve the signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
-        // The source of the certificate trust anchor.
+        // The certificate trust anchor source.
         shared_ptr<string> trustAnchorSource_ {};
         // The trust condition.
         shared_ptr<string> trustCondition_ {};
@@ -531,13 +531,13 @@ namespace Models
         shared_ptr<vector<string>> audiences_ {};
         // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // The issuer.
+        // Issuer
         shared_ptr<string> issuer_ {};
-        // The timestamp of the last JWKS retrieval.
+        // The time when the JWKS was last obtained.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
         // The JWKS source.
         shared_ptr<string> jwksSource_ {};
-        // The JSON Web Key Set (JWKS) endpoint.
+        // The JWKS endpoint.
         shared_ptr<string> jwksUri_ {};
         // The statically obtained JWKS.
         shared_ptr<string> staticJwks_ {};
@@ -681,29 +681,29 @@ namespace Models
 
     protected:
       shared_ptr<FederatedCredentialProviders::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-      // The provider\\"s creation time.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The provider\\"s description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The ID of the federated credential provider.
+      // The federated trust source ID.
       shared_ptr<string> federatedCredentialProviderId_ {};
-      // The name of the federated credential provider.
+      // The name of the federated trust source.
       shared_ptr<string> federatedCredentialProviderName_ {};
-      // The type of the federated credential provider.
+      // The type of the federated trust source.
       shared_ptr<string> federatedCredentialProviderType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the network access endpoint.
+      // The network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The OpenID Connect (OIDC) configuration.
+      // The OIDC configuration.
       shared_ptr<FederatedCredentialProviders::OidcProviderConfig> oidcProviderConfig_ {};
       // The PKCS7 configuration.
       shared_ptr<FederatedCredentialProviders::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
       // The private CA configuration.
       shared_ptr<FederatedCredentialProviders::PrivateCaProviderConfig> privateCaProviderConfig_ {};
-      // The provider\\"s status.
+      // The status.
       shared_ptr<string> status_ {};
-      // The provider\\"s last update time.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -754,17 +754,17 @@ namespace Models
 
 
   protected:
-    // The list of federated credential providers.
+    // The list of federated trust sources.
     shared_ptr<vector<ListFederatedCredentialProvidersResponseBody::FederatedCredentialProviders>> federatedCredentialProviders_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. This parameter is empty if all results have been returned.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The token for the previous page of results.
+    // The pagination token returned by this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

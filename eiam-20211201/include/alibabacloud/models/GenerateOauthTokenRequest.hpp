@@ -81,7 +81,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The scope of permissions.
+    // The permission scopes.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> scopeValues_ {};

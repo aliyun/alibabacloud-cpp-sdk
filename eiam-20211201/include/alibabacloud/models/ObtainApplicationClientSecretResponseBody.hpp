@@ -130,19 +130,17 @@ namespace Models
       shared_ptr<string> clientId_ {};
       // The client secret of the application.
       shared_ptr<string> clientSecret_ {};
-      // The expiration time of the client secret. This is a UNIX timestamp. Unit: milliseconds.
+      // The expiration time of the client secret. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expirationTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last time the client secret was used. This is a UNIX timestamp. Unit: milliseconds.
+      // The time when the client secret was last used. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // The client secret ID of the application.
       shared_ptr<string> secretId_ {};
       // The status of the client secret. Valid values:
-      // 
-      // - enabled: The secret is enabled.
-      // 
-      // - disabled: The secret is disabled.
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -165,7 +163,7 @@ namespace Models
 
 
   protected:
-    // The secret information.
+    // The client secret information.
     shared_ptr<ObtainApplicationClientSecretResponseBody::ApplicationClientSecret> applicationClientSecret_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

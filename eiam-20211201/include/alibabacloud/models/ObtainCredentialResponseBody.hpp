@@ -141,9 +141,9 @@ namespace Models
 
 
         protected:
-          // The client ID.
+          // The client_id of the OAuth protocol.
           shared_ptr<string> clientId_ {};
-          // The client secret.
+          // The client_secret of the OAuth protocol.
           shared_ptr<string> clientSecret_ {};
         };
 
@@ -175,7 +175,7 @@ namespace Models
 
 
         protected:
-          // The API key.
+          // The API key content.
           shared_ptr<string> apiKey_ {};
         };
 
@@ -200,9 +200,9 @@ namespace Models
 
 
       protected:
-        // The details of the API key credential.
+        // The credential content of the API key credential type.
         shared_ptr<CredentialContent::ApiKeyContent> apiKeyContent_ {};
-        // The details of the OAuth 2.0 client credential.
+        // The credential content of the OAuth client authentication credential type.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -333,15 +333,13 @@ namespace Models
 
 
     protected:
-      // The time when the credential was created. This value is a Unix timestamp in milliseconds.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The credential content.
       shared_ptr<Credential::CredentialContent> credentialContent_ {};
-      // The credential creation type. Valid values:
-      // 
-      // - `system_init`: The system created the credential.
-      // 
-      // - `user_custom`: A user created the credential.
+      // The creation type of the credential. Valid values:
+      // - system_init: Created by the system.
+      // - user_custom: Created by the user.
       shared_ptr<string> credentialCreationType_ {};
       shared_ptr<string> credentialExternalId_ {};
       // The credential ID.
@@ -350,37 +348,30 @@ namespace Models
       shared_ptr<string> credentialIdentifier_ {};
       // The credential name.
       shared_ptr<string> credentialName_ {};
-      // The credential scenario label. Valid values:
-      // 
-      // - `llm`: The credential is used for an LLM.
-      // 
-      // - `saas`: The credential is used for a SaaS application.
+      // The scenarios label of the credential. Valid values:
+      // - llm: large language model.
+      // - saas: third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
       shared_ptr<string> credentialSharingScope_ {};
-      // The credential subject ID.
+      // The ID of the subject to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The credential subject type. Valid value:
-      // 
-      // - `authentication_token_provider`: The credential subject is an authentication token provider.
+      // The type of the subject to which the credential belongs. Valid values:
+      // - authentication_token_provider: authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
       // The credential type. Valid values:
-      // 
-      // - `api_key`: An API key.
-      // 
-      // - `oauth_client`: An OAuth 2.0 client credential.
+      // - api_key: API key authentication credential.
+      // - oauth_client: OAuth client authentication credential.
       shared_ptr<string> credentialType_ {};
-      // The description.
+      // The credential description.
       shared_ptr<string> description_ {};
       shared_ptr<string> exclusiveUserId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status. Valid values:
-      // 
-      // - `enabled`: The credential can be used.
-      // 
-      // - `disabled`: The credential cannot be used.
+      // The credential status. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The time when the credential was last updated. This value is a Unix timestamp in milliseconds.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -403,7 +394,7 @@ namespace Models
 
 
   protected:
-    // The credential details.
+    // The credential information.
     shared_ptr<ObtainCredentialResponseBody::Credential> credential_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

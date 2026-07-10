@@ -139,17 +139,17 @@ namespace Models
       shared_ptr<string> applicationToken_ {};
       // The application token ID.
       shared_ptr<string> applicationTokenId_ {};
-      // The type of the application token.
+      // The application token type.
       shared_ptr<string> applicationTokenType_ {};
       // The time when the application token was created.
       shared_ptr<int64_t> createTime_ {};
       // The expiration time.
       shared_ptr<int64_t> expirationTime_ {};
-      // The ID of the IDaaS EIAM instance.
+      // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the token was last used.
+      // The last used time.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The status.
+      // The enabling status.
       shared_ptr<string> status_ {};
     };
 

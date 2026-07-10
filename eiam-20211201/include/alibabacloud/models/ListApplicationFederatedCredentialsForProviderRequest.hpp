@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The federated credential provider ID.
+    // The federated trust source ID.
     shared_ptr<string> federatedCredentialProviderId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return per page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the query.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The token for the previous page of results.
+    // The token used to retrieve the previous page.
     shared_ptr<string> previousToken_ {};
   };
 

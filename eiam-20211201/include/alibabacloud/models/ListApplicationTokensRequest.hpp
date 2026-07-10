@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The type of the application token.
+    // The application token type.
     // 
     // This parameter is required.
     shared_ptr<string> applicationTokenType_ {};

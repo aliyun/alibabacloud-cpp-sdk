@@ -141,17 +141,15 @@ namespace Models
 
 
         protected:
-          // Client ID, corresponding to client_id in the OAuth protocol.
+          // The client_id in the OAuth protocol.
           shared_ptr<string> clientId_ {};
-          // Scope, corresponding to scope in the OAuth protocol.
+          // The scope in the OAuth protocol.
           // 
-          // > The Scope value configured for the OAuth credential provider serves as the default. If you do not specify the scope parameter when calling the Developer API to obtain an OAuth access token, the system uses this default Scope value.
+          // > The scope configuration of the OAuth credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth access token, the scope configuration of the credential provider is used for issuance.
           // 
-          // >Notice: 
-          // 
-          // Separate multiple Scope values with spaces.
+          // >Notice: Multiple scope values are separated by spaces.
           shared_ptr<string> scope_ {};
-          // Token endpoint, corresponding to the OAuth protocol.
+          // The token endpoint of the OAuth protocol.
           shared_ptr<string> tokenEndpoint_ {};
         };
 
@@ -231,17 +229,17 @@ namespace Models
 
 
         protected:
-          // List of allowed JWT issuers.
+          // The list of allowed JWT issuers.
           shared_ptr<vector<string>> allowedTokenIssuers_ {};
-          // Enable JWT derived short token.
+          // Indicates whether the JWT derived short token feature is enabled.
           shared_ptr<bool> derivedShortTokenEnabled_ {};
-          // Validity period of the JWT. Unit: seconds.
+          // The validity period of the JWT, in seconds.
           shared_ptr<int32_t> expiration_ {};
-          // Enable JWT expiration cleanup.
+          // Indicates whether JWT expiration cleanup is enabled.
           shared_ptr<bool> expirationCleanupEnabled_ {};
-          // JWT issuer.
+          // JWT issuer。
           shared_ptr<string> issuer_ {};
-          // JWKs endpoint URL.
+          // The JWKs endpoint URL.
           shared_ptr<string> jwksEndpoint_ {};
         };
 
@@ -275,13 +273,13 @@ namespace Models
 
 
       protected:
-        // Configuration for a JWT credential provider.
+        // The configuration of the JWT credential provider.
         shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
-        // Configuration for an OAuth credential provider.
+        // The configuration of the OAuth credential provider.
         shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
-        // List of credential IDs for sensitive configurations of the credential provider.
+        // The list of credential IDs corresponding to the sensitive configurations of the credential provider.
         // 
-        // > The system securely stores sensitive configuration information as credentials.
+        // > The system securely stores the sensitive configuration information of the credential provider in the form of credentials.
         shared_ptr<vector<string>> providerCredentialIds_ {};
       };
 
@@ -368,39 +366,36 @@ namespace Models
 
 
     protected:
-      // Creation time of the credential provider, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time of the credential provider. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Credential provider configuration.
+      // The credential provider configuration.
       shared_ptr<CredentialProvider::CredentialProviderConfig> credentialProviderConfig_ {};
-      // Credential provider creation type. Valid values:
+      // The credential provider creation type. Valid values:
       // 
-      // - system_init: Created by the system
-      // 
-      // - user_custom: Created by a user
+      // - system_init: Created by the system.
+      // - user_custom: Created by the user.
       shared_ptr<string> credentialProviderCreationType_ {};
-      // Credential provider ID.
+      // The credential provider ID.
       shared_ptr<string> credentialProviderId_ {};
-      // Credential provider identifier.
+      // The credential provider identifier.
       shared_ptr<string> credentialProviderIdentifier_ {};
-      // Credential provider name.
+      // The credential provider name.
       shared_ptr<string> credentialProviderName_ {};
-      // Credential provider type. Valid values:
+      // The credential provider type. Valid values:
       // 
-      // - oauth: OAuth credential provider
-      // 
-      // - jwt: JWT credential provider
+      // - oauth: OAuth credential provider.
+      // - jwt: JWT credential provider.
       shared_ptr<string> credentialProviderType_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Credential provider status. Valid values:
+      // The credential provider status. Valid values:
       // 
-      // - enabled: Enabled
-      // 
-      // - disabled: Disabled
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // Update time of the credential provider, in UNIX timestamp format. Unit: milliseconds.
+      // The update time of the credential provider. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -423,9 +418,9 @@ namespace Models
 
 
   protected:
-    // Credential provider.
+    // The credential provider.
     shared_ptr<GetCredentialProviderResponseBody::CredentialProvider> credentialProvider_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

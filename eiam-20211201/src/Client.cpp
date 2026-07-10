@@ -44,7 +44,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds an application account to a specified user in the current application.
+ * @summary Adds an application account for a specified employee under the current application.
  *
  * @param request AddApplicationAccountToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -87,7 +87,7 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUserWithOptio
 }
 
 /**
- * @summary Adds an application account to a specified user in the current application.
+ * @summary Adds an application account for a specified employee under the current application.
  *
  * @param request AddApplicationAccountToUserRequest
  * @return AddApplicationAccountToUserResponse
@@ -440,7 +440,7 @@ AddUsersToGroupResponse Client::addUsersToGroup(const AddUsersToGroupRequest &re
 }
 
 /**
- * @summary Grants multiple EIAM groups access to an application.
+ * @summary Grants multiple EIAM groups access to an application in a batch.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -483,7 +483,7 @@ AuthorizeApplicationToGroupsResponse Client::authorizeApplicationToGroupsWithOpt
 }
 
 /**
- * @summary Grants multiple EIAM groups access to an application.
+ * @summary Grants multiple EIAM groups access to an application in a batch.
  *
  * @param request AuthorizeApplicationToGroupsRequest
  * @return AuthorizeApplicationToGroupsResponse
@@ -548,7 +548,7 @@ AuthorizeApplicationToOrganizationalUnitsResponse Client::authorizeApplicationTo
 }
 
 /**
- * @summary Grants permissions to multiple EIAM accounts to access an application.
+ * @summary Grants multiple EIAM accounts access to an application in a batch.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsersWithOptio
 }
 
 /**
- * @summary Grants permissions to multiple EIAM accounts to access an application.
+ * @summary Grants multiple EIAM accounts access to an application in a batch.
  *
  * @param request AuthorizeApplicationToUsersRequest
  * @return AuthorizeApplicationToUsersResponse
@@ -602,7 +602,7 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsers(const Au
 }
 
 /**
- * @summary Grants a client application permissions for specific scopes on a specified resource server.
+ * @summary Grants Scope permissions under a specified ResourceServer to a Client application.
  *
  * @param request AuthorizeResourceServerScopesToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -645,7 +645,7 @@ AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerSco
 }
 
 /**
- * @summary Grants a client application permissions for specific scopes on a specified resource server.
+ * @summary Grants Scope permissions under a specified ResourceServer to a Client application.
  *
  * @param request AuthorizeResourceServerScopesToClientRequest
  * @return AuthorizeResourceServerScopesToClientResponse
@@ -656,7 +656,7 @@ AuthorizeResourceServerScopesToClientResponse Client::authorizeResourceServerSco
 }
 
 /**
- * @summary Grants a group permissions for specified scopes on a resource server.
+ * @summary Grants Scope permissions under a specified ResourceServer to a group.
  *
  * @param request AuthorizeResourceServerScopesToGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -703,7 +703,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary Grants a group permissions for specified scopes on a resource server.
+ * @summary Grants Scope permissions under a specified ResourceServer to a group.
  *
  * @param request AuthorizeResourceServerScopesToGroupRequest
  * @return AuthorizeResourceServerScopesToGroupResponse
@@ -714,7 +714,7 @@ AuthorizeResourceServerScopesToGroupResponse Client::authorizeResourceServerScop
 }
 
 /**
- * @summary Grants scope permissions for a specified resource server to an organization.
+ * @summary Grants scope permissions under a specified ResourceServer to an organizational unit.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +761,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary Grants scope permissions for a specified resource server to an organization.
+ * @summary Grants scope permissions under a specified ResourceServer to an organizational unit.
  *
  * @param request AuthorizeResourceServerScopesToOrganizationalUnitRequest
  * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -772,7 +772,7 @@ AuthorizeResourceServerScopesToOrganizationalUnitResponse Client::authorizeResou
 }
 
 /**
- * @summary Grants scope permissions for a specified resource server to a user account.
+ * @summary Grants Scope permissions under a specified ResourceServer to an account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -819,7 +819,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary Grants scope permissions for a specified resource server to a user account.
+ * @summary Grants Scope permissions under a specified ResourceServer to an account.
  *
  * @param request AuthorizeResourceServerScopesToUserRequest
  * @return AuthorizeResourceServerScopesToUserResponse
@@ -830,7 +830,7 @@ AuthorizeResourceServerScopesToUserResponse Client::authorizeResourceServerScope
 }
 
 /**
- * @summary Authorizes a resource server for a client application.
+ * @summary Authorizes a specified ResourceServer for a Client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -869,7 +869,7 @@ AuthorizeResourceServerToClientResponse Client::authorizeResourceServerToClientW
 }
 
 /**
- * @summary Authorizes a resource server for a client application.
+ * @summary Authorizes a specified ResourceServer for a Client application.
  *
  * @param request AuthorizeResourceServerToClientRequest
  * @return AuthorizeResourceServerToClientResponse
@@ -934,7 +934,7 @@ BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMapping(const Bind
 }
 
 /**
- * @summary Checks whether the primary organizational unit for an application is within the synchronization scope.
+ * @summary Checks whether the primary organization for application synchronization is within the application synchronization scope.
  *
  * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -973,7 +973,7 @@ CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::checkA
 }
 
 /**
- * @summary Checks whether the primary organizational unit for an application is within the synchronization scope.
+ * @summary Checks whether the primary organization for application synchronization is within the application synchronization scope.
  *
  * @param request CheckApplicationProvisioningUserPrimaryOrganizationalUnitRequest
  * @return CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponse
@@ -1080,9 +1080,9 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatus(const CheckI
 }
 
 /**
- * @summary Creates an application in the specified EIAM instance.
+ * @summary Creates an application resource in a specified EIAM instance.
  *
- * @description You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
+ * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
  *
  * @param request CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1149,9 +1149,9 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Creates an application in the specified EIAM instance.
+ * @summary Creates an application resource in a specified EIAM instance.
  *
- * @description You must select the required SSO protocol when you create the application. This selection cannot be changed after creation.
+ * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -1162,7 +1162,7 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
+ * @summary Creates a client secret for an EIAM application. You can create a maximum of two client secrets for each EIAM application.
  *
  * @param request CreateApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1201,7 +1201,7 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecretWithO
 }
 
 /**
- * @summary Creates a client secret for an EIAM application. You can create up to two client secrets for each application.
+ * @summary Creates a client secret for an EIAM application. You can create a maximum of two client secrets for each EIAM application.
  *
  * @param request CreateApplicationClientSecretRequest
  * @return CreateApplicationClientSecretResponse
@@ -1212,7 +1212,7 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecret(cons
 }
 
 /**
- * @summary Creates an application federated credential.
+ * @summary Creates an application federated identity credential.
  *
  * @param request CreateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1249,8 +1249,20 @@ CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedC
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasOidcVerificationConfig()) {
+    query["OidcVerificationConfig"] = request.getOidcVerificationConfig();
+  }
+
+  if (!!request.hasPkcs7VerificationConfig()) {
+    query["Pkcs7VerificationConfig"] = request.getPkcs7VerificationConfig();
+  }
+
   if (!!request.hasVerificationCondition()) {
     query["VerificationCondition"] = request.getVerificationCondition();
+  }
+
+  if (!!request.hasVerificationMode()) {
+    query["VerificationMode"] = request.getVerificationMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1271,7 +1283,7 @@ CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedC
 }
 
 /**
- * @summary Creates an application federated credential.
+ * @summary Creates an application federated identity credential.
  *
  * @param request CreateApplicationFederatedCredentialRequest
  * @return CreateApplicationFederatedCredentialResponse
@@ -1564,7 +1576,7 @@ CreateBrandResponse Client::createBrand(const CreateBrandRequest &request) {
 }
 
 /**
- * @summary Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
+ * @summary Creates a ClientPublicKey for an application. When an M2M client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the client\\"s token endpoint request.
  *
  * @param request CreateClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1623,7 @@ CreateClientPublicKeyResponse Client::createClientPublicKeyWithOptions(const Cre
 }
 
 /**
- * @summary Creates a client public key for an application. The machine-to-machine (M2M) authorization server uses this public key to verify the assertion included in a token request from an M2M client using the PRIVATE_KEY_JWT method.
+ * @summary Creates a ClientPublicKey for an application. When an M2M client uses the PRIVATE_KEY_JWT method to request the token endpoint, this public key is used by the M2M authorization server to verify the assertion carried in the client\\"s token endpoint request.
  *
  * @param request CreateClientPublicKeyRequest
  * @return CreateClientPublicKeyResponse
@@ -1622,9 +1634,9 @@ CreateClientPublicKeyResponse Client::createClientPublicKey(const CreateClientPu
 }
 
 /**
- * @summary Creates a cloud account in the specified IDaaS EIAM instance.
+ * @summary Creates a cloud account resource in a specified EIAM instance.
  *
- * @description **Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1683,9 +1695,9 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
 }
 
 /**
- * @summary Creates a cloud account in the specified IDaaS EIAM instance.
+ * @summary Creates a cloud account resource in a specified EIAM instance.
  *
- * @description **Before you call this operation, ensure that you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @return CreateCloudAccountResponse
@@ -1840,7 +1852,7 @@ CreateConditionalAccessPolicyResponse Client::createConditionalAccessPolicy(cons
 }
 
 /**
- * @summary Creates a credential in a specified EIAM instance.
+ * @summary Creates a credential resource in a specified EIAM instance.
  *
  * @param request CreateCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1919,7 +1931,7 @@ CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredent
 }
 
 /**
- * @summary Creates a credential in a specified EIAM instance.
+ * @summary Creates a credential resource in a specified EIAM instance.
  *
  * @param request CreateCredentialRequest
  * @return CreateCredentialResponse
@@ -2248,7 +2260,7 @@ CreateDomainProxyTokenResponse Client::createDomainProxyToken(const CreateDomain
 }
 
 /**
- * @summary Create an identity provider.
+ * @summary Creates a federated trust source.
  *
  * @param request CreateFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2311,7 +2323,7 @@ CreateFederatedCredentialProviderResponse Client::createFederatedCredentialProvi
 }
 
 /**
- * @summary Create an identity provider.
+ * @summary Creates a federated trust source.
  *
  * @param request CreateFederatedCredentialProviderRequest
  * @return CreateFederatedCredentialProviderResponse
@@ -2970,9 +2982,9 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
- * @summary Deletes an Employee Identity and Access Management (EIAM) application.
+ * @summary Deletes an EIAM application resource.
  *
- * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+ * @description Before deleting a specified EIAM application, make sure the application is no longer in use. After the application is deleted, all configuration data is permanently deleted and cannot be recovered.
  *
  * @param request DeleteApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3007,9 +3019,9 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 }
 
 /**
- * @summary Deletes an Employee Identity and Access Management (EIAM) application.
+ * @summary Deletes an EIAM application resource.
  *
- * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+ * @description Before deleting a specified EIAM application, make sure the application is no longer in use. After the application is deleted, all configuration data is permanently deleted and cannot be recovered.
  *
  * @param request DeleteApplicationRequest
  * @return DeleteApplicationResponse
@@ -3020,7 +3032,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
+ * @summary Deletes a client secret of an EIAM application.
  *
  * @param request DeleteApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3059,7 +3071,7 @@ DeleteApplicationClientSecretResponse Client::deleteApplicationClientSecretWithO
 }
 
 /**
- * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
+ * @summary Deletes a client secret of an EIAM application.
  *
  * @param request DeleteApplicationClientSecretRequest
  * @return DeleteApplicationClientSecretResponse
@@ -3070,7 +3082,7 @@ DeleteApplicationClientSecretResponse Client::deleteApplicationClientSecret(cons
 }
 
 /**
- * @summary Deletes a federated credential for an application.
+ * @summary Deletes a federated identity credential of an application.
  *
  * @param request DeleteApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3109,7 +3121,7 @@ DeleteApplicationFederatedCredentialResponse Client::deleteApplicationFederatedC
 }
 
 /**
- * @summary Deletes a federated credential for an application.
+ * @summary Deletes a federated identity credential of an application.
  *
  * @param request DeleteApplicationFederatedCredentialRequest
  * @return DeleteApplicationFederatedCredentialResponse
@@ -3170,7 +3182,7 @@ DeleteApplicationRoleResponse Client::deleteApplicationRole(const DeleteApplicat
 }
 
 /**
- * @summary Deletes an application token.
+ * @summary Deletes an ApplicationToken.
  *
  * @param request DeleteApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3209,7 +3221,7 @@ DeleteApplicationTokenResponse Client::deleteApplicationTokenWithOptions(const D
 }
 
 /**
- * @summary Deletes an application token.
+ * @summary Deletes an ApplicationToken.
  *
  * @param request DeleteApplicationTokenRequest
  * @return DeleteApplicationTokenResponse
@@ -3362,7 +3374,7 @@ DeleteBrandResponse Client::deleteBrand(const DeleteBrandRequest &request) {
 }
 
 /**
- * @summary Deletes the ClientPublicKey for a specified application.
+ * @summary Deletes a specified application ClientPublicKey.
  *
  * @param request DeleteClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3401,7 +3413,7 @@ DeleteClientPublicKeyResponse Client::deleteClientPublicKeyWithOptions(const Del
 }
 
 /**
- * @summary Deletes the ClientPublicKey for a specified application.
+ * @summary Deletes a specified application ClientPublicKey.
  *
  * @param request DeleteClientPublicKeyRequest
  * @return DeleteClientPublicKeyResponse
@@ -4210,7 +4222,7 @@ DeleteOrganizationalUnitChildrenResponse Client::deleteOrganizationalUnitChildre
 }
 
 /**
- * @summary Deletes a scope permission from a specified resource server.
+ * @summary Deletes a scope permission under a specified ResourceServer.
  *
  * @param request DeleteResourceServerScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4249,7 +4261,7 @@ DeleteResourceServerScopeResponse Client::deleteResourceServerScopeWithOptions(c
 }
 
 /**
- * @summary Deletes a scope permission from a specified resource server.
+ * @summary Deletes a scope permission under a specified ResourceServer.
  *
  * @param request DeleteResourceServerScopeRequest
  * @return DeleteResourceServerScopeResponse
@@ -4402,9 +4414,9 @@ DeleteWebAuthnAuthenticatorResponse Client::deleteWebAuthnAuthenticator(const De
 }
 
 /**
- * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
+ * @summary Disables an application by changing its status from enabled to disabled, making all capabilities of the application unavailable.
  *
- * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable (such as SSO and account synchronization). Confirm that you are aware of the risks that this operation may cause.
  *
  * @param request DisableApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4439,9 +4451,9 @@ DisableApplicationResponse Client::disableApplicationWithOptions(const DisableAp
 }
 
 /**
- * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
+ * @summary Disables an application by changing its status from enabled to disabled, making all capabilities of the application unavailable.
  *
- * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable (such as SSO and account synchronization). Confirm that you are aware of the risks that this operation may cause.
  *
  * @param request DisableApplicationRequest
  * @return DisableApplicationResponse
@@ -4548,7 +4560,7 @@ DisableApplicationClientSecretResponse Client::disableApplicationClientSecret(co
 }
 
 /**
- * @summary Disables a federated credential for an application.
+ * @summary Disables a federated identity credential for an application.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4587,7 +4599,7 @@ DisableApplicationFederatedCredentialResponse Client::disableApplicationFederate
 }
 
 /**
- * @summary Disables a federated credential for an application.
+ * @summary Disables a federated identity credential for an application.
  *
  * @param request DisableApplicationFederatedCredentialRequest
  * @return DisableApplicationFederatedCredentialResponse
@@ -4690,7 +4702,7 @@ DisableApplicationProvisioningResponse Client::disableApplicationProvisioning(co
 }
 
 /**
- * @summary Disables the resource server functionality for a specified application.
+ * @summary Disables the ResourceServer capability of a specified application.
  *
  * @param request DisableApplicationResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4725,7 +4737,7 @@ DisableApplicationResourceServerResponse Client::disableApplicationResourceServe
 }
 
 /**
- * @summary Disables the resource server functionality for a specified application.
+ * @summary Disables the ResourceServer capability of a specified application.
  *
  * @param request DisableApplicationResourceServerRequest
  * @return DisableApplicationResourceServerResponse
@@ -4784,7 +4796,7 @@ DisableApplicationSsoResponse Client::disableApplicationSso(const DisableApplica
 /**
  * @summary Disables an application token.
  *
- * @description When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
  *
  * @param request DisableApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4825,7 +4837,7 @@ DisableApplicationTokenResponse Client::disableApplicationTokenWithOptions(const
 /**
  * @summary Disables an application token.
  *
- * @description When you change the status of an application from enabled to disabled, all application features, such as single sign-on (SSO) and account synchronization, become unavailable. Be aware of the potential threats associated with this operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
  *
  * @param request DisableApplicationTokenRequest
  * @return DisableApplicationTokenResponse
@@ -4934,7 +4946,7 @@ DisableBrandResponse Client::disableBrand(const DisableBrandRequest &request) {
 }
 
 /**
- * @summary Disables the ClientPublicKey for a specified application.
+ * @summary Disables a specified application ClientPublicKey.
  *
  * @param request DisableClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4977,7 +4989,7 @@ DisableClientPublicKeyResponse Client::disableClientPublicKeyWithOptions(const D
 }
 
 /**
- * @summary Disables the ClientPublicKey for a specified application.
+ * @summary Disables a specified application ClientPublicKey.
  *
  * @param request DisableClientPublicKeyRequest
  * @return DisableClientPublicKeyResponse
@@ -6028,7 +6040,7 @@ EnableApplicationResourceServerResponse Client::enableApplicationResourceServer(
 }
 
 /**
- * @summary Enables single sign-on (SSO) for an EIAM application.
+ * @summary Enables the SSO feature for an EIAM application.
  *
  * @param request EnableApplicationSsoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6063,7 +6075,7 @@ EnableApplicationSsoResponse Client::enableApplicationSsoWithOptions(const Enabl
 }
 
 /**
- * @summary Enables single sign-on (SSO) for an EIAM application.
+ * @summary Enables the SSO feature for an EIAM application.
  *
  * @param request EnableApplicationSsoRequest
  * @return EnableApplicationSsoResponse
@@ -6222,7 +6234,7 @@ EnableBrandResponse Client::enableBrand(const EnableBrandRequest &request) {
 }
 
 /**
- * @summary Enables the specified ClientPublicKey for an application.
+ * @summary Enables a specified application ClientPublicKey.
  *
  * @param request EnableClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6265,7 +6277,7 @@ EnableClientPublicKeyResponse Client::enableClientPublicKeyWithOptions(const Ena
 }
 
 /**
- * @summary Enables the specified ClientPublicKey for an application.
+ * @summary Enables a specified application ClientPublicKey.
  *
  * @param request EnableClientPublicKeyRequest
  * @return EnableClientPublicKeyResponse
@@ -7140,7 +7152,7 @@ GenerateFileImportTemplateResponse Client::generateFileImportTemplate(const Gene
 }
 
 /**
- * @summary Obtain an access token to call a resource server using a specified application as the client.
+ * @summary Obtains an access token for accessing a resource server by using a specified application as the client identity.
  *
  * @param request GenerateOauthTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7183,7 +7195,7 @@ GenerateOauthTokenResponse Client::generateOauthTokenWithOptions(const GenerateO
 }
 
 /**
- * @summary Obtain an access token to call a resource server using a specified application as the client.
+ * @summary Obtains an access token for accessing a resource server by using a specified application as the client identity.
  *
  * @param request GenerateOauthTokenRequest
  * @return GenerateOauthTokenResponse
@@ -7386,7 +7398,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfig(const 
 }
 
 /**
- * @summary Retrieves the federated credential for an application.
+ * @summary Retrieves the federated identity credential of an application.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7425,7 +7437,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary Retrieves the federated credential for an application.
+ * @summary Retrieves the federated identity credential of an application.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @return GetApplicationFederatedCredentialResponse
@@ -7436,7 +7448,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary Queries the Developer API authorization scope of an EIAM application.
  *
  * @param request GetApplicationGrantScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7471,7 +7483,7 @@ GetApplicationGrantScopeResponse Client::getApplicationGrantScopeWithOptions(con
 }
 
 /**
- * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+ * @summary Queries the Developer API authorization scope of an EIAM application.
  *
  * @param request GetApplicationGrantScopeRequest
  * @return GetApplicationGrantScopeResponse
@@ -7620,7 +7632,7 @@ GetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::getAppli
 }
 
 /**
- * @summary Retrieves the details of an application role.
+ * @summary Retrieves application role information.
  *
  * @param request GetApplicationRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7659,7 +7671,7 @@ GetApplicationRoleResponse Client::getApplicationRoleWithOptions(const GetApplic
 }
 
 /**
- * @summary Retrieves the details of an application role.
+ * @summary Retrieves application role information.
  *
  * @param request GetApplicationRoleRequest
  * @return GetApplicationRoleResponse
@@ -7716,7 +7728,7 @@ GetApplicationSsoConfigResponse Client::getApplicationSsoConfig(const GetApplica
 }
 
 /**
- * @summary Retrieves the details of an application template.
+ * @summary Retrieves application template information.
  *
  * @param request GetApplicationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7747,7 +7759,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplateWithOptions(const G
 }
 
 /**
- * @summary Retrieves the details of an application template.
+ * @summary Retrieves application template information.
  *
  * @param request GetApplicationTemplateRequest
  * @return GetApplicationTemplateResponse
@@ -7946,7 +7958,7 @@ GetBrandResponse Client::getBrand(const GetBrandRequest &request) {
 }
 
 /**
- * @summary Retrieves the ClientPublicKey for a specified application.
+ * @summary Queries the ClientPublicKey of a specified application.
  *
  * @param request GetClientPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7985,7 +7997,7 @@ GetClientPublicKeyResponse Client::getClientPublicKeyWithOptions(const GetClient
 }
 
 /**
- * @summary Retrieves the ClientPublicKey for a specified application.
+ * @summary Queries the ClientPublicKey of a specified application.
  *
  * @param request GetClientPublicKeyRequest
  * @return GetClientPublicKeyResponse
@@ -8042,7 +8054,7 @@ GetCloudAccountResponse Client::getCloudAccount(const GetCloudAccountRequest &re
 }
 
 /**
- * @summary Retrieves information about a cloud role.
+ * @summary Queries the resource information of a cloud role.
  *
  * @param request GetCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8081,7 +8093,7 @@ GetCloudAccountRoleResponse Client::getCloudAccountRoleWithOptions(const GetClou
 }
 
 /**
- * @summary Retrieves information about a cloud role.
+ * @summary Queries the resource information of a cloud role.
  *
  * @param request GetCloudAccountRoleRequest
  * @return GetCloudAccountRoleResponse
@@ -8142,7 +8154,7 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicy(const GetC
 }
 
 /**
- * @summary Retrieves the details of a specific credential.
+ * @summary Queries the information about a credential resource.
  *
  * @param request GetCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8177,7 +8189,7 @@ GetCredentialResponse Client::getCredentialWithOptions(const GetCredentialReques
 }
 
 /**
- * @summary Retrieves the details of a specific credential.
+ * @summary Queries the information about a credential resource.
  *
  * @param request GetCredentialRequest
  * @return GetCredentialResponse
@@ -8188,7 +8200,7 @@ GetCredentialResponse Client::getCredential(const GetCredentialRequest &request)
 }
 
 /**
- * @summary Retrieves the details of a credential provider.
+ * @summary Queries the details of a credential provider.
  *
  * @param request GetCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8223,7 +8235,7 @@ GetCredentialProviderResponse Client::getCredentialProviderWithOptions(const Get
 }
 
 /**
- * @summary Retrieves the details of a credential provider.
+ * @summary Queries the details of a credential provider.
  *
  * @param request GetCredentialProviderRequest
  * @return GetCredentialProviderResponse
@@ -9728,7 +9740,7 @@ ListActionTrackEventTypesResponse Client::listActionTrackEventTypes(const ListAc
 }
 
 /**
- * @summary Returns a paginated list of application accounts.
+ * @summary Queries the application accounts of an application by paging.
  *
  * @param request ListApplicationAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9771,7 +9783,7 @@ ListApplicationAccountsResponse Client::listApplicationAccountsWithOptions(const
 }
 
 /**
- * @summary Returns a paginated list of application accounts.
+ * @summary Queries the application accounts of an application by paging.
  *
  * @param request ListApplicationAccountsRequest
  * @return ListApplicationAccountsResponse
@@ -9882,7 +9894,7 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecrets(const 
 }
 
 /**
- * @summary Lists the federated credentials for an application.
+ * @summary Queries a list of application federated credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9933,7 +9945,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary Lists the federated credentials for an application.
+ * @summary Queries a list of application federated credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @return ListApplicationFederatedCredentialsResponse
@@ -9944,7 +9956,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary Lists the application federated credentials for a specified federated credential provider.
+ * @summary Queries the list of application federated credentials by federated trust source ID.
  *
  * @param request ListApplicationFederatedCredentialsForProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9991,7 +10003,7 @@ ListApplicationFederatedCredentialsForProviderResponse Client::listApplicationFe
 }
 
 /**
- * @summary Lists the application federated credentials for a specified federated credential provider.
+ * @summary Queries the list of application federated credentials by federated trust source ID.
  *
  * @param request ListApplicationFederatedCredentialsForProviderRequest
  * @return ListApplicationFederatedCredentialsForProviderResponse
@@ -10060,7 +10072,7 @@ ListApplicationRolesResponse Client::listApplicationRoles(const ListApplicationR
 }
 
 /**
- * @summary Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
+ * @summary Queries the list of account synchronization types supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10095,7 +10107,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary Call the ListApplicationSupportedProvisionProtocolTypes operation to query the account synchronization protocols supported by an application.
+ * @summary Queries the list of account synchronization types supported by an application.
  *
  * @param request ListApplicationSupportedProvisionProtocolTypesRequest
  * @return ListApplicationSupportedProvisionProtocolTypesResponse
@@ -10106,7 +10118,7 @@ ListApplicationSupportedProvisionProtocolTypesResponse Client::listApplicationSu
 }
 
 /**
- * @summary Retrieves a list of application tokens.
+ * @summary Retrieves the list of application tokens.
  *
  * @param request ListApplicationTokensRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10145,7 +10157,7 @@ ListApplicationTokensResponse Client::listApplicationTokensWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves a list of application tokens.
+ * @summary Retrieves the list of application tokens.
  *
  * @param request ListApplicationTokensRequest
  * @return ListApplicationTokensResponse
@@ -10156,7 +10168,7 @@ ListApplicationTokensResponse Client::listApplicationTokens(const ListApplicatio
 }
 
 /**
- * @summary Retrieves a paginated list of EIAM applications.
+ * @summary Performs a paged query to retrieve information about one or more EIAM applications with paging.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10197,6 +10209,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
     query["M2MClientStatus"] = request.getM2MClientStatus();
   }
 
+  if (!!request.hasManagedServiceCode()) {
+    query["ManagedServiceCode"] = request.getManagedServiceCode();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -10207,6 +10223,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 
   if (!!request.hasResourceServerStatus()) {
     query["ResourceServerStatus"] = request.getResourceServerStatus();
+  }
+
+  if (!!request.hasServiceManaged()) {
+    query["ServiceManaged"] = request.getServiceManaged();
   }
 
   if (!!request.hasSsoType()) {
@@ -10235,7 +10255,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Retrieves a paginated list of EIAM applications.
+ * @summary Performs a paged query to retrieve information about one or more EIAM applications with paging.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -11030,7 +11050,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublic
 }
 
 /**
- * @summary Queries a paginated list of cloud roles.
+ * @summary Queries the information about one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11077,7 +11097,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRolesWithOptions(const Lis
 }
 
 /**
- * @summary Queries a paginated list of cloud roles.
+ * @summary Queries the information about one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
  * @return ListCloudAccountRolesResponse
@@ -11342,7 +11362,7 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 }
 
 /**
- * @summary Lists the credential providers.
+ * @summary Lists credential providers.
  *
  * @param request ListCredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11397,7 +11417,7 @@ ListCredentialProvidersResponse Client::listCredentialProvidersWithOptions(const
 }
 
 /**
- * @summary Lists the credential providers.
+ * @summary Lists credential providers.
  *
  * @param request ListCredentialProvidersRequest
  * @return ListCredentialProvidersResponse
@@ -11408,7 +11428,7 @@ ListCredentialProvidersResponse Client::listCredentialProviders(const ListCreden
 }
 
 /**
- * @summary Retrieves a paginated list of credentials.
+ * @summary Queries the information of one or more credentials by using paging.
  *
  * @param request ListCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11471,7 +11491,7 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
 }
 
 /**
- * @summary Retrieves a paginated list of credentials.
+ * @summary Queries the information of one or more credentials by using paging.
  *
  * @param request ListCredentialsRequest
  * @return ListCredentialsResponse
@@ -11814,7 +11834,7 @@ ListEventTypesResponse Client::listEventTypes(const ListEventTypesRequest &reque
 }
 
 /**
- * @summary Lists federated identity providers.
+ * @summary Queries a list of federated trust sources.
  *
  * @param request ListFederatedCredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11865,7 +11885,7 @@ ListFederatedCredentialProvidersResponse Client::listFederatedCredentialProvider
 }
 
 /**
- * @summary Lists federated identity providers.
+ * @summary Queries a list of federated trust sources.
  *
  * @param request ListFederatedCredentialProvidersRequest
  * @return ListFederatedCredentialProvidersResponse
@@ -12860,7 +12880,7 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
- * @summary Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
+ * @summary Queries the list of scope permissions under a specified ResourceServer by using a cursor.
  *
  * @param request ListResourceServerScopesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12927,7 +12947,7 @@ ListResourceServerScopesResponse Client::listResourceServerScopesWithOptions(con
 }
 
 /**
- * @summary Query the list of Scope permissions under a specified ResourceServer using cursor-based pagination.
+ * @summary Queries the list of scope permissions under a specified ResourceServer by using a cursor.
  *
  * @param request ListResourceServerScopesRequest
  * @return ListResourceServerScopesResponse
@@ -12938,7 +12958,7 @@ ListResourceServerScopesResponse Client::listResourceServerScopes(const ListReso
 }
 
 /**
- * @summary Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
+ * @summary Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor-based approach.
  *
  * @param request ListResourceServersForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12985,7 +13005,7 @@ ListResourceServersForUserResponse Client::listResourceServersForUserWithOptions
 }
 
 /**
- * @summary Performs a paged query to retrieve the ResourceServer and Scope permissions that are granted to the current user.
+ * @summary Queries the list of ResourceServer and Scope permissions granted to the current account by using a cursor-based approach.
  *
  * @param request ListResourceServersForUserRequest
  * @return ListResourceServersForUserResponse
@@ -13508,7 +13528,7 @@ ListUsersForResourceServerResponse Client::listUsersForResourceServer(const List
 }
 
 /**
- * @summary Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
+ * @summary Retrieves the client secret of an EIAM application. The returned secret is not masked. To retrieve masked secrets, call the ListApplicationClientSecrets operation.
  *
  * @param request ObtainApplicationClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13547,7 +13567,7 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecretWithO
 }
 
 /**
- * @summary Obtains the client secret for an EIAM application. The secret is returned without desensitization. To obtain a desensitized secret, call the ListApplicationClientSecrets operation.
+ * @summary Retrieves the client secret of an EIAM application. The returned secret is not masked. To retrieve masked secrets, call the ListApplicationClientSecrets operation.
  *
  * @param request ObtainApplicationClientSecretRequest
  * @return ObtainApplicationClientSecretResponse
@@ -13558,9 +13578,9 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecret(cons
 }
 
 /**
- * @summary Queries the token of a specified application.
+ * @summary Queries a specified application token.
  *
- * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13599,9 +13619,9 @@ ObtainApplicationTokenResponse Client::obtainApplicationTokenWithOptions(const O
 }
 
 /**
- * @summary Queries the token of a specified application.
+ * @summary Queries a specified application token.
  *
- * @description When you disable an application, all its features, such as single sign-on (SSO) and account synchronization, become unavailable. Ensure that you understand the potential threats of this operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @return ObtainApplicationTokenResponse
@@ -13612,7 +13632,7 @@ ObtainApplicationTokenResponse Client::obtainApplicationToken(const ObtainApplic
 }
 
 /**
- * @summary Retrieves a credential containing sensitive information.
+ * @summary Queries a credential resource that contains sensitive information.
  *
  * @param request ObtainCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13647,7 +13667,7 @@ ObtainCredentialResponse Client::obtainCredentialWithOptions(const ObtainCredent
 }
 
 /**
- * @summary Retrieves a credential containing sensitive information.
+ * @summary Queries a credential resource that contains sensitive information.
  *
  * @param request ObtainCredentialRequest
  * @return ObtainCredentialResponse
@@ -13708,9 +13728,9 @@ ObtainDomainProxyTokenResponse Client::obtainDomainProxyToken(const ObtainDomain
 }
 
 /**
- * @summary Deletes the application account of a specified user from an application.
+ * @summary Deletes an application account of a specified employee under the current application.
  *
- * @description This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
+ * @description This operation only queries the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request RemoveApplicationAccountFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13753,9 +13773,9 @@ RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUse
 }
 
 /**
- * @summary Deletes the application account of a specified user from an application.
+ * @summary Deletes an application account of a specified employee under the current application.
  *
- * @description This operation queries only applications that are directly assigned to an organization. When you call this operation, you can use the **ApplicationIds** parameter to filter the applications.
+ * @description This operation only queries the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request RemoveApplicationAccountFromUserRequest
  * @return RemoveApplicationAccountFromUserResponse
@@ -14108,7 +14128,7 @@ RenewFreeLicenseEndTimeResponse Client::renewFreeLicenseEndTime(const RenewFreeL
 }
 
 /**
- * @summary Revokes application access from multiple EIAM groups in a batch.
+ * @summary Revokes the permissions of multiple Employee Identity and Access Management (EIAM) groups to access an application in a batch.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14151,7 +14171,7 @@ RevokeApplicationFromGroupsResponse Client::revokeApplicationFromGroupsWithOptio
 }
 
 /**
- * @summary Revokes application access from multiple EIAM groups in a batch.
+ * @summary Revokes the permissions of multiple Employee Identity and Access Management (EIAM) groups to access an application in a batch.
  *
  * @param request RevokeApplicationFromGroupsRequest
  * @return RevokeApplicationFromGroupsResponse
@@ -14216,7 +14236,7 @@ RevokeApplicationFromOrganizationalUnitsResponse Client::revokeApplicationFromOr
 }
 
 /**
- * @summary Revokes access to an application from multiple EIAM accounts.
+ * @summary Revokes the permissions of multiple Enterprise Identity Access Management (EIAM) accounts to access an application in a batch.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14259,7 +14279,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsersWithOptions
 }
 
 /**
- * @summary Revokes access to an application from multiple EIAM accounts.
+ * @summary Revokes the permissions of multiple Enterprise Identity Access Management (EIAM) accounts to access an application in a batch.
  *
  * @param request RevokeApplicationFromUsersRequest
  * @return RevokeApplicationFromUsersResponse
@@ -14270,7 +14290,7 @@ RevokeApplicationFromUsersResponse Client::revokeApplicationFromUsers(const Revo
 }
 
 /**
- * @summary Revokes the authorization for a resource server from a client application.
+ * @summary Cancels the authorization granted by a specified ResourceServer to a Client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14309,7 +14329,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClientWit
 }
 
 /**
- * @summary Revokes the authorization for a resource server from a client application.
+ * @summary Cancels the authorization granted by a specified ResourceServer to a Client application.
  *
  * @param request RevokeResourceServerFromClientRequest
  * @return RevokeResourceServerFromClientResponse
@@ -14320,7 +14340,7 @@ RevokeResourceServerFromClientResponse Client::revokeResourceServerFromClient(co
 }
 
 /**
- * @summary Revokes specified scope permissions of a resource server from a client application.
+ * @summary Revokes the scope permissions of a specified ResourceServer from a client application.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14363,7 +14383,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary Revokes specified scope permissions of a resource server from a client application.
+ * @summary Revokes the scope permissions of a specified ResourceServer from a client application.
  *
  * @param request RevokeResourceServerScopesFromClientRequest
  * @return RevokeResourceServerScopesFromClientResponse
@@ -14374,7 +14394,7 @@ RevokeResourceServerScopesFromClientResponse Client::revokeResourceServerScopesF
 }
 
 /**
- * @summary Revokes a resource server\\"s scope permissions from a group.
+ * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from a group.
  *
  * @param request RevokeResourceServerScopesFromGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14417,7 +14437,7 @@ RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFr
 }
 
 /**
- * @summary Revokes a resource server\\"s scope permissions from a group.
+ * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from a group.
  *
  * @param request RevokeResourceServerScopesFromGroupRequest
  * @return RevokeResourceServerScopesFromGroupResponse
@@ -14428,7 +14448,7 @@ RevokeResourceServerScopesFromGroupResponse Client::revokeResourceServerScopesFr
 }
 
 /**
- * @summary Revokes scope permissions for a resource server from an organization.
+ * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from an organizational unit.
  *
  * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14471,7 +14491,7 @@ RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceS
 }
 
 /**
- * @summary Revokes scope permissions for a resource server from an organization.
+ * @summary Revokes the authorization of Scope permissions under a specified ResourceServer from an organizational unit.
  *
  * @param request RevokeResourceServerScopesFromOrganizationalUnitRequest
  * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
@@ -14482,7 +14502,7 @@ RevokeResourceServerScopesFromOrganizationalUnitResponse Client::revokeResourceS
 }
 
 /**
- * @summary Revokes scope permissions for a specified resource server from an account.
+ * @summary Revokes the Scope permissions under a specified ResourceServer from an account.
  *
  * @param request RevokeResourceServerScopesFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14525,7 +14545,7 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
- * @summary Revokes scope permissions for a specified resource server from an account.
+ * @summary Revokes the Scope permissions under a specified ResourceServer from an account.
  *
  * @param request RevokeResourceServerScopesFromUserRequest
  * @return RevokeResourceServerScopesFromUserResponse
@@ -14876,9 +14896,9 @@ SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceSer
 }
 
 /**
- * @summary Sets the single sign-on (SSO) properties for an IDaaS application.
+ * @summary Sets the single sign-on (SSO) configuration properties for an EIAM application.
  *
- * @description In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
+ * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
  *
  * @param request SetApplicationSsoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14933,9 +14953,9 @@ SetApplicationSsoConfigResponse Client::setApplicationSsoConfigWithOptions(const
 }
 
 /**
- * @summary Sets the single sign-on (SSO) properties for an IDaaS application.
+ * @summary Sets the single sign-on (SSO) configuration properties for an EIAM application.
  *
- * @description In IDaaS, the Application Management feature lets you add applications that use various SSO protocols, such as SAML 2.0 and OpenID Connect (OIDC). However, each application can support only one SSO protocol. The protocol is specified during application creation and cannot be changed afterward. You must configure the SSO parameters according to the protocol that your application uses.
+ * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
  *
  * @param request SetApplicationSsoConfigRequest
  * @return SetApplicationSsoConfigResponse
@@ -15934,7 +15954,7 @@ UnlockUserResponse Client::unlockUser(const UnlockUserRequest &request) {
 }
 
 /**
- * @summary Updates the advanced configuration of an application.
+ * @summary Modifies the advanced configuration of an application.
  *
  * @param request UpdateApplicationAdvancedConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15973,7 +15993,7 @@ UpdateApplicationAdvancedConfigResponse Client::updateApplicationAdvancedConfigW
 }
 
 /**
- * @summary Updates the advanced configuration of an application.
+ * @summary Modifies the advanced configuration of an application.
  *
  * @param request UpdateApplicationAdvancedConfigRequest
  * @return UpdateApplicationAdvancedConfigResponse
@@ -16034,7 +16054,7 @@ UpdateApplicationAuthorizationTypeResponse Client::updateApplicationAuthorizatio
 }
 
 /**
- * @summary Updates the expiration time of a specified client secret for an application.
+ * @summary Updates the expiration time of a specified ClientSecret for an application.
  *
  * @param request UpdateApplicationClientSecretExpirationTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16077,7 +16097,7 @@ UpdateApplicationClientSecretExpirationTimeResponse Client::updateApplicationCli
 }
 
 /**
- * @summary Updates the expiration time of a specified client secret for an application.
+ * @summary Updates the expiration time of a specified ClientSecret for an application.
  *
  * @param request UpdateApplicationClientSecretExpirationTimeRequest
  * @return UpdateApplicationClientSecretExpirationTimeResponse
@@ -16138,7 +16158,7 @@ UpdateApplicationDescriptionResponse Client::updateApplicationDescription(const 
 }
 
 /**
- * @summary Updates an application\\"s federated credential.
+ * @summary Updates a federated credential for an application.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16163,6 +16183,14 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasOidcVerificationConfig()) {
+    query["OidcVerificationConfig"] = request.getOidcVerificationConfig();
+  }
+
+  if (!!request.hasPkcs7VerificationConfig()) {
+    query["Pkcs7VerificationConfig"] = request.getPkcs7VerificationConfig();
+  }
+
   if (!!request.hasVerificationCondition()) {
     query["VerificationCondition"] = request.getVerificationCondition();
   }
@@ -16185,7 +16213,7 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
 }
 
 /**
- * @summary Updates an application\\"s federated credential.
+ * @summary Updates a federated credential for an application.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @return UpdateApplicationFederatedCredentialResponse
@@ -16250,7 +16278,7 @@ UpdateApplicationFederatedCredentialDescriptionResponse Client::updateApplicatio
 }
 
 /**
- * @summary Updates the basic information for an application.
+ * @summary Updates the basic information of an application.
  *
  * @param request UpdateApplicationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16309,7 +16337,7 @@ UpdateApplicationInfoResponse Client::updateApplicationInfoWithOptions(const Upd
 }
 
 /**
- * @summary Updates the basic information for an application.
+ * @summary Updates the basic information of an application.
  *
  * @param request UpdateApplicationInfoRequest
  * @return UpdateApplicationInfoResponse
@@ -16378,7 +16406,7 @@ UpdateApplicationRoleResponse Client::updateApplicationRole(const UpdateApplicat
 }
 
 /**
- * @summary Updates the description of an application role.
+ * @summary Modifies the description of an application role.
  *
  * @param request UpdateApplicationRoleDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16421,7 +16449,7 @@ UpdateApplicationRoleDescriptionResponse Client::updateApplicationRoleDescriptio
 }
 
 /**
- * @summary Updates the description of an application role.
+ * @summary Modifies the description of an application role.
  *
  * @param request UpdateApplicationRoleDescriptionRequest
  * @return UpdateApplicationRoleDescriptionResponse
@@ -17374,7 +17402,7 @@ UpdateCredentialResponse Client::updateCredential(const UpdateCredentialRequest 
 }
 
 /**
- * @summary Update the description of a credential.
+ * @summary Updates the description of a credential.
  *
  * @param request UpdateCredentialDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17417,7 +17445,7 @@ UpdateCredentialDescriptionResponse Client::updateCredentialDescriptionWithOptio
 }
 
 /**
- * @summary Update the description of a credential.
+ * @summary Updates the description of a credential.
  *
  * @param request UpdateCredentialDescriptionRequest
  * @return UpdateCredentialDescriptionResponse
@@ -17698,7 +17726,7 @@ UpdateDomainIcpNumberResponse Client::updateDomainIcpNumber(const UpdateDomainIc
 }
 
 /**
- * @summary Updates a federated credential provider.
+ * @summary Updates a federated trust source.
  *
  * @param request UpdateFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17753,7 +17781,7 @@ UpdateFederatedCredentialProviderResponse Client::updateFederatedCredentialProvi
 }
 
 /**
- * @summary Updates a federated credential provider.
+ * @summary Updates a federated trust source.
  *
  * @param request UpdateFederatedCredentialProviderRequest
  * @return UpdateFederatedCredentialProviderResponse
@@ -17764,7 +17792,7 @@ UpdateFederatedCredentialProviderResponse Client::updateFederatedCredentialProvi
 }
 
 /**
- * @summary Updates the description of a federated credential provider.
+ * @summary Updates the description of a federated trust source.
  *
  * @param request UpdateFederatedCredentialProviderDescriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17803,7 +17831,7 @@ UpdateFederatedCredentialProviderDescriptionResponse Client::updateFederatedCred
 }
 
 /**
- * @summary Updates the description of a federated credential provider.
+ * @summary Updates the description of a federated trust source.
  *
  * @param request UpdateFederatedCredentialProviderDescriptionRequest
  * @return UpdateFederatedCredentialProviderDescriptionResponse

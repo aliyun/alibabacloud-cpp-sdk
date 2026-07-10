@@ -101,7 +101,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the application template is permanently free.
+        // Indicates whether the application template is always free.
         shared_ptr<bool> alwaysFree_ {};
       };
 
@@ -198,27 +198,27 @@ namespace Models
 
 
     protected:
-      // The ID of the application template.
+      // The application template ID.
       shared_ptr<string> applicationTemplateId_ {};
-      // The name of the application template.
+      // The application template name.
       shared_ptr<string> applicationTemplateName_ {};
       // The time when the application template was created.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the application template.
+      // The application template description.
       shared_ptr<string> description_ {};
-      // The URL of the help document for the application template.
+      // The help document URL of the application template.
       shared_ptr<string> helpDocumentUrl_ {};
-      // The URL of the logo for the application template.
+      // The logo URL of the application template.
       shared_ptr<string> logoUrl_ {};
       // The service code of the Alibaba Cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
-      // The sales information about the application template.
+      // The sale information of the application template.
       shared_ptr<ApplicationTemplate::SaleInfo> saleInfo_ {};
-      // The URL of the console for the Alibaba Cloud service that manages the application template.
+      // The console URL of the Alibaba Cloud service that manages the application template.
       shared_ptr<string> serviceConsoleUrl_ {};
       // Indicates whether the application template is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};
-      // The supported Single Sign-On (SSO) protocols.
+      // The supported SSO protocols.
       shared_ptr<vector<string>> ssoTypes_ {};
       // The time when the application template was last updated.
       shared_ptr<int64_t> updateTime_ {};
@@ -243,7 +243,7 @@ namespace Models
 
 
   protected:
-    // The details of the application template.
+    // The application template information.
     shared_ptr<GetApplicationTemplateResponseBody::ApplicationTemplate> applicationTemplate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

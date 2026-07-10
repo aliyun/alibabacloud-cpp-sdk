@@ -112,11 +112,11 @@ namespace Models
       shared_ptr<string> applicationAccountId_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The name of the application account.
+      // The application account name.
       shared_ptr<string> applicationUsername_ {};
-      // The time when the account was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the IDaaS EIAM instance.
+      // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -148,11 +148,11 @@ namespace Models
 
 
   protected:
-    // The list of account information.
+    // The list of application accounts.
     shared_ptr<vector<ListApplicationAccountsResponseBody::ApplicationAccounts>> applicationAccounts_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

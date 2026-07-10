@@ -177,8 +177,8 @@ namespace Models
         // The time of the last health check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
         // The health check result of the cloud account. Valid values:
-        // - success: Succeeded.
-        // - failed: Failed.
+        // - success: The health check succeeded.
+        // - failed: The health check failed.
         shared_ptr<string> result_ {};
       };
 
@@ -345,9 +345,9 @@ namespace Models
   protected:
     // The list of cloud accounts.
     shared_ptr<vector<ListCloudAccountsResponseBody::CloudAccounts>> cloudAccounts_ {};
-    // The number of rows per page for paging.
+    // The number of rows per page when paging is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned for the current call.
+    // The token returned for the current call to indicate the starting position of the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

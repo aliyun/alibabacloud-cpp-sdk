@@ -215,9 +215,9 @@ namespace Models
     // The application name.
     shared_ptr<string> applicationName_ {};
     shared_ptr<UpdateApplicationInfoRequest::ApplicationOwner> applicationOwner_ {};
-    // The collection of application visibility settings.
+    // The application visibility settings.
     shared_ptr<vector<string>> applicationVisibility_ {};
-    // The idempotent token.
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
     shared_ptr<vector<UpdateApplicationInfoRequest::CustomFields>> customFields_ {};
     // The instance ID.

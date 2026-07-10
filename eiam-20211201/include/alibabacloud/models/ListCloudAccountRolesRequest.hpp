@@ -79,16 +79,12 @@ namespace Models
 
     protected:
       // The name of the filter field. Valid values:
-      // 
-      // - CloudAccountRoleId: The ID of the cloud role.
-      // 
-      // - CloudAccountRoleName: The name of the cloud role.
-      // 
-      // - CloudAccountRoleExternalId: The external ID of the cloud role.
-      // 
-      // - CloudAccountRoleUsageType: The usage type of the cloud role.
+      // - CloudAccountRoleId: the cloud role ID.
+      // - CloudAccountRoleName: the cloud role name.
+      // - CloudAccountRoleExternalId: the external identifier of the cloud role.
+      // - CloudAccountRoleUsageType: the usage type of the cloud role.
       shared_ptr<string> name_ {};
-      // The list of values for the filter field.
+      // The values of the filter field.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -132,7 +128,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account.
+    // The cloud account ID.
     // 
     // This parameter is required.
     shared_ptr<string> cloudAccountId_ {};
@@ -142,13 +138,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of records to return on each page.
+    // The maximum number of records per page.
     // 
-    // - The default value is 20.
+    // - If this parameter is not specified, the default value is 20.
     // 
     // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the start of the next page of results.
+    // The token that identifies the start position of the next page.
     // 
     // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};

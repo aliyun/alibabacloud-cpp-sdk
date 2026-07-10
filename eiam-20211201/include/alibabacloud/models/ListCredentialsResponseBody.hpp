@@ -136,7 +136,7 @@ namespace Models
 
 
         protected:
-          // The client ID of the OAuth client.
+          // The client_id of the OAuth protocol.
           shared_ptr<string> clientId_ {};
         };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
       protected:
-        // The content of an OAuth client credential.
+        // The credential content of the OAuth client authentication credential type.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -282,54 +282,45 @@ namespace Models
 
 
     protected:
-      // The time the credential was created, provided as a Unix timestamp in milliseconds.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The content of the credential.
+      // The credential content.
       shared_ptr<Credentials::CredentialContent> credentialContent_ {};
       // The creation type of the credential. Valid values:
-      // 
-      // - `system_init`: Created by the system.
-      // 
-      // - `user_custom`: Created by a user.
+      // - system_init: Created by the system.
+      // - user_custom: Created by the user.
       shared_ptr<string> credentialCreationType_ {};
       shared_ptr<string> credentialExternalId_ {};
-      // The ID of the credential.
+      // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The identifier of the credential.
+      // The credential identifier.
       shared_ptr<string> credentialIdentifier_ {};
-      // The name of the credential.
+      // The credential name.
       shared_ptr<string> credentialName_ {};
-      // The use case label for the credential. Valid values:
-      // 
-      // - `llm`: A large language model.
-      // 
-      // - `saas`: A third-party SaaS service.
+      // The scenarios label of the credential. Valid values:
+      // - llm: large language model.
+      // - saas: third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
       shared_ptr<string> credentialSharingScope_ {};
-      // The ID of the credential\\"s subject.
+      // The subject ID to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The type of the credential\\"s subject. Valid value:
-      // 
-      // - `authentication_token_provider`: An authentication token provider.
+      // The subject type to which the credential belongs. Valid values:
+      // - authentication_token_provider: authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
-      // The type of the credential. Valid values:
-      // 
-      // - `api_key`: An API key.
-      // 
-      // - `oauth_client`: An OAuth client.
+      // The credential type. Valid values:
+      // - api_key: API key authentication credential.
+      // - oauth_client: OAuth client authentication credential.
       shared_ptr<string> credentialType_ {};
-      // The description of the credential.
+      // The credential description.
       shared_ptr<string> description_ {};
       shared_ptr<string> exclusiveUserId_ {};
-      // The ID of the EIAM instance.
+      // The EIAM instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the credential. Valid values:
-      // 
-      // - `enabled`: The credential is enabled.
-      // 
-      // - `disabled`: The credential is disabled.
+      // The credential status. Valid values:
+      // - enabled: Enabled.
+      // - diasbled: Disabled.
       shared_ptr<string> status_ {};
-      // The time the credential was last updated, provided as a Unix timestamp in milliseconds.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -373,15 +364,15 @@ namespace Models
 
 
   protected:
-    // A list of credentials.
+    // The list of credentials.
     shared_ptr<vector<ListCredentialsResponseBody::Credentials>> credentials_ {};
-    // The maximum number of entries to return per page.
+    // The maximum number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. If this parameter is not returned, it indicates all results have been returned.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

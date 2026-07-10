@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The permissions of the Developer API feature.
+      // The collection of API authorization scopes.
       shared_ptr<vector<string>> grantScopes_ {};
     };
 
@@ -85,9 +85,9 @@ namespace Models
 
 
   protected:
-    // The permissions of the Developer API feature.
+    // The authorization scope.
     shared_ptr<GetApplicationGrantScopeResponseBody::ApplicationGrantScope> applicationGrantScope_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

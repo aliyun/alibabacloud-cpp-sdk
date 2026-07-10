@@ -144,7 +144,7 @@ namespace Models
         protected:
           // The error code.
           shared_ptr<string> errorCode_ {};
-          // The error message.
+          // The error description.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -174,15 +174,13 @@ namespace Models
 
 
       protected:
-        // The reason for the error. This parameter is returned when the health check status is unhealthy.
+        // The error reason. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountRoleHealthCheckResult::ErrorReason> errorReason_ {};
-        // The time of the last health check. This is a UNIX timestamp. Unit: milliseconds.
+        // The last check time, in UNIX timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
-        // The result of the health check. Valid values:
-        // 
-        // - success: The health check was successful.
-        // 
-        // - failed: The health check failed.
+        // The health check result of the cloud role. Valid values:
+        // - success: succeeded.
+        // - failed: failed.
         shared_ptr<string> result_ {};
       };
 
@@ -284,47 +282,40 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The cloud account ID.
       shared_ptr<string> cloudAccountId_ {};
-      // The external ID for the cloud role.
+      // The cloud role identifier.
       shared_ptr<string> cloudAccountRoleExternalId_ {};
       // The health status of the cloud role. Valid values:
-      // 
-      // - healthy: The role is healthy.
-      // 
-      // - unhealthy: The role is unhealthy.
-      // 
-      // - unknown: The health status is unknown.
+      // - healthy: healthy.
+      // - unhealthy: unhealthy.
+      // - unknown: unknown.
       shared_ptr<string> cloudAccountRoleHealth_ {};
-      // The result of the health check for the cloud role.
+      // The health check result of the cloud role.
       shared_ptr<CloudAccountRoles::CloudAccountRoleHealthCheckResult> cloudAccountRoleHealthCheckResult_ {};
-      // The ID of the cloud role.
+      // The cloud role ID.
       shared_ptr<string> cloudAccountRoleId_ {};
-      // The name of the cloud role.
+      // The cloud role name.
       shared_ptr<string> cloudAccountRoleName_ {};
-      // The type of the cloud role. The format of the role type varies based on the type of the cloud account. The following value is supported:
+      // The cloud role type. The specific format depends on the cloud account type. Valid values:
       // 
-      // - role: This value applies to Alibaba Cloud accounts.
+      // - role: applicable to Alibaba Cloud accounts.
       shared_ptr<string> cloudAccountRoleType_ {};
       // The usage type of the cloud role. Valid values:
-      // 
-      // - system: The role is used by the system.
-      // 
-      // - user: The role is used by a user.
+      // - system: system.
+      // - user: user.
       shared_ptr<string> cloudAccountRoleUsageType_ {};
-      // The time when the role was created. This is a UNIX timestamp. Unit: milliseconds.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the cloud role.
+      // The cloud role description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the cloud role. Valid values:
-      // 
-      // - enabled: The role is enabled.
-      // 
-      // - disabled: The role is disabled.
+      // The cloud role status. Valid values:
+      // - enabled: enabled.
+      // - disable: disabled.
       shared_ptr<string> status_ {};
-      // The time when the role was last updated. This is a UNIX timestamp. Unit: milliseconds.
+      // The last update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -370,13 +361,13 @@ namespace Models
   protected:
     // The list of cloud roles.
     shared_ptr<vector<ListCloudAccountRolesResponseBody::CloudAccountRoles>> cloudAccountRoles_ {};
-    // The number of entries returned per page.
+    // The number of rows per page in the paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token returned in this call.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

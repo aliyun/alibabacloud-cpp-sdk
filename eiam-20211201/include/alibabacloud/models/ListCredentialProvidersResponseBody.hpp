@@ -147,17 +147,15 @@ namespace Models
 
 
         protected:
-          // The client_id in the OAuth protocol, also known as the client ID.
+          // The client_id in the OAuth protocol, which is the client ID.
           shared_ptr<string> clientId_ {};
-          // The scope in the OAuth protocol, which defines permission scope.
+          // The scope in the OAuth protocol, which specifies the permission scope.
           // 
-          // > The Scope configuration for the OAuth credential provider acts as a fallback. If you do not specify the scope parameter when calling the DeveloperAPI to get an OAuth Access Token, the credential provider\\"s Scope configuration is used for issuance.
+          // > The Scope configuration of the OAuth credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth access token, the Scope configuration of the credential provider is used for token issuance.
           // 
-          // >Notice: 
-          // 
-          // Multiple Scope values are separated by spaces.
+          // >Notice: Multiple Scope values are separated by spaces.
           shared_ptr<string> scope_ {};
-          // The Token endpoint of the OAuth protocol.
+          // The token endpoint of the OAuth protocol.
           shared_ptr<string> tokenEndpoint_ {};
         };
 
@@ -237,17 +235,17 @@ namespace Models
 
 
         protected:
-          // List of allowed JWT issuers.
+          // The list of allowed JWT issuers.
           shared_ptr<vector<string>> allowedTokenIssuers_ {};
-          // Enable JWT derived short token capability.
+          // Indicates whether the JWT derived short token feature is enabled.
           shared_ptr<bool> derivedShortTokenEnabled_ {};
-          // Validity period of the JWT, in seconds.
+          // The validity period of the JWT, in seconds.
           shared_ptr<int32_t> expiration_ {};
-          // Enable JWT expiration cleanup.
+          // Indicates whether JWT expiration cleanup is enabled.
           shared_ptr<bool> expirationCleanupEnabled_ {};
-          // JWT issuer.
+          // JWT issuer。
           shared_ptr<string> issuer_ {};
-          // JWKs endpoint address.
+          // The JWKs endpoint URL.
           shared_ptr<string> jwksEndpoint_ {};
         };
 
@@ -281,13 +279,13 @@ namespace Models
 
 
       protected:
-        // Configuration for JWT credential providers.
+        // The configuration of the JWT credential provider.
         shared_ptr<CredentialProviderConfig::JwtProviderConfig> jwtProviderConfig_ {};
-        // Configuration for OAuth credential providers.
+        // The configuration of the OAuth credential provider.
         shared_ptr<CredentialProviderConfig::OAuthProviderConfig> OAuthProviderConfig_ {};
-        // List of credential IDs for the sensitive configuration of the credential provider.
+        // The list of credential IDs that correspond to the sensitive configuration of the credential provider.
         // 
-        // > The system securely stores sensitive credential provider configuration as credentials.
+        // > The system securely stores the sensitive configuration of the credential provider as credentials.
         shared_ptr<vector<string>> providerCredentialIds_ {};
       };
 
@@ -374,39 +372,36 @@ namespace Models
 
 
     protected:
-      // Creation time of the credential provider, in Unix timestamp format (milliseconds).
+      // The creation time of the credential provider. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Credential provider configuration.
+      // The credential provider configuration.
       shared_ptr<CredentialProviders::CredentialProviderConfig> credentialProviderConfig_ {};
-      // Credential provider creation type. Valid values:
+      // The creation type of the credential provider. Valid values:
       // 
-      // - system_init: System created.
-      // 
-      // - user_custom: User created.
+      // - system_init: Created by the system.
+      // - user_custom: Created by the user.
       shared_ptr<string> credentialProviderCreationType_ {};
-      // Credential provider ID.
+      // The credential provider ID.
       shared_ptr<string> credentialProviderId_ {};
-      // Credential provider identifier.
+      // The credential provider identifier.
       shared_ptr<string> credentialProviderIdentifier_ {};
-      // Credential provider name.
+      // The credential provider name.
       shared_ptr<string> credentialProviderName_ {};
-      // Credential provider type. Valid values:
+      // The credential provider type. Valid values:
       // 
-      // - oauth: OAuth credential provider
-      // 
-      // - jwt: JWT credential provider
+      // - oauth: OAuth credential provider.
+      // - jwt: JWT credential provider.
       shared_ptr<string> credentialProviderType_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Credential provider status. Valid values:
+      // The credential provider status. Valid values:
       // 
       // - enabled: Enabled.
-      // 
       // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // Update time of the credential provider, in Unix timestamp format (milliseconds).
+      // The update time of the credential provider. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -450,15 +445,15 @@ namespace Models
 
 
   protected:
-    // List of credential providers.
+    // The list of credential providers.
     shared_ptr<vector<ListCredentialProvidersResponseBody::CredentialProviders>> credentialProviders_ {};
-    // Page size for paged queries.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token returned by this call.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

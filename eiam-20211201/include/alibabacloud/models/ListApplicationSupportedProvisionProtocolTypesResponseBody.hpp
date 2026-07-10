@@ -62,11 +62,9 @@ namespace Models
 
 
     protected:
-      // The account synchronization protocols that the application supports. Valid values:
-      // 
-      // - idaas_callback: event callback.
-      // 
-      // - scim2: System for Cross-domain Identity Management (SCIM) protocol.
+      // The account synchronization type supported by the application. Valid values:
+      // - idaas_callback: Event callback type.
+      // - scim2: System for Cross-domain Identity Management protocol type.
       shared_ptr<vector<string>> provisionProtocolType_ {};
     };
 
@@ -89,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The supported synchronization protocols for the application.
+    // The list of synchronization types supported by the application.
     shared_ptr<ListApplicationSupportedProvisionProtocolTypesResponseBody::ApplicationSupportedProvisionProtocolType> applicationSupportedProvisionProtocolType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

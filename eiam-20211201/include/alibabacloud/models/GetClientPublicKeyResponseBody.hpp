@@ -137,15 +137,15 @@ namespace Models
       shared_ptr<string> algorithmType_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The ID of the application\\"s ClientPublicKey.
+      // The ID of the application ClientPublicKey.
       shared_ptr<string> clientPublicKeyId_ {};
-      // The time when the public key was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the key was last used.
+      // The last time the key pair was used.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // Indicates whether this is the primary key.
+      // Indicates whether the key pair is used with priority.
       shared_ptr<bool> primary_ {};
       // The public key.
       shared_ptr<string> publicKey_ {};
@@ -172,7 +172,7 @@ namespace Models
 
 
   protected:
-    // Information about the application\\"s ClientPublicKey.
+    // The application ClientPublicKey information.
     shared_ptr<GetClientPublicKeyResponseBody::ClientPublicKey> clientPublicKey_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

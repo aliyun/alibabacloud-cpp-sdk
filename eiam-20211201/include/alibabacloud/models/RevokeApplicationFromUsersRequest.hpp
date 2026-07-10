@@ -73,13 +73,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // 应用角色ID。
+    // The application role ID.
     shared_ptr<string> applicationRoleId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // A list of account IDs. A single operation supports up to 100 account IDs.
+    // The list of account IDs. A maximum of 100 account IDs are supported in a single operation.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> userIds_ {};

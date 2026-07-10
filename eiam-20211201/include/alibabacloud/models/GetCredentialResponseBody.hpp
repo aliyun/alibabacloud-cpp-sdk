@@ -129,7 +129,7 @@ namespace Models
 
 
         protected:
-          // The OAuth client ID.
+          // The client_id of the OAuth protocol.
           shared_ptr<string> clientId_ {};
         };
 
@@ -144,7 +144,7 @@ namespace Models
 
 
       protected:
-        // The credential content for an OAuth client. This parameter is returned only when `CredentialType` is `oauth_client`.
+        // The content of the OAuth client credential.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -275,54 +275,45 @@ namespace Models
 
 
     protected:
-      // The creation time of the credential, in Unix timestamp format (milliseconds).
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The content of the credential.
       shared_ptr<Credential::CredentialContent> credentialContent_ {};
-      // How the credential was created. Valid values:
-      // 
-      // - `system_init`: The credential was created by the system.
-      // 
-      // - `user_custom`: The credential was created by a user.
+      // The creation type of the credential. Valid values:
+      // - system_init: Created by the system.
+      // - user_custom: Created by the user.
       shared_ptr<string> credentialCreationType_ {};
       shared_ptr<string> credentialExternalId_ {};
-      // The ID of the credential.
+      // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The identifier of the credential.
+      // The credential identifier.
       shared_ptr<string> credentialIdentifier_ {};
-      // The name of the credential.
+      // The credential name.
       shared_ptr<string> credentialName_ {};
-      // The use case of the credential. Valid values:
-      // 
-      // - `llm`: a large language model (LLM).
-      // 
-      // - `saas`: a third-party Software as a Service (SaaS) application.
+      // The scenarios label of the credential. Valid values:
+      // - llm: Large language model.
+      // - saas: Third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
       shared_ptr<string> credentialSharingScope_ {};
-      // The ID of the subject that owns the credential.
+      // The ID of the subject to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The type of the subject that owns the credential. Valid value:
-      // 
-      // - `authentication_token_provider`: The subject is an authentication token provider.
+      // The type of the subject to which the credential belongs. Valid values:
+      // - authentication_token_provider: Authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
-      // The type of the credential. Valid values:
-      // 
-      // - `api_key`: An API key.
-      // 
-      // - `oauth_client`: An OAuth client.
+      // The credential type. Valid values:
+      // - api_key: API key credential.
+      // - oauth_client: OAuth client credential.
       shared_ptr<string> credentialType_ {};
-      // The user-defined description of the credential.
+      // The credential description.
       shared_ptr<string> description_ {};
       shared_ptr<string> exclusiveUserId_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the credential. Valid values:
-      // 
-      // - `enabled`: The credential is active.
-      // 
-      // - `disabled`: The credential is inactive.
+      // The credential status. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The time the credential was last updated, in Unix timestamp format (milliseconds).
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -345,7 +336,7 @@ namespace Models
 
 
   protected:
-    // The credential details.
+    // The credential information.
     shared_ptr<GetCredentialResponseBody::Credential> credential_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

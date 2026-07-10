@@ -105,17 +105,17 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The ID of the application role.
+      // The application role ID.
       shared_ptr<string> applicationRoleId_ {};
-      // The name of the application role.
+      // The application role name.
       shared_ptr<string> applicationRoleName_ {};
-      // The value of the application role.
+      // The application role value.
       shared_ptr<string> applicationRoleValue_ {};
-      // The description of the application role.
+      // The application role description.
       shared_ptr<string> description_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
   protected:
-    // The details of the application role.
+    // The application role information.
     shared_ptr<GetApplicationRoleResponseBody::ApplicationRole> applicationRole_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

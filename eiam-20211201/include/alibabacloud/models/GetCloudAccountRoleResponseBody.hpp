@@ -137,7 +137,7 @@ namespace Models
         protected:
           // The error code.
           shared_ptr<string> errorCode_ {};
-          // The error message.
+          // The error description.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -167,15 +167,15 @@ namespace Models
 
 
       protected:
-        // The reason for the error. This parameter is returned only if the value of CloudAccountRoleHealth is unhealthy.
+        // The error reason. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountRoleHealthCheckResult::ErrorReason> errorReason_ {};
-        // The time of the last check. This value is a UNIX timestamp in milliseconds.
+        // The time of the last health check. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
-        // The result of the health check. Valid values:
+        // The cloud role health check result. Valid values:
         // 
-        // - success: The health check is successful.
+        // - success: succeeded.
         // 
-        // - failed: The health check failed.
+        // - failed: failed.
         shared_ptr<string> result_ {};
       };
 
@@ -277,47 +277,40 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The cloud account ID.
       shared_ptr<string> cloudAccountId_ {};
-      // The external ID of the cloud account role.
+      // The cloud role identifier.
       shared_ptr<string> cloudAccountRoleExternalId_ {};
-      // The health check status of the cloud role. Valid values:
-      // 
-      // - healthy: The role is healthy.
-      // 
-      // - unhealthy: The role is unhealthy.
-      // 
-      // - unknown: The health status is unknown.
+      // The cloud role health status. Valid values:
+      // - healthy: healthy.
+      // - unhealthy: unhealthy.
+      // - unknown: unknown.
       shared_ptr<string> cloudAccountRoleHealth_ {};
-      // The result of the health check for the cloud role.
+      // The cloud role health check result.
       shared_ptr<CloudAccountRole::CloudAccountRoleHealthCheckResult> cloudAccountRoleHealthCheckResult_ {};
-      // The ID of the cloud role.
+      // The cloud role ID.
       shared_ptr<string> cloudAccountRoleId_ {};
-      // The name of the cloud role.
+      // The cloud role name.
       shared_ptr<string> cloudAccountRoleName_ {};
-      // The type of the cloud role. The format of this parameter varies based on the cloud account type. The following value is supported:
+      // The cloud role type. The specific format depends on the cloud account type. Valid values:
       // 
-      // - role: for an Alibaba Cloud account.
+      // - role: applicable to Alibaba Cloud accounts.
       shared_ptr<string> cloudAccountRoleType_ {};
-      // The usage type of the cloud role. Valid values:
-      // 
-      // - system: The role is used by the system.
-      // 
-      // - user: The role is used by a user.
+      // The cloud role usage type. Valid values:
+      // - system: system.
+      // - user: user.
       shared_ptr<string> cloudAccountRoleUsageType_ {};
-      // The time when the cloud role was created. This value is a UNIX timestamp in milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the cloud role.
+      // The cloud role description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the cloud role. Valid values:
-      // 
-      // - enabled: The role is enabled.
-      // 
-      // - disable: The role is disabled.
+      // The cloud role status. Valid values:
+      // - enabled: enabled.
+      // - disable: disabled.
       shared_ptr<string> status_ {};
-      // The time when the cloud role was last updated. This value is a UNIX timestamp in milliseconds.
+      // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -340,7 +333,7 @@ namespace Models
 
 
   protected:
-    // The details of the cloud role.
+    // The cloud role details.
     shared_ptr<GetCloudAccountRoleResponseBody::CloudAccountRole> cloudAccountRole_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
