@@ -1327,6 +1327,24 @@ namespace Ververica20220718
       Models::StartSessionClusterResponse startSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
+       * @summary Executes an SQL query script task.
+       *
+       * @param request StartSqlExecutionRequest
+       * @param headers StartSqlExecutionHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartSqlExecutionResponse
+       */
+      Models::StartSqlExecutionResponse startSqlExecutionWithOptions(const string &_namespace, const Models::StartSqlExecutionRequest &request, const Models::StartSqlExecutionHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes an SQL query script task.
+       *
+       * @param request StartSqlExecutionRequest
+       * @return StartSqlExecutionResponse
+       */
+      Models::StartSqlExecutionResponse startSqlExecution(const string &_namespace, const Models::StartSqlExecutionRequest &request);
+
+      /**
        * @summary Stops the application of a scheduled plan.
        *
        * @param headers StopApplyScheduledPlanHeaders

@@ -393,6 +393,10 @@
 #include <alibabacloud/models/StartSessionClusterHeaders.hpp>
 #include <alibabacloud/models/StartSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/StartSessionClusterResponse.hpp>
+#include <alibabacloud/models/StartSqlExecutionHeaders.hpp>
+#include <alibabacloud/models/StartSqlExecutionRequest.hpp>
+#include <alibabacloud/models/StartSqlExecutionResponseBody.hpp>
+#include <alibabacloud/models/StartSqlExecutionResponse.hpp>
 #include <alibabacloud/models/StopApplyScheduledPlanHeaders.hpp>
 #include <alibabacloud/models/StopApplyScheduledPlanResponseBody.hpp>
 #include <alibabacloud/models/StopApplyScheduledPlanResponse.hpp>

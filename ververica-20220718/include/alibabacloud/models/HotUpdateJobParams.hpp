@@ -54,9 +54,7 @@ namespace Models
 
 
   protected:
-    // 资源动态更新。
     shared_ptr<RescaleJobParam> rescaleJobParam_ {};
-    // 运行参数动态更新。
     shared_ptr<UpdateJobConfigParam> updateJobConfigParam_ {};
   };
 

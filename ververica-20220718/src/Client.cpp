@@ -3985,6 +3985,55 @@ StartSessionClusterResponse Client::startSessionCluster(const string &_namespace
 }
 
 /**
+ * @summary Executes an SQL query script task.
+ *
+ * @param request StartSqlExecutionRequest
+ * @param headers StartSqlExecutionHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartSqlExecutionResponse
+ */
+StartSqlExecutionResponse Client::startSqlExecutionWithOptions(const string &_namespace, const StartSqlExecutionRequest &request, const StartSqlExecutionHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "StartSqlExecution"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-execution")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartSqlExecutionResponse>();
+}
+
+/**
+ * @summary Executes an SQL query script task.
+ *
+ * @param request StartSqlExecutionRequest
+ * @return StartSqlExecutionResponse
+ */
+StartSqlExecutionResponse Client::startSqlExecution(const string &_namespace, const StartSqlExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  StartSqlExecutionHeaders headers = StartSqlExecutionHeaders();
+  return startSqlExecutionWithOptions(namespace, request, headers, runtime);
+}
+
+/**
  * @summary Stops the application of a scheduled plan.
  *
  * @param headers StopApplyScheduledPlanHeaders

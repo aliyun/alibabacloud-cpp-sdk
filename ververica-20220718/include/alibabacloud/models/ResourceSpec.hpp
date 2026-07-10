@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The CPU size.
     shared_ptr<double> cpu_ {};
+    // The memory size.
     shared_ptr<string> memory_ {};
   };
 
