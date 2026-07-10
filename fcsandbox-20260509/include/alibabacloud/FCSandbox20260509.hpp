@@ -237,6 +237,24 @@ namespace FCSandbox20260509
       Models::ResetApiKeyResponse resetApiKey(const string &apiKeyID, const Models::ResetApiKeyRequest &request);
 
       /**
+       * @summary 更新 ApiKey
+       *
+       * @param request UpdateApiKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApiKeyResponse
+       */
+      Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyID, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 ApiKey
+       *
+       * @param request UpdateApiKeyRequest
+       * @return UpdateApiKeyResponse
+       */
+      Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyID, const Models::UpdateApiKeyRequest &request);
+
+      /**
        * @summary 更新 quota 配置
        *
        * @param request UpdateQuotaRequest

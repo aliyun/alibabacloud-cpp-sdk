@@ -577,6 +577,46 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyID, const ResetApiKe
 }
 
 /**
+ * @summary 更新 ApiKey
+ *
+ * @param request UpdateApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApiKeyResponse
+ */
+UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyID, const UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateApiKey"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/api-keys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyID))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApiKeyResponse>();
+}
+
+/**
+ * @summary 更新 ApiKey
+ *
+ * @param request UpdateApiKeyRequest
+ * @return UpdateApiKeyResponse
+ */
+UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyID, const UpdateApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateApiKeyWithOptions(apiKeyID, request, headers, runtime);
+}
+
+/**
  * @summary 更新 quota 配置
  *
  * @param request UpdateQuotaRequest

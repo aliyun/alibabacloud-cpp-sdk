@@ -62,6 +62,9 @@
 #include <alibabacloud/models/ResetApiKeyRequest.hpp>
 #include <alibabacloud/models/ResetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ResetApiKeyResponse.hpp>
+#include <alibabacloud/models/UpdateApiKeyRequest.hpp>
+#include <alibabacloud/models/UpdateApiKeyResponseBody.hpp>
+#include <alibabacloud/models/UpdateApiKeyResponse.hpp>
 #include <alibabacloud/models/UpdateQuotaRequest.hpp>
 #include <alibabacloud/models/UpdateQuotaResponseBody.hpp>
 #include <alibabacloud/models/UpdateQuotaResponse.hpp>
