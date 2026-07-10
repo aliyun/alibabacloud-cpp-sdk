@@ -237,7 +237,7 @@ namespace Models
     // 
     // > If you specify InstanceType, you cannot specify Cores or Memory.
     shared_ptr<string> instanceType_ {};
-    // The collection of alternative instance families from which alternative instance types are selected. You can set up to 10 instance families in this parameter.
+    // Settings for the collection of alternative instance families from which alternative instance types are selected. You can specify up to 10 instance families.
     shared_ptr<vector<string>> instanceTypeFamily_ {};
     // Specifies whether the instance is I/O optimized. If the instance type supports only non-I/O optimized instances, you cannot set the IoOptimized parameter. Valid values:
     // 
@@ -259,7 +259,7 @@ namespace Models
     // The network type of the ECS instance. Valid values:
     // 
     // - vpc: virtual private cloud (VPC).
-    // - classic: classic network. The classic network is no longer available. For more information, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html).
+    // - classic: classic network. The classic network is no longer available. For more information, see [Discontinuation notice](https://help.aliyun.com/document_detail/2833134.html).
     // 
     // Default value: vpc.
     // 
@@ -267,7 +267,7 @@ namespace Models
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The priority recommendation strategy. Valid values:
+    // The priority-based recommendation strategy. Valid values:
     // 
     // - InventoryFirst: inventory first.
     // - PriceFirst: price first. Instance types are sorted by the hourly vCPU unit price in ascending order.
@@ -294,7 +294,7 @@ namespace Models
     // - SpotWithPriceLimit: a spot instance with a maximum hourly price.
     // - SpotAsPriceGo: a spot instance for which the system automatically bids at up to the pay-as-you-go price.
     // 
-    // > When you use SpotStrategy, set InstanceChargeType to PostPaid.
+    // > When you use SpotStrategy, set InstanceChargerType to PostPaid.
     // 
     // Default value: NoSpot.
     shared_ptr<string> spotStrategy_ {};
