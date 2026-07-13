@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(CreditAmount, creditAmount_);
       DARABONBA_PTR_TO_JSON(CreditConfig, creditConfig_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(CreditAmount, creditAmount_);
       DARABONBA_PTR_FROM_JSON(CreditConfig, creditConfig_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
-        && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bizRegionId_ == nullptr && this->creditAmount_ == nullptr && this->creditConfig_ == nullptr
-        && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr && this->packageSpecId_ == nullptr && this->paidCallbackUrl_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
+        && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bizRegionId_ == nullptr && this->channelCookie_ == nullptr && this->creditAmount_ == nullptr
+        && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr && this->packageSpecId_ == nullptr
+        && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -85,6 +87,13 @@ namespace Models
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline CreateMobileAgentPackageRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // channelCookie Field Functions 
+    bool hasChannelCookie() const { return this->channelCookie_ != nullptr;};
+    void deleteChannelCookie() { this->channelCookie_ = nullptr;};
+    inline string getChannelCookie() const { DARABONBA_PTR_GET_DEFAULT(channelCookie_, "") };
+    inline CreateMobileAgentPackageRequest& setChannelCookie(string channelCookie) { DARABONBA_PTR_SET_VALUE(channelCookie_, channelCookie) };
 
 
     // creditAmount Field Functions 
@@ -158,46 +167,48 @@ namespace Models
 
 
   protected:
-    // The number of packages.
+    // The number of resource plans.
     shared_ptr<string> amount_ {};
-    // Specifies whether to enable auto-payment. Valid values:
+    // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: Enables auto-payment. You must ensure that your account balance is sufficient.
+    // - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+    // - **false** (default): generates an order without charging the account.
     // 
-    // - **false** (default): An unpaid order is generated. Your account is not charged.
     // 
-    // > If your account balance is insufficient, you can set this parameter to `false` to generate an unpaid order. Then, you can log in to the Wuying Cloud Phone management console to pay for the order.
+    // 
+    // 
+    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the CloudPhone console to complete the payment.
+    // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // - **true**: Enables auto-renewal.
-    // 
-    // - **false** (default): Disables auto-renewal.
+    // * **true**: enables auto-renewal.
+    // * **false** (default): disables auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The region where the instance is located. Currently, only `cn-hangzhou` is supported.
+    // The region in which the instance resides. Currently, only cn-hangzhou is supported.
     shared_ptr<string> bizRegionId_ {};
-    // The credit amount.
+    shared_ptr<string> channelCookie_ {};
+    // The credit quota.
     shared_ptr<string> creditAmount_ {};
     // The credit limit configuration.
     shared_ptr<string> creditConfig_ {};
     shared_ptr<string> imageId_ {};
-    // The instance name.
+    // The name of the node instance.
     shared_ptr<string> instanceName_ {};
-    // The package specification.
+    // The resource plan specification.
     shared_ptr<string> mobileAgentPackageSpec_ {};
     shared_ptr<int64_t> packageSpecId_ {};
-    // The callback URL to which the user is redirected after a successful payment.
+    // The redirect URL after a successful payment.
     shared_ptr<string> paidCallbackUrl_ {};
-    // The subscription period. The unit of the period is specified by the `PeriodUnit` parameter.
+    // The duration for which you want to purchase the resource. The unit is specified by `PeriodUnit`.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription period.
+    // The unit of the duration for which you want to purchase the resource.
+    // 
     // Valid values:
-    // 
-    // - **Month**
-    // 
-    // - **Year**
+    // - **Month**: month.
+    // - **Year**: year.
     shared_ptr<string> periodUnit_ {};
-    // The promotion ID.
+    // The ID of the promotional campaign.
     shared_ptr<string> promotionId_ {};
   };
 

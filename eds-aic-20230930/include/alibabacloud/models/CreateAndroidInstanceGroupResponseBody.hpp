@@ -122,7 +122,7 @@ namespace Models
     protected:
       // The instance group ID.
       shared_ptr<string> instanceGroupId_ {};
-      // The instance IDs.
+      // The list of instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
     };
 
@@ -170,9 +170,9 @@ namespace Models
 
 
   protected:
-    // The instance group IDs.
+    // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The created instance groups.
+    // The instance group information.
     shared_ptr<vector<CreateAndroidInstanceGroupResponseBody::InstanceGroupInfos>> instanceGroupInfos_ {};
     shared_ptr<CreateAndroidInstanceGroupResponseBody::NetworkPackageOrderModel> networkPackageOrderModel_ {};
     // The order ID.

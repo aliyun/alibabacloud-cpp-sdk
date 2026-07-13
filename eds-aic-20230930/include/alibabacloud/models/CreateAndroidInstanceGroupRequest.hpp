@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(EnableIpv6, enableIpv6_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(EnableIpv6, enableIpv6_);
@@ -296,11 +298,11 @@ namespace Models
 
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizRegionId_ == nullptr
-        && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->enableIpv6_ == nullptr && this->gpuAcceleration_ == nullptr && this->imageId_ == nullptr
-        && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr && this->instanceVersion_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->keyPairId_ == nullptr
-        && this->networkInfo_ == nullptr && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->paidCallBackUrl_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->saleMode_ == nullptr
-        && this->streamMode_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->channelCookie_ == nullptr && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->enableIpv6_ == nullptr && this->gpuAcceleration_ == nullptr
+        && this->imageId_ == nullptr && this->instanceGroupName_ == nullptr && this->instanceGroupSpec_ == nullptr && this->instanceVersion_ == nullptr && this->ipv6Bandwidth_ == nullptr
+        && this->keyPairId_ == nullptr && this->networkInfo_ == nullptr && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr
+        && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr
+        && this->saleMode_ == nullptr && this->streamMode_ == nullptr && this->tag_ == nullptr && this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -341,6 +343,13 @@ namespace Models
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline CreateAndroidInstanceGroupRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // channelCookie Field Functions 
+    bool hasChannelCookie() const { return this->channelCookie_ != nullptr;};
+    void deleteChannelCookie() { this->channelCookie_ = nullptr;};
+    inline string getChannelCookie() const { DARABONBA_PTR_GET_DEFAULT(channelCookie_, "") };
+    inline CreateAndroidInstanceGroupRequest& setChannelCookie(string channelCookie) { DARABONBA_PTR_SET_VALUE(channelCookie_, channelCookie) };
 
 
     // chargeType Field Functions 
@@ -509,72 +518,73 @@ namespace Models
 
 
   protected:
-    // The number of instance groups to create. Valid values: 1 to 100. Default value: 1.
+    // The number of instance groups. Default value: 1. Maximum value: 100.
     shared_ptr<int32_t> amount_ {};
     // Specifies whether to enable automatic payment. Default value: false.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal for subscription resources. Default value: false.
+    // Specifies whether to enable auto-renewal. Default value: false.
     shared_ptr<bool> autoRenew_ {};
     shared_ptr<string> bandwidthPackageId_ {};
     shared_ptr<string> bandwidthPackageType_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions where Cloud Phone instances are available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions where cloud phone instances can be purchased.
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method.
+    shared_ptr<string> channelCookie_ {};
+    // The billing type.
     shared_ptr<string> chargeType_ {};
-    // A client-generated token to ensure request idempotence. This parameter prevents duplicate requests. The token can be up to 100 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent repeated submissions. The value cannot exceed 100 characters in length.
     shared_ptr<string> clientToken_ {};
     // > This parameter is not publicly available.
     shared_ptr<bool> enableIpv6_ {};
     // Specifies whether to enable GPU acceleration.
     shared_ptr<bool> gpuAcceleration_ {};
-    // The image ID. You can call the [DescribeImageList](~~DescribeImageList~~) operation to query available images for Cloud Phone instances.
+    // The image ID. You can call [DescribeImageList](~~DescribeImageList~~) to query the list of cloud phone images.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The name of the instance group.
+    // The instance group name.
     // 
-    // > The name can be up to 30 characters in length. It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with `http://` or `https://`. The name can contain only Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // > The instance group name cannot exceed 30 characters in length. It must start with an uppercase letter, lowercase letter, or Chinese character. It cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> instanceGroupName_ {};
-    // The instance group specification. You can call the [DescribeSpec](~~DescribeSpec~~) operation to query the specifications that are available for Cloud Phone instances.
+    // The instance group specification. You can call [DescribeSpec](~~DescribeSpec~~) to query the specifications available for cloud phone instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceGroupSpec_ {};
     shared_ptr<string> instanceVersion_ {};
     // > This parameter is not publicly available.
     shared_ptr<int32_t> ipv6Bandwidth_ {};
-    // The key pair ID. If you specify a valid key pair ID when you create the instance group, the system attaches the key pair to all successfully created instances. No separate API call is required to attach the key pair.
+    // The key pair ID. If you specify a valid key pair ID when creating an instance group, the key pair is bound to all instances that are successfully created, without the need to call the bindng operation again.
     // 
-    // > Attaching a key pair during a scale-out operation is not supported.
+    // > Binding a key pair during scale-out is not supported.
     shared_ptr<string> keyPairId_ {};
     shared_ptr<CreateAndroidInstanceGroupRequest::NetworkInfo> networkInfo_ {};
     shared_ptr<string> networkType_ {};
-    // The number of instances in the instance group. The maximum value is 100.
+    // The number of instances in the instance group. Maximum value: 100.
     shared_ptr<int32_t> numberOfInstances_ {};
     // The network ID.
     // 
-    // - To create instances in a Shared Network: This parameter is optional. Specify the ID of a **Shared Network**. You can find the ID on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no Shared Network is available in the console, you can omit this parameter. The system automatically creates a Shared Network when you create the instance group.
+    // - To create a shared network instance: the network ID is optional. Specify the network ID of the **Shared Network** type on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no shared network exists in the console, you can leave this parameter empty. A shared network is automatically created when the instance group is created.
     // 
-    // - To create instances in a VPC: This parameter is required. Specify the ID of a **VPC**. You can find the ID on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC is available in the console, you must create one first.
+    // - To create a VPC network instance: the network ID is required. Specify the network ID of the **VPC Network** type on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC network exists in the console, create a network first.
     shared_ptr<string> officeSiteId_ {};
     shared_ptr<string> paidCallBackUrl_ {};
-    // The subscription duration. The PeriodUnit parameter specifies the unit.
+    // The subscription duration of the resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.
     shared_ptr<string> periodUnit_ {};
-    // The policy ID. You can call the [ListPolicyGroups](~~ListPolicyGroups~~) operation to query available policies.
+    // The policy ID. You can call [ListPolicyGroups](~~ListPolicyGroups~~) to query the list of policies.
     shared_ptr<string> policyGroupId_ {};
     shared_ptr<string> promotionId_ {};
     shared_ptr<string> saleMode_ {};
     shared_ptr<int32_t> streamMode_ {};
-    // The resource tags.
+    // The tags of the resource.
     shared_ptr<vector<CreateAndroidInstanceGroupRequest::Tag>> tag_ {};
-    // The vSwitch ID. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query available vSwitches.
+    // The vSwitch ID. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) to query the list of vSwitches.
     // 
-    // - If you create instances in a Shared Network, omit this parameter.
+    // - To create a shared network instance: leave this parameter empty.
     // 
-    // - If you create instances in a VPC, this parameter is required. The system creates the instances in the specified vSwitch.
+    // - To create a VPC network instance: the vSwitch ID is required. The specified vSwitch is used to create the instance.
     shared_ptr<string> vSwitchId_ {};
   };
 

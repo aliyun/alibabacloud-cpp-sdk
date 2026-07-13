@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // A list of package IDs.
+    // The list of resource plan IDs.
     shared_ptr<vector<string>> mobileAgentPackageIds_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

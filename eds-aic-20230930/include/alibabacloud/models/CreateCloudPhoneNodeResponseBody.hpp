@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // A list of Cloud Phone instance IDs.
+      // The list of cloud phone instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The ID of the Cloud Phone matrix.
+      // The cloud phone matrix ID.
       shared_ptr<string> nodeId_ {};
     };
 
@@ -122,7 +122,7 @@ namespace Models
     protected:
       // The ID of the Internet Shared Bandwidth instance.
       shared_ptr<string> bandwidthPackageId_ {};
-      // The order ID of the bandwidth package.
+      // The bandwidth plan order ID.
       shared_ptr<string> bandwidthPackageOrderId_ {};
     };
 
@@ -161,9 +161,9 @@ namespace Models
 
 
   protected:
-    // Details of the bandwidth package order.
+    // The bandwidth plan order information.
     shared_ptr<CreateCloudPhoneNodeResponseBody::NetworkPackageOrderModel> networkPackageOrderModel_ {};
-    // A list of Cloud Phone matrices.
+    // The cloud phone matrix information.
     shared_ptr<vector<CreateCloudPhoneNodeResponseBody::NodeInfos>> nodeInfos_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

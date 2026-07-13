@@ -42,9 +42,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Tasks& obj) { 
         DARABONBA_PTR_TO_JSON(CurrentStatus, currentStatus_);
+        DARABONBA_PTR_TO_JSON(DigestSource, digestSource_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(Reason, reason_);
         DARABONBA_PTR_TO_JSON(RunningAt, runningAt_);
         DARABONBA_PTR_TO_JSON(Steps, steps_);
+        DARABONBA_PTR_TO_JSON(TaskDigest, taskDigest_);
         DARABONBA_PTR_TO_JSON(TaskDuration, taskDuration_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
         DARABONBA_PTR_TO_JSON(TaskResult, taskResult_);
@@ -52,9 +55,12 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Tasks& obj) { 
         DARABONBA_PTR_FROM_JSON(CurrentStatus, currentStatus_);
+        DARABONBA_PTR_FROM_JSON(DigestSource, digestSource_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(Reason, reason_);
         DARABONBA_PTR_FROM_JSON(RunningAt, runningAt_);
         DARABONBA_PTR_FROM_JSON(Steps, steps_);
+        DARABONBA_PTR_FROM_JSON(TaskDigest, taskDigest_);
         DARABONBA_PTR_FROM_JSON(TaskDuration, taskDuration_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
         DARABONBA_PTR_FROM_JSON(TaskResult, taskResult_);
@@ -72,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->currentStatus_ == nullptr
-        && this->instanceId_ == nullptr && this->runningAt_ == nullptr && this->steps_ == nullptr && this->taskDuration_ == nullptr && this->taskId_ == nullptr
-        && this->taskResult_ == nullptr && this->userPrompt_ == nullptr; };
+        && this->digestSource_ == nullptr && this->instanceId_ == nullptr && this->reason_ == nullptr && this->runningAt_ == nullptr && this->steps_ == nullptr
+        && this->taskDigest_ == nullptr && this->taskDuration_ == nullptr && this->taskId_ == nullptr && this->taskResult_ == nullptr && this->userPrompt_ == nullptr; };
       // currentStatus Field Functions 
       bool hasCurrentStatus() const { return this->currentStatus_ != nullptr;};
       void deleteCurrentStatus() { this->currentStatus_ = nullptr;};
@@ -81,11 +87,25 @@ namespace Models
       inline Tasks& setCurrentStatus(string currentStatus) { DARABONBA_PTR_SET_VALUE(currentStatus_, currentStatus) };
 
 
+      // digestSource Field Functions 
+      bool hasDigestSource() const { return this->digestSource_ != nullptr;};
+      void deleteDigestSource() { this->digestSource_ = nullptr;};
+      inline string getDigestSource() const { DARABONBA_PTR_GET_DEFAULT(digestSource_, "") };
+      inline Tasks& setDigestSource(string digestSource) { DARABONBA_PTR_SET_VALUE(digestSource_, digestSource) };
+
+
       // instanceId Field Functions 
       bool hasInstanceId() const { return this->instanceId_ != nullptr;};
       void deleteInstanceId() { this->instanceId_ = nullptr;};
       inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
       inline Tasks& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // reason Field Functions 
+      bool hasReason() const { return this->reason_ != nullptr;};
+      void deleteReason() { this->reason_ = nullptr;};
+      inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+      inline Tasks& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
       // runningAt Field Functions 
@@ -100,6 +120,13 @@ namespace Models
       void deleteSteps() { this->steps_ = nullptr;};
       inline string getSteps() const { DARABONBA_PTR_GET_DEFAULT(steps_, "") };
       inline Tasks& setSteps(string steps) { DARABONBA_PTR_SET_VALUE(steps_, steps) };
+
+
+      // taskDigest Field Functions 
+      bool hasTaskDigest() const { return this->taskDigest_ != nullptr;};
+      void deleteTaskDigest() { this->taskDigest_ = nullptr;};
+      inline string getTaskDigest() const { DARABONBA_PTR_GET_DEFAULT(taskDigest_, "") };
+      inline Tasks& setTaskDigest(string taskDigest) { DARABONBA_PTR_SET_VALUE(taskDigest_, taskDigest) };
 
 
       // taskDuration Field Functions 
@@ -131,31 +158,34 @@ namespace Models
 
 
     protected:
-      // The task\\"s current status. Valid values:
+      // The current status of the task. Valid values:
       // 
-      // `PENDING`: The task is being created.
+      // PENDING: The task is being created.
       // 
-      // `RUNNING`: The task is running.
+      // RUNNING: The task is running.
       // 
-      // `COMPLETED`: The task has completed.
+      // COMPLETED: The task is completed.
       // 
-      // `FAILED`: The task failed.
+      // FAILED: The task failed.
       // 
-      // `TIMEOUT`: The task timed out.
+      // TIMEOUT: The task execution timed out.
       shared_ptr<string> currentStatus_ {};
-      // The mobile node ID.
+      shared_ptr<string> digestSource_ {};
+      // The Mobile node ID.
       shared_ptr<string> instanceId_ {};
-      // The task\\"s creation time, in ISO 8601 format.
+      shared_ptr<string> reason_ {};
+      // The time when the task was created, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
       // The number of steps executed.
       shared_ptr<string> steps_ {};
-      // The task duration. This field is returned only when `CurrentStatus` is `FAILED` or `COMPLETED`.
+      shared_ptr<string> taskDigest_ {};
+      // The task duration. This field is returned only when CurrentStatus is FAILED or COMPLETED.
       shared_ptr<string> taskDuration_ {};
-      // The globally unique task ID.
+      // The task ID, which is globally unique.
       shared_ptr<string> taskId_ {};
-      // The task result. This field is returned only when `CurrentStatus` is `COMPLETED` or `FAILED`.
+      // The task result in the desired state. This field is returned only when CurrentStatus is COMPLETED or FAILED.
       shared_ptr<string> taskResult_ {};
-      // The user prompt that the Agent uses to perform the task.
+      // The user instruction in natural language. The Agent performs operations based on this instruction.
       shared_ptr<string> userPrompt_ {};
     };
 
@@ -199,15 +229,15 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The API status code.
     shared_ptr<string> code_ {};
-    // The task count.
+    // The number of tasks.
     shared_ptr<int32_t> count_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of tasks.
+    // The list of tasks.
     shared_ptr<vector<DescribeAgentTaskResponseBody::Tasks>> tasks_ {};
   };
 

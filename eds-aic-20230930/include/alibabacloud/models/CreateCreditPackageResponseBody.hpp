@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATECREDITPACKAGERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATECREDITPACKAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateCreditPackageResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CreditPackageId, creditPackageId_);
+      DARABONBA_PTR_TO_JSON(CreditPackageIds, creditPackageIds_);
       DARABONBA_PTR_TO_JSON(EffectiveTime, effectiveTime_);
       DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
@@ -21,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateCreditPackageResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CreditPackageId, creditPackageId_);
+      DARABONBA_PTR_FROM_JSON(CreditPackageIds, creditPackageIds_);
       DARABONBA_PTR_FROM_JSON(EffectiveTime, effectiveTime_);
       DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
@@ -38,12 +41,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creditPackageId_ == nullptr
-        && this->effectiveTime_ == nullptr && this->expiredTime_ == nullptr && this->orderId_ == nullptr && this->requestId_ == nullptr; };
+        && this->creditPackageIds_ == nullptr && this->effectiveTime_ == nullptr && this->expiredTime_ == nullptr && this->orderId_ == nullptr && this->requestId_ == nullptr; };
     // creditPackageId Field Functions 
     bool hasCreditPackageId() const { return this->creditPackageId_ != nullptr;};
     void deleteCreditPackageId() { this->creditPackageId_ = nullptr;};
     inline string getCreditPackageId() const { DARABONBA_PTR_GET_DEFAULT(creditPackageId_, "") };
     inline CreateCreditPackageResponseBody& setCreditPackageId(string creditPackageId) { DARABONBA_PTR_SET_VALUE(creditPackageId_, creditPackageId) };
+
+
+    // creditPackageIds Field Functions 
+    bool hasCreditPackageIds() const { return this->creditPackageIds_ != nullptr;};
+    void deleteCreditPackageIds() { this->creditPackageIds_ = nullptr;};
+    inline const vector<string> & getCreditPackageIds() const { DARABONBA_PTR_GET_CONST(creditPackageIds_, vector<string>) };
+    inline vector<string> getCreditPackageIds() { DARABONBA_PTR_GET(creditPackageIds_, vector<string>) };
+    inline CreateCreditPackageResponseBody& setCreditPackageIds(const vector<string> & creditPackageIds) { DARABONBA_PTR_SET_VALUE(creditPackageIds_, creditPackageIds) };
+    inline CreateCreditPackageResponseBody& setCreditPackageIds(vector<string> && creditPackageIds) { DARABONBA_PTR_SET_RVALUE(creditPackageIds_, creditPackageIds) };
 
 
     // effectiveTime Field Functions 
@@ -75,11 +87,12 @@ namespace Models
 
 
   protected:
-    // The credit package ID.
+    // The ID of the credit booster pack.
     shared_ptr<string> creditPackageId_ {};
-    // The time when the credit package takes effect.
+    shared_ptr<vector<string>> creditPackageIds_ {};
+    // The effective period of the credit booster pack.
     shared_ptr<string> effectiveTime_ {};
-    // The time when the credit package expires.
+    // The time when the credit booster pack expires.
     shared_ptr<string> expiredTime_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

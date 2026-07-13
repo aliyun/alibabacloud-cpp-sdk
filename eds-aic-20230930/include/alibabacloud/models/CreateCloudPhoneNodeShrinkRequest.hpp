@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(DisplayConfig, displayConfigShrink_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(DisplayConfig, displayConfigShrink_);
@@ -137,13 +139,13 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr
-        && this->count_ == nullptr && this->displayConfigShrink_ == nullptr && this->downBandwidthLimit_ == nullptr && this->imageId_ == nullptr && this->instanceType_ == nullptr
-        && this->isSingleImgDisk_ == nullptr && this->networkId_ == nullptr && this->networkInfoShrink_ == nullptr && this->networkType_ == nullptr && this->nodeName_ == nullptr
-        && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->phoneCount_ == nullptr && this->phoneDataVolume_ == nullptr
-        && this->promotionId_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->serverShareDataVolume_ == nullptr && this->serverType_ == nullptr
-        && this->streamMode_ == nullptr && this->swapSize_ == nullptr && this->tag_ == nullptr && this->upBandwidthLimit_ == nullptr && this->useTemplate_ == nullptr
-        && this->vSwitchId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizRegionId_ == nullptr && this->channelCookie_ == nullptr
+        && this->chargeType_ == nullptr && this->count_ == nullptr && this->displayConfigShrink_ == nullptr && this->downBandwidthLimit_ == nullptr && this->imageId_ == nullptr
+        && this->instanceType_ == nullptr && this->isSingleImgDisk_ == nullptr && this->networkId_ == nullptr && this->networkInfoShrink_ == nullptr && this->networkType_ == nullptr
+        && this->nodeName_ == nullptr && this->paidCallBackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->phoneCount_ == nullptr
+        && this->phoneDataVolume_ == nullptr && this->promotionId_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->serverShareDataVolume_ == nullptr
+        && this->serverType_ == nullptr && this->streamMode_ == nullptr && this->swapSize_ == nullptr && this->tag_ == nullptr && this->upBandwidthLimit_ == nullptr
+        && this->useTemplate_ == nullptr && this->vSwitchId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -177,6 +179,13 @@ namespace Models
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline CreateCloudPhoneNodeShrinkRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // channelCookie Field Functions 
+    bool hasChannelCookie() const { return this->channelCookie_ != nullptr;};
+    void deleteChannelCookie() { this->channelCookie_ = nullptr;};
+    inline string getChannelCookie() const { DARABONBA_PTR_GET_DEFAULT(channelCookie_, "") };
+    inline CreateCloudPhoneNodeShrinkRequest& setChannelCookie(string channelCookie) { DARABONBA_PTR_SET_VALUE(channelCookie_, channelCookie) };
 
 
     // chargeType Field Functions 
@@ -375,7 +384,7 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The ID of the Shared Bandwidth instance.
+    // The ID of the Internet Shared Bandwidth instance.
     shared_ptr<string> bandwidthPackageId_ {};
     // The bandwidth type.
     shared_ptr<string> bandwidthPackageType_ {};
@@ -383,65 +392,64 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method. Only the subscription billing method is supported.
+    shared_ptr<string> channelCookie_ {};
+    // The billing type. Only subscription is supported.
     shared_ptr<string> chargeType_ {};
-    // The number of Cloud Phone matrices to purchase.
+    // The number of cloud phone matrices to purchase.
     shared_ptr<string> count_ {};
     // The display settings.
     shared_ptr<string> displayConfigShrink_ {};
-    // The downstream bandwidth limit, in Mbit/s.
+    // The downstream bandwidth throttling. Unit: Mbit/s.
     shared_ptr<int32_t> downBandwidthLimit_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
     // The instance type.
-    // 
     // > To purchase more instance types, [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
     shared_ptr<string> instanceType_ {};
     shared_ptr<bool> isSingleImgDisk_ {};
     // The office network ID.
     shared_ptr<string> networkId_ {};
-    // The network settings for the instance.
+    // The network mapping information of the instance.
     shared_ptr<string> networkInfoShrink_ {};
     // The network type of the instance.
     shared_ptr<string> networkType_ {};
-    // The name of the Cloud Phone matrix.
+    // The name of the cloud phone matrix.
     shared_ptr<string> nodeName_ {};
     shared_ptr<string> paidCallBackUrl_ {};
-    // The subscription duration. The unit is specified by the `PeriodUnit` parameter.
+    // The subscription duration. The unit is specified by PeriodUnit.
     // 
-    // - If `PeriodUnit` is set to **Year**, this parameter can only be set to 1.
-    // 
-    // - If `PeriodUnit` is set to **Month**, valid values are 1, 2, 3, and 6.
+    // - If PeriodUnit is set to **year**, the value can only be 1.
+    // - If PeriodUnit is set to **month**, valid values are 1, 2, 3, and 6.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.
     shared_ptr<string> periodUnit_ {};
-    // The number of Cloud Phone instances to create in a single Cloud Phone matrix.
+    // The number of cloud phone instances to create in a single matrix.
     shared_ptr<int32_t> phoneCount_ {};
-    // The size of the independent internal storage, in GiB.
+    // The size of the independent device storage. Unit: GiB.
     shared_ptr<int32_t> phoneDataVolume_ {};
     shared_ptr<string> promotionId_ {};
-    // The vertical resolution, in pixels.
+    // The height of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
-    // The horizontal resolution, in pixels.
+    // The width of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionWidth_ {};
-    // The size of the shared internal storage, in GiB.
+    // The size of the shared device storage. Unit: GiB.
     // 
-    // > The size must exceed 10 GiB per instance in the matrix.
+    // > The minimum value of the shared device storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
     shared_ptr<int32_t> serverShareDataVolume_ {};
-    // The server type.
+    // The specifications of the cloud phone matrix.
     // 
     // This parameter is required.
     shared_ptr<string> serverType_ {};
-    // The streaming mode for instances in the Cloud Phone matrix. Defaults to preemption mode.
+    // The streaming mode for instances in the cloud phone matrix. If this parameter is not specified, the default value is preemptive mode.
     shared_ptr<int32_t> streamMode_ {};
     shared_ptr<int32_t> swapSize_ {};
-    // The resource tags.
+    // The tags of the resource.
     shared_ptr<vector<CreateCloudPhoneNodeShrinkRequest::Tag>> tag_ {};
-    // The upstream bandwidth limit, in Mbit/s.
+    // The upstream bandwidth throttling. Unit: Mbit/s.
     shared_ptr<int32_t> upBandwidthLimit_ {};
-    // The template for instance creation. Set this parameter to `Random` to use a random template, or specify a template ID to use a specific template.
+    // Specifies whether to use a template during creation. Set this parameter to `Random` to use a random template from the template list. Alternatively, specify a template ID to use that template.
     shared_ptr<string> useTemplate_ {};
-    // The VSwitch ID.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
   };
 

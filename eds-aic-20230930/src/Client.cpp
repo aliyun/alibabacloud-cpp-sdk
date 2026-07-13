@@ -676,13 +676,12 @@ CheckResourceStockResponse Client::checkResourceStock(const CheckResourceStockRe
 }
 
 /**
- * @summary Create pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can group instances with similar functions into an instance group to manage them as a single unit.
+ * @summary Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
  *
- * @description <props="china">
- * Before you create a cloud phone instance group, you must complete identity verification. For more information, see [Individual identity verification](https://help.aliyun.com/document_detail/48263.html).
- * Note that creating a cloud phone instance group incurs charges. Before you proceed, make sure that you understand the [billing method](https://help.aliyun.com/document_detail/2807121.html).
- * - If the billing method for the instance group is subscription (PrePaid), AutoPay is set to false by default. After you call the API, go to <props="china">[Alibaba Cloud Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Alibaba Cloud Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
- * - To enable automatic payments, set AutoPay to true.
+ * @description <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
+ * When you create a cloud phone instance group, note that creating an instance group incurs resource charges. Familiarize yourself with the [billable methods](https://help.aliyun.com/document_detail/2807121.html) of cloud phone instance groups in advance.
+ *   - If the billing method of the instance group is subscription (PrePaid), the default value of AutoPay is false. After you invoke this operation, go to <props="china">[Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
+ *  - If you want to enable automatic payment, set AutoPay to true.
  *
  * @param tmpReq CreateAndroidInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -719,6 +718,10 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
 
   if (!!request.hasBizRegionId()) {
     query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.getChannelCookie();
   }
 
   if (!!request.hasChargeType()) {
@@ -831,13 +834,12 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
 }
 
 /**
- * @summary Create pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can group instances with similar functions into an instance group to manage them as a single unit.
+ * @summary Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
  *
- * @description <props="china">
- * Before you create a cloud phone instance group, you must complete identity verification. For more information, see [Individual identity verification](https://help.aliyun.com/document_detail/48263.html).
- * Note that creating a cloud phone instance group incurs charges. Before you proceed, make sure that you understand the [billing method](https://help.aliyun.com/document_detail/2807121.html).
- * - If the billing method for the instance group is subscription (PrePaid), AutoPay is set to false by default. After you call the API, go to <props="china">[Alibaba Cloud Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Alibaba Cloud Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
- * - To enable automatic payments, set AutoPay to true.
+ * @description <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
+ * When you create a cloud phone instance group, note that creating an instance group incurs resource charges. Familiarize yourself with the [billable methods](https://help.aliyun.com/document_detail/2807121.html) of cloud phone instance groups in advance.
+ *   - If the billing method of the instance group is subscription (PrePaid), the default value of AutoPay is false. After you invoke this operation, go to <props="china">[Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
+ *  - If you want to enable automatic payment, set AutoPay to true.
  *
  * @param request CreateAndroidInstanceGroupRequest
  * @return CreateAndroidInstanceGroupResponse
@@ -956,7 +958,8 @@ CreateAppResponse Client::createApp(const CreateAppRequest &request) {
 }
 
 /**
- * @summary In Cloud Phone, a matrix is a logical resource management unit that represents a physical server instance. Creating a matrix provisions a physical server, which you can then partition into multiple independent Cloud Phone instances. These instances share the compute, storage, and network resources of the matrix. The matrix configuration determines how many instances you can create.
+ * @summary Creates a cloud phone matrix.
+ * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
  *
  * @param tmpReq CreateCloudPhoneNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -993,6 +996,10 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNodeWithOptions(const Creat
 
   if (!!request.hasBizRegionId()) {
     query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.getChannelCookie();
   }
 
   if (!!request.hasChargeType()) {
@@ -1123,7 +1130,8 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNodeWithOptions(const Creat
 }
 
 /**
- * @summary In Cloud Phone, a matrix is a logical resource management unit that represents a physical server instance. Creating a matrix provisions a physical server, which you can then partition into multiple independent Cloud Phone instances. These instances share the compute, storage, and network resources of the matrix. The matrix configuration determines how many instances you can create.
+ * @summary Creates a cloud phone matrix.
+ * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
  *
  * @param request CreateCloudPhoneNodeRequest
  * @return CreateCloudPhoneNodeResponse
@@ -1134,9 +1142,9 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNode(const CreateCloudPhone
 }
 
 /**
- * @summary Creates an order for a credit package.
+ * @summary Purchases a credit booster pack.
  *
- * @description This is a billable operation. Before calling this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11186623.help-menu-254658.d_0_1_1.78bc5732j49PWP) of Wuying Cloud Phone.
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
  *
  * @param request CreateCreditPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1149,8 +1157,16 @@ CreateCreditPackageResponse Client::createCreditPackageWithOptions(const CreateC
     query["AutoPay"] = request.getAutoPay();
   }
 
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.getChannelCookie();
+  }
+
   if (!!request.hasCreditAmount()) {
     query["CreditAmount"] = request.getCreditAmount();
+  }
+
+  if (!!request.hasPackageAmount()) {
+    query["PackageAmount"] = request.getPackageAmount();
   }
 
   if (!!request.hasPeriod()) {
@@ -1183,9 +1199,9 @@ CreateCreditPackageResponse Client::createCreditPackageWithOptions(const CreateC
 }
 
 /**
- * @summary Creates an order for a credit package.
+ * @summary Purchases a credit booster pack.
  *
- * @description This is a billable operation. Before calling this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11186623.help-menu-254658.d_0_1_1.78bc5732j49PWP) of Wuying Cloud Phone.
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
  *
  * @param request CreateCreditPackageRequest
  * @return CreateCreditPackageResponse
@@ -1376,9 +1392,9 @@ CreateKeyPairResponse Client::createKeyPair(const CreateKeyPairRequest &request)
 }
 
 /**
- * @summary Places an order for a package.
+ * @summary Purchases a resource plan.
  *
- * @description This is a billable operation. Before you call this operation, review the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11174283.help-menu-254658.d_0_1_1.23695732Cpmwbs) of Wuying Cloud Phone.
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
  *
  * @param request CreateMobileAgentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1401,6 +1417,10 @@ CreateMobileAgentPackageResponse Client::createMobileAgentPackageWithOptions(con
 
   if (!!request.hasBizRegionId()) {
     query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.getChannelCookie();
   }
 
   if (!!request.hasCreditAmount()) {
@@ -1461,9 +1481,9 @@ CreateMobileAgentPackageResponse Client::createMobileAgentPackageWithOptions(con
 }
 
 /**
- * @summary Places an order for a package.
+ * @summary Purchases a resource plan.
  *
- * @description This is a billable operation. Before you call this operation, review the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11174283.help-menu-254658.d_0_1_1.23695732Cpmwbs) of Wuying Cloud Phone.
+ * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
  *
  * @param request CreateMobileAgentPackageRequest
  * @return CreateMobileAgentPackageResponse
@@ -2096,7 +2116,7 @@ DeleteSystemPropertyTemplatesResponse Client::deleteSystemPropertyTemplates(cons
 }
 
 /**
- * @summary Retrieves details of specified Agent Tasks.
+ * @summary Queries information about Agent Tasks.
  *
  * @param request DescribeAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2127,7 +2147,7 @@ DescribeAgentTaskResponse Client::describeAgentTaskWithOptions(const DescribeAge
 }
 
 /**
- * @summary Retrieves details of specified Agent Tasks.
+ * @summary Queries information about Agent Tasks.
  *
  * @param request DescribeAgentTaskRequest
  * @return DescribeAgentTaskResponse
@@ -2718,7 +2738,7 @@ DescribeCreditDetailResponse Client::describeCreditDetail(const DescribeCreditDe
 }
 
 /**
- * @summary Retrieves the details of one or more credit packages.
+ * @summary Queries credit booster packages.
  *
  * @param request DescribeCreditPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2753,7 +2773,7 @@ DescribeCreditPackageResponse Client::describeCreditPackageWithOptions(const Des
 }
 
 /**
- * @summary Retrieves the details of one or more credit packages.
+ * @summary Queries credit booster packages.
  *
  * @param request DescribeCreditPackageRequest
  * @return DescribeCreditPackageResponse
@@ -5956,7 +5976,7 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroup(const 
 }
 
 /**
- * @summary Resumes paused agent automation tasks on a mobile instance.
+ * @summary Resumes an automated Agent task that is running on a Mobile node.
  *
  * @param request ResumeAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5969,8 +5989,16 @@ ResumeAgentTaskResponse Client::resumeAgentTaskWithOptions(const ResumeAgentTask
     query["AdditionalPrompt"] = request.getAdditionalPrompt();
   }
 
+  if (!!request.hasClarificationAnswers()) {
+    query["ClarificationAnswers"] = request.getClarificationAnswers();
+  }
+
   if (!!request.hasTaskIds()) {
     query["TaskIds"] = request.getTaskIds();
+  }
+
+  if (!!request.hasToolCallId()) {
+    query["ToolCallId"] = request.getToolCallId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5991,7 +6019,7 @@ ResumeAgentTaskResponse Client::resumeAgentTaskWithOptions(const ResumeAgentTask
 }
 
 /**
- * @summary Resumes paused agent automation tasks on a mobile instance.
+ * @summary Resumes an automated Agent task that is running on a Mobile node.
  *
  * @param request ResumeAgentTaskRequest
  * @return ResumeAgentTaskResponse

@@ -44,6 +44,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const CreditsPackageInfos& obj) { 
         DARABONBA_PTR_TO_JSON(AvailableCredits, availableCredits_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CreditPackageId, creditPackageId_);
         DARABONBA_PTR_TO_JSON(CreditPackageStatus, creditPackageStatus_);
         DARABONBA_PTR_TO_JSON(EffectiveTime, effectiveTime_);
@@ -53,6 +54,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, CreditsPackageInfos& obj) { 
         DARABONBA_PTR_FROM_JSON(AvailableCredits, availableCredits_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CreditPackageId, creditPackageId_);
         DARABONBA_PTR_FROM_JSON(CreditPackageStatus, creditPackageStatus_);
         DARABONBA_PTR_FROM_JSON(EffectiveTime, effectiveTime_);
@@ -72,13 +74,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->availableCredits_ == nullptr
-        && this->creditPackageId_ == nullptr && this->creditPackageStatus_ == nullptr && this->effectiveTime_ == nullptr && this->exhaustedCredits_ == nullptr && this->expiredTime_ == nullptr
-        && this->totalCredits_ == nullptr; };
+        && this->createTime_ == nullptr && this->creditPackageId_ == nullptr && this->creditPackageStatus_ == nullptr && this->effectiveTime_ == nullptr && this->exhaustedCredits_ == nullptr
+        && this->expiredTime_ == nullptr && this->totalCredits_ == nullptr; };
       // availableCredits Field Functions 
       bool hasAvailableCredits() const { return this->availableCredits_ != nullptr;};
       void deleteAvailableCredits() { this->availableCredits_ = nullptr;};
       inline string getAvailableCredits() const { DARABONBA_PTR_GET_DEFAULT(availableCredits_, "") };
       inline CreditsPackageInfos& setAvailableCredits(string availableCredits) { DARABONBA_PTR_SET_VALUE(availableCredits_, availableCredits) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline CreditsPackageInfos& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
       // creditPackageId Field Functions 
@@ -124,19 +133,20 @@ namespace Models
 
 
     protected:
-      // The number of available credits in the credit package.
+      // The number of available credits in the current credit booster package.
       shared_ptr<string> availableCredits_ {};
-      // The ID of the credit package.
+      shared_ptr<string> createTime_ {};
+      // The ID of the credit booster package.
       shared_ptr<string> creditPackageId_ {};
-      // The status of the credit package.
+      // The status of the credit booster package.
       shared_ptr<string> creditPackageStatus_ {};
-      // The time when the credit package becomes effective.
+      // The effective period of the credit booster package.
       shared_ptr<string> effectiveTime_ {};
-      // The number of exhausted credits in the credit package.
+      // The number of consumed credits in the current credit booster package.
       shared_ptr<string> exhaustedCredits_ {};
-      // The time when the credit package expires.
+      // The expiration time of the credit booster package.
       shared_ptr<string> expiredTime_ {};
-      // The total number of credits in the credit package.
+      // The total number of credits in the current credit booster package.
       shared_ptr<string> totalCredits_ {};
     };
 
@@ -187,17 +197,17 @@ namespace Models
 
 
   protected:
-    // An array of credit package details.
+    // The credit booster package information.
     shared_ptr<vector<DescribeCreditPackageResponseBody::CreditsPackageInfos>> creditsPackageInfos_ {};
-    // Indicates whether this is your first purchase.
+    // Indicates whether this is the first purchase.
     shared_ptr<bool> isFirstPurchase_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of available credits.
     shared_ptr<string> totalAvailableCredits_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The total number of exhausted credits.
+    // The total number of consumed credits.
     shared_ptr<string> totalExhaustedCredit_ {};
   };
 
