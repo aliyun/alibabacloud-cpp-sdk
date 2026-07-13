@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the address pool. This ID uniquely identifies the address pool.
+    // The unique ID of the address pool.
     shared_ptr<string> addressPoolId_ {};
-    // Unique request identification code.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the address pool creation operation was successful:
-    // - true: Operation was successful
-    // - false: Operation was failed
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID. For more information, see [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Valid values: en, zh, and ja. The default value is en.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -59,12 +59,13 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
+    // - zh-CN: Chinese
+    // 
+    // - en-US: English (default)
     shared_ptr<string> acceptLanguage_ {};
-    // The address ID. This ID uniquely identifies the address.
+    // The unique ID of the address.
     shared_ptr<string> addressId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Make sure that the client generates a unique token for each request. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
   };
 

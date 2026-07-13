@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource. Only DOMAIN is returned.
+      // The resource type. The value is DOMAIN.
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token to start the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the resource and the tags that are added to the resource, including information such as the resource ID, resource type, tag keys, and tag values.
+    // A collection of resources and their tags. It includes information such as the resource ID, resource type, tag key, and tag value.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

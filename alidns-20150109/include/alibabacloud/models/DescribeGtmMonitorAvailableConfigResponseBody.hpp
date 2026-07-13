@@ -188,7 +188,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeGtmMonitorAvailableConfigResponseBody::IspCityNodes> ispCityNodes_ {};
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

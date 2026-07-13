@@ -274,16 +274,16 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the returned page. Pages start from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page. The maximum value is **100**. The default value is **20**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<DescribeGtmRecoveryPlansResponseBody::RecoveryPlans> recoveryPlans_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

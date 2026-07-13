@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // A client token used to ensure the idempotence of the request.
+    // 
+    // Generate a unique value from your client for each request. The ClientToken parameter supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The unique ID of the zone.
     shared_ptr<string> zoneId_ {};
   };
 

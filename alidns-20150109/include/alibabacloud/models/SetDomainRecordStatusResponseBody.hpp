@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> recordId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the DNS record.
+    // The current status of the DNS record.
     shared_ptr<string> status_ {};
   };
 

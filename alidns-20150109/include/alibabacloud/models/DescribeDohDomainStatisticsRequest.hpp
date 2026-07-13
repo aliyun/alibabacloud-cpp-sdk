@@ -70,15 +70,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The end date of the query. The format is YYYY-MM-DD.
     // 
-    // The default value is the day when you perform the operation.
+    // The default value is the current day.
     shared_ptr<string> endDate_ {};
-    // The language type.
+    // The language.
     shared_ptr<string> lang_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The start date of the query. The format is YYYY-MM-DD.
     // 
-    // You can query only the DNS records of the latest 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+    // You can query data from the last 90 days only. The value of `StartDate` must be greater than or equal to the current date minus 90 days.
     shared_ptr<string> startDate_ {};
   };
 

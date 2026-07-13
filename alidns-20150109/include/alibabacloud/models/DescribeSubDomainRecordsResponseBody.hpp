@@ -256,13 +256,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeSubDomainRecordsResponseBody::DomainRecords> domainRecords_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records returned on the current page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of DNS records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

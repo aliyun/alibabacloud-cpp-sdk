@@ -84,27 +84,27 @@ namespace Models
 
 
   protected:
-    // The line codes of access regions.
+    // The source of the DNS requests.
     // 
     // This parameter is required.
     shared_ptr<string> accessLines_ {};
-    // The ID of the default address pool.
+    // The ID of the primary address pool collection.
     // 
     // This parameter is required.
     shared_ptr<string> defaultAddrPoolId_ {};
-    // The ID of the failover address pool.
+    // The ID of the failover address pool collection.
     // 
-    // If the failover address pool is not set, pass the **Empty** value.
+    // If a failover address pool collection is not configured, set this parameter to **EMPTY**.
     // 
     // This parameter is required.
     shared_ptr<string> failoverAddrPoolId_ {};
-    // The ID of the GTM instance for which you want to create an access policy.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
-    // The name of the access policy.
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> strategyName_ {};

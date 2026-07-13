@@ -130,7 +130,7 @@ namespace Models
   protected:
     shared_ptr<ModifyHichinaDomainDNSResponseBody::NewDnsServers> newDnsServers_ {};
     shared_ptr<ModifyHichinaDomainDNSResponseBody::OriginalDnsServers> originalDnsServers_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

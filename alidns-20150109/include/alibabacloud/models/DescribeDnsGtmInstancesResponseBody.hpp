@@ -137,13 +137,13 @@ namespace Models
 
 
       protected:
-        // The total number of sent DingTalk notifications.
+        // The total number of DingTalk messages that were sent.
         shared_ptr<int32_t> dingtalkUsedCount_ {};
-        // The total number of sent email notifications.
+        // The total number of emails that were sent.
         shared_ptr<int32_t> emailUsedCount_ {};
-        // The total number of sent SMS notifications.
+        // The total number of text messages that were sent.
         shared_ptr<int32_t> smsUsedCount_ {};
-        // The number of created detection tasks.
+        // The number of health check tasks that were created.
         shared_ptr<int32_t> taskUsedCount_ {};
       };
 
@@ -240,28 +240,35 @@ namespace Models
 
 
         protected:
-          // Indicates whether DingTalk alert notifications are configured. Valid values:
+          // Indicates whether DingTalk notifications are configured. Valid values:
           // 
-          // *   true
-          // *   false | null
+          // - true: configured
+          // 
+          // - false or null: not configured
           shared_ptr<string> dingtalkNotice_ {};
           // Indicates whether email notifications are configured. Valid values:
           // 
-          // *   true
-          // *   false | null
+          // - true: configured
+          // 
+          // - false or null: not configured
           shared_ptr<string> emailNotice_ {};
           // The type of the alert event. Valid values:
           // 
-          // *   ADDR_ALERT: The address is unavailable.
-          // *   ADDR_RESUME: The address becomes available.
-          // *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool set is unavailable.
-          // *   ADDR_POOL_GROUP_AVAILABLE: The address pool set becomes available.
-          // *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
-          shared_ptr<string> noticeType_ {};
-          // Indicates whether SMS notifications are configured. Valid values:
+          // - ADDR_ALERT: The address is unavailable.
           // 
-          // *   true
-          // *   false | null
+          // - ADDR_RESUME: The address is restored.
+          // 
+          // - ADDR_POOL_GROUP_UNAVAILABLE: The address pool collection is unavailable.
+          // 
+          // - ADDR_POOL_GROUP_AVAILABLE: The address pool collection is restored.
+          // 
+          // - ACCESS_STRATEGY_POOL_GROUP_SWITCH: A switchover occurs between the primary and secondary address pools.
+          shared_ptr<string> noticeType_ {};
+          // Indicates whether text message notifications are configured. Valid values:
+          // 
+          // - true: configured
+          // 
+          // - false or null: not configured
           shared_ptr<string> smsNotice_ {};
         };
 
@@ -341,33 +348,35 @@ namespace Models
 
 
       protected:
-        // The alert notification method.
+        // The alert notification methods.
         shared_ptr<vector<Config::AlertConfig>> alertConfig_ {};
-        // The alert contact groups. The value is in the JSON format.
+        // The alert contact group. The value is a JSON-formatted list of strings.
         shared_ptr<string> alertGroup_ {};
-        // The type of the CNAME. Valid value:
+        // The type of the CNAME domain name used for access. Valid value:
         // 
-        // *   PUBLIC
+        // - PUBLIC: for Internet access
         shared_ptr<string> cnameType_ {};
         // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // Specifies whether to use a custom CNAME or a system-assigned CNAME to access GTM over the Internet. Valid values:
+        // The method to access the instance over the Internet using a CNAME record. Valid values:
         // 
-        // *   CUSTOM: a custom CNAME
-        // *   SYSTEM_ASSIGN: a system-assigned CNAME. You cannot set PublicCnameMode to this value.
+        // - CUSTOM: custom
+        // 
+        // - SYSTEM_ASSIGN: system-assigned (This feature is disabled.)
         shared_ptr<string> publicCnameMode_ {};
-        // The hostname of the domain name that is used to access GTM over the Internet.
+        // The hostname for Internet access.
         shared_ptr<string> publicRr_ {};
-        // The domain name that is used to access GTM over the Internet.
+        // The user\\"s service domain name that is accessible over the Internet.
         shared_ptr<string> publicUserDomainName_ {};
-        // The canonical name (CNAME) that is used to access GTM over the Internet.
+        // The domain name used for Internet access.
         shared_ptr<string> publicZoneName_ {};
-        // The type of the access policy. Valid values:
+        // The mode of the access policy. Valid values:
         // 
-        // *   LATENCY: latency-based access policy
-        // *   GEO: geographical location-based access policy
+        // - LATENCY: latency-based
+        // 
+        // - GEO: geography-based
         shared_ptr<string> strategyMode_ {};
-        // The global time to live (TTL).
+        // The global TTL.
         shared_ptr<int32_t> ttl_ {};
       };
 
@@ -464,27 +473,27 @@ namespace Models
 
 
     protected:
-      // The configurations of the instance.
+      // The configuration of the instance.
       shared_ptr<GtmInstances::Config> config_ {};
-      // The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the instance was created.
       shared_ptr<string> createTime_ {};
-      // The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp that indicates when the instance was created.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the instance expires.
       shared_ptr<string> expireTime_ {};
-      // The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp that indicates when the instance expires.
       shared_ptr<int64_t> expireTimestamp_ {};
-      // The instance ID.
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
-      // The billing method of the GTM instance. Valid value:
+      // The billing method. Valid value:
       // 
-      // *   Subscription.
+      // - Subscription
       shared_ptr<string> paymentType_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The total number of Short Message Service (SMS) notifications.
+      // The total quota of text message notifications.
       shared_ptr<int32_t> smsQuota_ {};
-      // The total number of detection tasks.
+      // The total number of health check tasks.
       shared_ptr<int32_t> taskQuota_ {};
       // The used quota.
       shared_ptr<GtmInstances::UsedQuota> usedQuota_ {};
@@ -539,17 +548,17 @@ namespace Models
 
 
   protected:
-    // The Global Traffic Manager (GTM) instances.
+    // The list of Global Traffic Manager (GTM) instances.
     shared_ptr<vector<DescribeDnsGtmInstancesResponseBody::GtmInstances>> gtmInstances_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The number of the page returned. The value starts from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

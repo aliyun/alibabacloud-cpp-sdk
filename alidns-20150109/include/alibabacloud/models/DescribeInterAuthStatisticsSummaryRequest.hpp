@@ -158,19 +158,46 @@ namespace Models
 
 
   protected:
+    // The sort direction. Valid values:
+    // 
+    // - DESC (default): descending order
+    // 
+    // - ASC: ascending order.
     shared_ptr<string> direction_ {};
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // The end time of the query. The value is a UNIX timestamp in milliseconds.
+    // >Warning: If the query time range is large and the domain name has an excessive volume of resolution logs, the query may time out or return inaccurate results..
     shared_ptr<int64_t> endTimestamp_ {};
+    // Used for the report of subdomain names with sudden increases or decreases in request volume.
     shared_ptr<string> growType_ {};
+    // The sort parameter. Valid values:
+    // - createDate: sorts by creation time (default if left empty)
+    // - expireDate: sorts by expiration time.
     shared_ptr<string> orderBy_ {};
+    // The page number. The value starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The sampling period. Valid values:
+    // 
+    // - DAY: day
+    // 
+    // - WEEK: week
+    // 
+    // - MONTH: month.
     shared_ptr<string> period_ {};
+    // The DNS response code.
     shared_ptr<string> rcode_ {};
+    // The region of the resolution cluster.
     shared_ptr<string> serverRegion_ {};
+    // The route type. Valid values: cloud: cloud route. local: on-premises route.
     shared_ptr<string> sourceType_ {};
+    // The start time of the query. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTimestamp_ {};
+    // The type of statistical metric.
     shared_ptr<string> statisticalType_ {};
+    // The zone name.
     shared_ptr<string> zoneName_ {};
   };
 

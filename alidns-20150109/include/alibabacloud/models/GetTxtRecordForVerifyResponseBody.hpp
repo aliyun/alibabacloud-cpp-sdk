@@ -77,17 +77,17 @@ namespace Models
   protected:
     // The domain name.
     // 
-    // >  If you do not specify this parameter, it is not returned.
+    // > This parameter is not returned if no value is specified for the DomainName parameter in the request.
     shared_ptr<string> domainName_ {};
-    // The top-level domain name.
+    // The top-level domain (TLD).
     shared_ptr<string> parentDomainName_ {};
-    // The hostname.
+    // The host record.
     shared_ptr<string> RR_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The record value.
     // 
-    // >  The validity period is three days.
+    // > The value is valid for three days.
     shared_ptr<string> value_ {};
   };
 

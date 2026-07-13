@@ -276,12 +276,12 @@ namespace Models
 
 
   protected:
-    // The ID of the address pool. This ID uniquely identifies the address pool.
+    // The unique ID of the address pool.
     shared_ptr<string> addressPoolId_ {};
-    // Address pool name.
+    // The name of the address pool.
     shared_ptr<string> addressPoolName_ {};
     shared_ptr<DescribeCloudGtmAddressPoolReferenceResponseBody::InstanceConfigs> instanceConfigs_ {};
-    // Unique request identification code.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

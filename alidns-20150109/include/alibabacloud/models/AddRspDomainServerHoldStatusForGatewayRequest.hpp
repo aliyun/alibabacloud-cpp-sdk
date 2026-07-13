@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // An idempotency parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The status description.
+    // 
     // This parameter is required.
     shared_ptr<string> statusMsg_ {};
   };

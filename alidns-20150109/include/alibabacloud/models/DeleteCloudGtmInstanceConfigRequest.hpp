@@ -68,14 +68,15 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
+    // - zh-CN: Chinese.
+    // 
+    // - en-US: English. This is the default value.
     shared_ptr<string> acceptLanguage_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Generate a unique token for each request. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration. You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+    // The ID of the instance configuration. A GTM instance can have two configurations, an A record and an AAAA record, for the same access domain name. The ConfigId uniquely identifies one of the configurations. To obtain the ConfigId, call the [ListCloudGtmInstanceConfigs](https://help.aliyun.com/document_detail/2797349.html) operation.
     shared_ptr<string> configId_ {};
-    // The access domain name that is configured for the desired GTM 3.0 instance. You can delete only one access domain name.
+    // The ID of the Global Traffic Manager (GTM) 3.0 instance.
     shared_ptr<string> instanceId_ {};
   };
 

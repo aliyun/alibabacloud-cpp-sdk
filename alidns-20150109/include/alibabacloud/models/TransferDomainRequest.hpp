@@ -66,18 +66,22 @@ namespace Models
 
 
   protected:
-    // The domain names. Separate multiple domain names with commas (,). Only domain names registered with Alibaba Cloud are supported.
+    // The domain names to transfer. Separate multiple domain names with commas. Only domain names registered with Alibaba Cloud are supported. <props="china">To get your domain names, call [DescribeDomains](https://help.aliyun.com/en/dns/api-alidns-2015-01-09-describedomains?spm=a2c4g.11186623.help-menu-search-29697.d_0).
+    // <props="intl">To get your domain names, call [DescribeDomains](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0).
     // 
     // This parameter is required.
     shared_ptr<string> domainNames_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - zh: Chinese
+    // 
+    // - en: English
+    // 
+    // Default value: zh.
     shared_ptr<string> lang_ {};
-    // The description of the domain name.
+    // The remarks for the transfer.
     shared_ptr<string> remark_ {};
-    // The destination user ID. The domain names and their Domain Name System (DNS) records are transferred to the destination user ID.
+    // The ID of the target user account. The specified domain names and their DNS records are transferred to this account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> targetUserId_ {};

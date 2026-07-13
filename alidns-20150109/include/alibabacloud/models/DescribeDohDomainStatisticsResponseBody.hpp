@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // The timestamp.
+      // The timestamp of the statistics. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
       // The total number of requests.
       shared_ptr<int64_t> totalCount_ {};
-      // The number of IPv4-based HTTP requests.
+      // The number of IPv4 HTTP requests.
       shared_ptr<int64_t> v4HttpCount_ {};
-      // The number of IPv4-based HTTPS requests.
+      // The number of IPv4 HTTPS requests.
       shared_ptr<int64_t> v4HttpsCount_ {};
-      // The number of IPv6-based HTTP requests.
+      // The number of IPv6 HTTP requests.
       shared_ptr<int64_t> v6HttpCount_ {};
-      // The number of IPv6-based HTTPS requests.
+      // The number of IPv6 HTTPS requests.
       shared_ptr<int64_t> v6HttpsCount_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics list.
+    // The list of statistics.
     shared_ptr<vector<DescribeDohDomainStatisticsResponseBody::Statistics>> statistics_ {};
   };
 

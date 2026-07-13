@@ -560,88 +560,102 @@ namespace Models
 
 
   protected:
-    // The primary/secondary switchover policy for address pool groups. Valid values:
+    // The switchover policy for the address pool group. Valid values:
     // 
-    // *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
-    // *   DEFAULT: uses the primary address pool group.
-    // *   FAILOVER: uses the secondary address pool group.
+    // - AUTO: automatic switchover.
+    // 
+    // - DEFAULT: the primary address pool group.
+    // 
+    // - FAILOVER: the secondary address pool group.
     shared_ptr<string> accessMode_ {};
     // The time when the access policy was created.
     shared_ptr<string> createTime_ {};
-    // The timestamp that indicates when the access policy was created.
+    // The time when the access policy was created. This value is a UNIX timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
     // The status of the primary address pool group. Valid values:
     // 
-    // *   AVAILABLE: available
-    // *   NOT_AVAILABLE: unavailable
+    // - AVAILABLE
+    // 
+    // - NOT_AVAILABLE
     shared_ptr<string> defaultAddrPoolGroupStatus_ {};
     // The type of the primary address pool. Valid values:
     // 
-    // *   IPV4
-    // *   IPV6
-    // *   DOMAIN
+    // - IPV4
+    // 
+    // - IPV6
+    // 
+    // - DOMAIN
     shared_ptr<string> defaultAddrPoolType_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyResponseBody::DefaultAddrPools> defaultAddrPools_ {};
     // The number of available addresses in the primary address pool.
     shared_ptr<int32_t> defaultAvailableAddrNum_ {};
-    // Indicates whether scheduling optimization for latency resolution was enabled for the primary address pool group. Valid values:
+    // Indicates whether latency-based scheduling is enabled for the primary address pool group. Valid values:
     // 
-    // *   OPEN: enabled
-    // *   CLOSE: disabled
+    // - OPEN: enabled.
+    // 
+    // - CLOSE: disabled.
     shared_ptr<string> defaultLatencyOptimization_ {};
-    // The load balancing policy of the primary address pool group. Valid values:
+    // The load balancing policy for the primary address pool group. Valid values:
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: returns all addresses.
+    // 
+    // - RATIO: returns addresses by weight.
     shared_ptr<string> defaultLbaStrategy_ {};
-    // The maximum number of addresses returned from the primary address pool group.
+    // The maximum number of addresses that can be returned from the primary address pool group.
     shared_ptr<int32_t> defaultMaxReturnAddrNum_ {};
     // The minimum number of available addresses in the primary address pool group.
     shared_ptr<int32_t> defaultMinAvailableAddrNum_ {};
-    // The type of the active address pool group. Valid values:
+    // The type of the address pool group that is currently in effect. Valid values:
     // 
-    // *   DEFAULT: the primary address pool group
-    // *   FAILOVER: the secondary address pool group
+    // - DEFAULT: the primary address pool group.
+    // 
+    // - FAILOVER: the secondary address pool group.
     shared_ptr<string> effectiveAddrPoolGroupType_ {};
     // The status of the secondary address pool group. Valid values:
     // 
-    // *   AVAILABLE: available
-    // *   NOT_AVAILABLE: unavailable
+    // - AVAILABLE
+    // 
+    // - NOT_AVAILABLE
     shared_ptr<string> failoverAddrPoolGroupStatus_ {};
     // The type of the secondary address pool. Valid values:
     // 
-    // *   IPV4
-    // *   IPV6
-    // *   DOMAIN
+    // - IPV4
+    // 
+    // - IPV6
+    // 
+    // - DOMAIN
     shared_ptr<string> failoverAddrPoolType_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyResponseBody::FailoverAddrPools> failoverAddrPools_ {};
     // The number of available addresses in the secondary address pool.
     shared_ptr<int32_t> failoverAvailableAddrNum_ {};
-    // Indicates whether scheduling optimization for latency resolution was enabled for the secondary address pool group. Valid values:
+    // Indicates whether latency-based scheduling is enabled for the secondary address pool group. Valid values:
     // 
-    // *   OPEN: enabled
-    // *   CLOSE: disabled
+    // - OPEN: enabled.
+    // 
+    // - CLOSE: disabled.
     shared_ptr<string> failoverLatencyOptimization_ {};
-    // The load balancing policy of the secondary address pool group. Valid values:
+    // The load balancing policy for the secondary address pool group. Valid values:
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: returns all addresses.
+    // 
+    // - RATIO: returns addresses by weight.
     shared_ptr<string> failoverLbaStrategy_ {};
-    // The maximum number of addresses returned from the secondary address pool group.
+    // The maximum number of addresses that can be returned from the secondary address pool group.
     shared_ptr<int32_t> failoverMaxReturnAddrNum_ {};
     // The minimum number of available addresses in the secondary address pool group.
     shared_ptr<int32_t> failoverMinAvailableAddrNum_ {};
-    // The ID of the associated instance.
+    // The ID of the associated Global Traffic Manager (GTM) instance.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyResponseBody::Lines> lines_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the access policy.
     shared_ptr<string> strategyId_ {};
     // The type of the access policy. Valid values:
     // 
-    // *   GEO: geographical location-based
-    // *   LATENCY: latency-based
+    // - GEO: a geolocation-based access policy.
+    // 
+    // - LATENCY: a latency-based access policy.
     shared_ptr<string> strategyMode_ {};
     // The name of the access policy.
     shared_ptr<string> strategyName_ {};

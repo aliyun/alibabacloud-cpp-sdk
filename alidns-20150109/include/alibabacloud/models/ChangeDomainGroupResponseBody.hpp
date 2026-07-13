@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the target domain name group.
     shared_ptr<string> groupId_ {};
-    // The name of the destination domain name group.
+    // The name of the target domain name group.
     shared_ptr<string> groupName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The number of accessed domains.
+    // The number of added domain names.
     shared_ptr<int32_t> domainCount_ {};
-    // The ID of the Alibaba Cloud public DNS user.
+    // The ID of the Public DNS user.
     shared_ptr<int64_t> pdnsId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of accessed subdomains.
+    // The number of added subdomains.
     shared_ptr<int32_t> subDomainCount_ {};
   };
 

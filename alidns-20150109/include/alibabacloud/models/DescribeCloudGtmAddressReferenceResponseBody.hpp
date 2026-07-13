@@ -453,14 +453,14 @@ namespace Models
 
 
   protected:
-    // IP address or domain name.
+    // The IP address or domain name.
     shared_ptr<string> address_ {};
-    // The address ID. This ID uniquely identifies the address.
+    // The unique ID of the address.
     shared_ptr<string> addressId_ {};
     shared_ptr<DescribeCloudGtmAddressReferenceResponseBody::AddressPools> addressPools_ {};
-    // Address name.
+    // The name of the address.
     shared_ptr<string> name_ {};
-    // Unique request identification code.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

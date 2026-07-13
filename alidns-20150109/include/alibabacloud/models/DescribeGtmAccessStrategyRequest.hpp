@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
-    // The ID of the access policy that you want to query.
+    // The ID of the access policy.
     // 
     // This parameter is required.
     shared_ptr<string> strategyId_ {};

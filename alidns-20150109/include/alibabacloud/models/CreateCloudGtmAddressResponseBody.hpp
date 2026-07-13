@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // The address ID. This ID uniquely identifies the address.
+    // The unique ID of the address.
     shared_ptr<string> addressId_ {};
-    // Unique request identification code.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the address creation operation is successful:
-    // - true: Operation was successful
-    // - false: Operation was failed
+    // Indicates whether the address was created. Valid values:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

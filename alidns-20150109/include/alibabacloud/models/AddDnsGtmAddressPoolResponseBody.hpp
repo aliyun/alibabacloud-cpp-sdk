@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> addrPoolId_ {};
     // The ID of the health check configuration.
     shared_ptr<string> monitorConfigId_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -155,15 +155,15 @@ namespace Models
 
 
   protected:
-    // Indicates whether all the name servers are Alibaba Cloud DNS servers.
+    // Indicates whether all name servers are Alibaba Cloud DNS servers.
     shared_ptr<bool> allAliDns_ {};
-    // The cause code of the detection failure.
+    // The error code returned if the detection fails.
     shared_ptr<string> detectFailedReasonCode_ {};
     shared_ptr<DescribeDomainNsResponseBody::DnsServers> dnsServers_ {};
     shared_ptr<DescribeDomainNsResponseBody::ExpectDnsServers> expectDnsServers_ {};
-    // Indicates whether the name servers include Alibaba Cloud DNS servers.
+    // Indicates whether the list of name servers includes Alibaba Cloud DNS servers.
     shared_ptr<bool> includeAliDns_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

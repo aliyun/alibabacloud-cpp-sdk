@@ -165,10 +165,10 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeCloudGtmSystemLinesResponseBody::SystemLines> systemLines_ {};
-    // The system lines, which are in a tree structure. Only a system line is listed in this example.
+    // The data of the system lines in a tree structure. The complete data is not listed due to its large size.
     shared_ptr<string> systemLinesTree_ {};
   };
 

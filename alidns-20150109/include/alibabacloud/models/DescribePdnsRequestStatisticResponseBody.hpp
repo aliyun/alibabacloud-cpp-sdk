@@ -171,31 +171,31 @@ namespace Models
 
 
     protected:
-      // The total number of DoH requests, including HTTP and HTTPS requests.
+      // The total number of DNS-over-HTTPS (DoH) requests. This value includes both HTTP and HTTPS requests.
       shared_ptr<int64_t> dohTotalCount_ {};
       // The number of HTTP requests.
       shared_ptr<int64_t> httpCount_ {};
-      // The number of HTTPS requests. On the Traffic Analysis tab of the Public DNS console, the value of this parameter includes the number of DNS over HTTPs (DoH) requests. Therefore, the number of DoH requests is not separately displayed in the console.
+      // The number of HTTPS requests. On the Traffic Analysis tab of the Public DNS console, this parameter includes the number of DNS-over-HTTPS (DoH) requests. Therefore, DoH requests are not displayed separately in the console.
       shared_ptr<int64_t> httpsCount_ {};
       // The number of source IP addresses.
       shared_ptr<int64_t> ipCount_ {};
-      // The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp of the statistics. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
       // The total number of requests.
       shared_ptr<int64_t> totalCount_ {};
       // The total number of UDP requests.
       shared_ptr<int64_t> udpTotalCount_ {};
-      // The number of IPv4-based requests.
+      // The number of IPv4 requests.
       shared_ptr<int64_t> v4Count_ {};
-      // The number of IPv4-based HTTP requests.
+      // The number of IPv4 HTTP requests.
       shared_ptr<int64_t> v4HttpCount_ {};
-      // The number of IPv4-based HTTPS requests.
+      // The number of IPv4 HTTPS requests.
       shared_ptr<int64_t> v4HttpsCount_ {};
-      // The number of IPv6-based requests.
+      // The number of IPv6 requests.
       shared_ptr<int64_t> v6Count_ {};
-      // The number of IPv6-based HTTP requests.
+      // The number of IPv6 HTTP requests.
       shared_ptr<int64_t> v6HttpCount_ {};
-      // The number of IPv6-based HTTPS requests.
+      // The number of IPv6 HTTPS requests.
       shared_ptr<int64_t> v6HttpsCount_ {};
     };
 
@@ -218,9 +218,9 @@ namespace Models
 
 
   protected:
-    // The statistics on the DNS requests.
+    // A list of request statistics.
     shared_ptr<vector<DescribePdnsRequestStatisticResponseBody::Data>> data_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

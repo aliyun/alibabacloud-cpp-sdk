@@ -57,17 +57,19 @@ namespace Models
 
 
   protected:
-    // The addresses.
+    // The list of addresses.
     // 
     // This parameter is required.
     shared_ptr<string> addrs_ {};
-    // The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The type of addresses. Valid values:
+    // The address type:
     // 
-    // *   IPV4: IPv4 address
-    // *   IPv6: IPv6 address
-    // *   DOMAIN: domain name
+    // - IPV4: IPv4 address
+    // 
+    // - IPV6: IPv6 address
+    // 
+    // - DOMAIN: domain name
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of domain names that failed to be bound to the instance.
+    // The number of domain names that failed to be bound.
     shared_ptr<int32_t> failedCount_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The number of domain names that are bound to the instance.
+    // The number of domain names that were successfully bound.
     shared_ptr<int32_t> successCount_ {};
   };
 

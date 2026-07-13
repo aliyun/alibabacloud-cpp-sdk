@@ -590,12 +590,12 @@ namespace Models
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::Ipv4AddrPools> ipv4AddrPools_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::Ipv6AddrPools> ipv6AddrPools_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::Lines> lines_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::SelectedDomainLines> selectedDomainLines_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::SelectedIpv4Lines> selectedIpv4Lines_ {};
     shared_ptr<DescribeDnsGtmAccessStrategyAvailableConfigResponseBody::SelectedIpv6Lines> selectedIpv6Lines_ {};
-    // Indicates whether we recommend that you set the source region to global.
+    // Indicates whether it is recommended to set a default line.
     shared_ptr<bool> suggestSetDefaultLine_ {};
   };
 

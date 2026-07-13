@@ -86,23 +86,27 @@ namespace Models
   protected:
     // The type of the batch operation. Valid values:
     // 
-    // *   **DOMAIN_ADD**: adds domain names in batches.
-    // *   **DOMAIN_DEL**: deletes domain names in batches.
-    // *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
-    // *   **RR_DEL**: deletes DNS records in batches.
+    // - **DOMAIN_ADD**: Add domain names in batches.
     // 
-    // >  Do not perform filtering when this field is empty.
+    // - **DOMAIN_DEL**: Delete domain names in batches.
+    // 
+    // - **RR_ADD**: Add DNS records in batches.
+    // 
+    // - **RR_DEL**: Delete DNS records in batches.
+    // 
+    // > If you leave this parameter empty, the results are not filtered by operation type.
     shared_ptr<string> batchType_ {};
-    // The language of the content within the request and response. Default: **zh**. Valid values:
+    // The language of the request and response. The default value is **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The page number. Default value: **1**.
+    // The current page number. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The execution result. If you do not specify this parameter, all results are returned.
+    // The status of the task. If you do not specify this parameter, the details of tasks in all states are returned.
     shared_ptr<string> status_ {};
     // The task ID.
     shared_ptr<int64_t> taskId_ {};

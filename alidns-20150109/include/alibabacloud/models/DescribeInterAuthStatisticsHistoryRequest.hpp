@@ -94,12 +94,21 @@ namespace Models
 
 
   protected:
+    // The domain name.<props="china">You can get this value by calling the [DescribeDomains](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c4g.11186623.help-menu-search-29697.d_0) operation.
+    // <props="intl">You can get this value by calling the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation.
     shared_ptr<string> domainName_ {};
+    // The end of the time range to query. This value is a Unix timestamp in milliseconds.
+    // >Warning: A large time range for a domain with a high volume of resolution logs may cause query timeouts or inaccurate results.
     shared_ptr<int64_t> endTimestamp_ {};
+    // The DNS response code.
     shared_ptr<string> rcode_ {};
+    // The server region.
     shared_ptr<string> serverRegion_ {};
+    // The start of the time range to query. This value is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTimestamp_ {};
+    // The statistical metric type.
     shared_ptr<string> statisticalType_ {};
+    // The zone name.
     shared_ptr<string> zoneName_ {};
   };
 

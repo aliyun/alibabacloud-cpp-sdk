@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The ID of the domain name.
+    // The domain ID.
     shared_ptr<string> domainId_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
@@ -184,31 +184,31 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The name of the domain name group.
     shared_ptr<string> groupName_ {};
-    // The DNS resolution line.
+    // The resolution line.
     shared_ptr<string> line_ {};
-    // The lock state of the DNS record. Valid values: **true and false**.
+    // The lock status of the DNS record. Valid values: true and **false**.
     shared_ptr<bool> locked_ {};
-    // The priority of the mail exchanger (MX) record.
+    // The priority of the MX record.
     shared_ptr<int64_t> priority_ {};
-    // The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+    // The Punycode for the Chinese domain name.
     shared_ptr<string> punyCode_ {};
     // The hostname.
     shared_ptr<string> RR_ {};
     // The ID of the DNS record.
     shared_ptr<string> recordId_ {};
-    // The description of your DNS record.
+    // The remarks for the DNS record.
     shared_ptr<string> remark_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the DNS record. Valid values:
     // 
-    // Enable: enabled
+    // Enable: The DNS record is enabled.
     // 
-    // Disable: disabled
+    // Disable: The DNS record is paused.
     shared_ptr<string> status_ {};
-    // The time for which the DNS record is cached in a local DNS system.
+    // The time to live (TTL). This specifies the duration for which the DNS record is cached on a local DNS server.
     shared_ptr<int64_t> TTL_ {};
-    // The type of the DNS record.
+    // The record type.
     shared_ptr<string> type_ {};
     // The record value.
     shared_ptr<string> value_ {};

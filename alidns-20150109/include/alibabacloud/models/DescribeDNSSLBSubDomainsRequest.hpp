@@ -84,22 +84,23 @@ namespace Models
 
 
   protected:
-    // The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+    // The domain name. Call the [DescribeDomains](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describedomains) operation to obtain the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The language of the response. Valid values:
+    // The language of the response. Valid values are:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh**: Chinese. This is the default value.
+    // 
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+    // The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
     shared_ptr<int64_t> pageSize_ {};
-    // The hostname.
+    // The host record.
     shared_ptr<string> rr_ {};
-    // The IP address of the user account.
+    // The IP address of the client.
     shared_ptr<string> userClientIp_ {};
   };
 

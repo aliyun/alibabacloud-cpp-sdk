@@ -481,16 +481,17 @@ namespace Models
     shared_ptr<DescribeDnsProductInstancesResponseBody::DnsProducts> dnsProducts_ {};
     // The type of the domain name. Valid values:
     // 
-    // *   PUBLIC (default): hosted public domain name
-    // *   CACHE: cached public domain name
+    // - PUBLIC: authoritative domain name (default)
+    // 
+    // - CACHE: authoritative proxy domain name
     shared_ptr<string> domainType_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries on the current page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of domain names.
+    // The total number of instances that match the query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

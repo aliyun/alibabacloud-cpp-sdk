@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The end IP address.
         shared_ptr<string> endIp_ {};
+        // The start IP address.
         shared_ptr<string> startIp_ {};
       };
 
@@ -144,8 +146,9 @@ namespace Models
       shared_ptr<string> code_ {};
       // The unique ID of the custom line.
       shared_ptr<int64_t> id_ {};
+      // The list of IP address range. Use a hyphen (-) to separate the start and end IP address ranges. Enter one range per line. You can specify 1 to 50 lines. For a single IP address, enter it as IP1-IP1. IP address ranges cannot overlap.
       shared_ptr<vector<CustomLines::IpSegmentList>> ipSegmentList_ {};
-      // The name of the custom line.
+      // The name of the line.
       shared_ptr<string> name_ {};
     };
 
@@ -196,7 +199,7 @@ namespace Models
 
 
   protected:
-    // The custom lines.
+    // The list of custom lines.
     shared_ptr<vector<DescribeCustomLinesResponseBody::CustomLines>> customLines_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -206,7 +209,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of custom lines.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

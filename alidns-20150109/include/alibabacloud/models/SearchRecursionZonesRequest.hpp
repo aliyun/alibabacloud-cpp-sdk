@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The type of the effective scope. Valid value: `account`.
       shared_ptr<string> effectiveType_ {};
+      // A list of scope values that correspond to the specified `EffectiveType`. For example, if `EffectiveType` is set to `account`, this parameter contains a list of account IDs for users that use recursive resolution.
       shared_ptr<vector<string>> scope_ {};
     };
 
@@ -159,16 +161,27 @@ namespace Models
 
 
   protected:
+    // The sort order. Valid values: `asc`: ascending. `desc`: descending.
     shared_ptr<string> direction_ {};
+    // The list of effective scopes.
     shared_ptr<vector<SearchRecursionZonesRequest::EffectiveScopes>> effectiveScopes_ {};
+    // The maximum number of entries to return. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The sort field. Valid values: `UpdateTime`: the update time of the zone. `RecordCount`: the number of DNS records.
     shared_ptr<string> orderBy_ {};
+    // The page number. Pages start at **1**. Default value: **1**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page. Valid values: 1 to 100. Default value: 20.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The remark for the zone. Fuzzy search is supported.
     shared_ptr<string> remark_ {};
+    // The name of the zone.
     shared_ptr<string> zoneName_ {};
   };
 

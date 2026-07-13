@@ -98,21 +98,23 @@ namespace Models
     shared_ptr<int32_t> addrNotAvailableNum_ {};
     // The number of unavailable address pools.
     shared_ptr<int32_t> addrPoolNotAvailableNum_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the instance. Valid values:
+    // The status of the instance. Valid values:
     // 
-    // *   ALLOW: The operation on the instance is allowed.
-    // *   DENY: The operation on the instance is not allowed.
+    // - ALLOW: Operations are allowed.
+    // 
+    // - DENY: Operations are denied.
     shared_ptr<string> status_ {};
-    // The reasons why the instance is in the current state. Valid values:
+    // A list of reasons for the instance status. Valid values:
     // 
-    // *   INSTANCE_OPERATE_BLACK_LIST: The operation on the instance is not allowed.
-    // *   BETA_INSTANCE: The instance is in public preview.
+    // - INSTANCE_OPERATE_BLACK_LIST: The instance is in a blacklist.
+    // 
+    // - BETA_INSTANCE: The instance is in public preview.
     shared_ptr<string> statusReason_ {};
-    // The number of unavailable access policies.
+    // The number of access policies for which the active address pool is unavailable.
     shared_ptr<int32_t> strategyNotAvailableNum_ {};
-    // The number of access policies switched to the secondary address pool.
+    // The number of access policies that are switched to the failover address pool.
     shared_ptr<int32_t> switchToFailoverStrategyNum_ {};
   };
 

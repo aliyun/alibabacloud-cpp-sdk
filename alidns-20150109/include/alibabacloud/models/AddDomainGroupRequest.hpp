@@ -54,8 +54,9 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
+    // 
+    // - en: English
     // 
     // Default value: en.
     shared_ptr<string> lang_ {};

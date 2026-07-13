@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the values of specific response parameters.
+    // The language.
     shared_ptr<string> lang_ {};
-    // Specifies whether additional information is required. Default value: **false**. If the value is **true**, the AccessStrategyNum and AddressPoolNum parameters are returned.
+    // Specifies whether to return additional information. The default value is **false**. If you set this parameter to **true**, the response includes AccessStrategyNum (the number of access policies) and AddressPoolNum (the number of address pools).
     shared_ptr<bool> needDetailAttributes_ {};
   };
 

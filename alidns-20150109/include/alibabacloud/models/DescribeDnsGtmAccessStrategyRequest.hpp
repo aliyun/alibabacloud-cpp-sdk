@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of some returned parameters. The default value is en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The ID of the access policy.
+    // The ID of the access policy. For more information, see [DescribeDnsGtmAccessStrategies](https://help.aliyun.com/document_detail/2357191.html).
     // 
     // This parameter is required.
     shared_ptr<string> strategyId_ {};

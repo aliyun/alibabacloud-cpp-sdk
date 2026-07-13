@@ -112,39 +112,41 @@ namespace Models
 
 
   protected:
-    // The alert group. Only one alert group is supported.
+    // The alert contact group. Only one alert contact group is supported.
     // 
-    // >  This parameter is required only for the first modification.
+    // > This parameter is required when you update the instance for the first time. It is optional for subsequent updates.
     shared_ptr<string> alertGroup_ {};
-    // If you set **CnameMode** to **CUSTOM**, you must specify the CnameCustomDomainName parameter, which must be set to a primary domain name.
+    // This parameter is required when you set **CnameMode** to **CUSTOM**. The value must be the primary domain name.
     shared_ptr<string> cnameCustomDomainName_ {};
-    // Specifies whether to use a system-assigned canonical name (CNAME) or a custom CNAME to access GTM. Valid values:
+    // The connection type. Valid values:
     // 
-    // *   **SYSTEM_ASSIGN**: system-assigned CNAME
-    // *   **CUSTOM**: custom CNAME
+    // - **SYSTEM_ASSIGN**: system-assigned
+    // 
+    // - **CUSTOM**: custom
     shared_ptr<string> cnameMode_ {};
     // The ID of the GTM instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the GTM instance.
+    // The name of the instance.
     // 
-    // >  This parameter is required only for the first modification.
+    // > This parameter is required when you update the instance for the first time. It is optional for subsequent updates.
     shared_ptr<string> instanceName_ {};
     // The language.
     shared_ptr<string> lang_ {};
-    // The balancing policy. Valid values:
+    // The load balancing policy. Valid values:
     // 
-    // *   **ALL_RR**: load balancing
-    // *   **RATIO**: weighted round-robin
+    // - **ALL_RR**: round-robin
     // 
-    // >  This parameter is required only for the first modification.
+    // - **RATIO**: weighted round-robin
+    // 
+    // > This parameter is required when you update the instance for the first time. It is optional for subsequent updates.
     shared_ptr<string> lbaStrategy_ {};
-    // The global time-to-live (TTL).
+    // The global Time to Live (TTL).
     shared_ptr<int32_t> ttl_ {};
     // The primary domain name.
     // 
-    // >  This parameter is required only for the first modification.
+    // > This parameter is required when you update the instance for the first time. It is optional for subsequent updates.
     shared_ptr<string> userDomainName_ {};
   };
 

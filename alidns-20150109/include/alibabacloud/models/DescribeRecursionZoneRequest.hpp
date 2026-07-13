@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The zone ID. This is the unique identifier of the zone.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

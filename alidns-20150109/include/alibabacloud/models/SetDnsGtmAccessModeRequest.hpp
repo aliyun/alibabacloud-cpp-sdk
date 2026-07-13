@@ -57,17 +57,19 @@ namespace Models
 
 
   protected:
-    // The switchover policy for primary and secondary address pool sets. Valid values:
+    // The switchover policy for the address pool collection:
     // 
-    // *   AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.
-    // *   DEFAULT: the primary address pool set
-    // *   FAILOVER: the secondary address pool set
+    // - AUTO: Automatic switchover
+    // 
+    // - DEFAULT: The primary address pool collection
+    // 
+    // - FAILOVER: The secondary address pool collection
     // 
     // This parameter is required.
     shared_ptr<string> accessMode_ {};
-    // The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of certain response parameters. Default: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The policy ID.
+    // The ID of the access policy. Call [DescribeDnsGtmAccessStrategies](https://help.aliyun.com/document_detail/2357191.html) to obtain the policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> strategyId_ {};

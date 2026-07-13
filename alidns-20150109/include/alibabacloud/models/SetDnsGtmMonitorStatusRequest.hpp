@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Valid values: en, zh, and ja. The default value is en.
     shared_ptr<string> lang_ {};
-    // The ID of the health check task.
+    // The ID of the health check configuration. You can call the [DescribeDnsGtmInstanceAddressPool](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstanceaddresspool) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> monitorConfigId_ {};
-    // Specifies whether to enable the health check feature. Valid values:
+    // The status to set for the health check. Valid values:
     // 
-    // *   OPEN: enables the health check feature.
-    // *   CLOSE: disables the health check feature.
+    // - OPEN: Enables the health check.
+    // 
+    // - CLOSE: Disables the health check.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

@@ -96,25 +96,27 @@ namespace Models
   protected:
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The language of the content within the request and response. Default: **zh**. Valid values:
+    // The language of the request and response. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The DNS resolution line. The line can be the default line, China Telecom, and China Mobile.
+    // The DNS resolution line, such as default, telecom, or mobile.
     shared_ptr<string> line_ {};
-    // Specifies whether to enable or disable weighted round-robin. Valid values:
+    // Specifies whether to enable the weight configuration. Valid values:
     // 
-    // *   **true** (default): enables weighted round-robin.
-    // *   **false**: disables weighted round-robin.
+    // - **true** (default): Enable
+    // 
+    // - **false**: Disable
     shared_ptr<bool> open_ {};
-    // The subdomain name for which you want to enable weighted round-robin. Set the parameter to @.example.com instead of example.com.
+    // The subdomain for which to configure weights. A primary domain name, such as example.com, is not valid. Use @.example.com instead.
     // 
     // This parameter is required.
     shared_ptr<string> subDomain_ {};
-    // The type of the Domain Name System (DNS) record. Valid values: A and AAAA. Default value: A.
+    // The type of the DNS record. Valid values: A and AAAA. Default value: A.
     shared_ptr<string> type_ {};
-    // The IP address of the client.
+    // The IP address of the user.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -772,7 +772,7 @@ namespace Models
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::DomainIpv6IspCityNodes> domainIpv6IspCityNodes_ {};
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::Ipv4IspCityNodes> ipv4IspCityNodes_ {};
     shared_ptr<DescribeDnsGtmMonitorAvailableConfigResponseBody::Ipv6IspCityNodes> ipv6IspCityNodes_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

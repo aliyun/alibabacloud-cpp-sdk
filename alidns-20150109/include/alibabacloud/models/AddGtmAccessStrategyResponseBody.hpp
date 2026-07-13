@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the access policy created.
+    // The policy ID.
     shared_ptr<string> strategyId_ {};
   };
 

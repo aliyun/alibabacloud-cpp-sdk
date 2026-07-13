@@ -125,7 +125,7 @@ namespace Models
 
 
       protected:
-        // The domain name or IP address of the origin DNS server.
+        // The domain name or IP address of the origin server.
         shared_ptr<string> host_ {};
         // The port of the origin DNS server.
         shared_ptr<string> port_ {};
@@ -250,37 +250,37 @@ namespace Models
 
 
     protected:
-      // The maximum time-to-live (TTL) period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+      // The maximum Time to Live (TTL) for cached data retrieved from the origin server. The value ranges from 30 to 86400.
       shared_ptr<int32_t> cacheTtlMax_ {};
-      // The minimum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+      // The minimum TTL for cached data retrieved from the origin server. The value ranges from 30 to 86400.
       shared_ptr<int32_t> cacheTtlMin_ {};
-      // The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The time when the domain name was added.
       shared_ptr<string> createTime_ {};
-      // The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp that indicates when the domain name was added.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The ID of the cache-accelerated domain name.
+      // The ID of the authoritative proxy domain.
       shared_ptr<string> domainId_ {};
-      // The cache-accelerated domain name.
+      // The name of the authoritative proxy domain.
       shared_ptr<string> domainName_ {};
-      // The time when the instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The expiration time of the instance.
       shared_ptr<string> expireTime_ {};
-      // The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp that indicates when the instance expires.
       shared_ptr<int64_t> expireTimestamp_ {};
-      // The instance ID of the cache-accelerated domain name.
+      // The ID of the authoritative proxy domain instance.
       shared_ptr<string> instanceId_ {};
-      // The description of the domain name.
+      // The remarks.
       shared_ptr<string> remark_ {};
-      // The origin DNS servers.
+      // The list of origin DNS servers.
       shared_ptr<vector<Domains::SourceDnsServers>> sourceDnsServers_ {};
-      // Specifies whether the origin Domain Name System (DNS) server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+      // Indicates whether the origin server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
       shared_ptr<string> sourceEdns_ {};
-      // The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+      // The origin protocol. Valid values: TCP and UDP. The default value is UDP.
       shared_ptr<string> sourceProtocol_ {};
-      // The time when the configurations of the domain name were updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The time when the domain name was last updated.
       shared_ptr<string> updateTime_ {};
-      // The time when the configurations of the domain name were updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp that indicates when the domain name was last updated.
       shared_ptr<int64_t> updateTimestamp_ {};
-      // The edition code of Alibaba Cloud DNS.
+      // The version code of Alibaba Cloud DNS.
       shared_ptr<string> versionCode_ {};
     };
 
@@ -324,15 +324,15 @@ namespace Models
 
 
   protected:
-    // The domain names.
+    // The list of domain names returned.
     shared_ptr<vector<DescribeDnsCacheDomainsResponseBody::Domains>> domains_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page. The maximum value is 100. The default value is 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of domain names.
     shared_ptr<int64_t> totalCount_ {};
   };
 

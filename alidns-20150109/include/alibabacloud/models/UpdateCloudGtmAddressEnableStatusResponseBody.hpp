@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Unique request identification code.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the operation was successful:
     // 
-    // *   true: The operation was successful.
-    // *   false: The operation was failed.
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

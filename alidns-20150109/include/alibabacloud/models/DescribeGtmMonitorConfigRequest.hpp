@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The language of the values of specific response parameters.
+    // The language.
     shared_ptr<string> lang_ {};
     // The ID of the health check configuration.
     // 

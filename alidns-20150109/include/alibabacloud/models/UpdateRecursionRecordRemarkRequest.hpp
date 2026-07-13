@@ -57,11 +57,13 @@ namespace Models
 
 
   protected:
+    // A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The value can contain only ASCII characters and must be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
-    // record id
+    // The ID of the record.
     // 
     // This parameter is required.
     shared_ptr<string> recordId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
   };
 

@@ -96,16 +96,17 @@ namespace Models
 
 
     protected:
-      // The ID of the address pool. This ID uniquely identifies the address pool.
+      // The unique ID of the address pool.
       // 
-      // *   If you specify this parameter, the address pools that are associated with the desired instance are removed and the instance is associated with new address pools.
-      // *   If this parameter is left empty, the address pools that are associated with the desired instance are removed and no address pool is associated with the instance.
+      // - If you specify this parameter, the existing address pools associated with the target instance are deleted and replaced with the address pools that you specify.
+      // 
+      // - If you leave this parameter empty, all address pools associated with the target instance are deleted.
       shared_ptr<string> addressPoolId_ {};
-      // The DNS request sources.
+      // A list of request sources.
       shared_ptr<vector<string>> requestSource_ {};
-      // The sequence number of the new address pool. The address pool with the smallest sequence number is preferentially returned for DNS requests from any source. The sequence number specifies the priority for returning the address pool. A smaller sequence number specifies a higher priority.
+      // The ordinal number. For DNS requests from any source, address pools with smaller ordinal numbers are returned first. A smaller ordinal number indicates a higher priority. This parameter takes effect for the updated address pools.
       shared_ptr<int32_t> serialNumber_ {};
-      // The weight value of the new address pool. You can set a different weight value for each address pool. This way, address pools are returned based on the weight values for Domain Name System (DNS) requests. A weight value must be an integer that ranges from 1 to 100.
+      // The weight of the address pool. Valid values are integers from 1 to 100. You can set a different weight for each address pool. DNS queries are resolved based on the specified weights. This parameter takes effect for the updated address pools.
       shared_ptr<int32_t> weightValue_ {};
     };
 
@@ -151,18 +152,19 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
-    shared_ptr<string> acceptLanguage_ {};
-    // The address pools.
-    shared_ptr<vector<ReplaceCloudGtmInstanceConfigAddressPoolRequest::AddressPools>> addressPools_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    shared_ptr<string> clientToken_ {};
-    // The configuration ID of the access domain name. Two configuration IDs exist when the access domain name is bound to the same GTM instance but an A record and an AAAA record are configured for the access domain name. The configuration ID uniquely identifies a configuration.
+    // - zh-CN: Chinese
     // 
-    // You can call the [ListCloudGtmInstanceConfigs](~~ListCloudGtmInstanceConfigs~~) operation to query the configuration ID of the access domain name.
+    // - en-US (default): English
+    shared_ptr<string> acceptLanguage_ {};
+    // A list of address pools.
+    shared_ptr<vector<ReplaceCloudGtmInstanceConfigAddressPoolRequest::AddressPools>> addressPools_ {};
+    // A client-generated token that you use to ensure the idempotence of the request. Make sure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters.
+    shared_ptr<string> clientToken_ {};
+    // The ID of the instance configuration. For the same access domain name and GTM instance, you can configure both A and AAAA records. In this case, the GTM instance has two instance configurations. The ConfigId parameter uniquely identifies an instance configuration.
+    // 
+    // Call the [ListCloudGtmInstanceConfigs](https://help.aliyun.com/document_detail/2797349.html) operation to query the ConfigId of the instance configuration.
     shared_ptr<string> configId_ {};
-    // The ID of the GTM 3.0 instance for which you want to change address pools.
+    // The ID of the GTM 3.0 instance for which you want to replace address pools.
     shared_ptr<string> instanceId_ {};
   };
 

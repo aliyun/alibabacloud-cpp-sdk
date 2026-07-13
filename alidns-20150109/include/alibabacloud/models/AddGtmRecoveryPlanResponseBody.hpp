@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the disaster recovery plan.
     shared_ptr<string> recoveryPlanId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

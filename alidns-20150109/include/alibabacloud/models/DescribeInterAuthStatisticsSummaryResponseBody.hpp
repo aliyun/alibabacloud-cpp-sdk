@@ -188,19 +188,37 @@ namespace Models
 
 
     protected:
+      // The start time of the current period (the 0th second of the minute).
       shared_ptr<int64_t> aggrTimestamp_ {};
+      // The number of requests.
       shared_ptr<int64_t> count_ {};
+      // The domain name. Queries the transfer records of the specified domain name.
       shared_ptr<string> domainName_ {};
+      // The fluctuation rate.
       shared_ptr<int32_t> fluctuationValue_ {};
+      // The resolution line.
       shared_ptr<string> line_ {};
+      // The value of the previous period.
       shared_ptr<int64_t> previousCount_ {};
+      // The protocol type of the DNS resolution query request. Valid values:
+      // 
+      // - UDP
+      // 
+      // - TCP.
       shared_ptr<string> protocol_ {};
+      // The request record type.
       shared_ptr<string> qtype_ {};
+      // The success rate or proportion.
       shared_ptr<int64_t> ratio_ {};
+      // The DNS response code.
       shared_ptr<string> rcode_ {};
+      // The source IP address.
       shared_ptr<string> sourceIp_ {};
+      // The ISP of the request source.
       shared_ptr<string> sourceIsp_ {};
+      // The source region for copying the image. If not specified, a random region is selected.
       shared_ptr<string> sourceRegion_ {};
+      // The zone name.
       shared_ptr<string> zoneName_ {};
     };
 
@@ -251,12 +269,17 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> curPage_ {};
+    // The paginated data.
     shared_ptr<vector<DescribeInterAuthStatisticsSummaryResponseBody::PageData>> pageData_ {};
+    // The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the GTM instance.
+    // The ID of the instance. To obtain the ID, call [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The access policy type. Valid values:
+    // The access strategy mode. Valid values:
     // 
-    // *   GEO: geographical location-based
-    // *   LATENCY: latency-based
+    // - GEO: Geolocation-based
+    // 
+    // - LATENCY: Latency-based
     // 
     // This parameter is required.
     shared_ptr<string> strategyMode_ {};

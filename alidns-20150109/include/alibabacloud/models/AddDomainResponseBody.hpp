@@ -139,9 +139,9 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The name of the domain name group.
     shared_ptr<string> groupName_ {};
-    // The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+    // The Punycode for the Chinese domain name. This parameter is returned only for Chinese domain names.
     shared_ptr<string> punyCode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

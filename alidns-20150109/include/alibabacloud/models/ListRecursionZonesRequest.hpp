@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The current page number. The value starts from **1**. The default value is **1**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The name of the zone.
     shared_ptr<string> zoneName_ {};
   };
 

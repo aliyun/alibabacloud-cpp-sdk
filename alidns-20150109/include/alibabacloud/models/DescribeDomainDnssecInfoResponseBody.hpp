@@ -129,20 +129,21 @@ namespace Models
     shared_ptr<string> digestType_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The delegation signer (DS) record. This parameter is returned if DNSSEC is enabled.
+    // The Delegation Signer (DS) record. This parameter is returned if DNSSEC is enabled.
     shared_ptr<string> dsRecord_ {};
-    // The flag. This parameter is returned if DNSSEC is enabled.
+    // The flags. This parameter is returned if DNSSEC is enabled.
     shared_ptr<string> flags_ {};
     // The key tag. This parameter is returned if DNSSEC is enabled.
     shared_ptr<string> keyTag_ {};
     // The public key. This parameter is returned if DNSSEC is enabled.
     shared_ptr<string> publicKey_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the DNSSEC. Valid values:
+    // The status of DNSSEC. Valid values:
     // 
-    // *   ON
-    // *   OFF
+    // - ON: Enabled
+    // 
+    // - OFF: Disabled
     shared_ptr<string> status_ {};
   };
 

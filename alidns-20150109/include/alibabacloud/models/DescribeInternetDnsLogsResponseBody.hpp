@@ -339,18 +339,18 @@ namespace Models
 
 
   protected:
-    // Indicates whether the log query is precise.
+    // Indicates whether the DNS resolution log query is precise.
     shared_ptr<bool> complete_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> curPage_ {};
     shared_ptr<DescribeInternetDnsLogsResponseBody::Logs> logs_ {};
-    // Page size for query.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Unique request identifier.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
-    // Total quantity.
+    // The total number of entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

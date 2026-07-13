@@ -263,9 +263,9 @@ namespace Models
   protected:
     shared_ptr<DescribeGtmAccessStrategyAvailableConfigResponseBody::AddrPools> addrPools_ {};
     shared_ptr<DescribeGtmAccessStrategyAvailableConfigResponseBody::Lines> lines_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the global line is recommended.
+    // Indicates whether a global line is suggested.
     shared_ptr<bool> suggestSetDefaultLine_ {};
   };
 

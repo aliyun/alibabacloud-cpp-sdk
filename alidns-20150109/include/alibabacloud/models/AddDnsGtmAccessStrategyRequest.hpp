@@ -100,9 +100,9 @@ namespace Models
 
 
     protected:
-      // The ID of the address pool in the secondary address pool set.
+      // The ID of the address pool.
       shared_ptr<string> id_ {};
-      // The weight of the address pool in the secondary address pool set.
+      // The weight of the address pool.
       shared_ptr<int32_t> lbaWeight_ {};
     };
 
@@ -144,9 +144,9 @@ namespace Models
 
 
     protected:
-      // The ID of the address pool in the primary address pool set.
+      // The ID of the address pool.
       shared_ptr<string> id_ {};
-      // The weight of the address pool in the primary address pool set.
+      // The weight of the address pool.
       shared_ptr<int32_t> lbaWeight_ {};
     };
 
@@ -279,72 +279,81 @@ namespace Models
 
 
   protected:
-    // The address pools in the primary address pool set.
+    // The collection of primary address pools.
     // 
     // This parameter is required.
     shared_ptr<vector<AddDnsGtmAccessStrategyRequest::DefaultAddrPool>> defaultAddrPool_ {};
-    // The type of the primary address pool. Valid values:
+    // The type of the primary address pool.
     // 
-    // *   IPV4
-    // *   IPV6
-    // *   DOMAIN
+    // - IPV4
+    // 
+    // - IPV6
+    // 
+    // - DOMAIN
     // 
     // This parameter is required.
     shared_ptr<string> defaultAddrPoolType_ {};
-    // Specifies whether to enable DNS resolution with optimal latency for the primary address pool set. Valid values:
+    // The latency-based scheduling optimization for the primary address pool collection.
     // 
-    // *   OPEN
-    // *   CLOSE
+    // - OPEN: enabled
+    // 
+    // - CLOSE: disabled
     shared_ptr<string> defaultLatencyOptimization_ {};
-    // The load balancing policy of the primary address pool set. Valid values:
+    // The load balancing policy for the primary address pool collection.
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: returns all addresses.
+    // 
+    // - RATIO: returns addresses by weight.
     shared_ptr<string> defaultLbaStrategy_ {};
-    // The maximum number of addresses returned from the primary address pool set.
+    // The maximum number of addresses returned from the primary address pool collection.
     shared_ptr<int32_t> defaultMaxReturnAddrNum_ {};
-    // The minimum number of available addresses in the primary address pool set.
+    // The minimum number of active addresses in the primary address pool collection.
     // 
     // This parameter is required.
     shared_ptr<int32_t> defaultMinAvailableAddrNum_ {};
-    // The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+    // The collection of failover address pools. If a failover address pool collection is not configured, enter "EMPTY".
     shared_ptr<vector<AddDnsGtmAccessStrategyRequest::FailoverAddrPool>> failoverAddrPool_ {};
-    // The type of the secondary address pool. Valid values:
+    // The type of the failover address pool.
     // 
-    // *   IPV4
-    // *   IPV6
-    // *   DOMAIN
+    // - IPV4
+    // 
+    // - IPV6
+    // 
+    // - DOMAIN
     shared_ptr<string> failoverAddrPoolType_ {};
-    // Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
+    // The latency-based scheduling optimization for the failover address pool collection.
     // 
-    // *   OPEN
-    // *   CLOSE
+    // - OPEN: enabled
+    // 
+    // - CLOSE: disabled
     shared_ptr<string> failoverLatencyOptimization_ {};
-    // The load balancing policy of the secondary address pool set. Valid values:
+    // The load balancing policy for the failover address pool collection.
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: returns all addresses.
+    // 
+    // - RATIO: returns addresses by weight.
     shared_ptr<string> failoverLbaStrategy_ {};
-    // The maximum number of addresses returned from the secondary address pool set.
+    // The maximum number of addresses returned from the failover address pool collection.
     shared_ptr<int32_t> failoverMaxReturnAddrNum_ {};
-    // The minimum number of available addresses in the secondary address pool set.
+    // The minimum number of active addresses in the failover address pool collection.
     shared_ptr<int32_t> failoverMinAvailableAddrNum_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of some returned parameters. Default value: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The Domain Name System (DNS) request source. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Group.
+    // The source of the DNS request. For example, `["default", "drpeng"]` indicates a global policy and Dr. Peng Group.
     shared_ptr<string> lines_ {};
-    // The type of the access policy. Valid values:
+    // The type of the access policy.
     // 
-    // *   GEO: geographical location-based access policy
-    // *   LATENCY: latency-based access policy
+    // - GEO: a location-based access policy.
+    // 
+    // - LATENCY: a latency-based access policy.
     // 
     // This parameter is required.
     shared_ptr<string> strategyMode_ {};
-    // The name of the access policy.
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> strategyName_ {};

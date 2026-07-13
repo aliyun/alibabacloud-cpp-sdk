@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
   };
 

@@ -632,15 +632,15 @@ namespace Models
 
   protected:
     shared_ptr<ListCloudGtmInstanceConfigsResponseBody::InstanceConfigs> instanceConfigs_ {};
-    // Current page number, starting from **1**, default is **1**.
+    // The page number. The value starts from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+    // The number of entries per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Unique request identification code.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries for domain instance configurations.
+    // The total number of domain name instance configurations.
     shared_ptr<int32_t> totalItems_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

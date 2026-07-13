@@ -103,24 +103,33 @@ namespace Models
 
 
   protected:
-    // The ID of the domain name group.
+    // The ID of the domain name group. If you do not specify this parameter, all groups are queried.
     shared_ptr<string> groupId_ {};
-    // The keyword for the query in "%KeyWord%" mode. The keyword is not case-sensitive.
+    // The keyword for the query. A case-insensitive \\`contains\\` search is performed.
     shared_ptr<string> keyWord_ {};
-    // The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
-    shared_ptr<string> lang_ {};
-    // The page number to return. The page number starts from **1**. Default value: **1**.
-    shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return per page. Maximum value: **100**. Default value: **20**.
-    shared_ptr<int64_t> pageSize_ {};
-    // The start time for the query. Format: **YYYY-MM-DD**
-    shared_ptr<string> startDate_ {};
-    // The type of object of which you want to query operation logs. Valid values:
+    // The language of the request and response.
     // 
-    // *   domain: domain name
-    // *   slavedns: secondary Domain Name System (DNS)
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    // 
+    // The default value is **zh**.
+    shared_ptr<string> lang_ {};
+    // The number of the page to return. The value starts from **1**. The default value is **1**.
+    shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
+    shared_ptr<int64_t> pageSize_ {};
+    // The start date. The format is **YYYY-MM-DD**.
+    shared_ptr<string> startDate_ {};
+    // The type of content to query.
+    // 
+    // - domain: domain name
+    // 
+    // - slavedns: secondary DNS
+    // 
+    // If you do not specify this parameter, all types are queried.
     shared_ptr<string> type_ {};
-    // The end time for the query. Format: **YYYY-MM-DD**
+    // The end date. The format is **YYYY-MM-DD**.
     shared_ptr<string> endDate_ {};
   };
 

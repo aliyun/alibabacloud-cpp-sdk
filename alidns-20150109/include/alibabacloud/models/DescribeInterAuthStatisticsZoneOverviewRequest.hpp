@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The statistical period. Valid values: DAY, WEEK, and MONTH.
     shared_ptr<string> overviewPeriod_ {};
+    // The region.
     shared_ptr<string> serverRegion_ {};
+    // The name of the zone.
     shared_ptr<string> zoneName_ {};
   };
 

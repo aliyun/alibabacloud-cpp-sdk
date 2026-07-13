@@ -130,42 +130,52 @@ namespace Models
 
 
   protected:
-    // Return language value, options:
+    // The language of the return value. Valid values:
+    // 
     // - zh-CN: Chinese.
+    // 
     // - en-US: English.
     shared_ptr<string> acceptLanguage_ {};
-    // IP address or domain name.
+    // The IP address or domain name.
     shared_ptr<string> address_ {};
-    // The address ID. This ID uniquely identifies the address.
+    // The unique ID of the address.
     shared_ptr<string> addressId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token that is used to ensure the idempotence of the request. The client must generate a unique token for each request. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Indicates the current availability of the address:
-    // - enable: Enabled status
-    // - disable: Disabled status
-    shared_ptr<string> enableStatus_ {};
-    // The health check state of the address. Valid values:
+    // The state of the address. Valid values:
     // 
-    // *   ok: The address passes all health checks of the referenced health check templates.
-    // *   ok_alert: The address fails some health checks of the referenced health check templates but the address is deemed normal.
-    // *   ok_no_monitor: The address does not reference a health check template.
-    // *   exceptional: The address fails some or all health checks of the referenced health check templates and the address is deemed abnormal.
+    // - enable: The address is enabled.
+    // 
+    // - disable: The address is disabled.
+    shared_ptr<string> enableStatus_ {};
+    // The health status of the address. Valid values:
+    // 
+    // - ok: All health check tasks that are associated with the address are normal.
+    // 
+    // - ok_alert: Some health check tasks that are associated with the address are abnormal, but the address is still considered normal.
+    // 
+    // - ok_no_monitor: No health check template is associated with the address.
+    // 
+    // - exceptional: Some or all health check tasks that are associated with the address are abnormal, and the address is considered abnormal.
     shared_ptr<string> healthStatus_ {};
-    // The ID of the health check template. This ID uniquely identifies the health check template.
+    // The unique ID of the health check template.
     shared_ptr<string> monitorTemplateId_ {};
-    // Address name.
+    // The name of the address.
     shared_ptr<string> name_ {};
-    // Current page number, starting from **1**, default is **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+    // The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Address type:
+    // The type of the address. Valid values:
+    // 
     // - IPv4
+    // 
     // - IPv6
+    // 
     // - domain
     shared_ptr<string> type_ {};
   };

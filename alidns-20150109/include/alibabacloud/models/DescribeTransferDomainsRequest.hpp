@@ -94,22 +94,31 @@ namespace Models
 
 
   protected:
-    // Specifies the domain name for which you want to view the transfer record.
+    // The domain name. Use this parameter to query the transfer records of a specific domain name.
     shared_ptr<string> domainName_ {};
-    // The user ID from which the domain name was transferred to the current account.
+    // The ID of the source account. Use this parameter to query the list of domain names transferred from this account to the current account.
     shared_ptr<int64_t> fromUserId_ {};
-    // The language.
-    shared_ptr<string> lang_ {};
-    // The page number. Pages start from page 1. Default value: 1.
-    shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
-    shared_ptr<int64_t> pageSize_ {};
-    // The user ID to which the domain name was transferred from the current account.
-    shared_ptr<int64_t> targetUserId_ {};
-    // The transfer type. Valid values:
+    // The language of the response.
     // 
-    // *   IN: The domain name was transferred to the current account.
-    // *   OUT: The domain name was transferred from the current account.
+    // Valid values:
+    // 
+    // zh: Chinese
+    // 
+    // en: English
+    // 
+    // The default value is zh.
+    shared_ptr<string> lang_ {};
+    // The page number. The value starts from 1. The default value is 1.
+    shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. The maximum value is 100. The default value is 20.
+    shared_ptr<int64_t> pageSize_ {};
+    // The ID of the destination account. Use this parameter to query the list of domain names transferred from the current account to this account.
+    shared_ptr<int64_t> targetUserId_ {};
+    // The type of transfer. Valid values:
+    // 
+    // - IN: The list of domain names transferred to the current account.
+    // 
+    // - OUT: The list of domain names transferred from the current account.
     // 
     // This parameter is required.
     shared_ptr<string> transferType_ {};

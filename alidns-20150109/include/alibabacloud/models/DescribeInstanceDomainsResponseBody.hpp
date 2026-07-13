@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The time when the instance was created.
       shared_ptr<string> createTime_ {};
-      // The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The UNIX timestamp that indicates when the instance was created.
       shared_ptr<int64_t> createTimestamp_ {};
       // The domain name.
       shared_ptr<string> domainName_ {};
@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // The domain names that are bound to the DNS instance.
+    // A list of domain names attached to the instance.
     shared_ptr<vector<DescribeInstanceDomainsResponseBody::InstanceDomains>> instanceDomains_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. Default: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+    // The number of entries per page. Maximum value: **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned on all pages.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

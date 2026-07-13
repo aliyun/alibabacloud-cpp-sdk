@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The keyword that you use for query. Exact match is supported by instance ID or instance name.
+    // The keyword for an exact match search by instance ID or instance name.
     shared_ptr<string> keyword_ {};
-    // The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+    // The language.
     shared_ptr<string> lang_ {};
-    // Specifies whether additional information is required. Default value: **false**.
+    // Specifies whether to return detailed information. The default value is **false**.
     shared_ptr<bool> needDetailAttributes_ {};
-    // The page number to return.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The number of entries to return on each page for a paged query. The maximum value is **100**. The default value is **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

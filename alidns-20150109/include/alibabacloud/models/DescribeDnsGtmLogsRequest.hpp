@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // The timestamp that specifies the end of the time range to query.
+    // The end of the time range to query. This is a UNIX timestamp.
     shared_ptr<int64_t> endTimestamp_ {};
-    // The ID of the instance.
+    // The instance ID. Call the [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+    // The keyword. The search is performed in the \\`%KeyWord%\\` pattern and is not case-sensitive.
     shared_ptr<string> keyword_ {};
-    // The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of some returned parameters. The default value is en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The timestamp that specifies the beginning of the time range to query.
+    // The start of the time range to query. This is a UNIX timestamp.
     shared_ptr<int64_t> startTimestamp_ {};
   };
 

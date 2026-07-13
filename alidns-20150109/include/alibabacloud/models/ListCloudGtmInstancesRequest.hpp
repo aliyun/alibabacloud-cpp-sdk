@@ -94,22 +94,24 @@ namespace Models
 
 
   protected:
-    // Return language value. Options:
+    // The language of the response. Valid values:
+    // 
     // - zh-CN: Chinese.
+    // 
     // - en-US: English.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> chargeType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token that is used to ensure the idempotence of the request. Generate a unique value on the client. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The ID of the GTM instance.
     shared_ptr<string> instanceId_ {};
-    // Instance name, used to distinguish the business purpose of the instance.
+    // The name of the instance. This helps you identify the business purpose of the instance.
     shared_ptr<string> instanceName_ {};
-    // Current page number, starting from **1**, default is **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+    // The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

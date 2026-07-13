@@ -96,19 +96,23 @@ namespace Models
   protected:
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The end date of the query. The format is YYYY-MM-DD.
     // 
-    // The default value is the day when you query the required data.
+    // The default value is the current day.
     shared_ptr<string> endDate_ {};
-    // The language type.
-    shared_ptr<string> lang_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1.
-    shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
-    shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // You can query only the DNS records of the last 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    shared_ptr<string> lang_ {};
+    // The current page number. The value starts from 1. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page for a paged query. Maximum value: 100. Default value: 20.
+    shared_ptr<int32_t> pageSize_ {};
+    // The start date of the query. The format is YYYY-MM-DD.
+    // 
+    // You can query data only from the last 90 days. StartDate must be greater than or equal to `Now - 90`.
     shared_ptr<string> startDate_ {};
     // The subdomain.
     shared_ptr<string> subDomain_ {};

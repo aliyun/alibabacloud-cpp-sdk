@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // A client token that ensures the idempotence of the request. You can specify a custom value. Make sure that the value is unique among different requests. The value can contain up to 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to enable recursive proxy for subdomains. Valid values:
+    // 
+    // zone: Disables recursive proxy. An NXDOMAIN response is returned for non-existent subdomains. record: Enables recursive proxy. For non-existent subdomains, the system queries the forwarding and recursion modules in sequence and returns the final result.
     shared_ptr<string> proxyPattern_ {};
+    // The name of the zone.
     shared_ptr<string> zoneName_ {};
   };
 

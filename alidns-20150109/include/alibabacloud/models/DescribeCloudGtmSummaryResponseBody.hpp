@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The total number of instances within the current account.
+    // The total number of instances in your account.
     shared_ptr<int32_t> instanceTotalCount_ {};
     // The total number of configured health check tasks.
     shared_ptr<int32_t> monitorTaskTotalCount_ {};
     // The quota on the number of health check tasks.
     shared_ptr<int32_t> monitorTaskTotalQuota_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The unique ID of the DNS record.
+    // 
     // This parameter is required.
     shared_ptr<string> recordId_ {};
   };

@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The domain name.
         shared_ptr<string> domainName_ {};
+        // The current status of the domain name.
         shared_ptr<string> status_ {};
+        // The message for the domain name status.
         shared_ptr<string> statusMsg_ {};
       };
 
@@ -130,7 +133,9 @@ namespace Models
 
 
     protected:
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The status information of the task.
       shared_ptr<vector<Data::StatusList>> statusList_ {};
     };
 
@@ -218,12 +223,23 @@ namespace Models
 
 
     protected:
+      // The unauthorized operation that was attempted.
       shared_ptr<string> authAction_ {};
+      // The display name of the authorized entity.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The ID of the owner of the authorized entity.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The identity type.
       shared_ptr<string> authPrincipalType_ {};
+      // The encrypted complete diagnostic information.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The reason why authentication failed. Valid values:
+      // 
+      // - ExplicitDeny: The access is explicitly denied.
+      // 
+      // - ImplicitDeny: The access is implicitly denied.
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -269,10 +285,15 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This field is returned only when Resource Access Management (RAM) authentication fails.
     shared_ptr<UpdateRspDomainServerProhibitStatusForGatewayResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<UpdateRspDomainServerProhibitStatusForGatewayResponseBody::Data> data_ {};
+    // Indicates whether the request can be retried if it fails. true: The request can be retried. false: The request cannot be retried.
     shared_ptr<bool> recoverableError_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. true: The request was successful. false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

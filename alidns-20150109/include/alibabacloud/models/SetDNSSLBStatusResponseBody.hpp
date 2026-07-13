@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether weighted round-robin is enabled for the subdomain name.
+    // The latest status of the weight configuration.
     shared_ptr<bool> open_ {};
-    // The number of A records that are matched.
+    // The number of DNS records that match the rule.
     shared_ptr<int64_t> recordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // Domain name.
         shared_ptr<string> domainName_ {};
+        // Current domain name status.
         shared_ptr<string> status_ {};
+        // Description of the domain name status.
         shared_ptr<string> statusMsg_ {};
       };
 
@@ -130,7 +133,9 @@ namespace Models
 
 
     protected:
+      // Domain name.
       shared_ptr<string> domainName_ {};
+      // Status information for the task
       shared_ptr<vector<Data::StatusList>> statusList_ {};
     };
 
@@ -218,12 +223,23 @@ namespace Models
 
 
     protected:
+      // The unauthorized operation that was attempted.
       shared_ptr<string> authAction_ {};
+      // Display name of the authenticated entity.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // Owner ID of the authenticated entity.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // Identity type.
       shared_ptr<string> authPrincipalType_ {};
+      // Encrypted diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // Reason for authentication failure. Valid values:
+      // 
+      // - ExplicitDeny
+      // 
+      // - ImplicitDeny
       shared_ptr<string> noPermissionType_ {};
+      // Policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -269,10 +285,15 @@ namespace Models
 
 
   protected:
+    // Detailed access-denied information. This field appears only when RAM authentication fails.
     shared_ptr<UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // List of returned data items.
     shared_ptr<UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody::Data> data_ {};
+    // Indicates whether you can retry the request after failure. `true`: retry is allowed. `false`: retry is not allowed.
     shared_ptr<bool> recoverableError_ {};
+    // Unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. `true`: succeeded. `false`: failed.
     shared_ptr<bool> success_ {};
   };
 

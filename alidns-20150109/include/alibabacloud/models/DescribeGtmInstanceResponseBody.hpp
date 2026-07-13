@@ -186,43 +186,45 @@ namespace Models
 
 
   protected:
-    // The number of access policies of the GTM instance.
+    // The number of access policies.
     shared_ptr<int32_t> accessStrategyNum_ {};
-    // The number of address pools of the GTM instance.
+    // The number of address pools.
     shared_ptr<int32_t> addressPoolNum_ {};
-    // The alert group of the GTM instance.
+    // The alert contact group.
     shared_ptr<string> alertGroup_ {};
-    // The domain name of the GTM instance to which the service domain name is mapped by using a CNAME record.
+    // The CNAME access domain name.
     shared_ptr<string> cname_ {};
-    // Indicates whether the CNAME is a custom domain name or is assigned by the system. Valid values:
+    // The CNAME access mode. Valid values:
     // 
-    // *   **SYSTEM_ASSIGN**
-    // *   **CUSTOM**
+    // - **SYSTEM_ASSIGN**: The system assigns a domain name.
+    // 
+    // - **CUSTOM**: You use a custom domain name.
     shared_ptr<string> cnameMode_ {};
-    // The time when the GTM instance was created.
+    // The time when the instance was created.
     shared_ptr<string> createTime_ {};
-    // The timestamp that indicates the time when the GTM instance was created.
+    // The time when the instance was created. This is a UNIX timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The time when the GTM instance expires.
+    // The time when the instance expires.
     shared_ptr<string> expireTime_ {};
-    // The timestamp that indicates the time when the GTM instance expires.
+    // The expiration time of the instance. This is a UNIX timestamp.
     shared_ptr<int64_t> expireTimestamp_ {};
     // The ID of the GTM instance.
     shared_ptr<string> instanceId_ {};
-    // The name of the GTM instance.
+    // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The load balancing policy. Valid values:
+    // The load balancing policy.
     // 
-    // *   **ALL_RR**: round robin
-    // *   **RATIO**: weighted round-robin
+    // - **ALL_RR**: round-robin
+    // 
+    // - **RATIO**: weighted round-robin
     shared_ptr<string> lbaStrategy_ {};
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The global time to live (TTL).
+    // The global TTL.
     shared_ptr<int32_t> ttl_ {};
-    // The domain name of the application.
+    // The custom domain name.
     shared_ptr<string> userDomainName_ {};
     // The version code.
     shared_ptr<string> versionCode_ {};

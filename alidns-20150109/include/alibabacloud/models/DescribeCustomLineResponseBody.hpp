@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The end IP address of the CIDR block.
+      // The end IP address of the segment.
       shared_ptr<string> endIp_ {};
-      // The start IP address of the CIDR block.
+      // The start IP address of the segment.
       shared_ptr<string> startIp_ {};
     };
 
@@ -135,13 +135,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The ID/Name of the custom line.
+    // The ID of the custom line.
     shared_ptr<int64_t> id_ {};
-    // The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
+    // The list of IP address segments. Use a hyphen (-) to separate the start and end IP addresses. Each line represents one segment. You can specify from 1 to 50 segments. For a single IP address, use the format IP1-IP1. IP address segments cannot overlap.
     shared_ptr<vector<DescribeCustomLineResponseBody::IpSegmentList>> ipSegmentList_ {};
     // The name of the custom line.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

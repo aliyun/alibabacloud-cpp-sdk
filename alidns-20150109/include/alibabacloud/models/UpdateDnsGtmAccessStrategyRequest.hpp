@@ -100,9 +100,9 @@ namespace Models
 
 
     protected:
-      // The ID of the address pool in the secondary address pool set.
+      // The ID of the address pool in the failover address pool collection.
       shared_ptr<string> id_ {};
-      // The weight of the address pool in the secondary address pool set.
+      // The weight of the address pool in the failover address pool collection.
       shared_ptr<int32_t> lbaWeight_ {};
     };
 
@@ -144,9 +144,9 @@ namespace Models
 
 
     protected:
-      // The ID of the address pool in the primary address pool set.
+      // The ID of the address pool in the primary address pool collection.
       shared_ptr<string> id_ {};
-      // The weight of the address pool in the primary address pool set.
+      // The weight of the address pool in the primary address pool collection.
       shared_ptr<int32_t> lbaWeight_ {};
     };
 
@@ -279,71 +279,81 @@ namespace Models
 
 
   protected:
-    // The primary/secondary switchover policy for address pool sets. Valid values:
+    // The switchover policy for the address pool collection:
     // 
-    // *   AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.
-    // *   DEFAULT: the primary address pool set
-    // *   FAILOVER: the secondary address pool set
+    // - AUTO: Automatic switchover
+    // 
+    // - DEFAULT: Primary address pool collection
+    // 
+    // - FAILOVER: Failover address pool collection
     shared_ptr<string> accessMode_ {};
-    // The address pools in the primary address pool set.
+    // The primary address pool collection.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateDnsGtmAccessStrategyRequest::DefaultAddrPool>> defaultAddrPool_ {};
-    // The type of the primary address pool. Valid values:
+    // The type of the primary address pool:
     // 
-    // *   IPV4
-    // *   IPV6
-    // *   DOMAIN
+    // - IPV4
+    // 
+    // - IPV6
+    // 
+    // - DOMAIN
     // 
     // This parameter is required.
     shared_ptr<string> defaultAddrPoolType_ {};
-    // Specifies whether to enable Domain Name System (DNS) resolution with optimal latency for the primary address pool set. Valid values:
+    // Specifies whether to enable latency-based scheduling for the primary address pool collection:
     // 
-    // *   OPEN
-    // *   CLOSE
+    // - OPEN: Enabled
+    // 
+    // - CLOSE: Disabled
     shared_ptr<string> defaultLatencyOptimization_ {};
-    // The load balancing policy of the primary address pool set. Valid values:
+    // The load balancing policy for the primary address pool collection:
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: Returns all addresses.
+    // 
+    // - RATIO: Returns addresses by weight.
     shared_ptr<string> defaultLbaStrategy_ {};
-    // The maximum number of addresses returned from the primary address pool set.
+    // The maximum number of addresses returned from the primary address pool collection.
     shared_ptr<int32_t> defaultMaxReturnAddrNum_ {};
-    // The minimum number of available addresses in the primary address pool set.
+    // The minimum number of available addresses in the primary address pool collection.
     // 
     // This parameter is required.
     shared_ptr<int32_t> defaultMinAvailableAddrNum_ {};
-    // The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+    // The failover address pool collection. If no failover address pool collection is configured, enter "EMPTY".
     shared_ptr<vector<UpdateDnsGtmAccessStrategyRequest::FailoverAddrPool>> failoverAddrPool_ {};
-    // The type of the secondary address pool. Valid values:
+    // The type of the failover address pool:
     // 
-    // *   IPV4
-    // *   IPV6
-    // *   DOMAIN
+    // - IPV4
+    // 
+    // - IPV6
+    // 
+    // - DOMAIN
     shared_ptr<string> failoverAddrPoolType_ {};
-    // Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
+    // Specifies whether to enable latency-based scheduling for the failover address pool collection:
     // 
-    // *   OPEN
-    // *   CLOSE
+    // - OPEN: Enabled
+    // 
+    // - CLOSE: Disabled
     shared_ptr<string> failoverLatencyOptimization_ {};
-    // The load balancing policy of the secondary address pool set. Valid values:
+    // The load balancing policy for the failover address pool collection:
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: Returns all addresses.
+    // 
+    // - RATIO: Returns addresses by weight.
     shared_ptr<string> failoverLbaStrategy_ {};
-    // The maximum number of addresses returned from the secondary address pool set.
+    // The maximum number of addresses returned from the failover address pool collection.
     shared_ptr<int32_t> failoverMaxReturnAddrNum_ {};
-    // The minimum number of available addresses in the secondary address pool set.
+    // The minimum number of available addresses in the failover address pool collection.
     shared_ptr<int32_t> failoverMinAvailableAddrNum_ {};
-    // The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Default value: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The line codes of the source regions. Example: `["default", "drpeng"]`, which indicates the global line and Dr. Peng Group line.
+    // The line codes of the access regions. For example, `["default", "drpeng"]` specifies the global line and the Dr. Peng line.
     shared_ptr<string> lines_ {};
-    // The ID of the access policy.
+    // The ID of the policy. To obtain the policy ID, call [DescribeDnsGtmAccessStrategies](https://help.aliyun.com/document_detail/2357191.html).
     // 
     // This parameter is required.
     shared_ptr<string> strategyId_ {};
-    // The name of the access policy.
+    // The name of the policy.
     // 
     // This parameter is required.
     shared_ptr<string> strategyName_ {};

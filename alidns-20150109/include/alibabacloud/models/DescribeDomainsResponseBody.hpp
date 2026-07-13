@@ -470,11 +470,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDomainsResponseBody::Domains> domains_ {};
-    // The page number of the returned page.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page. The maximum value is **100**. The default value is **20**.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of domain names.
     shared_ptr<int64_t> totalCount_ {};

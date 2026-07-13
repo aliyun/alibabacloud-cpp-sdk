@@ -205,13 +205,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDomainLogsResponseBody::DomainLogs> domainLogs_ {};
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of logs returned on the current page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of logs.
     shared_ptr<int64_t> totalCount_ {};
   };
 

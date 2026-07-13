@@ -162,11 +162,11 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+    // The number of entries returned per page. The maximum value is **100**. The default value is **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRecordStatisticsSummaryResponseBody::Statistics> statistics_ {};
     // The total number of entries returned.

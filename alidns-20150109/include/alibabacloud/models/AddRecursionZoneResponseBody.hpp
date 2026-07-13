@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
-    // Zone ID。
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

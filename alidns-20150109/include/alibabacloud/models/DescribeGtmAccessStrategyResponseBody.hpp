@@ -274,39 +274,66 @@ namespace Models
 
 
   protected:
-    // The access policy.
+    // The switchover policy for the address pool groups:
+    // 
+    // - **AUTO**: Automatic switchover
+    // 
+    // - **DEFAULT**: Primary address pool group
+    // 
+    // - **FAILOVER**: Secondary address pool group
     shared_ptr<string> accessMode_ {};
     // The access status. Valid values:
     // 
-    // *   **DEFAULT**: Indicates normal when the default address pool is accessed.
-    // *   **FAILOVER**: Indicates an exception when a failover address pool is accessed.
+    // - **DEFAULT**: Normal. Access requests are routed to the primary address pool group.
+    // 
+    // - **FAILOVER**: Abnormal. Access requests are routed to the secondary address pool group.
     shared_ptr<string> accessStatus_ {};
-    // Indicates whether health check is enabled for the default address pool.
+    // The health check status of the primary address pool group. Valid values:
+    // 
+    // - **OPEN**: Enabled
+    // 
+    // - **CLOSE**: Disabled
+    // 
+    // - **UNCONFIGURED**: Not configured
     shared_ptr<string> defaultAddrPoolMonitorStatus_ {};
-    // The name of the default address pool.
+    // The name of the primary address pool group.
     shared_ptr<string> defaultAddrPoolName_ {};
-    // The availability status of the default address pool.
+    // The availability status of the primary address pool group. Valid values:
+    // 
+    // - **AVAILABLE**: The address pool group is available.
+    // 
+    // - **NOT_AVAILABLE**: The address pool group is unavailable.
     shared_ptr<string> defaultAddrPoolStatus_ {};
-    // The ID of the default address pool.
+    // The ID of the primary address pool group.
     shared_ptr<string> defultAddrPoolId_ {};
-    // The ID of the failover address pool.
+    // The ID of the secondary address pool group. If no secondary address pool group is configured, **EMPTY** is returned.
     shared_ptr<string> failoverAddrPoolId_ {};
-    // Indicates whether health check is enabled for the failover address pool.
+    // The health check status of the secondary address pool group. Valid values:
+    // 
+    // - **OPEN**: Enabled
+    // 
+    // - **CLOSE**: Disabled
+    // 
+    // - **UNCONFIGURED**: Not configured
     shared_ptr<string> failoverAddrPoolMonitorStatus_ {};
-    // The name of the failover address pool.
+    // The name of the secondary address pool group.
     shared_ptr<string> failoverAddrPoolName_ {};
-    // The availability status of the failover address pool.
+    // The availability status of the secondary address pool group. Valid values:
+    // 
+    // - **AVAILABLE**: The address pool group is available.
+    // 
+    // - **NOT_AVAILABLE**: The address pool group is unavailable.
     shared_ptr<string> failoverAddrPoolStatus_ {};
-    // The ID of the GTM instance whose access policy details you want to query.
+    // The ID of the associated Global Traffic Manager (GTM) instance.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeGtmAccessStrategyResponseBody::Lines> lines_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the access policy queried.
+    // The policy ID.
     shared_ptr<string> strategyId_ {};
-    // The mode of traffic scheduling.
+    // The policy mode. SELF_DEFINED indicates a custom policy.
     shared_ptr<string> strategyMode_ {};
-    // The name of the access policy queried.
+    // The name of the access policy.
     shared_ptr<string> strategyName_ {};
   };
 

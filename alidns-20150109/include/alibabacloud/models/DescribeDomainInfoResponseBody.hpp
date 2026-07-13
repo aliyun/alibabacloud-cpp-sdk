@@ -427,7 +427,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the domain name was registered in Alibaba Cloud.
+    // Indicates whether the domain name was registered with Alibaba Cloud.
     shared_ptr<bool> aliDomain_ {};
     shared_ptr<DescribeDomainInfoResponseBody::AvailableTtls> availableTtls_ {};
     // The time when the domain name was created.
@@ -435,7 +435,7 @@ namespace Models
     shared_ptr<DescribeDomainInfoResponseBody::DnsServers> dnsServers_ {};
     // The ID of the domain name.
     shared_ptr<string> domainId_ {};
-    // Indicates whether the DNS traffic analysis feature is enabled. Valid values:
+    // The status of the logging feature.
     shared_ptr<string> domainLoggingSwitchStatus_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
@@ -443,39 +443,46 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The name of the domain name group.
     shared_ptr<string> groupName_ {};
-    // Indicates whether blackhole filtering was triggered.
+    // Indicates whether blackhole filtering is activated for the domain name.
     shared_ptr<bool> inBlackHole_ {};
-    // Indicates whether traffic scrubbing was in progress.
+    // Indicates whether the domain name is being scrubbed.
     shared_ptr<bool> inClean_ {};
     // The ID of the Alibaba Cloud DNS instance.
     shared_ptr<string> instanceId_ {};
-    // The type of the DNS request line.
+    // The type of the DNS request source line.
     shared_ptr<string> lineType_ {};
-    // The minimum TTL value.
+    // The minimum TTL.
     shared_ptr<int64_t> minTtl_ {};
-    // The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+    // The Punycode for the Chinese domain name.
     shared_ptr<string> punyCode_ {};
-    // The tree-structure DNS request lines.
+    // The list of DNS request source lines in a tree structure.
     shared_ptr<string> recordLineTreeJson_ {};
     shared_ptr<DescribeDomainInfoResponseBody::RecordLines> recordLines_ {};
-    // Indicates whether the DNS request lines are regional lines.
+    // Indicates whether the line is a regional line.
     shared_ptr<bool> regionLines_ {};
-    // The description.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // Indicates whether secondary DNS is supported.
     shared_ptr<bool> slaveDns_ {};
-    // Indicates whether the queried domain name is a hosted subdomain name. Valid values:
+    // Indicates whether the queried domain is a hosted subdomain. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> subDomain_ {};
-    // The version ID of Alibaba Cloud DNS.
+    // The edition ID of Alibaba Cloud DNS. Valid values:
+    // 
+    // - version_enterprise_advanced: Ultimate Edition
+    // 
+    // - version_personal: Personal Edition
+    // 
+    // - mianfei: Free Edition
     shared_ptr<string> versionCode_ {};
-    // The edition of Alibaba Cloud DNS.
+    // The name of the Alibaba Cloud DNS edition.
     shared_ptr<string> versionName_ {};
   };
 

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The ID of the GTM instance that you want to query.
+    // The ID of the GTM instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+    // The number of entries to return on each page for a paged query. The maximum value is **100**. The default value is **20**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

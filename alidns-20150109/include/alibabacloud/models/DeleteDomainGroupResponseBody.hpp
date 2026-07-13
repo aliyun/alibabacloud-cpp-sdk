@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The name of the domain name group.
     shared_ptr<string> groupName_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

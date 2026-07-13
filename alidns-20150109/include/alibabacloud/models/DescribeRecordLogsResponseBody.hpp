@@ -183,14 +183,14 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of logs returned on the current page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<DescribeRecordLogsResponseBody::RecordLogs> recordLogs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of logs.
     shared_ptr<int64_t> totalCount_ {};
   };
 

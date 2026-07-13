@@ -110,12 +110,13 @@ namespace Models
 
 
     protected:
+      // The number of DingTalk notifications that were sent.
       shared_ptr<int32_t> dingtalkUsedCount_ {};
-      // The total number of emails that were sent.
+      // The number of email notifications that were sent.
       shared_ptr<int32_t> emailUsedCount_ {};
-      // The total number of short messages that were sent.
+      // The number of text messages that were sent.
       shared_ptr<int32_t> smsUsedCount_ {};
-      // The number of detection tasks that were created.
+      // The number of health check tasks that were created.
       shared_ptr<int32_t> taskUsedCount_ {};
     };
 
@@ -328,31 +329,33 @@ namespace Models
 
     protected:
       shared_ptr<Config::AlertConfig> alertConfig_ {};
-      // The name of the alert group.
+      // The alert contact group. The value is a \\`List\\<string>\\` in JSON format.
       shared_ptr<string> alertGroup_ {};
-      // The type of the CNAME domain name that is used to access the instance. Valid value:
+      // The type of the CNAME domain name used for access.
       // 
-      // *   PUBLIC: The CNAME domain name is used to access the instance over the Internet.
+      // - PUBLIC: Internet-facing
       shared_ptr<string> cnameType_ {};
       // The name of the instance.
       shared_ptr<string> instanceName_ {};
-      // The domain name that is used to access the instance over the Internet.
+      // The public access domain name.
       shared_ptr<string> pubicZoneName_ {};
-      // Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access the instance over the Internet. Valid values:
+      // The access method for the public CNAME.
       // 
-      // *   CUSTOM: A custom CNAME domain name is used.
-      // *   SYSTEM_ASSIGN: A CNAME domain name assigned by the system is used.
+      // - CUSTOM: custom
+      // 
+      // - SYSTEM_ASSIGN: system-assigned. This feature is disabled.
       shared_ptr<string> publicCnameMode_ {};
-      // The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+      // The hostname for public access.
       shared_ptr<string> publicRr_ {};
-      // The service domain name that is used over the Internet.
+      // The user\\"s public service domain name.
       shared_ptr<string> publicUserDomainName_ {};
-      // The type of the access policy. Valid values:
+      // The access policy mode.
       // 
-      // *   LATENCY: Latency-based
-      // *   GEO: Geographical location-based
+      // - LATENCY: latency-based
+      // 
+      // - GEO: geography-based
       shared_ptr<string> strategyMode_ {};
-      // The global time to live (TTL).
+      // The global TTL.
       shared_ptr<int32_t> ttl_ {};
     };
 
@@ -456,29 +459,29 @@ namespace Models
 
 
   protected:
-    // The configurations of the instance.
+    // The instance configuration.
     shared_ptr<DescribeDnsGtmInstanceResponseBody::Config> config_ {};
     // The time when the instance was created.
     shared_ptr<string> createTime_ {};
-    // The UNIX timestamp that indicates when the instance was created.
+    // The UNIX timestamp when the instance was created.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The time when the instance expires.
+    // The expiration date.
     shared_ptr<string> expireTime_ {};
-    // The UNIX timestamp that indicates when the instance expires.
+    // The UNIX timestamp when the instance expires.
     shared_ptr<int64_t> expireTimestamp_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The billing method. Valid value:
+    // The billing method.
     // 
-    // *   Subscription: You can pay in advance for the use of resources.
+    // - Subscription: subscription
     shared_ptr<string> paymentType_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the instance belongs.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The total number of SMS notifications.
+    // The quota on the number of text message notifications.
     shared_ptr<int32_t> smsQuota_ {};
-    // The total number of detection tasks.
+    // The quota on the number of health check tasks.
     shared_ptr<int32_t> taskQuota_ {};
     // The used quota.
     shared_ptr<DescribeDnsGtmInstanceResponseBody::UsedQuota> usedQuota_ {};

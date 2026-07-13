@@ -48,11 +48,18 @@ namespace Models
 
 
   protected:
-    // The domain name.
+    // The domain name.<props="china"> Call [DescribeDomains](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c4g.11186623.help-menu-search-29697.d_0) to obtain the domain name.
+    // <props="intl">Call [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) to obtain the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The language.
+    // The language of the return value. Valid values:
+    // 
+    // - zh: Chinese
+    // 
+    // - en: English
+    // 
+    // Default value: zh.
     shared_ptr<string> lang_ {};
   };
 

@@ -280,20 +280,37 @@ namespace Models
 
 
   protected:
+    // The time when the zone was created.
     shared_ptr<string> createTime_ {};
+    // The UNIX timestamp that indicates when the zone was created.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The ID of the creator.
     shared_ptr<string> creator_ {};
+    // The subtype of the creator.
     shared_ptr<string> creatorSubType_ {};
+    // The type of the creator.
     shared_ptr<string> creatorType_ {};
     shared_ptr<DescribeRecursionZoneResponseBody::EffectiveScopes> effectiveScopes_ {};
+    // Indicates whether recursive proxy for subdomains is enabled. Valid values:
+    // 
+    // zone: Disabled. If a non-existent subdomain is requested, an NXDOMAIN response is returned to indicate that the subdomain does not exist.
+    // record: Enabled. If a non-existent subdomain is requested, the system queries the forwarding and recursion modules in sequence. The final query result is used to respond to the DNS request.
     shared_ptr<string> proxyPattern_ {};
+    // The number of DNS records in the zone.
     shared_ptr<int32_t> recordCount_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The time when the zone was last updated.
     shared_ptr<string> updateTime_ {};
+    // The UNIX timestamp that indicates when the zone was last updated.
     shared_ptr<int64_t> updateTimestamp_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The zone ID. This is the unique identifier of the zone.
     shared_ptr<string> zoneId_ {};
+    // The name of the zone.
     shared_ptr<string> zoneName_ {};
   };
 

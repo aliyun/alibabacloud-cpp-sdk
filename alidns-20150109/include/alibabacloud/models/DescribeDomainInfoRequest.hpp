@@ -57,15 +57,27 @@ namespace Models
 
 
   protected:
-    // The domain name.
+    // The domain name. Call [DescribeDomains](https://help.aliyun.com/document_detail/2357286.html) to obtain the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The language type.
-    shared_ptr<string> lang_ {};
-    // Specifies whether detailed attributes are required. Default value: **false**, which indicates that detailed attributes are not returned.
+    // The language of the response. Valid values:
     // 
-    // If you set this parameter to **true**, the values of the following parameters are returned: LineType, MinTtl, RecordLineTreeJson, RecordLines, LineCode, LineDisplayName, LineName, RegionLines, and SlaveDns.
+    // - zh: Chinese
+    // 
+    // - en: English
+    // 
+    // Default value: en.
+    shared_ptr<string> lang_ {};
+    // Specifies whether to return detailed attributes of the domain name. Valid values:
+    // 
+    // - true
+    // 
+    // - false
+    // 
+    // The default value is false.
+    // 
+    // If you set this parameter to **true**, the response includes the following parameters: lineType, minTtl, recordLineTreeJson, recordLines, lineCode, lineDisplayName, lineName, regionLines, and slaveDns.
     shared_ptr<bool> needDetailAttributes_ {};
   };
 

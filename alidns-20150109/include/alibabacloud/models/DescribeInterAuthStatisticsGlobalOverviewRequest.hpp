@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The language of the returned availability zone names. Valid values:
+    // 
+    // - **zh-CN**: Chinese.
+    // 
+    // - **en-US** (default): English.
     shared_ptr<string> acceptLanguage_ {};
+    // A unique, client-generated token to ensure the idempotence of the request. The token must be a string of ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The statistical period.
     shared_ptr<string> overviewPeriod_ {};
+    // The ID of the region.
     shared_ptr<string> serverRegion_ {};
   };
 

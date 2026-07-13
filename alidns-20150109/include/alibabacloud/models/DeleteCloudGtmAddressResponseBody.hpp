@@ -48,11 +48,13 @@ namespace Models
 
 
   protected:
-    // Unique request identification code.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the address deletion operation was successful:
-    // - true: Operation successful
-    // - false: Operation failed
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

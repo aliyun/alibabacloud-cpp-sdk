@@ -260,45 +260,52 @@ namespace Models
   protected:
     // The time when the health check configuration was created.
     shared_ptr<string> createTime_ {};
-    // The timestamp that indicates the time when the health check configuration was created.
+    // The UNIX timestamp that indicates when the health check configuration was created.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+    // The number of consecutive health checks.
     shared_ptr<int32_t> evaluationCount_ {};
     // The health check interval. Unit: seconds. The value is 60.
     shared_ptr<int32_t> interval_ {};
     shared_ptr<DescribeGtmMonitorConfigResponseBody::IspCityNodes> ispCityNodes_ {};
     // The ID of the health check configuration.
     shared_ptr<string> monitorConfigId_ {};
-    // The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+    // The extended information. The parameters vary based on the protocol.
     // 
-    // HTTP or HTTPS:
+    // For HTTP and HTTPS:
     // 
-    // *   port: the port to check.
-    // *   failureRate: the failure rate.
-    // *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
-    // *   host: the host configuration.
-    // *   path: the health check URL.
+    // - port: The health check port.
     // 
-    // PING:
+    // - failureRate: The failure rate.
     // 
-    // *   packetNum: the number of ping packets.
-    // *   packetLossRate: the loss rate of ping packets.
-    // *   failureRate: the failure rate.
+    // - code: The return code. A response is considered abnormal if its status code is greater than the specified value. Valid values: 400 and 500.
     // 
-    // TCP:
+    // - host: The Host header of the request.
     // 
-    // *   port: the port to check.
-    // *   failureRate: the failure rate.
+    // - path: The path of the URL.
+    // 
+    // For PING:
+    // 
+    // - packetNum: The number of ping packets.
+    // 
+    // - packetLossRate: The packet loss rate.
+    // 
+    // - failureRate: The failure rate.
+    // 
+    // For TCP:
+    // 
+    // - port: The health check port.
+    // 
+    // - failureRate: The failure rate.
     shared_ptr<string> monitorExtendInfo_ {};
     // The protocol used for the health check.
     shared_ptr<string> protocolType_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+    // The timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
     shared_ptr<int32_t> timeout_ {};
     // The time when the health check configuration was last updated.
     shared_ptr<string> updateTime_ {};
-    // The timestamp that indicates the time when the health check configuration was last updated.
+    // The UNIX timestamp that indicates when the health check configuration was last updated.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

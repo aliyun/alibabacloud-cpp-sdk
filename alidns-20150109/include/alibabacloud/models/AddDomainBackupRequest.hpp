@@ -63,15 +63,17 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The language of the response. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
     // 
-    // Default value: en.
+    // - en: English
+    // 
+    // Default value: en
     shared_ptr<string> lang_ {};
     // The backup cycle. Valid values:
     // 
-    // *   DAY: backs up data on a daily basis.
-    // *   HOUR: backs up data on an hourly basis.
+    // - DAY: Backs up the domain once a day.
+    // 
+    // - HOUR: Backs up the domain once an hour.
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};

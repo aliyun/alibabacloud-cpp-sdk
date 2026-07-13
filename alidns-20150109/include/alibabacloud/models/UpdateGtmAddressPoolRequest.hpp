@@ -87,15 +87,17 @@ namespace Models
 
 
     protected:
-      // The weight of the address pool that you want to modify.
+      // The weight of the address.
       shared_ptr<int32_t> lbaWeight_ {};
-      // The mode of the address pool that you want to modify.
+      // The mode. Valid values:
       // 
-      // *   **SMART**: Intelligent return
-      // *   **ONLINE**: Always online
-      // *   **OFFLINE**: Always offline
+      // - **SMART**: Intelligent return
+      // 
+      // - **ONLINE**: Always online
+      // 
+      // - **OFFLINE**: Always offline
       shared_ptr<string> mode_ {};
-      // The addresses in the address pool.
+      // The address.
       shared_ptr<string> value_ {};
     };
 
@@ -146,19 +148,25 @@ namespace Models
 
 
   protected:
+    // The list of addresses in the address pool.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateGtmAddressPoolRequest::Addr>> addr_ {};
-    // The ID of the address pool that you want to modify.
+    // The ID of the address pool.
     // 
     // This parameter is required.
     shared_ptr<string> addrPoolId_ {};
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
-    // The minimum number of available addresses in the address pool.
+    // The minimum number of active addresses in the address pool.
     shared_ptr<int32_t> minAvailableAddrNum_ {};
-    // The name of the address pool that you want to modify.
+    // The name of the address pool.
     shared_ptr<string> name_ {};
-    // The type of the address pool that you want to modify.
+    // The type of the address pool. Valid values:
+    // 
+    // - IP: IPv4 addresses
+    // 
+    // - DOMAIN: Domain names
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

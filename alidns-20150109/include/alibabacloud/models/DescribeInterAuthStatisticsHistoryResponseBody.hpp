@@ -116,12 +116,23 @@ namespace Models
 
 
     protected:
+      // The request count.
       shared_ptr<int64_t> count_ {};
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The DNS query protocol.
+      // 
+      // - UDP
+      // 
+      // - TCP
       shared_ptr<string> protocol_ {};
+      // The query type.
       shared_ptr<string> qtype_ {};
+      // The success rate or ratio.
       shared_ptr<int64_t> ratio_ {};
+      // The timestamp of the data point in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
+      // The zone name.
       shared_ptr<string> zoneName_ {};
     };
 
@@ -144,8 +155,9 @@ namespace Models
 
 
   protected:
+    // An array of data objects.
     shared_ptr<vector<DescribeInterAuthStatisticsHistoryResponseBody::Data>> data_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

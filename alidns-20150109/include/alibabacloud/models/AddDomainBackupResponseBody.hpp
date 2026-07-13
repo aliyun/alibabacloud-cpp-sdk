@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> domainName_ {};
     // The backup cycle.
     shared_ptr<string> periodType_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

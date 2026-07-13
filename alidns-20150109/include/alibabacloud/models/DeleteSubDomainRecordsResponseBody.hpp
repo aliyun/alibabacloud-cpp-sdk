@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The hostname.
+    // The host record.
     shared_ptr<string> RR_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the DNS records to be deleted.
+    // The total number of DNS records that were deleted.
     shared_ptr<string> totalCount_ {};
   };
 

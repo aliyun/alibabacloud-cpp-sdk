@@ -427,14 +427,14 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the returned page. The value starts from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDnsGtmAccessStrategiesResponseBody::Strategies> strategies_ {};
-    // The total number of entries returned on all pages.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalItems_ {};
     // The total number of pages returned.
     shared_ptr<int32_t> totalPages_ {};

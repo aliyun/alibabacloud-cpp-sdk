@@ -48,11 +48,17 @@ namespace Models
 
 
   protected:
-    // The string. The string can be up to 128 characters in length.
+    // The domain name.
     // 
     // This parameter is required.
     shared_ptr<string> inputString_ {};
-    // The language.
+    // The language of the response. Valid values:
+    // 
+    // - zh: Chinese
+    // 
+    // - en: English
+    // 
+    // Default: zh
     shared_ptr<string> lang_ {};
   };
 

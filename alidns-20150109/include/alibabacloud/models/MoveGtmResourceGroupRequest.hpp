@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The language of the response. Valid values: en, zh, and ja. Default value: en.
     shared_ptr<string> lang_ {};
+    // The ID of the new resource group.
+    // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
+    // The resource ID.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
   };

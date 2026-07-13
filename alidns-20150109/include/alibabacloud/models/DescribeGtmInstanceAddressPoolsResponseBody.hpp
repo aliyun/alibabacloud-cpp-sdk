@@ -265,13 +265,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeGtmInstanceAddressPoolsResponseBody::AddrPools> addrPools_ {};
-    // The number of the page returned.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned on all pages.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalItems_ {};
     // The total number of pages returned.
     shared_ptr<int32_t> totalPages_ {};

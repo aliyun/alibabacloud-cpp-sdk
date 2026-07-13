@@ -157,7 +157,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDnsGtmAddressPoolAvailableConfigResponseBody::AttributeInfos> attributeInfos_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

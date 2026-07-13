@@ -103,35 +103,43 @@ namespace Models
 
 
   protected:
-    // Alert type:
-    // - ALERT
-    // - RESUME
+    // The alert type.
+    // 
+    // - ALERT: An alert is triggered.
+    // 
+    // - RESUME: The service has recovered.
     shared_ptr<string> actionType_ {};
-    // The end time of the query (timestamp).
+    // The end of the time range to query. This is a UNIX timestamp.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTimestamp_ {};
-    // Alarm object types:
+    // The alert object.
+    // 
     // - GTM_ADDRESS: Address
-    // - GTM_ADDRESS_POOL: Address Pool
+    // 
+    // - GTM_ADDRESS_POOL: Address pool
+    // 
     // - GTM_INSTANCE: Instance
-    // - GTM_MONITOR_TEMPLATE: Health Check Template
+    // 
+    // - GTM_MONITOR_TEMPLATE: Health check template
     shared_ptr<string> entityType_ {};
-    // Search keyword, usually an address ID, address pool ID, domain information, etc.
+    // The keyword for the search. This is usually an address ID, address pool ID, or domain name.
     shared_ptr<string> keyword_ {};
-    // Language type of the returned information:
+    // The language of the response.
+    // 
     // - zh-CN: Chinese
+    // 
     // - en-US: English
     shared_ptr<string> lang_ {};
-    // Current page number, starting from **1**, default is **1**.
+    // The current page number. The value starts from **1**. The default value is **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+    // The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of the query (timestamp).
+    // The start of the time range to query. This is a UNIX timestamp.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTimestamp_ {};

@@ -57,12 +57,15 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domainName_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The client IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -105,33 +105,37 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
+    // - zh-CN: Chinese.
+    // 
+    // - en-US: English. This is the default value.
     shared_ptr<string> acceptLanguage_ {};
-    // Address pool name.
+    // The name of the address pool.
     shared_ptr<string> addressPoolName_ {};
     // The type of the address pool. Valid values:
     // 
-    // *   IPv4: indicates that the service address to be resolved is an IPv4 address.
-    // *   IPv6: indicates that the service address to be resolved is an IPv6 address.
-    // *   domain: indicates that the service address to be resolved is a domain name.
-    shared_ptr<string> addressPoolType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    shared_ptr<string> clientToken_ {};
-    // The enabling state of the address pool. Valid values:
+    // - IPv4: The address pool contains IPv4 addresses.
     // 
-    // *   enable: The address pool is enabled.
-    // *   disable: The address pool is disabled.
+    // - IPv6: The address pool contains IPv6 addresses.
+    // 
+    // - domain: The address pool contains domain names.
+    shared_ptr<string> addressPoolType_ {};
+    // A client-generated token that is used to ensure the idempotence of the request. Make sure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters.
+    shared_ptr<string> clientToken_ {};
+    // The status of the address pool. Valid values:
+    // 
+    // - enable: The address pool is enabled.
+    // 
+    // - disable: The address pool is disabled.
     shared_ptr<string> enableStatus_ {};
-    // Current page number, starting at **1**, default is **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+    // The number of entries to return on each page. The maximum value is **100**. The default value is **20**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The additional description of the address pool.
+    // The remarks for the address pool.
     shared_ptr<string> remark_ {};
   };
 

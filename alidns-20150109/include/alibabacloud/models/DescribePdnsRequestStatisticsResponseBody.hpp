@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // The current version does not support this parameter.
+        // This parameter is not supported in the current version.
         shared_ptr<string> threatLevel_ {};
-        // The current version does not support this parameter.
+        // This parameter is not supported in the current version.
         shared_ptr<string> threatType_ {};
       };
 
@@ -260,39 +260,39 @@ namespace Models
 
 
     protected:
-      // The total number of DoH requests, including the HTTP and HTTPS requests.
+      // The total number of DoH requests. This includes the total number of HTTP and HTTPS requests.
       shared_ptr<int64_t> dohTotalCount_ {};
       // The domain name.
       shared_ptr<string> domainName_ {};
       // The number of HTTP requests.
       shared_ptr<int64_t> httpCount_ {};
-      // The number of HTTPS requests. On the Traffic Analysis tab of the public DNS console, the value of this parameter includes the number of DNS over HTTPs (DoH) requests. Therefore, the number of DoH requests is not separately displayed in the console.
+      // The number of HTTPS requests. On the Traffic Analysis tab of the Public DNS console, this parameter includes the number of DNS over HTTPS (DoH) requests. Therefore, the number of DoH requests is not separately displayed in the console.
       shared_ptr<int64_t> httpsCount_ {};
       // The number of source IP addresses.
       shared_ptr<int64_t> ipCount_ {};
-      // The current version does not support this parameter.
+      // This parameter is not supported in the current version.
       shared_ptr<string> maxThreatLevel_ {};
-      // The subdomain name.
+      // The subdomain.
       shared_ptr<string> subDomain_ {};
-      // The current version does not support this parameter.
+      // This parameter is not supported in the current version.
       shared_ptr<int64_t> threatCount_ {};
-      // The current version does not support this parameter.
+      // This parameter is not supported in the current version.
       shared_ptr<vector<Data::ThreatInfo>> threatInfo_ {};
       // The total number of requests.
       shared_ptr<int64_t> totalCount_ {};
       // The total number of UDP requests.
       shared_ptr<int64_t> udpTotalCount_ {};
-      // The number of IPv4-based requests.
+      // The number of IPv4 requests.
       shared_ptr<int64_t> v4Count_ {};
-      // The number of IPv4-based HTTP requests.
+      // The number of IPv4 HTTP requests.
       shared_ptr<int64_t> v4HttpCount_ {};
-      // The number of IPv4-based HTTPS requests.
+      // The number of IPv4 HTTPS requests.
       shared_ptr<int64_t> v4HttpsCount_ {};
-      // The number of IPv6-based requests.
+      // The number of IPv6 requests.
       shared_ptr<int64_t> v6Count_ {};
-      // The number of IPv6-based HTTP requests.
+      // The number of IPv6 HTTP requests.
       shared_ptr<int64_t> v6HttpCount_ {};
-      // The number of IPv6-based HTTPS requests.
+      // The number of IPv6 HTTPS requests.
       shared_ptr<int64_t> v6HttpsCount_ {};
     };
 
@@ -336,15 +336,15 @@ namespace Models
 
 
   protected:
-    // The statistics on the DNS requests.
+    // The list of request statistics.
     shared_ptr<vector<DescribePdnsRequestStatisticsResponseBody::Data>> data_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: **20**. Valid values: **1 to 100**.
+    // The number of entries returned per page. The maximum value is **100**. The default value is **20**.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -352,34 +352,40 @@ namespace Models
 
 
   protected:
-    // The time when the disaster recovery plan was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time when the disaster recovery plan was created.
     shared_ptr<string> createTime_ {};
-    // The time when the disaster recovery plan was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the disaster recovery plan was created. This value is a UNIX timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The number of faulty address pools.
+    // The number of abnormal address pools.
     shared_ptr<int32_t> faultAddrPoolNum_ {};
     shared_ptr<DescribeGtmRecoveryPlanResponseBody::FaultAddrPools> faultAddrPools_ {};
-    // The time when the disaster recovery plan was last executed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time when the disaster recovery plan was last executed.
     shared_ptr<string> lastExecuteTime_ {};
-    // The time when the disaster recovery plan was last executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the disaster recovery plan was last executed. This value is a UNIX timestamp.
     shared_ptr<int64_t> lastExecuteTimestamp_ {};
-    // The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the disaster recovery plan was last rolled back. The value is a string that represents a UNIX timestamp.
     shared_ptr<string> lastRollbackTime_ {};
-    // The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the disaster recovery plan was last rolled back. This value is a UNIX timestamp.
     shared_ptr<int64_t> lastRollbackTimestamp_ {};
     // The name of the disaster recovery plan.
     shared_ptr<string> name_ {};
     // The ID of the disaster recovery plan.
     shared_ptr<int64_t> recoveryPlanId_ {};
-    // The description of the disaster recovery plan.
+    // The remarks.
     shared_ptr<string> remark_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the disaster recovery plan.
+    // The status of the disaster recovery plan:
+    // 
+    // - UNEXECUTED: The disaster recovery plan is not executed.
+    // 
+    // - EXECUTED: The disaster recovery plan is being executed.
+    // 
+    // - ROLLED_BACK: The disaster recovery plan is being rolled back.
     shared_ptr<string> status_ {};
-    // The time when the disaster recovery plan was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time when the disaster recovery plan was last updated.
     shared_ptr<string> updateTime_ {};
-    // The time when the disaster recovery plan was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the disaster recovery plan was last updated. This value is a UNIX timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

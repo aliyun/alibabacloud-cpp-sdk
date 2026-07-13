@@ -136,7 +136,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDomainStatisticsResponseBody::Statistics> statistics_ {};
   };

@@ -92,11 +92,13 @@ namespace Models
 
 
     protected:
-      // The code of the city where the monitored node is deployed. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+      // The city code of the monitoring node. For information about valid values, see the response of DescribeGtmMonitorAvailableConfig.
       shared_ptr<string> cityCode_ {};
-      // *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
-      // *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
-      // *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+      // - For information about valid values, see the response of DescribeGtmMonitorAvailableConfig.
+      // 
+      // - If GroupType is set to Border Gateway Protocol (BGP) or Overseas, IspCityNode.N.IspCode is optional. The default value is 465.
+      // 
+      // - If GroupType is not set to BGP or Overseas, IspCityNode.N.IspCode is required and must be used with IspCityNode.N.CityCode.
       shared_ptr<string> ispCode_ {};
     };
 
@@ -147,15 +149,17 @@ namespace Models
 
 
     protected:
-      // The weight of the address pool.
+      // The weight of the address.
       shared_ptr<int32_t> lbaWeight_ {};
-      // The mode of the address pool. Valid values:
+      // The mode of the address. Valid values:
       // 
-      // *   **SMART**: smart return
-      // *   **ONLINE**: always online
-      // *   **OFFLINE**: always offline
+      // - **SMART**: smart return
+      // 
+      // - **ONLINE**: always online
+      // 
+      // - **OFFLINE**: always offline
       shared_ptr<string> mode_ {};
-      // The address in the address pool.
+      // The address.
       shared_ptr<string> value_ {};
     };
 
@@ -259,51 +263,59 @@ namespace Models
 
 
   protected:
-    // The address pools.
+    // The list of addresses in the address pool.
     // 
     // This parameter is required.
     shared_ptr<vector<AddGtmAddressPoolRequest::Addr>> addr_ {};
-    // The number of consecutive failures.
+    // The number of consecutive failed health checks.
     shared_ptr<int32_t> evaluationCount_ {};
-    // The ID of the GTM instance for which you want to create an address pool.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The health check interval. Unit: seconds. Set the value to 60.
+    // The health check interval. Unit: seconds. The value must be 60.
     shared_ptr<int32_t> interval_ {};
-    // The monitored nodes.
+    // The list of city nodes for monitoring.
     shared_ptr<vector<AddGtmAddressPoolRequest::IspCityNode>> ispCityNode_ {};
-    // The language of the values of specific response parameters.
+    // The response language.
     shared_ptr<string> lang_ {};
-    // The minimum number of available addresses in the address pool.
+    // The minimum number of available addresses.
     // 
     // This parameter is required.
     shared_ptr<int32_t> minAvailableAddrNum_ {};
-    // The extended information. The required parameters vary based on the value of ProtocolType.
+    // The extended information. The parameters that you must configure vary based on the health check protocol.
     // 
-    // When ProtocolType is set to HTTP or HTTPS:
+    // HTTP and HTTPS:
     // 
-    // *   port: the port that you want to check
-    // *   failureRate: the failure rate
-    // *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
-    // *   host: the host settings
-    // *   path: the URL path
+    // - port: The health check port.
     // 
-    // When ProtocolType is set to PING:
+    // - failureRate: The failure rate.
     // 
-    // *   packetNum: the number of ping packets
-    // *   packetLossRate: the packet loss rate
-    // *   failureRate: the failure rate
+    // - code: The return code. A response with a return code greater than the specified value is considered abnormal. Valid values: 400 and 500.
     // 
-    // When ProtocolType is set to TCP:
+    // - host: The host setting.
     // 
-    // *   port: the port that you want to check
-    // *   failureRate: the failure rate
+    // - path: The URL path.
+    // 
+    // PING:
+    // 
+    // - packetNum: The number of ping packets.
+    // 
+    // - packetLossRate: The packet loss rate.
+    // 
+    // - failureRate: The failure rate.
+    // 
+    // TCP:
+    // 
+    // - port: The health check port.
+    // 
+    // - failureRate: The failure rate.
     shared_ptr<string> monitorExtendInfo_ {};
-    // Specifies whether to enable the health check. Valid values:
+    // The status of the health check. Valid values:
     // 
-    // *   **OPEN**: enables the health check.
-    // *   **CLOSE**: disables the health check. This is the default value.
+    // - **OPEN**: enabled
+    // 
+    // - **CLOSE** (default): disabled
     shared_ptr<string> monitorStatus_ {};
     // The name of the address pool.
     // 
@@ -311,17 +323,21 @@ namespace Models
     shared_ptr<string> name_ {};
     // The health check protocol. Valid values:
     // 
-    // *   HTTP
-    // *   HTTPS
-    // *   Ping
-    // *   TCP
+    // - HTTP
+    // 
+    // - HTTPS
+    // 
+    // - Ping
+    // 
+    // - TCP
     shared_ptr<string> protocolType_ {};
     // The timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
     shared_ptr<int32_t> timeout_ {};
     // The type of the address pool. Valid values:
     // 
-    // *   **IP**: IPv4 address
-    // *   **DOMAIN**: domain name
+    // - **IP**: IPv4 address
+    // 
+    // - **DOMAIN**: domain name
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

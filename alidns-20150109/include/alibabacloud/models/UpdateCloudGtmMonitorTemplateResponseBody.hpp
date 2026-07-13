@@ -48,11 +48,13 @@ namespace Models
 
 
   protected:
-    // Unique request identification code.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Modify the health check template operation status:
-    // - true: Operation successful
-    // - false: Operation failed
+    // Indicates whether the operation was successful.
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

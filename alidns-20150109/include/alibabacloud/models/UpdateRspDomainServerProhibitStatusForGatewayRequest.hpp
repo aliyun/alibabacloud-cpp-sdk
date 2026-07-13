@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The domain name status.
       shared_ptr<string> status_ {};
+      // The description of the status.
       shared_ptr<string> statusMsg_ {};
     };
 
@@ -116,7 +118,9 @@ namespace Models
 
 
     protected:
+      // The domain name status.
       shared_ptr<string> status_ {};
+      // The description of the status.
       shared_ptr<string> statusMsg_ {};
     };
 
@@ -155,10 +159,16 @@ namespace Models
 
 
   protected:
+    // A collection of domain name statuses to add.
     shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::AddStatusList>> addStatusList_ {};
+    // A parameter that ensures idempotence.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // A collection of domain name statuses to delete.
     shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayRequest::DeleteStatusList>> deleteStatusList_ {};
+    // The domain name whose serverHold status you want to change.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
   };

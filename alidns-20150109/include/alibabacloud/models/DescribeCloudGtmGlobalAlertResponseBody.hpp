@@ -210,7 +210,9 @@ namespace Models
 
 
   protected:
+    // The alert configurations.
     shared_ptr<DescribeCloudGtmGlobalAlertResponseBody::AlertConfig> alertConfig_ {};
+    // The alert notification groups.
     shared_ptr<DescribeCloudGtmGlobalAlertResponseBody::AlertGroup> alertGroup_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

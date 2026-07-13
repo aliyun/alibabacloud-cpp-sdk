@@ -152,13 +152,13 @@ namespace Models
       shared_ptr<int64_t> ipCount_ {};
       // The total number of requests.
       shared_ptr<int64_t> totalCount_ {};
-      // The number of IPv4-based HTTP requests.
+      // The number of IPv4 HTTP requests.
       shared_ptr<int64_t> v4HttpCount_ {};
-      // The number of IPv4-based HTTPS requests.
+      // The number of IPv4 HTTPS requests.
       shared_ptr<int64_t> v4HttpsCount_ {};
-      // The number of IPv6-based HTTP requests.
+      // The number of IPv6 HTTP requests.
       shared_ptr<int64_t> v6HttpCount_ {};
-      // The number of IPv6-based HTTPS requests.
+      // The number of IPv6 HTTPS requests.
       shared_ptr<int64_t> v6HttpsCount_ {};
     };
 
@@ -209,17 +209,17 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The number of the returned page. The value starts from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics list.
+    // A list of statistics.
     shared_ptr<vector<DescribeDohDomainStatisticsSummaryResponseBody::Statistics>> statistics_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure request idempotence. The token must be unique for each request. It can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // A list of effective scopes.
     shared_ptr<string> effectiveScopesShrink_ {};
+    // The unique ID of the zone.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

@@ -315,34 +315,39 @@ namespace Models
     shared_ptr<DescribeDnsGtmInstanceAddressPoolResponseBody::Addrs> addrs_ {};
     // The time when the address pool was created.
     shared_ptr<string> createTime_ {};
-    // The timestamp that indicates the time when the address pool was created.
+    // The time when the address pool was created. This value is a UNIX timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The load balancing policy for the address pool. Valid values:
+    // The load balancing policy.
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: Returns all addresses.
+    // 
+    // - RATIO: Returns addresses by weight.
     shared_ptr<string> lbaStrategy_ {};
     // The ID of the health check configuration.
     shared_ptr<string> monitorConfigId_ {};
-    // Indicates the status of the health check. Valid values:
+    // The health check status of the address pool.
     // 
-    // *   OPEN: The health check is enabled.
-    // *   CLOSE: The health check is disabled.
-    // *   UNCONFIGURED: The health check is not configured.
+    // - OPEN: Enabled
+    // 
+    // - CLOSE: Disabled
+    // 
+    // - UNCONFIGURED: Not configured
     shared_ptr<string> monitorStatus_ {};
     // The name of the address pool.
     shared_ptr<string> name_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The type of the address pool. Valid values:
+    // The type of the address pool.
     // 
-    // *   IPV4: IPv4 address
-    // *   IPV6: IPv6 address
-    // *   DOMAIN: domain name
+    // - IPV4: IPv4 address
+    // 
+    // - IPV6: IPv6 address
+    // 
+    // - DOMAIN: Domain name
     shared_ptr<string> type_ {};
     // The time when the address pool was last updated.
     shared_ptr<string> updateTime_ {};
-    // The timestamp that indicates the time when the address pool was last updated.
+    // The time when the address pool was last updated. This value is a UNIX timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

@@ -184,14 +184,14 @@ namespace Models
   protected:
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeDomainStatisticsSummaryResponseBody::Statistics> statistics_ {};
-    // The total number of data records.
+    // The total number of entries.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of returned pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

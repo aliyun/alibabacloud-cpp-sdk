@@ -123,43 +123,51 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
+    // - zh-CN: Chinese.
+    // 
+    // - en-US (default): English.
     shared_ptr<string> acceptLanguage_ {};
-    // Address pool name, supports fuzzy search for the entered address pool name.
+    // The name of the address pool. Fuzzy match is supported.
     shared_ptr<string> addressPoolName_ {};
-    // Address pool type, supports precise query for address pool types:
+    // The type of the address pool. Exact match is supported. Valid values:
+    // 
     // - IPv4
+    // 
     // - IPv6
+    // 
     // - domain
     shared_ptr<string> addressPoolType_ {};
-    // Address pool availability status, supporting precise queries for address pool availability:
-    // - available: Available
-    // - unavailable: Unavailable
+    // The availability of the address pool. Exact match is supported. Valid values:
+    // 
+    // - available: The address pool is available.
+    // 
+    // - unavailable: The address pool is unavailable.
     shared_ptr<string> availableStatus_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The client token can contain only ASCII characters and must be a maximum of 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Address pool enable status, supports precise query of address pool enable status:
-    // - enable: Enabled status
-    // - disable: Disabled status
+    // The status of the address pool. Exact match is supported. Valid values:
+    // 
+    // - enable: The address pool is enabled.
+    // 
+    // - disable: The address pool is disabled.
     shared_ptr<string> enableStatus_ {};
-    // The health state of the address pool. You can enter a health state for exact search. Valid values:
+    // The health status of the address pool. Exact match is supported. Valid values:
     // 
-    // ok: The health state of the address pool is normal and all addresses that are referenced by the address pool are available.
+    // ok: Normal. All addresses in the address pool are available.
     // 
-    // ok_alert: The health state of the address pool is warning and some of the addresses that are referenced by the address pool are unavailable. However, the address pool is deemed normal. In this case, only the available addresses are returned for Domain Name System (DNS) requests.
+    // ok_alert: Warning. Some addresses in the address pool are unavailable, but the address pool is still considered normal. In the warning state, available addresses are resolved as expected, while unavailable addresses are not.
     // 
-    // exceptional: The health state of the address pool is abnormal and some or all of the addresses that are referenced by the address pool are unavailable. In this case, the address pool is deemed abnormal.
+    // exceptional: Abnormal. Some or all addresses in the address pool are unavailable, and the address pool is considered abnormal.
     shared_ptr<string> healthStatus_ {};
-    // Current page number, starting from 1, default is 1.
+    // The page number. The value starts from 1. The default value is 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Address pool remarks, supporting fuzzy search for the input remarks.
+    // The remarks for the address pool. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
   };
 

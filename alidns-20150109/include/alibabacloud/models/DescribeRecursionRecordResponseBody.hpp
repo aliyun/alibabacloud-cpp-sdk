@@ -158,22 +158,33 @@ namespace Models
 
 
   protected:
+    // The time when the record was created.
     shared_ptr<string> createTime_ {};
+    // The timestamp that indicates when the record was created.
     shared_ptr<int64_t> createTimestamp_ {};
+    // The priority of the Mail Exchange (MX) record.
     shared_ptr<int32_t> priority_ {};
-    // record ID
+    // The record ID.
     shared_ptr<string> recordId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The host record.
     shared_ptr<string> rr_ {};
-    // ttl
+    // The Time to Live (TTL).
     shared_ptr<int32_t> ttl_ {};
+    // The type of the DNS record.
     shared_ptr<string> type_ {};
+    // The time when the record was last updated.
     shared_ptr<string> updateTime_ {};
+    // The timestamp that indicates when the record was last updated.
     shared_ptr<int64_t> updateTimestamp_ {};
+    // The value of the DNS record.
     shared_ptr<string> value_ {};
+    // The weight.
     shared_ptr<int32_t> weight_ {};
-    // zone ID
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

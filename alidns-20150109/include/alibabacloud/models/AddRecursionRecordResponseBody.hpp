@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the DNS record.
     shared_ptr<string> recordId_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

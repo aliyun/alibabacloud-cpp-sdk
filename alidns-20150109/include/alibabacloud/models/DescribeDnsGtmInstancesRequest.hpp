@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The keyword that you use for the query. Fuzzy search by instance ID or instance name is supported.
+    // The keyword for the query. Fuzzy search by instance ID and instance name is supported.
     shared_ptr<string> keyword_ {};
-    // The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Default value: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The number of the page to return. The value starts from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

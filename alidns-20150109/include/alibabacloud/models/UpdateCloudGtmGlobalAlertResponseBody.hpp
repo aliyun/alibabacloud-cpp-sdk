@@ -50,10 +50,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the global alert configuration was successfully updated. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The update was successful.
+    // 
+    // - `false`: The update failed.
     shared_ptr<bool> success_ {};
   };
 

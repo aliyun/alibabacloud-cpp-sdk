@@ -75,25 +75,28 @@ namespace Models
 
 
   protected:
-    // The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+    // The domain name.<props="china"> Call the [DescribeDomains](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c4g.11186623.help-menu-search-29697.d_0) operation to obtain the domain name.
+    // <props="intl">Call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
     shared_ptr<string> domainName_ {};
     // The type of the domain name. Valid values:
     // 
-    // *   PUBLIC (default): hosted public domain name
-    // *   CACHE: cached public domain name
+    // - PUBLIC: The domain name is hosted on Alibaba Cloud DNS (default).
+    // 
+    // - CACHE: Alibaba Cloud DNS is used as a proxy for the domain name.
     shared_ptr<string> domainType_ {};
-    // The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
+    // The end date of the query. The format is **YYYY-MM-DD**.
     // 
-    // The default value is the day when you query the data.
+    // The default value is the current date.
     shared_ptr<string> endDate_ {};
-    // The language of the content within the request and response.
+    // The language of the request and response.
     // 
-    // *   **zh**: Chinese (default)
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
+    // The start date of the query. The format is **YYYY-MM-DD**.
     // 
-    // You can only query the DNS records within the last 90 days.``
+    // You can query records only from the last 90 days. This means `StartDate >= Now - 90`.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};

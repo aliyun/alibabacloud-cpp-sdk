@@ -50,8 +50,9 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US** (default): English
+    // - **zh-CN**: Chinese
+    // 
+    // - **en-US** (default): English
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<bool> showDisabledNodes_ {};
   };

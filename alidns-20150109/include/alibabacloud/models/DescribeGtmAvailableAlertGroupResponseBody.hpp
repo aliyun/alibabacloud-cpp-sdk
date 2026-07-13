@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The available alert groups of the GTM instance.
+    // The available alert contact groups.
     shared_ptr<string> availableAlertGroup_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

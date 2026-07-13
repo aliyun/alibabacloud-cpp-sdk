@@ -194,13 +194,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeTransferDomainsResponseBody::DomainTransfers> domainTransfers_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page. The maximum value is 100. The default value is 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

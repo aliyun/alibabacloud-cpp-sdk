@@ -50,10 +50,11 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US** (default): English
+    // - **zh-CN**: Chinese.
+    // 
+    // - **en-US** (default): English.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the health check template that you want to query. This ID uniquely identifies the health check template.
+    // The unique ID of the health check template.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

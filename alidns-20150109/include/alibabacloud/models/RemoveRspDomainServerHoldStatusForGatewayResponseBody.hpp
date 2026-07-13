@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The domain\\"s serverHold status.
       shared_ptr<string> serverHoldStatus_ {};
     };
 
@@ -163,12 +165,23 @@ namespace Models
 
 
     protected:
+      // The unauthorized operation that was attempted.
       shared_ptr<string> authAction_ {};
+      // The display name of the authorized entity.
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // The ID of the owner of the authorized entity.
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // The identity type.
       shared_ptr<string> authPrincipalType_ {};
+      // The complete diagnostic information after encryption.
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // The reason why authorization failed. Valid values:
+      // 
+      // - ExplicitDeny: Access is explicitly denied.
+      // 
+      // - ImplicitDeny: Access is implicitly denied.
       shared_ptr<string> noPermissionType_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -214,10 +227,15 @@ namespace Models
 
 
   protected:
+    // Details about the access denial. This field appears only when Resource Access Management (RAM) authentication fails.
     shared_ptr<RemoveRspDomainServerHoldStatusForGatewayResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<RemoveRspDomainServerHoldStatusForGatewayResponseBody::Data> data_ {};
+    // Indicates whether you can retry the request if it fails. Valid values: `true` (retry allowed) and `false` (retry not allowed).
     shared_ptr<bool> recoverableError_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values: `true` (succeeded) and `false` (failed).
     shared_ptr<bool> success_ {};
   };
 

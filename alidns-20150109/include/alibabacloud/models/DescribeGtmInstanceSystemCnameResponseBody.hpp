@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The CNAME record assigned by the system.
+    // The system-assigned CNAME domain name.
     shared_ptr<string> systemCname_ {};
   };
 

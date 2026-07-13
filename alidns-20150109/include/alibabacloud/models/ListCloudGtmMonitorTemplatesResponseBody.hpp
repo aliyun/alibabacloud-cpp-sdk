@@ -432,16 +432,16 @@ namespace Models
 
 
   protected:
-    // Current page number, starting from 1, default is 1.
+    // The number of the returned page. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of rows per page when paginating queries, with a maximum value of 100 and a default of 20.
+    // The number of entries returned on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Unique request identification code.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListCloudGtmMonitorTemplatesResponseBody::Templates> templates_ {};
-    // Total number of health check template entries retrieved.
+    // The total number of health check templates.
     shared_ptr<int32_t> totalItems_ {};
-    // Total number of pages after data pagination.
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPages_ {};
   };
 

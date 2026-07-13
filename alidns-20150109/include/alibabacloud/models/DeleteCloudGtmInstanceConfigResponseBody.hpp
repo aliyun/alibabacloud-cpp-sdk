@@ -48,10 +48,13 @@ namespace Models
 
 
   protected:
-    // Unique request identification code.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation to delete domain instance configurations was successful:
-    // - true: Operation successful - false: Operation failed
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

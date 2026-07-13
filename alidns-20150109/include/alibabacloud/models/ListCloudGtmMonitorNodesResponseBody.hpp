@@ -488,7 +488,7 @@ namespace Models
   protected:
     shared_ptr<ListCloudGtmMonitorNodesResponseBody::Ipv4IspCityNodes> ipv4IspCityNodes_ {};
     shared_ptr<ListCloudGtmMonitorNodesResponseBody::Ipv6IspCityNodes> ipv6IspCityNodes_ {};
-    // Unique request identification code.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

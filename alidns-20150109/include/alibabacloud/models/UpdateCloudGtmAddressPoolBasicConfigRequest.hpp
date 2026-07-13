@@ -77,22 +77,27 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
-    shared_ptr<string> acceptLanguage_ {};
-    // The ID of the address pool. This ID uniquely identifies the address pool.
-    shared_ptr<string> addressPoolId_ {};
-    // Address pool name, helping users distinguish the purpose of address pools.
-    shared_ptr<string> addressPoolName_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    shared_ptr<string> clientToken_ {};
-    // The condition for determining the health status of the address pool. Valid values:
+    // - zh-CN: Chinese
     // 
-    // *   any_ok: At least one address in the address pool is available.
-    // *   p30_ok: At least 30% of the addresses in the address pool are available.
-    // *   p50_ok: At least 50% of the addresses in the address pool are available.
-    // *   p70_ok: At least 70% of the addresses in the address pool are available.
-    // *   all_ok: All addresses in the address pool are available.
+    // - en-US (default): English
+    shared_ptr<string> acceptLanguage_ {};
+    // The unique ID of the address pool.
+    shared_ptr<string> addressPoolId_ {};
+    // The name of the address pool.
+    shared_ptr<string> addressPoolName_ {};
+    // The client token that is used to ensure the idempotence of the request. The client generates this token to make sure that each request is unique. The token can contain a maximum of 64 ASCII characters.
+    shared_ptr<string> clientToken_ {};
+    // The condition for determining the health status of the address pool.
+    // 
+    // - any_ok: At least one address in the address pool is active.
+    // 
+    // - p30_ok: At least 30% of the addresses in the address pool are active.
+    // 
+    // - p50_ok: At least 50% of the addresses in the address pool are active.
+    // 
+    // - p70_ok: At least 70% of the addresses in the address pool are active.
+    // 
+    // - all_ok: All addresses in the address pool are active.
     shared_ptr<string> healthJudgement_ {};
   };
 

@@ -103,24 +103,43 @@ namespace Models
 
 
   protected:
-    // The ID of the domain name group. If you do not specify this parameter, all domain names are queried by default.
+    // The ID of the domain name group.
+    // 
+    // If you leave this parameter empty or pass an empty string, all domain names are queried.
+    // 
+    // If you set this parameter to defaultGroup, domain names in the default group are queried.
     shared_ptr<string> groupId_ {};
-    // The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+    // The keyword. The search is performed in the %KeyWord% pattern and is not case-sensitive.
     shared_ptr<string> keyWord_ {};
-    // The language type.
+    // The language of the response. Valid values:
+    // 
+    // - zh: Chinese
+    // 
+    // - en: English
+    // 
+    // Default value: zh.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+    // The number of entries per page. The maximum value is **100**. The default value is **20**.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The search mode. Valid values:
     // 
-    // *   **LIKE**: fuzzy match.
-    // *   **EXACT**: exact match.
+    // - **LIKE**: fuzzy search
+    // 
+    // - **EXACT**: exact search
+    // 
+    // Default value: LIKE
     shared_ptr<string> searchMode_ {};
-    // Specifies whether to query the starmark of the domain name.
+    // Specifies whether to query starred domain names. Valid values:
+    // 
+    // - **true**
+    // 
+    // - **false**
+    // 
+    // Default value: true
     shared_ptr<bool> starmark_ {};
   };
 

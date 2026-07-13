@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of domain names that failed to be unbound from the instance.
+    // The number of domain names that failed to be detached.
     shared_ptr<int32_t> failedCount_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of domain names that are unbound from the instance.
+    // The number of domain names that were successfully detached.
     shared_ptr<int32_t> successCount_ {};
   };
 

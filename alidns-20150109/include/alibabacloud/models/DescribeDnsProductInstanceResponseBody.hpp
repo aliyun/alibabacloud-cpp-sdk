@@ -396,117 +396,136 @@ namespace Models
 
 
   protected:
-    // Indicates whether auto-renewal was enabled. Valid values:
+    // Indicates whether auto-renewal is enabled for the instance.
     // 
-    // *   true: Auto-renewal was enabled.
-    // *   false: Auto-renewal was not enabled.
+    // - true: Auto-renewal is enabled.
+    // 
+    // - false: Auto-renewal is disabled.
     shared_ptr<bool> autoRenewal_ {};
-    // The number of times that you can change the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
+    // The number of times the domain name can be changed for the paid DNS instance. This parameter is available for the Custom Edition.
     shared_ptr<int64_t> bindCount_ {};
-    // The number of domain names that can be bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of Personal Edition, Enterprise Standard Edition, and Enterprise Ultimate Edition.
+    // The number of domain names that can be attached to the paid DNS instance. This parameter is available for the Personal and Ultimate editions.
     shared_ptr<int64_t> bindDomainCount_ {};
-    // The number of domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of Personal Edition, Enterprise Standard Edition, and Enterprise Ultimate Edition.
+    // The number of domain names that are attached to the paid DNS instance. This parameter is available for the Personal and Ultimate editions.
     shared_ptr<int64_t> bindDomainUsedCount_ {};
-    // The number of times that you have changed the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
+    // The number of times the domain name has been changed for the paid DNS instance. This parameter is available for the Custom Edition.
     shared_ptr<int64_t> bindUsedCount_ {};
-    // The DDoS protection traffic. Unit: GB.
+    // The DDoS protection bandwidth. Unit: Gbit/s.
     shared_ptr<int64_t> DDosDefendFlow_ {};
-    // The DDoS protection frequency. Unit: 10,000 QPS. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
+    // The DDoS protection capacity in queries per second (QPS). The unit is 10,000 QPS. This parameter is available for the Custom Edition.
     shared_ptr<int64_t> DDosDefendQuery_ {};
-    // The maximum number of IP addresses that are used for load balancing in a single line of a domain name.
+    // The Server Load Balancer (SLB) capacity. This is the number of IP addresses that can be configured for a domain name on a single line.
     shared_ptr<int64_t> dnsSLBCount_ {};
-    // The level of DNS protection. Valid values:
+    // The DNS security level. Valid values:
     // 
-    // *   no: No DNS protection is provided.
-    // *   basic: Basic DNS protection is provided.
-    // *   advanced: Advanced DNS protection is provided.
+    // - no: Not required
+    // 
+    // - basic: Basic DNS attack protection
+    // 
+    // - advanced: Advanced DNS attack protection
     shared_ptr<string> dnsSecurity_ {};
     shared_ptr<DescribeDnsProductInstanceResponseBody::DnsServers> dnsServers_ {};
-    // The domain name that is bound to the paid instance.
+    // The attached domain name.
     // 
-    // If no value is returned for this parameter, no domain name is bound to the paid instance.
+    // If this parameter is empty, no domain name is attached.
     shared_ptr<string> domain_ {};
-    // The type of the instance. Valid values:
+    // The type of the instance:
     // 
-    // *   PUBLIC: authoritative domain name
-    // *   CACHE: cache-accelerated domain name
+    // - PUBLIC: An instance for an authoritative domain name.
+    // 
+    // - CACHE: An instance for a recursive DNS proxy.
     shared_ptr<string> domainType_ {};
-    // The time when the instance expired. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time when the instance expires.
     shared_ptr<string> endTime_ {};
-    // The time when the instance expired. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the instance expires. This is a UNIX timestamp.
     shared_ptr<int64_t> endTimestamp_ {};
-    // Indicates whether global server load balancing (GSLB) is supported. Valid values:
+    // Indicates whether Global Server Load Balancer (GSLB) is allowed.
     // 
-    // *   true: GSLB is supported.
-    // *   false: GSLB is not supported.
+    // - true: Allowed
+    // 
+    // - false: Not allowed
     shared_ptr<bool> gslb_ {};
-    // The ISP resolution lines. Valid values:
+    // The carrier line from which the DNS request was initiated. Valid values:
     // 
-    // *   China Telecom
-    // *   China Mobile
-    // *   China Unicom
-    // *   China Education and Research Network (CERNET)
-    // *   China Broadcasting Network (CBN)
-    // *   Dr Peng Telecom & Media Group
+    // - China Telecom
+    // 
+    // - China Mobile
+    // 
+    // - China Unicom
+    // 
+    // - China Education and Research Network
+    // 
+    // - China Broadcasting Network
+    // 
+    // - Dr. Peng Group
     shared_ptr<string> ISPLines_ {};
-    // The regional ISP resolution lines. Valid values:
+    // The carrier line and province from which the DNS request was initiated. Valid values:
     // 
-    // *   China Telecom (province)
-    // *   China Mobile (province)
-    // *   China Unicom (province)
-    // *   CERNET (province)
+    // - China Telecom (by province)
+    // 
+    // - China Mobile (by province)
+    // 
+    // - China Unicom (by province)
+    // 
+    // - China Education and Research Network (by province)
     shared_ptr<string> ISPRegionLines_ {};
-    // Indicates whether the Domain Name System (DNS) servers stopped responding to all DNS requests. Valid values:
+    // Indicates whether the domain name is in a blackhole filtering status.
     // 
-    // *   true: The DNS servers stopped responding to all DNS requests.
-    // *   false: The DNS servers did not stop responding to all DNS requests.
+    // - true: The domain name is in a blackhole filtering status.
+    // 
+    // - false: The domain name is not in a blackhole filtering status.
     shared_ptr<bool> inBlackHole_ {};
-    // Indicates whether the DNS servers stopped responding to abnormal requests sent to the domain names.
+    // Indicates whether the domain name is undergoing traffic scrubbing.
     // 
-    // *   true: The DNS servers stopped responding to abnormal requests sent to the domain names.
-    // *   false: The DNS servers did not stop responding to abnormal requests sent to the domain names.
+    // - true: Traffic scrubbing is in progress.
+    // 
+    // - false: Traffic scrubbing is not in progress.
     shared_ptr<bool> inClean_ {};
     // The ID of the Alibaba Cloud DNS instance.
     shared_ptr<string> instanceId_ {};
-    // The interval at which the instance is monitored. Unit: minutes.
+    // The monitoring frequency. Unit: minutes.
     shared_ptr<int64_t> monitorFrequency_ {};
     // The number of monitoring nodes.
     shared_ptr<int64_t> monitorNodeCount_ {};
-    // The number of monitoring tasks.
+    // The number of monitoring jobs.
     shared_ptr<int64_t> monitorTaskCount_ {};
-    // The DDoS protection traffic outside the Chinese mainland. Unit: GB.
+    // The DDoS protection bandwidth for regions outside China. Unit: Gbit/s.
     shared_ptr<int64_t> overseaDDosDefendFlow_ {};
-    // The line outside the Chinese mainland.
+    // The line for regions outside China.
     shared_ptr<string> overseaLine_ {};
     // The billing method.
     shared_ptr<string> paymentType_ {};
-    // Indicates whether the DNS request lines are regional lines. Valid values:
+    // Indicates whether regional lines are used.
     // 
-    // *   true: The DNS request lines are regional lines.
-    // *   false: The DNS request lines are not regional lines.
+    // - true: Regional lines are used.
+    // 
+    // - false: Regional lines are not used.
     shared_ptr<bool> regionLines_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The search engine resolution lines. Valid values:
+    // The search engine line. Valid values:
     // 
-    // *   Google
-    // *   Baidu
-    // *   Bing
-    // *   Youdao
+    // - Google
+    // 
+    // - Baidu
+    // 
+    // - Bing
+    // 
+    // - Youdao
     shared_ptr<string> searchEngineLines_ {};
-    // The time when the instance was purchased. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time when the instance was purchased.
     shared_ptr<string> startTime_ {};
-    // The time when the instance was purchased. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The time when the instance was purchased. This is a UNIX timestamp.
     shared_ptr<int64_t> startTimestamp_ {};
-    // The number of subdomain name levels.
+    // The number of subdomain levels.
     shared_ptr<int64_t> subDomainLevel_ {};
-    // The minimum time-to-live (TTL) period. Unit: seconds.
+    // The minimum Time to Live (TTL) value. Unit: seconds.
     shared_ptr<int64_t> TTLMinValue_ {};
-    // The number of the forwarded URLs.
+    // The number of URL forwards.
     shared_ptr<int64_t> URLForwardCount_ {};
-    // The version code of Alibaba Cloud DNS.
+    // The code of the Alibaba Cloud DNS edition.
     shared_ptr<string> versionCode_ {};
-    // The edition of Alibaba Cloud DNS.
+    // The name of the Alibaba Cloud DNS edition.
     shared_ptr<string> versionName_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the instance about which you want to query the information.
+    // The ID of the instance. For more information, see [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Default: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
   };
 

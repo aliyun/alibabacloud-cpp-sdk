@@ -66,19 +66,21 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The ID of the DNS record. You can call the [DescribeDomainRecords](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomainrecords?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the ID.
+    // The ID of the DNS record. You can call the [DescribeDomainRecords](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomainrecords?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<string> recordId_ {};
-    // The state of the DNS record. Valid values:
+    // The status of the DNS record. Valid values:
     // 
-    // *   **Enable**: enables the DNS record.
-    // *   **Disable**: disables the DNS record.
+    // - **Enable**: Enables parsing.
+    // 
+    // - **Disable**: Pauses parsing.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

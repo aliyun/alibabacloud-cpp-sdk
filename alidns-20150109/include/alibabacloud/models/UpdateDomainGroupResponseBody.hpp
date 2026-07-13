@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The new name of the domain name group.
     shared_ptr<string> groupName_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

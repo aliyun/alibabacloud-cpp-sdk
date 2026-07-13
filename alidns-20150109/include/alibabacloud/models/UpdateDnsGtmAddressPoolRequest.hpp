@@ -103,33 +103,37 @@ namespace Models
 
 
     protected:
-      // The address in the address pool.
+      // The address.
       // 
       // This parameter is required.
       shared_ptr<string> addr_ {};
-      // The information about the source region of the address. The value of the parameter is a string in the JSON format. Valid values:
+      // The source region of the address. This parameter is a JSON string.
       // 
-      // *   LineCode: the line code of the source region. This parameter is deprecated. Use lineCodes instead.
+      // - LineCode: The line code of the source region. This parameter is deprecated. Use lineCodes instead.
       // 
-      // *   lineCodes: the line codes of the source region
+      // - lineCodes: A list of line codes for the source regions.
       // 
-      // *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
+      // - lineCodeRectifyType: The type of line code rectification. Default value: AUTO. Valid values:
       // 
-      //     *   NO_NEED: no need for rectification
-      //     *   RECTIFIED: rectified
-      //     *   AUTO: automatic rectification
+      //   - NO_NEED: No rectification is required.
+      // 
+      //   - RECTIFIED: The line code is rectified.
+      // 
+      //   - AUTO: The line code is automatically rectified.
       shared_ptr<string> attributeInfo_ {};
-      // The weight of the address.
+      // The weight.
       shared_ptr<int32_t> lbaWeight_ {};
-      // The return mode of the addresses. Valid values:
+      // The mode. Valid values:
       // 
-      // *   SMART: smart return
-      // *   ONLINE: always online
-      // *   OFFLINE: always offline
+      // - SMART: Smart return
+      // 
+      // - ONLINE: Always online
+      // 
+      // - OFFLINE: Always offline
       // 
       // This parameter is required.
       shared_ptr<string> mode_ {};
-      // The description of the address pool.
+      // The remarks.
       shared_ptr<string> remark_ {};
     };
 
@@ -173,20 +177,21 @@ namespace Models
 
 
   protected:
-    // The address pools.
+    // A list of addresses in the address pool.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateDnsGtmAddressPoolRequest::Addr>> addr_ {};
-    // The ID of the address pool.
+    // The ID of the address pool. For more information, see [DescribeDnsGtmInstanceAddressPools](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstanceaddresspools).
     // 
     // This parameter is required.
     shared_ptr<string> addrPoolId_ {};
-    // The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Default value: en. Valid values: en, zh, and ja.
     shared_ptr<string> lang_ {};
-    // The load balancing policy of the address pool. Valid values:
+    // The load balancing policy. Valid values:
     // 
-    // *   ALL_RR: returns all addresses.
-    // *   RATIO: returns addresses by weight.
+    // - ALL_RR: Returns all addresses.
+    // 
+    // - RATIO: Returns addresses by weight.
     // 
     // This parameter is required.
     shared_ptr<string> lbaStrategy_ {};

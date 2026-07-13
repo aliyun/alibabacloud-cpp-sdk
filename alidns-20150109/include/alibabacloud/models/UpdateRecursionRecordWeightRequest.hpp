@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The client token that ensures the idempotence of the request. Generate a unique token for each request. The token can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
+    // The unique ID of the DNS record.
+    // 
     // This parameter is required.
     shared_ptr<string> recordId_ {};
+    // The weight. The value can be an integer from 0 to 100.
     shared_ptr<int32_t> weight_ {};
   };
 

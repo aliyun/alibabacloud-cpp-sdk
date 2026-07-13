@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The tag key.
       shared_ptr<string> key_ {};
-      // The key value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -124,22 +124,23 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource.
+    // The resource ID.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. Valid values:
+    // The resource type. Valid value:
     // 
-    // *   **DOMAIN**: domain name
+    // - **DOMAIN**: domain name
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // An array of tag key-value pairs.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

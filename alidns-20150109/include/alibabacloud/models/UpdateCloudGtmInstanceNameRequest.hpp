@@ -68,14 +68,15 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US: English
+    // - zh-CN: Chinese
+    // 
+    // - en-US: English
     shared_ptr<string> acceptLanguage_ {};
-    // The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The ID of the Global Traffic Manager (GTM) instance.
     shared_ptr<string> instanceId_ {};
-    // The name of the instance. You cannot leave this parameter empty.
+    // The name of the instance. The value cannot be empty.
     shared_ptr<string> instanceName_ {};
   };
 

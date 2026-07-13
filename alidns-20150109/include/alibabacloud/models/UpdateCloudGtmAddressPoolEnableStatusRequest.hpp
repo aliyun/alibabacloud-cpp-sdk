@@ -68,17 +68,19 @@ namespace Models
   protected:
     // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
-    shared_ptr<string> acceptLanguage_ {};
-    // The ID of the address pool. This ID uniquely identifies the address pool.
-    shared_ptr<string> addressPoolId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    shared_ptr<string> clientToken_ {};
-    // The enabling state of the address pool. Valid values:
+    // - zh-CN: Chinese
     // 
-    // *   enable: The address pool is enabled, and the addresses in the address pool are returned for DNS resolution when the health check results are normal.
-    // *   disable: The address pool is disabled, and the addresses in the address pool are not returned for DNS resolution regardless of whether the health check results are normal or not.
+    // - en-US (default): English
+    shared_ptr<string> acceptLanguage_ {};
+    // The unique ID of the address pool.
+    shared_ptr<string> addressPoolId_ {};
+    // A client token to ensure the idempotence of the request. Generate a unique value from your client for this parameter. The client token can contain only ASCII characters and must be no more than 64 characters in length.
+    shared_ptr<string> clientToken_ {};
+    // The enabled status of the address pool:
+    // 
+    // - enable: Enables the address pool. If the health check is normal, the address pool is included in DNS resolution.
+    // 
+    // - disable: Disables the address pool. The address pool is not included in DNS resolution, regardless of its health check status.
     shared_ptr<string> enableStatus_ {};
   };
 

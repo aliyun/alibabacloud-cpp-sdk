@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The timestamp that specifies the end of the time range to query.
+    // The end of the time range to query. This value is a UNIX timestamp.
     shared_ptr<int64_t> endTimestamp_ {};
-    // The ID of the GTM instance whose logs you want to query.
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The keyword for searching logs, in case-insensitive "%Keyword%" format.
+    // The keyword for a fuzzy search. The search uses the %Keyword% pattern and is case-insensitive.
     shared_ptr<string> keyword_ {};
-    // The language used by the user.
+    // The language of the response.
     shared_ptr<string> lang_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The number of the page to return. The value starts from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query.
+    // The beginning of the time range to query. This value is a UNIX timestamp.
     shared_ptr<int64_t> startTimestamp_ {};
   };
 

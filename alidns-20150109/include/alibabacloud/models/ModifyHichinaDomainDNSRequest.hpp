@@ -61,14 +61,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The language of the response. Valid values:
+    // The language of the return value. Valid values:
     // 
-    // *   zh: Chinese
-    // *   en: English
+    // - zh: Chinese
     // 
-    // Default value: en
+    // - en: English
+    // 
+    // Default: en
     shared_ptr<string> lang_ {};
-    // The IP address of the client.
+    // The client IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -103,31 +103,33 @@ namespace Models
 
 
   protected:
-    // The primary domain name whose statistics you want to query.
+    // The primary domain name to query.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The end date of the query. Use the YYYY-MM-DD format.
     // 
-    // The default value is the day when you query the data.
+    // The default value is the current date.
     shared_ptr<string> endDate_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. The default value is **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
+    // The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
     shared_ptr<int64_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+    // The start date of the query. Use the YYYY-MM-DD format.
     // 
-    // You can query only records of the last 90 days.
+    // You can query data from the last 90 days only.
     shared_ptr<string> startDate_ {};
-    // The subdomain name whose statistics you want to query.
+    // The subdomain for which to view statistics.
     shared_ptr<string> subDomain_ {};
-    // The type of the request statistics that you want to query. Valid values:
+    // The type of request statistics to query. Valid values:
     // 
-    // *   DOMAIN: queries the request statistics by domain name.
-    // *   SUB_DOMAIN: queries the request statistics by subdomain name.
+    // - DOMAIN: queries statistics by domain name.
+    // 
+    // - SUB_DOMAIN: queries statistics by subdomain.
     shared_ptr<string> type_ {};
   };
 

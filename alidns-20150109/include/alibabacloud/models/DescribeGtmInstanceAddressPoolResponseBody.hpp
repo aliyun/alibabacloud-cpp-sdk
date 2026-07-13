@@ -307,41 +307,46 @@ namespace Models
 
 
   protected:
-    // The number of addresses in the address pool queried.
+    // The number of addresses in the address pool.
     shared_ptr<int32_t> addrCount_ {};
     // The ID of the address pool.
     shared_ptr<string> addrPoolId_ {};
     shared_ptr<DescribeGtmInstanceAddressPoolResponseBody::Addrs> addrs_ {};
     // The time when the address pool was created.
     shared_ptr<string> createTime_ {};
+    // The time when the address pool was created. This is a UNIX timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The minimum number of available addresses in the address pool.
+    // The minimum number of available addresses.
     shared_ptr<int32_t> minAvailableAddrNum_ {};
-    // The health check ID of the address pool.
+    // The ID of the monitoring configuration.
     shared_ptr<string> monitorConfigId_ {};
-    // Indicates whether health check was enabled for the address pool. Valid values:
+    // The monitoring status. Valid values:
     // 
-    // *   **OPEN**: Enabled
-    // *   **CLOSE**: Disabled
-    // *   **UNCONFIGURED**: Not configured
+    // - **OPEN**: Enabled
+    // 
+    // - **CLOSE**: Disabled
+    // 
+    // - **UNCONFIGURED**: Not configured
     shared_ptr<string> monitorStatus_ {};
     // The name of the address pool.
     shared_ptr<string> name_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // The availability status of the address pool. Valid values:
     // 
-    // *   **AVAILABLE**: Available
-    // *   **NOT_AVAILABLE**: Unavailable
+    // - **AVAILABLE**: The address pool is available.
+    // 
+    // - **NOT_AVAILABLE**: The address pool is unavailable.
     shared_ptr<string> status_ {};
     // The type of the address pool. Valid values:
     // 
-    // *   **IP**: IP address
-    // *   **DOMAIN**: Domain name
+    // - **IP**: IP address
+    // 
+    // - **DOMAIN**: Domain name
     shared_ptr<string> type_ {};
-    // The last time when the address pool was updated.
+    // The time when the address pool was last updated.
     shared_ptr<string> updateTime_ {};
-    // A timestamp that indicates the last time the address pool was updated.
+    // The time when the address pool was last updated. This is a UNIX timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

@@ -96,14 +96,15 @@ namespace Models
 
 
     protected:
-      // The number of DNS requests.
+      // The number of requests.
       shared_ptr<string> count_ {};
-      // The subdomain name.
+      // The subdomain.
       shared_ptr<string> domainName_ {};
-      // The type of the domain name. The parameter value is not case-sensitive. Valid values:
+      // The type of the domain name. This parameter is not case-sensitive. Valid values:
       // 
-      // *   PUBLIC (default): hosted public domain name
-      // *   CACHE: cache-accelerated domain name
+      // - PUBLIC: an authoritative domain name (default)
+      // 
+      // - CACHE: an authoritative proxy domain name
       shared_ptr<string> domainType_ {};
       // The subdomain.
       shared_ptr<string> subDomain_ {};
@@ -156,13 +157,13 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+    // The number of entries returned per page. The maximum value is **500**. The default value is **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics.
+    // The list of statistics.
     shared_ptr<vector<DescribeRecordResolveStatisticsSummaryResponseBody::Statistics>> statistics_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalItems_ {};

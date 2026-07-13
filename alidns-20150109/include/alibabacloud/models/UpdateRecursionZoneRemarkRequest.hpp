@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You must generate a unique value for this parameter. The client token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
+    // The zone ID. This is the unique identifier of the zone.
     shared_ptr<string> zoneId_ {};
   };
 

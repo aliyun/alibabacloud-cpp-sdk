@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // Domain name
       shared_ptr<string> domainName_ {};
     };
 
@@ -152,12 +153,23 @@ namespace Models
 
 
     protected:
+      // Unauthorized operation attempted
       shared_ptr<string> authAction_ {};
+      // Display name of the authenticated entity
       shared_ptr<string> authPrincipalDisplayName_ {};
+      // Owner ID of the authenticated entity
       shared_ptr<string> authPrincipalOwnerId_ {};
+      // Identity type
       shared_ptr<string> authPrincipalType_ {};
+      // Encrypted diagnostic message
       shared_ptr<string> encodedDiagnosticMessage_ {};
+      // Reason for authentication failure. Valid values:
+      // 
+      // - ExplicitDeny: explicit deny
+      // 
+      // - ImplicitDeny: implicit deny
       shared_ptr<string> noPermissionType_ {};
+      // Policy type
       shared_ptr<string> policyType_ {};
     };
 
@@ -203,10 +215,15 @@ namespace Models
 
 
   protected:
+    // Detailed access-denied information. This field appears only when RAM authentication fails.
     shared_ptr<AddRspDomainServerHoldStatusForGatewayOteResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
+    // List of returned data
     shared_ptr<AddRspDomainServerHoldStatusForGatewayOteResponseBody::Data> data_ {};
+    // Indicates whether you can retry the request. `true`: retry allowed. `false`: retry not allowed
     shared_ptr<bool> recoverableError_ {};
+    // Unique request identifier
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. `true`: succeeded. `false`: failed
     shared_ptr<bool> success_ {};
   };
 

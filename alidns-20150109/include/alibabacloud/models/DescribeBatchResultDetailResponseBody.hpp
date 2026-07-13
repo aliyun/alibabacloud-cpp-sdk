@@ -296,13 +296,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBatchResultDetailResponseBody::BatchResultDetails> batchResultDetails_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

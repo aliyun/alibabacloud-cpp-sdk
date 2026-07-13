@@ -66,13 +66,18 @@ namespace Models
 
 
   protected:
-    // The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+    // The keyword. The search is performed in the \\`%Keyword%\\` format. The search is case-insensitive.
     shared_ptr<string> keyword_ {};
-    // The language.
+    // The language of the request and response. Valid values:
+    // 
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    //   The default value is **zh**.
     shared_ptr<string> lang_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **100**. Default value: **20**.
+    // The number of entries per page for paged queries. The maximum value is **100**. The default value is **20**.
     shared_ptr<int64_t> pageSize_ {};
   };
 

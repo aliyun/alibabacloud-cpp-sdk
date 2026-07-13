@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The average success ratio.
       shared_ptr<int64_t> avgSuccessRatio_ {};
+      // The change in the average success ratio compared to the previous statistical period.
       shared_ptr<int64_t> avgSuccessRatioTrend_ {};
+      // The total resolve count.
       shared_ptr<int64_t> totalResolveCount_ {};
+      // The change in the total resolve count compared to the previous statistical period.
       shared_ptr<int64_t> totalResolveCountTrend_ {};
     };
 
@@ -112,8 +116,9 @@ namespace Models
 
 
   protected:
+    // The statistical data.
     shared_ptr<DescribeInterAuthStatisticsGlobalOverviewResponseBody::Data> data_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

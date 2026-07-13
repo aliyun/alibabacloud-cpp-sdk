@@ -442,11 +442,16 @@ namespace Models
 
 
   protected:
+    // The current page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<SearchCloudGtmMonitorTemplatesResponseBody::Templates> templates_ {};
+    // The total number of health check templates that are found.
     shared_ptr<int32_t> totalItems_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

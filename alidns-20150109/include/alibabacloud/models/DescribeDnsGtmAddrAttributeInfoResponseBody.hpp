@@ -201,7 +201,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDnsGtmAddrAttributeInfoResponseBody::Addr> addr_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

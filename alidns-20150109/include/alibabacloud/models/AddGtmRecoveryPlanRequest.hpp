@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The IDs of faulty address pools.
+    // The IDs of the faulty address pools.
     // 
     // This parameter is required.
     shared_ptr<string> faultAddrPool_ {};
-    // The language.
+    // The language of the user.
     shared_ptr<string> lang_ {};
     // The name of the disaster recovery plan.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The description of the disaster recovery plan.
+    // The remarks.
     shared_ptr<string> remark_ {};
   };
 

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N added to the resource.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The values of tags added to the resource.
+      // A list of tag values.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. Pages start from **1**. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 200.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The tags added to the resource.
+    // The list of tags.
     shared_ptr<vector<DescribeTagsResponseBody::Tags>> tags_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

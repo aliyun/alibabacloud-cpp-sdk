@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the address pool created.
+    // The ID of the address pool.
     shared_ptr<string> addrPoolId_ {};
     // The ID of the health check configuration.
     shared_ptr<string> monitorConfigId_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

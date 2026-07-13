@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // Domain name status.
       shared_ptr<string> status_ {};
+      // Description of the status.
       shared_ptr<string> statusMsg_ {};
     };
 
@@ -116,7 +118,9 @@ namespace Models
 
 
     protected:
+      // Domain name status.
       shared_ptr<string> status_ {};
+      // Description of the status.
       shared_ptr<string> statusMsg_ {};
     };
 
@@ -155,10 +159,16 @@ namespace Models
 
 
   protected:
+    // List of domain name statuses to add.
     shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayOteRequest::AddStatusList>> addStatusList_ {};
+    // Idempotency token.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // List of domain name statuses to remove.
     shared_ptr<vector<UpdateRspDomainServerProhibitStatusForGatewayOteRequest::DeleteStatusList>> deleteStatusList_ {};
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
   };

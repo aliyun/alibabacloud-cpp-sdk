@@ -124,21 +124,21 @@ namespace Models
 
 
     protected:
-      // The enabled access security types.
+      // The enabled secure access type. INSECURE indicates non-encrypted access. SECURE indicates encrypted access.
       shared_ptr<string> availableAccessSecurityType_ {};
-      // The enabled public recursive DNS service.
+      // The public recursive DNS services that are enabled.
       shared_ptr<string> availableService_ {};
-      // The configuration ID of the users in public recursive DNS.
+      // The ID of the dedicated configuration for public recursive DNS.
       shared_ptr<int64_t> pdnsId_ {};
-      // The SecretKey configured for a UDP-based CIDR block.
+      // The SecretKey for configuring the UDP access IP address segment.
       shared_ptr<string> secretKey_ {};
       // The type of the public recursive DNS service.
       shared_ptr<string> serviceType_ {};
       // The status of the public recursive DNS service.
       shared_ptr<string> state_ {};
-      // The status of the traffic analysis switch for the user in public recursive DNS service.
+      // The status of the switch for public recursive DNS traffic analysis.
       shared_ptr<string> statisticSwitchStatus_ {};
-      // The disabled public recursive DNS service.
+      // The public recursive DNS services that are shut down.
       shared_ptr<string> stoppedService_ {};
     };
 
@@ -161,9 +161,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the user.
+    // The user information.
     shared_ptr<DescribePdnsUserInfoResponseBody::UserInfo> userInfo_ {};
   };
 

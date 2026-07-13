@@ -130,37 +130,48 @@ namespace Models
 
 
   protected:
-    // The account ID displayed on the Recursive Resolution (Public DNS) page after you activate Alibaba Cloud Public DNS.
+    // The ID of the Public DNS configuration.
     shared_ptr<int64_t> accountId_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The end time of the query (timestamp, unit: milliseconds). >Warning: If the query time span is too large and the amount of resolution logs for the queried domain is excessive, it may lead to a query timeout or inaccurate query results.
+    // The end of the time range to query. This is a UNIX timestamp in milliseconds.
+    // >Warning: If you specify a wide time range, many logs may be returned. This can cause a query timeout or inaccurate results.
     shared_ptr<int64_t> endTimestamp_ {};
-    // Return value language, options: 
-    // - zh: Chinese 
+    // The language of the response. Valid values:
+    // 
+    // - zh: Chinese
+    // 
     // - en: English
     // 
-    // Default: en
+    // Default value: en.
     shared_ptr<string> lang_ {};
-    // Module type 
-    // - AUTHORITY (default): Public Authoritative DNS 
-    // - RECURSION: Public Recursive DNS
+    // The module type.
+    // 
+    // - AUTHORITY (default): public authoritative DNS
+    // 
+    // - RECURSION: public recursive DNS
     shared_ptr<string> module_ {};
-    // Page number, default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size for query.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<bool> preciseSort_ {};
-    // Query parameters 
-    // - sourceIp: Source IP address 
-    // - queryNameFuzzy: Domain name (fuzzy value) 
-    // - queryType: Record type 
-    // - value: Resolution result 
-    // - status: Status 
-    // - serverIp: Resolution server IP
+    // The query parameters.
+    // 
+    // - sourceIp: the source IP address
+    // 
+    // - queryNameFuzzy: the domain name (fuzzy match)
+    // 
+    // - queryType: the record type
+    // 
+    // - value: the resolution result
+    // 
+    // - status: the status
+    // 
+    // - serverIp: the IP address of the resolution server
     shared_ptr<string> queryCondition_ {};
     shared_ptr<string> recursionProtocolType_ {};
-    // The start time of the query (timestamp, unit: milliseconds).
+    // The start of the time range to query. This is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTimestamp_ {};
   };
 

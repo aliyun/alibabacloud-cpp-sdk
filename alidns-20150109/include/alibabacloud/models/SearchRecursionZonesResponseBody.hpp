@@ -405,12 +405,19 @@ namespace Models
 
 
   protected:
+    // The maximum number of items to return for this request.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The page number. Pages start from **1**. The default is **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of items returned on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of items.
     shared_ptr<int32_t> totalItems_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
     shared_ptr<SearchRecursionZonesResponseBody::Zones> zones_ {};
   };

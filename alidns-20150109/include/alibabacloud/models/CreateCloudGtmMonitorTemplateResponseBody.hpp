@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
+    // 
+    // - true: The operation was successful.
+    // 
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
-    // The ID of the health check template. This ID uniquely identifies the health check template.
+    // The ID of the health check template. The ID is the unique identifier of the template.
     shared_ptr<string> templateId_ {};
   };
 

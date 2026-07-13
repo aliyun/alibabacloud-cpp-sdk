@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The language in which the returned results are displayed. Valid values:
+    // The language of the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US (default): English
+    // - zh-CN: Chinese.
+    // 
+    // - en-US (default): English.
     shared_ptr<string> acceptLanguage_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client-generated token that is used to ensure the idempotence of the request. This token must be unique for each request and can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The ID of the health check template. This ID uniquely identifies a health check template.
+    // The unique ID of the health check template.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

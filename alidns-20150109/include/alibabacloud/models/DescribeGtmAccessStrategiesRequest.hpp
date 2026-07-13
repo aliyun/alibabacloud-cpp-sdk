@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the GTM instance whose access policies you want to query.
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The language used by the user.
+    // The language of the response.
     shared_ptr<string> lang_ {};
-    // The number of the page to return.
+    // The page number. The value starts from 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

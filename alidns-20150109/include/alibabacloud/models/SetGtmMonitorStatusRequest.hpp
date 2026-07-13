@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
-    // The health check ID.
+    // The health check configuration ID.
     // 
     // This parameter is required.
     shared_ptr<string> monitorConfigId_ {};
-    // Specifies whether health check is enabled for the address pool. Valid values:
+    // The enabling status. Valid values:
     // 
-    // *   **OPEN**: Enabled
-    // *   **CLOSE**: Disabled
+    // - **OPEN**: Enable
+    // 
+    // - **CLOSE**: Disable
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

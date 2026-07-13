@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the address pool that you want to query.
+    // The ID of the address pool.
     // 
     // This parameter is required.
     shared_ptr<string> addrPoolId_ {};
-    // The language used by the user.
+    // The language.
     shared_ptr<string> lang_ {};
   };
 

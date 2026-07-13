@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The end IP address of the CIDR block.
+      // The end IP address of the segment.
       shared_ptr<string> endIp_ {};
-      // The start IP address of the CIDR block.
+      // The start IP address of the segment.
       shared_ptr<string> startIp_ {};
     };
 
@@ -113,18 +113,19 @@ namespace Models
 
 
   protected:
-    // The domain name. You can call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
+    // The domain name.<props="china">Call the [DescribeDomains](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c4g.11186623.help-menu-search-29697.d_0) operation to obtain the domain name.<props="intl">Call the [DescribeDomains](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomains?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the domain name.
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The CIDR blocks.
+    // The list of IP address segments.
     // 
     // This parameter is required.
     shared_ptr<vector<AddCustomLineRequest::IpSegment>> ipSegment_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The name of the custom line.
     // 

@@ -147,6 +147,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeSupportLinesResponseBody::RecordLines> recordLines_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -305,15 +305,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeGtmInstancesResponseBody::GtmInstances> gtmInstances_ {};
-    // The returned page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of items.
     shared_ptr<int32_t> totalItems_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
   };
 

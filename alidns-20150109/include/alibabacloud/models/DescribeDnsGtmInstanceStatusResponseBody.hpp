@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The number of available addresses.
+    // The number of healthy addresses.
     shared_ptr<int32_t> addrAvailableNum_ {};
-    // The number of unavailable addresses.
+    // The number of unhealthy addresses.
     shared_ptr<int32_t> addrNotAvailableNum_ {};
     // The number of unavailable address pool groups.
     shared_ptr<int32_t> addrPoolGroupNotAvailableNum_ {};
-    // The ID of the request.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of access policies that are unavailable in the current active address pool group.
+    // The number of unavailable access policies for the active address pool group.
     shared_ptr<int32_t> strategyNotAvailableNum_ {};
-    // The number of access policies switched to the secondary address pool group.
+    // The number of access policies that are switched to the failover address pool group.
     shared_ptr<int32_t> switchToFailoverStrategyNum_ {};
   };
 

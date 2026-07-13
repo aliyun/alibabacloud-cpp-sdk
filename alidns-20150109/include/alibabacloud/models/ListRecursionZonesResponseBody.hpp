@@ -405,12 +405,19 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned for this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The current page number. The value starts from **1**. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of addresses in the address list.
     shared_ptr<int32_t> totalItems_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
     shared_ptr<ListRecursionZonesResponseBody::Zones> zones_ {};
   };

@@ -108,9 +108,37 @@ namespace Models
 
 
     protected:
+      // Specifies whether to send alerts through DingTalk. Valid values:
+      // 
+      // - true: yes
+      // 
+      // - false: no
       shared_ptr<bool> dingtalkNotice_ {};
+      // Specifies whether to send alerts by email. Valid values:
+      // 
+      // - true: yes
+      // 
+      // - false or null: no
       shared_ptr<bool> emailNotice_ {};
+      // The type of the alert event. Valid values:
+      // 
+      // - ADDR_ALERT: An address becomes unavailable.
+      // 
+      // - ADDR_RESUME: An address becomes available.
+      // 
+      // - ADDR_POOL_GROUP_UNAVAILABLE: An address pool group becomes unavailable.
+      // 
+      // - ADDR_POOL_GROUP_AVAILABLE: An address pool group becomes available.
+      // 
+      // - ACCESS_STRATEGY_POOL_GROUP_SWITCH: A switchover occurs between the primary and secondary address pools.
+      // 
+      // - MONITOR_NODE_IP_CHANGE: The IP address of a monitoring node changes.
       shared_ptr<string> noticeType_ {};
+      // Specifies whether to send alerts through text messages. Valid values:
+      // 
+      // - true: yes
+      // 
+      // - false or null: no
       shared_ptr<bool> smsNotice_ {};
     };
 
@@ -205,38 +233,41 @@ namespace Models
 
 
   protected:
+    // The alert configurations.
     shared_ptr<vector<UpdateDnsGtmInstanceGlobalConfigRequest::AlertConfig>> alertConfig_ {};
-    // The name of the alert group in the JSON format.
+    // The alert contact group. The value is a JSON-formatted \\`List\\<string>\\`.
     shared_ptr<string> alertGroup_ {};
-    // The type of the canonical name (CNAME).
+    // The type of the CNAME record. Valid value:
     // 
-    // *   Set the value to PUBLIC.
+    // - PUBLIC: The CNAME record is used for Internet access.
     shared_ptr<string> cnameType_ {};
-    // Specifies whether to enable force updates. Valid values:
+    // Specifies whether to forcefully update the instance. Valid values:
     // 
-    // *   true: enables force update without a conflict alert.
-    // *   false: disables force update. If a conflict occurs, the system displays an alert. null: This valid value of ForceUpdate provides the same information as the false value.
+    // - true: Forcefully updates the instance without checking for conflicts.
+    // 
+    // - false or null: Does not forcefully update the instance. The system checks for conflicts before the update.
     shared_ptr<bool> forceUpdate_ {};
-    // The ID of the instance.
+    // The ID of the GTM instance. To obtain the instance ID, call the [DescribeDnsGtmInstances](https://www.alibabacloud.com/help/en/dns/api-alidns-2015-01-09-describednsgtminstances?spm=a2c63.p38356.help-menu-search-29697.d_0) operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the instance. This parameter is required only for the first update.
+    // The name of the instance. This parameter is required when you update the instance for the first time. It is optional for subsequent updates.
     shared_ptr<string> instanceName_ {};
-    // The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+    // The language of the response. Valid values: en, zh, and ja. The default value is en.
     shared_ptr<string> lang_ {};
-    // Specifies whether to use a custom CNAME domain name or a CNAME domain name assigned by the system to access the instance over the Internet. Valid values:
+    // The method used to access the instance over the Internet. Valid values:
     // 
-    // *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
-    // *   CUSTOM: a custom CNAME domain name
+    // - SYSTEM_ASSIGN: The system assigns a canonical name (CNAME) record. This option is disabled.
+    // 
+    // - CUSTOM: You specify a CNAME record.
     shared_ptr<string> publicCnameMode_ {};
-    // The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+    // The hostname of the CNAME record that is used for Internet access.
     shared_ptr<string> publicRr_ {};
-    // The service domain name that is used over the Internet.
+    // The service domain name that is accessed over the Internet.
     shared_ptr<string> publicUserDomainName_ {};
-    // The CNAME domain name that is used to access the instance over the Internet, which is the primary domain name. This parameter is required when the PublicCnameMode parameter is set to CUSTOM.
+    // The primary domain name that is used to access the instance over the Internet using a CNAME record. This parameter is required if you set PublicCnameMode to CUSTOM.
     // 
-    // >  You must use the primary domain name. Do not include the hostname specified by the PublicRr parameter.
+    // > Enter the primary domain name. Do not include the hostname specified by the PublicRr parameter.
     shared_ptr<string> publicZoneName_ {};
     // The global time to live (TTL).
     shared_ptr<int32_t> ttl_ {};

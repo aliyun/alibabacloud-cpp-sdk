@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the Global Traffic Manager (GTM) instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language used by the user.
+    // The user language.
     shared_ptr<string> lang_ {};
   };
 
