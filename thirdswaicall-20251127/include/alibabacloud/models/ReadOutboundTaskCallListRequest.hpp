@@ -14,6 +14,10 @@ namespace Models
   class ReadOutboundTaskCallListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ReadOutboundTaskCallListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CallEndTimeBegin, callEndTimeBegin_);
+      DARABONBA_PTR_TO_JSON(CallEndTimeEnd, callEndTimeEnd_);
+      DARABONBA_PTR_TO_JSON(CallStartTimeBegin, callStartTimeBegin_);
+      DARABONBA_PTR_TO_JSON(CallStartTimeEnd, callStartTimeEnd_);
       DARABONBA_PTR_TO_JSON(Current, current_);
       DARABONBA_PTR_TO_JSON(CustomerNameOrPhone, customerNameOrPhone_);
       DARABONBA_PTR_TO_JSON(DisplayStatusList, displayStatusList_);
@@ -25,6 +29,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ReadOutboundTaskCallListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CallEndTimeBegin, callEndTimeBegin_);
+      DARABONBA_PTR_FROM_JSON(CallEndTimeEnd, callEndTimeEnd_);
+      DARABONBA_PTR_FROM_JSON(CallStartTimeBegin, callStartTimeBegin_);
+      DARABONBA_PTR_FROM_JSON(CallStartTimeEnd, callStartTimeEnd_);
       DARABONBA_PTR_FROM_JSON(Current, current_);
       DARABONBA_PTR_FROM_JSON(CustomerNameOrPhone, customerNameOrPhone_);
       DARABONBA_PTR_FROM_JSON(DisplayStatusList, displayStatusList_);
@@ -46,9 +54,38 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->current_ == nullptr
-        && this->customerNameOrPhone_ == nullptr && this->displayStatusList_ == nullptr && this->labelTags_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->size_ == nullptr && this->taskId_ == nullptr && this->userId_ == nullptr; };
+    virtual bool empty() const override { return this->callEndTimeBegin_ == nullptr
+        && this->callEndTimeEnd_ == nullptr && this->callStartTimeBegin_ == nullptr && this->callStartTimeEnd_ == nullptr && this->current_ == nullptr && this->customerNameOrPhone_ == nullptr
+        && this->displayStatusList_ == nullptr && this->labelTags_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->size_ == nullptr
+        && this->taskId_ == nullptr && this->userId_ == nullptr; };
+    // callEndTimeBegin Field Functions 
+    bool hasCallEndTimeBegin() const { return this->callEndTimeBegin_ != nullptr;};
+    void deleteCallEndTimeBegin() { this->callEndTimeBegin_ = nullptr;};
+    inline int64_t getCallEndTimeBegin() const { DARABONBA_PTR_GET_DEFAULT(callEndTimeBegin_, 0L) };
+    inline ReadOutboundTaskCallListRequest& setCallEndTimeBegin(int64_t callEndTimeBegin) { DARABONBA_PTR_SET_VALUE(callEndTimeBegin_, callEndTimeBegin) };
+
+
+    // callEndTimeEnd Field Functions 
+    bool hasCallEndTimeEnd() const { return this->callEndTimeEnd_ != nullptr;};
+    void deleteCallEndTimeEnd() { this->callEndTimeEnd_ = nullptr;};
+    inline int64_t getCallEndTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(callEndTimeEnd_, 0L) };
+    inline ReadOutboundTaskCallListRequest& setCallEndTimeEnd(int64_t callEndTimeEnd) { DARABONBA_PTR_SET_VALUE(callEndTimeEnd_, callEndTimeEnd) };
+
+
+    // callStartTimeBegin Field Functions 
+    bool hasCallStartTimeBegin() const { return this->callStartTimeBegin_ != nullptr;};
+    void deleteCallStartTimeBegin() { this->callStartTimeBegin_ = nullptr;};
+    inline int64_t getCallStartTimeBegin() const { DARABONBA_PTR_GET_DEFAULT(callStartTimeBegin_, 0L) };
+    inline ReadOutboundTaskCallListRequest& setCallStartTimeBegin(int64_t callStartTimeBegin) { DARABONBA_PTR_SET_VALUE(callStartTimeBegin_, callStartTimeBegin) };
+
+
+    // callStartTimeEnd Field Functions 
+    bool hasCallStartTimeEnd() const { return this->callStartTimeEnd_ != nullptr;};
+    void deleteCallStartTimeEnd() { this->callStartTimeEnd_ = nullptr;};
+    inline int64_t getCallStartTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(callStartTimeEnd_, 0L) };
+    inline ReadOutboundTaskCallListRequest& setCallStartTimeEnd(int64_t callStartTimeEnd) { DARABONBA_PTR_SET_VALUE(callStartTimeEnd_, callStartTimeEnd) };
+
+
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
@@ -117,12 +154,15 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> callEndTimeBegin_ {};
+    shared_ptr<int64_t> callEndTimeEnd_ {};
+    shared_ptr<int64_t> callStartTimeBegin_ {};
+    shared_ptr<int64_t> callStartTimeEnd_ {};
     shared_ptr<int32_t> current_ {};
     shared_ptr<string> customerNameOrPhone_ {};
     shared_ptr<vector<string>> displayStatusList_ {};
     shared_ptr<vector<string>> labelTags_ {};
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
     shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> size_ {};
     shared_ptr<string> taskId_ {};

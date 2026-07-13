@@ -45,6 +45,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 QueryTaskConcurrencyResponse Client::queryTaskConcurrencyWithOptions(const QueryTaskConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasApplicationCode()) {
+    body["ApplicationCode"] = request.getApplicationCode();
+  }
+
   if (!!request.hasTaskId()) {
     body["TaskId"] = request.getTaskId();
   }
@@ -97,6 +101,22 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
   }
 
   json body = {};
+  if (!!request.hasCallEndTimeBegin()) {
+    body["CallEndTimeBegin"] = request.getCallEndTimeBegin();
+  }
+
+  if (!!request.hasCallEndTimeEnd()) {
+    body["CallEndTimeEnd"] = request.getCallEndTimeEnd();
+  }
+
+  if (!!request.hasCallStartTimeBegin()) {
+    body["CallStartTimeBegin"] = request.getCallStartTimeBegin();
+  }
+
+  if (!!request.hasCallStartTimeEnd()) {
+    body["CallStartTimeEnd"] = request.getCallStartTimeEnd();
+  }
+
   if (!!request.hasCurrent()) {
     body["Current"] = request.getCurrent();
   }

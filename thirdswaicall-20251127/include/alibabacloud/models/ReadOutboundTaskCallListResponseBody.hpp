@@ -51,6 +51,7 @@ namespace Models
     class Records : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Records& obj) { 
+        DARABONBA_PTR_TO_JSON(BillingDuration, billingDuration_);
         DARABONBA_PTR_TO_JSON(CallEndTime, callEndTime_);
         DARABONBA_PTR_TO_JSON(CallId, callId_);
         DARABONBA_PTR_TO_JSON(CallStartTime, callStartTime_);
@@ -70,6 +71,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LabelTags, labelTags_);
         DARABONBA_PTR_TO_JSON(RecordDetailReady, recordDetailReady_);
         DARABONBA_PTR_TO_JSON(RecordUrl, recordUrl_);
+        DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(RetryCount, retryCount_);
         DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -80,6 +82,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UserId, userId_);
       };
       friend void from_json(const Darabonba::Json& j, Records& obj) { 
+        DARABONBA_PTR_FROM_JSON(BillingDuration, billingDuration_);
         DARABONBA_PTR_FROM_JSON(CallEndTime, callEndTime_);
         DARABONBA_PTR_FROM_JSON(CallId, callId_);
         DARABONBA_PTR_FROM_JSON(CallStartTime, callStartTime_);
@@ -99,6 +102,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LabelTags, labelTags_);
         DARABONBA_PTR_FROM_JSON(RecordDetailReady, recordDetailReady_);
         DARABONBA_PTR_FROM_JSON(RecordUrl, recordUrl_);
+        DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(RetryCount, retryCount_);
         DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -181,13 +185,20 @@ namespace Models
         shared_ptr<string> text_ {};
       };
 
-      virtual bool empty() const override { return this->callEndTime_ == nullptr
-        && this->callId_ == nullptr && this->callStartTime_ == nullptr && this->callSummary_ == nullptr && this->channel_ == nullptr && this->customerName_ == nullptr
-        && this->customerPhone_ == nullptr && this->dialogueList_ == nullptr && this->displayStatus_ == nullptr && this->duration_ == nullptr && this->durationText_ == nullptr
-        && this->extInfo_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr
-        && this->labelTags_ == nullptr && this->recordDetailReady_ == nullptr && this->recordUrl_ == nullptr && this->retryCount_ == nullptr && this->sceneId_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->ttsVoiceCode_ == nullptr && this->ttsVoiceDesc_ == nullptr
-        && this->userId_ == nullptr; };
+      virtual bool empty() const override { return this->billingDuration_ == nullptr
+        && this->callEndTime_ == nullptr && this->callId_ == nullptr && this->callStartTime_ == nullptr && this->callSummary_ == nullptr && this->channel_ == nullptr
+        && this->customerName_ == nullptr && this->customerPhone_ == nullptr && this->dialogueList_ == nullptr && this->displayStatus_ == nullptr && this->duration_ == nullptr
+        && this->durationText_ == nullptr && this->extInfo_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
+        && this->instanceId_ == nullptr && this->labelTags_ == nullptr && this->recordDetailReady_ == nullptr && this->recordUrl_ == nullptr && this->remark_ == nullptr
+        && this->retryCount_ == nullptr && this->sceneId_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr
+        && this->ttsVoiceCode_ == nullptr && this->ttsVoiceDesc_ == nullptr && this->userId_ == nullptr; };
+      // billingDuration Field Functions 
+      bool hasBillingDuration() const { return this->billingDuration_ != nullptr;};
+      void deleteBillingDuration() { this->billingDuration_ = nullptr;};
+      inline int64_t getBillingDuration() const { DARABONBA_PTR_GET_DEFAULT(billingDuration_, 0L) };
+      inline Records& setBillingDuration(int64_t billingDuration) { DARABONBA_PTR_SET_VALUE(billingDuration_, billingDuration) };
+
+
       // callEndTime Field Functions 
       bool hasCallEndTime() const { return this->callEndTime_ != nullptr;};
       void deleteCallEndTime() { this->callEndTime_ = nullptr;};
@@ -325,6 +336,13 @@ namespace Models
       inline Records& setRecordUrl(string recordUrl) { DARABONBA_PTR_SET_VALUE(recordUrl_, recordUrl) };
 
 
+      // remark Field Functions 
+      bool hasRemark() const { return this->remark_ != nullptr;};
+      void deleteRemark() { this->remark_ = nullptr;};
+      inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+      inline Records& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
       // retryCount Field Functions 
       bool hasRetryCount() const { return this->retryCount_ != nullptr;};
       void deleteRetryCount() { this->retryCount_ = nullptr;};
@@ -382,6 +400,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<int64_t> billingDuration_ {};
       shared_ptr<string> callEndTime_ {};
       shared_ptr<string> callId_ {};
       shared_ptr<string> callStartTime_ {};
@@ -401,6 +420,7 @@ namespace Models
       shared_ptr<vector<string>> labelTags_ {};
       shared_ptr<bool> recordDetailReady_ {};
       shared_ptr<string> recordUrl_ {};
+      shared_ptr<string> remark_ {};
       shared_ptr<int32_t> retryCount_ {};
       shared_ptr<string> sceneId_ {};
       shared_ptr<string> status_ {};

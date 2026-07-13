@@ -154,7 +154,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<string> timestamp_ {};
-    // Trace ID。
     shared_ptr<string> traceId_ {};
   };
 
