@@ -1060,7 +1060,7 @@ CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceReque
 }
 
 /**
- * @summary Creates a login-free ticket for a website builder instance.
+ * @summary Creates a passwordless login ticket.
  *
  * @param request CreateAppInstanceTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1075,6 +1075,10 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicketWithOptions(const
 
   if (!!request.hasClientId()) {
     query["ClientId"] = request.getClientId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1095,7 +1099,7 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicketWithOptions(const
 }
 
 /**
- * @summary Creates a login-free ticket for a website builder instance.
+ * @summary Creates a passwordless login ticket.
  *
  * @param request CreateAppInstanceTicketRequest
  * @return CreateAppInstanceTicketResponse
@@ -8072,6 +8076,10 @@ UpdateAppSeoStatusResponse Client::updateAppSeoStatusWithOptions(const UpdateApp
 
   if (!!request.hasSeAuthInfo()) {
     query["SeAuthInfo"] = request.getSeAuthInfo();
+  }
+
+  if (!!request.hasSeIndexStatus()) {
+    query["SeIndexStatus"] = request.getSeIndexStatus();
   }
 
   if (!!request.hasSeType()) {

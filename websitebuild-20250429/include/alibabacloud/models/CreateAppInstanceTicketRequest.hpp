@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAppInstanceTicketRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
+      DARABONBA_PTR_TO_JSON(Role, role_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAppInstanceTicketRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
+      DARABONBA_PTR_FROM_JSON(Role, role_);
     };
     CreateAppInstanceTicketRequest() = default ;
     CreateAppInstanceTicketRequest(const CreateAppInstanceTicketRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->clientId_ == nullptr; };
+        && this->clientId_ == nullptr && this->role_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline CreateAppInstanceTicketRequest& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
+    // role Field Functions 
+    bool hasRole() const { return this->role_ != nullptr;};
+    void deleteRole() { this->role_ = nullptr;};
+    inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+    inline CreateAppInstanceTicketRequest& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
+
+
   protected:
-    // The business ID of the customer.
+    // The customer business ID.
     shared_ptr<string> bizId_ {};
-    // The client ID of the device whose access credentials need to be revoked.
+    // The Client ID of the device for which you want to revoke the access credential.
     shared_ptr<string> clientId_ {};
+    shared_ptr<string> role_ {};
   };
 
   } // namespace Models

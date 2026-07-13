@@ -329,7 +329,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceResponse createAppInstance(const Models::CreateAppInstanceRequest &request);
 
       /**
-       * @summary Creates a login-free ticket for a website builder instance.
+       * @summary Creates a passwordless login ticket.
        *
        * @param request CreateAppInstanceTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -338,7 +338,7 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceTicketResponse createAppInstanceTicketWithOptions(const Models::CreateAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a login-free ticket for a website builder instance.
+       * @summary Creates a passwordless login ticket.
        *
        * @param request CreateAppInstanceTicketRequest
        * @return CreateAppInstanceTicketResponse

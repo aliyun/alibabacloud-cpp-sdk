@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(SeAuthInfo, seAuthInfo_);
+      DARABONBA_PTR_TO_JSON(SeIndexStatus, seIndexStatus_);
       DARABONBA_PTR_TO_JSON(SeType, seType_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAppSeoStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(SeAuthInfo, seAuthInfo_);
+      DARABONBA_PTR_FROM_JSON(SeIndexStatus, seIndexStatus_);
       DARABONBA_PTR_FROM_JSON(SeType, seType_);
     };
     UpdateAppSeoStatusRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->domain_ == nullptr && this->seAuthInfo_ == nullptr && this->seType_ == nullptr; };
+        && this->domain_ == nullptr && this->seAuthInfo_ == nullptr && this->seIndexStatus_ == nullptr && this->seType_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline UpdateAppSeoStatusRequest& setSeAuthInfo(string seAuthInfo) { DARABONBA_PTR_SET_VALUE(seAuthInfo_, seAuthInfo) };
 
 
+    // seIndexStatus Field Functions 
+    bool hasSeIndexStatus() const { return this->seIndexStatus_ != nullptr;};
+    void deleteSeIndexStatus() { this->seIndexStatus_ = nullptr;};
+    inline int32_t getSeIndexStatus() const { DARABONBA_PTR_GET_DEFAULT(seIndexStatus_, 0) };
+    inline UpdateAppSeoStatusRequest& setSeIndexStatus(int32_t seIndexStatus) { DARABONBA_PTR_SET_VALUE(seIndexStatus_, seIndexStatus) };
+
+
     // seType Field Functions 
     bool hasSeType() const { return this->seType_ != nullptr;};
     void deleteSeType() { this->seType_ = nullptr;};
@@ -71,6 +80,7 @@ namespace Models
     // The domain name.
     shared_ptr<string> domain_ {};
     shared_ptr<string> seAuthInfo_ {};
+    shared_ptr<int32_t> seIndexStatus_ {};
     // The search engine type.
     shared_ptr<string> seType_ {};
   };

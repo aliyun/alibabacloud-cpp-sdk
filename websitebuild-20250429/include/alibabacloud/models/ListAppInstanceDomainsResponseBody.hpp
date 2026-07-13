@@ -239,7 +239,7 @@ namespace Models
 
 
         protected:
-          // The DNS record configuration guide for the user.
+          // The DNS record that the user needs to configure.
           shared_ptr<Verification::DnsRecord> dnsRecord_ {};
           // The error message.
           shared_ptr<string> errorMsg_ {};
@@ -685,13 +685,13 @@ namespace Models
 
 
         protected:
-          // The certificate name.
+          // The name of the certificate.
           shared_ptr<string> certificateName_ {};
-          // The certificate status.
+          // The status of the certificate.
           shared_ptr<string> certificateStatus_ {};
-          // The certificate type.
+          // The type of the certificate.
           shared_ptr<string> certificateType_ {};
-          // The certificate expiration date.
+          // The expiration date of the certificate.
           shared_ptr<string> endTime_ {};
         };
 
@@ -785,7 +785,7 @@ namespace Models
       protected:
         // The domain name SSL certificate information.
         shared_ptr<Next::Certificate> certificate_ {};
-        // The instance creation time. This parameter is required. Format: yyyy-MM-dd HH:mm:ss.
+        // The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
         shared_ptr<Next::DnsConflict> dnsConflict_ {};
         // The domain name.
@@ -953,13 +953,13 @@ namespace Models
 
 
         protected:
-          // The DNS record configuration guide for the user.
+          // The DNS record that the user needs to configure.
           shared_ptr<Verification::DnsRecord> dnsRecord_ {};
           // The error message.
           shared_ptr<string> errorMsg_ {};
           // The ownership verification status.
           shared_ptr<string> verificationStatus_ {};
-          // The ownership verification status.
+          // The ownership verification status code.
           shared_ptr<string> verificationStatusCode_ {};
         };
 
@@ -1411,13 +1411,13 @@ namespace Models
 
 
         protected:
-          // The certificate name.
+          // The name of the certificate.
           shared_ptr<string> certificateName_ {};
-          // The certificate status.
+          // The status of the certificate.
           shared_ptr<string> certificateStatus_ {};
-          // The certificate type.
+          // The type of the certificate.
           shared_ptr<string> certificateType_ {};
-          // The certificate expiration date.
+          // The expiration date of the certificate.
           shared_ptr<string> endTime_ {};
         };
 
@@ -1511,7 +1511,7 @@ namespace Models
       protected:
         // The domain name SSL certificate information.
         shared_ptr<Data::Certificate> certificate_ {};
-        // The instance creation time. This parameter is required. Format: yyyy-MM-dd HH:mm:ss.
+        // The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
         shared_ptr<Data::DnsConflict> dnsConflict_ {};
         // The domain name.
@@ -1602,7 +1602,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The decision weight.
       shared_ptr<Module::Next> next_ {};
@@ -1612,7 +1612,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes up to 1,000 recent records per query. If the result exceeds 1,000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to pagination limits, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -1728,12 +1728,12 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which replaces the `%s` placeholder in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
+    // The maximum number of entries per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
@@ -1747,7 +1747,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -106,7 +106,7 @@ namespace Models
     // The business ID.
     shared_ptr<string> bizId_ {};
     shared_ptr<string> domainKeyword_ {};
-    // The number of entries per query.
+    // The maximum number of entries per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
