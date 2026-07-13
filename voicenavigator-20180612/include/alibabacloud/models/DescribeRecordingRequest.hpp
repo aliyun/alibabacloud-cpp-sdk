@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The conversation ID.
+    // The session ID.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};

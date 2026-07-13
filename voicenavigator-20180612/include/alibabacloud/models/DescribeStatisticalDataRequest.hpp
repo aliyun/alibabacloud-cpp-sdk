@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The start of the query time range, specified as a Unix timestamp in milliseconds.
+    // The left boundary of the start time range.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
-    // The end of the query time range, specified as a Unix timestamp in milliseconds.
+    // The right boundary of the start time range.
     shared_ptr<int64_t> beginTimeRightRange_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The time unit. Valid values: `Day` and `Hour`.
+    // The date unit.
     // 
     // This parameter is required.
     shared_ptr<string> timeUnit_ {};

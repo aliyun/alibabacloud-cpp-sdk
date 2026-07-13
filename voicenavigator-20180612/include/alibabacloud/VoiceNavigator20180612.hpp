@@ -21,7 +21,7 @@ namespace VoiceNavigator20180612
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Associates a chatbot with a navigation instance.
+       * @summary Associates a Chatbot instance.
        *
        * @param request AssociateChatbotInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace VoiceNavigator20180612
       Models::AssociateChatbotInstanceResponse associateChatbotInstanceWithOptions(const Models::AssociateChatbotInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a chatbot with a navigation instance.
+       * @summary Associates a Chatbot instance.
        *
        * @param request AssociateChatbotInstanceRequest
        * @return AssociateChatbotInstanceResponse
@@ -38,7 +38,7 @@ namespace VoiceNavigator20180612
       Models::AssociateChatbotInstanceResponse associateChatbotInstance(const Models::AssociateChatbotInstanceRequest &request);
 
       /**
-       * @summary Previews a text-to-speech (TTS) voice.
+       * @summary Previews a TTS voice.
        *
        * @param request AuditTTSVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace VoiceNavigator20180612
       Models::AuditTTSVoiceResponse auditTTSVoiceWithOptions(const Models::AuditTTSVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Previews a text-to-speech (TTS) voice.
+       * @summary Previews a TTS voice.
        *
        * @param request AuditTTSVoiceRequest
        * @return AuditTTSVoiceResponse
@@ -89,7 +89,7 @@ namespace VoiceNavigator20180612
       Models::CollectedNumberResponse collectedNumber(const Models::CollectedNumberRequest &request);
 
       /**
-       * @summary Generates a temporary URL to download a file.
+       * @summary Creates a download URL for a file.
        *
        * @param request CreateDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace VoiceNavigator20180612
       Models::CreateDownloadUrlResponse createDownloadUrlWithOptions(const Models::CreateDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a temporary URL to download a file.
+       * @summary Creates a download URL for a file.
        *
        * @param request CreateDownloadUrlRequest
        * @return CreateDownloadUrlResponse
@@ -157,7 +157,7 @@ namespace VoiceNavigator20180612
       Models::DebugCollectedNumberResponse debugCollectedNumber(const Models::DebugCollectedNumberRequest &request);
 
       /**
-       * @summary Sends a user utterance to the dialogue engine to debug a conversation flow.
+       * @summary Debugs a conversation in the debug environment.
        *
        * @param request DebugDialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace VoiceNavigator20180612
       Models::DebugDialogueResponse debugDialogueWithOptions(const Models::DebugDialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a user utterance to the dialogue engine to debug a conversation flow.
+       * @summary Debugs a conversation in the debug environment.
        *
        * @param request DebugDialogueRequest
        * @return DebugDialogueResponse
@@ -191,7 +191,7 @@ namespace VoiceNavigator20180612
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary Retrieves information about a conversation.
+       * @summary Queries conversation information.
        *
        * @param request DescribeConversationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +200,7 @@ namespace VoiceNavigator20180612
       Models::DescribeConversationResponse describeConversationWithOptions(const Models::DescribeConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a conversation.
+       * @summary Queries conversation information.
        *
        * @param request DescribeConversationRequest
        * @return DescribeConversationResponse
@@ -242,7 +242,7 @@ namespace VoiceNavigator20180612
       Models::DescribeExportProgressResponse describeExportProgress(const Models::DescribeExportProgressRequest &request);
 
       /**
-       * @summary Retrieves details for a specified instance.
+       * @summary Queries instance information.
        *
        * @param request DescribeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace VoiceNavigator20180612
       Models::DescribeInstanceResponse describeInstanceWithOptions(const Models::DescribeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details for a specified instance.
+       * @summary Queries instance information.
        *
        * @param request DescribeInstanceRequest
        * @return DescribeInstanceResponse
@@ -276,7 +276,7 @@ namespace VoiceNavigator20180612
       Models::DescribeNavigationConfigResponse describeNavigationConfig(const Models::DescribeNavigationConfigRequest &request);
 
       /**
-       * @summary Retrieves a conversation recording.
+       * @summary Retrieves the recording of a conversation.
        *
        * @param request DescribeRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace VoiceNavigator20180612
       Models::DescribeRecordingResponse describeRecordingWithOptions(const Models::DescribeRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a conversation recording.
+       * @summary Retrieves the recording of a conversation.
        *
        * @param request DescribeRecordingRequest
        * @return DescribeRecordingResponse
@@ -293,7 +293,7 @@ namespace VoiceNavigator20180612
       Models::DescribeRecordingResponse describeRecording(const Models::DescribeRecordingRequest &request);
 
       /**
-       * @summary View the current instance\\"s statistics.
+       * @summary Queries the statistics of the current instance.
        *
        * @param request DescribeStatisticalDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace VoiceNavigator20180612
       Models::DescribeStatisticalDataResponse describeStatisticalDataWithOptions(const Models::DescribeStatisticalDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the current instance\\"s statistics.
+       * @summary Queries the statistics of the current instance.
        *
        * @param request DescribeStatisticalDataRequest
        * @return DescribeStatisticalDataResponse
@@ -344,7 +344,7 @@ namespace VoiceNavigator20180612
       Models::DialogueResponse dialogue(const Models::DialogueRequest &request);
 
       /**
-       * @summary Disables a Voice Navigator instance.
+       * @summary Deletes an intelligent navigation instance.
        *
        * @param request DisableInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ namespace VoiceNavigator20180612
       Models::DisableInstanceResponse disableInstanceWithOptions(const Models::DisableInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a Voice Navigator instance.
+       * @summary Deletes an intelligent navigation instance.
        *
        * @param request DisableInstanceRequest
        * @return DisableInstanceResponse
@@ -361,7 +361,7 @@ namespace VoiceNavigator20180612
       Models::DisableInstanceResponse disableInstance(const Models::DisableInstanceRequest &request);
 
       /**
-       * @summary Enables a Voice Navigator instance.
+       * @summary Starts an instance.
        *
        * @param request EnableInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace VoiceNavigator20180612
       Models::EnableInstanceResponse enableInstanceWithOptions(const Models::EnableInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a Voice Navigator instance.
+       * @summary Starts an instance.
        *
        * @param request EnableInstanceRequest
        * @return EnableInstanceResponse
@@ -395,7 +395,7 @@ namespace VoiceNavigator20180612
       Models::EndDialogueResponse endDialogue(const Models::EndDialogueRequest &request);
 
       /**
-       * @summary Exports conversation details.
+       * @summary Exports session details.
        *
        * @param request ExportConversationDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +404,7 @@ namespace VoiceNavigator20180612
       Models::ExportConversationDetailsResponse exportConversationDetailsWithOptions(const Models::ExportConversationDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports conversation details.
+       * @summary Exports session details.
        *
        * @param request ExportConversationDetailsRequest
        * @return ExportConversationDetailsResponse
@@ -412,7 +412,7 @@ namespace VoiceNavigator20180612
       Models::ExportConversationDetailsResponse exportConversationDetails(const Models::ExportConversationDetailsRequest &request);
 
       /**
-       * @summary Exports statistical data.
+       * @summary Exports statistics.
        *
        * @param request ExportStatisticalDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +421,7 @@ namespace VoiceNavigator20180612
       Models::ExportStatisticalDataResponse exportStatisticalDataWithOptions(const Models::ExportStatisticalDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports statistical data.
+       * @summary Exports statistics.
        *
        * @param request ExportStatisticalDataRequest
        * @return ExportStatisticalDataResponse
@@ -463,7 +463,7 @@ namespace VoiceNavigator20180612
       Models::GetRealTimeConcurrencyResponse getRealTimeConcurrency(const Models::GetRealTimeConcurrencyRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of chatbot instances.
+       * @summary Queries a list of instances.
        *
        * @param request ListChatbotInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +472,7 @@ namespace VoiceNavigator20180612
       Models::ListChatbotInstancesResponse listChatbotInstancesWithOptions(const Models::ListChatbotInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of chatbot instances.
+       * @summary Queries a list of instances.
        *
        * @param request ListChatbotInstancesRequest
        * @return ListChatbotInstancesResponse
@@ -497,7 +497,7 @@ namespace VoiceNavigator20180612
       Models::ListConversationDetailsResponse listConversationDetails(const Models::ListConversationDetailsRequest &request);
 
       /**
-       * @summary Returns the session list.
+       * @summary Queries a list of sessions.
        *
        * @param request ListConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +506,7 @@ namespace VoiceNavigator20180612
       Models::ListConversationsResponse listConversationsWithOptions(const Models::ListConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns the session list.
+       * @summary Queries a list of sessions.
        *
        * @param request ListConversationsRequest
        * @return ListConversationsResponse
@@ -514,7 +514,7 @@ namespace VoiceNavigator20180612
       Models::ListConversationsResponse listConversations(const Models::ListConversationsRequest &request);
 
       /**
-       * @summary Download list
+       * @summary Queries the list of download tasks.
        *
        * @param request ListDownloadTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ namespace VoiceNavigator20180612
       Models::ListDownloadTasksResponse listDownloadTasksWithOptions(const Models::ListDownloadTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Download list
+       * @summary Queries the list of download tasks.
        *
        * @param request ListDownloadTasksRequest
        * @return ListDownloadTasksResponse
@@ -548,7 +548,7 @@ namespace VoiceNavigator20180612
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Modifies an ASR configuration.
+       * @summary Modifies the ASR configuration.
        *
        * @param request ModifyAsrConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +557,7 @@ namespace VoiceNavigator20180612
       Models::ModifyAsrConfigResponse modifyAsrConfigWithOptions(const Models::ModifyAsrConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an ASR configuration.
+       * @summary Modifies the ASR configuration.
        *
        * @param request ModifyAsrConfigRequest
        * @return ModifyAsrConfigResponse

@@ -14,6 +14,7 @@ namespace Models
   class ExportConversationDetailsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ExportConversationDetailsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AbTestId, abTestId_);
       DARABONBA_PTR_TO_JSON(BeginTimeLeftRange, beginTimeLeftRange_);
       DARABONBA_PTR_TO_JSON(BeginTimeRightRange, beginTimeRightRange_);
       DARABONBA_PTR_TO_JSON(CallingNumber, callingNumber_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RoundsRightRange, roundsRightRange_);
     };
     friend void from_json(const Darabonba::Json& j, ExportConversationDetailsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AbTestId, abTestId_);
       DARABONBA_PTR_FROM_JSON(BeginTimeLeftRange, beginTimeLeftRange_);
       DARABONBA_PTR_FROM_JSON(BeginTimeRightRange, beginTimeRightRange_);
       DARABONBA_PTR_FROM_JSON(CallingNumber, callingNumber_);
@@ -46,9 +48,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->beginTimeLeftRange_ == nullptr
-        && this->beginTimeRightRange_ == nullptr && this->callingNumber_ == nullptr && this->debugConversation_ == nullptr && this->instanceId_ == nullptr && this->options_ == nullptr
-        && this->result_ == nullptr && this->roundsLeftRange_ == nullptr && this->roundsRightRange_ == nullptr; };
+    virtual bool empty() const override { return this->abTestId_ == nullptr
+        && this->beginTimeLeftRange_ == nullptr && this->beginTimeRightRange_ == nullptr && this->callingNumber_ == nullptr && this->debugConversation_ == nullptr && this->instanceId_ == nullptr
+        && this->options_ == nullptr && this->result_ == nullptr && this->roundsLeftRange_ == nullptr && this->roundsRightRange_ == nullptr; };
+    // abTestId Field Functions 
+    bool hasAbTestId() const { return this->abTestId_ != nullptr;};
+    void deleteAbTestId() { this->abTestId_ = nullptr;};
+    inline string getAbTestId() const { DARABONBA_PTR_GET_DEFAULT(abTestId_, "") };
+    inline ExportConversationDetailsRequest& setAbTestId(string abTestId) { DARABONBA_PTR_SET_VALUE(abTestId_, abTestId) };
+
+
     // beginTimeLeftRange Field Functions 
     bool hasBeginTimeLeftRange() const { return this->beginTimeLeftRange_ != nullptr;};
     void deleteBeginTimeLeftRange() { this->beginTimeLeftRange_ = nullptr;};
@@ -115,24 +124,22 @@ namespace Models
 
 
   protected:
-    // The beginning of the time range to query. This value is a UNIX timestamp in milliseconds.
+    shared_ptr<string> abTestId_ {};
+    // The left boundary of the start date range.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
-    // The end of the time range to query. This value is a UNIX timestamp in milliseconds.
+    // The right boundary of the start date range.
     shared_ptr<int64_t> beginTimeRightRange_ {};
     // The calling number.
     shared_ptr<string> callingNumber_ {};
     shared_ptr<int32_t> debugConversation_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // An array of optional parameters.
+    // The optional parameters.
     shared_ptr<vector<string>> options_ {};
-    // The result of the conversation.
     shared_ptr<int32_t> result_ {};
-    // The minimum number of conversation turns.
     shared_ptr<int32_t> roundsLeftRange_ {};
-    // The maximum number of conversation turns.
     shared_ptr<int32_t> roundsRightRange_ {};
   };
 

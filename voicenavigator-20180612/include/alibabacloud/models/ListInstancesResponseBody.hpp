@@ -181,35 +181,36 @@ namespace Models
 
 
     protected:
-      // A list of applicable operations.
+      // The list of applicable operations for the instance.
       shared_ptr<vector<string>> applicableOperations_ {};
-      // The maximum number of concurrent calls.
+      // The concurrency.
       shared_ptr<int64_t> concurrency_ {};
-      // The time when the instance was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the instance.
+      // The description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the instance was last modified. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+      // The modification time.
       shared_ptr<int64_t> modifyTime_ {};
-      // The user who last modified the instance.
+      // The operator who performed the operation.
       shared_ptr<string> modifyUserName_ {};
-      // The name of the instance.
+      // The name.
       shared_ptr<string> name_ {};
-      // The parameters of the NLU service in the JSON format.
+      // The large language model service parameters in JSON format.
       shared_ptr<string> nluServiceParamsJson_ {};
       // The list of inbound numbers.
       shared_ptr<vector<string>> numbers_ {};
-      // The status of the instance.
+      // The instance status.
       shared_ptr<string> status_ {};
-      // The instance ID from the source system.
+      // The instance ID.
       // 
-      // > If UnionSource is CCC, this parameter indicates the instance ID of the Cloud Communication Center instance.
+      // 
+      // > When UnionSource is set to CCC, UnionInstanceId is set to the instance ID of Cloud Call Center.
       shared_ptr<string> unionInstanceId_ {};
-      // The source of the instance.
+      // The source.
       // 
-      // - `CCC`: Cloud Communication Center
+      // - CCC: Cloud Call Center.
       shared_ptr<string> unionSource_ {};
     };
 
@@ -253,15 +254,15 @@ namespace Models
 
 
   protected:
-    // The list of instances.
+    // The array of instances.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

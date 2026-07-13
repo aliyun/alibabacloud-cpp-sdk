@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The chatbot ID.
+    // The ID of the Chatbot instance.
     shared_ptr<string> chatbotInstanceId_ {};
-    // The name of the chatbot.
+    // The name of the Chatbot instance.
     shared_ptr<string> chatbotName_ {};
-    // The navigation instance ID.
+    // The instance ID of the navigation instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

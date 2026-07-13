@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The URL of the file.
+    // The file URL.
     shared_ptr<string> fileHttpUrl_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the export task.
+    // The status.
     shared_ptr<string> status_ {};
   };
 

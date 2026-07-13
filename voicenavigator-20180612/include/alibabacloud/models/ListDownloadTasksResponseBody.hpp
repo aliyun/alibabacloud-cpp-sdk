@@ -150,11 +150,11 @@ namespace Models
         protected:
           // The file ID.
           shared_ptr<string> fileId_ {};
-          // The progress of the file download.
+          // The completion progress of the download task.
           shared_ptr<int32_t> progress_ {};
-          // The status of the file.
+          // The status.
           shared_ptr<string> status_ {};
-          // The title of the file.
+          // The title.
           shared_ptr<string> title_ {};
         };
 
@@ -198,15 +198,15 @@ namespace Models
 
 
       protected:
-        // A list of download task files.
+        // The list of download task files.
         shared_ptr<vector<List::DownloadTaskFiles>> downloadTaskFiles_ {};
         // The expiration time.
         shared_ptr<int64_t> expireTime_ {};
-        // The status of the task.
+        // The status.
         shared_ptr<string> status_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
-        // The title of the task.
+        // The title.
         shared_ptr<string> title_ {};
       };
 
@@ -243,13 +243,13 @@ namespace Models
 
 
     protected:
-      // A list of download tasks.
+      // The list of download tasks.
       shared_ptr<vector<DownloadTasks::List>> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned on each page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total count.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 

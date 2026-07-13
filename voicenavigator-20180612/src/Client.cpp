@@ -40,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Associates a chatbot with a navigation instance.
+ * @summary Associates a Chatbot instance.
  *
  * @param request AssociateChatbotInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -91,7 +91,7 @@ AssociateChatbotInstanceResponse Client::associateChatbotInstanceWithOptions(con
 }
 
 /**
- * @summary Associates a chatbot with a navigation instance.
+ * @summary Associates a Chatbot instance.
  *
  * @param request AssociateChatbotInstanceRequest
  * @return AssociateChatbotInstanceResponse
@@ -102,7 +102,7 @@ AssociateChatbotInstanceResponse Client::associateChatbotInstance(const Associat
 }
 
 /**
- * @summary Previews a text-to-speech (TTS) voice.
+ * @summary Previews a TTS voice.
  *
  * @param request AuditTTSVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -173,7 +173,7 @@ AuditTTSVoiceResponse Client::auditTTSVoiceWithOptions(const AuditTTSVoiceReques
 }
 
 /**
- * @summary Previews a text-to-speech (TTS) voice.
+ * @summary Previews a TTS voice.
  *
  * @param request AuditTTSVoiceRequest
  * @return AuditTTSVoiceResponse
@@ -304,7 +304,7 @@ CollectedNumberResponse Client::collectedNumber(const CollectedNumberRequest &re
 }
 
 /**
- * @summary Generates a temporary URL to download a file.
+ * @summary Creates a download URL for a file.
  *
  * @param request CreateDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -331,7 +331,7 @@ CreateDownloadUrlResponse Client::createDownloadUrlWithOptions(const CreateDownl
 }
 
 /**
- * @summary Generates a temporary URL to download a file.
+ * @summary Creates a download URL for a file.
  *
  * @param request CreateDownloadUrlRequest
  * @return CreateDownloadUrlResponse
@@ -516,7 +516,7 @@ DebugCollectedNumberResponse Client::debugCollectedNumber(const DebugCollectedNu
 }
 
 /**
- * @summary Sends a user utterance to the dialogue engine to debug a conversation flow.
+ * @summary Debugs a conversation in the debug environment.
  *
  * @param request DebugDialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -559,7 +559,7 @@ DebugDialogueResponse Client::debugDialogueWithOptions(const DebugDialogueReques
 }
 
 /**
- * @summary Sends a user utterance to the dialogue engine to debug a conversation flow.
+ * @summary Debugs a conversation in the debug environment.
  *
  * @param request DebugDialogueRequest
  * @return DebugDialogueResponse
@@ -612,7 +612,7 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
- * @summary Retrieves information about a conversation.
+ * @summary Queries conversation information.
  *
  * @param request DescribeConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -639,7 +639,7 @@ DescribeConversationResponse Client::describeConversationWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves information about a conversation.
+ * @summary Queries conversation information.
  *
  * @param request DescribeConversationRequest
  * @return DescribeConversationResponse
@@ -726,7 +726,7 @@ DescribeExportProgressResponse Client::describeExportProgress(const DescribeExpo
 }
 
 /**
- * @summary Retrieves details for a specified instance.
+ * @summary Queries instance information.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -753,7 +753,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary Retrieves details for a specified instance.
+ * @summary Queries instance information.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -802,7 +802,7 @@ DescribeNavigationConfigResponse Client::describeNavigationConfig(const Describe
 }
 
 /**
- * @summary Retrieves a conversation recording.
+ * @summary Retrieves the recording of a conversation.
  *
  * @param request DescribeRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +829,7 @@ DescribeRecordingResponse Client::describeRecordingWithOptions(const DescribeRec
 }
 
 /**
- * @summary Retrieves a conversation recording.
+ * @summary Retrieves the recording of a conversation.
  *
  * @param request DescribeRecordingRequest
  * @return DescribeRecordingResponse
@@ -840,7 +840,7 @@ DescribeRecordingResponse Client::describeRecording(const DescribeRecordingReque
 }
 
 /**
- * @summary View the current instance\\"s statistics.
+ * @summary Queries the statistics of the current instance.
  *
  * @param request DescribeStatisticalDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +867,7 @@ DescribeStatisticalDataResponse Client::describeStatisticalDataWithOptions(const
 }
 
 /**
- * @summary View the current instance\\"s statistics.
+ * @summary Queries the statistics of the current instance.
  *
  * @param request DescribeStatisticalDataRequest
  * @return DescribeStatisticalDataResponse
@@ -986,7 +986,7 @@ DialogueResponse Client::dialogue(const DialogueRequest &request) {
 }
 
 /**
- * @summary Disables a Voice Navigator instance.
+ * @summary Deletes an intelligent navigation instance.
  *
  * @param request DisableInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1017,7 +1017,7 @@ DisableInstanceResponse Client::disableInstanceWithOptions(const DisableInstance
 }
 
 /**
- * @summary Disables a Voice Navigator instance.
+ * @summary Deletes an intelligent navigation instance.
  *
  * @param request DisableInstanceRequest
  * @return DisableInstanceResponse
@@ -1028,7 +1028,7 @@ DisableInstanceResponse Client::disableInstance(const DisableInstanceRequest &re
 }
 
 /**
- * @summary Enables a Voice Navigator instance.
+ * @summary Starts an instance.
  *
  * @param request EnableInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1059,7 +1059,7 @@ EnableInstanceResponse Client::enableInstanceWithOptions(const EnableInstanceReq
 }
 
 /**
- * @summary Enables a Voice Navigator instance.
+ * @summary Starts an instance.
  *
  * @param request EnableInstanceRequest
  * @return EnableInstanceResponse
@@ -1124,7 +1124,7 @@ EndDialogueResponse Client::endDialogue(const EndDialogueRequest &request) {
 }
 
 /**
- * @summary Exports conversation details.
+ * @summary Exports session details.
  *
  * @param request ExportConversationDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1133,6 +1133,10 @@ EndDialogueResponse Client::endDialogue(const EndDialogueRequest &request) {
 ExportConversationDetailsResponse Client::exportConversationDetailsWithOptions(const ExportConversationDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAbTestId()) {
+    query["AbTestId"] = request.getAbTestId();
+  }
+
   if (!!request.hasBeginTimeLeftRange()) {
     query["BeginTimeLeftRange"] = request.getBeginTimeLeftRange();
   }
@@ -1187,7 +1191,7 @@ ExportConversationDetailsResponse Client::exportConversationDetailsWithOptions(c
 }
 
 /**
- * @summary Exports conversation details.
+ * @summary Exports session details.
  *
  * @param request ExportConversationDetailsRequest
  * @return ExportConversationDetailsResponse
@@ -1198,7 +1202,7 @@ ExportConversationDetailsResponse Client::exportConversationDetails(const Export
 }
 
 /**
- * @summary Exports statistical data.
+ * @summary Exports statistics.
  *
  * @param request ExportStatisticalDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1245,7 +1249,7 @@ ExportStatisticalDataResponse Client::exportStatisticalDataWithOptions(const Exp
 }
 
 /**
- * @summary Exports statistical data.
+ * @summary Exports statistics.
  *
  * @param request ExportStatisticalDataRequest
  * @return ExportStatisticalDataResponse
@@ -1340,7 +1344,7 @@ GetRealTimeConcurrencyResponse Client::getRealTimeConcurrency(const GetRealTimeC
 }
 
 /**
- * @summary Retrieves a paginated list of chatbot instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListChatbotInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1367,7 +1371,7 @@ ListChatbotInstancesResponse Client::listChatbotInstancesWithOptions(const ListC
 }
 
 /**
- * @summary Retrieves a paginated list of chatbot instances.
+ * @summary Queries a list of instances.
  *
  * @param request ListChatbotInstancesRequest
  * @return ListChatbotInstancesResponse
@@ -1416,7 +1420,7 @@ ListConversationDetailsResponse Client::listConversationDetails(const ListConver
 }
 
 /**
- * @summary Returns the session list.
+ * @summary Queries a list of sessions.
  *
  * @param request ListConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1443,7 +1447,7 @@ ListConversationsResponse Client::listConversationsWithOptions(const ListConvers
 }
 
 /**
- * @summary Returns the session list.
+ * @summary Queries a list of sessions.
  *
  * @param request ListConversationsRequest
  * @return ListConversationsResponse
@@ -1454,7 +1458,7 @@ ListConversationsResponse Client::listConversations(const ListConversationsReque
 }
 
 /**
- * @summary Download list
+ * @summary Queries the list of download tasks.
  *
  * @param request ListDownloadTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1489,7 +1493,7 @@ ListDownloadTasksResponse Client::listDownloadTasksWithOptions(const ListDownloa
 }
 
 /**
- * @summary Download list
+ * @summary Queries the list of download tasks.
  *
  * @param request ListDownloadTasksRequest
  * @return ListDownloadTasksResponse
@@ -1538,7 +1542,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Modifies an ASR configuration.
+ * @summary Modifies the ASR configuration.
  *
  * @param request ModifyAsrConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1605,7 +1609,7 @@ ModifyAsrConfigResponse Client::modifyAsrConfigWithOptions(const ModifyAsrConfig
 }
 
 /**
- * @summary Modifies an ASR configuration.
+ * @summary Modifies the ASR configuration.
  *
  * @param request ModifyAsrConfigRequest
  * @return ModifyAsrConfigResponse

@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The context of the conversation.
+    // The conversation context.
     shared_ptr<string> additionalContext_ {};
-    // The ID of the conversation.
+    // The user utterance.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The user\\"s utterance.
+    // The user utterance.
     // 
     // This parameter is required.
     shared_ptr<string> utterance_ {};

@@ -13,6 +13,7 @@ namespace Models
   class ListConversationsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListConversationsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AbTestId, abTestId_);
       DARABONBA_PTR_TO_JSON(BeginTimeLeftRange, beginTimeLeftRange_);
       DARABONBA_PTR_TO_JSON(BeginTimeRightRange, beginTimeRightRange_);
       DARABONBA_PTR_TO_JSON(CallingNumber, callingNumber_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RoundsRightRange, roundsRightRange_);
     };
     friend void from_json(const Darabonba::Json& j, ListConversationsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AbTestId, abTestId_);
       DARABONBA_PTR_FROM_JSON(BeginTimeLeftRange, beginTimeLeftRange_);
       DARABONBA_PTR_FROM_JSON(BeginTimeRightRange, beginTimeRightRange_);
       DARABONBA_PTR_FROM_JSON(CallingNumber, callingNumber_);
@@ -51,10 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->beginTimeLeftRange_ == nullptr
-        && this->beginTimeRightRange_ == nullptr && this->callingNumber_ == nullptr && this->debugConversation_ == nullptr && this->instanceId_ == nullptr && this->isSandBox_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->result_ == nullptr && this->roundsLeftRange_ == nullptr
-        && this->roundsRightRange_ == nullptr; };
+    virtual bool empty() const override { return this->abTestId_ == nullptr
+        && this->beginTimeLeftRange_ == nullptr && this->beginTimeRightRange_ == nullptr && this->callingNumber_ == nullptr && this->debugConversation_ == nullptr && this->instanceId_ == nullptr
+        && this->isSandBox_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->result_ == nullptr
+        && this->roundsLeftRange_ == nullptr && this->roundsRightRange_ == nullptr; };
+    // abTestId Field Functions 
+    bool hasAbTestId() const { return this->abTestId_ != nullptr;};
+    void deleteAbTestId() { this->abTestId_ = nullptr;};
+    inline string getAbTestId() const { DARABONBA_PTR_GET_DEFAULT(abTestId_, "") };
+    inline ListConversationsRequest& setAbTestId(string abTestId) { DARABONBA_PTR_SET_VALUE(abTestId_, abTestId) };
+
+
     // beginTimeLeftRange Field Functions 
     bool hasBeginTimeLeftRange() const { return this->beginTimeLeftRange_ != nullptr;};
     void deleteBeginTimeLeftRange() { this->beginTimeLeftRange_ = nullptr;};
@@ -140,34 +149,35 @@ namespace Models
 
 
   protected:
-    // The start of the time range to query. This value is a UNIX timestamp in milliseconds.
+    shared_ptr<string> abTestId_ {};
+    // The left boundary of the start time range.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
-    // The end of the time range to query. This value is a UNIX timestamp in milliseconds.
+    // The right boundary of the start time range.
     shared_ptr<int64_t> beginTimeRightRange_ {};
     // The calling number.
     shared_ptr<string> callingNumber_ {};
     shared_ptr<int32_t> debugConversation_ {};
-    // The ID of the instance.
+    // The instance list.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the conversation is in a sandbox environment. Valid values: `true` and `false`.
+    // Specifies whether the session is in a sandbox environment.
     shared_ptr<string> isSandBox_ {};
     // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The search query for filtering conversations.
+    // The query condition.
     shared_ptr<string> query_ {};
-    // The result of the conversation.
+    // The result.
     shared_ptr<int64_t> result_ {};
-    // The minimum number of rounds in the conversation.
+    // The left boundary of the rounds query range.
     shared_ptr<int32_t> roundsLeftRange_ {};
-    // The maximum number of rounds in the conversation.
+    // The right boundary of the rounds query range.
     shared_ptr<int32_t> roundsRightRange_ {};
   };
 

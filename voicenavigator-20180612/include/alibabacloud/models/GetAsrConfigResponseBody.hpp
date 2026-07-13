@@ -141,22 +141,22 @@ namespace Models
 
 
     protected:
-      // The application key.
+      // The engine.
       shared_ptr<string> appKey_ {};
-      // The acoustic model ID.
+      // The ASR acoustic model ID.
       shared_ptr<string> asrAcousticModelId_ {};
-      // The ASR class vocabulary ID.
+      // The ASR hotword ID.
       shared_ptr<string> asrClassVocabularyId_ {};
-      // The customization ID.
+      // The ASR dataset ID.
       shared_ptr<string> asrCustomizationId_ {};
       shared_ptr<string> asrOverrides_ {};
-      // The vocabulary ID. You can view the ID on the [ASR Vocabulary Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
+      // The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
       shared_ptr<string> asrVocabularyId_ {};
       // The speech engine.
       shared_ptr<string> engine_ {};
-      // Parameters for the iFLYTEK engine.
+      // The iFLYTEK engine parameters.
       shared_ptr<string> engineXufei_ {};
-      // The NLS service type.
+      // NluServiceType
       shared_ptr<string> nlsServiceType_ {};
     };
 

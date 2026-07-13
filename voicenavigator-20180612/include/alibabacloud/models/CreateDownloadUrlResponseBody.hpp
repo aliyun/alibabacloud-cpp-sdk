@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> fileHttpUrl_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

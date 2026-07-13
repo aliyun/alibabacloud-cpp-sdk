@@ -130,21 +130,26 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID of the namespace.
     shared_ptr<string> accessKey_ {};
+    // The AppKey of the third-party voice configuration.
     shared_ptr<string> appKey_ {};
+    // The TTS engine.
     shared_ptr<string> engine_ {};
+    // The extended parameters.
     shared_ptr<string> extParams_ {};
-    // The instance ID of the navigation instance.
+    // The navigation instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> pitchRate_ {};
+    // The AccessKey secret.
     shared_ptr<string> secretKey_ {};
     // The speech rate.
     // 
     // This parameter is required.
     shared_ptr<string> speechRate_ {};
-    // The text to preview.
+    // The preview text.
     // 
     // This parameter is required.
     shared_ptr<string> text_ {};

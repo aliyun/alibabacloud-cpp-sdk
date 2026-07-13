@@ -128,7 +128,7 @@ namespace Models
 
 
     protected:
-      // The pass rate of multi-turn dialogues.
+      // The multi-turn session pass rate.
       shared_ptr<string> dialoguePassRate_ {};
       // The knowledge base hit rate.
       shared_ptr<string> knowledgeHitRate_ {};
@@ -136,9 +136,9 @@ namespace Models
       shared_ptr<string> resolutionRate_ {};
       // The number of resolved questions.
       shared_ptr<int32_t> resolvedQuestionNum_ {};
-      // The date of the statistics.
+      // The statistical date.
       shared_ptr<string> statisticalDate_ {};
-      // The total number of conversations.
+      // The total number of sessions.
       shared_ptr<int32_t> totalConversationNum_ {};
       // The valid answer rate.
       shared_ptr<string> validAnswerRate_ {};
@@ -206,15 +206,15 @@ namespace Models
 
 
   protected:
-    // The total number of conversations.
+    // The total number of sessions.
     shared_ptr<int64_t> conversationTotalNum_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of resolved questions.
     shared_ptr<int64_t> resolvedQuestionTotalNum_ {};
-    // The array of statistical data over time.
+    // The array of statistics grouped by time dimension.
     shared_ptr<vector<DescribeStatisticalDataResponseBody::StatisticalDataReports>> statisticalDataReports_ {};
-    // The total pass rate of multi-turn dialogues.
+    // The total multi-turn session pass rate.
     shared_ptr<string> totalDialoguePassRate_ {};
     // The total knowledge base hit rate.
     shared_ptr<string> totalKnowledgeHitRate_ {};

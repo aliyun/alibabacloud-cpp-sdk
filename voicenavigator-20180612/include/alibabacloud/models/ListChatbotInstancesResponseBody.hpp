@@ -122,17 +122,16 @@ namespace Models
 
 
     protected:
-      // The avatar of the chatbot instance.
+      // The icon of the instance.
       shared_ptr<string> avatar_ {};
-      // The creation time.
+      // The time when the instance was created.
       shared_ptr<string> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The description of the chatbot instance.
       shared_ptr<string> introduction_ {};
       // The language code.
       shared_ptr<string> languageCode_ {};
-      // The name of the chatbot instance.
+      // The name of the instance.
       shared_ptr<string> name_ {};
       // The time zone.
       shared_ptr<string> timeZone_ {};
@@ -178,15 +177,15 @@ namespace Models
 
 
   protected:
-    // The list of chatbot instances.
+    // The list of instances.
     shared_ptr<vector<ListChatbotInstancesResponseBody::Bots>> bots_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of chatbot instances.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

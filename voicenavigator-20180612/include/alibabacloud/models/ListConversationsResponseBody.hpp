@@ -41,6 +41,7 @@ namespace Models
     class Conversations : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Conversations& obj) { 
+        DARABONBA_PTR_TO_JSON(AbTestName, abTestName_);
         DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
         DARABONBA_PTR_TO_JSON(CallingNumber, callingNumber_);
         DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       };
       friend void from_json(const Darabonba::Json& j, Conversations& obj) { 
+        DARABONBA_PTR_FROM_JSON(AbTestName, abTestName_);
         DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
         DARABONBA_PTR_FROM_JSON(CallingNumber, callingNumber_);
         DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
@@ -81,10 +83,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && this->callingNumber_ == nullptr && this->conversationId_ == nullptr && this->dsReport_ == nullptr && this->dsReportTitles_ == nullptr && this->endReason_ == nullptr
-        && this->endTime_ == nullptr && this->hasLastPlaybackCompleted_ == nullptr && this->hasToAgent_ == nullptr && this->rounds_ == nullptr && this->sandBox_ == nullptr
-        && this->skillGroup_ == nullptr && this->startTime_ == nullptr; };
+      virtual bool empty() const override { return this->abTestName_ == nullptr
+        && this->calledNumber_ == nullptr && this->callingNumber_ == nullptr && this->conversationId_ == nullptr && this->dsReport_ == nullptr && this->dsReportTitles_ == nullptr
+        && this->endReason_ == nullptr && this->endTime_ == nullptr && this->hasLastPlaybackCompleted_ == nullptr && this->hasToAgent_ == nullptr && this->rounds_ == nullptr
+        && this->sandBox_ == nullptr && this->skillGroup_ == nullptr && this->startTime_ == nullptr; };
+      // abTestName Field Functions 
+      bool hasAbTestName() const { return this->abTestName_ != nullptr;};
+      void deleteAbTestName() { this->abTestName_ = nullptr;};
+      inline string getAbTestName() const { DARABONBA_PTR_GET_DEFAULT(abTestName_, "") };
+      inline Conversations& setAbTestName(string abTestName) { DARABONBA_PTR_SET_VALUE(abTestName_, abTestName) };
+
+
       // calledNumber Field Functions 
       bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
       void deleteCalledNumber() { this->calledNumber_ = nullptr;};
@@ -179,29 +188,41 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> abTestName_ {};
       // The called number.
       shared_ptr<string> calledNumber_ {};
       // The calling number.
       shared_ptr<string> callingNumber_ {};
-      // The unique ID of the conversation.
+      // The session ID.
       shared_ptr<string> conversationId_ {};
       shared_ptr<string> dsReport_ {};
       shared_ptr<vector<string>> dsReportTitles_ {};
-      // The reason that the conversation ended. Valid values:<br>1: The conversation completed normally.<br>2: The bot hung up after a recognition failure.<br>3: The call was disconnected due to a silence timeout.<br>4: The user hung up after a recognition failure.<br>5: The user hung up for an unknown reason.<br>6: The call was transferred to an agent because an intent was matched.<br>7: The call was transferred to an agent due to a recognition failure.<br>8: No interaction from the user.<br>9: The call was interrupted by a system error.<br>10: The call was transferred to an IVR system because an intent was matched.<br>11: The call was transferred to an IVR system due to a recognition failure.<br><br><br><br><br><br><br><br><br><br><br>
+      // The reason for hanging up. Valid values:
+      //      1: Normal completion.
+      //      2: Bot hung up after unrecognized input.
+      //      3: Hung up due to silence timeout.
+      //      4: User hung up after unrecognized input.
+      //      5: User hung up without reason.
+      //      6: Transferred to human agent due to intent match.
+      //      7: Transferred to human agent due to unrecognized input.
+      //      8: No interaction from the user side.
+      //      9: System exception interruption.
+      //      10: Transferred to IVR due to intent match.
+      //      11: Transferred to IVR due to unrecognized input.
       shared_ptr<int32_t> endReason_ {};
-      // The end time of the conversation, represented as a Unix timestamp in milliseconds.
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // Indicates whether the final audio playback was completed before the call was disconnected.
+      // Indicates whether the last playback was completed when the session ended.
       shared_ptr<bool> hasLastPlaybackCompleted_ {};
-      // Indicates whether the conversation was transferred to an agent.
+      // Indicates whether the session was transferred to a human agent.
       shared_ptr<bool> hasToAgent_ {};
-      // The number of rounds in the conversation.
+      // The number of conversation rounds.
       shared_ptr<int32_t> rounds_ {};
-      // Indicates whether the conversation was run in a sandbox environment.
+      // Indicates whether the session is in a sandbox environment.
       shared_ptr<bool> sandBox_ {};
-      // The ID of the skill group.
+      // The skill group.
       shared_ptr<string> skillGroup_ {};
-      // The start time of the conversation, represented as a Unix timestamp in milliseconds.
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -245,7 +266,7 @@ namespace Models
 
 
   protected:
-    // The list of conversation objects.
+    // The list of sessions.
     shared_ptr<vector<ListConversationsResponseBody::Conversations>> conversations_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -253,7 +274,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of conversations.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

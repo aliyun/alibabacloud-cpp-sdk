@@ -120,7 +120,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The result of the modification.
+    // The modification result.
     shared_ptr<ModifyAsrConfigResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};

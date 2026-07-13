@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The page number of the results to return.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
