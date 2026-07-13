@@ -52,6 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // A header parameter obtained from the "Enterprise access credential" API operation (added in the header). In HTTP mode, you can use corp_token=value in the URL as a substitute.
     shared_ptr<string> xAcsBtripSoCorpToken_ {};
   };
 

@@ -124,12 +124,12 @@ namespace Models
 
       protected:
         // The cross-city city code. Only 6-digit codes are supported. Separate multiple values with Chinese commas.
-        // Note: A maximum of 10 cities can be specified. The values in city_code and city_name must correspond one-to-one.
+        // Note: A maximum of 10 cities are supported. The values in city_code and city_name must correspond one to one.
         // 
         // This parameter is required.
         shared_ptr<string> cityCode_ {};
         // The cross-city city name. Separate multiple values with Chinese commas.
-        // Note: A maximum of 10 cities can be specified. The values in city_code and city_name must correspond one-to-one.
+        // Note: A maximum of 10 cities are supported. The values in city_code and city_name must correspond one to one.
         // 
         // This parameter is required.
         shared_ptr<string> cityName_ {};
@@ -154,7 +154,7 @@ namespace Models
 
 
     protected:
-      // The cross-city car service rules. This parameter is optional. If specified, cross-city rules are read from the approval form data.
+      // The cross-city car service rules. Optional. If specified, cross-city rules are read from the approval form data.
       shared_ptr<vector<TravelerStandard::CarCitySet>> carCitySet_ {};
       // The user ID of the traveler.
       // 
@@ -365,11 +365,11 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> cause_ {};
     // The cities for car service. Separate multiple cities with Chinese commas (，).
-    // Note: A maximum of 10 cities can be specified. The values in city and city_code_set must correspond one-to-one.
+    // Note: A maximum of 10 cities are supported. The values in city and city_code_set must correspond one to one.
     shared_ptr<string> city_ {};
     // The city code set for intra-city car service. Separate multiple cities with Chinese commas (，).
     // Note: 1) Either city_code_set or city is required. If both are specified, city_code_set takes precedence.
-    // A maximum of 10 cities can be specified.
+    // A maximum of 10 cities are supported.
     shared_ptr<string> cityCodeSet_ {};
     // The car service time. This parameter is controlled on a daily basis. For example, a value of 2021-03-18 20:26:56 indicates that the car service is available on 2021-03-18. For multi-day scenarios, use this parameter together with the finished_date parameter. The time must be in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> date_ {};
@@ -389,18 +389,20 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> thirdPartApplyId_ {};
     // The ID of the third-party cost center associated with the approval form.
-    // >Warning: This field is required. To make it optional, contact the operations team.
+    // >Warning: This field is required. To make it optional, contact operations.
     shared_ptr<string> thirdPartCostCenterId_ {};
     // The ID of the third-party invoice header associated with the approval form.
     // 
-    // >Warning: This field is required. To make it optional, contact the operations team.
+    // >Warning: This field is required. To make it optional, contact operations.
     shared_ptr<string> thirdPartInvoiceId_ {};
     // The total number of times the approval form can be used.
     shared_ptr<int32_t> timesTotal_ {};
-    // The type of available usage count for the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0. Valid values:
+    // The usage count type of the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0.
     // 
-    // - 1: unlimited.
-    // - 2: user-specified count.
+    // Valid values:
+    // 
+    // - 1: Unlimited.
+    // - 2: User-specified count.
     shared_ptr<int32_t> timesType_ {};
     // The number of times the approval form has been used.
     shared_ptr<int32_t> timesUsed_ {};

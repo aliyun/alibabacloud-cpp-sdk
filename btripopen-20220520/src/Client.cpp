@@ -1965,7 +1965,7 @@ BtripBillInfoAdjustResponse Client::btripBillInfoAdjust(const BtripBillInfoAdjus
  * @summary Synchronizes an intra-city car service approval form.
  *
  * @description Synchronizes an intra-city car service approval form for a specified enterprise.
- * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+ * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
  * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param tmpReq CarApplyAddRequest
@@ -2089,7 +2089,7 @@ CarApplyAddResponse Client::carApplyAddWithOptions(const CarApplyAddRequest &tmp
  * @summary Synchronizes an intra-city car service approval form.
  *
  * @description Synchronizes an intra-city car service approval form for a specified enterprise.
- * 1. To use this operation, enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+ * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
  * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param request CarApplyAddRequest
@@ -17241,7 +17241,12 @@ VasBillSettlementQueryResponse Client::vasBillSettlementQuery(const VasBillSettl
 }
 
 /**
- * @summary 查询增值税发票扫描件
+ * @summary Queries VAT invoice detail data.
+ *
+ * @description Queries VAT invoice detail data.
+ * 1. The value-added service API requires special approval. Contact the business travel customer operations team before submitting a permission request.
+ * 2. To use this API, enable the value-added service data permission in your application. For the data permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+ * 3. To use this API, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param request VatInvoiceScanQueryRequest
  * @param headers VatInvoiceScanQueryHeaders
@@ -17299,7 +17304,12 @@ VatInvoiceScanQueryResponse Client::vatInvoiceScanQueryWithOptions(const VatInvo
 }
 
 /**
- * @summary 查询增值税发票扫描件
+ * @summary Queries VAT invoice detail data.
+ *
+ * @description Queries VAT invoice detail data.
+ * 1. The value-added service API requires special approval. Contact the business travel customer operations team before submitting a permission request.
+ * 2. To use this API, enable the value-added service data permission in your application. For the data permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+ * 3. To use this API, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param request VatInvoiceScanQueryRequest
  * @return VatInvoiceScanQueryResponse

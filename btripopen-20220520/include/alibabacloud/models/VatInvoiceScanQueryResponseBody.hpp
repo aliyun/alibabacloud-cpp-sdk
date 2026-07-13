@@ -73,6 +73,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(amount_with_tax, amountWithTax_);
           DARABONBA_PTR_TO_JSON(amount_without_tax, amountWithoutTax_);
           DARABONBA_PTR_TO_JSON(bill_date, billDate_);
+          DARABONBA_PTR_TO_JSON(changed, changed_);
           DARABONBA_PTR_TO_JSON(check_code, checkCode_);
           DARABONBA_PTR_TO_JSON(drawer, drawer_);
           DARABONBA_PTR_TO_JSON(id, id_);
@@ -111,6 +112,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(amount_with_tax, amountWithTax_);
           DARABONBA_PTR_FROM_JSON(amount_without_tax, amountWithoutTax_);
           DARABONBA_PTR_FROM_JSON(bill_date, billDate_);
+          DARABONBA_PTR_FROM_JSON(changed, changed_);
           DARABONBA_PTR_FROM_JSON(check_code, checkCode_);
           DARABONBA_PTR_FROM_JSON(drawer, drawer_);
           DARABONBA_PTR_FROM_JSON(id, id_);
@@ -258,25 +260,35 @@ namespace Models
 
 
         protected:
+          // The amount.
           shared_ptr<string> amount_ {};
+          // The line number.
           shared_ptr<string> index_ {};
+          // The name of the goods, taxable services, or service name.
           shared_ptr<string> itemName_ {};
+          // The quantity.
           shared_ptr<string> quantity_ {};
+          // The specification and model.
           shared_ptr<string> specification_ {};
+          // The tax amount.
           shared_ptr<string> tax_ {};
+          // The tax rate.
           shared_ptr<string> taxRate_ {};
+          // The unit of measurement.
           shared_ptr<string> unit_ {};
+          // The unit price.
           shared_ptr<string> unitPrice_ {};
         };
 
         virtual bool empty() const override { return this->amountWithTax_ == nullptr
-        && this->amountWithoutTax_ == nullptr && this->billDate_ == nullptr && this->checkCode_ == nullptr && this->drawer_ == nullptr && this->id_ == nullptr
-        && this->invoiceCode_ == nullptr && this->invoiceDay_ == nullptr && this->invoiceDetail_ == nullptr && this->invoiceDetails_ == nullptr && this->invoiceLocation_ == nullptr
-        && this->invoiceNo_ == nullptr && this->invoiceSubTaskId_ == nullptr && this->invoiceType_ == nullptr && this->invoiceTypeDesc_ == nullptr && this->machineCode_ == nullptr
-        && this->ofdOssUrl_ == nullptr && this->ossUrl_ == nullptr && this->passwordArea_ == nullptr && this->pdfOssUrl_ == nullptr && this->purchaserBankAccountInfo_ == nullptr
-        && this->purchaserContactInfo_ == nullptr && this->purchaserName_ == nullptr && this->purchaserTaxNo_ == nullptr && this->recipient_ == nullptr && this->remarks_ == nullptr
-        && this->reviewer_ == nullptr && this->sellerBankAccountInfo_ == nullptr && this->sellerContactInfo_ == nullptr && this->sellerName_ == nullptr && this->sellerTaxNo_ == nullptr
-        && this->smartCheckCode_ == nullptr && this->taxAmount_ == nullptr && this->taxRate_ == nullptr && this->totalAmountInWords_ == nullptr && this->xmlOssUrl_ == nullptr; };
+        && this->amountWithoutTax_ == nullptr && this->billDate_ == nullptr && this->changed_ == nullptr && this->checkCode_ == nullptr && this->drawer_ == nullptr
+        && this->id_ == nullptr && this->invoiceCode_ == nullptr && this->invoiceDay_ == nullptr && this->invoiceDetail_ == nullptr && this->invoiceDetails_ == nullptr
+        && this->invoiceLocation_ == nullptr && this->invoiceNo_ == nullptr && this->invoiceSubTaskId_ == nullptr && this->invoiceType_ == nullptr && this->invoiceTypeDesc_ == nullptr
+        && this->machineCode_ == nullptr && this->ofdOssUrl_ == nullptr && this->ossUrl_ == nullptr && this->passwordArea_ == nullptr && this->pdfOssUrl_ == nullptr
+        && this->purchaserBankAccountInfo_ == nullptr && this->purchaserContactInfo_ == nullptr && this->purchaserName_ == nullptr && this->purchaserTaxNo_ == nullptr && this->recipient_ == nullptr
+        && this->remarks_ == nullptr && this->reviewer_ == nullptr && this->sellerBankAccountInfo_ == nullptr && this->sellerContactInfo_ == nullptr && this->sellerName_ == nullptr
+        && this->sellerTaxNo_ == nullptr && this->smartCheckCode_ == nullptr && this->taxAmount_ == nullptr && this->taxRate_ == nullptr && this->totalAmountInWords_ == nullptr
+        && this->xmlOssUrl_ == nullptr; };
         // amountWithTax Field Functions 
         bool hasAmountWithTax() const { return this->amountWithTax_ != nullptr;};
         void deleteAmountWithTax() { this->amountWithTax_ = nullptr;};
@@ -296,6 +308,13 @@ namespace Models
         void deleteBillDate() { this->billDate_ = nullptr;};
         inline string getBillDate() const { DARABONBA_PTR_GET_DEFAULT(billDate_, "") };
         inline Items& setBillDate(string billDate) { DARABONBA_PTR_SET_VALUE(billDate_, billDate) };
+
+
+        // changed Field Functions 
+        bool hasChanged() const { return this->changed_ != nullptr;};
+        void deleteChanged() { this->changed_ = nullptr;};
+        inline bool getChanged() const { DARABONBA_PTR_GET_DEFAULT(changed_, false) };
+        inline Items& setChanged(bool changed) { DARABONBA_PTR_SET_VALUE(changed_, changed) };
 
 
         // checkCode Field Functions 
@@ -532,41 +551,81 @@ namespace Models
 
 
       protected:
+        // The tax-inclusive amount.
         shared_ptr<string> amountWithTax_ {};
+        // The tax-exclusive amount.
         shared_ptr<string> amountWithoutTax_ {};
+        // The billing date.
         shared_ptr<string> billDate_ {};
+        // Indicates whether the invoice has been reissued. Valid values:
+        // - true: Reissued.
+        // - false: Not reissued.
+        shared_ptr<bool> changed_ {};
+        // The verification code.
         shared_ptr<string> checkCode_ {};
+        // The invoice issuer.
         shared_ptr<string> drawer_ {};
+        // The primary key ID.
         shared_ptr<string> id_ {};
+        // The invoice code.
         shared_ptr<string> invoiceCode_ {};
+        // The invoice date.
         shared_ptr<string> invoiceDay_ {};
+        // The invoice details.
         shared_ptr<string> invoiceDetail_ {};
+        // The invoice line items.
         shared_ptr<vector<Items::InvoiceDetails>> invoiceDetails_ {};
+        // The invoice region.
         shared_ptr<string> invoiceLocation_ {};
+        // The invoice number.
         shared_ptr<string> invoiceNo_ {};
+        // The invoice subtask ID.
         shared_ptr<int64_t> invoiceSubTaskId_ {};
+        // The invoice type.
         shared_ptr<int32_t> invoiceType_ {};
+        // The invoice type description.
         shared_ptr<string> invoiceTypeDesc_ {};
+        // The machine code.
         shared_ptr<string> machineCode_ {};
+        // The URL for the VAT invoice file in OFD format. This URL is available only for digitalized electronic invoicing and electronic general VAT invoices.
         shared_ptr<string> ofdOssUrl_ {};
+        // The URL for the VAT invoice file in image format.
         shared_ptr<string> ossUrl_ {};
+        // The password area.
         shared_ptr<string> passwordArea_ {};
+        // The URL for the VAT invoice file in PDF format. This URL is available only for digitalized electronic invoicing and electronic general VAT invoices.
         shared_ptr<string> pdfOssUrl_ {};
+        // The purchaser bank account information.
         shared_ptr<string> purchaserBankAccountInfo_ {};
+        // The purchaser contact information.
         shared_ptr<string> purchaserContactInfo_ {};
+        // The purchaser name.
         shared_ptr<string> purchaserName_ {};
+        // The purchaser tax number.
         shared_ptr<string> purchaserTaxNo_ {};
+        // The payee.
         shared_ptr<string> recipient_ {};
+        // The remarks.
         shared_ptr<string> remarks_ {};
+        // The reviewer.
         shared_ptr<string> reviewer_ {};
+        // The seller bank account information.
         shared_ptr<string> sellerBankAccountInfo_ {};
+        // The seller contact information.
         shared_ptr<string> sellerContactInfo_ {};
+        // The seller name.
         shared_ptr<string> sellerName_ {};
+        // The seller tax number.
         shared_ptr<string> sellerTaxNo_ {};
+        // The abbreviated verification code.
         shared_ptr<string> smartCheckCode_ {};
+        // The tax amount.
         shared_ptr<string> taxAmount_ {};
+        // The tax rate.
         shared_ptr<string> taxRate_ {};
+        // The total amount in words.
         shared_ptr<string> totalAmountInWords_ {};
+        // The URL for the VAT invoice file in XML format. This URL is available only for digitalized electronic invoicing.
         shared_ptr<string> xmlOssUrl_ {};
       };
 
@@ -610,10 +669,15 @@ namespace Models
 
 
     protected:
+      // The paginated results.
       shared_ptr<vector<Module::Items>> items_ {};
+      // The page number of this request.
       shared_ptr<int32_t> pageNo_ {};
+      // The page size of this request.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPage_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -664,11 +728,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response data. This parameter is returned by the server. An empty value is returned if no result is found or an exception occurs.
     shared_ptr<VatInvoiceScanQueryResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

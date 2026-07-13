@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // A header parameter obtained from the Enterprise Access Credential operation. Add it to the request header. In HTTP mode, you can use so_corp_token=value or dtb_corp_token=value in the URL as an alternative.
+    // A header parameter obtained from the "Enterprise Access Credential" operation (added to the header). In HTTP mode, you can use so_corp_token=value or dtb_corp_token=value in the URL as an alternative.
     shared_ptr<string> xAcsBtripSoCorpToken_ {};
   };
 

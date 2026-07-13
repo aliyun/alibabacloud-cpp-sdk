@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
+    // The billing date.
+    // 
     // This parameter is required.
     shared_ptr<string> billDate_ {};
+    // The bill ID.
+    // > Deprecated
     shared_ptr<int64_t> billId_ {};
+    // The invoice subtask ID.
+    // > Deprecated
     shared_ptr<int64_t> invoiceSubTaskId_ {};
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 
