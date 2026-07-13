@@ -162,6 +162,9 @@
 #include <alibabacloud/models/GetCapacityRequest.hpp>
 #include <alibabacloud/models/GetCapacityResponseBody.hpp>
 #include <alibabacloud/models/GetCapacityResponse.hpp>
+#include <alibabacloud/models/GetDataStorageRequest.hpp>
+#include <alibabacloud/models/GetDataStorageResponseBody.hpp>
+#include <alibabacloud/models/GetDataStorageResponse.hpp>
 #include <alibabacloud/models/GetEntitiyStatRequest.hpp>
 #include <alibabacloud/models/GetEntitiyStatResponseBody.hpp>
 #include <alibabacloud/models/GetEntitiyStatResponse.hpp>

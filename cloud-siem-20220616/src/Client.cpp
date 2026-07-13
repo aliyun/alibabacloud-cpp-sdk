@@ -2090,7 +2090,7 @@ DescribeDataSourceParametersResponse Client::describeDataSourceParameters(const 
 }
 
 /**
- * @summary Retrieves entities to be remediated and a list of playbooks.
+ * @summary Retrieves the list of entities that require disposition and the list of playbooks.
  *
  * @param request DescribeDisposeAndPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2149,7 +2149,7 @@ DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybookWithOptions
 }
 
 /**
- * @summary Retrieves entities to be remediated and a list of playbooks.
+ * @summary Retrieves the list of entities that require disposition and the list of playbooks.
  *
  * @param request DescribeDisposeAndPlaybookRequest
  * @return DescribeDisposeAndPlaybookResponse
@@ -3175,6 +3175,60 @@ GetCapacityResponse Client::getCapacityWithOptions(const GetCapacityRequest &req
 GetCapacityResponse Client::getCapacity(const GetCapacityRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCapacityWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of user data storage on the Log Management page.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ *
+ * @param request GetDataStorageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataStorageResponse
+ */
+GetDataStorageResponse Client::getDataStorageWithOptions(const GetDataStorageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetDataStorage"},
+    {"version" , "2022-06-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataStorageResponse>();
+}
+
+/**
+ * @summary Retrieves the details of user data storage on the Log Management page.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ *
+ * @param request GetDataStorageRequest
+ * @return GetDataStorageResponse
+ */
+GetDataStorageResponse Client::getDataStorage(const GetDataStorageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataStorageWithOptions(request, runtime);
 }
 
 /**

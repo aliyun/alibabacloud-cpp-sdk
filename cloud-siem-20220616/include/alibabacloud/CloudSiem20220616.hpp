@@ -582,7 +582,7 @@ namespace CloudSiem20220616
       Models::DescribeDataSourceParametersResponse describeDataSourceParameters(const Models::DescribeDataSourceParametersRequest &request);
 
       /**
-       * @summary Retrieves entities to be remediated and a list of playbooks.
+       * @summary Retrieves the list of entities that require disposition and the list of playbooks.
        *
        * @param request DescribeDisposeAndPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ namespace CloudSiem20220616
       Models::DescribeDisposeAndPlaybookResponse describeDisposeAndPlaybookWithOptions(const Models::DescribeDisposeAndPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves entities to be remediated and a list of playbooks.
+       * @summary Retrieves the list of entities that require disposition and the list of playbooks.
        *
        * @param request DescribeDisposeAndPlaybookRequest
        * @return DescribeDisposeAndPlaybookResponse
@@ -920,6 +920,27 @@ namespace CloudSiem20220616
        * @return GetCapacityResponse
        */
       Models::GetCapacityResponse getCapacity(const Models::GetCapacityRequest &request);
+
+      /**
+       * @summary Retrieves the details of user data storage on the Log Management page.
+       *
+       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       *
+       * @param request GetDataStorageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataStorageResponse
+       */
+      Models::GetDataStorageResponse getDataStorageWithOptions(const Models::GetDataStorageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of user data storage on the Log Management page.
+       *
+       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       *
+       * @param request GetDataStorageRequest
+       * @return GetDataStorageResponse
+       */
+      Models::GetDataStorageResponse getDataStorage(const Models::GetDataStorageRequest &request);
 
       /**
        * @summary Queries entity counts.
