@@ -33,15 +33,15 @@ namespace Models
     // topicName Field Functions 
     bool hasTopicName() const { return this->topicName_ != nullptr;};
     void deleteTopicName() { this->topicName_ = nullptr;};
-    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline string getTopicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
     inline DeleteTopicRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
   protected:
-    // The name of the topic that you want to delete.
+    // The name of the topic to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> topicName_ = nullptr;
+    shared_ptr<string> topicName_ {};
   };
 
   } // namespace Models

@@ -44,77 +44,91 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->deliveryMode_ == nullptr && return this->endpointShrink_ == nullptr && return this->endpointsShrink_ == nullptr && return this->eventTypesShrink_ == nullptr && return this->matchRulesShrink_ == nullptr
-        && return this->productName_ == nullptr && return this->ruleName_ == nullptr; };
+        && this->deliveryMode_ == nullptr && this->endpointShrink_ == nullptr && this->endpointsShrink_ == nullptr && this->eventTypesShrink_ == nullptr && this->matchRulesShrink_ == nullptr
+        && this->productName_ == nullptr && this->ruleName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateEventRuleShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deliveryMode Field Functions 
     bool hasDeliveryMode() const { return this->deliveryMode_ != nullptr;};
     void deleteDeliveryMode() { this->deliveryMode_ = nullptr;};
-    inline string deliveryMode() const { DARABONBA_PTR_GET_DEFAULT(deliveryMode_, "") };
+    inline string getDeliveryMode() const { DARABONBA_PTR_GET_DEFAULT(deliveryMode_, "") };
     inline CreateEventRuleShrinkRequest& setDeliveryMode(string deliveryMode) { DARABONBA_PTR_SET_VALUE(deliveryMode_, deliveryMode) };
 
 
     // endpointShrink Field Functions 
     bool hasEndpointShrink() const { return this->endpointShrink_ != nullptr;};
     void deleteEndpointShrink() { this->endpointShrink_ = nullptr;};
-    inline string endpointShrink() const { DARABONBA_PTR_GET_DEFAULT(endpointShrink_, "") };
+    inline string getEndpointShrink() const { DARABONBA_PTR_GET_DEFAULT(endpointShrink_, "") };
     inline CreateEventRuleShrinkRequest& setEndpointShrink(string endpointShrink) { DARABONBA_PTR_SET_VALUE(endpointShrink_, endpointShrink) };
 
 
     // endpointsShrink Field Functions 
     bool hasEndpointsShrink() const { return this->endpointsShrink_ != nullptr;};
     void deleteEndpointsShrink() { this->endpointsShrink_ = nullptr;};
-    inline string endpointsShrink() const { DARABONBA_PTR_GET_DEFAULT(endpointsShrink_, "") };
+    inline string getEndpointsShrink() const { DARABONBA_PTR_GET_DEFAULT(endpointsShrink_, "") };
     inline CreateEventRuleShrinkRequest& setEndpointsShrink(string endpointsShrink) { DARABONBA_PTR_SET_VALUE(endpointsShrink_, endpointsShrink) };
 
 
     // eventTypesShrink Field Functions 
     bool hasEventTypesShrink() const { return this->eventTypesShrink_ != nullptr;};
     void deleteEventTypesShrink() { this->eventTypesShrink_ = nullptr;};
-    inline string eventTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(eventTypesShrink_, "") };
+    inline string getEventTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(eventTypesShrink_, "") };
     inline CreateEventRuleShrinkRequest& setEventTypesShrink(string eventTypesShrink) { DARABONBA_PTR_SET_VALUE(eventTypesShrink_, eventTypesShrink) };
 
 
     // matchRulesShrink Field Functions 
     bool hasMatchRulesShrink() const { return this->matchRulesShrink_ != nullptr;};
     void deleteMatchRulesShrink() { this->matchRulesShrink_ = nullptr;};
-    inline string matchRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(matchRulesShrink_, "") };
+    inline string getMatchRulesShrink() const { DARABONBA_PTR_GET_DEFAULT(matchRulesShrink_, "") };
     inline CreateEventRuleShrinkRequest& setMatchRulesShrink(string matchRulesShrink) { DARABONBA_PTR_SET_VALUE(matchRulesShrink_, matchRulesShrink) };
 
 
     // productName Field Functions 
     bool hasProductName() const { return this->productName_ != nullptr;};
     void deleteProductName() { this->productName_ = nullptr;};
-    inline string productName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
+    inline string getProductName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
     inline CreateEventRuleShrinkRequest& setProductName(string productName) { DARABONBA_PTR_SET_VALUE(productName_, productName) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline CreateEventRuleShrinkRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> deliveryMode_ = nullptr;
-    std::shared_ptr<string> endpointShrink_ = nullptr;
-    std::shared_ptr<string> endpointsShrink_ = nullptr;
+    // A client token to ensure the idempotence of the request.
+    // 
+    // Generate a unique value for this parameter from your client for each request.
+    shared_ptr<string> clientToken_ {};
+    // This parameter is deprecated.
+    shared_ptr<string> deliveryMode_ {};
+    // The endpoint that receives messages for this subscription.
+    shared_ptr<string> endpointShrink_ {};
+    // This parameter is deprecated. Use Endpoint instead.
+    shared_ptr<string> endpointsShrink_ {};
+    // A list of event types.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> eventTypesShrink_ = nullptr;
+    shared_ptr<string> eventTypesShrink_ {};
+    // A list of matching rules. The logical relationship between the rules is OR.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> matchRulesShrink_ = nullptr;
+    shared_ptr<string> matchRulesShrink_ {};
+    // The name of the Alibaba Cloud product for which you want to receive event notifications.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> productName_ = nullptr;
+    shared_ptr<string> productName_ {};
+    // The name of the event rule.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

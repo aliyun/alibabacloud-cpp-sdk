@@ -33,7 +33,7 @@ namespace Models
     // queueName Field Functions 
     bool hasQueueName() const { return this->queueName_ != nullptr;};
     void deleteQueueName() { this->queueName_ = nullptr;};
-    inline string queueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
+    inline string getQueueName() const { DARABONBA_PTR_GET_DEFAULT(queueName_, "") };
     inline DeleteQueueRequest& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name of the queue.
     // 
     // This parameter is required.
-    std::shared_ptr<string> queueName_ = nullptr;
+    shared_ptr<string> queueName_ {};
   };
 
   } // namespace Models

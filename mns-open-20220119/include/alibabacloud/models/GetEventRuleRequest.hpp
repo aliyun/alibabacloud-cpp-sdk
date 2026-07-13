@@ -32,26 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->productName_ == nullptr
-        && return this->ruleName_ == nullptr; };
+        && this->ruleName_ == nullptr; };
     // productName Field Functions 
     bool hasProductName() const { return this->productName_ != nullptr;};
     void deleteProductName() { this->productName_ = nullptr;};
-    inline string productName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
+    inline string getProductName() const { DARABONBA_PTR_GET_DEFAULT(productName_, "") };
     inline GetEventRuleRequest& setProductName(string productName) { DARABONBA_PTR_SET_VALUE(productName_, productName) };
 
 
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
-    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
     inline GetEventRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
   protected:
+    // The name of the Alibaba Cloud product that triggers the event notification.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> productName_ = nullptr;
+    shared_ptr<string> productName_ {};
+    // The name of the event notification rule.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> ruleName_ = nullptr;
+    shared_ptr<string> ruleName_ {};
   };
 
   } // namespace Models

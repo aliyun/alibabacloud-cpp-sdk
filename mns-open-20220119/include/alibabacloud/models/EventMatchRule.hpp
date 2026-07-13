@@ -36,40 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->matchState_ == nullptr
-        && return this->name_ == nullptr && return this->prefix_ == nullptr && return this->suffix_ == nullptr; };
+        && this->name_ == nullptr && this->prefix_ == nullptr && this->suffix_ == nullptr; };
     // matchState Field Functions 
     bool hasMatchState() const { return this->matchState_ != nullptr;};
     void deleteMatchState() { this->matchState_ = nullptr;};
-    inline bool matchState() const { DARABONBA_PTR_GET_DEFAULT(matchState_, false) };
+    inline bool getMatchState() const { DARABONBA_PTR_GET_DEFAULT(matchState_, false) };
     inline EventMatchRule& setMatchState(bool matchState) { DARABONBA_PTR_SET_VALUE(matchState_, matchState) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline EventMatchRule& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // prefix Field Functions 
     bool hasPrefix() const { return this->prefix_ != nullptr;};
     void deletePrefix() { this->prefix_ = nullptr;};
-    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline string getPrefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
     inline EventMatchRule& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
     // suffix Field Functions 
     bool hasSuffix() const { return this->suffix_ != nullptr;};
     void deleteSuffix() { this->suffix_ = nullptr;};
-    inline string suffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
+    inline string getSuffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
     inline EventMatchRule& setSuffix(string suffix) { DARABONBA_PTR_SET_VALUE(suffix_, suffix) };
 
 
   protected:
-    std::shared_ptr<bool> matchState_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> prefix_ = nullptr;
-    std::shared_ptr<string> suffix_ = nullptr;
+    // Specifies whether to match.
+    shared_ptr<bool> matchState_ {};
+    // The full name to match.
+    shared_ptr<string> name_ {};
+    // The prefix to match.
+    shared_ptr<string> prefix_ {};
+    // The suffix to match.
+    shared_ptr<string> suffix_ {};
   };
 
   } // namespace Models

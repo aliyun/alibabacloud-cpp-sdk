@@ -33,17 +33,17 @@ namespace Models
     // endpointType Field Functions 
     bool hasEndpointType() const { return this->endpointType_ != nullptr;};
     void deleteEndpointType() { this->endpointType_ = nullptr;};
-    inline string endpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+    inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
     inline DisableEndpointRequest& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
 
 
   protected:
-    // The type of the endpoint. Value:
+    // The type of the endpoint. Valid value:
     // 
-    // *   **public**: indicates an public endpoint. (Only the public endpoint is supported.)
+    // - **public**: The Internet endpoint. Currently, only public is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endpointType_ = nullptr;
+    shared_ptr<string> endpointType_ {};
   };
 
   } // namespace Models

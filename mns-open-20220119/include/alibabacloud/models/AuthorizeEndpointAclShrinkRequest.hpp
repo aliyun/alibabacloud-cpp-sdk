@@ -34,45 +34,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclStrategy_ == nullptr
-        && return this->cidrListShrink_ == nullptr && return this->endpointType_ == nullptr; };
+        && this->cidrListShrink_ == nullptr && this->endpointType_ == nullptr; };
     // aclStrategy Field Functions 
     bool hasAclStrategy() const { return this->aclStrategy_ != nullptr;};
     void deleteAclStrategy() { this->aclStrategy_ = nullptr;};
-    inline string aclStrategy() const { DARABONBA_PTR_GET_DEFAULT(aclStrategy_, "") };
+    inline string getAclStrategy() const { DARABONBA_PTR_GET_DEFAULT(aclStrategy_, "") };
     inline AuthorizeEndpointAclShrinkRequest& setAclStrategy(string aclStrategy) { DARABONBA_PTR_SET_VALUE(aclStrategy_, aclStrategy) };
 
 
     // cidrListShrink Field Functions 
     bool hasCidrListShrink() const { return this->cidrListShrink_ != nullptr;};
     void deleteCidrListShrink() { this->cidrListShrink_ = nullptr;};
-    inline string cidrListShrink() const { DARABONBA_PTR_GET_DEFAULT(cidrListShrink_, "") };
+    inline string getCidrListShrink() const { DARABONBA_PTR_GET_DEFAULT(cidrListShrink_, "") };
     inline AuthorizeEndpointAclShrinkRequest& setCidrListShrink(string cidrListShrink) { DARABONBA_PTR_SET_VALUE(cidrListShrink_, cidrListShrink) };
 
 
     // endpointType Field Functions 
     bool hasEndpointType() const { return this->endpointType_ != nullptr;};
     void deleteEndpointType() { this->endpointType_ = nullptr;};
-    inline string endpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+    inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
     inline AuthorizeEndpointAclShrinkRequest& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
 
 
   protected:
-    // The ACL policy. Valid values:
+    // The access control list (ACL) policy. Valid value:
     // 
-    // *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> aclStrategy_ = nullptr;
-    // The list of CIDR block.
+    // - **allow**: A CIDR whitelist. Only allow is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> cidrListShrink_ = nullptr;
-    // The type of the endpoint. Valid values:
-    // 
-    // *   **public**: indicates public endpoint. (Only the public endpoint is supported.)
+    shared_ptr<string> aclStrategy_ {};
+    // A list of CIDR blocks.
     // 
     // This parameter is required.
-    std::shared_ptr<string> endpointType_ = nullptr;
+    shared_ptr<string> cidrListShrink_ {};
+    // The type of the endpoint. Valid value:
+    // 
+    // - **public**: An internet endpoint. Only public is supported.
+    // 
+    // This parameter is required.
+    shared_ptr<string> endpointType_ {};
   };
 
   } // namespace Models

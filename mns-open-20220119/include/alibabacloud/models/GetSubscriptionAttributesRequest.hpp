@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->subscriptionName_ == nullptr
-        && return this->topicName_ == nullptr; };
+        && this->topicName_ == nullptr; };
     // subscriptionName Field Functions 
     bool hasSubscriptionName() const { return this->subscriptionName_ != nullptr;};
     void deleteSubscriptionName() { this->subscriptionName_ = nullptr;};
-    inline string subscriptionName() const { DARABONBA_PTR_GET_DEFAULT(subscriptionName_, "") };
+    inline string getSubscriptionName() const { DARABONBA_PTR_GET_DEFAULT(subscriptionName_, "") };
     inline GetSubscriptionAttributesRequest& setSubscriptionName(string subscriptionName) { DARABONBA_PTR_SET_VALUE(subscriptionName_, subscriptionName) };
 
 
     // topicName Field Functions 
     bool hasTopicName() const { return this->topicName_ != nullptr;};
     void deleteTopicName() { this->topicName_ = nullptr;};
-    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline string getTopicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
     inline GetSubscriptionAttributesRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The name of the subscription.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subscriptionName_ = nullptr;
-    // The name of the topic.
+    shared_ptr<string> subscriptionName_ {};
+    // The name of the topic to which the subscription belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> topicName_ = nullptr;
+    shared_ptr<string> topicName_ {};
   };
 
   } // namespace Models

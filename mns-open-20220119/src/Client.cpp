@@ -18,6 +18,37 @@ namespace MnsOpen20220119
 
 AlibabaCloud::MnsOpen20220119::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "mns-open.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "mns-open.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "mns-open.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "mns-open.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "mns-open.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "mns-open.eu-central-1.aliyuncs.com"},
+    {"cn-zhengzhou-jva" , "mns-open.cn-zhengzhou-jva.aliyuncs.com"},
+    {"cn-zhangjiakou" , "mns-open.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "mns-open.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "mns-open.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "mns-open.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "mns-open.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "mns-open.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "mns-open.cn-qingdao.aliyuncs.com"},
+    {"cn-huhehaote" , "mns-open.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "mns-open.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "mns-open.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-heyuan" , "mns-open.cn-heyuan.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "mns-open.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "mns-open.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "mns-open.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "mns-open.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "mns-open.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "mns-open.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-5" , "mns-open.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "mns-open.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "mns-open.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "mns-open.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "mns-open.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("mns-open", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +67,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary You can call this operation to add one or more rules of access control lists (ACLs) for the endpoint of a type.
+ * @summary Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
  *
  * @param tmpReq AuthorizeEndpointAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47,20 +78,20 @@ AuthorizeEndpointAclResponse Client::authorizeEndpointAclWithOptions(const Autho
   AuthorizeEndpointAclShrinkRequest request = AuthorizeEndpointAclShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCidrList()) {
-    request.setCidrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cidrList(), "CidrList", "simple"));
+    request.setCidrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCidrList(), "CidrList", "simple"));
   }
 
   json query = {};
   if (!!request.hasAclStrategy()) {
-    query["AclStrategy"] = request.aclStrategy();
+    query["AclStrategy"] = request.getAclStrategy();
   }
 
   if (!!request.hasCidrListShrink()) {
-    query["CidrList"] = request.cidrListShrink();
+    query["CidrList"] = request.getCidrListShrink();
   }
 
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -81,7 +112,7 @@ AuthorizeEndpointAclResponse Client::authorizeEndpointAclWithOptions(const Autho
 }
 
 /**
- * @summary You can call this operation to add one or more rules of access control lists (ACLs) for the endpoint of a type.
+ * @summary Adds one or more Access Control List (ACL) rules to an endpoint of a specified type.
  *
  * @param request AuthorizeEndpointAclRequest
  * @return AuthorizeEndpointAclResponse
@@ -92,7 +123,7 @@ AuthorizeEndpointAclResponse Client::authorizeEndpointAcl(const AuthorizeEndpoin
 }
 
 /**
- * @summary 创建事件规则
+ * @summary Creates an event rule.
  *
  * @param tmpReq CreateEventRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -103,52 +134,52 @@ CreateEventRuleResponse Client::createEventRuleWithOptions(const CreateEventRule
   CreateEventRuleShrinkRequest request = CreateEventRuleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasEndpoint()) {
-    request.setEndpointShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.endpoint(), "Endpoint", "json"));
+    request.setEndpointShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEndpoint(), "Endpoint", "json"));
   }
 
   if (!!tmpReq.hasEndpoints()) {
-    request.setEndpointsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.endpoints(), "Endpoints", "json"));
+    request.setEndpointsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEndpoints(), "Endpoints", "json"));
   }
 
   if (!!tmpReq.hasEventTypes()) {
-    request.setEventTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eventTypes(), "EventTypes", "json"));
+    request.setEventTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventTypes(), "EventTypes", "json"));
   }
 
   if (!!tmpReq.hasMatchRules()) {
-    request.setMatchRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.matchRules(), "MatchRules", "json"));
+    request.setMatchRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMatchRules(), "MatchRules", "json"));
   }
 
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasDeliveryMode()) {
-    query["DeliveryMode"] = request.deliveryMode();
+    query["DeliveryMode"] = request.getDeliveryMode();
   }
 
   if (!!request.hasEndpointShrink()) {
-    query["Endpoint"] = request.endpointShrink();
+    query["Endpoint"] = request.getEndpointShrink();
   }
 
   if (!!request.hasEndpointsShrink()) {
-    query["Endpoints"] = request.endpointsShrink();
+    query["Endpoints"] = request.getEndpointsShrink();
   }
 
   if (!!request.hasEventTypesShrink()) {
-    query["EventTypes"] = request.eventTypesShrink();
+    query["EventTypes"] = request.getEventTypesShrink();
   }
 
   if (!!request.hasMatchRulesShrink()) {
-    query["MatchRules"] = request.matchRulesShrink();
+    query["MatchRules"] = request.getMatchRulesShrink();
   }
 
   if (!!request.hasProductName()) {
-    query["ProductName"] = request.productName();
+    query["ProductName"] = request.getProductName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -169,7 +200,7 @@ CreateEventRuleResponse Client::createEventRuleWithOptions(const CreateEventRule
 }
 
 /**
- * @summary 创建事件规则
+ * @summary Creates an event rule.
  *
  * @param request CreateEventRuleRequest
  * @return CreateEventRuleResponse
@@ -191,56 +222,72 @@ CreateQueueResponse Client::createQueueWithOptions(const CreateQueueRequest &tmp
   CreateQueueShrinkRequest request = CreateQueueShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDlqPolicy()) {
-    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy(), "DlqPolicy", "json"));
+    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDlqPolicy(), "DlqPolicy", "json"));
   }
 
   if (!!tmpReq.hasTenantRateLimitPolicy()) {
-    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
+    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
   }
 
   json query = {};
   if (!!request.hasDelaySeconds()) {
-    query["DelaySeconds"] = request.delaySeconds();
+    query["DelaySeconds"] = request.getDelaySeconds();
   }
 
   if (!!request.hasDlqPolicyShrink()) {
-    query["DlqPolicy"] = request.dlqPolicyShrink();
+    query["DlqPolicy"] = request.getDlqPolicyShrink();
   }
 
   if (!!request.hasEnableLogging()) {
-    query["EnableLogging"] = request.enableLogging();
+    query["EnableLogging"] = request.getEnableLogging();
+  }
+
+  if (!!request.hasEnableSSE()) {
+    query["EnableSSE"] = request.getEnableSSE();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    query["KmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasMaximumMessageSize()) {
-    query["MaximumMessageSize"] = request.maximumMessageSize();
+    query["MaximumMessageSize"] = request.getMaximumMessageSize();
   }
 
   if (!!request.hasMessageRetentionPeriod()) {
-    query["MessageRetentionPeriod"] = request.messageRetentionPeriod();
+    query["MessageRetentionPeriod"] = request.getMessageRetentionPeriod();
   }
 
   if (!!request.hasPollingWaitSeconds()) {
-    query["PollingWaitSeconds"] = request.pollingWaitSeconds();
+    query["PollingWaitSeconds"] = request.getPollingWaitSeconds();
   }
 
   if (!!request.hasQueueName()) {
-    query["QueueName"] = request.queueName();
+    query["QueueName"] = request.getQueueName();
   }
 
   if (!!request.hasQueueType()) {
-    query["QueueType"] = request.queueType();
+    query["QueueType"] = request.getQueueType();
+  }
+
+  if (!!request.hasSseAlgorithm()) {
+    query["SseAlgorithm"] = request.getSseAlgorithm();
+  }
+
+  if (!!request.hasSseType()) {
+    query["SseType"] = request.getSseType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTenantRateLimitPolicyShrink()) {
-    query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink();
+    query["TenantRateLimitPolicy"] = request.getTenantRateLimitPolicyShrink();
   }
 
   if (!!request.hasVisibilityTimeout()) {
-    query["VisibilityTimeout"] = request.visibilityTimeout();
+    query["VisibilityTimeout"] = request.getVisibilityTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -272,7 +319,7 @@ CreateQueueResponse Client::createQueue(const CreateQueueRequest &request) {
 }
 
 /**
- * @summary Creates a topic.
+ * @summary Calls the CreateTopic operation to create a topic.
  *
  * @param request CreateTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -282,24 +329,40 @@ CreateTopicResponse Client::createTopicWithOptions(const CreateTopicRequest &req
   request.validate();
   json query = {};
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTopicType()) {
-    query["TopicType"] = request.topicType();
+    query["TopicType"] = request.getTopicType();
   }
 
   json body = {};
   if (!!request.hasEnableLogging()) {
-    body["EnableLogging"] = request.enableLogging();
+    body["EnableLogging"] = request.getEnableLogging();
+  }
+
+  if (!!request.hasEnableSSE()) {
+    body["EnableSSE"] = request.getEnableSSE();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    body["KmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasMaxMessageSize()) {
-    body["MaxMessageSize"] = request.maxMessageSize();
+    body["MaxMessageSize"] = request.getMaxMessageSize();
+  }
+
+  if (!!request.hasSseAlgorithm()) {
+    body["SseAlgorithm"] = request.getSseAlgorithm();
+  }
+
+  if (!!request.hasSseType()) {
+    body["SseType"] = request.getSseType();
   }
 
   if (!!request.hasTopicName()) {
-    body["TopicName"] = request.topicName();
+    body["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -321,7 +384,7 @@ CreateTopicResponse Client::createTopicWithOptions(const CreateTopicRequest &req
 }
 
 /**
- * @summary Creates a topic.
+ * @summary Calls the CreateTopic operation to create a topic.
  *
  * @param request CreateTopicRequest
  * @return CreateTopicResponse
@@ -332,7 +395,7 @@ CreateTopicResponse Client::createTopic(const CreateTopicRequest &request) {
 }
 
 /**
- * @summary 删除事件规则
+ * @summary Deletes an event rule.
  *
  * @param request DeleteEventRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -342,11 +405,11 @@ DeleteEventRuleResponse Client::deleteEventRuleWithOptions(const DeleteEventRule
   request.validate();
   json query = {};
   if (!!request.hasProductName()) {
-    query["ProductName"] = request.productName();
+    query["ProductName"] = request.getProductName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -367,7 +430,7 @@ DeleteEventRuleResponse Client::deleteEventRuleWithOptions(const DeleteEventRule
 }
 
 /**
- * @summary 删除事件规则
+ * @summary Deletes an event rule.
  *
  * @param request DeleteEventRuleRequest
  * @return DeleteEventRuleResponse
@@ -378,7 +441,7 @@ DeleteEventRuleResponse Client::deleteEventRule(const DeleteEventRuleRequest &re
 }
 
 /**
- * @summary Deletes a queue.
+ * @summary Calls the DeleteQueue operation to delete a created queue.
  *
  * @param request DeleteQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -388,7 +451,7 @@ DeleteQueueResponse Client::deleteQueueWithOptions(const DeleteQueueRequest &req
   request.validate();
   json query = {};
   if (!!request.hasQueueName()) {
-    query["QueueName"] = request.queueName();
+    query["QueueName"] = request.getQueueName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -409,7 +472,7 @@ DeleteQueueResponse Client::deleteQueueWithOptions(const DeleteQueueRequest &req
 }
 
 /**
- * @summary Deletes a queue.
+ * @summary Calls the DeleteQueue operation to delete a created queue.
  *
  * @param request DeleteQueueRequest
  * @return DeleteQueueResponse
@@ -420,7 +483,7 @@ DeleteQueueResponse Client::deleteQueue(const DeleteQueueRequest &request) {
 }
 
 /**
- * @summary Deletes a topic.
+ * @summary Calls the DeleteTopic operation to delete a topic.
  *
  * @param request DeleteTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -430,7 +493,7 @@ DeleteTopicResponse Client::deleteTopicWithOptions(const DeleteTopicRequest &req
   request.validate();
   json query = {};
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -451,7 +514,7 @@ DeleteTopicResponse Client::deleteTopicWithOptions(const DeleteTopicRequest &req
 }
 
 /**
- * @summary Deletes a topic.
+ * @summary Calls the DeleteTopic operation to delete a topic.
  *
  * @param request DeleteTopicRequest
  * @return DeleteTopicResponse
@@ -462,7 +525,7 @@ DeleteTopicResponse Client::deleteTopic(const DeleteTopicRequest &request) {
 }
 
 /**
- * @summary You can call this operation to disenable the endpoint of a type. After the endpoint is disabled, all requests from the endpoint are blocked and an error is returned.
+ * @summary This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
  *
  * @param request DisableEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +535,7 @@ DisableEndpointResponse Client::disableEndpointWithOptions(const DisableEndpoint
   request.validate();
   json query = {};
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -493,7 +556,7 @@ DisableEndpointResponse Client::disableEndpointWithOptions(const DisableEndpoint
 }
 
 /**
- * @summary You can call this operation to disenable the endpoint of a type. After the endpoint is disabled, all requests from the endpoint are blocked and an error is returned.
+ * @summary This operation disables an endpoint of a specified type, blocking all subsequent requests from the endpoint and returning an error.
  *
  * @param request DisableEndpointRequest
  * @return DisableEndpointResponse
@@ -504,7 +567,7 @@ DisableEndpointResponse Client::disableEndpoint(const DisableEndpointRequest &re
 }
 
 /**
- * @summary You can call this operation to enable the endpoint of a type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
+ * @summary This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
  *
  * @param request EnableEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -514,7 +577,7 @@ EnableEndpointResponse Client::enableEndpointWithOptions(const EnableEndpointReq
   request.validate();
   json query = {};
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -535,7 +598,7 @@ EnableEndpointResponse Client::enableEndpointWithOptions(const EnableEndpointReq
 }
 
 /**
- * @summary You can call this operation to enable the endpoint of a type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
+ * @summary This operation enables an endpoint of a specified type. After the endpoint is enabled, requests that originate from the endpoint and are on the Access Control List (ACL) whitelist are not blocked.
  *
  * @param request EnableEndpointRequest
  * @return EnableEndpointResponse
@@ -546,7 +609,7 @@ EnableEndpointResponse Client::enableEndpoint(const EnableEndpointRequest &reque
 }
 
 /**
- * @summary GetEndpointAttribute
+ * @summary Queries the attributes of an endpoint.
  *
  * @param request GetEndpointAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -556,7 +619,7 @@ GetEndpointAttributeResponse Client::getEndpointAttributeWithOptions(const GetEn
   request.validate();
   json query = {};
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -577,7 +640,7 @@ GetEndpointAttributeResponse Client::getEndpointAttributeWithOptions(const GetEn
 }
 
 /**
- * @summary GetEndpointAttribute
+ * @summary Queries the attributes of an endpoint.
  *
  * @param request GetEndpointAttributeRequest
  * @return GetEndpointAttributeResponse
@@ -588,7 +651,7 @@ GetEndpointAttributeResponse Client::getEndpointAttribute(const GetEndpointAttri
 }
 
 /**
- * @summary 获取事件通知规则
+ * @summary Retrieves an event notification rule.
  *
  * @param request GetEventRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -598,11 +661,11 @@ GetEventRuleResponse Client::getEventRuleWithOptions(const GetEventRuleRequest &
   request.validate();
   json query = {};
   if (!!request.hasProductName()) {
-    query["ProductName"] = request.productName();
+    query["ProductName"] = request.getProductName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -623,7 +686,7 @@ GetEventRuleResponse Client::getEventRuleWithOptions(const GetEventRuleRequest &
 }
 
 /**
- * @summary 获取事件通知规则
+ * @summary Retrieves an event notification rule.
  *
  * @param request GetEventRuleRequest
  * @return GetEventRuleResponse
@@ -634,7 +697,26 @@ GetEventRuleResponse Client::getEventRule(const GetEventRuleRequest &request) {
 }
 
 /**
- * @summary Queries the attributes of an existing queue.
+ * @summary Retrieves the attributes of a created queue.
+ *
+ * @description >Warning: 
+ * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+ *     - ActiveMessages
+ *     - InactiveMessages
+ *     - DelayMessages 
+ *   </p>
+ *   <p>Use the following alternatives to obtain replacement solutions:</p>
+ *   <ul>
+ *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
+ *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+ *       <ul>
+ *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
+ *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
+ *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+ *       </ul>
+ *     </li>
+ *   </ul>
+ * </warning>
  *
  * @param request GetQueueAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -644,11 +726,11 @@ GetQueueAttributesResponse Client::getQueueAttributesWithOptions(const GetQueueA
   request.validate();
   json query = {};
   if (!!request.hasQueueName()) {
-    query["QueueName"] = request.queueName();
+    query["QueueName"] = request.getQueueName();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -669,7 +751,26 @@ GetQueueAttributesResponse Client::getQueueAttributesWithOptions(const GetQueueA
 }
 
 /**
- * @summary Queries the attributes of an existing queue.
+ * @summary Retrieves the attributes of a created queue.
+ *
+ * @description >Warning: 
+ * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+ *     - ActiveMessages
+ *     - InactiveMessages
+ *     - DelayMessages 
+ *   </p>
+ *   <p>Use the following alternatives to obtain replacement solutions:</p>
+ *   <ul>
+ *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
+ *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+ *       <ul>
+ *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
+ *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
+ *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+ *       </ul>
+ *     </li>
+ *   </ul>
+ * </warning>
  *
  * @param request GetQueueAttributesRequest
  * @return GetQueueAttributesResponse
@@ -680,7 +781,7 @@ GetQueueAttributesResponse Client::getQueueAttributes(const GetQueueAttributesRe
 }
 
 /**
- * @summary Queries the attributes of a subscription.
+ * @summary Retrieves the properties of a subscription.
  *
  * @param request GetSubscriptionAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -690,11 +791,11 @@ GetSubscriptionAttributesResponse Client::getSubscriptionAttributesWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasSubscriptionName()) {
-    query["SubscriptionName"] = request.subscriptionName();
+    query["SubscriptionName"] = request.getSubscriptionName();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -715,7 +816,7 @@ GetSubscriptionAttributesResponse Client::getSubscriptionAttributesWithOptions(c
 }
 
 /**
- * @summary Queries the attributes of a subscription.
+ * @summary Retrieves the properties of a subscription.
  *
  * @param request GetSubscriptionAttributesRequest
  * @return GetSubscriptionAttributesResponse
@@ -736,11 +837,11 @@ GetTopicAttributesResponse Client::getTopicAttributesWithOptions(const GetTopicA
   request.validate();
   json query = {};
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -772,7 +873,7 @@ GetTopicAttributesResponse Client::getTopicAttributes(const GetTopicAttributesRe
 }
 
 /**
- * @summary 查询事件通知列表
+ * @summary Queries a list of event notification rules.
  *
  * @param tmpReq ListEventRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -783,44 +884,44 @@ ListEventRulesResponse Client::listEventRulesWithOptions(const ListEventRulesReq
   ListEventRulesShrinkRequest request = ListEventRulesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasSubscription()) {
-    request.setSubscriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.subscription(), "Subscription", "json"));
+    request.setSubscriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubscription(), "Subscription", "json"));
   }
 
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProductName()) {
-    query["ProductName"] = request.productName();
+    query["ProductName"] = request.getProductName();
   }
 
   if (!!request.hasResourceName()) {
-    query["ResourceName"] = request.resourceName();
+    query["ResourceName"] = request.getResourceName();
   }
 
   if (!!request.hasRuleName()) {
-    query["RuleName"] = request.ruleName();
+    query["RuleName"] = request.getRuleName();
   }
 
   if (!!request.hasSubscriptionShrink()) {
-    query["Subscription"] = request.subscriptionShrink();
+    query["Subscription"] = request.getSubscriptionShrink();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -841,7 +942,7 @@ ListEventRulesResponse Client::listEventRulesWithOptions(const ListEventRulesReq
 }
 
 /**
- * @summary 查询事件通知列表
+ * @summary Queries a list of event notification rules.
  *
  * @param request ListEventRulesRequest
  * @return ListEventRulesResponse
@@ -852,7 +953,7 @@ ListEventRulesResponse Client::listEventRules(const ListEventRulesRequest &reque
 }
 
 /**
- * @summary Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
+ * @summary Lists all queues under a specified Alibaba Cloud account with pagination support.
  *
  * @param request ListQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -862,23 +963,23 @@ ListQueueResponse Client::listQueueWithOptions(const ListQueueRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasQueueName()) {
-    query["QueueName"] = request.queueName();
+    query["QueueName"] = request.getQueueName();
   }
 
   if (!!request.hasQueueType()) {
-    query["QueueType"] = request.queueType();
+    query["QueueType"] = request.getQueueType();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -899,7 +1000,7 @@ ListQueueResponse Client::listQueueWithOptions(const ListQueueRequest &request, 
 }
 
 /**
- * @summary Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
+ * @summary Lists all queues under a specified Alibaba Cloud account with pagination support.
  *
  * @param request ListQueueRequest
  * @return ListQueueResponse
@@ -910,7 +1011,7 @@ ListQueueResponse Client::listQueue(const ListQueueRequest &request) {
 }
 
 /**
- * @summary Queries all subscriptions to a topic. The subscriptions are displayed by page.
+ * @summary You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
  *
  * @param request ListSubscriptionByTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -920,27 +1021,27 @@ ListSubscriptionByTopicResponse Client::listSubscriptionByTopicWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   if (!!request.hasEndpointValue()) {
-    query["EndpointValue"] = request.endpointValue();
+    query["EndpointValue"] = request.getEndpointValue();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSubscriptionName()) {
-    query["SubscriptionName"] = request.subscriptionName();
+    query["SubscriptionName"] = request.getSubscriptionName();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -961,7 +1062,7 @@ ListSubscriptionByTopicResponse Client::listSubscriptionByTopicWithOptions(const
 }
 
 /**
- * @summary Queries all subscriptions to a topic. The subscriptions are displayed by page.
+ * @summary You can call the ListSubscriptionByTopic operation to retrieve a paginated list of subscriptions for a topic.
  *
  * @param request ListSubscriptionByTopicRequest
  * @return ListSubscriptionByTopicResponse
@@ -972,7 +1073,7 @@ ListSubscriptionByTopicResponse Client::listSubscriptionByTopic(const ListSubscr
 }
 
 /**
- * @summary Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
+ * @summary Queries the list of topics under an Alibaba Cloud account with paginated results.
  *
  * @param request ListTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -982,23 +1083,23 @@ ListTopicResponse Client::listTopicWithOptions(const ListTopicRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   if (!!request.hasTopicType()) {
-    query["TopicType"] = request.topicType();
+    query["TopicType"] = request.getTopicType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1019,7 +1120,7 @@ ListTopicResponse Client::listTopicWithOptions(const ListTopicRequest &request, 
 }
 
 /**
- * @summary Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
+ * @summary Queries the list of topics under an Alibaba Cloud account with paginated results.
  *
  * @param request ListTopicRequest
  * @return ListTopicResponse
@@ -1030,7 +1131,7 @@ ListTopicResponse Client::listTopic(const ListTopicRequest &request) {
 }
 
 /**
- * @summary You can call this operation to delete one or more rules of access control lists (ACLs) for the endpoint of a type.
+ * @summary Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
  *
  * @param tmpReq RevokeEndpointAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1041,20 +1142,20 @@ RevokeEndpointAclResponse Client::revokeEndpointAclWithOptions(const RevokeEndpo
   RevokeEndpointAclShrinkRequest request = RevokeEndpointAclShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCidrList()) {
-    request.setCidrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.cidrList(), "CidrList", "simple"));
+    request.setCidrListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCidrList(), "CidrList", "simple"));
   }
 
   json query = {};
   if (!!request.hasAclStrategy()) {
-    query["AclStrategy"] = request.aclStrategy();
+    query["AclStrategy"] = request.getAclStrategy();
   }
 
   if (!!request.hasCidrListShrink()) {
-    query["CidrList"] = request.cidrListShrink();
+    query["CidrList"] = request.getCidrListShrink();
   }
 
   if (!!request.hasEndpointType()) {
-    query["EndpointType"] = request.endpointType();
+    query["EndpointType"] = request.getEndpointType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1075,7 +1176,7 @@ RevokeEndpointAclResponse Client::revokeEndpointAclWithOptions(const RevokeEndpo
 }
 
 /**
- * @summary You can call this operation to delete one or more rules of access control lists (ACLs) for the endpoint of a type.
+ * @summary Revokes one or more Access Control List (ACL) rules for a specified endpoint type.
  *
  * @param request RevokeEndpointAclRequest
  * @return RevokeEndpointAclResponse
@@ -1086,7 +1187,7 @@ RevokeEndpointAclResponse Client::revokeEndpointAcl(const RevokeEndpointAclReque
 }
 
 /**
- * @summary Modifies a queue.
+ * @summary Calls the SetQueueAttributes operation to modify queue attributes.
  *
  * @param tmpReq SetQueueAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1097,48 +1198,64 @@ SetQueueAttributesResponse Client::setQueueAttributesWithOptions(const SetQueueA
   SetQueueAttributesShrinkRequest request = SetQueueAttributesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDlqPolicy()) {
-    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy(), "DlqPolicy", "json"));
+    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDlqPolicy(), "DlqPolicy", "json"));
   }
 
   if (!!tmpReq.hasTenantRateLimitPolicy()) {
-    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
+    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
   }
 
   json query = {};
   if (!!request.hasDelaySeconds()) {
-    query["DelaySeconds"] = request.delaySeconds();
+    query["DelaySeconds"] = request.getDelaySeconds();
   }
 
   if (!!request.hasDlqPolicyShrink()) {
-    query["DlqPolicy"] = request.dlqPolicyShrink();
+    query["DlqPolicy"] = request.getDlqPolicyShrink();
   }
 
   if (!!request.hasEnableLogging()) {
-    query["EnableLogging"] = request.enableLogging();
+    query["EnableLogging"] = request.getEnableLogging();
+  }
+
+  if (!!request.hasEnableSSE()) {
+    query["EnableSSE"] = request.getEnableSSE();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    query["KmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasMaximumMessageSize()) {
-    query["MaximumMessageSize"] = request.maximumMessageSize();
+    query["MaximumMessageSize"] = request.getMaximumMessageSize();
   }
 
   if (!!request.hasMessageRetentionPeriod()) {
-    query["MessageRetentionPeriod"] = request.messageRetentionPeriod();
+    query["MessageRetentionPeriod"] = request.getMessageRetentionPeriod();
   }
 
   if (!!request.hasPollingWaitSeconds()) {
-    query["PollingWaitSeconds"] = request.pollingWaitSeconds();
+    query["PollingWaitSeconds"] = request.getPollingWaitSeconds();
   }
 
   if (!!request.hasQueueName()) {
-    query["QueueName"] = request.queueName();
+    query["QueueName"] = request.getQueueName();
+  }
+
+  if (!!request.hasSseAlgorithm()) {
+    query["SseAlgorithm"] = request.getSseAlgorithm();
+  }
+
+  if (!!request.hasSseType()) {
+    query["SseType"] = request.getSseType();
   }
 
   if (!!request.hasTenantRateLimitPolicyShrink()) {
-    query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink();
+    query["TenantRateLimitPolicy"] = request.getTenantRateLimitPolicyShrink();
   }
 
   if (!!request.hasVisibilityTimeout()) {
-    query["VisibilityTimeout"] = request.visibilityTimeout();
+    query["VisibilityTimeout"] = request.getVisibilityTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1159,7 +1276,7 @@ SetQueueAttributesResponse Client::setQueueAttributesWithOptions(const SetQueueA
 }
 
 /**
- * @summary Modifies a queue.
+ * @summary Calls the SetQueueAttributes operation to modify queue attributes.
  *
  * @param request SetQueueAttributesRequest
  * @return SetQueueAttributesResponse
@@ -1170,7 +1287,7 @@ SetQueueAttributesResponse Client::setQueueAttributes(const SetQueueAttributesRe
 }
 
 /**
- * @summary Modifies the attributes of a subscription.
+ * @summary Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
  *
  * @param tmpReq SetSubscriptionAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,36 +1298,36 @@ SetSubscriptionAttributesResponse Client::setSubscriptionAttributesWithOptions(c
   SetSubscriptionAttributesShrinkRequest request = SetSubscriptionAttributesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDlqPolicy()) {
-    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy(), "DlqPolicy", "json"));
+    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDlqPolicy(), "DlqPolicy", "json"));
   }
 
   if (!!tmpReq.hasTenantRateLimitPolicy()) {
-    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
+    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
   }
 
   json query = {};
   if (!!request.hasDlqPolicyShrink()) {
-    query["DlqPolicy"] = request.dlqPolicyShrink();
+    query["DlqPolicy"] = request.getDlqPolicyShrink();
   }
 
   if (!!request.hasNotifyStrategy()) {
-    query["NotifyStrategy"] = request.notifyStrategy();
+    query["NotifyStrategy"] = request.getNotifyStrategy();
   }
 
   if (!!request.hasStsRoleArn()) {
-    query["StsRoleArn"] = request.stsRoleArn();
+    query["StsRoleArn"] = request.getStsRoleArn();
   }
 
   if (!!request.hasSubscriptionName()) {
-    query["SubscriptionName"] = request.subscriptionName();
+    query["SubscriptionName"] = request.getSubscriptionName();
   }
 
   if (!!request.hasTenantRateLimitPolicyShrink()) {
-    query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink();
+    query["TenantRateLimitPolicy"] = request.getTenantRateLimitPolicyShrink();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1231,7 +1348,7 @@ SetSubscriptionAttributesResponse Client::setSubscriptionAttributesWithOptions(c
 }
 
 /**
- * @summary Modifies the attributes of a subscription.
+ * @summary Call the SetSubscriptionAttributes operation to modify a subscription\\"s attributes.
  *
  * @param request SetSubscriptionAttributesRequest
  * @return SetSubscriptionAttributesResponse
@@ -1242,7 +1359,7 @@ SetSubscriptionAttributesResponse Client::setSubscriptionAttributes(const SetSub
 }
 
 /**
- * @summary Modifies the attributes of a topic.
+ * @summary Calls the SetTopicAttributes operation to modify the attributes of a topic.
  *
  * @param request SetTopicAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1252,15 +1369,31 @@ SetTopicAttributesResponse Client::setTopicAttributesWithOptions(const SetTopicA
   request.validate();
   json query = {};
   if (!!request.hasEnableLogging()) {
-    query["EnableLogging"] = request.enableLogging();
+    query["EnableLogging"] = request.getEnableLogging();
+  }
+
+  if (!!request.hasEnableSSE()) {
+    query["EnableSSE"] = request.getEnableSSE();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    query["KmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasMaxMessageSize()) {
-    query["MaxMessageSize"] = request.maxMessageSize();
+    query["MaxMessageSize"] = request.getMaxMessageSize();
+  }
+
+  if (!!request.hasSseAlgorithm()) {
+    query["SseAlgorithm"] = request.getSseAlgorithm();
+  }
+
+  if (!!request.hasSseType()) {
+    query["SseType"] = request.getSseType();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1281,7 +1414,7 @@ SetTopicAttributesResponse Client::setTopicAttributesWithOptions(const SetTopicA
 }
 
 /**
- * @summary Modifies the attributes of a topic.
+ * @summary Calls the SetTopicAttributes operation to modify the attributes of a topic.
  *
  * @param request SetTopicAttributesRequest
  * @return SetTopicAttributesResponse
@@ -1292,7 +1425,7 @@ SetTopicAttributesResponse Client::setTopicAttributes(const SetTopicAttributesRe
 }
 
 /**
- * @summary Creates a subscription to a topic.
+ * @summary Calls the Subscribe operation to create a subscription for a topic.
  *
  * @param tmpReq SubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1303,76 +1436,76 @@ SubscribeResponse Client::subscribeWithOptions(const SubscribeRequest &tmpReq, c
   SubscribeShrinkRequest request = SubscribeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDlqPolicy()) {
-    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dlqPolicy(), "DlqPolicy", "json"));
+    request.setDlqPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDlqPolicy(), "DlqPolicy", "json"));
   }
 
   if (!!tmpReq.hasDmAttributes()) {
-    request.setDmAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dmAttributes(), "DmAttributes", "json"));
+    request.setDmAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDmAttributes(), "DmAttributes", "json"));
   }
 
   if (!!tmpReq.hasDysmsAttributes()) {
-    request.setDysmsAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dysmsAttributes(), "DysmsAttributes", "json"));
+    request.setDysmsAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDysmsAttributes(), "DysmsAttributes", "json"));
   }
 
   if (!!tmpReq.hasKafkaAttributes()) {
-    request.setKafkaAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.kafkaAttributes(), "KafkaAttributes", "json"));
+    request.setKafkaAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKafkaAttributes(), "KafkaAttributes", "json"));
   }
 
   if (!!tmpReq.hasTenantRateLimitPolicy()) {
-    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
+    request.setTenantRateLimitPolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantRateLimitPolicy(), "TenantRateLimitPolicy", "json"));
   }
 
   json query = {};
   if (!!request.hasDlqPolicyShrink()) {
-    query["DlqPolicy"] = request.dlqPolicyShrink();
+    query["DlqPolicy"] = request.getDlqPolicyShrink();
   }
 
   if (!!request.hasDmAttributesShrink()) {
-    query["DmAttributes"] = request.dmAttributesShrink();
+    query["DmAttributes"] = request.getDmAttributesShrink();
   }
 
   if (!!request.hasDysmsAttributesShrink()) {
-    query["DysmsAttributes"] = request.dysmsAttributesShrink();
+    query["DysmsAttributes"] = request.getDysmsAttributesShrink();
   }
 
   if (!!request.hasEndpoint()) {
-    query["Endpoint"] = request.endpoint();
+    query["Endpoint"] = request.getEndpoint();
   }
 
   if (!!request.hasKafkaAttributesShrink()) {
-    query["KafkaAttributes"] = request.kafkaAttributesShrink();
+    query["KafkaAttributes"] = request.getKafkaAttributesShrink();
   }
 
   if (!!request.hasMessageTag()) {
-    query["MessageTag"] = request.messageTag();
+    query["MessageTag"] = request.getMessageTag();
   }
 
   if (!!request.hasNotifyContentFormat()) {
-    query["NotifyContentFormat"] = request.notifyContentFormat();
+    query["NotifyContentFormat"] = request.getNotifyContentFormat();
   }
 
   if (!!request.hasNotifyStrategy()) {
-    query["NotifyStrategy"] = request.notifyStrategy();
+    query["NotifyStrategy"] = request.getNotifyStrategy();
   }
 
   if (!!request.hasPushType()) {
-    query["PushType"] = request.pushType();
+    query["PushType"] = request.getPushType();
   }
 
   if (!!request.hasStsRoleArn()) {
-    query["StsRoleArn"] = request.stsRoleArn();
+    query["StsRoleArn"] = request.getStsRoleArn();
   }
 
   if (!!request.hasSubscriptionName()) {
-    query["SubscriptionName"] = request.subscriptionName();
+    query["SubscriptionName"] = request.getSubscriptionName();
   }
 
   if (!!request.hasTenantRateLimitPolicyShrink()) {
-    query["TenantRateLimitPolicy"] = request.tenantRateLimitPolicyShrink();
+    query["TenantRateLimitPolicy"] = request.getTenantRateLimitPolicyShrink();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1393,7 +1526,7 @@ SubscribeResponse Client::subscribeWithOptions(const SubscribeRequest &tmpReq, c
 }
 
 /**
- * @summary Creates a subscription to a topic.
+ * @summary Calls the Subscribe operation to create a subscription for a topic.
  *
  * @param request SubscribeRequest
  * @return SubscribeResponse
@@ -1404,7 +1537,7 @@ SubscribeResponse Client::subscribe(const SubscribeRequest &request) {
 }
 
 /**
- * @summary Deletes a subscription.
+ * @summary You can call Unsubscribe to cancel an existing subscription.
  *
  * @param request UnsubscribeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1414,11 +1547,11 @@ UnsubscribeResponse Client::unsubscribeWithOptions(const UnsubscribeRequest &req
   request.validate();
   json query = {};
   if (!!request.hasSubscriptionName()) {
-    query["SubscriptionName"] = request.subscriptionName();
+    query["SubscriptionName"] = request.getSubscriptionName();
   }
 
   if (!!request.hasTopicName()) {
-    query["TopicName"] = request.topicName();
+    query["TopicName"] = request.getTopicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1439,7 +1572,7 @@ UnsubscribeResponse Client::unsubscribeWithOptions(const UnsubscribeRequest &req
 }
 
 /**
- * @summary Deletes a subscription.
+ * @summary You can call Unsubscribe to cancel an existing subscription.
  *
  * @param request UnsubscribeRequest
  * @return UnsubscribeResponse

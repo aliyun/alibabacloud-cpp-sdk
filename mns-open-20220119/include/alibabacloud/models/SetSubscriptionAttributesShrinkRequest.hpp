@@ -40,67 +40,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dlqPolicyShrink_ == nullptr
-        && return this->notifyStrategy_ == nullptr && return this->stsRoleArn_ == nullptr && return this->subscriptionName_ == nullptr && return this->tenantRateLimitPolicyShrink_ == nullptr && return this->topicName_ == nullptr; };
+        && this->notifyStrategy_ == nullptr && this->stsRoleArn_ == nullptr && this->subscriptionName_ == nullptr && this->tenantRateLimitPolicyShrink_ == nullptr && this->topicName_ == nullptr; };
     // dlqPolicyShrink Field Functions 
     bool hasDlqPolicyShrink() const { return this->dlqPolicyShrink_ != nullptr;};
     void deleteDlqPolicyShrink() { this->dlqPolicyShrink_ = nullptr;};
-    inline string dlqPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(dlqPolicyShrink_, "") };
+    inline string getDlqPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(dlqPolicyShrink_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setDlqPolicyShrink(string dlqPolicyShrink) { DARABONBA_PTR_SET_VALUE(dlqPolicyShrink_, dlqPolicyShrink) };
 
 
     // notifyStrategy Field Functions 
     bool hasNotifyStrategy() const { return this->notifyStrategy_ != nullptr;};
     void deleteNotifyStrategy() { this->notifyStrategy_ = nullptr;};
-    inline string notifyStrategy() const { DARABONBA_PTR_GET_DEFAULT(notifyStrategy_, "") };
+    inline string getNotifyStrategy() const { DARABONBA_PTR_GET_DEFAULT(notifyStrategy_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setNotifyStrategy(string notifyStrategy) { DARABONBA_PTR_SET_VALUE(notifyStrategy_, notifyStrategy) };
 
 
     // stsRoleArn Field Functions 
     bool hasStsRoleArn() const { return this->stsRoleArn_ != nullptr;};
     void deleteStsRoleArn() { this->stsRoleArn_ = nullptr;};
-    inline string stsRoleArn() const { DARABONBA_PTR_GET_DEFAULT(stsRoleArn_, "") };
+    inline string getStsRoleArn() const { DARABONBA_PTR_GET_DEFAULT(stsRoleArn_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setStsRoleArn(string stsRoleArn) { DARABONBA_PTR_SET_VALUE(stsRoleArn_, stsRoleArn) };
 
 
     // subscriptionName Field Functions 
     bool hasSubscriptionName() const { return this->subscriptionName_ != nullptr;};
     void deleteSubscriptionName() { this->subscriptionName_ = nullptr;};
-    inline string subscriptionName() const { DARABONBA_PTR_GET_DEFAULT(subscriptionName_, "") };
+    inline string getSubscriptionName() const { DARABONBA_PTR_GET_DEFAULT(subscriptionName_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setSubscriptionName(string subscriptionName) { DARABONBA_PTR_SET_VALUE(subscriptionName_, subscriptionName) };
 
 
     // tenantRateLimitPolicyShrink Field Functions 
     bool hasTenantRateLimitPolicyShrink() const { return this->tenantRateLimitPolicyShrink_ != nullptr;};
     void deleteTenantRateLimitPolicyShrink() { this->tenantRateLimitPolicyShrink_ = nullptr;};
-    inline string tenantRateLimitPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantRateLimitPolicyShrink_, "") };
+    inline string getTenantRateLimitPolicyShrink() const { DARABONBA_PTR_GET_DEFAULT(tenantRateLimitPolicyShrink_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setTenantRateLimitPolicyShrink(string tenantRateLimitPolicyShrink) { DARABONBA_PTR_SET_VALUE(tenantRateLimitPolicyShrink_, tenantRateLimitPolicyShrink) };
 
 
     // topicName Field Functions 
     bool hasTopicName() const { return this->topicName_ != nullptr;};
     void deleteTopicName() { this->topicName_ = nullptr;};
-    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline string getTopicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
     inline SetSubscriptionAttributesShrinkRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
   protected:
     // The dead-letter queue policy.
-    std::shared_ptr<string> dlqPolicyShrink_ = nullptr;
-    // The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+    shared_ptr<string> dlqPolicyShrink_ {};
+    // The retry policy for message delivery failures to the endpoint. Valid values:
     // 
-    // *   BACKOFF_RETRY
-    // *   EXPONENTIAL_DECAY_RETRY
-    std::shared_ptr<string> notifyStrategy_ = nullptr;
-    std::shared_ptr<string> stsRoleArn_ = nullptr;
+    // - BACKOFF_RETRY: backoff retry.
+    // 
+    // - EXPONENTIAL_DECAY_RETRY: exponential decay retry.
+    shared_ptr<string> notifyStrategy_ {};
+    shared_ptr<string> stsRoleArn_ {};
     // The name of the subscription.
     // 
     // This parameter is required.
-    std::shared_ptr<string> subscriptionName_ = nullptr;
-    std::shared_ptr<string> tenantRateLimitPolicyShrink_ = nullptr;
+    shared_ptr<string> subscriptionName_ {};
+    shared_ptr<string> tenantRateLimitPolicyShrink_ {};
     // The name of the topic.
     // 
     // This parameter is required.
-    std::shared_ptr<string> topicName_ = nullptr;
+    shared_ptr<string> topicName_ {};
   };
 
   } // namespace Models
