@@ -1,8 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_NOTIFYSTRATEGYFORSNSMODIFY_HPP_
-#define ALIBABACLOUD_MODELS_NOTIFYSTRATEGYFORSNSMODIFY_HPP_
+#ifndef ALIBABACLOUD_MODELS_NOTIFYSTRATEGYDETAIL_HPP_
+#define ALIBABACLOUD_MODELS_NOTIFYSTRATEGYDETAIL_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/FilterSetting.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,31 +12,29 @@ namespace Cms20240330
 {
 namespace Models
 {
-  class NotifyStrategyForSNSModify : public Darabonba::Model {
+  class NotifyStrategyDetail : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const NotifyStrategyForSNSModify& obj) { 
+    friend void to_json(Darabonba::Json& j, const NotifyStrategyDetail& obj) { 
       DARABONBA_PTR_TO_JSON(customTemplateEntries, customTemplateEntries_);
       DARABONBA_PTR_TO_JSON(description, description_);
-      DARABONBA_PTR_TO_JSON(enableIncidentManagement, enableIncidentManagement_);
       DARABONBA_PTR_TO_JSON(groupingSetting, groupingSetting_);
       DARABONBA_PTR_TO_JSON(ignoreRestoredNotification, ignoreRestoredNotification_);
       DARABONBA_PTR_TO_JSON(routes, routes_);
     };
-    friend void from_json(const Darabonba::Json& j, NotifyStrategyForSNSModify& obj) { 
+    friend void from_json(const Darabonba::Json& j, NotifyStrategyDetail& obj) { 
       DARABONBA_PTR_FROM_JSON(customTemplateEntries, customTemplateEntries_);
       DARABONBA_PTR_FROM_JSON(description, description_);
-      DARABONBA_PTR_FROM_JSON(enableIncidentManagement, enableIncidentManagement_);
       DARABONBA_PTR_FROM_JSON(groupingSetting, groupingSetting_);
       DARABONBA_PTR_FROM_JSON(ignoreRestoredNotification, ignoreRestoredNotification_);
       DARABONBA_PTR_FROM_JSON(routes, routes_);
     };
-    NotifyStrategyForSNSModify() = default ;
-    NotifyStrategyForSNSModify(const NotifyStrategyForSNSModify &) = default ;
-    NotifyStrategyForSNSModify(NotifyStrategyForSNSModify &&) = default ;
-    NotifyStrategyForSNSModify(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~NotifyStrategyForSNSModify() = default ;
-    NotifyStrategyForSNSModify& operator=(const NotifyStrategyForSNSModify &) = default ;
-    NotifyStrategyForSNSModify& operator=(NotifyStrategyForSNSModify &&) = default ;
+    NotifyStrategyDetail() = default ;
+    NotifyStrategyDetail(const NotifyStrategyDetail &) = default ;
+    NotifyStrategyDetail(NotifyStrategyDetail &&) = default ;
+    NotifyStrategyDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~NotifyStrategyDetail() = default ;
+    NotifyStrategyDetail& operator=(const NotifyStrategyDetail &) = default ;
+    NotifyStrategyDetail& operator=(NotifyStrategyDetail &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -48,7 +47,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(effectTimeRange, effectTimeRange_);
         DARABONBA_PTR_TO_JSON(enableRca, enableRca_);
         DARABONBA_PTR_TO_JSON(filterSetting, filterSetting_);
-        DARABONBA_PTR_TO_JSON(severities, severities_);
       };
       friend void from_json(const Darabonba::Json& j, Routes& obj) { 
         DARABONBA_PTR_FROM_JSON(channels, channels_);
@@ -56,7 +54,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(effectTimeRange, effectTimeRange_);
         DARABONBA_PTR_FROM_JSON(enableRca, enableRca_);
         DARABONBA_PTR_FROM_JSON(filterSetting, filterSetting_);
-        DARABONBA_PTR_FROM_JSON(severities, severities_);
       };
       Routes() = default ;
       Routes(const Routes &) = default ;
@@ -69,112 +66,6 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      class FilterSetting : public Darabonba::Model {
-      public:
-        friend void to_json(Darabonba::Json& j, const FilterSetting& obj) { 
-          DARABONBA_PTR_TO_JSON(conditions, conditions_);
-          DARABONBA_PTR_TO_JSON(expression, expression_);
-          DARABONBA_PTR_TO_JSON(relation, relation_);
-        };
-        friend void from_json(const Darabonba::Json& j, FilterSetting& obj) { 
-          DARABONBA_PTR_FROM_JSON(conditions, conditions_);
-          DARABONBA_PTR_FROM_JSON(expression, expression_);
-          DARABONBA_PTR_FROM_JSON(relation, relation_);
-        };
-        FilterSetting() = default ;
-        FilterSetting(const FilterSetting &) = default ;
-        FilterSetting(FilterSetting &&) = default ;
-        FilterSetting(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~FilterSetting() = default ;
-        FilterSetting& operator=(const FilterSetting &) = default ;
-        FilterSetting& operator=(FilterSetting &&) = default ;
-        virtual void validate() const override {
-        };
-        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        class Conditions : public Darabonba::Model {
-        public:
-          friend void to_json(Darabonba::Json& j, const Conditions& obj) { 
-            DARABONBA_PTR_TO_JSON(field, field_);
-            DARABONBA_PTR_TO_JSON(op, op_);
-            DARABONBA_PTR_TO_JSON(value, value_);
-          };
-          friend void from_json(const Darabonba::Json& j, Conditions& obj) { 
-            DARABONBA_PTR_FROM_JSON(field, field_);
-            DARABONBA_PTR_FROM_JSON(op, op_);
-            DARABONBA_PTR_FROM_JSON(value, value_);
-          };
-          Conditions() = default ;
-          Conditions(const Conditions &) = default ;
-          Conditions(Conditions &&) = default ;
-          Conditions(const Darabonba::Json & obj) { from_json(obj, *this); };
-          virtual ~Conditions() = default ;
-          Conditions& operator=(const Conditions &) = default ;
-          Conditions& operator=(Conditions &&) = default ;
-          virtual void validate() const override {
-          };
-          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->field_ == nullptr
-        && this->op_ == nullptr && this->value_ == nullptr; };
-          // field Field Functions 
-          bool hasField() const { return this->field_ != nullptr;};
-          void deleteField() { this->field_ = nullptr;};
-          inline string getField() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
-          inline Conditions& setField(string field) { DARABONBA_PTR_SET_VALUE(field_, field) };
-
-
-          // op Field Functions 
-          bool hasOp() const { return this->op_ != nullptr;};
-          void deleteOp() { this->op_ = nullptr;};
-          inline string getOp() const { DARABONBA_PTR_GET_DEFAULT(op_, "") };
-          inline Conditions& setOp(string op) { DARABONBA_PTR_SET_VALUE(op_, op) };
-
-
-          // value Field Functions 
-          bool hasValue() const { return this->value_ != nullptr;};
-          void deleteValue() { this->value_ = nullptr;};
-          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
-          inline Conditions& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
-
-
-        protected:
-          shared_ptr<string> field_ {};
-          shared_ptr<string> op_ {};
-          shared_ptr<string> value_ {};
-        };
-
-        virtual bool empty() const override { return this->conditions_ == nullptr
-        && this->expression_ == nullptr && this->relation_ == nullptr; };
-        // conditions Field Functions 
-        bool hasConditions() const { return this->conditions_ != nullptr;};
-        void deleteConditions() { this->conditions_ = nullptr;};
-        inline const vector<FilterSetting::Conditions> & getConditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<FilterSetting::Conditions>) };
-        inline vector<FilterSetting::Conditions> getConditions() { DARABONBA_PTR_GET(conditions_, vector<FilterSetting::Conditions>) };
-        inline FilterSetting& setConditions(const vector<FilterSetting::Conditions> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
-        inline FilterSetting& setConditions(vector<FilterSetting::Conditions> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
-
-
-        // expression Field Functions 
-        bool hasExpression() const { return this->expression_ != nullptr;};
-        void deleteExpression() { this->expression_ = nullptr;};
-        inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
-        inline FilterSetting& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
-
-
-        // relation Field Functions 
-        bool hasRelation() const { return this->relation_ != nullptr;};
-        void deleteRelation() { this->relation_ = nullptr;};
-        inline string getRelation() const { DARABONBA_PTR_GET_DEFAULT(relation_, "") };
-        inline FilterSetting& setRelation(string relation) { DARABONBA_PTR_SET_VALUE(relation_, relation) };
-
-
-      protected:
-        shared_ptr<vector<FilterSetting::Conditions>> conditions_ {};
-        shared_ptr<string> expression_ {};
-        shared_ptr<string> relation_ {};
-      };
-
       class EffectTimeRange : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const EffectTimeRange& obj) { 
@@ -233,13 +124,13 @@ namespace Models
 
 
       protected:
-        // The days of the week on which the setting takes effect. Array element values range from 0 to 6 (0 = Sunday, 1 = Monday, 2 = Tuesday, ... 6 = Saturday). Note: The value 7 is not supported. The maximum value is 6. Example for all days: [0,1,2,3,4,5,6]. Example for weekdays only: [1,2,3,4,5].
+        // The effective days of the week. Valid values: 0 to 6 (0 = Sunday, 6 = Saturday). The value 7 is not supported.
         shared_ptr<vector<int32_t>> dayInWeek_ {};
-        // The end time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (23 × 60 + 59 = 1439, which represents 23:59).
+        // The end time of the day in minutes. Valid values: 0 to 1439.
         shared_ptr<int32_t> endTimeInMinute_ {};
-        // The start time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (0 represents 00:00).
+        // The start time of the day in minutes. Valid values: 0 to 1438.
         shared_ptr<int32_t> startTimeInMinute_ {};
-        // The IANA time zone identifier, such as Asia/Shanghai or America/Los_Angeles.
+        // The IANA time zone identifier.
         shared_ptr<string> timeZone_ {};
       };
 
@@ -294,20 +185,16 @@ namespace Models
 
 
       protected:
-        // The notification channel type. The value must be one of the following uppercase enum values: DING (DingTalk chatbot), WEIXIN (WeCom chatbot), FEISHU (Lark chatbot), SLACK, TEAMS, WEBHOOK (custom webhook), CONTACT (contact, requires enabledSubChannels to specify sub-channels), GROUP (contact group), DUTY (on-call schedule), or DING_COOL_APP (DingTalk Cool App). Note: Lowercase values such as EMAIL or SMS are not supported. To send email, text message, or voice notifications, set channelType to CONTACT and specify EMAIL, SMS, or VOICE in enabledSubChannels.
-        // 
-        // This parameter is required.
+        // The channel type. Valid values: DING, WEIXIN, FEISHU, SLACK, TEAMS, WEBHOOK, CONTACT, GROUP, DUTY, and DING_COOL_APP.
         shared_ptr<string> channelType_ {};
-        // Required only when channelType is CONTACT, GROUP, or DUTY. Valid values: EMAIL (email), SMS (text message), VOICE (voice call), DING (DingTalk work notification), WEIXIN (WeCom message), FEISHU (Lark message), and WEBHOOK. For example, to notify a contact by email and text message, set channelType to CONTACT and enabledSubChannels to ["EMAIL","SMS"]. This field is not required for other channelType values such as WEBHOOK or DING.
+        // The enabled sub-channels. Valid values: EMAIL, SMS, VOICE, DING, WEIXIN, FEISHU, and WEBHOOK.
         shared_ptr<vector<string>> enabledSubChannels_ {};
-        // The list of receiver identifiers. For the WEBHOOK type, specify the webhook UUID. For DING, WEIXIN, or FEISHU, specify the chatbot UUID. For CONTACT, specify the contact ID. For GROUP, specify the contact group ID. For DUTY, specify the on-call schedule UUID. At least one element is required.
-        // 
-        // This parameter is required.
+        // The list of receiver identifiers.
         shared_ptr<vector<string>> receivers_ {};
       };
 
       virtual bool empty() const override { return this->channels_ == nullptr
-        && this->digitalEmployeeName_ == nullptr && this->effectTimeRange_ == nullptr && this->enableRca_ == nullptr && this->filterSetting_ == nullptr && this->severities_ == nullptr; };
+        && this->digitalEmployeeName_ == nullptr && this->effectTimeRange_ == nullptr && this->enableRca_ == nullptr && this->filterSetting_ == nullptr; };
       // channels Field Functions 
       bool hasChannels() const { return this->channels_ != nullptr;};
       void deleteChannels() { this->channels_ = nullptr;};
@@ -343,29 +230,23 @@ namespace Models
       // filterSetting Field Functions 
       bool hasFilterSetting() const { return this->filterSetting_ != nullptr;};
       void deleteFilterSetting() { this->filterSetting_ = nullptr;};
-      inline const Routes::FilterSetting & getFilterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, Routes::FilterSetting) };
-      inline Routes::FilterSetting getFilterSetting() { DARABONBA_PTR_GET(filterSetting_, Routes::FilterSetting) };
-      inline Routes& setFilterSetting(const Routes::FilterSetting & filterSetting) { DARABONBA_PTR_SET_VALUE(filterSetting_, filterSetting) };
-      inline Routes& setFilterSetting(Routes::FilterSetting && filterSetting) { DARABONBA_PTR_SET_RVALUE(filterSetting_, filterSetting) };
-
-
-      // severities Field Functions 
-      bool hasSeverities() const { return this->severities_ != nullptr;};
-      void deleteSeverities() { this->severities_ = nullptr;};
-      inline const vector<string> & getSeverities() const { DARABONBA_PTR_GET_CONST(severities_, vector<string>) };
-      inline vector<string> getSeverities() { DARABONBA_PTR_GET(severities_, vector<string>) };
-      inline Routes& setSeverities(const vector<string> & severities) { DARABONBA_PTR_SET_VALUE(severities_, severities) };
-      inline Routes& setSeverities(vector<string> && severities) { DARABONBA_PTR_SET_RVALUE(severities_, severities) };
+      inline const FilterSetting & getFilterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, FilterSetting) };
+      inline FilterSetting getFilterSetting() { DARABONBA_PTR_GET(filterSetting_, FilterSetting) };
+      inline Routes& setFilterSetting(const FilterSetting & filterSetting) { DARABONBA_PTR_SET_VALUE(filterSetting_, filterSetting) };
+      inline Routes& setFilterSetting(FilterSetting && filterSetting) { DARABONBA_PTR_SET_RVALUE(filterSetting_, filterSetting) };
 
 
     protected:
+      // The list of notification channels.
       shared_ptr<vector<Routes::Channels>> channels_ {};
+      // The digital employee name. This parameter is required when enableRca is set to true.
       shared_ptr<string> digitalEmployeeName_ {};
-      // The effective period settings for notifications. Defines on which days and during which time range the system sends notifications.
+      // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
+      // Specifies whether to enable root cause analysis (RCA).
       shared_ptr<bool> enableRca_ {};
-      shared_ptr<Routes::FilterSetting> filterSetting_ {};
-      shared_ptr<vector<string>> severities_ {};
+      // The route-level event filter conditions.
+      shared_ptr<FilterSetting> filterSetting_ {};
     };
 
     class GroupingSetting : public Darabonba::Model {
@@ -426,20 +307,22 @@ namespace Models
 
 
     protected:
+      // The event fields by which events are grouped for noise reduction. Events in the same group are merged into a single notification. An empty array indicates no grouping.
       shared_ptr<vector<string>> groupingKeys_ {};
+      // The check period in minutes.
       shared_ptr<int32_t> periodMin_ {};
+      // The silence duration in seconds.
       shared_ptr<int32_t> silenceSec_ {};
+      // The number of trigger times.
       shared_ptr<int32_t> times_ {};
     };
 
     class CustomTemplateEntries : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CustomTemplateEntries& obj) { 
-        DARABONBA_PTR_TO_JSON(targetType, targetType_);
         DARABONBA_PTR_TO_JSON(templateUuid, templateUuid_);
       };
       friend void from_json(const Darabonba::Json& j, CustomTemplateEntries& obj) { 
-        DARABONBA_PTR_FROM_JSON(targetType, targetType_);
         DARABONBA_PTR_FROM_JSON(templateUuid, templateUuid_);
       };
       CustomTemplateEntries() = default ;
@@ -453,15 +336,7 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->targetType_ == nullptr
-        && this->templateUuid_ == nullptr; };
-      // targetType Field Functions 
-      bool hasTargetType() const { return this->targetType_ != nullptr;};
-      void deleteTargetType() { this->targetType_ = nullptr;};
-      inline string getTargetType() const { DARABONBA_PTR_GET_DEFAULT(targetType_, "") };
-      inline CustomTemplateEntries& setTargetType(string targetType) { DARABONBA_PTR_SET_VALUE(targetType_, targetType) };
-
-
+      virtual bool empty() const override { return this->templateUuid_ == nullptr; };
       // templateUuid Field Functions 
       bool hasTemplateUuid() const { return this->templateUuid_ != nullptr;};
       void deleteTemplateUuid() { this->templateUuid_ = nullptr;};
@@ -470,69 +345,64 @@ namespace Models
 
 
     protected:
-      shared_ptr<string> targetType_ {};
+      // The UUID of the notification template.
       shared_ptr<string> templateUuid_ {};
     };
 
     virtual bool empty() const override { return this->customTemplateEntries_ == nullptr
-        && this->description_ == nullptr && this->enableIncidentManagement_ == nullptr && this->groupingSetting_ == nullptr && this->ignoreRestoredNotification_ == nullptr && this->routes_ == nullptr; };
+        && this->description_ == nullptr && this->groupingSetting_ == nullptr && this->ignoreRestoredNotification_ == nullptr && this->routes_ == nullptr; };
     // customTemplateEntries Field Functions 
     bool hasCustomTemplateEntries() const { return this->customTemplateEntries_ != nullptr;};
     void deleteCustomTemplateEntries() { this->customTemplateEntries_ = nullptr;};
-    inline const vector<NotifyStrategyForSNSModify::CustomTemplateEntries> & getCustomTemplateEntries() const { DARABONBA_PTR_GET_CONST(customTemplateEntries_, vector<NotifyStrategyForSNSModify::CustomTemplateEntries>) };
-    inline vector<NotifyStrategyForSNSModify::CustomTemplateEntries> getCustomTemplateEntries() { DARABONBA_PTR_GET(customTemplateEntries_, vector<NotifyStrategyForSNSModify::CustomTemplateEntries>) };
-    inline NotifyStrategyForSNSModify& setCustomTemplateEntries(const vector<NotifyStrategyForSNSModify::CustomTemplateEntries> & customTemplateEntries) { DARABONBA_PTR_SET_VALUE(customTemplateEntries_, customTemplateEntries) };
-    inline NotifyStrategyForSNSModify& setCustomTemplateEntries(vector<NotifyStrategyForSNSModify::CustomTemplateEntries> && customTemplateEntries) { DARABONBA_PTR_SET_RVALUE(customTemplateEntries_, customTemplateEntries) };
+    inline const vector<NotifyStrategyDetail::CustomTemplateEntries> & getCustomTemplateEntries() const { DARABONBA_PTR_GET_CONST(customTemplateEntries_, vector<NotifyStrategyDetail::CustomTemplateEntries>) };
+    inline vector<NotifyStrategyDetail::CustomTemplateEntries> getCustomTemplateEntries() { DARABONBA_PTR_GET(customTemplateEntries_, vector<NotifyStrategyDetail::CustomTemplateEntries>) };
+    inline NotifyStrategyDetail& setCustomTemplateEntries(const vector<NotifyStrategyDetail::CustomTemplateEntries> & customTemplateEntries) { DARABONBA_PTR_SET_VALUE(customTemplateEntries_, customTemplateEntries) };
+    inline NotifyStrategyDetail& setCustomTemplateEntries(vector<NotifyStrategyDetail::CustomTemplateEntries> && customTemplateEntries) { DARABONBA_PTR_SET_RVALUE(customTemplateEntries_, customTemplateEntries) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
-    inline NotifyStrategyForSNSModify& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
-
-
-    // enableIncidentManagement Field Functions 
-    bool hasEnableIncidentManagement() const { return this->enableIncidentManagement_ != nullptr;};
-    void deleteEnableIncidentManagement() { this->enableIncidentManagement_ = nullptr;};
-    inline bool getEnableIncidentManagement() const { DARABONBA_PTR_GET_DEFAULT(enableIncidentManagement_, false) };
-    inline NotifyStrategyForSNSModify& setEnableIncidentManagement(bool enableIncidentManagement) { DARABONBA_PTR_SET_VALUE(enableIncidentManagement_, enableIncidentManagement) };
+    inline NotifyStrategyDetail& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // groupingSetting Field Functions 
     bool hasGroupingSetting() const { return this->groupingSetting_ != nullptr;};
     void deleteGroupingSetting() { this->groupingSetting_ = nullptr;};
-    inline const NotifyStrategyForSNSModify::GroupingSetting & getGroupingSetting() const { DARABONBA_PTR_GET_CONST(groupingSetting_, NotifyStrategyForSNSModify::GroupingSetting) };
-    inline NotifyStrategyForSNSModify::GroupingSetting getGroupingSetting() { DARABONBA_PTR_GET(groupingSetting_, NotifyStrategyForSNSModify::GroupingSetting) };
-    inline NotifyStrategyForSNSModify& setGroupingSetting(const NotifyStrategyForSNSModify::GroupingSetting & groupingSetting) { DARABONBA_PTR_SET_VALUE(groupingSetting_, groupingSetting) };
-    inline NotifyStrategyForSNSModify& setGroupingSetting(NotifyStrategyForSNSModify::GroupingSetting && groupingSetting) { DARABONBA_PTR_SET_RVALUE(groupingSetting_, groupingSetting) };
+    inline const NotifyStrategyDetail::GroupingSetting & getGroupingSetting() const { DARABONBA_PTR_GET_CONST(groupingSetting_, NotifyStrategyDetail::GroupingSetting) };
+    inline NotifyStrategyDetail::GroupingSetting getGroupingSetting() { DARABONBA_PTR_GET(groupingSetting_, NotifyStrategyDetail::GroupingSetting) };
+    inline NotifyStrategyDetail& setGroupingSetting(const NotifyStrategyDetail::GroupingSetting & groupingSetting) { DARABONBA_PTR_SET_VALUE(groupingSetting_, groupingSetting) };
+    inline NotifyStrategyDetail& setGroupingSetting(NotifyStrategyDetail::GroupingSetting && groupingSetting) { DARABONBA_PTR_SET_RVALUE(groupingSetting_, groupingSetting) };
 
 
     // ignoreRestoredNotification Field Functions 
     bool hasIgnoreRestoredNotification() const { return this->ignoreRestoredNotification_ != nullptr;};
     void deleteIgnoreRestoredNotification() { this->ignoreRestoredNotification_ = nullptr;};
     inline bool getIgnoreRestoredNotification() const { DARABONBA_PTR_GET_DEFAULT(ignoreRestoredNotification_, false) };
-    inline NotifyStrategyForSNSModify& setIgnoreRestoredNotification(bool ignoreRestoredNotification) { DARABONBA_PTR_SET_VALUE(ignoreRestoredNotification_, ignoreRestoredNotification) };
+    inline NotifyStrategyDetail& setIgnoreRestoredNotification(bool ignoreRestoredNotification) { DARABONBA_PTR_SET_VALUE(ignoreRestoredNotification_, ignoreRestoredNotification) };
 
 
     // routes Field Functions 
     bool hasRoutes() const { return this->routes_ != nullptr;};
     void deleteRoutes() { this->routes_ = nullptr;};
-    inline const vector<NotifyStrategyForSNSModify::Routes> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<NotifyStrategyForSNSModify::Routes>) };
-    inline vector<NotifyStrategyForSNSModify::Routes> getRoutes() { DARABONBA_PTR_GET(routes_, vector<NotifyStrategyForSNSModify::Routes>) };
-    inline NotifyStrategyForSNSModify& setRoutes(const vector<NotifyStrategyForSNSModify::Routes> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
-    inline NotifyStrategyForSNSModify& setRoutes(vector<NotifyStrategyForSNSModify::Routes> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
+    inline const vector<NotifyStrategyDetail::Routes> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<NotifyStrategyDetail::Routes>) };
+    inline vector<NotifyStrategyDetail::Routes> getRoutes() { DARABONBA_PTR_GET(routes_, vector<NotifyStrategyDetail::Routes>) };
+    inline NotifyStrategyDetail& setRoutes(const vector<NotifyStrategyDetail::Routes> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
+    inline NotifyStrategyDetail& setRoutes(vector<NotifyStrategyDetail::Routes> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
 
 
   protected:
-    shared_ptr<vector<NotifyStrategyForSNSModify::CustomTemplateEntries>> customTemplateEntries_ {};
+    // The list of custom notification templates.
+    shared_ptr<vector<NotifyStrategyDetail::CustomTemplateEntries>> customTemplateEntries_ {};
+    // The description of the notification policy.
     shared_ptr<string> description_ {};
-    shared_ptr<bool> enableIncidentManagement_ {};
-    // This parameter is required.
-    shared_ptr<NotifyStrategyForSNSModify::GroupingSetting> groupingSetting_ {};
+    // The grouping and merging settings.
+    shared_ptr<NotifyStrategyDetail::GroupingSetting> groupingSetting_ {};
+    // Specifies whether to ignore notifications for recovery events. A value of true indicates that recovery notifications are not sent.
     shared_ptr<bool> ignoreRestoredNotification_ {};
-    // This parameter is required.
-    shared_ptr<vector<NotifyStrategyForSNSModify::Routes>> routes_ {};
+    // The list of notification channel routing settings.
+    shared_ptr<vector<NotifyStrategyDetail::Routes>> routes_ {};
   };
 
   } // namespace Models

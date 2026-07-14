@@ -14,36 +14,36 @@ namespace Models
   class ObserveGroupDiscoverRule : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ObserveGroupDiscoverRule& obj) { 
-      DARABONBA_PTR_TO_JSON(Enabled, enabled_);
-      DARABONBA_PTR_TO_JSON(EntityType, entityType_);
-      DARABONBA_PTR_TO_JSON(EntityTypes, entityTypes_);
-      DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
-      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
-      DARABONBA_PTR_TO_JSON(NameRules, nameRules_);
-      DARABONBA_PTR_TO_JSON(RegionIds, regionIds_);
-      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
-      DARABONBA_PTR_TO_JSON(RuleType, ruleType_);
-      DARABONBA_PTR_TO_JSON(Scope, scope_);
-      DARABONBA_PTR_TO_JSON(Spl, spl_);
-      DARABONBA_PTR_TO_JSON(TagRules, tagRules_);
-      DARABONBA_PTR_TO_JSON(UserId, userId_);
+      DARABONBA_PTR_TO_JSON(enabled, enabled_);
+      DARABONBA_PTR_TO_JSON(entityType, entityType_);
+      DARABONBA_PTR_TO_JSON(entityTypes, entityTypes_);
+      DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_TO_JSON(instanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(nameRules, nameRules_);
+      DARABONBA_PTR_TO_JSON(regionIds, regionIds_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ruleId, ruleId_);
+      DARABONBA_PTR_TO_JSON(ruleType, ruleType_);
+      DARABONBA_PTR_TO_JSON(scope, scope_);
+      DARABONBA_PTR_TO_JSON(spl, spl_);
+      DARABONBA_PTR_TO_JSON(tagRules, tagRules_);
+      DARABONBA_PTR_TO_JSON(userId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ObserveGroupDiscoverRule& obj) { 
-      DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
-      DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
-      DARABONBA_PTR_FROM_JSON(EntityTypes, entityTypes_);
-      DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
-      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
-      DARABONBA_PTR_FROM_JSON(NameRules, nameRules_);
-      DARABONBA_PTR_FROM_JSON(RegionIds, regionIds_);
-      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
-      DARABONBA_PTR_FROM_JSON(RuleType, ruleType_);
-      DARABONBA_PTR_FROM_JSON(Scope, scope_);
-      DARABONBA_PTR_FROM_JSON(Spl, spl_);
-      DARABONBA_PTR_FROM_JSON(TagRules, tagRules_);
-      DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+      DARABONBA_PTR_FROM_JSON(entityType, entityType_);
+      DARABONBA_PTR_FROM_JSON(entityTypes, entityTypes_);
+      DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
+      DARABONBA_PTR_FROM_JSON(instanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(nameRules, nameRules_);
+      DARABONBA_PTR_FROM_JSON(regionIds, regionIds_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ruleId, ruleId_);
+      DARABONBA_PTR_FROM_JSON(ruleType, ruleType_);
+      DARABONBA_PTR_FROM_JSON(scope, scope_);
+      DARABONBA_PTR_FROM_JSON(spl, spl_);
+      DARABONBA_PTR_FROM_JSON(tagRules, tagRules_);
+      DARABONBA_PTR_FROM_JSON(userId, userId_);
     };
     ObserveGroupDiscoverRule() = default ;
     ObserveGroupDiscoverRule(const ObserveGroupDiscoverRule &) = default ;
@@ -59,12 +59,12 @@ namespace Models
     class TagRules : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const TagRules& obj) { 
-        DARABONBA_PTR_TO_JSON(Op, op_);
-        DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(op, op_);
+        DARABONBA_PTR_TO_JSON(tags, tags_);
       };
       friend void from_json(const Darabonba::Json& j, TagRules& obj) { 
-        DARABONBA_PTR_FROM_JSON(Op, op_);
-        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(op, op_);
+        DARABONBA_PTR_FROM_JSON(tags, tags_);
       };
       TagRules() = default ;
       TagRules(const TagRules &) = default ;
@@ -80,14 +80,14 @@ namespace Models
       class Tags : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Tags& obj) { 
-          DARABONBA_PTR_TO_JSON(Op, op_);
-          DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
-          DARABONBA_PTR_TO_JSON(TagValues, tagValues_);
+          DARABONBA_PTR_TO_JSON(op, op_);
+          DARABONBA_PTR_TO_JSON(tagKey, tagKey_);
+          DARABONBA_PTR_TO_JSON(tagValues, tagValues_);
         };
         friend void from_json(const Darabonba::Json& j, Tags& obj) { 
-          DARABONBA_PTR_FROM_JSON(Op, op_);
-          DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
-          DARABONBA_PTR_FROM_JSON(TagValues, tagValues_);
+          DARABONBA_PTR_FROM_JSON(op, op_);
+          DARABONBA_PTR_FROM_JSON(tagKey, tagKey_);
+          DARABONBA_PTR_FROM_JSON(tagValues, tagValues_);
         };
         Tags() = default ;
         Tags(const Tags &) = default ;
@@ -130,7 +130,7 @@ namespace Models
         shared_ptr<string> op_ {};
         // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The list of tag values.
+        // The tag value list.
         shared_ptr<vector<string>> tagValues_ {};
       };
 
@@ -155,19 +155,19 @@ namespace Models
     protected:
       // The tag matching logic.
       shared_ptr<string> op_ {};
-      // The list of tag conditions.
+      // The tag condition list.
       shared_ptr<vector<TagRules::Tags>> tags_ {};
     };
 
     class NameRules : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const NameRules& obj) { 
-        DARABONBA_PTR_TO_JSON(Op, op_);
-        DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(op, op_);
+        DARABONBA_PTR_TO_JSON(tags, tags_);
       };
       friend void from_json(const Darabonba::Json& j, NameRules& obj) { 
-        DARABONBA_PTR_FROM_JSON(Op, op_);
-        DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(op, op_);
+        DARABONBA_PTR_FROM_JSON(tags, tags_);
       };
       NameRules() = default ;
       NameRules(const NameRules &) = default ;
@@ -183,12 +183,12 @@ namespace Models
       class Tags : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Tags& obj) { 
-          DARABONBA_PTR_TO_JSON(Op, op_);
-          DARABONBA_PTR_TO_JSON(TagValues, tagValues_);
+          DARABONBA_PTR_TO_JSON(op, op_);
+          DARABONBA_PTR_TO_JSON(tagValues, tagValues_);
         };
         friend void from_json(const Darabonba::Json& j, Tags& obj) { 
-          DARABONBA_PTR_FROM_JSON(Op, op_);
-          DARABONBA_PTR_FROM_JSON(TagValues, tagValues_);
+          DARABONBA_PTR_FROM_JSON(op, op_);
+          DARABONBA_PTR_FROM_JSON(tagValues, tagValues_);
         };
         Tags() = default ;
         Tags(const Tags &) = default ;
@@ -222,7 +222,7 @@ namespace Models
       protected:
         // The matching operation.
         shared_ptr<string> op_ {};
-        // The list of matching values.
+        // The matching value list.
         shared_ptr<vector<string>> tagValues_ {};
       };
 
@@ -247,7 +247,7 @@ namespace Models
     protected:
       // The name matching logic.
       shared_ptr<string> op_ {};
-      // The list of name conditions.
+      // The name condition list.
       shared_ptr<vector<NameRules::Tags>> tags_ {};
     };
 
@@ -366,27 +366,27 @@ namespace Models
   protected:
     // Indicates whether the rule is enabled. If set to false, the data plane skips this rule and does not perform matching, tagging, or delivery.
     shared_ptr<bool> enabled_ {};
-    // The entity type (legacy). This parameter is retained for backward compatibility. Use entityTypes instead.
+    // The entity type (legacy). Retained for backward compatibility. Use entityTypes instead.
     shared_ptr<string> entityType_ {};
-    // The list of entity types. A single rule can match across multiple types, such as acs.ecs.instance, acs.rds.instance, and acs.arms.service.
+    // The list of entity types. A single rule can match multiple types, such as acs.ecs.instance, acs.rds.instance, and acs.arms.service.
     shared_ptr<vector<string>> entityTypes_ {};
     // The time when the rule was created, in UNIX millisecond timestamp format. This value is used for display in the console.
     shared_ptr<int64_t> gmtCreate_ {};
-    // The list of manually specified instance IDs. This is an enumeration type and includes instances synchronized manually in version 1.0.
+    // The list of manually specified instance IDs in enumeration mode, including instances synchronized manually in version 1.0.
     shared_ptr<vector<string>> instanceIds_ {};
     // The name matching rules.
     shared_ptr<ObserveGroupDiscoverRule::NameRules> nameRules_ {};
-    // The list of region IDs used for region-based filtering.
+    // The list of region IDs used for filtering by region.
     shared_ptr<vector<string>> regionIds_ {};
     // The resource group ID used for filtering.
     shared_ptr<string> resourceGroupId_ {};
-    // The stable ID of the rule, used as an anchor for editing, deleting, and enabling or disabling operations. Format: dr-<16-character hash>.
+    // The stable rule ID used as an anchor for editing, deleting, and enabling or disabling operations. Format: dr-<16-character hash>.
     shared_ptr<string> ruleId_ {};
     // The matching method. Valid values: byTag, byResourceGroup, byInstanceName, byManual, and bySpl.
     shared_ptr<string> ruleType_ {};
     // The applicable scope. Valid values: all (all entity types, exclusive) and entity (specified entity types).
     shared_ptr<string> scope_ {};
-    // The complete SPL expression for advanced configuration. If this parameter is not empty, it takes precedence over other filter fields.
+    // The full SPL expression for advanced configuration. If this parameter is not empty, it takes precedence over other filter fields.
     shared_ptr<string> spl_ {};
     // The tag matching rules.
     shared_ptr<ObserveGroupDiscoverRule::TagRules> tagRules_ {};

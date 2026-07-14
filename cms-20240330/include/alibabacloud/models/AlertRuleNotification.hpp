@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/AlertRuleTimeSpan.hpp>
 #include <map>
+#include <alibabacloud/models/SeverityNotifyConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(groups, groups_);
       DARABONBA_PTR_TO_JSON(notifyTime, notifyTime_);
       DARABONBA_PTR_TO_JSON(qwencloudContacts, qwencloudContacts_);
+      DARABONBA_PTR_TO_JSON(sendOk, sendOk_);
+      DARABONBA_PTR_TO_JSON(severityNotifications, severityNotifications_);
       DARABONBA_PTR_TO_JSON(silenceTime, silenceTime_);
       DARABONBA_PTR_TO_JSON(slackWebhooks, slackWebhooks_);
       DARABONBA_PTR_TO_JSON(wxWebhooks, wxWebhooks_);
@@ -37,6 +40,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(groups, groups_);
       DARABONBA_PTR_FROM_JSON(notifyTime, notifyTime_);
       DARABONBA_PTR_FROM_JSON(qwencloudContacts, qwencloudContacts_);
+      DARABONBA_PTR_FROM_JSON(sendOk, sendOk_);
+      DARABONBA_PTR_FROM_JSON(severityNotifications, severityNotifications_);
       DARABONBA_PTR_FROM_JSON(silenceTime, silenceTime_);
       DARABONBA_PTR_FROM_JSON(slackWebhooks, slackWebhooks_);
       DARABONBA_PTR_FROM_JSON(wxWebhooks, wxWebhooks_);
@@ -54,7 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contacts_ == nullptr
         && this->customWebhooks_ == nullptr && this->dingCoolAppWebhooks_ == nullptr && this->dingWebhooks_ == nullptr && this->fsWebhooks_ == nullptr && this->groups_ == nullptr
-        && this->notifyTime_ == nullptr && this->qwencloudContacts_ == nullptr && this->silenceTime_ == nullptr && this->slackWebhooks_ == nullptr && this->wxWebhooks_ == nullptr; };
+        && this->notifyTime_ == nullptr && this->qwencloudContacts_ == nullptr && this->sendOk_ == nullptr && this->severityNotifications_ == nullptr && this->silenceTime_ == nullptr
+        && this->slackWebhooks_ == nullptr && this->wxWebhooks_ == nullptr; };
     // contacts Field Functions 
     bool hasContacts() const { return this->contacts_ != nullptr;};
     void deleteContacts() { this->contacts_ = nullptr;};
@@ -127,6 +133,22 @@ namespace Models
     inline AlertRuleNotification& setQwencloudContacts(map<string, Darabonba::Json> && qwencloudContacts) { DARABONBA_PTR_SET_RVALUE(qwencloudContacts_, qwencloudContacts) };
 
 
+    // sendOk Field Functions 
+    bool hasSendOk() const { return this->sendOk_ != nullptr;};
+    void deleteSendOk() { this->sendOk_ = nullptr;};
+    inline bool getSendOk() const { DARABONBA_PTR_GET_DEFAULT(sendOk_, false) };
+    inline AlertRuleNotification& setSendOk(bool sendOk) { DARABONBA_PTR_SET_VALUE(sendOk_, sendOk) };
+
+
+    // severityNotifications Field Functions 
+    bool hasSeverityNotifications() const { return this->severityNotifications_ != nullptr;};
+    void deleteSeverityNotifications() { this->severityNotifications_ = nullptr;};
+    inline const map<string, SeverityNotifyConfig> & getSeverityNotifications() const { DARABONBA_PTR_GET_CONST(severityNotifications_, map<string, SeverityNotifyConfig>) };
+    inline map<string, SeverityNotifyConfig> getSeverityNotifications() { DARABONBA_PTR_GET(severityNotifications_, map<string, SeverityNotifyConfig>) };
+    inline AlertRuleNotification& setSeverityNotifications(const map<string, SeverityNotifyConfig> & severityNotifications) { DARABONBA_PTR_SET_VALUE(severityNotifications_, severityNotifications) };
+    inline AlertRuleNotification& setSeverityNotifications(map<string, SeverityNotifyConfig> && severityNotifications) { DARABONBA_PTR_SET_RVALUE(severityNotifications_, severityNotifications) };
+
+
     // silenceTime Field Functions 
     bool hasSilenceTime() const { return this->silenceTime_ != nullptr;};
     void deleteSilenceTime() { this->silenceTime_ = nullptr;};
@@ -153,26 +175,28 @@ namespace Models
 
 
   protected:
-    // A list of contact IDs.
+    // The list of contact IDs.
     shared_ptr<vector<string>> contacts_ {};
-    // A list of custom webhook notification object IDs.
+    // The list of custom webhook Notification Recipient IDs.
     shared_ptr<vector<string>> customWebhooks_ {};
-    // A list of DingTalk Cool App webhook notification object IDs.
+    // The list of DingTalk Cool App webhook Notification Recipient IDs.
     shared_ptr<vector<string>> dingCoolAppWebhooks_ {};
-    // A list of DingTalk webhook notification object IDs.
+    // The list of DingTalk webhook Notification Recipient IDs.
     shared_ptr<vector<string>> dingWebhooks_ {};
-    // A list of Lark webhook notification object IDs.
+    // The list of Lark webhook Notification Recipient IDs.
     shared_ptr<vector<string>> fsWebhooks_ {};
-    // A list of contact group IDs.
+    // The list of contact group IDs.
     shared_ptr<vector<string>> groups_ {};
-    // The notification period. Notifications are sent only within this period.
+    // The notification time period. Notifications are sent only during this time period.
     shared_ptr<AlertRuleTimeSpan> notifyTime_ {};
     shared_ptr<map<string, Darabonba::Json>> qwencloudContacts_ {};
-    // The notification silence period. Unit: seconds.
+    shared_ptr<bool> sendOk_ {};
+    shared_ptr<map<string, SeverityNotifyConfig>> severityNotifications_ {};
+    // The notification mute duration, in seconds.
     shared_ptr<int64_t> silenceTime_ {};
-    // A list of Slack webhook notification object IDs.
+    // The list of Slack webhook Notification Recipient IDs.
     shared_ptr<vector<string>> slackWebhooks_ {};
-    // A list of WeChat webhook notification object IDs.
+    // The list of WeChat webhook Notification Recipient IDs.
     shared_ptr<vector<string>> wxWebhooks_ {};
   };
 

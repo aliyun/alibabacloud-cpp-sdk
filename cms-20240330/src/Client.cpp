@@ -1053,6 +1053,56 @@ CreateMemoryStoreResponse Client::createMemoryStore(const string &workspace, con
 }
 
 /**
+ * @summary Creates a notification policy.
+ *
+ * @description Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+ *
+ * @param request CreateNotifyPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNotifyPolicyResponse
+ */
+CreateNotifyPolicyResponse Client::createNotifyPolicyWithOptions(const CreateNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateNotifyPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policy/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNotifyPolicyResponse>();
+}
+
+/**
+ * @summary Creates a notification policy.
+ *
+ * @description Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+ *
+ * @param request CreateNotifyPolicyRequest
+ * @return CreateNotifyPolicyResponse
+ */
+CreateNotifyPolicyResponse Client::createNotifyPolicy(const CreateNotifyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createNotifyPolicyWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Create a pipeline.
  *
  * @param request CreatePipelineRequest
@@ -2293,6 +2343,59 @@ DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspace, con
 }
 
 /**
+ * @summary Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+ *
+ * @description Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+ *
+ * @param request DeleteNotifyPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNotifyPolicyResponse
+ */
+DeleteNotifyPolicyResponse Client::deleteNotifyPolicyWithOptions(const DeleteNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUuid()) {
+    query["uuid"] = request.getUuid();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteNotifyPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policy")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNotifyPolicyResponse>();
+}
+
+/**
+ * @summary Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+ *
+ * @description Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+ *
+ * @param request DeleteNotifyPolicyRequest
+ * @return DeleteNotifyPolicyResponse
+ */
+DeleteNotifyPolicyResponse Client::deleteNotifyPolicy(const DeleteNotifyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteNotifyPolicyWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes a pipeline.
  *
  * @param request DeletePipelineRequest
@@ -2850,6 +2953,104 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+ *
+ * @description Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+ *
+ * @param request DisableNotifyPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableNotifyPolicyResponse
+ */
+DisableNotifyPolicyResponse Client::disableNotifyPolicyWithOptions(const string &uuid, const DisableNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableNotifyPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policy/" , Darabonba::Encode::Encoder::percentEncode(uuid) , "/disable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableNotifyPolicyResponse>();
+}
+
+/**
+ * @summary Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+ *
+ * @description Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+ *
+ * @param request DisableNotifyPolicyRequest
+ * @return DisableNotifyPolicyResponse
+ */
+DisableNotifyPolicyResponse Client::disableNotifyPolicy(const string &uuid, const DisableNotifyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableNotifyPolicyWithOptions(uuid, request, headers, runtime);
+}
+
+/**
+ * @summary Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+ *
+ * @description Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+ *
+ * @param request EnableNotifyPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableNotifyPolicyResponse
+ */
+EnableNotifyPolicyResponse Client::enableNotifyPolicyWithOptions(const string &uuid, const EnableNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableNotifyPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policy/" , Darabonba::Encode::Encoder::percentEncode(uuid) , "/enable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableNotifyPolicyResponse>();
+}
+
+/**
+ * @summary Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+ *
+ * @description Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+ *
+ * @param request EnableNotifyPolicyRequest
+ * @return EnableNotifyPolicyResponse
+ */
+EnableNotifyPolicyResponse Client::enableNotifyPolicy(const string &uuid, const EnableNotifyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableNotifyPolicyWithOptions(uuid, request, headers, runtime);
 }
 
 /**
@@ -3892,6 +4093,59 @@ GetMemoryStoreResponse Client::getMemoryStore(const string &workspace, const str
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a specified notification policy.
+ *
+ * @description Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+ *
+ * @param request GetNotifyPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNotifyPolicyResponse
+ */
+GetNotifyPolicyResponse Client::getNotifyPolicyWithOptions(const GetNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUuid()) {
+    query["uuid"] = request.getUuid();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNotifyPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policy")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNotifyPolicyResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a specified notification policy.
+ *
+ * @description Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+ *
+ * @param request GetNotifyPolicyRequest
+ * @return GetNotifyPolicyResponse
+ */
+GetNotifyPolicyResponse Client::getNotifyPolicy(const GetNotifyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getNotifyPolicyWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5766,6 +6020,75 @@ ListMemoryStoresResponse Client::listMemoryStores(const string &workspace, const
 }
 
 /**
+ * @summary Lists notify policies.
+ *
+ * @description Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+ *
+ * @param request ListNotifyPoliciesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNotifyPoliciesResponse
+ */
+ListNotifyPoliciesResponse Client::listNotifyPoliciesWithOptions(const ListNotifyPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrderDesc()) {
+    query["orderDesc"] = request.getOrderDesc();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNotifyPolicies"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policies")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNotifyPoliciesResponse>();
+}
+
+/**
+ * @summary Lists notify policies.
+ *
+ * @description Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+ *
+ * @param request ListNotifyPoliciesRequest
+ * @return ListNotifyPoliciesResponse
+ */
+ListNotifyPoliciesResponse Client::listNotifyPolicies(const ListNotifyPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listNotifyPoliciesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Lists pipelines.
  *
  * @param request ListPipelinesRequest
@@ -7608,6 +7931,56 @@ UpdateMemoryStoreResponse Client::updateMemoryStore(const string &workspace, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a notification policy.
+ *
+ * @description Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+ *
+ * @param request UpdateNotifyPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNotifyPolicyResponse
+ */
+UpdateNotifyPolicyResponse Client::updateNotifyPolicyWithOptions(const UpdateNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateNotifyPolicy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/eventbase/notify-policy/update")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNotifyPolicyResponse>();
+}
+
+/**
+ * @summary Updates a notification policy.
+ *
+ * @description Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+ *
+ * @param request UpdateNotifyPolicyRequest
+ * @return UpdateNotifyPolicyResponse
+ */
+UpdateNotifyPolicyResponse Client::updateNotifyPolicy(const UpdateNotifyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateNotifyPolicyWithOptions(request, headers, runtime);
 }
 
 /**

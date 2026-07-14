@@ -301,6 +301,28 @@ namespace Cms20240330
       Models::CreateMemoryStoreResponse createMemoryStore(const string &workspace, const Models::CreateMemoryStoreRequest &request);
 
       /**
+       * @summary Creates a notification policy.
+       *
+       * @description Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+       *
+       * @param request CreateNotifyPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNotifyPolicyResponse
+       */
+      Models::CreateNotifyPolicyResponse createNotifyPolicyWithOptions(const Models::CreateNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a notification policy.
+       *
+       * @description Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+       *
+       * @param request CreateNotifyPolicyRequest
+       * @return CreateNotifyPolicyResponse
+       */
+      Models::CreateNotifyPolicyResponse createNotifyPolicy(const Models::CreateNotifyPolicyRequest &request);
+
+      /**
        * @summary Create a pipeline.
        *
        * @param request CreatePipelineRequest
@@ -761,6 +783,28 @@ namespace Cms20240330
       Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoryStoreRequest &request);
 
       /**
+       * @summary Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+       *
+       * @description Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+       *
+       * @param request DeleteNotifyPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNotifyPolicyResponse
+       */
+      Models::DeleteNotifyPolicyResponse deleteNotifyPolicyWithOptions(const Models::DeleteNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+       *
+       * @description Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+       *
+       * @param request DeleteNotifyPolicyRequest
+       * @return DeleteNotifyPolicyResponse
+       */
+      Models::DeleteNotifyPolicyResponse deleteNotifyPolicy(const Models::DeleteNotifyPolicyRequest &request);
+
+      /**
        * @summary Deletes a pipeline.
        *
        * @param request DeletePipelineRequest
@@ -999,6 +1043,50 @@ namespace Cms20240330
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
+       * @summary Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+       *
+       * @description Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+       *
+       * @param request DisableNotifyPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableNotifyPolicyResponse
+       */
+      Models::DisableNotifyPolicyResponse disableNotifyPolicyWithOptions(const string &uuid, const Models::DisableNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+       *
+       * @description Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+       *
+       * @param request DisableNotifyPolicyRequest
+       * @return DisableNotifyPolicyResponse
+       */
+      Models::DisableNotifyPolicyResponse disableNotifyPolicy(const string &uuid, const Models::DisableNotifyPolicyRequest &request);
+
+      /**
+       * @summary Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+       *
+       * @description Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+       *
+       * @param request EnableNotifyPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableNotifyPolicyResponse
+       */
+      Models::EnableNotifyPolicyResponse enableNotifyPolicyWithOptions(const string &uuid, const Models::EnableNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+       *
+       * @description Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+       *
+       * @param request EnableNotifyPolicyRequest
+       * @return EnableNotifyPolicyResponse
+       */
+      Models::EnableNotifyPolicyResponse enableNotifyPolicy(const string &uuid, const Models::EnableNotifyPolicyRequest &request);
 
       /**
        * @summary Executes SQL and SPL queries.
@@ -1439,6 +1527,28 @@ namespace Cms20240330
        * @return GetMemoryStoreResponse
        */
       Models::GetMemoryStoreResponse getMemoryStore(const string &workspace, const string &memoryStoreName, const Models::GetMemoryStoreRequest &request);
+
+      /**
+       * @summary Retrieves the details of a specified notification policy.
+       *
+       * @description Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+       *
+       * @param request GetNotifyPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNotifyPolicyResponse
+       */
+      Models::GetNotifyPolicyResponse getNotifyPolicyWithOptions(const Models::GetNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a specified notification policy.
+       *
+       * @description Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+       *
+       * @param request GetNotifyPolicyRequest
+       * @return GetNotifyPolicyResponse
+       */
+      Models::GetNotifyPolicyResponse getNotifyPolicy(const Models::GetNotifyPolicyRequest &request);
 
       /**
        * @summary Query pipeline
@@ -2089,6 +2199,28 @@ namespace Cms20240330
       Models::ListMemoryStoresResponse listMemoryStores(const string &workspace, const Models::ListMemoryStoresRequest &request);
 
       /**
+       * @summary Lists notify policies.
+       *
+       * @description Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+       *
+       * @param request ListNotifyPoliciesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNotifyPoliciesResponse
+       */
+      Models::ListNotifyPoliciesResponse listNotifyPoliciesWithOptions(const Models::ListNotifyPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists notify policies.
+       *
+       * @description Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+       *
+       * @param request ListNotifyPoliciesRequest
+       * @return ListNotifyPoliciesResponse
+       */
+      Models::ListNotifyPoliciesResponse listNotifyPolicies(const Models::ListNotifyPoliciesRequest &request);
+
+      /**
        * @summary Lists pipelines.
        *
        * @param request ListPipelinesRequest
@@ -2645,6 +2777,28 @@ namespace Cms20240330
        * @return UpdateMemoryStoreResponse
        */
       Models::UpdateMemoryStoreResponse updateMemoryStore(const string &workspace, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request);
+
+      /**
+       * @summary Updates a notification policy.
+       *
+       * @description Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+       *
+       * @param request UpdateNotifyPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNotifyPolicyResponse
+       */
+      Models::UpdateNotifyPolicyResponse updateNotifyPolicyWithOptions(const Models::UpdateNotifyPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a notification policy.
+       *
+       * @description Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+       *
+       * @param request UpdateNotifyPolicyRequest
+       * @return UpdateNotifyPolicyResponse
+       */
+      Models::UpdateNotifyPolicyResponse updateNotifyPolicy(const Models::UpdateNotifyPolicyRequest &request);
 
       /**
        * @summary Updates a notification policy.

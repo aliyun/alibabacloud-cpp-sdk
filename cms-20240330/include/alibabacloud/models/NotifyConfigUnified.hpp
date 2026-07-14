@@ -4,6 +4,8 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DirectNotifyChannel.hpp>
+#include <map>
+#include <alibabacloud/models/SeverityNotifyConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(activeStartTime, activeStartTime_);
       DARABONBA_PTR_TO_JSON(channels, channels_);
       DARABONBA_PTR_TO_JSON(notifyStrategies, notifyStrategies_);
+      DARABONBA_PTR_TO_JSON(sendRecoverNotification, sendRecoverNotification_);
+      DARABONBA_PTR_TO_JSON(severityChannels, severityChannels_);
       DARABONBA_PTR_TO_JSON(silenceTimeSecs, silenceTimeSecs_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(utcOffset, utcOffset_);
@@ -30,6 +34,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(activeStartTime, activeStartTime_);
       DARABONBA_PTR_FROM_JSON(channels, channels_);
       DARABONBA_PTR_FROM_JSON(notifyStrategies, notifyStrategies_);
+      DARABONBA_PTR_FROM_JSON(sendRecoverNotification, sendRecoverNotification_);
+      DARABONBA_PTR_FROM_JSON(severityChannels, severityChannels_);
       DARABONBA_PTR_FROM_JSON(silenceTimeSecs, silenceTimeSecs_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(utcOffset, utcOffset_);
@@ -46,8 +52,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activeDays_ == nullptr
-        && this->activeEndTime_ == nullptr && this->activeStartTime_ == nullptr && this->channels_ == nullptr && this->notifyStrategies_ == nullptr && this->silenceTimeSecs_ == nullptr
-        && this->type_ == nullptr && this->utcOffset_ == nullptr; };
+        && this->activeEndTime_ == nullptr && this->activeStartTime_ == nullptr && this->channels_ == nullptr && this->notifyStrategies_ == nullptr && this->sendRecoverNotification_ == nullptr
+        && this->severityChannels_ == nullptr && this->silenceTimeSecs_ == nullptr && this->type_ == nullptr && this->utcOffset_ == nullptr; };
     // activeDays Field Functions 
     bool hasActiveDays() const { return this->activeDays_ != nullptr;};
     void deleteActiveDays() { this->activeDays_ = nullptr;};
@@ -89,6 +95,22 @@ namespace Models
     inline NotifyConfigUnified& setNotifyStrategies(vector<string> && notifyStrategies) { DARABONBA_PTR_SET_RVALUE(notifyStrategies_, notifyStrategies) };
 
 
+    // sendRecoverNotification Field Functions 
+    bool hasSendRecoverNotification() const { return this->sendRecoverNotification_ != nullptr;};
+    void deleteSendRecoverNotification() { this->sendRecoverNotification_ = nullptr;};
+    inline bool getSendRecoverNotification() const { DARABONBA_PTR_GET_DEFAULT(sendRecoverNotification_, false) };
+    inline NotifyConfigUnified& setSendRecoverNotification(bool sendRecoverNotification) { DARABONBA_PTR_SET_VALUE(sendRecoverNotification_, sendRecoverNotification) };
+
+
+    // severityChannels Field Functions 
+    bool hasSeverityChannels() const { return this->severityChannels_ != nullptr;};
+    void deleteSeverityChannels() { this->severityChannels_ = nullptr;};
+    inline const map<string, SeverityNotifyConfig> & getSeverityChannels() const { DARABONBA_PTR_GET_CONST(severityChannels_, map<string, SeverityNotifyConfig>) };
+    inline map<string, SeverityNotifyConfig> getSeverityChannels() { DARABONBA_PTR_GET(severityChannels_, map<string, SeverityNotifyConfig>) };
+    inline NotifyConfigUnified& setSeverityChannels(const map<string, SeverityNotifyConfig> & severityChannels) { DARABONBA_PTR_SET_VALUE(severityChannels_, severityChannels) };
+    inline NotifyConfigUnified& setSeverityChannels(map<string, SeverityNotifyConfig> && severityChannels) { DARABONBA_PTR_SET_RVALUE(severityChannels_, severityChannels) };
+
+
     // silenceTimeSecs Field Functions 
     bool hasSilenceTimeSecs() const { return this->silenceTimeSecs_ != nullptr;};
     void deleteSilenceTimeSecs() { this->silenceTimeSecs_ = nullptr;};
@@ -116,6 +138,8 @@ namespace Models
     shared_ptr<string> activeStartTime_ {};
     shared_ptr<vector<DirectNotifyChannel>> channels_ {};
     shared_ptr<vector<string>> notifyStrategies_ {};
+    shared_ptr<bool> sendRecoverNotification_ {};
+    shared_ptr<map<string, SeverityNotifyConfig>> severityChannels_ {};
     shared_ptr<int32_t> silenceTimeSecs_ {};
     // This parameter is required.
     shared_ptr<string> type_ {};

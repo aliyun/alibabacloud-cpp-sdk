@@ -2,8 +2,10 @@
 #ifndef ALIBABACLOUD_MODELS_OBSERVEGROUP_HPP_
 #define ALIBABACLOUD_MODELS_OBSERVEGROUP_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
 #include <vector>
+#include <alibabacloud/models/ObserveGroupDiscoverRule.hpp>
+#include <map>
+#include <alibabacloud/models/ObserveGroupPromInstance.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(groupType, groupType_);
       DARABONBA_PTR_TO_JSON(health, health_);
       DARABONBA_PTR_TO_JSON(modifyTime, modifyTime_);
+      DARABONBA_PTR_TO_JSON(ogEntityInfoEnabled, ogEntityInfoEnabled_);
+      DARABONBA_PTR_TO_JSON(ogEntityInfoPromInstances, ogEntityInfoPromInstances_);
       DARABONBA_PTR_TO_JSON(originGroupId, originGroupId_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -47,6 +51,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(groupType, groupType_);
       DARABONBA_PTR_FROM_JSON(health, health_);
       DARABONBA_PTR_FROM_JSON(modifyTime, modifyTime_);
+      DARABONBA_PTR_FROM_JSON(ogEntityInfoEnabled, ogEntityInfoEnabled_);
+      DARABONBA_PTR_FROM_JSON(ogEntityInfoPromInstances, ogEntityInfoPromInstances_);
       DARABONBA_PTR_FROM_JSON(originGroupId, originGroupId_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -112,8 +118,8 @@ namespace Models
     virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->createTime_ == nullptr && this->description_ == nullptr && this->discoverRules_ == nullptr && this->entityCounts_ == nullptr && this->extraInfo_ == nullptr
         && this->favorited_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr && this->groupType_ == nullptr && this->health_ == nullptr
-        && this->modifyTime_ == nullptr && this->originGroupId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sourceOrigin_ == nullptr
-        && this->tags_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->modifyTime_ == nullptr && this->ogEntityInfoEnabled_ == nullptr && this->ogEntityInfoPromInstances_ == nullptr && this->originGroupId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->sourceOrigin_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -138,8 +144,10 @@ namespace Models
     // discoverRules Field Functions 
     bool hasDiscoverRules() const { return this->discoverRules_ != nullptr;};
     void deleteDiscoverRules() { this->discoverRules_ = nullptr;};
-    inline string getDiscoverRules() const { DARABONBA_PTR_GET_DEFAULT(discoverRules_, "") };
-    inline ObserveGroup& setDiscoverRules(string discoverRules) { DARABONBA_PTR_SET_VALUE(discoverRules_, discoverRules) };
+    inline const vector<ObserveGroupDiscoverRule> & getDiscoverRules() const { DARABONBA_PTR_GET_CONST(discoverRules_, vector<ObserveGroupDiscoverRule>) };
+    inline vector<ObserveGroupDiscoverRule> getDiscoverRules() { DARABONBA_PTR_GET(discoverRules_, vector<ObserveGroupDiscoverRule>) };
+    inline ObserveGroup& setDiscoverRules(const vector<ObserveGroupDiscoverRule> & discoverRules) { DARABONBA_PTR_SET_VALUE(discoverRules_, discoverRules) };
+    inline ObserveGroup& setDiscoverRules(vector<ObserveGroupDiscoverRule> && discoverRules) { DARABONBA_PTR_SET_RVALUE(discoverRules_, discoverRules) };
 
 
     // entityCounts Field Functions 
@@ -200,6 +208,22 @@ namespace Models
     inline ObserveGroup& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
+    // ogEntityInfoEnabled Field Functions 
+    bool hasOgEntityInfoEnabled() const { return this->ogEntityInfoEnabled_ != nullptr;};
+    void deleteOgEntityInfoEnabled() { this->ogEntityInfoEnabled_ = nullptr;};
+    inline bool getOgEntityInfoEnabled() const { DARABONBA_PTR_GET_DEFAULT(ogEntityInfoEnabled_, false) };
+    inline ObserveGroup& setOgEntityInfoEnabled(bool ogEntityInfoEnabled) { DARABONBA_PTR_SET_VALUE(ogEntityInfoEnabled_, ogEntityInfoEnabled) };
+
+
+    // ogEntityInfoPromInstances Field Functions 
+    bool hasOgEntityInfoPromInstances() const { return this->ogEntityInfoPromInstances_ != nullptr;};
+    void deleteOgEntityInfoPromInstances() { this->ogEntityInfoPromInstances_ = nullptr;};
+    inline const vector<ObserveGroupPromInstance> & getOgEntityInfoPromInstances() const { DARABONBA_PTR_GET_CONST(ogEntityInfoPromInstances_, vector<ObserveGroupPromInstance>) };
+    inline vector<ObserveGroupPromInstance> getOgEntityInfoPromInstances() { DARABONBA_PTR_GET(ogEntityInfoPromInstances_, vector<ObserveGroupPromInstance>) };
+    inline ObserveGroup& setOgEntityInfoPromInstances(const vector<ObserveGroupPromInstance> & ogEntityInfoPromInstances) { DARABONBA_PTR_SET_VALUE(ogEntityInfoPromInstances_, ogEntityInfoPromInstances) };
+    inline ObserveGroup& setOgEntityInfoPromInstances(vector<ObserveGroupPromInstance> && ogEntityInfoPromInstances) { DARABONBA_PTR_SET_RVALUE(ogEntityInfoPromInstances_, ogEntityInfoPromInstances) };
+
+
     // originGroupId Field Functions 
     bool hasOriginGroupId() const { return this->originGroupId_ != nullptr;};
     void deleteOriginGroupId() { this->originGroupId_ = nullptr;};
@@ -247,21 +271,21 @@ namespace Models
   protected:
     // The UID of the Alibaba Cloud account to which the group belongs.
     shared_ptr<string> aliUid_ {};
-    // The time when the group was created, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+    // The creation time in UTC format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> createTime_ {};
-    // The description of the observability group, which describes the business purpose.
+    // The description of the observability group, which explains its business purpose.
     shared_ptr<string> description_ {};
     // The list of entity discovery rules that define which entities the group automatically matches.
-    shared_ptr<string> discoverRules_ {};
-    // The number of entities in each category. The key is the category domain (such as acs for Alibaba Cloud services, apm, or rum, which is extensible). The value is the number of entities in that category that belong to this group. This parameter is returned only when withEntityCount is set to true.
+    shared_ptr<vector<ObserveGroupDiscoverRule>> discoverRules_ {};
+    // The number of entities in each category. The key is the category domain (acs for cloud services, apm, or rum, which is extensible). The value is the number of entities in that category that belong to this group. Returned only when withEntityCount is set to true.
     shared_ptr<map<string, int32_t>> entityCounts_ {};
-    // The extended information, which is a JSON string that contains alert templates, alert contact groups, pause policies, and other settings.
+    // The extended information as a JSON string, which carries alert templates, alert contact groups, and suspension policies.
     shared_ptr<string> extraInfo_ {};
-    // Indicates whether the current user has favorited this group. This value is used as the filter criterion for the My Favorites feature.
+    // Indicates whether the current user has followed this group. This value is used as the filter criterion for the My Favorites feature.
     shared_ptr<bool> favorited_ {};
-    // The globally unique ID of the observability group, in the format of og-<16-character hash>. This ID is used across metrics, alerts, and the console.
+    // The globally unique ID of the observability group. Format: og-<16-character hash>. Used uniformly across metrics, alerts, and consoles.
     shared_ptr<string> groupId_ {};
-    // The name of the observability group. The name must be unique within the workspace.
+    // The name of the observability group. Must be unique within the same workspace.
     shared_ptr<string> groupName_ {};
     // The type of the observability group.
     shared_ptr<string> groupType_ {};
@@ -270,11 +294,15 @@ namespace Models
     // - 1: healthy.
     // - 0: unhealthy.
     shared_ptr<int32_t> health_ {};
-    // The time when the group was last modified, in UTC format (yyyy-MM-ddTHH:mm:ssZ). This value is automatically updated when any property of the resource changes.
+    // The last modification time in UTC format: yyyy-MM-ddTHH:mm:ssZ. Automatically updated when any resource attribute changes.
     shared_ptr<string> modifyTime_ {};
-    // The product_group.id of the version 1.0 application group. This parameter is returned only when sourceOrigin is set to synced_from_1_0.
+    // Specifies whether og_entity_info metric output is enabled. When enabled, the data plane writes the group membership information to the target Prometheus instance.
+    shared_ptr<bool> ogEntityInfoEnabled_ {};
+    // The set of Prometheus instances to which og_entity_info is written. Includes two source types: system (automatically identified by the system) and custom (user-defined).
+    shared_ptr<vector<ObserveGroupPromInstance>> ogEntityInfoPromInstances_ {};
+    // The product_group.id of the version 1.0 application group. This parameter is valid only when sourceOrigin is set to synced_from_1_0.
     shared_ptr<string> originGroupId_ {};
-    // The region ID of the group.
+    // The region ID to which the group belongs.
     shared_ptr<string> regionId_ {};
     // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -282,9 +310,9 @@ namespace Models
     // - native_2_0: created natively in version 2.0.
     // - synced_from_1_0: synchronized from a version 1.0 application group.
     shared_ptr<string> sourceOrigin_ {};
-    // The resource tags (Alibaba Cloud standard tags), which are an array of key-value pairs.
+    // The resource tags (Alibaba Cloud standard tags) as an array of key-value pairs.
     shared_ptr<vector<ObserveGroup::Tags>> tags_ {};
-    // The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after the group is created.
+    // The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after creation.
     shared_ptr<string> workspaceId_ {};
   };
 

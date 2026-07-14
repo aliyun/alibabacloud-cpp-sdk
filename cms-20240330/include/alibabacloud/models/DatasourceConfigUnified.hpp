@@ -84,18 +84,11 @@ namespace Models
 
 
   protected:
-    // The unique instance ID.
     shared_ptr<string> instanceId_ {};
-    // The raw string value of the legacy configuration, used for backward compatibility.
     shared_ptr<string> legacyRaw_ {};
-    // The legacy type of the data source, used for backward compatibility.
     shared_ptr<string> legacyType_ {};
-    // The product category of the data source.
     shared_ptr<string> productCategory_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The type of the data source.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

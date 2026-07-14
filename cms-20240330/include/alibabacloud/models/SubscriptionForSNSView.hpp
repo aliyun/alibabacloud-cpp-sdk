@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(notifyStrategyUuid, notifyStrategyUuid_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_TO_JSON(subscriptionType, subscriptionType_);
       DARABONBA_PTR_TO_JSON(syncFromType, syncFromType_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(notifyStrategyUuid, notifyStrategyUuid_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_FROM_JSON(subscriptionType, subscriptionType_);
       DARABONBA_PTR_FROM_JSON(syncFromType, syncFromType_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
@@ -59,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
         && this->enable_ == nullptr && this->filterSetting_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr && this->notifyStrategyUuid_ == nullptr
-        && this->regionId_ == nullptr && this->subscriptionType_ == nullptr && this->syncFromType_ == nullptr && this->updateTime_ == nullptr && this->userId_ == nullptr
-        && this->uuid_ == nullptr && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
+        && this->regionId_ == nullptr && this->subscribeLegacyEvent_ == nullptr && this->subscriptionType_ == nullptr && this->syncFromType_ == nullptr && this->updateTime_ == nullptr
+        && this->userId_ == nullptr && this->uuid_ == nullptr && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SubscriptionForSNSView& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // subscribeLegacyEvent Field Functions 
+    bool hasSubscribeLegacyEvent() const { return this->subscribeLegacyEvent_ != nullptr;};
+    void deleteSubscribeLegacyEvent() { this->subscribeLegacyEvent_ = nullptr;};
+    inline bool getSubscribeLegacyEvent() const { DARABONBA_PTR_GET_DEFAULT(subscribeLegacyEvent_, false) };
+    inline SubscriptionForSNSView& setSubscribeLegacyEvent(bool subscribeLegacyEvent) { DARABONBA_PTR_SET_VALUE(subscribeLegacyEvent_, subscribeLegacyEvent) };
 
 
     // subscriptionType Field Functions 
@@ -171,6 +180,8 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> notifyStrategyUuid_ {};
     shared_ptr<string> regionId_ {};
+    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
+    shared_ptr<bool> subscribeLegacyEvent_ {};
     shared_ptr<string> subscriptionType_ {};
     shared_ptr<string> syncFromType_ {};
     shared_ptr<string> updateTime_ {};

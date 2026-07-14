@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The UUID of the notification policy.
     shared_ptr<string> notifyStrategyId_ {};
-    // The ID of the request. This is a unique identifier for troubleshooting.
+    // The unique ID of the request, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

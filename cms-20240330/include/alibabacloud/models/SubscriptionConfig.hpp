@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SUBSCRIPTIONFORSNSMODIFY_HPP_
-#define ALIBABACLOUD_MODELS_SUBSCRIPTIONFORSNSMODIFY_HPP_
+#ifndef ALIBABACLOUD_MODELS_SUBSCRIPTIONCONFIG_HPP_
+#define ALIBABACLOUD_MODELS_SUBSCRIPTIONCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/FilterSetting.hpp>
 #include <alibabacloud/models/WorkspaceFilterSetting.hpp>
@@ -12,25 +12,25 @@ namespace Cms20240330
 {
 namespace Models
 {
-  class SubscriptionForSNSModify : public Darabonba::Model {
+  class SubscriptionConfig : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SubscriptionForSNSModify& obj) { 
+    friend void to_json(Darabonba::Json& j, const SubscriptionConfig& obj) { 
       DARABONBA_PTR_TO_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_TO_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_TO_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
-    friend void from_json(const Darabonba::Json& j, SubscriptionForSNSModify& obj) { 
+    friend void from_json(const Darabonba::Json& j, SubscriptionConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_FROM_JSON(subscribeLegacyEvent, subscribeLegacyEvent_);
       DARABONBA_PTR_FROM_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
-    SubscriptionForSNSModify() = default ;
-    SubscriptionForSNSModify(const SubscriptionForSNSModify &) = default ;
-    SubscriptionForSNSModify(SubscriptionForSNSModify &&) = default ;
-    SubscriptionForSNSModify(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SubscriptionForSNSModify() = default ;
-    SubscriptionForSNSModify& operator=(const SubscriptionForSNSModify &) = default ;
-    SubscriptionForSNSModify& operator=(SubscriptionForSNSModify &&) = default ;
+    SubscriptionConfig() = default ;
+    SubscriptionConfig(const SubscriptionConfig &) = default ;
+    SubscriptionConfig(SubscriptionConfig &&) = default ;
+    SubscriptionConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubscriptionConfig() = default ;
+    SubscriptionConfig& operator=(const SubscriptionConfig &) = default ;
+    SubscriptionConfig& operator=(SubscriptionConfig &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,15 +42,15 @@ namespace Models
     void deleteFilterSetting() { this->filterSetting_ = nullptr;};
     inline const FilterSetting & getFilterSetting() const { DARABONBA_PTR_GET_CONST(filterSetting_, FilterSetting) };
     inline FilterSetting getFilterSetting() { DARABONBA_PTR_GET(filterSetting_, FilterSetting) };
-    inline SubscriptionForSNSModify& setFilterSetting(const FilterSetting & filterSetting) { DARABONBA_PTR_SET_VALUE(filterSetting_, filterSetting) };
-    inline SubscriptionForSNSModify& setFilterSetting(FilterSetting && filterSetting) { DARABONBA_PTR_SET_RVALUE(filterSetting_, filterSetting) };
+    inline SubscriptionConfig& setFilterSetting(const FilterSetting & filterSetting) { DARABONBA_PTR_SET_VALUE(filterSetting_, filterSetting) };
+    inline SubscriptionConfig& setFilterSetting(FilterSetting && filterSetting) { DARABONBA_PTR_SET_RVALUE(filterSetting_, filterSetting) };
 
 
     // subscribeLegacyEvent Field Functions 
     bool hasSubscribeLegacyEvent() const { return this->subscribeLegacyEvent_ != nullptr;};
     void deleteSubscribeLegacyEvent() { this->subscribeLegacyEvent_ = nullptr;};
     inline bool getSubscribeLegacyEvent() const { DARABONBA_PTR_GET_DEFAULT(subscribeLegacyEvent_, false) };
-    inline SubscriptionForSNSModify& setSubscribeLegacyEvent(bool subscribeLegacyEvent) { DARABONBA_PTR_SET_VALUE(subscribeLegacyEvent_, subscribeLegacyEvent) };
+    inline SubscriptionConfig& setSubscribeLegacyEvent(bool subscribeLegacyEvent) { DARABONBA_PTR_SET_VALUE(subscribeLegacyEvent_, subscribeLegacyEvent) };
 
 
     // workspaceFilterSetting Field Functions 
@@ -58,16 +58,18 @@ namespace Models
     void deleteWorkspaceFilterSetting() { this->workspaceFilterSetting_ = nullptr;};
     inline const WorkspaceFilterSetting & getWorkspaceFilterSetting() const { DARABONBA_PTR_GET_CONST(workspaceFilterSetting_, WorkspaceFilterSetting) };
     inline WorkspaceFilterSetting getWorkspaceFilterSetting() { DARABONBA_PTR_GET(workspaceFilterSetting_, WorkspaceFilterSetting) };
-    inline SubscriptionForSNSModify& setWorkspaceFilterSetting(const WorkspaceFilterSetting & workspaceFilterSetting) { DARABONBA_PTR_SET_VALUE(workspaceFilterSetting_, workspaceFilterSetting) };
-    inline SubscriptionForSNSModify& setWorkspaceFilterSetting(WorkspaceFilterSetting && workspaceFilterSetting) { DARABONBA_PTR_SET_RVALUE(workspaceFilterSetting_, workspaceFilterSetting) };
+    inline SubscriptionConfig& setWorkspaceFilterSetting(const WorkspaceFilterSetting & workspaceFilterSetting) { DARABONBA_PTR_SET_VALUE(workspaceFilterSetting_, workspaceFilterSetting) };
+    inline SubscriptionConfig& setWorkspaceFilterSetting(WorkspaceFilterSetting && workspaceFilterSetting) { DARABONBA_PTR_SET_RVALUE(workspaceFilterSetting_, workspaceFilterSetting) };
 
 
   protected:
+    // The event content filtering conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Specifies whether to subscribe to legacy product events (CMS 1.0 / ARMS / SLS events where workspace=null). Valid values:
+    // Specifies whether to subscribe to legacy product events (events with an empty workspace from CMS 1.0, ARMS, or SLS). Valid values:
     // - true: Subscribe.
-    // - false or null: Do not subscribe.
+    // - false/null: Do not subscribe.
     shared_ptr<bool> subscribeLegacyEvent_ {};
+    // The cross-workspace event routing (global subscription) settings.
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 

@@ -51,12 +51,8 @@ namespace Models
 
 
   protected:
-    // An array of recipient identifiers. The format of each identifier depends on the `type`. For example, if `type` is `email`, the identifiers are email addresses.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> identifiers_ {};
-    // The notification channel type. For example, `sms` or `email`.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

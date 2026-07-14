@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_OBSERVEGROUPDETAIL_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ObserveGroupDiscoverRule.hpp>
+#include <alibabacloud/models/ObserveGroupPromInstance.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,10 +27,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(groupName, groupName_);
       DARABONBA_PTR_TO_JSON(groupType, groupType_);
       DARABONBA_PTR_TO_JSON(modifyTime, modifyTime_);
+      DARABONBA_PTR_TO_JSON(ogEntityInfoEnabled, ogEntityInfoEnabled_);
+      DARABONBA_PTR_TO_JSON(ogEntityInfoPromInstances, ogEntityInfoPromInstances_);
       DARABONBA_PTR_TO_JSON(originGroupId, originGroupId_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(sourceOrigin, sourceOrigin_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ObserveGroupDetail& obj) { 
@@ -43,10 +48,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(groupName, groupName_);
       DARABONBA_PTR_FROM_JSON(groupType, groupType_);
       DARABONBA_PTR_FROM_JSON(modifyTime, modifyTime_);
+      DARABONBA_PTR_FROM_JSON(ogEntityInfoEnabled, ogEntityInfoEnabled_);
+      DARABONBA_PTR_FROM_JSON(ogEntityInfoPromInstances, ogEntityInfoPromInstances_);
       DARABONBA_PTR_FROM_JSON(originGroupId, originGroupId_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(sourceOrigin, sourceOrigin_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
     };
     ObserveGroupDetail() = default ;
@@ -60,6 +68,50 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(tagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(tagValue, tagValue_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline Tags& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline Tags& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> tagKey_ {};
+      // The tag value.
+      shared_ptr<string> tagValue_ {};
+    };
+
     class EntitySummaries : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EntitySummaries& obj) { 
@@ -118,7 +170,7 @@ namespace Models
     protected:
       // The entity category.
       shared_ptr<string> entityCategory_ {};
-      // The entity count.
+      // The number of entities.
       shared_ptr<int32_t> entityCount_ {};
       // The entity domain.
       shared_ptr<string> entityDomain_ {};
@@ -129,7 +181,8 @@ namespace Models
     virtual bool empty() const override { return this->aliUid_ == nullptr
         && this->createTime_ == nullptr && this->description_ == nullptr && this->discoverRules_ == nullptr && this->entitySummaries_ == nullptr && this->extraInfo_ == nullptr
         && this->favorited_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr && this->groupType_ == nullptr && this->modifyTime_ == nullptr
-        && this->originGroupId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sourceOrigin_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->ogEntityInfoEnabled_ == nullptr && this->ogEntityInfoPromInstances_ == nullptr && this->originGroupId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sourceOrigin_ == nullptr && this->tags_ == nullptr && this->workspaceId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -154,8 +207,10 @@ namespace Models
     // discoverRules Field Functions 
     bool hasDiscoverRules() const { return this->discoverRules_ != nullptr;};
     void deleteDiscoverRules() { this->discoverRules_ = nullptr;};
-    inline string getDiscoverRules() const { DARABONBA_PTR_GET_DEFAULT(discoverRules_, "") };
-    inline ObserveGroupDetail& setDiscoverRules(string discoverRules) { DARABONBA_PTR_SET_VALUE(discoverRules_, discoverRules) };
+    inline const vector<ObserveGroupDiscoverRule> & getDiscoverRules() const { DARABONBA_PTR_GET_CONST(discoverRules_, vector<ObserveGroupDiscoverRule>) };
+    inline vector<ObserveGroupDiscoverRule> getDiscoverRules() { DARABONBA_PTR_GET(discoverRules_, vector<ObserveGroupDiscoverRule>) };
+    inline ObserveGroupDetail& setDiscoverRules(const vector<ObserveGroupDiscoverRule> & discoverRules) { DARABONBA_PTR_SET_VALUE(discoverRules_, discoverRules) };
+    inline ObserveGroupDetail& setDiscoverRules(vector<ObserveGroupDiscoverRule> && discoverRules) { DARABONBA_PTR_SET_RVALUE(discoverRules_, discoverRules) };
 
 
     // entitySummaries Field Functions 
@@ -209,6 +264,22 @@ namespace Models
     inline ObserveGroupDetail& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
+    // ogEntityInfoEnabled Field Functions 
+    bool hasOgEntityInfoEnabled() const { return this->ogEntityInfoEnabled_ != nullptr;};
+    void deleteOgEntityInfoEnabled() { this->ogEntityInfoEnabled_ = nullptr;};
+    inline bool getOgEntityInfoEnabled() const { DARABONBA_PTR_GET_DEFAULT(ogEntityInfoEnabled_, false) };
+    inline ObserveGroupDetail& setOgEntityInfoEnabled(bool ogEntityInfoEnabled) { DARABONBA_PTR_SET_VALUE(ogEntityInfoEnabled_, ogEntityInfoEnabled) };
+
+
+    // ogEntityInfoPromInstances Field Functions 
+    bool hasOgEntityInfoPromInstances() const { return this->ogEntityInfoPromInstances_ != nullptr;};
+    void deleteOgEntityInfoPromInstances() { this->ogEntityInfoPromInstances_ = nullptr;};
+    inline const vector<ObserveGroupPromInstance> & getOgEntityInfoPromInstances() const { DARABONBA_PTR_GET_CONST(ogEntityInfoPromInstances_, vector<ObserveGroupPromInstance>) };
+    inline vector<ObserveGroupPromInstance> getOgEntityInfoPromInstances() { DARABONBA_PTR_GET(ogEntityInfoPromInstances_, vector<ObserveGroupPromInstance>) };
+    inline ObserveGroupDetail& setOgEntityInfoPromInstances(const vector<ObserveGroupPromInstance> & ogEntityInfoPromInstances) { DARABONBA_PTR_SET_VALUE(ogEntityInfoPromInstances_, ogEntityInfoPromInstances) };
+    inline ObserveGroupDetail& setOgEntityInfoPromInstances(vector<ObserveGroupPromInstance> && ogEntityInfoPromInstances) { DARABONBA_PTR_SET_RVALUE(ogEntityInfoPromInstances_, ogEntityInfoPromInstances) };
+
+
     // originGroupId Field Functions 
     bool hasOriginGroupId() const { return this->originGroupId_ != nullptr;};
     void deleteOriginGroupId() { this->originGroupId_ = nullptr;};
@@ -237,6 +308,15 @@ namespace Models
     inline ObserveGroupDetail& setSourceOrigin(string sourceOrigin) { DARABONBA_PTR_SET_VALUE(sourceOrigin_, sourceOrigin) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<ObserveGroupDetail::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<ObserveGroupDetail::Tags>) };
+    inline vector<ObserveGroupDetail::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<ObserveGroupDetail::Tags>) };
+    inline ObserveGroupDetail& setTags(const vector<ObserveGroupDetail::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline ObserveGroupDetail& setTags(vector<ObserveGroupDetail::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -252,21 +332,25 @@ namespace Models
     // The description of the observability group, which explains its business purpose.
     shared_ptr<string> description_ {};
     // The list of entity discovery rules that define which entities the group automatically matches.
-    shared_ptr<string> discoverRules_ {};
-    // The statistics of entities in the group, grouped by entity type.
+    shared_ptr<vector<ObserveGroupDiscoverRule>> discoverRules_ {};
+    // The statistics of entities in the group, categorized by entity type.
     shared_ptr<vector<ObserveGroupDetail::EntitySummaries>> entitySummaries_ {};
-    // The extended information in JSON string format, which carries alert templates, alert contact groups, pause policies, and other configurations.
+    // The extended information in JSON string format, which carries alert templates, alert contact groups, suspension policies, and other configurations.
     shared_ptr<string> extraInfo_ {};
-    // Indicates whether the current user has favorited the group.
+    // Indicates whether the current user has followed the group.
     shared_ptr<bool> favorited_ {};
     shared_ptr<string> groupId_ {};
-    // The name of the observability group. The name must be unique within the workspace.
+    // The name of the observability group. The name must be unique within the same workspace.
     shared_ptr<string> groupName_ {};
     // The type of the observability group.
     shared_ptr<string> groupType_ {};
     // The time when the group was last modified, in UTC format (yyyy-MM-ddTHH:mm:ssZ). This value is automatically updated when any property of the resource changes.
     shared_ptr<string> modifyTime_ {};
-    // The ID of the version 1.0 application group (product_group.id). This parameter is valid only when sourceOrigin is set to synced_from_1_0.
+    // Specifies whether to enable the og_entity_info metric output. When enabled, the data plane writes the group ownership information to the target Prometheus instance.
+    shared_ptr<bool> ogEntityInfoEnabled_ {};
+    // The set of Prometheus instances to which og_entity_info is written. This includes two source types: system (automatically identified by the system) and custom (user-defined).
+    shared_ptr<vector<ObserveGroupPromInstance>> ogEntityInfoPromInstances_ {};
+    // The product_group.id of the version 1.0 application group. This parameter is valid only when sourceOrigin is set to synced_from_1_0.
     shared_ptr<string> originGroupId_ {};
     // The region ID of the group.
     shared_ptr<string> regionId_ {};
@@ -276,6 +360,8 @@ namespace Models
     // - native_2_0: created natively in version 2.0.
     // - synced_from_1_0: synchronized from a version 1.0 application group.
     shared_ptr<string> sourceOrigin_ {};
+    // The resource tags (Alibaba Cloud standard tags), represented as an array of key-value pairs.
+    shared_ptr<vector<ObserveGroupDetail::Tags>> tags_ {};
     // The workspace ID to which the group belongs. This value is set at the workspace level and cannot be changed after the group is created.
     shared_ptr<string> workspaceId_ {};
   };

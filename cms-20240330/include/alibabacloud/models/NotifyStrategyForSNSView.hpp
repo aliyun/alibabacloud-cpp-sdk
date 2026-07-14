@@ -148,13 +148,9 @@ namespace Models
 
 
       protected:
-        // The days of the week when the route is active.
         shared_ptr<vector<int32_t>> dayInWeek_ {};
-        // The end time of the active period, specified in minutes from 00:00.
         shared_ptr<int32_t> endTimeInMinute_ {};
-        // The start time of the active period, specified in minutes from 00:00.
         shared_ptr<int32_t> startTimeInMinute_ {};
-        // The time zone for the active period. For example, \\"Asia/Shanghai\\".
         shared_ptr<string> timeZone_ {};
       };
 
@@ -209,11 +205,8 @@ namespace Models
 
 
       protected:
-        // The type of the notification channel, such as \\"sms\\" or \\"email\\".
         shared_ptr<string> channelType_ {};
-        // The enabled sub-channels.
         shared_ptr<vector<string>> enabledSubChannels_ {};
-        // The list of receivers for the channel.
         shared_ptr<vector<string>> receivers_ {};
       };
 
@@ -270,17 +263,11 @@ namespace Models
 
 
     protected:
-      // The notification channels for the route.
       shared_ptr<vector<Routes::Channels>> channels_ {};
-      // The name of the digital employee assigned to this route.
       shared_ptr<string> digitalEmployeeName_ {};
-      // The time range during which the notification route is active.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
-      // Specifies whether to enable root cause analysis (RCA) for alerts that match this route. Valid values: true, false.
       shared_ptr<bool> enableRca_ {};
-      // The filter settings for the route.
       shared_ptr<FilterSetting> filterSetting_ {};
-      // The alert severities that trigger this route.
       shared_ptr<vector<string>> severities_ {};
     };
 
@@ -342,13 +329,9 @@ namespace Models
 
 
     protected:
-      // The keys for grouping alerts.
       shared_ptr<vector<string>> groupingKeys_ {};
-      // The time window in minutes for grouping alerts.
       shared_ptr<int32_t> periodMin_ {};
-      // The silence period in seconds after a notification is sent for a group.
       shared_ptr<int32_t> silenceSec_ {};
-      // The number of times to send notifications for a group.
       shared_ptr<int32_t> times_ {};
     };
 
@@ -390,9 +373,7 @@ namespace Models
 
 
     protected:
-      // The target type for the custom template.
       shared_ptr<string> targetType_ {};
-      // The unique identifier (UUID) of the template.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -519,37 +500,21 @@ namespace Models
 
 
   protected:
-    // The creation time of the notification strategy.
     shared_ptr<string> createTime_ {};
-    // The list of custom templates.
     shared_ptr<vector<NotifyStrategyForSNSView::CustomTemplateEntries>> customTemplateEntries_ {};
-    // The description of the notification strategy.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the notification strategy. Valid values: true, false.
     shared_ptr<bool> enable_ {};
-    // Specifies whether to enable incident management. Valid values: true, false.
     shared_ptr<bool> enableIncidentManagement_ {};
-    // The settings for alert grouping.
     shared_ptr<NotifyStrategyForSNSView::GroupingSetting> groupingSetting_ {};
-    // Specifies whether to ignore notifications for restored alerts. Valid values: true, false.
     shared_ptr<bool> ignoreRestoredNotification_ {};
-    // The ID of the incident response plan.
     shared_ptr<string> incidentResponsePlanId_ {};
-    // The mode of the notification strategy.
     shared_ptr<string> mode_ {};
-    // The ID of the notification strategy.
     shared_ptr<string> notifyStrategyId_ {};
-    // The name of the notification strategy.
     shared_ptr<string> notifyStrategyName_ {};
-    // The list of notification routes.
     shared_ptr<vector<NotifyStrategyForSNSView::Routes>> routes_ {};
-    // The source from which the strategy is synchronized.
     shared_ptr<string> syncFromType_ {};
-    // The last update time of the notification strategy.
     shared_ptr<string> updateTime_ {};
-    // The user ID.
     shared_ptr<string> userId_ {};
-    // The workspace to which the notification strategy belongs.
     shared_ptr<string> workspace_ {};
   };
 
