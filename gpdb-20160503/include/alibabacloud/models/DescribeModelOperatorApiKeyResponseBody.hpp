@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The API key content.
     shared_ptr<string> apiKey_ {};
+    // API KEY ID。
     shared_ptr<int32_t> apiKeyId_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The endpoint.
     shared_ptr<string> endpoint_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

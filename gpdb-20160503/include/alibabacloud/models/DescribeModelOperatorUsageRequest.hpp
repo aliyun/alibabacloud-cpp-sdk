@@ -101,12 +101,44 @@ namespace Models
 
 
   protected:
+    // The list of API key IDs. Separate multiple IDs with commas (,). If this parameter is not specified, all API key IDs under the instance ID are used by default.
+    // 
+    // > The list can contain up to 50 items.
     shared_ptr<vector<int32_t>> apiKeyIds_ {};
+    // The end time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+    // 
+    // > The end time must be later than the start time, and the interval between the start time and end time cannot exceed 7 days.
     shared_ptr<string> endTime_ {};
+    // The dimension by which to split the series. Separate multiple dimensions with commas (,). The order is not significant. Valid values:
+    // 
+    // - model (default): splits by model.
+    // - api_key: splits by API key.
+    // - model,api_key: splits by model and API key.
     shared_ptr<string> groupBy_ {};
+    // The list of metrics. Separate multiple metrics with commas (,). Valid values:
+    // 
+    // - request_count: the number of requests.
+    // - success_count: the number of successful requests.
+    // - error_count: the number of failed requests.
+    // - success_rate: the request success rate.
+    // - input_token: the number of input tokens.
+    // - output_token: the number of output tokens.
+    // - total_token: the total number of tokens.
     shared_ptr<vector<string>> keys_ {};
+    // The list of model names. Separate multiple names with commas (,).
     shared_ptr<vector<string>> modelNames_ {};
+    // The time bucket size in seconds. Valid values: 1, 5, 15, 60, 300, and 3600.
+    // 
+    // >
+    // > - 1. If Period is not specified, the default value is determined by the following rules:
+    // > - - Window range ≤ 1 hour: Period = 1.
+    // > - - Window range ≤ 1 day: Period = 60.
+    // > - - Window range ≤ 7 days: Period = 60.
+    // > - 2. When Period is set to 1, the window must be ≤ 1 day.
     shared_ptr<int32_t> period_ {};
+    // The start time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
+    // 
+    // > Only metrics within the last 30 days can be queried.
     shared_ptr<string> startTime_ {};
   };
 

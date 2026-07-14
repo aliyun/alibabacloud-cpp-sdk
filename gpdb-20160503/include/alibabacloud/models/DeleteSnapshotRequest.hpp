@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The LSN of the snapshot to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> lsn_ {};
+    // The Supabase project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // The region ID. Specifies the region in which to query or perform the operation.
     shared_ptr<string> regionId_ {};
   };
 

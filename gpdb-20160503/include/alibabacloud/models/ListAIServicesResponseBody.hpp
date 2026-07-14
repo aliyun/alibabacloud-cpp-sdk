@@ -149,29 +149,27 @@ namespace Models
 
 
     protected:
-      // The time when the AI service was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The description of the AI service.
+      // The description.
       shared_ptr<string> description_ {};
-      // The private endpoint for API debugging.
+      // The internal endpoint for API debugging.
       shared_ptr<string> privateApiDevUrl_ {};
-      // The private endpoint of the Workbench.
+      // The internal endpoint of the workbench.
       shared_ptr<string> privateWorkbenchUrl_ {};
       // The public endpoint for API debugging.
       shared_ptr<string> publicApiDevUrl_ {};
-      // The public endpoint of the Workbench.
+      // The public endpoint of the workbench.
       shared_ptr<string> publicWorkbenchUrl_ {};
-      // The list of IP addresses in the IP address whitelist group. Separate multiple IP addresses with commas.
+      // The list of IP addresses in the IP address whitelist group, separated by commas.
       shared_ptr<string> securityIpList_ {};
       // The service account.
       shared_ptr<string> serviceAccount_ {};
-      // The ID of the AI service.
+      // The service ID.
       shared_ptr<string> serviceId_ {};
-      // The status of the AI service. Valid values:
-      // 
-      // - deploying
-      // 
-      // - active
+      // The service status. Valid values:
+      // - deploying: being deployed
+      // - active: running
       shared_ptr<string> status_ {};
     };
 
@@ -215,13 +213,13 @@ namespace Models
 
 
   protected:
-    // The page number of the current page.
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
     // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of AI services.
+    // The list of services.
     shared_ptr<vector<ListAIServicesResponseBody::Services>> services_ {};
     // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};

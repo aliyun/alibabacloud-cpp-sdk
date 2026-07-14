@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> lsn_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The actual point in time that corresponds to the created snapshot.
+    // The actual point in time corresponding to the created snapshot.
     shared_ptr<string> timestamp_ {};
   };
 

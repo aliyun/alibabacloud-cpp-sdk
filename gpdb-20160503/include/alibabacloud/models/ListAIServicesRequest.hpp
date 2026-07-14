@@ -66,25 +66,22 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for PostgreSQL instance.
+    // The instance ID.
     // 
-    // > To view details of all AnalyticDB for PostgreSQL instances in a region, including their instance IDs, call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
+    // The number of entries per page. Valid values:
     // - 20
-    // 
     // - 50
-    // 
     // - 100
     // 
     // Default value: 20.
     shared_ptr<string> pageSize_ {};
-    // The type of the AI service. Valid value: drama.
+    // The service type. Currently, only drama is supported.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

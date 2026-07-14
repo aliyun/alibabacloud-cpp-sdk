@@ -392,9 +392,9 @@ namespace Models
 
   protected:
     shared_ptr<ListBranchesResponseBody::Branches> branches_ {};
-    // The maximum number of records returned in this query.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. It is not required for the first query. For subsequent queries, use the NextToken returned from the previous query.
+    // The cursor for the paged query. You do not need to specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response for paging.
     shared_ptr<string> nextToken_ {};
     // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -410,7 +410,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of branches that match the query conditions.
+    // The total number of branches that match the query criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

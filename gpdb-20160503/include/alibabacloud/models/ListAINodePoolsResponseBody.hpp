@@ -148,21 +148,19 @@ namespace Models
 
 
       protected:
-        // The type of the bound object.
+        // The type of the object to which the AI node is bound.
         shared_ptr<string> bindObject_ {};
-        // The binding status.
-        // 
-        // - `unbound`: The node is not bound.
-        // 
-        // - `bound`: The node is bound.
+        // The status of the AI node. Valid values:
+        // - unbound: The AI node is not bound.
+        // - bound: The AI node is bound.
         shared_ptr<string> bindStatus_ {};
-        // The creation time.
+        // The time when the AI node was created.
         shared_ptr<string> createTime_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // The name of the AINode.
+        // The name of the AI node.
         shared_ptr<string> nodeName_ {};
-        // The AINode specification. The following specifications are supported:
+        // The node specifications of the AI node. The following specifications are supported:
         // 
         // ```
         // ADB.AIMedium.1
@@ -194,7 +192,7 @@ namespace Models
         // ADB.AI2XLarge.8
         // ```
         shared_ptr<string> nodeSpec_ {};
-        // The update time.
+        // The time when the AI node was last updated.
         shared_ptr<string> updateTime_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
@@ -226,9 +224,9 @@ namespace Models
 
 
     protected:
-      // The details of AINodes.
+      // The detailed information about the AI nodes.
       shared_ptr<vector<AINodePoolInfos::AINodeInfos>> AINodeInfos_ {};
-      // The ID of the AINode resource pool.
+      // The ID of the resource pool to which the AI node belongs.
       shared_ptr<string> AINodePoolId_ {};
       // The number of nodes.
       shared_ptr<string> nodeNum_ {};
@@ -253,7 +251,7 @@ namespace Models
 
 
   protected:
-    // The details of the AINode resource pools.
+    // The details of the AI node resource pools.
     shared_ptr<vector<ListAINodePoolsResponseBody::AINodePoolInfos>> AINodePoolInfos_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The job ID, which is used to check the job status or cancel the job.
     shared_ptr<string> jobId_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // API execution status, with the following values:
-    // - **success**: Execution succeeded.
-    // - **fail**: Execution failed.
+    // The creation status. Valid values:
+    // - success: The document was uploaded.
+    // - fail: The document failed to be uploaded.
     shared_ptr<string> status_ {};
   };
 

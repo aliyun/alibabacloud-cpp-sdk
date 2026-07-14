@@ -264,7 +264,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The branch description.
       shared_ptr<string> description_ {};
-      // The time when the branch expires and is automatically deleted, in ISO 8601 UTC format.
+      // The time when the branch automatically expires and is deleted, in ISO 8601 UTC format.
       shared_ptr<string> expiresAt_ {};
       // The initialization source of the branch.
       // 
@@ -272,13 +272,13 @@ namespace Models
       // - ParentData: Copies the schema and data from the parent branch. This is the default value.
       // - SchemaOnly: Copies only the schema structure.
       shared_ptr<string> initSource_ {};
-      // Indicates whether this is the default branch.
+      // Indicates whether the branch is the default branch.
       shared_ptr<bool> isDefault_ {};
-      // The parent branch ID, which specifies the parent branch of a new branch or a query condition.
+      // The parent branch ID, which specifies the parent branch for a new branch or a query condition.
       shared_ptr<string> parentBranchId_ {};
       // The parent branch name. This value is empty or displayed as - for the primary branch.
       shared_ptr<string> parentBranchName_ {};
-      // The Log Sequence Number (LSN) of the parent branch at the time this branch was created.
+      // The LSN of the parent branch at the time this branch was created.
       shared_ptr<string> parentLSN_ {};
       // The data synchronization point in time selected from the parent branch when this branch was created, in ISO 8601 UTC format.
       // 
@@ -286,7 +286,7 @@ namespace Models
       // - For child branches, this value indicates the point in time of the parent branch selected during creation.
       // - If no parent branch exists, the value 1970-01-01T00:00:00.000Z is returned.
       shared_ptr<string> parentTimestamp_ {};
-      // The Supabase project ID that corresponds to the primary branch.
+      // The Supabase project ID associated with the primary branch.
       shared_ptr<string> projectId_ {};
       // Indicates whether branch protection is enabled. A value of true indicates that branch protection is enabled. A value of false indicates that branch protection is disabled.
       shared_ptr<bool> protected_ {};
@@ -298,7 +298,7 @@ namespace Models
       shared_ptr<string> serviceType_ {};
       // The branch status.
       shared_ptr<string> status_ {};
-      // The list of branch tags.
+      // The branch tag list.
       shared_ptr<vector<Branch::Tags>> tags_ {};
     };
 
@@ -321,7 +321,7 @@ namespace Models
 
 
   protected:
-    // The branch list. Each element represents a Supabase branch.
+    // The branch information. Each element represents a Supabase branch.
     shared_ptr<DescribeBranchResponseBody::Branch> branch_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

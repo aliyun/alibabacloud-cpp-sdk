@@ -116,6 +116,7 @@ namespace Models
 
 
         protected:
+          // The specific metric information, consisting of a timestamp and a metric value.
           shared_ptr<vector<string>> point_ {};
         };
 
@@ -152,9 +153,13 @@ namespace Models
 
 
       protected:
+        // The API key ID. This value is returned only when GroupBy contains api_key.
         shared_ptr<int32_t> apiKeyId_ {};
+        // The model name when GroupBy contains model. The api_key_id string when GroupBy contains only api_key.
         shared_ptr<string> name_ {};
+        // The normalized GroupBy value: model, api_key, or model,api_key.
         shared_ptr<string> role_ {};
+        // The list of metric values. Each value corresponds to a collection time point.
         shared_ptr<vector<Series::Values>> values_ {};
       };
 
@@ -184,8 +189,15 @@ namespace Models
 
 
     protected:
+      // The metric name.
       shared_ptr<string> name_ {};
+      // The collection of metric values.
       shared_ptr<vector<Keys::Series>> series_ {};
+      // The unit. Valid values:
+      // 
+      // - requests
+      // - tokens
+      // - %
       shared_ptr<string> unit_ {};
     };
 
@@ -229,10 +241,15 @@ namespace Models
 
 
   protected:
+    // The end time of the query. The time is in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
     shared_ptr<string> endTime_ {};
+    // The list of metric values.
     shared_ptr<vector<DescribeModelOperatorUsageResponseBody::Keys>> keys_ {};
+    // The actual bucket size used, in seconds.
     shared_ptr<int32_t> period_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time of the query. The time is in the <i>YYYY-MM-DDThh:mmZ</i> format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

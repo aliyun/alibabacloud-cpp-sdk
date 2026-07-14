@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB PostgreSQL instances in the destination region, including the instance ID.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -67,7 +67,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The service type. Only drama is supported.
+    // The service type. Currently, only drama is supported.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

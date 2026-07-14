@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The branch ID that uniquely identifies a Supabase branch.
+    // The branch ID, which uniquely identifies a Supabase branch.
     // 
     // This parameter is required.
     shared_ptr<string> branchId_ {};

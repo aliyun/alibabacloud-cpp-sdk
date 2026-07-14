@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The pagination token for the next page of results. This parameter is not returned if no more results are available.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of tagged resources.
+    // The details.
     shared_ptr<vector<ListSupabaseProjectTagsResponseBody::TagResources>> tagResources_ {};
   };
 

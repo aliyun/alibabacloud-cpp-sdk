@@ -53,6 +53,10 @@
 #include <alibabacloud/models/CreateAccountRequest.hpp>
 #include <alibabacloud/models/CreateAccountResponseBody.hpp>
 #include <alibabacloud/models/CreateAccountResponse.hpp>
+#include <alibabacloud/models/CreateApiKeyRequest.hpp>
+#include <alibabacloud/models/CreateApiKeyShrinkRequest.hpp>
+#include <alibabacloud/models/CreateApiKeyResponseBody.hpp>
+#include <alibabacloud/models/CreateApiKeyResponse.hpp>
 #include <alibabacloud/models/CreateBackupRequest.hpp>
 #include <alibabacloud/models/CreateBackupResponseBody.hpp>
 #include <alibabacloud/models/CreateBackupResponse.hpp>
@@ -154,6 +158,9 @@
 #include <alibabacloud/models/DeleteAccountRequest.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountResponse.hpp>
+#include <alibabacloud/models/DeleteApiKeyRequest.hpp>
+#include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
+#include <alibabacloud/models/DeleteApiKeyResponse.hpp>
 #include <alibabacloud/models/DeleteBackupRequest.hpp>
 #include <alibabacloud/models/DeleteBackupResponseBody.hpp>
 #include <alibabacloud/models/DeleteBackupResponse.hpp>
@@ -501,6 +508,9 @@
 #include <alibabacloud/models/GetAccountRequest.hpp>
 #include <alibabacloud/models/GetAccountResponseBody.hpp>
 #include <alibabacloud/models/GetAccountResponse.hpp>
+#include <alibabacloud/models/GetApiKeyRequest.hpp>
+#include <alibabacloud/models/GetApiKeyResponseBody.hpp>
+#include <alibabacloud/models/GetApiKeyResponse.hpp>
 #include <alibabacloud/models/GetBranchSchemaRequest.hpp>
 #include <alibabacloud/models/GetBranchSchemaResponseBody.hpp>
 #include <alibabacloud/models/GetBranchSchemaResponse.hpp>
@@ -534,6 +544,9 @@
 #include <alibabacloud/models/GetUpsertCollectionDataJobRequest.hpp>
 #include <alibabacloud/models/GetUpsertCollectionDataJobResponseBody.hpp>
 #include <alibabacloud/models/GetUpsertCollectionDataJobResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceResponse.hpp>
 #include <alibabacloud/models/GrantCollectionRequest.hpp>
 #include <alibabacloud/models/GrantCollectionResponseBody.hpp>
 #include <alibabacloud/models/GrantCollectionResponse.hpp>
@@ -549,6 +562,9 @@
 #include <alibabacloud/models/ListAIServicesRequest.hpp>
 #include <alibabacloud/models/ListAIServicesResponseBody.hpp>
 #include <alibabacloud/models/ListAIServicesResponse.hpp>
+#include <alibabacloud/models/ListApiKeysRequest.hpp>
+#include <alibabacloud/models/ListApiKeysResponseBody.hpp>
+#include <alibabacloud/models/ListApiKeysResponse.hpp>
 #include <alibabacloud/models/ListBackupJobsRequest.hpp>
 #include <alibabacloud/models/ListBackupJobsResponseBody.hpp>
 #include <alibabacloud/models/ListBackupJobsResponse.hpp>

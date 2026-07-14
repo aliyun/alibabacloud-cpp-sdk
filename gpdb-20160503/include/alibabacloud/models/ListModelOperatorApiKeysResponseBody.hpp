@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // API KEY ID。
       shared_ptr<int32_t> apiKeyId_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The endpoint.
       shared_ptr<string> endpoint_ {};
     };
 
@@ -140,10 +144,15 @@ namespace Models
 
 
   protected:
+    // The list of API keys.
     shared_ptr<vector<ListModelOperatorApiKeysResponseBody::ApiKeys>> apiKeys_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

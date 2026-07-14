@@ -133,7 +133,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The method used to merge results from multiple knowledge bases. Default value: RRF. Valid values:
     // - RRF
-    // - Weight.
+    // - Weight
     shared_ptr<string> mergeMethod_ {};
     // The parameters for the merge method of each SourceCollection.
     shared_ptr<string> mergeMethodArgsShrink_ {};

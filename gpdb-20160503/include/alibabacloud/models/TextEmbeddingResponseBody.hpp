@@ -188,15 +188,14 @@ namespace Models
 
 
   protected:
-    // The returned message.
+    // The message details.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<TextEmbeddingResponseBody::Results> results_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The API execution status. Valid values:
+    // - **success**: The execution is successful.
+    // - **fail**: The execution failed.
     shared_ptr<string> status_ {};
     // The total number of tokens consumed.
     shared_ptr<int32_t> textTokens_ {};

@@ -190,7 +190,7 @@ namespace Models
     protected:
       shared_ptr<Data::ColumnMetadata> columnMetadata_ {};
       shared_ptr<Data::Records> records_ {};
-      // Total number of entries.
+      // The total number of rows.
       shared_ptr<int64_t> totalNumRows_ {};
     };
 
@@ -229,14 +229,14 @@ namespace Models
   protected:
     // The result of the asynchronous call.
     shared_ptr<GetStatementResultResponseBody::Data> data_ {};
-    // Return message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // API execution status, with values as follows:
+    // The execution status of the API operation. Valid values:
     // 
-    // - **false**: Execution failed.
-    // - **true**: Execution succeeded.
+    // - **false**: Failed.
+    // - **true**: Succeeded.
     shared_ptr<string> status_ {};
   };
 

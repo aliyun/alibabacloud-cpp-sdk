@@ -185,7 +185,7 @@ namespace Models
         // > - If this parameter is not specified, the default value is pay-as-you-go.
         // > - In subscription billing mode, a discount is available when you purchase a duration of one year or longer. Select the billing type as needed.
         shared_ptr<string> payType_ {};
-        // [Deprecated].
+        // [Deprecated]
         shared_ptr<string> plan_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
@@ -194,7 +194,7 @@ namespace Models
         // The service type. Valid values:
         // 
         // - memory
-        // - drama.
+        // - drama
         shared_ptr<string> serviceType_ {};
         // The service status. Valid values:
         // 
@@ -275,7 +275,7 @@ namespace Models
           // The service type. Valid values:
           // 
           // - memory
-          // - drama.
+          // - drama
           shared_ptr<string> serviceType_ {};
         };
 

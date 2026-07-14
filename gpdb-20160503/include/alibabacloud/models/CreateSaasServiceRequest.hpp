@@ -110,7 +110,7 @@ namespace Models
     // - **Postpaid**: pay-as-you-go.
     // - **Prepaid**: subscription.
     // 
-    // > - If you leave this parameter empty, a Free service is created by default.
+    // > - If you leave this parameter empty, a Free type is created by default.
     // > - The subscription billing method offers discounts for purchases of one year or longer. Select a billing method as needed.
     shared_ptr<string> payType_ {};
     // The unit of the duration for which you want to purchase the resource. Valid values:
@@ -126,7 +126,7 @@ namespace Models
     // The service type. Valid values:
     // 
     // - **memroy**
-    // - **drama**.
+    // - **drama**
     // 
     // This parameter is required.
     shared_ptr<string> serviceType_ {};

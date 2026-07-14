@@ -200,7 +200,7 @@ namespace Models
     protected:
       shared_ptr<Data::ColumnMetadata> columnMetadata_ {};
       shared_ptr<Data::Records> records_ {};
-      // The total number of entries returned.
+      // The total number of rows.
       shared_ptr<int64_t> totalNumRows_ {};
     };
 
@@ -273,26 +273,25 @@ namespace Models
 
 
   protected:
-    // The time when the SQL statements were created.
+    // The creation time.
     shared_ptr<string> createdAt_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The returned results of the synchronous call.
+    // The result returned for synchronous calls.
     shared_ptr<ExecuteStatementResponseBody::Data> data_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> database_ {};
-    // The ID of the job for asynchronously executing the SQL statements.
+    // The task ID for asynchronous SQL execution.
     shared_ptr<string> id_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ARN of the access credential for the created Data API account.
+    // The access credential.
     shared_ptr<string> secretArn_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The execution is successful.
+    // - **fail**: The execution failed.
     shared_ptr<string> status_ {};
   };
 

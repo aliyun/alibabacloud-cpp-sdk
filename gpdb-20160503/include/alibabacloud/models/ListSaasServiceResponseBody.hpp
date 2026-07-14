@@ -142,14 +142,14 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The computing resources.
+      // The compute resource.
       shared_ptr<int32_t> cu_ {};
       // The expiration time.
       shared_ptr<string> expireTime_ {};
       // The billing type. Valid values:
       // 
-      // - **POSTPAY**: pay-as-you-go.
-      // - **PREPAY**: subscription.
+      // - **POSTPAY**: Pay-as-you-go.
+      // - **PREPAY**: Subscription.
       shared_ptr<string> payType_ {};
       // [Deprecated]
       shared_ptr<string> plan_ {};
@@ -157,15 +157,15 @@ namespace Models
       shared_ptr<string> serviceId_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The service type:
+      // The service type. Valid values:
       // 
       // - **memory**
       // - **drama**
       shared_ptr<string> serviceType_ {};
-      // The service status:
+      // The service status. Valid values:
       // 
-      // - active: Running
-      // - creating: Being created
+      // - active: Running.
+      // - creating: Being created.
       shared_ptr<string> status_ {};
     };
 
@@ -209,11 +209,11 @@ namespace Models
 
 
   protected:
-    // The list of service details.
+    // The list of instance details.
     shared_ptr<vector<ListSaasServiceResponseBody::Items>> items_ {};
-    // The maximum number of entries returned in this request. Default value: 10.
+    // The maximum number of entries to return. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query to begin with.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

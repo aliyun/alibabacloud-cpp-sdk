@@ -135,37 +135,37 @@ namespace Models
 
 
   protected:
-    // A list of AINodes on which to deploy the model.
+    // The list of AI nodes used for model deployment.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> aiNodes_ {};
-    // A token to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+    // The idempotency check. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
     shared_ptr<string> clientToken_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The description of the model service.
+    // The description.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable a public network connection.
+    // Specifies whether to enable public network access.
     shared_ptr<bool> enablePublicConnection_ {};
     // The inference engine. Currently, only vllm is supported.
     shared_ptr<string> inferenceEngine_ {};
-    // The name of the model.
+    // The model name.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
-    // The model parameters. This parameter is not yet supported.
+    // The model parameters. This parameter is not supported.
     Darabonba::Json modelParams_ {};
     // The number of model service replicas.
     shared_ptr<int32_t> replicas_ {};
-    // The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the resource group to which the instance belongs. For information about how to obtain the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     // The IP whitelist.
     // 
-    // Set this parameter to `127.0.0.1` to deny access from all external IP addresses. After the model service is created, you can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP whitelist.
+    // The value 127.0.0.1 indicates that no external IP addresses are allowed to access the instance. After the instance is created, you can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP whitelist.
     shared_ptr<string> securityIPList_ {};
   };
 

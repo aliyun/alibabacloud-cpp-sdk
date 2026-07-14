@@ -121,37 +121,35 @@ namespace Models
 
 
   protected:
-    // The name of the collection.
+    // The collection name.
     // 
-    // > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+    // > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query the list.
     // 
     // This parameter is required.
     shared_ptr<string> collection_ {};
-    // The cluster ID.
+    // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
     shared_ptr<string> DBInstanceId_ {};
-    // The index parameter. If you do not specify this parameter, a B-tree index is created.
+    // The index parameters. If this parameter is not specified, a B-tree index is created by default.
     // 
     // > 
-    // 
-    // *   b-tree: To create a B-tree index, set the fillFactor parameter to a value between 10 and 100. Default value: 90.
-    // 
-    // *   gin: To create a GIN index, set the fastUpdate parameter to true or false. Default value: true.
+    // >- b-tree: The fillFactor parameter. Valid values: 10 to 100. Default value: 90.
+    // >- gin: The fastUpdate parameter. Valid values: true and false. Default value: true.
     shared_ptr<string> indexConfig_ {};
-    // The index field. Only a single field is supported, and it must be a key defined in metadata.
+    // The index field. Only a single field is supported, and the field must be a key defined in Metadata.
     shared_ptr<string> indexField_ {};
-    // The name of the index.
+    // The index name.
     shared_ptr<string> indexName_ {};
-    // The namespace name.
+    // The namespace.
     // 
-    // > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+    // > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query the list.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
     // The password of the namespace.
     // 
-    // > The value of this parameter is specified by the CreateNamespace operation.
+    // > This value is specified by the CreateNamespace operation.
     // 
     // This parameter is required.
     shared_ptr<string> namespacePassword_ {};
@@ -160,13 +158,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. This parameter and DBInstanceId cannot both be empty. If both parameters are specified, this value takes precedence.
-    // 
-    // Valid values:
-    // 
-    // *   ip
-    // *   l2
-    // *   cosine
+    // The ID of the workspace that consists of multiple database instances. This parameter and DBInstanceId cannot both be empty. If both this parameter and DBInstanceId are specified, this parameter takes precedence.
     shared_ptr<string> workspaceId_ {};
   };
 

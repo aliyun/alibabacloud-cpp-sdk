@@ -193,9 +193,9 @@ namespace Models
     shared_ptr<string> branchName_ {};
     // The client idempotency token. This token ensures the idempotence of retry requests.
     shared_ptr<string> clientToken_ {};
-    // The branch description.
+    // The description of the branch.
     shared_ptr<string> description_ {};
-    // The time at which the branch automatically expires and is deleted. The value is in ISO 8601 UTC format.
+    // The time when the branch automatically expires and is deleted. The value is in the ISO 8601 UTC format.
     shared_ptr<string> expiresAt_ {};
     // The initialization source of the branch.
     // 
@@ -203,17 +203,17 @@ namespace Models
     // - ParentData: copies the schema and data from the parent branch. This is the default value.
     // - SchemaOnly: copies only the schema structure.
     shared_ptr<string> initSource_ {};
-    // The parent branch ID. This parameter specifies the parent branch for the new branch or query condition.
+    // The ID of the parent branch. This parameter specifies the parent branch for the new branch or query condition.
     // 
     // This parameter is required.
     shared_ptr<string> parentBranchId_ {};
-    // The log sequence number (LSN) from the parent branch at which the branch is created.
+    // The log sequence number (LSN) selected when creating a branch from the parent branch.
     shared_ptr<string> parentLsn_ {};
-    // The point in time for data synchronization from the parent branch when creating the branch. The value is in ISO 8601 UTC format.
+    // The point in time for data synchronization when creating a branch from the parent branch. The value is in the ISO 8601 UTC format.
     // 
     // Default value: the current time.
     shared_ptr<string> parentTimestamp_ {};
-    // The Supabase project ID that corresponds to the primary branch.
+    // The ID of the Supabase project that corresponds to the primary branch.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

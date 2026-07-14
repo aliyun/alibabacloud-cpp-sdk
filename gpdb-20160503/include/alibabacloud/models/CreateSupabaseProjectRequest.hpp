@@ -186,9 +186,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
+    // Specifies whether to enable auto start/stop. If this parameter is not specified, the default value false is used.
     shared_ptr<bool> autoScale_ {};
-    // The idempotency token. This token ensures that duplicate requests do not trigger the same operation more than once.
+    // The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
     shared_ptr<string> clientToken_ {};
     // The performance level (PL) of the cloud disk. If this parameter is not specified, the default value PL0 is used.
     // 
@@ -197,14 +197,14 @@ namespace Models
     // - PL0
     // - PL1
     // - PL2
-    // - PL3.
+    // - PL3
     shared_ptr<string> diskPerformanceLevel_ {};
-    // The DPI engine version. If this parameter is not specified, the default value PG15 is used.
+    // The DPI engine version. If this parameter is not specified, the default value PG15 is used. PG17 and later versions support the data sandbox (branch) feature.
     // 
     // Valid values:
     // 
     // - PG15: PostgreSQL 15.
-    // - PG17: PostgreSQL 17.
+    // - PG17: PostgreSQL 17, which supports the data sandbox feature.
     shared_ptr<string> engineVersion_ {};
     // The billing method. If this parameter is not specified, the default value Free is used.
     // 
@@ -231,7 +231,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available on the console.
+    // The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available in the console.
     // 
     // This parameter is required.
     shared_ptr<string> projectSpec_ {};
@@ -243,7 +243,7 @@ namespace Models
     shared_ptr<string> securityIPList_ {};
     // The storage size. Unit: GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
     shared_ptr<int64_t> storageSize_ {};
-    // The subscription duration of the resource. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
+    // The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
     shared_ptr<string> usedTime_ {};
     // The vSwitch ID. This parameter is required. The zone of the vSwitch must be the same as the value of ZoneId.
     // 
@@ -253,7 +253,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as the value of this parameter.
+    // The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as this parameter value.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

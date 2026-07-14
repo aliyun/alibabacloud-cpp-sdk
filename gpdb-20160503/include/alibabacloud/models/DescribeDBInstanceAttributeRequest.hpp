@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
-    // > You can invoke the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view the instance IDs of all AnalyticDB for PostgreSQL instances in the destination region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> resourceGroupId_ {};
   };
 

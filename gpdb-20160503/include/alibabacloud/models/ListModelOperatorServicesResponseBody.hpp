@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The service ID.
       shared_ptr<string> serviceId_ {};
     };
 
@@ -109,10 +110,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of services.
     shared_ptr<vector<ListModelOperatorServicesResponseBody::Services>> services_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

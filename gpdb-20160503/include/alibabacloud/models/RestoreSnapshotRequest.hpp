@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The idempotence token. Ensures that repeated requests do not execute the same operation more than once.
+    // The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to complete the restoration immediately. Default value: false.
     shared_ptr<bool> finalizeRestore_ {};

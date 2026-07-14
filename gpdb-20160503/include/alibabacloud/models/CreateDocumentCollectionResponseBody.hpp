@@ -61,10 +61,8 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // - **success**: The operation succeeded.
-    // 
+    // The API execution status. Valid values:
+    // - **success**: The operation was successful.
     // - **fail**: The operation failed.
     shared_ptr<string> status_ {};
   };

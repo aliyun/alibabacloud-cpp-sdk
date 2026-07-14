@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return in this request. Default value: 10.
+    // The maximum number of entries to return. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query to begin with during a paginated query.
+    // The token for the next query when paging. Use this token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID of the workspace.
     shared_ptr<string> regionId_ {};

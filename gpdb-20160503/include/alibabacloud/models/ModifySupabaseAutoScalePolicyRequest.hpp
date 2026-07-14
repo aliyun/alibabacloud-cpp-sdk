@@ -57,15 +57,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-scaling. Valid values:
-    // 
-    // - `true`: Enables auto-scaling. The Supabase instance automatically pauses and resumes based on traffic.
-    // 
-    // - `false`: Disables auto-scaling.
+    // Specifies whether to enable **automatic start and stop**. Valid values:
+    // - true: Enabled. After this feature is enabled, Supabase automatically pauses and resumes based on traffic conditions.
+    // - false: Disabled. After this feature is disabled, the automatic start and stop feature of Supabase is turned off.
     // 
     // This parameter is required.
     shared_ptr<bool> autoScale_ {};
-    // The ID of the Supabase project. To obtain the workspace ID, log in to the console and go to the Supabase page.
+    // The ID of the Supabase project. You can obtain the workspace ID from the Supabase page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

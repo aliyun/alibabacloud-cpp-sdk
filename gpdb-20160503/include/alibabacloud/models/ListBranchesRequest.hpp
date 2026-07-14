@@ -112,9 +112,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return in this query.
+    // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. It is not required for the first query. For subsequent queries, use the NextToken returned from the previous query.
+    // The cursor for the paged query. You do not need to specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response for paging.
     shared_ptr<string> nextToken_ {};
     // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -128,26 +128,26 @@ namespace Models
     // 
     // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent branch ID, used to specify the parent branch for a new branch or as a query filter condition.
+    // The parent branch ID. This parameter specifies the parent branch for a new branch or a query filter.
     shared_ptr<string> parentBranchId_ {};
-    // The region ID. Must be specified when creating a primary branch. When creating a sub-branch, it inherits the region of the primary branch by default.
+    // The region ID. This parameter is required when you create a primary branch. When you create a sub-branch, the region is inherited from the primary branch by default.
     shared_ptr<string> regionId_ {};
-    // The search keyword. Supports fuzzy search by branch ID or branch name.
+    // The search keyword. Fuzzy search by branch ID or branch name is supported.
     shared_ptr<string> search_ {};
-    // The sort field.
+    // The field by which to sort the results.
     // 
     // Valid values:
-    // - BranchName: Sort by branch name.
-    // - CreateTime: Sort by creation time.
-    // - LastRunTime: Sort by last run time.
+    // - BranchName: sorts by branch name.
+    // - CreateTime: sorts by creation time.
+    // - LastRunTime: sorts by last run time.
     // 
     // Default value: CreateTime.
     shared_ptr<string> sortBy_ {};
-    // The sort direction.
+    // The sort order.
     // 
     // Valid values:
-    // - Asc: Ascending order.
-    // - Desc: Descending order.
+    // - Asc: ascending order.
+    // - Desc: descending order.
     // 
     // Default value: Desc.
     shared_ptr<string> sortOrder_ {};

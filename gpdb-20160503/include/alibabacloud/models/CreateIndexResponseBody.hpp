@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The job ID. It can be used to query the job status or cancel the job.
+    // The task ID, which is used to query the task status or cancel the task.
     shared_ptr<string> jobId_ {};
-    // The returned message.
+    // The detailed information returned by the operation.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. Valid values:
-    // 
-    // *   **success**
-    // *   **fail**
+    // The execution status of the API operation. Valid values:
+    // - **success**: The operation was successful.
+    // - **fail**: The operation failed.
     shared_ptr<string> status_ {};
   };
 

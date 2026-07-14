@@ -155,19 +155,19 @@ namespace Models
     shared_ptr<string> description_ {};
     // The model name.
     shared_ptr<string> modelName_ {};
-    // Model parameters.
+    // The model parameters.
     Darabonba::Json modelParams_ {};
     // The model service ID.
     shared_ptr<string> modelServiceId_ {};
-    // The internal endpoint.
+    // The internal network connection string.
     shared_ptr<string> privateConnectUrl_ {};
-    // The public endpoint.
+    // The public network connection string.
     shared_ptr<string> publicConnectUrl_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // A comma-separated list of IP addresses and CIDR blocks allowed to connect.
+    // The list of IP addresses in the IP whitelist, separated by commas.
     shared_ptr<string> securityIpList_ {};
-    // The status of the model service.
+    // The model service status.
     shared_ptr<string> status_ {};
   };
 
