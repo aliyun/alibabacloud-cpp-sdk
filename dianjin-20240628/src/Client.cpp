@@ -68,6 +68,14 @@ CommercializeFetchResponse Client::commercializeFetchWithOptions(const string &w
     body["data"] = request.getData();
   }
 
+  if (!!request.hasEncryptType()) {
+    body["encryptType"] = request.getEncryptType();
+  }
+
+  if (!!request.hasEnv()) {
+    body["env"] = request.getEnv();
+  }
+
   if (!!request.hasProductId()) {
     body["productId"] = request.getProductId();
   }
@@ -82,6 +90,10 @@ CommercializeFetchResponse Client::commercializeFetchWithOptions(const string &w
 
   if (!!request.hasSign()) {
     body["sign"] = request.getSign();
+  }
+
+  if (!!request.hasSignType()) {
+    body["signType"] = request.getSignType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
