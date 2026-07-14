@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(to, to_);
       DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(version, version_);
     };
     friend void from_json(const Darabonba::Json& j, ExecuteQueryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(from, from_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(to, to_);
       DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(version, version_);
     };
     ExecuteQueryRequest() = default ;
     ExecuteQueryRequest(const ExecuteQueryRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->from_ == nullptr
         && this->length_ == nullptr && this->maxOutputLength_ == nullptr && this->offset_ == nullptr && this->query_ == nullptr && this->to_ == nullptr
-        && this->type_ == nullptr; };
+        && this->type_ == nullptr && this->version_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     inline ExecuteQueryRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ExecuteQueryRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     shared_ptr<int32_t> from_ {};
     shared_ptr<int32_t> length_ {};
@@ -107,6 +116,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

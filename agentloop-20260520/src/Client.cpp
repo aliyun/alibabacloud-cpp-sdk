@@ -625,6 +625,77 @@ CreateEvaluatorSkillResponse Client::createEvaluatorSkill(const string &name, co
 }
 
 /**
+ * @summary Creates a pipeline.
+ *
+ * @param request CreatePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePipelineResponse
+ */
+CreatePipelineResponse Client::createPipelineWithOptions(const string &agentSpace, const CreatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExecutePolicy()) {
+    body["executePolicy"] = request.getExecutePolicy();
+  }
+
+  if (!!request.hasPipeline()) {
+    body["pipeline"] = request.getPipeline();
+  }
+
+  if (!!request.hasPipelineName()) {
+    body["pipelineName"] = request.getPipelineName();
+  }
+
+  if (!!request.hasSink()) {
+    body["sink"] = request.getSink();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePipeline"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePipelineResponse>();
+}
+
+/**
+ * @summary Creates a pipeline.
+ *
+ * @param request CreatePipelineRequest
+ * @return CreatePipelineResponse
+ */
+CreatePipelineResponse Client::createPipeline(const string &agentSpace, const CreatePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPipelineWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
  * @summary Deletes an AgentSpace.
  *
  * @param request DeleteAgentSpaceRequest
@@ -1091,6 +1162,10 @@ ExecuteQueryResponse Client::executeQueryWithOptions(const string &agentSpace, c
 
   if (!!request.hasType()) {
     body["type"] = request.getType();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2215,6 +2290,77 @@ PausePipelineResponse Client::pausePipeline(const string &agentSpace, const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return pausePipelineWithOptions(agentSpace, pipelineName, request, headers, runtime);
+}
+
+/**
+ * @summary Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+ *
+ * @description ## Request description
+ * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+ * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+ * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+ * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+ * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+ *
+ * @param request PreviewPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewPipelineResponse
+ */
+PreviewPipelineResponse Client::previewPipelineWithOptions(const string &agentSpace, const PreviewPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFromTime()) {
+    body["fromTime"] = request.getFromTime();
+  }
+
+  if (!!request.hasPipeline()) {
+    body["pipeline"] = request.getPipeline();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  if (!!request.hasToTime()) {
+    body["toTime"] = request.getToTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PreviewPipeline"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/pipeline/preview")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewPipelineResponse>();
+}
+
+/**
+ * @summary Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+ *
+ * @description ## Request description
+ * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+ * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+ * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+ * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+ * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+ *
+ * @param request PreviewPipelineRequest
+ * @return PreviewPipelineResponse
+ */
+PreviewPipelineResponse Client::previewPipeline(const string &agentSpace, const PreviewPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return previewPipelineWithOptions(agentSpace, request, headers, runtime);
 }
 
 /**

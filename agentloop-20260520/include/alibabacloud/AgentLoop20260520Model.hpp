@@ -44,6 +44,9 @@
 #include <alibabacloud/models/CreateEvaluatorSkillRequest.hpp>
 #include <alibabacloud/models/CreateEvaluatorSkillResponseBody.hpp>
 #include <alibabacloud/models/CreateEvaluatorSkillResponse.hpp>
+#include <alibabacloud/models/CreatePipelineRequest.hpp>
+#include <alibabacloud/models/CreatePipelineResponseBody.hpp>
+#include <alibabacloud/models/CreatePipelineResponse.hpp>
 #include <alibabacloud/models/DeleteAgentSpaceRequest.hpp>
 #include <alibabacloud/models/DeleteAgentSpaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteAgentSpaceResponse.hpp>
@@ -143,6 +146,9 @@
 #include <alibabacloud/models/PausePipelineRequest.hpp>
 #include <alibabacloud/models/PausePipelineResponseBody.hpp>
 #include <alibabacloud/models/PausePipelineResponse.hpp>
+#include <alibabacloud/models/PreviewPipelineRequest.hpp>
+#include <alibabacloud/models/PreviewPipelineResponseBody.hpp>
+#include <alibabacloud/models/PreviewPipelineResponse.hpp>
 #include <alibabacloud/models/ResumePipelineRequest.hpp>
 #include <alibabacloud/models/ResumePipelineResponseBody.hpp>
 #include <alibabacloud/models/ResumePipelineResponse.hpp>

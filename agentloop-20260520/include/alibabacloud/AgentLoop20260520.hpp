@@ -189,6 +189,24 @@ namespace AgentLoop20260520
       Models::CreateEvaluatorSkillResponse createEvaluatorSkill(const string &name, const Models::CreateEvaluatorSkillRequest &request);
 
       /**
+       * @summary Creates a pipeline.
+       *
+       * @param request CreatePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePipelineResponse
+       */
+      Models::CreatePipelineResponse createPipelineWithOptions(const string &agentSpace, const Models::CreatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a pipeline.
+       *
+       * @param request CreatePipelineRequest
+       * @return CreatePipelineResponse
+       */
+      Models::CreatePipelineResponse createPipeline(const string &agentSpace, const Models::CreatePipelineRequest &request);
+
+      /**
        * @summary Deletes an AgentSpace.
        *
        * @param request DeleteAgentSpaceRequest
@@ -781,6 +799,38 @@ namespace AgentLoop20260520
        * @return PausePipelineResponse
        */
       Models::PausePipelineResponse pausePipeline(const string &agentSpace, const string &pipelineName, const Models::PausePipelineRequest &request);
+
+      /**
+       * @summary Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+       *
+       * @description ## Request description
+       * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+       * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+       * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+       * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+       * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+       *
+       * @param request PreviewPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreviewPipelineResponse
+       */
+      Models::PreviewPipelineResponse previewPipelineWithOptions(const string &agentSpace, const Models::PreviewPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+       *
+       * @description ## Request description
+       * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+       * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+       * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+       * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+       * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+       *
+       * @param request PreviewPipelineRequest
+       * @return PreviewPipelineResponse
+       */
+      Models::PreviewPipelineResponse previewPipeline(const string &agentSpace, const Models::PreviewPipelineRequest &request);
 
       /**
        * @summary Resumes a pipeline.
