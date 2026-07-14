@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The tag keys. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
+      // The tag key. If you specify this parameter, the value cannot be an empty string. The value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag values. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+      // The tag value. The value can be an empty string. The value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -115,23 +115,19 @@ namespace Models
 
 
   protected:
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions supported by Wuying Cloud Desktop.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
+    // The list of resource IDs, that is, the list of cloud desktop IDs. You can specify 1 to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource.
-    // 
-    // Valid values:
-    // 
-    // - ALIYUN::GWS::INSTANCE: cloud computer.
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags that you want to add to the cloud computers. You can specify 1 to 20 tags.
+    // The list of tags. You can specify 1 to 20 tags.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

@@ -60,11 +60,10 @@ namespace Models
 
 
   protected:
-    // An array of cloud desktop IDs. An ID is returned for each cloud desktop created in the call.
+    // The list of cloud desktop IDs. If multiple cloud desktops are created in a single call, multiple cloud desktop IDs are returned.
     shared_ptr<vector<string>> desktopId_ {};
     // The order ID.
-    // 
-    // > This parameter is returned only when the `ChargeType` request parameter is set to `PrePaid`.
+    // > This parameter is returned only when the request parameter ChargeType is set to PrePaid.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

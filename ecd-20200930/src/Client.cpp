@@ -18,6 +18,32 @@ namespace Ecd20200930
 
 AlibabaCloud::Ecd20200930::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "ecd.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "ecd.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "ecd.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "ecd.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "ecd.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "ecd.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "ecd.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "ecd.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "ecd.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "ecd.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "ecd.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "ecd.cn-qingdao.aliyuncs.com"},
+    {"cn-nanjing" , "ecd.cn-nanjing.aliyuncs.com"},
+    {"cn-hongkong" , "ecd.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "ecd.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "ecd.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "ecd.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "ecd.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "ecd.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "ecd.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "ecd.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "ecd.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-1" , "ecd.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "ecd.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ecd", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1960,7 +1986,7 @@ CreateADConnectorOfficeSiteResponse Client::createADConnectorOfficeSite(const Cr
 }
 
 /**
- * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
+ * @summary Creates a NAS file system and binds it to the office network of a shared cloud computer.
  *
  * @param request CreateAndBindNasFileSystemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2019,7 +2045,7 @@ CreateAndBindNasFileSystemResponse Client::createAndBindNasFileSystemWithOptions
 }
 
 /**
- * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
+ * @summary Creates a NAS file system and binds it to the office network of a shared cloud computer.
  *
  * @param request CreateAndBindNasFileSystemRequest
  * @return CreateAndBindNasFileSystemResponse
@@ -3664,24 +3690,22 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
 }
 
 /**
- * @summary Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
+ * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
  *
- * @description Before you create a cloud desktop, meet the following requirements:
- * - Create an office site (formerly a workspace) and users:
- *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
- * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
- * **Request examples**
+ * @description Before creating cloud desktops, complete the following preparations:
+ * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
+ *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
+ * **Call examples:**
  * <details>
- * <summary>
- * Example: Create a cloud desktop from a bundle
- * </summary>
+ * <summary>Example of creating with a template</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "PolicyGroupId": "system-all-enabled-policy",
  *   "ChargeType": "PostPaid",
  *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -3689,15 +3713,13 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * ```
  * </details>
  * <details>
- * <summary>
- * Example: Create a cloud desktop with custom settings
- * </summary>
+ * <summary>Example of creating without a template</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "PolicyGroupId": "system-all-enabled-policy",
  *   "ChargeType": "PostPaid",
  *   "DesktopAttachment": {
@@ -3711,15 +3733,13 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * ```
  * </details>
  * <details>
- * <summary>
- * Example: Create a cloud desktop with a monthly usage package
- * </summary>
+ * <summary>Example of creating a monthly hourly package</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "PolicyGroupId": "system-all-enabled-policy",
  *   "ChargeType": "PostPaid",
  *   "DesktopAttachment": {
@@ -3738,16 +3758,14 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * ```
  * </details>
  * <details>
- * <summary>
- * Example: Create an agent resource
- * </summary>
+ * <summary>Example of creating an Agent resource</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "BundleId": "b-openclaw-linux",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "ChargeType": "PostPaid",
  *   "DesktopAttachment": {
  *     "DesktopType": "cloud.space.4c.8g"
@@ -3760,7 +3778,7 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * }
  * ```
  * </details>
- * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
+ * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
  *
  * @param tmpReq CreateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3859,6 +3877,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
     query["OfficeSiteId"] = request.getOfficeSiteId();
   }
 
+  if (!!request.hasOuPath()) {
+    query["OuPath"] = request.getOuPath();
+  }
+
   if (!!request.hasPeriod()) {
     query["Period"] = request.getPeriod();
   }
@@ -3901,6 +3923,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
 
   if (!!request.hasSnapshotPolicyId()) {
     query["SnapshotPolicyId"] = request.getSnapshotPolicyId();
+  }
+
+  if (!!request.hasSubPayType()) {
+    query["SubPayType"] = request.getSubPayType();
   }
 
   if (!!request.hasSubnetId()) {
@@ -3957,24 +3983,22 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
 }
 
 /**
- * @summary Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
+ * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
  *
- * @description Before you create a cloud desktop, meet the following requirements:
- * - Create an office site (formerly a workspace) and users:
- *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
- * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
- * **Request examples**
+ * @description Before creating cloud desktops, complete the following preparations:
+ * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
+ *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
+ * **Call examples:**
  * <details>
- * <summary>
- * Example: Create a cloud desktop from a bundle
- * </summary>
+ * <summary>Example of creating with a template</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "PolicyGroupId": "system-all-enabled-policy",
  *   "ChargeType": "PostPaid",
  *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -3982,15 +4006,13 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * ```
  * </details>
  * <details>
- * <summary>
- * Example: Create a cloud desktop with custom settings
- * </summary>
+ * <summary>Example of creating without a template</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "PolicyGroupId": "system-all-enabled-policy",
  *   "ChargeType": "PostPaid",
  *   "DesktopAttachment": {
@@ -4004,15 +4026,13 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * ```
  * </details>
  * <details>
- * <summary>
- * Example: Create a cloud desktop with a monthly usage package
- * </summary>
+ * <summary>Example of creating a monthly hourly package</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "PolicyGroupId": "system-all-enabled-policy",
  *   "ChargeType": "PostPaid",
  *   "DesktopAttachment": {
@@ -4031,16 +4051,14 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * ```
  * </details>
  * <details>
- * <summary>
- * Example: Create an agent resource
- * </summary>
+ * <summary>Example of creating an Agent resource</summary>
  * ```
  * {
- *   "RegionId": "cn-hangzhou",
+ *   "RegionId": "ap-southeast-1",
  *   "BundleId": "b-openclaw-linux",
  *   "DesktopName": "test-desktop-name",
  *   "Amount": "1",
- *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
  *   "ChargeType": "PostPaid",
  *   "DesktopAttachment": {
  *     "DesktopType": "cloud.space.4c.8g"
@@ -4053,7 +4071,7 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * }
  * ```
  * </details>
- * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
+ * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
  *
  * @param request CreateDesktopsRequest
  * @return CreateDesktopsResponse
@@ -4528,7 +4546,7 @@ CreateNatGatewayResponse Client::createNatGateway(const CreateNatGatewayRequest 
 }
 
 /**
- * @summary Creates a network package for an office network.
+ * @summary Creates a premium bandwidth plan for an office network.
  *
  * @param request CreateNetworkPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4585,6 +4603,10 @@ CreateNetworkPackageResponse Client::createNetworkPackageWithOptions(const Creat
     query["ResellerOwnerUid"] = request.getResellerOwnerUid();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4603,7 +4625,7 @@ CreateNetworkPackageResponse Client::createNetworkPackageWithOptions(const Creat
 }
 
 /**
- * @summary Creates a network package for an office network.
+ * @summary Creates a premium bandwidth plan for an office network.
  *
  * @param request CreateNetworkPackageRequest
  * @return CreateNetworkPackageResponse
@@ -7470,7 +7492,7 @@ DescribeCensResponse Client::describeCens(const DescribeCensRequest &request) {
 }
 
 /**
- * @summary Query details of policies that are not region-specific.
+ * @summary Queries the details of region-free policies.
  *
  * @param request DescribeCenterPolicyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7533,7 +7555,7 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyListWithOptions(con
 }
 
 /**
- * @summary Query details of policies that are not region-specific.
+ * @summary Queries the details of region-free policies.
  *
  * @param request DescribeCenterPolicyListRequest
  * @return DescribeCenterPolicyListResponse
@@ -9440,72 +9462,6 @@ DescribeFlowMetricResponse Client::describeFlowMetric(const DescribeFlowMetricRe
 }
 
 /**
- * @summary Queries cloud computer-level traffic statistics of a single office network.
- *
- * @description > You can query only the traffic data in the last 90 days.
- *
- * @param request DescribeFlowStatisticRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeFlowStatisticResponse
- */
-DescribeFlowStatisticResponse Client::describeFlowStatisticWithOptions(const DescribeFlowStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDesktopId()) {
-    query["DesktopId"] = request.getDesktopId();
-  }
-
-  if (!!request.hasOfficeSiteId()) {
-    query["OfficeSiteId"] = request.getOfficeSiteId();
-  }
-
-  if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.getPageNumber();
-  }
-
-  if (!!request.hasPageSize()) {
-    query["PageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasPeriod()) {
-    query["Period"] = request.getPeriod();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeFlowStatistic"},
-    {"version" , "2020-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeFlowStatisticResponse>();
-}
-
-/**
- * @summary Queries cloud computer-level traffic statistics of a single office network.
- *
- * @description > You can query only the traffic data in the last 90 days.
- *
- * @param request DescribeFlowStatisticRequest
- * @return DescribeFlowStatisticResponse
- */
-DescribeFlowStatisticResponse Client::describeFlowStatistic(const DescribeFlowStatisticRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeFlowStatisticWithOptions(request, runtime);
-}
-
-/**
  * @summary 查询DNAT条目
  *
  * @param request DescribeForwardTableEntriesRequest
@@ -10638,7 +10594,7 @@ DescribeNatGatewaysResponse Client::describeNatGateways(const DescribeNatGateway
 }
 
 /**
- * @summary Queries the details of one or more premium bandwidth plans.
+ * @summary Queries the details of one or more premium Internet bandwidth plans.
  *
  * @param request DescribeNetworkPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10667,6 +10623,10 @@ DescribeNetworkPackagesResponse Client::describeNetworkPackagesWithOptions(const
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -10685,7 +10645,7 @@ DescribeNetworkPackagesResponse Client::describeNetworkPackagesWithOptions(const
 }
 
 /**
- * @summary Queries the details of one or more premium bandwidth plans.
+ * @summary Queries the details of one or more premium Internet bandwidth plans.
  *
  * @param request DescribeNetworkPackagesRequest
  * @return DescribeNetworkPackagesResponse
@@ -12076,7 +12036,7 @@ DescribeSubnetsResponse Client::describeSubnets(const DescribeSubnetsRequest &re
 }
 
 /**
- * @summary Query the details of Cloud Desktop templates.
+ * @summary Queries the details of cloud computer templates.
  *
  * @param request DescribeTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12143,7 +12103,7 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const DescribeTem
 }
 
 /**
- * @summary Query the details of Cloud Desktop templates.
+ * @summary Queries the details of cloud computer templates.
  *
  * @param request DescribeTemplatesRequest
  * @return DescribeTemplatesResponse
@@ -14080,9 +14040,9 @@ ListOfficeSiteUsersResponse Client::listOfficeSiteUsers(const ListOfficeSiteUser
 }
 
 /**
- * @summary Queries the tags of cloud computers.
+ * @summary Queries the list of tags that are added to cloud computers.
  *
- * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+ * @description You must specify at least one of the following parameters in the request to specify the query object: `ResourceId.N`, `Tag.N.Key`, or `Tag.N.Value`.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14133,9 +14093,9 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags of cloud computers.
+ * @summary Queries the list of tags that are added to cloud computers.
  *
- * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+ * @description You must specify at least one of the following parameters in the request to specify the query object: `ResourceId.N`, `Tag.N.Key`, or `Tag.N.Value`.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -14704,7 +14664,7 @@ ModifyAclEntriesResponse Client::modifyAclEntries(const ModifyAclEntriesRequest 
 }
 
 /**
- * @summary Modifies the name and snapshot retention period of an automatic snapshot policy.
+ * @summary Modifies the configuration items of an automatic snapshot policy, including the policy name and snapshot retention period.
  *
  * @param request ModifyAutoSnapshotPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14755,7 +14715,7 @@ ModifyAutoSnapshotPolicyResponse Client::modifyAutoSnapshotPolicyWithOptions(con
 }
 
 /**
- * @summary Modifies the name and snapshot retention period of an automatic snapshot policy.
+ * @summary Modifies the configuration items of an automatic snapshot policy, including the policy name and snapshot retention period.
  *
  * @param request ModifyAutoSnapshotPolicyRequest
  * @return ModifyAutoSnapshotPolicyResponse
@@ -19816,9 +19776,9 @@ SetDesktopMaintenanceResponse Client::setDesktopMaintenance(const SetDesktopMain
 }
 
 /**
- * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
+ * @summary Enables or disables the single sign-on (SSO) feature for an AD-based office network.
  *
- * @description This operation is supported only for AD directories, not for RAM directories.
+ * @description This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
  *
  * @param request SetDirectorySsoStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19857,9 +19817,9 @@ SetDirectorySsoStatusResponse Client::setDirectorySsoStatusWithOptions(const Set
 }
 
 /**
- * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
+ * @summary Enables or disables the single sign-on (SSO) feature for an AD-based office network.
  *
- * @description This operation is supported only for AD directories, not for RAM directories.
+ * @description This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
  *
  * @param request SetDirectorySsoStatusRequest
  * @return SetDirectorySsoStatusResponse
@@ -20208,9 +20168,9 @@ StopInvocationResponse Client::stopInvocation(const StopInvocationRequest &reque
 }
 
 /**
- * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+ * @summary Adds tags to specified cloud desktops. This makes it easier to filter and manage cloud desktops by tag.
  *
- * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+ * @description If the specified TagKey already exists, the new TagValue overwrites the original TagValue.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20253,9 +20213,9 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+ * @summary Adds tags to specified cloud desktops. This makes it easier to filter and manage cloud desktops by tag.
  *
- * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+ * @description If the specified TagKey already exists, the new TagValue overwrites the original TagValue.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -20478,7 +20438,7 @@ UnlockVirtualMFADeviceResponse Client::unlockVirtualMFADevice(const UnlockVirtua
 }
 
 /**
- * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+ * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20525,7 +20485,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+ * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse

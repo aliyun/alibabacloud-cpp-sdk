@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Hostname, hostname_);
       DARABONBA_PTR_TO_JSON(MonthDesktopSetting, monthDesktopSetting_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_TO_JSON(OuPath, ouPath_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_TO_JSON(SnapshotPolicyId, snapshotPolicyId_);
+      DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TimerGroupId, timerGroupId_);
@@ -76,6 +78,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
       DARABONBA_PTR_FROM_JSON(MonthDesktopSetting, monthDesktopSetting_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_FROM_JSON(OuPath, ouPath_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
@@ -87,6 +90,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SavingPlanId, savingPlanId_);
       DARABONBA_PTR_FROM_JSON(SnapshotPolicyId, snapshotPolicyId_);
+      DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TimerGroupId, timerGroupId_);
@@ -155,11 +159,11 @@ namespace Models
 
 
     protected:
-      // The content of the script.
+      // The command content.
       shared_ptr<string> content_ {};
-      // The encoding format of the script content specified in the `Content` parameter.
+      // The encoding method of the command content (CommandContent).
       shared_ptr<string> contentEncoding_ {};
-      // The script type.
+      // The language type of the command.
       shared_ptr<string> contentType_ {};
     };
 
@@ -201,9 +205,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key. You can specify 1 to 20 tag keys.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value. You can specify 1 to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -235,7 +239,7 @@ namespace Models
 
 
     protected:
-      // The monthly credit package. This parameter is used to select a credit package when you purchase agent resources. Valid values: 200, 1600, and 4000.
+      // The monthly credit package for purchasing Agent resources. Valid values: 200, 1600, and 4000.
       shared_ptr<int32_t> monthlyCredits_ {};
     };
 
@@ -286,11 +290,11 @@ namespace Models
 
 
     protected:
-      // > This parameter is for internal use only.
+      // > This field is not available for use.
       shared_ptr<int64_t> buyerId_ {};
-      // > This parameter is for internal use only.
+      // > This field is not available for use.
       shared_ptr<string> desktopId_ {};
-      // The duration in hours for the monthly usage package. Valid values: 120, 250, and 360.
+      // The package option when purchasing a monthly hourly package. Valid values: 120, 250, and 360.
       shared_ptr<int32_t> useDuration_ {};
     };
 
@@ -378,21 +382,19 @@ namespace Models
 
 
     protected:
-      // Specifies whether to allow end users to configure the scheduled task.
+      // Specifies whether to allow end users to configure scheduled tasks.
       shared_ptr<bool> allowClientSetting_ {};
-      // The cron expression for the scheduled task.
+      // The cron expression of the scheduled task.
       // 
-      // >Notice: 
-      // 
-      // The cron expression is evaluated in UTC. For example, to specify 00:00 (UTC+8) every day, set the value to `0 0 16 ? * 1,2,3,4,5,6,7`.
+      // >Notice: Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, set the value to 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
       shared_ptr<string> cronExpression_ {};
-      // Specifies whether to forcibly execute the scheduled task.
+      // Specifies whether to forcefully execute the task.
       shared_ptr<bool> enforce_ {};
-      // The interval in minutes.
+      // The time interval, in minutes.
       shared_ptr<int32_t> interval_ {};
-      // The operation to perform for the scheduled task. This parameter is valid only for scheduled tasks that are triggered by user disconnection.
+      // The operation type of the scheduled task. Currently, only the disconnection scheduled task is supported.
       shared_ptr<string> operationType_ {};
-      // The disk reset type.
+      // The reset type of the cloud desktop.
       shared_ptr<string> resetType_ {};
       // The type of the scheduled task.
       shared_ptr<string> timerType_ {};
@@ -500,47 +502,35 @@ namespace Models
 
 
     protected:
-      // The type of the data disk. The system disk and data disk must be of the same type. Valid values:
-      // 
-      // - cloud_auto: AutoPL SSD
-      // 
-      // - cloud_essd: enhanced SSD (ESSD)
+      // The data cloud disk type. The system cloud disk type must be the same as the data cloud disk type. Valid values:
+      // - cloud_auto: standard SSD ultra cloud disk
+      // - cloud_essd: ESSD cloud disk
       shared_ptr<string> dataDiskCategory_ {};
-      // The PL of the ESSD. This parameter is required only when `DataDiskCategory` is set to `cloud_essd`. Valid values:
-      // 
+      // The performance level (PL) of the ESSD cloud disk. This parameter is required when an ESSD cloud disk is selected. Valid values:
       // - PL0
-      // 
       // - PL1
       shared_ptr<string> dataDiskPerLevel_ {};
-      // The capacity of the data disk, in GiB. Valid values: 40 to 2,040. The value must be a multiple of 10.
+      // The user cloud disk capacity. Valid values: 40 to 2040 GiB, in increments of 10 GiB.
       shared_ptr<int32_t> dataDiskSize_ {};
-      // The display language of the cloud desktop\\"s operating system. Valid values:
-      // 
-      // - zh-CN: Simplified Chinese
-      // 
-      // - zh-HK: Traditional Chinese (Hong Kong)
-      // 
-      // - en-US: American English
-      // 
-      // - ja-JP: Japanese
+      // The language. Valid values:
+      // - zh-CN
+      // - zh-HK
+      // - en-US
+      // - ja-JP
       shared_ptr<string> defaultLanguage_ {};
-      // The desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the supported desktop types.
+      // The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs.
       shared_ptr<string> desktopType_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The type of the system disk. The system disk and data disk must be of the same type. Valid values:
-      // 
-      // - cloud_auto: AutoPL SSD
-      // 
-      // - cloud_essd: enhanced SSD (ESSD)
+      // The system cloud disk type. The system cloud disk type must be the same as the data cloud disk type. Valid values:
+      // - cloud_auto: standard SSD ultra cloud disk
+      // - cloud_essd: ESSD cloud disk
       shared_ptr<string> systemDiskCategory_ {};
-      // The performance level (PL) of the ESSD. This parameter is required only when `SystemDiskCategory` is set to `cloud_essd`. Valid values:
-      // 
+      // The performance level (PL) of the ESSD cloud disk. This parameter is required when an ESSD cloud disk is selected. Valid values:
       // - PL0
-      // 
       // - PL1
       shared_ptr<string> systemDiskPerLevel_ {};
-      // The capacity of the system disk, in GiB. Valid values: 60 to 500. The value must be a multiple of 10.
+      // The system cloud disk capacity. Valid values: 60 to 500 GiB, in increments of 10 GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -632,37 +622,32 @@ namespace Models
     protected:
       // The number of cloud desktops to create. Valid values: 1 to 300. Default value: 0.
       shared_ptr<int32_t> amount_ {};
-      // The bundle ID.
+      // The cloud desktop template ID.
       shared_ptr<string> bundleId_ {};
-      // The name of the cloud desktop. The name must meet the following requirements:
+      // The cloud desktop name. The naming rules are as follows:
       // 
-      // - The name must be 1 to 64 characters in length.
-      // 
-      // - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
-      // 
-      // - The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+      // - The name can be up to 64 characters in length.
+      // - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+      // - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
       shared_ptr<string> desktopName_ {};
-      // The list of end user IDs to whom the cloud desktops are assigned.
+      // The list of users to whom the cloud desktops are assigned.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The custom hostname of the cloud desktop. This parameter is supported only for Windows cloud desktops that are in an AD office network.
+      // The custom hostname of the cloud desktop. Settings for this parameter are supported only for cloud desktops that run the Windows operating system in an AD office network.
       // 
-      // The hostname must meet the following requirements:
+      // The naming rules for the hostname are as follows:
       // 
       // - The hostname must be 2 to 15 characters in length.
+      // - The hostname can contain uppercase letters, lowercase letters, digits, or hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
       // 
-      // - The hostname can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
-      // 
-      // If you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to specify sequential hostnames for the cloud desktops. For example, if you set the `Hostname` parameter to `ecd-[1,4]-test`, the hostname of the first cloud desktop is `ecd-0001-test`, the second is `ecd-0002-test`, and so on.
+      // When you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to uniformly name the cloud desktops. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
       // 
       // - `name_prefix`: the prefix of the hostname.
-      // 
-      // - `[begin_number,bits]`: The sequential part of the hostname.
-      // 
+      // - `[begin_number,bits]`: the sequential number in the hostname. `begin_number` is the starting number. Valid values: 0 to 999999. Default value: 0. `bits` is the number of digits. Valid values: 1 to 6. Default value: 6.
       // - `name_suffix`: the suffix of the hostname.
       shared_ptr<string> hostname_ {};
-      // Specifies whether to enable disk encryption.
+      // Specifies whether to enable cloud disk encryption.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the KMS key to use for disk encryption. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain a list of key IDs.
+      // The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -670,11 +655,12 @@ namespace Models
         && this->appRuleId_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bundleId_ == nullptr && this->bundleModels_ == nullptr
         && this->channelCookie_ == nullptr && this->chargeType_ == nullptr && this->desktopAttachment_ == nullptr && this->desktopMemberIp_ == nullptr && this->desktopName_ == nullptr
         && this->desktopNameSuffix_ == nullptr && this->desktopTimers_ == nullptr && this->directoryId_ == nullptr && this->endUserId_ == nullptr && this->extendInfo_ == nullptr
-        && this->groupId_ == nullptr && this->hostname_ == nullptr && this->monthDesktopSetting_ == nullptr && this->officeSiteId_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->purchaseOptions_ == nullptr && this->qosRuleId_ == nullptr
-        && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->snapshotPolicyId_ == nullptr
-        && this->subnetId_ == nullptr && this->tag_ == nullptr && this->timerGroupId_ == nullptr && this->userAssignMode_ == nullptr && this->userCommands_ == nullptr
-        && this->userName_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->vpcId_ == nullptr; };
+        && this->groupId_ == nullptr && this->hostname_ == nullptr && this->monthDesktopSetting_ == nullptr && this->officeSiteId_ == nullptr && this->ouPath_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->promotionId_ == nullptr && this->purchaseOptions_ == nullptr
+        && this->qosRuleId_ == nullptr && this->regionId_ == nullptr && this->resellerOwnerUid_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr
+        && this->snapshotPolicyId_ == nullptr && this->subPayType_ == nullptr && this->subnetId_ == nullptr && this->tag_ == nullptr && this->timerGroupId_ == nullptr
+        && this->userAssignMode_ == nullptr && this->userCommands_ == nullptr && this->userName_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr
+        && this->vpcId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -825,6 +811,13 @@ namespace Models
     inline CreateDesktopsRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
+    // ouPath Field Functions 
+    bool hasOuPath() const { return this->ouPath_ != nullptr;};
+    void deleteOuPath() { this->ouPath_ = nullptr;};
+    inline string getOuPath() const { DARABONBA_PTR_GET_DEFAULT(ouPath_, "") };
+    inline CreateDesktopsRequest& setOuPath(string ouPath) { DARABONBA_PTR_SET_VALUE(ouPath_, ouPath) };
+
+
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
@@ -904,6 +897,13 @@ namespace Models
     inline CreateDesktopsRequest& setSnapshotPolicyId(string snapshotPolicyId) { DARABONBA_PTR_SET_VALUE(snapshotPolicyId_, snapshotPolicyId) };
 
 
+    // subPayType Field Functions 
+    bool hasSubPayType() const { return this->subPayType_ != nullptr;};
+    void deleteSubPayType() { this->subPayType_ = nullptr;};
+    inline string getSubPayType() const { DARABONBA_PTR_GET_DEFAULT(subPayType_, "") };
+    inline CreateDesktopsRequest& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
+
+
     // subnetId Field Functions 
     bool hasSubnetId() const { return this->subnetId_ != nullptr;};
     void deleteSubnetId() { this->subnetId_ = nullptr;};
@@ -974,129 +974,120 @@ namespace Models
   protected:
     // The number of cloud desktops to create. Valid values: 1 to 300. Default value: 1.
     shared_ptr<int32_t> amount_ {};
-    // The ID of the application control policy.
+    // The application control policy ID.
     shared_ptr<string> appRuleId_ {};
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal for the cloud desktops. This parameter is valid only when `ChargeType` is set to `PrePaid`.
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when `ChargeType` is set to `PrePaid`.
     shared_ptr<bool> autoRenew_ {};
-    // The bundle ID. If you do not specify this parameter, you must use the `DesktopAttachment` parameter to configure the cloud desktop.
+    // The cloud desktop template ID. If no template ID is specified, you can create a cloud desktop by specifying the required fields.
     shared_ptr<string> bundleId_ {};
-    // An array of bundle objects. Use this parameter to create cloud desktops from one or more bundles in a single call.
+    // The list of cloud desktop templates.
     shared_ptr<vector<CreateDesktopsRequest::BundleModels>> bundleModels_ {};
-    // > This parameter is for internal use only.
+    // > This field is not available for use.
     shared_ptr<string> channelCookie_ {};
-    // The billing method of the cloud desktops.
+    // The billing method of the cloud desktop.
     shared_ptr<string> chargeType_ {};
-    // The parameters for creating a cloud desktop without a bundle. This parameter is used only if `BundleId` is not specified.
+    // The parameters for creating a cloud desktop without a template. This parameter is invalid when the BundleId parameter is specified.
     shared_ptr<CreateDesktopsRequest::DesktopAttachment> desktopAttachment_ {};
     // The private IP address of the cloud desktop.
     shared_ptr<string> desktopMemberIp_ {};
-    // The name of the cloud desktop. The name must meet the following requirements:
+    // The cloud desktop name. The naming rules are as follows:
     // 
-    // - The name must be 1 to 64 characters in length.
-    // 
-    // - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
-    // 
-    // - The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // - The name can be up to 64 characters in length.
+    // - The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+    // - The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
     shared_ptr<string> desktopName_ {};
-    // Specifies whether to automatically append a suffix to the value of `DesktopName` when you create multiple cloud desktops.
+    // Specifies whether to automatically append a suffix to the cloud desktop name when you create multiple cloud desktops in a batch.
     shared_ptr<bool> desktopNameSuffix_ {};
-    // The details of the scheduled tasks for the cloud desktops. This parameter is being deprecated. We recommend that you use `TimerGroupId` instead.
+    // The scheduled task details of the cloud desktop. This parameter is being deprecated. Use the TimerGroupId parameter instead.
     shared_ptr<vector<CreateDesktopsRequest::DesktopTimers>> desktopTimers_ {};
-    // > This parameter is for internal use only.
+    // > This parameter is not available for use.
     shared_ptr<string> directoryId_ {};
-    // The IDs of the end users to assign to the cloud desktops. You can specify up to 100 IDs.
+    // The list of authorized user IDs to add to the cloud desktops. You can specify 1 to 100 user IDs.
     shared_ptr<vector<string>> endUserId_ {};
-    // The extended information in a JSON string. This parameter is for internal use only.
+    // The extended information in JSON string format. This parameter is available only for internal customers.
     shared_ptr<string> extendInfo_ {};
-    // The ID of the desktop pool.
+    // The cloud desktop pool ID.
     shared_ptr<string> groupId_ {};
-    // The custom hostname of the cloud desktop. This parameter is supported only for Windows cloud desktops that are in an AD office network.
+    // The custom hostname of the cloud desktop. Settings for this parameter are supported only for cloud desktops that run the Windows operating system in an AD office network.
     // 
-    // The hostname must meet the following requirements:
+    // The naming rules for the hostname are as follows:
     // 
     // - The hostname must be 2 to 15 characters in length.
+    // - The hostname can contain uppercase letters, lowercase letters, digits, or hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
     // 
-    // - The hostname can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
-    // 
-    // If you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to specify sequential hostnames for the cloud desktops. For example, if you set the `Hostname` parameter to `ecd-[1,4]-test`, the hostname of the first cloud desktop is `ecd-0001-test`, the second is `ecd-0002-test`, and so on.
+    // When you create multiple cloud desktops, you can use the `name_prefix[begin_number,bits]name_suffix` format to uniformly name the cloud desktops. For example, if you set Hostname to ecd-[1,4]-test, the hostname of the first cloud desktop is ecd-0001-test, the hostname of the second cloud desktop is ecd-0002-test, and so on.
     // 
     // - `name_prefix`: the prefix of the hostname.
-    // 
-    // - `[begin_number,bits]`: The sequential part of the hostname.
-    // 
+    // - `[begin_number,bits]`: the sequential number in the hostname. `begin_number` is the starting number. Valid values: 0 to 999999. Default value: 0. `bits` is the number of digits. Valid values: 1 to 6. Default value: 6.
     // - `name_suffix`: the suffix of the hostname.
     shared_ptr<string> hostname_ {};
-    // The parameters for purchasing a monthly usage package.
+    // The purchase parameters for the monthly hourly package.
     shared_ptr<CreateDesktopsRequest::MonthDesktopSetting> monthDesktopSetting_ {};
-    // The ID of the office network.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The subscription duration. The unit is specified by the `PeriodUnit` parameter. This parameter is required only when `ChargeType` is set to `PrePaid`.
+    // The OU path. If specified, the cloud desktop is added to the corresponding organizational unit (OU) in Active Directory (AD).
+    shared_ptr<string> ouPath_ {};
+    // The subscription duration of the resource. The unit is specified by `PeriodUnit`. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`.
     // 
-    // - If `PeriodUnit` is set to `Month`, valid values are:
+    // - If `PeriodUnit` is set to `Month`, valid values of this parameter:
     // 
-    //   - 1
+    //      - 1
+    //     -  2
+    //     - 3
+    //     - 6
     // 
-    //   - 2
+    // - If `PeriodUnit` is set to `Year`, valid values of this parameter:
     // 
-    //   - 3
-    // 
-    //   - 6
-    // 
-    // - If `PeriodUnit` is set to `Year`, valid values are:
-    // 
-    //   - 1
-    // 
-    //   - 2
-    // 
-    //   - 3
-    // 
-    //   - 4
-    // 
-    //   - 5
+    //     - 1
+    //     - 2
+    //     - 3
+    //     - 4
+    //     - 5
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the policy.
+    // The policy ID.
     shared_ptr<string> policyGroupId_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
     // The additional parameters for a specific purchase type.
     shared_ptr<CreateDesktopsRequest::PurchaseOptions> purchaseOptions_ {};
-    // The ID of the bandwidth QoS policy.
+    // The public network rate limiting rule ID.
     shared_ptr<string> qosRuleId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions that support Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The UID of the resource owner in reseller mode. This parameter is required only in reseller mode.
+    // The user ID for resource ownership in reseller pattern. This parameter is not required in non-reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
-    // The ID of the resource group.
+    // The WUYING resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // > This parameter is for internal use only.
+    // > This field is not available for use.
     shared_ptr<string> savingPlanId_ {};
-    // The ID of the automatic snapshot policy.
+    // The WUYING automatic snapshot policy ID.
     shared_ptr<string> snapshotPolicyId_ {};
-    // The ID of the vSwitch.
+    shared_ptr<string> subPayType_ {};
+    // The subnet ID.
     shared_ptr<string> subnetId_ {};
-    // The tags to add to the cloud desktops. A resource can have up to 20 tags.
+    // The tags.
     shared_ptr<vector<CreateDesktopsRequest::Tag>> tag_ {};
-    // The ID of the scheduled task group.
+    // The scheduled task group ID.
     shared_ptr<string> timerGroupId_ {};
-    // The user assignment mode for the cloud desktops.
+    // The cloud desktop assignment mode.
     // 
-    // > If you do not specify the `EndUserId` parameter, the created cloud desktops are unassigned.
+    // > If `EndUserId` is not specified, the created cloud desktops are not assigned to any user.
     shared_ptr<string> userAssignMode_ {};
-    // The custom scripts to run on the cloud desktops after they start.
+    // The custom command script data.
     shared_ptr<vector<CreateDesktopsRequest::UserCommands>> userCommands_ {};
-    // > This parameter is for internal use only.
+    // > This parameter is not available for use.
     shared_ptr<string> userName_ {};
-    // Specifies whether to enable disk encryption.
+    // Specifies whether to enable cloud disk encryption.
     shared_ptr<bool> volumeEncryptionEnabled_ {};
-    // The ID of the KMS key to use for disk encryption. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain a list of key IDs.
+    // The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
     shared_ptr<string> volumeEncryptionKey_ {};
-    // > This parameter is for internal use only.
+    // > This parameter is not available for use.
     shared_ptr<string> vpcId_ {};
   };
 

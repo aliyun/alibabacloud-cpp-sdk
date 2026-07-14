@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATENETWORKPACKAGEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATENETWORKPACKAGEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResellerOwnerUid, resellerOwnerUid_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNetworkPackageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
@@ -39,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResellerOwnerUid, resellerOwnerUid_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     CreateNetworkPackageRequest() = default ;
     CreateNetworkPackageRequest(const CreateNetworkPackageRequest &) = default ;
@@ -51,10 +54,52 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->autoPay_ == nullptr
         && this->autoRenew_ == nullptr && this->bandwidth_ == nullptr && this->channelCookie_ == nullptr && this->internetChargeType_ == nullptr && this->officeSiteId_ == nullptr
         && this->payType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->regionId_ == nullptr
-        && this->resellerOwnerUid_ == nullptr; };
+        && this->resellerOwnerUid_ == nullptr && this->tag_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -139,57 +184,59 @@ namespace Models
     inline CreateNetworkPackageRequest& setResellerOwnerUid(int64_t resellerOwnerUid) { DARABONBA_PTR_SET_VALUE(resellerOwnerUid_, resellerOwnerUid) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<CreateNetworkPackageRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateNetworkPackageRequest::Tag>) };
+    inline vector<CreateNetworkPackageRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateNetworkPackageRequest::Tag>) };
+    inline CreateNetworkPackageRequest& setTag(const vector<CreateNetworkPackageRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateNetworkPackageRequest& setTag(vector<CreateNetworkPackageRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
   protected:
-    // Specifies whether to enable auto-payment.
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The bandwidth of the network package, in Mbps.
+    // The bandwidth of the premium bandwidth plan. Unit: Mbit/s.    
     // 
-    // - For subscription network packages, the value range is 2 to 1,000.
-    // 
-    // - For pay-as-you-go network packages that are billed by traffic, the value range is 2 to 200.
-    // 
-    // - For pay-as-you-go network packages that are billed by bandwidth, the value range is 2 to 1,000.
+    // - If the premium bandwidth plan uses the subscription billing method, the valid values are 2 to 1000.
+    // - If the premium bandwidth plan uses the pay-as-you-go billing method and the billing type is pay-by-data-transfer (PayByTraffic), the valid values are 2 to 200.
+    // - If the premium bandwidth plan uses the pay-as-you-go billing method and the billing type is pay-by-bandwidth (PayByBandwidth), the valid values are 2 to 1000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> bandwidth_ {};
     shared_ptr<string> channelCookie_ {};
-    // The billing method for the network package.
+    // The billable methods of the premium bandwidth plan.
     // 
-    // - When `PayType` is set to `PrePaid`, the only valid value is:
-    // 
-    //   - `PayByBandwidth`: pay-by-bandwidth.
-    // 
-    // - When `PayType` is set to `PostPaid`, valid values are:
-    // 
-    //   - `PayByTraffic`: pay-by-traffic.
-    // 
-    //   - `PayByBandwidth`: pay-by-bandwidth.
+    // - If the parameter `PayType` is set to `PrePaid`, valid values:
+    //     - PayByBandwidth: billing by fixed bandwidth.
+    // - If the parameter `PayType` is set to `PostPaid`, valid values:
+    //     - PayByTraffic: billing by data transfer.
+    //     - PayByBandwidth: billing by fixed bandwidth.
     shared_ptr<string> internetChargeType_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
-    // The subscription duration of the network package. This parameter is required and applies only when `PayType` is set to `PrePaid`. The valid values for this parameter depend on the value of `PeriodUnit`.
+    // The subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when PayType is set to PrePaid. Valid values are determined by the PeriodUnit parameter.
     // 
-    // - If `PeriodUnit` is set to `Week`, the only valid value is 1.
-    // 
-    // - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
-    // 
-    // - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
+    // - If PeriodUnit is set to Week, the valid value is 1.
+    // - If PeriodUnit is set to Month, valid values are 1, 2, 3, and 6.
+    // - If PeriodUnit is set to Year, valid values are 1, 2, and 3.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration for the network package. This parameter is required and applies only when `PayType` is set to `PrePaid`.
+    // The unit of the subscription duration for the premium bandwidth plan. This parameter takes effect and is required only when PayType is set to PrePaid.
     shared_ptr<string> periodUnit_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to get the list of regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resellerOwnerUid_ {};
+    shared_ptr<vector<CreateNetworkPackageRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

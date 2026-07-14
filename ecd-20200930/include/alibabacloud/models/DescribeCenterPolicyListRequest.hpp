@@ -121,18 +121,19 @@ namespace Models
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
     shared_ptr<string> modelLibrary_ {};
-    // The page number to return in a paged query.<br>Default value: 1.
+    // The page number of the current page in a paged query. Paging starts from page 1.    
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page in a paged query.
+    // The maximum number of entries per page in a paged query. Paging is used to return results in batches.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of Cloud Desktop policy IDs.
+    // The list of cloud desktop policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};
     shared_ptr<string> portProxy_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The scope where the Cloud Desktop policy takes effect.
+    // The effective scope of the cloud desktop policy.
     shared_ptr<string> scope_ {};
   };
 

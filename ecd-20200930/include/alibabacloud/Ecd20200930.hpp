@@ -608,7 +608,7 @@ namespace Ecd20200930
       Models::CreateADConnectorOfficeSiteResponse createADConnectorOfficeSite(const Models::CreateADConnectorOfficeSiteRequest &request);
 
       /**
-       * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
+       * @summary Creates a NAS file system and binds it to the office network of a shared cloud computer.
        *
        * @param request CreateAndBindNasFileSystemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -617,7 +617,7 @@ namespace Ecd20200930
       Models::CreateAndBindNasFileSystemResponse createAndBindNasFileSystemWithOptions(const Models::CreateAndBindNasFileSystemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a NAS file system and associate it with the office network of the shared cloud computer.
+       * @summary Creates a NAS file system and binds it to the office network of a shared cloud computer.
        *
        * @param request CreateAndBindNasFileSystemRequest
        * @return CreateAndBindNasFileSystemResponse
@@ -851,24 +851,22 @@ namespace Ecd20200930
       Models::CreateDesktopOversoldGroupResponse createDesktopOversoldGroup(const Models::CreateDesktopOversoldGroupRequest &request);
 
       /**
-       * @summary Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
+       * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
        *
-       * @description Before you create a cloud desktop, meet the following requirements:
-       * - Create an office site (formerly a workspace) and users:
-       *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-       *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
-       * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
-       * **Request examples**
+       * @description Before creating cloud desktops, complete the following preparations:
+       * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
+       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+       * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
+       * **Call examples:**
        * <details>
-       * <summary>
-       * Example: Create a cloud desktop from a bundle
-       * </summary>
+       * <summary>Example of creating with a template</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "PolicyGroupId": "system-all-enabled-policy",
        *   "ChargeType": "PostPaid",
        *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -876,15 +874,13 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>
-       * Example: Create a cloud desktop with custom settings
-       * </summary>
+       * <summary>Example of creating without a template</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "PolicyGroupId": "system-all-enabled-policy",
        *   "ChargeType": "PostPaid",
        *   "DesktopAttachment": {
@@ -898,15 +894,13 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>
-       * Example: Create a cloud desktop with a monthly usage package
-       * </summary>
+       * <summary>Example of creating a monthly hourly package</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "PolicyGroupId": "system-all-enabled-policy",
        *   "ChargeType": "PostPaid",
        *   "DesktopAttachment": {
@@ -925,16 +919,14 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>
-       * Example: Create an agent resource
-       * </summary>
+       * <summary>Example of creating an Agent resource</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "BundleId": "b-openclaw-linux",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "ChargeType": "PostPaid",
        *   "DesktopAttachment": {
        *     "DesktopType": "cloud.space.4c.8g"
@@ -947,7 +939,7 @@ namespace Ecd20200930
        * }
        * ```
        * </details>
-       * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
+       * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
        *
        * @param tmpReq CreateDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,24 +948,22 @@ namespace Ecd20200930
       Models::CreateDesktopsResponse createDesktopsWithOptions(const Models::CreateDesktopsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
+       * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
        *
-       * @description Before you create a cloud desktop, meet the following requirements:
-       * - Create an office site (formerly a workspace) and users:
-       *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-       *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
-       * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
-       * **Request examples**
+       * @description Before creating cloud desktops, complete the following preparations:
+       * - Create an office network (formerly workspace) and users. For more information, see the following API operations or documentation:
+       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+       * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
+       * **Call examples:**
        * <details>
-       * <summary>
-       * Example: Create a cloud desktop from a bundle
-       * </summary>
+       * <summary>Example of creating with a template</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "PolicyGroupId": "system-all-enabled-policy",
        *   "ChargeType": "PostPaid",
        *   "BundleId": "b-enterprise_office_8c16g_windows2022"
@@ -981,15 +971,13 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>
-       * Example: Create a cloud desktop with custom settings
-       * </summary>
+       * <summary>Example of creating without a template</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "PolicyGroupId": "system-all-enabled-policy",
        *   "ChargeType": "PostPaid",
        *   "DesktopAttachment": {
@@ -1003,15 +991,13 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>
-       * Example: Create a cloud desktop with a monthly usage package
-       * </summary>
+       * <summary>Example of creating a monthly hourly package</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "PolicyGroupId": "system-all-enabled-policy",
        *   "ChargeType": "PostPaid",
        *   "DesktopAttachment": {
@@ -1030,16 +1016,14 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>
-       * Example: Create an agent resource
-       * </summary>
+       * <summary>Example of creating an Agent resource</summary>
        * ```
        * {
-       *   "RegionId": "cn-hangzhou",
+       *   "RegionId": "ap-southeast-1",
        *   "BundleId": "b-openclaw-linux",
        *   "DesktopName": "test-desktop-name",
        *   "Amount": "1",
-       *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+       *   "OfficeSiteId": "ap-southeast-1+dir-xxx",// Create an office network in advance
        *   "ChargeType": "PostPaid",
        *   "DesktopAttachment": {
        *     "DesktopType": "cloud.space.4c.8g"
@@ -1052,7 +1036,7 @@ namespace Ecd20200930
        * }
        * ```
        * </details>
-       * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
+       * To have cloud desktops automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
        *
        * @param request CreateDesktopsRequest
        * @return CreateDesktopsResponse
@@ -1201,7 +1185,7 @@ namespace Ecd20200930
       Models::CreateNatGatewayResponse createNatGateway(const Models::CreateNatGatewayRequest &request);
 
       /**
-       * @summary Creates a network package for an office network.
+       * @summary Creates a premium bandwidth plan for an office network.
        *
        * @param request CreateNetworkPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1210,7 +1194,7 @@ namespace Ecd20200930
       Models::CreateNetworkPackageResponse createNetworkPackageWithOptions(const Models::CreateNetworkPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a network package for an office network.
+       * @summary Creates a premium bandwidth plan for an office network.
        *
        * @param request CreateNetworkPackageRequest
        * @return CreateNetworkPackageResponse
@@ -2069,7 +2053,7 @@ namespace Ecd20200930
       Models::DescribeCensResponse describeCens(const Models::DescribeCensRequest &request);
 
       /**
-       * @summary Query details of policies that are not region-specific.
+       * @summary Queries the details of region-free policies.
        *
        * @param request DescribeCenterPolicyListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2078,7 +2062,7 @@ namespace Ecd20200930
       Models::DescribeCenterPolicyListResponse describeCenterPolicyListWithOptions(const Models::DescribeCenterPolicyListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query details of policies that are not region-specific.
+       * @summary Queries the details of region-free policies.
        *
        * @param request DescribeCenterPolicyListRequest
        * @return DescribeCenterPolicyListResponse
@@ -2510,27 +2494,6 @@ namespace Ecd20200930
       Models::DescribeFlowMetricResponse describeFlowMetric(const Models::DescribeFlowMetricRequest &request);
 
       /**
-       * @summary Queries cloud computer-level traffic statistics of a single office network.
-       *
-       * @description > You can query only the traffic data in the last 90 days.
-       *
-       * @param request DescribeFlowStatisticRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeFlowStatisticResponse
-       */
-      Models::DescribeFlowStatisticResponse describeFlowStatisticWithOptions(const Models::DescribeFlowStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries cloud computer-level traffic statistics of a single office network.
-       *
-       * @description > You can query only the traffic data in the last 90 days.
-       *
-       * @param request DescribeFlowStatisticRequest
-       * @return DescribeFlowStatisticResponse
-       */
-      Models::DescribeFlowStatisticResponse describeFlowStatistic(const Models::DescribeFlowStatisticRequest &request);
-
-      /**
        * @summary 查询DNAT条目
        *
        * @param request DescribeForwardTableEntriesRequest
@@ -2827,7 +2790,7 @@ namespace Ecd20200930
       Models::DescribeNatGatewaysResponse describeNatGateways(const Models::DescribeNatGatewaysRequest &request);
 
       /**
-       * @summary Queries the details of one or more premium bandwidth plans.
+       * @summary Queries the details of one or more premium Internet bandwidth plans.
        *
        * @param request DescribeNetworkPackagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2836,7 +2799,7 @@ namespace Ecd20200930
       Models::DescribeNetworkPackagesResponse describeNetworkPackagesWithOptions(const Models::DescribeNetworkPackagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of one or more premium bandwidth plans.
+       * @summary Queries the details of one or more premium Internet bandwidth plans.
        *
        * @param request DescribeNetworkPackagesRequest
        * @return DescribeNetworkPackagesResponse
@@ -3211,7 +3174,7 @@ namespace Ecd20200930
       Models::DescribeSubnetsResponse describeSubnets(const Models::DescribeSubnetsRequest &request);
 
       /**
-       * @summary Query the details of Cloud Desktop templates.
+       * @summary Queries the details of cloud computer templates.
        *
        * @param request DescribeTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3220,7 +3183,7 @@ namespace Ecd20200930
       Models::DescribeTemplatesResponse describeTemplatesWithOptions(const Models::DescribeTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the details of Cloud Desktop templates.
+       * @summary Queries the details of cloud computer templates.
        *
        * @param request DescribeTemplatesRequest
        * @return DescribeTemplatesResponse
@@ -3789,9 +3752,9 @@ namespace Ecd20200930
       Models::ListOfficeSiteUsersResponse listOfficeSiteUsers(const Models::ListOfficeSiteUsersRequest &request);
 
       /**
-       * @summary Queries the tags of cloud computers.
+       * @summary Queries the list of tags that are added to cloud computers.
        *
-       * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+       * @description You must specify at least one of the following parameters in the request to specify the query object: `ResourceId.N`, `Tag.N.Key`, or `Tag.N.Value`.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3800,9 +3763,9 @@ namespace Ecd20200930
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags of cloud computers.
+       * @summary Queries the list of tags that are added to cloud computers.
        *
-       * @description You must use at least one of the following parameters in the request to determine the object that you want to query: `ResourceId.N`, `Tag.N.Key`, and `Tag.N.Value`.
+       * @description You must specify at least one of the following parameters in the request to specify the query object: `ResourceId.N`, `Tag.N.Key`, or `Tag.N.Value`.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -3979,7 +3942,7 @@ namespace Ecd20200930
       Models::ModifyAclEntriesResponse modifyAclEntries(const Models::ModifyAclEntriesRequest &request);
 
       /**
-       * @summary Modifies the name and snapshot retention period of an automatic snapshot policy.
+       * @summary Modifies the configuration items of an automatic snapshot policy, including the policy name and snapshot retention period.
        *
        * @param request ModifyAutoSnapshotPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3988,7 +3951,7 @@ namespace Ecd20200930
       Models::ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicyWithOptions(const Models::ModifyAutoSnapshotPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name and snapshot retention period of an automatic snapshot policy.
+       * @summary Modifies the configuration items of an automatic snapshot policy, including the policy name and snapshot retention period.
        *
        * @param request ModifyAutoSnapshotPolicyRequest
        * @return ModifyAutoSnapshotPolicyResponse
@@ -5344,9 +5307,9 @@ namespace Ecd20200930
       Models::SetDesktopMaintenanceResponse setDesktopMaintenance(const Models::SetDesktopMaintenanceRequest &request);
 
       /**
-       * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
+       * @summary Enables or disables the single sign-on (SSO) feature for an AD-based office network.
        *
-       * @description This operation is supported only for AD directories, not for RAM directories.
+       * @description This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
        *
        * @param request SetDirectorySsoStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5355,9 +5318,9 @@ namespace Ecd20200930
       Models::SetDirectorySsoStatusResponse setDirectorySsoStatusWithOptions(const Models::SetDirectorySsoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the single sign-on (SSO) feature for an Active Directory (AD) account-based office network.
+       * @summary Enables or disables the single sign-on (SSO) feature for an AD-based office network.
        *
-       * @description This operation is supported only for AD directories, not for RAM directories.
+       * @description This operation has the same effect as [SetOfficeSiteSsoStatus](~~SetOfficeSiteSsoStatus~~). Use the SetOfficeSiteSsoStatus operation instead.
        *
        * @param request SetDirectorySsoStatusRequest
        * @return SetDirectorySsoStatusResponse
@@ -5483,9 +5446,9 @@ namespace Ecd20200930
       Models::StopInvocationResponse stopInvocation(const Models::StopInvocationRequest &request);
 
       /**
-       * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+       * @summary Adds tags to specified cloud desktops. This makes it easier to filter and manage cloud desktops by tag.
        *
-       * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+       * @description If the specified TagKey already exists, the new TagValue overwrites the original TagValue.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5494,9 +5457,9 @@ namespace Ecd20200930
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to cloud computers. This allows you to filter and manage cloud computers by tag.
+       * @summary Adds tags to specified cloud desktops. This makes it easier to filter and manage cloud desktops by tag.
        *
-       * @description If TagKey is specified, the new TagValue value overrides the original TagValue value.
+       * @description If the specified TagKey already exists, the new TagValue overwrites the original TagValue.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -5572,7 +5535,7 @@ namespace Ecd20200930
       Models::UnlockVirtualMFADeviceResponse unlockVirtualMFADevice(const Models::UnlockVirtualMFADeviceRequest &request);
 
       /**
-       * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+       * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5581,7 +5544,7 @@ namespace Ecd20200930
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from cloud computers. After you remove a tag, if the tag is not added to a cloud computer, the tag is automatically deleted.
+       * @summary Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

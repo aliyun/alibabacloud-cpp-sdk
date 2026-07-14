@@ -52,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ReservationActiveTime, reservationActiveTime_);
         DARABONBA_PTR_TO_JSON(ReservationBandwidth, reservationBandwidth_);
         DARABONBA_PTR_TO_JSON(ReservationInternetChargeType, reservationInternetChargeType_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
       };
       friend void from_json(const Darabonba::Json& j, NetworkPackages& obj) { 
         DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ReservationActiveTime, reservationActiveTime_);
         DARABONBA_PTR_FROM_JSON(ReservationBandwidth, reservationBandwidth_);
         DARABONBA_PTR_FROM_JSON(ReservationInternetChargeType, reservationInternetChargeType_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
       };
       NetworkPackages() = default ;
       NetworkPackages(const NetworkPackages &) = default ;
@@ -81,10 +83,52 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
       virtual bool empty() const override { return this->bandwidth_ == nullptr
         && this->businessStatus_ == nullptr && this->createTime_ == nullptr && this->eipAddresses_ == nullptr && this->expiredTime_ == nullptr && this->internetChargeType_ == nullptr
         && this->networkPackageId_ == nullptr && this->networkPackageStatus_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteVpcType_ == nullptr
-        && this->payType_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationBandwidth_ == nullptr && this->reservationInternetChargeType_ == nullptr; };
+        && this->payType_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationBandwidth_ == nullptr && this->reservationInternetChargeType_ == nullptr && this->tags_ == nullptr; };
       // bandwidth Field Functions 
       bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
       void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -192,123 +236,56 @@ namespace Models
       inline NetworkPackages& setReservationInternetChargeType(string reservationInternetChargeType) { DARABONBA_PTR_SET_VALUE(reservationInternetChargeType_, reservationInternetChargeType) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<NetworkPackages::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<NetworkPackages::Tags>) };
+      inline vector<NetworkPackages::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<NetworkPackages::Tags>) };
+      inline NetworkPackages& setTags(const vector<NetworkPackages::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline NetworkPackages& setTags(vector<NetworkPackages::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     protected:
-      // The bandwidth provided by the premium bandwidth plan. Unit: Mbit/s.
+      // The bandwidth of the premium Internet bandwidth plan. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The business status.
-      // 
-      // Valid values:
-      // 
-      // - Expired
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Normal
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
       shared_ptr<string> businessStatus_ {};
-      // The time when the premium bandwidth plan was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The public egress IP address of the premium bandwidth plan.
+      // The public egress IP address of the premium Internet bandwidth plan.
       shared_ptr<vector<string>> eipAddresses_ {};
-      // The time when the premium bandwidth plan expires.
+      // The expiration time of the premium Internet bandwidth plan.
       // 
-      // - If the plan is a subscription one, the time when the plan expires is returned.
-      // 
-      // - If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
+      // - If the plan uses the subscription billing method, the actual expiration time is returned.
+      // - If the plan uses the pay-as-you-go billing method, `2099-12-31T15:59:59Z` is returned.
       shared_ptr<string> expiredTime_ {};
-      // The charge type of the premium bandwidth plan.
+      // The billing method of the premium Internet bandwidth plan.
       // 
-      // - Valid value when the `PayType` parameter is set to `PrePaid`:
-      // 
-      //   - PayByBandwidth: charges by fixed bandwidth.
-      // 
-      // - Valid values when the `PayType` parameter is set to `PostPaid`:
-      // 
-      //   - PayByTraffic: charges by data transfer.
-      // 
-      //   - PayByBandwidth: charges by fixed bandwidth.
+      // - If the parameter `PayType` is set to `PrePaid`, valid values:
+      //     - PayByBandwidth: pay-by-bandwidth.
+      // - If the parameter `PayType` is set to `PostPaid`, valid values:
+      //     - PayByTraffic: pay-by-data-transfer.
+      //     - PayByBandwidth: pay-by-bandwidth.
       shared_ptr<string> internetChargeType_ {};
-      // The ID of the premium bandwidth plan.
+      // The ID of the premium Internet bandwidth plan.
       shared_ptr<string> networkPackageId_ {};
-      // The status of the premium bandwidth plan.
-      // 
-      // Valid values:
-      // 
-      // - Creating
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Released
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - InUse
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      // - Releasing
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
-      // 
-      //   <!-- -->
+      // The status of the premium Internet bandwidth plan.
       shared_ptr<string> networkPackageStatus_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
       // The office network name.
       shared_ptr<string> officeSiteName_ {};
-      // The type of the office network.
-      // 
-      // Valid values:
-      // 
-      // - standard: advanced office network
-      // 
-      // - customized: custom office network
-      // 
-      // - basic: basic office network
+      // The office network type.
       shared_ptr<string> officeSiteVpcType_ {};
-      // The billing method of the premium bandwidth plan.
-      // 
-      // Valid values:
-      // 
-      // - PostPaid: pay-as-you-go
-      // 
-      // - PrePaid: subscription
+      // The billing method.
       shared_ptr<string> payType_ {};
-      // The time when the reserved network bandwidth took effect.
+      // The effective period of the reserved network bandwidth.
       shared_ptr<string> reservationActiveTime_ {};
-      // The peak bandwidth that is reserved for the premium bandwidth plan. Unit: Mbit/s.
+      // The peak reserved network bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> reservationBandwidth_ {};
       // The billing method of the reserved network bandwidth.
-      // 
-      // Valid values:
-      // 
-      // - PayByTraffic: charges by data transfer.
-      // 
-      // - PayByBandwidth: charges by fixed bandwidth.
       shared_ptr<string> reservationInternetChargeType_ {};
+      shared_ptr<vector<NetworkPackages::Tags>> tags_ {};
     };
 
     virtual bool empty() const override { return this->networkPackages_ == nullptr
@@ -337,11 +314,11 @@ namespace Models
 
 
   protected:
-    // The premium bandwidth plans.
+    // The list of premium Internet bandwidth plans.
     shared_ptr<vector<DescribeNetworkPackagesResponseBody::NetworkPackages>> networkPackages_ {};
-    // The token that is used to start the next query. If the value of this parameter is empty, all results are returned.
+    // The token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The tag keys. You can specify 1 to 20 tag keys.
+      // The tag key. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The tag values. You can specify 1 to 20 tag values.
+      // The tag value. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -135,23 +135,19 @@ namespace Models
   protected:
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that determines the start point of the next query.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
+    // The IDs of the resources, that is, the IDs of the cloud computers. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource.
-    // 
-    // Valid values:
-    // 
-    // - ALIYUN::GWS::INSTANCE: cloud computer.
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags that you want to query.
+    // The tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

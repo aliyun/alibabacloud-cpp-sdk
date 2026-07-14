@@ -155,9 +155,9 @@ namespace Models
 
 
       protected:
-        // Application control policy ID.
+        // The application control policy ID.
         shared_ptr<string> appRuleId_ {};
-        // Site name.
+        // The site name.
         shared_ptr<string> siteId_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // Tag key.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // Tag value.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -316,25 +316,25 @@ namespace Models
 
 
       protected:
-        // Number of vCPUs in the Cloud Desktop instance type.
+        // The number of vCPUs included in the cloud computer instance type.
         shared_ptr<int32_t> cpuCount_ {};
-        // GPU memory size. This field appears only for graphics instance types.
+        // The GPU memory information. This field is displayed only when the instance type is a graphics-accelerated type.
         shared_ptr<string> gpuSpec_ {};
-        // Memory size in MiB.
+        // The memory size. Unit: MiB.
         shared_ptr<int64_t> memorySize_ {};
-        // Office site ID.
+        // The office network ID.
         shared_ptr<string> officeSiteId_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // Cloud Desktop instance type ID.
+        // The cloud computer instance type ID.
         shared_ptr<string> resourceInstanceType_ {};
-        // Snapshot policy ID.
+        // The snapshot policy ID.
         shared_ptr<string> snapshotPolicyId_ {};
-        // Subnet ID.
+        // The subnet ID.
         shared_ptr<string> subnetId_ {};
-        // Whether disk encryption is enabled.
+        // Indicates whether disk encryption is enabled.
         shared_ptr<bool> volumeEncryptionEnable_ {};
-        // KMS key ID used when disk encryption is enabled.
+        // The KMS key ID used when disk encryption is enabled.
         shared_ptr<string> volumeEncryptionKey_ {};
       };
 
@@ -376,9 +376,9 @@ namespace Models
 
 
       protected:
-        // Data disk performance level.
+        // The performance level of the data cloud disk.
         shared_ptr<string> performanceLevel_ {};
-        // Data disk size in GiB.
+        // The data cloud disk size. Unit: GiB.
         shared_ptr<string> size_ {};
       };
 
@@ -590,48 +590,48 @@ namespace Models
       shared_ptr<bool> autoPay_ {};
       shared_ptr<bool> autoRenew_ {};
       shared_ptr<string> chargeType_ {};
-      // Data disk size and specification configuration.
+      // The size and specification configurations of data cloud disks.
       shared_ptr<vector<Data::DataDiskList>> dataDiskList_ {};
-      // Default startup language for the template.
+      // The default startup language configured in the template.
       shared_ptr<string> defaultLanguage_ {};
-      // Template description.
+      // The template description.
       shared_ptr<string> description_ {};
-      // Template creation time in UTC.
+      // The creation time of the template (UTC).
       shared_ptr<string> gmtCreate_ {};
-      // Template modification time in UTC.
+      // The last modification time of the template (UTC).
       shared_ptr<string> gmtModified_ {};
-      // Image ID.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // Image type.
+      // The image type.
       shared_ptr<string> imageType_ {};
       shared_ptr<int32_t> period_ {};
       shared_ptr<string> periodUnit_ {};
-      // Policy ID.
+      // The policy group ID.
       shared_ptr<string> policyGroupId_ {};
       shared_ptr<bool> postPaidAfterUsedUp_ {};
-      // Product type.
+      // The product type.
       shared_ptr<string> productType_ {};
-      // Region-specific configuration parameters.
+      // The region-specific configuration parameters.
       shared_ptr<vector<Data::RegionConfigList>> regionConfigList_ {};
-      // Request ID.
+      // The request ID.
       shared_ptr<string> requestId_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Cloud Desktop tags in key-value format.
+      // The cloud computer tags in key-value format.
       shared_ptr<vector<Data::ResourceTagList>> resourceTagList_ {};
-      // Site configuration management.
+      // The site configuration management.
       shared_ptr<vector<Data::SiteConfigList>> siteConfigList_ {};
-      // System disk type.
+      // The system cloud disk type.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // System disk size in GiB.
+      // The system cloud disk size. Unit: GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // Template ID.
+      // The template ID.
       shared_ptr<string> templateId_ {};
-      // Template name.
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // Template type.
+      // The templatetype.
       shared_ptr<string> templateType_ {};
-      // Scheduled task group ID.
+      // The scheduled task group ID.
       shared_ptr<string> timerGroupId_ {};
       shared_ptr<string> userDuration_ {};
     };
@@ -705,23 +705,23 @@ namespace Models
 
 
   protected:
-    // Operation result. Returns `success` if successful. Otherwise, returns an error message.
+    // The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // List of template information.
+    // The list of queried template information.
     shared_ptr<vector<DescribeTemplatesResponseBody::Data>> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message. This parameter is not returned when Code is `success`.
+    // The error message. This parameter is not returned when Code is `success`.
     shared_ptr<string> message_ {};
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Entries per page.
+    // The number of rows per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -57,19 +57,17 @@ namespace Models
 
 
   protected:
-    // The AD directory ID.
+    // The ID of the AD office network.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // Specifies whether to enable SSO. Valid values:
-    // 
-    // - true: enables SSO.
-    // 
+    // Specifies whether to enable or disable single sign-on (SSO). Valid values:
+    // - true: enables SSO
     // - false: disables SSO.
     // 
     // This parameter is required.
     shared_ptr<bool> enableSso_ {};
-    // The region ID.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

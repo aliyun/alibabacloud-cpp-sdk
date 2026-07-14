@@ -376,9 +376,6 @@
 #include <alibabacloud/models/DescribeFlowMetricRequest.hpp>
 #include <alibabacloud/models/DescribeFlowMetricResponseBody.hpp>
 #include <alibabacloud/models/DescribeFlowMetricResponse.hpp>
-#include <alibabacloud/models/DescribeFlowStatisticRequest.hpp>
-#include <alibabacloud/models/DescribeFlowStatisticResponseBody.hpp>
-#include <alibabacloud/models/DescribeFlowStatisticResponse.hpp>
 #include <alibabacloud/models/DescribeForwardTableEntriesRequest.hpp>
 #include <alibabacloud/models/DescribeForwardTableEntriesResponseBody.hpp>
 #include <alibabacloud/models/DescribeForwardTableEntriesResponse.hpp>

@@ -90,17 +90,13 @@ namespace Models
 
 
     protected:
-      // The resource ID, which is the cloud computer ID.
+      // The ID of the resource, that is, the ID of the cloud computer.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
-      // 
-      // Valid values:
-      // 
-      // - ALIYUN::GWS::INSTANCE: cloud computer.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The tag keys.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The tag values.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -130,7 +126,7 @@ namespace Models
 
 
   protected:
-    // A pagination token. If NextToken is empty, no next page exists.
+    // The token that determines the start point of the next query. If this parameter is empty, no next query is to be sent.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
