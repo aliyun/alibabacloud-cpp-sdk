@@ -298,31 +298,65 @@ namespace Models
 
 
     protected:
+      // The business phone number.
       shared_ptr<string> businessNumber_ {};
+      // The channel type.
       shared_ptr<string> channelType_ {};
+      // The name of the message receiving status.
       shared_ptr<string> clientAcceptStatusName_ {};
+      // The message read status.
       shared_ptr<string> clientReadStatus_ {};
+      // The message read status name.
       shared_ptr<string> clientReadStatusName_ {};
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
+      // The inbound or outbound message type.
       shared_ptr<string> eventAction_ {};
+      // The name of the inbound or outbound message type. Valid values:
+      // 
+      // - DOWN: outbound message.
+      // 
+      // - UP: inbound message.
       shared_ptr<string> eventActionName_ {};
+      // The fallback content.
       shared_ptr<string> failBackContent_ {};
+      // Indicates whether the message falls back to SMS. Valid values:
+      // 
+      // - Y: Yes.
+      // 
+      // - N: No.
       shared_ptr<string> failBackFlag_ {};
+      // The reason for the sending failure.
       shared_ptr<string> failReason_ {};
+      // The template language. For more languages, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
       shared_ptr<string> languageCode_ {};
+      // The message content.
       shared_ptr<string> message_ {};
+      // The message ID.
       shared_ptr<string> messageId_ {};
+      // The message source.
       shared_ptr<string> messageSource_ {};
+      // The message status.
       shared_ptr<string> messageStatus_ {};
+      // The message status name.
       shared_ptr<string> messageStatusName_ {};
+      // The message type.
       shared_ptr<string> messageType_ {};
+      // The message type name.
       shared_ptr<string> messageTypeName_ {};
+      // The month of the message.
       shared_ptr<string> month_ {};
+      // The sending time.
       shared_ptr<string> sendTime_ {};
+      // The template code.
       shared_ptr<string> templateCode_ {};
+      // The template name.
       shared_ptr<string> templateName_ {};
+      // The type.
       shared_ptr<string> type_ {};
+      // The unique message ID.
       shared_ptr<string> uniqueMessageId_ {};
+      // The user phone number.
       shared_ptr<string> userNumber_ {};
     };
 
@@ -373,11 +407,23 @@ namespace Models
 
 
   protected:
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response code.
+    // 
+    // - OK: The request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The list of returned data objects.
     shared_ptr<vector<ListChatappMessageResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

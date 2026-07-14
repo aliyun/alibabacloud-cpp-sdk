@@ -76,8 +76,12 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of records per page.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

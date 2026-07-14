@@ -134,17 +134,36 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
     shared_ptr<string> flowCode_ {};
+    // The flow version. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the canvas and view the flow version.
     shared_ptr<string> flowVersion_ {};
+    // The start time. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> from_ {};
+    // The metric name. Valid values:
+    // 
+    // - nodeUsageStatistics: node usage statistics.
+    // 
+    // - nodeErrorDetails: node error details.
+    // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
+    // The extended parameter for the metric query. When MetricName is set to nodeErrorDetails, pass in a JSON string. Valid values for the JSON fields:
+    // 
+    // - pageNo: the current page number.
+    // 
+    // - pageSize: the number of entries per page.
+    // 
+    // - nodeId: the node ID. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the canvas and copy the node ID.
     Darabonba::Json metricParam_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The end time. This value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> to_ {};
   };
 

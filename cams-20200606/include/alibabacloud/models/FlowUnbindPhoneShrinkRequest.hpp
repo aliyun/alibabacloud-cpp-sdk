@@ -94,11 +94,26 @@ namespace Models
 
 
   protected:
+    // The message channel type. Valid values:
+    // 
+    // - INSTAGRAM
+    // 
+    // - WHATSAPP
+    // 
+    // - MESSENGER
+    // 
+    // <props="intl">
+    // 
+    // - VIBER
     shared_ptr<string> channelType_ {};
+    // The flow code. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+    // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
+    // The flow version. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to go to the orchestration canvas and view the flow version.
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // A list of phone numbers, Page IDs, Account IDs, or Service IDs for the channel instance.
     shared_ptr<string> phoneNumbersShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

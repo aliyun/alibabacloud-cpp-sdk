@@ -103,14 +103,30 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
+    // 
     // This parameter is required.
     shared_ptr<string> bizCode_ {};
+    // The keyword for the search. The operation performs a fuzzy query for template names based on this keyword.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The trigger type of the flow. Valid values:
+    // 
+    // - TriggeredManually
+    // 
+    // - TriggeredByWhatsApp
+    // 
+    // - TriggeredByInstagram
+    // 
+    // - TriggeredByViber
+    // 
+    // - TriggeredByMessenger
     shared_ptr<string> triggerType_ {};
   };
 

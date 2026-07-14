@@ -151,18 +151,33 @@ namespace Models
 
 
   protected:
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The description of the contact.
     shared_ptr<string> contactDetails_ {};
+    // The name of the contact.
     shared_ptr<string> contactName_ {};
+    // The country.
     shared_ptr<string> country_ {};
+    // The email address.
     shared_ptr<string> email_ {};
+    // The file path.
     shared_ptr<string> filePath_ {};
+    // The user group information.
+    // 
     // This parameter is required.
     shared_ptr<string> groups_ {};
+    // Indicates whether the back-to-origin IP address whitelist needs to be updated. This parameter returns true when the current back-to-origin IP address whitelist differs from the latest back-to-origin IP address whitelist.
+    // 
+    // - true: The whitelist needs to be updated.
+    // - false: The whitelist does not need to be updated.
+    // 
     // This parameter is required.
     shared_ptr<bool> needUpdate_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

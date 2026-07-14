@@ -77,8 +77,12 @@ namespace Models
 
 
     protected:
+      // The account name.
+      // 
       // This parameter is required.
       shared_ptr<string> accountName_ {};
+      // The send type.
+      // 
       // This parameter is required.
       shared_ptr<string> sendType_ {};
     };
@@ -130,10 +134,16 @@ namespace Models
 
 
   protected:
+    // The account code.
+    // 
     // This parameter is required.
     shared_ptr<string> accountCode_ {};
+    // The SpaceId of the ISV sub-customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The extended attributes.
+    // 
     // This parameter is required.
     shared_ptr<BindDmAccountRequest::ExtendAttr> extendAttr_ {};
     shared_ptr<int64_t> ownerId_ {};

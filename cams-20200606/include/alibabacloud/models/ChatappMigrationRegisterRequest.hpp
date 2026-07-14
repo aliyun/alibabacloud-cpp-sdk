@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // None
+    // The space ID of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // phone number.
+    // The phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};

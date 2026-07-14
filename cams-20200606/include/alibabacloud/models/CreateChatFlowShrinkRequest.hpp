@@ -103,13 +103,28 @@ namespace Models
 
 
   protected:
+    // The business tenant code. The default value is ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // Business extension information. The default value is an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
+    // The trigger type for the flow. Valid values:
+    // 
+    // - TriggeredManually
+    // 
+    // - TriggeredByWhatsApp
+    // 
+    // - TriggeredByMessenger
+    // 
+    // - TriggeredByInstagram
+    // 
+    // - TriggeredByViber
     shared_ptr<string> flowTriggerType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks for the flow.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The title of the flow.
     shared_ptr<string> title_ {};
   };
 

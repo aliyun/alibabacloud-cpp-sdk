@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
     // The request status code.
     // 
-    // - A value of OK indicates a successful request.
+    // - OK indicates the request was successful.
     // 
     // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};

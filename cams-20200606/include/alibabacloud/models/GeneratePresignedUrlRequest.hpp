@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The OSS path.
+    // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
     shared_ptr<int64_t> ownerId_ {};

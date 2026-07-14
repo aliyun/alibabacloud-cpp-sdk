@@ -75,7 +75,7 @@ namespace Models
 
 
     protected:
-      // The ID of the phone number.
+      // The phone number ID.
       shared_ptr<string> id_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The request status code.
     // 
-    // - A value of OK indicates that the request was successful.
+    // - OK indicates that the request was successful.
     // 
     // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};

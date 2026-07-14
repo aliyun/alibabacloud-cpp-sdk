@@ -140,16 +140,26 @@ namespace Models
 
 
   protected:
+    // The business tenant code.
     shared_ptr<string> bizCode_ {};
+    // The business extension information.
     shared_ptr<string> bizExtendShrink_ {};
+    // The contact description.
     shared_ptr<string> contactDetails_ {};
+    // The contact name.
     shared_ptr<string> contactName_ {};
+    // The country.
     shared_ptr<string> country_ {};
+    // The email address.
     shared_ptr<string> email_ {};
+    // The file path.
     shared_ptr<string> filePath_ {};
+    // The group name.
+    // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

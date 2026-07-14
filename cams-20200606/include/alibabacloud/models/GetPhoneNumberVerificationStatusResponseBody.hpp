@@ -132,6 +132,7 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The request status code.
     // 

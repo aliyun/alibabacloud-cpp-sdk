@@ -77,17 +77,17 @@ namespace Models
 
 
     protected:
-      // The category of the WhatsApp template. Valid values:
+      // The WhatsApp template category. Valid values:
       // 
-      // - **UTILITY**: A template related to a specific, agreed-upon transaction.
+      // - **UTILITY**: transaction-related.
       // 
-      // - **MARKETING**: A template for promotional or marketing purposes.
+      // - **MARKETING**: marketing template.
       shared_ptr<string> category_ {};
-      // Whether the validation was successful. Valid values:
+      // Indicates whether the operation is successful. Valid values:
       // 
-      // - true: The validation succeeded.
+      // - true: Successful.
       // 
-      // - false: The validation failed.
+      // - false: Failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -138,25 +138,25 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code of the request.
+    // The request status code.
     // 
-    // - `OK` indicates that the request was successful.
+    // - A value of OK indicates that the request is successful.
     // 
     // - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned data.
     shared_ptr<CheckDirectSendMessageSampleResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID. Use this ID to trace logs and troubleshoot issues.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful. Valid values:
+    // Indicates whether the operation is successful. Valid values:
     // 
-    // - true: The request was successful.
+    // - true: Successful.
     // 
-    // - false: The request failed.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

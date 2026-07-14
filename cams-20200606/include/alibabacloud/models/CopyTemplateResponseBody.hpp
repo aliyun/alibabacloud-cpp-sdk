@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The template code.
       shared_ptr<string> sceneTemplateCode_ {};
+      // The template name.
       shared_ptr<string> sceneTemplateName_ {};
+      // The WhatsApp category.
       shared_ptr<string> whatsappCatagory_ {};
     };
 
@@ -138,11 +141,19 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CopyTemplateResponseBody::Data> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

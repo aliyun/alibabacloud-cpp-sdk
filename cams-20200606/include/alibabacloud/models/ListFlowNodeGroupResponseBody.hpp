@@ -97,7 +97,9 @@ namespace Models
 
 
       protected:
+        // The status code.
         shared_ptr<string> code_ {};
+        // The public extension field.
         shared_ptr<string> publicExtend_ {};
       };
 
@@ -112,6 +114,7 @@ namespace Models
 
 
     protected:
+      // The request result data.
       shared_ptr<vector<Data::Model>> model_ {};
     };
 
@@ -162,11 +165,23 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This field is returned only when RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<int64_t> code_ {};
+    // The returned data object.
     shared_ptr<ListFlowNodeGroupResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

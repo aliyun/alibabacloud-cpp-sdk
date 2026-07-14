@@ -112,17 +112,39 @@ namespace Models
 
 
   protected:
+    // The message channel code, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> channelCode_ {};
+    // The message channel type. Valid values:
+    // 
+    // - INSTAGRAM
+    // 
+    // - WHATSAPP
+    // 
+    // - MESSENGER
+    // 
+    // <props="intl">- VIBER
+    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
+    // The flow code. You can view it on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+    // 
     // This parameter is required.
     shared_ptr<string> flowCode_ {};
+    // The flow version. On the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the flow builder canvas and view the flow version.
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
     shared_ptr<string> phoneNumbersShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
+    // 
+    // - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID on the Channel Management > Manage > WABA Management page.
+    // 
+    // - If ChannelType is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
+    // 
     // This parameter is required.
     shared_ptr<string> wabaId_ {};
   };

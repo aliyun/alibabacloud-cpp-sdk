@@ -75,7 +75,10 @@ namespace Models
 
 
   protected:
+    // The SpaceId of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
+    // The workflow ID.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
     shared_ptr<int64_t> ownerId_ {};

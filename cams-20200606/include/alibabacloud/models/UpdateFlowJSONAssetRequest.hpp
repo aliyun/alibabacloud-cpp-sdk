@@ -84,9 +84,14 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
+    // The file path.
+    // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
+    // The flow ID.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
     shared_ptr<int64_t> ownerId_ {};

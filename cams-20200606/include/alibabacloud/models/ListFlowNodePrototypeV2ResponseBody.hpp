@@ -115,9 +115,31 @@ namespace Models
 
 
       protected:
+        // The code of the component prototype.
         shared_ptr<string> code_ {};
+        // The code of the component group.
         shared_ptr<string> groupCode_ {};
+        // The public extension information. This is a JSON string that contains extension information for the frontend to display the flow component. The fields are described as follows:
+        // 
+        // - en: The English information about the flow component.
+        // 
+        // - zh: The Chinese information about the flow component.
+        // 
+        // - name: The name of the flow component.
+        // 
+        // - remark: The remarks on the flow component.
+        // 
+        // - order: The display order of the flow component.
+        // 
+        // - style: The style of the flow component.
+        // 
+        // - svg: The URL of the flow component icon.
+        // 
+        // - icon: This field is deprecated.
+        // 
+        // - bgcolor: The background color of the icon.
         shared_ptr<string> publicExtend_ {};
+        // The status of the component prototype. The default value is NORMAL.
         shared_ptr<string> status_ {};
       };
 
@@ -132,6 +154,7 @@ namespace Models
 
 
     protected:
+      // A list of the returned data.
       shared_ptr<vector<Data::Model>> model_ {};
     };
 
@@ -182,11 +205,21 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<int64_t> code_ {};
+    // The returned data.
     shared_ptr<ListFlowNodePrototypeV2ResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - true: The call was successful.
+    // 
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

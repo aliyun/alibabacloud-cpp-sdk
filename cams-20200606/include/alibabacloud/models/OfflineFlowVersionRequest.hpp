@@ -105,11 +105,16 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. The default value is an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The code of the flow. View the code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
     shared_ptr<string> flowCode_ {};
+    // The version of the flow. View the version on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
     shared_ptr<string> flowVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks for the flow. View the remarks in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -82,7 +82,7 @@ namespace Models
 
 
     protected:
-      // The description of the command.
+      // The command description.
       shared_ptr<string> commandDescription_ {};
       // The command name.
       shared_ptr<string> commandName_ {};
@@ -152,20 +152,20 @@ namespace Models
 
 
   protected:
-    // The commands.
+    // The list of commands.
     shared_ptr<vector<UpdateConversationalAutomationRequest::Commands>> commands_ {};
-    // The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
-    // Specifies whether to enable the welcoming message.
+    // Specifies whether to enable the welcome message.
     shared_ptr<bool> enableWelcomeMessage_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The phone number of the enterprise.
+    // The business phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
-    // The opening remarks.
+    // The list of conversation starters.
     shared_ptr<vector<string>> prompts_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

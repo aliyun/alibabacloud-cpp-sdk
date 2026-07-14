@@ -75,12 +75,12 @@ namespace Models
 
 
   protected:
-    // The SpaceId of the ISV sub-client.
+    // The space ID of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The business number.
+    // The phone number of the business.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};

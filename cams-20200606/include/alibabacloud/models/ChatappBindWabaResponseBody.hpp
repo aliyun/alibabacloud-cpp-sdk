@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // The customer\\"s Space ID.
+      // The customer space ID.
       shared_ptr<string> custSpaceId_ {};
-      // The WABA ID.
+      // waba Id。
       shared_ptr<string> wabaId_ {};
     };
 
@@ -130,11 +130,11 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The access denied detail.
     shared_ptr<string> accessDeniedDetail_ {};
     // The request status code.
     // 
-    // - A value of OK indicates that the request was successful.
+    // - OK indicates that the request was successful.
     // 
     // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
@@ -145,10 +145,8 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
-    // 
-    // - **true**: successful.
-    // 
-    // - **false**: failed.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

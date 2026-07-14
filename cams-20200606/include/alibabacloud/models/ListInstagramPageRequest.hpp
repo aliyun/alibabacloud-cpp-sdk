@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The instance ID. Only non-Alibaba Cloud hosts are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};

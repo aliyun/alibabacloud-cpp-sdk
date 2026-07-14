@@ -103,14 +103,30 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the
+    // <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
     shared_ptr<string> custSpaceId_ {};
+    // The type of the generated image. Valid values:
+    // 
+    // - PNG
+    // 
+    //  - SVG
+    // 
     // This parameter is required.
     shared_ptr<string> generateQrImage_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The phone number. You can view the phone number on the
+    // <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)
+    // <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)> **Management** > **WABA Management** > **Number Management** page.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
+    // The message content.
+    // 
     // This parameter is required.
     shared_ptr<string> prefilledMessage_ {};
+    // The QR code encoding. This is the QrdlCode returned when you called the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> qrdlCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -98,15 +98,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
-    // The type. Valid value:
+    // The channel type. Valid values:
     // 
     // - **WHATSAPP**
     // 
-    // > Only the WhatsApp channel is supported.
+    // > Only the WhatsApp channel type is supported.
     shared_ptr<string> channelType_ {};
-    // The Space ID of the ISV sub-customer, or the instance ID of the direct customer. View the Space ID on the
-    // 
-    // <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+    // The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};

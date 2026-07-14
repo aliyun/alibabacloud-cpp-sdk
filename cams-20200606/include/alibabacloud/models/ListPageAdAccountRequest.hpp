@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The PageId of Messenger.
+    // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -258,26 +258,49 @@ namespace Models
 
 
     protected:
+      // The campaign code.
       shared_ptr<string> activityCode_ {};
+      // The campaign description.
       shared_ptr<string> activityDesc_ {};
+      // The campaign name.
       shared_ptr<string> activityName_ {};
+      // The campaign status.
       shared_ptr<string> activityStatus_ {};
+      // The business tenant code. Default value: ALICOM_OPAAS.
       shared_ptr<string> bizCode_ {};
+      // The business extension information. Default value: "{}".
       Darabonba::Json bizExtend_ {};
+      // The upgrade start time. The upgrade start time is specified as a cron expression.
+      // 
+      // For example, `0 0 4 1/1 * ?` indicates that the upgrade starts at 4:00 on the first day of each month and is performed at 4:00 every day.
       shared_ptr<string> cronExpression_ {};
+      // The end time.
       shared_ptr<string> endDate_ {};
+      // The execution method.
       shared_ptr<string> executionType_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The modification time (deprecated).
       shared_ptr<string> gmtModifier_ {};
+      // The operational activity ID.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether custom parameters are enabled.
       shared_ptr<string> paramFlag_ {};
+      // The custom user parameters.
       Darabonba::Json params_ {};
+      // The associated flow code.
       shared_ptr<string> relatedFlowCode_ {};
+      // The name of the associated flow.
       shared_ptr<string> relatedFlowName_ {};
+      // The ID of the associated group.
       shared_ptr<string> relatedGroupId_ {};
+      // The name of the associated group.
       shared_ptr<string> relatedGroupName_ {};
+      // The specific time. This parameter is valid when the execution method is set to 2.
       shared_ptr<string> specificTime_ {};
+      // The start time.
       shared_ptr<string> startDate_ {};
+      // The tenant.
       shared_ptr<string> tenantCode_ {};
     };
 
@@ -336,12 +359,26 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - OK indicates that the request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<vector<ListMarketingFlowResponseBody::Data>> data_ {};
+    // The message returned for the request.
     shared_ptr<string> message_ {};
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - true: The call was successful.                                 
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

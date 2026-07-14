@@ -112,12 +112,18 @@ namespace Models
 
 
   protected:
+    // The tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The extended business information. The default value is an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
+    // The code of the flow. View the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
     shared_ptr<string> flowCode_ {};
+    // The version of the flow. In the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), click the flow name to open the canvas and view the flow version.
     shared_ptr<string> flowVersion_ {};
+    // The DSL data of the flow version, in JSON format. To obtain this data, orchestrate the components on the canvas in the Flow Editor. After you save the flow, click **Settings** > **Export** in the upper-right corner of the canvas to export the flow as a JSON data file.
     shared_ptr<string> flowViewModel_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks for the version.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

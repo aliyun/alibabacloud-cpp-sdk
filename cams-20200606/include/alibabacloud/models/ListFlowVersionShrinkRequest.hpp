@@ -112,14 +112,28 @@ namespace Models
 
 
   protected:
+    // The business tenant code. The default value is ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // Business extension information. The default value is an empty collection.
     shared_ptr<string> bizExtendShrink_ {};
+    // The flow code. Find the flow code in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
     shared_ptr<string> flowCode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The status of the flow version. Valid values:
+    // 
+    // - DRAFT: The flow is a draft.
+    // 
+    // - DELETED: The flow is deleted.
+    // 
+    // - ONLINE: The flow is published.
+    // 
+    // - OFFLINE: The flow is unpublished.
     shared_ptr<string> status_ {};
   };
 

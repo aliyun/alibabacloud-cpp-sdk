@@ -21,7 +21,7 @@ namespace Cams20200606
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 申请：变更目的地/恢复/暂停
+       * @summary Submits a request to change the destination, resume, or pause.
        *
        * @param tmpReq AddAddressRecoverSuspendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Cams20200606
       Models::AddAddressRecoverSuspendResponse addAddressRecoverSuspendWithOptions(const Models::AddAddressRecoverSuspendRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请：变更目的地/恢复/暂停
+       * @summary Submits a request to change the destination, resume, or pause.
        *
        * @param request AddAddressRecoverSuspendRequest
        * @return AddAddressRecoverSuspendResponse
@@ -84,15 +84,14 @@ namespace Cams20200606
       Models::AddChatGroupResponse addChatGroup(const Models::AddChatGroupRequest &request);
 
       /**
-       * @summary Adds an invite link for an Instant Messaging (IM) group.
+       * @summary Adds an invite link for an IM group.
        *
-       * @description >Notice: 
-       * The API for adding invite links to IM groups is in beta testing on Meta. Contact your account manager to add your account to the allowlist.
-       * - Before you call this operation, make sure that an IM group has been created.
-       * - If you do not have an IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) operation to create one.
-       * - After you add an invite link by calling this operation, you can use the link to invite members to the group.
-       * - Currently, members can join an IM group only using an invite link.
-       * - A WhatsApp group can have a maximum of 8 members.
+       * @description >Notice: Adding IM group invite links through the API is a Meta beta feature. Contact your account manager to apply for access.
+       * - Before calling this operation, make sure that you have a successfully created IM group.
+       * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+       * - After you call this operation to add an IM group invite link, you can use the link to invite members to join the IM group.
+       * - Currently, members can join an IM group only through an invite link.
+       * - The maximum number of members in a WhatsApp group is 8.
        *
        * @param request AddChatGroupInviteLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -101,15 +100,14 @@ namespace Cams20200606
       Models::AddChatGroupInviteLinkResponse addChatGroupInviteLinkWithOptions(const Models::AddChatGroupInviteLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an invite link for an Instant Messaging (IM) group.
+       * @summary Adds an invite link for an IM group.
        *
-       * @description >Notice: 
-       * The API for adding invite links to IM groups is in beta testing on Meta. Contact your account manager to add your account to the allowlist.
-       * - Before you call this operation, make sure that an IM group has been created.
-       * - If you do not have an IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) operation to create one.
-       * - After you add an invite link by calling this operation, you can use the link to invite members to the group.
-       * - Currently, members can join an IM group only using an invite link.
-       * - A WhatsApp group can have a maximum of 8 members.
+       * @description >Notice: Adding IM group invite links through the API is a Meta beta feature. Contact your account manager to apply for access.
+       * - Before calling this operation, make sure that you have a successfully created IM group.
+       * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+       * - After you call this operation to add an IM group invite link, you can use the link to invite members to join the IM group.
+       * - Currently, members can join an IM group only through an invite link.
+       * - The maximum number of members in a WhatsApp group is 8.
        *
        * @param request AddChatGroupInviteLinkRequest
        * @return AddChatGroupInviteLinkResponse
@@ -117,9 +115,9 @@ namespace Cams20200606
       Models::AddChatGroupInviteLinkResponse addChatGroupInviteLink(const Models::AddChatGroupInviteLinkRequest &request);
 
       /**
-       * @summary Adds a phone number to a WhatsApp Business Account (WABA).
+       * @summary Adds a phone number to a WABA.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China site (Chinese mainland) QPS limit for a single user on this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request AddChatappPhoneNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -128,9 +126,9 @@ namespace Cams20200606
       Models::AddChatappPhoneNumberResponse addChatappPhoneNumberWithOptions(const Models::AddChatappPhoneNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a phone number to a WhatsApp Business Account (WABA).
+       * @summary Adds a phone number to a WABA.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China site (Chinese mainland) QPS limit for a single user on this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request AddChatappPhoneNumberRequest
        * @return AddChatappPhoneNumberResponse
@@ -138,7 +136,7 @@ namespace Cams20200606
       Models::AddChatappPhoneNumberResponse addChatappPhoneNumber(const Models::AddChatappPhoneNumberRequest &request);
 
       /**
-       * @summary 编辑联系人-新增联系人
+       * @summary Edits a contact - add contact.
        *
        * @param tmpReq AddContactsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -147,7 +145,7 @@ namespace Cams20200606
       Models::AddContactsResponse addContactsWithOptions(const Models::AddContactsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑联系人-新增联系人
+       * @summary Edits a contact - add contact.
        *
        * @param request AddContactsRequest
        * @return AddContactsResponse
@@ -176,7 +174,7 @@ namespace Cams20200606
       Models::AddCustomAudienceUserResponse addCustomAudienceUser(const Models::AddCustomAudienceUserRequest &request);
 
       /**
-       * @summary 添加群组
+       * @summary Adds a group.
        *
        * @param tmpReq AddGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -185,7 +183,7 @@ namespace Cams20200606
       Models::AddGroupResponse addGroupWithOptions(const Models::AddGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加群组
+       * @summary Adds a group.
        *
        * @param request AddGroupRequest
        * @return AddGroupResponse
@@ -210,7 +208,24 @@ namespace Cams20200606
       Models::AddMarketingFlowResponse addMarketingFlow(const Models::AddMarketingFlowRequest &request);
 
       /**
-       * @summary 绑定DM账号
+       * @summary Archives a Chat App Message Service template. Currently, only WhatsApp templates support archiving.
+       *
+       * @param tmpReq ArchiveChatappTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ArchiveChatappTemplateResponse
+       */
+      Models::ArchiveChatappTemplateResponse archiveChatappTemplateWithOptions(const Models::ArchiveChatappTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Archives a Chat App Message Service template. Currently, only WhatsApp templates support archiving.
+       *
+       * @param request ArchiveChatappTemplateRequest
+       * @return ArchiveChatappTemplateResponse
+       */
+      Models::ArchiveChatappTemplateResponse archiveChatappTemplate(const Models::ArchiveChatappTemplateRequest &request);
+
+      /**
+       * @summary Associates a DM account.
        *
        * @param tmpReq BindDmAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -219,7 +234,7 @@ namespace Cams20200606
       Models::BindDmAccountResponse bindDmAccountWithOptions(const Models::BindDmAccountRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定DM账号
+       * @summary Associates a DM account.
        *
        * @param request BindDmAccountRequest
        * @return BindDmAccountResponse
@@ -227,7 +242,7 @@ namespace Cams20200606
       Models::BindDmAccountResponse bindDmAccount(const Models::BindDmAccountRequest &request);
 
       /**
-       * @summary 绑定ins的page
+       * @summary Associates a page with an instance.
        *
        * @param request BindInstagramPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -236,7 +251,7 @@ namespace Cams20200606
       Models::BindInstagramPageResponse bindInstagramPageWithOptions(const Models::BindInstagramPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定ins的page
+       * @summary Associates a page with an instance.
        *
        * @param request BindInstagramPageRequest
        * @return BindInstagramPageResponse
@@ -278,9 +293,9 @@ namespace Cams20200606
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Binds a WhatsApp Business Account (WABA).
+       * @summary Binds a WhatsApp Business Account (WABA) through the northbound interface.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls will be throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request ChatappBindWabaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -289,9 +304,9 @@ namespace Cams20200606
       Models::ChatappBindWabaResponse chatappBindWabaWithOptions(const Models::ChatappBindWabaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a WhatsApp Business Account (WABA).
+       * @summary Binds a WhatsApp Business Account (WABA) through the northbound interface.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls will be throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request ChatappBindWabaRequest
        * @return ChatappBindWabaResponse
@@ -299,9 +314,9 @@ namespace Cams20200606
       Models::ChatappBindWabaResponse chatappBindWaba(const Models::ChatappBindWabaRequest &request);
 
       /**
-       * @summary Registers a phone number for migration.
+       * @summary Migrates a phone number registration.
        *
-       * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+       * @description The queries per second (QPS) limit for this operation is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request ChatappMigrationRegisterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -310,9 +325,9 @@ namespace Cams20200606
       Models::ChatappMigrationRegisterResponse chatappMigrationRegisterWithOptions(const Models::ChatappMigrationRegisterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers a phone number for migration.
+       * @summary Migrates a phone number registration.
        *
-       * @description The space ID of the RAM user within the independent software vendor (ISV) account.
+       * @description The queries per second (QPS) limit for this operation is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request ChatappMigrationRegisterRequest
        * @return ChatappMigrationRegisterResponse
@@ -322,7 +337,7 @@ namespace Cams20200606
       /**
        * @summary Verifies a phone number for migration.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Message Service API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Manage your calls appropriately.
        *
        * @param request ChatappMigrationVerifiedRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -333,7 +348,7 @@ namespace Cams20200606
       /**
        * @summary Verifies a phone number for migration.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Message Service API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Manage your calls appropriately.
        *
        * @param request ChatappMigrationVerifiedRequest
        * @return ChatappMigrationVerifiedResponse
@@ -341,9 +356,9 @@ namespace Cams20200606
       Models::ChatappMigrationVerifiedResponse chatappMigrationVerified(const Models::ChatappMigrationVerifiedRequest &request);
 
       /**
-       * @summary Deregisters a phone number from a WhatsApp Business Account (WABA).
+       * @summary Deregisters a phone number from WABA.
        *
-       * @description This API is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. Call this API at a reasonable rate.
+       * @description The China Mainland site (Chinese) QPS limit for a single user for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Manage your calls appropriately.
        *
        * @param request ChatappPhoneNumberDeregisterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,9 +367,9 @@ namespace Cams20200606
       Models::ChatappPhoneNumberDeregisterResponse chatappPhoneNumberDeregisterWithOptions(const Models::ChatappPhoneNumberDeregisterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deregisters a phone number from a WhatsApp Business Account (WABA).
+       * @summary Deregisters a phone number from WABA.
        *
-       * @description This API is limited to 10 queries per second (QPS) per user. If you exceed this limit, API calls are throttled, which may affect your business. Call this API at a reasonable rate.
+       * @description The China Mainland site (Chinese) QPS limit for a single user for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Manage your calls appropriately.
        *
        * @param request ChatappPhoneNumberDeregisterRequest
        * @return ChatappPhoneNumberDeregisterResponse
@@ -362,9 +377,9 @@ namespace Cams20200606
       Models::ChatappPhoneNumberDeregisterResponse chatappPhoneNumberDeregister(const Models::ChatappPhoneNumberDeregisterRequest &request);
 
       /**
-       * @summary Registers a phone number.
+       * @summary Registers a phone number through the northbound interface.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Mainland Messaging API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ChatappPhoneNumberRegisterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -373,9 +388,9 @@ namespace Cams20200606
       Models::ChatappPhoneNumberRegisterResponse chatappPhoneNumberRegisterWithOptions(const Models::ChatappPhoneNumberRegisterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers a phone number.
+       * @summary Registers a phone number through the northbound interface.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Mainland Messaging API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ChatappPhoneNumberRegisterRequest
        * @return ChatappPhoneNumberRegisterResponse
@@ -383,9 +398,9 @@ namespace Cams20200606
       Models::ChatappPhoneNumberRegisterResponse chatappPhoneNumberRegister(const Models::ChatappPhoneNumberRegisterRequest &request);
 
       /**
-       * @summary Synchronizes phone numbers.
+       * @summary Synchronizes phone number information.
        *
-       * @description This operation allows a maximum of 10 requests per second (RPS) per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * @description The China-specific QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request ChatappSyncPhoneNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -394,9 +409,9 @@ namespace Cams20200606
       Models::ChatappSyncPhoneNumberResponse chatappSyncPhoneNumberWithOptions(const Models::ChatappSyncPhoneNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Synchronizes phone numbers.
+       * @summary Synchronizes phone number information.
        *
-       * @description This operation allows a maximum of 10 requests per second (RPS) per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * @description The China-specific QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request ChatappSyncPhoneNumberRequest
        * @return ChatappSyncPhoneNumberResponse
@@ -404,9 +419,9 @@ namespace Cams20200606
       Models::ChatappSyncPhoneNumberResponse chatappSyncPhoneNumber(const Models::ChatappSyncPhoneNumberRequest &request);
 
       /**
-       * @summary Associates a phone number with a WhatsApp Business account (WABA).
+       * @summary Verifies a verification code and registers through the northbound interface.
        *
-       * @description This operation allows a maximum of 10 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * @description The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API appropriately.
        *
        * @param request ChatappVerifyAndRegisterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -415,9 +430,9 @@ namespace Cams20200606
       Models::ChatappVerifyAndRegisterResponse chatappVerifyAndRegisterWithOptions(const Models::ChatappVerifyAndRegisterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a phone number with a WhatsApp Business account (WABA).
+       * @summary Verifies a verification code and registers through the northbound interface.
        *
-       * @description This operation allows a maximum of 10 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * @description The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API appropriately.
        *
        * @param request ChatappVerifyAndRegisterRequest
        * @return ChatappVerifyAndRegisterResponse
@@ -425,7 +440,7 @@ namespace Cams20200606
       Models::ChatappVerifyAndRegisterResponse chatappVerifyAndRegister(const Models::ChatappVerifyAndRegisterRequest &request);
 
       /**
-       * @summary Validates direct message content for WhatsApp.
+       * @summary Validates the content of a WhatsApp direct-send template.
        *
        * @param tmpReq CheckDirectSendMessageSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -434,7 +449,7 @@ namespace Cams20200606
       Models::CheckDirectSendMessageSampleResponse checkDirectSendMessageSampleWithOptions(const Models::CheckDirectSendMessageSampleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Validates direct message content for WhatsApp.
+       * @summary Validates the content of a WhatsApp direct-send template.
        *
        * @param request CheckDirectSendMessageSampleRequest
        * @return CheckDirectSendMessageSampleResponse
@@ -442,7 +457,7 @@ namespace Cams20200606
       Models::CheckDirectSendMessageSampleResponse checkDirectSendMessageSample(const Models::CheckDirectSendMessageSampleRequest &request);
 
       /**
-       * @summary 复制模板
+       * @summary Copies a template.
        *
        * @param request CopyTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +466,7 @@ namespace Cams20200606
       Models::CopyTemplateResponse copyTemplateWithOptions(const Models::CopyTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 复制模板
+       * @summary Copies a template.
        *
        * @param request CopyTemplateRequest
        * @return CopyTemplateResponse
@@ -459,7 +474,10 @@ namespace Cams20200606
       Models::CopyTemplateResponse copyTemplate(const Models::CopyTemplateRequest &request);
 
       /**
-       * @summary 创建Chatflow
+       * @summary Creates a flow.
+       *
+       * @description - This API operation creates a flow. You can also create a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
+       * - After you create a flow, you can orchestrate the canvas. For more information, see [Flow Editor components](https://help.aliyun.com/document_detail/2836818.html).
        *
        * @param tmpReq CreateChatFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,7 +486,10 @@ namespace Cams20200606
       Models::CreateChatFlowResponse createChatFlowWithOptions(const Models::CreateChatFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Chatflow
+       * @summary Creates a flow.
+       *
+       * @description - This API operation creates a flow. You can also create a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
+       * - After you create a flow, you can orchestrate the canvas. For more information, see [Flow Editor components](https://help.aliyun.com/document_detail/2836818.html).
        *
        * @param request CreateChatFlowRequest
        * @return CreateChatFlowResponse
@@ -476,7 +497,11 @@ namespace Cams20200606
       Models::CreateChatFlowResponse createChatFlow(const Models::CreateChatFlowRequest &request);
 
       /**
-       * @summary 导入并创建flow
+       * @summary Creates and imports a flow.
+       *
+       * @description - You can call this operation to create and import a flow. You can also create and import a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this operation, ensure that you have exported the Domain-Specific Language (DSL) data for the flow.
+       * - If you do not have the exported DSL data for a flow, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). Click a flow name to open the canvas. Arrange the components on the canvas, save the flow, and then export it as a JSON data file.
        *
        * @param tmpReq CreateChatFlowByImportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -485,7 +510,11 @@ namespace Cams20200606
       Models::CreateChatFlowByImportResponse createChatFlowByImportWithOptions(const Models::CreateChatFlowByImportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导入并创建flow
+       * @summary Creates and imports a flow.
+       *
+       * @description - You can call this operation to create and import a flow. You can also create and import a flow manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this operation, ensure that you have exported the Domain-Specific Language (DSL) data for the flow.
+       * - If you do not have the exported DSL data for a flow, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). Click a flow name to open the canvas. Arrange the components on the canvas, save the flow, and then export it as a JSON data file.
        *
        * @param request CreateChatFlowByImportRequest
        * @return CreateChatFlowByImportResponse
@@ -493,7 +522,12 @@ namespace Cams20200606
       Models::CreateChatFlowByImportResponse createChatFlowByImport(const Models::CreateChatFlowByImportRequest &request);
 
       /**
-       * @summary 创建chatFlow日志设置
+       * @summary Creates log settings for a flow.
+       *
+       * @description - To update the log settings for a flow using the API, you must first create the log settings. After the settings are created, call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the log settings. Then, call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the settings.
+       * - If you do not need to update the log settings using the API, you can manually update the log settings on the Log page. In the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), choose **Settings** > **Log**.
+       * - Before you call this operation, make sure that you have successfully created a flow.
+       * - If you do not have a successfully created flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param request CreateChatFlowLogSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -502,7 +536,12 @@ namespace Cams20200606
       Models::CreateChatFlowLogSettingResponse createChatFlowLogSettingWithOptions(const Models::CreateChatFlowLogSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建chatFlow日志设置
+       * @summary Creates log settings for a flow.
+       *
+       * @description - To update the log settings for a flow using the API, you must first create the log settings. After the settings are created, call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the log settings. Then, call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the settings.
+       * - If you do not need to update the log settings using the API, you can manually update the log settings on the Log page. In the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), choose **Settings** > **Log**.
+       * - Before you call this operation, make sure that you have successfully created a flow.
+       * - If you do not have a successfully created flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param request CreateChatFlowLogSettingRequest
        * @return CreateChatFlowLogSettingResponse
@@ -575,9 +614,9 @@ namespace Cams20200606
       Models::CreateCustomAudienceResponse createCustomAudience(const Models::CreateCustomAudienceRequest &request);
 
       /**
-       * @summary Creates a flow.
+       * @summary Creates a Flow.
        *
-       * @description The queries per second (QPS) limit for this operation is 5 for each user. API calls that exceed this limit are throttled. Because throttling may affect your business, we recommend that you call this operation at a reasonable rate.
+       * @description The China Message Service (Chinese SMS) API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param tmpReq CreateFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,9 +625,9 @@ namespace Cams20200606
       Models::CreateFlowResponse createFlowWithOptions(const Models::CreateFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a flow.
+       * @summary Creates a Flow.
        *
-       * @description The queries per second (QPS) limit for this operation is 5 for each user. API calls that exceed this limit are throttled. Because throttling may affect your business, we recommend that you call this operation at a reasonable rate.
+       * @description The China Message Service (Chinese SMS) API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request CreateFlowRequest
        * @return CreateFlowResponse
@@ -596,7 +635,11 @@ namespace Cams20200606
       Models::CreateFlowResponse createFlow(const Models::CreateFlowRequest &request);
 
       /**
-       * @summary CreateFlowVersion
+       * @summary Creates a new version of a flow by copying an existing version.
+       *
+       * @description - You can call this operation to create a new flow version. You can also manually copy a flow version from the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To do this, click a flow name to open the orchestration canvas and then copy the version.
+       * - Before you call this operation, make sure that you have created a flow.
+       * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param tmpReq CreateFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -605,7 +648,11 @@ namespace Cams20200606
       Models::CreateFlowVersionResponse createFlowVersionWithOptions(const Models::CreateFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateFlowVersion
+       * @summary Creates a new version of a flow by copying an existing version.
+       *
+       * @description - You can call this operation to create a new flow version. You can also manually copy a flow version from the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To do this, click a flow name to open the orchestration canvas and then copy the version.
+       * - Before you call this operation, make sure that you have created a flow.
+       * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param request CreateFlowVersionRequest
        * @return CreateFlowVersionResponse
@@ -666,12 +713,14 @@ namespace Cams20200606
       /**
        * @summary Creates a message QR code.
        *
-       * @description - After a QR code is created, users can scan it with WhatsApp to start a chat with your business number.
-       * - Before calling this API, make sure you have a WhatsApp channel.
-       * - If you do not have a WhatsApp channel, create one on the
-       *   <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+       * @description - After the QR code is created, users can scan it with WhatsApp to quickly open the corresponding business phone number.
+       * - Before calling this operation, make sure that you have a successfully created WhatsApp message channel.
+       * - If you do not have a successfully created WhatsApp message channel, manually create one on the
+       * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
+       * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
+       * page.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request CreatePhoneMessageQrdlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -682,12 +731,14 @@ namespace Cams20200606
       /**
        * @summary Creates a message QR code.
        *
-       * @description - After a QR code is created, users can scan it with WhatsApp to start a chat with your business number.
-       * - Before calling this API, make sure you have a WhatsApp channel.
-       * - If you do not have a WhatsApp channel, create one on the
-       *   <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+       * @description - After the QR code is created, users can scan it with WhatsApp to quickly open the corresponding business phone number.
+       * - Before calling this operation, make sure that you have a successfully created WhatsApp message channel.
+       * - If you do not have a successfully created WhatsApp message channel, manually create one on the
+       * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
+       * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
+       * page.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request CreatePhoneMessageQrdlRequest
        * @return CreatePhoneMessageQrdlResponse
@@ -712,7 +763,11 @@ namespace Cams20200606
       Models::CreateWhatsappConversionApiResponse createWhatsappConversionApi(const Models::CreateWhatsappConversionApiRequest &request);
 
       /**
-       * @summary 删除流程
+       * @summary Deletes a flow.
+       *
+       * @description - You can call this operation to delete a flow. You can also manually delete a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you delete a flow, make sure its status is Unpublished.
+       * - Deleted flows cannot be recovered. Proceed with caution.
        *
        * @param tmpReq DeleteChatFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -721,7 +776,11 @@ namespace Cams20200606
       Models::DeleteChatFlowResponse deleteChatFlowWithOptions(const Models::DeleteChatFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除流程
+       * @summary Deletes a flow.
+       *
+       * @description - You can call this operation to delete a flow. You can also manually delete a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you delete a flow, make sure its status is Unpublished.
+       * - Deleted flows cannot be recovered. Proceed with caution.
        *
        * @param request DeleteChatFlowRequest
        * @return DeleteChatFlowResponse
@@ -729,13 +788,12 @@ namespace Cams20200606
       Models::DeleteChatFlowResponse deleteChatFlow(const Models::DeleteChatFlowRequest &request);
 
       /**
-       * @summary Deletes an Instant Messaging (IM) group.
+       * @summary Deletes a successfully created IM group.
        *
-       * @description >Notice: 
-       * This API is in beta testing for Meta. Contact your account manager to be added to the allowlist before using this endpoint.
-       * - Before you call this API, ensure that you have created an IM group.
-       * - If you have not created one, create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) operation.
-       * - After an IM group is deleted, it cannot be recovered. Proceed with caution.
+       * @description >Notice: The API-based IM group deletion feature is a Meta beta feature. Contact your account manager to apply for access.
+       * - Before calling this operation, make sure that you have a successfully created IM group.
+       * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+       * - A deleted IM group cannot be recovered. Proceed with caution.
        *
        * @param request DeleteChatGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,13 +802,12 @@ namespace Cams20200606
       Models::DeleteChatGroupResponse deleteChatGroupWithOptions(const Models::DeleteChatGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Instant Messaging (IM) group.
+       * @summary Deletes a successfully created IM group.
        *
-       * @description >Notice: 
-       * This API is in beta testing for Meta. Contact your account manager to be added to the allowlist before using this endpoint.
-       * - Before you call this API, ensure that you have created an IM group.
-       * - If you have not created one, create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) operation.
-       * - After an IM group is deleted, it cannot be recovered. Proceed with caution.
+       * @description >Notice: The API-based IM group deletion feature is a Meta beta feature. Contact your account manager to apply for access.
+       * - Before calling this operation, make sure that you have a successfully created IM group.
+       * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+       * - A deleted IM group cannot be recovered. Proceed with caution.
        *
        * @param request DeleteChatGroupRequest
        * @return DeleteChatGroupResponse
@@ -760,11 +817,10 @@ namespace Cams20200606
       /**
        * @summary Deletes an IM group invitation link.
        *
-       * @description >Notice: 
-       * Deleting an IM group invitation link via the API is a feature in beta testing for Meta. To use this feature, contact your account manager to be added to the allowlist.
-       * - Before calling this operation, ensure an invitation link has been added to your IM group.
-       * - If you do not have an IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create one and add an invitation link.
-       * - After deleting the invitation link, you can no longer invite members to the IM group. Proceed with caution.
+       * @description >Notice: The ability to delete IM group invitation links through the API is a Meta beta feature. Contact your account manager to request access.
+       * - Before calling this operation, make sure that the IM group you created already has an IM group invitation link added.
+       * - If you do not have an existing IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
+       * - After you delete an IM group invitation link, the IM group can no longer invite members to join. Proceed with caution.
        *
        * @param request DeleteChatGroupInviteLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -775,11 +831,10 @@ namespace Cams20200606
       /**
        * @summary Deletes an IM group invitation link.
        *
-       * @description >Notice: 
-       * Deleting an IM group invitation link via the API is a feature in beta testing for Meta. To use this feature, contact your account manager to be added to the allowlist.
-       * - Before calling this operation, ensure an invitation link has been added to your IM group.
-       * - If you do not have an IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create one and add an invitation link.
-       * - After deleting the invitation link, you can no longer invite members to the IM group. Proceed with caution.
+       * @description >Notice: The ability to delete IM group invitation links through the API is a Meta beta feature. Contact your account manager to request access.
+       * - Before calling this operation, make sure that the IM group you created already has an IM group invitation link added.
+       * - If you do not have an existing IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
+       * - After you delete an IM group invitation link, the IM group can no longer invite members to join. Proceed with caution.
        *
        * @param request DeleteChatGroupInviteLinkRequest
        * @return DeleteChatGroupInviteLinkResponse
@@ -856,7 +911,7 @@ namespace Cams20200606
       Models::DeleteContactsResponse deleteContacts(const Models::DeleteContactsRequest &request);
 
       /**
-       * @summary 删除联系人(选择后删除)
+       * @summary Deletes contacts by selecting and removing them.
        *
        * @param request DeleteContactsByIdsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -865,7 +920,7 @@ namespace Cams20200606
       Models::DeleteContactsByIdsResponse deleteContactsByIdsWithOptions(const Models::DeleteContactsByIdsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除联系人(选择后删除)
+       * @summary Deletes contacts by selecting and removing them.
        *
        * @param request DeleteContactsByIdsRequest
        * @return DeleteContactsByIdsResponse
@@ -873,9 +928,9 @@ namespace Cams20200606
       Models::DeleteContactsByIdsResponse deleteContactsByIds(const Models::DeleteContactsByIdsRequest &request);
 
       /**
-       * @summary Deletes a WhatsApp flow. Only flows in the draft state can be deleted.
+       * @summary Deletes a Flow (only Flows in DRAFT status can be deleted).
        *
-       * @description This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+       * @description The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request DeleteFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -884,9 +939,9 @@ namespace Cams20200606
       Models::DeleteFlowResponse deleteFlowWithOptions(const Models::DeleteFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a WhatsApp flow. Only flows in the draft state can be deleted.
+       * @summary Deletes a Flow (only Flows in DRAFT status can be deleted).
        *
-       * @description This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+       * @description The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request DeleteFlowRequest
        * @return DeleteFlowResponse
@@ -894,7 +949,12 @@ namespace Cams20200606
       Models::DeleteFlowResponse deleteFlow(const Models::DeleteFlowRequest &request);
 
       /**
-       * @summary 删除流程版本
+       * @summary Deletes a flow version.
+       *
+       * @description - You can call this operation to delete a flow version, or click a flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually delete the flow version.
+       * - Before calling this operation, make sure that the flow version is in the offline state and that at least two flow versions exist.
+       * - If the flow version is in the online state, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow version offline.
+       * - After a flow version is deleted, the canvas flow that you orchestrated cannot be recovered. Proceed with caution.
        *
        * @param tmpReq DeleteFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -903,7 +963,12 @@ namespace Cams20200606
       Models::DeleteFlowVersionResponse deleteFlowVersionWithOptions(const Models::DeleteFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除流程版本
+       * @summary Deletes a flow version.
+       *
+       * @description - You can call this operation to delete a flow version, or click a flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually delete the flow version.
+       * - Before calling this operation, make sure that the flow version is in the offline state and that at least two flow versions exist.
+       * - If the flow version is in the online state, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow version offline.
+       * - After a flow version is deleted, the canvas flow that you orchestrated cannot be recovered. Proceed with caution.
        *
        * @param request DeleteFlowVersionRequest
        * @return DeleteFlowVersionResponse
@@ -962,7 +1027,7 @@ namespace Cams20200606
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary 删除营销活动
+       * @summary Deletes a marketing campaign.
        *
        * @param request DeleteMarketingFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -971,7 +1036,7 @@ namespace Cams20200606
       Models::DeleteMarketingFlowResponse deleteMarketingFlowWithOptions(const Models::DeleteMarketingFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除营销活动
+       * @summary Deletes a marketing campaign.
        *
        * @param request DeleteMarketingFlowRequest
        * @return DeleteMarketingFlowResponse
@@ -1015,10 +1080,11 @@ namespace Cams20200606
       /**
        * @summary Deletes a message QR code.
        *
-       * @description - After a message QR code is deleted, users can no longer scan the QR code to start a chat with your business number. Proceed with caution.
-       * - If you have not created a message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) API to create one.
-       * #### QPS limits
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description - After you delete a message QR code, users can no longer open the corresponding business phone number by scanning the original QR code. Proceed with caution.
+       * - Before calling this operation, make sure that you have a successfully created message QR code.
+       * - If you do not have a successfully created message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) operation to create one first.
+       * #### QPS limit
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request DeletePhoneMessageQrdlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1029,15 +1095,33 @@ namespace Cams20200606
       /**
        * @summary Deletes a message QR code.
        *
-       * @description - After a message QR code is deleted, users can no longer scan the QR code to start a chat with your business number. Proceed with caution.
-       * - If you have not created a message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) API to create one.
-       * #### QPS limits
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description - After you delete a message QR code, users can no longer open the corresponding business phone number by scanning the original QR code. Proceed with caution.
+       * - Before calling this operation, make sure that you have a successfully created message QR code.
+       * - If you do not have a successfully created message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) operation to create one first.
+       * #### QPS limit
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request DeletePhoneMessageQrdlRequest
        * @return DeletePhoneMessageQrdlResponse
        */
       Models::DeletePhoneMessageQrdlResponse deletePhoneMessageQrdl(const Models::DeletePhoneMessageQrdlRequest &request);
+
+      /**
+       * @summary Deletes the WhatsApp user name for a business phone number.
+       *
+       * @param request DeleteWhatsappUserNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWhatsappUserNameResponse
+       */
+      Models::DeleteWhatsappUserNameResponse deleteWhatsappUserNameWithOptions(const Models::DeleteWhatsappUserNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the WhatsApp user name for a business phone number.
+       *
+       * @param request DeleteWhatsappUserNameRequest
+       * @return DeleteWhatsappUserNameResponse
+       */
+      Models::DeleteWhatsappUserNameResponse deleteWhatsappUserName(const Models::DeleteWhatsappUserNameRequest &request);
 
       /**
        * @summary Deprecates a WhatsApp flow.
@@ -1061,13 +1145,13 @@ namespace Cams20200606
       Models::DeprecateFlowResponse deprecateFlow(const Models::DeprecateFlowRequest &request);
 
       /**
-       * @summary Enables statistics for WhatsApp metrics.
+       * @summary Enables WhatsApp-related metric collection.
        *
-       * @description - Before retrieving metrics for messages sent through WhatsApp channels or for Marketing templates, call this operation to enable statistics for WhatsApp Return on Investment (ROI) metrics.
-       * - After you enable statistics for WhatsApp ROI metrics, it takes at least one day for data to become available. Metrics for messages sent and for Marketing templates used before you enabled this feature are not collected.
-       * - After you enable it, you can call the [GetChatappPhoneNumberMetric](https://help.aliyun.com/document_detail/2557788.html) operation to query metrics for messages sent from a phone number, or the [GetChatappTemplateMetric](https://help.aliyun.com/document_detail/2557790.html) operation to query metrics for Marketing templates.
+       * @description - Before you retrieve metrics for the message sending volume of WhatsApp-type channels or metrics related to Marketing-type templates by calling API operations, call this operation to enable WhatsApp ROI metric collection.
+       * - After you enable WhatsApp ROI metric collection, at least one day is required before metric data becomes available. Message sending volume metrics and Marketing-type template metrics for messages sent before the feature is enabled are not collected.
+       * - After you enable WhatsApp ROI metric collection, you can call the [GetChatappPhoneNumberMetric](https://help.aliyun.com/document_detail/2557788.html) operation to query the sending volume metrics of a phone number, or call the [GetChatappTemplateMetric](https://help.aliyun.com/document_detail/2557790.html) operation to query metrics related to Marketing-type templates.
        * ### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request EnableWhatsappROIMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1076,13 +1160,13 @@ namespace Cams20200606
       Models::EnableWhatsappROIMetricResponse enableWhatsappROIMetricWithOptions(const Models::EnableWhatsappROIMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables statistics for WhatsApp metrics.
+       * @summary Enables WhatsApp-related metric collection.
        *
-       * @description - Before retrieving metrics for messages sent through WhatsApp channels or for Marketing templates, call this operation to enable statistics for WhatsApp Return on Investment (ROI) metrics.
-       * - After you enable statistics for WhatsApp ROI metrics, it takes at least one day for data to become available. Metrics for messages sent and for Marketing templates used before you enabled this feature are not collected.
-       * - After you enable it, you can call the [GetChatappPhoneNumberMetric](https://help.aliyun.com/document_detail/2557788.html) operation to query metrics for messages sent from a phone number, or the [GetChatappTemplateMetric](https://help.aliyun.com/document_detail/2557790.html) operation to query metrics for Marketing templates.
+       * @description - Before you retrieve metrics for the message sending volume of WhatsApp-type channels or metrics related to Marketing-type templates by calling API operations, call this operation to enable WhatsApp ROI metric collection.
+       * - After you enable WhatsApp ROI metric collection, at least one day is required before metric data becomes available. Message sending volume metrics and Marketing-type template metrics for messages sent before the feature is enabled are not collected.
+       * - After you enable WhatsApp ROI metric collection, you can call the [GetChatappPhoneNumberMetric](https://help.aliyun.com/document_detail/2557788.html) operation to query the sending volume metrics of a phone number, or call the [GetChatappTemplateMetric](https://help.aliyun.com/document_detail/2557790.html) operation to query metrics related to Marketing-type templates.
        * ### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request EnableWhatsappROIMetricRequest
        * @return EnableWhatsappROIMetricResponse
@@ -1090,7 +1174,15 @@ namespace Cams20200606
       Models::EnableWhatsappROIMetricResponse enableWhatsappROIMetric(const Models::EnableWhatsappROIMetricRequest &request);
 
       /**
-       * @summary flow绑定号码
+       * @summary Attaches a phone number or a business account ID to a flow.
+       *
+       * @description - Call this API operation to attach a phone number or a business account ID to a flow. You can also manually attach them on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this API operation, make sure that you have created a flow and a message channel of the corresponding type.
+       * - For a WhatsApp channel, you must have completed [WhatsApp Business Account (WABA) registration and binding](https://help.aliyun.com/document_detail/172335.html) and [added a phone number](https://help.aliyun.com/document_detail/2656131.html).
+       * - For a Messenger channel, you must have [connected a public homepage account](https://help.aliyun.com/document_detail/2837713.html).
+       * - For an Instagram channel, you must have [connected a professional account](https://help.aliyun.com/document_detail/2837720.html).
+       * <props="intl">
+       * - For a Viber channel, you must have [requested a service number](https://help.aliyun.com/document_detail/2807995.html).
        *
        * @param tmpReq FlowBindPhoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1099,7 +1191,15 @@ namespace Cams20200606
       Models::FlowBindPhoneResponse flowBindPhoneWithOptions(const Models::FlowBindPhoneRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary flow绑定号码
+       * @summary Attaches a phone number or a business account ID to a flow.
+       *
+       * @description - Call this API operation to attach a phone number or a business account ID to a flow. You can also manually attach them on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this API operation, make sure that you have created a flow and a message channel of the corresponding type.
+       * - For a WhatsApp channel, you must have completed [WhatsApp Business Account (WABA) registration and binding](https://help.aliyun.com/document_detail/172335.html) and [added a phone number](https://help.aliyun.com/document_detail/2656131.html).
+       * - For a Messenger channel, you must have [connected a public homepage account](https://help.aliyun.com/document_detail/2837713.html).
+       * - For an Instagram channel, you must have [connected a professional account](https://help.aliyun.com/document_detail/2837720.html).
+       * <props="intl">
+       * - For a Viber channel, you must have [requested a service number](https://help.aliyun.com/document_detail/2807995.html).
        *
        * @param request FlowBindPhoneRequest
        * @return FlowBindPhoneResponse
@@ -1107,7 +1207,11 @@ namespace Cams20200606
       Models::FlowBindPhoneResponse flowBindPhone(const Models::FlowBindPhoneRequest &request);
 
       /**
-       * @summary flow重绑定手机号
+       * @summary Rebinds a phone number or merchant account ID to a flow.
+       *
+       * @description - You can call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+       * - Before calling this operation, make sure that your flow already has a phone number or merchant account ID bound to it.
+       * - If you are binding a phone number or merchant account ID to a flow for the first time, use the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
        *
        * @param tmpReq FlowRebindPhoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1116,7 +1220,11 @@ namespace Cams20200606
       Models::FlowRebindPhoneResponse flowRebindPhoneWithOptions(const Models::FlowRebindPhoneRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary flow重绑定手机号
+       * @summary Rebinds a phone number or merchant account ID to a flow.
+       *
+       * @description - You can call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
+       * - Before calling this operation, make sure that your flow already has a phone number or merchant account ID bound to it.
+       * - If you are binding a phone number or merchant account ID to a flow for the first time, use the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
        *
        * @param request FlowRebindPhoneRequest
        * @return FlowRebindPhoneResponse
@@ -1124,7 +1232,13 @@ namespace Cams20200606
       Models::FlowRebindPhoneResponse flowRebindPhone(const Models::FlowRebindPhoneRequest &request);
 
       /**
-       * @summary flow解绑手机号
+       * @summary Unbinds a phone number or business account ID from a flow.
+       *
+       * @description - Before you call this operation, ensure that the flow is unpublished. If the flow is published, you can unpublish it manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas. Alternatively, you can call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to unpublish the flow.
+       * - You can call this operation to unbind a phone number or business account ID from a flow. You can also perform this action manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this operation, ensure that a phone number or business account ID is bound to the flow.
+       * - If no phone number or business account ID is bound to the flow, you can bind one manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+       * - After a phone number or business account ID is unbound from a flow, the flow cannot be published. You must bind a new phone number or business account ID to the flow before you can publish it.
        *
        * @param tmpReq FlowUnbindPhoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1133,7 +1247,13 @@ namespace Cams20200606
       Models::FlowUnbindPhoneResponse flowUnbindPhoneWithOptions(const Models::FlowUnbindPhoneRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary flow解绑手机号
+       * @summary Unbinds a phone number or business account ID from a flow.
+       *
+       * @description - Before you call this operation, ensure that the flow is unpublished. If the flow is published, you can unpublish it manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas. Alternatively, you can call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to unpublish the flow.
+       * - You can call this operation to unbind a phone number or business account ID from a flow. You can also perform this action manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this operation, ensure that a phone number or business account ID is bound to the flow.
+       * - If no phone number or business account ID is bound to the flow, you can bind one manually on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+       * - After a phone number or business account ID is unbound from a flow, the flow cannot be published. You must bind a new phone number or business account ID to the flow before you can publish it.
        *
        * @param request FlowUnbindPhoneRequest
        * @return FlowUnbindPhoneResponse
@@ -1141,7 +1261,7 @@ namespace Cams20200606
       Models::FlowUnbindPhoneResponse flowUnbindPhone(const Models::FlowUnbindPhoneRequest &request);
 
       /**
-       * @summary 获取临时的URL
+       * @summary Retrieves a temporary URL.
        *
        * @param request GeneratePresignedUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1150,7 +1270,7 @@ namespace Cams20200606
       Models::GeneratePresignedUrlResponse generatePresignedUrlWithOptions(const Models::GeneratePresignedUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取临时的URL
+       * @summary Retrieves a temporary URL.
        *
        * @param request GeneratePresignedUrlRequest
        * @return GeneratePresignedUrlResponse
@@ -1192,7 +1312,12 @@ namespace Cams20200606
       Models::GetAutoGeneratedTemplateResponse getAutoGeneratedTemplate(const Models::GetAutoGeneratedTemplateRequest &request);
 
       /**
-       * @summary 获取ChatFlow运行数据
+       * @summary Retrieves ChatFlow runtime data.
+       *
+       * @description - Before calling this operation, make sure that the flow you created is online and has been triggered.
+       * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the canvas, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
+       * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a campaign.
+       * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is automatically triggered when a message is sent to the bound business account.
        *
        * @param tmpReq GetChatFlowMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1201,7 +1326,12 @@ namespace Cams20200606
       Models::GetChatFlowMetricResponse getChatFlowMetricWithOptions(const Models::GetChatFlowMetricRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取ChatFlow运行数据
+       * @summary Retrieves ChatFlow runtime data.
+       *
+       * @description - Before calling this operation, make sure that the flow you created is online and has been triggered.
+       * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to open the canvas, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
+       * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a campaign.
+       * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is automatically triggered when a message is sent to the bound business account.
        *
        * @param request GetChatFlowMetricRequest
        * @return GetChatFlowMetricResponse
@@ -1209,7 +1339,10 @@ namespace Cams20200606
       Models::GetChatFlowMetricResponse getChatFlowMetric(const Models::GetChatFlowMetricRequest &request);
 
       /**
-       * @summary 查询chatFlow模板
+       * @summary Queries the details of a flow template.
+       *
+       * @description - You can call this operation to query the details of a flow template. You can also go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page and click a template name to view its details.
+       * - After you view the details of a template on the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page, you can use the template to create a flow.
        *
        * @param request GetChatFlowTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1218,7 +1351,10 @@ namespace Cams20200606
       Models::GetChatFlowTemplateResponse getChatFlowTemplateWithOptions(const Models::GetChatFlowTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询chatFlow模板
+       * @summary Queries the details of a flow template.
+       *
+       * @description - You can call this operation to query the details of a flow template. You can also go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page and click a template name to view its details.
+       * - After you view the details of a template on the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **View Templates** page, you can use the template to create a flow.
        *
        * @param request GetChatFlowTemplateRequest
        * @return GetChatFlowTemplateResponse
@@ -1226,7 +1362,7 @@ namespace Cams20200606
       Models::GetChatFlowTemplateResponse getChatFlowTemplate(const Models::GetChatFlowTemplateRequest &request);
 
       /**
-       * @summary 查询ChatApp开通状态
+       * @summary Queries the activation status of ChatApp.
        *
        * @param request GetChatappOpenStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1371,7 @@ namespace Cams20200606
       Models::GetChatappOpenStatusResponse getChatappOpenStatusWithOptions(const Models::GetChatappOpenStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ChatApp开通状态
+       * @summary Queries the activation status of ChatApp.
        *
        * @param request GetChatappOpenStatusRequest
        * @return GetChatappOpenStatusResponse
@@ -1243,13 +1379,14 @@ namespace Cams20200606
       Models::GetChatappOpenStatusResponse getChatappOpenStatus(const Models::GetChatappOpenStatusRequest &request);
 
       /**
-       * @summary Queries the message sending metrics for a phone number in a WhatsApp channel.
+       * @summary Queries the message sending volume metrics for a WhatsApp channel phone number.
        *
-       * @description - You can call this operation to query message sending metrics. Alternatively, you can query the metrics in the ChatApp console by choosing <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Daily Statistics Reports for Customers**.
-       * - Before you call this operation, call the [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) operation to enable return on investment (ROI) metric collection for WhatsApp. Statistics are available at least one day after you enable this feature. Message sending metrics generated before you enable the feature are not collected.
-       * - After you enable ROI metric collection for WhatsApp, make sure that messages are successfully sent from your channel. To send messages, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page, select a WhatsApp channel, and choose **Message Sending**. You can also call [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html).
+       * @description - This operation can only query the sending volume metrics for phone numbers on WhatsApp channels.
+       * - You can call this operation to query phone number sending volume metrics, or view them in the <props="china">[**Channels Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channels Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Customer Statistics Daily Report** page.
+       * - Before calling this operation, call the [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) operation to enable WhatsApp ROI metric collection. After enabling, at least one day is required before statistics become available. Message sending volume metrics for messages sent before enabling are not collected.
+       * - After enabling WhatsApp ROI metric collection, ensure that your channel has successfully sent messages. You can send messages on the <props="china">[**Channels Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channels Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Send Message** page, or by calling the [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html) operation.
        * ### QPS limit
-       * This operation allows a maximum of 50 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * The single-user QPS limit for this operation is 50 calls per second. Requests that exceed this limit are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request GetChatappPhoneNumberMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1258,13 +1395,14 @@ namespace Cams20200606
       Models::GetChatappPhoneNumberMetricResponse getChatappPhoneNumberMetricWithOptions(const Models::GetChatappPhoneNumberMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the message sending metrics for a phone number in a WhatsApp channel.
+       * @summary Queries the message sending volume metrics for a WhatsApp channel phone number.
        *
-       * @description - You can call this operation to query message sending metrics. Alternatively, you can query the metrics in the ChatApp console by choosing <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Daily Statistics Reports for Customers**.
-       * - Before you call this operation, call the [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) operation to enable return on investment (ROI) metric collection for WhatsApp. Statistics are available at least one day after you enable this feature. Message sending metrics generated before you enable the feature are not collected.
-       * - After you enable ROI metric collection for WhatsApp, make sure that messages are successfully sent from your channel. To send messages, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page, select a WhatsApp channel, and choose **Message Sending**. You can also call [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html).
+       * @description - This operation can only query the sending volume metrics for phone numbers on WhatsApp channels.
+       * - You can call this operation to query phone number sending volume metrics, or view them in the <props="china">[**Channels Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channels Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Customer Statistics Daily Report** page.
+       * - Before calling this operation, call the [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) operation to enable WhatsApp ROI metric collection. After enabling, at least one day is required before statistics become available. Message sending volume metrics for messages sent before enabling are not collected.
+       * - After enabling WhatsApp ROI metric collection, ensure that your channel has successfully sent messages. You can send messages on the <props="china">[**Channels Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channels Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Send Message** page, or by calling the [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html) operation.
        * ### QPS limit
-       * This operation allows a maximum of 50 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * The single-user QPS limit for this operation is 50 calls per second. Requests that exceed this limit are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request GetChatappPhoneNumberMetricRequest
        * @return GetChatappPhoneNumberMetricResponse
@@ -1272,7 +1410,7 @@ namespace Cams20200606
       Models::GetChatappPhoneNumberMetricResponse getChatappPhoneNumberMetric(const Models::GetChatappPhoneNumberMetricRequest &request);
 
       /**
-       * @summary 获取Chatapp号码其它控制
+       * @summary Retrieves other controls for a ChatApp phone number.
        *
        * @param request GetChatappPhoneNumberSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1281,7 +1419,7 @@ namespace Cams20200606
       Models::GetChatappPhoneNumberSettingResponse getChatappPhoneNumberSettingWithOptions(const Models::GetChatappPhoneNumberSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Chatapp号码其它控制
+       * @summary Retrieves other controls for a ChatApp phone number.
        *
        * @param request GetChatappPhoneNumberSettingRequest
        * @return GetChatappPhoneNumberSettingResponse
@@ -1289,10 +1427,10 @@ namespace Cams20200606
       Models::GetChatappPhoneNumberSettingResponse getChatappPhoneNumberSetting(const Models::GetChatappPhoneNumberSettingRequest &request);
 
       /**
-       * @summary Queries the details of a message template.
+       * @summary Retrieves the details of a Chat App Message Service message template.
        *
        * @description ### QPS limit
-       * This operation allows a maximum of 5 requests per second (RPS) per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request GetChatappTemplateDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1301,10 +1439,10 @@ namespace Cams20200606
       Models::GetChatappTemplateDetailResponse getChatappTemplateDetailWithOptions(const Models::GetChatappTemplateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a message template.
+       * @summary Retrieves the details of a Chat App Message Service message template.
        *
        * @description ### QPS limit
-       * This operation allows a maximum of 5 requests per second (RPS) per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request GetChatappTemplateDetailRequest
        * @return GetChatappTemplateDetailResponse
@@ -1312,13 +1450,13 @@ namespace Cams20200606
       Models::GetChatappTemplateDetailResponse getChatappTemplateDetail(const Models::GetChatappTemplateDetailRequest &request);
 
       /**
-       * @summary Queries the metrics for a marketing template.
+       * @summary Retrieves metrics related to marketing-type templates.
        *
-       * @description - This API queries metrics only for marketing templates of WhatsApp channels.
-       * - Before you call this operation, call [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) to enable metric statistics for WhatsApp Return on Investment (ROI). It takes at least one day for the data to become available after you enable this feature. Metrics are not collected for marketing templates that were used before this feature was enabled.
-       * - After you enable metric statistics for WhatsApp ROI, ensure that messages have been sent using the marketing templates of your channels. To send messages, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page, select a WhatsApp channel, and choose **Message Sending**. You can also call [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html).
-       * ### QPS limits
-       * This API is limited to 50 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description - This operation can only query metrics for marketing templates of WhatsApp channels.
+       * - Before calling this operation, call the [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) operation to enable WhatsApp ROI metric collection. After enabling, statistical data requires at least one day to become available. Metrics for marketing templates sent before enabling are not collected.
+       * - After enabling WhatsApp ROI metric collection, make sure that the marketing templates of your created channels have successfully sent messages. You can send messages on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Send Message** page, or by calling the [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html) operation.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 50 calls per second. Requests that exceed this limit are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request GetChatappTemplateMetricRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1327,13 +1465,13 @@ namespace Cams20200606
       Models::GetChatappTemplateMetricResponse getChatappTemplateMetricWithOptions(const Models::GetChatappTemplateMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the metrics for a marketing template.
+       * @summary Retrieves metrics related to marketing-type templates.
        *
-       * @description - This API queries metrics only for marketing templates of WhatsApp channels.
-       * - Before you call this operation, call [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) to enable metric statistics for WhatsApp Return on Investment (ROI). It takes at least one day for the data to become available after you enable this feature. Metrics are not collected for marketing templates that were used before this feature was enabled.
-       * - After you enable metric statistics for WhatsApp ROI, ensure that messages have been sent using the marketing templates of your channels. To send messages, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page, select a WhatsApp channel, and choose **Message Sending**. You can also call [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html).
-       * ### QPS limits
-       * This API is limited to 50 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description - This operation can only query metrics for marketing templates of WhatsApp channels.
+       * - Before calling this operation, call the [EnableWhatsAppROIMetric](https://help.aliyun.com/document_detail/2557789.html) operation to enable WhatsApp ROI metric collection. After enabling, statistical data requires at least one day to become available. Metrics for marketing templates sent before enabling are not collected.
+       * - After enabling WhatsApp ROI metric collection, make sure that the marketing templates of your created channels have successfully sent messages. You can send messages on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Send Message** page, or by calling the [SendChatappMessage](https://help.aliyun.com/document_detail/432208.html) or [SendChatappMassMessage](https://help.aliyun.com/document_detail/447926.html) operation.
+       * ### QPS limit
+       * The single-user QPS limit for this operation is 50 calls per second. Requests that exceed this limit are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request GetChatappTemplateMetricRequest
        * @return GetChatappTemplateMetricResponse
@@ -1429,7 +1567,7 @@ namespace Cams20200606
       Models::GetConversationalAutomationResponse getConversationalAutomation(const Models::GetConversationalAutomationRequest &request);
 
       /**
-       * @summary 查询客户来源站点
+       * @summary Queries the source site of a customer.
        *
        * @param request GetCustomerSiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1438,7 +1576,7 @@ namespace Cams20200606
       Models::GetCustomerSiteResponse getCustomerSiteWithOptions(const Models::GetCustomerSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询客户来源站点
+       * @summary Queries the source site of a customer.
        *
        * @param request GetCustomerSiteRequest
        * @return GetCustomerSiteResponse
@@ -1614,9 +1752,9 @@ namespace Cams20200606
       Models::GetMessageCampaignInsightsResponse getMessageCampaignInsights(const Models::GetMessageCampaignInsightsRequest &request);
 
       /**
-       * @summary Gets the verification code for phone number migration.
+       * @summary Retrieves the verification code for a migration phone number.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Message Service API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Adjust your call frequency accordingly.
        *
        * @param request GetMigrationVerifyCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1625,9 +1763,9 @@ namespace Cams20200606
       Models::GetMigrationVerifyCodeResponse getMigrationVerifyCodeWithOptions(const Models::GetMigrationVerifyCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the verification code for phone number migration.
+       * @summary Retrieves the verification code for a migration phone number.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Message Service API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Adjust your call frequency accordingly.
        *
        * @param request GetMigrationVerifyCodeRequest
        * @return GetMigrationVerifyCodeResponse
@@ -1635,9 +1773,9 @@ namespace Cams20200606
       Models::GetMigrationVerifyCodeResponse getMigrationVerifyCode(const Models::GetMigrationVerifyCodeRequest &request);
 
       /**
-       * @summary Gets permissions using the code obtained from the embeded signup flow.
+       * @summary Obtains authorization permissions by using the code obtained from the embedded integration.
        *
-       * @description This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Message Service API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param tmpReq GetPermissionByCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1646,9 +1784,9 @@ namespace Cams20200606
       Models::GetPermissionByCodeResponse getPermissionByCodeWithOptions(const Models::GetPermissionByCodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets permissions using the code obtained from the embeded signup flow.
+       * @summary Obtains authorization permissions by using the code obtained from the embedded integration.
        *
-       * @description This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The China Message Service API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
        *
        * @param request GetPermissionByCodeRequest
        * @return GetPermissionByCodeResponse
@@ -1656,12 +1794,12 @@ namespace Cams20200606
       Models::GetPermissionByCodeResponse getPermissionByCode(const Models::GetPermissionByCodeRequest &request);
 
       /**
-       * @summary Retrieves the public key for a phone number.
+       * @summary Retrieves the encryption public key of a phone number.
        *
-       * @description - Before calling this API, make sure that you have added a verified phone number to your WhatsApp Business Account (WABA).
-       * - If no phone number is added to your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) APIs to get a verification code to register and verify the phone number.
+       * @description - Before calling this operation, make sure that a phone number has been added under your WABA and has passed phone number verification.
+       * - If no phone number has been added under your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) operations to obtain a verification code and register the phone number.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request GetPhoneEncryptionPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1670,12 +1808,12 @@ namespace Cams20200606
       Models::GetPhoneEncryptionPublicKeyResponse getPhoneEncryptionPublicKeyWithOptions(const Models::GetPhoneEncryptionPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the public key for a phone number.
+       * @summary Retrieves the encryption public key of a phone number.
        *
-       * @description - Before calling this API, make sure that you have added a verified phone number to your WhatsApp Business Account (WABA).
-       * - If no phone number is added to your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) APIs to get a verification code to register and verify the phone number.
+       * @description - Before calling this operation, make sure that a phone number has been added under your WABA and has passed phone number verification.
+       * - If no phone number has been added under your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) operations to obtain a verification code and register the phone number.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request GetPhoneEncryptionPublicKeyRequest
        * @return GetPhoneEncryptionPublicKeyResponse
@@ -1710,7 +1848,7 @@ namespace Cams20200606
       Models::GetPhoneNumberVerificationStatusResponse getPhoneNumberVerificationStatus(const Models::GetPhoneNumberVerificationStatusRequest &request);
 
       /**
-       * @summary 下载保证函模板的地址
+       * @summary Retrieves the download URL for the letter of guarantee template.
        *
        * @param request GetPledgeTemplateAddressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1719,7 +1857,7 @@ namespace Cams20200606
       Models::GetPledgeTemplateAddressResponse getPledgeTemplateAddressWithOptions(const Models::GetPledgeTemplateAddressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下载保证函模板的地址
+       * @summary Retrieves the download URL for the letter of guarantee template.
        *
        * @param request GetPledgeTemplateAddressRequest
        * @return GetPledgeTemplateAddressResponse
@@ -1845,9 +1983,43 @@ namespace Cams20200606
       Models::GetWhatsappHealthStatusResponse getWhatsappHealthStatus(const Models::GetWhatsappHealthStatusRequest &request);
 
       /**
-       * @summary Gets the App ID for an Independent Software Vendor (ISV).
+       * @summary Retrieves the WhatsApp username for a business phone number.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @param request GetWhatsappUserNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWhatsappUserNameResponse
+       */
+      Models::GetWhatsappUserNameResponse getWhatsappUserNameWithOptions(const Models::GetWhatsappUserNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the WhatsApp username for a business phone number.
+       *
+       * @param request GetWhatsappUserNameRequest
+       * @return GetWhatsappUserNameResponse
+       */
+      Models::GetWhatsappUserNameResponse getWhatsappUserName(const Models::GetWhatsappUserNameRequest &request);
+
+      /**
+       * @summary Retrieves the suggested user name for a WhatsApp business phone number.
+       *
+       * @param request GetWhatsappUserNameSuggestionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWhatsappUserNameSuggestionsResponse
+       */
+      Models::GetWhatsappUserNameSuggestionsResponse getWhatsappUserNameSuggestionsWithOptions(const Models::GetWhatsappUserNameSuggestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the suggested user name for a WhatsApp business phone number.
+       *
+       * @param request GetWhatsappUserNameSuggestionsRequest
+       * @return GetWhatsappUserNameSuggestionsResponse
+       */
+      Models::GetWhatsappUserNameSuggestionsResponse getWhatsappUserNameSuggestions(const Models::GetWhatsappUserNameSuggestionsRequest &request);
+
+      /**
+       * @summary Retrieves the App ID for an ISV.
+       *
+       * @description The QPS limit for a single user of this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
        *
        * @param request IsvGetAppIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1856,9 +2028,9 @@ namespace Cams20200606
       Models::IsvGetAppIdResponse isvGetAppIdWithOptions(const Models::IsvGetAppIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the App ID for an Independent Software Vendor (ISV).
+       * @summary Retrieves the App ID for an ISV.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The QPS limit for a single user of this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
        *
        * @param request IsvGetAppIdRequest
        * @return IsvGetAppIdResponse
@@ -1900,7 +2072,11 @@ namespace Cams20200606
       Models::ListBindDmAccountResponse listBindDmAccount(const Models::ListBindDmAccountRequest &request);
 
       /**
-       * @summary 根据flowCode查询已绑定列表
+       * @summary Queries the phone numbers or business account IDs attached to a flow.
+       *
+       * @description - You can call this operation to query the phone numbers or business account IDs attached to a flow. You can also view this information on the **Settings** page in the **Flow Editor**.
+       * - Before you call this operation, ensure that a phone number or business account ID is attached to your flow.
+       * - If a phone number or business account ID is not attached to your flow, you can attach one manually on the **Settings** page in the **Flow Editor** or by calling the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
        *
        * @param request ListBindingRelationsForFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1909,7 +2085,11 @@ namespace Cams20200606
       Models::ListBindingRelationsForFlowVersionResponse listBindingRelationsForFlowVersionWithOptions(const Models::ListBindingRelationsForFlowVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据flowCode查询已绑定列表
+       * @summary Queries the phone numbers or business account IDs attached to a flow.
+       *
+       * @description - You can call this operation to query the phone numbers or business account IDs attached to a flow. You can also view this information on the **Settings** page in the **Flow Editor**.
+       * - Before you call this operation, ensure that a phone number or business account ID is attached to your flow.
+       * - If a phone number or business account ID is not attached to your flow, you can attach one manually on the **Settings** page in the **Flow Editor** or by calling the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
        *
        * @param request ListBindingRelationsForFlowVersionRequest
        * @return ListBindingRelationsForFlowVersionResponse
@@ -1917,7 +2097,12 @@ namespace Cams20200606
       Models::ListBindingRelationsForFlowVersionResponse listBindingRelationsForFlowVersion(const Models::ListBindingRelationsForFlowVersionRequest &request);
 
       /**
-       * @summary 列举流程
+       * @summary Lists flows.
+       *
+       * @description - You can call this operation to query flows, or manually query flows in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+       * - Before calling this operation, make sure that you have successfully created flows.
+       * - If you do not have any successfully created flows, manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
+       * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify these parameters, all flows are returned.
        *
        * @param tmpReq ListChatFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1926,7 +2111,12 @@ namespace Cams20200606
       Models::ListChatFlowResponse listChatFlowWithOptions(const Models::ListChatFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举流程
+       * @summary Lists flows.
+       *
+       * @description - You can call this operation to query flows, or manually query flows in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+       * - Before calling this operation, make sure that you have successfully created flows.
+       * - If you do not have any successfully created flows, manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
+       * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify these parameters, all flows are returned.
        *
        * @param request ListChatFlowRequest
        * @return ListChatFlowResponse
@@ -1934,7 +2124,10 @@ namespace Cams20200606
       Models::ListChatFlowResponse listChatFlow(const Models::ListChatFlowRequest &request);
 
       /**
-       * @summary chatFlow模板列表
+       * @summary Lists flow templates.
+       *
+       * @description - You can call this operation to list flow templates. You can also view the list of templates on the **View Templates** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - You can use the optional parameters in this operation to filter the list of templates. If you do not specify any filter conditions, all templates are returned.
        *
        * @param request ListChatFlowTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1943,7 +2136,10 @@ namespace Cams20200606
       Models::ListChatFlowTemplateResponse listChatFlowTemplateWithOptions(const Models::ListChatFlowTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary chatFlow模板列表
+       * @summary Lists flow templates.
+       *
+       * @description - You can call this operation to list flow templates. You can also view the list of templates on the **View Templates** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - You can use the optional parameters in this operation to filter the list of templates. If you do not specify any filter conditions, all templates are returned.
        *
        * @param request ListChatFlowTemplateRequest
        * @return ListChatFlowTemplateResponse
@@ -1951,13 +2147,12 @@ namespace Cams20200606
       Models::ListChatFlowTemplateResponse listChatFlowTemplate(const Models::ListChatFlowTemplateRequest &request);
 
       /**
-       * @summary Retrieves a list of IM groups.
+       * @summary Retrieves the list of IM groups.
        *
-       * @description >Notice: 
-       * Retrieving the IM group list via the API is a beta feature. Contact your account manager to be added to the allowlist.
-       * - You must have an IM group before you call this operation.
-       * - If you do not have an IM group, you can only create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) API.
-       * - The optional parameters for this operation filter the IM group list. If you do not specify any filters, the operation returns the complete IM group list.
+       * @description >Notice: The feature of retrieving IM group lists through API is a Meta beta feature. Contact your account manager to apply for access.
+       * - Before calling this operation, make sure you have successfully created IM groups.
+       * - If you do not have any created IM groups, you can only create IM groups through the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
+       * - The optional parameters of this operation are filter conditions for the IM group list. If you do not specify them, all IM groups are returned.
        *
        * @param tmpReq ListChatGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,13 +2161,12 @@ namespace Cams20200606
       Models::ListChatGroupResponse listChatGroupWithOptions(const Models::ListChatGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of IM groups.
+       * @summary Retrieves the list of IM groups.
        *
-       * @description >Notice: 
-       * Retrieving the IM group list via the API is a beta feature. Contact your account manager to be added to the allowlist.
-       * - You must have an IM group before you call this operation.
-       * - If you do not have an IM group, you can only create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) API.
-       * - The optional parameters for this operation filter the IM group list. If you do not specify any filters, the operation returns the complete IM group list.
+       * @description >Notice: The feature of retrieving IM group lists through API is a Meta beta feature. Contact your account manager to apply for access.
+       * - Before calling this operation, make sure you have successfully created IM groups.
+       * - If you do not have any created IM groups, you can only create IM groups through the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
+       * - The optional parameters of this operation are filter conditions for the IM group list. If you do not specify them, all IM groups are returned.
        *
        * @param request ListChatGroupRequest
        * @return ListChatGroupResponse
@@ -2007,7 +2201,11 @@ namespace Cams20200606
       Models::ListChatGroupParticipantsResponse listChatGroupParticipants(const Models::ListChatGroupParticipantsRequest &request);
 
       /**
-       * @summary 查询消息列表
+       * @summary Queries the message list.
+       *
+       * @description - You can call this operation to query the message list. You can also view the message list in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** console.
+       * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channel types.
+       * - Before calling this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, bound a phone number or merchant account ID, created a template that has passed the review, and sent messages through the channel.
        *
        * @param tmpReq ListChatappMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2016,7 +2214,11 @@ namespace Cams20200606
       Models::ListChatappMessageResponse listChatappMessageWithOptions(const Models::ListChatappMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消息列表
+       * @summary Queries the message list.
+       *
+       * @description - You can call this operation to query the message list. You can also view the message list in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** console.
+       * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channel types.
+       * - Before calling this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, bound a phone number or merchant account ID, created a template that has passed the review, and sent messages through the channel.
        *
        * @param request ListChatappMessageRequest
        * @return ListChatappMessageResponse
@@ -2064,7 +2266,7 @@ namespace Cams20200606
       Models::ListCustomAudienceResponse listCustomAudience(const Models::ListCustomAudienceRequest &request);
 
       /**
-       * @summary 查询账号下的Dm账号
+       * @summary Queries the DirectMail accounts under your Alibaba Cloud account.
        *
        * @param request ListDmAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2073,7 +2275,7 @@ namespace Cams20200606
       Models::ListDmAccountResponse listDmAccountWithOptions(const Models::ListDmAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询账号下的Dm账号
+       * @summary Queries the DirectMail accounts under your Alibaba Cloud account.
        *
        * @param request ListDmAccountRequest
        * @return ListDmAccountResponse
@@ -2098,7 +2300,7 @@ namespace Cams20200606
       Models::ListDmTagResponse listDmTag(const Models::ListDmTagRequest &request);
 
       /**
-       * @summary 查询facebook帖子列表
+       * @summary Queries the list of Facebook posts.
        *
        * @param request ListFacebookPostsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2107,7 +2309,7 @@ namespace Cams20200606
       Models::ListFacebookPostsResponse listFacebookPostsWithOptions(const Models::ListFacebookPostsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询facebook帖子列表
+       * @summary Queries the list of Facebook posts.
        *
        * @param request ListFacebookPostsRequest
        * @return ListFacebookPostsResponse
@@ -2136,7 +2338,7 @@ namespace Cams20200606
       Models::ListFlowResponse listFlow(const Models::ListFlowRequest &request);
 
       /**
-       * @summary ListFlowNodeGroup
+       * @summary Lists flow component groups.
        *
        * @param request ListFlowNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2145,7 +2347,7 @@ namespace Cams20200606
       Models::ListFlowNodeGroupResponse listFlowNodeGroupWithOptions(const Models::ListFlowNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListFlowNodeGroup
+       * @summary Lists flow component groups.
        *
        * @param request ListFlowNodeGroupRequest
        * @return ListFlowNodeGroupResponse
@@ -2153,7 +2355,10 @@ namespace Cams20200606
       Models::ListFlowNodeGroupResponse listFlowNodeGroup(const Models::ListFlowNodeGroupRequest &request);
 
       /**
-       * @summary ListFlowNodePrototypeV2
+       * @summary Lists flow component prototypes.
+       *
+       * @description - You can call this API operation to query flow component prototypes. You can also view the prototypes on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name.
+       * - You can use the optional parameters for this operation to filter flow component prototypes. If you do not specify any optional parameters, all flow component prototypes are returned.
        *
        * @param request ListFlowNodePrototypeV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -2162,7 +2367,10 @@ namespace Cams20200606
       Models::ListFlowNodePrototypeV2Response listFlowNodePrototypeV2WithOptions(const Models::ListFlowNodePrototypeV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListFlowNodePrototypeV2
+       * @summary Lists flow component prototypes.
+       *
+       * @description - You can call this API operation to query flow component prototypes. You can also view the prototypes on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name.
+       * - You can use the optional parameters for this operation to filter flow component prototypes. If you do not specify any optional parameters, all flow component prototypes are returned.
        *
        * @param request ListFlowNodePrototypeV2Request
        * @return ListFlowNodePrototypeV2Response
@@ -2170,7 +2378,12 @@ namespace Cams20200606
       Models::ListFlowNodePrototypeV2Response listFlowNodePrototypeV2(const Models::ListFlowNodePrototypeV2Request &request);
 
       /**
-       * @summary 列举流程版本
+       * @summary Lists flow versions.
+       *
+       * @description - You can call this API operation to query flow versions. You can also view flow versions in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name to open the orchestration canvas.
+       * - Before calling this API operation, make sure that you have created one or more flows.
+       * - If you have not created any flows, create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) API operation.
+       * - The optional parameters for this API operation are filter conditions. If you do not specify any optional parameters, all flow versions are returned.
        *
        * @param tmpReq ListFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2179,7 +2392,12 @@ namespace Cams20200606
       Models::ListFlowVersionResponse listFlowVersionWithOptions(const Models::ListFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举流程版本
+       * @summary Lists flow versions.
+       *
+       * @description - You can call this API operation to query flow versions. You can also view flow versions in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking a flow name to open the orchestration canvas.
+       * - Before calling this API operation, make sure that you have created one or more flows.
+       * - If you have not created any flows, create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) API operation.
+       * - The optional parameters for this API operation are filter conditions. If you do not specify any optional parameters, all flow versions are returned.
        *
        * @param request ListFlowVersionRequest
        * @return ListFlowVersionResponse
@@ -2187,7 +2405,7 @@ namespace Cams20200606
       Models::ListFlowVersionResponse listFlowVersion(const Models::ListFlowVersionRequest &request);
 
       /**
-       * @summary 获取ins的page
+       * @summary Retrieves the Instagram pages associated with an instance.
        *
        * @param request ListInstagramPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2196,7 +2414,7 @@ namespace Cams20200606
       Models::ListInstagramPageResponse listInstagramPageWithOptions(const Models::ListInstagramPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取ins的page
+       * @summary Retrieves the Instagram pages associated with an instance.
        *
        * @param request ListInstagramPageRequest
        * @return ListInstagramPageResponse
@@ -2238,7 +2456,7 @@ namespace Cams20200606
       Models::ListInstanceResponse listInstance(const Models::ListInstanceRequest &request);
 
       /**
-       * @summary 查询活动列表
+       * @summary Queries a list of marketing campaigns.
        *
        * @param tmpReq ListMarketingFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2247,7 +2465,7 @@ namespace Cams20200606
       Models::ListMarketingFlowResponse listMarketingFlowWithOptions(const Models::ListMarketingFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询活动列表
+       * @summary Queries a list of marketing campaigns.
        *
        * @param request ListMarketingFlowRequest
        * @return ListMarketingFlowResponse
@@ -2289,7 +2507,7 @@ namespace Cams20200606
       Models::ListMessengerSubscriptionTokenResponse listMessengerSubscriptionToken(const Models::ListMessengerSubscriptionTokenRequest &request);
 
       /**
-       * @summary 查询Page绑定的广告账户列表
+       * @summary Queries the list of ad accounts bound to a page.
        *
        * @param request ListPageAdAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2298,7 +2516,7 @@ namespace Cams20200606
       Models::ListPageAdAccountResponse listPageAdAccountWithOptions(const Models::ListPageAdAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Page绑定的广告账户列表
+       * @summary Queries the list of ad accounts bound to a page.
        *
        * @param request ListPageAdAccountRequest
        * @return ListPageAdAccountResponse
@@ -2306,9 +2524,9 @@ namespace Cams20200606
       Models::ListPageAdAccountResponse listPageAdAccount(const Models::ListPageAdAccountRequest &request);
 
       /**
-       * @summary Queries message QR codes.
+       * @summary Queries the list of message QR codes.
        *
-       * @description This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The queries per second (QPS) limit for this operation is 5 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request ListPhoneMessageQrdlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2317,9 +2535,9 @@ namespace Cams20200606
       Models::ListPhoneMessageQrdlResponse listPhoneMessageQrdlWithOptions(const Models::ListPhoneMessageQrdlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries message QR codes.
+       * @summary Queries the list of message QR codes.
        *
-       * @description This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The queries per second (QPS) limit for this operation is 5 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request ListPhoneMessageQrdlRequest
        * @return ListPhoneMessageQrdlResponse
@@ -2348,9 +2566,9 @@ namespace Cams20200606
       Models::ListProductResponse listProduct(const Models::ListProductRequest &request);
 
       /**
-       * @summary Queries the product catalogs on the Business Manager platform of Meta.
+       * @summary Queries the catalog list of the Meta Business platform.
        *
-       * @description This operation allows a maximum of 10 requests per second (RPS) per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * @description The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ListProductCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2359,9 +2577,9 @@ namespace Cams20200606
       Models::ListProductCatalogResponse listProductCatalogWithOptions(const Models::ListProductCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the product catalogs on the Business Manager platform of Meta.
+       * @summary Queries the catalog list of the Meta Business platform.
        *
-       * @description This operation allows a maximum of 10 requests per second (RPS) per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
+       * @description The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ListProductCatalogRequest
        * @return ListProductCatalogResponse
@@ -2403,12 +2621,12 @@ namespace Cams20200606
       Models::ListWhatAppTemplateResponse listWhatAppTemplate(const Models::ListWhatAppTemplateRequest &request);
 
       /**
-       * @summary Modifies a message template. You can modify only templates that are unreviewed or have been rejected.
+       * @summary Modifies a message template. Only templates that have not been reviewed or that failed the review can be modified.
        *
-       * @description ### QPS limits
-       * The queries per second (QPS) limit for this API is 50 calls per second for each user. If you exceed this limit, your API calls are subject to rate limiting. This may affect your business. Make sure that you call this API within the specified limit.
+       * @description ### QPS limit
+       * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        * ### Status changes
-       * You can monitor changes in template status and quality through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+       * Changes to the template status and quality can be monitored through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
        *
        * @param tmpReq ModifyChatappTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2417,12 +2635,12 @@ namespace Cams20200606
       Models::ModifyChatappTemplateResponse modifyChatappTemplateWithOptions(const Models::ModifyChatappTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a message template. You can modify only templates that are unreviewed or have been rejected.
+       * @summary Modifies a message template. Only templates that have not been reviewed or that failed the review can be modified.
        *
-       * @description ### QPS limits
-       * The queries per second (QPS) limit for this API is 50 calls per second for each user. If you exceed this limit, your API calls are subject to rate limiting. This may affect your business. Make sure that you call this API within the specified limit.
+       * @description ### QPS limit
+       * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        * ### Status changes
-       * You can monitor changes in template status and quality through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+       * Changes to the template status and quality can be monitored through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
        *
        * @param request ModifyChatappTemplateRequest
        * @return ModifyChatappTemplateResponse
@@ -2430,7 +2648,7 @@ namespace Cams20200606
       Models::ModifyChatappTemplateResponse modifyChatappTemplate(const Models::ModifyChatappTemplateRequest &request);
 
       /**
-       * @summary 修改模板上的一些属性
+       * @summary Modifies some properties of a template.
        *
        * @param request ModifyChatappTemplatePropertiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2439,7 +2657,7 @@ namespace Cams20200606
       Models::ModifyChatappTemplatePropertiesResponse modifyChatappTemplatePropertiesWithOptions(const Models::ModifyChatappTemplatePropertiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改模板上的一些属性
+       * @summary Modifies some properties of a template.
        *
        * @param request ModifyChatappTemplatePropertiesRequest
        * @return ModifyChatappTemplatePropertiesResponse
@@ -2447,9 +2665,9 @@ namespace Cams20200606
       Models::ModifyChatappTemplatePropertiesResponse modifyChatappTemplateProperties(const Models::ModifyChatappTemplatePropertiesRequest &request);
 
       /**
-       * @summary Modifies a flow.
+       * @summary Modifies the basic information of a flow.
        *
-       * @description This API is limited to 5 queries per second (QPS) per account. Calls that exceed this limit trigger flow control, which can affect your business. Plan your API calls accordingly.
+       * @description The China Short Message Service (China SMS) API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param tmpReq ModifyFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2458,9 +2676,9 @@ namespace Cams20200606
       Models::ModifyFlowResponse modifyFlowWithOptions(const Models::ModifyFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a flow.
+       * @summary Modifies the basic information of a flow.
        *
-       * @description This API is limited to 5 queries per second (QPS) per account. Calls that exceed this limit trigger flow control, which can affect your business. Plan your API calls accordingly.
+       * @description The China Short Message Service (China SMS) API has a single-user QPS limit of 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ModifyFlowRequest
        * @return ModifyFlowResponse
@@ -2468,9 +2686,9 @@ namespace Cams20200606
       Models::ModifyFlowResponse modifyFlow(const Models::ModifyFlowRequest &request);
 
       /**
-       * @summary The ID of the request.
+       * @summary Modifies the commercial information of a phone number.
        *
-       * @description ModifyPhoneBusinessProfile
+       * @description The China Message Service (China) API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Manage your calls appropriately.
        *
        * @param tmpReq ModifyPhoneBusinessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2479,9 +2697,9 @@ namespace Cams20200606
       Models::ModifyPhoneBusinessProfileResponse modifyPhoneBusinessProfileWithOptions(const Models::ModifyPhoneBusinessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the request.
+       * @summary Modifies the commercial information of a phone number.
        *
-       * @description ModifyPhoneBusinessProfile
+       * @description The China Message Service (China) API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Manage your calls appropriately.
        *
        * @param request ModifyPhoneBusinessProfileRequest
        * @return ModifyPhoneBusinessProfileResponse
@@ -2506,7 +2724,12 @@ namespace Cams20200606
       Models::MoveContactToGroupResponse moveContactToGroup(const Models::MoveContactToGroupRequest &request);
 
       /**
-       * @summary 下线流程版本
+       * @summary Unpublishes a flow version.
+       *
+       * @description - You can call this operation to unpublish a flow version. You can also manually unpublish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
+       * - Before calling this operation, make sure that the flow is published.
+       * - If a flow is not published, you can publish it manually from the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), or by calling the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation.
+       * - After a flow version is unpublished, the orchestrated flow stops running. This may affect your business. Proceed with caution.
        *
        * @param tmpReq OfflineFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2515,7 +2738,12 @@ namespace Cams20200606
       Models::OfflineFlowVersionResponse offlineFlowVersionWithOptions(const Models::OfflineFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下线流程版本
+       * @summary Unpublishes a flow version.
+       *
+       * @description - You can call this operation to unpublish a flow version. You can also manually unpublish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
+       * - Before calling this operation, make sure that the flow is published.
+       * - If a flow is not published, you can publish it manually from the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), or by calling the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation.
+       * - After a flow version is unpublished, the orchestrated flow stops running. This may affect your business. Proceed with caution.
        *
        * @param request OfflineFlowVersionRequest
        * @return OfflineFlowVersionResponse
@@ -2523,7 +2751,12 @@ namespace Cams20200606
       Models::OfflineFlowVersionResponse offlineFlowVersion(const Models::OfflineFlowVersionRequest &request);
 
       /**
-       * @summary 上线流程版本
+       * @summary Publishes a flow version.
+       *
+       * @description - You can call this operation to publish a flow version. You can also manually publish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
+       * - Before you call this operation, make sure that you have created a flow and attached it to a phone number or a business account ID.
+       * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) and attach a phone number or business account ID. Alternatively, you can call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and attach a phone number or business account ID.
+       * - After a flow with a non-manual trigger is published, it is triggered when the attached phone number or business account sends a message to the business. If your flow contains components that incur fees, such as message sending or function invocations, make sure you understand the billing methods and pricing of the related products before you call this operation.
        *
        * @param tmpReq OnlineFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2532,7 +2765,12 @@ namespace Cams20200606
       Models::OnlineFlowVersionResponse onlineFlowVersionWithOptions(const Models::OnlineFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上线流程版本
+       * @summary Publishes a flow version.
+       *
+       * @description - You can call this operation to publish a flow version. You can also manually publish a flow version in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) by clicking the flow name to open the orchestration canvas.
+       * - Before you call this operation, make sure that you have created a flow and attached it to a phone number or a business account ID.
+       * - If you have not created a flow, you can create one manually in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) and attach a phone number or business account ID. Alternatively, you can call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and attach a phone number or business account ID.
+       * - After a flow with a non-manual trigger is published, it is triggered when the attached phone number or business account sends a message to the business. If your flow contains components that incur fees, such as message sending or function invocations, make sure you understand the billing methods and pricing of the related products before you call this operation.
        *
        * @param request OnlineFlowVersionRequest
        * @return OnlineFlowVersionResponse
@@ -2574,12 +2812,12 @@ namespace Cams20200606
       Models::PauseMarketingFLowResponse pauseMarketingFLow(const Models::PauseMarketingFLowRequest &request);
 
       /**
-       * @summary Publishes a WhatsApp flow.
+       * @summary Publishes a Flow.
        *
-       * @description - Before you call this operation, ensure that you have created a WhatsApp flow.
-       * - If you have not created a WhatsApp flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation to create one.
+       * @description - Before calling this operation, make sure that you have a successfully created WhatsApp Flow.
+       * - If you do not have a successfully created WhatsApp Flow, create one by calling the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation.
        * #### QPS limit
-       * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request PublishFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2588,12 +2826,12 @@ namespace Cams20200606
       Models::PublishFlowResponse publishFlowWithOptions(const Models::PublishFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes a WhatsApp flow.
+       * @summary Publishes a Flow.
        *
-       * @description - Before you call this operation, ensure that you have created a WhatsApp flow.
-       * - If you have not created a WhatsApp flow, call the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation to create one.
+       * @description - Before calling this operation, make sure that you have a successfully created WhatsApp Flow.
+       * - If you do not have a successfully created WhatsApp Flow, create one by calling the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation.
        * #### QPS limit
-       * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request PublishFlowRequest
        * @return PublishFlowResponse
@@ -2679,7 +2917,7 @@ namespace Cams20200606
       /**
        * @summary Queries the business information of a phone number.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The queries per second (QPS) limit for this operation is 10 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request QueryPhoneBusinessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2690,7 +2928,7 @@ namespace Cams20200606
       /**
        * @summary Queries the business information of a phone number.
        *
-       * @description This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * @description The queries per second (QPS) limit for this operation is 10 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request QueryPhoneBusinessProfileRequest
        * @return QueryPhoneBusinessProfileResponse
@@ -2719,7 +2957,11 @@ namespace Cams20200606
       Models::QueryWabaBusinessInfoResponse queryWabaBusinessInfo(const Models::QueryWabaBusinessInfoRequest &request);
 
       /**
-       * @summary 获取流程
+       * @summary Retrieves the details of a flow.
+       *
+       * @description - You can call this API operation to retrieve the details of a flow. You can also view the flow details in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this operation, make sure that you have created a flow.
+       * - If you have not created a flow, you can create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param tmpReq ReadChatFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2728,7 +2970,11 @@ namespace Cams20200606
       Models::ReadChatFlowResponse readChatFlowWithOptions(const Models::ReadChatFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取流程
+       * @summary Retrieves the details of a flow.
+       *
+       * @description - You can call this API operation to retrieve the details of a flow. You can also view the flow details in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before you call this operation, make sure that you have created a flow.
+       * - If you have not created a flow, you can create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param request ReadChatFlowRequest
        * @return ReadChatFlowResponse
@@ -2736,7 +2982,11 @@ namespace Cams20200606
       Models::ReadChatFlowResponse readChatFlow(const Models::ReadChatFlowRequest &request);
 
       /**
-       * @summary 查看chatFlow日志设置
+       * @summary Views the log settings for a flow.
+       *
+       * @description - Before you call this operation, ensure that log settings are configured for the flow.
+       * - If log settings are not configured for the flow, call the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation to configure them.
+       * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the log settings.
        *
        * @param request ReadChatFlowLogSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2745,7 +2995,11 @@ namespace Cams20200606
       Models::ReadChatFlowLogSettingResponse readChatFlowLogSettingWithOptions(const Models::ReadChatFlowLogSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看chatFlow日志设置
+       * @summary Views the log settings for a flow.
+       *
+       * @description - Before you call this operation, ensure that log settings are configured for the flow.
+       * - If log settings are not configured for the flow, call the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation to configure them.
+       * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the log settings.
        *
        * @param request ReadChatFlowLogSettingRequest
        * @return ReadChatFlowLogSettingResponse
@@ -2753,7 +3007,11 @@ namespace Cams20200606
       Models::ReadChatFlowLogSettingResponse readChatFlowLogSetting(const Models::ReadChatFlowLogSettingRequest &request);
 
       /**
-       * @summary 获取流程版本
+       * @summary Retrieves a flow version.
+       *
+       * @description - You can call this operation to query a flow version. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version.
+       * - Before calling this operation, make sure that you have successfully created a flow.
+       * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html).
        *
        * @param tmpReq ReadFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2762,7 +3020,11 @@ namespace Cams20200606
       Models::ReadFlowVersionResponse readFlowVersionWithOptions(const Models::ReadFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取流程版本
+       * @summary Retrieves a flow version.
+       *
+       * @description - You can call this operation to query a flow version. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version.
+       * - Before calling this operation, make sure that you have successfully created a flow.
+       * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html).
        *
        * @param request ReadFlowVersionRequest
        * @return ReadFlowVersionResponse
@@ -2808,20 +3070,19 @@ namespace Cams20200606
       Models::RequestWhatsappConversionApiResponse requestWhatsappConversionApi(const Models::RequestWhatsappConversionApiRequest &request);
 
       /**
-       * @summary Sends bulk messages to multiple recipients.
+       * @summary Sends Chat App messages in batches.
        *
-       * @description - You can call this operation to send messages in bulk. You can also send messages in the console. To do so, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList), click a channel, and then choose **Message Sending**.
-       * - Before you call this operation, make sure that you have created a channel and have an approved template.
-       * - For a WhatsApp channel, you must [register and bind a WABA](t2012827.xdita#) and [add a phone number](t2012827.xdita#).
-       * - For a Messenger channel, you must [connect to a Facebook Page](t2746072.xdita#).
-       * - For an Instagram channel, you must [connect to an Instagram professional account](t2746079.xdita#).
-       * <props="intl">
-       * - For a Viber channel, you must [connect to an Instagram professional account](t2746079.xdita#).
-       * ### QPS limits
-       * - This operation allows a maximum of 10 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
-       * - A single request supports a maximum of 1,000 numbers.
+       * @description - You can call this operation to send messages in batches. You can also manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message Sending** page.
+       * - Before calling this operation, make sure that you have created a channel and have an approved template.
+       * - For WhatsApp channels, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+       * - For Messenger channels, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+       * - For Instagram channels, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+       * <props="intl">- For Viber channels, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+       * ### QPS limit
+       * - The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
+       * - A maximum of 1,000 phone numbers are supported per request.
        * ### Status changes
-       * Message sending status can be monitored via Simple Message Service or HTTP callback. For details, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
+       * You can monitor message sending status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
        *
        * @param tmpReq SendChatappMassMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2830,20 +3091,19 @@ namespace Cams20200606
       Models::SendChatappMassMessageResponse sendChatappMassMessageWithOptions(const Models::SendChatappMassMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends bulk messages to multiple recipients.
+       * @summary Sends Chat App messages in batches.
        *
-       * @description - You can call this operation to send messages in bulk. You can also send messages in the console. To do so, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList), click a channel, and then choose **Message Sending**.
-       * - Before you call this operation, make sure that you have created a channel and have an approved template.
-       * - For a WhatsApp channel, you must [register and bind a WABA](t2012827.xdita#) and [add a phone number](t2012827.xdita#).
-       * - For a Messenger channel, you must [connect to a Facebook Page](t2746072.xdita#).
-       * - For an Instagram channel, you must [connect to an Instagram professional account](t2746079.xdita#).
-       * <props="intl">
-       * - For a Viber channel, you must [connect to an Instagram professional account](t2746079.xdita#).
-       * ### QPS limits
-       * - This operation allows a maximum of 10 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
-       * - A single request supports a maximum of 1,000 numbers.
+       * @description - You can call this operation to send messages in batches. You can also manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message Sending** page.
+       * - Before calling this operation, make sure that you have created a channel and have an approved template.
+       * - For WhatsApp channels, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+       * - For Messenger channels, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+       * - For Instagram channels, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+       * <props="intl">- For Viber channels, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+       * ### QPS limit
+       * - The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
+       * - A maximum of 1,000 phone numbers are supported per request.
        * ### Status changes
-       * Message sending status can be monitored via Simple Message Service or HTTP callback. For details, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
+       * You can monitor message sending status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
        *
        * @param request SendChatappMassMessageRequest
        * @return SendChatappMassMessageResponse
@@ -2851,19 +3111,18 @@ namespace Cams20200606
       Models::SendChatappMassMessageResponse sendChatappMassMessage(const Models::SendChatappMassMessageRequest &request);
 
       /**
-       * @summary Sends a ChatApp message.
+       * @summary Sends a Chat App Message Service message.
        *
-       * @description - Call this operation to send messages. You can also send messages manually in the console at <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Message Sending**.
-       * - Before calling this operation, you must create a channel and have an approved template.
-       * - For a WhatsApp channel, you must [register and bind a WABA](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-       * - For a Messenger channel, you must [connect to a Facebook Page](https://help.aliyun.com/document_detail/2837713.html).
-       * - For an Instagram channel, you must [connect to an Instagram professional account](https://help.aliyun.com/document_detail/2837720.html).
-       * <props="intl">
-       * - For a Viber channel, you must [apply for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+       * @description - You can call this operation to send a message, or manually send a message on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Send Message** page.
+       * - Before calling this operation, make sure that you have created a channel and have an approved template.
+       * - For the WhatsApp channel type, you must complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+       * - For the Messenger channel type, you must complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+       * - For the Instagram channel type, you must complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+       * <props="intl">- For the Viber channel type, you must complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
        * ### QPS limit
-       * The QPS limit for this operation is 250 per user. API calls that exceed this limit are throttled. To prevent service disruptions, ensure your calls stay within this limit.
+       * The single-user QPS limit for this operation is 250 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        * ### Status changes
-       * You can receive notifications about message status changes by using MNS or HTTP callbacks. For more information, see [message receipts](https://help.aliyun.com/document_detail/421545.html).
+       * You can monitor message delivery status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
        *
        * @param tmpReq SendChatappMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2872,19 +3131,18 @@ namespace Cams20200606
       Models::SendChatappMessageResponse sendChatappMessageWithOptions(const Models::SendChatappMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a ChatApp message.
+       * @summary Sends a Chat App Message Service message.
        *
-       * @description - Call this operation to send messages. You can also send messages manually in the console at <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Message Sending**.
-       * - Before calling this operation, you must create a channel and have an approved template.
-       * - For a WhatsApp channel, you must [register and bind a WABA](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-       * - For a Messenger channel, you must [connect to a Facebook Page](https://help.aliyun.com/document_detail/2837713.html).
-       * - For an Instagram channel, you must [connect to an Instagram professional account](https://help.aliyun.com/document_detail/2837720.html).
-       * <props="intl">
-       * - For a Viber channel, you must [apply for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+       * @description - You can call this operation to send a message, or manually send a message on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Send Message** page.
+       * - Before calling this operation, make sure that you have created a channel and have an approved template.
+       * - For the WhatsApp channel type, you must complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+       * - For the Messenger channel type, you must complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+       * - For the Instagram channel type, you must complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+       * <props="intl">- For the Viber channel type, you must complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
        * ### QPS limit
-       * The QPS limit for this operation is 250 per user. API calls that exceed this limit are throttled. To prevent service disruptions, ensure your calls stay within this limit.
+       * The single-user QPS limit for this operation is 250 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        * ### Status changes
-       * You can receive notifications about message status changes by using MNS or HTTP callbacks. For more information, see [message receipts](https://help.aliyun.com/document_detail/421545.html).
+       * You can monitor message delivery status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
        *
        * @param request SendChatappMessageRequest
        * @return SendChatappMessageResponse
@@ -2909,10 +3167,10 @@ namespace Cams20200606
       Models::SubmitVerifyCodeResultResponse submitVerifyCodeResult(const Models::SubmitVerifyCodeResultRequest &request);
 
       /**
-       * @summary Synchronizes the business app history.
+       * @summary Synchronizes business app historical records.
        *
-       * @description - Before you call this operation, you must configure a webhook for messages and receipts by calling [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, history synchronization will fail because the system cannot find the configured webhook URL.
-       * - This is a one-time operation. Subsequent calls have no effect.
+       * @description - Before calling this operation, configure the webhooks for messages and receipts by using [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, the webhook address cannot be found during historical message synchronization, which causes the synchronization to fail.
+       * - This operation takes effect only once. After the first call, subsequent calls do not trigger historical message pushes.
        *
        * @param request SyncBusinessAppHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2921,10 +3179,10 @@ namespace Cams20200606
       Models::SyncBusinessAppHistoryResponse syncBusinessAppHistoryWithOptions(const Models::SyncBusinessAppHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Synchronizes the business app history.
+       * @summary Synchronizes business app historical records.
        *
-       * @description - Before you call this operation, you must configure a webhook for messages and receipts by calling [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, history synchronization will fail because the system cannot find the configured webhook URL.
-       * - This is a one-time operation. Subsequent calls have no effect.
+       * @description - Before calling this operation, configure the webhooks for messages and receipts by using [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, the webhook address cannot be found during historical message synchronization, which causes the synchronization to fail.
+       * - This operation takes effect only once. After the first call, subsequent calls do not trigger historical message pushes.
        *
        * @param request SyncBusinessAppHistoryRequest
        * @return SyncBusinessAppHistoryResponse
@@ -2966,7 +3224,7 @@ namespace Cams20200606
       Models::SyncMessageCampaignResponse syncMessageCampaign(const Models::SyncMessageCampaignRequest &request);
 
       /**
-       * @summary Retrieves the Messenger subscription token.
+       * @summary Queries the Messenger subscription token.
        *
        * @param request SyncMessengerSubscriptionTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2975,7 +3233,7 @@ namespace Cams20200606
       Models::SyncMessengerSubscriptionTokenResponse syncMessengerSubscriptionTokenWithOptions(const Models::SyncMessengerSubscriptionTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the Messenger subscription token.
+       * @summary Queries the Messenger subscription token.
        *
        * @param request SyncMessengerSubscriptionTokenRequest
        * @return SyncMessengerSubscriptionTokenResponse
@@ -3065,7 +3323,11 @@ namespace Cams20200606
       Models::UpdateAuditRequestResponse updateAuditRequest(const Models::UpdateAuditRequestRequest &request);
 
       /**
-       * @summary 获取流程
+       * @summary Updates the basic information of a flow based on the flow code.
+       *
+       * @description - You can call this operation to update the basic information of a flow, or update it manually on the **Basic Information** page under **Settings** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before calling this operation, make sure that you have created a flow.
+       * - If you have not created a flow, go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) and click **Create Flow** to create one.
        *
        * @param tmpReq UpdateChatFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3074,7 +3336,11 @@ namespace Cams20200606
       Models::UpdateChatFlowResponse updateChatFlowWithOptions(const Models::UpdateChatFlowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取流程
+       * @summary Updates the basic information of a flow based on the flow code.
+       *
+       * @description - You can call this operation to update the basic information of a flow, or update it manually on the **Basic Information** page under **Settings** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+       * - Before calling this operation, make sure that you have created a flow.
+       * - If you have not created a flow, go to the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) and click **Create Flow** to create one.
        *
        * @param request UpdateChatFlowRequest
        * @return UpdateChatFlowResponse
@@ -3082,7 +3348,12 @@ namespace Cams20200606
       Models::UpdateChatFlowResponse updateChatFlow(const Models::UpdateChatFlowRequest &request);
 
       /**
-       * @summary 修改chatFlow日志设置
+       * @summary Updates the flow log settings.
+       *
+       * @description - You can call this operation to update flow log settings, or manually update them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log**.
+       * - Before calling this operation, make sure that you have activated [Simple Log Service](https://sls.console.aliyun.com/lognext/open) and created flow log settings.
+       * - If you have not created flow log settings for the flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
+       * - Updating flow log settings may affect your business. Proceed with caution.
        *
        * @param request UpdateChatFlowLogSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3091,7 +3362,12 @@ namespace Cams20200606
       Models::UpdateChatFlowLogSettingResponse updateChatFlowLogSettingWithOptions(const Models::UpdateChatFlowLogSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改chatFlow日志设置
+       * @summary Updates the flow log settings.
+       *
+       * @description - You can call this operation to update flow log settings, or manually update them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log**.
+       * - Before calling this operation, make sure that you have activated [Simple Log Service](https://sls.console.aliyun.com/lognext/open) and created flow log settings.
+       * - If you have not created flow log settings for the flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
+       * - Updating flow log settings may affect your business. Proceed with caution.
        *
        * @param request UpdateChatFlowLogSettingRequest
        * @return UpdateChatFlowLogSettingResponse
@@ -3099,12 +3375,12 @@ namespace Cams20200606
       Models::UpdateChatFlowLogSettingResponse updateChatFlowLogSetting(const Models::UpdateChatFlowLogSettingRequest &request);
 
       /**
-       * @summary Updates the information for an Instant Messaging (IM) group.
+       * @summary Modifies the information of an IM group.
        *
-       * @description >Notice: 
-       * This operation is in beta testing for Meta. Contact your account manager to be added to the allowlist before using this endpoint.
-       * - Before you call this operation, ensure that you have created an IM group.
-       * - If you do not have an IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) operation to create one.
+       * @description >Notice: Modifying IM group information through API is a Meta beta feature. Contact your account manager to request allowlisting.
+       * - Creating WhatsApp groups through API is a Meta beta feature. Contact your account manager to request allowlisting.
+       * - Before calling this operation, make sure that you have an IM group that has been created.
+       * - If you do not have a created IM group, create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
        *
        * @param request UpdateChatGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3113,12 +3389,12 @@ namespace Cams20200606
       Models::UpdateChatGroupResponse updateChatGroupWithOptions(const Models::UpdateChatGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information for an Instant Messaging (IM) group.
+       * @summary Modifies the information of an IM group.
        *
-       * @description >Notice: 
-       * This operation is in beta testing for Meta. Contact your account manager to be added to the allowlist before using this endpoint.
-       * - Before you call this operation, ensure that you have created an IM group.
-       * - If you do not have an IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2932518.html) operation to create one.
+       * @description >Notice: Modifying IM group information through API is a Meta beta feature. Contact your account manager to request allowlisting.
+       * - Creating WhatsApp groups through API is a Meta beta feature. Contact your account manager to request allowlisting.
+       * - Before calling this operation, make sure that you have an IM group that has been created.
+       * - If you do not have a created IM group, create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
        *
        * @param request UpdateChatGroupRequest
        * @return UpdateChatGroupResponse
@@ -3164,11 +3440,11 @@ namespace Cams20200606
       Models::UpdateContactByIdResponse updateContactById(const Models::UpdateContactByIdRequest &request);
 
       /**
-       * @summary Modifies welcoming messages, opening remarks, and commands for a phone number.
+       * @summary Modifies the welcome message, conversation starters, and commands for a phone number.
        *
-       * @description ### [](#qps-)QPS limit
-       * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
-       * This operation retrieves data directly from Meta. Meta imposes its own rate limits on the total number of calls. Stay within the specified limit.
+       * @description ### QPS limit 
+       * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
+       * This API directly retrieves data from Facebook. Facebook imposes a limit on the total number of API calls. Use this API appropriately.
        *
        * @param tmpReq UpdateConversationalAutomationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3177,11 +3453,11 @@ namespace Cams20200606
       Models::UpdateConversationalAutomationResponse updateConversationalAutomationWithOptions(const Models::UpdateConversationalAutomationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies welcoming messages, opening remarks, and commands for a phone number.
+       * @summary Modifies the welcome message, conversation starters, and commands for a phone number.
        *
-       * @description ### [](#qps-)QPS limit
-       * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
-       * This operation retrieves data directly from Meta. Meta imposes its own rate limits on the total number of calls. Stay within the specified limit.
+       * @description ### QPS limit 
+       * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
+       * This API directly retrieves data from Facebook. Facebook imposes a limit on the total number of API calls. Use this API appropriately.
        *
        * @param request UpdateConversationalAutomationRequest
        * @return UpdateConversationalAutomationResponse
@@ -3189,9 +3465,9 @@ namespace Cams20200606
       Models::UpdateConversationalAutomationResponse updateConversationalAutomation(const Models::UpdateConversationalAutomationRequest &request);
 
       /**
-       * @summary Updates the content of a WhatsApp flow by using a JSON definition.
+       * @summary Updates the content of a flow by using JSON.
        *
-       * @description This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+       * @description The China Mobile (China) QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Manage your calls appropriately.
        *
        * @param request UpdateFlowJSONAssetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3200,9 +3476,9 @@ namespace Cams20200606
       Models::UpdateFlowJSONAssetResponse updateFlowJSONAssetWithOptions(const Models::UpdateFlowJSONAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the content of a WhatsApp flow by using a JSON definition.
+       * @summary Updates the content of a flow by using JSON.
        *
-       * @description This operation allows a maximum of 5 requests per second per account. Excess requests are throttled and may result in service interruptions.
+       * @description The China Mobile (China) QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Manage your calls appropriately.
        *
        * @param request UpdateFlowJSONAssetRequest
        * @return UpdateFlowJSONAssetResponse
@@ -3210,7 +3486,11 @@ namespace Cams20200606
       Models::UpdateFlowJSONAssetResponse updateFlowJSONAsset(const Models::UpdateFlowJSONAssetRequest &request);
 
       /**
-       * @summary 更新流程版本，用于画布更新流程dsl
+       * @summary Updates the Domain-Specific Language (DSL) data of a flow version on the canvas.
+       *
+       * @description - You can call this operation to update the DSL data of a flow version. You can also update the DSL data on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To access the canvas, click the name of the flow.
+       * - Before calling this operation, make sure that you have created a flow and its status is Unpublished.
+       * - If you have not created a flow, you can manually create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param tmpReq UpdateFlowVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3219,7 +3499,11 @@ namespace Cams20200606
       Models::UpdateFlowVersionResponse updateFlowVersionWithOptions(const Models::UpdateFlowVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新流程版本，用于画布更新流程dsl
+       * @summary Updates the Domain-Specific Language (DSL) data of a flow version on the canvas.
+       *
+       * @description - You can call this operation to update the DSL data of a flow version. You can also update the DSL data on the orchestration canvas in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder). To access the canvas, click the name of the flow.
+       * - Before calling this operation, make sure that you have created a flow and its status is Unpublished.
+       * - If you have not created a flow, you can manually create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
        *
        * @param request UpdateFlowVersionRequest
        * @return UpdateFlowVersionResponse
@@ -3261,7 +3545,7 @@ namespace Cams20200606
       Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary 修改营销活动
+       * @summary Modifies campaign information.
        *
        * @param tmpReq UpdateMarketingFLowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3270,7 +3554,7 @@ namespace Cams20200606
       Models::UpdateMarketingFLowResponse updateMarketingFLowWithOptions(const Models::UpdateMarketingFLowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改营销活动
+       * @summary Modifies campaign information.
        *
        * @param request UpdateMarketingFLowRequest
        * @return UpdateMarketingFLowResponse
@@ -3278,12 +3562,12 @@ namespace Cams20200606
       Models::UpdateMarketingFLowResponse updateMarketingFLow(const Models::UpdateMarketingFLowRequest &request);
 
       /**
-       * @summary Updates the encryption key for a phone number.
+       * @summary Updates the encryption public key of a phone number.
        *
-       * @description - Before you call this API, you must add and verify a phone number for your WhatsApp Business Account (WABA).
-       * - If you do not have a phone number for your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) APIs to obtain a verification code and verifythe phone number.
+       * @description - Before calling this operation, make sure that a phone number has been added under your WABA and has passed phone number verification.
+       * - If no phone number has been added under your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) operations to obtain a verification code and register a phone number.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request UpdatePhoneEncryptionPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3292,12 +3576,12 @@ namespace Cams20200606
       Models::UpdatePhoneEncryptionPublicKeyResponse updatePhoneEncryptionPublicKeyWithOptions(const Models::UpdatePhoneEncryptionPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the encryption key for a phone number.
+       * @summary Updates the encryption public key of a phone number.
        *
-       * @description - Before you call this API, you must add and verify a phone number for your WhatsApp Business Account (WABA).
-       * - If you do not have a phone number for your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) APIs to obtain a verification code and verifythe phone number.
+       * @description - Before calling this operation, make sure that a phone number has been added under your WABA and has passed phone number verification.
+       * - If no phone number has been added under your WABA, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) operations to obtain a verification code and register a phone number.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
        *
        * @param request UpdatePhoneEncryptionPublicKeyRequest
        * @return UpdatePhoneEncryptionPublicKeyResponse
@@ -3305,12 +3589,13 @@ namespace Cams20200606
       Models::UpdatePhoneEncryptionPublicKeyResponse updatePhoneEncryptionPublicKey(const Models::UpdatePhoneEncryptionPublicKeyRequest &request);
 
       /**
-       * @summary Updates a message QR code.
+       * @summary Modifies a message QR code.
        *
-       * @description - After you update a message QR code, users can no longer scan the original QR code to start a chat with the associated business phone number. Use this operation with caution.
-       * - If you have not created a message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) API to create one.
+       * @description - After you modify a message QR code, users can no longer open the corresponding business phone number by scanning the original QR code. Proceed with caution.
+       * - Before calling this operation, make sure that you have created a message QR code.
+       * - If you have not created a message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) operation to create one first.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request UpdatePhoneMessageQrdlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3319,12 +3604,13 @@ namespace Cams20200606
       Models::UpdatePhoneMessageQrdlResponse updatePhoneMessageQrdlWithOptions(const Models::UpdatePhoneMessageQrdlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a message QR code.
+       * @summary Modifies a message QR code.
        *
-       * @description - After you update a message QR code, users can no longer scan the original QR code to start a chat with the associated business phone number. Use this operation with caution.
-       * - If you have not created a message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) API to create one.
+       * @description - After you modify a message QR code, users can no longer open the corresponding business phone number by scanning the original QR code. Proceed with caution.
+       * - Before calling this operation, make sure that you have created a message QR code.
+       * - If you have not created a message QR code, call the [CreatePhoneMessageQrdl](https://help.aliyun.com/document_detail/2638749.html) operation to create one first.
        * #### QPS limit
-       * This API is limited to 5 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+       * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request UpdatePhoneMessageQrdlRequest
        * @return UpdatePhoneMessageQrdlResponse
@@ -3332,11 +3618,9 @@ namespace Cams20200606
       Models::UpdatePhoneMessageQrdlResponse updatePhoneMessageQrdl(const Models::UpdatePhoneMessageQrdlRequest &request);
 
       /**
-       * @summary The HTTP status code returned.
-       * \\\\* A value of OK indicates that the call is successful.
-       * \\\\* Other values indicate that the call fails. For more information, see \\[Error codes]\\\\(~~196974~~).
+       * @summary Modifies the callback URL information for a phone number.
        *
-       * @description The error message returned.
+       * @description The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this API at a reasonable frequency.
        *
        * @param request UpdatePhoneWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3345,11 +3629,9 @@ namespace Cams20200606
       Models::UpdatePhoneWebhookResponse updatePhoneWebhookWithOptions(const Models::UpdatePhoneWebhookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The HTTP status code returned.
-       * \\\\* A value of OK indicates that the call is successful.
-       * \\\\* Other values indicate that the call fails. For more information, see \\[Error codes]\\\\(~~196974~~).
+       * @summary Modifies the callback URL information for a phone number.
        *
-       * @description The error message returned.
+       * @description The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this API at a reasonable frequency.
        *
        * @param request UpdatePhoneWebhookRequest
        * @return UpdatePhoneWebhookResponse
@@ -3357,7 +3639,7 @@ namespace Cams20200606
       Models::UpdatePhoneWebhookResponse updatePhoneWebhook(const Models::UpdatePhoneWebhookRequest &request);
 
       /**
-       * @summary 更新waba的mml状态
+       * @summary Updates the MML status of a WABA.
        *
        * @param request UpdateWabaMmlStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3366,12 +3648,29 @@ namespace Cams20200606
       Models::UpdateWabaMmlStatusResponse updateWabaMmlStatusWithOptions(const Models::UpdateWabaMmlStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新waba的mml状态
+       * @summary Updates the MML status of a WABA.
        *
        * @param request UpdateWabaMmlStatusRequest
        * @return UpdateWabaMmlStatusResponse
        */
       Models::UpdateWabaMmlStatusResponse updateWabaMmlStatus(const Models::UpdateWabaMmlStatusRequest &request);
+
+      /**
+       * @summary Updates the WhatsApp username for a business phone number.
+       *
+       * @param request UpdateWhatsappUserNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWhatsappUserNameResponse
+       */
+      Models::UpdateWhatsappUserNameResponse updateWhatsappUserNameWithOptions(const Models::UpdateWhatsappUserNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the WhatsApp username for a business phone number.
+       *
+       * @param request UpdateWhatsappUserNameRequest
+       * @return UpdateWhatsappUserNameResponse
+       */
+      Models::UpdateWhatsappUserNameResponse updateWhatsappUserName(const Models::UpdateWhatsappUserNameRequest &request);
 
       /**
        * @summary Places, answers, or ends WhatsApp voice calls.

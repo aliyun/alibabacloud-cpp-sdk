@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // OK indicates that the request was successful.
     shared_ptr<string> code_ {};

@@ -35,6 +35,10 @@
 #include <alibabacloud/models/AddMarketingFlowShrinkRequest.hpp>
 #include <alibabacloud/models/AddMarketingFlowResponseBody.hpp>
 #include <alibabacloud/models/AddMarketingFlowResponse.hpp>
+#include <alibabacloud/models/ArchiveChatappTemplateRequest.hpp>
+#include <alibabacloud/models/ArchiveChatappTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/ArchiveChatappTemplateResponseBody.hpp>
+#include <alibabacloud/models/ArchiveChatappTemplateResponse.hpp>
 #include <alibabacloud/models/BindDmAccountRequest.hpp>
 #include <alibabacloud/models/BindDmAccountShrinkRequest.hpp>
 #include <alibabacloud/models/BindDmAccountResponseBody.hpp>
@@ -174,6 +178,9 @@
 #include <alibabacloud/models/DeletePhoneMessageQrdlRequest.hpp>
 #include <alibabacloud/models/DeletePhoneMessageQrdlResponseBody.hpp>
 #include <alibabacloud/models/DeletePhoneMessageQrdlResponse.hpp>
+#include <alibabacloud/models/DeleteWhatsappUserNameRequest.hpp>
+#include <alibabacloud/models/DeleteWhatsappUserNameResponseBody.hpp>
+#include <alibabacloud/models/DeleteWhatsappUserNameResponse.hpp>
 #include <alibabacloud/models/DeprecateFlowRequest.hpp>
 #include <alibabacloud/models/DeprecateFlowResponseBody.hpp>
 #include <alibabacloud/models/DeprecateFlowResponse.hpp>
@@ -298,6 +305,12 @@
 #include <alibabacloud/models/GetWhatsappHealthStatusRequest.hpp>
 #include <alibabacloud/models/GetWhatsappHealthStatusResponseBody.hpp>
 #include <alibabacloud/models/GetWhatsappHealthStatusResponse.hpp>
+#include <alibabacloud/models/GetWhatsappUserNameRequest.hpp>
+#include <alibabacloud/models/GetWhatsappUserNameResponseBody.hpp>
+#include <alibabacloud/models/GetWhatsappUserNameResponse.hpp>
+#include <alibabacloud/models/GetWhatsappUserNameSuggestionsRequest.hpp>
+#include <alibabacloud/models/GetWhatsappUserNameSuggestionsResponseBody.hpp>
+#include <alibabacloud/models/GetWhatsappUserNameSuggestionsResponse.hpp>
 #include <alibabacloud/models/IsvGetAppIdRequest.hpp>
 #include <alibabacloud/models/IsvGetAppIdResponseBody.hpp>
 #include <alibabacloud/models/IsvGetAppIdResponse.hpp>
@@ -558,6 +571,9 @@
 #include <alibabacloud/models/UpdateWabaMmlStatusRequest.hpp>
 #include <alibabacloud/models/UpdateWabaMmlStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateWabaMmlStatusResponse.hpp>
+#include <alibabacloud/models/UpdateWhatsappUserNameRequest.hpp>
+#include <alibabacloud/models/UpdateWhatsappUserNameResponseBody.hpp>
+#include <alibabacloud/models/UpdateWhatsappUserNameResponse.hpp>
 #include <alibabacloud/models/WhatsappCallRequest.hpp>
 #include <alibabacloud/models/WhatsappCallShrinkRequest.hpp>
 #include <alibabacloud/models/WhatsappCallResponseBody.hpp>

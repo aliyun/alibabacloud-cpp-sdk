@@ -132,16 +132,33 @@ namespace Models
 
 
   protected:
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The flow trigger type. Valid values:
+    // - TriggeredManually
+    // - TriggeredByWhatsApp
+    // - TriggeredByInstagram
+    // - TriggeredByViber
+    // - TriggeredByMessenger
     shared_ptr<string> flowTriggerType_ {};
+    // The search keyword. This parameter is used for fuzzy match of flow names.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether to return the online status. Valid values:
+    // 
+    // - true: Yes.
+    // 
+    // - false: No.
     shared_ptr<bool> returnWithOnlineVersion_ {};
+    // The flow status. Default value: NORMAL.
     shared_ptr<string> status_ {};
   };
 

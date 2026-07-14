@@ -84,9 +84,12 @@ namespace Models
 
 
   protected:
+    // The audit record.
     shared_ptr<string> auditRecordShrink_ {};
+    // The customer space ID.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The request type.
     shared_ptr<string> requestType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

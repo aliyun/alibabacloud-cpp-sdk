@@ -118,11 +118,11 @@ namespace Models
       shared_ptr<string> generateQrImage_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
-      // The message content.
+      // The prefilled message content.
       shared_ptr<string> prefilledMessage_ {};
-      // The URL of the QR code.
+      // The URL of the QR code image.
       shared_ptr<string> qrImageUrl_ {};
-      // The code.
+      // The QR code identifier.
       shared_ptr<string> qrdlCode_ {};
     };
 
@@ -166,8 +166,9 @@ namespace Models
 
 
   protected:
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // A value of OK indicates that the request was successful.
+    // The response code. OK indicates success.
     shared_ptr<string> code_ {};
     // The returned data object.
     shared_ptr<vector<ListPhoneMessageQrdlResponseBody::Data>> data_ {};

@@ -87,10 +87,14 @@ namespace Models
 
 
   protected:
+    // The authorization code.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // The space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The permissions.
     shared_ptr<vector<string>> permissions_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -84,13 +84,19 @@ namespace Models
 
 
   protected:
+    // The Meta embedded authorization code.
+    // 
     // This parameter is required.
     shared_ptr<string> code_ {};
+    // The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // waba Id。
+    // 
     // This parameter is required.
     shared_ptr<string> wabaId_ {};
   };

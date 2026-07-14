@@ -479,72 +479,36 @@ namespace Models
 
     protected:
       shared_ptr<PhoneNumbers::CallingConfigure> callingConfigure_ {};
-      // The verification state of the phone number.
+      // The verification status. Valid values:
       // 
-      // Valid values:
-      // 
-      // - REVOKED: The review application is revoked.
-      // 
-      // - MORE_INFORMATION_REQUESTED: More information needs to be provided.
-      // 
-      // - VERIFIED: The phone number passes the verification.
-      // 
-      // - REJECTED: The phone number fails to pass the verification.
+      // - REVOKED: The verification request is revoked.
+      // - MORE_INFORMATION_REQUESTED: More information is required.
+      // - VERIFIED: The verification is passed.
+      // - REJECTED: The verification is rejected.
       shared_ptr<string> codeVerificationStatus_ {};
+      // Indicates whether the phone number is OBA-certified.
       shared_ptr<string> isOfficial_ {};
-      // The number of phone numbers to which messages can be sent in a day.
+      // The messaging limit tier of the phone number.
       shared_ptr<string> messagingLimitTier_ {};
-      // The review status of the business display name.
+      // The name review status.
       shared_ptr<string> nameStatus_ {};
-      // The review status of the new business display name.
+      // The review status of the new name.
       shared_ptr<string> newNameStatus_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
       // The quality rating of the phone number.
-      // 
-      // Valid values:
-      // 
-      // - RED
-      // 
-      // - YELLOW
-      // 
-      // - GREEN
       shared_ptr<string> qualityRating_ {};
-      // The state of the phone number.
-      // 
-      // Valid values:
-      // 
-      // - MIGRATED
-      // 
-      // - FLAGGED
-      // 
-      // - DISCONNECTED
-      // 
-      // - UNVERIFIED
-      // 
-      // - BANNED
-      // 
-      // - RATE_LIMITED
-      // 
-      // - PENDING
-      // 
-      // - CONNECTED
-      // 
-      // - UNKNOWN
-      // 
-      // - DELETED
-      // 
-      // - RESTRICTED
+      // The status of the phone number.
       shared_ptr<string> status_ {};
-      // The callback URL to which status reports are sent by using HTTP callbacks.
+      // The callback URL for status reports.
       shared_ptr<string> statusCallbackUrl_ {};
       // The status report queue.
       shared_ptr<string> statusQueue_ {};
-      // The URL that receives the MO messages.
+      // The callback URL for upstream messages.
       shared_ptr<string> upCallbackUrl_ {};
-      // The mobile originated (MO) message queue.
+      // The upstream MSMQ.
       shared_ptr<string> upQueue_ {};
-      // The display name of the business to which the phone number belongs.
+      // The verified name of the phone number.
       shared_ptr<string> verifiedName_ {};
     };
 
@@ -597,22 +561,20 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The HTTP status code returned.
+    // The response code.
     // 
-    // - A value of OK indicates that the call is successful.
+    // - A value of OK indicates that the request is successful.
     // 
-    // - Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The phone numbers.
+    // The list of phone numbers.
     shared_ptr<vector<ChatappSyncPhoneNumberResponseBody::PhoneNumbers>> phoneNumbers_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // 
-    // - **true**: The call was successful.
-    // 
+    // Indicates whether the call is successful. Valid values:
+    // - **true**: The call is successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };

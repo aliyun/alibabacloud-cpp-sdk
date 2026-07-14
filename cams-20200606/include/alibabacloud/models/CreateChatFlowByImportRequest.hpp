@@ -105,13 +105,18 @@ namespace Models
 
 
   protected:
+    // The business tenant code. The default value is ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. The default value is an empty collection.
     Darabonba::Json bizExtend_ {};
+    // The flow DSL data to import. This is a block of data in JSON format. To obtain this data, arrange the components on the canvas in the Flow Editor, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas. The flow is exported as a JSON data file.
     shared_ptr<string> flowViewModel_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The remarks for the flow.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The title of the flow.
     shared_ptr<string> title_ {};
   };
 

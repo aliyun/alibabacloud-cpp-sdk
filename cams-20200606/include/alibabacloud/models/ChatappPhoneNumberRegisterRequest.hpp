@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The Space ID of the Independent Software Vendor (ISV) sub-customer.
+    // The space ID of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};

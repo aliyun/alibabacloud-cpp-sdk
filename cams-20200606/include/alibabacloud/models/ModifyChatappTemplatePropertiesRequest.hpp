@@ -112,17 +112,29 @@ namespace Models
 
 
   protected:
+    // Specifies whether sending is allowed.
     shared_ptr<bool> allowSend_ {};
+    // Specifies whether to block sending after the Utility template category is changed.
     shared_ptr<bool> categoryChangePaused_ {};
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // 
     // This parameter is required.
     shared_ptr<string> language_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The template code.
+    // 
     // This parameter is required.
     shared_ptr<string> templateCode_ {};
+    // The templatetype.
+    // 
+    // - **WHATSAPP**
+    // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};
   };

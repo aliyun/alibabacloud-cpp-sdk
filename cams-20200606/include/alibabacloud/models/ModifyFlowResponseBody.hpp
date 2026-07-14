@@ -96,12 +96,13 @@ namespace Models
 
 
     protected:
-      // The flow categories.
+      // The flow folder.
       shared_ptr<vector<string>> categories_ {};
+      // The URL of the WA Flow Endpoint
       shared_ptr<string> endpointUri_ {};
-      // The flow ID.
+      // Flow ID。
       shared_ptr<string> flowId_ {};
-      // The flow name.
+      // The name of the flow.
       shared_ptr<string> flowName_ {};
     };
 
@@ -145,8 +146,9 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // A value of OK indicates that the request was successful.
+    // The response code. OK indicates success.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ModifyFlowResponseBody::Data> data_ {};

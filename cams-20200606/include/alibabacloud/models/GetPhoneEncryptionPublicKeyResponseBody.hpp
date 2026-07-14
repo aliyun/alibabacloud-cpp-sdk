@@ -86,11 +86,11 @@ namespace Models
     protected:
       // The public key.
       shared_ptr<string> encryptionPublicKey_ {};
-      // The status of the public key. Valid values:
+      // The validity status of the public key. Valid values:
       // 
-      // - MISMATCH: The public key is invalid.
+      // - MISMATCH: invalid.
       // 
-      // - VALID: The public key is valid.
+      // - VALID: valid.
       shared_ptr<string> encryptionPublicKeyStatus_ {};
       // The phone number.
       shared_ptr<string> phoneNumber_ {};
@@ -136,6 +136,7 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};

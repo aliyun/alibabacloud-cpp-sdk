@@ -178,22 +178,36 @@ namespace Models
 
 
   protected:
+    // The code of the campaign to modify.
     shared_ptr<string> activityCode_ {};
+    // The campaign description.
     shared_ptr<string> activityDesc_ {};
+    // The ID of the campaign to modify.
     shared_ptr<string> activityId_ {};
+    // The campaign name.
     shared_ptr<string> activityName_ {};
+    // The cron expression for timed scheduling.
     shared_ptr<string> cronExpression_ {};
+    // The end time.
     shared_ptr<string> endDate_ {};
+    // The execution method. Set this parameter to 1 (cron).
+    // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to use custom pass-through parameters.
     shared_ptr<string> paramFlag_ {};
+    // The custom pass-through parameters.
     Darabonba::Json params_ {};
+    // The code of the associated flow.
     shared_ptr<string> relatedFlowCode_ {};
+    // The name of the associated flow.
     shared_ptr<string> relatedFlowName_ {};
+    // The ID of the associated group.
     shared_ptr<int64_t> relatedGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start time.
     shared_ptr<string> startDate_ {};
   };
 

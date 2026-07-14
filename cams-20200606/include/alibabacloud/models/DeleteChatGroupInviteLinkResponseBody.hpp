@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The response code. Valid values:
     // 
@@ -98,11 +98,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The number of affected rows.
     shared_ptr<int64_t> result_ {};
-    // Indicates if the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

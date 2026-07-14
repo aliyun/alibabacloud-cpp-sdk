@@ -143,32 +143,30 @@ namespace Models
 
 
   protected:
-    // The business information.
+    // The about information.
     shared_ptr<string> about_ {};
     // The address.
     shared_ptr<string> address_ {};
-    // The space ID of the RAM user within the independent software vendor (ISV) account.
+    // The space ID of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
-    // The description of the phone number.
+    // The description.
     shared_ptr<string> description_ {};
     // The email address.
     shared_ptr<string> email_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The mobile phone number.
+    // The phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
-    // The URL of the profile picture.
+    // The profile picture URL.
     shared_ptr<string> profilePictureUrl_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The industry.
-    // 
-    // > Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
+    // The industry vertical.
     shared_ptr<string> vertical_ {};
-    // The URLs of the websites.
+    // The websites.
     shared_ptr<vector<string>> websites_ {};
   };
 

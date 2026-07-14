@@ -118,9 +118,9 @@ namespace Models
 
 
         protected:
-          // The cursor that points to the end of the page of the returned data.
+          // The position of the next record.
           shared_ptr<string> after_ {};
-          // The cursor that points to the beginning of the page of the returned data.
+          // The position of the previous record.
           shared_ptr<string> before_ {};
         };
 
@@ -135,7 +135,7 @@ namespace Models
 
 
       protected:
-        // The cursors for pagination.
+        // The cursor position for pagination.
         shared_ptr<Paging::Cursors> cursors_ {};
       };
 
@@ -160,7 +160,7 @@ namespace Models
 
 
     protected:
-      // The returned data.
+      // The returned data object.
       shared_ptr<vector<Darabonba::Json>> data_ {};
       // The pagination details.
       shared_ptr<Model::Paging> paging_ {};
@@ -215,23 +215,21 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The response code.
+    // The request status code.
     // 
-    // - The value OK indicates that the request was successful.
+    // - OK indicates that the request was successful.
     // 
-    // - Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<ListProductCatalogResponseBody::Model> model_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**
-    // 
-    // - **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

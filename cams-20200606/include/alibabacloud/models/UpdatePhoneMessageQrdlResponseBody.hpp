@@ -119,9 +119,9 @@ namespace Models
       shared_ptr<string> phoneNumber_ {};
       // The message content.
       shared_ptr<string> prefilledMessage_ {};
-      // The URL of the QR code.
+      // The QR code image URL.
       shared_ptr<string> qrImageUrl_ {};
-      // The code.
+      // The QR code encoding.
       shared_ptr<string> qrdlCode_ {};
     };
 
@@ -165,6 +165,7 @@ namespace Models
 
 
   protected:
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};

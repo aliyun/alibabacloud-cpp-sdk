@@ -191,13 +191,13 @@ namespace Models
 
 
       protected:
-        // The business number.
+        // The business phone number.
         shared_ptr<string> businessNumber_ {};
         // The role of the bot in the group.
         shared_ptr<string> businessRole_ {};
-        // The group description.
+        // The description.
         shared_ptr<string> description_ {};
-        // The time the group was last updated.
+        // The update time.
         shared_ptr<int64_t> gmtModifier_ {};
         // The group ID.
         shared_ptr<string> groupId_ {};
@@ -207,13 +207,13 @@ namespace Models
         shared_ptr<string> groupStatus_ {};
         // The group type.
         shared_ptr<string> groupType_ {};
-        // The group invitation link.
+        // The invite link.
         shared_ptr<string> inviteLink_ {};
-        // The group\\"s profile picture.
+        // The group profile picture.
         shared_ptr<string> profilePictureFile_ {};
         // The group subject.
         shared_ptr<string> subject_ {};
-        // The total number of group participants.
+        // The number of group members.
         shared_ptr<int64_t> totalParticipantCount_ {};
       };
 
@@ -238,7 +238,7 @@ namespace Models
     protected:
       // The group list.
       shared_ptr<vector<Data::List>> list_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -289,25 +289,23 @@ namespace Models
 
 
   protected:
-    // Details about the access denied error.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code. Valid values:
+    // The request status code. Valid values:
     // 
-    // - `OK`: The request succeeded.
+    // - OK: The request was successful.
     // 
     // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ListChatGroupResponseBody::Data> data_ {};
-    // The response message. This parameter is returned only when an error occurs.
+    // The prompt message. This parameter has a value when an exception is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Valid values:
-    // 
-    // - **true**: The request succeeded.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

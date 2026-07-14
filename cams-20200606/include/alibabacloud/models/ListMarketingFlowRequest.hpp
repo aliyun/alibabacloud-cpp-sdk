@@ -142,15 +142,24 @@ namespace Models
 
 
   protected:
+    // The campaign code. You can use the system code or modify it to use a custom code.
     shared_ptr<string> activityCode_ {};
+    // The name of the node task instance.
     shared_ptr<string> activityName_ {};
+    // The campaign status.
     shared_ptr<string> activityStatus_ {};
+    // The business tenant code. Default value: ALICOM_OPAAS.
     shared_ptr<string> bizCode_ {};
+    // The business extension information. Default value: "{}".
     Darabonba::Json bizExtend_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The current page number.
     shared_ptr<string> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The ID of the associated flow.
     shared_ptr<string> relatedFlowCode_ {};
+    // The ID of the associated group.
     shared_ptr<int64_t> relatedGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

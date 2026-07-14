@@ -94,14 +94,14 @@ namespace Models
 
 
   protected:
-    // The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customer.
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     // The custom audience ID.
     shared_ptr<string> customAudienceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The Page ID.
+    // The PageId of Messenger.
     // 
     // This parameter is required.
     shared_ptr<string> pageId_ {};

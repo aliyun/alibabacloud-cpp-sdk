@@ -109,10 +109,15 @@ namespace Models
 
 
     protected:
+      // The reason for the application.
       shared_ptr<string> applyReason_ {};
+      // The list of destination countries for messages.
       shared_ptr<vector<string>> messageDestinationCountry_ {};
+      // The list of international destination countries for messages.
       shared_ptr<vector<string>> messageDestinationInternationalCountry_ {};
+      // The recovery date.
       shared_ptr<string> recoveryDate_ {};
+      // The suspension date.
       shared_ptr<string> suspensionDate_ {};
     };
 
@@ -163,9 +168,12 @@ namespace Models
 
 
   protected:
+    // The audit record.
     shared_ptr<AddAddressRecoverSuspendRequest::AuditRecord> auditRecord_ {};
+    // The customer space ID.
     shared_ptr<string> custSpaceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The request type.
     shared_ptr<string> requestType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

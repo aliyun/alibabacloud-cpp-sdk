@@ -94,12 +94,16 @@ namespace Models
 
 
   protected:
+    // The search keyword.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int64_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The sending type.
     shared_ptr<string> sendType_ {};
   };
 

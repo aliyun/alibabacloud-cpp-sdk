@@ -107,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cc_ {};
-    // The Space ID of the Independent Software Vendor (ISV) sub-customer.
+    // The space ID of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
@@ -116,13 +116,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
-    // The pre-verified phone number.
-    // 
+    // The pre-validated phone number.
     // > This parameter is deprecated.
     shared_ptr<string> preValidateId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the phone number.
+    // The display name of the phone number.
     // 
     // This parameter is required.
     shared_ptr<string> verifiedName_ {};

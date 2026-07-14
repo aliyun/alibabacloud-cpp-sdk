@@ -75,7 +75,9 @@ namespace Models
 
 
   protected:
+    // The space ID or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) interface.
     shared_ptr<string> custSpaceId_ {};
+    // The industry type.
     shared_ptr<string> industryType_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

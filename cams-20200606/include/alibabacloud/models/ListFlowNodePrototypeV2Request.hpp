@@ -103,13 +103,29 @@ namespace Models
 
 
   protected:
+    // The business tenant code. The default value is ALICOM_OPAAS.
+    // 
     // This parameter is required.
     shared_ptr<string> bizCode_ {};
+    // The code for the component group. Valid values:
+    // 
+    // - Messaging: Message components.
+    // 
+    // - Core: Core components.
+    // 
+    // - Intelligence: Intelligence components.
+    // 
+    // - Contact: Contact management components.
     shared_ptr<string> groupCode_ {};
+    // The search keyword. This parameter is used to perform a fuzzy query by flow component name.
     shared_ptr<string> keyword_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

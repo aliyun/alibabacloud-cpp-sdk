@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The Meta ad account ID.
       shared_ptr<string> adAccountId_ {};
+      // The name of the ad account.
       shared_ptr<string> adAccountName_ {};
+      // The currency.
       shared_ptr<string> currency_ {};
+      // The PageId of Messenger.
       shared_ptr<string> pageId_ {};
     };
 
@@ -149,11 +153,25 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The request status code.
+    // 
+    // - OK indicates that the request was successful.
+    // 
+    // - For other error codes, refer to [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data object.
     shared_ptr<vector<ListPageAdAccountResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

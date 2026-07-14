@@ -112,22 +112,22 @@ namespace Models
 
 
   protected:
-    // SpaceId for ISV sub clients.
+    // The SpaceId of the ISV sub-customer.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
-    // Whether to use HTTP to receive receipts. Value:
+    // Specifies whether to use HTTP to receive receipts. Valid values:
     // 
     // - Y: Yes.
     // 
     // - N: No.
     shared_ptr<string> httpFlag_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // phone number.
+    // The phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
-    // Whether to use queue method to receive receipts. Value:
+    // Specifies whether to use a queue to receive receipts. Valid values:
     // 
     // - Y: Yes.
     // 
@@ -135,9 +135,9 @@ namespace Models
     shared_ptr<string> queueFlag_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // HTTP status report interface callback address.
+    // The callback URL for the HTTP-based status report.
     shared_ptr<string> statusCallbackUrl_ {};
-    // HTTP upstream message interface callback address.
+    // The callback URL for the HTTP-based upstream message.
     shared_ptr<string> upCallbackUrl_ {};
   };
 

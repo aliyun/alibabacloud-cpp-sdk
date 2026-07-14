@@ -123,12 +123,9 @@ namespace Models
         // The number of clicks.
         shared_ptr<int32_t> count_ {};
         // The button type. Valid values:
-        // 
-        // - phone_number_button: The call button.
-        // 
-        // - url_button: The URL button.
-        // 
-        // - quick_reply_button: The auto-reply button.
+        // - phone_number_button: a phone call button.
+        // - url_button: a URL button.
+        // - quick_relpy_button: a quick reply button.
         shared_ptr<string> type_ {};
       };
 
@@ -194,19 +191,19 @@ namespace Models
 
 
     protected:
-      // The statistics about button clicks.
+      // The list of button click statistics.
       shared_ptr<vector<Data::Cliented>> cliented_ {};
       // The number of delivered messages.
       shared_ptr<int32_t> deliveredCount_ {};
-      // The end time for metric collection. This is a UNIX timestamp. Unit: milliseconds.
+      // The end time of the metric collection period. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> end_ {};
-      // The language of the template.
+      // The template language.
       shared_ptr<string> language_ {};
       // The number of read messages.
       shared_ptr<int32_t> readCount_ {};
       // The number of sent messages.
       shared_ptr<int32_t> sentCount_ {};
-      // The start time for metric collection. This is a UNIX timestamp. Unit: milliseconds.
+      // The start time of the metric collection period. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> start_ {};
       // The template code.
       shared_ptr<string> templateCode_ {};
@@ -254,7 +251,7 @@ namespace Models
   protected:
     // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code of the request. Valid values:
+    // The request status code. Valid values:
     // 
     // - OK: The request was successful.
     // 

@@ -66,10 +66,11 @@ namespace Models
 
 
   protected:
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // A value of OK indicates that the request was successful.
+    // The result. OK indicates success.
     shared_ptr<string> code_ {};
-    // The error message.
+    // The error description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

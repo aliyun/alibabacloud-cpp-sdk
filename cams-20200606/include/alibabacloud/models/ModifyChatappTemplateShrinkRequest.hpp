@@ -140,40 +140,39 @@ namespace Models
 
 
   protected:
-    // The templatetype is immutable.
+    // The templatetype cannot be modified.
     shared_ptr<string> category_ {};
+    // Specifies whether to pause sending when a Utility template is changed to Marketing type.
     shared_ptr<bool> categoryChangePaused_ {};
-    // A list of message template components.
+    // The list of message template components.
     // 
-    // > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. If Type is BODY or FOOTER, the Text content is empty and is automatically generated.
+    // > When Category is set to AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is set to BODY or FOOTER and the Text content is empty, the content is automatically generated.
     // 
     // This parameter is required.
     shared_ptr<string> componentsShrink_ {};
-    // The Space ID of the ISV sub-customer, or the instance ID of a direct customer.
+    // The SpaceId of the ISV sub-customer or the instance ID of a direct customer.
     shared_ptr<string> custSpaceId_ {};
-    // The WhatsApp Business Account (WABA) ID of the independent software vendor (ISV) customer.
+    // The ISV customer WabaId.
     // 
-    // > This parameter is deprecated. Use CustSpaceId instead.
+    // > Deprecated parameter. Use CustSpaceId instead.
     shared_ptr<string> custWabaId_ {};
-    // The template example.
+    // The examples for creating the template.
     shared_ptr<string> exampleShrink_ {};
-    // The ISV verification code. This code is used to verify that the RAM user is authorized by the ISV.
+    // The ISV verification code used to verify whether the RAM user is authorized by the ISV.
     shared_ptr<string> isvCode_ {};
-    // The template language. For a list of language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+    // The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
     // 
     // This parameter is required.
     shared_ptr<string> language_ {};
-    // The time-to-live (TTL) of the template message in seconds.
-    // 
-    // - For AUTHENTICATION templates, the value ranges from 30 to 900.
-    // 
-    // - For UTILITY templates, the value ranges from 30 to 43,200.
+    // The validity period for sending template messages in WhatsApp.
+    // - AUTHENTICATION: valid values are 30 to 900. 
+    // - UTILITY: valid values are 30 to 43200.
     shared_ptr<int32_t> messageSendTtlSeconds_ {};
     // The message template code.
     shared_ptr<string> templateCode_ {};
     // The template name.
     shared_ptr<string> templateName_ {};
-    // The template type.
+    // The templatetype.
     // 
     // - **WHATSAPP**
     shared_ptr<string> templateType_ {};

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The version.
     shared_ptr<string> intlVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The permissions.
     shared_ptr<string> permissions_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The channel type. Valid values:
+    // 
+    // - whatsapp: WhatsApp.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

@@ -186,26 +186,52 @@ namespace Models
 
 
   protected:
+    // The business phone number.
+    // 
+    // - For WhatsApp channels, view the business phone number in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **WABA Management** > **Phone Number Management** console.
+    // 
+    // <props="intl">- For Viber channels, view the Service ID in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Service Account Management** console.
+    // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
+    // The channel type. Valid values:
+    // 
+    // - **whatsapp**
+    // 
+    // - **viber**
+    // 
     // This parameter is required.
     shared_ptr<string> channelType_ {};
+    // The message receiving status of the user.
     shared_ptr<string> clientAcceptStatus_ {};
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer. View the Space ID in the [Channel Management](https://chatapp.console.aliyun.com/CustomerList) console.
+    // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
+    // The end time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<string> endTimeStr_ {};
+    // The message type. Valid values:
+    // - DOWN: outbound message.
+    // - UP: inbound message.
     shared_ptr<string> eventAction_ {};
+    // The bulk message ID. View the bulk message ID in the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message List** > **Bulk Sending List** console.
     shared_ptr<string> groupMessageId_ {};
+    // The message status.
     shared_ptr<string> messageStatus_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The pagination object.
+    // 
     // This parameter is required.
     shared_ptr<string> pageShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The start time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     shared_ptr<string> startTimeStr_ {};
+    // The template code. View the template code in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Template Design** console.
     shared_ptr<string> templateCode_ {};
+    // The user phone number. This is the phone number that you imported when sending messages in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message Sending** console.
     shared_ptr<string> userNumber_ {};
   };
 

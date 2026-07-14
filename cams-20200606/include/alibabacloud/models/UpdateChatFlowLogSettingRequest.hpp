@@ -84,11 +84,19 @@ namespace Models
 
 
   protected:
+    // The flow code. You can view the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder).
     shared_ptr<string> flowCode_ {};
+    // The unique ID of the setting. You can obtain this ID by calling the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation.
     shared_ptr<int64_t> id_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The log enabling status. Valid values:
+    // - ENABLED: Enables log writing.
+    // 
+    // - DISABLED: Disables log writing but retains the Simple Log Service log instance.
+    // 
+    // - DELETED: Disables log writing and deletes the Simple Log Service log instance.
     shared_ptr<string> status_ {};
   };
 

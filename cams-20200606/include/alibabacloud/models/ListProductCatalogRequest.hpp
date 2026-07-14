@@ -112,19 +112,20 @@ namespace Models
 
 
   protected:
-    // The cursor that points to the end of the page of the returned data.
+    // The start position of the next page for pagination.
     shared_ptr<string> after_ {};
-    // The cursor that points to the beginning of the page of the returned data.
+    // The end position of the previous page for pagination.
     shared_ptr<string> before_ {};
-    // The Business Manager ID.
+    // The ID of the business platform where the WABA is located. You can view the business platform ID in the Chat App Message Service console after WABA registration is complete.
     // 
     // This parameter is required.
     shared_ptr<int64_t> businessId_ {};
-    // The space ID of the user within the independent software vendor (ISV) account.
+    // The space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
-    // The fields. Separate multiple fields with commas (,). see [catalog fields](https://help.aliyun.com/document_detail/2579419.html)
+    // The list of fields, separated by commas (,).
+    // For specific fields, see [Catalog fields](https://help.aliyun.com/document_detail/2579419.html).
     shared_ptr<string> fields_ {};
-    // The number of catalogs to be queried. Valid values: 1 to 1000.
+    // The number of entries to query. Valid values: 1 to 1000.
     shared_ptr<int64_t> limit_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

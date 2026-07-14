@@ -75,7 +75,13 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the
+    // <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
+    // <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
+    // page.
     shared_ptr<string> custSpaceId_ {};
+    // The Flow ID, which is the FlowId returned by the [CreateFlow](https://help.aliyun.com/document_detail/2638742.html) operation when you create a WhatsApp Flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
     shared_ptr<int64_t> ownerId_ {};

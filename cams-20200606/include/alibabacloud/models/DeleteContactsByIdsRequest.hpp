@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The list of contact codes, separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> contacts_ {};
     shared_ptr<int64_t> ownerId_ {};

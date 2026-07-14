@@ -114,15 +114,15 @@ namespace Models
     protected:
       // The number of delivered messages.
       shared_ptr<int32_t> deliveredCount_ {};
-      // The end time of metric collection. This is a UNIX timestamp in milliseconds.
+      // The end time of the metric collection period. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> end_ {};
-      // The granularity of the metrics.
+      // The metric granularity.
       shared_ptr<string> granularity_ {};
       // The business phone number.
       shared_ptr<string> phoneNumber_ {};
       // The number of sent messages.
       shared_ptr<int32_t> sentCount_ {};
-      // The start time of metric collection. This is a UNIX timestamp in milliseconds.
+      // The start time of the metric collection period. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> start_ {};
     };
 
@@ -166,15 +166,15 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code of the request. Valid values:
+    // The request status code. Valid values:
     // 
     // - OK: The request was successful.
     // 
-    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+    // - For other error codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The list of returned data.
     shared_ptr<vector<GetChatappPhoneNumberMetricResponseBody::Data>> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

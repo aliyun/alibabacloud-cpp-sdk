@@ -98,9 +98,16 @@ namespace Models
 
 
     protected:
+      // The account name.
       shared_ptr<string> accountName_ {};
+      // The time when the account was created.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the email address.
       shared_ptr<string> mailAddressId_ {};
+      // The type of the sender address. Valid values:
+      // 
+      // - batch: batch emails
+      // - trigger: triggered emails
       shared_ptr<string> sendtype_ {};
     };
 
@@ -159,12 +166,27 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response status code. Valid values:
+    // 
+    // - OK: The request was successful.
+    // 
+    // - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListDmAccountResponseBody::Data>> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

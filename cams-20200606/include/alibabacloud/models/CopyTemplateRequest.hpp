@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // The space ID of the ISV sub-customer.
     shared_ptr<string> custSpaceId_ {};
+    // The language.
     shared_ptr<string> language_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The template code.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneTemplateCode_ {};
+    // The template name.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneTemplateName_ {};
   };

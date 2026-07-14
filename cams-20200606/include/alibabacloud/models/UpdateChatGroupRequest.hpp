@@ -121,42 +121,37 @@ namespace Models
 
 
   protected:
-    // The business number. To view the business numbers, call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+    // The business phone number. You can view the business phone number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> businessNumber_ {};
-    // The channel type. Valid value:
+    // The channel type. Valid values:
     // 
     // - **WHATSAPP**.
     // 
-    // > Only the WhatsApp channel is supported.
+    // > Only the WhatsApp channel type is supported.
     shared_ptr<string> channelType_ {};
-    // The Space ID of the ISV sub-customer, or the instance ID of the direct customer. View the Space ID on the
-    // 
-    // <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+    // The space ID of the ISV sub-customer, which is also the instance ID. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
     // 
     // This parameter is required.
     shared_ptr<string> custSpaceId_ {};
     // The group description.
     shared_ptr<string> description_ {};
-    // The group ID. To view the group IDs, call the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+    // The group ID. You can view the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The group profile picture.
     // 
-    // > Image requirements
-    // >
-    // > - Supported MIME type: image/jpeg.
-    // >
-    // > - Maximum file size: 5 MB.
-    // >
-    // > - The image must be square. Minimum dimensions: 192x192 pixels.
+    // > Image restrictions:
+    // > - Supported MIME type: image/jpeg
+    // > - Maximum image size: 5 MB
+    // > - The image must be square with a minimum dimension of 192 × 192 pixels.
     shared_ptr<string> profilePictureFile_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The group title.
+    // The group subject.
     shared_ptr<string> subject_ {};
   };
 

@@ -135,6 +135,7 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
