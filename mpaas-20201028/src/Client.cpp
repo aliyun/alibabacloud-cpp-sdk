@@ -5432,6 +5432,10 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
     body["UnBindStartTime"] = request.getUnBindStartTime();
   }
 
+  if (!!request.hasVendorTemplate()) {
+    body["VendorTemplate"] = request.getVendorTemplate();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -5570,6 +5574,10 @@ PushMultipleResponse Client::pushMultipleWithOptions(const PushMultipleRequest &
 
   if (!!request.hasTransparentMessageUrgency()) {
     body["TransparentMessageUrgency"] = request.getTransparentMessageUrgency();
+  }
+
+  if (!!request.hasVendorTemplate()) {
+    body["VendorTemplate"] = request.getVendorTemplate();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -5898,6 +5906,10 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
     body["Uri"] = request.getUri();
   }
 
+  if (!!request.hasVendorTemplate()) {
+    body["VendorTemplate"] = request.getVendorTemplate();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -6058,6 +6070,10 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
 
   if (!!request.hasTransparentMessageUrgency()) {
     body["TransparentMessageUrgency"] = request.getTransparentMessageUrgency();
+  }
+
+  if (!!request.hasVendorTemplate()) {
+    body["VendorTemplate"] = request.getVendorTemplate();
   }
 
   if (!!request.hasWorkspaceId()) {

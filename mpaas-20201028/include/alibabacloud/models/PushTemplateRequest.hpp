@@ -41,6 +41,7 @@ namespace Models
       DARABONBA_ANY_TO_JSON(ThirdChannelCategory, thirdChannelCategory_);
       DARABONBA_ANY_TO_JSON(TransparentMessagePayload, transparentMessagePayload_);
       DARABONBA_PTR_TO_JSON(TransparentMessageUrgency, transparentMessageUrgency_);
+      DARABONBA_PTR_TO_JSON(VendorTemplate, vendorTemplate_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, PushTemplateRequest& obj) { 
@@ -72,6 +73,7 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(ThirdChannelCategory, thirdChannelCategory_);
       DARABONBA_ANY_FROM_JSON(TransparentMessagePayload, transparentMessagePayload_);
       DARABONBA_PTR_FROM_JSON(TransparentMessageUrgency, transparentMessageUrgency_);
+      DARABONBA_PTR_FROM_JSON(VendorTemplate, vendorTemplate_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     PushTemplateRequest() = default ;
@@ -91,7 +93,7 @@ namespace Models
         && this->notifyType_ == nullptr && this->pushAction_ == nullptr && this->silent_ == nullptr && this->smsSignName_ == nullptr && this->smsStrategy_ == nullptr
         && this->smsTemplateCode_ == nullptr && this->smsTemplateParam_ == nullptr && this->strategyContent_ == nullptr && this->strategyType_ == nullptr && this->targetMsgkey_ == nullptr
         && this->taskName_ == nullptr && this->templateKeyValue_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->thirdChannelCategory_ == nullptr
-        && this->transparentMessagePayload_ == nullptr && this->transparentMessageUrgency_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->transparentMessagePayload_ == nullptr && this->transparentMessageUrgency_ == nullptr && this->vendorTemplate_ == nullptr && this->workspaceId_ == nullptr; };
     // activityContentState Field Functions 
     bool hasActivityContentState() const { return this->activityContentState_ != nullptr;};
     void deleteActivityContentState() { this->activityContentState_ = nullptr;};
@@ -296,6 +298,13 @@ namespace Models
     inline PushTemplateRequest& setTransparentMessageUrgency(string transparentMessageUrgency) { DARABONBA_PTR_SET_VALUE(transparentMessageUrgency_, transparentMessageUrgency) };
 
 
+    // vendorTemplate Field Functions 
+    bool hasVendorTemplate() const { return this->vendorTemplate_ != nullptr;};
+    void deleteVendorTemplate() { this->vendorTemplate_ = nullptr;};
+    inline string getVendorTemplate() const { DARABONBA_PTR_GET_DEFAULT(vendorTemplate_, "") };
+    inline PushTemplateRequest& setVendorTemplate(string vendorTemplate) { DARABONBA_PTR_SET_VALUE(vendorTemplate_, vendorTemplate) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -337,6 +346,7 @@ namespace Models
     Darabonba::Json thirdChannelCategory_ {};
     Darabonba::Json transparentMessagePayload_ {};
     shared_ptr<string> transparentMessageUrgency_ {};
+    shared_ptr<string> vendorTemplate_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };
