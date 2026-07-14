@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UnBindEndTime, unBindEndTime_);
       DARABONBA_PTR_TO_JSON(UnBindPeriod, unBindPeriod_);
       DARABONBA_PTR_TO_JSON(UnBindStartTime, unBindStartTime_);
+      DARABONBA_PTR_TO_JSON(VendorTemplate, vendorTemplate_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, PushBroadcastShrinkRequest& obj) { 
@@ -74,6 +75,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(UnBindEndTime, unBindEndTime_);
       DARABONBA_PTR_FROM_JSON(UnBindPeriod, unBindPeriod_);
       DARABONBA_PTR_FROM_JSON(UnBindStartTime, unBindStartTime_);
+      DARABONBA_PTR_FROM_JSON(VendorTemplate, vendorTemplate_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     PushBroadcastShrinkRequest() = default ;
@@ -93,7 +95,7 @@ namespace Models
         && this->notifyLevelShrink_ == nullptr && this->notifyType_ == nullptr && this->pushAction_ == nullptr && this->pushStatus_ == nullptr && this->silent_ == nullptr
         && this->strategyContent_ == nullptr && this->strategyType_ == nullptr && this->taskName_ == nullptr && this->templateKeyValue_ == nullptr && this->templateName_ == nullptr
         && this->tenantId_ == nullptr && this->thirdChannelCategoryShrink_ == nullptr && this->timeMode_ == nullptr && this->transparentMessagePayload_ == nullptr && this->transparentMessageUrgency_ == nullptr
-        && this->unBindEndTime_ == nullptr && this->unBindPeriod_ == nullptr && this->unBindStartTime_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->unBindEndTime_ == nullptr && this->unBindPeriod_ == nullptr && this->unBindStartTime_ == nullptr && this->vendorTemplate_ == nullptr && this->workspaceId_ == nullptr; };
     // androidChannel Field Functions 
     bool hasAndroidChannel() const { return this->androidChannel_ != nullptr;};
     void deleteAndroidChannel() { this->androidChannel_ = nullptr;};
@@ -299,6 +301,13 @@ namespace Models
     inline PushBroadcastShrinkRequest& setUnBindStartTime(int64_t unBindStartTime) { DARABONBA_PTR_SET_VALUE(unBindStartTime_, unBindStartTime) };
 
 
+    // vendorTemplate Field Functions 
+    bool hasVendorTemplate() const { return this->vendorTemplate_ != nullptr;};
+    void deleteVendorTemplate() { this->vendorTemplate_ = nullptr;};
+    inline string getVendorTemplate() const { DARABONBA_PTR_GET_DEFAULT(vendorTemplate_, "") };
+    inline PushBroadcastShrinkRequest& setVendorTemplate(string vendorTemplate) { DARABONBA_PTR_SET_VALUE(vendorTemplate_, vendorTemplate) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -341,6 +350,7 @@ namespace Models
     shared_ptr<int64_t> unBindEndTime_ {};
     shared_ptr<int64_t> unBindPeriod_ {};
     shared_ptr<int64_t> unBindStartTime_ {};
+    shared_ptr<string> vendorTemplate_ {};
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };
