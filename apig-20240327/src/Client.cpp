@@ -226,6 +226,51 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRule(const st
 }
 
 /**
+ * @summary 批量添加消费者组成员
+ *
+ * @param request BatchAddConsumerGroupConsumersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchAddConsumerGroupConsumersResponse
+ */
+BatchAddConsumerGroupConsumersResponse Client::batchAddConsumerGroupConsumersWithOptions(const string &consumerGroupId, const BatchAddConsumerGroupConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConsumerIds()) {
+    body["consumerIds"] = request.getConsumerIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchAddConsumerGroupConsumers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/consumers/batch-add")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchAddConsumerGroupConsumersResponse>();
+}
+
+/**
+ * @summary 批量添加消费者组成员
+ *
+ * @param request BatchAddConsumerGroupConsumersRequest
+ * @return BatchAddConsumerGroupConsumersResponse
+ */
+BatchAddConsumerGroupConsumersResponse Client::batchAddConsumerGroupConsumers(const string &consumerGroupId, const BatchAddConsumerGroupConsumersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchAddConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
+}
+
+/**
  * @summary Revokes consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
@@ -268,6 +313,51 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return batchDeleteConsumerAuthorizationRuleWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量移除消费者组成员
+ *
+ * @param request BatchRemoveConsumerGroupConsumersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchRemoveConsumerGroupConsumersResponse
+ */
+BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsumersWithOptions(const string &consumerGroupId, const BatchRemoveConsumerGroupConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConsumerIds()) {
+    body["consumerIds"] = request.getConsumerIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchRemoveConsumerGroupConsumers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/consumers/batch-remove")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchRemoveConsumerGroupConsumersResponse>();
+}
+
+/**
+ * @summary 批量移除消费者组成员
+ *
+ * @param request BatchRemoveConsumerGroupConsumersRequest
+ * @return BatchRemoveConsumerGroupConsumersResponse
+ */
+BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsumers(const string &consumerGroupId, const BatchRemoveConsumerGroupConsumersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchRemoveConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
 }
 
 /**
@@ -325,6 +415,81 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return changeResourceGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建AI模型卡片
+ *
+ * @description 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
+ * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+ *
+ * @param request CreateAiModelCardRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAiModelCardResponse
+ */
+CreateAiModelCardResponse Client::createAiModelCardWithOptions(const CreateAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAvailablePaths()) {
+    body["availablePaths"] = request.getAvailablePaths();
+  }
+
+  if (!!request.hasCredit()) {
+    body["credit"] = request.getCredit();
+  }
+
+  if (!!request.hasFeatures()) {
+    body["features"] = request.getFeatures();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasMeta()) {
+    body["meta"] = request.getMeta();
+  }
+
+  if (!!request.hasModelName()) {
+    body["modelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelProvider()) {
+    body["modelProvider"] = request.getModelProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAiModelCard"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-cards")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAiModelCardResponse>();
+}
+
+/**
+ * @summary 创建AI模型卡片
+ *
+ * @description 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
+ * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+ *
+ * @param request CreateAiModelCardRequest
+ * @return CreateAiModelCardResponse
+ */
+CreateAiModelCardResponse Client::createAiModelCard(const CreateAiModelCardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAiModelCardWithOptions(request, headers, runtime);
 }
 
 /**
@@ -630,6 +795,63 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createConsumerAuthorizationRulesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建消费者组
+ *
+ * @param request CreateConsumerGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateConsumerGroupResponse
+ */
+CreateConsumerGroupResponse Client::createConsumerGroupWithOptions(const CreateConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConsumerGroupId()) {
+    body["consumerGroupId"] = request.getConsumerGroupId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasGatewayType()) {
+    body["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateConsumerGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateConsumerGroupResponse>();
+}
+
+/**
+ * @summary 创建消费者组
+ *
+ * @param request CreateConsumerGroupRequest
+ * @return CreateConsumerGroupResponse
+ */
+CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createConsumerGroupWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1726,6 +1948,84 @@ CreateSourceResponse Client::createSource(const CreateSourceRequest &request) {
 }
 
 /**
+ * @summary 删除AI模型卡片
+ *
+ * @param request DeleteAiModelCardRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAiModelCardResponse
+ */
+DeleteAiModelCardResponse Client::deleteAiModelCardWithOptions(const string &modelCardId, const DeleteAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAiModelCard"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-cards/" , Darabonba::Encode::Encoder::percentEncode(modelCardId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAiModelCardResponse>();
+}
+
+/**
+ * @summary 删除AI模型卡片
+ *
+ * @param request DeleteAiModelCardRequest
+ * @return DeleteAiModelCardResponse
+ */
+DeleteAiModelCardResponse Client::deleteAiModelCard(const string &modelCardId, const DeleteAiModelCardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAiModelCardWithOptions(modelCardId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除AI模型供应商
+ *
+ * @param request DeleteAiModelProviderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAiModelProviderResponse
+ */
+DeleteAiModelProviderResponse Client::deleteAiModelProviderWithOptions(const string &modelProviderId, const DeleteAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAiModelProvider"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-providers/" , Darabonba::Encode::Encoder::percentEncode(modelProviderId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAiModelProviderResponse>();
+}
+
+/**
+ * @summary 删除AI模型供应商
+ *
+ * @param request DeleteAiModelProviderRequest
+ * @return DeleteAiModelProviderResponse
+ */
+DeleteAiModelProviderResponse Client::deleteAiModelProvider(const string &modelProviderId, const DeleteAiModelProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes an API consumer.
  *
  * @param headers map
@@ -1795,6 +2095,45 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRule(
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
+}
+
+/**
+ * @summary 删除消费者组
+ *
+ * @param request DeleteConsumerGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConsumerGroupResponse
+ */
+DeleteConsumerGroupResponse Client::deleteConsumerGroupWithOptions(const string &consumerGroupId, const DeleteConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteConsumerGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConsumerGroupResponse>();
+}
+
+/**
+ * @summary 删除消费者组
+ *
+ * @param request DeleteConsumerGroupRequest
+ * @return DeleteConsumerGroupResponse
+ */
+DeleteConsumerGroupResponse Client::deleteConsumerGroup(const string &consumerGroupId, const DeleteConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
 }
 
 /**
@@ -2624,6 +2963,84 @@ ExportHttpApiResponse Client::exportHttpApi(const string &httpApiId, const Expor
 }
 
 /**
+ * @summary 查询AI模型卡片详情
+ *
+ * @param request GetAiModelCardRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiModelCardResponse
+ */
+GetAiModelCardResponse Client::getAiModelCardWithOptions(const string &modelCardId, const GetAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiModelCard"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-cards/" , Darabonba::Encode::Encoder::percentEncode(modelCardId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiModelCardResponse>();
+}
+
+/**
+ * @summary 查询AI模型卡片详情
+ *
+ * @param request GetAiModelCardRequest
+ * @return GetAiModelCardResponse
+ */
+GetAiModelCardResponse Client::getAiModelCard(const string &modelCardId, const GetAiModelCardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAiModelCardWithOptions(modelCardId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询AI模型供应商详情
+ *
+ * @param request GetAiModelProviderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiModelProviderResponse
+ */
+GetAiModelProviderResponse Client::getAiModelProviderWithOptions(const string &modelProviderId, const GetAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiModelProvider"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-providers/" , Darabonba::Encode::Encoder::percentEncode(modelProviderId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiModelProviderResponse>();
+}
+
+/**
+ * @summary 查询AI模型供应商详情
+ *
+ * @param request GetAiModelProviderRequest
+ * @return GetAiModelProviderResponse
+ */
+GetAiModelProviderResponse Client::getAiModelProvider(const string &modelProviderId, const GetAiModelProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves an API consumer.
  *
  * @param headers map
@@ -2693,6 +3110,45 @@ GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRule(const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, consumerId, headers, runtime);
+}
+
+/**
+ * @summary 查询消费者组
+ *
+ * @param request GetConsumerGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetConsumerGroupResponse
+ */
+GetConsumerGroupResponse Client::getConsumerGroupWithOptions(const string &consumerGroupId, const GetConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetConsumerGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetConsumerGroupResponse>();
+}
+
+/**
+ * @summary 查询消费者组
+ *
+ * @param request GetConsumerGroupRequest
+ * @return GetConsumerGroupResponse
+ */
+GetConsumerGroupResponse Client::getConsumerGroup(const string &consumerGroupId, const GetConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
 }
 
 /**
@@ -3706,6 +4162,120 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
 }
 
 /**
+ * @summary 查询AI模型卡片列表
+ *
+ * @param request ListAiModelCardsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiModelCardsResponse
+ */
+ListAiModelCardsResponse Client::listAiModelCardsWithOptions(const ListAiModelCardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiModelCards"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-cards")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiModelCardsResponse>();
+}
+
+/**
+ * @summary 查询AI模型卡片列表
+ *
+ * @param request ListAiModelCardsRequest
+ * @return ListAiModelCardsResponse
+ */
+ListAiModelCardsResponse Client::listAiModelCards(const ListAiModelCardsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAiModelCardsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询AI模型供应商列表
+ *
+ * @param request ListAiModelProvidersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiModelProvidersResponse
+ */
+ListAiModelProvidersResponse Client::listAiModelProvidersWithOptions(const ListAiModelProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiModelProviders"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-providers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiModelProvidersResponse>();
+}
+
+/**
+ * @summary 查询AI模型供应商列表
+ *
+ * @param request ListAiModelProvidersRequest
+ * @return ListAiModelProvidersResponse
+ */
+ListAiModelProvidersResponse Client::listAiModelProviders(const ListAiModelProvidersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAiModelProvidersWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
@@ -3756,6 +4326,116 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRules(co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listConsumerAuthorizationRulesWithOptions(consumerId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询消费者组成员列表
+ *
+ * @param request ListConsumerGroupConsumersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumerGroupConsumersResponse
+ */
+ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumersWithOptions(const string &consumerGroupId, const ListConsumerGroupConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNameLike()) {
+    query["nameLike"] = request.getNameLike();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumerGroupConsumers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/consumers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumerGroupConsumersResponse>();
+}
+
+/**
+ * @summary 查询消费者组成员列表
+ *
+ * @param request ListConsumerGroupConsumersRequest
+ * @return ListConsumerGroupConsumersResponse
+ */
+ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumers(const string &consumerGroupId, const ListConsumerGroupConsumersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConsumerGroupConsumersWithOptions(consumerGroupId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询消费者组列表
+ *
+ * @param request ListConsumerGroupsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConsumerGroupsResponse
+ */
+ListConsumerGroupsResponse Client::listConsumerGroupsWithOptions(const ListConsumerGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayType()) {
+    query["gatewayType"] = request.getGatewayType();
+  }
+
+  if (!!request.hasNameLike()) {
+    query["nameLike"] = request.getNameLike();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConsumerGroups"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConsumerGroupsResponse>();
+}
+
+/**
+ * @summary 查询消费者组列表
+ *
+ * @param request ListConsumerGroupsRequest
+ * @return ListConsumerGroupsResponse
+ */
+ListConsumerGroupsResponse Client::listConsumerGroups(const ListConsumerGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConsumerGroupsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5941,6 +6621,120 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
+ * @summary 更新AI模型卡片
+ *
+ * @param request UpdateAiModelCardRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAiModelCardResponse
+ */
+UpdateAiModelCardResponse Client::updateAiModelCardWithOptions(const string &modelCardId, const UpdateAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAvailablePaths()) {
+    body["availablePaths"] = request.getAvailablePaths();
+  }
+
+  if (!!request.hasCredit()) {
+    body["credit"] = request.getCredit();
+  }
+
+  if (!!request.hasFeatures()) {
+    body["features"] = request.getFeatures();
+  }
+
+  if (!!request.hasMeta()) {
+    body["meta"] = request.getMeta();
+  }
+
+  if (!!request.hasModelName()) {
+    body["modelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelProvider()) {
+    body["modelProvider"] = request.getModelProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAiModelCard"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-cards/" , Darabonba::Encode::Encoder::percentEncode(modelCardId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAiModelCardResponse>();
+}
+
+/**
+ * @summary 更新AI模型卡片
+ *
+ * @param request UpdateAiModelCardRequest
+ * @return UpdateAiModelCardResponse
+ */
+UpdateAiModelCardResponse Client::updateAiModelCard(const string &modelCardId, const UpdateAiModelCardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAiModelCardWithOptions(modelCardId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新AI模型供应商
+ *
+ * @param request UpdateAiModelProviderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAiModelProviderResponse
+ */
+UpdateAiModelProviderResponse Client::updateAiModelProviderWithOptions(const string &modelProviderId, const UpdateAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasServiceIds()) {
+    body["serviceIds"] = request.getServiceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAiModelProvider"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/ai-model-providers/" , Darabonba::Encode::Encoder::percentEncode(modelProviderId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAiModelProviderResponse>();
+}
+
+/**
+ * @summary 更新AI模型供应商
+ *
+ * @param request UpdateAiModelProviderRequest
+ * @return UpdateAiModelProviderResponse
+ */
+UpdateAiModelProviderResponse Client::updateAiModelProvider(const string &modelProviderId, const UpdateAiModelProviderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+}
+
+/**
  * @summary Updates and mounts a policy.
  *
  * @param request UpdateAndAttachPolicyRequest
@@ -6121,6 +6915,55 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRule(
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateConsumerAuthorizationRuleWithOptions(consumerId, consumerAuthorizationRuleId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新消费者组
+ *
+ * @param request UpdateConsumerGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConsumerGroupResponse
+ */
+UpdateConsumerGroupResponse Client::updateConsumerGroupWithOptions(const string &consumerGroupId, const UpdateConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateConsumerGroup"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/consumer-groups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConsumerGroupResponse>();
+}
+
+/**
+ * @summary 更新消费者组
+ *
+ * @param request UpdateConsumerGroupRequest
+ * @return UpdateConsumerGroupResponse
+ */
+UpdateConsumerGroupResponse Client::updateConsumerGroup(const string &consumerGroupId, const UpdateConsumerGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
 }
 
 /**
