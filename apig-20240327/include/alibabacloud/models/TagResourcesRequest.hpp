@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The resource IDs. You can specify up to 50 subkeys.
+    // The resource IDs. A maximum of 50 subkeys are supported.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};

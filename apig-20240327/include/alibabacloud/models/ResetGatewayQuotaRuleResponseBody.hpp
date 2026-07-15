@@ -140,9 +140,14 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer. Valid values: day (daily period), week (weekly period), or month (monthly period).
+          // The period type of the existing conflicting rule on the consumer. Valid values:
+          // - day: daily period.
+          // - week: weekly period.
+          // - month: monthly period.
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
+          // The type of the existing conflicting rule on the consumer. Valid values:
+          // - calendar: The existing conflicting rule uses a calendar period.
+          // - epoch: The existing conflicting rule uses a custom period.
           shared_ptr<string> conflictType_ {};
           // The consumer ID.
           shared_ptr<string> consumerId_ {};
@@ -176,7 +181,7 @@ namespace Models
 
 
       protected:
-        // The conflict hash.
+        // The hash of the conflict snapshot.
         shared_ptr<string> conflictHash_ {};
         // The list of conflicting entities (consumers).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
@@ -217,13 +222,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether the write request semantics are accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
       // Indicates whether this is a dry run.
       shared_ptr<bool> dryRun_ {};
-      // The rule ID.
+      // The ID of the rule.
       shared_ptr<string> ruleId_ {};
     };
 

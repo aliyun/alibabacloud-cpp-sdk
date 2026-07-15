@@ -128,21 +128,21 @@ namespace Models
 
 
     protected:
-      // The ID of the application in Serverless App Engine.
+      // The SAE application ID.
       shared_ptr<string> appId_ {};
-      // The ID of the namespace that logically isolates the application.
+      // The SAE namespace ID.
       shared_ptr<string> namespaceId_ {};
-      // The name of the OIDC role that grants permissions to the application.
+      // The OIDC role name used for SAE to access other cloud resources.
       shared_ptr<string> oidcRoleName_ {};
-      // The ID of the region in which to deploy the application.
+      // The region ID of SAE.
       shared_ptr<string> regionId_ {};
-      // The desired number of application replicas.
+      // The number of instance replicas.
       shared_ptr<string> replicas_ {};
-      // The ID of the security group to apply to the application instances. A security group acts as a virtual firewall.
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
-      // The ID of the vSwitch within the specified VPC. Serverless App Engine launches application instances in the vSwitch\\"s zone.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC to connect the application to.
+      // VPC ID
       shared_ptr<string> vpcId_ {};
     };
 
@@ -179,13 +179,13 @@ namespace Models
 
 
   protected:
-    // Additional information about the deployment status, such as error details.
+    // The deployment status message.
     shared_ptr<string> message_ {};
-    // The target deployment platform. For example, set this to `SAE` to deploy on Serverless App Engine.
+    // The deployment platform type.
     shared_ptr<string> platform_ {};
-    // Configuration settings for deploying to Serverless App Engine (SAE). This object is required when the `platform` is `SAE`.
+    // The SAE (Serverless App Engine) deployment configuration.
     shared_ptr<HiMarketPortalDeployConfig::SaeConfig> saeConfig_ {};
-    // The current status of the deployment. Possible values include `succeeded`, `failed`, and `in_progress`.
+    // The deployment status.
     shared_ptr<string> status_ {};
   };
 

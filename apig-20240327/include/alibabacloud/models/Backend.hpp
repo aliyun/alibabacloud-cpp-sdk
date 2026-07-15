@@ -108,15 +108,15 @@ namespace Models
     protected:
       // The service name.
       shared_ptr<string> name_ {};
-      // The service port. If you want to use a dynamic port, do not pass this parameter.
+      // The service port. Do not specify this parameter for dynamic ports.
       shared_ptr<int32_t> port_ {};
-      // The service protocol. Valid values: HTTP, TCP, and DUBBO.
+      // The service protocol. Valid values: [HTTP, TCP, DUBBO].
       shared_ptr<string> protocol_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
       // The service version.
       shared_ptr<string> version_ {};
-      // The percentage value of traffic.
+      // The traffic percentage value.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -139,9 +139,9 @@ namespace Models
 
 
   protected:
-    // The backend service scenario. Valid values: Single, MultiServiceByRatio, MultiServiceByTag, Mock, and Redirect.
+    // The backend service scenario. Valid values: Single, MultiServiceByRatio, MultiServiceByTag, Mock, Redirect.
     shared_ptr<string> scene_ {};
-    // The backend services.
+    // The backend service.
     shared_ptr<vector<Backend::Services>> services_ {};
   };
 

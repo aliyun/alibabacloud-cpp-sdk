@@ -174,7 +174,7 @@ namespace Models
         shared_ptr<KMSConfig> kmsConfig_ {};
         // The key name.
         shared_ptr<string> name_ {};
-        // The resource count of resources that reference the current key.
+        // The resource count that references the current key.
         shared_ptr<int32_t> referenceCount_ {};
         // The key ID.
         shared_ptr<string> secretId_ {};

@@ -170,9 +170,9 @@ namespace Models
         shared_ptr<string> ruleName_ {};
         // The rule status.
         shared_ptr<string> ruleStatus_ {};
-        // The time zone for the calendar period, in UTC+x format.
+        // The time zone for the natural period, in UTC+x format.
         shared_ptr<string> timezone_ {};
-        // The reset period type. Only calendar periods are supported, which means windowAlignment="calendar".
+        // The reset period type.
         shared_ptr<string> windowAlignment_ {};
       };
 
@@ -270,7 +270,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ListGatewayQuotaRulesResponseBody::Data> data_ {};
-    // The maximum number of records to retrieve in a single request. This parameter is not supported.
+    // The maximum number of records to retrieve at a time. This parameter is not supported.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};

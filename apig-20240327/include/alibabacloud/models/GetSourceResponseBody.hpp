@@ -246,7 +246,9 @@ namespace Models
 
 
     protected:
+      // The reason for the association status
       shared_ptr<string> associationReason_ {};
+      // The association status of the source
       shared_ptr<string> associationStatus_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};

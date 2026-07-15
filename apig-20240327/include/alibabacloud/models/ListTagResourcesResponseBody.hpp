@@ -126,7 +126,7 @@ namespace Models
 
 
   protected:
-    // The token that determines the start point of the next query. An empty value of NextToken indicates that no more results exist.
+    // The token for the next query. An empty NextToken indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

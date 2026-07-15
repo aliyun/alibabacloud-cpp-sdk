@@ -162,9 +162,9 @@ namespace Models
 
 
         protected:
-          // The VSwitch name
+          // The vSwitch name.
           shared_ptr<string> name_ {};
-          // The VSwitch ID
+          // The vSwitch ID.
           shared_ptr<string> vSwitchId_ {};
         };
 
@@ -194,11 +194,11 @@ namespace Models
 
 
       protected:
-        // The zone name
+        // The zone name.
         shared_ptr<string> name_ {};
-        // The VSwitch information in the zone
+        // The vSwitch.
         shared_ptr<Zones::VSwitch> vSwitch_ {};
-        // The zone ID
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -240,9 +240,9 @@ namespace Models
 
 
       protected:
-        // =
+        // The VPC name.
         shared_ptr<string> name_ {};
-        // Query Gateway Details
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -284,9 +284,9 @@ namespace Models
 
 
       protected:
-        // The resource tags.
+        // The vSwitch name.
         shared_ptr<string> name_ {};
-        // The tag value.
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -328,9 +328,9 @@ namespace Models
 
 
       protected:
-        // The tag key
+        // The key of the resource tag.
         shared_ptr<string> key_ {};
-        // The tag value
+        // The value of the resource tag.
         shared_ptr<string> value_ {};
       };
 
@@ -372,12 +372,9 @@ namespace Models
 
 
       protected:
-        // The resource group ID.
+        // The security group name.
         shared_ptr<string> name_ {};
-        // The load balancer status. Valid values:
-        // 
-        // *   Ready: The load balancer is available.
-        // *   NotCreate: The load balancer is not associated with the instance.
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
       };
 
@@ -419,9 +416,9 @@ namespace Models
 
 
       protected:
-        // The maintenance end time
+        // The O&M end time (HH:mm).
         shared_ptr<string> endTime_ {};
-        // The maintenance start time
+        // The O&M start time (HH:mm).
         shared_ptr<string> startTime_ {};
       };
 
@@ -502,9 +499,11 @@ namespace Models
 
 
         protected:
-          // The listening port number
+          // The port number.
           shared_ptr<int32_t> port_ {};
-          // The protocol of the port
+          // The protocol. Valid values:
+          // - TCP
+          // - UDP
           shared_ptr<string> protocol_ {};
         };
 
@@ -595,27 +594,36 @@ namespace Models
 
 
       protected:
-        // The IP address of the load balancer
+        // The load balancing address.
         shared_ptr<string> address_ {};
-        // The IP version of the load balancer address
+        // The protocol version. Valid values:
+        // - ipv4: IPv4.
+        // - ipv6: IPv6.
         shared_ptr<string> addressIpVersion_ {};
-        // The address type of the load balancer
+        // The load balancing address type. Valid values:
+        // - Internet: public network.
+        // - Intranet: private network.
         shared_ptr<string> addressType_ {};
-        // Whether this is the default gateway ingress
+        // Indicates whether this is the default ingress address of the gateway.
         shared_ptr<bool> gatewayDefault_ {};
-        // List of IPv4 addresses
+        // The list of IPv4 addresses.
         shared_ptr<vector<string>> ipv4Addresses_ {};
-        // List of IPv6 addresses
+        // The list of IPv6 addresses.
         shared_ptr<vector<string>> ipv6Addresses_ {};
-        // The unique identifier of the load balancer
+        // The load balancing instance ID.
         shared_ptr<string> loadBalancerId_ {};
-        // The mode of the load balancer
+        // The load balancing provisioning mode of the gateway. Valid values:
+        // - Managed: Managed by the cloud-native API gateway.
         shared_ptr<string> mode_ {};
-        // List of port configurations for the load balancer
+        // The list of listening ports.
         shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
-        // The current status of the load balancer
+        // The load balancing status. Valid values:
+        // - Ready: Active.
+        // - NotCreate: No associated instance.
         shared_ptr<string> status_ {};
-        // The type of load balancer
+        // The load balancing type. Valid values:
+        // - NLB: Network Load Balancer (NLB).
+        // - CLB: Classic Load Balancer (CLB).
         shared_ptr<string> type_ {};
       };
 
@@ -666,14 +674,11 @@ namespace Models
 
 
       protected:
-        // The port information.
+        // The environment alias.
         shared_ptr<string> alias_ {};
-        // The load balancer type. Valid values:
-        // 
-        // *   NLB: Network Load Balancer
-        // *   CLB: Classic Load Balancer
+        // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The list of listened ports.
+        // The environment name.
         shared_ptr<string> name_ {};
       };
 
@@ -868,61 +873,72 @@ namespace Models
 
 
     protected:
-      // The vSwitch associated with the instance.
+      // The billing type. Valid values:
+      // - POSTPAY: pay-as-you-go
+      // - PREPAY: subscription
       shared_ptr<string> chargeType_ {};
-      // The mode in which the load balancer is provided. Valid values:
-      // 
-      // *   Managed: Cloud-native API Gateway manages and provides the load balancer.
+      // The source from which the gateway was created. Valid values:
+      // - Console: The gateway was created from the console.
       shared_ptr<string> createFrom_ {};
-      // The zone ID.
+      // The creation timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The IP version of the address. Valid values:
-      // 
-      // *   ipv4
-      // *   ipv6
+      // The list of environments associated with the gateway.
       shared_ptr<vector<Data::Environments>> environments_ {};
-      // The ingress information.
+      // The subscription expiration timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTimestamp_ {};
-      // gatewayEdition
-      shared_ptr<string> gatewayEdition_ {};
-      // The security group ID.
-      shared_ptr<string> gatewayId_ {};
-      // The vSwitch ID.
-      shared_ptr<string> gatewayType_ {};
-      // The ISP type for traffic routing
-      shared_ptr<string> isp_ {};
-      // loadBalancers
-      shared_ptr<vector<Data::LoadBalancers>> loadBalancers_ {};
-      // The maintenance period configuration
-      shared_ptr<Data::MaintenancePeriod> maintenancePeriod_ {};
-      // The security group name.
-      shared_ptr<string> name_ {};
-      // HangzhouZoneE
-      shared_ptr<string> replicas_ {};
-      // The resource group ID
-      shared_ptr<string> resourceGroupId_ {};
-      // The port number.
-      shared_ptr<Data::SecurityGroup> securityGroup_ {};
-      // The zone name.
-      shared_ptr<string> spec_ {};
-      // The VPC associated with the instance.
-      shared_ptr<string> status_ {};
-      // List of tags associated with the gateway
-      shared_ptr<vector<Data::Tags>> tags_ {};
-      // The load balancer address type. Valid values:
+      // The gateway instance edition. Valid values:
       // 
-      // *   Internet
-      // *   Intranet
+      // - Professional: Standard instance.
+      // 
+      // - Serverless: Serverless instance.
+      shared_ptr<string> gatewayEdition_ {};
+      // The gateway ID.
+      shared_ptr<string> gatewayId_ {};
+      // The gateway type. Valid values:
+      // - API: API gateway.
+      // - AI: AI gateway.
+      shared_ptr<string> gatewayType_ {};
+      // The network ISP type.
+      shared_ptr<string> isp_ {};
+      // The list of ingress addresses of the gateway.
+      shared_ptr<vector<Data::LoadBalancers>> loadBalancers_ {};
+      // The O&M window.
+      shared_ptr<Data::MaintenancePeriod> maintenancePeriod_ {};
+      // The gateway name.
+      shared_ptr<string> name_ {};
+      // The number of gateway instance nodes.
+      shared_ptr<string> replicas_ {};
+      // The resource group ID.
+      shared_ptr<string> resourceGroupId_ {};
+      // The security group of the gateway.
+      shared_ptr<Data::SecurityGroup> securityGroup_ {};
+      // The gateway specification. Valid values:
+      // - apigw.small.x1: Small specification.
+      shared_ptr<string> spec_ {};
+      // The gateway status. Valid values:
+      // - Running: The gateway is running.
+      // - Creating: The gateway is being created.
+      // - CreateFailed: The gateway failed to be created.
+      // - Upgrading: The gateway is being upgraded.
+      // - UpgradeFailed: The gateway failed to be upgraded.
+      // - Restarting: The gateway is being restarted.
+      // - RestartFailed: The gateway failed to be restarted.
+      // - Deleting: The gateway is being released.
+      // - DeleteFailed: The gateway failed to be released.
+      shared_ptr<string> status_ {};
+      // The resource tags.
+      shared_ptr<vector<Data::Tags>> tags_ {};
+      // The target version of the gateway. If this value differs from version, a version upgrade can be performed.
       shared_ptr<string> targetVersion_ {};
-      // The ingress addresses of the instance.
+      // The update timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTimestamp_ {};
-      // rg-aek2s3cvc4jzfxi
+      // The vSwitch associated with the gateway.
       shared_ptr<Data::VSwitch> vSwitch_ {};
-      // The load balancer IP address.
+      // The gateway version.
       shared_ptr<string> version_ {};
-      // The tag key.
+      // The VPC associated with the gateway.
       shared_ptr<Data::Vpc> vpc_ {};
-      // List of zone information
+      // The list of zones associated with the gateway.
       shared_ptr<vector<Data::Zones>> zones_ {};
     };
 
@@ -959,13 +975,13 @@ namespace Models
 
 
   protected:
-    // The environment alias.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The security group of the instance.
+    // The response data.
     shared_ptr<GetGatewayResponseBody::Data> data_ {};
-    // Default environment
+    // The response message.
     shared_ptr<string> message_ {};
-    // The environment name.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

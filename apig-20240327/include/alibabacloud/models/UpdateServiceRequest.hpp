@@ -99,7 +99,7 @@ namespace Models
     protected:
       // The port name.
       shared_ptr<string> name_ {};
-      // The port number.
+      // The port.
       shared_ptr<int32_t> port_ {};
       // The protocol.
       shared_ptr<string> protocol_ {};
@@ -170,13 +170,13 @@ namespace Models
 
 
     protected:
-      // The base ejection time, which is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated by using the following formula: k × base_ejection_time (the initial value of k is 1). Each ejection increases the isolation time (k is incremented by 1). If consecutive checks are healthy, the isolation time is gradually reduced (k is decremented by 1).
+      // The initial ejection duration. This is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation duration is calculated by using the formula: k × base_ejection_time (k starts at 1). Each ejection increases the isolation duration (k is incremented by 1). If consecutive checks are normal, the isolation duration is gradually reduced (k is decremented by 1).
       shared_ptr<int32_t> baseEjectionTime_ {};
       // enable
       shared_ptr<bool> enable_ {};
       // The panic threshold.
       // 
-      // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally. Requests are sent only to healthy nodes and not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled. Requests are sent to all nodes, including ejected nodes.
+      // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled and requests are sent to all nodes, including ejected nodes.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
       // The failure percentage threshold. When the percentage of failed requests on a node reaches this threshold, the system triggers the ejection mechanism for the node.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
@@ -290,7 +290,7 @@ namespace Models
     protected:
       // Specifies whether to enable health checks for the service.
       shared_ptr<bool> enable_ {};
-      // The list of expected HTTP status codes that indicate a healthy response. This parameter is required when the protocol is HTTP.
+      // The list of expected normal status codes returned by requests. This parameter is required when the protocol is HTTP.
       shared_ptr<vector<string>> expectedStatuses_ {};
       // The healthy threshold for health checks.
       shared_ptr<int32_t> healthyThreshold_ {};
@@ -408,6 +408,7 @@ namespace Models
     shared_ptr<UpdateServiceRequest::HealthCheckConfig> healthCheckConfig_ {};
     // The health check threshold.
     shared_ptr<float> healthyPanicThreshold_ {};
+    // The model provider ID.
     shared_ptr<string> modelProviderId_ {};
     // The passive health check parameter settings.
     shared_ptr<UpdateServiceRequest::OutlierDetectionConfig> outlierDetectionConfig_ {};

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Specifies the product\\"s model feature. For more information, see HiMarketModelFeature.
+    // The model feature.
     shared_ptr<HiMarketModelFeature> modelFeature_ {};
   };
 

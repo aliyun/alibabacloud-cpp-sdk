@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID.
+    // The resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The list of tags.
     shared_ptr<vector<ListGatewaysRequest::Tag>> tag_ {};

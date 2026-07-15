@@ -82,11 +82,11 @@ namespace Models
 
 
     protected:
-      // The AI protocols supported by the model.
+      // The list of AI protocols.
       shared_ptr<vector<string>> aiProtocols_ {};
-      // The model category.
+      // The model categorization.
       shared_ptr<string> modelCategory_ {};
-      // Route configurations for the model API.
+      // The list of routing configurations.
       shared_ptr<vector<HiMarketHttpRoute>> routes_ {};
     };
 
@@ -101,7 +101,7 @@ namespace Models
 
 
   protected:
-    // Configuration for the model API.
+    // The Model API configuration wrapper.
     shared_ptr<HiMarketModelConfig::ModelAPIConfig> modelAPIConfig_ {};
   };
 

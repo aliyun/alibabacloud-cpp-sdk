@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The deployment revision ID.
+      // The publish version ID.
       shared_ptr<string> deployRevisionId_ {};
     };
 

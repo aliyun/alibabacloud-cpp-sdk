@@ -57,20 +57,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically approve new developer registrations. If set to `false`, you must manually approve each new developer.\\
-    // \\
-    // **Default**: `false`.\\
-    // \\
+    // Specifies whether to automatically approve developer registration requests.
     shared_ptr<bool> autoApproveDevelopers_ {};
-    // Specifies whether to automatically approve new API subscriptions. If set to `false`, you must manually approve each new subscription.\\
-    // \\
-    // **Default**: `false`.\\
-    // \\
+    // Specifies whether to automatically approve API subscription requests.
     shared_ptr<bool> autoApproveSubscriptions_ {};
-    // Specifies whether to enable built-in authentication. If set to `true`, users must sign in to access the portal.\\
-    // \\
-    // **Default**: `false`.\\
-    // \\
+    // Specifies whether to enable username-password authentication (built-in authentication).
     shared_ptr<bool> builtinAuthEnabled_ {};
   };
 

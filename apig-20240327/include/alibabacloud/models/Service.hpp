@@ -36,6 +36,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(runtimeDetailErrorCode, runtimeDetailErrorCode_);
+      DARABONBA_PTR_TO_JSON(runtimeDetailStatus, runtimeDetailStatus_);
       DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
       DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(unhealthyEndpoints, unhealthyEndpoints_);
@@ -61,6 +63,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(runtimeDetailErrorCode, runtimeDetailErrorCode_);
+      DARABONBA_PTR_FROM_JSON(runtimeDetailStatus, runtimeDetailStatus_);
       DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
       DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(unhealthyEndpoints, unhealthyEndpoints_);
@@ -227,8 +231,8 @@ namespace Models
         && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->createTimestamp_ == nullptr && this->expressType_ == nullptr && this->gatewayId_ == nullptr
         && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->labelDetails_ == nullptr && this->modelProviderId_ == nullptr
         && this->name_ == nullptr && this->namespace_ == nullptr && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr
-        && this->qualifier_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr
-        && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
+        && this->qualifier_ == nullptr && this->resourceGroupId_ == nullptr && this->runtimeDetailErrorCode_ == nullptr && this->runtimeDetailStatus_ == nullptr && this->serviceId_ == nullptr
+        && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -369,6 +373,20 @@ namespace Models
     inline Service& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // runtimeDetailErrorCode Field Functions 
+    bool hasRuntimeDetailErrorCode() const { return this->runtimeDetailErrorCode_ != nullptr;};
+    void deleteRuntimeDetailErrorCode() { this->runtimeDetailErrorCode_ = nullptr;};
+    inline string getRuntimeDetailErrorCode() const { DARABONBA_PTR_GET_DEFAULT(runtimeDetailErrorCode_, "") };
+    inline Service& setRuntimeDetailErrorCode(string runtimeDetailErrorCode) { DARABONBA_PTR_SET_VALUE(runtimeDetailErrorCode_, runtimeDetailErrorCode) };
+
+
+    // runtimeDetailStatus Field Functions 
+    bool hasRuntimeDetailStatus() const { return this->runtimeDetailStatus_ != nullptr;};
+    void deleteRuntimeDetailStatus() { this->runtimeDetailStatus_ = nullptr;};
+    inline string getRuntimeDetailStatus() const { DARABONBA_PTR_GET_DEFAULT(runtimeDetailStatus_, "") };
+    inline Service& setRuntimeDetailStatus(string runtimeDetailStatus) { DARABONBA_PTR_SET_VALUE(runtimeDetailStatus_, runtimeDetailStatus) };
+
+
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
@@ -409,13 +427,13 @@ namespace Models
 
 
   protected:
-    // The address information, including IP addresses or domain name lists.
+    // The address information, including IP addresses or domain names.
     shared_ptr<vector<string>> addresses_ {};
     // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
     // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-    // The creation time.
+    // The time when the service was created.
     shared_ptr<int64_t> createTimestamp_ {};
     // The CloudFlow execution mode.
     shared_ptr<string> expressType_ {};
@@ -425,7 +443,9 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The health check configuration.
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
-    // The health check status. Valid values: Healthy and Unhealthy.
+    // The health check status. Valid values:
+    // - Healthy
+    // - Unhealthy
     shared_ptr<string> healthStatus_ {};
     // The label information of the service.
     shared_ptr<vector<LabelDetail>> labelDetails_ {};
@@ -440,17 +460,19 @@ namespace Models
     shared_ptr<vector<Service::Ports>> ports_ {};
     // The service protocol.
     shared_ptr<string> protocol_ {};
-    // The function qualifier.
+    // The qualifier of the function.
     shared_ptr<string> qualifier_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> runtimeDetailErrorCode_ {};
+    shared_ptr<string> runtimeDetailStatus_ {};
     // The unique ID of the service.
     shared_ptr<string> serviceId_ {};
     // The source type of the service.
     shared_ptr<string> sourceType_ {};
     // The unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
-    // The update time.
+    // The time when the service was updated.
     shared_ptr<int64_t> updateTimestamp_ {};
     // The list of service versions.
     shared_ptr<vector<Service::Versions>> versions_ {};

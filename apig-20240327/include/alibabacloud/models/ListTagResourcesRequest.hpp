@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The token that determines the start point of the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The resource ID. You can specify up to 50 subkeys.
     shared_ptr<vector<string>> resourceId_ {};

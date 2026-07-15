@@ -423,8 +423,8 @@ namespace Models
             // The port number.
             shared_ptr<int32_t> port_ {};
             // The protocol. Valid values:
-            // - TCP
-            // - UDP
+            // - TCP.
+            // - UDP.
             shared_ptr<string> protocol_ {};
           };
 
@@ -534,17 +534,17 @@ namespace Models
           // The load balancing instance ID.
           shared_ptr<string> loadBalancerId_ {};
           // The load balancing provisioning pattern of the gateway. Valid values:
-          // - Managed: Managed by Cloud-native API Gateway.
+          // - Managed: managed by the cloud-native API gateway.
           shared_ptr<string> mode_ {};
           // The list of listening ports.
           shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
           // The load balancing status. Valid values:
-          // - Ready: Active.
-          // - NotCreate: No associated instance.
+          // - Ready: active.
+          // - NotCreate: no associated instance.
           shared_ptr<string> status_ {};
           // The load balancing type of the gateway. Valid values:
-          // - NLB: Network load balancing.
-          // - CLB: Classic load balancing.
+          // - NLB: Network Load Balancer (NLB).
+          // - CLB: Classic Load Balancer (CLB).
           shared_ptr<string> type_ {};
         };
 
@@ -732,19 +732,19 @@ namespace Models
       protected:
         // The billing type. Valid values:
         // 
-        // - POSTPAY: Pay-as-you-go.
-        // - PREPAY: Subscription.
+        // - POSTPAY: pay-as-you-go.
+        // - PREPAY: subscription.
         shared_ptr<string> chargeType_ {};
         // The source from which the gateway was created. Valid values:
-        // - Console: The gateway was created from the console.
+        // - Console: the console.
         shared_ptr<string> createFrom_ {};
-        // The creation timestamp, in milliseconds.
+        // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The subscription expiration timestamp, in milliseconds.
+        // The subscription expiration timestamp. Unit: milliseconds.
         shared_ptr<int64_t> expireTimestamp_ {};
         // The gateway instance edition. Valid values:
         // 
-        // - Professional: Standard instance.
+        // - Professional: standard instance.
         // 
         // - Serverless: Serverless instance.
         shared_ptr<string> gatewayEdition_ {};
@@ -752,7 +752,7 @@ namespace Models
         shared_ptr<string> gatewayId_ {};
         // The gateway type.
         shared_ptr<string> gatewayType_ {};
-        // Indicates whether the gateway instance was created before the AI gateway feature was launched.
+        // Indicates whether the gateway instance was created before the AI gateway feature was released.
         shared_ptr<bool> legacy_ {};
         // The list of gateway entry addresses.
         shared_ptr<vector<Items::LoadBalancers>> loadBalancers_ {};
@@ -784,7 +784,7 @@ namespace Models
         shared_ptr<vector<Items::Tags>> tags_ {};
         // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
         shared_ptr<string> targetVersion_ {};
-        // The update timestamp, in milliseconds.
+        // The update timestamp. Unit: milliseconds.
         shared_ptr<int64_t> updateTimestamp_ {};
         // The vSwitch information.
         shared_ptr<Items::VSwitch> vSwitch_ {};

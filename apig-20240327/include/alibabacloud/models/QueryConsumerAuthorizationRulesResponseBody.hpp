@@ -163,7 +163,7 @@ namespace Models
 
 
         protected:
-          // The operation information.
+          // The API operation information.
           shared_ptr<HttpApiOperationInfo> operationInfo_ {};
           // The routing rule.
           shared_ptr<HttpRoute> route_ {};
@@ -317,7 +317,9 @@ namespace Models
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
         // The consumer authorization rule ID.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
+        // The consumer group ID. This field is returned for consumer group authorization rules.
         shared_ptr<string> consumerGroupId_ {};
+        // The consumer group information. This field is returned for consumer group authorization rules.
         shared_ptr<ConsumerGroupInfo> consumerGroupInfo_ {};
         // The consumer ID.
         shared_ptr<string> consumerId_ {};
@@ -339,6 +341,7 @@ namespace Models
         shared_ptr<int64_t> expireTimestamp_ {};
         // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
+        // The principal type. Valid values: Consumer or ConsumerGroup.
         shared_ptr<string> principalType_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};

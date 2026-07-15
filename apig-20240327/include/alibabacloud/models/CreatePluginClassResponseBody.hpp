@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The plugin class ID.
       shared_ptr<string> pluginClassId_ {};
     };
 
@@ -99,8 +100,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreatePluginClassResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

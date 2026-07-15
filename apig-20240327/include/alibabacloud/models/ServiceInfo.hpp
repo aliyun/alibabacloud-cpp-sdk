@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // The label key.
         shared_ptr<string> key_ {};
+        // The label value.
         shared_ptr<string> value_ {};
       };
 
@@ -134,7 +136,9 @@ namespace Models
 
 
     protected:
+      // The list of version labels.
       shared_ptr<vector<Versions::Labels>> labels_ {};
+      // The version name.
       shared_ptr<string> name_ {};
     };
 
@@ -185,8 +189,11 @@ namespace Models
 
 
     protected:
+      // The port name.
       shared_ptr<string> name_ {};
+      // The port number.
       shared_ptr<int32_t> port_ {};
+      // The port protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -283,17 +290,29 @@ namespace Models
 
 
   protected:
+    // The service routing type.
     shared_ptr<string> expressType_ {};
+    // The service group name.
     shared_ptr<string> groupName_ {};
+    // The service name.
     shared_ptr<string> name_ {};
+    // The service namespace.
     shared_ptr<string> namespace_ {};
+    // The PAI workspace ID.
     shared_ptr<string> paiWorkspaceId_ {};
+    // The PAI workspace name.
     shared_ptr<string> paiWorkspaceName_ {};
+    // The list of service ports.
     shared_ptr<vector<ServiceInfo::Ports>> ports_ {};
+    // The service version qualifier.
     shared_ptr<string> qualifier_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The service source type.
     shared_ptr<string> sourceType_ {};
+    // The service status.
     shared_ptr<string> status_ {};
+    // The list of service versions.
     shared_ptr<vector<ServiceInfo::Versions>> versions_ {};
   };
 

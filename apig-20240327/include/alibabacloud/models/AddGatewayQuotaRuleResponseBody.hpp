@@ -140,14 +140,9 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer. Valid values:
-          // - day: The period of the existing conflicting rule is day.
-          // - week: The period of the existing conflicting rule is week.
-          // - month: The period of the existing conflicting rule is month.
+          // The period type of the existing conflicting rule on the consumer. A value of day, week, or month indicates that the conflicting rule uses a daily, weekly, or monthly period respectively.
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer. Valid values:
-          // - calendar: The existing conflicting rule uses a calendar period.
-          // - epoch: The existing conflicting rule uses a custom period.
+          // The type of the existing conflicting rule on the consumer. A value of calendar indicates that the conflicting rule uses a calendar period. A value of epoch indicates that the conflicting rule uses a custom period.
           shared_ptr<string> conflictType_ {};
           // The consumer ID.
           shared_ptr<string> consumerId_ {};
@@ -181,9 +176,9 @@ namespace Models
 
 
       protected:
-        // The conflict hash.
+        // The hash of the conflict snapshot.
         shared_ptr<string> conflictHash_ {};
-        // The list of conflicting principals (consumers).
+        // The list of conflicting entities (consumers).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
         // The total number of conflicts.
         shared_ptr<int32_t> totalConflictCount_ {};
@@ -222,7 +217,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};

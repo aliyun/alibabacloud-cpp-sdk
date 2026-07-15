@@ -592,7 +592,7 @@ namespace Models
     // - HTTP: HTTP protocol.
     // - HTTPS: HTTPS protocol.
     // - SSE: Server-Sent Events protocol.
-    // - StreamableHTTP: Streamable HTTP protocol.
+    // - StreamableHTTP: streamable HTTP protocol.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

@@ -119,12 +119,19 @@ namespace Models
 
 
     protected:
+      // The plug-in alias.
       shared_ptr<string> alias_ {};
+      // The plug-in description.
       shared_ptr<string> description_ {};
+      // The document key.
       shared_ptr<string> document_ {};
+      // The plug-in name.
       shared_ptr<string> name_ {};
+      // The publish status.
       shared_ptr<string> publishStatus_ {};
+      // The plug-in type.
       shared_ptr<string> type_ {};
+      // The Wasm plug-in programming language.
       shared_ptr<string> wasmLanguage_ {};
     };
 
@@ -161,8 +168,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetPluginClassResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -199,11 +199,11 @@ namespace Models
         shared_ptr<string> ruleName_ {};
         // The rule status.
         shared_ptr<string> ruleStatus_ {};
-        // The time zone corresponding to the natural cycle, in UTC+x format.
+        // The time zone corresponding to the calendar cycle, in UTC+x format.
         shared_ptr<string> timezone_ {};
         // The cycle type. Valid values:
-        // - calendar: Natural cycle.
-        // - epoch: Custom cycle.
+        // - calendar: calendar cycle.
+        // - epoch: custom cycle.
         shared_ptr<string> windowAlignment_ {};
       };
 

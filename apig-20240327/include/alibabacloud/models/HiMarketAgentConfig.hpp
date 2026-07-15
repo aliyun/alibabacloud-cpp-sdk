@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The communication protocols supported by the agent.
+      // The list of agent protocols.
       shared_ptr<vector<string>> agentProtocols_ {};
-      // The routing rules for incoming requests.
+      // The list of agent API routing configurations.
       shared_ptr<vector<HiMarketHttpRoute>> routes_ {};
     };
 
@@ -90,7 +90,7 @@ namespace Models
 
 
   protected:
-    // Contains the API configuration for the agent.
+    // The agent API configuration list.
     shared_ptr<HiMarketAgentConfig::AgentAPIConfig> agentAPIConfig_ {};
   };
 

@@ -43,6 +43,9 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(algorithm, algorithm_);
         DARABONBA_PTR_TO_JSON(caCertIdentifier, caCertIdentifier_);
+        DARABONBA_PTR_TO_JSON(certDetailErrorCode, certDetailErrorCode_);
+        DARABONBA_PTR_TO_JSON(certDetailErrorMessage, certDetailErrorMessage_);
+        DARABONBA_PTR_TO_JSON(certDetailStatus, certDetailStatus_);
         DARABONBA_PTR_TO_JSON(certIdentifier, certIdentifier_);
         DARABONBA_PTR_TO_JSON(certName, certName_);
         DARABONBA_PTR_TO_JSON(clientCACert, clientCACert_);
@@ -70,6 +73,9 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(algorithm, algorithm_);
         DARABONBA_PTR_FROM_JSON(caCertIdentifier, caCertIdentifier_);
+        DARABONBA_PTR_FROM_JSON(certDetailErrorCode, certDetailErrorCode_);
+        DARABONBA_PTR_FROM_JSON(certDetailErrorMessage, certDetailErrorMessage_);
+        DARABONBA_PTR_FROM_JSON(certDetailStatus, certDetailStatus_);
         DARABONBA_PTR_FROM_JSON(certIdentifier, certIdentifier_);
         DARABONBA_PTR_FROM_JSON(certName, certName_);
         DARABONBA_PTR_FROM_JSON(clientCACert, clientCACert_);
@@ -152,11 +158,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->algorithm_ == nullptr
-        && this->caCertIdentifier_ == nullptr && this->certIdentifier_ == nullptr && this->certName_ == nullptr && this->clientCACert_ == nullptr && this->createFrom_ == nullptr
-        && this->createTimestamp_ == nullptr && this->default_ == nullptr && this->domainId_ == nullptr && this->domainScope_ == nullptr && this->forceHttps_ == nullptr
-        && this->http2Option_ == nullptr && this->issuer_ == nullptr && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->notAfterTimstamp_ == nullptr
-        && this->notBeforeTimestamp_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr && this->statisticsInfo_ == nullptr
-        && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr && this->updatetimestamp_ == nullptr; };
+        && this->caCertIdentifier_ == nullptr && this->certDetailErrorCode_ == nullptr && this->certDetailErrorMessage_ == nullptr && this->certDetailStatus_ == nullptr && this->certIdentifier_ == nullptr
+        && this->certName_ == nullptr && this->clientCACert_ == nullptr && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->default_ == nullptr
+        && this->domainId_ == nullptr && this->domainScope_ == nullptr && this->forceHttps_ == nullptr && this->http2Option_ == nullptr && this->issuer_ == nullptr
+        && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->notAfterTimstamp_ == nullptr && this->notBeforeTimestamp_ == nullptr && this->protocol_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->sans_ == nullptr && this->statisticsInfo_ == nullptr && this->tlsCipherSuitesConfig_ == nullptr && this->tlsMax_ == nullptr
+        && this->tlsMin_ == nullptr && this->updatetimestamp_ == nullptr; };
       // algorithm Field Functions 
       bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
       void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -169,6 +176,27 @@ namespace Models
       void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};
       inline string getCaCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(caCertIdentifier_, "") };
       inline Data& setCaCertIdentifier(string caCertIdentifier) { DARABONBA_PTR_SET_VALUE(caCertIdentifier_, caCertIdentifier) };
+
+
+      // certDetailErrorCode Field Functions 
+      bool hasCertDetailErrorCode() const { return this->certDetailErrorCode_ != nullptr;};
+      void deleteCertDetailErrorCode() { this->certDetailErrorCode_ = nullptr;};
+      inline string getCertDetailErrorCode() const { DARABONBA_PTR_GET_DEFAULT(certDetailErrorCode_, "") };
+      inline Data& setCertDetailErrorCode(string certDetailErrorCode) { DARABONBA_PTR_SET_VALUE(certDetailErrorCode_, certDetailErrorCode) };
+
+
+      // certDetailErrorMessage Field Functions 
+      bool hasCertDetailErrorMessage() const { return this->certDetailErrorMessage_ != nullptr;};
+      void deleteCertDetailErrorMessage() { this->certDetailErrorMessage_ = nullptr;};
+      inline string getCertDetailErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(certDetailErrorMessage_, "") };
+      inline Data& setCertDetailErrorMessage(string certDetailErrorMessage) { DARABONBA_PTR_SET_VALUE(certDetailErrorMessage_, certDetailErrorMessage) };
+
+
+      // certDetailStatus Field Functions 
+      bool hasCertDetailStatus() const { return this->certDetailStatus_ != nullptr;};
+      void deleteCertDetailStatus() { this->certDetailStatus_ = nullptr;};
+      inline string getCertDetailStatus() const { DARABONBA_PTR_GET_DEFAULT(certDetailStatus_, "") };
+      inline Data& setCertDetailStatus(string certDetailStatus) { DARABONBA_PTR_SET_VALUE(certDetailStatus_, certDetailStatus) };
 
 
       // certIdentifier Field Functions 
@@ -341,6 +369,12 @@ namespace Models
       shared_ptr<string> algorithm_ {};
       // The CA certificate identifier.
       shared_ptr<string> caCertIdentifier_ {};
+      // The certificate detail error code.
+      shared_ptr<string> certDetailErrorCode_ {};
+      // The certificate detail error message.
+      shared_ptr<string> certDetailErrorMessage_ {};
+      // The certificate detail status.
+      shared_ptr<string> certDetailStatus_ {};
       // The certificate identifier.
       shared_ptr<string> certIdentifier_ {};
       // The certificate name.
@@ -355,12 +389,13 @@ namespace Models
       shared_ptr<bool> default_ {};
       // The domain name ID.
       shared_ptr<string> domainId_ {};
+      // The domain name scope.
       shared_ptr<string> domainScope_ {};
-      // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
+      // Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS.
       shared_ptr<bool> forceHttps_ {};
       // The HTTP/2 setting.
       shared_ptr<string> http2Option_ {};
-      // The certification authority.
+      // The certificate issue authority.
       shared_ptr<string> issuer_ {};
       // Indicates whether mutual TLS (mTLS) authentication is enabled.
       shared_ptr<bool> mTLSEnabled_ {};
@@ -370,10 +405,10 @@ namespace Models
       shared_ptr<int64_t> notAfterTimstamp_ {};
       // The certificate effective period.
       shared_ptr<int64_t> notBeforeTimestamp_ {};
-      // The protocol type supported by the domain name.
+      // The protocol type supported by the domain name. Valid values:
       // 
-      // - HTTP: supports only the HTTP protocol.
-      // - HTTPS: supports only the HTTPS protocol.
+      // - HTTP: only HTTP is supported.
+      // - HTTPS: only HTTPS is supported.
       shared_ptr<string> protocol_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};

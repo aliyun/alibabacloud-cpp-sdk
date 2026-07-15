@@ -214,7 +214,7 @@ namespace Models
     protected:
       // The list of domain names or fixed addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The Agent service configuration. This parameter is required when `sourceType` is set to `AGENT`.
+      // The Agent service configuration. This parameter is required when sourceType is set to AGENT.
       shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
       // The AI service configuration.
       shared_ptr<AiServiceConfig> aiServiceConfig_ {};
@@ -224,10 +224,11 @@ namespace Models
       shared_ptr<string> expressType_ {};
       // The service group name. This parameter is required when sourceType is set to MSE_NACOS.
       shared_ptr<string> groupName_ {};
+      // The model provider ID.
       shared_ptr<string> modelProviderId_ {};
       // The service name.
       shared_ptr<string> name_ {};
-      // The namespace of the service:
+      // The namespace of the service.
       // 
       // - If sourceType is set to K8S, this parameter specifies the namespace of the Kubernetes service.
       // - If sourceType is set to MSE_NACOS, this parameter specifies the namespace in Nacos.

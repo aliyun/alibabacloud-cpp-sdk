@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The communication protocol. Can be `http` or `https`.
+      // The MCP protocol type.
       shared_ptr<string> protocol_ {};
     };
 
@@ -109,9 +109,9 @@ namespace Models
 
 
     protected:
-      // The domains managed by the server.
+      // The list of associated domain names.
       shared_ptr<vector<HiMarketDomain>> domains_ {};
-      // The base path for the service endpoint.
+      // The path exposed by the MCP server.
       shared_ptr<string> path_ {};
     };
 
@@ -150,13 +150,13 @@ namespace Models
 
 
   protected:
-    // Configuration for the MCP server.
+    // The MCP Server configuration.
     shared_ptr<HiMarketMcpConfig::McpServerConfig> mcpServerConfig_ {};
-    // A unique name for the MCP server.
+    // The MCP Server name.
     shared_ptr<string> mcpServerName_ {};
-    // Metadata for the configuration.
+    // The metadata.
     shared_ptr<HiMarketMcpConfig::Meta> meta_ {};
-    // The tools associated with this configuration, typically provided as a JSON-formatted string.
+    // The MCP tool definitions.
     shared_ptr<string> tools_ {};
   };
 

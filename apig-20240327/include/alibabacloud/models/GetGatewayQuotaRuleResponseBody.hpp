@@ -113,9 +113,9 @@ namespace Models
 
 
       protected:
-        // The principal (consumer) ID.
+        // The ID of the principal (consumer).
         shared_ptr<string> id_ {};
-        // The principal (consumer) name.
+        // The name of the principal (consumer).
         shared_ptr<string> name_ {};
       };
 
@@ -220,9 +220,9 @@ namespace Models
       shared_ptr<string> ruleName_ {};
       // The rule status.
       shared_ptr<string> ruleStatus_ {};
-      // The time zone corresponding to the calendar period, in UTC+x format.
+      // The time zone for the calendar period, in UTC+x format.
       shared_ptr<string> timezone_ {};
-      // The reset period type. Currently, only calendar period is supported, which means windowAlignment="calendar".
+      // The reset period type.
       shared_ptr<string> windowAlignment_ {};
     };
 

@@ -102,7 +102,7 @@ namespace Models
 
 
       protected:
-        // The operation type.
+        // The action type.
         shared_ptr<string> action_ {};
         // The unique identifier of the operation.
         shared_ptr<string> operationId_ {};
@@ -221,7 +221,7 @@ namespace Models
           shared_ptr<string> serviceId_ {};
           // The service version.
           shared_ptr<string> version_ {};
-          // The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
+          // The weight. Valid values: 1 to 100. This parameter takes effect only in the by-ratio scenario.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -266,7 +266,7 @@ namespace Models
         shared_ptr<vector<string>> customDomainIds_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed.
+        // The existing service configurations. In the single-service scenario, only one entry is allowed. In scenarios such as by-ratio or by-content, multiple entries are allowed.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 

@@ -134,9 +134,13 @@ namespace Models
 
 
       protected:
+        // The consumer group ID.
         shared_ptr<string> consumerGroupId_ {};
+        // The consumer group description.
         shared_ptr<string> description_ {};
+        // The time when the API consumer joined the consumer group. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> joinTimestamp_ {};
+        // The consumer group name.
         shared_ptr<string> name_ {};
       };
 
@@ -229,22 +233,23 @@ namespace Models
 
 
     protected:
-      // The AccessKey pair authentication configuration.
+      // The AccessKey identity authentication configurations.
       shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
-      // The API key authentication configuration.
+      // The API key identity authentication configuration.
       shared_ptr<ApiKeyIdentityConfig> apiKeyIdentityConfig_ {};
+      // The list of consumer groups to which the API consumer belongs.
       shared_ptr<vector<Data::ConsumerGroups>> consumerGroups_ {};
       // The API consumer ID.
       shared_ptr<string> consumerId_ {};
       // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The publish status of the API in the current environment.
+      // The deployment status of the API in the current environment.
       shared_ptr<string> deployStatus_ {};
       // The description.
       shared_ptr<string> description_ {};
       // Indicates whether the API consumer is enabled.
       shared_ptr<bool> enable_ {};
-      // The JWT authentication configuration.
+      // The JWT identity authentication configuration.
       shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
       // The API consumer name.
       shared_ptr<string> name_ {};

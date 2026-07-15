@@ -343,7 +343,7 @@ namespace Models
       shared_ptr<string> multiServiceRouteStrategy_ {};
       // The service display name.
       shared_ptr<string> name_ {};
-      // The observability metric routing configuration.
+      // The observability-based routing configuration.
       shared_ptr<ServiceConfigs::ObservabilityRouteConfig> observabilityRouteConfig_ {};
       // The service port number.
       shared_ptr<int32_t> port_ {};
@@ -606,7 +606,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically deploy.
+    // Indicates whether auto-deploy is enabled.
     shared_ptr<bool> autoDeploy_ {};
     // The publishing scenario.
     shared_ptr<string> backendScene_ {};
@@ -614,11 +614,11 @@ namespace Models
     shared_ptr<vector<string>> builtinRouteNames_ {};
     // The list of custom domain name IDs.
     shared_ptr<vector<string>> customDomainIds_ {};
-    // The list of custom domain name details.
+    // The list of custom domain name information.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
-    // The list of environment domain name IDs. If this parameter is not specified, all environment domain names are associated. An empty array indicates that no environment domain names are associated.
+    // The list of environment domain name IDs. If this parameter is not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
     shared_ptr<vector<string>> envDomainIds_ {};
-    // The list of environment domain name details.
+    // The list of environment domain name information.
     shared_ptr<vector<HttpApiDeployConfig::EnvDomainInfos>> envDomainInfos_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
@@ -636,7 +636,7 @@ namespace Models
     shared_ptr<Backend> routeBackend_ {};
     // The list of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // The list of subdomain details.
+    // The list of subdomain information.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
   };
 

@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Policy Mount ID
+      // The policy attachment ID.
       shared_ptr<string> policyAttachmentId_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The response data.
     shared_ptr<CreatePolicyAttachmentResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

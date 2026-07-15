@@ -103,7 +103,7 @@ namespace Models
 
     protected:
       // Indicates whether Tracing Analysis is enabled. Valid values:
-      // - true: Enabled.
+      // - true: enabled.
       // - false: shutdown.
       shared_ptr<bool> enable_ {};
       // The sampling ratio.
@@ -116,7 +116,7 @@ namespace Models
       // - XTRACE
       // - SKYWALKING
       // - OPENTELEMETRY
-      // - OTSKYWALKING.
+      // - OTSKYWALKING
       shared_ptr<string> traceType_ {};
     };
 

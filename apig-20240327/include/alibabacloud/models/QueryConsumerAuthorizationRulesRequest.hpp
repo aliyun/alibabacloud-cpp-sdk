@@ -151,6 +151,7 @@ namespace Models
   protected:
     // The API name.
     shared_ptr<string> apiNameLike_ {};
+    // The consumer group ID. If specified, the authorization rules of the consumer group are queried.
     shared_ptr<string> consumerGroupId_ {};
     // The consumer ID.
     shared_ptr<string> consumerId_ {};
@@ -166,6 +167,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The parent resource ID.
     shared_ptr<string> parentResourceId_ {};
+    // The principal type. Valid values: Consumer or ConsumerGroup.
     shared_ptr<string> principalType_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};

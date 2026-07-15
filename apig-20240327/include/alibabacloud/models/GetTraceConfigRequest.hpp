@@ -39,9 +39,8 @@ namespace Models
 
   protected:
     // The language type. Valid values:
-    // 
     // zh: Chinese
-    // en: English.
+    // en: English
     shared_ptr<string> acceptLanguage_ {};
   };
 

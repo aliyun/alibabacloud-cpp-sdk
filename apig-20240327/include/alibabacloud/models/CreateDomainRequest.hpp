@@ -161,7 +161,7 @@ namespace Models
 
 
   protected:
-    // The CA certificate identifier.
+    // The CA certificate identifier. This parameter is required for Dedicated+HTTPS.
     shared_ptr<string> caCertIdentifier_ {};
     // The certificate identifier.
     shared_ptr<string> certIdentifier_ {};
@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<string> clientCACert_ {};
     // The domain name scope.
     shared_ptr<string> domainScope_ {};
-    // Specifies whether to enable forced HTTPS redirect when the protocol type is set to HTTPS.
+    // Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated+HTTPS. This parameter is not validated for Dedicated+HTTP.
     shared_ptr<bool> forceHttps_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
@@ -181,10 +181,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type supported by the domain name. Valid values:
-    // 
-    // - HTTP: Only HTTP is supported.
-    // - HTTPS: Only HTTPS is supported.
+    // The protocol type supported by the domain name. This parameter is required for Dedicated and only allows HTTP or HTTPS. This parameter is not allowed for Serverless.
     shared_ptr<string> protocol_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};

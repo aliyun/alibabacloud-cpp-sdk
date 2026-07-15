@@ -121,21 +121,38 @@ namespace Models
 
 
   protected:
+    // The alias of the plugin.
     shared_ptr<string> alias_ {};
+    // The description of the plugin.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The execution priority of the plugin.
     shared_ptr<int32_t> executePriority_ {};
+    // The execution stage of the plugin.
+    // 
     // This parameter is required.
     shared_ptr<string> executeStage_ {};
+    // The name of the plugin class.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The minimum gateway version that the plugin is compatible with.
     shared_ptr<string> supportedMinGatewayVersion_ {};
+    // The version number of the plugin.
+    // 
     // This parameter is required.
     shared_ptr<string> version_ {};
+    // The description of the current version.
+    // 
     // This parameter is required.
     shared_ptr<string> versionDescription_ {};
+    // The programming language used to develop the WASM plugin.
+    // 
     // This parameter is required.
     shared_ptr<string> wasmLanguage_ {};
+    // The download URL of the WASM plugin binary file.
+    // 
     // This parameter is required.
     shared_ptr<string> wasmUrl_ {};
   };

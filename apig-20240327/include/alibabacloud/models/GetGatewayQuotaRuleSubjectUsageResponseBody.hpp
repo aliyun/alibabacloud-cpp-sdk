@@ -174,7 +174,7 @@ namespace Models
           shared_ptr<string> model_ {};
           // The output token consumption.
           shared_ptr<int64_t> outputAmount_ {};
-          // The consumption (request) time.
+          // The consumption (request) time in the format of YYYY-MM-DD.
           shared_ptr<string> startTime_ {};
           // The total consumption.
           shared_ptr<int64_t> usedAmount_ {};

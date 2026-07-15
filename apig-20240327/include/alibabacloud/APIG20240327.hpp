@@ -23,15 +23,15 @@ namespace APIG20240327
       /**
        * @summary Creates a gateway quota throttling rule.
        *
-       * @description This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+       * @description Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
        * > 
-       * >  Recommended call logic:
-       * > - 1. Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun=true.
-       * > - - The response contains a conflict preview with conflictHash.
-       * > - 2. Submit the request after confirmation.
-       * > - - No conflict: dryRun=false, overwrite=false.
-       * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+       * >  Recommended call sequence:
+       * > - Step 1: Perform a dry run to check for rule conflicts.
+       * > - - Set dryRun to true.
+       * > - - The response contains a conflict preview with a conflictHash value.
+       * > - Step 2: Submit the request after confirmation.
+       * > - - No conflicts: Set dryRun to false and overwrite to false.
+       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
        * @param request AddGatewayQuotaRuleRequest
        * @param headers map
@@ -43,15 +43,15 @@ namespace APIG20240327
       /**
        * @summary Creates a gateway quota throttling rule.
        *
-       * @description This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+       * @description Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
        * > 
-       * >  Recommended call logic:
-       * > - 1. Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun=true.
-       * > - - The response contains a conflict preview with conflictHash.
-       * > - 2. Submit the request after confirmation.
-       * > - - No conflict: dryRun=false, overwrite=false.
-       * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+       * >  Recommended call sequence:
+       * > - Step 1: Perform a dry run to check for rule conflicts.
+       * > - - Set dryRun to true.
+       * > - - The response contains a conflict preview with a conflictHash value.
+       * > - Step 2: Submit the request after confirmation.
+       * > - - No conflicts: Set dryRun to false and overwrite to false.
+       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
        * @param request AddGatewayQuotaRuleRequest
        * @return AddGatewayQuotaRuleResponse
@@ -59,7 +59,7 @@ namespace APIG20240327
       Models::AddGatewayQuotaRuleResponse addGatewayQuotaRule(const string &gatewayId, const Models::AddGatewayQuotaRuleRequest &request);
 
       /**
-       * @summary Authorizes a security group to allow gateway access to services.
+       * @summary Authorizes a security group that allows a gateway to access services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
        * @param headers map
@@ -69,7 +69,7 @@ namespace APIG20240327
       Models::AddGatewaySecurityGroupRuleResponse addGatewaySecurityGroupRuleWithOptions(const string &gatewayId, const Models::AddGatewaySecurityGroupRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Authorizes a security group to allow gateway access to services.
+       * @summary Authorizes a security group that allows a gateway to access services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
        * @return AddGatewaySecurityGroupRuleResponse
@@ -95,7 +95,7 @@ namespace APIG20240327
       Models::BatchDeleteConsumerAuthorizationRuleResponse batchDeleteConsumerAuthorizationRule(const Models::BatchDeleteConsumerAuthorizationRuleRequest &request);
 
       /**
-       * @summary Transfers a resource to a different resource group.
+       * @summary Moves a resource to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -105,7 +105,7 @@ namespace APIG20240327
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Transfers a resource to a different resource group.
+       * @summary Moves a resource to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -387,7 +387,7 @@ namespace APIG20240327
       Models::CreatePolicyResponse createPolicy(const Models::CreatePolicyRequest &request);
 
       /**
-       * @summary Creates a policy attachment.
+       * @summary Creates a policy attachment to a resource.
        *
        * @param request CreatePolicyAttachmentRequest
        * @param headers map
@@ -397,7 +397,7 @@ namespace APIG20240327
       Models::CreatePolicyAttachmentResponse createPolicyAttachmentWithOptions(const Models::CreatePolicyAttachmentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a policy attachment.
+       * @summary Creates a policy attachment to a resource.
        *
        * @param request CreatePolicyAttachmentRequest
        * @return CreatePolicyAttachmentResponse
@@ -567,7 +567,7 @@ namespace APIG20240327
       /**
        * @summary Deletes a quota throttling rule from a gateway.
        *
-       * @description Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
+       * @description Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
        *
        * @param request DeleteGatewayQuotaRuleRequest
        * @param headers map
@@ -579,7 +579,7 @@ namespace APIG20240327
       /**
        * @summary Deletes a quota throttling rule from a gateway.
        *
-       * @description Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
+       * @description Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
        *
        * @param request DeleteGatewayQuotaRuleRequest
        * @return DeleteGatewayQuotaRuleResponse
@@ -587,7 +587,7 @@ namespace APIG20240327
       Models::DeleteGatewayQuotaRuleResponse deleteGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::DeleteGatewayQuotaRuleRequest &request);
 
       /**
-       * @summary Deletes a gateway security group rule.
+       * @summary Deletes a security group rule from a gateway.
        *
        * @param request DeleteGatewaySecurityGroupRuleRequest
        * @param headers map
@@ -597,7 +597,7 @@ namespace APIG20240327
       Models::DeleteGatewaySecurityGroupRuleResponse deleteGatewaySecurityGroupRuleWithOptions(const string &gatewayId, const string &securityGroupRuleId, const Models::DeleteGatewaySecurityGroupRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a gateway security group rule.
+       * @summary Deletes a security group rule from a gateway.
        *
        * @param request DeleteGatewaySecurityGroupRuleRequest
        * @return DeleteGatewaySecurityGroupRuleResponse
@@ -683,6 +683,24 @@ namespace APIG20240327
        * @return DeletePluginAttachmentResponse
        */
       Models::DeletePluginAttachmentResponse deletePluginAttachment(const string &pluginAttachmentId);
+
+      /**
+       * @summary DeletePluginClass
+       *
+       * @param request DeletePluginClassRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePluginClassResponse
+       */
+      Models::DeletePluginClassResponse deletePluginClassWithOptions(const string &pluginClassId, const Models::DeletePluginClassRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeletePluginClass
+       *
+       * @param request DeletePluginClassRequest
+       * @return DeletePluginClassResponse
+       */
+      Models::DeletePluginClassResponse deletePluginClass(const string &pluginClassId, const Models::DeletePluginClassRequest &request);
 
       /**
        * @summary Deletes a policy.
@@ -945,7 +963,7 @@ namespace APIG20240327
       Models::GetEnvironmentResponse getEnvironment(const string &environmentId, const Models::GetEnvironmentRequest &request);
 
       /**
-       * @summary Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
+       * @summary Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -954,7 +972,7 @@ namespace APIG20240327
       Models::GetGatewayResponse getGatewayWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
+       * @summary Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
        *
        * @return GetGatewayResponse
        */
@@ -963,7 +981,7 @@ namespace APIG20240327
       /**
        * @summary Queries the details of a gateway quota rate limiting rule.
        *
-       * @description This operation queries a specific consumer quota rule on an AI gateway.
+       * @description Queries the details of a consumer quota rule on an AI gateway.
        *
        * @param request GetGatewayQuotaRuleRequest
        * @param headers map
@@ -975,7 +993,7 @@ namespace APIG20240327
       /**
        * @summary Queries the details of a gateway quota rate limiting rule.
        *
-       * @description This operation queries a specific consumer quota rule on an AI gateway.
+       * @description Queries the details of a consumer quota rule on an AI gateway.
        *
        * @param request GetGatewayQuotaRuleRequest
        * @return GetGatewayQuotaRuleResponse
@@ -983,7 +1001,7 @@ namespace APIG20240327
       Models::GetGatewayQuotaRuleResponse getGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::GetGatewayQuotaRuleRequest &request);
 
       /**
-       * @summary Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+       * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
        * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
        *
@@ -995,7 +1013,7 @@ namespace APIG20240327
       Models::GetGatewayQuotaRuleSubjectUsageResponse getGatewayQuotaRuleSubjectUsageWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::GetGatewayQuotaRuleSubjectUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+       * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
        * @description Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
        *
@@ -1089,7 +1107,7 @@ namespace APIG20240327
       Models::GetPluginAttachmentResponse getPluginAttachment(const string &pluginAttachmentId);
 
       /**
-       * @summary Retrieves a custom plugin class.
+       * @summary Retrieves a custom plug-in class.
        *
        * @param request GetPluginClassRequest
        * @param headers map
@@ -1099,7 +1117,7 @@ namespace APIG20240327
       Models::GetPluginClassResponse getPluginClassWithOptions(const string &pluginClassId, const Models::GetPluginClassRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a custom plugin class.
+       * @summary Retrieves a custom plug-in class.
        *
        * @param request GetPluginClassRequest
        * @return GetPluginClassResponse
@@ -1247,7 +1265,7 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfig(const string &gatewayId, const Models::GetTraceConfigRequest &request);
 
       /**
-       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+       * @summary Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
        *
        * @param request ImportHttpApiRequest
        * @param headers map
@@ -1257,7 +1275,7 @@ namespace APIG20240327
       Models::ImportHttpApiResponse importHttpApiWithOptions(const Models::ImportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+       * @summary Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
        *
        * @param request ImportHttpApiRequest
        * @return ImportHttpApiResponse
@@ -1415,9 +1433,9 @@ namespace APIG20240327
       Models::ListGatewayFeaturesResponse listGatewayFeatures(const string &gatewayId);
 
       /**
-       * @summary Queries the list of API consumer quota rules bound to a gateway.
+       * @summary Queries the list of consumer quota rules bound to a gateway.
        *
-       * @description Queries the list of API consumer quota rules bound to a gateway.
+       * @description Queries the list of consumer quota rules bound to a gateway.
        *
        * @param request ListGatewayQuotaRulesRequest
        * @param headers map
@@ -1427,9 +1445,9 @@ namespace APIG20240327
       Models::ListGatewayQuotaRulesResponse listGatewayQuotaRulesWithOptions(const string &gatewayId, const Models::ListGatewayQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of API consumer quota rules bound to a gateway.
+       * @summary Queries the list of consumer quota rules bound to a gateway.
        *
-       * @description Queries the list of API consumer quota rules bound to a gateway.
+       * @description Queries the list of consumer quota rules bound to a gateway.
        *
        * @param request ListGatewayQuotaRulesRequest
        * @return ListGatewayQuotaRulesResponse
@@ -1723,23 +1741,25 @@ namespace APIG20240327
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Retrieves the zones available for a cloud-native API gateway in a specified region.
+       * @summary Retrieves the zones available for a cloud-native API gateway in a specific region.
        *
+       * @param request ListZonesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListZonesResponse
        */
-      Models::ListZonesResponse listZonesWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListZonesResponse listZonesWithOptions(const Models::ListZonesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the zones available for a cloud-native API gateway in a specified region.
+       * @summary Retrieves the zones available for a cloud-native API gateway in a specific region.
        *
+       * @param request ListZonesRequest
        * @return ListZonesResponse
        */
-      Models::ListZonesResponse listZones();
+      Models::ListZonesResponse listZones(const Models::ListZonesRequest &request);
 
       /**
-       * @summary Queries a list of consumer authorization rules.
+       * @summary Queries the list of consumer authorization rules.
        *
        * @param request QueryConsumerAuthorizationRulesRequest
        * @param headers map
@@ -1749,7 +1769,7 @@ namespace APIG20240327
       Models::QueryConsumerAuthorizationRulesResponse queryConsumerAuthorizationRulesWithOptions(const Models::QueryConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of consumer authorization rules.
+       * @summary Queries the list of consumer authorization rules.
        *
        * @param request QueryConsumerAuthorizationRulesRequest
        * @return QueryConsumerAuthorizationRulesResponse
@@ -1773,17 +1793,17 @@ namespace APIG20240327
       Models::RemoveConsumerAuthorizationRuleResponse removeConsumerAuthorizationRule(const string &consumerAuthorizationRuleId);
 
       /**
-       * @summary Resets a quota rate limiting rule on a gateway.
+       * @summary Resets a quota throttling rule on a gateway.
        *
-       * @description Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
+       * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
        * > 
-       * >  Recommended call logic:
+       * >  Recommended call sequence:
        * > - 1. Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun=true.
+       * > - - Set dryRun to true.
        * > - - The response contains a conflict preview with conflictHash.
        * > - 2. Submit the request after confirmation.
-       * > - - No conflict: dryRun=false, overwrite=false.
-       * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+       * > - - No conflicts: Set dryRun to false and overwrite to false.
+       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
        * @param request ResetGatewayQuotaRuleRequest
        * @param headers map
@@ -1793,17 +1813,17 @@ namespace APIG20240327
       Models::ResetGatewayQuotaRuleResponse resetGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::ResetGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets a quota rate limiting rule on a gateway.
+       * @summary Resets a quota throttling rule on a gateway.
        *
-       * @description Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
+       * @description Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
        * > 
-       * >  Recommended call logic:
+       * >  Recommended call sequence:
        * > - 1. Perform a dry run to check for rule conflicts.
-       * > - - Set dryRun=true.
+       * > - - Set dryRun to true.
        * > - - The response contains a conflict preview with conflictHash.
        * > - 2. Submit the request after confirmation.
-       * > - - No conflict: dryRun=false, overwrite=false.
-       * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+       * > - - No conflicts: Set dryRun to false and overwrite to false.
+       * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
        * @param request ResetGatewayQuotaRuleRequest
        * @return ResetGatewayQuotaRuleResponse
@@ -2183,7 +2203,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
+       * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
        *
        * @param request UpdateMcpServerRequest
        * @param headers map
@@ -2195,7 +2215,7 @@ namespace APIG20240327
       /**
        * @summary Updates an MCP server.
        *
-       * @description Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
+       * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
        *
        * @param request UpdateMcpServerRequest
        * @return UpdateMcpServerResponse

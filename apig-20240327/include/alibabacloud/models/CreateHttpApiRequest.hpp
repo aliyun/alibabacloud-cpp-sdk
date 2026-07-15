@@ -147,9 +147,9 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The Ingress class to listen on.
+      // The Ingress Class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in the Ingress status.
+      // Specifies whether to update the address in the Ingress Status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
@@ -310,32 +310,31 @@ namespace Models
 
 
   protected:
-    // The list of protocols supported by the agent.
+    // The list of protocols supported by the agent. This parameter is required when type is set to Agent. This parameter is not required for other types.
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The AI API protocols. The following protocols are supported:
-    // - OpenAI/v1
+    // The AI API protocols. This parameter is required when type is set to LLM, and only one protocol can be specified. This parameter is required when type is set to Ai, and multiple protocols can be specified. This parameter is not required for other types.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configuration.
+    // The authentication configuration. This parameter is required when enableAuth is set to true.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The base path of the API. The value must start with a forward slash (/).
+    // The API base path. The path must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. This parameter is required when type is set to Rest. When type is set to LLM, Ai, or Agent, this parameter is optional and defaults to /.
     shared_ptr<string> basePath_ {};
     // The ID of the gateway to which the API belongs.
     shared_ptr<string> belongGatewayId_ {};
-    // The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be specified.
+    // The API deployment configurations. This parameter is required when type is set to LLM or Ai, and only one deployment configuration can be specified. This parameter is not validated at the request level for other types.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The description of the API.
+    // The API description.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run without actually executing the operation.
+    // Specifies whether to perform a dry run without executing the operation.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to enable authentication.
+    // Specifies whether to enable authentication. This parameter is validated when type is set to LLM, Ai, or Agent. This parameter is not validated at the request level when type is set to Rest.
     shared_ptr<bool> enableAuth_ {};
     // The timeout period for waiting for the first byte from the backend.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The configuration of the HTTP Ingress API.
+    // The HTTP Ingress API configuration. This parameter is required and cannot be nil when type is set to HttpIngress. This parameter is not required for other types.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // The model category.
+    // The model category. This parameter is optional when type is set to LLM or Ai. This parameter is not required for other types.
     shared_ptr<string> modelCategory_ {};
-    // The name of the API.
+    // The API name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -345,7 +344,7 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The conflict merge strategy for the import.
+    // The conflict merge strategy for import.
     shared_ptr<string> strategy_ {};
     // The type of the HTTP API. Valid values:
     // - Http
@@ -354,8 +353,10 @@ namespace Models
     // - HttpIngress
     // - LLM
     // - Agent
+    // 
+    // This parameter is required.
     shared_ptr<string> type_ {};
-    // The versioning configuration of the API.
+    // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

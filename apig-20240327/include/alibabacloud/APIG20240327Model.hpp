@@ -193,6 +193,9 @@
 #include <alibabacloud/models/DeleteMcpServerResponse.hpp>
 #include <alibabacloud/models/DeletePluginAttachmentResponseBody.hpp>
 #include <alibabacloud/models/DeletePluginAttachmentResponse.hpp>
+#include <alibabacloud/models/DeletePluginClassRequest.hpp>
+#include <alibabacloud/models/DeletePluginClassResponseBody.hpp>
+#include <alibabacloud/models/DeletePluginClassResponse.hpp>
 #include <alibabacloud/models/DeletePolicyResponseBody.hpp>
 #include <alibabacloud/models/DeletePolicyResponse.hpp>
 #include <alibabacloud/models/DeletePolicyAttachmentResponseBody.hpp>
@@ -345,6 +348,7 @@
 #include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ListZonesRequest.hpp>
 #include <alibabacloud/models/ListZonesResponseBody.hpp>
 #include <alibabacloud/models/ListZonesResponse.hpp>
 #include <alibabacloud/models/QueryConsumerAuthorizationRulesRequest.hpp>

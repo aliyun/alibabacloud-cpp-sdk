@@ -25,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(tlsMax, tlsMax_);
+      DARABONBA_PTR_TO_JSON(tlsMin, tlsMin_);
       DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
     };
     friend void from_json(const Darabonba::Json& j, DomainInfo& obj) { 
@@ -40,6 +42,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(tlsMax, tlsMax_);
+      DARABONBA_PTR_FROM_JSON(tlsMin, tlsMin_);
       DARABONBA_PTR_FROM_JSON(updateTimestamp, updateTimestamp_);
     };
     DomainInfo() = default ;
@@ -56,7 +60,7 @@ namespace Models
     virtual bool empty() const override { return this->certIdentifier_ == nullptr
         && this->clientCACert_ == nullptr && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->domainId_ == nullptr && this->domainScope_ == nullptr
         && this->forceHttps_ == nullptr && this->mTLSEnabled_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->status_ == nullptr && this->updateTimestamp_ == nullptr; };
+        && this->status_ == nullptr && this->tlsMax_ == nullptr && this->tlsMin_ == nullptr && this->updateTimestamp_ == nullptr; };
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
@@ -141,6 +145,20 @@ namespace Models
     inline DomainInfo& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // tlsMax Field Functions 
+    bool hasTlsMax() const { return this->tlsMax_ != nullptr;};
+    void deleteTlsMax() { this->tlsMax_ = nullptr;};
+    inline string getTlsMax() const { DARABONBA_PTR_GET_DEFAULT(tlsMax_, "") };
+    inline DomainInfo& setTlsMax(string tlsMax) { DARABONBA_PTR_SET_VALUE(tlsMax_, tlsMax) };
+
+
+    // tlsMin Field Functions 
+    bool hasTlsMin() const { return this->tlsMin_ != nullptr;};
+    void deleteTlsMin() { this->tlsMin_ = nullptr;};
+    inline string getTlsMin() const { DARABONBA_PTR_GET_DEFAULT(tlsMin_, "") };
+    inline DomainInfo& setTlsMin(string tlsMin) { DARABONBA_PTR_SET_VALUE(tlsMin_, tlsMin) };
+
+
     // updateTimestamp Field Functions 
     bool hasUpdateTimestamp() const { return this->updateTimestamp_ != nullptr;};
     void deleteUpdateTimestamp() { this->updateTimestamp_ = nullptr;};
@@ -153,7 +171,7 @@ namespace Models
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};
-    // The source from which the domain name is created.
+    // The source from which the domain name was created.
     shared_ptr<string> createFrom_ {};
     // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
@@ -163,19 +181,21 @@ namespace Models
     shared_ptr<string> domainScope_ {};
     // Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
     shared_ptr<bool> forceHttps_ {};
-    // Indicates whether MTLS mutual authentication is enabled.
+    // Specifies whether to enable mTLS mutual authentication.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     shared_ptr<string> name_ {};
     // The protocol type supported by the domain name.
     // 
-    // - HTTP: Only the HTTP protocol is supported.
-    // - HTTP: Only the HTTPS protocol is supported.
+    // - HTTP: Only HTTP is supported.
+    // - HTTPS: Only HTTPS is supported.
     shared_ptr<string> protocol_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The domain name status.
     shared_ptr<string> status_ {};
+    shared_ptr<string> tlsMax_ {};
+    shared_ptr<string> tlsMin_ {};
     // The update timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
