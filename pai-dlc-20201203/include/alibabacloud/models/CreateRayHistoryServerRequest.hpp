@@ -94,14 +94,28 @@ namespace Models
 
 
   protected:
+    // The visibility of the job. Valid values:
+    // - PUBLIC: visible to all members in the workspace.
+    // - PRIVATE: visible only to you and administrators in the workspace.
     shared_ptr<string> accessibility_ {};
+    // The display name of the job.
+    // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // The hardware specifications of the public resource group. To access the detailed list of specifications, see [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).>Notice: Prices vary depending on the specifications..
     shared_ptr<string> ecsSpec_ {};
+    // The maximum runtime in minutes.
     shared_ptr<int32_t> maxRuntimeMinutes_ {};
+    // The resource group ID. This parameter is optional.
+    // - If this parameter is left empty, the job is committed to the public resource group.
+    // - If the current workspace is attached to a resource quota, you can specify the corresponding resource quota ID. For details about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
+    // The storage path for Ray logs.
+    // 
     // This parameter is required.
     shared_ptr<string> storagePath_ {};
+    // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html)..
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

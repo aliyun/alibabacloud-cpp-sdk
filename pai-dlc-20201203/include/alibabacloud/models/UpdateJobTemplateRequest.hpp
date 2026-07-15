@@ -98,16 +98,19 @@ namespace Models
 
 
   protected:
-    // 字段约束规则。Key 为 JSONPath 表达式，Value 为约束类型：locked（锁定不可覆盖）、overridable（可覆盖）、required（必填）。需与 Content 同时提供，不允许单独更新。
+    // The field constraints. The key is a JSONPath expression and the value is the constraint type. Valid values are `locked`, `overridable`, and `required`. This parameter must be specified with `Content` and cannot be updated on its own.
     Darabonba::Json constraints_ {};
-    // 任务模板的配置内容，支持 CreateJob 接口的所有参数字段，以 JSON 格式传入。提供时会创建新版本。
+    // The configuration content of the job template. This parameter supports all fields from the `CreateJob` operation and must be in JSON format. Specifying this parameter creates a new version.
     shared_ptr<string> content_ {};
+    // The description of the job template.
     shared_ptr<string> description_ {};
-    // 用户自定义的键值对元数据，用于存储模板的附加信息。
+    // User-defined key-value pairs.
     Darabonba::Json metadata_ {};
-    // 当创建了新版本时，是否将新版本设为默认版本。
+    // If `true`, the new version becomes the default version.
     shared_ptr<bool> setAsDefault_ {};
+    // The name of the job template.
     shared_ptr<string> templateName_ {};
+    // This field is not supported.
     shared_ptr<int32_t> version_ {};
   };
 

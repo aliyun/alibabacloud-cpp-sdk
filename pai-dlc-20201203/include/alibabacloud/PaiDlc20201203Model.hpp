@@ -36,6 +36,7 @@
 #include <alibabacloud/models/FreeResourceDetail.hpp>
 #include <alibabacloud/models/FreeResourceItem.hpp>
 #include <alibabacloud/models/GPUDetail.hpp>
+#include <alibabacloud/models/HyperNodeSchedulingConfig.hpp>
 #include <alibabacloud/models/ImageConfig.hpp>
 #include <alibabacloud/models/ImageItem.hpp>
 #include <alibabacloud/models/JobDebuggerConfig.hpp>
@@ -67,6 +68,7 @@
 #include <alibabacloud/models/Resources.hpp>
 #include <alibabacloud/models/SanityCheckResultItem.hpp>
 #include <alibabacloud/models/ServiceExposure.hpp>
+#include <alibabacloud/models/SignalTarget.hpp>
 #include <alibabacloud/models/SmartCache.hpp>
 #include <alibabacloud/models/TensorboardDataSourceSpec.hpp>
 #include <alibabacloud/models/TensorboardSpec.hpp>

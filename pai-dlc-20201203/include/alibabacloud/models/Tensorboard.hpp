@@ -312,65 +312,57 @@ namespace Models
 
 
   protected:
-    // The visibility.
+    // Visibility.
     shared_ptr<string> accessibility_ {};
-    // The CPU resources.
     shared_ptr<int64_t> cpu_ {};
-    // The data source ID.
+    // Data source ID.
     shared_ptr<string> dataSourceId_ {};
-    // The dataset type.
     shared_ptr<string> dataSourceType_ {};
-    // The display name.
+    // Display name.
     shared_ptr<string> displayName_ {};
-    // The run duration (seconds).
+    // Runtime duration (seconds).
     shared_ptr<string> duration_ {};
-    // The create time (UTC).
+    // Creation time (UTC).
     shared_ptr<string> gmtCreateTime_ {};
-    // The end time (UTC).
+    // End time (UTC).
     shared_ptr<string> gmtFinishTime_ {};
-    // The modify time (UTC).
+    // Modification time (UTC).
     shared_ptr<string> gmtModifyTime_ {};
-    // The job ID.
+    // Job ID.
     shared_ptr<string> jobId_ {};
-    // The maximum run time (minutes).
     shared_ptr<int64_t> maxRunningTimeMinutes_ {};
-    // The memory size (GB).
     shared_ptr<int64_t> memory_ {};
-    // The extended fields of the dataset are in the JSON format. mountpath: the path to mount the custom dataset.
     shared_ptr<string> options_ {};
-    // The priority of the TensorBoard job.
+    // Tensorboard Job priority.
     shared_ptr<string> priority_ {};
-    // The resource group ID used by TensorBoard.
+    // Resource group ID used by Tensorboard.
     shared_ptr<string> quotaId_ {};
-    // The name of the resource quota used by TensorBoard.
+    // Name of the resource quota used by Tensorboard.
     shared_ptr<string> quotaName_ {};
-    // The status code.
+    // Status details code.
     shared_ptr<string> reasonCode_ {};
-    // The status details.
+    // Status details.
     shared_ptr<string> reasonMessage_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The status.
+    // Status.
     shared_ptr<string> status_ {};
-    // The file path.
+    // File path.
     shared_ptr<string> summaryPath_ {};
-    // The relative path of Summary.
     shared_ptr<string> summaryRelativePath_ {};
-    // The mounted dataset for the TensorBoard job.
+    // Datasets mounted by the Tensorboard Job.
     shared_ptr<vector<TensorboardDataSourceSpec>> tensorboardDataSources_ {};
-    // The TensorBoard ID
+    // Tensorboard ID.
     shared_ptr<string> tensorboardId_ {};
-    // The pay-as-you-go configurations for the TensorBoard job.
+    // Pay-as-you-go configuration for the Tensorboard Job.
     shared_ptr<TensorboardSpec> tensorboardSpec_ {};
-    // The TensorBoard URL.
+    // Tensorboard URL.
     shared_ptr<string> tensorboardUrl_ {};
-    // The value of the token.
     shared_ptr<string> token_ {};
-    // The ID of the creator.
+    // Creator ID.
     shared_ptr<string> userId_ {};
-    // The username of the creator.
+    // Creator username.
     shared_ptr<string> username_ {};
-    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

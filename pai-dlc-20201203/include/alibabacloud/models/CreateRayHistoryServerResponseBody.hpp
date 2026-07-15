@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the created Ray History Server.
     shared_ptr<string> rayHistoryServerId_ {};
+    // The request ID of this call, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -63,9 +63,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The TensorBoard instances.
+    // The list and details of Tensorboard instances.
     shared_ptr<vector<Tensorboard>> tensorboards_ {};
-    // The total number of data sources that meet the conditions.
+    // The total number of Tensorboard instances that match the specified conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -21,9 +21,10 @@ namespace PaiDlc20201203
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+       * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+       * @description Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -33,9 +34,10 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+       * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+       * @description Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -43,7 +45,7 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary Create a job template.
+       * @summary Creates a job template.
        *
        * @param request CreateJobTemplateRequest
        * @param headers map
@@ -53,7 +55,7 @@ namespace PaiDlc20201203
       Models::CreateJobTemplateResponse createJobTemplateWithOptions(const Models::CreateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a job template.
+       * @summary Creates a job template.
        *
        * @param request CreateJobTemplateRequest
        * @return CreateJobTemplateResponse
@@ -61,7 +63,10 @@ namespace PaiDlc20201203
       Models::CreateJobTemplateResponse createJobTemplate(const Models::CreateJobTemplateRequest &request);
 
       /**
-       * @summary Create RayHistoryServer
+       * @summary Creates a RayHistoryServer.
+       *
+       * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
+       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
        *
        * @param request CreateRayHistoryServerRequest
        * @param headers map
@@ -71,7 +76,10 @@ namespace PaiDlc20201203
       Models::CreateRayHistoryServerResponse createRayHistoryServerWithOptions(const Models::CreateRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create RayHistoryServer
+       * @summary Creates a RayHistoryServer.
+       *
+       * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
+       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
        *
        * @param request CreateRayHistoryServerRequest
        * @return CreateRayHistoryServerResponse
@@ -113,7 +121,7 @@ namespace PaiDlc20201203
       Models::DeleteJobResponse deleteJob(const string &JobId);
 
       /**
-       * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
+       * @summary Deletes a job template. You cannot delete a job template that is in use by a job.
        *
        * @param request DeleteJobTemplateRequest
        * @param headers map
@@ -123,7 +131,7 @@ namespace PaiDlc20201203
       Models::DeleteJobTemplateResponse deleteJobTemplateWithOptions(const string &TemplateId, const Models::DeleteJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
+       * @summary Deletes a job template. You cannot delete a job template that is in use by a job.
        *
        * @param request DeleteJobTemplateRequest
        * @return DeleteJobTemplateResponse
@@ -131,7 +139,9 @@ namespace PaiDlc20201203
       Models::DeleteJobTemplateResponse deleteJobTemplate(const string &TemplateId, const Models::DeleteJobTemplateRequest &request);
 
       /**
-       * @summary Delete RayHistoryServer
+       * @summary Deletes a Ray History Server.
+       *
+       * @description Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
        *
        * @param request DeleteRayHistoryServerRequest
        * @param headers map
@@ -141,7 +151,9 @@ namespace PaiDlc20201203
       Models::DeleteRayHistoryServerResponse deleteRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::DeleteRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete RayHistoryServer
+       * @summary Deletes a Ray History Server.
+       *
+       * @description Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
        *
        * @param request DeleteRayHistoryServerRequest
        * @return DeleteRayHistoryServerResponse
@@ -167,9 +179,9 @@ namespace PaiDlc20201203
       Models::DeleteTensorboardResponse deleteTensorboard(const string &TensorboardId, const Models::DeleteTensorboardRequest &request);
 
       /**
-       * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+       * @summary Retrieves the Dashboard URL for a DLC job, if available.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+       * @description Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
        *
        * @param request GetDashboardRequest
        * @param headers map
@@ -179,9 +191,9 @@ namespace PaiDlc20201203
       Models::GetDashboardResponse getDashboardWithOptions(const string &jobId, const Models::GetDashboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+       * @summary Retrieves the Dashboard URL for a DLC job, if available.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+       * @description Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
        *
        * @param request GetDashboardRequest
        * @return GetDashboardResponse
@@ -189,7 +201,7 @@ namespace PaiDlc20201203
       Models::GetDashboardResponse getDashboard(const string &jobId, const Models::GetDashboardRequest &request);
 
       /**
-       * @summary Obtains the configuration and runtime information of a job.
+       * @summary Retrieves the detailed configuration and runtime information of a DLC job.
        *
        * @param request GetJobRequest
        * @param headers map
@@ -199,7 +211,7 @@ namespace PaiDlc20201203
       Models::GetJobResponse getJobWithOptions(const string &JobId, const Models::GetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the configuration and runtime information of a job.
+       * @summary Retrieves the detailed configuration and runtime information of a DLC job.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -261,7 +273,7 @@ namespace PaiDlc20201203
       Models::GetJobSanityCheckResultResponse getJobSanityCheckResult(const string &JobId, const Models::GetJobSanityCheckResultRequest &request);
 
       /**
-       * @summary Obtains the details of a job template.
+       * @summary Retrieves the details of a job template.
        *
        * @param request GetJobTemplateRequest
        * @param headers map
@@ -271,7 +283,7 @@ namespace PaiDlc20201203
       Models::GetJobTemplateResponse getJobTemplateWithOptions(const string &TemplateId, const Models::GetJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a job template.
+       * @summary Retrieves the details of a job template.
        *
        * @param request GetJobTemplateRequest
        * @return GetJobTemplateResponse
@@ -279,7 +291,15 @@ namespace PaiDlc20201203
       Models::GetJobTemplateResponse getJobTemplate(const string &TemplateId, const Models::GetJobTemplateRequest &request);
 
       /**
-       * @summary Queries metrics data.
+       * @summary Retrieve metrics data.
+       *
+       * @description ## Request description
+       * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
+       * - It supports custom time ranges. By default, it returns data from the last hour.
+       * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
+       * - To paginate through large datasets, use the `NextToken` parameter.
+       * - The `MetricName` parameter is required and specifies the monitoring metric to query.
+       * - For advanced features or specific metric types, see the related documentation.
        *
        * @param request GetMetricsRequest
        * @param headers map
@@ -289,7 +309,15 @@ namespace PaiDlc20201203
       Models::GetMetricsResponse getMetricsWithOptions(const Models::GetMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries metrics data.
+       * @summary Retrieve metrics data.
+       *
+       * @description ## Request description
+       * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
+       * - It supports custom time ranges. By default, it returns data from the last hour.
+       * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
+       * - To paginate through large datasets, use the `NextToken` parameter.
+       * - The `MetricName` parameter is required and specifies the monitoring metric to query.
+       * - For advanced features or specific metric types, see the related documentation.
        *
        * @param request GetMetricsRequest
        * @return GetMetricsResponse
@@ -333,9 +361,9 @@ namespace PaiDlc20201203
       Models::GetPodLogsResponse getPodLogs(const string &JobId, const string &PodId, const Models::GetPodLogsRequest &request);
 
       /**
-       * @summary Obtains a Ray Dashboard URL.
+       * @summary Retrieve the Ray Dashboard URL.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+       * @description Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
        *
        * @param request GetRayDashboardRequest
        * @param headers map
@@ -345,9 +373,9 @@ namespace PaiDlc20201203
       Models::GetRayDashboardResponse getRayDashboardWithOptions(const string &jobId, const Models::GetRayDashboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a Ray Dashboard URL.
+       * @summary Retrieve the Ray Dashboard URL.
        *
-       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+       * @description Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
        *
        * @param request GetRayDashboardRequest
        * @return GetRayDashboardResponse
@@ -355,7 +383,9 @@ namespace PaiDlc20201203
       Models::GetRayDashboardResponse getRayDashboard(const string &jobId, const Models::GetRayDashboardRequest &request);
 
       /**
-       * @summary Query RayHistoryServer
+       * @summary Retrieves the details of a specific RayHistoryServer.
+       *
+       * @description Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request GetRayHistoryServerRequest
        * @param headers map
@@ -365,7 +395,9 @@ namespace PaiDlc20201203
       Models::GetRayHistoryServerResponse getRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::GetRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query RayHistoryServer
+       * @summary Retrieves the details of a specific RayHistoryServer.
+       *
+       * @description Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request GetRayHistoryServerRequest
        * @return GetRayHistoryServerResponse
@@ -373,7 +405,7 @@ namespace PaiDlc20201203
       Models::GetRayHistoryServerResponse getRayHistoryServer(const string &RayHistoryServerId, const Models::GetRayHistoryServerRequest &request);
 
       /**
-       * @summary Queries the information of a TensorBoard instance.
+       * @summary Retrieves the details of a Tensorboard instance.
        *
        * @param request GetTensorboardRequest
        * @param headers map
@@ -383,7 +415,7 @@ namespace PaiDlc20201203
       Models::GetTensorboardResponse getTensorboardWithOptions(const string &TensorboardId, const Models::GetTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a TensorBoard instance.
+       * @summary Retrieves the details of a Tensorboard instance.
        *
        * @param request GetTensorboardRequest
        * @return GetTensorboardResponse
@@ -481,7 +513,7 @@ namespace PaiDlc20201203
       Models::ListJobSanityCheckResultsResponse listJobSanityCheckResults(const string &JobId, const Models::ListJobSanityCheckResultsRequest &request);
 
       /**
-       * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
+       * @summary Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
        *
        * @param request ListJobTemplatesRequest
        * @param headers map
@@ -491,7 +523,7 @@ namespace PaiDlc20201203
       Models::ListJobTemplatesResponse listJobTemplatesWithOptions(const Models::ListJobTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
+       * @summary Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
        *
        * @param request ListJobTemplatesRequest
        * @return ListJobTemplatesResponse
@@ -499,7 +531,7 @@ namespace PaiDlc20201203
       Models::ListJobTemplatesResponse listJobTemplates(const Models::ListJobTemplatesRequest &request);
 
       /**
-       * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
+       * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
        *
        * @param tmpReq ListJobsRequest
        * @param headers map
@@ -509,7 +541,7 @@ namespace PaiDlc20201203
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
+       * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -517,7 +549,10 @@ namespace PaiDlc20201203
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
-       * @summary List resource RayHistoryServer
+       * @summary Lists RayHistoryServer resources.
+       *
+       * @description Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
+       * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
        *
        * @param request ListRayHistoryServersRequest
        * @param headers map
@@ -527,7 +562,10 @@ namespace PaiDlc20201203
       Models::ListRayHistoryServersResponse listRayHistoryServersWithOptions(const Models::ListRayHistoryServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List resource RayHistoryServer
+       * @summary Lists RayHistoryServer resources.
+       *
+       * @description Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
+       * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
        *
        * @param request ListRayHistoryServersRequest
        * @return ListRayHistoryServersResponse
@@ -535,7 +573,7 @@ namespace PaiDlc20201203
       Models::ListRayHistoryServersResponse listRayHistoryServers(const Models::ListRayHistoryServersRequest &request);
 
       /**
-       * @summary Queries a list of TensorBoard instances.
+       * @summary Queries a list of created Tensorboard instances.
        *
        * @param request ListTensorboardsRequest
        * @param headers map
@@ -545,7 +583,7 @@ namespace PaiDlc20201203
       Models::ListTensorboardsResponse listTensorboardsWithOptions(const Models::ListTensorboardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of TensorBoard instances.
+       * @summary Queries a list of created Tensorboard instances.
        *
        * @param request ListTensorboardsRequest
        * @return ListTensorboardsResponse
@@ -553,7 +591,7 @@ namespace PaiDlc20201203
       Models::ListTensorboardsResponse listTensorboards(const Models::ListTensorboardsRequest &request);
 
       /**
-       * @summary Sets the default version of the template.
+       * @summary Sets the default version of a job template.
        *
        * @param request SetJobTemplateDefaultVersionRequest
        * @param headers map
@@ -563,7 +601,7 @@ namespace PaiDlc20201203
       Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersionWithOptions(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the default version of the template.
+       * @summary Sets the default version of a job template.
        *
        * @param request SetJobTemplateDefaultVersionRequest
        * @return SetJobTemplateDefaultVersionResponse
@@ -571,7 +609,9 @@ namespace PaiDlc20201203
       Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersion(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request);
 
       /**
-       * @summary Start Ray History Server
+       * @summary Starts a Ray History Server.
+       *
+       * @description Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request StartRayHistoryServerRequest
        * @param headers map
@@ -581,7 +621,9 @@ namespace PaiDlc20201203
       Models::StartRayHistoryServerResponse startRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::StartRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Start Ray History Server
+       * @summary Starts a Ray History Server.
+       *
+       * @description Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request StartRayHistoryServerRequest
        * @return StartRayHistoryServerResponse
@@ -623,7 +665,9 @@ namespace PaiDlc20201203
       Models::StopJobResponse stopJob(const string &JobId);
 
       /**
-       * @summary Stop Ray History Server
+       * @summary Stops a Ray History Server.
+       *
+       * @description Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request StopRayHistoryServerRequest
        * @param headers map
@@ -633,7 +677,9 @@ namespace PaiDlc20201203
       Models::StopRayHistoryServerResponse stopRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::StopRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stop Ray History Server
+       * @summary Stops a Ray History Server.
+       *
+       * @description Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request StopRayHistoryServerRequest
        * @return StopRayHistoryServerResponse
@@ -659,7 +705,7 @@ namespace PaiDlc20201203
       Models::StopTensorboardResponse stopTensorboard(const string &TensorboardId, const Models::StopTensorboardRequest &request);
 
       /**
-       * @summary Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
+       * @summary Updates a job\\"s configuration, such as its priority.
        *
        * @param request UpdateJobRequest
        * @param headers map
@@ -669,7 +715,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJobWithOptions(const string &JobId, const Models::UpdateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
+       * @summary Updates a job\\"s configuration, such as its priority.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse
@@ -695,7 +741,7 @@ namespace PaiDlc20201203
       Models::UpdateJobTemplateResponse updateJobTemplate(const string &TemplateId, const Models::UpdateJobTemplateRequest &request);
 
       /**
-       * @summary Updates a TensorBoard instance.
+       * @summary Update a Tensorboard.
        *
        * @param request UpdateTensorboardRequest
        * @param headers map
@@ -705,7 +751,7 @@ namespace PaiDlc20201203
       Models::UpdateTensorboardResponse updateTensorboardWithOptions(const string &TensorboardId, const Models::UpdateTensorboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a TensorBoard instance.
+       * @summary Update a Tensorboard.
        *
        * @param request UpdateTensorboardRequest
        * @return UpdateTensorboardResponse

@@ -81,10 +81,15 @@ namespace Models
 
 
   protected:
+    // The Linux capabilities configuration of the container.
     shared_ptr<SecurityContextCapabilities> capabilities_ {};
+    // Specifies whether to enable privileged mode. This option is available only for specific Lingjun AI Computing Service subscription user scenarios.
     shared_ptr<bool> privileged_ {};
+    // The GID of the user that runs the container.
     shared_ptr<int64_t> runAsGroup_ {};
+    // The UID of the user that runs the container.
     shared_ptr<int64_t> runAsUser_ {};
+    // The Seccomp profile configuration.
     shared_ptr<SeccompProfile> seccompProfile_ {};
   };
 

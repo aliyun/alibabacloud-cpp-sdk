@@ -38,7 +38,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_TO_JSON(SanityCheckArgs, sanityCheckArgs_);
+      DARABONBA_PTR_TO_JSON(Shell, shell_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TerminationGracePeriodSeconds, terminationGracePeriodSeconds_);
     };
     friend void from_json(const Darabonba::Json& j, JobSettings& obj) { 
       DARABONBA_ANY_FROM_JSON(AdvancedSettings, advancedSettings_);
@@ -63,7 +65,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_FROM_JSON(SanityCheckArgs, sanityCheckArgs_);
+      DARABONBA_PTR_FROM_JSON(Shell, shell_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TerminationGracePeriodSeconds, terminationGracePeriodSeconds_);
     };
     JobSettings() = default ;
     JobSettings(const JobSettings &) = default ;
@@ -81,7 +85,7 @@ namespace Models
         && this->disableEcsStockCheck_ == nullptr && this->driver_ == nullptr && this->enableCPUAffinity_ == nullptr && this->enableDSWDev_ == nullptr && this->enableErrorMonitoringInAIMaster_ == nullptr
         && this->enableOssAppend_ == nullptr && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr && this->enableTideResource_ == nullptr && this->errorMonitoringArgs_ == nullptr
         && this->jobReservedMinutes_ == nullptr && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr && this->oversoldType_ == nullptr && this->pipelineId_ == nullptr
-        && this->sanityCheckArgs_ == nullptr && this->tags_ == nullptr; };
+        && this->sanityCheckArgs_ == nullptr && this->shell_ == nullptr && this->tags_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -242,6 +246,13 @@ namespace Models
     inline JobSettings& setSanityCheckArgs(string sanityCheckArgs) { DARABONBA_PTR_SET_VALUE(sanityCheckArgs_, sanityCheckArgs) };
 
 
+    // shell Field Functions 
+    bool hasShell() const { return this->shell_ != nullptr;};
+    void deleteShell() { this->shell_ = nullptr;};
+    inline string getShell() const { DARABONBA_PTR_GET_DEFAULT(shell_, "") };
+    inline JobSettings& setShell(string shell) { DARABONBA_PTR_SET_VALUE(shell_, shell) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -251,67 +262,72 @@ namespace Models
     inline JobSettings& setTags(map<string, string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // terminationGracePeriodSeconds Field Functions 
+    bool hasTerminationGracePeriodSeconds() const { return this->terminationGracePeriodSeconds_ != nullptr;};
+    void deleteTerminationGracePeriodSeconds() { this->terminationGracePeriodSeconds_ = nullptr;};
+    inline int64_t getTerminationGracePeriodSeconds() const { DARABONBA_PTR_GET_DEFAULT(terminationGracePeriodSeconds_, 0L) };
+    inline JobSettings& setTerminationGracePeriodSeconds(int64_t terminationGracePeriodSeconds) { DARABONBA_PTR_SET_VALUE(terminationGracePeriodSeconds_, terminationGracePeriodSeconds) };
+
+
   protected:
-    // The additional advanced parameter configurations.
+    // The extra advanced parameter settings.
     Darabonba::Json advancedSettings_ {};
-    // Whether to mount all RDMA network interface controllers
+    // Specifies whether to mount all RDMA network interfaces.
     shared_ptr<bool> allocateAllRDMADevices_ {};
     shared_ptr<bool> allowUnschedulableNodes_ {};
-    // The ID of the user associated with the job.
+    // The user ID associated with the job.
     shared_ptr<string> businessUserId_ {};
     // The caller.
     shared_ptr<string> caller_ {};
+    // The DataJuicer task configuration.
     shared_ptr<DataJuicerConfig> dataJuicerConfig_ {};
-    // Whether inventory check is skipped. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to skip the inventory check. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> disableEcsStockCheck_ {};
-    // The NVIDIA driver configurations.
+    // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
-    // Whether the CPU affinity is enabled. This parameter takes effect only when you use subscription general computing resources.
+    // The CPU affinity setting. This setting takes effect only when general-purpose subscription computing resources are used.
     shared_ptr<bool> enableCPUAffinity_ {};
     shared_ptr<bool> enableDSWDev_ {};
-    // Whether fault tolerance monitoring is enabled for the job. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable fault tolerance monitoring for the job. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
-    // Whether data is written to Object Storage Service (OSS) in append mode. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether OSS append writes are allowed. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> enableOssAppend_ {};
-    // Whether RDMA is enabled for the job. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether the job is allowed to use RDMA. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> enableRDMA_ {};
-    // Whether sanity check is enabled for the job. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to enable computing power health check for the job. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> enableSanityCheck_ {};
-    // Whether tidal resources are allowed for the job. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether the job is allowed to use tidal resources. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> enableTideResource_ {};
-    // The configuration parameters after you enable fault tolerance monitoring. For example, you can specify whether to enable log hang-based detection.
+    // The configuration parameters for fault tolerance monitoring after it is enabled. For example, you can specify whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
-    // The retention period after the job ends. Unit: minutes.
+    // The duration (in minutes) for which the job is retained after it ends.
     shared_ptr<int32_t> jobReservedMinutes_ {};
     // The retention policy after the job ends.
     shared_ptr<string> jobReservedPolicy_ {};
+    // The output model configuration. This parameter currently takes effect only in federated training scenarios.
     shared_ptr<ModelConfig> modelConfig_ {};
-    // Whether the job accepts oversold resources. Valid values: ForbiddenQuotaOverSold, AcceptQuotaOverSold, and ForceQuotaOverSold.
+    // The oversold resource usage mode for the job (not accepted, acceptable, or only accepted).
     shared_ptr<string> oversoldType_ {};
-    // The pipeline ID.
+    // The workflow ID.
     shared_ptr<string> pipelineId_ {};
-    // The configuration parameters for sanity check.
+    // The configuration parameters for computing power health check.
     shared_ptr<string> sanityCheckArgs_ {};
-    // The custom tag.
+    shared_ptr<string> shell_ {};
+    // The custom tags.
     shared_ptr<map<string, string>> tags_ {};
+    shared_ptr<int64_t> terminationGracePeriodSeconds_ {};
   };
 
   } // namespace Models

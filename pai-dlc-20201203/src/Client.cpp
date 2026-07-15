@@ -62,7 +62,25 @@ AlibabaCloud::PaiDlc20201203::Client::Client(Config &config): OpenApiClient(conf
     {"eu-west-1" , "pai-dlc.aliyuncs.com"},
     {"eu-west-1-oxs" , "pai-dlc.aliyuncs.com"},
     {"me-east-1" , "pai-dlc.aliyuncs.com"},
-    {"rus-west-1-pop" , "pai-dlc.aliyuncs.com"}
+    {"rus-west-1-pop" , "pai-dlc.aliyuncs.com"},
+    {"us-west-1" , "pai-dlc.us-west-1.aliyuncs.com"},
+    {"us-southeast-1" , "pai-dlc.us-southeast-1.aliyuncs.com"},
+    {"us-east-1" , "pai-dlc.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "pai-dlc.eu-central-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "pai-dlc.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "pai-dlc.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "pai-dlc.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "pai-dlc.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "pai-dlc.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "pai-dlc.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "pai-dlc.cn-guangzhou.aliyuncs.com"},
+    {"cn-beijing" , "pai-dlc.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-8" , "pai-dlc.ap-southeast-8.aliyuncs.com"},
+    {"ap-southeast-7" , "pai-dlc.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-5" , "pai-dlc.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "pai-dlc.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "pai-dlc.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "pai-dlc.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("pai-dlc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -82,9 +100,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+ * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+ * @description Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -217,9 +236,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+ * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+ * @description Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -231,7 +251,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary Create a job template.
+ * @summary Creates a job template.
  *
  * @param request CreateJobTemplateRequest
  * @param headers map
@@ -284,7 +304,7 @@ CreateJobTemplateResponse Client::createJobTemplateWithOptions(const CreateJobTe
 }
 
 /**
- * @summary Create a job template.
+ * @summary Creates a job template.
  *
  * @param request CreateJobTemplateRequest
  * @return CreateJobTemplateResponse
@@ -296,7 +316,10 @@ CreateJobTemplateResponse Client::createJobTemplate(const CreateJobTemplateReque
 }
 
 /**
- * @summary Create RayHistoryServer
+ * @summary Creates a RayHistoryServer.
+ *
+ * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
  *
  * @param request CreateRayHistoryServerRequest
  * @param headers map
@@ -353,7 +376,10 @@ CreateRayHistoryServerResponse Client::createRayHistoryServerWithOptions(const C
 }
 
 /**
- * @summary Create RayHistoryServer
+ * @summary Creates a RayHistoryServer.
+ *
+ * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
  *
  * @param request CreateRayHistoryServerRequest
  * @return CreateRayHistoryServerResponse
@@ -522,7 +548,7 @@ DeleteJobResponse Client::deleteJob(const string &JobId) {
 }
 
 /**
- * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
+ * @summary Deletes a job template. You cannot delete a job template that is in use by a job.
  *
  * @param request DeleteJobTemplateRequest
  * @param headers map
@@ -549,7 +575,7 @@ DeleteJobTemplateResponse Client::deleteJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
+ * @summary Deletes a job template. You cannot delete a job template that is in use by a job.
  *
  * @param request DeleteJobTemplateRequest
  * @return DeleteJobTemplateResponse
@@ -561,7 +587,9 @@ DeleteJobTemplateResponse Client::deleteJobTemplate(const string &TemplateId, co
 }
 
 /**
- * @summary Delete RayHistoryServer
+ * @summary Deletes a Ray History Server.
+ *
+ * @description Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
  *
  * @param request DeleteRayHistoryServerRequest
  * @param headers map
@@ -588,7 +616,9 @@ DeleteRayHistoryServerResponse Client::deleteRayHistoryServerWithOptions(const s
 }
 
 /**
- * @summary Delete RayHistoryServer
+ * @summary Deletes a Ray History Server.
+ *
+ * @description Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
  *
  * @param request DeleteRayHistoryServerRequest
  * @return DeleteRayHistoryServerResponse
@@ -645,9 +675,9 @@ DeleteTensorboardResponse Client::deleteTensorboard(const string &TensorboardId,
 }
 
 /**
- * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+ * @summary Retrieves the Dashboard URL for a DLC job, if available.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+ * @description Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
  *
  * @param request GetDashboardRequest
  * @param headers map
@@ -684,9 +714,9 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &jobId, const 
 }
 
 /**
- * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+ * @summary Retrieves the Dashboard URL for a DLC job, if available.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+ * @description Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
  *
  * @param request GetDashboardRequest
  * @return GetDashboardResponse
@@ -698,7 +728,7 @@ GetDashboardResponse Client::getDashboard(const string &jobId, const GetDashboar
 }
 
 /**
- * @summary Obtains the configuration and runtime information of a job.
+ * @summary Retrieves the detailed configuration and runtime information of a DLC job.
  *
  * @param request GetJobRequest
  * @param headers map
@@ -731,7 +761,7 @@ GetJobResponse Client::getJobWithOptions(const string &JobId, const GetJobReques
 }
 
 /**
- * @summary Obtains the configuration and runtime information of a job.
+ * @summary Retrieves the detailed configuration and runtime information of a DLC job.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -910,7 +940,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResult(const string &Jo
 }
 
 /**
- * @summary Obtains the details of a job template.
+ * @summary Retrieves the details of a job template.
  *
  * @param request GetJobTemplateRequest
  * @param headers map
@@ -943,7 +973,7 @@ GetJobTemplateResponse Client::getJobTemplateWithOptions(const string &TemplateI
 }
 
 /**
- * @summary Obtains the details of a job template.
+ * @summary Retrieves the details of a job template.
  *
  * @param request GetJobTemplateRequest
  * @return GetJobTemplateResponse
@@ -955,7 +985,15 @@ GetJobTemplateResponse Client::getJobTemplate(const string &TemplateId, const Ge
 }
 
 /**
- * @summary Queries metrics data.
+ * @summary Retrieve metrics data.
+ *
+ * @description ## Request description
+ * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
+ * - It supports custom time ranges. By default, it returns data from the last hour.
+ * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
+ * - To paginate through large datasets, use the `NextToken` parameter.
+ * - The `MetricName` parameter is required and specifies the monitoring metric to query.
+ * - For advanced features or specific metric types, see the related documentation.
  *
  * @param request GetMetricsRequest
  * @param headers map
@@ -1024,7 +1062,15 @@ GetMetricsResponse Client::getMetricsWithOptions(const GetMetricsRequest &reques
 }
 
 /**
- * @summary Queries metrics data.
+ * @summary Retrieve metrics data.
+ *
+ * @description ## Request description
+ * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
+ * - It supports custom time ranges. By default, it returns data from the last hour.
+ * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
+ * - To paginate through large datasets, use the `NextToken` parameter.
+ * - The `MetricName` parameter is required and specifies the monitoring metric to query.
+ * - For advanced features or specific metric types, see the related documentation.
  *
  * @param request GetMetricsRequest
  * @return GetMetricsResponse
@@ -1154,9 +1200,9 @@ GetPodLogsResponse Client::getPodLogs(const string &JobId, const string &PodId, 
 }
 
 /**
- * @summary Obtains a Ray Dashboard URL.
+ * @summary Retrieve the Ray Dashboard URL.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+ * @description Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request GetRayDashboardRequest
  * @param headers map
@@ -1193,9 +1239,9 @@ GetRayDashboardResponse Client::getRayDashboardWithOptions(const string &jobId, 
 }
 
 /**
- * @summary Obtains a Ray Dashboard URL.
+ * @summary Retrieve the Ray Dashboard URL.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+ * @description Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request GetRayDashboardRequest
  * @return GetRayDashboardResponse
@@ -1207,7 +1253,9 @@ GetRayDashboardResponse Client::getRayDashboard(const string &jobId, const GetRa
 }
 
 /**
- * @summary Query RayHistoryServer
+ * @summary Retrieves the details of a specific RayHistoryServer.
+ *
+ * @description Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request GetRayHistoryServerRequest
  * @param headers map
@@ -1234,7 +1282,9 @@ GetRayHistoryServerResponse Client::getRayHistoryServerWithOptions(const string 
 }
 
 /**
- * @summary Query RayHistoryServer
+ * @summary Retrieves the details of a specific RayHistoryServer.
+ *
+ * @description Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request GetRayHistoryServerRequest
  * @return GetRayHistoryServerResponse
@@ -1246,7 +1296,7 @@ GetRayHistoryServerResponse Client::getRayHistoryServer(const string &RayHistory
 }
 
 /**
- * @summary Queries the information of a TensorBoard instance.
+ * @summary Retrieves the details of a Tensorboard instance.
  *
  * @param request GetTensorboardRequest
  * @param headers map
@@ -1287,7 +1337,7 @@ GetTensorboardResponse Client::getTensorboardWithOptions(const string &Tensorboa
 }
 
 /**
- * @summary Queries the information of a TensorBoard instance.
+ * @summary Retrieves the details of a Tensorboard instance.
  *
  * @param request GetTensorboardRequest
  * @return GetTensorboardResponse
@@ -1560,7 +1610,7 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResults(const string
 }
 
 /**
- * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
+ * @summary Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
  *
  * @param request ListJobTemplatesRequest
  * @param headers map
@@ -1621,7 +1671,7 @@ ListJobTemplatesResponse Client::listJobTemplatesWithOptions(const ListJobTempla
 }
 
 /**
- * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
+ * @summary Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
  *
  * @param request ListJobTemplatesRequest
  * @return ListJobTemplatesResponse
@@ -1633,7 +1683,7 @@ ListJobTemplatesResponse Client::listJobTemplates(const ListJobTemplatesRequest 
 }
 
 /**
- * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
+ * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
  *
  * @param tmpReq ListJobsRequest
  * @param headers map
@@ -1812,7 +1862,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
+ * @summary Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -1824,7 +1874,10 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary List resource RayHistoryServer
+ * @summary Lists RayHistoryServer resources.
+ *
+ * @description Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
  *
  * @param request ListRayHistoryServersRequest
  * @param headers map
@@ -1886,6 +1939,10 @@ ListRayHistoryServersResponse Client::listRayHistoryServersWithOptions(const Lis
     query["Status"] = request.getStatus();
   }
 
+  if (!!request.hasStoragePath()) {
+    query["StoragePath"] = request.getStoragePath();
+  }
+
   if (!!request.hasUserIdForFilter()) {
     query["UserIdForFilter"] = request.getUserIdForFilter();
   }
@@ -1917,7 +1974,10 @@ ListRayHistoryServersResponse Client::listRayHistoryServersWithOptions(const Lis
 }
 
 /**
- * @summary List resource RayHistoryServer
+ * @summary Lists RayHistoryServer resources.
+ *
+ * @description Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
  *
  * @param request ListRayHistoryServersRequest
  * @return ListRayHistoryServersResponse
@@ -1929,7 +1989,7 @@ ListRayHistoryServersResponse Client::listRayHistoryServers(const ListRayHistory
 }
 
 /**
- * @summary Queries a list of TensorBoard instances.
+ * @summary Queries a list of created Tensorboard instances.
  *
  * @param request ListTensorboardsRequest
  * @param headers map
@@ -2038,7 +2098,7 @@ ListTensorboardsResponse Client::listTensorboardsWithOptions(const ListTensorboa
 }
 
 /**
- * @summary Queries a list of TensorBoard instances.
+ * @summary Queries a list of created Tensorboard instances.
  *
  * @param request ListTensorboardsRequest
  * @return ListTensorboardsResponse
@@ -2050,7 +2110,7 @@ ListTensorboardsResponse Client::listTensorboards(const ListTensorboardsRequest 
 }
 
 /**
- * @summary Sets the default version of the template.
+ * @summary Sets the default version of a job template.
  *
  * @param request SetJobTemplateDefaultVersionRequest
  * @param headers map
@@ -2083,7 +2143,7 @@ SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersionWithOpt
 }
 
 /**
- * @summary Sets the default version of the template.
+ * @summary Sets the default version of a job template.
  *
  * @param request SetJobTemplateDefaultVersionRequest
  * @return SetJobTemplateDefaultVersionResponse
@@ -2095,7 +2155,9 @@ SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersion(const 
 }
 
 /**
- * @summary Start Ray History Server
+ * @summary Starts a Ray History Server.
+ *
+ * @description Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request StartRayHistoryServerRequest
  * @param headers map
@@ -2122,7 +2184,9 @@ StartRayHistoryServerResponse Client::startRayHistoryServerWithOptions(const str
 }
 
 /**
- * @summary Start Ray History Server
+ * @summary Starts a Ray History Server.
+ *
+ * @description Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request StartRayHistoryServerRequest
  * @return StartRayHistoryServerResponse
@@ -2215,7 +2279,9 @@ StopJobResponse Client::stopJob(const string &JobId) {
 }
 
 /**
- * @summary Stop Ray History Server
+ * @summary Stops a Ray History Server.
+ *
+ * @description Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request StopRayHistoryServerRequest
  * @param headers map
@@ -2242,7 +2308,9 @@ StopRayHistoryServerResponse Client::stopRayHistoryServerWithOptions(const strin
 }
 
 /**
- * @summary Stop Ray History Server
+ * @summary Stops a Ray History Server.
+ *
+ * @description Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request StopRayHistoryServerRequest
  * @return StopRayHistoryServerResponse
@@ -2299,7 +2367,7 @@ StopTensorboardResponse Client::stopTensorboard(const string &TensorboardId, con
 }
 
 /**
- * @summary Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
+ * @summary Updates a job\\"s configuration, such as its priority.
  *
  * @param request UpdateJobRequest
  * @param headers map
@@ -2344,7 +2412,7 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
 }
 
 /**
- * @summary Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
+ * @summary Updates a job\\"s configuration, such as its priority.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse
@@ -2425,7 +2493,7 @@ UpdateJobTemplateResponse Client::updateJobTemplate(const string &TemplateId, co
 }
 
 /**
- * @summary Updates a TensorBoard instance.
+ * @summary Update a Tensorboard.
  *
  * @param request UpdateTensorboardRequest
  * @param headers map
@@ -2470,7 +2538,7 @@ UpdateTensorboardResponse Client::updateTensorboardWithOptions(const string &Ten
 }
 
 /**
- * @summary Updates a TensorBoard instance.
+ * @summary Update a Tensorboard.
  *
  * @param request UpdateTensorboardRequest
  * @return UpdateTensorboardResponse

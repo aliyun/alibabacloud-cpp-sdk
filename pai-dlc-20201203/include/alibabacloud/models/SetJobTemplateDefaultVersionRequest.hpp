@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 要设置为默认的模板版本号
+    // The version number to set as the default.
     // 
     // This parameter is required.
     shared_ptr<int32_t> version_ {};

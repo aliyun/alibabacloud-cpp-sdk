@@ -160,18 +160,31 @@ namespace Models
 
 
     protected:
+      // The default version number.
       shared_ptr<int32_t> defaultVersion_ {};
+      // The description of the job template.
       shared_ptr<string> description_ {};
+      // The creation time of the template, in UTC and ISO 8601 format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // The modification time of the template, in UTC and ISO 8601 format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifyTime_ {};
+      // Custom metadata, represented as a collection of key-value pairs.
       Darabonba::Json metadata_ {};
+      // The ID of the modifier.
       shared_ptr<string> modifiedBy_ {};
+      // The ID of the job template.
       shared_ptr<string> templateId_ {};
+      // The name of the job template.
       shared_ptr<string> templateName_ {};
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
+      // The ID of the creator.
       shared_ptr<string> userId_ {};
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -215,11 +228,15 @@ namespace Models
 
 
   protected:
+    // The list of job templates.
     shared_ptr<vector<ListJobTemplatesResponseBody::JobTemplates>> jobTemplates_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // 本次请求的 ID，用于诊断和答疑。
+    // The unique ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The total number of job templates that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

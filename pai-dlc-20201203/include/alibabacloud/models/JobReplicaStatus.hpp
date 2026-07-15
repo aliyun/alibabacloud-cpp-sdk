@@ -109,13 +109,21 @@ namespace Models
 
 
   protected:
+    // The number of active pods for this replica type.
     shared_ptr<int32_t> active_ {};
+    // The type of spot instance in use, if any.
     shared_ptr<string> currentSpotInstanceType_ {};
+    // The number of dequeued pods.
     shared_ptr<int32_t> dequeued_ {};
+    // The estimated auto scaling specification.
     shared_ptr<AutoScalingSpec> estimatedAutoScalingSpec_ {};
+    // The estimated number of pods for this replica type, used for auto scaling.
     shared_ptr<int64_t> estimatedPodCount_ {};
+    // The estimated resource configuration.
     shared_ptr<ResourceConfig> estimatedResourceConfig_ {};
+    // The number of queued pods.
     shared_ptr<int32_t> queuing_ {};
+    // The type of the job replica.
     shared_ptr<string> type_ {};
   };
 

@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // 本次请求的 ID，用于诊断和答疑。
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The template ID.
     shared_ptr<string> templateId_ {};
   };
 

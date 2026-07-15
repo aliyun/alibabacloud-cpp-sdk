@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The Dashboard URL
+    // The Dashboard URL.
     shared_ptr<string> url_ {};
   };
 

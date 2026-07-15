@@ -142,21 +142,33 @@ namespace Models
 
 
   protected:
+    // The default version number of the job template.
     shared_ptr<int32_t> defaultVersion_ {};
+    // The description of the job template.
     shared_ptr<string> description_ {};
+    // The creation time of the job template.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtCreateTime_ {};
+    // The last modification time of the job template.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtModifyTime_ {};
+    // User-defined key-value metadata.
     Darabonba::Json metadata_ {};
-    // 本次请求的 ID，用于诊断和答疑。
+    // The ID of the request, used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // 此次调用创建的模板 ID。
+    // The unique ID of the job template.
     shared_ptr<string> templateId_ {};
+    // The name of the job template.
     shared_ptr<string> templateName_ {};
+    // The ID of the tenant that contains the job template.
     shared_ptr<string> tenantId_ {};
+    // The ID of the user who created the job template.
     shared_ptr<string> userId_ {};
+    // The version number of the created job template.
     shared_ptr<int32_t> version_ {};
+    // The ID of the workspace that contains the job template.
     shared_ptr<string> workspaceId_ {};
   };
 

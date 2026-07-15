@@ -113,18 +113,19 @@ namespace Models
 
 
   protected:
-    // The containers to be initialized.
+    // A list of init containers that run to completion before the main container starts.
     shared_ptr<vector<ContainerSpec>> initContainers_ {};
-    // The lifecycle object.
+    // Defines lifecycle hooks for the main container.
     shared_ptr<Lifecycle> lifecycle_ {};
+    // Defines the security context for the main container.
     shared_ptr<SecurityContext> mainContainerSecurityContext_ {};
-    // The pod annotations.
+    // Key-value pairs to apply to the pod as annotations. Use annotations to attach arbitrary, non-identifying metadata.
     shared_ptr<map<string, string>> podAnnotations_ {};
-    // The pod labels.
+    // Key-value pairs to apply to the pod as labels. Use labels to organize and select pods.
     shared_ptr<map<string, string>> podLabels_ {};
-    // The local paths shared between containers.
+    // A list of local directory paths to mount and share among all containers in the pod.
     shared_ptr<vector<string>> sharedVolumeMountPaths_ {};
-    // The sidecar containers.
+    // A list of sidecar containers.
     shared_ptr<vector<ContainerSpec>> sideCarContainers_ {};
   };
 

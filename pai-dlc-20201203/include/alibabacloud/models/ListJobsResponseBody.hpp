@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The jobs.
+    // The job list.
     shared_ptr<vector<JobItem>> jobs_ {};
-    // The request ID used to troubleshoot issues.
+    // The request ID, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of jobs that meet the filter conditions.
+    // The total number of jobs that match the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

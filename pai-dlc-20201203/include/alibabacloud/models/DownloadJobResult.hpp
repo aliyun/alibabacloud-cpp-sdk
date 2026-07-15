@@ -200,23 +200,41 @@ namespace Models
 
 
   protected:
+    // The display name of the download job.
     shared_ptr<string> displayName_ {};
+    // The ID of the download job.
     shared_ptr<string> downloadJobId_ {};
+    // A temporary, pre-signed URL for downloading the result file.
     shared_ptr<string> downloadUrl_ {};
+    // The completion time of the download job, in UTC format.
     shared_ptr<string> endTime_ {};
+    // The type of file to download, such as `logs` or `output`.
     shared_ptr<string> fileType_ {};
+    // The creation time of the download job, in UTC format.
     shared_ptr<string> gmtCreated_ {};
+    // The last modification time of the download job, in UTC format.
     shared_ptr<string> gmtModified_ {};
+    // The number of log entries included in the download.
     shared_ptr<int32_t> logCount_ {};
+    // The IDs of the pods for the source job.
     shared_ptr<vector<string>> podIds_ {};
+    // The UIDs of the pods for the source job.
     shared_ptr<vector<string>> podUids_ {};
+    // The ID of the source job whose results are downloaded.
     shared_ptr<string> sourceJobId_ {};
+    // The start time of the download job, in UTC format.
     shared_ptr<string> startTime_ {};
+    // The status of the download job. Valid values: `Running`, `Succeeded`, and `Failed`.
     shared_ptr<string> status_ {};
+    // The ID of the tenant that the job belongs to.
     shared_ptr<string> tenantId_ {};
+    // The type of the download job.
     shared_ptr<string> type_ {};
+    // The time when the download URL expires, in UTC format.
     shared_ptr<string> urlExpireTime_ {};
+    // The ID of the user who created the job.
     shared_ptr<string> userId_ {};
+    // The ID of the workspace where the job was created.
     shared_ptr<string> workspaceId_ {};
   };
 

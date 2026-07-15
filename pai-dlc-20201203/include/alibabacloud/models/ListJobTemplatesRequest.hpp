@@ -103,17 +103,21 @@ namespace Models
 
 
   protected:
+    // The sort order. Valid values: `asc` for ascending and `desc` for descending. Default value: `desc`.
     shared_ptr<string> order_ {};
+    // The page number to retrieve.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The field to sort the results by. Default value: `GmtCreateTime`.
     shared_ptr<string> sortBy_ {};
-    // 按模板 ID 精确筛选。
+    // The job template ID. Use this parameter to filter for an exact match.
     shared_ptr<string> templateId_ {};
-    // 按模板名称模糊筛选。
+    // The job template name. Use this parameter to filter for a partial match.
     shared_ptr<string> templateName_ {};
-    // 按创建者用户 ID 筛选。
+    // The ID of the creator. Use this parameter to filter results by a specific creator.
     shared_ptr<string> userId_ {};
-    // 工作空间 ID。如何获取工作空间 ID，请参见 ListWorkspaces。
+    // The ID of the workspace.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

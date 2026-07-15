@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // (Required) Request parameter.
     shared_ptr<string> dimensions_ {};
+    // The end time of the query. Default value: current time.
     shared_ptr<string> endTime_ {};
+    // The job ID.
     shared_ptr<string> jobId_ {};
+    // The number of records per query for paged queries. Default value: 1000.
     shared_ptr<string> length_ {};
+    // Metric name. Not filled. Not in use.
     shared_ptr<string> metricName_ {};
+    // The namespace for cloud service monitoring data. For more information about namespaces, see cloud service monitoring metrics.
     shared_ptr<string> namespace_ {};
+    // The pagination cursor token. If you do not set this parameter, the first page of data is returned. When a NextToken value is returned, more data is available. Use the returned NextToken as a parameter in your next request to retrieve the next page. Repeat until NextToken returns null, which means all data has been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The statistical period for monitoring data. Unit: seconds. Valid values: 15, 60, 900, and 3600.
     shared_ptr<string> period_ {};
+    // The start time of the monitoring data query interval (UTC). Default value: one hour ago.
     shared_ptr<string> startTime_ {};
+    // A temporary token used for authentication.
     shared_ptr<string> token_ {};
   };
 

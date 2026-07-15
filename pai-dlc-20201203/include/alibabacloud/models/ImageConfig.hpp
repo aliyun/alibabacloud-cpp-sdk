@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The authentication information of the image repository.
+    // Image repository authentication information
     shared_ptr<string> auth_ {};
-    // The address of the image repository.
+    // Image repository address
     shared_ptr<string> dockerRegistry_ {};
-    // The password that is used to log on to the image repository.
+    // Image repository password
     shared_ptr<string> password_ {};
-    // The username that is used to log on to the image repository.
+    // Image repository username
     shared_ptr<string> username_ {};
   };
 

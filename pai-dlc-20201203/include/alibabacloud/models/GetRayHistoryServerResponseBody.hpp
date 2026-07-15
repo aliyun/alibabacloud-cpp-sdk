@@ -204,25 +204,43 @@ namespace Models
 
 
   protected:
+    // The visibility of the job.
     shared_ptr<string> accessibility_ {};
+    // The display name of the job.
     shared_ptr<string> displayName_ {};
+    // The specifications of the public resource group. For a list of supported instance types, see [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html).>Notice: Pricing varies based on the specifications.
     shared_ptr<string> ecsSpec_ {};
+    // The time when the job was created. The time is in UTC.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the job is complete. The time is in UTC.
     shared_ptr<string> gmtFinishTime_ {};
+    // The time when the job was last modified. The time is in UTC.
     shared_ptr<string> gmtModifyTime_ {};
+    // The maximum running time. Unit: minutes.
     shared_ptr<int32_t> maxRuntimeMinutes_ {};
+    // The ID of the Ray history server.
     shared_ptr<string> rayHistoryServerId_ {};
-    // Ray Dashboard URL。
+    // The URL of the Ray dashboard.
     shared_ptr<string> rayHistoryServerUrl_ {};
+    // The code of the job status.
     shared_ptr<string> reasonCode_ {};
+    // The message that describes the job status.
     shared_ptr<string> reasonMessage_ {};
+    // The ID of the resource group to which the job belongs.
     shared_ptr<string> resourceId_ {};
+    // The name of the resource on which the job runs.
     shared_ptr<string> resourceName_ {};
+    // The status of the job.
     shared_ptr<string> status_ {};
+    // The storage path of Ray logs.
     shared_ptr<string> storagePath_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The ID of the user who creates the job.
     shared_ptr<string> userId_ {};
+    // The username of the user who creates the job.
     shared_ptr<string> username_ {};
+    // The ID of the workspace to which the job belongs.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The monitoring metric data.
     shared_ptr<string> dataPoints_ {};
+    // Detailed result message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> nextToken_ {};
+    // The statistical period for monitoring data. Valid values: 15, 60, 900, and 3600. Unit: seconds. If you do not specify a statistical period, the system uses the reporting period registered for the metric. Each cloud service metric (MetricName) may have a different statistical period. For more information, see cloud service monitoring metrics.
     shared_ptr<string> period_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. Valid values: true (success) and false (failure).
     shared_ptr<bool> success_ {};
   };
 

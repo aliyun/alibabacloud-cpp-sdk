@@ -125,13 +125,17 @@ namespace Models
 
 
     protected:
-      // 字段约束规则。Key 为 JSONPath 表达式，Value 为约束类型
+      // The field constraint rules. The key is a JSONPath expression and the value is a constraint type.
       Darabonba::Json constraints_ {};
-      // 该版本的模板配置内容，JSON 格式
+      // The configuration of the version, in JSON format.
       Darabonba::Json content_ {};
+      // The ID of the user who created the version.
       shared_ptr<string> createdBy_ {};
+      // The time the version was created.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -242,24 +246,37 @@ namespace Models
 
 
   protected:
-    // 当前默认使用的版本号
+    // The default version of the job template.
     shared_ptr<int32_t> defaultVersion_ {};
+    // A description of the job template.
     shared_ptr<string> description_ {};
+    // The time the job template was created.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtCreateTime_ {};
+    // The time the job template was last modified.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtModifyTime_ {};
+    // A collection of user-defined key-value pairs.
     Darabonba::Json metadata_ {};
+    // The ID of the user who last modified the job template.
     shared_ptr<string> modifiedBy_ {};
-    // 本次请求的 ID，用于诊断和答疑。
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the job template.
     shared_ptr<string> templateId_ {};
+    // The name of the job template.
     shared_ptr<string> templateName_ {};
+    // The ID of the tenant that owns the job template.
     shared_ptr<string> tenantId_ {};
+    // The total number of versions returned. This value is 1 if a specific version is queried, or the total count if all versions are queried.
     shared_ptr<int32_t> totalCount_ {};
+    // The ID of the user who created the job template.
     shared_ptr<string> userId_ {};
-    // 模板版本详情列表。查询单个版本时返回1个元素，查询所有版本时返回全部
+    // An array of template versions. This array contains only one version if a specific version is requested, or all versions if `all` is specified.
     shared_ptr<vector<GetJobTemplateResponseBody::Versions>> versions_ {};
+    // The ID of the workspace that contains the job template.
     shared_ptr<string> workspaceId_ {};
   };
 

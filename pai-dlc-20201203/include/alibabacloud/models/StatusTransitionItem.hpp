@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The end time of this status (UTC).
     shared_ptr<string> endTime_ {};
+    // The reason code for this status.
     shared_ptr<string> reasonCode_ {};
+    // The detailed message for this status.
     shared_ptr<string> reasonMessage_ {};
+    // The start time of this status (UTC).
     shared_ptr<string> startTime_ {};
+    // The job status.
     shared_ptr<string> status_ {};
   };
 

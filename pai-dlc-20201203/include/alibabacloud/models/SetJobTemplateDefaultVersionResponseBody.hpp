@@ -57,11 +57,13 @@ namespace Models
 
 
   protected:
-    // 设置后的默认版本号
+    // The current default version number.
     shared_ptr<int32_t> defaultVersion_ {};
+    // The time the template was last modified.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtModifyTime_ {};
-    // 本次请求的 ID，用于诊断和答疑。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

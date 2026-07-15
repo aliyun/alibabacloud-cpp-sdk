@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The default port for the service.
     shared_ptr<int32_t> defaultPort_ {};
+    // The list of extra ports for the service.
     shared_ptr<vector<int32_t>> extraPorts_ {};
+    // The service pattern. Valid values are PerRole and PerPod. The default value is PerPod.
     shared_ptr<string> serviceMode_ {};
   };
 

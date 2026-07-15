@@ -228,25 +228,50 @@ namespace Models
 
 
     protected:
+      // The visibility of the job. Valid values:
+      // - PUBLIC: visible to all users in the workspace.
+      // - PRIVATE (default): visible only to you and administrators in the workspace.
       shared_ptr<string> accessibility_ {};
+      // The display name of the job.
       shared_ptr<string> displayName_ {};
+      // The hardware specifications of the public resource group. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for a detailed list of specifications.>Notice: Prices vary depending on the specifications..
       shared_ptr<string> ecsSpec_ {};
+      // The time when the job was created, in UTC.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the job ended, in UTC.
       shared_ptr<string> gmtFinishTime_ {};
+      // The time when the job was last modified, in UTC.
       shared_ptr<string> gmtModifyTime_ {};
+      // The maximum runtime in minutes.
       shared_ptr<int32_t> maxRuntimeMinutes_ {};
+      // The ID of the created RayHistoryServer.
       shared_ptr<string> rayHistoryServerId_ {};
       // Ray Dashboard URL。
       shared_ptr<string> rayHistoryServerUrl_ {};
+      // The status detail code.
       shared_ptr<string> reasonCode_ {};
+      // The status details.
       shared_ptr<string> reasonMessage_ {};
+      // The resource group ID. For information about how to query the ID of a dedicated resource group, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
       shared_ptr<string> resourceId_ {};
+      // The name of the resource on which the job runs.
       shared_ptr<string> resourceName_ {};
+      // The RayHistoryServer status. Valid values:
+      // - Creating: being created.
+      // - Running: running.
+      // - Stopped: stopped.
+      // - Succeeded: succeeded.
+      // - Failed: failed.
       shared_ptr<string> status_ {};
+      // The storage path of Ray logs.
       shared_ptr<string> storagePath_ {};
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
+      // The username.
       shared_ptr<string> username_ {};
+      // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html)..
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -276,8 +301,11 @@ namespace Models
 
 
   protected:
+    // The list of RayHistoryServer entries.
     shared_ptr<vector<ListRayHistoryServersResponseBody::RayHistoryServers>> rayHistoryServers_ {};
+    // The request ID, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

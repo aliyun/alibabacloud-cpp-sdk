@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the TensorBoard instance.
+    // Tensorboard ID.
     shared_ptr<string> tensorboardId_ {};
   };
 

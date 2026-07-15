@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The role identity key injected into environment variables.
     shared_ptr<string> aliyunEnvRoleKey_ {};
+    // The list of credential configuration items.
     shared_ptr<vector<CredentialConfigItem>> credentialConfigItems_ {};
+    // Specifies whether to enable credential injection.
     shared_ptr<bool> enableCredentialInject_ {};
   };
 

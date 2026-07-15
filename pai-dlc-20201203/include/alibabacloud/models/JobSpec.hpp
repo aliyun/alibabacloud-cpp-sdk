@@ -7,6 +7,7 @@
 #include <vector>
 #include <alibabacloud/models/ElasticSpotSpec.hpp>
 #include <alibabacloud/models/ExtraPodSpec.hpp>
+#include <alibabacloud/models/HyperNodeSchedulingConfig.hpp>
 #include <alibabacloud/models/ImageConfig.hpp>
 #include <alibabacloud/models/LocalMountSpec.hpp>
 #include <alibabacloud/models/ResourceConfig.hpp>
@@ -31,11 +32,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_TO_JSON(ElasticSpotSpecs, elasticSpotSpecs_);
       DARABONBA_PTR_TO_JSON(ExtraPodSpec, extraPodSpec_);
+      DARABONBA_PTR_TO_JSON(HyperNodeSchedulingConfig, hyperNodeSchedulingConfig_);
       DARABONBA_PTR_TO_JSON(Image, image_);
       DARABONBA_PTR_TO_JSON(ImageConfig, imageConfig_);
       DARABONBA_PTR_TO_JSON(IsCheif, isCheif_);
       DARABONBA_PTR_TO_JSON(IsChief, isChief_);
       DARABONBA_PTR_TO_JSON(LocalMountSpecs, localMountSpecs_);
+      DARABONBA_PTR_TO_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_TO_JSON(PodCount, podCount_);
       DARABONBA_PTR_TO_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_TO_JSON(ResourceConfig, resourceConfig_);
@@ -54,11 +57,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_FROM_JSON(ElasticSpotSpecs, elasticSpotSpecs_);
       DARABONBA_PTR_FROM_JSON(ExtraPodSpec, extraPodSpec_);
+      DARABONBA_PTR_FROM_JSON(HyperNodeSchedulingConfig, hyperNodeSchedulingConfig_);
       DARABONBA_PTR_FROM_JSON(Image, image_);
       DARABONBA_PTR_FROM_JSON(ImageConfig, imageConfig_);
       DARABONBA_PTR_FROM_JSON(IsCheif, isCheif_);
       DARABONBA_PTR_FROM_JSON(IsChief, isChief_);
       DARABONBA_PTR_FROM_JSON(LocalMountSpecs, localMountSpecs_);
+      DARABONBA_PTR_FROM_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_FROM_JSON(PodCount, podCount_);
       DARABONBA_PTR_FROM_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_FROM_JSON(ResourceConfig, resourceConfig_);
@@ -83,9 +88,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
         && this->autoScalingSpec_ == nullptr && this->considerInSuccessPolicy_ == nullptr && this->ecsSpec_ == nullptr && this->elasticSpotSpecs_ == nullptr && this->extraPodSpec_ == nullptr
-        && this->image_ == nullptr && this->imageConfig_ == nullptr && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr
-        && this->podCount_ == nullptr && this->quotaId_ == nullptr && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr
-        && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
+        && this->hyperNodeSchedulingConfig_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr && this->isCheif_ == nullptr && this->isChief_ == nullptr
+        && this->localMountSpecs_ == nullptr && this->oversoldType_ == nullptr && this->podCount_ == nullptr && this->quotaId_ == nullptr && this->resourceConfig_ == nullptr
+        && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr
+        && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
@@ -136,6 +142,15 @@ namespace Models
     inline JobSpec& setExtraPodSpec(ExtraPodSpec && extraPodSpec) { DARABONBA_PTR_SET_RVALUE(extraPodSpec_, extraPodSpec) };
 
 
+    // hyperNodeSchedulingConfig Field Functions 
+    bool hasHyperNodeSchedulingConfig() const { return this->hyperNodeSchedulingConfig_ != nullptr;};
+    void deleteHyperNodeSchedulingConfig() { this->hyperNodeSchedulingConfig_ = nullptr;};
+    inline const HyperNodeSchedulingConfig & getHyperNodeSchedulingConfig() const { DARABONBA_PTR_GET_CONST(hyperNodeSchedulingConfig_, HyperNodeSchedulingConfig) };
+    inline HyperNodeSchedulingConfig getHyperNodeSchedulingConfig() { DARABONBA_PTR_GET(hyperNodeSchedulingConfig_, HyperNodeSchedulingConfig) };
+    inline JobSpec& setHyperNodeSchedulingConfig(const HyperNodeSchedulingConfig & hyperNodeSchedulingConfig) { DARABONBA_PTR_SET_VALUE(hyperNodeSchedulingConfig_, hyperNodeSchedulingConfig) };
+    inline JobSpec& setHyperNodeSchedulingConfig(HyperNodeSchedulingConfig && hyperNodeSchedulingConfig) { DARABONBA_PTR_SET_RVALUE(hyperNodeSchedulingConfig_, hyperNodeSchedulingConfig) };
+
+
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
@@ -173,6 +188,13 @@ namespace Models
     inline vector<LocalMountSpec> getLocalMountSpecs() { DARABONBA_PTR_GET(localMountSpecs_, vector<LocalMountSpec>) };
     inline JobSpec& setLocalMountSpecs(const vector<LocalMountSpec> & localMountSpecs) { DARABONBA_PTR_SET_VALUE(localMountSpecs_, localMountSpecs) };
     inline JobSpec& setLocalMountSpecs(vector<LocalMountSpec> && localMountSpecs) { DARABONBA_PTR_SET_RVALUE(localMountSpecs_, localMountSpecs) };
+
+
+    // oversoldType Field Functions 
+    bool hasOversoldType() const { return this->oversoldType_ != nullptr;};
+    void deleteOversoldType() { this->oversoldType_ = nullptr;};
+    inline string getOversoldType() const { DARABONBA_PTR_GET_DEFAULT(oversoldType_, "") };
+    inline JobSpec& setOversoldType(string oversoldType) { DARABONBA_PTR_SET_VALUE(oversoldType_, oversoldType) };
 
 
     // podCount Field Functions 
@@ -256,52 +278,57 @@ namespace Models
 
 
   protected:
-    // The scheduling node configurations.
+    // The scheduling node assignment configuration.
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
-    // The auto scaling configurations.
+    // The auto scaling configuration.
     shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
+    // Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
     shared_ptr<bool> considerInSuccessPolicy_ {};
-    // The hardware specifications of the worker. For more information, see [Billing of DLC](https://help.aliyun.com/document_detail/171758.html) of PAI.
-    // 
-    // >  The price varies based on instance types.
+    // The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
     shared_ptr<string> ecsSpec_ {};
     shared_ptr<vector<ElasticSpotSpec>> elasticSpotSpecs_ {};
-    // The additional pod configurations.
+    // The additional pod configuration.
     shared_ptr<ExtraPodSpec> extraPodSpec_ {};
-    // The address of the image that is run by the worker node. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image provided by PAI. You can also specify a third-party public image.
+    shared_ptr<HyperNodeSchedulingConfig> hyperNodeSchedulingConfig_ {};
+    // The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a third-party public image.
     shared_ptr<string> image_ {};
-    // The configuration of the private image.
+    // The private image configuration.
     shared_ptr<ImageConfig> imageConfig_ {};
-    // Deprecated.
+    // Deprecated due to a spelling error.
     shared_ptr<bool> isCheif_ {};
-    // Whether the role is a Chief role. Chief role must be unique.
+    // Indicates whether this role is the Chief role. Only one Chief role is allowed.
     shared_ptr<bool> isChief_ {};
     // The list of local mount configurations.
     shared_ptr<vector<LocalMountSpec>> localMountSpecs_ {};
+    shared_ptr<string> oversoldType_ {};
     // The number of replicas.
     shared_ptr<int64_t> podCount_ {};
     shared_ptr<string> quotaId_ {};
-    // The resource configurations.
+    // The resource configuration.
     shared_ptr<ResourceConfig> resourceConfig_ {};
     // The restart policy. Valid values: Always, Never, OnFailure, and ExitCode.
     shared_ptr<string> restartPolicy_ {};
-    // The service configurations.
+    // The service configuration.
     shared_ptr<ServiceSpec> serviceSpec_ {};
-    // The configurations of the preemptible instance.
+    // The spot instance configuration.
     shared_ptr<SpotSpec> spotSpec_ {};
+    // The dependencies required before this role starts.
     shared_ptr<vector<StartupDependency>> startupDependencies_ {};
     shared_ptr<SystemDisk> systemDisk_ {};
-    // The worker type, which is related to JobType. The valid values of this parameter vary based on the value of JobType.
+    // Type is closely related to Job Type. Different Job Types support different Worker Types.
     // 
-    // *   Valid values when JobType is set to **TFJob**: Chief, PS, Worker, Evaluator, and GraphLearn.
-    // *   Valid values when JobType is set to **PyTorchJob**: Worker and Master.
-    // *   Valid values when JobType is set to **XGBoostJob**: Worker and Master.
-    // *   Valid values when JobType is set to **OneFlowJob**: Worker and Master.
-    // *   Valid values when JobType is set to **ElasticBatch**: Worker and Master.
+    // - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
     // 
-    // The Master node in jobs of the PyTorchJob, XGBoostJob, OneFlowJob, or ElasticBatch type is optional. If you do not specify the Master node, the system automatically uses the first Worker node as the Master node.
+    // - **PyTorchJob**: Supports Worker and Master.
+    // 
+    // - **XGBoostJob**: Supports Worker and Master.
+    // - **OneFlowJob**: Supports Worker and Master.
+    // - **ElasticBatch**: Supports Worker and Master.
+    // - **RayJob**: Supports Head, Worker, and Worker[-xxx].
+    // 
+    // Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If Master is not specified, the system automatically designates the first Worker node as Master.
     shared_ptr<string> type_ {};
-    // Whether to use preemptible instances.
+    // Specifies whether to use spot instances.
     shared_ptr<bool> useSpotInstance_ {};
   };
 

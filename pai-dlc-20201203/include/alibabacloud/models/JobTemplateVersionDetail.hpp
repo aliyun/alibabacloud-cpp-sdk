@@ -79,15 +79,15 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> constraints_ {};
-    // 任务模板的配置内容，支持 CreateJob 接口的所有参数字段，以 JSON 对象存储
+    // Configuration content of the job template. It supports all parameter fields of the CreateJob API and is stored as a JSON object.
     shared_ptr<string> content_ {};
-    // 创建该版本的用户ID
+    // User ID that created this version
     shared_ptr<string> createdBy_ {};
-    // 该版本的创建时间
+    // Creation time of this version
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> gmtCreated_ {};
-    // 模板版本号
+    // Template version number
     shared_ptr<int32_t> version_ {};
   };
 
