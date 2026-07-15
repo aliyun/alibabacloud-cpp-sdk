@@ -43,12 +43,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Suggestion, suggestion_);
         DARABONBA_PTR_TO_JSON(DataId, dataId_);
         DARABONBA_PTR_TO_JSON(SeqList, seqList_);
+        DARABONBA_PTR_TO_JSON(ProcessedOutput, processedOutput_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Detail, detail_);
         DARABONBA_PTR_FROM_JSON(Suggestion, suggestion_);
         DARABONBA_PTR_FROM_JSON(DataId, dataId_);
         DARABONBA_PTR_FROM_JSON(SeqList, seqList_);
+        DARABONBA_PTR_FROM_JSON(ProcessedOutput, processedOutput_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -200,7 +202,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->detail_ == nullptr
-        && this->suggestion_ == nullptr && this->dataId_ == nullptr && this->seqList_ == nullptr; };
+        && this->suggestion_ == nullptr && this->dataId_ == nullptr && this->seqList_ == nullptr && this->processedOutput_ == nullptr; };
       // detail Field Functions 
       bool hasDetail() const { return this->detail_ != nullptr;};
       void deleteDetail() { this->detail_ = nullptr;};
@@ -233,11 +235,19 @@ namespace Models
       inline Data& setSeqList(vector<string> && seqList) { DARABONBA_PTR_SET_RVALUE(seqList_, seqList) };
 
 
+      // processedOutput Field Functions 
+      bool hasProcessedOutput() const { return this->processedOutput_ != nullptr;};
+      void deleteProcessedOutput() { this->processedOutput_ = nullptr;};
+      inline string getProcessedOutput() const { DARABONBA_PTR_GET_DEFAULT(processedOutput_, "") };
+      inline Data& setProcessedOutput(string processedOutput) { DARABONBA_PTR_SET_VALUE(processedOutput_, processedOutput) };
+
+
     protected:
       shared_ptr<vector<Data::Detail>> detail_ {};
       shared_ptr<string> suggestion_ {};
       shared_ptr<string> dataId_ {};
       shared_ptr<vector<string>> seqList_ {};
+      shared_ptr<string> processedOutput_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

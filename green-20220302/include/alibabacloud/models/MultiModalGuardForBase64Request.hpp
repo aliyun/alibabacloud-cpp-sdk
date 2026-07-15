@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The base64-encoded string of the image.
     shared_ptr<string> imageBase64Str_ {};
+    // Service
     shared_ptr<string> service_ {};
+    // The service parameters.
     shared_ptr<string> serviceParameters_ {};
   };
 

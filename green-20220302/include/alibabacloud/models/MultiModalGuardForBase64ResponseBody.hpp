@@ -151,10 +151,15 @@ namespace Models
 
 
         protected:
+          // The confidence level.
           shared_ptr<float> confidence_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The extension information.
           Darabonba::Json ext_ {};
+          // The label.
           shared_ptr<string> label_ {};
+          // The risk level.
           shared_ptr<string> level_ {};
         };
 
@@ -191,9 +196,13 @@ namespace Models
 
 
       protected:
+        // The risk level.
         shared_ptr<string> level_ {};
+        // The result.
         shared_ptr<vector<Detail::Result>> result_ {};
+        // The suggested action.
         shared_ptr<string> suggestion_ {};
+        // The category.
         shared_ptr<string> type_ {};
       };
 
@@ -223,8 +232,11 @@ namespace Models
 
 
     protected:
+      // The data ID.
       shared_ptr<string> dataId_ {};
+      // The details.
       shared_ptr<vector<Data::Detail>> detail_ {};
+      // The suggested action.
       shared_ptr<string> suggestion_ {};
     };
 
@@ -261,9 +273,13 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<int32_t> code_ {};
+    // The response data.
     shared_ptr<MultiModalGuardForBase64ResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

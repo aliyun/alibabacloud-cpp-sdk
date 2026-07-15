@@ -9,6 +9,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::Green20220302::Models;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -787,6 +788,115 @@ MultiModalAgentResponse Client::multiModalAgent(const MultiModalAgentRequest &re
 }
 
 /**
+ * @summary Synchronously detects multimodal content by using the Agent API.
+ *
+ * @description The content moderation Agent.
+ *
+ * @param request MultiModalAgentSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalAgentSSEResponse
+ */
+FutureGenerator<MultiModalAgentSSEResponse> Client::multiModalAgentSSEWithSSE(const MultiModalAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppID()) {
+    body["AppID"] = request.getAppID();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.getServiceParameters();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.getStream();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "MultiModalAgentSSE"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<MultiModalAgentSSEResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Synchronously detects multimodal content by using the Agent API.
+ *
+ * @description The content moderation Agent.
+ *
+ * @param request MultiModalAgentSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalAgentSSEResponse
+ */
+MultiModalAgentSSEResponse Client::multiModalAgentSSEWithOptions(const MultiModalAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppID()) {
+    body["AppID"] = request.getAppID();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.getServiceParameters();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.getStream();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "MultiModalAgentSSE"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MultiModalAgentSSEResponse>();
+}
+
+/**
+ * @summary Synchronously detects multimodal content by using the Agent API.
+ *
+ * @description The content moderation Agent.
+ *
+ * @param request MultiModalAgentSSERequest
+ * @return MultiModalAgentSSEResponse
+ */
+MultiModalAgentSSEResponse Client::multiModalAgentSSE(const MultiModalAgentSSERequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return multiModalAgentSSEWithOptions(request, runtime);
+}
+
+/**
  * @summary API for synchronous detection
  *
  * @param request MultiModalGuardRequest
@@ -933,7 +1043,7 @@ MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResult(const Mult
 }
 
 /**
- * @summary 多模态同步检测接口，支持图片base64字符串
+ * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
  *
  * @param request MultiModalGuardForBase64Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -974,7 +1084,7 @@ MultiModalGuardForBase64Response Client::multiModalGuardForBase64WithOptions(con
 }
 
 /**
- * @summary 多模态同步检测接口，支持图片base64字符串
+ * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
  *
  * @param request MultiModalGuardForBase64Request
  * @return MultiModalGuardForBase64Response

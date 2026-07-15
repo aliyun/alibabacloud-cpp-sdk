@@ -322,6 +322,38 @@ namespace Green20220302
       Models::MultiModalAgentResponse multiModalAgent(const Models::MultiModalAgentRequest &request);
 
       /**
+       * @summary Synchronously detects multimodal content by using the Agent API.
+       *
+       * @description The content moderation Agent.
+       *
+       * @param request MultiModalAgentSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultiModalAgentSSEResponse
+       */
+      FutureGenerator<Models::MultiModalAgentSSEResponse> multiModalAgentSSEWithSSE(const Models::MultiModalAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Synchronously detects multimodal content by using the Agent API.
+       *
+       * @description The content moderation Agent.
+       *
+       * @param request MultiModalAgentSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultiModalAgentSSEResponse
+       */
+      Models::MultiModalAgentSSEResponse multiModalAgentSSEWithOptions(const Models::MultiModalAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Synchronously detects multimodal content by using the Agent API.
+       *
+       * @description The content moderation Agent.
+       *
+       * @param request MultiModalAgentSSERequest
+       * @return MultiModalAgentSSEResponse
+       */
+      Models::MultiModalAgentSSEResponse multiModalAgentSSE(const Models::MultiModalAgentSSERequest &request);
+
+      /**
        * @summary API for synchronous detection
        *
        * @param request MultiModalGuardRequest
@@ -381,7 +413,7 @@ namespace Green20220302
       Models::MultiModalGuardAsyncResultResponse multiModalGuardAsyncResult(const Models::MultiModalGuardAsyncResultRequest &request);
 
       /**
-       * @summary 多模态同步检测接口，支持图片base64字符串
+       * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
        *
        * @param request MultiModalGuardForBase64Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -390,7 +422,7 @@ namespace Green20220302
       Models::MultiModalGuardForBase64Response multiModalGuardForBase64WithOptions(const Models::MultiModalGuardForBase64Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 多模态同步检测接口，支持图片base64字符串
+       * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
        *
        * @param request MultiModalGuardForBase64Request
        * @return MultiModalGuardForBase64Response
