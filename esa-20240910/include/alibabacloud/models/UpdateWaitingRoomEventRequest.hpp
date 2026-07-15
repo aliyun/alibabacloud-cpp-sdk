@@ -255,7 +255,7 @@ namespace Models
     // The queuing method. Valid values:
     // 
     // - **random**: random.
-    // - **fifo**: first-in, first-out.
+    // - **fifo**: first-in-first-out.
     // - **passthrough**: passthrough.
     // - **reject-all**: reject all.
     shared_ptr<string> queuingMethod_ {};

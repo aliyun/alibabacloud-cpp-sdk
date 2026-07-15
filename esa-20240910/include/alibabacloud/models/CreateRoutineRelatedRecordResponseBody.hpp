@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int64_t> recordId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the operation. A value of `OK` indicates that the operation was successful.
+    // The operation status, which indicates success or failure.
     shared_ptr<string> status_ {};
   };
 

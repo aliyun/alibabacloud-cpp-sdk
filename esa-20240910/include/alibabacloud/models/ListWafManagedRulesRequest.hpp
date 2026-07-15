@@ -106,13 +106,13 @@ namespace Models
 
 
     protected:
-      // The rule action to filter by.
+      // The action.
       shared_ptr<string> action_ {};
-      // The keyword for a fuzzy search on the rule ID or rule name.
+      // Fuzzy match by rule ID or rule name.
       shared_ptr<string> idNameLike_ {};
-      // The rule protection levels to filter the results by.
+      // The list of rule protection levels.
       shared_ptr<vector<int32_t>> protectionLevels_ {};
-      // The rule status to filter by.
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -188,8 +188,17 @@ namespace Models
 
 
       protected:
+        // The action for a single rule. This parameter takes effect only in custom mode (ProtectionLevel = -1).
+        // 
+        // Common valid values: monitor, deny, js, captcha. The actual available values depend on the instance quota.
         shared_ptr<string> action_ {};
+        // The unique ID of a single managed rule.
         shared_ptr<int64_t> id_ {};
+        // The rule enabled status.
+        // 
+        // Valid values:
+        // - on: enabled.
+        // - off: disabled.
         shared_ptr<string> status_ {};
       };
 
@@ -226,9 +235,23 @@ namespace Models
 
 
     protected:
+      // The unified action when ProtectionLevel is greater than 0. This parameter cannot be empty in this case.
+      // 
+      // Common valid values: monitor, deny, js, captcha. The actual available values depend on the instance quota.
       shared_ptr<string> action_ {};
+      // The attack type encoding. The value cannot be 0.
+      // 
+      // Example values: 11 (SQL injection), 12 (XSS), 13 (code execute), 14 (CRLF), 15 (local file inclusion (LFI)), 16 (remote file inclusion (RFI)), 17 (WebShell), 22 (command injection), 26 (SSRF), 27 (path traversal), 28 (protocol violation), 31 (scanner behavior).
       shared_ptr<int32_t> attackType_ {};
+      // The rule configuration list in custom mode. This parameter is used only when ProtectionLevel is set to -1.
+      // 
+      // Each element contains Id, Status, and Action, which are used to specify the enabled status and action for each managed rule.
       shared_ptr<vector<ManagedRuleset::ManagedRules>> managedRules_ {};
+      // The protection level within the ruleset.
+      // 
+      // Valid values: -1 (custom mode, specify each rule through ManagedRules), 1 (loose), 2 (medium), 3 (strict), 4 (super strict).
+      // 
+      // When the value is -1, ManagedRules cannot be empty. When the value is greater than 0, Action cannot be empty.
       shared_ptr<int32_t> protectionLevel_ {};
     };
 
@@ -310,48 +333,46 @@ namespace Models
 
 
   protected:
-    // The attack type to filter the results by. Valid values:
-    // 
+    // The attack type of the vulnerability prevention event. Valid values:
     // - SQL injection
-    // 
-    // - cross-site scripting
-    // 
-    // - code execution
-    // 
+    // - cross-site scripting (XSS)
+    // - code execute
     // - CRLF
-    // 
-    // - local file inclusion
-    // 
-    // - remote file inclusion
-    // 
+    // - local file inclusion (LFI)
+    // - remote file inclusion (RFI)
     // - webshell
-    // 
     // - cross-site request forgery
-    // 
-    // - Other
-    // 
+    // - Others
     // - SEMA
     // 
     // This parameter is required.
     shared_ptr<int32_t> attackType_ {};
     // The ID of the WAF rule.
     shared_ptr<int64_t> id_ {};
+    // The WAF instance ID.
     shared_ptr<string> instanceId_ {};
-    // The response language. Valid values:
+    // The language type. The response is returned in the specified language. Valid values:
     // 
     // - **en**: English.
-    // 
     // - **zh**: Chinese.
     shared_ptr<string> language_ {};
+    // The managed ruleset configuration in JSON string format.
+    // 
+    // Contains the AttackType, ProtectionLevel, Action, and ManagedRules subfields. When ProtectionLevel is set to -1 (custom mode), specify the status and action for each rule through the ManagedRules array.
     shared_ptr<ListWafManagedRulesRequest::ManagedRuleset> managedRuleset_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The currently saved protection level, which represents the existing configuration state in the database.
+    // 
+    // Valid values: -1 (custom mode), 1 (loose), 2 (medium), 3 (strict), 4 (super strict).
+    // 
+    // Difference from ManagedRuleset.ProtectionLevel: this parameter indicates the currently effective configuration, while ManagedRuleset.ProtectionLevel indicates the target value being passed in.
     shared_ptr<int32_t> protectionLevel_ {};
     // The query conditions.
     shared_ptr<ListWafManagedRulesRequest::QueryArgs> queryArgs_ {};
-    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain this ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
   };
 

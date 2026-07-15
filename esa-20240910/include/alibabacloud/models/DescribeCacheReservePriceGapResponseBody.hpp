@@ -183,11 +183,19 @@ namespace Models
 
 
     protected:
+      // The currency. Valid values:
+      // - JPY: Japanese Yen.
+      // - USD: US Dollar.
+      // - CNY: Chinese Yuan.
       shared_ptr<string> currency_ {};
+      // The discount amount of the order.
       shared_ptr<float> discountPrice_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The final order price, which is the actual transaction price.
       shared_ptr<float> price_ {};
       shared_ptr<PriceModel::Rule> rule_ {};
+      // The original order price. Original order price = actual transaction price + discount amount.
       shared_ptr<float> totalPrice_ {};
     };
 
@@ -210,7 +218,9 @@ namespace Models
 
 
   protected:
+    // The pricing information.
     shared_ptr<DescribeCacheReservePriceGapResponseBody::PriceModel> priceModel_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

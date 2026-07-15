@@ -218,6 +218,72 @@ ActivateVersionManagementResponse Client::activateVersionManagement(const Activa
 }
 
 /**
+ * @summary Creates a user opportunity order.
+ *
+ * @param request AddUserBusinessFormRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddUserBusinessFormResponse
+ */
+AddUserBusinessFormResponse Client::addUserBusinessFormWithOptions(const AddUserBusinessFormRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompany()) {
+    query["Company"] = request.getCompany();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasPhoneNumber()) {
+    query["PhoneNumber"] = request.getPhoneNumber();
+  }
+
+  if (!!request.hasPosition()) {
+    query["Position"] = request.getPosition();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasWebsite()) {
+    query["Website"] = request.getWebsite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddUserBusinessForm"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddUserBusinessFormResponse>();
+}
+
+/**
+ * @summary Creates a user opportunity order.
+ *
+ * @param request AddUserBusinessFormRequest
+ * @return AddUserBusinessFormResponse
+ */
+AddUserBusinessFormResponse Client::addUserBusinessForm(const AddUserBusinessFormRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addUserBusinessFormWithOptions(request, runtime);
+}
+
+/**
  * @summary Applies for a free certificate.
  *
  * @param request ApplyCertificateRequest
@@ -706,7 +772,7 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityAdvan
 }
 
 /**
- * @summary Retrieves match fields for a batch of expressions.
+ * @summary Retrieves matching items for expressions in batches.
  *
  * @param tmpReq BatchGetExpressionFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -765,7 +831,7 @@ BatchGetExpressionFieldsResponse Client::batchGetExpressionFieldsWithOptions(con
 }
 
 /**
- * @summary Retrieves match fields for a batch of expressions.
+ * @summary Retrieves matching items for expressions in batches.
  *
  * @param request BatchGetExpressionFieldsRequest
  * @return BatchGetExpressionFieldsResponse
@@ -1215,6 +1281,52 @@ CheckAssumeSlrRoleResponse Client::checkAssumeSlrRoleWithOptions(const Darabonba
 CheckAssumeSlrRoleResponse Client::checkAssumeSlrRole() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkAssumeSlrRoleWithOptions(runtime);
+}
+
+/**
+ * @summary Validates whether a site is compatible with the target plan during site plan migration.
+ *
+ * @param request CheckSiteFeaturesMatchPlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckSiteFeaturesMatchPlanResponse
+ */
+CheckSiteFeaturesMatchPlanResponse Client::checkSiteFeaturesMatchPlanWithOptions(const CheckSiteFeaturesMatchPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNewInstanceId()) {
+    query["NewInstanceId"] = request.getNewInstanceId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckSiteFeaturesMatchPlan"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckSiteFeaturesMatchPlanResponse>();
+}
+
+/**
+ * @summary Validates whether a site is compatible with the target plan during site plan migration.
+ *
+ * @param request CheckSiteFeaturesMatchPlanRequest
+ * @return CheckSiteFeaturesMatchPlanResponse
+ */
+CheckSiteFeaturesMatchPlanResponse Client::checkSiteFeaturesMatchPlan(const CheckSiteFeaturesMatchPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkSiteFeaturesMatchPlanWithOptions(request, runtime);
 }
 
 /**
@@ -2286,7 +2398,7 @@ CreateHttpIncomingResponseHeaderModificationRuleResponse Client::createHttpIncom
 }
 
 /**
- * @summary Adds a Configuration for modifying a Site\\"s HTTP Request Headers.
+ * @summary Creates an HTTP request header modification configuration for a site.
  *
  * @param tmpReq CreateHttpRequestHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2347,7 +2459,7 @@ CreateHttpRequestHeaderModificationRuleResponse Client::createHttpRequestHeaderM
 }
 
 /**
- * @summary Adds a Configuration for modifying a Site\\"s HTTP Request Headers.
+ * @summary Creates an HTTP request header modification configuration for a site.
  *
  * @param request CreateHttpRequestHeaderModificationRuleRequest
  * @return CreateHttpRequestHeaderModificationRuleResponse
@@ -2358,7 +2470,7 @@ CreateHttpRequestHeaderModificationRuleResponse Client::createHttpRequestHeaderM
 }
 
 /**
- * @summary Creates a rule to modify HTTP response headers.
+ * @summary Creates an HTTP response header modification configuration.
  *
  * @param tmpReq CreateHttpResponseHeaderModificationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2419,7 +2531,7 @@ CreateHttpResponseHeaderModificationRuleResponse Client::createHttpResponseHeade
 }
 
 /**
- * @summary Creates a rule to modify HTTP response headers.
+ * @summary Creates an HTTP response header modification configuration.
  *
  * @param request CreateHttpResponseHeaderModificationRuleRequest
  * @return CreateHttpResponseHeaderModificationRuleResponse
@@ -3712,7 +3824,7 @@ CreateRoutineCodeDeploymentResponse Client::createRoutineCodeDeployment(const Cr
 }
 
 /**
- * @summary Adds a new record to a site that triggers a specified edge function Routine.
+ * @summary Adds an associated site record for an Edge Routine function. This creates a new record under the site to trigger the execution of the Edge Routine function code.
  *
  * @param request CreateRoutineRelatedRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3751,7 +3863,7 @@ CreateRoutineRelatedRecordResponse Client::createRoutineRelatedRecordWithOptions
 }
 
 /**
- * @summary Adds a new record to a site that triggers a specified edge function Routine.
+ * @summary Adds an associated site record for an Edge Routine function. This creates a new record under the site to trigger the execution of the Edge Routine function code.
  *
  * @param request CreateRoutineRelatedRecordRequest
  * @return CreateRoutineRelatedRecordResponse
@@ -6762,7 +6874,7 @@ DeleteRewriteUrlRuleResponse Client::deleteRewriteUrlRule(const DeleteRewriteUrl
 }
 
 /**
- * @summary Deletes a routine in Edge Routine.
+ * @summary Deletes an Edge Routine.
  *
  * @param request DeleteRoutineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6793,7 +6905,7 @@ DeleteRoutineResponse Client::deleteRoutineWithOptions(const DeleteRoutineReques
 }
 
 /**
- * @summary Deletes a routine in Edge Routine.
+ * @summary Deletes an Edge Routine.
  *
  * @param request DeleteRoutineRequest
  * @return DeleteRoutineResponse
@@ -6850,7 +6962,7 @@ DeleteRoutineCodeVersionResponse Client::deleteRoutineCodeVersion(const DeleteRo
 }
 
 /**
- * @summary Deletes a record that is associated with a routine.
+ * @summary Deletes an association record of an Edge Routine.
  *
  * @param request DeleteRoutineRelatedRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6895,7 +7007,7 @@ DeleteRoutineRelatedRecordResponse Client::deleteRoutineRelatedRecordWithOptions
 }
 
 /**
- * @summary Deletes a record that is associated with a routine.
+ * @summary Deletes an association record of an Edge Routine.
  *
  * @param request DeleteRoutineRelatedRecordRequest
  * @return DeleteRoutineRelatedRecordResponse
@@ -7744,7 +7856,7 @@ DescribeCacheReservePriceResponse Client::describeCacheReservePrice(const Descri
 }
 
 /**
- * @summary Queries the price for a configuration change of a cache reserve instance.
+ * @summary Queries the price for a cache-retained specification change.
  *
  * @param request DescribeCacheReservePriceGapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7779,7 +7891,7 @@ DescribeCacheReservePriceGapResponse Client::describeCacheReservePriceGapWithOpt
 }
 
 /**
- * @summary Queries the price for a configuration change of a cache reserve instance.
+ * @summary Queries the price for a cache-retained specification change.
  *
  * @param request DescribeCacheReservePriceGapRequest
  * @return DescribeCacheReservePriceGapResponse
@@ -10220,7 +10332,7 @@ GetDevelopmentModeResponse Client::getDevelopmentMode(const GetDevelopmentModeRe
 }
 
 /**
- * @summary GetEdgeImage
+ * @summary Retrieves the details of an edge container plan instance.
  *
  * @param request GetEdgeContainerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10251,7 +10363,7 @@ GetEdgeContainerResponse Client::getEdgeContainerWithOptions(const GetEdgeContai
 }
 
 /**
- * @summary GetEdgeImage
+ * @summary Retrieves the details of an edge container plan instance.
  *
  * @param request GetEdgeContainerRequest
  * @return GetEdgeContainerResponse
@@ -13186,7 +13298,7 @@ GetWafQuotaResponse Client::getWafQuota(const GetWafQuotaRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
+ * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can use this operation to query the configuration and status of a specific rule.
  *
  * @param request GetWafRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13221,7 +13333,7 @@ GetWafRuleResponse Client::getWafRuleWithOptions(const GetWafRuleRequest &reques
 }
 
 /**
- * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
+ * @summary Retrieves the details of a single rule in Web Application Firewall (WAF). You can use this operation to query the configuration and status of a specific rule.
  *
  * @param request GetWafRuleRequest
  * @return GetWafRuleResponse
@@ -13358,7 +13470,7 @@ ListCacheRulesResponse Client::listCacheRules(const ListCacheRulesRequest &reque
 }
 
 /**
- * @summary 查询证书列表，支持翻页
+ * @summary Queries the list of China Shield certificates.
  *
  * @param request ListCasCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13401,7 +13513,7 @@ ListCasCertificatesResponse Client::listCasCertificatesWithOptions(const ListCas
 }
 
 /**
- * @summary 查询证书列表，支持翻页
+ * @summary Queries the list of China Shield certificates.
  *
  * @param request ListCasCertificatesRequest
  * @return ListCasCertificatesResponse
@@ -14744,9 +14856,9 @@ ListLoadBalancerOriginStatusResponse Client::listLoadBalancerOriginStatus(const 
 }
 
 /**
- * @summary Query Load Balancer Region List
+ * @summary Queries the primary and secondary region information of a load balancing instance to obtain geographic region codes, descriptions, and other basic information that are active and can be used to configure a country/region-based scheduling policy for the load balancing instance.
  *
- * @description When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+ * @description When you create a country/region-based scheduling policy for a load balancing instance by calling an OpenAPI operation, use the primary or secondary region code from the lookup table to represent traffic originating from the corresponding geographic region.
  *
  * @param request ListLoadBalancerRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14773,9 +14885,9 @@ ListLoadBalancerRegionsResponse Client::listLoadBalancerRegionsWithOptions(const
 }
 
 /**
- * @summary Query Load Balancer Region List
+ * @summary Queries the primary and secondary region information of a load balancing instance to obtain geographic region codes, descriptions, and other basic information that are active and can be used to configure a country/region-based scheduling policy for the load balancing instance.
  *
- * @description When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+ * @description When you create a country/region-based scheduling policy for a load balancing instance by calling an OpenAPI operation, use the primary or secondary region code from the lookup table to represent traffic originating from the corresponding geographic region.
  *
  * @param request ListLoadBalancerRegionsRequest
  * @return ListLoadBalancerRegionsResponse
@@ -14824,7 +14936,7 @@ ListLoadBalancersResponse Client::listLoadBalancers(const ListLoadBalancersReque
 }
 
 /**
- * @summary List Custom Managed Rule Groups
+ * @summary Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
  *
  * @param request ListManagedRulesGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14859,7 +14971,7 @@ ListManagedRulesGroupsResponse Client::listManagedRulesGroupsWithOptions(const L
 }
 
 /**
- * @summary List Custom Managed Rule Groups
+ * @summary Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
  *
  * @param request ListManagedRulesGroupsRequest
  * @return ListManagedRulesGroupsResponse
@@ -16278,7 +16390,7 @@ ListVideoProcessingsResponse Client::listVideoProcessings(const ListVideoProcess
 }
 
 /**
- * @summary Retrieves a list of WAF managed rules, optionally filtered by specific criteria. The response is paginated.
+ * @summary Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
  *
  * @param tmpReq ListWafManagedRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16355,7 +16467,7 @@ ListWafManagedRulesResponse Client::listWafManagedRulesWithOptions(const ListWaf
 }
 
 /**
- * @summary Retrieves a list of WAF managed rules, optionally filtered by specific criteria. The response is paginated.
+ * @summary Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
  *
  * @param request ListWafManagedRulesRequest
  * @return ListWafManagedRulesResponse
@@ -16746,9 +16858,9 @@ ListWaitingRoomRulesResponse Client::listWaitingRoomRules(const ListWaitingRoomR
 }
 
 /**
- * @summary Queries all waiting rooms in a website.
+ * @summary Queries the details of all configured waiting rooms for a specified site.
  *
- * @description Use this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+ * @description This API allows you to query the configuration details of all waiting rooms for a specified site, including the enabled status, name, and queuing rules.
  *
  * @param request ListWaitingRoomsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16775,9 +16887,9 @@ ListWaitingRoomsResponse Client::listWaitingRoomsWithOptions(const ListWaitingRo
 }
 
 /**
- * @summary Queries all waiting rooms in a website.
+ * @summary Queries the details of all configured waiting rooms for a specified site.
  *
- * @description Use this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+ * @description This API allows you to query the configuration details of all waiting rooms for a specified site, including the enabled status, name, and queuing rules.
  *
  * @param request ListWaitingRoomsRequest
  * @return ListWaitingRoomsResponse
@@ -17014,7 +17126,7 @@ PublishEdgeContainerAppVersionResponse Client::publishEdgeContainerAppVersion(co
 }
 
 /**
- * @summary Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
+ * @summary Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
  *
  * @param request PublishRoutineCodeVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17053,7 +17165,7 @@ PublishRoutineCodeVersionResponse Client::publishRoutineCodeVersionWithOptions(c
 }
 
 /**
- * @summary Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
+ * @summary Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
  *
  * @param request PublishRoutineCodeVersionRequest
  * @return PublishRoutineCodeVersionResponse

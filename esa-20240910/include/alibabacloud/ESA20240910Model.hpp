@@ -22,6 +22,9 @@
 #include <alibabacloud/models/ActivateVersionManagementRequest.hpp>
 #include <alibabacloud/models/ActivateVersionManagementResponseBody.hpp>
 #include <alibabacloud/models/ActivateVersionManagementResponse.hpp>
+#include <alibabacloud/models/AddUserBusinessFormRequest.hpp>
+#include <alibabacloud/models/AddUserBusinessFormResponseBody.hpp>
+#include <alibabacloud/models/AddUserBusinessFormResponse.hpp>
 #include <alibabacloud/models/ApplyCertificateRequest.hpp>
 #include <alibabacloud/models/ApplyCertificateResponseBody.hpp>
 #include <alibabacloud/models/ApplyCertificateResponse.hpp>
@@ -66,6 +69,9 @@
 #include <alibabacloud/models/BlockObjectResponse.hpp>
 #include <alibabacloud/models/CheckAssumeSlrRoleResponseBody.hpp>
 #include <alibabacloud/models/CheckAssumeSlrRoleResponse.hpp>
+#include <alibabacloud/models/CheckSiteFeaturesMatchPlanRequest.hpp>
+#include <alibabacloud/models/CheckSiteFeaturesMatchPlanResponseBody.hpp>
+#include <alibabacloud/models/CheckSiteFeaturesMatchPlanResponse.hpp>
 #include <alibabacloud/models/CheckSiteNameRequest.hpp>
 #include <alibabacloud/models/CheckSiteNameResponseBody.hpp>
 #include <alibabacloud/models/CheckSiteNameResponse.hpp>

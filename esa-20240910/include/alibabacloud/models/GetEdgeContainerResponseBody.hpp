@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The billing mode.
     shared_ptr<string> billingMode_ {};
+    // The plan instance ID.
     shared_ptr<string> instanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The plan instance status.
     shared_ptr<string> status_ {};
   };
 

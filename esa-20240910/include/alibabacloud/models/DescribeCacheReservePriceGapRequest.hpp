@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The requested cache size. Unit: GB.
     shared_ptr<int64_t> targetQuotaGb_ {};
   };
 

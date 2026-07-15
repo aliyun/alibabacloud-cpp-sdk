@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The current page number. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size. Valid values: any integer from 1 to 1000.
     shared_ptr<int64_t> pageSize_ {};
+    // The certificate name for fuzzy match.
     shared_ptr<string> searchKeyword_ {};
     shared_ptr<string> securityToken_ {};
   };

@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // The common name of the certificate.
       shared_ptr<string> commonName_ {};
+      // The certificate fingerprint.
       shared_ptr<string> fingerprint_ {};
+      // The certificate ID.
       shared_ptr<int64_t> id_ {};
+      // The certificate issuer.
       shared_ptr<string> issuer_ {};
+      // The certificate name.
       shared_ptr<string> name_ {};
+      // The expiration time of the certificate.
       shared_ptr<string> notAfter_ {};
+      // The region where the certificate resides. Supported values: **cn-hangzhou** and **ap-southeast-1**.
       shared_ptr<string> region_ {};
     };
 
@@ -171,10 +178,15 @@ namespace Models
 
 
   protected:
+    // The certificate list.
     shared_ptr<vector<ListCasCertificatesResponseBody::Certificates>> certificates_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

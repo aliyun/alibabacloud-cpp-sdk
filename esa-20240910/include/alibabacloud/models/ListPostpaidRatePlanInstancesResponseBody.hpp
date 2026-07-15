@@ -232,22 +232,22 @@ namespace Models
 
 
     protected:
-      // The billable methods. Valid values:
-      // - dps_month95: monthly 95th percentile billing.
+      // The billing method. Valid values:
+      // - dps_month95: Monthly 95th Percentile.
       shared_ptr<string> billingMethod_ {};
       // The billing mode. Valid values:
       // 
       //  * POSTPAY: pay-as-you-go.
       shared_ptr<string> billingMode_ {};
-      // The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
+      // The acceleration regions to which sites can be associated with this instance. Multiple values are separated by commas (,). Valid values:
       // 
       // - domestic: the Chinese mainland.
       // - overseas: global (excluding the Chinese mainland).
       // - global: global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The time when the instance was created. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The scheduled specification change time. The value is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The scheduled specification change time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> expectedUpdateTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -256,8 +256,8 @@ namespace Models
       // The plan name in Chinese.
       shared_ptr<string> planNameCn_ {};
       // The plan type of the instance. Valid values:
-      // - normal: Fixed plan.
-      // - enterprise: Enterprise plan.
+      // - normal: Fixed edition plan.
+      // - enterprise: Enterprise edition plan.
       shared_ptr<string> planType_ {};
       // The site quota.
       shared_ptr<string> siteQuota_ {};

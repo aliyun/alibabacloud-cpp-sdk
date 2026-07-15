@@ -240,7 +240,7 @@ namespace Models
     // - **passthrough**: passthrough.
     // - **reject-all**: reject all.
     shared_ptr<string> queuingMethod_ {};
-    // The HTTP status code returned by the waiting room. Valid values:
+    // The status code returned by the waiting room. Valid values:
     // 
     // - **200**
     // - **202**
