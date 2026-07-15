@@ -75,6 +75,7 @@ namespace Models
     // Indicates whether the request was successful. Valid values:
     // 
     // - true: The request was successful.
+    // 
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

@@ -235,31 +235,31 @@ namespace Models
 
 
         protected:
-          // The most recent value of CPU workload.
+          // The most recent CPU Load.
           shared_ptr<double> cpuLoad1_ {};
-          // The average of the latest five values of CPU workload.
+          // The average CPU Load over the last five minutes.
           shared_ptr<double> cpuLoad5_ {};
-          // The number of available CPU processors.
+          // The number of available CPU cores.
           shared_ptr<int32_t> cpuProcessors_ {};
-          // The total disk capacity in MB.
+          // The total disk capacity, in MB.
           shared_ptr<int32_t> diskMax_ {};
-          // The disk usage.
+          // The Disk Usage, as a percentage.
           shared_ptr<double> diskUsage_ {};
-          // The used disk space in MB.
+          // The used disk space, in MB.
           shared_ptr<int32_t> diskUsed_ {};
-          // The number of job executions.
+          // The number of task executions.
           shared_ptr<int64_t> execCount_ {};
-          // The most recent value of heap memory usage.
+          // The most recent Heap Memory usage, as a percentage.
           shared_ptr<double> heap1Usage_ {};
-          // The most recent value of used heap memory in MB.
+          // The amount of Heap Memory used in the most recent measurement, in MB.
           shared_ptr<double> heap1Used_ {};
-          // The average of the latest five values of heap memory usage.
+          // The average Heap Memory usage over the last five minutes, as a percentage.
           shared_ptr<double> heap5Usage_ {};
-          // The maximum heap memory in MB.
+          // The maximum available Heap Memory, in MB.
           shared_ptr<int32_t> heapMax_ {};
           // The number of available resources in the shared pool.
           shared_ptr<int32_t> sharePoolAvailableSize_ {};
-          // The queue size in the shared pool.
+          // The size of the queue in the shared pool.
           shared_ptr<int32_t> sharePoolQueueSize_ {};
         };
 
@@ -325,32 +325,37 @@ namespace Models
 
 
       protected:
-        // The status of the workers. Valid values:
+        // The status of the Worker. Valid values:
         // 
-        // *   FREE: idle.
-        // *   LOAD5_BUSY: The average of the latest five values of CPU workload is too high.
-        // *   HEAP5_BUSY: The average of the latest five values of heap memory usage is too high.
-        // *   DISK_BUSY: The disk usage is too high.
+        // - `FREE`: The Worker is idle.
+        // 
+        // - `LOAD5_BUSY`: The 5-minute average CPU Load is high.
+        // 
+        // - `HEAP5_BUSY`: The 5-minute average Heap Memory usage is high.
+        // 
+        // - `DISK_BUSY`: The Disk Usage is high.
         shared_ptr<string> busy_ {};
-        // Indicates whether the workers are specified.
+        // Indicates whether the Worker is designated. Valid values:
         // 
-        // *   true: The workers are specified.
-        // *   false: The workers are not specified.
+        // - `true`: The Worker is designated.
+        // 
+        // - `false`: The Worker is not designated.
         shared_ptr<bool> checked_ {};
-        // The information returned based on the value of the DesignateType parameter.
+        // The value of the key. The meaning of this parameter depends on the value of the `DesignateType` parameter.
         // 
-        // *   If you set the DesignateType parameter to 2, the tags of the workers are returned.
-        // *   If you set the DesignateType parameter to 1, the IP addresses of the workers are returned.
+        // - If `DesignateType` is `1`, this parameter indicates the address of the Worker.
+        // 
+        // - If `DesignateType` is `2`, this parameter indicates the Tag of the Worker.
         shared_ptr<string> key_ {};
-        // The metric values.
+        // The performance metrics for the Worker.
         shared_ptr<DesignateDetailVos::Metrics> metrics_ {};
-        // Indicates whether the workers are offline.
+        // Indicates whether the Worker is offline.
         shared_ptr<bool> offline_ {};
-        // The number of workers.
+        // The number of Workers.
         shared_ptr<int32_t> size_ {};
-        // The startup method of the workers.
+        // The startup mode of the Worker.
         shared_ptr<string> starter_ {};
-        // The version of the workers.
+        // The version of the Worker.
         shared_ptr<string> version_ {};
       };
 
@@ -380,21 +385,23 @@ namespace Models
 
 
     protected:
-      // *
+      // - The details of the designated Workers.
       shared_ptr<vector<Data::DesignateDetailVos>> designateDetailVos_ {};
-      // The information type of the specified workers.
+      // The type of designated resource. Valid values:
       // 
-      // *   1: the IP address of the specified workers.
-      // *   2: the tags of the specified workers.
+      // - `1`: The task is designated to run on a specific Worker.
       // 
-      // >  The default value of the DesignateType parameter is 1.
+      // - `2`: The task is designated to run on Workers with a specific tag.
+      // 
+      // > The default configuration for a task is to designate a specific Worker (`1`).
       shared_ptr<int32_t> designateType_ {};
-      // Indicates whether to enable failover for the workers. If you set this parameter to true, the job is scheduled to other workers when the specified workers go offline.
+      // Indicates whether Failover is enabled. If enabled, the task can be scheduled on non-designated Workers if all designated Workers are offline. Valid values:
       // 
-      // *   true: enables failover for the workers.
-      // *   false: disables failover for the workers.
+      // - `true`: Enabled.
       // 
-      // >  The default value of the Transferable parameter is false.
+      // - `false`: Disabled.
+      // 
+      // > By default, Failover is disabled (false).
       shared_ptr<bool> transferable_ {};
     };
 
@@ -482,19 +489,19 @@ namespace Models
 
 
     protected:
-      // The authentication operation.
+      // The requested operation that was denied.
       shared_ptr<string> authAction_ {};
-      // The principal name.
+      // The display name of the Principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The principal account.
+      // The ID of the Alibaba Cloud account to which the Principal belongs.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The principal type.
+      // The type of the Principal.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The permission denial type.
+      // The type of permission denial.
       shared_ptr<string> noPermissionType_ {};
-      // The policy type.
+      // The type of Policy that caused the denial.
       shared_ptr<string> policyType_ {};
     };
 
@@ -547,15 +554,15 @@ namespace Models
 
 
   protected:
-    // The access denial details.
+    // Details about the access denial.
     shared_ptr<ReadSchedulerxDesignateInfoResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The HTTP status code returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // *
+    // - The returned data object.
     shared_ptr<ReadSchedulerxDesignateInfoResponseBody::Data> data_ {};
-    // The error message returned only if an error occurs.
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique Request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
-    // The additional information returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The unique Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether multiple jobs were deleted at a time. Valid values:
+    // Indicates if the operation succeeded. Valid values:
     // 
-    // *   **true**: Multiple jobs were deleted at a time.
-    // *   **false**: Multiple jobs were not deleted at a time.
+    // - **true**: The operation succeeded.
+    // 
+    // - **false**: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+    // The ID of the application group. You can find this ID on the **Application Management** page in the console.
     shared_ptr<string> groupId_ {};
-    // The job IDs. Separate multiple job IDs with commas (,).
+    // The IDs of the jobs to disable.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> jobIdList_ {};
-    // The ID of the namespace to which the job belongs. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+    // The ID of the namespace that contains the jobs. You can find this ID on the **Namespaces** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The source of the namespace. This parameter is required only for a special third party.
+    // This parameter is used only by specific third-party services.
     shared_ptr<string> namespaceSource_ {};
-    // The ID of the region to which the job belongs.
+    // The ID of the region where the jobs are located.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

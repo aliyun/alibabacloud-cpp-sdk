@@ -167,31 +167,33 @@ namespace Models
 
 
     protected:
-      // The AppKey of the application.
+      // The application\\"s AppKey.
       shared_ptr<string> appKey_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // The application version. 1: Basic version, 2: Professional version.
+      // The application version. Valid values:
       shared_ptr<string> appVersion_ {};
-      // The number of jobs that are configured for the application group.
+      // The number of jobs currently configured for the App Group.
       shared_ptr<int32_t> curJobs_ {};
-      // The description of the application.
+      // The application description.
       shared_ptr<string> description_ {};
+      // Specifies whether to enable log collection. The default value is false.
       shared_ptr<bool> enableLog_ {};
-      // The ID of the application.
+      // The App Group ID.
       shared_ptr<string> groupId_ {};
-      // The maximum number of jobs that can be configured for the application group.
+      // The maximum number of jobs that can be configured for the App Group.
       shared_ptr<int32_t> maxJobs_ {};
-      // The alert notification configurations.
+      // The alarm notification configuration.
       // 
-      // >  For more information about this parameter, see the following **additional information about request parameters**.
+      // > For more information, see the **MonitorConfigJson** section below.
       shared_ptr<string> monitorConfigJson_ {};
-      // The alert contact configurations.
+      // The alarm contact configuration.
       // 
-      // >  For more information about this parameter, see the following **additional information about request parameters**.
+      // > For more information, see the **MonitorContactsJson** section below.
       shared_ptr<string> monitorContactsJson_ {};
-      // The ID of the namespace.
+      // The namespace ID.
       shared_ptr<string> namespace_ {};
+      // The name of the notification policy.
       shared_ptr<string> notificationPolicyName_ {};
     };
 
@@ -235,17 +237,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The returned status code.
     shared_ptr<int32_t> code_ {};
-    // The information about the application group.
+    // The details of the App Group.
     shared_ptr<GetAppGroupResponseBody::Data> data_ {};
-    // The additional information that is returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // - **true**: The request was successful.
+    // 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

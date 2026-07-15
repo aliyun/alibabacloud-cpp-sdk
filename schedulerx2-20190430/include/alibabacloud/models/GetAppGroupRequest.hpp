@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+    // The App Group ID. You can obtain this ID on the **Application Management** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the namespace. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+    // The namespace ID. You can obtain this ID on the **Namespaces** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

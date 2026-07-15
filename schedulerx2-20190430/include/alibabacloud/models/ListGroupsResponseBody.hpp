@@ -150,18 +150,23 @@ namespace Models
 
 
       protected:
-        // The application group ID.
+        // The ID of the application group.
         shared_ptr<int64_t> appGroupId_ {};
-        // The AppKey for the application.
+        // The application key.
         shared_ptr<string> appKey_ {};
         // The name of the application.
         shared_ptr<string> appName_ {};
-        // The application version. 1: Basic version, 2: Professional version.
+        // The application version. Valid values: 1 (Basic Edition) and 2 (Professional Edition).
         shared_ptr<int32_t> appVersion_ {};
         // The description of the application.
         shared_ptr<string> description_ {};
+        // Indicates whether logging is enabled.
+        // 
+        // - true: Logging is enabled.
+        // 
+        // - false: Logging is disabled.
         shared_ptr<bool> enableLog_ {};
-        // The application ID.
+        // The ID of the application.
         shared_ptr<string> groupId_ {};
         // The ID of the namespace.
         shared_ptr<string> namespace_ {};
@@ -178,7 +183,7 @@ namespace Models
 
 
     protected:
-      // The applications and their details.
+      // The list of applications and their details.
       shared_ptr<vector<Data::AppGroups>> appGroups_ {};
     };
 
@@ -224,16 +229,17 @@ namespace Models
   protected:
     // The HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // The applications.
+    // The list of applications.
     shared_ptr<ListGroupsResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

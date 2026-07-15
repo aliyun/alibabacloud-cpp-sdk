@@ -68,13 +68,13 @@ namespace Models
   protected:
     // The name of the application group.
     shared_ptr<string> appGroupName_ {};
-    // The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+    // The namespace. You can obtain the ID of the namespace on the **Namespace** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The source of the namespace. This parameter is required only for a special third party.
+    // This parameter is required only for specific third-party integrations.
     shared_ptr<string> namespaceSource_ {};
-    // The region ID.
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

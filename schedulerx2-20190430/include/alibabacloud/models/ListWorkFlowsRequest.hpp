@@ -123,8 +123,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The job status.
     // 
-    // *   **0**: disables the job.
-    // *   **1**: enables the routing policy.
+    // - **0**: disables the job.
+    // 
+    // - **1**: enables the routing policy.
     shared_ptr<int32_t> status_ {};
     // The workflow name.
     shared_ptr<string> workflowName_ {};

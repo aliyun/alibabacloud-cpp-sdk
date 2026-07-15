@@ -75,9 +75,9 @@ namespace Models
 
 
     protected:
-      // The job group ID.
+      // The Application Group ID.
       shared_ptr<int64_t> appGroupId_ {};
-      // The AppKey for the application.
+      // The Application Key (AppKey).
       shared_ptr<string> appKey_ {};
     };
 
@@ -121,18 +121,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The information about the job group.
+    // Information about the created Application Group.
     shared_ptr<CreateAppGroupResponseBody::Data> data_ {};
-    // The error message that is returned only if the corresponding error occurs.
+    // The error message. Returned only when the request fails.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application was created. Valid values:
+    // Indicates whether the Application Group was successfully created. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The Application Group was successfully created.
+    // 
+    // - **false**: The Application Group failed to be created.
     shared_ptr<bool> success_ {};
   };
 

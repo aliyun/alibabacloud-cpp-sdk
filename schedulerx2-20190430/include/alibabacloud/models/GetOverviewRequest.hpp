@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value must be a UNIX timestamp (in seconds). If left empty, the current time is used.
+    // The end timestamp of the data, in seconds. Example: 1684166400. If this parameter is not specified, the current time is used by default.
     shared_ptr<int64_t> endTime_ {};
     // The application group ID.
     shared_ptr<string> groupId_ {};
     // The metric type. Valid values:
     // 
-    // *   0: the basic job data.
-    // *   1: the job running data.
+    // - 0: basic task information.
+    // - 1: task execution information.
     // 
     // This parameter is required.
     shared_ptr<int32_t> metricType_ {};
-    // The unique identifier (UID) of the namespace.
+    // The namespace UID.
     shared_ptr<string> namespace_ {};
-    // The source of the namespace. This parameter is required only for a special third party.
+    // The source of the namespace. This parameter is required only for special third-party integrations.
     shared_ptr<string> namespaceSource_ {};
-    // The query type. Valid values:
+    // The operation type. Valid values:
     // 
-    // *   query: queries data in a time range.
-    // *   query_range: queries time series data in a time range.
+    // - query: queries interval data.
+    // - query_range: queries interval time series data.
     // 
     // This parameter is required.
     shared_ptr<string> operate_ {};
@@ -129,7 +129,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. The value must be a UNIX timestamp (in seconds).
+    // The start timestamp of the data, in seconds. Example: 1684166400.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

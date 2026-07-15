@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(QueueSize, queueSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SendChannel, sendChannel_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(SuccessNoticeEnable, successNoticeEnable_);
       DARABONBA_PTR_TO_JSON(TaskAttemptInterval, taskAttemptInterval_);
       DARABONBA_PTR_TO_JSON(TaskDispatchMode, taskDispatchMode_);
@@ -80,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(QueueSize, queueSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SendChannel, sendChannel_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(SuccessNoticeEnable, successNoticeEnable_);
       DARABONBA_PTR_FROM_JSON(TaskAttemptInterval, taskAttemptInterval_);
       DARABONBA_PTR_FROM_JSON(TaskDispatchMode, taskDispatchMode_);
@@ -160,13 +162,13 @@ namespace Models
 
 
     protected:
-      // The webhook URL of the DingTalk chatbot.[](https://open.dingtalk.com/document/org/application-types)
+      // The webhook URL of the DingTalk chatbot in the DingTalk group for alert contacts. References: [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
       shared_ptr<string> ding_ {};
-      // The email address of the alert contact.
+      // The email address of the user.
       shared_ptr<string> userMail_ {};
-      // The name of the alert contact.
+      // The username.
       shared_ptr<string> userName_ {};
-      // The mobile phone number of the alert contact.
+      // The mobile phone number of the user.
       shared_ptr<string> userPhone_ {};
     };
 
@@ -176,9 +178,9 @@ namespace Models
         && this->failTimes_ == nullptr && this->groupId_ == nullptr && this->jobId_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr
         && this->missWorkerEnable_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr && this->pageSize_ == nullptr
         && this->parameters_ == nullptr && this->priority_ == nullptr && this->queueSize_ == nullptr && this->regionId_ == nullptr && this->sendChannel_ == nullptr
-        && this->successNoticeEnable_ == nullptr && this->taskAttemptInterval_ == nullptr && this->taskDispatchMode_ == nullptr && this->taskMaxAttempt_ == nullptr && this->template_ == nullptr
-        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeout_ == nullptr && this->timeoutEnable_ == nullptr && this->timeoutKillEnable_ == nullptr
-        && this->timezone_ == nullptr && this->XAttrs_ == nullptr; };
+        && this->startTime_ == nullptr && this->successNoticeEnable_ == nullptr && this->taskAttemptInterval_ == nullptr && this->taskDispatchMode_ == nullptr && this->taskMaxAttempt_ == nullptr
+        && this->template_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeout_ == nullptr && this->timeoutEnable_ == nullptr
+        && this->timeoutKillEnable_ == nullptr && this->timezone_ == nullptr && this->XAttrs_ == nullptr; };
     // attemptInterval Field Functions 
     bool hasAttemptInterval() const { return this->attemptInterval_ != nullptr;};
     void deleteAttemptInterval() { this->attemptInterval_ = nullptr;};
@@ -363,6 +365,13 @@ namespace Models
     inline UpdateJobRequest& setSendChannel(string sendChannel) { DARABONBA_PTR_SET_VALUE(sendChannel_, sendChannel) };
 
 
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline UpdateJobRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
     // successNoticeEnable Field Functions 
     bool hasSuccessNoticeEnable() const { return this->successNoticeEnable_ != nullptr;};
     void deleteSuccessNoticeEnable() { this->successNoticeEnable_ = nullptr;};
@@ -448,118 +457,128 @@ namespace Models
 
 
   protected:
-    // The interval of retries after a job failure. Default value: 30. Unit: seconds.
+    // The retry interval on errors. Unit: seconds. Default value: 30.
     shared_ptr<int32_t> attemptInterval_ {};
-    // If you set TimeType to 1 (cron), you can specify calendar days.
+    // The custom calendar that can be optionally specified for the cron type.
     shared_ptr<string> calendar_ {};
-    // The full path of the job interface class.
+    // The full path of the node interface class.
     // 
-    // This field is available only when you set the job type to java. In this case, you must enter a full path.
+    // This field is required only for Java node types, and the full path must be specified.
     shared_ptr<string> className_ {};
-    // The number of threads that are triggered by a single worker at a time. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. The number of threads for a single trigger on a single machine. Default value: 5.
     shared_ptr<int32_t> consumerSize_ {};
-    // The information about the alert contact.
+    // The contact information for the node.
+    // >Notice: This field is deprecated.</notice>
     shared_ptr<vector<UpdateJobRequest::ContactInfo>> contactInfo_ {};
-    // The script content. This parameter is required when you set the job type to python, shell, go, or k8s.
+    // - If the node type is python, shell, or k8s, specify the corresponding script content.
+    // - If the node type is golang, the content format example is {"jobName":"HelloWorld"}.
     shared_ptr<string> content_ {};
-    // If you set TimeType to 1 (cron), you can specify a time offset. Unit: seconds.
+    // The time offset that can be optionally specified for the cron type. Unit: seconds.
     shared_ptr<int32_t> dataOffset_ {};
-    // The job description.
+    // The node description.
     shared_ptr<string> description_ {};
-    // The number of task distribution threads. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. The number of subtask dispatch threads. Default value: 5.
     shared_ptr<int32_t> dispatcherSize_ {};
-    // The execution mode of the job. Valid values:
+    // The node execution mode. Valid values:
     // 
-    // *   **Stand-alone operation**: standalone
-    // *   **Broadcast run**: broadcatst
-    // *   **Visual MapReduce**: parallel
-    // *   **MapReduce**: batch
-    // *   **Shard run**: shard
+    // - **standalone**: standalone
+    // - **broadcatst**: broadcast
+    // - **parallel**: visual MapReduce
+    // - **batch**: MapReduce
+    // - **shard**: shard
     shared_ptr<string> executeMode_ {};
-    // Specifies whether to turn on Failure alarm. If the switch is turned on, an alert will be generated upon a failure. Valid values:
+    // Specifies whether to enable the failure alert. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> failEnable_ {};
-    // The number of consecutive failures. An alert will be received if the number of consecutive failures reaches the value of this parameter.
+    // The number of consecutive failures before an alert is triggered.
     shared_ptr<int32_t> failTimes_ {};
-    // The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+    // The application ID. You can obtain the application ID on the Application Management page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
+    // The node ID. You can obtain the node ID on the Task Management page in the console.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The maximum number of retries after a job failure. This parameter is specified based on your business requirements.
+    // The maximum number of retries on errors. Set this parameter based on your business requirements.
     shared_ptr<int32_t> maxAttempt_ {};
-    // The maximum number of concurrent instances. Default value: 1. The default value indicates that only one instance is allowed to run at a time. When an instance is running, another instance is not triggered even if the scheduled time for running the instance is reached.
+    // The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is not performed even if the scheduled time has arrived.
     shared_ptr<int32_t> maxConcurrency_ {};
-    // Specifies whether to turn on No machine alarm available. If the switch is turned on, an alert will be generated when no machine is available for running the job. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Specifies whether to enable the no-available-machine alert. Valid values:
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> missWorkerEnable_ {};
-    // The job name.
+    // The node name.
     shared_ptr<string> name_ {};
-    // The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+    // The namespace ID. You can obtain the namespace ID on the Namespace page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The namespace source. This parameter is required only for a special third party.
+    // This parameter is required only for special third-party users.
     shared_ptr<string> namespaceSource_ {};
-    // The number of tasks that can be pulled at a time. Default value: 100. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. The number of subtasks pulled per request. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The user-defined parameters that you can obtain when the job is running.
+    // The user-defined parameters that can be obtained at runtime.
     shared_ptr<string> parameters_ {};
+    // The node priority. Valid values:
+    // - **1**: low
+    // - **5**: medium
+    // - **10**: high
+    // - **15**: very high
     shared_ptr<int32_t> priority_ {};
-    // The maximum number of tasks that can be queued. Default value: 10000. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. The maximum cache size of the subtask queue. Default value: 10000.
     shared_ptr<int32_t> queueSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The method that is used to send alerts. Only Short Message Service (SMS) is supported.
+    // The alert notification method. Currently, only sms is supported.
     shared_ptr<string> sendChannel_ {};
-    // Specifies whether to turn on Successful notice. If the switch is turned on, a notice will be sent when a job succeeds.
+    shared_ptr<int64_t> startTime_ {};
+    // Specifies whether to enable the success notification.
     shared_ptr<bool> successNoticeEnable_ {};
-    // The interval of retries after a task failure. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. The retry interval for failed subtasks.
     shared_ptr<int32_t> taskAttemptInterval_ {};
-    // The job mode. Valid values: push and pull. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. Specifies the push model or pull model.
     shared_ptr<string> taskDispatchMode_ {};
-    // The number of retries after a task failure. This parameter is an advanced configuration item of the MapReduce job.
+    // The advanced configuration for parallel grid tasks. The number of retries for failed subtasks.
     shared_ptr<int32_t> taskMaxAttempt_ {};
-    // Custom task template for the k8s task type.
+    // The custom task template for k8s node types.
     shared_ptr<string> template_ {};
-    // The time expression. Specify the time expression based on the value of TimeType:
+    // The time expression. Set the time expression based on the selected time type.
     // 
-    // *   If you set TimeType to **1** (cron), specify this parameter to a standard CRON expression.
-    // *   If you set TimeType to **100** (api), no time expression is required.
-    // *   If you set TimeType to **3** (fixed_rate), specify this parameter to a fixed frequency in seconds. For example, if you set this parameter to 30, the system triggers a job every 30 seconds.
-    // *   If you set TimeType to **4** (second_delay), specify this parameter to a fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
+    // - **cron**: Specify a standard cron expression. Online verification is supported.
+    // - **api**: No time expression is required.
+    // - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
+    // - **second_delay**: Specify a fixed delay in seconds before each execution (1s to 60s).
     shared_ptr<string> timeExpression_ {};
-    // The time type. Valid values:
+    // The time configuration type. Valid values:
     // 
-    // *   **1**: cron
-    // *   **3**: fix_rate
-    // *   **4**: second_delay
-    // *   **100**: api
+    // - **1**: cron
+    // - **3**: fix_rate
+    // - **4**: second_delay
+    // - **5**: one_time
+    // - **100**: api
     shared_ptr<int32_t> timeType_ {};
     // The timeout threshold. Unit: seconds.
     shared_ptr<int64_t> timeout_ {};
-    // Specifies whether to turn on Timeout alarm. If the switch is turned on, an alert will be generated upon a timeout. Valid values:
+    // Specifies whether to enable the timeout alert. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> timeoutEnable_ {};
-    // Specifies whether to turn on Timeout termination. If the switch is turned on, the job will be terminated upon a timeout. Valid values:
+    // Specifies whether to enable the timeout termination for the current trigger. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> timeoutKillEnable_ {};
-    // Time zone.
+    // The time zone.
     shared_ptr<string> timezone_ {};
-    // If you set JobType to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
+    // The parameter that must be configured for k8s node types.
+    // Job task: {"resource":"job"}
+    // Shell task: {"image":"busybox","resource":"shell"}
     shared_ptr<string> XAttrs_ {};
   };
 

@@ -176,48 +176,55 @@ namespace Models
 
 
   protected:
-    // The AppKey for the application.
+    // The AppKey of the application.
     shared_ptr<string> appKey_ {};
-    // The name of the application.
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The type of application. Valid values:
+    // The application type.
     // 
-    // *   `TRACE`: Application Monitoring
-    // *   `EBPF`: Application Monitoring eBPF Edition
+    // - `1`: Standard application.
+    // 
+    // - `2`: Kubernetes (K8s) application.
     shared_ptr<int32_t> appType_ {};
-    // The application version. 1: Basic version, 2: Professional version.
+    // The application version. Valid values: `1` (Basic Edition) and `2` (Professional Edition).
     shared_ptr<int32_t> appVersion_ {};
-    // The description of the application.
+    // The application description.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable logging. Valid values:
+    // Specifies whether to enable logging.
     // 
-    // *   `true`: enabled
-    // *   `false`: disabled
+    // - `true`: Enable logging.
+    // 
+    // - `false`: Disable logging.
     shared_ptr<bool> enableLog_ {};
-    // The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+    // The ID of the application group. You can find this ID on the **Application Management** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
     // The maximum number of jobs.
     shared_ptr<int32_t> maxJobs_ {};
-    // The configuration of the alert. The value is a JSON string. For more information about this parameter, see **Additional information about request parameters**.
+    // Specifies the alert notification configuration as a JSON string. The string can contain the following properties: `sendChannel`, `alarmType`, and `webhookIsAtAll`.
+    // 
+    // > For more information, see the **Additional information about request parameters** section.
     shared_ptr<string> monitorConfigJson_ {};
-    // The configuration of alert contacts. The value is a JSON string.
+    // The alert contacts. This can include individual contacts and contact groups.
+    // 
+    // > For more information, see the **Additional information about request parameters** section.
     shared_ptr<string> monitorContactsJson_ {};
-    // The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+    // The ID of the namespace. You can find this ID on the **Namespace** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
     // The name of the namespace.
     shared_ptr<string> namespaceName_ {};
-    // This parameter is not supported. You do not need to specify this parameter.
+    // This parameter is currently unsupported and can be left unspecified.
     shared_ptr<string> namespaceSource_ {};
+    // The notification policy name.
     shared_ptr<string> notificationPolicyName_ {};
-    // The region ID.
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to schedule a busy worker.
+    // Specifies whether to schedule jobs on a busy worker.
     shared_ptr<bool> scheduleBusyWorkers_ {};
   };
 

@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The workflow instance ID.
+      // The ID of the workflow instance.
       shared_ptr<int64_t> wfInstanceId_ {};
     };
 
@@ -109,13 +109,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // If the request is successful, the ID of the workflow instance is returned.
+    // The data returned for a successful request. It contains the workflow instance ID.
     shared_ptr<ExecuteWorkflowResponseBody::Data> data_ {};
-    // The error message that is returned only if the corresponding error occurs.
+    // The error message. This parameter is returned only if the request fails.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

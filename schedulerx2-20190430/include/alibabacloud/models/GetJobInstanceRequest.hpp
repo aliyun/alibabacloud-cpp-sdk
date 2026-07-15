@@ -102,6 +102,8 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // The source of the namespace. This parameter is required only for a special third party.
     shared_ptr<string> namespaceSource_ {};
+    // Region ID
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

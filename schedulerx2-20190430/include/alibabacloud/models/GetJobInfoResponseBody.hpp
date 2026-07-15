@@ -170,18 +170,25 @@ namespace Models
           shared_ptr<int32_t> dataOffset_ {};
           // The time expression specified based on the value of TimeType:
           // 
-          // *   If TimeType is set to **100** (api), no time expression is required.
-          // *   If TimeType is set to **3** (fix_rate), this parameter value indicates the specific and fixed frequency. For example, if the value is 30, the system triggers a job every 30 seconds.
-          // *   If TimeType is set to **1** (cron), this parameter value indicates the standard CRON expression used to specify the time when to schedule the job.
-          // *   If TimeType is set to **4** (second_delay), this parameter value indicates the fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
+          // - If TimeType is set to **100** (api), no time expression is required.
+          // 
+          // - If TimeType is set to **3** (fix_rate), this parameter value indicates the specific and fixed frequency. For example, if the value is 30, the system triggers a job every 30 seconds.
+          // 
+          // - If TimeType is set to **1** (cron), this parameter value indicates the standard CRON expression used to specify the time when to schedule the job.
+          // 
+          // - If TimeType is set to **4** (second_delay), this parameter value indicates the fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
           shared_ptr<string> timeExpression_ {};
           // The time type. Valid values:
           // 
-          // *   **1**: cron
-          // *   **3**: fix_rate
-          // *   **4**: second_delay
-          // *   **5**: one_time
-          // *   **100**: api
+          // - **1**: cron
+          // 
+          // - **3**: fix_rate
+          // 
+          // - **4**: second_delay
+          // 
+          // - **5**: one_time
+          // 
+          // - **100**: api
           shared_ptr<int32_t> timeType_ {};
         };
 
@@ -370,8 +377,9 @@ namespace Models
           protected:
             // Indicates whether the Failure alarm switch was turned on. Valid values:
             // 
-            // *   **true**
-            // *   **false**
+            // - **true**
+            // 
+            // - **false**
             shared_ptr<bool> failEnable_ {};
             // Indicates whether the No machine alarm available switch was turned on.
             shared_ptr<bool> missWorkerEnable_ {};
@@ -381,8 +389,9 @@ namespace Models
             shared_ptr<int64_t> timeout_ {};
             // Indicates whether the Timeout alarm switch was turned on. Valid values:
             // 
-            // *   **true**
-            // *   **false**
+            // - **true**
+            // 
+            // - **false**
             shared_ptr<bool> timeoutEnable_ {};
             // Indicates whether the Timeout termination switch was turned on. The switch is turned off by default.
             shared_ptr<bool> timeoutKillEnable_ {};
@@ -622,11 +631,15 @@ namespace Models
         shared_ptr<string> description_ {};
         // The execution mode of the job. Valid values:
         // 
-        // *   **Stand-alone operation**: standalone
-        // *   **Broadcast run**: broadcast
-        // *   **Visual MapReduce**: parallel
-        // *   **MapReduce**: batch
-        // *   **Shard run**: sharding
+        // - **Stand-alone operation**: standalone
+        // 
+        // - **Broadcast run**: broadcast
+        // 
+        // - **Visual MapReduce**: parallel
+        // 
+        // - **MapReduce**: batch
+        // 
+        // - **Shard run**: sharding
         shared_ptr<string> executeMode_ {};
         // The full path used to upload files to Object Storage Service (OSS).
         // 
@@ -650,8 +663,9 @@ namespace Models
         shared_ptr<string> parameters_ {};
         // Indicates whether the job was enabled. Valid values:
         // 
-        // *   **1**: The job was enabled and could be triggered.
-        // *   **0**: The job was disabled and could not be triggered.
+        // - **1**: The job was enabled and could be triggered.
+        // 
+        // - **0**: The job was disabled and could not be triggered.
         shared_ptr<int32_t> status_ {};
         // The time configurations.
         shared_ptr<JobConfigInfo::TimeConfig> timeConfig_ {};
@@ -724,8 +738,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the job details were obtained. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

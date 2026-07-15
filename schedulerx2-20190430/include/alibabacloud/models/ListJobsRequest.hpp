@@ -103,28 +103,31 @@ namespace Models
 
 
   protected:
-    // The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+    // The application ID. You can obtain the ID on the **Application Management** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The name of the job.
+    // The node name.
     shared_ptr<string> jobName_ {};
-    // The ID of the namespace. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+    // The namespace. You can obtain the namespace on the **Namespace** page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The source of the namespace. This parameter is required only for a special third party.
+    // Required only for special third-party users.
     shared_ptr<string> namespaceSource_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable the job. Valid values:
+    // The node status.
     // 
-    // *   **0**: disables the job.
-    // *   **1**: enables the job.
+    // - **0**: disabled
+    // 
+    // - **1**: enabled
     shared_ptr<string> status_ {};
   };
 

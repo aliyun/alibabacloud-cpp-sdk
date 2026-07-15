@@ -125,6 +125,7 @@ namespace Models
     shared_ptr<int32_t> appVersion_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
+    // Enable logging
     shared_ptr<bool> enableLog_ {};
     // The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
     // 
@@ -140,6 +141,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // Notification policy name
     shared_ptr<string> notificationPolicyName_ {};
     // The ID of the region.
     // 

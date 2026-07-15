@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The additional information returned only if an error occurs.
+    // The additional information. The error message is returned only when a fault occurs.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

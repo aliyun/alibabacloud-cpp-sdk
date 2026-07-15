@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The display name of the region, which varies based on the current language.
+      // The display name of the region. This value varies based on the language specified in the request.
       shared_ptr<string> localName_ {};
-      // The endpoint of the region.
+      // The service endpoint for the region.
       shared_ptr<string> regionEndpoint_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -133,18 +133,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The error message that was returned only if the corresponding error occurred.
+    // The error message. This parameter is returned only if the request fails.
     shared_ptr<string> message_ {};
-    // The available regions.
+    // A list of available regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

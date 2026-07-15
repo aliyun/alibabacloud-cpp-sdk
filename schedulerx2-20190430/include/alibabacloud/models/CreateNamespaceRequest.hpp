@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The description of the namespace.
+    // The namespace description.
     shared_ptr<string> description_ {};
-    // The name of the namespace.
+    // The namespace name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The region ID.
+    // The region ID. For example, `cn-hangzhou` specifies the China (Hangzhou) region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The unique identifier (UID) of the namespace. We recommend that you use the universally unique identifier (UUID) to generate the UID.
+    // The namespace UID. This value must be globally unique. We recommend that you use a UUID.
     shared_ptr<string> uid_ {};
   };
 

@@ -127,11 +127,11 @@ namespace Models
 
 
         protected:
-          // The ID of the job.
+          // The job ID.
           shared_ptr<int64_t> id_ {};
-          // The name of the job.
+          // The job name.
           shared_ptr<string> label_ {};
-          // The status of the job.
+          // The job status.
           shared_ptr<int32_t> status_ {};
         };
 
@@ -173,9 +173,9 @@ namespace Models
 
 
         protected:
-          // The ID of the source job.
+          // The source job ID.
           shared_ptr<int64_t> source_ {};
-          // The ID of the object job.
+          // The target job ID.
           shared_ptr<int64_t> target_ {};
         };
 
@@ -200,7 +200,7 @@ namespace Models
 
 
       protected:
-        // The workflow edges.
+        // The list of workflow edges.
         shared_ptr<vector<WorkFlowNodeInfo::Edges>> edges_ {};
         // The list of workflow nodes.
         shared_ptr<vector<WorkFlowNodeInfo::Nodes>> nodes_ {};
@@ -310,18 +310,21 @@ namespace Models
       protected:
         // The description of the workflow.
         shared_ptr<string> description_ {};
+        // The ID of the application group.
         shared_ptr<string> groupId_ {};
+        // The maximum number of concurrent instances.
         shared_ptr<string> maxConcurrency_ {};
-        // The name of the workflow.
+        // The workflow name.
         shared_ptr<string> name_ {};
+        // The ID of the namespace.
         shared_ptr<string> namespace_ {};
-        // The status of the workflow.
+        // The workflow status.
         shared_ptr<string> status_ {};
-        // The time expression of the workflow.
+        // The time expression for the workflow.
         shared_ptr<string> timeExpression_ {};
         // The time type of the workflow.
         shared_ptr<string> timeType_ {};
-        // The ID of the workflow.
+        // The workflow ID.
         shared_ptr<int64_t> workflowId_ {};
       };
 
@@ -346,9 +349,9 @@ namespace Models
 
 
     protected:
-      // The basic information of the workflow.
+      // The basic information about the workflow.
       shared_ptr<Data::WorkFlowInfo> workFlowInfo_ {};
-      // The node information of the workflow.
+      // The workflow node information.
       shared_ptr<Data::WorkFlowNodeInfo> workFlowNodeInfo_ {};
     };
 
@@ -392,15 +395,15 @@ namespace Models
 
 
   protected:
-    // Error codes
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // The data of the workflow.
+    // The workflow data.
     shared_ptr<GetWorkFlowResponseBody::Data> data_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the API call.
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

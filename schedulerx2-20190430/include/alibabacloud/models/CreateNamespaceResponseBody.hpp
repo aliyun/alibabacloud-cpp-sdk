@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The UID of the namespace.
+      // The namespace UID.
       shared_ptr<string> namespaceUid_ {};
     };
 
@@ -109,18 +109,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The information about the namespace.
+    // The namespace information.
     shared_ptr<CreateNamespaceResponseBody::Data> data_ {};
-    // The error message that is returned only if the corresponding error occurs.
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the application was created. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The namespace was successfully created.
+    // 
+    // - **false**: The namespace failed to be created.
     shared_ptr<bool> success_ {};
   };
 

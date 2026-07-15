@@ -21,9 +21,9 @@ namespace Schedulerx220190430
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Deletes multiple jobs at a time.
+       * @summary Deletes multiple Jobs.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+       * @description Before you call this API, add the following dependency to your POM file:
        * ```xml
        * <dependency>
        *     <groupId>com.aliyun</groupId>
@@ -39,9 +39,9 @@ namespace Schedulerx220190430
       Models::BatchDeleteJobsResponse batchDeleteJobsWithOptions(const Models::BatchDeleteJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes multiple jobs at a time.
+       * @summary Deletes multiple Jobs.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+       * @description Before you call this API, add the following dependency to your POM file:
        * ```xml
        * <dependency>
        *     <groupId>com.aliyun</groupId>
@@ -56,7 +56,7 @@ namespace Schedulerx220190430
       Models::BatchDeleteJobsResponse batchDeleteJobs(const Models::BatchDeleteJobsRequest &request);
 
       /**
-       * @summary Deletes multiple routing policies at a time.
+       * @summary Deletes multiple Route Strategies in a batch.
        *
        * @param request BatchDeleteRouteStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -65,7 +65,7 @@ namespace Schedulerx220190430
       Models::BatchDeleteRouteStrategyResponse batchDeleteRouteStrategyWithOptions(const Models::BatchDeleteRouteStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes multiple routing policies at a time.
+       * @summary Deletes multiple Route Strategies in a batch.
        *
        * @param request BatchDeleteRouteStrategyRequest
        * @return BatchDeleteRouteStrategyResponse
@@ -73,9 +73,9 @@ namespace Schedulerx220190430
       Models::BatchDeleteRouteStrategyResponse batchDeleteRouteStrategy(const Models::BatchDeleteRouteStrategyRequest &request);
 
       /**
-       * @summary Disables multiple jobs at a time.
+       * @summary Disables multiple jobs in a batch.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+       * @description To call this API, add the following dependency to your POM File:
        * ```xml
        * <dependency>
        *     <groupId>com.aliyun</groupId>
@@ -91,9 +91,9 @@ namespace Schedulerx220190430
       Models::BatchDisableJobsResponse batchDisableJobsWithOptions(const Models::BatchDisableJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables multiple jobs at a time.
+       * @summary Disables multiple jobs in a batch.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+       * @description To call this API, add the following dependency to your POM File:
        * ```xml
        * <dependency>
        *     <groupId>com.aliyun</groupId>
@@ -143,7 +143,7 @@ namespace Schedulerx220190430
       Models::BatchEnableJobsResponse batchEnableJobs(const Models::BatchEnableJobsRequest &request);
 
       /**
-       * @summary Creates an application group. The AppKey is returned.
+       * @summary Creates an app group and returns an AppKey.
        *
        * @param request CreateAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -152,7 +152,7 @@ namespace Schedulerx220190430
       Models::CreateAppGroupResponse createAppGroupWithOptions(const Models::CreateAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application group. The AppKey is returned.
+       * @summary Creates an app group and returns an AppKey.
        *
        * @param request CreateAppGroupRequest
        * @return CreateAppGroupResponse
@@ -160,7 +160,7 @@ namespace Schedulerx220190430
       Models::CreateAppGroupResponse createAppGroup(const Models::CreateAppGroupRequest &request);
 
       /**
-       * @summary Creates a job and obtains the job ID.
+       * @summary Creates a node and returns the node ID.
        *
        * @param request CreateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -169,7 +169,7 @@ namespace Schedulerx220190430
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job and obtains the job ID.
+       * @summary Creates a node and returns the node ID.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -364,7 +364,7 @@ namespace Schedulerx220190430
       Models::DeleteSchedulerxNotificationPolicyResponse deleteSchedulerxNotificationPolicy(const Models::DeleteSchedulerxNotificationPolicyRequest &request);
 
       /**
-       * @summary Deletes a workflow.
+       * @summary Deletes the specified workflow.
        *
        * @param request DeleteWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -373,7 +373,7 @@ namespace Schedulerx220190430
       Models::DeleteWorkflowResponse deleteWorkflowWithOptions(const Models::DeleteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a workflow.
+       * @summary Deletes the specified workflow.
        *
        * @param request DeleteWorkflowRequest
        * @return DeleteWorkflowResponse
@@ -381,7 +381,7 @@ namespace Schedulerx220190430
       Models::DeleteWorkflowResponse deleteWorkflow(const Models::DeleteWorkflowRequest &request);
 
       /**
-       * @summary Returns available regions.
+       * @summary Returns a list of available regions.
        *
        * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -390,7 +390,7 @@ namespace Schedulerx220190430
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns available regions.
+       * @summary Returns a list of available regions.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -415,7 +415,7 @@ namespace Schedulerx220190430
       Models::DesignateWorkersResponse designateWorkers(const Models::DesignateWorkersRequest &request);
 
       /**
-       * @summary Disables a specified task.
+       * @summary Disables a job.
        *
        * @param request DisableJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -424,7 +424,7 @@ namespace Schedulerx220190430
       Models::DisableJobResponse disableJobWithOptions(const Models::DisableJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a specified task.
+       * @summary Disables a job.
        *
        * @param request DisableJobRequest
        * @return DisableJobResponse
@@ -451,6 +451,8 @@ namespace Schedulerx220190430
       /**
        * @summary Enables a job.
        *
+       * @description 任务创建完成以后默认启用，所以该功能是在停用任务后使用。
+       *
        * @param request EnableJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableJobResponse
@@ -460,13 +462,15 @@ namespace Schedulerx220190430
       /**
        * @summary Enables a job.
        *
+       * @description 任务创建完成以后默认启用，所以该功能是在停用任务后使用。
+       *
        * @param request EnableJobRequest
        * @return EnableJobResponse
        */
       Models::EnableJobResponse enableJob(const Models::EnableJobRequest &request);
 
       /**
-       * @summary Enables a specified workflow.
+       * @summary Enables a workflow.
        *
        * @param request EnableWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +479,7 @@ namespace Schedulerx220190430
       Models::EnableWorkflowResponse enableWorkflowWithOptions(const Models::EnableWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a specified workflow.
+       * @summary Enables a workflow.
        *
        * @param request EnableWorkflowRequest
        * @return EnableWorkflowResponse
@@ -504,7 +508,7 @@ namespace Schedulerx220190430
       Models::ExecuteJobResponse executeJob(const Models::ExecuteJobRequest &request);
 
       /**
-       * @summary Immediately triggers a workflow.
+       * @summary Executes a workflow immediately.
        *
        * @param request ExecuteWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -513,7 +517,7 @@ namespace Schedulerx220190430
       Models::ExecuteWorkflowResponse executeWorkflowWithOptions(const Models::ExecuteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Immediately triggers a workflow.
+       * @summary Executes a workflow immediately.
        *
        * @param request ExecuteWorkflowRequest
        * @return ExecuteWorkflowResponse
@@ -521,7 +525,7 @@ namespace Schedulerx220190430
       Models::ExecuteWorkflowResponse executeWorkflow(const Models::ExecuteWorkflowRequest &request);
 
       /**
-       * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
+       * @summary Retrieves the details of an App Group.
        *
        * @param request GetAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -530,7 +534,7 @@ namespace Schedulerx220190430
       Models::GetAppGroupResponse getAppGroupWithOptions(const Models::GetAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
+       * @summary Retrieves the details of an App Group.
        *
        * @param request GetAppGroupRequest
        * @return GetAppGroupResponse
@@ -555,7 +559,7 @@ namespace Schedulerx220190430
       Models::GetJobInfoResponse getJobInfo(const Models::GetJobInfoRequest &request);
 
       /**
-       * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+       * @summary Returns the information of a job instance, allowing you to view its status and progress.
        *
        * @param request GetJobInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -564,7 +568,7 @@ namespace Schedulerx220190430
       Models::GetJobInstanceResponse getJobInstanceWithOptions(const Models::GetJobInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+       * @summary Returns the information of a job instance, allowing you to view its status and progress.
        *
        * @param request GetJobInstanceRequest
        * @return GetJobInstanceResponse
@@ -606,7 +610,7 @@ namespace Schedulerx220190430
       Models::GetLogResponse getLog(const Models::GetLogRequest &request);
 
       /**
-       * @summary Retrieves job scheduling data for Professional Edition applications.
+       * @summary Retrieves the overview data of task scheduling for a professional edition application.
        *
        * @param request GetOverviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -615,7 +619,7 @@ namespace Schedulerx220190430
       Models::GetOverviewResponse getOverviewWithOptions(const Models::GetOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves job scheduling data for Professional Edition applications.
+       * @summary Retrieves the overview data of task scheduling for a professional edition application.
        *
        * @param request GetOverviewRequest
        * @return GetOverviewResponse
@@ -623,7 +627,7 @@ namespace Schedulerx220190430
       Models::GetOverviewResponse getOverview(const Models::GetOverviewRequest &request);
 
       /**
-       * @summary Obtains the information about a workflow.
+       * @summary Retrieves workflow information.
        *
        * @param request GetWorkFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -632,7 +636,7 @@ namespace Schedulerx220190430
       Models::GetWorkFlowResponse getWorkFlowWithOptions(const Models::GetWorkFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the information about a workflow.
+       * @summary Retrieves workflow information.
        *
        * @param request GetWorkFlowRequest
        * @return GetWorkFlowResponse
@@ -691,9 +695,9 @@ namespace Schedulerx220190430
       Models::GrantPermissionResponse grantPermission(const Models::GrantPermissionRequest &request);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Gets the list of applications.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+       * @description Before you call this operation, add the following dependency to your POM file:
        * ```xml
        * <dependency>
        *     <groupId>com.aliyun</groupId>
@@ -709,9 +713,9 @@ namespace Schedulerx220190430
       Models::ListGroupsResponse listGroupsWithOptions(const Models::ListGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Gets the list of applications.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+       * @description Before you call this operation, add the following dependency to your POM file:
        * ```xml
        * <dependency>
        *     <groupId>com.aliyun</groupId>
@@ -743,14 +747,16 @@ namespace Schedulerx220190430
       Models::ListJobScriptHistoryResponse listJobScriptHistory(const Models::ListJobScriptHistoryRequest &request);
 
       /**
-       * @summary Queries jobs.
+       * @summary Retrieves a list of nodes.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
-       *     <dependency>
-       *           <groupId>com.aliyun</groupId>
-       *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-       *           <version>1.0.5</version>
-       *     </dependency>
+       * @description Before calling this operation, add the following dependency to the POM file:
+       * ```
+       * <dependency>
+       *       <groupId>com.aliyun</groupId>
+       *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+       *       <version>1.0.5</version>
+       * </dependency>
+       * ```
        *
        * @param request ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -759,14 +765,16 @@ namespace Schedulerx220190430
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries jobs.
+       * @summary Retrieves a list of nodes.
        *
-       * @description Before you call this operation, you must add the following dependency to the pom.xml file:
-       *     <dependency>
-       *           <groupId>com.aliyun</groupId>
-       *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-       *           <version>1.0.5</version>
-       *     </dependency>
+       * @description Before calling this operation, add the following dependency to the POM file:
+       * ```
+       * <dependency>
+       *       <groupId>com.aliyun</groupId>
+       *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+       *       <version>1.0.5</version>
+       * </dependency>
+       * ```
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -924,7 +932,7 @@ namespace Schedulerx220190430
       Models::ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetail(const Models::ReadSchedulerxDesignateDetailRequest &request);
 
       /**
-       * @summary Queries the basic information of specified workers.
+       * @summary Retrieves basic information for the specified instance.
        *
        * @param request ReadSchedulerxDesignateInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -933,7 +941,7 @@ namespace Schedulerx220190430
       Models::ReadSchedulerxDesignateInfoResponse readSchedulerxDesignateInfoWithOptions(const Models::ReadSchedulerxDesignateInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information of specified workers.
+       * @summary Retrieves basic information for the specified instance.
        *
        * @param request ReadSchedulerxDesignateInfoRequest
        * @return ReadSchedulerxDesignateInfoResponse
@@ -975,7 +983,7 @@ namespace Schedulerx220190430
       Models::RerunJobResponse rerunJob(const Models::RerunJobRequest &request);
 
       /**
-       * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+       * @summary Reruns a node instance in the failed or successful state. Only the professional edition supports this operation.
        *
        * @param request RetryJobInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -984,7 +992,7 @@ namespace Schedulerx220190430
       Models::RetryJobInstanceResponse retryJobInstanceWithOptions(const Models::RetryJobInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+       * @summary Reruns a node instance in the failed or successful state. Only the professional edition supports this operation.
        *
        * @param request RetryJobInstanceRequest
        * @return RetryJobInstanceResponse
@@ -1009,7 +1017,7 @@ namespace Schedulerx220190430
       Models::RevokePermissionResponse revokePermission(const Models::RevokePermissionRequest &request);
 
       /**
-       * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+       * @summary Forcibly sets the instance status of a node to successful. Only the professional edition supports this operation.
        *
        * @param request SetJobInstanceSuccessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1018,7 +1026,7 @@ namespace Schedulerx220190430
       Models::SetJobInstanceSuccessResponse setJobInstanceSuccessWithOptions(const Models::SetJobInstanceSuccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+       * @summary Forcibly sets the instance status of a node to successful. Only the professional edition supports this operation.
        *
        * @param request SetJobInstanceSuccessRequest
        * @return SetJobInstanceSuccessResponse
@@ -1060,7 +1068,7 @@ namespace Schedulerx220190430
       Models::StopInstanceResponse stopInstance(const Models::StopInstanceRequest &request);
 
       /**
-       * @summary Updates the application group.
+       * @summary Update the application group.
        *
        * @param request UpdateAppGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1069,7 +1077,7 @@ namespace Schedulerx220190430
       Models::UpdateAppGroupResponse updateAppGroupWithOptions(const Models::UpdateAppGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the application group.
+       * @summary Update the application group.
        *
        * @param request UpdateAppGroupRequest
        * @return UpdateAppGroupResponse
@@ -1077,7 +1085,7 @@ namespace Schedulerx220190430
       Models::UpdateAppGroupResponse updateAppGroup(const Models::UpdateAppGroupRequest &request);
 
       /**
-       * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+       * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
        *
        * @param request UpdateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1086,7 +1094,7 @@ namespace Schedulerx220190430
       Models::UpdateJobResponse updateJobWithOptions(const Models::UpdateJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+       * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse
@@ -1145,7 +1153,7 @@ namespace Schedulerx220190430
       Models::UpdateWorkflowResponse updateWorkflow(const Models::UpdateWorkflowRequest &request);
 
       /**
-       * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+       * @summary Updates the nodes and dependencies of a workflow. This operation is available only in the Enterprise Edition.
        *
        * @param request UpdateWorkflowDagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1154,7 +1162,7 @@ namespace Schedulerx220190430
       Models::UpdateWorkflowDagResponse updateWorkflowDagWithOptions(const Models::UpdateWorkflowDagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+       * @summary Updates the nodes and dependencies of a workflow. This operation is available only in the Enterprise Edition.
        *
        * @param request UpdateWorkflowDagRequest
        * @return UpdateWorkflowDagResponse

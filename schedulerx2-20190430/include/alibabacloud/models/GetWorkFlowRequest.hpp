@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The ID of the application group.
+    // The application group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the namespace.
+    // The namespace ID.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The source of the namespace.
+    // The namespace source.
     shared_ptr<string> namespaceSource_ {};
-    // The region information.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the workflow.
+    // The workflow ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};

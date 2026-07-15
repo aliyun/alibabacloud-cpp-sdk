@@ -246,20 +246,27 @@ namespace Models
         shared_ptr<string> startTime_ {};
         // The state of the job instance. Valid values:
         // 
-        // *   **1**: The job instance is waiting for execution.
-        // *   **3**: The job instance is running.
-        // *   **4**: The job instance is successful.
-        // *   **5**: The job instance failed.
-        // *   **9**: The job instance is rejected.
+        // - **1**: The job instance is waiting for execution.
+        // 
+        // - **3**: The job instance is running.
+        // 
+        // - **4**: The job instance is successful.
+        // 
+        // - **5**: The job instance failed.
+        // 
+        // - **9**: The job instance is rejected.
         // 
         // Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus
         shared_ptr<int32_t> status_ {};
         // The method that is used to specify the time when to schedule the job instance. Valid values:
         // 
-        // *   **1**: cron
-        // *   **3**: fix_rate
-        // *   **4**: second_delay
-        // *   **100**: api
+        // - **1**: cron
+        // 
+        // - **3**: fix_rate
+        // 
+        // - **4**: second_delay
+        // 
+        // - **100**: api
         // 
         // Enumeration class: com.alibaba.schedulerx.common.domain.TimeType
         shared_ptr<int32_t> timeType_ {};
@@ -267,11 +274,15 @@ namespace Models
         shared_ptr<string> traceId_ {};
         // The trigger type of the job instance. Valid values:
         // 
-        // *   **1**: The job instance was triggered at the scheduled time.
-        // *   **2**: The job instance was triggered due to data update.
-        // *   **3**: The job instance was triggered by an API call.
-        // *   **4**: The job instance was triggered because it is manually rerun.
-        // *   **5**: The job instance was triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
+        // - **1**: The job instance was triggered at the scheduled time.
+        // 
+        // - **2**: The job instance was triggered due to data update.
+        // 
+        // - **3**: The job instance was triggered by an API call.
+        // 
+        // - **4**: The job instance was triggered because it is manually rerun.
+        // 
+        // - **5**: The job instance was triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
         // 
         // Enumeration class: com.alibaba.schedulerx.common.domain.TriggerType
         shared_ptr<int32_t> triggerType_ {};
@@ -344,8 +355,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

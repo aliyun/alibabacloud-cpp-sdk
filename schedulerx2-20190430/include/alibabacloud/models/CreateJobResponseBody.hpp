@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The job ID.
+      // The node ID.
       shared_ptr<int64_t> jobId_ {};
     };
 
@@ -109,18 +109,18 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The details of the job.
+    // The node details.
     shared_ptr<CreateJobResponseBody::Data> data_ {};
-    // The additional information returned.
+    // The additional information.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // If you set JobType to k8s, this parameter is required. Valid values:
+    // Indicates whether the node was created successfully. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The node was created successfully.
+    // - **false**: The node failed to be created.
     shared_ptr<bool> success_ {};
   };
 

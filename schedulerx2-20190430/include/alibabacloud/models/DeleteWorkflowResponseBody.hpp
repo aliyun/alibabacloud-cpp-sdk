@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<int32_t> code_ {};
-    // The error message that is returned only if the corresponding error occurs.
+    // The error message. This parameter is returned only if the request fails.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the workflow was deleted. Valid values:
+    // Indicates whether the workflow was deleted successfully. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The workflow was deleted.
+    // 
+    // - **false**: The workflow was not deleted.
     shared_ptr<bool> success_ {};
   };
 
