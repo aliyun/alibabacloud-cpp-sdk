@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(Interval, interval_);
       DARABONBA_PTR_TO_JSON(PerformanceKeys, performanceKeys_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(Interval, interval_);
       DARABONBA_PTR_FROM_JSON(PerformanceKeys, performanceKeys_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -108,10 +110,12 @@ namespace Models
           class PerformanceItemValue : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const PerformanceItemValue& obj) { 
+              DARABONBA_PTR_TO_JSON(Step, step_);
               DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
               DARABONBA_PTR_TO_JSON(Value, value_);
             };
             friend void from_json(const Darabonba::Json& j, PerformanceItemValue& obj) { 
+              DARABONBA_PTR_FROM_JSON(Step, step_);
               DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
               DARABONBA_PTR_FROM_JSON(Value, value_);
             };
@@ -126,8 +130,15 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->timestamp_ == nullptr
-        && this->value_ == nullptr; };
+            virtual bool empty() const override { return this->step_ == nullptr
+        && this->timestamp_ == nullptr && this->value_ == nullptr; };
+            // step Field Functions 
+            bool hasStep() const { return this->step_ != nullptr;};
+            void deleteStep() { this->step_ = nullptr;};
+            inline int64_t getStep() const { DARABONBA_PTR_GET_DEFAULT(step_, 0L) };
+            inline PerformanceItemValue& setStep(int64_t step) { DARABONBA_PTR_SET_VALUE(step_, step) };
+
+
             // timestamp Field Functions 
             bool hasTimestamp() const { return this->timestamp_ != nullptr;};
             void deleteTimestamp() { this->timestamp_ = nullptr;};
@@ -143,6 +154,7 @@ namespace Models
 
 
           protected:
+            shared_ptr<int64_t> step_ {};
             shared_ptr<int64_t> timestamp_ {};
             shared_ptr<string> value_ {};
           };
@@ -223,7 +235,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->applicationType_ == nullptr && this->endTime_ == nullptr && this->performanceKeys_ == nullptr && this->requestId_ == nullptr && this->startTime_ == nullptr; };
+        && this->applicationType_ == nullptr && this->endTime_ == nullptr && this->interval_ == nullptr && this->performanceKeys_ == nullptr && this->requestId_ == nullptr
+        && this->startTime_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -243,6 +256,13 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline DescribeApplicationPerformanceResponseBody& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // interval Field Functions 
+    bool hasInterval() const { return this->interval_ != nullptr;};
+    void deleteInterval() { this->interval_ = nullptr;};
+    inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
+    inline DescribeApplicationPerformanceResponseBody& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // performanceKeys Field Functions 
@@ -275,6 +295,7 @@ namespace Models
     shared_ptr<string> applicationType_ {};
     // The end time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
     shared_ptr<string> endTime_ {};
+    shared_ptr<string> interval_ {};
     // The performance metrics.
     shared_ptr<DescribeApplicationPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.

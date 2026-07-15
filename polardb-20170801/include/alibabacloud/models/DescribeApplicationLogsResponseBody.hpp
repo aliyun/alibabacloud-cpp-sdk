@@ -70,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FileName, fileName_);
           DARABONBA_PTR_TO_JSON(FullFilePath, fullFilePath_);
           DARABONBA_PTR_TO_JSON(Hostname, hostname_);
+          DARABONBA_PTR_TO_JSON(InsName, insName_);
           DARABONBA_PTR_TO_JSON(LogLevelId, logLevelId_);
           DARABONBA_PTR_TO_JSON(LogLevelName, logLevelName_);
           DARABONBA_PTR_TO_JSON(Method, method_);
@@ -77,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Runtime, runtime_);
           DARABONBA_PTR_TO_JSON(RuntimeVersion, runtimeVersion_);
           DARABONBA_PTR_TO_JSON(Time, time_);
+          DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
         };
         friend void from_json(const Darabonba::Json& j, LogRecords& obj) { 
           DARABONBA_PTR_FROM_JSON(ComponentName, componentName_);
@@ -87,6 +89,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(FileName, fileName_);
           DARABONBA_PTR_FROM_JSON(FullFilePath, fullFilePath_);
           DARABONBA_PTR_FROM_JSON(Hostname, hostname_);
+          DARABONBA_PTR_FROM_JSON(InsName, insName_);
           DARABONBA_PTR_FROM_JSON(LogLevelId, logLevelId_);
           DARABONBA_PTR_FROM_JSON(LogLevelName, logLevelName_);
           DARABONBA_PTR_FROM_JSON(Method, method_);
@@ -94,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Runtime, runtime_);
           DARABONBA_PTR_FROM_JSON(RuntimeVersion, runtimeVersion_);
           DARABONBA_PTR_FROM_JSON(Time, time_);
+          DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
         };
         LogRecords() = default ;
         LogRecords(const LogRecords &) = default ;
@@ -108,8 +112,9 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->componentName_ == nullptr
         && this->containerName_ == nullptr && this->content_ == nullptr && this->date_ == nullptr && this->fileLine_ == nullptr && this->fileName_ == nullptr
-        && this->fullFilePath_ == nullptr && this->hostname_ == nullptr && this->logLevelId_ == nullptr && this->logLevelName_ == nullptr && this->method_ == nullptr
-        && this->name_ == nullptr && this->runtime_ == nullptr && this->runtimeVersion_ == nullptr && this->time_ == nullptr; };
+        && this->fullFilePath_ == nullptr && this->hostname_ == nullptr && this->insName_ == nullptr && this->logLevelId_ == nullptr && this->logLevelName_ == nullptr
+        && this->method_ == nullptr && this->name_ == nullptr && this->runtime_ == nullptr && this->runtimeVersion_ == nullptr && this->time_ == nullptr
+        && this->timestamp_ == nullptr; };
         // componentName Field Functions 
         bool hasComponentName() const { return this->componentName_ != nullptr;};
         void deleteComponentName() { this->componentName_ = nullptr;};
@@ -166,6 +171,13 @@ namespace Models
         inline LogRecords& setHostname(string hostname) { DARABONBA_PTR_SET_VALUE(hostname_, hostname) };
 
 
+        // insName Field Functions 
+        bool hasInsName() const { return this->insName_ != nullptr;};
+        void deleteInsName() { this->insName_ = nullptr;};
+        inline string getInsName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
+        inline LogRecords& setInsName(string insName) { DARABONBA_PTR_SET_VALUE(insName_, insName) };
+
+
         // logLevelId Field Functions 
         bool hasLogLevelId() const { return this->logLevelId_ != nullptr;};
         void deleteLogLevelId() { this->logLevelId_ = nullptr;};
@@ -215,6 +227,13 @@ namespace Models
         inline LogRecords& setTime(string time) { DARABONBA_PTR_SET_VALUE(time_, time) };
 
 
+        // timestamp Field Functions 
+        bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+        void deleteTimestamp() { this->timestamp_ = nullptr;};
+        inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+        inline LogRecords& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
       protected:
         shared_ptr<string> componentName_ {};
         shared_ptr<string> containerName_ {};
@@ -224,6 +243,7 @@ namespace Models
         shared_ptr<string> fileName_ {};
         shared_ptr<string> fullFilePath_ {};
         shared_ptr<string> hostname_ {};
+        shared_ptr<string> insName_ {};
         shared_ptr<int64_t> logLevelId_ {};
         shared_ptr<string> logLevelName_ {};
         shared_ptr<string> method_ {};
@@ -231,6 +251,7 @@ namespace Models
         shared_ptr<string> runtime_ {};
         shared_ptr<string> runtimeVersion_ {};
         shared_ptr<string> time_ {};
+        shared_ptr<int64_t> timestamp_ {};
       };
 
       virtual bool empty() const override { return this->logRecords_ == nullptr; };

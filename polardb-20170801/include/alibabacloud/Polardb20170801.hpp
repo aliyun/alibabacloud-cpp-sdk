@@ -2874,6 +2874,23 @@ namespace Polardb20170801
       Models::DescribeApplicationServerlessConfResponse describeApplicationServerlessConf(const Models::DescribeApplicationServerlessConfRequest &request);
 
       /**
+       * @summary Queries AI application sessions.
+       *
+       * @param request DescribeApplicationSessionIdsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationSessionIdsResponse
+       */
+      Models::DescribeApplicationSessionIdsResponse describeApplicationSessionIdsWithOptions(const Models::DescribeApplicationSessionIdsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries AI application sessions.
+       *
+       * @param request DescribeApplicationSessionIdsRequest
+       * @return DescribeApplicationSessionIdsResponse
+       */
+      Models::DescribeApplicationSessionIdsResponse describeApplicationSessionIds(const Models::DescribeApplicationSessionIdsRequest &request);
+
+      /**
        * @summary Gets the list of applications for all PolarDB instances in a specified region.
        *
        * @param request DescribeApplicationsRequest

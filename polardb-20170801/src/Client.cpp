@@ -10616,6 +10616,14 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
     query["ConsumerGroup"] = request.getConsumerGroup();
   }
 
+  if (!!request.hasDownsample()) {
+    query["Downsample"] = request.getDownsample();
+  }
+
+  if (!!request.hasEndStep()) {
+    query["EndStep"] = request.getEndStep();
+  }
+
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
   }
@@ -10628,8 +10636,16 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
     query["Key"] = request.getKey();
   }
 
+  if (!!request.hasMaxPoints()) {
+    query["MaxPoints"] = request.getMaxPoints();
+  }
+
   if (!!request.hasModelService()) {
     query["ModelService"] = request.getModelService();
+  }
+
+  if (!!request.hasStartStep()) {
+    query["StartStep"] = request.getStartStep();
   }
 
   if (!!request.hasStartTime()) {
@@ -10754,6 +10770,80 @@ DescribeApplicationServerlessConfResponse Client::describeApplicationServerlessC
 DescribeApplicationServerlessConfResponse Client::describeApplicationServerlessConf(const DescribeApplicationServerlessConfRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeApplicationServerlessConfWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries AI application sessions.
+ *
+ * @param request DescribeApplicationSessionIdsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationSessionIdsResponse
+ */
+DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIdsWithOptions(const DescribeApplicationSessionIdsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationSessionIds"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationSessionIdsResponse>();
+}
+
+/**
+ * @summary Queries AI application sessions.
+ *
+ * @param request DescribeApplicationSessionIdsRequest
+ * @return DescribeApplicationSessionIdsResponse
+ */
+DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIds(const DescribeApplicationSessionIdsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationSessionIdsWithOptions(request, runtime);
 }
 
 /**

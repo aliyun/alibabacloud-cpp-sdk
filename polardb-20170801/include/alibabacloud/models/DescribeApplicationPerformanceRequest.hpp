@@ -16,20 +16,28 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(Consumer, consumer_);
       DARABONBA_PTR_TO_JSON(ConsumerGroup, consumerGroup_);
+      DARABONBA_PTR_TO_JSON(Downsample, downsample_);
+      DARABONBA_PTR_TO_JSON(EndStep, endStep_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
       DARABONBA_PTR_TO_JSON(Key, key_);
+      DARABONBA_PTR_TO_JSON(MaxPoints, maxPoints_);
       DARABONBA_PTR_TO_JSON(ModelService, modelService_);
+      DARABONBA_PTR_TO_JSON(StartStep, startStep_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApplicationPerformanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(Consumer, consumer_);
       DARABONBA_PTR_FROM_JSON(ConsumerGroup, consumerGroup_);
+      DARABONBA_PTR_FROM_JSON(Downsample, downsample_);
+      DARABONBA_PTR_FROM_JSON(EndStep, endStep_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
       DARABONBA_PTR_FROM_JSON(Key, key_);
+      DARABONBA_PTR_FROM_JSON(MaxPoints, maxPoints_);
       DARABONBA_PTR_FROM_JSON(ModelService, modelService_);
+      DARABONBA_PTR_FROM_JSON(StartStep, startStep_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     DescribeApplicationPerformanceRequest() = default ;
@@ -44,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->consumer_ == nullptr && this->consumerGroup_ == nullptr && this->endTime_ == nullptr && this->interval_ == nullptr && this->key_ == nullptr
-        && this->modelService_ == nullptr && this->startTime_ == nullptr; };
+        && this->consumer_ == nullptr && this->consumerGroup_ == nullptr && this->downsample_ == nullptr && this->endStep_ == nullptr && this->endTime_ == nullptr
+        && this->interval_ == nullptr && this->key_ == nullptr && this->maxPoints_ == nullptr && this->modelService_ == nullptr && this->startStep_ == nullptr
+        && this->startTime_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -65,6 +74,20 @@ namespace Models
     void deleteConsumerGroup() { this->consumerGroup_ = nullptr;};
     inline string getConsumerGroup() const { DARABONBA_PTR_GET_DEFAULT(consumerGroup_, "") };
     inline DescribeApplicationPerformanceRequest& setConsumerGroup(string consumerGroup) { DARABONBA_PTR_SET_VALUE(consumerGroup_, consumerGroup) };
+
+
+    // downsample Field Functions 
+    bool hasDownsample() const { return this->downsample_ != nullptr;};
+    void deleteDownsample() { this->downsample_ = nullptr;};
+    inline string getDownsample() const { DARABONBA_PTR_GET_DEFAULT(downsample_, "") };
+    inline DescribeApplicationPerformanceRequest& setDownsample(string downsample) { DARABONBA_PTR_SET_VALUE(downsample_, downsample) };
+
+
+    // endStep Field Functions 
+    bool hasEndStep() const { return this->endStep_ != nullptr;};
+    void deleteEndStep() { this->endStep_ = nullptr;};
+    inline int64_t getEndStep() const { DARABONBA_PTR_GET_DEFAULT(endStep_, 0L) };
+    inline DescribeApplicationPerformanceRequest& setEndStep(int64_t endStep) { DARABONBA_PTR_SET_VALUE(endStep_, endStep) };
 
 
     // endTime Field Functions 
@@ -88,11 +111,25 @@ namespace Models
     inline DescribeApplicationPerformanceRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
+    // maxPoints Field Functions 
+    bool hasMaxPoints() const { return this->maxPoints_ != nullptr;};
+    void deleteMaxPoints() { this->maxPoints_ = nullptr;};
+    inline int32_t getMaxPoints() const { DARABONBA_PTR_GET_DEFAULT(maxPoints_, 0) };
+    inline DescribeApplicationPerformanceRequest& setMaxPoints(int32_t maxPoints) { DARABONBA_PTR_SET_VALUE(maxPoints_, maxPoints) };
+
+
     // modelService Field Functions 
     bool hasModelService() const { return this->modelService_ != nullptr;};
     void deleteModelService() { this->modelService_ = nullptr;};
     inline string getModelService() const { DARABONBA_PTR_GET_DEFAULT(modelService_, "") };
     inline DescribeApplicationPerformanceRequest& setModelService(string modelService) { DARABONBA_PTR_SET_VALUE(modelService_, modelService) };
+
+
+    // startStep Field Functions 
+    bool hasStartStep() const { return this->startStep_ != nullptr;};
+    void deleteStartStep() { this->startStep_ = nullptr;};
+    inline int64_t getStartStep() const { DARABONBA_PTR_GET_DEFAULT(startStep_, 0L) };
+    inline DescribeApplicationPerformanceRequest& setStartStep(int64_t startStep) { DARABONBA_PTR_SET_VALUE(startStep_, startStep) };
 
 
     // startTime Field Functions 
@@ -111,6 +148,8 @@ namespace Models
     shared_ptr<string> consumer_ {};
     // The ID of the consumer group.
     shared_ptr<string> consumerGroup_ {};
+    shared_ptr<string> downsample_ {};
+    shared_ptr<int64_t> endStep_ {};
     // The end time for the query. Specify the time in UTC in the `yyyy-MM-ddTHH:mmZ` format.
     // 
     // This parameter is required.
@@ -135,8 +174,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    shared_ptr<int32_t> maxPoints_ {};
     // The ID of the model service.
     shared_ptr<string> modelService_ {};
+    shared_ptr<int64_t> startStep_ {};
     // The start time for the query. Specify the time in UTC in the `yyyy-MM-ddTHH:mmZ` format.
     // 
     // This parameter is required.

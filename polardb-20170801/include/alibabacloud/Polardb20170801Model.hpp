@@ -463,6 +463,9 @@
 #include <alibabacloud/models/DescribeApplicationServerlessConfRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationServerlessConfResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationServerlessConfResponse.hpp>
+#include <alibabacloud/models/DescribeApplicationSessionIdsRequest.hpp>
+#include <alibabacloud/models/DescribeApplicationSessionIdsResponseBody.hpp>
+#include <alibabacloud/models/DescribeApplicationSessionIdsResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationsRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationsResponse.hpp>

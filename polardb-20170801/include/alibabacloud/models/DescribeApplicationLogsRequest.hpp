@@ -162,7 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The subcomponent instance ID.
+    // The instance ID of the subcomponent.
     shared_ptr<string> componentName_ {};
     // The container name.
     shared_ptr<string> containerName_ {};
