@@ -7169,12 +7169,28 @@ GenerateOauthTokenResponse Client::generateOauthTokenWithOptions(const GenerateO
     query["Audience"] = request.getAudience();
   }
 
+  if (!!request.hasGrantType()) {
+    query["GrantType"] = request.getGrantType();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasRequestedTokenType()) {
+    query["RequestedTokenType"] = request.getRequestedTokenType();
+  }
+
   if (!!request.hasScopeValues()) {
     query["ScopeValues"] = request.getScopeValues();
+  }
+
+  if (!!request.hasSubjectToken()) {
+    query["SubjectToken"] = request.getSubjectToken();
+  }
+
+  if (!!request.hasSubjectTokenType()) {
+    query["SubjectTokenType"] = request.getSubjectTokenType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

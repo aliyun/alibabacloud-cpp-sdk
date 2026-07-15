@@ -37,12 +37,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccessToken, accessToken_);
         DARABONBA_PTR_TO_JSON(ExpiresAt, expiresAt_);
         DARABONBA_PTR_TO_JSON(ExpiresIn, expiresIn_);
+        DARABONBA_PTR_TO_JSON(IssuedTokenType, issuedTokenType_);
         DARABONBA_PTR_TO_JSON(TokenType, tokenType_);
       };
       friend void from_json(const Darabonba::Json& j, TokenResponse& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessToken, accessToken_);
         DARABONBA_PTR_FROM_JSON(ExpiresAt, expiresAt_);
         DARABONBA_PTR_FROM_JSON(ExpiresIn, expiresIn_);
+        DARABONBA_PTR_FROM_JSON(IssuedTokenType, issuedTokenType_);
         DARABONBA_PTR_FROM_JSON(TokenType, tokenType_);
       };
       TokenResponse() = default ;
@@ -57,7 +59,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessToken_ == nullptr
-        && this->expiresAt_ == nullptr && this->expiresIn_ == nullptr && this->tokenType_ == nullptr; };
+        && this->expiresAt_ == nullptr && this->expiresIn_ == nullptr && this->issuedTokenType_ == nullptr && this->tokenType_ == nullptr; };
       // accessToken Field Functions 
       bool hasAccessToken() const { return this->accessToken_ != nullptr;};
       void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
       inline TokenResponse& setExpiresIn(int64_t expiresIn) { DARABONBA_PTR_SET_VALUE(expiresIn_, expiresIn) };
 
 
+      // issuedTokenType Field Functions 
+      bool hasIssuedTokenType() const { return this->issuedTokenType_ != nullptr;};
+      void deleteIssuedTokenType() { this->issuedTokenType_ = nullptr;};
+      inline string getIssuedTokenType() const { DARABONBA_PTR_GET_DEFAULT(issuedTokenType_, "") };
+      inline TokenResponse& setIssuedTokenType(string issuedTokenType) { DARABONBA_PTR_SET_VALUE(issuedTokenType_, issuedTokenType) };
+
+
       // tokenType Field Functions 
       bool hasTokenType() const { return this->tokenType_ != nullptr;};
       void deleteTokenType() { this->tokenType_ = nullptr;};
@@ -89,10 +98,11 @@ namespace Models
     protected:
       // Access Token。
       shared_ptr<string> accessToken_ {};
-      // The expiration time, in UNIX timestamp format. Unit: seconds.
+      // The expiration time, in UNIX timestamp format, in seconds.
       shared_ptr<int64_t> expiresAt_ {};
       // The validity period, in seconds.
       shared_ptr<int64_t> expiresIn_ {};
+      shared_ptr<string> issuedTokenType_ {};
       // The token type. Currently, only Bearer is supported.
       shared_ptr<string> tokenType_ {};
     };
