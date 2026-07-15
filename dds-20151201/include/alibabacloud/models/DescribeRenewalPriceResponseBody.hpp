@@ -489,18 +489,17 @@ namespace Models
 
 
     protected:
+      // The coupon details.
       shared_ptr<Order::Coupons> coupons_ {};
-      // The type of the currency. Valid values:
-      // 
-      // *   USD: United States dollar
-      // *   JPY: Japanese Yen
+      // The currency of the transaction.
       shared_ptr<string> currency_ {};
-      // The discount amount of the order.
+      // The total discount amount for the order.
       shared_ptr<float> discountAmount_ {};
-      // The original price of the order.
+      // The original amount for the order.
       shared_ptr<float> originalAmount_ {};
+      // The matched rule IDs.
       shared_ptr<Order::RuleIds> ruleIds_ {};
-      // The actual price of the order.
+      // The final trade amount for the order.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -541,11 +540,13 @@ namespace Models
 
 
   protected:
-    // The list of orders.
+    // The order details.
     shared_ptr<DescribeRenewalPriceResponseBody::Order> order_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Details of the available promotion rules.
     shared_ptr<DescribeRenewalPriceResponseBody::Rules> rules_ {};
+    // The sub-order details.
     shared_ptr<DescribeRenewalPriceResponseBody::SubOrders> subOrders_ {};
   };
 

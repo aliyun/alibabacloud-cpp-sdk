@@ -79,13 +79,12 @@ namespace Models
 
 
     protected:
-      // The beginning of the time range to which data can be restored.
+      // The beginning of the restorable time range.
       shared_ptr<string> restoreBeginTime_ {};
-      // The end of the time range to which data can be restored.
+      // The end of the restorable time range.
       shared_ptr<string> restoreEndTime_ {};
-      // The method used to restore data. Valid values:
-      // 
-      // *   **PointInTime** (default): Data is restored based on point in time
+      // The restoration method. Valid values:
+      // * **PointInTime** (default): point-in-time restoration.
       shared_ptr<string> restoreType_ {};
     };
 
@@ -110,7 +109,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The cluster backup sets of the instance. A cluster backup file contains the backup sets of each node.
+    // The list of cluster backup sets. A cluster backup contains the backup set of each node.
     shared_ptr<vector<DescribeClusterRecoverTimeResponseBody::RestoreRanges>> restoreRanges_ {};
   };
 

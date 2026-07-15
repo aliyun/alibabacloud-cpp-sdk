@@ -94,9 +94,20 @@ namespace Models
 
 
   protected:
+    // The time-to-live (TTL) of the backup. The time must be in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
+    // 
+    // > - *9999-01-01*T*00:00:00*&#x5A;*&#x20;indicates that the backup is retained permanently.*
+    // >
+    // >   *- You can only extend the retention period. You cannot shorten it.- If you do not set the time to *9999-01-01*T*00:00:00*Z, the new expiration time must be within 730 days after the end time of the backup set.*
+    // >
+    // > **
     shared_ptr<string> backupExpireTime_ {};
+    // The backup ID.
+    // 
     // This parameter is required.
     shared_ptr<string> backupId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

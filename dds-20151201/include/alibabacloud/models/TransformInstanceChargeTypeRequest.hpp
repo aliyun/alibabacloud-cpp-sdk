@@ -142,15 +142,17 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     // 
     // > Default value: **true**.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
+    // 
+    // - **false**
     // 
     // > Default value: **false**.
     shared_ptr<string> autoRenew_ {};
@@ -158,8 +160,9 @@ namespace Models
     shared_ptr<string> businessInfo_ {};
     // The billing method of the instance. Valid values:
     // 
-    // *   **PrePaid:** subscription.
-    // *   **PostPaid:** pay-as-you-go.
+    // - **PrePaid:** subscription.
+    // 
+    // - **PostPaid:** pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
@@ -171,14 +174,15 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
+    // The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9**\\*\\*\\*\\*, **12**, **24**, and **36**.
     shared_ptr<int64_t> period_ {};
-    // 实例付费时长单位
-    // 取值说明：
-    // - **Month：** 月
-    // -  **Year：** 年
+    // The unit of the subscription duration. Valid values:
     // 
-    // 默认值：Month
+    // - **Month**: month.
+    // 
+    // - **Year**: year.
+    // 
+    // Default value: Month.
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

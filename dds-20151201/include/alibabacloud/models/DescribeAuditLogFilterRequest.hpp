@@ -94,9 +94,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The role of the node in the instance. Valid values:
     // 
-    // * **mongos**: mongos node.
-    // * **db** : shard node.
-    // * **logic** : logical instance.
+    // - **mongos**: mongos node.
+    // 
+    // - **db** : shard node.
+    // 
+    // - **logic** : logical instance.
     shared_ptr<string> roleType_ {};
   };
 

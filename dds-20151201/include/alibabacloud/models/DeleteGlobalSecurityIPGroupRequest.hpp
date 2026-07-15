@@ -103,19 +103,21 @@ namespace Models
 
 
   protected:
-    // The name of the IP whitelist template. The name must meet the following requirements:
+    // The name of the IP address whitelist template. The name must meet the following requirements:
     // 
-    // *   It can contain lowercase letters, digits, and underscores (_).
-    // *   It must start with a letter and end with a letter or digit.
-    // *   It must be 2 to 120 characters in length.
+    // - It must consist of lowercase letters, digits, and underscores (_).
+    // 
+    // - It must start with a letter and end with a letter or a digit.
+    // 
+    // - It must be 2 to 120 characters in length.
     shared_ptr<string> globalIgName_ {};
-    // The ID of the IP whitelist template.
+    // The ID of the IP address whitelist template.
     // 
     // This parameter is required.
     shared_ptr<string> globalSecurityGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest list of regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

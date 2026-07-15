@@ -98,10 +98,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    shared_ptr<string> networkType_ {};
-    // The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
+    // The network type. Valid values:
     // 
-    // >  You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
+    // - **VPC**: virtual private cloud.
+    // 
+    // - **Classic**: classic network.
+    // 
+    // - **Public**: public network.
+    shared_ptr<string> networkType_ {};
+    // The ID of a mongos, shard, or ConfigServer node in the sharded cluster instance.
+    // 
+    // > You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the IDs of mongos, shard, and ConfigServer nodes.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -85,7 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeUserEncryptionKeyListResponseBody::KeyIds> keyIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

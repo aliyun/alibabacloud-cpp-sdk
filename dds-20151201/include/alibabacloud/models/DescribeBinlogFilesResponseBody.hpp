@@ -266,9 +266,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBinlogFilesResponseBody::Items> items_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> maxRecordsPerPage_ {};
+    // The page number of the returned results.
     shared_ptr<int32_t> pageNumber_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of binlog files found.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

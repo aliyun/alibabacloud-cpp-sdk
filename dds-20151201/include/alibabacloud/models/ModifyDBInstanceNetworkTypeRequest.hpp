@@ -130,17 +130,16 @@ namespace Models
 
 
   protected:
-    // The retention period of the original classic network address when you change the network type to VPC. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
+    // The retention period of the original classic network address when you switch the network type to VPC. Settings. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
     // 
-    // > This parameter is required when the **NetworkType** parameter is set to **VPC** and the **RetainClassic** parameter is set to **True**.
+    // > This parameter is required when the **NetworkType** parameter settings is set to **VPC** and the **RetainClassic** parameter settings is set to **True**.
     shared_ptr<int32_t> classicExpiredDays_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network type to switch to. Valid value:
-    // 
-    // *   **VPC**
+    // The target network type to which you want to switch the instance. Valid values:
+    // - **VPC**: switches the network type to VPC.
     // 
     // This parameter is required.
     shared_ptr<string> networkType_ {};
@@ -148,26 +147,21 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to retain the original classic network address when you change the network type to VPC. Valid values:
+    // Specifies whether to retain the original classic network address when you switch the network type to VPC. Settings. Valid values:
+    // - **True**: retains the original classic network address.
+    // - **False**: does not retain the original classic network address.
     // 
-    // *   **True**: retains the original classic network address.
-    // *   **False**: does not retain the original classic network address.
-    // 
-    // > 
-    // 
-    // *   This parameter is required when the **NetworkType** parameter is set to **VPC**.
-    // 
-    // *   If you set this parameter to **True**, you must also specify the **ClassicExpiredDays** parameter.
+    // > - This parameter is required when the **NetworkType** parameter settings is set to **VPC**.
+    // > - If this parameter settings is set to **True**, you must also specify the **ClassicExpiredDays** parameter.
     shared_ptr<string> retainClassic_ {};
-    // The ID of the vSwitch in the VPC.
-    // 
-    // > This parameter is required when the **NetworkType** parameter is set to **VPC**.
+    // The vSwitch ID in the VPC.
+    // > This parameter is required when the **NetworkType** parameter settings is set to **VPC**.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     // 
-    // > This parameter is required when the **NetworkType** parameter is set to **VPC**.
+    // > This parameter is required when the **NetworkType** parameter settings is set to **VPC**.
     shared_ptr<string> vpcId_ {};
-    // 可用区ID，您可以通过调用[DescribeRegions](https://help.aliyun.com/document_detail/61933.html)接口查询可用区ID。
+    // The zone ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

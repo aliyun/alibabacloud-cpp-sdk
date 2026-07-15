@@ -241,12 +241,12 @@ namespace Models
 
 
   protected:
-    // The end of the queried time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+    // The end of the time range to query. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<DescribeDBInstancePerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the queried time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+    // The beginning of the time range to query. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

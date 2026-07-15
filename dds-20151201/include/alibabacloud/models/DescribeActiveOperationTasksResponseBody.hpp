@@ -308,61 +308,91 @@ namespace Models
 
 
     protected:
-      // N/A
-      shared_ptr<string> allowCancel_ {};
-      // Indicates whether the modification operation is allowed.
+      // Indicates whether the task can be canceled.
       // 
-      // *   **0**: The modification operation is not allowed.
-      // *   **1**: The modification operation is allowed.
+      // - **1**: The task can be canceled.
+      // 
+      // - **0**: The task cannot be canceled.
+      shared_ptr<string> allowCancel_ {};
+      // Indicates whether the time can be changed.
+      // 
+      // - **1**: The time can be changed.
+      // 
+      // - **0**: The time cannot be changed.
       shared_ptr<string> allowChange_ {};
-      // The change level of the O\\&M task.
+      // The code of the event level.
+      // 
+      // - **S1**: system O\\&M.
+      // 
+      // - **S0**: threat fixing.
       shared_ptr<string> changeLevel_ {};
-      // N/A
+      // The event level in English.
       shared_ptr<string> changeLevelEn_ {};
-      // The task type in English.
+      // The event level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The time when the task was created.
+      // The time when the task was created. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> createdTime_ {};
-      // N/A
+      // The current zone.
       shared_ptr<string> currentAVZ_ {};
-      // The type of the database engine.
+      // The database engine type.
       shared_ptr<string> dbType_ {};
-      // The version of the database engine.
+      // The database engine version number.
       shared_ptr<string> dbVersion_ {};
-      // The end time of the O\\&M task.
+      // The latest time to which the task execution time can be postponed. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> deadline_ {};
       // The task ID.
       shared_ptr<int32_t> id_ {};
-      // N/A
+      // The impact of the event in English.
       shared_ptr<string> impactEn_ {};
-      // N/A
+      // The impact of the event in Chinese.
       shared_ptr<string> impactZh_ {};
-      // The description of the instance.
+      // The alias or description of the instance.
       shared_ptr<string> insComment_ {};
-      // The ID of the node.
+      // The instance name.
       shared_ptr<string> insName_ {};
-      // The time when the task is modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the task was modified. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> modifiedTime_ {};
-      // The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+      // The preparation time required between the start time of the O\\&M task and the switchover time. The time is in the *HH:mm:ss* format.
       shared_ptr<string> prepareInterval_ {};
-      // The region of the instance.
+      // The ID of the region where the pending event is located.
       shared_ptr<string> region_ {};
-      // The result information. The value of this parameter can be ignored.
+      // The information about the execution result.
       shared_ptr<string> resultInfo_ {};
-      // The start time of the task. The time follows the ISO 8601 standard in the *yyyy-mm-dd* T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the task was executed. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
-      // N/A
+      // The task status.
+      // 
+      // - **3**: pending.
+      // 
+      // - **4**: running.
+      // 
+      // - **5**: successful.
+      // 
+      // - **6**: failed.
+      // 
+      // - **7**: canceled.
       shared_ptr<int32_t> status_ {};
-      // The subinstances.
+      // The list of child instances.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The switchover point in time in which disconnection may occur. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the switchover was initiated. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
       shared_ptr<string> switchTime_ {};
+      // The task parameters.
       shared_ptr<string> taskParams_ {};
-      // The task type.
+      // The task type. Valid values:
+      // 
+      // - **rds_apsaradb_ha**: primary-secondary node switchover.
+      // 
+      // - **rds_apsaradb_transfer**: instance migration.
+      // 
+      // - **rds_apsaradb_upgrade**: minor version upgrade.
+      // 
+      // - **rds_apsaradb_maxscale**: proxy minor version upgrade.
+      // 
+      // - **all**: all task types.
       shared_ptr<string> taskType_ {};
-      // N/A
+      // The reason for the task in English.
       shared_ptr<string> taskTypeEn_ {};
-      // The task type in Chinese.
+      // The reason for the task in Chinese.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -406,15 +436,15 @@ namespace Models
 
 
   protected:
-    // The O\\&M tasks.
+    // The list of O\\&M tasks.
     shared_ptr<vector<DescribeActiveOperationTasksResponseBody::Items>> items_ {};
-    // The number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The number of returned task records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

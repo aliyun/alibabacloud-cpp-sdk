@@ -89,6 +89,7 @@ namespace Models
       // N specifies the serial number of the tag. The following example shows how to calculate consumption intervals:
       // 
       // - **Tag.1.Key** specifies the key of the first tag.
+      // 
       // - **Tag.2.Key** specifies the key of the second tag.
       // 
       // This parameter is required.
@@ -98,6 +99,7 @@ namespace Models
       // N specifies the serial number of the tag. The following example shows how to calculate consumption intervals:
       // 
       // - **Tag.1.Value** specifies the value of the first tag.
+      // 
       // - **Tag.2.Value** specifies the value of the second tag.
       // 
       // This parameter is required.

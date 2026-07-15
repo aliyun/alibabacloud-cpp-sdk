@@ -159,22 +159,33 @@ namespace Models
 
   protected:
     // The username of the account. The username must meet the following requirements:
-    // - The username starts with a lowercase letter. 
-    // - The username contains lowercase letters, digits, and underscores (_). 
-    // - The username is 4 to 16 characters in length. 
     // 
-    // > - Keywords cannot be used as account usernames. 
-    // > - The permissions of this account are fixed at read-only. 
-    // > - The username and password are required to be set only when you apply for an endpoint for the shard node for the first time.
+    // - The username starts with a lowercase letter.
+    // 
+    // - The username contains lowercase letters, digits, and underscores (_).
+    // 
+    // - The username is 4 to 16 characters in length.
+    // 
+    // > * Keywords cannot be used as account usernames.
+    // >
+    // > * The permissions of this account are fixed at read-only.
+    // >
+    // > * The username and password are required to be set only when you apply for an endpoint for the shard node for the first time.
     shared_ptr<string> accountName_ {};
     // The password of the account. The password must meet the following requirements:
-    // - The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. 
-    // - These special characters include ! @ # $ % ^ & * ( ) _ + - = 
-    // - The password is 8 to 32 characters in length. 
+    // 
+    // - The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters.
+    // 
+    // - These special characters include ! @ # $ % ^ & \\* ( ) _ + - =
+    // 
+    // - The password is 8 to 32 characters in length.
+    // 
     // > The account password of the shard node cannot be reset.
     shared_ptr<string> accountPassword_ {};
     // Specifies whether to enable automatic payment. Default value: true. Valid values:
-    // - **true**: enables automatic payment. Make sure that you have sufficient balance within your account. 
+    // 
+    // - **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+    // 
     // - **false**: disables automatic payment. In this case, you must manually pay for the instance. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > **Orders**. On the Orders page, find the order and complete the payment.
     shared_ptr<bool> autoPay_ {};
     // The business information.
@@ -183,18 +194,21 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to use coupons. Default value: null. Valid values:
     // 
-    // *   **default** or **null**: uses coupons.
-    // *   **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
+    // - **default** or **null**: uses coupons.
+    // 
+    // - **youhuiquan_promotion_option_id_for_blank**: does not use coupons.
     shared_ptr<string> couponNo_ {};
     // The ID of the instance for which you want to add nodes.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The source of the request. Valid values:
-    // - **OpenApi**: ApsaraDB for MongoDB API 
+    // 
+    // - **OpenApi**: ApsaraDB for MongoDB API
+    // 
     // - **mongo_buy**: ApsaraDB for MongoDB console
     shared_ptr<string> fromApp_ {};
-    // The specifications of the mongos or shard node that you want to add. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html). 
+    // The specifications of the mongos or shard node that you want to add. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
     // 
     // > Up to 32 mongos or shard nodes are supported for each sharded cluster instance.
     // 
@@ -205,7 +219,9 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to apply for an endpoint for the shard node. Default value: false. Valid values:
-    // - **true**: applies for an endpoint for the shard node. 
+    // 
+    // - **true**: applies for an endpoint for the shard node.
+    // 
     // - **false**: does not apply for an endpoint for the shard node.
     shared_ptr<bool> shardDirect_ {};
   };

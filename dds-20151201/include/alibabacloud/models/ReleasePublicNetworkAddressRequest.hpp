@@ -96,21 +96,23 @@ namespace Models
   protected:
     // The public endpoint type. Valid values:
     // 
-    // *   **SRV**
-    // *   **Normal**
+    // - **SRV**
     // 
-    // >  This parameter is valid only when you want to release an SRV endpoint.
+    // - **Normal**
+    // 
+    // > This parameter is valid only when you want to release an SRV endpoint.
     shared_ptr<string> connectionType_ {};
     // The instance ID.
     // 
-    // >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The ID of the mongos, shard, or Configserver node in the sharded cluster instance.
     // 
-    // > *   This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
-    // > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
+    // > - This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+    // >
+    // > - You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

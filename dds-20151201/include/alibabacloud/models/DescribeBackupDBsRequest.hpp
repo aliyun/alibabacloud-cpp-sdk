@@ -123,11 +123,11 @@ namespace Models
   protected:
     // The backup ID.
     // 
-    // > 
+    // >
     // 
-    // *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup ID.
+    // - You can call the [DescribeBackups](https://help.aliyun.com/document_detail/62172.html) operation to query the backup ID.
     // 
-    // *   You must specify one of the **RestoreTime** and BackupId parameters.
+    // - You must specify one of the **RestoreTime** and BackupId parameters.
     shared_ptr<string> backupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -141,11 +141,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The point in time to which the instance is restored. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // > 
+    // >
     // 
-    // *   The time can be a point in time within the previous seven days. The time must be earlier than the current time, but later than the time when the instance was created.
+    // - The time can be a point in time within the previous seven days. The time must be earlier than the current time, but later than the time when the instance was created.
     // 
-    // *   You must specify one of the RestoreTime and **BackupId** parameters.
+    // - You must specify one of the RestoreTime and **BackupId** parameters.
     shared_ptr<string> restoreTime_ {};
     // The ID of the source instance.
     shared_ptr<string> sourceDBInstance_ {};

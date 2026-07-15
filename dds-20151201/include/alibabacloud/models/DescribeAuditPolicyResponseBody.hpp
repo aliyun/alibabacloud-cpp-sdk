@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the log audit feature is enabled. Valid values:
+    // The status of the audit log.
     // 
-    // *   Enable
-    // *   Disabled
+    // - Enable: The audit log is enabled.
     // 
-    // Default value: Disabled.
+    // - Disabled: The audit log is disabled.
+    // 
+    // The default value is Disabled.
     shared_ptr<string> logAuditStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -103,39 +103,47 @@ namespace Models
 
 
   protected:
-    // The database engine of the instance. Set the value to **MongoDB**.
+    // The database engine. Set the value to **mongodb**.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
-    // The database engine version of the instance. Valid values:
+    // The database version number. Valid values:
     // 
-    // *   **5.0**
-    // *   **4.4**
-    // *   **4.2**
-    // *   **4.0**
-    // *   **3.4**
+    // - **7.0**
+    // 
+    // - **6.0**
+    // 
+    // - **5.0**
+    // 
+    // - **4.4**
+    // 
+    // - **4.2**
+    // 
+    // - **4.0**
+    // 
+    // - **3.4**
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The role of the instance. Valid values:
     // 
-    // 1. db:  a shard node.
+    // - db: the shard role of a sharded cluster instance.
     // 
-    // 1. cs:  a Configserver node.
+    // - cs: the config server role of a sharded cluster instance.
     // 
-    // 1. mongos:  a mongos node.
+    // - mongos: the mongos role of a sharded cluster instance.
     // 
-    // 1. normal: a replica set node.
+    // - normal: the role of a replica set instance.
     // 
-    // 1. physical: a standalone node.
+    // - physical: the role of a single node instance.
     // 
-    // default: normal
+    // The default value is normal.
     shared_ptr<string> role_ {};
   };
 

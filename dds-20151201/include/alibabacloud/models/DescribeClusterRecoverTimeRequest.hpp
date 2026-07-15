@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeClusterRecoverTimeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(DestRegion, destRegion_);
+      DARABONBA_PTR_TO_JSON(OnlyDbTableRecovery, onlyDbTableRecovery_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeClusterRecoverTimeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(DestRegion, destRegion_);
+      DARABONBA_PTR_FROM_JSON(OnlyDbTableRecovery, onlyDbTableRecovery_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->destRegion_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->srcRegion_ == nullptr; };
+        && this->destRegion_ == nullptr && this->onlyDbTableRecovery_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->srcRegion_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDestRegion() { this->destRegion_ = nullptr;};
     inline string getDestRegion() const { DARABONBA_PTR_GET_DEFAULT(destRegion_, "") };
     inline DescribeClusterRecoverTimeRequest& setDestRegion(string destRegion) { DARABONBA_PTR_SET_VALUE(destRegion_, destRegion) };
+
+
+    // onlyDbTableRecovery Field Functions 
+    bool hasOnlyDbTableRecovery() const { return this->onlyDbTableRecovery_ != nullptr;};
+    void deleteOnlyDbTableRecovery() { this->onlyDbTableRecovery_ = nullptr;};
+    inline bool getOnlyDbTableRecovery() const { DARABONBA_PTR_GET_DEFAULT(onlyDbTableRecovery_, false) };
+    inline DescribeClusterRecoverTimeRequest& setOnlyDbTableRecovery(bool onlyDbTableRecovery) { DARABONBA_PTR_SET_VALUE(onlyDbTableRecovery_, onlyDbTableRecovery) };
 
 
     // ownerAccount Field Functions 
@@ -103,16 +112,24 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The region where the geo-redundancy backup set resides.
+    // > 
+    // > - This parameter is required when you query a geo-redundancy backup.
     shared_ptr<string> destRegion_ {};
+    shared_ptr<bool> onlyDbTableRecovery_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The region where the source instance of the geo-redundancy backup resides.
+    // > 
+    // > - This parameter is required when you query a geo-redundancy backup.
     shared_ptr<string> srcRegion_ {};
   };
 

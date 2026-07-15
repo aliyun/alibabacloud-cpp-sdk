@@ -118,17 +118,21 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance. Valid values of N: **1** to **20**.
+      // The key of tag N. The value of N must be in the range of **1** to **20**.
       // 
-      // *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-      // *   It can be up to 64 characters in length.
-      // *   It cannot be an empty string.
+      // - The tag key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      // 
+      // - The tag key can be up to 64 characters in length.
+      // 
+      // - The tag key cannot be an empty string.
       shared_ptr<string> key_ {};
-      // The tag value of the instance. Valid values of N: **1** to **20**.
+      // The value of tag N. The value of N must be in the range of **1** to **20**.
       // 
-      // *   The value cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-      // *   The value can be up to 128 characters in length.
-      // *   It can be an empty string.
+      // - The tag value cannot start with `aliyun`, `acs`:, `http://`, or `https://`.
+      // 
+      // - The tag value can be up to 128 characters in length.
+      // 
+      // - The tag value can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -325,86 +329,109 @@ namespace Models
   protected:
     // The billing method of the instance. Valid values:
     // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
-    shared_ptr<string> chargeType_ {};
-    // The endpoint of the node. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the endpoint of the node.
-    shared_ptr<string> connectionDomain_ {};
-    // The instance type. For more information about valid values, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
-    shared_ptr<string> DBInstanceClass_ {};
-    // The name of the instance. The name must meet the following requirements:
+    // - **PrePaid**: subscription.
     // 
-    // *   The name must start with a letter.
-    // *   It can contain digits, letters, underscores (_), and hyphens (-).
-    // *   It must be 2 to 256 characters in length.
+    // - **PostPaid**: pay-as-you-go.
+    shared_ptr<string> chargeType_ {};
+    // The endpoint of the node. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the endpoint.
+    shared_ptr<string> connectionDomain_ {};
+    // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+    shared_ptr<string> DBInstanceClass_ {};
+    // The instance name. The name must meet the following requirements:
+    // 
+    // - It must start with a Chinese character or a letter.
+    // 
+    // - It can contain digits, Chinese characters, letters, underscores (_), and hyphens (-).
+    // 
+    // - It must be 2 to 256 characters in length.
     shared_ptr<string> DBInstanceDescription_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The state of the instance. For more information about valid values, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+    // The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
     shared_ptr<string> DBInstanceStatus_ {};
-    // The architecture of the instance. Valid values:
+    // The instance architecture. Valid values:
     // 
-    // *   **sharding**: sharded cluster instance
-    // *   **replicate**: replica set or standalone instance
+    // - **sharding**: sharded cluster instance.
+    // 
+    // - **replicate**: replica set or standalone instance. This is the default value.
+    // 
+    // <props="china">
+    // 
+    // - **serverless**: serverless instance.
     shared_ptr<string> DBInstanceType_ {};
-    // The type of the node in the instance. This parameter is used to filter standard or test instance.
+    // Filters instances by type. Valid values:
     // 
-    // 1.  Valid value for a standalone or DBFS instance.
-    // 2.  Valid value for a standard instance that comes in the replica set or sharded cluster architecture: standard
-    // 3.  Valid value when all instances are displayed: default
+    // 1. customized: standalone instances and DBFS instances.
+    // 
+    // 2. standard: standard instances, which include replica set and sharded cluster instances.
+    // 
+    // 3. default: all instances.
     shared_ptr<string> DBNodeType_ {};
-    // The database engine of the instance. Set the value to **MongoDB**.
+    // The database engine. Set the value to **MongoDB**.
     shared_ptr<string> engine_ {};
-    // The database engine version of the instance.
+    // The database engine version. Valid values:
     // 
-    // *   **6.0**
-    // *   **5.0**
-    // *   **4.4**
-    // *   **4.2**
-    // *   **4.0**
-    // *   **3.4**
+    // - **7.0**
+    // 
+    // - **6.0**
+    // 
+    // - **5.0**
+    // 
+    // - **4.4**
+    // 
+    // - **4.2**
+    // 
+    // - **4.0**
+    // 
+    // - **3.4**
     shared_ptr<string> engineVersion_ {};
-    // The time when the instance expires.
+    // The expiration time of the instance. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. This parameter is used to filter instances that expire on or before the specified time.
     shared_ptr<string> expireTime_ {};
-    // Specifies whether the instance has expired. Valid values:
+    // The expiration status of the instance. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The instance is expired.
+    // 
+    // - **false**: The instance is not expired.
     shared_ptr<string> expired_ {};
     // The network type of the instance. Valid values:
     // 
-    // *   **Classic**
-    // *   **VPC**
+    // - **Classic**: classic network.
+    // 
+    // - **VPC**: virtual private cloud (VPC).
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be greater than 0 and no greater than the maximum value of the integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     // The number of nodes in the replica set instance. Valid values:
     // 
-    // *   **3**
-    // *   **5**
-    // *   **7**
+    // - **3**
+    // 
+    // - **5**
+    // 
+    // - **7**
     shared_ptr<string> replicationFactor_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags of the instance.
     shared_ptr<vector<DescribeDBInstancesRequest::Tag>> tag_ {};
-    // The vSwitch ID of the instance.
+    // The vSwitch ID of the VPC.
     shared_ptr<string> vSwitchId_ {};
-    // The VPC ID of the instance.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
+    // The zone ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

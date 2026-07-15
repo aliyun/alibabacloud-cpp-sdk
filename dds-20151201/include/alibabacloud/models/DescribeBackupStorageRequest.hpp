@@ -100,11 +100,11 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The ID of the shard node in the sharded cluster instance.
     // 
-    // >  This parameter is required only when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+    // > This parameter is required if the **DBInstanceId** parameter specifies the ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the most recent region list.
+    // The ID of the region where the instance is located. Call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

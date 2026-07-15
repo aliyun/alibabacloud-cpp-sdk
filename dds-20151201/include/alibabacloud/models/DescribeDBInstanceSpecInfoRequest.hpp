@@ -84,6 +84,16 @@ namespace Models
 
 
   protected:
+    // The instance type. You can query this parameter by calling the [DescribeDBInstanceAttribute](https://next.api.aliyun.com/api/Dds/2015-12-01/DescribeDBInstanceAttribute) operation.
+    // 
+    // For instance types of different instance categories, see the following topics:
+    // 
+    // - [Specifications of standalone instances](https://help.aliyun.com/document_detail/311407.html)
+    // 
+    // - [Specifications of replica set instances](https://help.aliyun.com/document_detail/311410.html)
+    // 
+    // - [Specifications of sharded cluster instances](https://help.aliyun.com/document_detail/311414.html)
+    // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
     shared_ptr<string> ownerAccount_ {};

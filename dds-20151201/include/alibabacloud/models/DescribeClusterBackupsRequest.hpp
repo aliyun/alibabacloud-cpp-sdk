@@ -167,46 +167,53 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster backup set.
+    // The ID of the cluster backup.
     shared_ptr<string> backupId_ {};
+    // The ID of the backup job.
     shared_ptr<string> backupJobId_ {};
     // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The region where cross-region backups reside.
+    // The region where the geo-redundant backup resides.
     // 
-    // >  This parameter is required if you want to query cross-region backups.
+    // > This parameter is required when you query geo-redundant backups.
     shared_ptr<string> destRegion_ {};
-    // The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
-    shared_ptr<string> endTime_ {};
-    // Specifies whether to query information about child nodes in the cluster backup. Valid values:
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     // 
-    // *   **true**: The system returns only the basic information of the cluster backup.
-    // *   **false** (default): The system returns the backup information of all child nodes.
+    // > This parameter is invalid if you specify the BackupId parameter.
+    shared_ptr<string> endTime_ {};
+    // Specifies whether to query the information about the child nodes in the cluster backup. Valid values:
+    // 
+    // - **true**: Returns only the basic information about the cluster backup, not the backup information about all child nodes.
+    // 
+    // - **false** (Default): Returns the backup information about all child nodes.
     shared_ptr<bool> isOnlyGetClusterBackUp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**. The page number must be a positive integer.
+    // The number of the page to return. The value must be a positive integer. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (Default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The region ID of the instance.
+    // The region where the instance resides.
     // 
-    // > 
-    // 
-    // *   This parameter is required if you want to query the backup sets of a released instance.
-    // 
-    // *   This parameter is required if you want to query cross-region backups.
+    // > - This parameter is required when you query the backup sets of a released instance.
+    // >
+    // > - This parameter is required when you query geo-redundant backups.
     shared_ptr<string> srcRegion_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in Coordinated Universal Time (UTC).
+    // 
+    // > This parameter is invalid if you specify the BackupId parameter.
     shared_ptr<string> startTime_ {};
   };
 

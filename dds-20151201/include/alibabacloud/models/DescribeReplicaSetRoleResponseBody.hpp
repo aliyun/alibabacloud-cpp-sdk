@@ -195,9 +195,11 @@ namespace Models
 
 
   protected:
+    // The domain name suffix for the connection string.
     shared_ptr<string> connectionStringSuffix_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // Details of the replica set.
     shared_ptr<DescribeReplicaSetRoleResponseBody::ReplicaSets> replicaSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

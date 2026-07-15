@@ -94,10 +94,16 @@ namespace Models
 
 
   protected:
+    // The configuration item name.
+    // 
     // This parameter is required.
     shared_ptr<string> configName_ {};
+    // The configuration item value
+    // 
     // This parameter is required.
     shared_ptr<string> configValue_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};

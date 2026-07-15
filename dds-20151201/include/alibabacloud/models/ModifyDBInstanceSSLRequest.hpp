@@ -103,23 +103,45 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to forcibly enable SSL encryption for connections. Valid values:
+    // 
+    // - **1**: Forcibly enable SSL encryption.
+    // 
+    // - **0**: Do not forcibly enable SSL encryption.
+    // 
+    // > * Forced SSL encryption is supported only for MongoDB 7.0 and 8.0 instances that use cloud disks and meet the following minor engine version requirements:
+    // >
+    // > * - For version 7.0, the minor engine version must be 8.0.13 or later.
+    // >
+    // > * - For version 8.0, the minor engine version must be 9.0.5 or later.
+    // 
+    // >Warning: 
+    // 
+    // After you enable forced SSL encryption, only SSL connections to the instance are allowed.
     shared_ptr<string> forceEncryption_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The operation on the SSL feature. Valid values:
+    // The operation to perform on the SSL feature. Valid values:
     // 
-    // *   **Open**: enables SSL encryption.
-    // *   **Close**: disables SSL encryption.
-    // *   **Update**: updates the SSL certificate.
+    // - **Open**: Enable SSL encryption.
+    // 
+    // - **Close**: Disable SSL encryption.
+    // 
+    // - **Update**: Update the SSL certificate.
     // 
     // This parameter is required.
     shared_ptr<string> SSLAction_ {};
+    // The time to modify the SSL configuration of the MongoDB instance. Valid values:
+    // 
+    // - 0: Modify immediately.
+    // 
+    // - 1: Modify within the maintenance window.
     shared_ptr<string> switchMode_ {};
   };
 

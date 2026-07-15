@@ -121,34 +121,41 @@ namespace Models
 
 
   protected:
-    // The role of the instance. Valid values:
+    // The type of the node. Valid values:
     // 
-    // *   **db**: a shard node.
-    // *   **cs**: a Configserver node.
-    // *   **mongos**: a mongos node.
+    // - **db**: shard node.
+    // 
+    // - **cs**: Configserver node.
+    // 
+    // - **mongos**: mongos node.
     shared_ptr<string> characterType_ {};
     // The instance ID.
     // 
-    // >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the NodeId parameter.
+    // > If this parameter is a sharded cluster instance ID, you must also specify the NodeId parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the mongos or shard node in the specified sharded cluster instance.
+    // The ID of the mongos or shard node in the sharded cluster instance.
     // 
-    // >  This parameter is valid only when DBInstanceId is set to the ID of a sharded cluster instance.
+    // > This parameter is active only when the DBInstanceId parameter is set to a sharded cluster instance ID.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The instance parameters that you want to modify and their values. Specify this parameter in a JSON string. Sample format: {"ParameterName1":"ParameterValue1","ParameterName2":"ParameterValue2"}.
+    // The parameters and their new values. The value must be a JSON string. Example: {"ParameterName1":"ParameterValue1","ParameterName2":"ParameterValue2"}.
     // 
-    // >  You can call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query a list of default parameter templates.
+    // > Call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query the list of default parameter templates.
     // 
     // This parameter is required.
     shared_ptr<string> parameters_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+    // The region ID of the instance. To query the latest region list, call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The time to apply the parameter modifications. Valid values:
+    // 
+    // - 0: Immediately.
+    // 
+    // - 1: During the maintenance window.
     shared_ptr<string> switchMode_ {};
   };
 

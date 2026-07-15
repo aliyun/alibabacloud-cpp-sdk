@@ -123,17 +123,19 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // *   **true**: enables automatic payment.
-    // *   **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](https://help.aliyun.com/document_detail/85052.html).
+    // - **true**: enables automatic payment.
     // 
-    // >  Default value: **true**.
+    // - **false**: disables automatic payment. For more information, see [Renew an ApsaraDB for MongoDB subscription instance](https://help.aliyun.com/document_detail/85052.html).
+    // 
+    // > Default value: **true**.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**
     // 
-    // >  Default value: **false**.
+    // - **false**
+    // 
+    // > Default value: **false**.
     shared_ptr<string> autoRenew_ {};
     // The business information. This is an additional parameter.
     shared_ptr<string> businessInfo_ {};

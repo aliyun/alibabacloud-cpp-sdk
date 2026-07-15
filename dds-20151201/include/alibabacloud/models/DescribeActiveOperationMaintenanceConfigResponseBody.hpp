@@ -117,19 +117,31 @@ namespace Models
 
 
     protected:
-      // The time when the O\\&M task was created. The timefollows the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in UTC.
+      // The time when the O\\&M task configuration was created. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format and is displayed in UTC.
       shared_ptr<string> createdTime_ {};
-      // The start time of the O\\&M period. The time follows the *hh:mm* z format. The time is displayed in UTC.
+      // The days of the cycle.
+      // 
+      // - If CycleType is set to Month, this parameter returns the days of the month. Valid values: 1 to 28. Multiple values are separated by commas (,).
+      // 
+      // - If CycleType is set to Week, this parameter returns the days of the week. Valid values: 1 to 7. Multiple values are separated by commas (,).
       shared_ptr<string> cycleTime_ {};
-      // The cyclical type of the O\\&M task.
+      // The cycle type.
+      // 
+      // - Month
+      // 
+      // - Week
       shared_ptr<string> cycleType_ {};
-      // The end time of the maintenance window. The time follows the *hh:mm*z format. The time is displayed in UTC.
+      // The end time of the O\\&M time window. The time is in the *hh:mm:ss*Z format and is displayed in UTC.
       shared_ptr<string> maintainEndTime_ {};
-      // The start time of the maintenance window. The time follows the *hh:mm*z format.
+      // The start time of the O\\&M time window. The time is in the *hh:mm:ss*Z format and is displayed in UTC.
       shared_ptr<string> maintainStartTime_ {};
-      // The time when the O\\&M task was modified. The time follows the *yyyy-mm-dd*t*hh:mm:ss*z format. The time is displayed in Coordinated Universal Time (UTC).
+      // The time when the operations and maintenance (O\\&M) task configuration was modified. The time is in the *yyyy-mm-dd*T*hh:mm:ss*Z format and is displayed in UTC.
       shared_ptr<string> modifiedTime_ {};
-      // The state of the O\\&M task. Valid values: **0**: The O\\&M task is in the starting state. **1**: The O\\&M task is in the running state. **2**: The O\\&M task is in the stopped state.
+      // Indicates whether the configuration is enabled.
+      // 
+      // - 1: Enabled
+      // 
+      // - 2: Disabled
       shared_ptr<int32_t> status_ {};
     };
 
@@ -159,14 +171,15 @@ namespace Models
 
 
   protected:
-    // The description of the configuration.
+    // The details of the configuration.
     shared_ptr<DescribeActiveOperationMaintenanceConfigResponseBody::Config> config_ {};
-    // Indicates whether the O\\&M task is configured. Valid values:
+    // Indicates whether a configuration is set.
     // 
-    // *   1: The O\\&M task is configured.
-    // *   0: The O\\&M task is not configured.
+    // - 1: A configuration is set.
+    // 
+    // - 0: No configuration is set.
     shared_ptr<int32_t> hasConfig_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

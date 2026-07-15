@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The number of CPU cores.
     shared_ptr<string> CPU_ {};
+    // The description of the instance type.
     shared_ptr<string> description_ {};
+    // The memory size, in GB.
     shared_ptr<string> memory_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

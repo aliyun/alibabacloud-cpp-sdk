@@ -59,8 +59,9 @@ namespace Models
   protected:
     // Indicates whether any O\\&M tasks need pop-up windows to notify users actions. Valid values:
     // 
-    // *   **0**: No O\\&M tasks need pop-up windows to notify users actions.
-    // *   **1**: Some O\\&M tasks need pop-up windows to notify users actions.
+    // - **0**: No O\\&M tasks need pop-up windows to notify users actions.
+    // 
+    // - **1**: Some O\\&M tasks need pop-up windows to notify users actions.
     shared_ptr<int32_t> needPop_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

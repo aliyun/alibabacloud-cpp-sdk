@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The time-to-live (TTL) of the backup. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is in UTC.
+    // 
+    // > - *9999-01-01*T*00:00:00*&#x5A;*&#x20;indicates that the backup is retained permanently.*
+    // >
+    // >   **
+    // >
+    // > **
     shared_ptr<string> backupExpireTime_ {};
+    // The backup ID.
     shared_ptr<string> backupId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

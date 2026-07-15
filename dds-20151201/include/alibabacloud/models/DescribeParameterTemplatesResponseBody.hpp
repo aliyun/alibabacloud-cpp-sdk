@@ -193,14 +193,14 @@ namespace Models
 
 
   protected:
-    // The database engine of the instance.
+    // The database engine.
     shared_ptr<string> engine_ {};
-    // The database engine version of the instance.
+    // The database version number.
     shared_ptr<string> engineVersion_ {};
-    // The number of parameters that are supported by the instance.
+    // The number of parameters.
     shared_ptr<string> parameterCount_ {};
     shared_ptr<DescribeParameterTemplatesResponseBody::Parameters> parameters_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

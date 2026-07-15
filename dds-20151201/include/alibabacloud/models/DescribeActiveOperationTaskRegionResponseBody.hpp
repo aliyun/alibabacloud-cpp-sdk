@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The total number of tasks.
+      // The number of tasks.
       shared_ptr<int32_t> count_ {};
-      // The region ID of the instance.
+      // The region ID.
       shared_ptr<string> region_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The region ID.
+    // The list of regions.
     shared_ptr<vector<DescribeActiveOperationTaskRegionResponseBody::RegionList>> regionList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

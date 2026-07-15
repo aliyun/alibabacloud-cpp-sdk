@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -102,8 +102,13 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the RAM role. Format: `acs:ram::$accountID:role/$roleName`. The default value is `acs:ram::$accountID:role/aliyunrdsinstanceencryptiondefaultrole`.
+    // 
+    // > - `$accountID`: The ID of your Alibaba Cloud account. To view the ID, log on to the Alibaba Cloud Management Console, move the pointer over your profile picture in the upper-right corner, and then click Security Settings.
+    // >
+    // > - `$roleName`: The name of the RAM role. To view the role name, log on to the RAM console. In the navigation pane on the left, click RAM Role Management. Find the role name in the RAM Role Name list.
     shared_ptr<string> roleARN_ {};
-    // The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent zone list.
+    // The ID of the destination region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available regions.
     shared_ptr<string> targetRegionId_ {};
   };
 

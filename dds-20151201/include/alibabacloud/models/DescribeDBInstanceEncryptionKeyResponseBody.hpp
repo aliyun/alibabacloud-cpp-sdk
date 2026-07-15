@@ -122,8 +122,9 @@ namespace Models
     shared_ptr<string> encryptionKey_ {};
     // Indicates whether the key for the instance is enabled. Valid values:
     // 
-    // *   **Enabled**
-    // *   **Disabled**
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> encryptionKeyStatus_ {};
     // The purpose of the key for the instance.
     shared_ptr<string> keyUsage_ {};

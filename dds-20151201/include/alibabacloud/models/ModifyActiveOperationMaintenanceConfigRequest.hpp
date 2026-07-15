@@ -112,14 +112,31 @@ namespace Models
 
 
   protected:
+    // The day of the cycle.
+    // 
+    // - If CycleType is set to Month, enter a number from 1 to 28 to specify the day of the month. Use a comma (,) to separate multiple days.
+    // 
+    // - If CycleType is set to Week, enter a number from 1 to 7 to specify the day of the week. Use a comma (,) to separate multiple days.
     shared_ptr<string> cycleTime_ {};
+    // The cycle type.
+    // 
+    // - Month: monthly
+    // 
+    // - Week: weekly
     shared_ptr<string> cycleType_ {};
+    // The end time of the O\\&M window for the instance. The time is in the HH:mmZ format and is in UTC.
     shared_ptr<string> maintainEndTime_ {};
+    // The start time of the O\\&M window for the instance. The time is in the HH:mmZ format and is in UTC.
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether the configuration is enabled.
+    // 
+    // - 1: enabled
+    // 
+    // - 2: disabled
     shared_ptr<int32_t> status_ {};
   };
 

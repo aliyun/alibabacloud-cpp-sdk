@@ -128,14 +128,15 @@ namespace Models
   protected:
     // Specifies whether to remove all tags from the instances. Valid values:
     // 
-    // *   **true**: removes all tags from the instances.
-    // *   **false**: does not remove all tags from the instances.
+    // - **true**: removes all tags from the instances.
     // 
-    // > 
+    // - **false**: does not remove all tags from the instances.
     // 
-    // *   Default value: **false**.
+    // >
     // 
-    // *   If you specify the **TagKey** parameter together with this parameter, this parameter does not take effect.
+    // - Default value: **false**.
+    // 
+    // - If you specify the **TagKey** parameter together with this parameter, this parameter does not take effect.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

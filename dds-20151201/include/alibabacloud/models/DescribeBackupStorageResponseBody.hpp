@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The free quota for the storage capacity used for backup. Unit: bytes.
+    // The free backup quota for the instance. Unit: bytes.
     shared_ptr<int64_t> freeSize_ {};
-    // The storage capacity used for the full backup. Unit: bytes.
+    // The storage space used by full backups. Unit: bytes.
     // 
-    // >  Instances that use cloud disks support snapshot backup. The size of the storage used for the current full backup is the size of the snapshot chain.
+    // > Instances that use cloud disks are backed up using snapshots. The size of a full backup is the total size of the snapshot chain.
     shared_ptr<int64_t> fullStorageSize_ {};
-    // The storage capacity used for the log backup. Unit: bytes.
+    // The storage space used by log backups. Unit: bytes.
     shared_ptr<int64_t> logStorageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

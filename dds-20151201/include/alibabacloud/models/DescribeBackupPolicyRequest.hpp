@@ -107,17 +107,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The architecture of the instance. Valid values:
+    // The instance type.
     // 
-    // *   **sharding**: sharded cluster instance
-    // *   **replicate**: replica set or standalone instance
+    // - replicate: replica set instance
+    // 
+    // - sharding: sharded cluster instance
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The region ID of the instance.
+    // The region where the instance is located.
     shared_ptr<string> srcRegion_ {};
   };
 

@@ -114,14 +114,17 @@ namespace Models
   protected:
     // The role of the instance. Valid values:
     // 
-    // *   **db**: shard
-    // *   **cs**: Configserver
-    // *   **mongos**: mongos
-    // *   **logic**: sharded cluster instance
+    // - **db**: shard
+    // 
+    // - **cs**: Configserver
+    // 
+    // - **mongos**: mongos
+    // 
+    // - **logic**: sharded cluster instance
     shared_ptr<string> characterType_ {};
     // The instance ID.
     // 
-    // >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -131,7 +134,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The ID of the mongos node or shard node whose parameter modification records you want to query in the instance.
     // 
-    // >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+    // > This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -79,13 +79,12 @@ namespace Models
 
 
     protected:
-      // The beginning of the time range to which data can be restored.
+      // The beginning of the restorable time range.
       shared_ptr<string> restoreBeginTime_ {};
-      // The end of the time range to which data can be restored.
+      // The end of the restorable time range.
       shared_ptr<string> restoreEndTime_ {};
-      // The method used to restore data. Valid value:
-      // 
-      // *   PointInTime (default): Data is restored to a point in time.
+      // The restoration method. Valid values:
+      // * PointInTime (default): point-in-time restoration.
       shared_ptr<string> restoreType_ {};
     };
 
@@ -110,7 +109,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time ranges to which data can be restored. The time ranges include those used for point-in-time data restoration.
+    // The list of restorable time ranges. This list contains all time ranges available for point-in-time restoration.
     shared_ptr<vector<DescribeInstanceRecoverTimeResponseBody::RestoreRanges>> restoreRanges_ {};
   };
 

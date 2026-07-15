@@ -84,12 +84,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the shard node.
+    // 
+    // > - This parameter applies only to sharded cluster instances.
     shared_ptr<string> shardList_ {};
   };
 

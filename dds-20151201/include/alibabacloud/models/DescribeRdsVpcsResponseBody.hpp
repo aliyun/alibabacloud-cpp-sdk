@@ -183,14 +183,25 @@ namespace Models
 
 
         protected:
+          // The CIDR block of the vSwitch.
           shared_ptr<string> cidrBlock_ {};
+          // This parameter is deprecated. No value is returned.
           shared_ptr<string> gmtCreate_ {};
+          // This parameter is deprecated. No value is returned.
           shared_ptr<string> gmtModified_ {};
+          // Indicates whether the vSwitch is the default vSwitch. Valid values:
+          // 
+          // - **true**: The vSwitch is the default vSwitch.
+          // 
+          // - **false**: The vSwitch is not the default vSwitch.
           shared_ptr<bool> isDefault_ {};
+          // The ID of the zone where the vSwitch is located.
           shared_ptr<string> izNo_ {};
+          // The status of the vSwitch. A value of **Available** indicates that the vSwitch is available.
           shared_ptr<string> status_ {};
-          // VSwitch ID。
+          // The ID of the vSwitch.
           shared_ptr<string> vSwitchId_ {};
+          // The name of the vSwitch.
           shared_ptr<string> vSwitchName_ {};
         };
 
@@ -277,17 +288,31 @@ namespace Models
 
 
       protected:
+        // This parameter is deprecated. No value is returned.
         shared_ptr<string> aliUid_ {};
+        // This parameter is deprecated. No value is returned.
         shared_ptr<string> bid_ {};
+        // The CIDR block of the VPC.
         shared_ptr<string> cidrBlock_ {};
+        // This parameter is deprecated. No value is returned.
         shared_ptr<string> gmtCreate_ {};
+        // This parameter is deprecated. No value is returned.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the VPC is the default VPC. Valid values:
+        // 
+        // - **true**
+        // 
+        // - **false**
         shared_ptr<bool> isDefault_ {};
+        // The region ID.
         shared_ptr<string> regionNo_ {};
+        // The status of the VPC. A value of **Available** indicates that the VPC is available.
         shared_ptr<string> status_ {};
+        // A list of vSwitches.
         shared_ptr<vector<Vpc::VSwitchs>> vSwitchs_ {};
-        // VPC ID。
+        // The ID of the VPC.
         shared_ptr<string> vpcId_ {};
+        // The name of the VPC.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -302,6 +327,7 @@ namespace Models
 
 
     protected:
+      // VPC details.
       shared_ptr<vector<Vpcs::Vpc>> vpc_ {};
     };
 
@@ -324,7 +350,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of VPCs.
     shared_ptr<DescribeRdsVpcsResponseBody::Vpcs> vpcs_ {};
   };
 

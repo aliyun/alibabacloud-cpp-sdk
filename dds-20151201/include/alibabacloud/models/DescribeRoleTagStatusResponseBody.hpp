@@ -59,8 +59,21 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The tag status of the ReplicaSet node. Valid values:
+    // 
+    // - **true**: The tag is created.
+    // 
+    // - **false**: The tag is not created.
+    // 
+    // > If the instance is a sharded cluster, this parameter returns false.
     shared_ptr<string> roleTagStatus_ {};
+    // The tag status of each node in the sharded cluster. Valid values:
+    // 
+    // - **true**: The tag is created.
+    // 
+    // - **false**: The tag is not created.
     Darabonba::Json shardRoleTagStatus_ {};
   };
 

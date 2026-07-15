@@ -114,12 +114,17 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. The value must be an integer greater than 0. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. The value must be an integer greater than 0. The default value is **50**.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

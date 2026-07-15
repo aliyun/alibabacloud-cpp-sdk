@@ -86,8 +86,9 @@ namespace Models
   protected:
     // Specifies whether to return historical O\\&M tasks. Valid values:
     // 
-    // *   **0** (default): The system returns only pending O\\&M tasks.
-    // *   **1**: The system returns historical O\\&M tasks.
+    // - **0** (default): The system returns only pending O\\&M tasks.
+    // 
+    // - **1**: The system returns historical O\\&M tasks.
     shared_ptr<int32_t> isHistory_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

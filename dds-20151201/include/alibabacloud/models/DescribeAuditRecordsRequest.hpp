@@ -182,48 +182,49 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database to be queried. By default, all databases are queried.
+    // The name of the database. By default, all databases are queried.
     shared_ptr<string> database_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
-    // > The end time must be within 24 hours from the start time. Otherwise, the query fails.
+    // > The time range between the start time and the end time cannot exceed 24 hours. Otherwise, the operation fails.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The form of the audit log that the operation returns. Valid values:
+    // The format of the returned audit records. Valid values:
     // 
-    // *   **File**: triggers the generation of audit logs. If this parameter is set to File, only common parameters are returned.
-    // *   **Stream** (default): returns data streams.
+    // - **File**: Triggers the generation of an audit log file. If you set this parameter to File, only common parameters are returned.
+    // 
+    // - **Stream** (default): Returns a data stream.
+    // 
+    // > The **File** parameter is deprecated.
     shared_ptr<string> form_ {};
-    // The logical relationship between multiple keywords. Valid values:
-    // 
-    // *   **or**
-    // *   **and** (default value)
+    // The logical operator for the keyword search. The default value is and.
     shared_ptr<string> logicalOperator_ {};
-    // The ID of the mongos node or shard node in the instance.
+    // The ID of a Mongos node or a shard node in the sharded cluster instance.
     // 
-    // > This parameter takes effect only when you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+    // > This parameter is available only when **DBInstanceId** is set to the ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
-    // The order of time in which the log entries to return are sorted. Valid values:
+    // The order in which to sort the returned audit log entries by time. Valid values:
     // 
-    // *   **asc**: The log entries are sorted by time in ascending order.
-    // *   **desc**: The log entries are sorted by time in descending order.
+    // - **asc**: Sorts the entries in ascending order.
+    // 
+    // - **desc**: Sorts the entries in descending order.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. The valid value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: 1.
+    // The page number to return. The value must be greater than 0 and must not exceed the maximum value of the integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page. Default value: 30. Valid values: **30**, **50**, and **100**.
+    // The number of entries to return on each page. Valid values: **30** (default), **50**, and **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
+    // The keywords for the query. You can specify up to 10 keywords. Separate multiple keywords with spaces.
     shared_ptr<string> queryKeywords_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The user of the database. If you do not specify this parameter, this operation returns records of all users.
+    // The database account. By default, all accounts are queried.
     shared_ptr<string> user_ {};
   };
 

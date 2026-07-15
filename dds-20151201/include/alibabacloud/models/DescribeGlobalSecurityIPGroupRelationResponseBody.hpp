@@ -92,13 +92,13 @@ namespace Models
     protected:
       // The IP addresses in the whitelist template.
       // 
-      // >  Separate multiple IP addresses with commas (,). You can create up to 1,000 IP addresses or CIDR blocks for all IP whitelists.
+      // > Separate multiple IP addresses with commas. A maximum of 1,000 IP addresses or CIDR blocks can be added across all IP address whitelists.
       shared_ptr<string> GIpList_ {};
-      // The name of the IP whitelist template.
+      // The name of the IP address whitelist template.
       shared_ptr<string> globalIgName_ {};
-      // The ID of the IP whitelist template.
+      // The ID of the IP address whitelist template.
       shared_ptr<string> globalSecurityGroupId_ {};
-      // The region ID of the instance.
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -130,9 +130,9 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The global IP whitelist templates associated with the instance.
+    // The mapping of the global IP address whitelist template.
     shared_ptr<vector<DescribeGlobalSecurityIPGroupRelationResponseBody::GlobalSecurityIPGroupRel>> globalSecurityIPGroupRel_ {};
-    // The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+    // The ID of the request. If you encounter a problem, provide this ID to our support staff for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

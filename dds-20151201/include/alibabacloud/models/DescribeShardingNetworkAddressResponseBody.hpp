@@ -375,6 +375,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeShardingNetworkAddressResponseBody::CompatibleConnections> compatibleConnections_ {};
+    // The suffix of the connection string.
     shared_ptr<string> connectionStringSuffix_ {};
     shared_ptr<DescribeShardingNetworkAddressResponseBody::NetworkAddresses> networkAddresses_ {};
     // The request ID.

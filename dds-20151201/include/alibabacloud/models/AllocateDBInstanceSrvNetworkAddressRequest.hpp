@@ -94,13 +94,25 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The ID of a mongos or shard node in a sharded cluster instance.
+    // 
+    // > This parameter is not currently required.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The type of SRV connection string to enable.
+    // 
+    // - `vpc`: SRV connection string for the VPC.
+    // 
+    // - `public`: Public SRV connection string.
+    // 
+    // > The default is the VPC connection string.
     shared_ptr<string> srvConnectionType_ {};
   };
 

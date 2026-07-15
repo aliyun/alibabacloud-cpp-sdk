@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+    // The ID of the request. If you encounter an issue, provide this request ID to our support staff for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

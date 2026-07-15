@@ -167,22 +167,42 @@ namespace Models
 
 
   protected:
+    // The binlog ID. This parameter is not currently supported.
     shared_ptr<string> binlogId_ {};
+    // The ID of the instance. If the instance is a sharded cluster, you must also specify the **NodeId** parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The region where the cross-region backup is stored.
+    // 
+    // > This parameter is required when you query cross-region backups.
     shared_ptr<string> destRegion_ {};
+    // The end time of the query. The time must be later than the start time. The time is in the *yyyy-MM-dd*T*HH:mm:ss.xxx*Z format. The time is displayed in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The ID of the mongos node or shard node in the sharded cluster instance.
+    // 
+    // > This parameter is applicable only to sharded cluster instances.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The region of the source instance for a cross-region backup.
+    // 
+    // > - This parameter is required when you query cross-region backups.
     shared_ptr<string> srcRegion_ {};
+    // The start time of the query. The time is in the *yyyy-MM-dd*T*HH:mm:ss.xxx*Z format. The time is displayed in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

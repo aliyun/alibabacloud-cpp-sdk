@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RestartDBInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RestartDBInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->nodeId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->switchMode_ == nullptr; };
+        && this->nodeId_ == nullptr && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->switchMode_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteNodeId() { this->nodeId_ = nullptr;};
     inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline RestartDBInstanceRequest& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline RestartDBInstanceRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // ownerAccount Field Functions 
@@ -98,14 +107,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the shard or mongos node in the sharded cluster instance.
+    // The ID of a shard or Mongos node in a sharded cluster instance.
     // 
-    // > The sharded cluster instance is restarted if you do not specify this parameter.
+    // > If you do not specify this parameter for a sharded cluster instance, the entire instance is restarted.
     shared_ptr<string> nodeId_ {};
+    shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The time to restart the instance. Valid values:
+    // 
+    // - 0: The instance is restarted immediately.
+    // 
+    // - 1: The instance is restarted within the maintenance window.
     shared_ptr<string> switchMode_ {};
   };
 

@@ -59,13 +59,19 @@ namespace Models
   protected:
     // The type of the audit log entries. Valid values:
     // 
-    // *   **admin**: O\\&M and management operations
-    // *   **slow**: slow query logs
-    // *   **query**: query operations
-    // *   **insert**: insert operations
-    // *   **update**: update operations
-    // *   **delete**: delete operations
-    // *   **command**: protocol commands such as the aggregate method
+    // - **admin**: O\\&M and management operations
+    // 
+    // - **slow**: slow query logs
+    // 
+    // - **query**: query operations
+    // 
+    // - **insert**: insert operations
+    // 
+    // - **update**: update operations
+    // 
+    // - **delete**: delete operations
+    // 
+    // - **command**: protocol commands such as the aggregate method
     shared_ptr<string> filter_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

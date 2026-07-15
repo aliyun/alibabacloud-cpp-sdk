@@ -94,9 +94,11 @@ namespace Models
       shared_ptr<string> GIpList_ {};
       // The name of the IP whitelist template. The name must meet the following requirements:
       // 
-      // *   It can contain lowercase letters, digits, and underscores (_).
-      // *   It must start with a letter and end with a letter or digit.
-      // *   It must be 2 to 120 characters in length.
+      // - It can contain lowercase letters, digits, and underscores (_).
+      // 
+      // - It must start with a letter and end with a letter or digit.
+      // 
+      // - It must be 2 to 120 characters in length.
       shared_ptr<string> globalIgName_ {};
       // The ID of the IP whitelist template.
       shared_ptr<string> globalSecurityGroupId_ {};

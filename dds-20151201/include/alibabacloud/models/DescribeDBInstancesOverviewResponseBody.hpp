@@ -139,17 +139,21 @@ namespace Models
 
 
       protected:
-        // The tag key. Valid values of N: **1** to **20**.
+        // The tag key.
         // 
-        // *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-        // *   It can be up to 64 characters in length.
-        // *   It cannot be an empty string.
+        // - The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+        // 
+        // - The key can be up to 64 characters in length.
+        // 
+        // - The key cannot be an empty string.
         shared_ptr<string> key_ {};
-        // The tag value. Valid values of N: **1** to **20**.
+        // The tag value.
         // 
-        // *   The value cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-        // *   The value can be up to 128 characters in length.
-        // *   The value can be an empty string.
+        // - The value cannot start with `aliyun`, `acs`:, `http://`, or `https://`.
+        // 
+        // - The value can be up to 128 characters in length.
+        // 
+        // - The value can be an empty string.
         shared_ptr<string> value_ {};
       };
 
@@ -224,9 +228,9 @@ namespace Models
         shared_ptr<string> nodeDescription_ {};
         // The ID of the shard node.
         shared_ptr<string> nodeId_ {};
-        // The storage space of the shard node. Unit: GB.
+        // The storage capacity of the shard node, in GB.
         shared_ptr<int32_t> nodeStorage_ {};
-        // The number of read-only nodes in the shard node. Valid values: **0** to **5**.
+        // The number of read-only nodes in the shard. Valid values: **0** to **5**.
         shared_ptr<int32_t> readonlyReplicas_ {};
       };
 
@@ -473,95 +477,115 @@ namespace Models
 
 
     protected:
-      // The read and write throughput consumed by the instance.
+      // The read/write throughput of the instance.
       // 
-      // > 
-      // 
-      // *   This parameter is returned when the instance is a serverless instance.
-      // 
-      // *   Serverless instances are available only in the China site (aliyun.com).
+      // > - This parameter is returned only for Serverless instances.
+      // >
+      // > - Serverless instances are available only on the China site (aliyun.com).
       shared_ptr<string> capacityUnit_ {};
       // The billing method of the instance. Valid values:
       // 
-      // *   **PrePaid**: subscription
-      // *   **PostPaid**: pay-as-you-go
-      shared_ptr<string> chargeType_ {};
-      // The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-      shared_ptr<string> creationTime_ {};
-      // The instance type. The instance type varies based on the instance architecture. For more information about instance types supported by different instance architectures, see the following references:
+      // - **PrePaid**: subscription
       // 
-      // *   [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
-      // *   [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
-      // *   [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
+      // - **PostPaid**: pay-as-you-go
+      shared_ptr<string> chargeType_ {};
+      // The time when the instance was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in UTC.
+      shared_ptr<string> creationTime_ {};
+      // The instance type. For more information about the instance types available for different instance architectures, see:
+      // 
+      // - [Standalone instance types](https://help.aliyun.com/document_detail/311407.html)
+      // 
+      // - [Replica set instance types](https://help.aliyun.com/document_detail/311410.html)
+      // 
+      // - [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html)
+      // 
+      // <props="china">
+      // 
+      // > This parameter is not required for Serverless instances.
       shared_ptr<string> DBInstanceClass_ {};
       // The description of the instance.
       shared_ptr<string> DBInstanceDescription_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The state of the instance. For more information about valid values, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
+      // The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
       shared_ptr<string> DBInstanceStatus_ {};
-      // The storage space of the instance. Unit: GB.
+      // The storage capacity of the instance, in GB.
       shared_ptr<int32_t> DBInstanceStorage_ {};
-      // The architecture of the instance. Valid values:
+      // The instance architecture. Valid values:
       // 
-      // *   **sharding**: sharded cluster instance
-      // *   **replicate**: replica set or standalone instance
+      // - **sharding**: sharded cluster instance
+      // 
+      // - **replicate**: replica set or standalone instance
+      // 
+      // <props="china">
+      // 
+      // - **serverless**: Serverless instance
       shared_ptr<string> DBInstanceType_ {};
-      // The time when the instance data was destroyed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the data of the instance was destroyed. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
       shared_ptr<string> destroyTime_ {};
-      // The database engine of the instance. Set the value to **MongoDB**.
+      // The database engine. The value is **MongoDB**.
       shared_ptr<string> engine_ {};
       // The database engine version of the instance.
       shared_ptr<string> engineVersion_ {};
-      // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+      // The expiration time of the subscription instance. The time is in the *yyyy-MM-dd*T*HH:mm*Z format. The time is in UTC.
       shared_ptr<string> expireTime_ {};
-      // The kind code of the instance. Valid values:
+      // The instance edition. Valid values:
       // 
-      // *   **0**: physical machine
-      // *   **1**: Elastic Compute Service (ECS) instance
-      // *   **2**: Docker cluster
-      // *   **18**: Kubernetes cluster
+      // - **0**: physical server
+      // 
+      // - **1**: ECS
+      // 
+      // - **2**: DOCKER
+      // 
+      // - **18**: instance on the new Kubernetes-based architecture
       shared_ptr<string> kindCode_ {};
-      // The date when the last downgrade operation was performed.
+      // The time when the instance was last downgraded.
       shared_ptr<string> lastDowngradeTime_ {};
-      // Indicates whether the instance is locked. Valid values:
+      // The lock mode of the instance.
       // 
-      // *   **Unlock**: The instance is not locked.
-      // *   **ManualLock**: The instance is manually locked.
-      // *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-      // *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
-      // *   **LockByDiskQuota**: The instance is automatically locked after the storage space is exhausted.
-      // *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
+      // - **Unlock**: The instance is not locked.
+      // 
+      // - **ManualLock**: The instance is manually locked.
+      // 
+      // - **LockByExpiration**: The instance is automatically locked after it expires.
+      // 
+      // - **LockByRestoration**: The instance is automatically locked before a rollback.
+      // 
+      // - **LockByDiskQuota**: The instance is automatically locked after its storage space is exhausted.
+      // 
+      // - **Released**: The instance is released. You cannot unlock a released instance. You can only restore the data of the instance to a new instance. The restoration may take a long time.
       shared_ptr<string> lockMode_ {};
       // The details of the mongos nodes.
       // 
-      // >  This parameter is returned when the instance is a sharded cluster instance.
+      // > This parameter is returned only for sharded cluster instances.
       shared_ptr<vector<DBInstances::MongosList>> mongosList_ {};
       // The network type of the instance. Valid values:
       // 
-      // *   **Classic**
-      // *   **VPC**
+      // - **Classic**: classic network
+      // 
+      // - **VPC**: virtual private cloud (VPC)
       shared_ptr<string> networkType_ {};
       // The region ID of the instance.
       shared_ptr<string> regionId_ {};
       // The number of nodes in the instance.
       // 
-      // >  This parameter is returned when the instance is a replica set instance.
+      // > This parameter is returned only for replica set instances.
       shared_ptr<string> replicationFactor_ {};
       // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
       // The details of the shard nodes.
       // 
-      // >  This parameter is returned when the instance is a sharded cluster instance.
+      // > This parameter is returned only for sharded cluster instances.
       shared_ptr<vector<DBInstances::ShardList>> shardList_ {};
-      // The tags to add to the instance.
+      // The tags of the instance.
       shared_ptr<vector<DBInstances::Tags>> tags_ {};
-      // Indicates whether password-free access over VPC is enabled. Valid values:
+      // Indicates whether password-free access over a VPC is enabled. Valid values:
       // 
-      // *   **Open**: Password-free access over VPC is enabled.
-      // *   **Close**: Password-free access over VPC is disabled.
+      // - **Open**: enabled
+      // 
+      // - **Close**: disabled
       shared_ptr<string> vpcAuthMode_ {};
-      // The zone ID of the instance.
+      // The zone of the instance.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -591,11 +615,11 @@ namespace Models
 
 
   protected:
-    // The information of instances.
+    // A list of instance details.
     shared_ptr<vector<DescribeDBInstancesOverviewResponseBody::DBInstances>> DBInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of instances in the query results.
+    // The number of instances returned.
     shared_ptr<string> totalCount_ {};
   };
 

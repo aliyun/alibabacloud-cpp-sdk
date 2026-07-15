@@ -169,7 +169,7 @@ namespace Models
   protected:
     // The ID of the instance.
     // 
-    // >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -181,12 +181,13 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The logical relationship between multiple keywords. Valid values:
     // 
-    // *   **or**
-    // *   **and** (default value)
+    // - **or**
+    // 
+    // - **and** (default value)
     shared_ptr<string> logicalOperator_ {};
     // The ID of the mongos node or shard node whose error logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
     // 
-    // >  This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+    // > This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -202,10 +203,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The role of the node whose error logs you want to query in the instance. Valid values:
     // 
-    // *   **primary**
-    // *   **secondary**
+    // - **primary**
     // 
-    // >  If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
+    // - **secondary**
+    // 
+    // > If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
     shared_ptr<string> roleType_ {};
     // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     // 

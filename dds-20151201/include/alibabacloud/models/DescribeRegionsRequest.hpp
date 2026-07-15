@@ -86,14 +86,15 @@ namespace Models
   protected:
     // The language of the values of the returned **RegionName** and **ZoneName** parameters. Valid values:
     // 
-    // *   **zh** (default)
-    // *   **en**
+    // - **zh** (default)
+    // 
+    // - **en**
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     // 
-    // >  If you do not specify this parameter, all supported regions are queried.
+    // > If you do not specify this parameter, all supported regions are queried.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -54,6 +54,7 @@ namespace Models
       class DBInstance : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DBInstance& obj) { 
+          DARABONBA_PTR_TO_JSON(AIGatewayEnabled, AIGatewayEnabled_);
           DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
           DARABONBA_PTR_TO_JSON(CapacityUnit, capacityUnit_);
           DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
@@ -101,6 +102,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SearchNodeStorage, searchNodeStorage_);
           DARABONBA_PTR_TO_JSON(SecondaryZoneId, secondaryZoneId_);
           DARABONBA_PTR_TO_JSON(ShardList, shardList_);
+          DARABONBA_PTR_TO_JSON(ShardSearchNodes, shardSearchNodes_);
           DARABONBA_PTR_TO_JSON(StorageEngine, storageEngine_);
           DARABONBA_PTR_TO_JSON(StorageType, storageType_);
           DARABONBA_PTR_TO_JSON(SyncPercent, syncPercent_);
@@ -113,6 +115,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
         };
         friend void from_json(const Darabonba::Json& j, DBInstance& obj) { 
+          DARABONBA_PTR_FROM_JSON(AIGatewayEnabled, AIGatewayEnabled_);
           DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
           DARABONBA_PTR_FROM_JSON(CapacityUnit, capacityUnit_);
           DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
@@ -160,6 +163,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SearchNodeStorage, searchNodeStorage_);
           DARABONBA_PTR_FROM_JSON(SecondaryZoneId, secondaryZoneId_);
           DARABONBA_PTR_FROM_JSON(ShardList, shardList_);
+          DARABONBA_PTR_FROM_JSON(ShardSearchNodes, shardSearchNodes_);
           DARABONBA_PTR_FROM_JSON(StorageEngine, storageEngine_);
           DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
           DARABONBA_PTR_FROM_JSON(SyncPercent, syncPercent_);
@@ -255,6 +259,111 @@ namespace Models
 
         protected:
           shared_ptr<vector<Tags::Tag>> tag_ {};
+        };
+
+        class ShardSearchNodes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ShardSearchNodes& obj) { 
+            DARABONBA_PTR_TO_JSON(ShardSearchNodes, shardSearchNodes_);
+          };
+          friend void from_json(const Darabonba::Json& j, ShardSearchNodes& obj) { 
+            DARABONBA_PTR_FROM_JSON(ShardSearchNodes, shardSearchNodes_);
+          };
+          ShardSearchNodes() = default ;
+          ShardSearchNodes(const ShardSearchNodes &) = default ;
+          ShardSearchNodes(ShardSearchNodes &&) = default ;
+          ShardSearchNodes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ShardSearchNodes() = default ;
+          ShardSearchNodes& operator=(const ShardSearchNodes &) = default ;
+          ShardSearchNodes& operator=(ShardSearchNodes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class ShardSearchNodesItem : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ShardSearchNodesItem& obj) { 
+              DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+              DARABONBA_PTR_TO_JSON(SearchNodeClass, searchNodeClass_);
+              DARABONBA_PTR_TO_JSON(SearchNodeCount, searchNodeCount_);
+              DARABONBA_PTR_TO_JSON(SearchNodeId, searchNodeId_);
+              DARABONBA_PTR_TO_JSON(SearchNodeStorage, searchNodeStorage_);
+            };
+            friend void from_json(const Darabonba::Json& j, ShardSearchNodesItem& obj) { 
+              DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+              DARABONBA_PTR_FROM_JSON(SearchNodeClass, searchNodeClass_);
+              DARABONBA_PTR_FROM_JSON(SearchNodeCount, searchNodeCount_);
+              DARABONBA_PTR_FROM_JSON(SearchNodeId, searchNodeId_);
+              DARABONBA_PTR_FROM_JSON(SearchNodeStorage, searchNodeStorage_);
+            };
+            ShardSearchNodesItem() = default ;
+            ShardSearchNodesItem(const ShardSearchNodesItem &) = default ;
+            ShardSearchNodesItem(ShardSearchNodesItem &&) = default ;
+            ShardSearchNodesItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ShardSearchNodesItem() = default ;
+            ShardSearchNodesItem& operator=(const ShardSearchNodesItem &) = default ;
+            ShardSearchNodesItem& operator=(ShardSearchNodesItem &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->nodeId_ == nullptr
+        && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeId_ == nullptr && this->searchNodeStorage_ == nullptr; };
+            // nodeId Field Functions 
+            bool hasNodeId() const { return this->nodeId_ != nullptr;};
+            void deleteNodeId() { this->nodeId_ = nullptr;};
+            inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+            inline ShardSearchNodesItem& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+            // searchNodeClass Field Functions 
+            bool hasSearchNodeClass() const { return this->searchNodeClass_ != nullptr;};
+            void deleteSearchNodeClass() { this->searchNodeClass_ = nullptr;};
+            inline string getSearchNodeClass() const { DARABONBA_PTR_GET_DEFAULT(searchNodeClass_, "") };
+            inline ShardSearchNodesItem& setSearchNodeClass(string searchNodeClass) { DARABONBA_PTR_SET_VALUE(searchNodeClass_, searchNodeClass) };
+
+
+            // searchNodeCount Field Functions 
+            bool hasSearchNodeCount() const { return this->searchNodeCount_ != nullptr;};
+            void deleteSearchNodeCount() { this->searchNodeCount_ = nullptr;};
+            inline string getSearchNodeCount() const { DARABONBA_PTR_GET_DEFAULT(searchNodeCount_, "") };
+            inline ShardSearchNodesItem& setSearchNodeCount(string searchNodeCount) { DARABONBA_PTR_SET_VALUE(searchNodeCount_, searchNodeCount) };
+
+
+            // searchNodeId Field Functions 
+            bool hasSearchNodeId() const { return this->searchNodeId_ != nullptr;};
+            void deleteSearchNodeId() { this->searchNodeId_ = nullptr;};
+            inline string getSearchNodeId() const { DARABONBA_PTR_GET_DEFAULT(searchNodeId_, "") };
+            inline ShardSearchNodesItem& setSearchNodeId(string searchNodeId) { DARABONBA_PTR_SET_VALUE(searchNodeId_, searchNodeId) };
+
+
+            // searchNodeStorage Field Functions 
+            bool hasSearchNodeStorage() const { return this->searchNodeStorage_ != nullptr;};
+            void deleteSearchNodeStorage() { this->searchNodeStorage_ = nullptr;};
+            inline string getSearchNodeStorage() const { DARABONBA_PTR_GET_DEFAULT(searchNodeStorage_, "") };
+            inline ShardSearchNodesItem& setSearchNodeStorage(string searchNodeStorage) { DARABONBA_PTR_SET_VALUE(searchNodeStorage_, searchNodeStorage) };
+
+
+          protected:
+            shared_ptr<string> nodeId_ {};
+            shared_ptr<string> searchNodeClass_ {};
+            shared_ptr<string> searchNodeCount_ {};
+            shared_ptr<string> searchNodeId_ {};
+            shared_ptr<string> searchNodeStorage_ {};
+          };
+
+          virtual bool empty() const override { return this->shardSearchNodes_ == nullptr; };
+          // shardSearchNodes Field Functions 
+          bool hasShardSearchNodes() const { return this->shardSearchNodes_ != nullptr;};
+          void deleteShardSearchNodes() { this->shardSearchNodes_ = nullptr;};
+          inline const vector<ShardSearchNodes::ShardSearchNodesItem> & getShardSearchNodes() const { DARABONBA_PTR_GET_CONST(shardSearchNodes_, vector<ShardSearchNodes::ShardSearchNodesItem>) };
+          inline vector<ShardSearchNodes::ShardSearchNodesItem> getShardSearchNodes() { DARABONBA_PTR_GET(shardSearchNodes_, vector<ShardSearchNodes::ShardSearchNodesItem>) };
+          inline ShardSearchNodes& setShardSearchNodes(const vector<ShardSearchNodes::ShardSearchNodesItem> & shardSearchNodes) { DARABONBA_PTR_SET_VALUE(shardSearchNodes_, shardSearchNodes) };
+          inline ShardSearchNodes& setShardSearchNodes(vector<ShardSearchNodes::ShardSearchNodesItem> && shardSearchNodes) { DARABONBA_PTR_SET_RVALUE(shardSearchNodes_, shardSearchNodes) };
+
+
+        protected:
+          shared_ptr<vector<ShardSearchNodes::ShardSearchNodesItem>> shardSearchNodes_ {};
         };
 
         class ShardList : public Darabonba::Model {
@@ -943,19 +1052,26 @@ namespace Models
           shared_ptr<vector<ConfigserverList::ConfigserverAttribute>> configserverAttribute_ {};
         };
 
-        virtual bool empty() const override { return this->burstingEnabled_ == nullptr
-        && this->capacityUnit_ == nullptr && this->chargeType_ == nullptr && this->coldDataEnabled_ == nullptr && this->configserverList_ == nullptr && this->creationTime_ == nullptr
-        && this->currentKernelVersion_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceOrderStatus_ == nullptr
-        && this->DBInstanceReleaseProtection_ == nullptr && this->DBInstanceStatus_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceType_ == nullptr && this->destroyTime_ == nullptr
-        && this->disasterRecoveryInfo_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
-        && this->expireTime_ == nullptr && this->hiddenZoneId_ == nullptr && this->kindCode_ == nullptr && this->lastDowngradeTime_ == nullptr && this->lockMode_ == nullptr
-        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr && this->maxMBPS_ == nullptr
-        && this->mongosList_ == nullptr && this->networkType_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr && this->readonlyReplicas_ == nullptr
-        && this->regionId_ == nullptr && this->replacateId_ == nullptr && this->replicaSetName_ == nullptr && this->replicaSets_ == nullptr && this->replicationFactor_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeStorage_ == nullptr && this->secondaryZoneId_ == nullptr
-        && this->shardList_ == nullptr && this->storageEngine_ == nullptr && this->storageType_ == nullptr && this->syncPercent_ == nullptr && this->tags_ == nullptr
-        && this->useClusterBackup_ == nullptr && this->VPCCloudInstanceIds_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcAuthMode_ == nullptr
-        && this->zoneId_ == nullptr; };
+        virtual bool empty() const override { return this->AIGatewayEnabled_ == nullptr
+        && this->burstingEnabled_ == nullptr && this->capacityUnit_ == nullptr && this->chargeType_ == nullptr && this->coldDataEnabled_ == nullptr && this->configserverList_ == nullptr
+        && this->creationTime_ == nullptr && this->currentKernelVersion_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceId_ == nullptr
+        && this->DBInstanceOrderStatus_ == nullptr && this->DBInstanceReleaseProtection_ == nullptr && this->DBInstanceStatus_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceType_ == nullptr
+        && this->destroyTime_ == nullptr && this->disasterRecoveryInfo_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr
+        && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->hiddenZoneId_ == nullptr && this->kindCode_ == nullptr && this->lastDowngradeTime_ == nullptr
+        && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr
+        && this->maxMBPS_ == nullptr && this->mongosList_ == nullptr && this->networkType_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr
+        && this->readonlyReplicas_ == nullptr && this->regionId_ == nullptr && this->replacateId_ == nullptr && this->replicaSetName_ == nullptr && this->replicaSets_ == nullptr
+        && this->replicationFactor_ == nullptr && this->resourceGroupId_ == nullptr && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeStorage_ == nullptr
+        && this->secondaryZoneId_ == nullptr && this->shardList_ == nullptr && this->shardSearchNodes_ == nullptr && this->storageEngine_ == nullptr && this->storageType_ == nullptr
+        && this->syncPercent_ == nullptr && this->tags_ == nullptr && this->useClusterBackup_ == nullptr && this->VPCCloudInstanceIds_ == nullptr && this->VPCId_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcAuthMode_ == nullptr && this->zoneId_ == nullptr; };
+        // AIGatewayEnabled Field Functions 
+        bool hasAIGatewayEnabled() const { return this->AIGatewayEnabled_ != nullptr;};
+        void deleteAIGatewayEnabled() { this->AIGatewayEnabled_ = nullptr;};
+        inline bool getAIGatewayEnabled() const { DARABONBA_PTR_GET_DEFAULT(AIGatewayEnabled_, false) };
+        inline DBInstance& setAIGatewayEnabled(bool AIGatewayEnabled) { DARABONBA_PTR_SET_VALUE(AIGatewayEnabled_, AIGatewayEnabled) };
+
+
         // burstingEnabled Field Functions 
         bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
         void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
@@ -1293,6 +1409,15 @@ namespace Models
         inline DBInstance& setShardList(DBInstance::ShardList && shardList) { DARABONBA_PTR_SET_RVALUE(shardList_, shardList) };
 
 
+        // shardSearchNodes Field Functions 
+        bool hasShardSearchNodes() const { return this->shardSearchNodes_ != nullptr;};
+        void deleteShardSearchNodes() { this->shardSearchNodes_ = nullptr;};
+        inline const DBInstance::ShardSearchNodes & getShardSearchNodes() const { DARABONBA_PTR_GET_CONST(shardSearchNodes_, DBInstance::ShardSearchNodes) };
+        inline DBInstance::ShardSearchNodes getShardSearchNodes() { DARABONBA_PTR_GET(shardSearchNodes_, DBInstance::ShardSearchNodes) };
+        inline DBInstance& setShardSearchNodes(const DBInstance::ShardSearchNodes & shardSearchNodes) { DARABONBA_PTR_SET_VALUE(shardSearchNodes_, shardSearchNodes) };
+        inline DBInstance& setShardSearchNodes(DBInstance::ShardSearchNodes && shardSearchNodes) { DARABONBA_PTR_SET_RVALUE(shardSearchNodes_, shardSearchNodes) };
+
+
         // storageEngine Field Functions 
         bool hasStorageEngine() const { return this->storageEngine_ != nullptr;};
         void deleteStorageEngine() { this->storageEngine_ = nullptr;};
@@ -1366,6 +1491,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<bool> AIGatewayEnabled_ {};
         shared_ptr<bool> burstingEnabled_ {};
         shared_ptr<string> capacityUnit_ {};
         shared_ptr<string> chargeType_ {};
@@ -1413,6 +1539,7 @@ namespace Models
         shared_ptr<int32_t> searchNodeStorage_ {};
         shared_ptr<string> secondaryZoneId_ {};
         shared_ptr<DBInstance::ShardList> shardList_ {};
+        shared_ptr<DBInstance::ShardSearchNodes> shardSearchNodes_ {};
         shared_ptr<string> storageEngine_ {};
         shared_ptr<string> storageType_ {};
         shared_ptr<string> syncPercent_ {};
@@ -1459,7 +1586,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstanceAttributeResponseBody::DBInstances> DBInstances_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

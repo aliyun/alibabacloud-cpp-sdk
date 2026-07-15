@@ -100,7 +100,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The ID of the mongos node in the sharded cluster instance.
     // 
-    // >  This parameter can be used only when the instance type is sharded cluster.
+    // > This parameter can be used only when the instance type is sharded cluster.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

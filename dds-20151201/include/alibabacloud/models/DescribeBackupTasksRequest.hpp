@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The ID of the backup task.
+    // The backup job ID.
     // 
-    // >  If you call the [CreateBackup](https://help.aliyun.com/document_detail/468439.html) operation to perform a manual backup task, you can set this parameter to the returned backup ID to query the backup progress of the task.
+    // > If you call [CreateBackup](https://help.aliyun.com/document_detail/468439.html) to perform a manual backup, you can pass the returned backup ID to query the backup progress.
     shared_ptr<string> backupJobId_ {};
     // The instance ID.
     // 

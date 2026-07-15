@@ -92,8 +92,9 @@ namespace Models
       shared_ptr<int32_t> count_ {};
       // The type of the task. Valid values:
       // 
-      // *   **rds_apsaradb_transfer**: data migration
-      // *   **rds_apsaradb_upgrade**: minor version update
+      // - **rds_apsaradb_transfer**: data migration
+      // 
+      // - **rds_apsaradb_upgrade**: minor version update
       shared_ptr<string> taskType_ {};
       // The task type in English.
       shared_ptr<string> taskTypeInfoEn_ {};

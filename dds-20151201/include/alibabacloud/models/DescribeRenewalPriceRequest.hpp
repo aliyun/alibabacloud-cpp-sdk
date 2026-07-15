@@ -94,11 +94,15 @@ namespace Models
 
 
   protected:
-    // The business information. This is an additional parameter.
+    // Additional business information, provided as a JSON string.
     shared_ptr<string> businessInfo_ {};
-    // The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
+    // Specifies whether to use a coupon. Valid values:
+    // 
+    // - **default** or **null** (default): Use a coupon.
+    // 
+    // - **youhuiquan_promotion_option_id_for_blank**: Do not use a coupon.
     shared_ptr<string> couponNo_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

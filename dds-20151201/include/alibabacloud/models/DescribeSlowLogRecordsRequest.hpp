@@ -177,18 +177,19 @@ namespace Models
     shared_ptr<string> DBName_ {};
     // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
     // 
-    // > 
+    // >
     // 
-    // *   The end time must be later than the start time.
+    // - The end time must be later than the start time.
     // 
-    // *   The end time must be within 24 hours from the start time. Otherwise, the query fails.
+    // - The end time must be within 24 hours from the start time. Otherwise, the query fails.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The logical relationship among multiple keywords.
     // 
-    // *   **or**
-    // *   **and** (default value)
+    // - **or**
+    // 
+    // - **and** (default value)
     shared_ptr<string> logicalOperator_ {};
     // The ID of the shard node.
     // 
@@ -196,8 +197,9 @@ namespace Models
     shared_ptr<string> nodeId_ {};
     // The order of time in which the log entries to return are sorted. Valid values:
     // 
-    // *   asc: The log entries are sorted by time in ascending order.
-    // *   desc: The log entries are sorted by time in descending order.
+    // - asc: The log entries are sorted by time in ascending order.
+    // 
+    // - desc: The log entries are sorted by time in descending order.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

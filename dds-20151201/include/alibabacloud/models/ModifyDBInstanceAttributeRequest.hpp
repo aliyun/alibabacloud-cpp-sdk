@@ -84,8 +84,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Specifies whether to enable instance release protection. Valid values:
+    // 
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
     shared_ptr<bool> DBInstanceReleaseProtection_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

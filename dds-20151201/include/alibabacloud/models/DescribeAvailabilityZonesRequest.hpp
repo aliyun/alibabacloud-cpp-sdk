@@ -206,15 +206,17 @@ namespace Models
   protected:
     // The language of the returned **RegionName** and **ZoneName** parameter values. Valid values:
     // 
-    // *   **zh** (default): Chinese
-    // *   **en**: English
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
     shared_ptr<string> acceptLanguage_ {};
     // The instance type of the instance.
     shared_ptr<string> DBInstanceClass_ {};
     // The architecture of the instance. Valid values:
     // 
-    // *   **normal**: replica set instance
-    // *   **sharding**: sharded cluster instance
+    // - **normal**: replica set instance
+    // 
+    // - **sharding**: sharded cluster instance
     shared_ptr<string> dbType_ {};
     // The database engine version of the instance.
     shared_ptr<string> engineVersion_ {};
@@ -224,13 +226,15 @@ namespace Models
     shared_ptr<string> excludeZoneId_ {};
     // The billing method of the product. Valid values:
     // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid:** pay-as-you-go
+    // - **PrePaid**: subscription
+    // 
+    // - **PostPaid:** pay-as-you-go
     shared_ptr<string> instanceChargeType_ {};
     // The architecture of the instance. Valid values:
     // 
-    // *   **sharding**: sharded cluster instance
-    // *   **replicate**: replica set or standalone instance
+    // - **sharding**: sharded cluster instance
+    // 
+    // - **replicate**: replica set or standalone instance
     shared_ptr<string> instanceType_ {};
     // The edition of the instance. High-Available Edition and Preview Edition (dbfs) are supported.
     shared_ptr<string> mongoType_ {};
@@ -242,14 +246,17 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The number of nodes in the instance.
     // 
-    // >  This parameter is available only for replica set instances.
+    // > This parameter is available only for replica set instances.
     // 
     // Valid values:
     // 
-    // *   1
-    // *   3
-    // *   5
-    // *   7
+    // - 1
+    // 
+    // - 3
+    // 
+    // - 5
+    // 
+    // - 7
     shared_ptr<string> replicationFactor_ {};
     // The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
@@ -257,19 +264,25 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The storage type. Valid values:
     // 
-    // *   **cloud**: displays only zones available for instances that use cloud disks.
-    // *   **local**: only displays zones available for instances that use local disks instances.
-    // *   **default** or unspecified: displays zones available for instances that use cloud disks and those that use local disks.
+    // - **cloud**: displays only zones available for instances that use cloud disks.
+    // 
+    // - **local**: only displays zones available for instances that use local disks instances.
+    // 
+    // - **default** or unspecified: displays zones available for instances that use cloud disks and those that use local disks.
     shared_ptr<string> storageSupport_ {};
     // The storage type. Valid values:
     // 
-    // *   **cloud_essd1**: PL1 Enterprise SSDs (ESSDs)
-    // *   **cloud_essd2**: PL2 ESSDs
-    // *   **cloud_essd3**: PL3 ESSDs
-    // *   **local_ssd**: local SSDs
+    // - **cloud_essd1**: PL1 Enterprise SSDs (ESSDs)
     // 
-    // > *   Instances that run MongoDB 4.4 or later only use cloud disks to store data. If you do not specify this parameter, the value **cloud_essd1** is used by default.
-    // > *   Instances that run MongoDB 4.2 and earlier only use local disks to store data. If you do not specify this parameter, the value **local_ssd** is used by default.
+    // - **cloud_essd2**: PL2 ESSDs
+    // 
+    // - **cloud_essd3**: PL3 ESSDs
+    // 
+    // - **local_ssd**: local SSDs
+    // 
+    // > * Instances that run MongoDB 4.4 or later only use cloud disks to store data. If you do not specify this parameter, the value **cloud_essd1** is used by default.
+    // >
+    // > * Instances that run MongoDB 4.2 and earlier only use local disks to store data. If you do not specify this parameter, the value **local_ssd** is used by default.
     shared_ptr<string> storageType_ {};
     // The zone ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available zones.
     shared_ptr<string> zoneId_ {};

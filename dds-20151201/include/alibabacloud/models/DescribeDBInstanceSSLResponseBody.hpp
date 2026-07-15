@@ -77,15 +77,21 @@ namespace Models
   protected:
     // The name of the SSL certificate.
     shared_ptr<string> certCommonName_ {};
+    // Specifies whether connections must be encrypted using SSL. Valid values:
+    // 
+    // - **1**: Connections must be encrypted using SSL.
+    // 
+    // - **0**: Connections do not need to be encrypted using SSL.
     shared_ptr<string> forceEncryption_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the SSL certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in Coordinated Universal Time (UTC).
+    // The expiration time of the SSL certificate. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
     shared_ptr<string> SSLExpiredTime_ {};
-    // The status of the SSL feature. Valid values:
+    // The status of the SSL feature.
     // 
-    // *   **Open**: The SSL feature is enabled.
-    // *   **Closed**: The SSL feature is disabled.
+    // - **Open**: The SSL feature is enabled.
+    // 
+    // - **Closed**: The SSL feature is disabled.
     shared_ptr<string> SSLStatus_ {};
   };
 

@@ -243,32 +243,36 @@ namespace Models
     protected:
       // A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
       // 
-      //        "steps": [
-      //         {
-      //           "step_name": "exec_task", // The name of the step, which matches the value of CurrentStepName.
-      //           "action_info": {    // The actions supported for this step.
-      //             "Waiting": [      // The status, which matches the value of Status.
-      //               "modifySwitchTime" // The action. Multiple actions are supported.
-      //             ]
-      //           }
-      //         },
-      //         {
-      //           "step_name": "init_task", // The name of the step.
-      //           "action_info": {    // The actions supported for this step.
-      //             "Running": [      // The status.
-      //               "cancel",       // The action.
-      //               "pause"
-      //             ]
-      //           }
-      //         }
-      //       ]
+      // ```
+      //    "steps": [
+      //     {
+      //       "step_name": "exec_task", // The name of the step, which matches the value of CurrentStepName.
+      //       "action_info": {    // The actions supported for this step.
+      //         "Waiting": [      // The status, which matches the value of Status.
+      //           "modifySwitchTime" // The action. Multiple actions are supported.
+      //         ]
+      //       }
+      //     },
+      //     {
+      //       "step_name": "init_task", // The name of the step.
+      //       "action_info": {    // The actions supported for this step.
+      //         "Running": [      // The status.
+      //           "cancel",       // The action.
+      //           "pause"
+      //         ]
+      //       }
       //     }
+      //   ]
+      // }
+      // ```
       // 
       // The system may support the following actions:
       // 
-      // *   retry: makes another attempt.
-      // *   cancel: makes a cancellation.
-      // *   modifySwitchTime: changes the switching or restoration time.
+      // - retry: makes another attempt.
+      // 
+      // - cancel: makes a cancellation.
+      // 
+      // - modifySwitchTime: changes the switching or restoration time.
       shared_ptr<string> actionInfo_ {};
       // The request source. Valid values: System and User.
       shared_ptr<string> callerSource_ {};
@@ -300,13 +304,19 @@ namespace Models
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
       // 
-      // *   Scheduled: The task is waiting to be executed.
-      // *   Running: The task is running.
-      // *   Succeed: The task is successful.
-      // *   Failed: The task failed.
-      // *   Cancelling: The task is being terminated.
-      // *   Canceled: The task has been terminated.
-      // *   Waiting: The task is waiting for scheduled time.
+      // - Scheduled: The task is waiting to be executed.
+      // 
+      // - Running: The task is running.
+      // 
+      // - Succeed: The task is successful.
+      // 
+      // - Failed: The task failed.
+      // 
+      // - Cancelling: The task is being terminated.
+      // 
+      // - Canceled: The task has been terminated.
+      // 
+      // - Waiting: The task is waiting for scheduled time.
       shared_ptr<string> status_ {};
       // The details of the task. The task details vary based on the value of the taskType parameter.
       shared_ptr<string> taskDetail_ {};
@@ -314,29 +324,51 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task type.
       // 
-      // *   CreateIns: Create an instance.
-      // *   DeleteIns: Delete an instance.
-      // *   ChangeVariable: Modify parameter settings for an instance.
-      // *   ModifyInsConfig: Change the configurations of an instance.
-      // *   RestartIns: Restart an instance.
-      // *   HaSwitch: Perform a primary/secondary switchover on an instance.
-      // *   CloneIns: Clone an instance.
-      // *   KernelVersionUpgrade: Update the minor version of an instance.
-      // *   ProxyVersionUpgrade: Upgrade the agent version of an instance.
-      // *   ModifyAccount: Change the account of an instance.
-      // *   ModifyInsSpec: Change the specifications of an instance or perform a data migration on the instance.
-      // *   CreateReadIns: Create a read-only instance.
-      // *   StartIns: Start an instance.
-      // *   StopIns: Stop an instance.
-      // *   ModifyNetwork: Modify the network type for an instance.
-      // *   LockIns: Lock an instance.
-      // *   UnlockIns: Unlock an instance.
-      // *   DiskOnlineExpansion: Scale out the disks of an instance online.
-      // *   StorageOnlineExpansion: Expend the storage capacity of an instance online.
-      // *   AddInsNode: Add a node to an instance.
-      // *   DeleteInsNode: Delete a node from an instance.
-      // *   ManualBackupIns: Manually back up an instance.
-      // *   ModifyInsStorageType: Modify the storage type for an instance.
+      // - CreateIns: Create an instance.
+      // 
+      // - DeleteIns: Delete an instance.
+      // 
+      // - ChangeVariable: Modify parameter settings for an instance.
+      // 
+      // - ModifyInsConfig: Change the configurations of an instance.
+      // 
+      // - RestartIns: Restart an instance.
+      // 
+      // - HaSwitch: Perform a primary/secondary switchover on an instance.
+      // 
+      // - CloneIns: Clone an instance.
+      // 
+      // - KernelVersionUpgrade: Update the minor version of an instance.
+      // 
+      // - ProxyVersionUpgrade: Upgrade the agent version of an instance.
+      // 
+      // - ModifyAccount: Change the account of an instance.
+      // 
+      // - ModifyInsSpec: Change the specifications of an instance or perform a data migration on the instance.
+      // 
+      // - CreateReadIns: Create a read-only instance.
+      // 
+      // - StartIns: Start an instance.
+      // 
+      // - StopIns: Stop an instance.
+      // 
+      // - ModifyNetwork: Modify the network type for an instance.
+      // 
+      // - LockIns: Lock an instance.
+      // 
+      // - UnlockIns: Unlock an instance.
+      // 
+      // - DiskOnlineExpansion: Scale out the disks of an instance online.
+      // 
+      // - StorageOnlineExpansion: Expend the storage capacity of an instance online.
+      // 
+      // - AddInsNode: Add a node to an instance.
+      // 
+      // - DeleteInsNode: Delete a node from an instance.
+      // 
+      // - ManualBackupIns: Manually back up an instance.
+      // 
+      // - ModifyInsStorageType: Modify the storage type for an instance.
       shared_ptr<string> taskType_ {};
       // The ID of the user to which the resource belongs.
       shared_ptr<string> uid_ {};

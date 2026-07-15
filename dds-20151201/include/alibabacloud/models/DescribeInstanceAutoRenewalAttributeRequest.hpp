@@ -116,8 +116,9 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The category of the instance. Valid values:
     // 
-    // *   **replicate**: the standalone or replica set instance
-    // *   **sharding**: the sharded cluster instance
+    // - **replicate**: the standalone or replica set instance
+    // 
+    // - **sharding**: the sharded cluster instance
     // 
     // Default value: **replicate**.
     shared_ptr<string> DBInstanceType_ {};
@@ -127,7 +128,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
     // 
-    // >  Default value: **30**.
+    // > Default value: **30**.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID of the instance.
     // 

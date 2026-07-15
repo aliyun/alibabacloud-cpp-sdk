@@ -96,25 +96,25 @@ namespace Models
   protected:
     // The name of the instance.
     // 
-    // > 
+    // >
     // 
-    // *   The name cannot start with `http://` or `https://`.
+    // - The name cannot start with `http://` or `https://`.
     // 
-    // *   It must start with a letter.
+    // - It must start with a letter.
     // 
-    // *   It must be 2 to 256 characters in length, and can contain letters, underscores (_), hyphens (-), and digits.
+    // - It must be 2 to 256 characters in length, and can contain letters, underscores (_), hyphens (-), and digits.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceDescription_ {};
     // The instance ID.
     // 
-    // >  To modify the name of a shard or mongos node in a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // > To modify the name of a shard or mongos node in a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The ID of the shard or mongos node in the sharded cluster instance.
     // 
-    // >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+    // > This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // Indicates whether the resources are sufficient in the region. Valid values:
+    // Indicates whether resources are available in the current region. Valid values:
     // 
-    // *   **1**: The resources are sufficient.
-    // *   **0**: The resources are insufficient.
+    // - **1**: Resources are sufficient.
+    // 
+    // - **0**: Resources are insufficient.
     shared_ptr<string> DBInstanceAvailable_ {};
-    // The database engine of the instance. Only MongoDB is returned.
+    // The database engine. The value is fixed to MongoDB.
     shared_ptr<string> engine_ {};
-    // The version of the database engine.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
