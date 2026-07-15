@@ -61,12 +61,12 @@ namespace Models
     shared_ptr<string> lifecyclePolicyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // The request status.
     // 
     // Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

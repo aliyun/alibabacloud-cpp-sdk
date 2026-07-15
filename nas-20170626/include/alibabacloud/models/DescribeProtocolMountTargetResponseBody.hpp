@@ -175,31 +175,31 @@ namespace Models
 
 
     protected:
-      // The permission group that is associated with the export directory of the protocol service.
+      // The permission group associated with the protocol service export directory.
       shared_ptr<string> accessGroupName_ {};
-      // The time when the export directory of the protocol service was created.
+      // The time when the protocol service export directory was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The description of the export directory for the protocol service.
+      // The description of the protocol service export directory.
       shared_ptr<string> description_ {};
-      // The ID of the export directory for the protocol service.
+      // The ID of the protocol service export directory.
       shared_ptr<string> exportId_ {};
-      // The fileset ID of the export directory for the protocol service.
+      // The fileset ID of the protocol service export directory.
       shared_ptr<string> fsetId_ {};
-      // The export directory of the protocol service.
+      // The exported directory of the protocol service.
       shared_ptr<string> path_ {};
-      // The domain name of the export directory for the protocol service.
+      // The domain name of the protocol service export directory.
       shared_ptr<string> protocolMountTargetDomain_ {};
-      // The ID of the protocol service.
+      // The protocol service ID.
       shared_ptr<string> protocolServiceId_ {};
       // The protocol type supported by the protocol service.
       shared_ptr<string> protocolType_ {};
-      // The status of the mount target.
+      // The mount target status.
       shared_ptr<string> status_ {};
-      // The vSwitch ID of the export directory for the protocol service.
+      // The vSwitch ID of the protocol service export directory.
       shared_ptr<string> vSwitchId_ {};
-      // A list of IDs for the zone-redundant vSwitches.
+      // The list of zone-redundant vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The VPC ID of the export directory for the protocol service.
+      // The VPC ID of the protocol service export directory.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -229,9 +229,9 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The marker used to retrieve the remaining export directories in subsequent queries.
     shared_ptr<string> nextToken_ {};
-    // The export directories of the protocol service.
+    // The collection of protocol service export directories.
     shared_ptr<vector<DescribeProtocolMountTargetResponseBody::ProtocolMountTargets>> protocolMountTargets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

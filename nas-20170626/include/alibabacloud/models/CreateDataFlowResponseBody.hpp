@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the dataflow.
+    // The data flow ID.
     shared_ptr<string> dataFlowId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

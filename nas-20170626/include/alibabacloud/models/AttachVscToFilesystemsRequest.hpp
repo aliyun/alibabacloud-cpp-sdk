@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The UID of the Alibaba Cloud account on whose behalf the service assumes the role.
       shared_ptr<string> assumeRoleFor_ {};
+      // The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
       shared_ptr<string> roleArn_ {};
+      // The role type. Valid values: service and user.
       shared_ptr<string> roleType_ {};
     };
 
@@ -126,7 +129,7 @@ namespace Models
     protected:
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The virtual storage channel ID.
+      // The Virtual Storage Channel ID.
       shared_ptr<string> vscId_ {};
     };
 
@@ -164,10 +167,12 @@ namespace Models
     // 
     // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
     shared_ptr<string> clientToken_ {};
-    // The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
+    // The ID information of file systems and Virtual Storage Channels. A maximum of 10 entries can be specified per batch.
     // 
     // This parameter is required.
     shared_ptr<vector<AttachVscToFilesystemsRequest::ResourceIds>> resourceIds_ {};
+    // The role chain.
+    // > This parameter is required only for cross-account scenarios.
     shared_ptr<vector<AttachVscToFilesystemsRequest::RoleChain>> roleChain_ {};
   };
 

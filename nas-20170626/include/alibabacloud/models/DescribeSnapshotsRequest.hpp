@@ -105,15 +105,15 @@ namespace Models
   protected:
     // The ID of the file system.
     shared_ptr<string> fileSystemId_ {};
-    // The type of the file system.
+    // The file system type.
     // 
-    // Valid value: extreme, which indicates Extreme File Storage NAS (NAS) file systems.
+    // Valid values: extreme (Extreme NAS file system)
     shared_ptr<string> fileSystemType_ {};
-    // The page number.
+    // The page number of the snapshot list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query. Settings for the number of rows per page in paging.
     // 
     // Valid values: 1 to 100.
     // 
@@ -121,26 +121,25 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The snapshot IDs.
     // 
-    // You can specify a maximum of 100 snapshot IDs. You must separate snapshot IDs with commas (,).
+    // You can specify multiple snapshot IDs separated by commas (,). A maximum of 100 IDs are supported.
     shared_ptr<string> snapshotIds_ {};
     // The snapshot name.
     shared_ptr<string> snapshotName_ {};
-    // The type of the snapshot.
+    // The snapshot type.
     // 
     // Valid values:
-    // 
-    // *   auto: auto snapshot
-    // *   user: manual snapshot
-    // *   all (default): all snapshot types
+    // - auto: automatic snapshot
+    // - user: manually created snapshot
+    // - all (default): all snapshot types
     shared_ptr<string> snapshotType_ {};
-    // The status of the snapshot.
+    // The snapshot status.
     // 
     // Valid values:
     // 
-    // *   progressing: The snapshot is being created.
-    // *   accomplished: The snapshot is created.
-    // *   failed: The snapshot fails to be created.
-    // *   all (default): all snapshot states.
+    // - progressing: The snapshot is being created.
+    // - accomplished: The snapshot is created.
+    // - failed: The snapshot failed to be created.
+    // - all (default): all snapshot statuses
     shared_ptr<string> status_ {};
   };
 

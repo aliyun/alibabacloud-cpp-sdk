@@ -57,22 +57,19 @@ namespace Models
 
 
   protected:
-    // The type of the file system.
+    // The file system type.
     // 
     // Valid values:
-    // 
-    // *   all: all types of file systems
-    // *   standard (default): General-purpose NAS file system
-    // *   extreme: Extreme NAS file system
-    // *   cpfs: Cloud Parallel File Storage (CPFS) file system
-    // 
-    // > CPFS file systems are available only on the China site (aliyun.com).
+    // - all: all types.
+    // - standard (default): General-purpose NAS.
+    // - extreme: Extreme NAS.
+    // - cpfs: CPFS.
     shared_ptr<string> fileSystemType_ {};
-    // The page number.
+    // The page number of the list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of regions on each page during a paged query.
     // 
     // Valid values: 1 to 100.
     // 

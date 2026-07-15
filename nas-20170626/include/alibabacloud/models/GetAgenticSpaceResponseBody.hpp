@@ -108,7 +108,19 @@ namespace Models
 
 
       protected:
+        // The file count limit of the quota. Valid values:
+        // 
+        // - Minimum value: 10,000.
+        // 
+        // - Maximum value: 100,000,000.
         shared_ptr<int64_t> fileCountLimit_ {};
+        // The total capacity limit of the quota. Unit: bytes.
+        // 
+        // Valid values:
+        // 
+        // - Minimum value: 10,737,418,240 (10 GiB).
+        // - Maximum value: 1,099,511,627,776,000 (1024000 GiB).
+        // - Step: 1,073,741,824 (1 GiB).
         shared_ptr<int64_t> sizeLimit_ {};
       };
 
@@ -195,16 +207,28 @@ namespace Models
 
 
     protected:
+      // AgenticSpace Id。
       shared_ptr<string> agenticSpaceId_ {};
+      // The zone ID.
       shared_ptr<string> azone_ {};
+      // The time when the AgenticSpace was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTimeUtc_ {};
+      // AgenticSpace Description。
       shared_ptr<string> description_ {};
+      // The number of files used.
       shared_ptr<int64_t> fileCountUsage_ {};
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
+      // The absolute path of the file.
       shared_ptr<string> fileSystemPath_ {};
+      // The quota information.
       shared_ptr<AgenticSpace::Quota> quota_ {};
+      // The capacity usage. Unit: bytes.
       shared_ptr<int64_t> spaceUsage_ {};
+      // The status of the AgenticSpace. Valid values:
+      // - Running
       shared_ptr<string> status_ {};
+      // The time when the AgenticSpace was last updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> updateTimeUtc_ {};
     };
 
@@ -227,7 +251,9 @@ namespace Models
 
 
   protected:
+    // The AgenticSpace information.
     shared_ptr<GetAgenticSpaceResponseBody::AgenticSpace> agenticSpace_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

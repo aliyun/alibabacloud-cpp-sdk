@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The UID of the Alibaba Cloud account, which specifies the account on whose behalf the service assumes the role.
       shared_ptr<string> assumeRoleFor_ {};
+      // The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
       shared_ptr<string> roleArn_ {};
+      // The role type. Valid values: service and user.
       shared_ptr<string> roleType_ {};
     };
 
@@ -178,6 +181,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<DescribeFilesystemsVscAttachInfoRequest::ResourceIds>> resourceIds_ {};
+    // The role chain.
+    // >Required only for cross-account scenarios.
     shared_ptr<vector<DescribeFilesystemsVscAttachInfoRequest::RoleChain>> roleChain_ {};
   };
 

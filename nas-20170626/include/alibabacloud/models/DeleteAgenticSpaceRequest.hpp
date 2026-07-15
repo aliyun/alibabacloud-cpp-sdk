@@ -66,10 +66,27 @@ namespace Models
 
 
   protected:
+    // AgenticSpace Id。
+    // 
     // This parameter is required.
     shared_ptr<string> agenticSpaceId_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
+    // 
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // 
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run for this request.
+    // 
+    // A dry run checks parameter validity and resource availability without actually creating or deleting instances, and incurs no fees.
+    // 
+    // Valid values:
+    // 
+    // - true: Sends a dry run request without deleting the instance. The check items include required parameters, request format, service limits, and NAS resource availability. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned, but FileSystemId is empty.
+    // - false (default): Sends a normal request and deletes the instance after the check is passed.
     shared_ptr<bool> dryRun_ {};
+    // The file system ID.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
   };

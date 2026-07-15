@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
@@ -101,8 +103,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && this->fileSystemType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->fileSystemType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->storageType_ == nullptr
+        && this->tag_ == nullptr && this->vpcId_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
     inline DescribeFileSystemsRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // storageType Field Functions 
+    bool hasStorageType() const { return this->storageType_ != nullptr;};
+    void deleteStorageType() { this->storageType_ = nullptr;};
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline DescribeFileSystemsRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -157,9 +166,9 @@ namespace Models
   protected:
     // The file system ID.
     // - General-purpose NAS: 31a8e4****.
-    // - Extreme NAS: Must start with extreme-, such as extreme-0015****.
-    // - CPFS (locally redundant): Must start with cpfs-, such as cpfs-125487****.
-    // - CPFS SE (zone-redundant): Must start with cpfsse-, such as cpfsse-022c71b134****.
+    // - Extreme NAS: must start with extreme-, such as extreme-0015****.
+    // - Cloud Parallel File Storage (CPFS) (locally redundant): must start with cpfs-, such as cpfs-125487****.
+    // - CPFS SE (zone-redundant): must start with cpfsse-, such as cpfsse-022c71b134****.
     shared_ptr<string> fileSystemId_ {};
     // The file system type.
     // 
@@ -177,7 +186,7 @@ namespace Models
     // 
     // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of file systems on each page in a paging query.
+    // The number of file systems on each page during a paged query.
     // 
     // Valid values: 1 to 100.
     // 
@@ -187,6 +196,7 @@ namespace Models
     // 
     // You can view the resource group ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?).
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> storageType_ {};
     // The tag information.
     shared_ptr<vector<DescribeFileSystemsRequest::Tag>> tag_ {};
     // The virtual private cloud (VPC) ID.

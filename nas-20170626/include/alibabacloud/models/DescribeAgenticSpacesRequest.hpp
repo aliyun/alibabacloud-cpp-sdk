@@ -74,7 +74,11 @@ namespace Models
 
 
     protected:
+      // The name of the filter key. Valid values:
+      // - AgenticSpaceIds
       shared_ptr<string> key_ {};
+      // The value of the filter key. Wildcards are not supported.
+      // - AgenticSpaceIds: only a single ID is supported.
       shared_ptr<string> value_ {};
     };
 
@@ -111,10 +115,17 @@ namespace Models
 
 
   protected:
+    // The file system ID.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The collection of filter key information.
     shared_ptr<vector<DescribeAgenticSpacesRequest::Filters>> filters_ {};
+    // The number of results per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int64_t> maxResults_ {};
+    // The query token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

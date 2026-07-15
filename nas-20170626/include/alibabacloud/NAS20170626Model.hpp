@@ -56,6 +56,9 @@
 #include <alibabacloud/models/CreateAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/CreateAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateAutoSnapshotPolicyResponse.hpp>
+#include <alibabacloud/models/CreateCpfsAccessPointRequest.hpp>
+#include <alibabacloud/models/CreateCpfsAccessPointResponseBody.hpp>
+#include <alibabacloud/models/CreateCpfsAccessPointResponse.hpp>
 #include <alibabacloud/models/CreateDataFlowRequest.hpp>
 #include <alibabacloud/models/CreateDataFlowResponseBody.hpp>
 #include <alibabacloud/models/CreateDataFlowResponse.hpp>
@@ -122,6 +125,9 @@
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyResponse.hpp>
+#include <alibabacloud/models/DeleteCpfsAccessPointRequest.hpp>
+#include <alibabacloud/models/DeleteCpfsAccessPointResponseBody.hpp>
+#include <alibabacloud/models/DeleteCpfsAccessPointResponse.hpp>
 #include <alibabacloud/models/DeleteDataFlowRequest.hpp>
 #include <alibabacloud/models/DeleteDataFlowResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataFlowResponse.hpp>
@@ -176,6 +182,12 @@
 #include <alibabacloud/models/DescribeBlackListClientsRequest.hpp>
 #include <alibabacloud/models/DescribeBlackListClientsResponseBody.hpp>
 #include <alibabacloud/models/DescribeBlackListClientsResponse.hpp>
+#include <alibabacloud/models/DescribeCpfsAccessPointMountedClientsRequest.hpp>
+#include <alibabacloud/models/DescribeCpfsAccessPointMountedClientsResponseBody.hpp>
+#include <alibabacloud/models/DescribeCpfsAccessPointMountedClientsResponse.hpp>
+#include <alibabacloud/models/DescribeCpfsAccessPointsRequest.hpp>
+#include <alibabacloud/models/DescribeCpfsAccessPointsResponseBody.hpp>
+#include <alibabacloud/models/DescribeCpfsAccessPointsResponse.hpp>
 #include <alibabacloud/models/DescribeDataFlowSubTasksRequest.hpp>
 #include <alibabacloud/models/DescribeDataFlowSubTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataFlowSubTasksResponse.hpp>
@@ -315,6 +327,9 @@
 #include <alibabacloud/models/ModifyAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyAutoSnapshotPolicyResponse.hpp>
+#include <alibabacloud/models/ModifyCpfsAccessPointRequest.hpp>
+#include <alibabacloud/models/ModifyCpfsAccessPointResponseBody.hpp>
+#include <alibabacloud/models/ModifyCpfsAccessPointResponse.hpp>
 #include <alibabacloud/models/ModifyDataFlowRequest.hpp>
 #include <alibabacloud/models/ModifyDataFlowResponseBody.hpp>
 #include <alibabacloud/models/ModifyDataFlowResponse.hpp>

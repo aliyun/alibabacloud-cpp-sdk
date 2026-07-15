@@ -285,14 +285,14 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the snapshot list.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnapshotsResponseBody::Snapshots> snapshots_ {};
-    // The total number of snapshots returned.
+    // The total number of snapshots.
     shared_ptr<int32_t> totalCount_ {};
   };
 

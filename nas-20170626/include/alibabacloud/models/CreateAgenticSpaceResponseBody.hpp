@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The AgenticSpace ID. This is a globally unique identifier assigned by the system after the AgenticSpace (an independent workspace allocated to a single Agent end user in AgenticFS) is created.
     shared_ptr<string> agenticSpaceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

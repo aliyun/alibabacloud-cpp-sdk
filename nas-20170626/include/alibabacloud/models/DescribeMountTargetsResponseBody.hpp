@@ -408,11 +408,10 @@ namespace Models
 
 
   protected:
-    // A collection of mount targets.
     shared_ptr<DescribeMountTargetsResponseBody::MountTargets> mountTargets_ {};
-    // The page number.
+    // The page number of the file system list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of mount targets per page.
+    // The number of mount targets on each page when paging is used.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
