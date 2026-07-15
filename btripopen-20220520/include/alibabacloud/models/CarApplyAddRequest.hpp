@@ -124,12 +124,12 @@ namespace Models
 
       protected:
         // The cross-city city code. Only 6-digit codes are supported. Separate multiple values with Chinese commas.
-        // Note: A maximum of 10 cities are supported. The values in city_code and city_name must correspond one to one.
+        // Note: A maximum of 10 cities can be specified. The values in city_code and city_name must correspond one-to-one.
         // 
         // This parameter is required.
         shared_ptr<string> cityCode_ {};
         // The cross-city city name. Separate multiple values with Chinese commas.
-        // Note: A maximum of 10 cities are supported. The values in city_code and city_name must correspond one to one.
+        // Note: A maximum of 10 cities can be specified. The values in city_code and city_name must correspond one-to-one.
         // 
         // This parameter is required.
         shared_ptr<string> cityName_ {};
@@ -218,9 +218,16 @@ namespace Models
 
 
     protected:
+      // The car service cities. Separate multiple cities with Chinese commas (，).
+      // Note: A maximum of 10 cities can be specified. The values in city and city_code_set must correspond one-to-one.
       shared_ptr<string> city_ {};
+      // The set of city codes for intra-city car service. Separate multiple cities with Chinese commas (，).
+      // Note: 1) Either city_code_set or city is required. If both are specified, city_code_set takes precedence.
+      // A maximum of 10 cities can be specified.
       shared_ptr<string> cityCodeSet_ {};
+      // The car service date. Access is controlled on a daily basis. For example, a value of 2021-03-18 20:26:56 indicates that the car service is available on 2021-03-18. For cross-day scenarios, use this parameter together with the finished_date parameter. The time parameter must be in the yyyy-MM-dd HH:mm:ss string format.
       shared_ptr<string> date_ {};
+      // The car service end date. Access is controlled on a daily basis. For example, if date is set to 2021-03-18 20:26:56 and finished_date is set to 2021-03-30 20:26:56, the car service is available from 2021-03-18 (inclusive) to 2021-03-30 (inclusive). If this parameter is not specified, the value of date is used as the end date. The time parameter must be in the yyyy-MM-dd HH:mm:ss string format.
       shared_ptr<string> finishedDate_ {};
     };
 
@@ -364,17 +371,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cause_ {};
-    // The cities for car service. Separate multiple cities with Chinese commas (，).
-    // Note: A maximum of 10 cities are supported. The values in city and city_code_set must correspond one to one.
+    // The car service cities. Separate multiple cities with Chinese commas (，).
+    // Note: A maximum of 10 cities can be specified. The values in city and city_code_set must correspond one-to-one.
     shared_ptr<string> city_ {};
-    // The city code set for intra-city car service. Separate multiple cities with Chinese commas (，).
+    // The set of city codes for intra-city car service. Separate multiple cities with Chinese commas (，).
     // Note: 1) Either city_code_set or city is required. If both are specified, city_code_set takes precedence.
-    // A maximum of 10 cities are supported.
+    // A maximum of 10 cities can be specified.
     shared_ptr<string> cityCodeSet_ {};
-    // The car service time. This parameter is controlled on a daily basis. For example, a value of 2021-03-18 20:26:56 indicates that the car service is available on 2021-03-18. For multi-day scenarios, use this parameter together with the finished_date parameter. The time must be in the yyyy-MM-dd HH:mm:ss format.
+    // The car service date. Access is controlled on a daily basis. For example, a value of 2021-03-18 20:26:56 indicates that the car service is available on 2021-03-18. For cross-day scenarios, use this parameter together with the finished_date parameter. The time parameter must be in the yyyy-MM-dd HH:mm:ss string format.
     shared_ptr<string> date_ {};
-    // The car service end time. This parameter is controlled on a daily basis. For example, if date is set to 2021-03-18 20:26:56 and finished_date is set to 2021-03-30 20:26:56, the car service is available from 2021-03-18 (inclusive) to 2021-03-30 (inclusive). If this parameter is not specified, the value of date is used as the end time. The time must be in the yyyy-MM-dd HH:mm:ss format.
+    // The car service end date. Access is controlled on a daily basis. For example, if date is set to 2021-03-18 20:26:56 and finished_date is set to 2021-03-30 20:26:56, the car service is available from 2021-03-18 (inclusive) to 2021-03-30 (inclusive). If this parameter is not specified, the value of date is used as the end date. The time parameter must be in the yyyy-MM-dd HH:mm:ss string format.
     shared_ptr<string> finishedDate_ {};
+    // The intra-city car service itinerary.
     shared_ptr<vector<CarApplyAddRequest::ItineraryList>> itineraryList_ {};
     // The project code associated with the approval form.
     shared_ptr<string> projectCode_ {};
@@ -389,20 +397,21 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> thirdPartApplyId_ {};
     // The ID of the third-party cost center associated with the approval form.
-    // >Warning: This field is required. To make it optional, contact operations.
+    // >Warning: This field is required. To configure it as optional, contact operations.
     shared_ptr<string> thirdPartCostCenterId_ {};
     // The ID of the third-party invoice header associated with the approval form.
     // 
-    // >Warning: This field is required. To make it optional, contact operations.
+    // >Warning: This field is required. To configure it as optional, contact operations.
     shared_ptr<string> thirdPartInvoiceId_ {};
-    // The total number of times the approval form can be used.
+    // The total available count for the approval form.
     shared_ptr<int32_t> timesTotal_ {};
-    // The usage count type of the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0.
+    // The type of available usage count for the approval form. If the enterprise does not need to limit the number of times the approval form can be used, set this parameter to 1 (unlimited) and set both times_total and times_used to 0.
     // 
     // Valid values:
     // 
     // - 1: Unlimited.
     // - 2: User-specified count.
+    // - 3: Admin-limited count.
     shared_ptr<int32_t> timesType_ {};
     // The number of times the approval form has been used.
     shared_ptr<int32_t> timesUsed_ {};

@@ -400,8 +400,8 @@ namespace BtripOpen20220520
        * @summary Synchronizes an intra-city car service approval form.
        *
        * @description Synchronizes an intra-city car service approval form for a specified enterprise.
-       * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
-       * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+       * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+       * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
        *
        * @param tmpReq CarApplyAddRequest
        * @param headers CarApplyAddHeaders
@@ -414,8 +414,8 @@ namespace BtripOpen20220520
        * @summary Synchronizes an intra-city car service approval form.
        *
        * @description Synchronizes an intra-city car service approval form for a specified enterprise.
-       * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
-       * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+       * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+       * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
        *
        * @param request CarApplyAddRequest
        * @return CarApplyAddResponse
@@ -1029,6 +1029,24 @@ namespace BtripOpen20220520
        * @return EstimatedPriceQueryResponse
        */
       Models::EstimatedPriceQueryResponse estimatedPriceQuery(const Models::EstimatedPriceQueryRequest &request);
+
+      /**
+       * @summary 预估价格查询v2.0
+       *
+       * @param request EstimatedPriceQueryV2Request
+       * @param headers EstimatedPriceQueryV2Headers
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EstimatedPriceQueryV2Response
+       */
+      Models::EstimatedPriceQueryV2Response estimatedPriceQueryV2WithOptions(const Models::EstimatedPriceQueryV2Request &request, const Models::EstimatedPriceQueryV2Headers &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预估价格查询v2.0
+       *
+       * @param request EstimatedPriceQueryV2Request
+       * @return EstimatedPriceQueryV2Response
+       */
+      Models::EstimatedPriceQueryV2Response estimatedPriceQueryV2(const Models::EstimatedPriceQueryV2Request &request);
 
       /**
        * @summary 超标审批结果同步

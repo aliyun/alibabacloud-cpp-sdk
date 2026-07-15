@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The internal approval form ID in the business travel system.
     shared_ptr<int64_t> module_ {};
-    // The unique request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

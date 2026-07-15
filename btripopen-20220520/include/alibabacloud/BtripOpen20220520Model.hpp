@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_BTRIPOPEN20220520MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/KeywordSuggestInfo.hpp>
+#include <alibabacloud/models/ModulePriceMapValue.hpp>
 #include <alibabacloud/models/ModuleFlightItemListBestPriceItemFlightRuleInfosValue.hpp>
 #include <alibabacloud/models/ModuleFlightItemListBestPriceItemShoppingItemMapValueCabinQuantityValue.hpp>
 #include <alibabacloud/models/ModuleFlightItemListBestPriceItemShoppingItemMapValueSegmentPriceValue.hpp>
@@ -275,6 +276,10 @@
 #include <alibabacloud/models/EstimatedPriceQueryRequest.hpp>
 #include <alibabacloud/models/EstimatedPriceQueryResponseBody.hpp>
 #include <alibabacloud/models/EstimatedPriceQueryResponse.hpp>
+#include <alibabacloud/models/EstimatedPriceQueryV2Headers.hpp>
+#include <alibabacloud/models/EstimatedPriceQueryV2Request.hpp>
+#include <alibabacloud/models/EstimatedPriceQueryV2ResponseBody.hpp>
+#include <alibabacloud/models/EstimatedPriceQueryV2Response.hpp>
 #include <alibabacloud/models/ExceedApplySyncHeaders.hpp>
 #include <alibabacloud/models/ExceedApplySyncRequest.hpp>
 #include <alibabacloud/models/ExceedApplySyncResponseBody.hpp>

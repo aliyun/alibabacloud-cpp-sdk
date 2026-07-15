@@ -1965,8 +1965,8 @@ BtripBillInfoAdjustResponse Client::btripBillInfoAdjust(const BtripBillInfoAdjus
  * @summary Synchronizes an intra-city car service approval form.
  *
  * @description Synchronizes an intra-city car service approval form for a specified enterprise.
- * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
- * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+ * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+ * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param tmpReq CarApplyAddRequest
  * @param headers CarApplyAddHeaders
@@ -2089,8 +2089,8 @@ CarApplyAddResponse Client::carApplyAddWithOptions(const CarApplyAddRequest &tmp
  * @summary Synchronizes an intra-city car service approval form.
  *
  * @description Synchronizes an intra-city car service approval form for a specified enterprise.
- * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
- * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+ * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).                                                                                       
+ * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param request CarApplyAddRequest
  * @return CarApplyAddResponse
@@ -4416,6 +4416,80 @@ EstimatedPriceQueryResponse Client::estimatedPriceQuery(const EstimatedPriceQuer
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   EstimatedPriceQueryHeaders headers = EstimatedPriceQueryHeaders();
   return estimatedPriceQueryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 预估价格查询v2.0
+ *
+ * @param request EstimatedPriceQueryV2Request
+ * @param headers EstimatedPriceQueryV2Headers
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EstimatedPriceQueryV2Response
+ */
+EstimatedPriceQueryV2Response Client::estimatedPriceQueryV2WithOptions(const EstimatedPriceQueryV2Request &request, const EstimatedPriceQueryV2Headers &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["biz_type"] = request.getBizType();
+  }
+
+  if (!!request.hasDepartDate()) {
+    query["depart_date"] = request.getDepartDate();
+  }
+
+  if (!!request.hasFromCity()) {
+    query["from_city"] = request.getFromCity();
+  }
+
+  if (!!request.hasLeaveDate()) {
+    query["leave_date"] = request.getLeaveDate();
+  }
+
+  if (!!request.hasToCity()) {
+    query["to_city"] = request.getToCity();
+  }
+
+  if (!!request.hasUserId()) {
+    query["user_id"] = request.getUserId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripSoCorpToken()) {
+    realHeaders["x-acs-btrip-so-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripSoCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EstimatedPriceQueryV2"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/costcenter/v3/estimated-price")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EstimatedPriceQueryV2Response>();
+}
+
+/**
+ * @summary 预估价格查询v2.0
+ *
+ * @param request EstimatedPriceQueryV2Request
+ * @return EstimatedPriceQueryV2Response
+ */
+EstimatedPriceQueryV2Response Client::estimatedPriceQueryV2(const EstimatedPriceQueryV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  EstimatedPriceQueryV2Headers headers = EstimatedPriceQueryV2Headers();
+  return estimatedPriceQueryV2WithOptions(request, headers, runtime);
 }
 
 /**
