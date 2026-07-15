@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the asynchronous task. Use this ID to query the task status and result.
+      // The unique identifier of the asynchronous task, used to query the task status and result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -113,13 +113,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The asynchronous task information.
     shared_ptr<DocumentTranslateResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. Not returned for successful calls.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: The call was successful.
-    // - false: The call failed.
+    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

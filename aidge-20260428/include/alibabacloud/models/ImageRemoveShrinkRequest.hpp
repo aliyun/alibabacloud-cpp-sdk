@@ -66,17 +66,27 @@ namespace Models
 
 
   protected:
-    // URL of the image to be processed (mutually exclusive with ImageBase64)
+    // The URL of the image to process. This parameter is mutually exclusive with ImageBase64. You must specify one of them.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specific removal area in RLE format. If provided, this takes priority and the remove parameters are ignored
+    // The specific erasure region in RLE format. If this parameter is specified, it takes priority and the remove parameters are ignored.
     shared_ptr<string> mask_ {};
-    // Elements to remove from the non-subject area of the image (1=transparent text blocks; 2=specific names; 3=text; 4=blemishes). Multiple selections allowed
-    shared_ptr<string> nonObjectRemoveElementsShrink_ {};
-    // Elements to remove from the image subject (1=transparent text blocks; 2=specific names; 3=text; 4=blemishes). Multiple selections allowed
+    // The elements to remove from the non-subject area of the image. Valid values:
+    // - 1: transparent text block
+    // - 2: specific name
+    // - 3: text
+    // - 4: image blemish
     // 
-    // This parameter is required.
+    // You can specify multiple values.
+    shared_ptr<string> nonObjectRemoveElementsShrink_ {};
+    // The elements to remove from the image subject area. Valid values:
+    // - 1: transparent text block
+    // - 2: specific name
+    // - 3: text
+    // - 4: image blemish
+    // 
+    // You can specify multiple values.
     shared_ptr<string> objectRemoveElementsShrink_ {};
   };
 

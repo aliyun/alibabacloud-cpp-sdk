@@ -102,9 +102,9 @@ namespace Models
 
 
       protected:
-        // Image translation result image URL
+        // The URL of the image translation result.
         shared_ptr<string> fileUrl_ {};
-        // Image translation target language
+        // The target language of the image translation.
         shared_ptr<string> language_ {};
       };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
         protected:
-          // Translated image file URL
+          // The URL of the translated image file.
           shared_ptr<string> fileUrl_ {};
-          // Translation target language
+          // The translation target language.
           shared_ptr<string> language_ {};
         };
 
@@ -339,15 +339,15 @@ namespace Models
 
 
               protected:
-                // Text box rotation angle in degrees. Values less than 1 indicate a horizontal text box
+                // The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
                 shared_ptr<int32_t> degree_ {};
-                // Height
+                // The height.
                 shared_ptr<int32_t> height_ {};
-                // Left coordinate
+                // The left coordinate.
                 shared_ptr<int32_t> left_ {};
-                // Top coordinate
+                // The top coordinate.
                 shared_ptr<int32_t> top_ {};
-                // Width
+                // The width.
                 shared_ptr<int32_t> width_ {};
               };
 
@@ -416,15 +416,15 @@ namespace Models
 
 
               protected:
-                // Text box rotation angle in degrees. Values less than 1 indicate a horizontal text box
+                // The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
                 shared_ptr<int32_t> degree_ {};
-                // Height
+                // The height.
                 shared_ptr<int32_t> height_ {};
-                // Left coordinate
+                // The left coordinate.
                 shared_ptr<int32_t> left_ {};
-                // Top coordinate
+                // The top coordinate.
                 shared_ptr<int32_t> top_ {};
-                // Width
+                // The width.
                 shared_ptr<int32_t> width_ {};
               };
 
@@ -513,27 +513,27 @@ namespace Models
 
 
             protected:
-              // Translated text color
+              // The color of the translated text.
               shared_ptr<string> color_ {};
-              // Font size of the translated text
+              // The font size of the translated text.
               shared_ptr<int32_t> fontsize_ {};
-              // Horizontal layout mode. Available values: center, left, right
+              // The horizontal layout mode. Valid values: center, left, right.
               shared_ptr<string> horizontalLayout_ {};
-              // Image repair area coordinates
+              // The coordinates of the image inpainting area.
               shared_ptr<Texts::ImageRect> imageRect_ {};
-              // Translation target language code
+              // The target language code for translation.
               shared_ptr<string> language_ {};
-              // Number of lines in the text box
+              // The number of lines in the text box.
               shared_ptr<int32_t> lineCount_ {};
-              // Ovis model error message and execution time
+              // The Ovis model error message and execution time.
               shared_ptr<string> ovisErrMsg_ {};
-              // Text box area coordinates
+              // The coordinates of the text box area.
               shared_ptr<Texts::TextRect> textRect_ {};
-              // Whether the TextItem is valid. It is invalid when this value does not exist or is false.
+              // Indicates whether the TextItem is valid. The item is invalid when this value does not exist or is false.
               shared_ptr<bool> valid_ {};
-              // Translated text content
+              // The translated text content.
               shared_ptr<string> value_ {};
-              // Vertical layout mode. Available values: center, top, down
+              // The vertical layout mode. Valid values: center, top, down.
               shared_ptr<string> verticalLayout_ {};
             };
 
@@ -592,19 +592,19 @@ namespace Models
 
 
           protected:
-            // Text color, e.g., #ffffff
+            // The text color, such as #ffffff.
             shared_ptr<string> color_ {};
-            // Original text before translation
+            // The original text before translation.
             shared_ptr<string> content_ {};
-            // Font size
+            // The font size.
             shared_ptr<int32_t> fontsize_ {};
-            // Horizontal layout mode. Available values: center, left, right
+            // The horizontal layout mode. Valid values: center, left, right.
             shared_ptr<string> horizontalLayout_ {};
-            // Number of lines in the text box
+            // The number of lines in the text box.
             shared_ptr<int32_t> lineCount_ {};
-            // Translated text list, where each element corresponds to the translation result for one target language
+            // The list of translated texts. Each element corresponds to the translation result for one target language.
             shared_ptr<vector<TextAreas::Texts>> texts_ {};
-            // Vertical layout mode. Available values: center, top, down
+            // The vertical layout mode. Valid values: center, top, down.
             shared_ptr<string> verticalLayout_ {};
           };
 
@@ -673,15 +673,15 @@ namespace Models
 
 
           protected:
-            // Text box rotation angle in degrees. Values less than 1 indicate a horizontal text box
+            // The rotation angle of the text box in degrees. A value less than 1 indicates a horizontal text box.
             shared_ptr<int32_t> degree_ {};
-            // Height
+            // The height.
             shared_ptr<int32_t> height_ {};
-            // Left coordinate
+            // The left coordinate.
             shared_ptr<int32_t> left_ {};
-            // Top coordinate
+            // The top coordinate.
             shared_ptr<int32_t> top_ {};
-            // Width
+            // The width.
             shared_ptr<int32_t> width_ {};
           };
 
@@ -740,17 +740,17 @@ namespace Models
 
 
         protected:
-          // Font type list
+          // The list of font types.
           shared_ptr<vector<string>> font_ {};
-          // Product bounding box area coordinate information
+          // The coordinate information of the product bounding box area.
           shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
-          // Translation target language list
+          // The list of translation target languages.
           shared_ptr<vector<string>> languages_ {};
-          // Image URL after all text has been inpainted
+          // The URL of the image with all text removed.
           shared_ptr<string> repairedUrl_ {};
-          // Collection of translated image global IDs
+          // The collection of global IDs of translated images.
           shared_ptr<vector<string>> resultImageIds_ {};
-          // Text box list, containing information about all recognized text areas
+          // The list of text boxes, including all recognized text area information.
           shared_ptr<vector<EditInfo::TextAreas>> textAreas_ {};
         };
 
@@ -782,11 +782,11 @@ namespace Models
 
 
       protected:
-        // Editor information, containing recognized information such as text areas, product areas, and fonts
+        // The editor information, including recognized text areas, product areas, fonts, and other information.
         shared_ptr<GenFiles::EditInfo> editInfo_ {};
-        // Translation result collection
+        // The collection of translation results.
         shared_ptr<vector<GenFiles::ResultList>> resultList_ {};
-        // Original image URL
+        // The URL of the original image.
         shared_ptr<string> srcImage_ {};
       };
 
@@ -827,13 +827,13 @@ namespace Models
 
 
     protected:
-      // Editor protocol, containing translation result files and editing information
+      // The editor protocol, including translation result files and editing information.
       shared_ptr<vector<Data::GenFiles>> genFiles_ {};
-      // Image translation result list
+      // The list of image translation results.
       shared_ptr<vector<Data::ResultList>> resultList_ {};
-      // Asynchronous task ID, not returned during synchronous calls.
+      // The asynchronous task ID. Not returned for synchronous calls.
       shared_ptr<string> taskId_ {};
-      // Usage information, including the number of processed images, etc.
+      // The usage information, including the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -877,15 +877,15 @@ namespace Models
 
 
   protected:
-    // Response code. 200 indicates a successful call. For other response codes, refer to the error code documentation.
+    // The response code. 200 indicates a successful call. For other response codes, see the error code information.
     shared_ptr<string> code_ {};
-    // Translation result data. ResultList contains the URL of the translation result, and GenFiles contains EditInfo with recognized text information.
+    // The translation result data. ResultList contains the URL of the translation result. GenFiles contains EditInfo with the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // Error message. Returns "Success" during normal calls. Returns specific error information during exceptions, such as "Content contains sensitive data, please try other input".
+    // The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The content contains sensitive data. Try other input."
     shared_ptr<string> message_ {};
-    // Request ID, used to identify a unique request call.
+    // The request ID, used to identify a unique request call.
     shared_ptr<string> requestId_ {};
-    // Whether the call was successful. true indicates success, false indicates failure.
+    // Indicates whether the call was successful. true indicates success. false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

@@ -29,13 +29,13 @@
 #include <alibabacloud/models/ImageRecognitionShrinkRequest.hpp>
 #include <alibabacloud/models/ImageRecognitionResponseBody.hpp>
 #include <alibabacloud/models/ImageRecognitionResponse.hpp>
+#include <alibabacloud/models/ImageRemovalProRequest.hpp>
+#include <alibabacloud/models/ImageRemovalProResponseBody.hpp>
+#include <alibabacloud/models/ImageRemovalProResponse.hpp>
 #include <alibabacloud/models/ImageRemoveRequest.hpp>
 #include <alibabacloud/models/ImageRemoveShrinkRequest.hpp>
 #include <alibabacloud/models/ImageRemoveResponseBody.hpp>
 #include <alibabacloud/models/ImageRemoveResponse.hpp>
-#include <alibabacloud/models/ImageTranslationPlusRequest.hpp>
-#include <alibabacloud/models/ImageTranslationPlusResponseBody.hpp>
-#include <alibabacloud/models/ImageTranslationPlusResponse.hpp>
 #include <alibabacloud/models/ImageTranslationProRequest.hpp>
 #include <alibabacloud/models/ImageTranslationProResponseBody.hpp>
 #include <alibabacloud/models/ImageTranslationProResponse.hpp>
