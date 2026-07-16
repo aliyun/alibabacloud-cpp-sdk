@@ -94,6 +94,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(SupplierName, supplierName_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
+          DARABONBA_PTR_TO_JSON(Usable, usable_);
           DARABONBA_PTR_TO_JSON(Usage, usage_);
         };
         friend void from_json(const Darabonba::Json& j, Image& obj) { 
@@ -129,6 +130,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(SupplierName, supplierName_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
+          DARABONBA_PTR_FROM_JSON(Usable, usable_);
           DARABONBA_PTR_FROM_JSON(Usage, usage_);
         };
         Image() = default ;
@@ -601,7 +603,7 @@ namespace Models
         && this->isSubscribed_ == nullptr && this->isSupportCloudinit_ == nullptr && this->isSupportIoOptimized_ == nullptr && this->licenseType_ == nullptr && this->loginAsNonRootSupported_ == nullptr
         && this->OSName_ == nullptr && this->OSNameEn_ == nullptr && this->OSType_ == nullptr && this->platform_ == nullptr && this->productCode_ == nullptr
         && this->progress_ == nullptr && this->resourceGroupId_ == nullptr && this->size_ == nullptr && this->status_ == nullptr && this->supplierName_ == nullptr
-        && this->tags_ == nullptr && this->usage_ == nullptr; };
+        && this->tags_ == nullptr && this->usable_ == nullptr && this->usage_ == nullptr; };
         // architecture Field Functions 
         bool hasArchitecture() const { return this->architecture_ != nullptr;};
         void deleteArchitecture() { this->architecture_ = nullptr;};
@@ -834,6 +836,13 @@ namespace Models
         inline Image& setTags(Image::Tags && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+        // usable Field Functions 
+        bool hasUsable() const { return this->usable_ != nullptr;};
+        void deleteUsable() { this->usable_ = nullptr;};
+        inline bool getUsable() const { DARABONBA_PTR_GET_DEFAULT(usable_, false) };
+        inline Image& setUsable(bool usable) { DARABONBA_PTR_SET_VALUE(usable_, usable) };
+
+
         // usage Field Functions 
         bool hasUsage() const { return this->usage_ != nullptr;};
         void deleteUsage() { this->usage_ = nullptr;};
@@ -874,6 +883,7 @@ namespace Models
         shared_ptr<string> status_ {};
         shared_ptr<string> supplierName_ {};
         shared_ptr<Image::Tags> tags_ {};
+        shared_ptr<bool> usable_ {};
         shared_ptr<string> usage_ {};
       };
 

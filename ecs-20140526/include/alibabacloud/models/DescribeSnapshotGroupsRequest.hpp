@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the snapshot-consistent group. Valid values of N: 1 to 20.
+      // The tag key of the snapshot-consistent group. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The value of tag N of the snapshot-consistent group. Valid values of N: 1 to 20.
+      // The tag value of the snapshot-consistent group. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -213,21 +213,21 @@ namespace Models
   protected:
     // This parameter is not publicly available.
     shared_ptr<vector<string>> additionalAttributes_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries per page in a paging query.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The name of the snapshot-consistent group.
     shared_ptr<string> name_ {};
-    // The token that determines the start point of the next query. Set the value to the NextToken value that is returned from the last call.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the snapshot-consistent group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -235,17 +235,17 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of snapshot-consistent group N. Valid values of N: 1 to 10.
+    // The ID of the snapshot-consistent group. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> snapshotGroupId_ {};
-    // The state of snapshot-consistent group N. Valid values of the second N: 1, 2, and 3. Valid values:
+    // The status of the snapshot-consistent group. Valid values of N: 1 to 3. Valid values:
     // 
     // - progressing: The snapshot-consistent group is being created.
     // 
     // - accomplished: The snapshot-consistent group is created.
     // 
-    // - failed: The snapshot-consistent group fails to be created.
+    // - failed: The snapshot-consistent group failed to be created.
     shared_ptr<vector<string>> status_ {};
-    // The tags of the snapshot-consistent group.
+    // The tag key-value pairs of the snapshot-consistent group.
     shared_ptr<vector<DescribeSnapshotGroupsRequest::Tag>> tag_ {};
   };
 

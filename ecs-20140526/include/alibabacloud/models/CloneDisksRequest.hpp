@@ -310,14 +310,14 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The category of the new disk. Valid values:
     // 
-    // - cloud_essd: standard SSD.
+    // - cloud_essd: enterprise SSD.
     // - cloud_auto: ESSD AutoPL disk.
     // - cloud_essd_entry: ESSD Entry disk.
-    // - cloud_regional_disk_auto: regional Standard SSD (ESSD).
+    // - cloud_regional_disk_auto: regional ESSD.
     // 
     // > Disk category restrictions for disk cloning:
-    // > - Non-regional disks can only be cloned to non-regional disk types.
-    // > - Regional disks can only be cloned to regional disk types.
+    // > - Non-regional disks can be cloned only to non-regional types.
+    // > - Regional disks can be cloned only to regional types.
     // 
     // This parameter is required.
     shared_ptr<string> diskCategory_ {};
@@ -326,8 +326,8 @@ namespace Models
     // Default value: empty.
     shared_ptr<string> diskName_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // - true: sends a check request without querying the filing status. The system checks whether your AccessKey pair is valid, whether RAM user authorization is granted, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check passes, the DryRunOperation error code is returned.
-    // - false (default): sends a normal request. After the check passes, a 2XX HTTP status code is returned and the filing status is queried.
+    // - true: sends a check request without querying the filing status. The check items include whether the AccessKey pair is valid, whether the Resource Access Management (RAM) user is granted the required authorization, and whether the required parameters are specified. If the check fails, the corresponding error message is returned. If the check succeeds, the DryRunOperation error code is returned.
+    // - false (default): sends a Normal request. After the check succeeds, a 2XX HTTP status code is returned and the filing status is directly queried.
     shared_ptr<string> dryRun_ {};
     // Specifies whether the new disk is encrypted. Valid values:
     // - true: The new disk is encrypted.
@@ -337,15 +337,15 @@ namespace Models
     shared_ptr<bool> encrypted_ {};
     // The key ID of the KMS key used by the new disk.
     shared_ptr<string> kmsKeyId_ {};
-    // Specifies whether to enable the multi-attach attribute for the new disk. Settings for this parameter. Valid values:
+    // Specifies whether to enable the multi-attach attribute for the new disk. Valid values:
     // 
     // - Disabled: disables the multi-attach attribute.
-    // - Enabled: enables the multi-attach attribute. Only standard SSDs support the value `Enabled`.
+    // - Enabled: enables the multi-attach attribute. Currently, only enterprise SSDs support Settings to `Enabled`.
     // 
     // This parameter is required.
     shared_ptr<string> multiAttach_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The performance level (PL) of the enterprise SSD to create. Settings for this parameter vary based on the standard SSD type. Valid values:
+    // The performance level of the standard SSD. Settings for this parameter depend on the disk category. Valid values:
     // 
     // - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
     // - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
@@ -373,7 +373,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The capacity of the new disk. Unit: GiB. You must specify a value for this parameter. Valid values:
     // 
-    // - cloud_essd: the valid value range varies based on the performance level.
+    // - cloud_essd: The valid values depend on the performance level.
     //     - PL0: 1 to 65,536.
     //     - PL1: 20 to 65,536.
     //     - PL2: 461 to 65,536.

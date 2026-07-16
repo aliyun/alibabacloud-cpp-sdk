@@ -141,7 +141,7 @@ namespace Models
 
 
   protected:
-    // The ID of the build task.
+    // The ID of the image building task.
     // 
     // This parameter is required.
     shared_ptr<string> executionId_ {};

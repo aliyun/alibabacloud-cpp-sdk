@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(Usable, usable_);
       DARABONBA_PTR_TO_JSON(Usage, usage_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeImagesRequest& obj) { 
@@ -69,6 +70,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(Usable, usable_);
       DARABONBA_PTR_FROM_JSON(Usage, usage_);
     };
     DescribeImagesRequest() = default ;
@@ -122,7 +124,7 @@ namespace Models
     protected:
       // The tag key of the image. Valid values of N: 1 to 20.
       // 
-      // When you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. When you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // When you use a single tag to filter resources, the resource count with this tag cannot exceed 1000. When you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
       shared_ptr<string> key_ {};
       // The tag value of the image. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
@@ -168,18 +170,18 @@ namespace Models
     protected:
       // The filter key for querying resources. Valid values:
       // 
-      // - When this parameter is set to `CreationStartTime`, you can query resources created after the specified time point (`Filter.N.Value`).
-      // - When this parameter is set to `CreationEndTime`, you can query resources created before the specified time point (`Filter.N.Value`).
+      // - When this parameter is set to `CreationStartTime`, you can query resources created after the time specified by `Filter.N.Value`.
+      // - When this parameter is set to `CreationEndTime`, you can query resources created before the time specified by `Filter.N.Value`.
       // - When this parameter is set to `NetworkType`, you can query resources of the specified network type.
-      // - When this parameter is set to any of `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, you can query the CPU or memory hot-plugging support of the specified image.
+      // - When this parameter is set to `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, you can query the CPU or memory hot-plugging support of the specified image.
       // 
       // Default value: null.
       shared_ptr<string> key_ {};
       // The filter value for querying resources.
-      // - When `Filter.N.Key` is set to `CreationStartTime` or `CreationEndTime`, the format is `yyyy-MM-ddTHH:mmZ`, using the UTC+0 time zone.
-      // - When `Filter.N.Key` is set to `NetworkType`, valid network type values include `vpc` and `classic`.
+      // - When `Filter.N.Key` is `CreationStartTime` or `CreationEndTime`, the format is `yyyy-MM-ddTHH:mmZ` in UTC+0.
+      // - When `Filter.N.Key` is `NetworkType`, valid values for the network type include `vpc` and `classic`.
       // 
-      // - When `Filter.N.Key` is set to `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, the value can be `supported` or `unsupported`.
+      // - When `Filter.N.Key` is `CpuOnlineUpgrade`, `CpuOnlineDowngrade`, `MemoryOnlineUpgrade`, or `MemoryOnlineDowngrade`, valid values are `supported` and `unsupported`.
       // 
       // Default value: null.
       shared_ptr<string> value_ {};
@@ -191,7 +193,7 @@ namespace Models
         && this->isSupportCloudinit_ == nullptr && this->isSupportIoOptimized_ == nullptr && this->OSType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
         && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
         && this->resourceOwnerId_ == nullptr && this->showExpired_ == nullptr && this->snapshotId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr
-        && this->usage_ == nullptr; };
+        && this->usable_ == nullptr && this->usage_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
@@ -378,6 +380,13 @@ namespace Models
     inline DescribeImagesRequest& setTag(vector<DescribeImagesRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // usable Field Functions 
+    bool hasUsable() const { return this->usable_ != nullptr;};
+    void deleteUsable() { this->usable_ = nullptr;};
+    inline bool getUsable() const { DARABONBA_PTR_GET_DEFAULT(usable_, false) };
+    inline DescribeImagesRequest& setUsable(bool usable) { DARABONBA_PTR_SET_VALUE(usable_, usable) };
+
+
     // usage Field Functions 
     bool hasUsage() const { return this->usage_ != nullptr;};
     void deleteUsage() { this->usage_ = nullptr;};
@@ -399,7 +408,7 @@ namespace Models
     shared_ptr<string> architecture_ {};
     // Specifies whether to perform only a dry run.
     //          
-    // - true: Sends a dry run request without querying resource status. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) user authorization is granted, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.  
+    // - true: Sends a check request without querying resource status. The check items include whether the AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.  
     // - false: Sends a normal request. After the check succeeds, a 2XX HTTP status code is returned and the resource status is queried. 
     // 
     // Default value: false.
@@ -414,9 +423,9 @@ namespace Models
     // The image ID.
     // 
     // <details>
-    // <summary>Naming conventions for image IDs</summary>
+    // <summary>Naming rules for image IDs</summary>
     // 
-    // - Public images: Named by operating system version, architecture, language, and release date. For example, the image ID for Windows Server 2008 R2 Enterprise Edition, 64-bit English system is win2008r2_64_ent_sp1_en-us_40G_alibase_20190318.vhd.
+    // - Public images: Named by operating system version, architecture, language, and release date. For example, the image ID of Windows Server 2008 R2 Enterprise Edition, 64-bit English system is win2008r2_64_ent_sp1_en-us_40G_alibase_20190318.vhd.
     // 
     // - Custom images, shared images, Alibaba Cloud Marketplace images, and community images: Start with m.
     // 
@@ -426,20 +435,20 @@ namespace Models
     shared_ptr<string> imageName_ {};
     // The source of the image. Valid values:
     // 
-    // - system: Public images provided by Alibaba Cloud that are not published through Alibaba Cloud Marketplace. This is different from the concept of "public images" in the console.
+    // - system: Public images provided by Alibaba Cloud that are not published through Alibaba Cloud Marketplace. This is different from the concept of "Public Image" in the console.
     // - self: Custom images that you created.
-    // - others: Includes shared images (images directly shared by other Alibaba Cloud users) and community images (custom images that are fully shared by any Alibaba Cloud user). Note the following:
+    // - others: Includes shared images (images directly shared by other Alibaba Cloud users) and community images (custom images that are fully shared publicly by any Alibaba Cloud user). Note:
     //     - To query community images, IsPublic must be set to true.
     //     - To query shared images, IsPublic must be set to false or left empty.
-    // - marketplace: Images published by Alibaba Cloud or third-party independent software vendors (ISVs) in Alibaba Cloud Marketplace. These images must be purchased together with ECS. Check the billing details of Alibaba Cloud Marketplace images.
+    // - marketplace: Images published by Alibaba Cloud or third-party independent software vendors (ISVs) in Alibaba Cloud Marketplace. These images must be purchased together with ECS. Note the billing details of Alibaba Cloud Marketplace images.
     // 
     // Default value: empty.
     // 
-    // > An empty value indicates that images with the system, self, and others values are returned.
+    // > An empty value indicates that images with system, self, and others values are returned.
     shared_ptr<string> imageOwnerAlias_ {};
     // The Alibaba Cloud account ID of the image owner. This parameter takes effect only when you query shared images or community images.
     shared_ptr<int64_t> imageOwnerId_ {};
-    // The instance type for which you want to query available images.
+    // The instance type for which available images are queried.
     shared_ptr<string> instanceType_ {};
     // Specifies whether to query published community images. Valid values:
     // 
@@ -475,7 +484,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the custom image belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
+    // The ID of the resource group to which the custom image belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
     // 
     // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
@@ -485,7 +494,7 @@ namespace Models
     shared_ptr<bool> showExpired_ {};
     // The ID of the snapshot used to create the custom image.
     shared_ptr<string> snapshotId_ {};
-    // The status of the image. If you do not specify this parameter, only images in the Available state are returned by default. Valid values:
+    // The status of the image. If you do not specify this parameter, only images in the Available state are returned. Valid values:
     // 
     // - Creating: The image is being created.
     // - Waiting: The image is waiting in a multi-task queue.
@@ -494,14 +503,15 @@ namespace Models
     // - CreateFailed: The image failed to be created.
     // - Deprecated: The image is deprecated.
     // 
-    // Default value: Available. This parameter supports multiple values at the same time, separated by commas (,).
+    // Default value: Available. This parameter supports multiple values separated by commas (,).
     shared_ptr<string> status_ {};
     // The list of tags.
     shared_ptr<vector<DescribeImagesRequest::Tag>> tag_ {};
+    shared_ptr<bool> usable_ {};
     // Specifies whether the image is running on ECS instances. Valid values:
     // 
-    // - instance: The image is in use. ECS instances are created from this image.
-    // - none: The image is idle. No ECS instances are created from this image.
+    // - instance: The image is in use and associated with ECS instances.
+    // - none: The image is idle and not associated with any ECS instances.
     shared_ptr<string> usage_ {};
   };
 

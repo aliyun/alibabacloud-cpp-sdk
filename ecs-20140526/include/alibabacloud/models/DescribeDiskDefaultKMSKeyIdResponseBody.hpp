@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the KMS key.
+    // The KMS key ID.
     shared_ptr<string> KMSKeyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

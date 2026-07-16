@@ -508,11 +508,11 @@ namespace Models
 
 
   protected:
-    // The token used to start the next query.
+    // The pagination token for the next query.
     // 
-    // > If the return value is empty, no more data exists.
+    // > If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnapshotGroupsResponseBody::SnapshotGroups> snapshotGroups_ {};
   };
