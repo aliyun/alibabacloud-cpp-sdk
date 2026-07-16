@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable video captioning.
     shared_ptr<bool> enable_ {};
+    // The person reference configuration.
     shared_ptr<PersonReferenceConfig> personReference_ {};
+    // The custom prompt for video captioning.
     shared_ptr<string> prompt_ {};
   };
 

@@ -101,10 +101,10 @@ namespace Models
 
 
     protected:
-      // The duration of the media clip. Unit: seconds. Default value: 0, which indicates the end of the video.
+      // The duration of the media segment. Unit: seconds. Default value: 0, which indicates the end of the video.
       // This parameter takes effect only when Type is set to Concat.
       shared_ptr<double> duration_ {};
-      // The start time of the media resource. Valid values: [0, video duration].
+      // The start time of the media resource. Valid values: [0, video duration]. Unit: seconds.
       // This parameter takes effect only when Type is set to Concat.
       shared_ptr<double> startTime_ {};
       // The URI of the media resource (OSS URI). Only videos are supported.
@@ -191,13 +191,13 @@ namespace Models
 
 
       protected:
-        // The segment duration. Unit: seconds.
+        // The segment length. Unit: seconds.
         shared_ptr<double> duration_ {};
         // The media segmentation format. Valid values:
         // 
         // - hls
         // 
-        // - dash.
+        // - dash
         shared_ptr<string> format_ {};
         // The start number. Only hls is supported. Default value: 0.
         shared_ptr<int64_t> startNumber_ {};
@@ -267,9 +267,9 @@ namespace Models
       shared_ptr<TargetAudio> audio_ {};
       // The media container type. This parameter is required when Type is set to Concat or Compose. Valid values:
       // 
-      // - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv
+      // - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv.
       // 
-      // >Notice: Container and URI must be specified together..
+      // >Notice: Container and URI must be specified together.
       shared_ptr<string> container_ {};
       // The maximum duration of the clipped video. Unit: seconds.
       shared_ptr<double> maxDuration_ {};
@@ -277,7 +277,7 @@ namespace Models
       shared_ptr<Output::Segment> segment_ {};
       // The playback speed of the media. Valid values: [0.5, 1.0]. Default value: 1.0.
       // 
-      // > This value is the ratio of the default playback speed of the transcoded media file to that of the source media file. This is not speed-adjusted transcoding.
+      // > This value is the ratio of the playback speed of the transcoded media file to the default playback speed of the source media file. This is not speed-adjusted transcoding.
       shared_ptr<double> speed_ {};
       // The URI of the output file.
       // 
@@ -318,13 +318,13 @@ namespace Models
     protected:
       // The highlight content. Valid values:
       // 
-      // - Pets
+      // - 宠物
       // 
-      // - People
+      // - 人物
       // 
-      // - Sports
+      // - 运动
       // 
-      // - Meetings
+      // - 会议
       // 
       // The value cannot exceed 100 characters.
       // 
@@ -406,7 +406,7 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> vfxEffect_ {};
         // The effect weight. Valid values: [1, 100]. Default value: 50.
-        // This parameter takes effect when VfxEffectMode is set to Random.
+        // This parameter takes effect only when VfxEffectMode is set to Random.
         shared_ptr<int64_t> weight_ {};
       };
 
@@ -457,7 +457,7 @@ namespace Models
 
 
       protected:
-        // The transition duration. Unit: seconds. If the transition duration is greater than the clip duration minus 1, the transition effect on that clip does not take effect.
+        // The transition duration. Unit: seconds. If the transition duration is greater than the segment duration minus 1, the transition effect on that segment does not take effect.
         // Valid values: [0, 5].
         shared_ptr<double> duration_ {};
         // The transition effect. For more information, see [Transition effects](https://www.alibabacloud.com/help/en/imm/developer-reference/transition-effect).
@@ -465,7 +465,7 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> transition_ {};
         // The transition weight. Valid values: [1, 100]. Default value: 50.
-        // This parameter takes effect when TransitionMode is set to Random.
+        // This parameter takes effect only when TransitionMode is set to Random.
         shared_ptr<int64_t> weight_ {};
       };
 
@@ -582,8 +582,8 @@ namespace Models
       // 
       // - Closed: no background music.
       shared_ptr<string> backgroundMusicMode_ {};
-      // The background music tracks. This parameter takes effect when BackgroundMusicMode is set to Random or Sequential.
-      // **The maximum number is 1.**.
+      // The background music list. This parameter takes effect only when BackgroundMusicMode is set to Random or Sequential.
+      // **The maximum number is 1.**
       shared_ptr<vector<Edit::BackgroundMusics>> backgroundMusics_ {};
       // The editing mode. Valid values:
       // 
@@ -602,7 +602,7 @@ namespace Models
       // - Closed: no transition.
       shared_ptr<string> transitionMode_ {};
       // The transition effects.
-      // This parameter takes effect when TransitionMode is set to Random or Sequential.
+      // This parameter takes effect only when TransitionMode is set to Random or Sequential.
       // A maximum of 10 transitions are supported.
       shared_ptr<vector<Edit::Transitions>> transitions_ {};
       // The effect mode. Default value: Closed. Valid values:
@@ -615,7 +615,7 @@ namespace Models
       // 
       // - Closed: no effect.
       shared_ptr<string> vfxEffectMode_ {};
-      // The visual effects. This parameter takes effect when VfxEffectMode is set to Random or Sequential.
+      // The visual effects. This parameter takes effect only when VfxEffectMode is set to Random or Sequential.
       // A maximum of 10 effects are supported.
       shared_ptr<vector<Edit::VfxEffects>> vfxEffects_ {};
     };
@@ -715,7 +715,7 @@ namespace Models
 
 
   protected:
-    // The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
+    // The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**
     shared_ptr<CredentialConfig> credentialConfig_ {};
     // The editing configuration.
     shared_ptr<CreateHighlightTaskRequest::Edit> edit_ {};
@@ -750,11 +750,11 @@ namespace Models
     // 
     // - Concat: video composition.
     // 
-    // - Compose: one-click video creation.
+    // - Compose: one-click video production.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The custom user data, which is returned in asynchronous message notifications.
+    // The custom information, which is returned in asynchronous message notifications.
     shared_ptr<string> userData_ {};
   };
 

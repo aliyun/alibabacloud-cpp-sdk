@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether highlight labels are supported.
     shared_ptr<bool> enable_ {};
+    // The list of labels.
     shared_ptr<vector<InsightsLabel>> labels_ {};
   };
 

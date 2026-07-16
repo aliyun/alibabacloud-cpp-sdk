@@ -68,7 +68,9 @@ namespace Models
   protected:
     // The video synopsis configuration.
     shared_ptr<VideoInsightsCaptionConfig> caption_ {};
+    // The label configuration.
     shared_ptr<VideoInsightsLabelConfig> label_ {};
+    // The video multi-stream configuration.
     shared_ptr<VideoInsightsMultiStreamConfig> multiStream_ {};
   };
 

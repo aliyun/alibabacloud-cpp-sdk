@@ -263,9 +263,9 @@ namespace Models
 
 
   protected:
-    // The addresses.
+    // The geolocation detection results of the video.
     // 
-    // This parameter is returned only when address information is detected.
+    // This parameter has a value only when the video contains geolocation information.
     shared_ptr<vector<Address>> addresses_ {};
     // The album.
     shared_ptr<string> album_ {};
@@ -273,45 +273,46 @@ namespace Models
     shared_ptr<string> albumArtist_ {};
     // The artist.
     shared_ptr<string> artist_ {};
-    // The audio streams.
+    // The array of audio streams.
     shared_ptr<vector<AudioStream>> audioStreams_ {};
-    // The bitrate. Unit: bit/s.
+    // The bitrate of the media file, in bit/s.
     shared_ptr<int64_t> bitrate_ {};
     // The composer.
     shared_ptr<string> composer_ {};
-    // The total duration of the video. Unit: seconds.
+    // The total duration of the video, in seconds.
     shared_ptr<double> duration_ {};
-    // The full format name.
+    // The full name of the format.
     shared_ptr<string> formatLongName_ {};
-    // The abbreviated format name.
+    // The format name.
     shared_ptr<string> formatName_ {};
-    // The language of the content. For more information, see the ISO 639-2 Alpha-3 codes for the representation of names of languages.
+    // The language used in the video. The value follows the ISO 639-2 standard.
     shared_ptr<string> language_ {};
-    // The coordinate pair of the central point. The coordinate pair consists of latitude and longitude values. This parameter value must be in the "latitude,longitude" format. Valid values of the latitude: [-90,+90]. Valid values of the longitude: [-180,+180].
+    // The central geographic coordinate point, which is a latitude and longitude value.
+    // The format is latitude,longitude, with latitude first and longitude second. The latitude range is [-90,+90] and the longitude range is [-180,+180]. Example: 35.8,-45.91.
     shared_ptr<string> latLong_ {};
     // The performer.
     shared_ptr<string> performer_ {};
-    // The time of recording. For more information about the time formats, see the RFC3339 Nano standard.
+    // The time when the video was recorded. The value follows the RFC 3339 Nano standard.
     shared_ptr<string> produceTime_ {};
     // The number of programs.
     shared_ptr<int64_t> programCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The size of the media object. Unit: bytes.
+    // The size of the media file, in bytes.
     shared_ptr<int64_t> size_ {};
-    // The initial playback time.
+    // The start playback time of the media, in seconds.
     shared_ptr<double> startTime_ {};
     // The number of media streams.
     shared_ptr<int64_t> streamCount_ {};
-    // The subtitle streams.
+    // The array of subtitle streams.
     shared_ptr<vector<SubtitleStream>> subtitles_ {};
-    // The title of the media object.
+    // The title of the media file.
     shared_ptr<string> title_ {};
-    // The video height in pixels.
+    // The height of the video frame in the media file, in pixels.
     shared_ptr<int64_t> videoHeight_ {};
-    // The video streams.
+    // The array of video streams.
     shared_ptr<vector<VideoStream>> videoStreams_ {};
-    // The video width in pixels.
+    // The width of the video frame in the media file, in pixels.
     shared_ptr<int64_t> videoWidth_ {};
   };
 

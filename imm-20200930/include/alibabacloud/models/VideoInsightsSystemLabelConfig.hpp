@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether system labels are supported.
     shared_ptr<bool> enable_ {};
   };
 

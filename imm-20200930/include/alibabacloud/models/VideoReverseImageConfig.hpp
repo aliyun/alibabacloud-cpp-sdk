@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the feature.
     shared_ptr<bool> enable_ {};
   };
 

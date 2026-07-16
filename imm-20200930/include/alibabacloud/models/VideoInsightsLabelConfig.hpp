@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The highlight label configuration.
     shared_ptr<VideoInsightsHighlightLabelConfig> highlight_ {};
+    // The system label configuration.
     shared_ptr<VideoInsightsSystemLabelConfig> system_ {};
+    // The custom label configuration.
     shared_ptr<VideoInsightsUserDefinedLabelConfig> userDefined_ {};
   };
 

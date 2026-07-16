@@ -57,17 +57,15 @@ namespace Models
 
 
   protected:
-    // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+    // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The ID of the task. You can obtain the ID of the task from the response of the CreateDecodeBlindWatermarkTask operation.
+    // The task ID. You can obtain the task ID from the response parameters of the blind watermark extraction task creation operation.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The type of the task.
-    // 
-    // *   Set the value to DecodeBlindWatermark.
+    // The task type.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

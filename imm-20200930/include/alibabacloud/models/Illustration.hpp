@@ -93,7 +93,7 @@ namespace Models
     shared_ptr<string> imagePath_ {};
     // The normalized coordinate of the image on the page.
     shared_ptr<vector<float>> normalizedBox_ {};
-    // The page number on which the image is located.
+    // The page number where the image is located.
     shared_ptr<int32_t> pageNumber_ {};
     // The text result recognized by optical character recognition (OCR) from the image.
     shared_ptr<string> text_ {};

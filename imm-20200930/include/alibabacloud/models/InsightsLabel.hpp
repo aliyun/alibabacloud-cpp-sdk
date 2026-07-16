@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The label description.
     shared_ptr<string> description_ {};
+    // The label name.
     shared_ptr<string> name_ {};
   };
 

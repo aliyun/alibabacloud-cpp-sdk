@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether video multi-stream is supported.
     shared_ptr<bool> enable_ {};
   };
 

@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**.
+    // The China authorization configuration. **Leave this parameter empty unless you have specific requirements.**
     shared_ptr<string> credentialConfigShrink_ {};
     // The editing configuration.
     shared_ptr<string> editShrink_ {};
@@ -165,11 +165,11 @@ namespace Models
     // 
     // - Concat: video composition.
     // 
-    // - Compose: one-click video creation.
+    // - Compose: one-click video production.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The custom user data, which is returned in asynchronous message notifications.
+    // The custom information, which is returned in asynchronous message notifications.
     shared_ptr<string> userData_ {};
   };
 

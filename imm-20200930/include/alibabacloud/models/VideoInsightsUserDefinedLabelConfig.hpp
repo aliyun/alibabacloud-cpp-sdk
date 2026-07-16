@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable custom labels.
     shared_ptr<bool> enable_ {};
+    // The list of custom labels.
     shared_ptr<vector<InsightsLabel>> labels_ {};
+    // The custom label matching mode. The SDK passes this as an optional string.
     shared_ptr<string> mode_ {};
   };
 

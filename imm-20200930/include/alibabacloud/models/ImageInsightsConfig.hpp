@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The image content recognition Caption configuration.
     shared_ptr<ImageInsightsCaptionConfig> caption_ {};
   };
 

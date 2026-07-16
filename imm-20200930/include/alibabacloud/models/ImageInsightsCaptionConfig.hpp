@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable this feature.
     shared_ptr<bool> enable_ {};
+    // The prompt.
     shared_ptr<string> prompt_ {};
   };
 

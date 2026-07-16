@@ -221,119 +221,92 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable adaptive resolution for long and short edges. Valid values:
+      // Specifies whether to enable adaptive long/short side mode. Valid values:
       // 
-      // - true: Yes. In this case, the format for the **Resolution** parameter is `long edge × short edge`.
-      // 
-      // - false (default): No. In this case, the format for the **Resolution** parameter is `width × height`.
+      // - true: Enabled. The format of the **Resolution** parameter is `LongSide×ShortSide`.
+      // - false (default): Disabled. The format of the **Resolution** parameter is `Width×Height`.
       shared_ptr<bool> adaptiveResolutionDirection_ {};
-      // The number of consecutive B-frames. The default value is 3.
+      // The number of consecutive B-frames. Default value: 3.
       shared_ptr<int32_t> BFrames_ {};
-      // The video stream bitrate in bits per second (bit/s).
+      // The video stream bitrate, in bits per second (bit/s).
       // 
-      // > This parameter is mutually exclusive with **CRF**. If both this parameter and the **CRF** parameter are empty, the system encodes the video with a CRF value of 23.
+      // > This parameter is mutually exclusive with **CRF**. If both this parameter and **CRF** are empty, encoding is performed with a **CRF** value of 23.
       shared_ptr<int32_t> bitrate_ {};
       // The video bitrate option. Valid values:
       // 
       // - fixed: Always uses the specified target video bitrate.
-      // 
-      // - adaptive: Uses the source video bitrate if it is lower than the specified target video bitrate.
-      // 
-      // - fall: The task fails if the source video bitrate is lower than the specified target video bitrate.
+      // - adaptive: Uses the source video bitrate when it is lower than the specified target video bitrate.
+      // - fall: Returns a failure when the source video bitrate is lower than the specified target video bitrate.
       // 
       // Default value:
-      // 
       // - For the CreateMediaConvert API, the default value is fixed.
-      // 
       // - For the GenerateVideoPlaylist API, the default value is adaptive.
       // 
       // > This parameter must be set together with the **Bitrate** parameter.
       shared_ptr<string> bitrateOption_ {};
-      // The size of the decoding buffer for dynamic bitrate, in bits per second (bps).
+      // The decoding buffer size for variable bitrate, in bits per second (bps).
       // 
-      // > This parameter is effective only when used with the **CRF** parameter.
+      // > This parameter takes effect only when used together with the **CRF** parameter.
       shared_ptr<int32_t> bufferSize_ {};
-      // Specifies the Constant Rate Factor (CRF) mode. This parameter is mutually exclusive with **Bitrate**. The value ranges from 0 to 51. A larger value indicates lower image quality. A value from 18 to 38 is recommended.
+      // Specifies the constant quality mode. This parameter is mutually exclusive with **Bitrate**. Valid values: [0,51]. A higher value results in lower quality. Recommended values: [18,38].
       shared_ptr<float> CRF_ {};
       // The video encoding format. Valid values:
       // 
-      // - For the CreateMediaConvert API: copy (default), h264, h265, and vp9.
-      // 
-      // 
-      //   >Warning: 
-      // 
-      //   If you set this parameter to copy, the system directly copies the video stream to the output file. In this case, the other parameters under **TranscodeVideo** are invalid. The copy value cannot be used for video concatenation and is typically used for container format conversion.
-      // 
-      //   
-      // 
-      // - For the GenerateVideoPlaylist API: h264 (default) and h265.
+      // - For the CreateMediaConvert API: copy (default), h264, h265, vp9.
+      // <warning>When this parameter is set to copy, the video streams to be processed are directly copied to the output file, and other parameters under **TranscodeVideo** do not take effect. copy cannot be used for video concatenation and is typically used for container format conversion scenarios.</warning>
+      // - For the GenerateVideoPlaylist API: h264 (default), h265.
       shared_ptr<string> codec_ {};
-      // The video frame rate. By default, this is the same as the source video.
+      // The video frame rate. The default value is the same as the source video.
       shared_ptr<float> frameRate_ {};
       // The frame rate option. Valid values:
       // 
       // - fixed: Always uses the specified target video frame rate.
-      // 
-      // - adaptive: Uses the source video frame rate if it is lower than the specified target video frame rate.
-      // 
-      // - fall: The task fails if the source video frame rate is lower than the specified target video frame rate.
+      // - adaptive: Uses the source video frame rate when it is lower than the specified target video frame rate.
+      // - fall: Returns a failure when the source video frame rate is lower than the specified target video frame rate.
       // 
       // Default value:
-      // 
       // - For the CreateMediaConvert API, the default value is fixed.
-      // 
       // - For the GenerateVideoPlaylist API, the default value is adaptive.
       // 
       // > This parameter must be set together with the **FrameRate** parameter.
       shared_ptr<string> frameRateOption_ {};
-      // The size of the Group of Pictures (GOP) in frames. The default value is 150.
+      // The number of frames between keyframes. Default value: 150.
       // 
-      // > This parameter is not supported by the GenerateVideoPlaylist API.
+      // > This parameter is not supported for the GenerateVideoPlaylist API.
       shared_ptr<int32_t> GOPSize_ {};
-      // The maximum bitrate limit for dynamic bitrate. When you use this parameter, you must also specify the BufferSize parameter.
+      // The maximum bitrate limit for variable bitrate. When using this parameter, you must specify the BufferSize parameter.
       // 
-      // > This parameter is effective only when used with the **CRF** parameter.
+      // > This parameter takes effect only when used together with the **CRF** parameter.
       shared_ptr<int32_t> maxBitrate_ {};
-      // The pixel format. By default, this is the same as the source video. Valid values:
+      // The pixel format. The default value is the same as the source video. Valid values:
       // 
       // - yuv420p
-      // 
       // - yuv422p
-      // 
       // - yuv444p
-      // 
       // - yuv420p10le
-      // 
       // - yuv422p10le
-      // 
       // - yuv444p10le
-      // 
       // - yuva420p
       // 
-      // > The yuva420p value is available only for the CreateMediaConvert API, and the **Codec** parameter must be set to vp9.
+      // > yuva420p is available only for the CreateMediaConvert API, and the **Codec** parameter must be set to vp9.
       shared_ptr<string> pixelFormat_ {};
-      // The number of reference frames. The default value is 2.
+      // The number of reference frames. Default value: 2.
       shared_ptr<int32_t> refs_ {};
-      // The resolution of the output video in the format of `width × height`. By default, this is the same as the playback resolution of the source video. You can configure both width and height, or only width or height. You can also use this parameter with the **AdaptiveResolutionDirection** parameter to configure both the long and short edges, or only the long or short edge. The value for a single edge ranges from (0, 4096].
+      // The resolution of the output video in the format of `WidthxHeight`. The default value is the same as the playback resolution of the source video. You can configure both width and height, or configure only width or height. You can also use the **AdaptiveResolutionDirection** parameter to configure both long and short sides, or configure only the long side or short side. The value range for a single side is (0,4096].
       // 
-      // - Example 1: If **AdaptiveResolutionDirection** is set to false, `1280x720` sets the width to 1280 and the height to 720. `1280x` sets the width to 1280 and keeps the height the same as the source video. `x720` sets the height to 720 and keeps the width the same as the source video.
+      // - Example 1: If **AdaptiveResolutionDirection** is false, `1280x720` sets the width to 1280 and the height to 720. `1280x` sets the width to 1280 and keeps the height the same as the source video. `x720` sets the height to 720 and keeps the width the same as the source video.
+      // - Example 2: If **AdaptiveResolutionDirection** is true, `1280x720` sets the long side to 1280 and the short side to 720. `1280x` sets the long side to 1280 and keeps the short side the same as the source video. `x720` sets the short side to 720 and keeps the long side the same as the source video.
       // 
-      // - Example 2: If **AdaptiveResolutionDirection** is set to true, `1280x720` sets the long edge to 1280 and the short edge to 720. `1280x` sets the long edge to 1280 and keeps the short edge the same as the source video. `x720` sets the short edge to 720 and keeps the long edge the same as the source video.
-      // 
-      // > If the source video contains rotation information, the width, height, long edge, and short edge are determined based on the rotated video, which means the playback resolution is used.
+      // > If the source video contains rotation information, the width/height and long/short side determination is based on the post-rotation state, which is the playback resolution.
       shared_ptr<string> resolution_ {};
       // The resolution option. Valid values:
       // 
       // - fixed: Always uses the specified target video resolution.
-      // 
-      // - adaptive: Uses the source video resolution if its area is smaller than the area of the specified target video resolution.
-      // 
-      // - fall: The task fails if the area of the source video resolution is smaller than the area of the specified target video resolution.
+      // - adaptive: Uses the source video resolution when the source video resolution area is smaller than the specified target video resolution area.
+      // - fall: Returns a failure when the source video resolution area is smaller than the specified target video resolution area.
       // 
       // Default value:
-      // 
       // - For the CreateMediaConvert API, the default value is fixed.
-      // 
       // - For the GenerateVideoPlaylist API, the default value is adaptive.
       // 
       // > This parameter must be set together with the **Resolution** parameter.
@@ -341,36 +314,27 @@ namespace Models
       // The clockwise rotation angle of the video in degrees. Valid values:
       // 
       // - 0 (default)
-      // 
       // - 90
-      // 
       // - 180
-      // 
       // - 270
       shared_ptr<int32_t> rotation_ {};
       // The scaling mode. Valid values:
       // 
-      // - stretch (default): Fixes the width and height or the long and short edges, and forces scaling to stretch and fill any blank areas.
-      // 
-      // - crop: Scales the video proportionally to the minimum resolution that extends beyond the specified rectangle (defined by width/height or long/short edges), and then center-crops the excess parts.
-      // 
-      // - fill: Scales the video proportionally to the maximum resolution that fits within the specified rectangle (defined by width/height or long/short edges), and then center-fills any blank areas with black.
-      // 
-      // - fit: Scales the video proportionally to the maximum resolution that fits within the specified rectangle (defined by width/height or long/short edges).
+      // - stretch (default): Fixes the width/height or long/short sides and forcibly scales the video to fill the blank area by stretching.
+      // - crop: Scales proportionally to the minimum resolution that extends beyond the specified width/height or long/short side rectangle, and then center-crops the excess area.
+      // - fill: Scales proportionally to the maximum resolution within the specified width/height or long/short side rectangle, and then center-fills the blank area with black.
+      // - fit: Scales proportionally to the maximum resolution within the specified width/height or long/short side rectangle.
       // 
       // > This parameter must be set together with the **Resolution** parameter.
       shared_ptr<string> scaleType_ {};
-      // Enables the Narrowband HD mode. Set the value as follows:
+      // Enables the Narrowband HD mode. Valid values:
       // 
-      // 0: The default value. Disables the mode.
+      // 0: Default value. Disabled.
       // 
-      // 1: Enables transcoding in Narrowband HD mode.
-      // 
-      // > For best results, use the officially recommended Bitrate or CRF parameters for video transcoding and encoding in Narrowband HD mode.
-      // 
-      // >Notice: 
-      // 
-      // Narrowband HD only supports the h.264/h.265 format, yuv420p, and an 8-bit depth. It does not support transcoding output for multiple target videos or video concatenation. For more information, see [Introduction to Narrowband HD](https://help.aliyun.com/document_detail/2984556.html).
+      // 1: Uses the Narrowband HD mode for transcoding.
+      // > For optimal results, use the officially recommended Bitrate or CRF parameters for video transcoding with Narrowband HD.
+      // >
+      // >Notice: Narrowband HD supports only H.264/H.265 formats, only yuv420p, 8-bit depth, and does not support multi-target video transcoding output or video concatenation. For more information, see [Narrowband HD overview](https://help.aliyun.com/document_detail/2984556.html).
       shared_ptr<int32_t> videoSlim_ {};
     };
 
@@ -565,111 +529,84 @@ namespace Models
 
 
       protected:
-        // The outline color of the watermark text. The format is #RRGGBB. The default value is #000000. You can also enter values such as "red" or "green".
+        // The border color of the watermark text. The format is #RRGGBB. Default value: #000000. Values such as "red" and "green" are also supported.
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<string> borderColor_ {};
-        // The outline width for the text watermark, in pixels (px). The value must be an integer from 0 to 4096. The default value is 0.
+        // The border width of the text watermark, in pixels (px). The value must be an integer. Valid values: [0,4096]. Default value: 0.
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<int32_t> borderWidth_ {};
-        // The content of the text watermark. The default value is empty.
+        // The content of the text watermark. Default value: empty.
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<string> content_ {};
-        // The duration for which the watermark is displayed, in seconds (s). By default, the watermark is displayed until the end of the video.
+        // The duration for which the watermark is displayed, in seconds (s). The default value is until the end of the video.
         shared_ptr<double> duration_ {};
-        // The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - 0 (default): The pixel offset is 0. The ratio of the horizontal offset to the output video width is also 0.
-        // 
-        // - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the horizontal offset to the output video width. The value ranges from (0, 1).
+        // - 0 (default): Both the offset in pixels and the ratio of horizontal offset to the output resolution height are 0.
+        // - Integer: The offset in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio of horizontal offset to the output resolution height. Valid values: (0,1).
         shared_ptr<float> dx_ {};
-        // The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - 0 (default): The pixel offset is 0. The ratio of the vertical offset to the output video height is also 0.
+        // - 0 (default): Both the offset in pixels and the ratio of vertical offset to the output resolution height are 0.
         // 
-        // - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
+        // - Integer: The offset in pixels (px). Valid values: [1,4096].
         // 
-        // - Decimal: The ratio of the vertical offset to the output video height. The value ranges from (0, 1).
+        // - Decimal: The ratio of vertical offset to the output resolution height. Valid values: (0,1).
         shared_ptr<float> dy_ {};
-        // The font opacity of the text watermark. The value ranges from (0, 1]. The default value is 1, which means fully opaque.
+        // The font opacity of the text watermark. Valid values: (0,1]. Default value: 1, which indicates fully opaque.
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<float> fontApha_ {};
-        // The font color of the watermark text. The format is #RRGGBB. The default value is #000000. You can also enter values such as "red" or "green".
+        // The font color of the watermark text. The format is #RRGGBB. Default value: #000000. Values such as "red" and "green" are also supported.
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<string> fontColor_ {};
-        // The font name for the text watermark. Valid values:
+        // The font name of the text watermark. Valid values:
         // 
         // - SourceHanSans-Regular (default)
-        // 
         // - SourceHanSans-Bold
-        // 
         // - SourceHanSerif-Regular
-        // 
         // - SourceHanSerif-Bold
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<string> fontName_ {};
-        // The font size for the text watermark. The default value is 16. The value must be an integer in the range (4, 120).
+        // The font size of the text watermark. Default value: 16. The value must be an integer. Valid values: (4,120).
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `text`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `text`.</notice>
         shared_ptr<int32_t> fontSize_ {};
-        // The height of the watermark image. By default, this is the height of the original watermark image. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The height of the watermark image. The default value is the original height of the watermark image. The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - Integer: The height of the watermark in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the watermark height to the output video height. The value ranges from (0, 1).
+        // - Integer: The height in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio relative to the output video resolution height. Valid values: (0,1).
         shared_ptr<float> height_ {};
         // The reference position for adding the watermark. Valid values:
         // 
-        // - topleft (default): The top-left corner.
-        // 
-        // - topright: The top-right corner.
-        // 
-        // - bottomright: The bottom-right corner.
-        // 
-        // - bottomleft: The bottom-left corner.
+        // - topleft (default): top-left corner
+        // - topright: top-right corner
+        // - bottomright: bottom-right corner
+        // - bottomleft: bottom-left corner
         shared_ptr<string> referPos_ {};
-        // The start time for adding the watermark, in seconds (s). By default, the watermark is added from the beginning of the video.
+        // The start time for adding the watermark, in seconds (s). The default value is the start time of the video.
         shared_ptr<double> startTime_ {};
         // The watermark type. Valid values:
         // 
-        // - text (default): A text watermark.
-        // 
-        // - file: An image or animated image watermark.
+        // - text (default): text watermark.
+        // - file: image or animated image watermark.
         shared_ptr<string> type_ {};
-        // The OSS URL of the watermark file. Supported formats are PNG and MOV.
+        // The OSS URI of the watermark file. Supported formats are PNG and MOV.
         // 
-        // The OSS URL must follow the format `oss://<bucket>/<object>`, where `<bucket>` is the name of an OSS bucket in the same region as the current project, and `<object>` is the full path of the file, including the file name extension.
+        // The OSS URI format is `oss://<bucket>/<object>`, where `<bucket>` is the name of an OSS bucket in the same region as the current project, and `<object>` is the full path of the file including the file name extension.
         // 
-        // >Notice: 
-        // 
-        // This parameter is effective only when the `Type` parameter is set to `file`.
+        // >Notice:  This parameter takes effect only when the `Type` parameter is set to `file`.</notice>
         shared_ptr<string> URI_ {};
-        // The width of the watermark image. By default, this is the width of the original watermark image. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The width of the watermark image. The default value is the original width of the watermark image. The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - Integer: The width of the watermark in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the watermark width to the output video width. The value ranges from (0, 1).
+        // - Integer: The width in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio relative to the output video resolution width. Valid values: (0,1).
         shared_ptr<float> width_ {};
       };
 
@@ -697,12 +634,18 @@ namespace Models
         class LicensePlate : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const LicensePlate& obj) { 
+            DARABONBA_PTR_TO_JSON(BlurRadius, blurRadius_);
             DARABONBA_PTR_TO_JSON(Confidence, confidence_);
             DARABONBA_PTR_TO_JSON(MinSize, minSize_);
+            DARABONBA_PTR_TO_JSON(ScaleRatio, scaleRatio_);
+            DARABONBA_PTR_TO_JSON(Transparency, transparency_);
           };
           friend void from_json(const Darabonba::Json& j, LicensePlate& obj) { 
+            DARABONBA_PTR_FROM_JSON(BlurRadius, blurRadius_);
             DARABONBA_PTR_FROM_JSON(Confidence, confidence_);
             DARABONBA_PTR_FROM_JSON(MinSize, minSize_);
+            DARABONBA_PTR_FROM_JSON(ScaleRatio, scaleRatio_);
+            DARABONBA_PTR_FROM_JSON(Transparency, transparency_);
           };
           LicensePlate() = default ;
           LicensePlate(const LicensePlate &) = default ;
@@ -715,8 +658,15 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->confidence_ == nullptr
-        && this->minSize_ == nullptr; };
+          virtual bool empty() const override { return this->blurRadius_ == nullptr
+        && this->confidence_ == nullptr && this->minSize_ == nullptr && this->scaleRatio_ == nullptr && this->transparency_ == nullptr; };
+          // blurRadius Field Functions 
+          bool hasBlurRadius() const { return this->blurRadius_ != nullptr;};
+          void deleteBlurRadius() { this->blurRadius_ = nullptr;};
+          inline int32_t getBlurRadius() const { DARABONBA_PTR_GET_DEFAULT(blurRadius_, 0) };
+          inline LicensePlate& setBlurRadius(int32_t blurRadius) { DARABONBA_PTR_SET_VALUE(blurRadius_, blurRadius) };
+
+
           // confidence Field Functions 
           bool hasConfidence() const { return this->confidence_ != nullptr;};
           void deleteConfidence() { this->confidence_ = nullptr;};
@@ -731,26 +681,47 @@ namespace Models
           inline LicensePlate& setMinSize(int32_t minSize) { DARABONBA_PTR_SET_VALUE(minSize_, minSize) };
 
 
+          // scaleRatio Field Functions 
+          bool hasScaleRatio() const { return this->scaleRatio_ != nullptr;};
+          void deleteScaleRatio() { this->scaleRatio_ = nullptr;};
+          inline float getScaleRatio() const { DARABONBA_PTR_GET_DEFAULT(scaleRatio_, 0.0) };
+          inline LicensePlate& setScaleRatio(float scaleRatio) { DARABONBA_PTR_SET_VALUE(scaleRatio_, scaleRatio) };
+
+
+          // transparency Field Functions 
+          bool hasTransparency() const { return this->transparency_ != nullptr;};
+          void deleteTransparency() { this->transparency_ = nullptr;};
+          inline float getTransparency() const { DARABONBA_PTR_GET_DEFAULT(transparency_, 0.0) };
+          inline LicensePlate& setTransparency(float transparency) { DARABONBA_PTR_SET_VALUE(transparency_, transparency) };
+
+
         protected:
-          // The confidence threshold for license plate recognition. This sets the lower limit for the confidence level. If the confidence level of a detected license plate is below this threshold, the license plate is not desensitized.
-          // 
-          // - Value range: 0.0 to 1.0.
-          // 
-          // - Default value: 0.0 (no confidence filtering).
+          shared_ptr<int32_t> blurRadius_ {};
+          // The license plate confidence threshold, which sets the lower limit of confidence for license plate recognition. If the confidence value of a detected license plate is lower than this threshold, the license plate is not desensitized.
+          // - Valid values: 0.0 to 1.0.
+          // - Default value: 0.0 (no confidence filtering is performed).
           shared_ptr<float> confidence_ {};
-          // The minimum license plate size threshold. This sets the minimum size for a license plate to be desensitized. If the width or height of a detected license plate is smaller than this threshold, the license plate is not desensitized. The unit is pixels. The default value is 0, which means there is no restriction on license plate size.
+          // The minimum license plate size threshold, which sets the minimum size of license plates to be desensitized. If the width or height of a detected license plate is smaller than this threshold, the license plate is not desensitized. Unit: pixels. Default value: 0, which indicates no size restriction on license plates.
           shared_ptr<int32_t> minSize_ {};
+          shared_ptr<float> scaleRatio_ {};
+          shared_ptr<float> transparency_ {};
         };
 
         class Face : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Face& obj) { 
+            DARABONBA_PTR_TO_JSON(BlurRadius, blurRadius_);
             DARABONBA_PTR_TO_JSON(Confidence, confidence_);
             DARABONBA_PTR_TO_JSON(MinSize, minSize_);
+            DARABONBA_PTR_TO_JSON(ScaleRatio, scaleRatio_);
+            DARABONBA_PTR_TO_JSON(Transparency, transparency_);
           };
           friend void from_json(const Darabonba::Json& j, Face& obj) { 
+            DARABONBA_PTR_FROM_JSON(BlurRadius, blurRadius_);
             DARABONBA_PTR_FROM_JSON(Confidence, confidence_);
             DARABONBA_PTR_FROM_JSON(MinSize, minSize_);
+            DARABONBA_PTR_FROM_JSON(ScaleRatio, scaleRatio_);
+            DARABONBA_PTR_FROM_JSON(Transparency, transparency_);
           };
           Face() = default ;
           Face(const Face &) = default ;
@@ -763,8 +734,15 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->confidence_ == nullptr
-        && this->minSize_ == nullptr; };
+          virtual bool empty() const override { return this->blurRadius_ == nullptr
+        && this->confidence_ == nullptr && this->minSize_ == nullptr && this->scaleRatio_ == nullptr && this->transparency_ == nullptr; };
+          // blurRadius Field Functions 
+          bool hasBlurRadius() const { return this->blurRadius_ != nullptr;};
+          void deleteBlurRadius() { this->blurRadius_ = nullptr;};
+          inline int32_t getBlurRadius() const { DARABONBA_PTR_GET_DEFAULT(blurRadius_, 0) };
+          inline Face& setBlurRadius(int32_t blurRadius) { DARABONBA_PTR_SET_VALUE(blurRadius_, blurRadius) };
+
+
           // confidence Field Functions 
           bool hasConfidence() const { return this->confidence_ != nullptr;};
           void deleteConfidence() { this->confidence_ = nullptr;};
@@ -779,15 +757,30 @@ namespace Models
           inline Face& setMinSize(int32_t minSize) { DARABONBA_PTR_SET_VALUE(minSize_, minSize) };
 
 
+          // scaleRatio Field Functions 
+          bool hasScaleRatio() const { return this->scaleRatio_ != nullptr;};
+          void deleteScaleRatio() { this->scaleRatio_ = nullptr;};
+          inline float getScaleRatio() const { DARABONBA_PTR_GET_DEFAULT(scaleRatio_, 0.0) };
+          inline Face& setScaleRatio(float scaleRatio) { DARABONBA_PTR_SET_VALUE(scaleRatio_, scaleRatio) };
+
+
+          // transparency Field Functions 
+          bool hasTransparency() const { return this->transparency_ != nullptr;};
+          void deleteTransparency() { this->transparency_ = nullptr;};
+          inline float getTransparency() const { DARABONBA_PTR_GET_DEFAULT(transparency_, 0.0) };
+          inline Face& setTransparency(float transparency) { DARABONBA_PTR_SET_VALUE(transparency_, transparency) };
+
+
         protected:
-          // The confidence threshold for facial recognition. This sets the lower limit for the confidence level. If the confidence level of a detected face is below this threshold, the face is not desensitized.
-          // 
-          // - Value range: 0.0 to 1.0.
-          // 
-          // - Default value: 0.0 (no confidence filtering).
+          shared_ptr<int32_t> blurRadius_ {};
+          // The face confidence threshold, which sets the lower limit of confidence for face recognition. If the confidence value of a detected face is lower than this threshold, the face is not desensitized.
+          // - Valid values: 0.0 to 1.0.
+          // - Default value: 0.0 (no confidence filtering is performed).
           shared_ptr<float> confidence_ {};
-          // The minimum face size threshold. This sets the minimum size for a face to be desensitized. If the width or height of a detected face is smaller than this threshold, the face is not desensitized. The unit is pixels. The default value is 0, which means there is no restriction on face size.
+          // The minimum face size threshold, which sets the minimum size of faces to be desensitized. If the width or height of a detected face is smaller than this threshold, the face is not desensitized. Unit: pixels. Default value: 0, which indicates no size restriction on faces.
           shared_ptr<int32_t> minSize_ {};
+          shared_ptr<float> scaleRatio_ {};
+          shared_ptr<float> transparency_ {};
         };
 
         virtual bool empty() const override { return this->face_ == nullptr
@@ -811,12 +804,10 @@ namespace Models
 
 
       protected:
-        // The facial desensitization configuration.
-        // 
+        // The face desensitization configuration.
         // > This feature is in public preview. If you have any questions, join the DingTalk group for feedback. For the DingTalk group number, see [Contact us](https://help.aliyun.com/document_detail/84454.html).
         shared_ptr<Desensitization::Face> face_ {};
         // The license plate desensitization configuration.
-        // 
         // > This feature is in public preview. If you have any questions, join the DingTalk group for feedback. For the DingTalk group number, see [Contact us](https://help.aliyun.com/document_detail/84454.html).
         shared_ptr<Desensitization::LicensePlate> licensePlate_ {};
       };
@@ -905,47 +896,38 @@ namespace Models
 
 
       protected:
-        // The duration for which the mosaic is displayed, in seconds (s). By default, the mosaic is displayed until the end of the video.
+        // The duration for which the mosaic is applied, in seconds (s). The default value is until the end of the video.
         shared_ptr<double> duration_ {};
-        // The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - 0 (default): The pixel offset is 0. The ratio of the horizontal offset to the output video width is also 0.
-        // 
-        // - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the horizontal offset to the output video width. The value ranges from (0, 1).
+        // - 0 (default): Both the offset in pixels and the ratio of horizontal offset to the output resolution height are 0.
+        // - Integer: The offset in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio of horizontal offset to the output resolution height. Valid values: (0,1).
         shared_ptr<float> dx_ {};
-        // The default value is 0. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // Default value: 0. The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - 0 (default): The pixel offset is 0. The ratio of the vertical offset to the output video height is also 0.
-        // 
-        // - Integer: The offset in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the vertical offset to the output video height. The value ranges from (0, 1).
+        // - 0 (default): Both the offset in pixels and the ratio of vertical offset to the output resolution height are 0.
+        // - Integer: The offset in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio of vertical offset to the output resolution height. Valid values: (0,1).
         shared_ptr<float> dy_ {};
-        // The height of the mosaic. The default value is the decimal 1.0, which means it fills the entire height of the output video. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The height of the mosaic. The default value is the decimal 1.0, which fills the entire output video height. The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - Integer: The height in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the mosaic height to the output video height. The value ranges from (0, 1).
+        // - Integer: The height in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio relative to the output video resolution height. Valid values: (0,1).
         shared_ptr<float> height_ {};
         // The reference position for adding the mosaic. Valid values:
         // 
-        // - topleft (default): The top-left corner.
-        // 
-        // - topright: The top-right corner.
-        // 
-        // - bottomright: The bottom-right corner.
-        // 
-        // - bottomleft: The bottom-left corner.
+        // - topleft (default): top-left corner
+        // - topright: top-right corner
+        // - bottomright: bottom-right corner
+        // - bottomleft: bottom-left corner
         shared_ptr<string> referPos_ {};
-        // The start time for adding the mosaic, in seconds (s). By default, the mosaic is added from the beginning of the video.
+        // The start time for adding the mosaic, in seconds (s). The default value is the start time of the video.
         shared_ptr<double> startTime_ {};
-        // The width of the mosaic. The default value is the decimal 1.0, which means it fills the entire width of the output video. The meaning of this parameter varies depending on whether the value is an integer or a decimal:
+        // The width of the mosaic. The default value is the decimal 1.0, which fills the entire output video width. The meanings differ depending on whether the value is an integer or a decimal:
         // 
-        // - Integer: The width in pixels (px). The value ranges from 1 to 4096.
-        // 
-        // - Decimal: The ratio of the mosaic width to the output video width. The value ranges from (0, 1).
+        // - Integer: The width in pixels (px). Valid values: [1,4096].
+        // - Decimal: The ratio relative to the output video resolution width. Valid values: (0,1).
         shared_ptr<float> width_ {};
       };
 
@@ -986,23 +968,23 @@ namespace Models
 
 
     protected:
-      // Blurs a rectangular area of the video to remove logos, station icons, and other elements.
+      // Applies mosaic processing to a rectangular area of the video to remove logos or station watermarks.
       shared_ptr<vector<FilterVideo::Delogos>> delogos_ {};
       // The video desensitization configuration.
       // 
       // >Notice: 
       // 
-      // - This parameter applies only to the CreateMediaConvertTask API.
+      // - This parameter is applicable only to the CreateMediaConvertTask API.
       shared_ptr<FilterVideo::Desensitization> desensitization_ {};
-      // The video playback speed setting. The value ranges from 0.5 to 1.0. The default value is 1.0.
+      // The video playback speed setting. Valid values: [0.5,1.0]. Default value: 1.0.
       // 
-      // > - This is the ratio of the default playback speed of the transcoded media file to that of the source media file. This is not a high-speed transcoding feature.
+      // > - This is the ratio of the transcoded media file playback speed to the source media file default playback speed, not speed-up transcoding.
       // 
       // >Notice: 
       // 
-      // - This parameter applies only to the CreateMediaConvertTask API.
+      // - This parameter is applicable only to the CreateMediaConvertTask API.
       shared_ptr<float> speed_ {};
-      // A list of video watermarks.
+      // The list of video watermarks.
       shared_ptr<vector<FilterVideo::Watermarks>> watermarks_ {};
     };
 
@@ -1045,23 +1027,22 @@ namespace Models
   protected:
     // Specifies whether to disable video stream generation. Valid values:
     // 
-    // - true: Disables video stream generation. The output file will not contain a video stream.
-    // 
-    // - false (default): Enables video stream generation.
+    // - true: Disabled. The output file does not contain a video stream.
+    // - false (default): Not disabled.
     shared_ptr<bool> disableVideo_ {};
-    // The video processing parameters. This parameter is invalid if **TranscodeVideo** is empty or if **TranscodeVideo.Codec** is set to copy.
+    // The video filter parameters. This parameter does not take effect when **TranscodeVideo** is empty or **TranscodeVideo.Codec** is set to copy.
     // 
-    // > You cannot set this parameter for the GenerateVideoPlaylist API.
+    // > This parameter is not supported for the GenerateVideoPlaylist API.
     shared_ptr<TargetVideo::FilterVideo> filterVideo_ {};
-    // A list of index numbers for the source video streams to process. If you leave this parameter empty (default), the system processes the video stream with the smallest index number (the first video stream). If you set the index number to a value greater than 100, the system processes all video streams.
+    // The list of video stream index numbers to process from the source file. An empty value (default) indicates that the video stream with the smallest index number (the first video stream) is processed. An index number greater than 100 indicates that all video streams are processed.
     // 
     // - Example: `[0,1]` processes video streams with index numbers 0 and 1. `[1]` processes the video stream with index number 1. `[101]` processes all video streams.
     // 
-    // > The system only processes video streams with existing index numbers. If a video stream corresponding to an index number does not exist, the system ignores that index number.
+    // > Only video streams with existing index numbers are processed. If a video stream corresponding to an index number does not exist, that index number is ignored.
     shared_ptr<vector<int32_t>> stream_ {};
-    // The video transcoding parameters. An empty value disables video processing. The output file will not contain a video stream.
+    // The video transcoding parameters. An empty value indicates that video processing is disabled and the output file does not contain a video stream.
     // 
-    // > Do not disable video processing by leaving this parameter empty.
+    // > Setting this parameter to an empty value to disable video processing is not recommended.
     shared_ptr<TargetVideo::TranscodeVideo> transcodeVideo_ {};
   };
 

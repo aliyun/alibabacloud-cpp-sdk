@@ -78,13 +78,13 @@ namespace Models
 
 
   protected:
-    // Configuration for extracting keywords from the document.
+    // The document intensive reading keyword extraction options.
     shared_ptr<DocumentReadKeywordOption> keyword_ {};
-    // Configuration for the text-to-speech (TTS) narrator.
+    // The document intensive reading guide options.
     shared_ptr<DocumentReadNarratorOption> narrator_ {};
-    // Configuration for the question-answering (Q\\&A) feature, which answers questions based on the document\\"s content.
+    // The document intensive reading question guide options.
     shared_ptr<DocumentReadQuestionOption> question_ {};
-    // Configuration for generating a document summary.
+    // The document intensive reading summary options.
     shared_ptr<DocumentReadSummaryOption> summary_ {};
   };
 

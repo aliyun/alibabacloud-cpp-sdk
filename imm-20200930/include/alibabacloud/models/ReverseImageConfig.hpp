@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The image-to-image search configuration.
     shared_ptr<ImageReverseImageConfig> image_ {};
+    // The image-to-video search configuration.
     shared_ptr<VideoReverseImageConfig> video_ {};
   };
 

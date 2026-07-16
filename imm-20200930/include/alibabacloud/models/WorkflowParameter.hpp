@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The invalid parameter.
     shared_ptr<string> name_ {};
+    // The invalid parameter.
     shared_ptr<string> value_ {};
   };
 
