@@ -253,7 +253,7 @@ namespace Models
       shared_ptr<string> applicationTemplateId_ {};
       // The client ID of the application.
       shared_ptr<string> clientId_ {};
-      // The time when the application was created, in UNIX timestamp format. Unit: milliseconds.
+      // The application creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The application description.
       shared_ptr<string> description_ {};
@@ -280,7 +280,7 @@ namespace Models
       shared_ptr<string> resourceServerStatus_ {};
       // Indicates whether the application template is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};
-      // The single sign-on (SSO) logon protocol. Valid values:
+      // The single sign-on protocol. Valid values:
       // - saml2: SAML 2.0 protocol.
       // - oidc: OpenID Connect protocol.
       // - oauth2/m2m: OAuth 2.0 protocol.

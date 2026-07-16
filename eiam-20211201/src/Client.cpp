@@ -10184,7 +10184,7 @@ ListApplicationTokensResponse Client::listApplicationTokens(const ListApplicatio
 }
 
 /**
- * @summary Performs a paged query to retrieve information about one or more EIAM applications with paging.
+ * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10207,6 +10207,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 
   if (!!request.hasApplicationName()) {
     query["ApplicationName"] = request.getApplicationName();
+  }
+
+  if (!!request.hasApplicationTemplateId()) {
+    query["ApplicationTemplateId"] = request.getApplicationTemplateId();
   }
 
   if (!!request.hasAuthorizationType()) {
@@ -10271,7 +10275,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Performs a paged query to retrieve information about one or more EIAM applications with paging.
+ * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse

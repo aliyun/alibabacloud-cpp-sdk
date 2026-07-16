@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationIdentityType, applicationIdentityType_);
       DARABONBA_PTR_TO_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
+      DARABONBA_PTR_TO_JSON(ApplicationTemplateId, applicationTemplateId_);
       DARABONBA_PTR_TO_JSON(AuthorizationType, authorizationType_);
       DARABONBA_PTR_TO_JSON(CustomFields, customFields_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationIdentityType, applicationIdentityType_);
       DARABONBA_PTR_FROM_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
+      DARABONBA_PTR_FROM_JSON(ApplicationTemplateId, applicationTemplateId_);
       DARABONBA_PTR_FROM_JSON(AuthorizationType, authorizationType_);
       DARABONBA_PTR_FROM_JSON(CustomFields, customFields_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -104,9 +106,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->applicationCreationType_ == nullptr
-        && this->applicationIdentityType_ == nullptr && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->authorizationType_ == nullptr && this->customFields_ == nullptr
-        && this->instanceId_ == nullptr && this->m2MClientStatus_ == nullptr && this->managedServiceCode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->resourceServerStatus_ == nullptr && this->serviceManaged_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr; };
+        && this->applicationIdentityType_ == nullptr && this->applicationIds_ == nullptr && this->applicationName_ == nullptr && this->applicationTemplateId_ == nullptr && this->authorizationType_ == nullptr
+        && this->customFields_ == nullptr && this->instanceId_ == nullptr && this->m2MClientStatus_ == nullptr && this->managedServiceCode_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->resourceServerStatus_ == nullptr && this->serviceManaged_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr; };
     // applicationCreationType Field Functions 
     bool hasApplicationCreationType() const { return this->applicationCreationType_ != nullptr;};
     void deleteApplicationCreationType() { this->applicationCreationType_ = nullptr;};
@@ -135,6 +137,13 @@ namespace Models
     void deleteApplicationName() { this->applicationName_ = nullptr;};
     inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
     inline ListApplicationsRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
+
+
+    // applicationTemplateId Field Functions 
+    bool hasApplicationTemplateId() const { return this->applicationTemplateId_ != nullptr;};
+    void deleteApplicationTemplateId() { this->applicationTemplateId_ = nullptr;};
+    inline string getApplicationTemplateId() const { DARABONBA_PTR_GET_DEFAULT(applicationTemplateId_, "") };
+    inline ListApplicationsRequest& setApplicationTemplateId(string applicationTemplateId) { DARABONBA_PTR_SET_VALUE(applicationTemplateId_, applicationTemplateId) };
 
 
     // authorizationType Field Functions 
@@ -225,6 +234,7 @@ namespace Models
     shared_ptr<vector<string>> applicationIds_ {};
     // The application name. Only left fuzzy match is supported.
     shared_ptr<string> applicationName_ {};
+    shared_ptr<string> applicationTemplateId_ {};
     // The application access authorization type. Valid values:
     // - authorize_required: Explicit authorization is required for access.
     // - default_all: All members have access permissions by default.

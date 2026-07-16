@@ -3472,7 +3472,7 @@ namespace Eiam20211201
       Models::ListApplicationTokensResponse listApplicationTokens(const Models::ListApplicationTokensRequest &request);
 
       /**
-       * @summary Performs a paged query to retrieve information about one or more EIAM applications with paging.
+       * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
        *
        * @param request ListApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3481,7 +3481,7 @@ namespace Eiam20211201
       Models::ListApplicationsResponse listApplicationsWithOptions(const Models::ListApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve information about one or more EIAM applications with paging.
+       * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
        *
        * @param request ListApplicationsRequest
        * @return ListApplicationsResponse
