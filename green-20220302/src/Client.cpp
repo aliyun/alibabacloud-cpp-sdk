@@ -993,9 +993,9 @@ MultiModalGuardAsyncResponse Client::multiModalGuardAsync(const MultiModalGuardA
 }
 
 /**
- * @summary This AI Security Guardrail API retrieves asynchronous multimodal results from both audio and video.
+ * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
  *
- * @description For APIs that incur charges, add the following sentence in bold at the beginning of the description: "Before you use this API, make sure that you fully understand the billing methods and pricing of the XXX product." Link the word \\"pricing\\" to https\\://www\\.aliyun.com/price/product#/ecs/detail.
+ * @description If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1030,9 +1030,9 @@ MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResultWithOptions
 }
 
 /**
- * @summary This AI Security Guardrail API retrieves asynchronous multimodal results from both audio and video.
+ * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
  *
- * @description For APIs that incur charges, add the following sentence in bold at the beginning of the description: "Before you use this API, make sure that you fully understand the billing methods and pricing of the XXX product." Link the word \\"pricing\\" to https\\://www\\.aliyun.com/price/product#/ecs/detail.
+ * @description If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @return MultiModalGuardAsyncResultResponse
