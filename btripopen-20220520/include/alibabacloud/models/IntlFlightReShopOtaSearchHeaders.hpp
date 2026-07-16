@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CARSCENEQUERYHEADERS_HPP_
-#define ALIBABACLOUD_MODELS_CARSCENEQUERYHEADERS_HPP_
+#ifndef ALIBABACLOUD_MODELS_INTLFLIGHTRESHOPOTASEARCHHEADERS_HPP_
+#define ALIBABACLOUD_MODELS_INTLFLIGHTRESHOPOTASEARCHHEADERS_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,23 +11,23 @@ namespace BtripOpen20220520
 {
 namespace Models
 {
-  class CarSceneQueryHeaders : public Darabonba::Model {
+  class IntlFlightReShopOtaSearchHeaders : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CarSceneQueryHeaders& obj) { 
+    friend void to_json(Darabonba::Json& j, const IntlFlightReShopOtaSearchHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(x-acs-btrip-corp-token, xAcsBtripCorpToken_);
     };
-    friend void from_json(const Darabonba::Json& j, CarSceneQueryHeaders& obj) { 
+    friend void from_json(const Darabonba::Json& j, IntlFlightReShopOtaSearchHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(x-acs-btrip-corp-token, xAcsBtripCorpToken_);
     };
-    CarSceneQueryHeaders() = default ;
-    CarSceneQueryHeaders(const CarSceneQueryHeaders &) = default ;
-    CarSceneQueryHeaders(CarSceneQueryHeaders &&) = default ;
-    CarSceneQueryHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CarSceneQueryHeaders() = default ;
-    CarSceneQueryHeaders& operator=(const CarSceneQueryHeaders &) = default ;
-    CarSceneQueryHeaders& operator=(CarSceneQueryHeaders &&) = default ;
+    IntlFlightReShopOtaSearchHeaders() = default ;
+    IntlFlightReShopOtaSearchHeaders(const IntlFlightReShopOtaSearchHeaders &) = default ;
+    IntlFlightReShopOtaSearchHeaders(IntlFlightReShopOtaSearchHeaders &&) = default ;
+    IntlFlightReShopOtaSearchHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~IntlFlightReShopOtaSearchHeaders() = default ;
+    IntlFlightReShopOtaSearchHeaders& operator=(const IntlFlightReShopOtaSearchHeaders &) = default ;
+    IntlFlightReShopOtaSearchHeaders& operator=(IntlFlightReShopOtaSearchHeaders &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,20 +39,19 @@ namespace Models
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
     inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
     inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
-    inline CarSceneQueryHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
-    inline CarSceneQueryHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
+    inline IntlFlightReShopOtaSearchHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
+    inline IntlFlightReShopOtaSearchHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
 
     // xAcsBtripCorpToken Field Functions 
     bool hasXAcsBtripCorpToken() const { return this->xAcsBtripCorpToken_ != nullptr;};
     void deleteXAcsBtripCorpToken() { this->xAcsBtripCorpToken_ = nullptr;};
     inline string getXAcsBtripCorpToken() const { DARABONBA_PTR_GET_DEFAULT(xAcsBtripCorpToken_, "") };
-    inline CarSceneQueryHeaders& setXAcsBtripCorpToken(string xAcsBtripCorpToken) { DARABONBA_PTR_SET_VALUE(xAcsBtripCorpToken_, xAcsBtripCorpToken) };
+    inline IntlFlightReShopOtaSearchHeaders& setXAcsBtripCorpToken(string xAcsBtripCorpToken) { DARABONBA_PTR_SET_VALUE(xAcsBtripCorpToken_, xAcsBtripCorpToken) };
 
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The header parameter obtained from the "Enterprise access credential" operation (added in the header). In HTTP mode, you can use socorptoken=value or dtbcorptoken=value in the URL as an alternative.
     shared_ptr<string> xAcsBtripCorpToken_ {};
   };
 

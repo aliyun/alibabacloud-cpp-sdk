@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The scenario template ID.
       shared_ptr<string> scenarioTemplateId_ {};
+      // The scenario template name.
       shared_ptr<string> scenarioTemplateName_ {};
+      // The scenario status.
       shared_ptr<string> state_ {};
     };
 
@@ -139,11 +142,21 @@ namespace Models
 
 
   protected:
+    // The operation status.
     shared_ptr<string> code_ {};
+    // The error details.
     shared_ptr<string> message_ {};
+    // The list of car service scenario templates. An empty array [] is returned if no data exists.
     shared_ptr<vector<CarSceneQueryResponseBody::Module>> module_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the query was successful.
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

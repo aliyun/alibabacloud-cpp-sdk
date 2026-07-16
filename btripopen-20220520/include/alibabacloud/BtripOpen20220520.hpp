@@ -513,7 +513,11 @@ namespace BtripOpen20220520
       Models::CarOrderQueryResponse carOrderQuery(const Models::CarOrderQueryRequest &request);
 
       /**
-       * @summary 查询企业用车场景
+       * @summary Queries enterprise car service scenario templates.
+       *
+       * @description Queries enterprise car service scenario templates.
+       * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+       * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
        *
        * @param headers CarSceneQueryHeaders
        * @param runtime runtime options for this request RuntimeOptions
@@ -522,7 +526,11 @@ namespace BtripOpen20220520
       Models::CarSceneQueryResponse carSceneQueryWithOptions(const Models::CarSceneQueryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询企业用车场景
+       * @summary Queries enterprise car service scenario templates.
+       *
+       * @description Queries enterprise car service scenario templates.
+       * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+       * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
        *
        * @return CarSceneQueryResponse
        */
@@ -1033,6 +1041,11 @@ namespace BtripOpen20220520
       /**
        * @summary 预估价格查询v2.0
        *
+       * @description 使用该接口可以查询预估价格。
+       * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+       * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+       * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
+       *
        * @param request EstimatedPriceQueryV2Request
        * @param headers EstimatedPriceQueryV2Headers
        * @param runtime runtime options for this request RuntimeOptions
@@ -1042,6 +1055,11 @@ namespace BtripOpen20220520
 
       /**
        * @summary 预估价格查询v2.0
+       *
+       * @description 使用该接口可以查询预估价格。
+       * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+       * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+       * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
        *
        * @param request EstimatedPriceQueryV2Request
        * @return EstimatedPriceQueryV2Response
@@ -2625,6 +2643,24 @@ namespace BtripOpen20220520
       Models::IntlFlightReShopConsultResponse intlFlightReShopConsult(const Models::IntlFlightReShopConsultRequest &request);
 
       /**
+       * @summary 国际机票改签生单
+       *
+       * @param tmpReq IntlFlightReShopCreateRequest
+       * @param headers IntlFlightReShopCreateHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IntlFlightReShopCreateResponse
+       */
+      Models::IntlFlightReShopCreateResponse intlFlightReShopCreateWithOptions(const Models::IntlFlightReShopCreateRequest &tmpReq, const Models::IntlFlightReShopCreateHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 国际机票改签生单
+       *
+       * @param request IntlFlightReShopCreateRequest
+       * @return IntlFlightReShopCreateResponse
+       */
+      Models::IntlFlightReShopCreateResponse intlFlightReShopCreate(const Models::IntlFlightReShopCreateRequest &request);
+
+      /**
        * @summary 国际机票改签详情
        *
        * @param request IntlFlightReShopDetailRequest
@@ -2641,6 +2677,42 @@ namespace BtripOpen20220520
        * @return IntlFlightReShopDetailResponse
        */
       Models::IntlFlightReShopDetailResponse intlFlightReShopDetail(const Models::IntlFlightReShopDetailRequest &request);
+
+      /**
+       * @summary 国际机票改签航班列表查询
+       *
+       * @param tmpReq IntlFlightReShopListSearchRequest
+       * @param headers IntlFlightReShopListSearchHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IntlFlightReShopListSearchResponse
+       */
+      Models::IntlFlightReShopListSearchResponse intlFlightReShopListSearchWithOptions(const Models::IntlFlightReShopListSearchRequest &tmpReq, const Models::IntlFlightReShopListSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 国际机票改签航班列表查询
+       *
+       * @param request IntlFlightReShopListSearchRequest
+       * @return IntlFlightReShopListSearchResponse
+       */
+      Models::IntlFlightReShopListSearchResponse intlFlightReShopListSearch(const Models::IntlFlightReShopListSearchRequest &request);
+
+      /**
+       * @summary 国际机票改签航班报价
+       *
+       * @param tmpReq IntlFlightReShopOtaSearchRequest
+       * @param headers IntlFlightReShopOtaSearchHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return IntlFlightReShopOtaSearchResponse
+       */
+      Models::IntlFlightReShopOtaSearchResponse intlFlightReShopOtaSearchWithOptions(const Models::IntlFlightReShopOtaSearchRequest &tmpReq, const Models::IntlFlightReShopOtaSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 国际机票改签航班报价
+       *
+       * @param request IntlFlightReShopOtaSearchRequest
+       * @return IntlFlightReShopOtaSearchResponse
+       */
+      Models::IntlFlightReShopOtaSearchResponse intlFlightReShopOtaSearch(const Models::IntlFlightReShopOtaSearchRequest &request);
 
       /**
        * @summary 国际机票改签支付

@@ -1,0 +1,144 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_INTLFLIGHTRESHOPCREATESHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_INTLFLIGHTRESHOPCREATESHRINKREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace BtripOpen20220520
+{
+namespace Models
+{
+  class IntlFlightReShopCreateShrinkRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const IntlFlightReShopCreateShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(async_apply_key, asyncApplyKey_);
+      DARABONBA_PTR_TO_JSON(async_apply_mode, asyncApplyMode_);
+      DARABONBA_PTR_TO_JSON(order_id, orderId_);
+      DARABONBA_PTR_TO_JSON(ota_item_id, otaItemId_);
+      DARABONBA_PTR_TO_JSON(out_order_id, outOrderId_);
+      DARABONBA_PTR_TO_JSON(out_re_shop_apply_id, outReShopApplyId_);
+      DARABONBA_PTR_TO_JSON(passenger_journey_group_key, passengerJourneyGroupKey_);
+      DARABONBA_PTR_TO_JSON(re_shop_reason_code, reShopReasonCode_);
+      DARABONBA_PTR_TO_JSON(selected_passengers, selectedPassengersShrink_);
+      DARABONBA_PTR_TO_JSON(total_re_shop_fee, totalReShopFee_);
+    };
+    friend void from_json(const Darabonba::Json& j, IntlFlightReShopCreateShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(async_apply_key, asyncApplyKey_);
+      DARABONBA_PTR_FROM_JSON(async_apply_mode, asyncApplyMode_);
+      DARABONBA_PTR_FROM_JSON(order_id, orderId_);
+      DARABONBA_PTR_FROM_JSON(ota_item_id, otaItemId_);
+      DARABONBA_PTR_FROM_JSON(out_order_id, outOrderId_);
+      DARABONBA_PTR_FROM_JSON(out_re_shop_apply_id, outReShopApplyId_);
+      DARABONBA_PTR_FROM_JSON(passenger_journey_group_key, passengerJourneyGroupKey_);
+      DARABONBA_PTR_FROM_JSON(re_shop_reason_code, reShopReasonCode_);
+      DARABONBA_PTR_FROM_JSON(selected_passengers, selectedPassengersShrink_);
+      DARABONBA_PTR_FROM_JSON(total_re_shop_fee, totalReShopFee_);
+    };
+    IntlFlightReShopCreateShrinkRequest() = default ;
+    IntlFlightReShopCreateShrinkRequest(const IntlFlightReShopCreateShrinkRequest &) = default ;
+    IntlFlightReShopCreateShrinkRequest(IntlFlightReShopCreateShrinkRequest &&) = default ;
+    IntlFlightReShopCreateShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~IntlFlightReShopCreateShrinkRequest() = default ;
+    IntlFlightReShopCreateShrinkRequest& operator=(const IntlFlightReShopCreateShrinkRequest &) = default ;
+    IntlFlightReShopCreateShrinkRequest& operator=(IntlFlightReShopCreateShrinkRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->asyncApplyKey_ == nullptr
+        && this->asyncApplyMode_ == nullptr && this->orderId_ == nullptr && this->otaItemId_ == nullptr && this->outOrderId_ == nullptr && this->outReShopApplyId_ == nullptr
+        && this->passengerJourneyGroupKey_ == nullptr && this->reShopReasonCode_ == nullptr && this->selectedPassengersShrink_ == nullptr && this->totalReShopFee_ == nullptr; };
+    // asyncApplyKey Field Functions 
+    bool hasAsyncApplyKey() const { return this->asyncApplyKey_ != nullptr;};
+    void deleteAsyncApplyKey() { this->asyncApplyKey_ = nullptr;};
+    inline string getAsyncApplyKey() const { DARABONBA_PTR_GET_DEFAULT(asyncApplyKey_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setAsyncApplyKey(string asyncApplyKey) { DARABONBA_PTR_SET_VALUE(asyncApplyKey_, asyncApplyKey) };
+
+
+    // asyncApplyMode Field Functions 
+    bool hasAsyncApplyMode() const { return this->asyncApplyMode_ != nullptr;};
+    void deleteAsyncApplyMode() { this->asyncApplyMode_ = nullptr;};
+    inline bool getAsyncApplyMode() const { DARABONBA_PTR_GET_DEFAULT(asyncApplyMode_, false) };
+    inline IntlFlightReShopCreateShrinkRequest& setAsyncApplyMode(bool asyncApplyMode) { DARABONBA_PTR_SET_VALUE(asyncApplyMode_, asyncApplyMode) };
+
+
+    // orderId Field Functions 
+    bool hasOrderId() const { return this->orderId_ != nullptr;};
+    void deleteOrderId() { this->orderId_ = nullptr;};
+    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
+
+
+    // otaItemId Field Functions 
+    bool hasOtaItemId() const { return this->otaItemId_ != nullptr;};
+    void deleteOtaItemId() { this->otaItemId_ = nullptr;};
+    inline string getOtaItemId() const { DARABONBA_PTR_GET_DEFAULT(otaItemId_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setOtaItemId(string otaItemId) { DARABONBA_PTR_SET_VALUE(otaItemId_, otaItemId) };
+
+
+    // outOrderId Field Functions 
+    bool hasOutOrderId() const { return this->outOrderId_ != nullptr;};
+    void deleteOutOrderId() { this->outOrderId_ = nullptr;};
+    inline string getOutOrderId() const { DARABONBA_PTR_GET_DEFAULT(outOrderId_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setOutOrderId(string outOrderId) { DARABONBA_PTR_SET_VALUE(outOrderId_, outOrderId) };
+
+
+    // outReShopApplyId Field Functions 
+    bool hasOutReShopApplyId() const { return this->outReShopApplyId_ != nullptr;};
+    void deleteOutReShopApplyId() { this->outReShopApplyId_ = nullptr;};
+    inline string getOutReShopApplyId() const { DARABONBA_PTR_GET_DEFAULT(outReShopApplyId_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setOutReShopApplyId(string outReShopApplyId) { DARABONBA_PTR_SET_VALUE(outReShopApplyId_, outReShopApplyId) };
+
+
+    // passengerJourneyGroupKey Field Functions 
+    bool hasPassengerJourneyGroupKey() const { return this->passengerJourneyGroupKey_ != nullptr;};
+    void deletePassengerJourneyGroupKey() { this->passengerJourneyGroupKey_ = nullptr;};
+    inline string getPassengerJourneyGroupKey() const { DARABONBA_PTR_GET_DEFAULT(passengerJourneyGroupKey_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setPassengerJourneyGroupKey(string passengerJourneyGroupKey) { DARABONBA_PTR_SET_VALUE(passengerJourneyGroupKey_, passengerJourneyGroupKey) };
+
+
+    // reShopReasonCode Field Functions 
+    bool hasReShopReasonCode() const { return this->reShopReasonCode_ != nullptr;};
+    void deleteReShopReasonCode() { this->reShopReasonCode_ = nullptr;};
+    inline string getReShopReasonCode() const { DARABONBA_PTR_GET_DEFAULT(reShopReasonCode_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setReShopReasonCode(string reShopReasonCode) { DARABONBA_PTR_SET_VALUE(reShopReasonCode_, reShopReasonCode) };
+
+
+    // selectedPassengersShrink Field Functions 
+    bool hasSelectedPassengersShrink() const { return this->selectedPassengersShrink_ != nullptr;};
+    void deleteSelectedPassengersShrink() { this->selectedPassengersShrink_ = nullptr;};
+    inline string getSelectedPassengersShrink() const { DARABONBA_PTR_GET_DEFAULT(selectedPassengersShrink_, "") };
+    inline IntlFlightReShopCreateShrinkRequest& setSelectedPassengersShrink(string selectedPassengersShrink) { DARABONBA_PTR_SET_VALUE(selectedPassengersShrink_, selectedPassengersShrink) };
+
+
+    // totalReShopFee Field Functions 
+    bool hasTotalReShopFee() const { return this->totalReShopFee_ != nullptr;};
+    void deleteTotalReShopFee() { this->totalReShopFee_ = nullptr;};
+    inline int64_t getTotalReShopFee() const { DARABONBA_PTR_GET_DEFAULT(totalReShopFee_, 0L) };
+    inline IntlFlightReShopCreateShrinkRequest& setTotalReShopFee(int64_t totalReShopFee) { DARABONBA_PTR_SET_VALUE(totalReShopFee_, totalReShopFee) };
+
+
+  protected:
+    shared_ptr<string> asyncApplyKey_ {};
+    shared_ptr<bool> asyncApplyMode_ {};
+    // This parameter is required.
+    shared_ptr<string> orderId_ {};
+    // This parameter is required.
+    shared_ptr<string> otaItemId_ {};
+    shared_ptr<string> outOrderId_ {};
+    shared_ptr<string> outReShopApplyId_ {};
+    // This parameter is required.
+    shared_ptr<string> passengerJourneyGroupKey_ {};
+    // This parameter is required.
+    shared_ptr<string> reShopReasonCode_ {};
+    // This parameter is required.
+    shared_ptr<string> selectedPassengersShrink_ {};
+    shared_ptr<int64_t> totalReShopFee_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace BtripOpen20220520
+#endif

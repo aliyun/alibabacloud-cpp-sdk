@@ -2492,7 +2492,11 @@ CarOrderQueryResponse Client::carOrderQuery(const CarOrderQueryRequest &request)
 }
 
 /**
- * @summary 查询企业用车场景
+ * @summary Queries enterprise car service scenario templates.
+ *
+ * @description Queries enterprise car service scenario templates.
+ * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+ * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @param headers CarSceneQueryHeaders
  * @param runtime runtime options for this request RuntimeOptions
@@ -2526,7 +2530,11 @@ CarSceneQueryResponse Client::carSceneQueryWithOptions(const CarSceneQueryHeader
 }
 
 /**
- * @summary 查询企业用车场景
+ * @summary Queries enterprise car service scenario templates.
+ *
+ * @description Queries enterprise car service scenario templates.
+ * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+ * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
  *
  * @return CarSceneQueryResponse
  */
@@ -4421,6 +4429,11 @@ EstimatedPriceQueryResponse Client::estimatedPriceQuery(const EstimatedPriceQuer
 /**
  * @summary 预估价格查询v2.0
  *
+ * @description 使用该接口可以查询预估价格。
+ * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+ * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+ * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
+ *
  * @param request EstimatedPriceQueryV2Request
  * @param headers EstimatedPriceQueryV2Headers
  * @param runtime runtime options for this request RuntimeOptions
@@ -4482,6 +4495,11 @@ EstimatedPriceQueryV2Response Client::estimatedPriceQueryV2WithOptions(const Est
 
 /**
  * @summary 预估价格查询v2.0
+ *
+ * @description 使用该接口可以查询预估价格。
+ * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+ * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+ * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
  *
  * @param request EstimatedPriceQueryV2Request
  * @return EstimatedPriceQueryV2Response
@@ -11661,6 +11679,102 @@ IntlFlightReShopConsultResponse Client::intlFlightReShopConsult(const IntlFlight
 }
 
 /**
+ * @summary 国际机票改签生单
+ *
+ * @param tmpReq IntlFlightReShopCreateRequest
+ * @param headers IntlFlightReShopCreateHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IntlFlightReShopCreateResponse
+ */
+IntlFlightReShopCreateResponse Client::intlFlightReShopCreateWithOptions(const IntlFlightReShopCreateRequest &tmpReq, const IntlFlightReShopCreateHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  IntlFlightReShopCreateShrinkRequest request = IntlFlightReShopCreateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSelectedPassengers()) {
+    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedPassengers(), "selected_passengers", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAsyncApplyKey()) {
+    body["async_apply_key"] = request.getAsyncApplyKey();
+  }
+
+  if (!!request.hasAsyncApplyMode()) {
+    body["async_apply_mode"] = request.getAsyncApplyMode();
+  }
+
+  if (!!request.hasOrderId()) {
+    body["order_id"] = request.getOrderId();
+  }
+
+  if (!!request.hasOtaItemId()) {
+    body["ota_item_id"] = request.getOtaItemId();
+  }
+
+  if (!!request.hasOutOrderId()) {
+    body["out_order_id"] = request.getOutOrderId();
+  }
+
+  if (!!request.hasOutReShopApplyId()) {
+    body["out_re_shop_apply_id"] = request.getOutReShopApplyId();
+  }
+
+  if (!!request.hasPassengerJourneyGroupKey()) {
+    body["passenger_journey_group_key"] = request.getPassengerJourneyGroupKey();
+  }
+
+  if (!!request.hasReShopReasonCode()) {
+    body["re_shop_reason_code"] = request.getReShopReasonCode();
+  }
+
+  if (!!request.hasSelectedPassengersShrink()) {
+    body["selected_passengers"] = request.getSelectedPassengersShrink();
+  }
+
+  if (!!request.hasTotalReShopFee()) {
+    body["total_re_shop_fee"] = request.getTotalReShopFee();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "IntlFlightReShopCreate"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/flights/action/reshop/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IntlFlightReShopCreateResponse>();
+}
+
+/**
+ * @summary 国际机票改签生单
+ *
+ * @param request IntlFlightReShopCreateRequest
+ * @return IntlFlightReShopCreateResponse
+ */
+IntlFlightReShopCreateResponse Client::intlFlightReShopCreate(const IntlFlightReShopCreateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  IntlFlightReShopCreateHeaders headers = IntlFlightReShopCreateHeaders();
+  return intlFlightReShopCreateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 国际机票改签详情
  *
  * @param request IntlFlightReShopDetailRequest
@@ -11724,6 +11838,190 @@ IntlFlightReShopDetailResponse Client::intlFlightReShopDetail(const IntlFlightRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   IntlFlightReShopDetailHeaders headers = IntlFlightReShopDetailHeaders();
   return intlFlightReShopDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 国际机票改签航班列表查询
+ *
+ * @param tmpReq IntlFlightReShopListSearchRequest
+ * @param headers IntlFlightReShopListSearchHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IntlFlightReShopListSearchResponse
+ */
+IntlFlightReShopListSearchResponse Client::intlFlightReShopListSearchWithOptions(const IntlFlightReShopListSearchRequest &tmpReq, const IntlFlightReShopListSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  IntlFlightReShopListSearchShrinkRequest request = IntlFlightReShopListSearchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSearchJourneys()) {
+    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchJourneys(), "search_journeys", "json"));
+  }
+
+  if (!!tmpReq.hasSelectedPassengers()) {
+    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedPassengers(), "selected_passengers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
+  }
+
+  if (!!request.hasOutOrderId()) {
+    query["out_order_id"] = request.getOutOrderId();
+  }
+
+  if (!!request.hasOutWheelSearch()) {
+    query["out_wheel_search"] = request.getOutWheelSearch();
+  }
+
+  if (!!request.hasPassengerJourneyGroupKey()) {
+    query["passenger_journey_group_key"] = request.getPassengerJourneyGroupKey();
+  }
+
+  if (!!request.hasReShopReasonCode()) {
+    query["re_shop_reason_code"] = request.getReShopReasonCode();
+  }
+
+  if (!!request.hasSearchJourneysShrink()) {
+    query["search_journeys"] = request.getSearchJourneysShrink();
+  }
+
+  if (!!request.hasSelectedPassengersShrink()) {
+    query["selected_passengers"] = request.getSelectedPassengersShrink();
+  }
+
+  if (!!request.hasToken()) {
+    query["token"] = request.getToken();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "IntlFlightReShopListSearch"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/flights/action/reshop/listSearch")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IntlFlightReShopListSearchResponse>();
+}
+
+/**
+ * @summary 国际机票改签航班列表查询
+ *
+ * @param request IntlFlightReShopListSearchRequest
+ * @return IntlFlightReShopListSearchResponse
+ */
+IntlFlightReShopListSearchResponse Client::intlFlightReShopListSearch(const IntlFlightReShopListSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  IntlFlightReShopListSearchHeaders headers = IntlFlightReShopListSearchHeaders();
+  return intlFlightReShopListSearchWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 国际机票改签航班报价
+ *
+ * @param tmpReq IntlFlightReShopOtaSearchRequest
+ * @param headers IntlFlightReShopOtaSearchHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return IntlFlightReShopOtaSearchResponse
+ */
+IntlFlightReShopOtaSearchResponse Client::intlFlightReShopOtaSearchWithOptions(const IntlFlightReShopOtaSearchRequest &tmpReq, const IntlFlightReShopOtaSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  IntlFlightReShopOtaSearchShrinkRequest request = IntlFlightReShopOtaSearchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSearchJourneys()) {
+    request.setSearchJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchJourneys(), "search_journeys", "json"));
+  }
+
+  if (!!tmpReq.hasSelectedPassengers()) {
+    request.setSelectedPassengersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedPassengers(), "selected_passengers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOrderId()) {
+    query["order_id"] = request.getOrderId();
+  }
+
+  if (!!request.hasOutOrderId()) {
+    query["out_order_id"] = request.getOutOrderId();
+  }
+
+  if (!!request.hasOutWheelSearch()) {
+    query["out_wheel_search"] = request.getOutWheelSearch();
+  }
+
+  if (!!request.hasPassengerJourneyGroupKey()) {
+    query["passenger_journey_group_key"] = request.getPassengerJourneyGroupKey();
+  }
+
+  if (!!request.hasReShopReasonCode()) {
+    query["re_shop_reason_code"] = request.getReShopReasonCode();
+  }
+
+  if (!!request.hasSearchJourneysShrink()) {
+    query["search_journeys"] = request.getSearchJourneysShrink();
+  }
+
+  if (!!request.hasSelectedPassengersShrink()) {
+    query["selected_passengers"] = request.getSelectedPassengersShrink();
+  }
+
+  if (!!request.hasToken()) {
+    query["token"] = request.getToken();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasXAcsBtripCorpToken()) {
+    realHeaders["x-acs-btrip-corp-token"] = Darabonba::Convert::stringVal(headers.getXAcsBtripCorpToken());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "IntlFlightReShopOtaSearch"},
+    {"version" , "2022-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/intl-flight/v1/flights/action/reshop/otaSerach")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<IntlFlightReShopOtaSearchResponse>();
+}
+
+/**
+ * @summary 国际机票改签航班报价
+ *
+ * @param request IntlFlightReShopOtaSearchRequest
+ * @return IntlFlightReShopOtaSearchResponse
+ */
+IntlFlightReShopOtaSearchResponse Client::intlFlightReShopOtaSearch(const IntlFlightReShopOtaSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  IntlFlightReShopOtaSearchHeaders headers = IntlFlightReShopOtaSearchHeaders();
+  return intlFlightReShopOtaSearchWithOptions(request, headers, runtime);
 }
 
 /**
