@@ -528,6 +528,23 @@ namespace ESA20240910
       Models::CheckUserProjectNameResponse checkUserProjectName(const Models::CheckUserProjectNameRequest &request);
 
       /**
+       * @summary Clones a new site version based on a specified site version.
+       *
+       * @param request CloneVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloneVersionResponse
+       */
+      Models::CloneVersionResponse cloneVersionWithOptions(const Models::CloneVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Clones a new site version based on a specified site version.
+       *
+       * @param request CloneVersionRequest
+       * @return CloneVersionResponse
+       */
+      Models::CloneVersionResponse cloneVersion(const Models::CloneVersionRequest &request);
+
+      /**
        * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
        * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
        *
@@ -655,7 +672,8 @@ namespace ESA20240910
       Models::CreateCustomScenePolicyResponse createCustomScenePolicy(const Models::CreateCustomScenePolicyRequest &request);
 
       /**
-       * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+       * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+       * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
        *
        * @param request CreateEdgeContainerAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -664,7 +682,8 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerAppWithOptions(const Models::CreateEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+       * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+       * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
        *
        * @param request CreateEdgeContainerAppRequest
        * @return CreateEdgeContainerAppResponse
@@ -706,7 +725,11 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecord(const Models::CreateEdgeContainerAppRecordRequest &request);
 
       /**
-       * @summary Creates a version for a containerized application. You can iterate the application based on the version.
+       * @summary Creates an edge container application version. You can iteratively publish applications by version.
+       * Note:
+       * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+       * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+       * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
        *
        * @param tmpReq CreateEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -715,12 +738,33 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersionWithOptions(const Models::CreateEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a version for a containerized application. You can iterate the application based on the version.
+       * @summary Creates an edge container application version. You can iteratively publish applications by version.
+       * Note:
+       * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+       * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+       * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
        *
        * @param request CreateEdgeContainerAppVersionRequest
        * @return CreateEdgeContainerAppVersionResponse
        */
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersion(const Models::CreateEdgeContainerAppVersionRequest &request);
+
+      /**
+       * @summary Creates a site environment.
+       *
+       * @param request CreateEnvironmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEnvironmentResponse
+       */
+      Models::CreateEnvironmentResponse createEnvironmentWithOptions(const Models::CreateEnvironmentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a site environment.
+       *
+       * @param request CreateEnvironmentRequest
+       * @return CreateEnvironmentResponse
+       */
+      Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
 
       /**
        * @summary Creates a configuration for modifying HTTP inbound request headers for a site.
@@ -1669,7 +1713,10 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppImageSecretResponse deleteEdgeContainerAppImageSecret(const Models::DeleteEdgeContainerAppImageSecretRequest &request);
 
       /**
-       * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+       * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+       * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+       * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+       * 3) Provide a complete three-step call example: create → bindomain → delete.
        *
        * @param request DeleteEdgeContainerAppRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1678,7 +1725,10 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppRecordResponse deleteEdgeContainerAppRecordWithOptions(const Models::DeleteEdgeContainerAppRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+       * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+       * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+       * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+       * 3) Provide a complete three-step call example: create → bindomain → delete.
        *
        * @param request DeleteEdgeContainerAppRecordRequest
        * @return DeleteEdgeContainerAppRecordResponse
@@ -1701,6 +1751,23 @@ namespace ESA20240910
        * @return DeleteEdgeContainerAppVersionResponse
        */
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersion(const Models::DeleteEdgeContainerAppVersionRequest &request);
+
+      /**
+       * @summary Deletes a site environment. The default environment cannot be deleted.
+       *
+       * @param request DeleteEnvironmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEnvironmentResponse
+       */
+      Models::DeleteEnvironmentResponse deleteEnvironmentWithOptions(const Models::DeleteEnvironmentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a site environment. The default environment cannot be deleted.
+       *
+       * @param request DeleteEnvironmentRequest
+       * @return DeleteEnvironmentResponse
+       */
+      Models::DeleteEnvironmentResponse deleteEnvironment(const Models::DeleteEnvironmentRequest &request);
 
       /**
        * @summary Deletes a rule created by Deep Learning and Protection.
@@ -2335,6 +2402,23 @@ namespace ESA20240910
       Models::DeleteUserWafRulesetResponse deleteUserWafRuleset(const Models::DeleteUserWafRulesetRequest &request);
 
       /**
+       * @summary Deletes a version of a site. Version 0 cannot be deleted.
+       *
+       * @param request DeleteVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVersionResponse
+       */
+      Models::DeleteVersionResponse deleteVersionWithOptions(const Models::DeleteVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a version of a site. Version 0 cannot be deleted.
+       *
+       * @param request DeleteVersionRequest
+       * @return DeleteVersionResponse
+       */
+      Models::DeleteVersionResponse deleteVersion(const Models::DeleteVersionRequest &request);
+
+      /**
        * @summary Deletes a video processing configuration.
        *
        * @param request DeleteVideoProcessingRequest
@@ -2486,6 +2570,23 @@ namespace ESA20240910
        * @return DescribeCacheReservePriceGapResponse
        */
       Models::DescribeCacheReservePriceGapResponse describeCacheReservePriceGap(const Models::DescribeCacheReservePriceGapRequest &request);
+
+      /**
+       * @summary Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+       *
+       * @param request DescribeConditionIPBInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeConditionIPBInfoResponse
+       */
+      Models::DescribeConditionIPBInfoResponse describeConditionIPBInfoWithOptions(const Models::DescribeConditionIPBInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+       *
+       * @param request DescribeConditionIPBInfoRequest
+       * @return DescribeConditionIPBInfoResponse
+       */
+      Models::DescribeConditionIPBInfoResponse describeConditionIPBInfo(const Models::DescribeConditionIPBInfoRequest &request);
 
       /**
        * @summary Retrieves the configurations of custom scene policies.
@@ -2838,6 +2939,23 @@ namespace ESA20240910
       Models::DescribeRatePlanPriceGapResponse describeRatePlanPriceGap(const Models::DescribeRatePlanPriceGapRequest &request);
 
       /**
+       * @summary Retrieves metadata related to the rules engine.
+       *
+       * @param request DescribeRuleMetadataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRuleMetadataResponse
+       */
+      Models::DescribeRuleMetadataResponse describeRuleMetadataWithOptions(const Models::DescribeRuleMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves metadata related to the rules engine.
+       *
+       * @param request DescribeRuleMetadataRequest
+       * @return DescribeRuleMetadataResponse
+       */
+      Models::DescribeRuleMetadataResponse describeRuleMetadata(const Models::DescribeRuleMetadataRequest &request);
+
+      /**
        * @summary Queries the URLs from which you can download the raw access logs of a website.
        *
        * @description - If you do not specify StartTime and EndTime, log data from the last 24 hours is returned by default. If you specify StartTime and EndTime, log data for the specified time range is returned.
@@ -3097,6 +3215,23 @@ namespace ESA20240910
       Models::EnableCustomScenePolicyResponse enableCustomScenePolicy(const Models::EnableCustomScenePolicyRequest &request);
 
       /**
+       * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+       *
+       * @param request ExportRecordCnamesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportRecordCnamesResponse
+       */
+      Models::ExportRecordCnamesResponse exportRecordCnamesWithOptions(const Models::ExportRecordCnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+       *
+       * @param request ExportRecordCnamesRequest
+       * @return ExportRecordCnamesResponse
+       */
+      Models::ExportRecordCnamesResponse exportRecordCnames(const Models::ExportRecordCnamesRequest &request);
+
+      /**
        * @summary Exports all DNS records of a website domain as a TXT file.
        *
        * @param request ExportRecordsRequest
@@ -3163,6 +3298,23 @@ namespace ESA20240910
        * @return GetAutomaticFrequencyControlConfigResponse
        */
       Models::GetAutomaticFrequencyControlConfigResponse getAutomaticFrequencyControlConfig(const Models::GetAutomaticFrequencyControlConfigRequest &request);
+
+      /**
+       * @summary Queries the cache reserve configuration of a site.
+       *
+       * @param request GetCacheReserveRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCacheReserveResponse
+       */
+      Models::GetCacheReserveResponse getCacheReserveWithOptions(const Models::GetCacheReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the cache reserve configuration of a site.
+       *
+       * @param request GetCacheReserveRequest
+       * @return GetCacheReserveResponse
+       */
+      Models::GetCacheReserveResponse getCacheReserve(const Models::GetCacheReserveRequest &request);
 
       /**
        * @summary Queries the available specifications of cache reserve instances.
@@ -3930,6 +4082,23 @@ namespace ESA20240910
       Models::GetLoadBalancerResponse getLoadBalancer(const Models::GetLoadBalancerRequest &request);
 
       /**
+       * @summary Queries the root domain name of a website.
+       *
+       * @param request GetMainDomainNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMainDomainNameResponse
+       */
+      Models::GetMainDomainNameResponse getMainDomainNameWithOptions(const Models::GetMainDomainNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the root domain name of a website.
+       *
+       * @param request GetMainDomainNameRequest
+       * @return GetMainDomainNameResponse
+       */
+      Models::GetMainDomainNameResponse getMainDomainName(const Models::GetMainDomainNameRequest &request);
+
+      /**
        * @summary Retrieves the managed transform configuration for a site.
        *
        * @param request GetManagedTransformRequest
@@ -3945,6 +4114,27 @@ namespace ESA20240910
        * @return GetManagedTransformResponse
        */
       Models::GetManagedTransformResponse getManagedTransform(const Models::GetManagedTransformRequest &request);
+
+      /**
+       * @summary Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+       *
+       * @description Used with the Edge Routine (ER) feature to automatically match an active site.
+       *
+       * @param request GetMatchSiteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMatchSiteResponse
+       */
+      Models::GetMatchSiteResponse getMatchSiteWithOptions(const Models::GetMatchSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+       *
+       * @description Used with the Edge Routine (ER) feature to automatically match an active site.
+       *
+       * @param request GetMatchSiteRequest
+       * @return GetMatchSiteResponse
+       */
+      Models::GetMatchSiteResponse getMatchSite(const Models::GetMatchSiteRequest &request);
 
       /**
        * @summary Query a single network optimization configuration
@@ -4081,6 +4271,23 @@ namespace ESA20240910
        * @return GetPageResponse
        */
       Models::GetPageResponse getPage(const Models::GetPageRequest &request);
+
+      /**
+       * @summary Queries the page protection configuration of a site.
+       *
+       * @param request GetPageShieldRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPageShieldResponse
+       */
+      Models::GetPageShieldResponse getPageShieldWithOptions(const Models::GetPageShieldRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the page protection configuration of a site.
+       *
+       * @param request GetPageShieldRequest
+       * @return GetPageShieldResponse
+       */
+      Models::GetPageShieldResponse getPageShield(const Models::GetPageShieldRequest &request);
 
       /**
        * @summary Queries the data quality collection configuration.
@@ -4527,6 +4734,23 @@ namespace ESA20240910
       Models::GetSitePauseResponse getSitePause(const Models::GetSitePauseRequest &request);
 
       /**
+       * @summary Queries the traffic sequences and their details for the current site.
+       *
+       * @param request GetSiteTrafficSequenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSiteTrafficSequenceResponse
+       */
+      Models::GetSiteTrafficSequenceResponse getSiteTrafficSequenceWithOptions(const Models::GetSiteTrafficSequenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the traffic sequences and their details for the current site.
+       *
+       * @param request GetSiteTrafficSequenceRequest
+       * @return GetSiteTrafficSequenceResponse
+       */
+      Models::GetSiteTrafficSequenceResponse getSiteTrafficSequence(const Models::GetSiteTrafficSequenceRequest &request);
+
+      /**
        * @summary Get WAF Configuration for a Site
        *
        * @param request GetSiteWafSettingsRequest
@@ -4760,6 +4984,57 @@ namespace ESA20240910
        * @return GetWafRulesetResponse
        */
       Models::GetWafRulesetResponse getWafRuleset(const Models::GetWafRulesetRequest &request);
+
+      /**
+       * @summary Queries the preview page URL of a waiting room.
+       *
+       * @param request GetWaitingRoomPreviewPageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWaitingRoomPreviewPageResponse
+       */
+      Models::GetWaitingRoomPreviewPageResponse getWaitingRoomPreviewPageWithOptions(const Models::GetWaitingRoomPreviewPageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the preview page URL of a waiting room.
+       *
+       * @param request GetWaitingRoomPreviewPageRequest
+       * @return GetWaitingRoomPreviewPageResponse
+       */
+      Models::GetWaitingRoomPreviewPageResponse getWaitingRoomPreviewPage(const Models::GetWaitingRoomPreviewPageRequest &request);
+
+      /**
+       * @summary Queries the list of regions supported by AWS S3.
+       *
+       * @param request ListAWSRegionInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAWSRegionInfosResponse
+       */
+      Models::ListAWSRegionInfosResponse listAWSRegionInfosWithOptions(const Models::ListAWSRegionInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of regions supported by AWS S3.
+       *
+       * @param request ListAWSRegionInfosRequest
+       * @return ListAWSRegionInfosResponse
+       */
+      Models::ListAWSRegionInfosResponse listAWSRegionInfos(const Models::ListAWSRegionInfosRequest &request);
+
+      /**
+       * @summary 查询异步任务列表
+       *
+       * @param request ListAsyncTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAsyncTasksResponse
+       */
+      Models::ListAsyncTasksResponse listAsyncTasksWithOptions(const Models::ListAsyncTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询异步任务列表
+       *
+       * @param request ListAsyncTasksRequest
+       * @return ListAsyncTasksResponse
+       */
+      Models::ListAsyncTasksResponse listAsyncTasks(const Models::ListAsyncTasksRequest &request);
 
       /**
        * @summary Queries the cache reserve instances for your account.
@@ -5106,6 +5381,23 @@ namespace ESA20240910
        * @return ListEdgeRoutineRecordsResponse
        */
       Models::ListEdgeRoutineRecordsResponse listEdgeRoutineRecords(const Models::ListEdgeRoutineRecordsRequest &request);
+
+      /**
+       * @summary Queries the list of environments for a site.
+       *
+       * @param request ListEnvironmentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEnvironmentsResponse
+       */
+      Models::ListEnvironmentsResponse listEnvironmentsWithOptions(const Models::ListEnvironmentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of environments for a site.
+       *
+       * @param request ListEnvironmentsRequest
+       * @return ListEnvironmentsResponse
+       */
+      Models::ListEnvironmentsResponse listEnvironments(const Models::ListEnvironmentsRequest &request);
 
       /**
        * @summary Queries the list of HTTP incoming request header modification configurations for a site.
@@ -5519,6 +5811,27 @@ namespace ESA20240910
       Models::ListPostpaidRatePlanInstancesResponse listPostpaidRatePlanInstances(const Models::ListPostpaidRatePlanInstancesRequest &request);
 
       /**
+       * @summary Queries the list of pay-as-you-go site plans available for purchase by a user.
+       *
+       * @description By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+       *
+       * @param request ListPostpaidSitePlansRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPostpaidSitePlansResponse
+       */
+      Models::ListPostpaidSitePlansResponse listPostpaidSitePlansWithOptions(const Models::ListPostpaidSitePlansRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of pay-as-you-go site plans available for purchase by a user.
+       *
+       * @description By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+       *
+       * @param request ListPostpaidSitePlansRequest
+       * @return ListPostpaidSitePlansResponse
+       */
+      Models::ListPostpaidSitePlansResponse listPostpaidSitePlans(const Models::ListPostpaidSitePlansRequest &request);
+
+      /**
        * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
        *
        * @description DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
@@ -5699,6 +6012,23 @@ namespace ESA20240910
        * @return ListSiteDeliveryTasksResponse
        */
       Models::ListSiteDeliveryTasksResponse listSiteDeliveryTasks(const Models::ListSiteDeliveryTasksRequest &request);
+
+      /**
+       * @summary Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+       *
+       * @param request ListSiteFunctionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSiteFunctionsResponse
+       */
+      Models::ListSiteFunctionsResponse listSiteFunctionsWithOptions(const Models::ListSiteFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+       *
+       * @param request ListSiteFunctionsRequest
+       * @return ListSiteFunctionsResponse
+       */
+      Models::ListSiteFunctionsResponse listSiteFunctions(const Models::ListSiteFunctionsRequest &request);
 
       /**
        * @summary Queries the list of back-to-origin client certificates at the site level.
@@ -5921,6 +6251,23 @@ namespace ESA20240910
        * @return ListUserWafRulesetsResponse
        */
       Models::ListUserWafRulesetsResponse listUserWafRulesets(const Models::ListUserWafRulesetsRequest &request);
+
+      /**
+       * @summary Queries the version list of a site.
+       *
+       * @param request ListVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVersionsResponse
+       */
+      Models::ListVersionsResponse listVersionsWithOptions(const Models::ListVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the version list of a site.
+       *
+       * @param request ListVersionsRequest
+       * @return ListVersionsResponse
+       */
+      Models::ListVersionsResponse listVersions(const Models::ListVersionsRequest &request);
 
       /**
        * @summary Queries the list of video processing configurations for a site.
@@ -6393,6 +6740,23 @@ namespace ESA20240910
       Models::RebuildEdgeContainerAppStagingEnvResponse rebuildEdgeContainerAppStagingEnv(const Models::RebuildEdgeContainerAppStagingEnvRequest &request);
 
       /**
+       * @summary Restores the status of a site that has been disabled.
+       *
+       * @param request RecoverSiteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RecoverSiteResponse
+       */
+      Models::RecoverSiteResponse recoverSiteWithOptions(const Models::RecoverSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restores the status of a site that has been disabled.
+       *
+       * @param request RecoverSiteRequest
+       * @return RecoverSiteResponse
+       */
+      Models::RecoverSiteResponse recoverSite(const Models::RecoverSiteRequest &request);
+
+      /**
        * @summary Schedules the release of a security instance.
        *
        * @param request ReleaseInstanceRequest
@@ -6461,6 +6825,23 @@ namespace ESA20240910
        * @return RollbackEdgeContainerAppVersionResponse
        */
       Models::RollbackEdgeContainerAppVersionResponse rollbackEdgeContainerAppVersion(const Models::RollbackEdgeContainerAppVersionRequest &request);
+
+      /**
+       * @summary Rolls back the deployment version of an environment.
+       *
+       * @param request RollbackEnvironmentVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RollbackEnvironmentVersionResponse
+       */
+      Models::RollbackEnvironmentVersionResponse rollbackEnvironmentVersionWithOptions(const Models::RollbackEnvironmentVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Rolls back the deployment version of an environment.
+       *
+       * @param request RollbackEnvironmentVersionRequest
+       * @return RollbackEnvironmentVersionResponse
+       */
+      Models::RollbackEnvironmentVersionResponse rollbackEnvironmentVersion(const Models::RollbackEnvironmentVersionRequest &request);
 
       /**
        * @summary Configures the automatic frequency control threshold for a site.
@@ -6686,6 +7067,23 @@ namespace ESA20240910
       Models::StopScheduledPreloadExecutionResponse stopScheduledPreloadExecution(const Models::StopScheduledPreloadExecutionRequest &request);
 
       /**
+       * @summary Manually deactivates a site.
+       *
+       * @param request StopSiteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopSiteResponse
+       */
+      Models::StopSiteResponse stopSiteWithOptions(const Models::StopSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Manually deactivates a site.
+       *
+       * @param request StopSiteRequest
+       * @return StopSiteResponse
+       */
+      Models::StopSiteResponse stopSite(const Models::StopSiteRequest &request);
+
+      /**
        * @summary Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
        *
        * @param request SubmitUploadTaskRequest
@@ -6735,6 +7133,23 @@ namespace ESA20240910
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary Modifies the cache reserve configuration of a site.
+       *
+       * @param request UpdateCacheReserveRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCacheReserveResponse
+       */
+      Models::UpdateCacheReserveResponse updateCacheReserveWithOptions(const Models::UpdateCacheReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the cache reserve configuration of a site.
+       *
+       * @param request UpdateCacheReserveRequest
+       * @return UpdateCacheReserveResponse
+       */
+      Models::UpdateCacheReserveResponse updateCacheReserve(const Models::UpdateCacheReserveRequest &request);
 
       /**
        * @summary Cache Reserve Specification Change
@@ -6820,6 +7235,27 @@ namespace ESA20240910
        * @return UpdateCompressionRuleResponse
        */
       Models::UpdateCompressionRuleResponse updateCompressionRule(const Models::UpdateCompressionRuleRequest &request);
+
+      /**
+       * @summary Modifies the priority of a single rule configuration.
+       *
+       * @description You can only modify the priority of a rule configuration. You cannot modify global configurations.
+       *
+       * @param request UpdateConfigSequenceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateConfigSequenceResponse
+       */
+      Models::UpdateConfigSequenceResponse updateConfigSequenceWithOptions(const Models::UpdateConfigSequenceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the priority of a single rule configuration.
+       *
+       * @description You can only modify the priority of a rule configuration. You cannot modify global configurations.
+       *
+       * @param request UpdateConfigSequenceRequest
+       * @return UpdateConfigSequenceResponse
+       */
+      Models::UpdateConfigSequenceResponse updateConfigSequence(const Models::UpdateConfigSequenceRequest &request);
 
       /**
        * @summary Modifies the China mainland network access optimization configuration for a site.
@@ -6943,6 +7379,40 @@ namespace ESA20240910
        * @return UpdateEdgeContainerAppResourceReserveResponse
        */
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserve(const Models::UpdateEdgeContainerAppResourceReserveRequest &request);
+
+      /**
+       * @summary Updates an environment.
+       *
+       * @param request UpdateEnvironmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEnvironmentResponse
+       */
+      Models::UpdateEnvironmentResponse updateEnvironmentWithOptions(const Models::UpdateEnvironmentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an environment.
+       *
+       * @param request UpdateEnvironmentRequest
+       * @return UpdateEnvironmentResponse
+       */
+      Models::UpdateEnvironmentResponse updateEnvironment(const Models::UpdateEnvironmentRequest &request);
+
+      /**
+       * @summary Modifies the deployment version of an environment.
+       *
+       * @param request UpdateEnvironmentVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEnvironmentVersionResponse
+       */
+      Models::UpdateEnvironmentVersionResponse updateEnvironmentVersionWithOptions(const Models::UpdateEnvironmentVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the deployment version of an environment.
+       *
+       * @param request UpdateEnvironmentVersionRequest
+       * @return UpdateEnvironmentVersionResponse
+       */
+      Models::UpdateEnvironmentVersionResponse updateEnvironmentVersion(const Models::UpdateEnvironmentVersionRequest &request);
 
       /**
        * @summary Modify HTTP incoming request header configuration.
@@ -7683,6 +8153,23 @@ namespace ESA20240910
       Models::UpdateUserWafRulesetResponse updateUserWafRuleset(const Models::UpdateUserWafRulesetRequest &request);
 
       /**
+       * @summary Updates the description of a version.
+       *
+       * @param request UpdateVersionDescRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVersionDescResponse
+       */
+      Models::UpdateVersionDescResponse updateVersionDescWithOptions(const Models::UpdateVersionDescRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the description of a version.
+       *
+       * @param request UpdateVersionDescRequest
+       * @return UpdateVersionDescResponse
+       */
+      Models::UpdateVersionDescResponse updateVersionDesc(const Models::UpdateVersionDescRequest &request);
+
+      /**
        * @summary Modifies the video processing configuration of a website.
        *
        * @param request UpdateVideoProcessingRequest
@@ -7787,6 +8274,23 @@ namespace ESA20240910
        * @return UpdateWaitingRoomRuleResponse
        */
       Models::UpdateWaitingRoomRuleResponse updateWaitingRoomRule(const Models::UpdateWaitingRoomRuleRequest &request);
+
+      /**
+       * @summary Upgrades the deployment version of an environment.
+       *
+       * @param request UpgradeEnvironmentVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeEnvironmentVersionResponse
+       */
+      Models::UpgradeEnvironmentVersionResponse upgradeEnvironmentVersionWithOptions(const Models::UpgradeEnvironmentVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Upgrades the deployment version of an environment.
+       *
+       * @param request UpgradeEnvironmentVersionRequest
+       * @return UpgradeEnvironmentVersionResponse
+       */
+      Models::UpgradeEnvironmentVersionResponse upgradeEnvironmentVersion(const Models::UpgradeEnvironmentVersionRequest &request);
 
       /**
        * @summary Uploads a client CA certificate.

@@ -1,0 +1,133 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTSITEFUNCTIONSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTSITEFUNCTIONSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ESA20240910
+{
+namespace Models
+{
+  class ListSiteFunctionsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListSiteFunctionsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConfigId, configId_);
+      DARABONBA_PTR_TO_JSON(ConfigType, configType_);
+      DARABONBA_PTR_TO_JSON(FunctionName, functionName_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+      DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListSiteFunctionsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
+      DARABONBA_PTR_FROM_JSON(ConfigType, configType_);
+      DARABONBA_PTR_FROM_JSON(FunctionName, functionName_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+      DARABONBA_PTR_FROM_JSON(SiteVersion, siteVersion_);
+    };
+    ListSiteFunctionsRequest() = default ;
+    ListSiteFunctionsRequest(const ListSiteFunctionsRequest &) = default ;
+    ListSiteFunctionsRequest(ListSiteFunctionsRequest &&) = default ;
+    ListSiteFunctionsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListSiteFunctionsRequest() = default ;
+    ListSiteFunctionsRequest& operator=(const ListSiteFunctionsRequest &) = default ;
+    ListSiteFunctionsRequest& operator=(ListSiteFunctionsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->configId_ == nullptr
+        && this->configType_ == nullptr && this->functionName_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->ruleName_ == nullptr
+        && this->siteId_ == nullptr && this->siteVersion_ == nullptr; };
+    // configId Field Functions 
+    bool hasConfigId() const { return this->configId_ != nullptr;};
+    void deleteConfigId() { this->configId_ = nullptr;};
+    inline int64_t getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, 0L) };
+    inline ListSiteFunctionsRequest& setConfigId(int64_t configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
+    // configType Field Functions 
+    bool hasConfigType() const { return this->configType_ != nullptr;};
+    void deleteConfigType() { this->configType_ = nullptr;};
+    inline string getConfigType() const { DARABONBA_PTR_GET_DEFAULT(configType_, "") };
+    inline ListSiteFunctionsRequest& setConfigType(string configType) { DARABONBA_PTR_SET_VALUE(configType_, configType) };
+
+
+    // functionName Field Functions 
+    bool hasFunctionName() const { return this->functionName_ != nullptr;};
+    void deleteFunctionName() { this->functionName_ = nullptr;};
+    inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+    inline ListSiteFunctionsRequest& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline ListSiteFunctionsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline ListSiteFunctionsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // ruleName Field Functions 
+    bool hasRuleName() const { return this->ruleName_ != nullptr;};
+    void deleteRuleName() { this->ruleName_ = nullptr;};
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline ListSiteFunctionsRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+    // siteId Field Functions 
+    bool hasSiteId() const { return this->siteId_ != nullptr;};
+    void deleteSiteId() { this->siteId_ = nullptr;};
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline ListSiteFunctionsRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
+
+
+    // siteVersion Field Functions 
+    bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
+    void deleteSiteVersion() { this->siteVersion_ = nullptr;};
+    inline int32_t getSiteVersion() const { DARABONBA_PTR_GET_DEFAULT(siteVersion_, 0) };
+    inline ListSiteFunctionsRequest& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
+
+
+  protected:
+    // The configuration ID.
+    shared_ptr<int64_t> configId_ {};
+    // The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
+    // - global: queries global configurations.
+    // - rule: queries rule configurations.
+    // 
+    // This parameter is optional. If not specified, both global and rule configurations are returned. This parameter takes effect only when the FunctionName parameter is specified.
+    shared_ptr<string> configType_ {};
+    // The function name of the feature.
+    shared_ptr<string> functionName_ {};
+    // The page number. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Maximum value: 500. Default value: 500.
+    shared_ptr<int32_t> pageSize_ {};
+    // The rule name. Returns the rule that matches the specified name. This parameter takes effect only when the FunctionName parameter is specified.
+    shared_ptr<string> ruleName_ {};
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+    // 
+    // This parameter is required.
+    shared_ptr<int64_t> siteId_ {};
+    // The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
+    shared_ptr<int32_t> siteVersion_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ESA20240910
+#endif

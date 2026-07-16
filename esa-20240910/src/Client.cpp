@@ -1448,6 +1448,52 @@ CheckUserProjectNameResponse Client::checkUserProjectName(const CheckUserProject
 }
 
 /**
+ * @summary Clones a new site version based on a specified site version.
+ *
+ * @param request CloneVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloneVersionResponse
+ */
+CloneVersionResponse Client::cloneVersionWithOptions(const CloneVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CloneVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloneVersionResponse>();
+}
+
+/**
+ * @summary Clones a new site version based on a specified site version.
+ *
+ * @param request CloneVersionRequest
+ * @return CloneVersionResponse
+ */
+CloneVersionResponse Client::cloneVersion(const CloneVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cloneVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits the staging (unstable) code of an Edge Routine and generates a production version.
  * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
  *
@@ -1996,7 +2042,8 @@ CreateCustomScenePolicyResponse Client::createCustomScenePolicy(const CreateCust
 }
 
 /**
- * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+ * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+ * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
  *
  * @param request CreateEdgeContainerAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2079,7 +2126,8 @@ CreateEdgeContainerAppResponse Client::createEdgeContainerAppWithOptions(const C
 }
 
 /**
- * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+ * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+ * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
  *
  * @param request CreateEdgeContainerAppRequest
  * @return CreateEdgeContainerAppResponse
@@ -2194,7 +2242,11 @@ CreateEdgeContainerAppRecordResponse Client::createEdgeContainerAppRecord(const 
 }
 
 /**
- * @summary Creates a version for a containerized application. You can iterate the application based on the version.
+ * @summary Creates an edge container application version. You can iteratively publish applications by version.
+ * Note:
+ * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+ * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+ * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
  *
  * @param tmpReq CreateEdgeContainerAppVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2243,7 +2295,11 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersionWithO
 }
 
 /**
- * @summary Creates a version for a containerized application. You can iterate the application based on the version.
+ * @summary Creates an edge container application version. You can iteratively publish applications by version.
+ * Note:
+ * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+ * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+ * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
  *
  * @param request CreateEdgeContainerAppVersionRequest
  * @return CreateEdgeContainerAppVersionResponse
@@ -2251,6 +2307,60 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersionWithO
 CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersion(const CreateEdgeContainerAppVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createEdgeContainerAppVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a site environment.
+ *
+ * @param request CreateEnvironmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEnvironmentResponse
+ */
+CreateEnvironmentResponse Client::createEnvironmentWithOptions(const CreateEnvironmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentName()) {
+    query["EnvironmentName"] = request.getEnvironmentName();
+  }
+
+  if (!!request.hasNextEnvironmentName()) {
+    query["NextEnvironmentName"] = request.getNextEnvironmentName();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.getRule();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateEnvironment"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEnvironmentResponse>();
+}
+
+/**
+ * @summary Creates a site environment.
+ *
+ * @param request CreateEnvironmentRequest
+ * @return CreateEnvironmentResponse
+ */
+CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createEnvironmentWithOptions(request, runtime);
 }
 
 /**
@@ -5752,7 +5862,10 @@ DeleteEdgeContainerAppImageSecretResponse Client::deleteEdgeContainerAppImageSec
 }
 
 /**
- * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+ * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+ * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+ * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+ * 3) Provide a complete three-step call example: create → bindomain → delete.
  *
  * @param request DeleteEdgeContainerAppRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5791,7 +5904,10 @@ DeleteEdgeContainerAppRecordResponse Client::deleteEdgeContainerAppRecordWithOpt
 }
 
 /**
- * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+ * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+ * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+ * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+ * 3) Provide a complete three-step call example: create → bindomain → delete.
  *
  * @param request DeleteEdgeContainerAppRecordRequest
  * @return DeleteEdgeContainerAppRecordResponse
@@ -5845,6 +5961,52 @@ DeleteEdgeContainerAppVersionResponse Client::deleteEdgeContainerAppVersionWithO
 DeleteEdgeContainerAppVersionResponse Client::deleteEdgeContainerAppVersion(const DeleteEdgeContainerAppVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEdgeContainerAppVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a site environment. The default environment cannot be deleted.
+ *
+ * @param request DeleteEnvironmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEnvironmentResponse
+ */
+DeleteEnvironmentResponse Client::deleteEnvironmentWithOptions(const DeleteEnvironmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentName()) {
+    query["EnvironmentName"] = request.getEnvironmentName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEnvironment"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEnvironmentResponse>();
+}
+
+/**
+ * @summary Deletes a site environment. The default environment cannot be deleted.
+ *
+ * @param request DeleteEnvironmentRequest
+ * @return DeleteEnvironmentResponse
+ */
+DeleteEnvironmentResponse Client::deleteEnvironment(const DeleteEnvironmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteEnvironmentWithOptions(request, runtime);
 }
 
 /**
@@ -7476,6 +7638,52 @@ DeleteUserWafRulesetResponse Client::deleteUserWafRuleset(const DeleteUserWafRul
 }
 
 /**
+ * @summary Deletes a version of a site. Version 0 cannot be deleted.
+ *
+ * @param request DeleteVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVersionResponse
+ */
+DeleteVersionResponse Client::deleteVersionWithOptions(const DeleteVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVersionResponse>();
+}
+
+/**
+ * @summary Deletes a version of a site. Version 0 cannot be deleted.
+ *
+ * @param request DeleteVersionRequest
+ * @return DeleteVersionResponse
+ */
+DeleteVersionResponse Client::deleteVersion(const DeleteVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a video processing configuration.
  *
  * @param request DeleteVideoProcessingRequest
@@ -7899,6 +8107,44 @@ DescribeCacheReservePriceGapResponse Client::describeCacheReservePriceGapWithOpt
 DescribeCacheReservePriceGapResponse Client::describeCacheReservePriceGap(const DescribeCacheReservePriceGapRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCacheReservePriceGapWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+ *
+ * @param request DescribeConditionIPBInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeConditionIPBInfoResponse
+ */
+DescribeConditionIPBInfoResponse Client::describeConditionIPBInfoWithOptions(const DescribeConditionIPBInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeConditionIPBInfo"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeConditionIPBInfoResponse>();
+}
+
+/**
+ * @summary Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+ *
+ * @param request DescribeConditionIPBInfoRequest
+ * @return DescribeConditionIPBInfoResponse
+ */
+DescribeConditionIPBInfoResponse Client::describeConditionIPBInfo(const DescribeConditionIPBInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeConditionIPBInfoWithOptions(request, runtime);
 }
 
 /**
@@ -8820,6 +9066,44 @@ DescribeRatePlanPriceGapResponse Client::describeRatePlanPriceGap(const Describe
 }
 
 /**
+ * @summary Retrieves metadata related to the rules engine.
+ *
+ * @param request DescribeRuleMetadataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRuleMetadataResponse
+ */
+DescribeRuleMetadataResponse Client::describeRuleMetadataWithOptions(const DescribeRuleMetadataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRuleMetadata"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRuleMetadataResponse>();
+}
+
+/**
+ * @summary Retrieves metadata related to the rules engine.
+ *
+ * @param request DescribeRuleMetadataRequest
+ * @return DescribeRuleMetadataResponse
+ */
+DescribeRuleMetadataResponse Client::describeRuleMetadata(const DescribeRuleMetadataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRuleMetadataWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the URLs from which you can download the raw access logs of a website.
  *
  * @description - If you do not specify StartTime and EndTime, log data from the last 24 hours is returned by default. If you specify StartTime and EndTime, log data for the specified time range is returned.
@@ -9526,6 +9810,44 @@ EnableCustomScenePolicyResponse Client::enableCustomScenePolicy(const EnableCust
 }
 
 /**
+ * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+ *
+ * @param request ExportRecordCnamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportRecordCnamesResponse
+ */
+ExportRecordCnamesResponse Client::exportRecordCnamesWithOptions(const ExportRecordCnamesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExportRecordCnames"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportRecordCnamesResponse>();
+}
+
+/**
+ * @summary Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+ *
+ * @param request ExportRecordCnamesRequest
+ * @return ExportRecordCnamesResponse
+ */
+ExportRecordCnamesResponse Client::exportRecordCnames(const ExportRecordCnamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportRecordCnamesWithOptions(request, runtime);
+}
+
+/**
  * @summary Exports all DNS records of a website domain as a TXT file.
  *
  * @param request ExportRecordsRequest
@@ -9699,6 +10021,44 @@ GetAutomaticFrequencyControlConfigResponse Client::getAutomaticFrequencyControlC
 GetAutomaticFrequencyControlConfigResponse Client::getAutomaticFrequencyControlConfig(const GetAutomaticFrequencyControlConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAutomaticFrequencyControlConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the cache reserve configuration of a site.
+ *
+ * @param request GetCacheReserveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCacheReserveResponse
+ */
+GetCacheReserveResponse Client::getCacheReserveWithOptions(const GetCacheReserveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCacheReserve"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCacheReserveResponse>();
+}
+
+/**
+ * @summary Queries the cache reserve configuration of a site.
+ *
+ * @param request GetCacheReserveRequest
+ * @return GetCacheReserveResponse
+ */
+GetCacheReserveResponse Client::getCacheReserve(const GetCacheReserveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCacheReserveWithOptions(request, runtime);
 }
 
 /**
@@ -11484,6 +11844,44 @@ GetLoadBalancerResponse Client::getLoadBalancer(const GetLoadBalancerRequest &re
 }
 
 /**
+ * @summary Queries the root domain name of a website.
+ *
+ * @param request GetMainDomainNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMainDomainNameResponse
+ */
+GetMainDomainNameResponse Client::getMainDomainNameWithOptions(const GetMainDomainNameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMainDomainName"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMainDomainNameResponse>();
+}
+
+/**
+ * @summary Queries the root domain name of a website.
+ *
+ * @param request GetMainDomainNameRequest
+ * @return GetMainDomainNameResponse
+ */
+GetMainDomainNameResponse Client::getMainDomainName(const GetMainDomainNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMainDomainNameWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the managed transform configuration for a site.
  *
  * @param request GetManagedTransformRequest
@@ -11519,6 +11917,48 @@ GetManagedTransformResponse Client::getManagedTransformWithOptions(const GetMana
 GetManagedTransformResponse Client::getManagedTransform(const GetManagedTransformRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getManagedTransformWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+ *
+ * @description Used with the Edge Routine (ER) feature to automatically match an active site.
+ *
+ * @param request GetMatchSiteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMatchSiteResponse
+ */
+GetMatchSiteResponse Client::getMatchSiteWithOptions(const GetMatchSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMatchSite"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMatchSiteResponse>();
+}
+
+/**
+ * @summary Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+ *
+ * @description Used with the Edge Routine (ER) feature to automatically match an active site.
+ *
+ * @param request GetMatchSiteRequest
+ * @return GetMatchSiteResponse
+ */
+GetMatchSiteResponse Client::getMatchSite(const GetMatchSiteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMatchSiteWithOptions(request, runtime);
 }
 
 /**
@@ -11827,6 +12267,52 @@ GetPageResponse Client::getPageWithOptions(const GetPageRequest &request, const 
 GetPageResponse Client::getPage(const GetPageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getPageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the page protection configuration of a site.
+ *
+ * @param request GetPageShieldRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPageShieldResponse
+ */
+GetPageShieldResponse Client::getPageShieldWithOptions(const GetPageShieldRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPageShield"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPageShieldResponse>();
+}
+
+/**
+ * @summary Queries the page protection configuration of a site.
+ *
+ * @param request GetPageShieldRequest
+ * @return GetPageShieldResponse
+ */
+GetPageShieldResponse Client::getPageShield(const GetPageShieldRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPageShieldWithOptions(request, runtime);
 }
 
 /**
@@ -12822,6 +13308,44 @@ GetSitePauseResponse Client::getSitePause(const GetSitePauseRequest &request) {
 }
 
 /**
+ * @summary Queries the traffic sequences and their details for the current site.
+ *
+ * @param request GetSiteTrafficSequenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSiteTrafficSequenceResponse
+ */
+GetSiteTrafficSequenceResponse Client::getSiteTrafficSequenceWithOptions(const GetSiteTrafficSequenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSiteTrafficSequence"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSiteTrafficSequenceResponse>();
+}
+
+/**
+ * @summary Queries the traffic sequences and their details for the current site.
+ *
+ * @param request GetSiteTrafficSequenceRequest
+ * @return GetSiteTrafficSequenceResponse
+ */
+GetSiteTrafficSequenceResponse Client::getSiteTrafficSequence(const GetSiteTrafficSequenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSiteTrafficSequenceWithOptions(request, runtime);
+}
+
+/**
  * @summary Get WAF Configuration for a Site
  *
  * @param request GetSiteWafSettingsRequest
@@ -13391,6 +13915,120 @@ GetWafRulesetResponse Client::getWafRulesetWithOptions(const GetWafRulesetReques
 GetWafRulesetResponse Client::getWafRuleset(const GetWafRulesetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWafRulesetWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the preview page URL of a waiting room.
+ *
+ * @param request GetWaitingRoomPreviewPageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWaitingRoomPreviewPageResponse
+ */
+GetWaitingRoomPreviewPageResponse Client::getWaitingRoomPreviewPageWithOptions(const GetWaitingRoomPreviewPageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWaitingRoomPreviewPage"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWaitingRoomPreviewPageResponse>();
+}
+
+/**
+ * @summary Queries the preview page URL of a waiting room.
+ *
+ * @param request GetWaitingRoomPreviewPageRequest
+ * @return GetWaitingRoomPreviewPageResponse
+ */
+GetWaitingRoomPreviewPageResponse Client::getWaitingRoomPreviewPage(const GetWaitingRoomPreviewPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWaitingRoomPreviewPageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of regions supported by AWS S3.
+ *
+ * @param request ListAWSRegionInfosRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAWSRegionInfosResponse
+ */
+ListAWSRegionInfosResponse Client::listAWSRegionInfosWithOptions(const ListAWSRegionInfosRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAWSRegionInfos"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAWSRegionInfosResponse>();
+}
+
+/**
+ * @summary Queries the list of regions supported by AWS S3.
+ *
+ * @param request ListAWSRegionInfosRequest
+ * @return ListAWSRegionInfosResponse
+ */
+ListAWSRegionInfosResponse Client::listAWSRegionInfos(const ListAWSRegionInfosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAWSRegionInfosWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询异步任务列表
+ *
+ * @param request ListAsyncTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAsyncTasksResponse
+ */
+ListAsyncTasksResponse Client::listAsyncTasksWithOptions(const ListAsyncTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAsyncTasks"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAsyncTasksResponse>();
+}
+
+/**
+ * @summary 查询异步任务列表
+ *
+ * @param request ListAsyncTasksRequest
+ * @return ListAsyncTasksResponse
+ */
+ListAsyncTasksResponse Client::listAsyncTasks(const ListAsyncTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAsyncTasksWithOptions(request, runtime);
 }
 
 /**
@@ -14317,6 +14955,44 @@ ListEdgeRoutineRecordsResponse Client::listEdgeRoutineRecordsWithOptions(const L
 ListEdgeRoutineRecordsResponse Client::listEdgeRoutineRecords(const ListEdgeRoutineRecordsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listEdgeRoutineRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of environments for a site.
+ *
+ * @param request ListEnvironmentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEnvironmentsResponse
+ */
+ListEnvironmentsResponse Client::listEnvironmentsWithOptions(const ListEnvironmentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEnvironments"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEnvironmentsResponse>();
+}
+
+/**
+ * @summary Queries the list of environments for a site.
+ *
+ * @param request ListEnvironmentsRequest
+ * @return ListEnvironmentsResponse
+ */
+ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listEnvironmentsWithOptions(request, runtime);
 }
 
 /**
@@ -15270,6 +15946,45 @@ ListPostpaidRatePlanInstancesResponse Client::listPostpaidRatePlanInstances(cons
 }
 
 /**
+ * @summary Queries the list of pay-as-you-go site plans available for purchase by a user.
+ *
+ * @description By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+ *
+ * @param request ListPostpaidSitePlansRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPostpaidSitePlansResponse
+ */
+ListPostpaidSitePlansResponse Client::listPostpaidSitePlansWithOptions(const ListPostpaidSitePlansRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListPostpaidSitePlans"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPostpaidSitePlansResponse>();
+}
+
+/**
+ * @summary Queries the list of pay-as-you-go site plans available for purchase by a user.
+ *
+ * @description By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+ *
+ * @param request ListPostpaidSitePlansRequest
+ * @return ListPostpaidSitePlansResponse
+ */
+ListPostpaidSitePlansResponse Client::listPostpaidSitePlans(const ListPostpaidSitePlansRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPostpaidSitePlansWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
  *
  * @description DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
@@ -15699,6 +16414,44 @@ ListSiteDeliveryTasksResponse Client::listSiteDeliveryTasksWithOptions(const Lis
 ListSiteDeliveryTasksResponse Client::listSiteDeliveryTasks(const ListSiteDeliveryTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listSiteDeliveryTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+ *
+ * @param request ListSiteFunctionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSiteFunctionsResponse
+ */
+ListSiteFunctionsResponse Client::listSiteFunctionsWithOptions(const ListSiteFunctionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSiteFunctions"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSiteFunctionsResponse>();
+}
+
+/**
+ * @summary Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+ *
+ * @param request ListSiteFunctionsRequest
+ * @return ListSiteFunctionsResponse
+ */
+ListSiteFunctionsResponse Client::listSiteFunctions(const ListSiteFunctionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSiteFunctionsWithOptions(request, runtime);
 }
 
 /**
@@ -16321,6 +17074,44 @@ ListUserWafRulesetsResponse Client::listUserWafRulesetsWithOptions(const ListUse
 ListUserWafRulesetsResponse Client::listUserWafRulesets(const ListUserWafRulesetsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listUserWafRulesetsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the version list of a site.
+ *
+ * @param request ListVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVersionsResponse
+ */
+ListVersionsResponse Client::listVersionsWithOptions(const ListVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVersions"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVersionsResponse>();
+}
+
+/**
+ * @summary Queries the version list of a site.
+ *
+ * @param request ListVersionsRequest
+ * @return ListVersionsResponse
+ */
+ListVersionsResponse Client::listVersions(const ListVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVersionsWithOptions(request, runtime);
 }
 
 /**
@@ -17754,6 +18545,48 @@ RebuildEdgeContainerAppStagingEnvResponse Client::rebuildEdgeContainerAppStaging
 }
 
 /**
+ * @summary Restores the status of a site that has been disabled.
+ *
+ * @param request RecoverSiteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RecoverSiteResponse
+ */
+RecoverSiteResponse Client::recoverSiteWithOptions(const RecoverSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RecoverSite"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RecoverSiteResponse>();
+}
+
+/**
+ * @summary Restores the status of a site that has been disabled.
+ *
+ * @param request RecoverSiteRequest
+ * @return RecoverSiteResponse
+ */
+RecoverSiteResponse Client::recoverSite(const RecoverSiteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return recoverSiteWithOptions(request, runtime);
+}
+
+/**
  * @summary Schedules the release of a security instance.
  *
  * @param request ReleaseInstanceRequest
@@ -17935,6 +18768,52 @@ RollbackEdgeContainerAppVersionResponse Client::rollbackEdgeContainerAppVersionW
 RollbackEdgeContainerAppVersionResponse Client::rollbackEdgeContainerAppVersion(const RollbackEdgeContainerAppVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return rollbackEdgeContainerAppVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Rolls back the deployment version of an environment.
+ *
+ * @param request RollbackEnvironmentVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackEnvironmentVersionResponse
+ */
+RollbackEnvironmentVersionResponse Client::rollbackEnvironmentVersionWithOptions(const RollbackEnvironmentVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentName()) {
+    query["EnvironmentName"] = request.getEnvironmentName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RollbackEnvironmentVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackEnvironmentVersionResponse>();
+}
+
+/**
+ * @summary Rolls back the deployment version of an environment.
+ *
+ * @param request RollbackEnvironmentVersionRequest
+ * @return RollbackEnvironmentVersionResponse
+ */
+RollbackEnvironmentVersionResponse Client::rollbackEnvironmentVersion(const RollbackEnvironmentVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rollbackEnvironmentVersionWithOptions(request, runtime);
 }
 
 /**
@@ -18652,6 +19531,48 @@ StopScheduledPreloadExecutionResponse Client::stopScheduledPreloadExecution(cons
 }
 
 /**
+ * @summary Manually deactivates a site.
+ *
+ * @param request StopSiteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopSiteResponse
+ */
+StopSiteResponse Client::stopSiteWithOptions(const StopSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopSite"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopSiteResponse>();
+}
+
+/**
+ * @summary Manually deactivates a site.
+ *
+ * @param request StopSiteRequest
+ * @return StopSiteResponse
+ */
+StopSiteResponse Client::stopSite(const StopSiteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopSiteWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
  *
  * @param request SubmitUploadTaskRequest
@@ -18811,6 +19732,56 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the cache reserve configuration of a site.
+ *
+ * @param request UpdateCacheReserveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCacheReserveResponse
+ */
+UpdateCacheReserveResponse Client::updateCacheReserveWithOptions(const UpdateCacheReserveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCacheReserveInstanceId()) {
+    query["CacheReserveInstanceId"] = request.getCacheReserveInstanceId();
+  }
+
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCacheReserve"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCacheReserveResponse>();
+}
+
+/**
+ * @summary Modifies the cache reserve configuration of a site.
+ *
+ * @param request UpdateCacheReserveRequest
+ * @return UpdateCacheReserveResponse
+ */
+UpdateCacheReserveResponse Client::updateCacheReserve(const UpdateCacheReserveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCacheReserveWithOptions(request, runtime);
 }
 
 /**
@@ -19193,6 +20164,60 @@ UpdateCompressionRuleResponse Client::updateCompressionRuleWithOptions(const Upd
 UpdateCompressionRuleResponse Client::updateCompressionRule(const UpdateCompressionRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCompressionRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the priority of a single rule configuration.
+ *
+ * @description You can only modify the priority of a rule configuration. You cannot modify global configurations.
+ *
+ * @param request UpdateConfigSequenceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConfigSequenceResponse
+ */
+UpdateConfigSequenceResponse Client::updateConfigSequenceWithOptions(const UpdateConfigSequenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  if (!!request.hasSequence()) {
+    query["Sequence"] = request.getSequence();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateConfigSequence"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConfigSequenceResponse>();
+}
+
+/**
+ * @summary Modifies the priority of a single rule configuration.
+ *
+ * @description You can only modify the priority of a rule configuration. You cannot modify global configurations.
+ *
+ * @param request UpdateConfigSequenceRequest
+ * @return UpdateConfigSequenceResponse
+ */
+UpdateConfigSequenceResponse Client::updateConfigSequence(const UpdateConfigSequenceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateConfigSequenceWithOptions(request, runtime);
 }
 
 /**
@@ -19609,6 +20634,118 @@ UpdateEdgeContainerAppResourceReserveResponse Client::updateEdgeContainerAppReso
 UpdateEdgeContainerAppResourceReserveResponse Client::updateEdgeContainerAppResourceReserve(const UpdateEdgeContainerAppResourceReserveRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateEdgeContainerAppResourceReserveWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates an environment.
+ *
+ * @param request UpdateEnvironmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEnvironmentResponse
+ */
+UpdateEnvironmentResponse Client::updateEnvironmentWithOptions(const UpdateEnvironmentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentName()) {
+    query["EnvironmentName"] = request.getEnvironmentName();
+  }
+
+  if (!!request.hasNewName()) {
+    query["NewName"] = request.getNewName();
+  }
+
+  if (!!request.hasReadOnly()) {
+    query["ReadOnly"] = request.getReadOnly();
+  }
+
+  if (!!request.hasRule()) {
+    query["Rule"] = request.getRule();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateEnvironment"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEnvironmentResponse>();
+}
+
+/**
+ * @summary Updates an environment.
+ *
+ * @param request UpdateEnvironmentRequest
+ * @return UpdateEnvironmentResponse
+ */
+UpdateEnvironmentResponse Client::updateEnvironment(const UpdateEnvironmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateEnvironmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the deployment version of an environment.
+ *
+ * @param request UpdateEnvironmentVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEnvironmentVersionResponse
+ */
+UpdateEnvironmentVersionResponse Client::updateEnvironmentVersionWithOptions(const UpdateEnvironmentVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentName()) {
+    query["EnvironmentName"] = request.getEnvironmentName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateEnvironmentVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEnvironmentVersionResponse>();
+}
+
+/**
+ * @summary Modifies the deployment version of an environment.
+ *
+ * @param request UpdateEnvironmentVersionRequest
+ * @return UpdateEnvironmentVersionResponse
+ */
+UpdateEnvironmentVersionResponse Client::updateEnvironmentVersion(const UpdateEnvironmentVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateEnvironmentVersionWithOptions(request, runtime);
 }
 
 /**
@@ -22310,6 +23447,56 @@ UpdateUserWafRulesetResponse Client::updateUserWafRuleset(const UpdateUserWafRul
 }
 
 /**
+ * @summary Updates the description of a version.
+ *
+ * @param request UpdateVersionDescRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVersionDescResponse
+ */
+UpdateVersionDescResponse Client::updateVersionDescWithOptions(const UpdateVersionDescRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateVersionDesc"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVersionDescResponse>();
+}
+
+/**
+ * @summary Updates the description of a version.
+ *
+ * @param request UpdateVersionDescRequest
+ * @return UpdateVersionDescResponse
+ */
+UpdateVersionDescResponse Client::updateVersionDesc(const UpdateVersionDescRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVersionDescWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the video processing configuration of a website.
  *
  * @param request UpdateVideoProcessingRequest
@@ -22815,6 +24002,52 @@ UpdateWaitingRoomRuleResponse Client::updateWaitingRoomRuleWithOptions(const Upd
 UpdateWaitingRoomRuleResponse Client::updateWaitingRoomRule(const UpdateWaitingRoomRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateWaitingRoomRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Upgrades the deployment version of an environment.
+ *
+ * @param request UpgradeEnvironmentVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeEnvironmentVersionResponse
+ */
+UpgradeEnvironmentVersionResponse Client::upgradeEnvironmentVersionWithOptions(const UpgradeEnvironmentVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnvironmentName()) {
+    query["EnvironmentName"] = request.getEnvironmentName();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeEnvironmentVersion"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeEnvironmentVersionResponse>();
+}
+
+/**
+ * @summary Upgrades the deployment version of an environment.
+ *
+ * @param request UpgradeEnvironmentVersionRequest
+ * @return UpgradeEnvironmentVersionResponse
+ */
+UpgradeEnvironmentVersionResponse Client::upgradeEnvironmentVersion(const UpgradeEnvironmentVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeEnvironmentVersionWithOptions(request, runtime);
 }
 
 /**
