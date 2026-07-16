@@ -137,7 +137,7 @@ namespace Models
 
 
       protected:
-        // The error code.
+        // The error status code.
         shared_ptr<string> code_ {};
         // The file ID.
         shared_ptr<string> docId_ {};
@@ -147,10 +147,12 @@ namespace Models
         // The error message.
         shared_ptr<string> message_ {};
         // The file import status. Valid values:
-        // - INSERT_ERROR: The file import failed.
-        // - RUNNING: The file is being imported.
-        // - DELETED: The file has been deleted.
-        // - FINISH: The file was imported.
+        // - INSERT_ERROR: Failed to import into the index.
+        // - RUNNING: Index building in progress.
+        // - DELETED: Deleted.
+        // - FINISH: Index building succeeded.
+        // - PARSE_FAILED: Parsing failed.
+        // - DOC_PARSING: Parsing in progress.
         shared_ptr<string> status_ {};
       };
 
@@ -185,10 +187,10 @@ namespace Models
       // The job ID.
       shared_ptr<string> jobId_ {};
       // The current status of the knowledge base job. Valid values:
-      // - COMPLETED: The job succeeded.
-      // - FAILED: The job failed.
-      // - RUNNING: The job is running.
-      // - PENDING: The job is pending execution.
+      // - COMPLETED: Execution succeeded.
+      // - FAILED: Execution failed.
+      // - RUNNING: Execution in progress.
+      // - PENDING: Waiting for execution.
       shared_ptr<string> status_ {};
     };
 
@@ -239,7 +241,7 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
     // The data field returned by the operation.
     shared_ptr<GetIndexJobStatusResponseBody::Data> data_ {};
@@ -247,11 +249,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned by the operation.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
     // Indicates whether the operation was successful. Valid values:
-    // - true: The operation was successful.
-    // - false: The operation failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

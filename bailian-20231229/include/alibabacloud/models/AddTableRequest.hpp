@@ -136,6 +136,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<AddTableRequest::TableColumns>> tableColumns_ {};
+    // The table description.
     shared_ptr<string> tableDesc_ {};
     // The table name.
     // 

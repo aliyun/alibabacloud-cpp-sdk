@@ -115,18 +115,18 @@ namespace Models
 
 
       protected:
-        // The file ID. Please keep this value safe, as it will be used for all subsequent API operations related to this file.
+        // The file ID. Keep this value safe because it is required for all subsequent API operations related to this file.
         shared_ptr<string> fileId_ {};
-        // Error information returned when file import fails.
+        // The error message returned when the file import fails.
         shared_ptr<string> msg_ {};
-        // The key name (Key) of the imported file in the OSS Bucket.
+        // The key of the imported file in the OSS bucket.
         shared_ptr<string> ossKey_ {};
-        // File import status. Possible values:
+        // The file import status. Valid values:
         // 
-        // - SUCCESS: Import (application data) completed.
-        // - FAILED: Import (application data) failed.
+        // - SUCCESS: The import to application data is complete.
+        // - FAILED: The import to application data failed.
         // 
-        // > Only files with the SUCCESS status can be used to create or update knowledge bases.
+        // > Only files with a SUCCESS status can be used to create or update a knowledge base.
         // >
         shared_ptr<string> status_ {};
       };
@@ -193,19 +193,19 @@ namespace Models
 
 
   protected:
-    // Error status code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // Business data field returned by the operation.
+    // The data field returned by the operation.
     shared_ptr<AddFilesFromAuthorizedOssResponseBody::Data> data_ {};
-    // Error information.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Whether the operation call succeeded. Possible values:
-    // - true: Success.
-    // - false: Failure.
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<string> success_ {};
   };
 

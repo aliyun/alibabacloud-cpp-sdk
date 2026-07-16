@@ -5,6 +5,10 @@
 #include <alibabacloud/models/AddCategoryRequest.hpp>
 #include <alibabacloud/models/AddCategoryResponseBody.hpp>
 #include <alibabacloud/models/AddCategoryResponse.hpp>
+#include <alibabacloud/models/AddChunkRequest.hpp>
+#include <alibabacloud/models/AddChunkShrinkRequest.hpp>
+#include <alibabacloud/models/AddChunkResponseBody.hpp>
+#include <alibabacloud/models/AddChunkResponse.hpp>
 #include <alibabacloud/models/AddConnectorRequest.hpp>
 #include <alibabacloud/models/AddConnectorShrinkRequest.hpp>
 #include <alibabacloud/models/AddConnectorResponseBody.hpp>

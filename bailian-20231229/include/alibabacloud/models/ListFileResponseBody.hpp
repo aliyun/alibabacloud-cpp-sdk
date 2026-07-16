@@ -190,6 +190,7 @@ namespace Models
         shared_ptr<string> fileName_ {};
         // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
         shared_ptr<string> fileType_ {};
+        // The reason for parsing failure.
         shared_ptr<string> parseErrorMessage_ {};
         // The document parser. Valid values:
         // - DASHSCOPE_DOCMIND: Alibaba Cloud intelligent document parsing.
@@ -197,7 +198,7 @@ namespace Models
         // The file size in bytes.
         shared_ptr<int64_t> sizeInBytes_ {};
         // The file parsing status. Valid values:
-        // - INIT: Initialization state, waiting to be scheduled.
+        // - INIT: Initialization state. Waiting to be scheduled.
         // - PARSING: Parsing in progress.
         // - PARSE_SUCCESS: Parsing completed.
         // - PARSE_FAILED: Parsing failed.

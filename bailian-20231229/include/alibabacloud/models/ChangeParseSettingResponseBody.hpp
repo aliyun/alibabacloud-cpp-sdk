@@ -67,11 +67,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the configuration was successfully updated.
-      // 
+      // Indicates whether the configuration was changed. Valid values:
       // - true: The configuration was updated.
-      // 
-      // - false: The configuration failed to be updated.
+      // - false: The configuration was not changed. The modification failed.
       shared_ptr<bool> changeResult_ {};
     };
 
@@ -122,21 +120,19 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The data returned for a successful request.
+    // The business data returned when the request is successful.
     shared_ptr<ChangeParseSettingResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code returned for the request.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

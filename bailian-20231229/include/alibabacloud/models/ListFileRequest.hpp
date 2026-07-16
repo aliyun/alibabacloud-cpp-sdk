@@ -92,14 +92,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> categoryId_ {};
-    // The list of file IDs to query. A maximum of 20 files can be queried per request.
+    // The list of file IDs to query. A maximum of 20 files can be queried at a time.
     shared_ptr<vector<string>> fileIds_ {};
     // The file name (without extension). Only exact match is supported. Fuzzy search is not supported.
     shared_ptr<string> fileName_ {};
     // The number of entries per page for paging. Valid values: 1 to 200.
     // 
     // Default value:
-    // If the value is not set or is less than 1, the default value is 20. If the value is greater than 200, the default value is 200.
+    // If no value is set or the value is less than 1, the default value is 20. If the value is set to greater than 200, the default value is 200.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Set this to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};

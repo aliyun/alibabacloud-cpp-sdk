@@ -66,57 +66,39 @@ namespace Models
 
 
   protected:
-    // The category ID. This is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the ID from the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) - File tab<props="intl">[Application Data](https://bailian.console.alibabacloud.com/?tab=app#/data-center) - Unstructured Data tab by clicking the ID icon next to the category name.
+    // The category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it by clicking the ID icon next to the category name on the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) - Files tab<props="intl">[Application Data](https://bailian.console.alibabacloud.com/?tab=app#/data-center) - Unstructured Data tab.
     // 
     // This parameter is required.
     shared_ptr<string> categoryId_ {};
-    // The file type, specified by its extension. Valid values:
-    // 
+    // The file type (extension). Valid values:
     // - doc
-    // 
     // - docx
-    // 
     // - ppt
-    // 
     // - pptx
-    // 
     // - xls
-    // 
     // - xlsx
-    // 
     // - md
-    // 
     // - txt
-    // 
     // - pdf
-    // 
     // - png
-    // 
     // - jpg
-    // 
     // - jpeg
-    // 
     // - bmp
-    // 
     // - gif
-    // 
     // - html
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};
-    // The identifier for the parser. Different parsers are suitable for different scenarios. For more information, refer to the knowledge base. Valid values:
-    // 
-    // - DOCMIND (intelligent document parsing)
-    // 
-    // - DOCMIND_DIGITAL (digital document parsing)
-    // 
-    // - DOCMIND_LLM_VERSION (LLM-based document parsing)
-    // 
-    // - DASH_QWEN_VL_PARSER (Qwen VL Parser)
+    // The parser identifier code. Different parsers are applicable to different scenarios. For more information, see "Knowledge Base". Valid values:
+    // - DOCMIND (Intelligent Document Parsing)
+    // - DOCMIND_DIGITAL (Electronic Document Parsing)
+    // - DOCMIND_LLM_VERSION (Large Model Document Parsing)
+    // - DASH_QWEN_VL_PARSER (Qwen VL Parsing)
+    // - DOCMIND_LLM_VERSION_MEDIA (Audio/Video Parsing)
     // 
     // This parameter is required.
     shared_ptr<string> parser_ {};
-    // The parser configuration. This parameter is required only when the `Parser` parameter is set to `DASH_QWEN_VL_PARSER`.
+    // The parser configuration. This parameter is required only when the parser is set to Qwen VL Parsing.
     shared_ptr<string> parserConfigShrink_ {};
   };
 

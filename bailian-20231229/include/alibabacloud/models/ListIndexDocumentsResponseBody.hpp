@@ -169,7 +169,7 @@ namespace Models
 
 
       protected:
-        // The error status code for the file import.
+        // The error status code for file import.
         shared_ptr<string> code_ {};
         // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
         shared_ptr<string> documentType_ {};
@@ -177,7 +177,7 @@ namespace Models
         shared_ptr<int64_t> gmtModified_ {};
         // The file ID.
         shared_ptr<string> id_ {};
-        // The error message for the file import.
+        // The error message for file import.
         shared_ptr<string> message_ {};
         // The file name.
         shared_ptr<string> name_ {};
@@ -185,28 +185,26 @@ namespace Models
         shared_ptr<int32_t> size_ {};
         // <props="china">
         // 
-        // For document search or audio/video search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+        // For document search or audio/video search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it by clicking the ID icon next to the category name on the Files tab of [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center).
         // 
         // 
-        // For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+        // For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain it by clicking the ID icon next to the data table name on the Tables tab of [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center).
         // 
         // 
         // 
         // 
         // <props="intl">
         // 
-        // For document search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain the category ID by clicking the ID icon next to the category name on the Files tab of the [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center) page.
+        // For document search knowledge bases, this parameter specifies the category ID, which is the `CategoryId` returned by the **AddCategory** operation. You can also obtain it by clicking the ID icon next to the category name on the Files tab of [Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center).
         // 
         // 
-        // For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain the data table ID by clicking the ID icon next to the data table name on the Tables tab of the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page.
-        // 
-        // .
+        // For data query or image Q&A knowledge bases, this parameter specifies the data table ID. You can obtain it by clicking the ID icon next to the data table name on the Tables tab of [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
         shared_ptr<string> sourceId_ {};
         // The file import status. Valid values:
-        // - INSERT_ERROR: The file failed to be imported.
-        // - RUNNING: The file is being imported.
-        // - DELETED: The file has been deleted.
-        // - FINISH: The file was imported.
+        // - INSERT_ERROR: File import failed.
+        // - RUNNING: File import in progress.
+        // - DELETED: File deleted.
+        // - FINISH: File import succeeded.
         shared_ptr<string> status_ {};
       };
 
@@ -250,7 +248,7 @@ namespace Models
 
 
     protected:
-      // The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
+      // The list of files in the knowledge base, sorted by document import time in descending order (consistent with the console).
       shared_ptr<vector<Data::Documents>> documents_ {};
       // The knowledge base ID.
       shared_ptr<string> indexId_ {};
@@ -320,8 +318,8 @@ namespace Models
     // The status code returned by the operation.
     shared_ptr<string> status_ {};
     // Indicates whether the operation was successful. Valid values:
-    // - true: The operation was successful.
-    // - false: The operation failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

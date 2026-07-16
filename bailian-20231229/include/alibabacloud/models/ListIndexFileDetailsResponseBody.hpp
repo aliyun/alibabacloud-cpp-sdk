@@ -215,39 +215,36 @@ namespace Models
 
 
       protected:
-        // The custom chunking method.
+        // The custom chunking mode.
         shared_ptr<string> chunkMode_ {};
-        // The length of a chunk, in characters.
+        // The segment length, which is the number of characters in each text chunk.
         shared_ptr<string> chunkSize_ {};
-        // The error code that is returned if the document fails to be imported.
+        // The error status code for file import.
         shared_ptr<string> code_ {};
-        // The format of the document. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
+        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
         shared_ptr<string> documentType_ {};
-        // Indicates whether the table headers of Excel files in an unstructured knowledge base are concatenated.
+        // Indicates whether Excel file headers support concatenation.
         shared_ptr<string> enableHeaders_ {};
-        // The time when the document was imported. This value is a Unix timestamp.
+        // The time when the file was imported to the knowledge base, in UNIX timestamp format.
         shared_ptr<int64_t> gmtModified_ {};
-        // The document ID.
+        // The file ID.
         shared_ptr<string> id_ {};
-        // The error message that is returned if the document fails to be imported.
+        // The error message for file import.
         shared_ptr<string> message_ {};
-        // The name of the document.
+        // The file name.
         shared_ptr<string> name_ {};
-        // The overlap length of chunks.
+        // The overlap length between segments.
         shared_ptr<string> overlapSize_ {};
-        // The size of the document, in bytes.
+        // The file size, in bytes.
         shared_ptr<int32_t> size_ {};
         // The category ID.
         shared_ptr<string> sourceId_ {};
-        // The import status of the document. Valid values:
+        // The file import status. Valid values:
         // 
-        // - INSERT_ERROR: The document failed to be imported.
-        // 
-        // - RUNNING: The document is being imported.
-        // 
-        // - DELETED: The document has been deleted.
-        // 
-        // - FINISH: The document was imported successfully.
+        // - INSERT_ERROR: File import failed.
+        // - RUNNING: File import in progress.
+        // - DELETED: File deleted.
+        // - FINISH: File import succeeded.
         shared_ptr<string> status_ {};
         // The sentence separator.
         shared_ptr<string> separator_ {};
@@ -293,15 +290,15 @@ namespace Models
 
 
     protected:
-      // A list of documents in the knowledge base. The documents are sorted by import time in descending order. This order is the same as the order in the console.
+      // The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
       shared_ptr<vector<Data::Documents>> documents_ {};
       // The knowledge base ID.
       shared_ptr<string> indexId_ {};
       // The returned page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned on each page.
+      // The returned number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -352,21 +349,20 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data field returned by the operation.
     shared_ptr<ListIndexFileDetailsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

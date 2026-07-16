@@ -74,6 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> tableColumnsShrink_ {};
+    // The table description.
     shared_ptr<string> tableDesc_ {};
     // The table name.
     // 
