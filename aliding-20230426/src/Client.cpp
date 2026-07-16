@@ -7104,6 +7104,80 @@ DocUpdateContentResponse Client::docUpdateContent(const DocUpdateContentRequest 
 }
 
 /**
+ * @summary 场景群升级：向群主发送升级通知卡片
+ *
+ * @param tmpReq EnableSceneGroupTemplateRequest
+ * @param tmpHeader EnableSceneGroupTemplateHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableSceneGroupTemplateResponse
+ */
+EnableSceneGroupTemplateResponse Client::enableSceneGroupTemplateWithOptions(const EnableSceneGroupTemplateRequest &tmpReq, const EnableSceneGroupTemplateHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnableSceneGroupTemplateShrinkRequest request = EnableSceneGroupTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  EnableSceneGroupTemplateShrinkHeaders headers = EnableSceneGroupTemplateShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOpenConversationId()) {
+    body["OpenConversationId"] = request.getOpenConversationId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableSceneGroupTemplate"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/enableSceneGroupTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableSceneGroupTemplateResponse>();
+}
+
+/**
+ * @summary 场景群升级：向群主发送升级通知卡片
+ *
+ * @param request EnableSceneGroupTemplateRequest
+ * @return EnableSceneGroupTemplateResponse
+ */
+EnableSceneGroupTemplateResponse Client::enableSceneGroupTemplate(const EnableSceneGroupTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  EnableSceneGroupTemplateHeaders headers = EnableSceneGroupTemplateHeaders();
+  return enableSceneGroupTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 批量执行宜搭审批任务
  *
  * @param request ExecuteBatchTaskRequest

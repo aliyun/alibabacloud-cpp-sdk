@@ -1513,6 +1513,24 @@ namespace Aliding20230426
       Models::DocUpdateContentResponse docUpdateContent(const Models::DocUpdateContentRequest &request);
 
       /**
+       * @summary 场景群升级：向群主发送升级通知卡片
+       *
+       * @param tmpReq EnableSceneGroupTemplateRequest
+       * @param tmpHeader EnableSceneGroupTemplateHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSceneGroupTemplateResponse
+       */
+      Models::EnableSceneGroupTemplateResponse enableSceneGroupTemplateWithOptions(const Models::EnableSceneGroupTemplateRequest &tmpReq, const Models::EnableSceneGroupTemplateHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 场景群升级：向群主发送升级通知卡片
+       *
+       * @param request EnableSceneGroupTemplateRequest
+       * @return EnableSceneGroupTemplateResponse
+       */
+      Models::EnableSceneGroupTemplateResponse enableSceneGroupTemplate(const Models::EnableSceneGroupTemplateRequest &request);
+
+      /**
        * @summary 批量执行宜搭审批任务
        *
        * @param request ExecuteBatchTaskRequest

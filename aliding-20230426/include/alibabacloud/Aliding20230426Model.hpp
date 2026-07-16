@@ -487,6 +487,12 @@
 #include <alibabacloud/models/DocUpdateContentShrinkRequest.hpp>
 #include <alibabacloud/models/DocUpdateContentResponseBody.hpp>
 #include <alibabacloud/models/DocUpdateContentResponse.hpp>
+#include <alibabacloud/models/EnableSceneGroupTemplateHeaders.hpp>
+#include <alibabacloud/models/EnableSceneGroupTemplateShrinkHeaders.hpp>
+#include <alibabacloud/models/EnableSceneGroupTemplateRequest.hpp>
+#include <alibabacloud/models/EnableSceneGroupTemplateShrinkRequest.hpp>
+#include <alibabacloud/models/EnableSceneGroupTemplateResponseBody.hpp>
+#include <alibabacloud/models/EnableSceneGroupTemplateResponse.hpp>
 #include <alibabacloud/models/ExecuteBatchTaskHeaders.hpp>
 #include <alibabacloud/models/ExecuteBatchTaskShrinkHeaders.hpp>
 #include <alibabacloud/models/ExecuteBatchTaskRequest.hpp>
