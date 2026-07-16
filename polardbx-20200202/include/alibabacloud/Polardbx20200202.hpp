@@ -496,6 +496,27 @@ namespace Polardbx20200202
       Models::CreateSQLEvaluateTaskResponse createSQLEvaluateTask(const Models::CreateSQLEvaluateTaskRequest &request);
 
       /**
+       * @summary Creates a service account.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateServiceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceAccountResponse
+       */
+      Models::CreateServiceAccountResponse createServiceAccountWithOptions(const Models::CreateServiceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a service account.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request CreateServiceAccountRequest
+       * @return CreateServiceAccountResponse
+       */
+      Models::CreateServiceAccountResponse createServiceAccount(const Models::CreateServiceAccountRequest &request);
+
+      /**
        * @summary Creates a resource storage pool.
        *
        * @param request CreateStoragePoolRequest
@@ -756,6 +777,27 @@ namespace Polardbx20200202
        * @return DeletePolardbxSupabaseInstanceResponse
        */
       Models::DeletePolardbxSupabaseInstanceResponse deletePolardbxSupabaseInstance(const Models::DeletePolardbxSupabaseInstanceRequest &request);
+
+      /**
+       * @summary Deletes a service account.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DeleteServiceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServiceAccountResponse
+       */
+      Models::DeleteServiceAccountResponse deleteServiceAccountWithOptions(const Models::DeleteServiceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a service account.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DeleteServiceAccountRequest
+       * @return DeleteServiceAccountResponse
+       */
+      Models::DeleteServiceAccountResponse deleteServiceAccount(const Models::DeleteServiceAccountRequest &request);
 
       /**
        * @summary 删除自定义地址
@@ -1737,6 +1779,27 @@ namespace Polardbx20200202
       Models::DescribeSecurityIpsResponse describeSecurityIps(const Models::DescribeSecurityIpsRequest &request);
 
       /**
+       * @summary Queries the status of a service account.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DescribeServiceAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeServiceAccountResponse
+       */
+      Models::DescribeServiceAccountResponse describeServiceAccountWithOptions(const Models::DescribeServiceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status of a service account.
+       *
+       * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+       *
+       * @param request DescribeServiceAccountRequest
+       * @return DescribeServiceAccountResponse
+       */
+      Models::DescribeServiceAccountResponse describeServiceAccount(const Models::DescribeServiceAccountRequest &request);
+
+      /**
        * @summary Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
        *
        * @param request DescribeShowStorageInfoRequest
@@ -2081,6 +2144,27 @@ namespace Polardbx20200202
        * @return EnableSqlAuditResponse
        */
       Models::EnableSqlAuditResponse enableSqlAudit(const Models::EnableSqlAuditRequest &request);
+
+      /**
+       * @summary Executes a metadata query.
+       *
+       * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+       *
+       * @param request ExecuteMetaQueryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteMetaQueryResponse
+       */
+      Models::ExecuteMetaQueryResponse executeMetaQueryWithOptions(const Models::ExecuteMetaQueryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes a metadata query.
+       *
+       * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+       *
+       * @param request ExecuteMetaQueryRequest
+       * @return ExecuteMetaQueryResponse
+       */
+      Models::ExecuteMetaQueryResponse executeMetaQuery(const Models::ExecuteMetaQueryRequest &request);
 
       /**
        * @summary Retrieves a list of labels.

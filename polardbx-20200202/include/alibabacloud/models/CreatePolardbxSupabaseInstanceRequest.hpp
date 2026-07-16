@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
       DARABONBA_PTR_TO_JSON(DbInstanceDescription, dbInstanceDescription_);
       DARABONBA_PTR_TO_JSON(DbPassword, dbPassword_);
+      DARABONBA_PTR_TO_JSON(NodeSpec, nodeSpec_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
       DARABONBA_PTR_FROM_JSON(DbInstanceDescription, dbInstanceDescription_);
       DARABONBA_PTR_FROM_JSON(DbPassword, dbPassword_);
+      DARABONBA_PTR_FROM_JSON(NodeSpec, nodeSpec_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && this->clientToken_ == nullptr && this->dashboardPassword_ == nullptr && this->dbInstanceDescription_ == nullptr && this->dbPassword_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tenantMode_ == nullptr && this->usedTime_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dashboardPassword_ == nullptr && this->dbInstanceDescription_ == nullptr && this->dbPassword_ == nullptr && this->nodeSpec_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tenantMode_ == nullptr
+        && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     void deleteDbPassword() { this->dbPassword_ = nullptr;};
     inline string getDbPassword() const { DARABONBA_PTR_GET_DEFAULT(dbPassword_, "") };
     inline CreatePolardbxSupabaseInstanceRequest& setDbPassword(string dbPassword) { DARABONBA_PTR_SET_VALUE(dbPassword_, dbPassword) };
+
+
+    // nodeSpec Field Functions 
+    bool hasNodeSpec() const { return this->nodeSpec_ != nullptr;};
+    void deleteNodeSpec() { this->nodeSpec_ = nullptr;};
+    inline string getNodeSpec() const { DARABONBA_PTR_GET_DEFAULT(nodeSpec_, "") };
+    inline CreatePolardbxSupabaseInstanceRequest& setNodeSpec(string nodeSpec) { DARABONBA_PTR_SET_VALUE(nodeSpec_, nodeSpec) };
 
 
     // payType Field Functions 
@@ -172,6 +181,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbPassword_ {};
+    // The node specifications.
+    shared_ptr<string> nodeSpec_ {};
     // The billing type. Valid values:
     // - PREPAY: subscription.
     // - POSTPAY: pay-as-you-go.

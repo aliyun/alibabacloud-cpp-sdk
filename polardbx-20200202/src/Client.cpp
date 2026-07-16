@@ -1583,6 +1583,10 @@ CreatePolardbxSupabaseInstanceResponse Client::createPolardbxSupabaseInstanceWit
     query["DbPassword"] = request.getDbPassword();
   }
 
+  if (!!request.hasNodeSpec()) {
+    query["NodeSpec"] = request.getNodeSpec();
+  }
+
   if (!!request.hasPayType()) {
     query["PayType"] = request.getPayType();
   }
@@ -1811,6 +1815,60 @@ CreateSQLEvaluateTaskResponse Client::createSQLEvaluateTaskWithOptions(const Cre
 CreateSQLEvaluateTaskResponse Client::createSQLEvaluateTask(const CreateSQLEvaluateTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSQLEvaluateTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a service account.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateServiceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceAccountResponse
+ */
+CreateServiceAccountResponse Client::createServiceAccountWithOptions(const CreateServiceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceAccountType()) {
+    query["ServiceAccountType"] = request.getServiceAccountType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateServiceAccount"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceAccountResponse>();
+}
+
+/**
+ * @summary Creates a service account.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request CreateServiceAccountRequest
+ * @return CreateServiceAccountResponse
+ */
+CreateServiceAccountResponse Client::createServiceAccount(const CreateServiceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createServiceAccountWithOptions(request, runtime);
 }
 
 /**
@@ -2549,6 +2607,60 @@ DeletePolardbxSupabaseInstanceResponse Client::deletePolardbxSupabaseInstanceWit
 DeletePolardbxSupabaseInstanceResponse Client::deletePolardbxSupabaseInstance(const DeletePolardbxSupabaseInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePolardbxSupabaseInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a service account.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DeleteServiceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteServiceAccountResponse
+ */
+DeleteServiceAccountResponse Client::deleteServiceAccountWithOptions(const DeleteServiceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceAccountType()) {
+    query["ServiceAccountType"] = request.getServiceAccountType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteServiceAccount"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteServiceAccountResponse>();
+}
+
+/**
+ * @summary Deletes a service account.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DeleteServiceAccountRequest
+ * @return DeleteServiceAccountResponse
+ */
+DeleteServiceAccountResponse Client::deleteServiceAccount(const DeleteServiceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteServiceAccountWithOptions(request, runtime);
 }
 
 /**
@@ -5284,6 +5396,56 @@ DescribeSecurityIpsResponse Client::describeSecurityIps(const DescribeSecurityIp
 }
 
 /**
+ * @summary Queries the status of a service account.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DescribeServiceAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeServiceAccountResponse
+ */
+DescribeServiceAccountResponse Client::describeServiceAccountWithOptions(const DescribeServiceAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeServiceAccount"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeServiceAccountResponse>();
+}
+
+/**
+ * @summary Queries the status of a service account.
+ *
+ * @description <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+ *
+ * @param request DescribeServiceAccountRequest
+ * @return DescribeServiceAccountResponse
+ */
+DescribeServiceAccountResponse Client::describeServiceAccount(const DescribeServiceAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeServiceAccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
  *
  * @param request DescribeShowStorageInfoRequest
@@ -6309,6 +6471,64 @@ EnableSqlAuditResponse Client::enableSqlAuditWithOptions(const EnableSqlAuditReq
 EnableSqlAuditResponse Client::enableSqlAudit(const EnableSqlAuditRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableSqlAuditWithOptions(request, runtime);
+}
+
+/**
+ * @summary Executes a metadata query.
+ *
+ * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ *
+ * @param request ExecuteMetaQueryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteMetaQueryResponse
+ */
+ExecuteMetaQueryResponse Client::executeMetaQueryWithOptions(const ExecuteMetaQueryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSql()) {
+    query["Sql"] = request.getSql();
+  }
+
+  if (!!request.hasStorageInstId()) {
+    query["StorageInstId"] = request.getStorageInstId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExecuteMetaQuery"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteMetaQueryResponse>();
+}
+
+/**
+ * @summary Executes a metadata query.
+ *
+ * @description Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+ *
+ * @param request ExecuteMetaQueryRequest
+ * @return ExecuteMetaQueryResponse
+ */
+ExecuteMetaQueryResponse Client::executeMetaQuery(const ExecuteMetaQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeMetaQueryWithOptions(request, runtime);
 }
 
 /**

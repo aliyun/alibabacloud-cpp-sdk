@@ -78,6 +78,9 @@
 #include <alibabacloud/models/CreateSQLEvaluateTaskRequest.hpp>
 #include <alibabacloud/models/CreateSQLEvaluateTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateSQLEvaluateTaskResponse.hpp>
+#include <alibabacloud/models/CreateServiceAccountRequest.hpp>
+#include <alibabacloud/models/CreateServiceAccountResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceAccountResponse.hpp>
 #include <alibabacloud/models/CreateStoragePoolRequest.hpp>
 #include <alibabacloud/models/CreateStoragePoolResponseBody.hpp>
 #include <alibabacloud/models/CreateStoragePoolResponse.hpp>
@@ -120,6 +123,9 @@
 #include <alibabacloud/models/DeletePolardbxSupabaseInstanceRequest.hpp>
 #include <alibabacloud/models/DeletePolardbxSupabaseInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeletePolardbxSupabaseInstanceResponse.hpp>
+#include <alibabacloud/models/DeleteServiceAccountRequest.hpp>
+#include <alibabacloud/models/DeleteServiceAccountResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceAccountResponse.hpp>
 #include <alibabacloud/models/DeleteSubCNInstanceRequest.hpp>
 #include <alibabacloud/models/DeleteSubCNInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeleteSubCNInstanceResponse.hpp>
@@ -278,6 +284,9 @@
 #include <alibabacloud/models/DescribeSecurityIpsRequest.hpp>
 #include <alibabacloud/models/DescribeSecurityIpsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSecurityIpsResponse.hpp>
+#include <alibabacloud/models/DescribeServiceAccountRequest.hpp>
+#include <alibabacloud/models/DescribeServiceAccountResponseBody.hpp>
+#include <alibabacloud/models/DescribeServiceAccountResponse.hpp>
 #include <alibabacloud/models/DescribeShowStorageInfoRequest.hpp>
 #include <alibabacloud/models/DescribeShowStorageInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeShowStorageInfoResponse.hpp>
@@ -332,6 +341,9 @@
 #include <alibabacloud/models/EnableSqlAuditRequest.hpp>
 #include <alibabacloud/models/EnableSqlAuditResponseBody.hpp>
 #include <alibabacloud/models/EnableSqlAuditResponse.hpp>
+#include <alibabacloud/models/ExecuteMetaQueryRequest.hpp>
+#include <alibabacloud/models/ExecuteMetaQueryResponseBody.hpp>
+#include <alibabacloud/models/ExecuteMetaQueryResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
