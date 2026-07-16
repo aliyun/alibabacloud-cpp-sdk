@@ -1053,6 +1053,9 @@
 #include <alibabacloud/models/SubmitCopyrightJobShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitCopyrightJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitCopyrightJobResponse.hpp>
+#include <alibabacloud/models/SubmitCosyVoiceCustomizedVoiceJobRequest.hpp>
+#include <alibabacloud/models/SubmitCosyVoiceCustomizedVoiceJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitCosyVoiceCustomizedVoiceJobResponse.hpp>
 #include <alibabacloud/models/SubmitCustomizedVoiceJobRequest.hpp>
 #include <alibabacloud/models/SubmitCustomizedVoiceJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitCustomizedVoiceJobResponse.hpp>

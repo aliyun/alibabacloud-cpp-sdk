@@ -18279,6 +18279,70 @@ SubmitCopyrightJobResponse Client::submitCopyrightJob(const SubmitCopyrightJobRe
 }
 
 /**
+ * @summary Submits a CosyVoice voice cloning training task.
+ *
+ * @description - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is complete and to obtain the training status.
+ * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to query the task status.
+ *
+ * @param request SubmitCosyVoiceCustomizedVoiceJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitCosyVoiceCustomizedVoiceJobResponse
+ */
+SubmitCosyVoiceCustomizedVoiceJobResponse Client::submitCosyVoiceCustomizedVoiceJobWithOptions(const SubmitCosyVoiceCustomizedVoiceJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAudios()) {
+    query["Audios"] = request.getAudios();
+  }
+
+  if (!!request.hasDemoAudioMediaURL()) {
+    query["DemoAudioMediaURL"] = request.getDemoAudioMediaURL();
+  }
+
+  if (!!request.hasGender()) {
+    query["Gender"] = request.getGender();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasVoiceName()) {
+    query["VoiceName"] = request.getVoiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitCosyVoiceCustomizedVoiceJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitCosyVoiceCustomizedVoiceJobResponse>();
+}
+
+/**
+ * @summary Submits a CosyVoice voice cloning training task.
+ *
+ * @description - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is complete and to obtain the training status.
+ * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to query the task status.
+ *
+ * @param request SubmitCosyVoiceCustomizedVoiceJobRequest
+ * @return SubmitCosyVoiceCustomizedVoiceJobResponse
+ */
+SubmitCosyVoiceCustomizedVoiceJobResponse Client::submitCosyVoiceCustomizedVoiceJob(const SubmitCosyVoiceCustomizedVoiceJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitCosyVoiceCustomizedVoiceJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a basic voice cloning job.
  *
  * @description <props="china">
