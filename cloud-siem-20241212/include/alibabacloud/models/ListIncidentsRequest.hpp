@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(IncidentName, incidentName_);
       DARABONBA_PTR_TO_JSON(IncidentStatus, incidentStatus_);
+      DARABONBA_PTR_TO_JSON(IncidentStatusList, incidentStatusList_);
       DARABONBA_PTR_TO_JSON(IncidentTags, incidentTags_);
       DARABONBA_PTR_TO_JSON(IncidentUuids, incidentUuids_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(IncidentName, incidentName_);
       DARABONBA_PTR_FROM_JSON(IncidentStatus, incidentStatus_);
+      DARABONBA_PTR_FROM_JSON(IncidentStatusList, incidentStatusList_);
       DARABONBA_PTR_FROM_JSON(IncidentTags, incidentTags_);
       DARABONBA_PTR_FROM_JSON(IncidentUuids, incidentUuids_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -71,10 +73,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertUuid_ == nullptr
-        && this->endTime_ == nullptr && this->incidentName_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr && this->incidentUuids_ == nullptr
-        && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderDirection_ == nullptr && this->orderFieldName_ == nullptr
-        && this->owners_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->relateAssetId_ == nullptr
-        && this->relateEntityId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr && this->startTime_ == nullptr && this->threatLevel_ == nullptr; };
+        && this->endTime_ == nullptr && this->incidentName_ == nullptr && this->incidentStatus_ == nullptr && this->incidentStatusList_ == nullptr && this->incidentTags_ == nullptr
+        && this->incidentUuids_ == nullptr && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderDirection_ == nullptr
+        && this->orderFieldName_ == nullptr && this->owners_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->relateAssetId_ == nullptr && this->relateEntityId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr && this->startTime_ == nullptr
+        && this->threatLevel_ == nullptr; };
     // alertUuid Field Functions 
     bool hasAlertUuid() const { return this->alertUuid_ != nullptr;};
     void deleteAlertUuid() { this->alertUuid_ = nullptr;};
@@ -101,6 +104,15 @@ namespace Models
     void deleteIncidentStatus() { this->incidentStatus_ = nullptr;};
     inline int32_t getIncidentStatus() const { DARABONBA_PTR_GET_DEFAULT(incidentStatus_, 0) };
     inline ListIncidentsRequest& setIncidentStatus(int32_t incidentStatus) { DARABONBA_PTR_SET_VALUE(incidentStatus_, incidentStatus) };
+
+
+    // incidentStatusList Field Functions 
+    bool hasIncidentStatusList() const { return this->incidentStatusList_ != nullptr;};
+    void deleteIncidentStatusList() { this->incidentStatusList_ = nullptr;};
+    inline const vector<string> & getIncidentStatusList() const { DARABONBA_PTR_GET_CONST(incidentStatusList_, vector<string>) };
+    inline vector<string> getIncidentStatusList() { DARABONBA_PTR_GET(incidentStatusList_, vector<string>) };
+    inline ListIncidentsRequest& setIncidentStatusList(const vector<string> & incidentStatusList) { DARABONBA_PTR_SET_VALUE(incidentStatusList_, incidentStatusList) };
+    inline ListIncidentsRequest& setIncidentStatusList(vector<string> && incidentStatusList) { DARABONBA_PTR_SET_RVALUE(incidentStatusList_, incidentStatusList) };
 
 
     // incidentTags Field Functions 
@@ -231,37 +243,38 @@ namespace Models
   protected:
     // The alert ID.
     shared_ptr<string> alertUuid_ {};
-    // The end time as a timestamp in milliseconds (ms).
+    // The end time as a UNIX timestamp in milliseconds (ms).
     shared_ptr<int64_t> endTime_ {};
-    // The name of the incident.
+    // The event name.
     shared_ptr<string> incidentName_ {};
-    // The status of the incident. Valid values:
-    // - 0: unhandled.
-    // - 1: handling.
-    // - 5: handling failed.
-    // - 10: handled.
+    // The event status. Valid values:
+    // - 0: Unhandled.
+    // - 1: Handling.
+    // - 5: Handling failed.
+    // - 10: Handled.
     shared_ptr<int32_t> incidentStatus_ {};
-    // The tags of the incident.
+    shared_ptr<vector<string>> incidentStatusList_ {};
+    // The event tags.
     shared_ptr<string> incidentTags_ {};
-    // The list of incident UUIDs, separated by commas (,).
+    // The list of event UUIDs, separated by commas (,).
     shared_ptr<vector<string>> incidentUuids_ {};
-    // The language of the response. Valid values:
+    // The language type of the response messages. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The sort direction. Valid values:
-    // - **desc** (default): descending order.
-    // - **asc**: ascending order.
+    // - **desc** (default): Descending order.
+    // - **asc**: Ascending order.
     shared_ptr<string> orderDirection_ {};
-    // The field name used to sort the list. Valid values:
-    // - GmtModified: sorts by incident update time (default).
-    // - ThreatScore: sorts by threat score.
+    // The name of the field used to sort the list.
+    // - GmtModified: Event update time (default).
+    // - ThreatScore: Threat score.
     shared_ptr<string> orderFieldName_ {};
-    // The UID of the account that owns the incident.
+    // The UID of the account responsible for the event.
     shared_ptr<vector<string>> owners_ {};
     // The page number.
     // 
@@ -271,28 +284,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside outside China.
+    // The region where the threat analysis data management center is located. Select the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets are located in the Chinese mainland.
+    // - ap-southeast-1: Your assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the asset associated with the incident.
+    // The ID of the asset associated with the event.
     shared_ptr<string> relateAssetId_ {};
-    // The ID of the entity associated with the incident.
+    // The ID of the entity associated with the event.
     shared_ptr<string> relateEntityId_ {};
     // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // - 0: the view of the current Alibaba Cloud account.
-    // - 1: the view of all accounts in the enterprise.
+    // - 0: The view of the current Alibaba Cloud account.
+    // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // The start time as a timestamp in milliseconds (ms).
+    // The start time as a UNIX timestamp in milliseconds (ms).
     shared_ptr<int64_t> startTime_ {};
     // The threat level. Valid values:
-    // - 5: critical.
-    // - 4: high.
-    // - 3: medium.
-    // - 2: low.
-    // - 1: informational.
+    // - 5: Critical.
+    // - 4: High.
+    // - 3: Medium.
+    // - 2: Low.
+    // - 1: Informational.
     shared_ptr<vector<string>> threatLevel_ {};
   };
 

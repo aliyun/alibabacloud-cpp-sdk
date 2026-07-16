@@ -438,6 +438,27 @@ namespace CloudSiem20241212
       Models::DeleteNormalizationRuleVersionResponse deleteNormalizationRuleVersion(const Models::DeleteNormalizationRuleVersionRequest &request);
 
       /**
+       * @summary Deletes a normalization schema.
+       *
+       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       *
+       * @param request DeleteNormalizationSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteNormalizationSchemaResponse
+       */
+      Models::DeleteNormalizationSchemaResponse deleteNormalizationSchemaWithOptions(const Models::DeleteNormalizationSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a normalization schema.
+       *
+       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       *
+       * @param request DeleteNormalizationSchemaRequest
+       * @return DeleteNormalizationSchemaResponse
+       */
+      Models::DeleteNormalizationSchemaResponse deleteNormalizationSchema(const Models::DeleteNormalizationSchemaRequest &request);
+
+      /**
        * @summary Deletes a product.
        *
        * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is provided to help you create the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
@@ -1070,7 +1091,7 @@ namespace CloudSiem20241212
        * @summary Retrieves a list of events.
        *
        * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
        *
        * @param tmpReq ListIncidentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1082,7 +1103,7 @@ namespace CloudSiem20241212
        * @summary Retrieves a list of events.
        *
        * @description Notifications are subject to frequency and time restrictions.
-       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+       * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
        *
        * @param request ListIncidentsRequest
        * @return ListIncidentsResponse
@@ -1617,6 +1638,29 @@ namespace CloudSiem20241212
        * @return UpdateDataBatchIngestionResponse
        */
       Models::UpdateDataBatchIngestionResponse updateDataBatchIngestion(const Models::UpdateDataBatchIngestionRequest &request);
+
+      /**
+       * @summary Updates a collector.
+       *
+       * @description Notifications are subject to frequency and time restrictions.
+       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+       *
+       * @param request UpdateDataConnectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataConnectorResponse
+       */
+      Models::UpdateDataConnectorResponse updateDataConnectorWithOptions(const Models::UpdateDataConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a collector.
+       *
+       * @description Notifications are subject to frequency and time restrictions.
+       * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+       *
+       * @param request UpdateDataConnectorRequest
+       * @return UpdateDataConnectorResponse
+       */
+      Models::UpdateDataConnectorResponse updateDataConnector(const Models::UpdateDataConnectorRequest &request);
 
       /**
        * @summary Updates a data ingestion policy.

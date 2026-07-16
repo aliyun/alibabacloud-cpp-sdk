@@ -45,8 +45,12 @@ namespace Models
     class Incidents : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Incidents& obj) { 
+        DARABONBA_PTR_TO_JSON(AlertInfos, alertInfos_);
+        DARABONBA_PTR_TO_JSON(AttckTactics, attckTactics_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DetectionRuleId, detectionRuleId_);
+        DARABONBA_PTR_TO_JSON(EntityInfos, entityInfos_);
+        DARABONBA_PTR_TO_JSON(IncidentDescription, incidentDescription_);
         DARABONBA_PTR_TO_JSON(IncidentName, incidentName_);
         DARABONBA_PTR_TO_JSON(IncidentRemark, incidentRemark_);
         DARABONBA_PTR_TO_JSON(IncidentStatus, incidentStatus_);
@@ -60,8 +64,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, Incidents& obj) { 
+        DARABONBA_PTR_FROM_JSON(AlertInfos, alertInfos_);
+        DARABONBA_PTR_FROM_JSON(AttckTactics, attckTactics_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DetectionRuleId, detectionRuleId_);
+        DARABONBA_PTR_FROM_JSON(EntityInfos, entityInfos_);
+        DARABONBA_PTR_FROM_JSON(IncidentDescription, incidentDescription_);
         DARABONBA_PTR_FROM_JSON(IncidentName, incidentName_);
         DARABONBA_PTR_FROM_JSON(IncidentRemark, incidentRemark_);
         DARABONBA_PTR_FROM_JSON(IncidentStatus, incidentStatus_);
@@ -85,10 +93,25 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->detectionRuleId_ == nullptr && this->incidentName_ == nullptr && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr
-        && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->responseTime_ == nullptr
-        && this->threatLevel_ == nullptr && this->updateTime_ == nullptr; };
+      virtual bool empty() const override { return this->alertInfos_ == nullptr
+        && this->attckTactics_ == nullptr && this->createTime_ == nullptr && this->detectionRuleId_ == nullptr && this->entityInfos_ == nullptr && this->incidentDescription_ == nullptr
+        && this->incidentName_ == nullptr && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr && this->incidentUuid_ == nullptr
+        && this->owner_ == nullptr && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->responseTime_ == nullptr && this->threatLevel_ == nullptr
+        && this->updateTime_ == nullptr; };
+      // alertInfos Field Functions 
+      bool hasAlertInfos() const { return this->alertInfos_ != nullptr;};
+      void deleteAlertInfos() { this->alertInfos_ = nullptr;};
+      inline string getAlertInfos() const { DARABONBA_PTR_GET_DEFAULT(alertInfos_, "") };
+      inline Incidents& setAlertInfos(string alertInfos) { DARABONBA_PTR_SET_VALUE(alertInfos_, alertInfos) };
+
+
+      // attckTactics Field Functions 
+      bool hasAttckTactics() const { return this->attckTactics_ != nullptr;};
+      void deleteAttckTactics() { this->attckTactics_ = nullptr;};
+      inline string getAttckTactics() const { DARABONBA_PTR_GET_DEFAULT(attckTactics_, "") };
+      inline Incidents& setAttckTactics(string attckTactics) { DARABONBA_PTR_SET_VALUE(attckTactics_, attckTactics) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -101,6 +124,20 @@ namespace Models
       void deleteDetectionRuleId() { this->detectionRuleId_ = nullptr;};
       inline string getDetectionRuleId() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleId_, "") };
       inline Incidents& setDetectionRuleId(string detectionRuleId) { DARABONBA_PTR_SET_VALUE(detectionRuleId_, detectionRuleId) };
+
+
+      // entityInfos Field Functions 
+      bool hasEntityInfos() const { return this->entityInfos_ != nullptr;};
+      void deleteEntityInfos() { this->entityInfos_ = nullptr;};
+      inline string getEntityInfos() const { DARABONBA_PTR_GET_DEFAULT(entityInfos_, "") };
+      inline Incidents& setEntityInfos(string entityInfos) { DARABONBA_PTR_SET_VALUE(entityInfos_, entityInfos) };
+
+
+      // incidentDescription Field Functions 
+      bool hasIncidentDescription() const { return this->incidentDescription_ != nullptr;};
+      void deleteIncidentDescription() { this->incidentDescription_ = nullptr;};
+      inline string getIncidentDescription() const { DARABONBA_PTR_GET_DEFAULT(incidentDescription_, "") };
+      inline Incidents& setIncidentDescription(string incidentDescription) { DARABONBA_PTR_SET_VALUE(incidentDescription_, incidentDescription) };
 
 
       // incidentName Field Functions 
@@ -181,38 +218,42 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> alertInfos_ {};
+      shared_ptr<string> attckTactics_ {};
       // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the detection rule.
+      // The detection rule ID.
       shared_ptr<string> detectionRuleId_ {};
-      // The name of the incident.
+      shared_ptr<string> entityInfos_ {};
+      shared_ptr<string> incidentDescription_ {};
+      // The event name.
       shared_ptr<string> incidentName_ {};
-      // The remarks of the incident.
+      // The event remark.
       shared_ptr<string> incidentRemark_ {};
-      // The status of the incident. Valid values:
-      // - 0: unhandled.
-      // - 1: handling.
-      // - 5: handling failed.
-      // - 10: handled.
+      // The event status. Valid values:
+      // - 0: Unhandled.
+      // - 1: Handling.
+      // - 5: Handling failed.
+      // - 10: Handled.
       shared_ptr<int32_t> incidentStatus_ {};
-      // The tags of the incident.
+      // The event tags.
       shared_ptr<string> incidentTags_ {};
-      // The UUID of the incident.
+      // The event UUID.
       shared_ptr<string> incidentUuid_ {};
-      // The UID of the account that owns the incident.
+      // The UID of the account responsible for the event.
       shared_ptr<string> owner_ {};
-      // The number of alerts associated with the incident.
+      // The number of alerts associated with the event.
       shared_ptr<int32_t> relateAlertCount_ {};
-      // The number of assets associated with the incident.
+      // The number of assets associated with the event.
       shared_ptr<int32_t> relateAssetCount_ {};
       // The response time, in milliseconds (ms).
       shared_ptr<int64_t> responseTime_ {};
       // The threat level. Valid values:
-      // - 5: critical.
-      // - 4: high.
-      // - 3: medium.
-      // - 2: low.
-      // - 1: informational.
+      // - 5: Critical.
+      // - 4: High.
+      // - 3: Medium.
+      // - 2: Low.
+      // - 1: Informational.
       shared_ptr<string> threatLevel_ {};
       // The update time.
       shared_ptr<int64_t> updateTime_ {};
@@ -273,11 +314,11 @@ namespace Models
 
 
   protected:
-    // The list of incidents.
+    // The list of events.
     shared_ptr<vector<ListIncidentsResponseBody::Incidents>> incidents_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

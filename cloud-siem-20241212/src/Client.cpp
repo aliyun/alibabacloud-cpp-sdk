@@ -1678,6 +1678,68 @@ DeleteNormalizationRuleVersionResponse Client::deleteNormalizationRuleVersion(co
 }
 
 /**
+ * @summary Deletes a normalization schema.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ *
+ * @param request DeleteNormalizationSchemaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteNormalizationSchemaResponse
+ */
+DeleteNormalizationSchemaResponse Client::deleteNormalizationSchemaWithOptions(const DeleteNormalizationSchemaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasNormalizationSchemaId()) {
+    body["NormalizationSchemaId"] = request.getNormalizationSchemaId();
+  }
+
+  if (!!request.hasNormalizationSchemaType()) {
+    body["NormalizationSchemaType"] = request.getNormalizationSchemaType();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteNormalizationSchema"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteNormalizationSchemaResponse>();
+}
+
+/**
+ * @summary Deletes a normalization schema.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ *
+ * @param request DeleteNormalizationSchemaRequest
+ * @return DeleteNormalizationSchemaResponse
+ */
+DeleteNormalizationSchemaResponse Client::deleteNormalizationSchema(const DeleteNormalizationSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteNormalizationSchemaWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a product.
  *
  * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is provided to help you create the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
@@ -3907,7 +3969,7 @@ ListDetectionRulesResponse Client::listDetectionRules(const ListDetectionRulesRe
  * @summary Retrieves a list of events.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+ * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param tmpReq ListIncidentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3941,6 +4003,10 @@ ListIncidentsResponse Client::listIncidentsWithOptions(const ListIncidentsReques
 
   if (!!request.hasIncidentStatus()) {
     body["IncidentStatus"] = request.getIncidentStatus();
+  }
+
+  if (!!request.hasIncidentStatusList()) {
+    body["IncidentStatusList"] = request.getIncidentStatusList();
   }
 
   if (!!request.hasIncidentTags()) {
@@ -4029,7 +4095,7 @@ ListIncidentsResponse Client::listIncidentsWithOptions(const ListIncidentsReques
  * @summary Retrieves a list of events.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+ * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListIncidentsRequest
  * @return ListIncidentsResponse
@@ -5841,6 +5907,86 @@ UpdateDataBatchIngestionResponse Client::updateDataBatchIngestionWithOptions(con
 UpdateDataBatchIngestionResponse Client::updateDataBatchIngestion(const UpdateDataBatchIngestionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataBatchIngestionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a collector.
+ *
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+ *
+ * @param request UpdateDataConnectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataConnectorResponse
+ */
+UpdateDataConnectorResponse Client::updateDataConnectorWithOptions(const UpdateDataConnectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAuthConfigId()) {
+    body["AuthConfigId"] = request.getAuthConfigId();
+  }
+
+  if (!!request.hasAuthConfigProduct()) {
+    body["AuthConfigProduct"] = request.getAuthConfigProduct();
+  }
+
+  if (!!request.hasAuthConfigVendor()) {
+    body["AuthConfigVendor"] = request.getAuthConfigVendor();
+  }
+
+  if (!!request.hasDataConnectorConfig()) {
+    body["DataConnectorConfig"] = request.getDataConnectorConfig();
+  }
+
+  if (!!request.hasDataConnectorId()) {
+    body["DataConnectorId"] = request.getDataConnectorId();
+  }
+
+  if (!!request.hasDataConnectorStatus()) {
+    body["DataConnectorStatus"] = request.getDataConnectorStatus();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataConnector"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataConnectorResponse>();
+}
+
+/**
+ * @summary Updates a collector.
+ *
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+ *
+ * @param request UpdateDataConnectorRequest
+ * @return UpdateDataConnectorResponse
+ */
+UpdateDataConnectorResponse Client::updateDataConnector(const UpdateDataConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataConnectorWithOptions(request, runtime);
 }
 
 /**

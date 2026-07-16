@@ -67,6 +67,9 @@
 #include <alibabacloud/models/DeleteNormalizationRuleVersionRequest.hpp>
 #include <alibabacloud/models/DeleteNormalizationRuleVersionResponseBody.hpp>
 #include <alibabacloud/models/DeleteNormalizationRuleVersionResponse.hpp>
+#include <alibabacloud/models/DeleteNormalizationSchemaRequest.hpp>
+#include <alibabacloud/models/DeleteNormalizationSchemaResponseBody.hpp>
+#include <alibabacloud/models/DeleteNormalizationSchemaResponse.hpp>
 #include <alibabacloud/models/DeleteProductRequest.hpp>
 #include <alibabacloud/models/DeleteProductResponseBody.hpp>
 #include <alibabacloud/models/DeleteProductResponse.hpp>
@@ -252,6 +255,9 @@
 #include <alibabacloud/models/UpdateDataBatchIngestionShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDataBatchIngestionResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataBatchIngestionResponse.hpp>
+#include <alibabacloud/models/UpdateDataConnectorRequest.hpp>
+#include <alibabacloud/models/UpdateDataConnectorResponseBody.hpp>
+#include <alibabacloud/models/UpdateDataConnectorResponse.hpp>
 #include <alibabacloud/models/UpdateDataIngestionRequest.hpp>
 #include <alibabacloud/models/UpdateDataIngestionResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataIngestionResponse.hpp>
