@@ -1211,6 +1211,9 @@
 #include <alibabacloud/models/RestartDBNodeZonalRequest.hpp>
 #include <alibabacloud/models/RestartDBNodeZonalResponseBody.hpp>
 #include <alibabacloud/models/RestartDBNodeZonalResponse.hpp>
+#include <alibabacloud/models/RestartPolarClawGatewayRequest.hpp>
+#include <alibabacloud/models/RestartPolarClawGatewayResponseBody.hpp>
+#include <alibabacloud/models/RestartPolarClawGatewayResponse.hpp>
 #include <alibabacloud/models/RestoreTableRequest.hpp>
 #include <alibabacloud/models/RestoreTableResponseBody.hpp>
 #include <alibabacloud/models/RestoreTableResponse.hpp>

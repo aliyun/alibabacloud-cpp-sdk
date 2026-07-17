@@ -10403,9 +10403,9 @@ DescribeApikeyAttributeResponse Client::describeApikeyAttribute(const DescribeAp
 }
 
 /**
- * @summary Retrieves the details of a specific application in a PolarDB instance.
+ * @summary Retrieves the detailed information of a specified PolarDB application.
  *
- * @description Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+ * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10436,9 +10436,9 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttributeWithOpt
 }
 
 /**
- * @summary Retrieves the details of a specific application in a PolarDB instance.
+ * @summary Retrieves the detailed information of a specified PolarDB application.
  *
- * @description Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+ * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
  *
  * @param request DescribeApplicationAttributeRequest
  * @return DescribeApplicationAttributeResponse
@@ -27763,6 +27763,52 @@ RestartDBNodeZonalResponse Client::restartDBNodeZonalWithOptions(const RestartDB
 RestartDBNodeZonalResponse Client::restartDBNodeZonal(const RestartDBNodeZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartDBNodeZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restarts a PolarClaw gateway.
+ *
+ * @param request RestartPolarClawGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartPolarClawGatewayResponse
+ */
+RestartPolarClawGatewayResponse Client::restartPolarClawGatewayWithOptions(const RestartPolarClawGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasMode()) {
+    query["Mode"] = request.getMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartPolarClawGateway"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartPolarClawGatewayResponse>();
+}
+
+/**
+ * @summary Restarts a PolarClaw gateway.
+ *
+ * @param request RestartPolarClawGatewayRequest
+ * @return RestartPolarClawGatewayResponse
+ */
+RestartPolarClawGatewayResponse Client::restartPolarClawGateway(const RestartPolarClawGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartPolarClawGatewayWithOptions(request, runtime);
 }
 
 /**

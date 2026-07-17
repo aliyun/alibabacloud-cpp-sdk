@@ -2768,9 +2768,9 @@ namespace Polardb20170801
       Models::DescribeApikeyAttributeResponse describeApikeyAttribute(const Models::DescribeApikeyAttributeRequest &request);
 
       /**
-       * @summary Retrieves the details of a specific application in a PolarDB instance.
+       * @summary Retrieves the detailed information of a specified PolarDB application.
        *
-       * @description Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+       * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2779,9 +2779,9 @@ namespace Polardb20170801
       Models::DescribeApplicationAttributeResponse describeApplicationAttributeWithOptions(const Models::DescribeApplicationAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specific application in a PolarDB instance.
+       * @summary Retrieves the detailed information of a specified PolarDB application.
        *
-       * @description Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+       * @description This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
        *
        * @param request DescribeApplicationAttributeRequest
        * @return DescribeApplicationAttributeResponse
@@ -7345,6 +7345,23 @@ namespace Polardb20170801
        * @return RestartDBNodeZonalResponse
        */
       Models::RestartDBNodeZonalResponse restartDBNodeZonal(const Models::RestartDBNodeZonalRequest &request);
+
+      /**
+       * @summary Restarts a PolarClaw gateway.
+       *
+       * @param request RestartPolarClawGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartPolarClawGatewayResponse
+       */
+      Models::RestartPolarClawGatewayResponse restartPolarClawGatewayWithOptions(const Models::RestartPolarClawGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restarts a PolarClaw gateway.
+       *
+       * @param request RestartPolarClawGatewayRequest
+       * @return RestartPolarClawGatewayResponse
+       */
+      Models::RestartPolarClawGatewayResponse restartPolarClawGateway(const Models::RestartPolarClawGatewayRequest &request);
 
       /**
        * @summary Restores databases or tables to a PolarDB cluster.

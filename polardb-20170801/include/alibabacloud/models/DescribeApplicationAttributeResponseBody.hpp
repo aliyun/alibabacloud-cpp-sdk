@@ -158,7 +158,7 @@ namespace Models
       shared_ptr<string> storageCapacity_ {};
       // The storage instance ID.
       shared_ptr<string> storageInstanceId_ {};
-      // The storage performance level.
+      // The storage performance level (PL).
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage type.
       shared_ptr<string> storageType_ {};
@@ -229,15 +229,15 @@ namespace Models
 
 
     protected:
-      // The name of the IP address group. The default value is `default`.
+      // The name of the IP address group. Default value: `default`.
       shared_ptr<string> securityIPArrayName_ {};
       // The tag of the IP address group.
       shared_ptr<string> securityIPArrayTag_ {};
-      // The whitelisted IP addresses, separated by commas.
+      // The IP addresses in the whitelist, separated by commas (,).
       shared_ptr<string> securityIPList_ {};
-      // The network type of the whitelisted IP addresses. The default value is `mix`.
+      // The network type of the whitelisted IP addresses. Default value: `mix`.
       shared_ptr<string> securityIPNetType_ {};
-      // The IP address type.
+      // The type of the IP address.
       shared_ptr<string> securityIPType_ {};
     };
 
@@ -297,15 +297,15 @@ namespace Models
 
 
     protected:
-      // The network type. The value is:
+      // The network type. Valid values: 
       // 
       // - vpc
       shared_ptr<string> netType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The security group name.
+      // The name of the security group.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -360,7 +360,6 @@ namespace Models
     protected:
       // The authentication callback URL.
       shared_ptr<string> authCallbackURL_ {};
-      // The enabled authentication providers.
       shared_ptr<vector<string>> authProviders_ {};
       // The Supabase cluster ID.
       shared_ptr<string> supabaseClusterId_ {};
@@ -452,15 +451,14 @@ namespace Models
     protected:
       // The database name.
       shared_ptr<string> dbName_ {};
-      // The name of the embedder model.
+      // The embedder model name.
       shared_ptr<string> embedderModelName_ {};
-      // The name of the graph LLM model.
       shared_ptr<string> graphLlmModelName_ {};
-      // The name of the LLM model.
+      // The LLM model name.
       shared_ptr<string> llmModelName_ {};
-      // The project name. It corresponds to the database schema where project data is stored.
+      // The project name, which corresponds to the schema that stores project data in the database.
       shared_ptr<string> projectName_ {};
-      // The name of the reranker model.
+      // The reranker model name.
       shared_ptr<string> rerankerModelName_ {};
       // The username.
       shared_ptr<string> userName_ {};
@@ -470,6 +468,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Endpoints& obj) { 
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(EndpointId, endpointId_);
         DARABONBA_PTR_TO_JSON(IP, IP_);
         DARABONBA_PTR_TO_JSON(NetType, netType_);
@@ -478,6 +477,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Endpoints& obj) { 
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(EndpointId, endpointId_);
         DARABONBA_PTR_FROM_JSON(IP, IP_);
         DARABONBA_PTR_FROM_JSON(NetType, netType_);
@@ -496,12 +496,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->endpointId_ == nullptr && this->IP_ == nullptr && this->netType_ == nullptr && this->port_ == nullptr && this->portDescription_ == nullptr; };
+        && this->domain_ == nullptr && this->endpointId_ == nullptr && this->IP_ == nullptr && this->netType_ == nullptr && this->port_ == nullptr
+        && this->portDescription_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Endpoints& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // domain Field Functions 
+      bool hasDomain() const { return this->domain_ != nullptr;};
+      void deleteDomain() { this->domain_ = nullptr;};
+      inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+      inline Endpoints& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
       // endpointId Field Functions 
@@ -540,17 +548,16 @@ namespace Models
 
 
     protected:
-      // The endpoint description.
+      // The description of the endpoint.
       shared_ptr<string> description_ {};
+      shared_ptr<string> domain_ {};
       // The endpoint ID.
       shared_ptr<string> endpointId_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
       // The endpoint type. Valid values:
-      // 
-      // - Private: a VPC endpoint
-      // 
-      // - Public: a public endpoint
+      // - Private: VPC endpoint.
+      // - Public: public endpoint.
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
@@ -648,11 +655,11 @@ namespace Models
 
 
       protected:
-        // The IDs or component types of the child nodes for this child component.
+        // The list of child node IDs or child node component types in the topology of the current application subcomponent.
         shared_ptr<vector<string>> children_ {};
-        // The topology layer of the child component.
+        // The topology layer of the current application subcomponent.
         shared_ptr<string> layer_ {};
-        // The IDs or component types of the parent nodes for this child component.
+        // The list of parent node IDs or parent node component types in the topology of the current application subcomponent.
         shared_ptr<vector<string>> parents_ {};
       };
 
@@ -721,15 +728,15 @@ namespace Models
 
 
       protected:
-        // The name of the IP address group. The default value is `default`.
+        // The name of the IP address group. Default value: `default`.
         shared_ptr<string> securityIPArrayName_ {};
         // The tag of the IP address group.
         shared_ptr<string> securityIPArrayTag_ {};
-        // The whitelisted IP addresses, separated by commas.
+        // The IP addresses in the whitelist, separated by commas (,).
         shared_ptr<string> securityIPList_ {};
-        // The network type of the whitelisted IP addresses. The default value is `mix`.
+        // The network type of the whitelisted IP addresses. Default value: `mix`.
         shared_ptr<string> securityIPNetType_ {};
-        // The IP address type.
+        // The type of the IP address.
         shared_ptr<string> securityIPType_ {};
       };
 
@@ -789,15 +796,15 @@ namespace Models
 
 
       protected:
-        // The network type. The value is:
+        // The network type. Valid values: 
         // 
         // - vpc
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The security group ID.
+        // The ID of the security group.
         shared_ptr<string> securityGroupId_ {};
-        // The security group name.
+        // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
       };
 
@@ -888,31 +895,31 @@ namespace Models
 
 
     protected:
-      // The class of the child component.
+      // The specification of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The description of the child component\\"s class.
+      // The specification description of the application subcomponent.
       shared_ptr<string> componentClassDescription_ {};
-      // The child component ID.
+      // The subcomponent ID.
       shared_ptr<string> componentId_ {};
-      // The maximum number of replicas for the child component.
+      // The maximum number of replicas of the application subcomponent.
       shared_ptr<int64_t> componentMaxReplica_ {};
-      // The number of replicas of the child component.
+      // The number of replicas of the application subcomponent.
       shared_ptr<int64_t> componentReplica_ {};
-      // The group name of the child component replicas.
+      // The group name of the application subcomponent replicas.
       shared_ptr<string> componentReplicaGroupName_ {};
-      // The type of the child component.
+      // The type of the application subcomponent.
       shared_ptr<string> componentType_ {};
-      // The component-level security groups.
+      // The list of security groups at the subcomponent level.
       // 
-      // This parameter is not returned if the component-level security groups are the same as the application-level security groups.
+      // If the security groups at the subcomponent level are the same as those at the application level, this response element is omitted.
       shared_ptr<vector<Components::SecurityGroups>> securityGroups_ {};
-      // The component-level whitelists.
+      // The list of whitelists at the subcomponent level.
       // 
-      // This parameter is not returned if the component-level whitelists are the same as the application-level whitelists.
+      // If the whitelists at the subcomponent level are the same as those at the application level, this response element is omitted.
       shared_ptr<vector<Components::SecurityIPArrays>> securityIPArrays_ {};
-      // The component status. The valid values are the same as those for the application status.
+      // The component status. Valid values are the same as the application status.
       shared_ptr<string> status_ {};
-      // The topology of the child component.
+      // The topology information of the application subcomponent.
       shared_ptr<Components::Topology> topology_ {};
     };
 
@@ -1188,107 +1195,87 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The application type.
     shared_ptr<string> applicationType_ {};
-    // The CPU architecture. The value is:
-    // 
+    // The CPU architecture. Valid values:
     // - `x86`
     shared_ptr<string> architecture_ {};
-    // Indicates whether SNAT can be disabled.
     shared_ptr<bool> canDisableSnat_ {};
-    // The child components.
+    // The list of subcomponents.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Components>> components_ {};
     // The creation time.
     shared_ptr<string> creationTime_ {};
-    // The ID of the PolarDB instance that the application depends on.
+    // The instance ID of the PolarDB instance on which the application depends.
     shared_ptr<string> DBClusterId_ {};
-    // The application description.
+    // The description of the application.
     shared_ptr<string> description_ {};
-    // The application endpoints.
+    // The list of endpoints of the application.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
     // The expiration time.
     // 
-    // This parameter is not returned for Postpaid instances.
+    // This value is empty when the billing method is Postpaid.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the application has expired.
     shared_ptr<bool> expired_ {};
-    // Indicates whether the application is the latest version.
+    // Indicates whether the current version is the latest version.
     shared_ptr<bool> isLatestVersion_ {};
     // The latest version number.
     shared_ptr<string> latestVersion_ {};
     // The lock mode. Valid values:
     // 
-    // - Unlock: The application is not locked.
-    // 
-    // - Lock: The application is locked.
+    // - Unlock: Not locked.
+    // - Lock: Locked.
     shared_ptr<string> lockMode_ {};
-    // The maintenance end time.
+    // The end time of the maintenance window.
     shared_ptr<string> maintainEndTime_ {};
-    // The maintenance start time.
+    // The start time of the maintenance window.
     shared_ptr<string> maintainStartTime_ {};
-    // The attributes of the Mem0 application.
+    // The Mem0 application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     // The minor version number.
     shared_ptr<string> minorVersion_ {};
-    // The ID of the NAT Gateway.
     shared_ptr<string> natGatewayId_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
-    // The attributes of the PolarClaw SaaS application.
+    // The PolarClaw SaaS application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
-    // The ID of the PolarFS Cold Storage or PolarFS High-performance instance.
+    // The instance ID of PolarFS cold storage or high-performance edition.
     shared_ptr<string> polarFSInstanceId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The application-level security groups.
+    // The list of security groups at the application level.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityGroups>> securityGroups_ {};
-    // The application-level whitelists.
+    // The list of whitelists at the application level.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
-    // The Serverless type. Valid values:
-    // 
-    // - 2: Agile
-    // 
-    // - 3: Stable
+    // The serverless type. Valid values:
+    // - 2: agile.
+    // - 3: steady.
     shared_ptr<string> serverlessType_ {};
-    // The SNAT status.
     shared_ptr<string> snatStatus_ {};
     // The application status. Valid values:
     // 
-    // - Creating: The application is being created.
-    // 
-    // - Activated: The application is running.
-    // 
-    // - Maintaining: The application is being maintained.
-    // 
-    // - ClassChanging: The application configuration is being changed.
-    // 
-    // - Transing: The application is being migrated.
-    // 
-    // - MinorVersionUpgrading: The minor version of the application is being upgraded.
-    // 
-    // - NetCreating: The endpoint is being created.
-    // 
-    // - NetDeleting: The endpoint is being deleted.
-    // 
-    // - NetModifying: The endpoint is being modified.
-    // 
-    // - Restarting: The application is restarting.
-    // 
-    // - Locking: The application is being locked.
-    // 
-    // - Locked: The application is locked.
-    // 
-    // - Unlocking: The application is being unlocked.
-    // 
-    // - Deleting: The application is being deleted.
+    // - Creating: Being created.
+    // - Activated: Running.
+    // - Maintaining: Under maintenance.
+    // - ClassChanging: Changing specifications.
+    // - Transing: Being migrated.
+    // - MinorVersionUpgrading: Minor version being upgraded.
+    // - NetCreating: Endpoint being created.
+    // - NetDeleting: Endpoint being deleted.
+    // - NetModifying: Endpoint being modified.
+    // - Restarting: Being restarted.
+    // - Locking: Being locked.
+    // - Locked: Locked.
+    // - Unlocking: Being unlocked.
+    // - Deleting: Being deleted.
     shared_ptr<string> status_ {};
-    // The details of the storage resources.
+    // The storage resource information.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Storages>> storages_ {};
     // Indicates whether an upgrade is available.
     shared_ptr<string> upgradeAvailable_ {};
-    // The VPC ID.
+    // VPC ID
     shared_ptr<string> VPCId_ {};
-    // The VSwitch ID.
+    // VSwitch ID
     shared_ptr<string> vSwitchId_ {};
     // The application version.
     shared_ptr<string> version_ {};
