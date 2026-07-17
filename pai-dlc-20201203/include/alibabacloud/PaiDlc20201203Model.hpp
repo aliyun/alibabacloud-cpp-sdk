@@ -83,6 +83,9 @@
 #include <alibabacloud/models/CreateRayHistoryServerRequest.hpp>
 #include <alibabacloud/models/CreateRayHistoryServerResponseBody.hpp>
 #include <alibabacloud/models/CreateRayHistoryServerResponse.hpp>
+#include <alibabacloud/models/CreateSignalRequest.hpp>
+#include <alibabacloud/models/CreateSignalResponseBody.hpp>
+#include <alibabacloud/models/CreateSignalResponse.hpp>
 #include <alibabacloud/models/CreateTensorboardRequest.hpp>
 #include <alibabacloud/models/CreateTensorboardResponseBody.hpp>
 #include <alibabacloud/models/CreateTensorboardResponse.hpp>
@@ -130,6 +133,9 @@
 #include <alibabacloud/models/GetRayHistoryServerRequest.hpp>
 #include <alibabacloud/models/GetRayHistoryServerResponseBody.hpp>
 #include <alibabacloud/models/GetRayHistoryServerResponse.hpp>
+#include <alibabacloud/models/GetSignalRequest.hpp>
+#include <alibabacloud/models/GetSignalResponseBody.hpp>
+#include <alibabacloud/models/GetSignalResponse.hpp>
 #include <alibabacloud/models/GetTensorboardRequest.hpp>
 #include <alibabacloud/models/GetTensorboardResponse.hpp>
 #include <alibabacloud/models/GetTensorboardSharedUrlRequest.hpp>
@@ -157,6 +163,9 @@
 #include <alibabacloud/models/ListRayHistoryServersRequest.hpp>
 #include <alibabacloud/models/ListRayHistoryServersResponseBody.hpp>
 #include <alibabacloud/models/ListRayHistoryServersResponse.hpp>
+#include <alibabacloud/models/ListSignalsRequest.hpp>
+#include <alibabacloud/models/ListSignalsResponseBody.hpp>
+#include <alibabacloud/models/ListSignalsResponse.hpp>
 #include <alibabacloud/models/ListTensorboardsRequest.hpp>
 #include <alibabacloud/models/ListTensorboardsResponseBody.hpp>
 #include <alibabacloud/models/ListTensorboardsResponse.hpp>

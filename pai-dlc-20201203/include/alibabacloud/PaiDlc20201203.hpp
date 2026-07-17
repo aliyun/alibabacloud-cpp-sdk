@@ -87,6 +87,34 @@ namespace PaiDlc20201203
       Models::CreateRayHistoryServerResponse createRayHistoryServer(const Models::CreateRayHistoryServerRequest &request);
 
       /**
+       * @summary 创建信号
+       *
+       * @description ## 请求说明
+       * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+       * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+       * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+       *
+       * @param request CreateSignalRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSignalResponse
+       */
+      Models::CreateSignalResponse createSignalWithOptions(const string &JobId, const Models::CreateSignalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建信号
+       *
+       * @description ## 请求说明
+       * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+       * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+       * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+       *
+       * @param request CreateSignalRequest
+       * @return CreateSignalResponse
+       */
+      Models::CreateSignalResponse createSignal(const string &JobId, const Models::CreateSignalRequest &request);
+
+      /**
        * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
        *
        * @param request CreateTensorboardRequest
@@ -405,6 +433,30 @@ namespace PaiDlc20201203
       Models::GetRayHistoryServerResponse getRayHistoryServer(const string &RayHistoryServerId, const Models::GetRayHistoryServerRequest &request);
 
       /**
+       * @summary 获取信号
+       *
+       * @description ## 请求说明
+       * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+       *
+       * @param request GetSignalRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSignalResponse
+       */
+      Models::GetSignalResponse getSignalWithOptions(const string &JobId, const string &SignalId, const Models::GetSignalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取信号
+       *
+       * @description ## 请求说明
+       * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+       *
+       * @param request GetSignalRequest
+       * @return GetSignalResponse
+       */
+      Models::GetSignalResponse getSignal(const string &JobId, const string &SignalId, const Models::GetSignalRequest &request);
+
+      /**
        * @summary Retrieves the details of a Tensorboard instance.
        *
        * @param request GetTensorboardRequest
@@ -571,6 +623,30 @@ namespace PaiDlc20201203
        * @return ListRayHistoryServersResponse
        */
       Models::ListRayHistoryServersResponse listRayHistoryServers(const Models::ListRayHistoryServersRequest &request);
+
+      /**
+       * @summary 获取信号列表
+       *
+       * @description ## 请求说明
+       * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+       *
+       * @param request ListSignalsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSignalsResponse
+       */
+      Models::ListSignalsResponse listSignalsWithOptions(const string &JobId, const Models::ListSignalsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取信号列表
+       *
+       * @description ## 请求说明
+       * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+       *
+       * @param request ListSignalsRequest
+       * @return ListSignalsResponse
+       */
+      Models::ListSignalsResponse listSignals(const string &JobId, const Models::ListSignalsRequest &request);
 
       /**
        * @summary Queries a list of created Tensorboard instances.

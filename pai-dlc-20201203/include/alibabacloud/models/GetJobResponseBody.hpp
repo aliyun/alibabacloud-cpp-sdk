@@ -351,7 +351,7 @@ namespace Models
 
 
       protected:
-        // The job blacklist.
+        // The job-level blacklist.
         shared_ptr<bool> addJobLevelBlacklist_ {};
         // The node blacklist.
         shared_ptr<bool> addNodeToBlacklist_ {};
@@ -359,7 +359,7 @@ namespace Models
         shared_ptr<string> detailErrorMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
-        // The error message.
+        // The fault message.
         shared_ptr<string> errorMsg_ {};
         // The error source.
         shared_ptr<string> errorSource_ {};
@@ -447,7 +447,7 @@ namespace Models
 
 
     protected:
-      // The error message list.
+      // The list of fault information.
       shared_ptr<vector<RestartRecord::DetailErrorInfoList>> detailErrorInfoList_ {};
       // The job restart count.
       shared_ptr<int64_t> jobRestartCount_ {};
@@ -459,7 +459,7 @@ namespace Models
       shared_ptr<string> reason_ {};
       // The restart duration, in seconds.
       shared_ptr<int64_t> restartDurationInSec_ {};
-      // The reason for the restart failure.
+      // The restart failure reason.
       shared_ptr<string> restartFailReason_ {};
       shared_ptr<string> restartLevelType_ {};
       // The restart status.
@@ -825,7 +825,7 @@ namespace Models
       // - Normal
       // - Evicted
       shared_ptr<string> subStatus_ {};
-      // The node type, which corresponds to a JobSpec in the JobSpecs parameter of the CreateJob API.
+      // The node type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
       shared_ptr<string> type_ {};
     };
 
@@ -1393,15 +1393,15 @@ namespace Models
     shared_ptr<int64_t> duration_ {};
     // The elastic job parameters.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
-    // Indicates whether the debugger job is enabled.
+    // Indicates whether the debugger is enabled for the job.
     shared_ptr<bool> enabledDebugger_ {};
     // The environment variable configuration.
     shared_ptr<map<string, string>> envs_ {};
-    // The time when the job was created (UTC).
+    // The job creation time (UTC).
     shared_ptr<string> gmtCreateTime_ {};
     // The time when the job failed (UTC).
     shared_ptr<string> gmtFailedTime_ {};
-    // The time when the job finished (UTC).
+    // The job finish time (UTC).
     shared_ptr<string> gmtFinishTime_ {};
     // The time when the job started running (UTC).
     shared_ptr<string> gmtRunningTime_ {};

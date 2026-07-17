@@ -287,7 +287,7 @@ namespace Models
     // The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
     shared_ptr<string> ecsSpec_ {};
     shared_ptr<vector<ElasticSpotSpec>> elasticSpotSpecs_ {};
-    // The additional pod configuration.
+    // The extra pod configuration.
     shared_ptr<ExtraPodSpec> extraPodSpec_ {};
     shared_ptr<HyperNodeSchedulingConfig> hyperNodeSchedulingConfig_ {};
     // The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a third-party public image.

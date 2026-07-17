@@ -391,6 +391,65 @@ CreateRayHistoryServerResponse Client::createRayHistoryServer(const CreateRayHis
 }
 
 /**
+ * @summary 创建信号
+ *
+ * @description ## 请求说明
+ * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+ * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+ * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+ *
+ * @param request CreateSignalRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSignalResponse
+ */
+CreateSignalResponse Client::createSignalWithOptions(const string &JobId, const CreateSignalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSignal()) {
+    body["Signal"] = request.getSignal();
+  }
+
+  if (!!request.hasTarget()) {
+    body["Target"] = request.getTarget();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSignal"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/signals")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSignalResponse>();
+}
+
+/**
+ * @summary 创建信号
+ *
+ * @description ## 请求说明
+ * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+ * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+ * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+ *
+ * @param request CreateSignalRequest
+ * @return CreateSignalResponse
+ */
+CreateSignalResponse Client::createSignal(const string &JobId, const CreateSignalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSignalWithOptions(JobId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
  *
  * @param request CreateTensorboardRequest
@@ -1296,6 +1355,57 @@ GetRayHistoryServerResponse Client::getRayHistoryServer(const string &RayHistory
 }
 
 /**
+ * @summary 获取信号
+ *
+ * @description ## 请求说明
+ * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+ *
+ * @param request GetSignalRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSignalResponse
+ */
+GetSignalResponse Client::getSignalWithOptions(const string &JobId, const string &SignalId, const GetSignalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSignal"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/signals/" , Darabonba::Encode::Encoder::percentEncode(SignalId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSignalResponse>();
+}
+
+/**
+ * @summary 获取信号
+ *
+ * @description ## 请求说明
+ * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+ *
+ * @param request GetSignalRequest
+ * @return GetSignalResponse
+ */
+GetSignalResponse Client::getSignal(const string &JobId, const string &SignalId, const GetSignalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSignalWithOptions(JobId, SignalId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the details of a Tensorboard instance.
  *
  * @param request GetTensorboardRequest
@@ -1986,6 +2096,77 @@ ListRayHistoryServersResponse Client::listRayHistoryServers(const ListRayHistory
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listRayHistoryServersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取信号列表
+ *
+ * @description ## 请求说明
+ * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+ *
+ * @param request ListSignalsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSignalsResponse
+ */
+ListSignalsResponse Client::listSignalsWithOptions(const string &JobId, const ListSignalsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSignals"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobs/" , Darabonba::Encode::Encoder::percentEncode(JobId) , "/signals")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSignalsResponse>();
+}
+
+/**
+ * @summary 获取信号列表
+ *
+ * @description ## 请求说明
+ * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+ *
+ * @param request ListSignalsRequest
+ * @return ListSignalsResponse
+ */
+ListSignalsResponse Client::listSignals(const string &JobId, const ListSignalsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSignalsWithOptions(JobId, request, headers, runtime);
 }
 
 /**
