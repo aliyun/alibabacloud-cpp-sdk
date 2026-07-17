@@ -941,6 +941,23 @@ namespace Alidns20150109
       Models::DescribeAtiAgentRegisterInfoResponse describeAtiAgentRegisterInfo(const Models::DescribeAtiAgentRegisterInfoRequest &request);
 
       /**
+       * @summary 为sdk查询agent信息功能
+       *
+       * @param request DescribeAtiAgentRegisterInfoMarketRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAtiAgentRegisterInfoMarketResponse
+       */
+      Models::DescribeAtiAgentRegisterInfoMarketResponse describeAtiAgentRegisterInfoMarketWithOptions(const Models::DescribeAtiAgentRegisterInfoMarketRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为sdk查询agent信息功能
+       *
+       * @param request DescribeAtiAgentRegisterInfoMarketRequest
+       * @return DescribeAtiAgentRegisterInfoMarketResponse
+       */
+      Models::DescribeAtiAgentRegisterInfoMarketResponse describeAtiAgentRegisterInfoMarket(const Models::DescribeAtiAgentRegisterInfoMarketRequest &request);
+
+      /**
        * @summary Queries alert settings.
        *
        * @param request DescribeAtiAlertSettingsRequest

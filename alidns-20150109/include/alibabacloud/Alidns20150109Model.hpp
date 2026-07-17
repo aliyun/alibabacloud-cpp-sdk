@@ -155,6 +155,9 @@
 #include <alibabacloud/models/DescribeAtiAgentRegisterInfoRequest.hpp>
 #include <alibabacloud/models/DescribeAtiAgentRegisterInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeAtiAgentRegisterInfoResponse.hpp>
+#include <alibabacloud/models/DescribeAtiAgentRegisterInfoMarketRequest.hpp>
+#include <alibabacloud/models/DescribeAtiAgentRegisterInfoMarketResponseBody.hpp>
+#include <alibabacloud/models/DescribeAtiAgentRegisterInfoMarketResponse.hpp>
 #include <alibabacloud/models/DescribeAtiAlertSettingsRequest.hpp>
 #include <alibabacloud/models/DescribeAtiAlertSettingsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAtiAlertSettingsResponse.hpp>

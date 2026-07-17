@@ -3027,6 +3027,64 @@ DescribeAtiAgentRegisterInfoResponse Client::describeAtiAgentRegisterInfo(const 
 }
 
 /**
+ * @summary 为sdk查询agent信息功能
+ *
+ * @param request DescribeAtiAgentRegisterInfoMarketRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAtiAgentRegisterInfoMarketResponse
+ */
+DescribeAtiAgentRegisterInfoMarketResponse Client::describeAtiAgentRegisterInfoMarketWithOptions(const DescribeAtiAgentRegisterInfoMarketRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentHost()) {
+    query["AgentHost"] = request.getAgentHost();
+  }
+
+  if (!!request.hasAgentVersion()) {
+    query["AgentVersion"] = request.getAgentVersion();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAtiAgentRegisterInfoMarket"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAtiAgentRegisterInfoMarketResponse>();
+}
+
+/**
+ * @summary 为sdk查询agent信息功能
+ *
+ * @param request DescribeAtiAgentRegisterInfoMarketRequest
+ * @return DescribeAtiAgentRegisterInfoMarketResponse
+ */
+DescribeAtiAgentRegisterInfoMarketResponse Client::describeAtiAgentRegisterInfoMarket(const DescribeAtiAgentRegisterInfoMarketRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAtiAgentRegisterInfoMarketWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries alert settings.
  *
  * @param request DescribeAtiAlertSettingsRequest
