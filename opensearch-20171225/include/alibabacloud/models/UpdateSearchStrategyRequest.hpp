@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request body.
+    // The search policy. For more information, see [SearchStrategy](https://help.aliyun.com/document_detail/2400242.html).
     shared_ptr<SearchStrategy> body_ {};
   };
 

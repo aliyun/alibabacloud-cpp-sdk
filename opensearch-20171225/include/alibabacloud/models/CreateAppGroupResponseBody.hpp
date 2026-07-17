@@ -137,19 +137,25 @@ namespace Models
 
 
       protected:
-        // The computing resources. Unit: logical computing units (LCUs).
+        // The computing resources. Unit: LCU.
         shared_ptr<int32_t> computeResource_ {};
         // The storage capacity. Unit: GB.
         shared_ptr<int32_t> docSize_ {};
         // The specifications. Valid values:
         // 
-        // *   opensearch.share.junior: basic.
-        // *   opensearch.share.common: shared general-purpose.
-        // *   opensearch.share.compute: shared computing.
-        // *   opensearch.share.storage: shared storage.
-        // *   opensearch.private.common: exclusive general-purpose.
-        // *   opensearch.private.compute: exclusive computing.
-        // *   opensearch.private.storage: exclusive storage.
+        // - opensearch.share.junior: basic
+        // 
+        // - opensearch.share.common: shared general-purpose
+        // 
+        // - opensearch.share.compute: shared compute-optimized
+        // 
+        // - opensearch.share.storage: shared storage-optimized
+        // 
+        // - opensearch.private.common: exclusive general-purpose
+        // 
+        // - opensearch.private.compute: exclusive compute-optimized
+        // 
+        // - opensearch.private.storage: exclusive storage-optimized
         shared_ptr<string> spec_ {};
       };
 
@@ -310,13 +316,15 @@ namespace Models
     protected:
       // The billing method. Valid values:
       // 
-      // *   POSTPAY: pay-as-you-go.
-      // *   PREPAY: subscription.
-      shared_ptr<string> chargeType_ {};
-      // The type of billing. Valid values:
+      // - POSTPAY: pay-as-you-go
       // 
-      // *   1: computing resources.
-      // *   2: queries per second (QPS).
+      // - PREPAY: subscription
+      shared_ptr<string> chargeType_ {};
+      // The billing type. Valid values:
+      // 
+      // - 1: computing resources
+      // 
+      // - 2: queries per second (QPS)
       shared_ptr<int32_t> chargingWay_ {};
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
@@ -326,57 +334,69 @@ namespace Models
       shared_ptr<string> currentVersion_ {};
       // The description of the application.
       shared_ptr<string> description_ {};
-      // The type of the industry. Valid values:
+      // The industry type. Valid values:
       // 
-      // *   GENERAL
-      // *   ECOMMERCE
-      // *   IT_CONTENT
+      // - GENERAL
+      // 
+      // - ECOMMERCE
+      // 
+      // - IT_CONTENT
       shared_ptr<string> domain_ {};
       // The engine type.
       shared_ptr<string> engineType_ {};
       // The expiration time.
       shared_ptr<string> expireOn_ {};
-      // The approval state of the quotas. Valid values:
+      // The approval status of the quota. Valid values:
       // 
-      // *   0: The application is in service.
-      // *   1: The quotas are being reviewed.
+      // - 0: The application is running as normal.
+      // 
+      // - 1: The quota change is under review.
       shared_ptr<int32_t> hasPendingQuotaReviewTask_ {};
       // The application ID.
       shared_ptr<string> id_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The lock state. Valid values:
       // 
-      // *   Unlock: The instance is unlocked.
-      // *   LockByExpiration: The instance is automatically locked after it expires.
-      // *   ManualLock: The instance is manually locked.
+      // - Unlock: The instance is unlocked.
+      // 
+      // - LockByExpiration: The instance is automatically locked after it expires.
+      // 
+      // - ManualLock: The instance is manually locked.
       shared_ptr<string> lockMode_ {};
       // The name of the application.
       shared_ptr<string> name_ {};
       // Indicates whether the application is created. Valid values:
       // 
-      // *   0: The application is being created.
-      // *   1: The application is created.
-      shared_ptr<int32_t> produced_ {};
-      // The name of the A/B test group.
-      shared_ptr<string> projectId_ {};
-      // The information about the quotas of the application.
-      shared_ptr<Result::Quota> quota_ {};
-      // The status of the application. Valid values:
+      // - 0: The application is being created.
       // 
-      // *   producing: The application is being created.
-      // *   review_pending: The application is being reviewed.
-      // *   config_pending: The application is to be configured.
-      // *   normal: The application is in service.
-      // *   frozen: The application is frozen.
+      // - 1: The application is created.
+      shared_ptr<int32_t> produced_ {};
+      // The name of the A/B test project.
+      shared_ptr<string> projectId_ {};
+      // The quota information for the application.
+      shared_ptr<Result::Quota> quota_ {};
+      // The application status. Valid values:
+      // 
+      // - producing: The application is being created.
+      // 
+      // - review_pending: The application is under review.
+      // 
+      // - config_pending: The application is pending configuration.
+      // 
+      // - normal: The application is running as normal.
+      // 
+      // - frozen: The application is frozen.
       shared_ptr<string> status_ {};
       // The timestamp when the current online version was published.
       shared_ptr<int32_t> switchedTime_ {};
-      // The type of the application. Valid values:
+      // The application type. Valid values:
       // 
-      // *   standard: a standard edition application.
-      // *   advance: an advanced edition which is of an old version. New version is not supported for this edition.
-      // *   enhanced: an advanced edition application of a new version.
+      // - standard: Standard Edition
+      // 
+      // - advance: an old version of Premium Edition. You cannot create new applications of this type.
+      // 
+      // - enhanced: a new version of Premium Edition
       shared_ptr<string> type_ {};
       // The timestamp when the application was last modified.
       shared_ptr<int32_t> updated_ {};
@@ -403,7 +423,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // None
+    // This parameter is left empty.
     shared_ptr<CreateAppGroupResponseBody::Result> result_ {};
   };
 

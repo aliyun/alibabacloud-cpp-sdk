@@ -123,10 +123,11 @@ namespace Models
       shared_ptr<string> id_ {};
       // The experiment alias.
       shared_ptr<string> name_ {};
-      // Indicates whether the experiment is in effect. Valid values:
+      // The status of the experiment.
       // 
-      // *   true
-      // *   false
+      // - true: The experiment is in effect.
+      // 
+      // - false: The experiment is not in effect.
       shared_ptr<bool> online_ {};
       // The experiment parameters.
       Darabonba::Json params_ {};

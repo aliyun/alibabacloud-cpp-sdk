@@ -139,19 +139,25 @@ namespace Models
 
 
       protected:
-        // The computing resources. Unit: logical computing unit (LCU).
+        // The computing resources in logical compute units (LCUs).
         shared_ptr<int32_t> computeResource_ {};
-        // The storage capacity. Unit: GB.
+        // The storage capacity in GB.
         shared_ptr<int32_t> docSize_ {};
         // The specifications. Valid values:
         // 
-        // *   opensearch.share.junior: basic.
-        // *   opensearch.share.common: shared general-purpose.
-        // *   opensearch.share.compute: shared computing.
-        // *   opensearch.share.storage: shared storage.
-        // *   opensearch.private.common: exclusive general-purpose.
-        // *   opensearch.private.compute: exclusive computing.
-        // *   opensearch.private.storage: exclusive storage.
+        // - opensearch.share.junior: Basic
+        // 
+        // - opensearch.share.common: Shared General-purpose
+        // 
+        // - opensearch.share.compute: Shared Compute-optimized
+        // 
+        // - opensearch.share.storage: Shared Storage-optimized
+        // 
+        // - opensearch.private.common: Exclusive General-purpose
+        // 
+        // - opensearch.private.compute: Exclusive Compute-optimized
+        // 
+        // - opensearch.private.storage: Exclusive Storage-optimized
         shared_ptr<string> spec_ {};
       };
 
@@ -320,77 +326,91 @@ namespace Models
     protected:
       // The billing method. Valid values:
       // 
-      // *   POSTPAY: pay-as-you-go.
-      // *   PREPAY: subscription.
+      // - POSTPAY: pay-as-you-go.
+      // 
+      // - PREPAY: subscription.
       shared_ptr<string> chargeType_ {};
       // The billable item. Valid values:
       // 
-      // *   1: computing resources.
-      // *   2: QPS.
+      // - 1: computing resources.
+      // 
+      // - 2: QPS.
       shared_ptr<int32_t> chargingWay_ {};
-      // The code of the commodity.
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
-      // The timestamp when the application was created.
+      // The UNIX timestamp when the application was created.
       shared_ptr<int32_t> created_ {};
       // The ID of the current online version.
       shared_ptr<string> currentVersion_ {};
       // The description of the application.
       shared_ptr<string> description_ {};
-      // The type of the industry. Valid values:
+      // The industry. Valid values:
       // 
-      // *   GENERAL: general.
-      // *   ECOMMERCE: e-commerce.
-      // *   IT_CONTENT: IT content.
+      // - GENERAL: general.
+      // 
+      // - ECOMMERCE: e-commerce.
+      // 
+      // - IT_CONTENT: IT content.
       shared_ptr<string> domain_ {};
       // The engine type.
       shared_ptr<string> engineType_ {};
-      // The time when the application expired.
+      // The expiration time.
       shared_ptr<string> expireOn_ {};
-      // The approval status of the quotas. Valid values:
+      // The approval status of the quota. Valid values:
       // 
-      // *   0: normal.
-      // *   1: being approved.
+      // - 0: normal.
+      // 
+      // - 1: being approved.
       shared_ptr<int32_t> hasPendingQuotaReviewTask_ {};
       // The application ID.
       shared_ptr<string> id_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The lock status. Valid values:
+      // The lock mode of the instance. Valid values:
       // 
-      // *   Unlock: The instance is unlocked.
-      // *   LockByExpiration: The instance is automatically locked after it expires.
-      // *   ManualLock: The instance is manually locked.
+      // - Unlock: The instance is not locked.
+      // 
+      // - LockByExpiration: The instance is automatically locked after it expires.
+      // 
+      // - ManualLock: The instance is manually locked.
       shared_ptr<string> lockMode_ {};
       // The name of the application.
       shared_ptr<string> name_ {};
-      // Indicates whether the order is complete. Valid values:
+      // Indicates whether the application is created. Valid values:
       // 
-      // *   0: The order is in progress.
-      // *   1: The order is complete.
+      // - 0: The application is being created.
+      // 
+      // - 1: The application is created.
       shared_ptr<int32_t> produced_ {};
-      // The name of the A/B test group.
+      // The name of the A/B test project.
       shared_ptr<string> projectId_ {};
-      // The information about the quotas of the application.
+      // The quota information of the application.
       shared_ptr<Result::Quota> quota_ {};
       // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The state of the application. Valid values:
+      // The status of the application. Valid values:
       // 
-      // *   producing: being produced.
-      // *   review_pending: being approved.
-      // *   config_pending: to be configured.
-      // *   normal: normal.
-      // *   frozen: frozen.
+      // - producing: The application is being created.
+      // 
+      // - review_pending: The application is under review.
+      // 
+      // - config_pending: The application requires configuration.
+      // 
+      // - normal: The application is running.
+      // 
+      // - frozen: The application is frozen.
       shared_ptr<string> status_ {};
-      // The timestamp when the current online version was published.
+      // The UNIX timestamp when the current online version was published.
       shared_ptr<int32_t> switchedTime_ {};
       // The type of the application. Valid values:
       // 
-      // *   standard: a standard edition application.
-      // *   advance: an advanced edition application of an old version. New versions are not supported for this edition.
-      // *   enhanced: an advanced edition application of a new version.
+      // - standard: a Standard Edition application.
+      // 
+      // - advance: an Advanced Edition application of an old version. New applications do not support this type.
+      // 
+      // - enhanced: an Enhanced Edition application.
       shared_ptr<string> type_ {};
-      // The timestamp when the application was last modified.
+      // The UNIX timestamp when the application was last modified.
       shared_ptr<int32_t> updated_ {};
     };
 
@@ -415,7 +435,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Response parameters
+    // The returned data.
     shared_ptr<ModifyAppGroupResponseBody::Result> result_ {};
   };
 

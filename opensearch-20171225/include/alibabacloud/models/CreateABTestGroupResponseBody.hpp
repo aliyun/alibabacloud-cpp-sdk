@@ -96,18 +96,19 @@ namespace Models
 
 
     protected:
-      // The time when the test group was created.
+      // The time when the experiment group was created.
       shared_ptr<int32_t> created_ {};
-      // The ID of the test group.
+      // The ID of the group.
       shared_ptr<string> id_ {};
-      // The alias of the test group.
+      // The alias of the group.
       shared_ptr<string> name_ {};
-      // The status of the test group.
+      // The status of the experiment group.
       // 
-      // *   0: not in effect
-      // *   1: in effect
+      // - 0: Inactive
+      // 
+      // - 1: Active
       shared_ptr<int32_t> status_ {};
-      // The time when the test group was last updated.
+      // The time when the experiment group was last updated.
       shared_ptr<int32_t> updated_ {};
     };
 

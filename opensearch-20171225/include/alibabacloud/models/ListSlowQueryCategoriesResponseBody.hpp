@@ -78,17 +78,21 @@ namespace Models
 
 
     protected:
-      // The status of the analysis. Valid values:
+      // The analysis status.
       // 
-      // *   PENDING: preparing
-      // *   SUCCESS: succeeded
-      // *   RUNNING: running
-      // *   FAILED: failed
-      // *   N/A: unknown
+      // - PENDING: The analysis is being prepared.
+      // 
+      // - SUCCESS: The analysis is successful.
+      // 
+      // - RUNNING: The analysis is in progress.
+      // 
+      // - FAILED: The analysis failed.
+      // 
+      // - N/A: The analysis status is unknown.
       shared_ptr<string> analyzeStatus_ {};
-      // The timestamp that indicates the end of the time range to query.
+      // The end timestamp.
       shared_ptr<int32_t> end_ {};
-      // The timestamp that indicates the beginning of the time range to query.
+      // The start timestamp.
       shared_ptr<int32_t> start_ {};
     };
 
@@ -111,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<ListSlowQueryCategoriesResponseBody::Result> result_ {};
   };
 

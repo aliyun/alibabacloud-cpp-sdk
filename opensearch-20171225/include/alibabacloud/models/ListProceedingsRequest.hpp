@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether the filtering is complete.
+    // Specifies whether to return only completed proceedings.
     shared_ptr<bool> filterFinished_ {};
   };
 

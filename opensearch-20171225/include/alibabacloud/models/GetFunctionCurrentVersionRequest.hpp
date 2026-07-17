@@ -66,25 +66,33 @@ namespace Models
 
 
   protected:
-    // The category. By default, this parameter is left empty.
+    // The category. The default value is empty.
     shared_ptr<string> category_ {};
-    // The industry. By default, this parameter is left empty, which indicates General-purpose Edition.
+    // The industry. The default value is empty, which indicates the General-purpose Edition.
     shared_ptr<string> domain_ {};
     // The type of the feature. Valid values:
     // 
-    // *   PAAS. This is the default value.
-    // *   SAAS.
-    shared_ptr<string> functionType_ {};
-    // The type of the model. The following features correspond to different model types:
+    // - PAAS (default)
     // 
-    // *   CTR model: tf_checkpoint
-    // *   Popularity model: pop
-    // *   Category model: offline_inference
-    // *   Hotword model: offline_inference
-    // *   Shading model: offline_inference
-    // *   Drop-down suggestion model: offline_inference
-    // *   Word segmentation model: text
-    // *   Word weight model: tf_checkpoint
+    // - SAAS
+    shared_ptr<string> functionType_ {};
+    // The model type. Different features correspond to different model types:
+    // 
+    // - CTR model: tf_checkpoint
+    // 
+    // - Popularity model: pop
+    // 
+    // - Category model: offline_inference
+    // 
+    // - Hotword model: offline_inference
+    // 
+    // - Hint model: offline_inference
+    // 
+    // - Drop-down suggestion model: offline_inference
+    // 
+    // - Word segmentation model: text
+    // 
+    // - Term weighting model: tf_checkpoint
     // 
     // This parameter is required.
     shared_ptr<string> modelType_ {};

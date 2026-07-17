@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The script content that is encoded in the Base64 format.
+      // The content of the script, Base64-encoded.
       shared_ptr<string> content_ {};
-      // The time when the script was created.
+      // The time when the script file was created.
       shared_ptr<string> createTime_ {};
-      // The time when the script was last modified.
+      // The time when the script file was last modified.
       shared_ptr<string> modifyTime_ {};
       // The version of the script content.
       shared_ptr<int64_t> version_ {};
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The content of the sort script.
     shared_ptr<GetSortScriptFileResponseBody::Result> result_ {};

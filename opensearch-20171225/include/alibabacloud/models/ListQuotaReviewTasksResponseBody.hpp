@@ -206,31 +206,31 @@ namespace Models
       shared_ptr<string> appGroupName_ {};
       // The application type.
       shared_ptr<string> appGroupType_ {};
-      // Indicates whether the ticket is approved.
+      // Indicates whether the task is approved.
       shared_ptr<bool> approved_ {};
-      // Indicates whether the application is available.
+      // Indicates whether the resource is active.
       shared_ptr<bool> available_ {};
-      // The time when the ticket was created.
+      // The time when the task was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the ticket was last updated.
+      // The time of the last modification.
       shared_ptr<string> gmtModified_ {};
       // The ticket ID.
       shared_ptr<int32_t> id_ {};
       // The remarks.
       shared_ptr<string> memo_ {};
-      // The computing resource quota that is applied for.
+      // The target computing resource.
       shared_ptr<int32_t> newComputeResource_ {};
-      // The storage capacity quota that is applied for.
+      // The target storage capacity.
       shared_ptr<int32_t> newSocSize_ {};
-      // The application specifications that are applied for.
+      // The new application specifications.
       shared_ptr<string> newSpec_ {};
-      // The original quota of computing resources.
+      // The original computing resource.
       shared_ptr<int32_t> oldComputeResource_ {};
-      // The original quota of storage capacity.
+      // The original storage capacity.
       shared_ptr<int32_t> oldDocSize_ {};
       // The original specifications of the application.
       shared_ptr<string> oldSpec_ {};
-      // Indicates whether the ticket is pending.
+      // Indicates whether the task is pending.
       shared_ptr<bool> pending_ {};
     };
 
@@ -262,9 +262,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the tickets. For more information, see [QuotaReviewTask](https://help.aliyun.com/document_detail/173609.html).
+    // The information about the approval tickets. For more information, see [QuotaReviewTask](https://help.aliyun.com/document_detail/173609.html).
     shared_ptr<vector<ListQuotaReviewTasksResponseBody::Result>> result_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

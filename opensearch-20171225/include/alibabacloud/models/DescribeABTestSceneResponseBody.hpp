@@ -112,16 +112,17 @@ namespace Models
       shared_ptr<int32_t> created_ {};
       // The ID of the test scenario.
       shared_ptr<string> id_ {};
-      // The name of the test scenario.
+      // The alias of the test scenario.
       shared_ptr<string> name_ {};
       // The status of the test scenario. Valid values:
       // 
-      // *   0: The test is stopped.
-      // *   1: The test is started.
+      // - 0: The test is stopped.
+      // 
+      // - 1: The test is running.
       shared_ptr<int32_t> status_ {};
       // The time when the test was last modified.
       shared_ptr<int32_t> updated_ {};
-      // The indicators of the test scenarios.
+      // The identifiers of the test scenario.
       shared_ptr<vector<string>> values_ {};
     };
 

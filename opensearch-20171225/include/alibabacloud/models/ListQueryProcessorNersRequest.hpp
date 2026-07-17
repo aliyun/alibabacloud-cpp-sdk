@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The type of the industry.
+    // The industry type.
     // 
-    // *   ECOMMERCE
+    // - ECOMMERCE: The e-commerce industry.
     shared_ptr<string> domain_ {};
   };
 

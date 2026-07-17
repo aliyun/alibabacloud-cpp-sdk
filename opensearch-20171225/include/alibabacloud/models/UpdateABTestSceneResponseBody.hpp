@@ -117,22 +117,23 @@ namespace Models
 
 
     protected:
-      // The time when the test scenario was created.
+      // The time when the scenario was created.
       shared_ptr<int32_t> created_ {};
-      // The ID of the test scenario.
+      // The ID of the scenario.
       shared_ptr<string> id_ {};
-      // The name of the test scenario.
+      // The alias of the scenario.
       shared_ptr<string> name_ {};
-      // The status of the test. Valid values:
+      // The status of the test.
       // 
-      // *   true: The test is started.
-      // *   false: The test is stopped.
+      // - true: The test is started.
+      // 
+      // - false: The test is stopped.
       shared_ptr<bool> online_ {};
-      // The parameters of the A/B test.
+      // The parameters of the experiment.
       Darabonba::Json params_ {};
       // The percentage of traffic that is allocated to the A/B test. Valid values: 0 to 100.
       shared_ptr<int32_t> traffic_ {};
-      // The time when the test scenario was last modified.
+      // The time when the scenario was last modified.
       shared_ptr<int32_t> updated_ {};
     };
 
@@ -157,7 +158,8 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the test scenario. For more information, see [ABTestScene](https://help.aliyun.com/document_detail/173618.html).
+    // The details of the A/B test scenario.
+    // For more information, see [ABTestScene](https://help.aliyun.com/document_detail/173618.html).
     shared_ptr<UpdateABTestSceneResponseBody::Result> result_ {};
   };
 

@@ -53,7 +53,13 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<ABTestExperiment> body_ {};
-    // Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+    // Specifies whether to perform a dry run. The default value is false. Valid values:
+    // 
+    // Valid values:
+    // 
+    // - **true**: The system checks the validity of the request parameters.
+    // 
+    // - **false**: The system checks the validity of the request parameters and creates the experiment.
     shared_ptr<bool> dryRun_ {};
   };
 

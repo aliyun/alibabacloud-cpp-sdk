@@ -110,17 +110,21 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The time when the script was last modified.
       shared_ptr<string> modifyTime_ {};
-      // The sort phase to which the script applies.
+      // The applicable scope of the script.
       shared_ptr<string> scope_ {};
       // The name of the script.
       shared_ptr<string> scriptName_ {};
-      // The status of the script. Valid values:
+      // The status of the script:
       // 
-      // *   configurable: The script is created, but no script files are uploaded.
-      // *   not compiled: The script is not compiled.
-      // *   compile failed: The compilation of the script failed.
-      // *   compile successful: The script is compiled.
-      // *   released: The script is published.
+      // - configurable: The script is created, but no file has been uploaded.
+      // 
+      // - not compiled: The script has not been compiled.
+      // 
+      // - compile failed: The script failed to be compiled.
+      // 
+      // - compile successful: The script is compiled.
+      // 
+      // - released: The script is published.
       shared_ptr<string> status_ {};
       // The type of the script.
       shared_ptr<string> type_ {};
@@ -145,9 +149,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The scripts.
+    // The list of scripts.
     shared_ptr<vector<ListSortScriptsResponseBody::Result>> result_ {};
   };
 

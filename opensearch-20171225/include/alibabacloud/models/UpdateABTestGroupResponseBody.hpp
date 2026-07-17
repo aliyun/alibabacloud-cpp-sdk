@@ -100,12 +100,13 @@ namespace Models
       shared_ptr<int32_t> created_ {};
       // The ID of the test group.
       shared_ptr<string> id_ {};
-      // The alias of the test group.
+      // The name of the test group.
       shared_ptr<string> name_ {};
       // The status of the test group. Valid values:
       // 
-      // *   0: not in effect
-      // *   1: in effect
+      // - 0: inactive
+      // 
+      // - 1: active
       shared_ptr<int32_t> status_ {};
       // The time when the test group was last updated.
       shared_ptr<int32_t> updated_ {};

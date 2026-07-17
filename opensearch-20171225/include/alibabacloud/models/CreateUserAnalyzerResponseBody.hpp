@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The custom analyzer.
+    // The returned result.
     Darabonba::Json result_ {};
   };
 

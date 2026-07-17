@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the custom analyzer.
+    // The details of the custom analyzer. For more information, see [UserAnalyzer](https://help.aliyun.com/document_detail/178934.html).
     Darabonba::Json result_ {};
   };
 

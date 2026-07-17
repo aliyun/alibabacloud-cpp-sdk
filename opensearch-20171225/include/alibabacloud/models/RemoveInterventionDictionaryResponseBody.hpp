@@ -100,18 +100,23 @@ namespace Models
       shared_ptr<string> analyzer_ {};
       // The time when the intervention dictionary was created.
       shared_ptr<string> created_ {};
-      // Parameter
+      // The name of the dictionary.
       shared_ptr<string> name_ {};
-      // Type
+      // The type of the dictionary. Valid values:
       // 
-      // *   stopword: an intervention dictionary for stop word filtering.
-      // *   synonym: an intervention dictionary for synonym configuration.
-      // *   correction: an intervention dictionary for spelling correction.
-      // *   category_prediction: an intervention dictionary for category prediction.
-      // *   ner: an intervention dictionary for named entity recognition.
-      // *   term_weighting: an intervention dictionary for term weight analysis.
+      // - stopword: An intervention dictionary for stop words.
+      // 
+      // - synonym: An intervention dictionary for synonyms.
+      // 
+      // - correction: An intervention dictionary for spelling correction.
+      // 
+      // - category_prediction: An intervention dictionary for category prediction.
+      // 
+      // - ner: An intervention dictionary for Named Entity Recognition (NER).
+      // 
+      // - term_weighting: An intervention dictionary for term weights.
       shared_ptr<string> type_ {};
-      // The time when the the intervention dictionary was modified.
+      // The time when the intervention dictionary was updated.
       shared_ptr<string> updated_ {};
     };
 
@@ -136,7 +141,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the intervention dictionary.
+    // The details of the intervention dictionary.
     shared_ptr<RemoveInterventionDictionaryResponseBody::Result> result_ {};
   };
 

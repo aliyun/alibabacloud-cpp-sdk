@@ -105,21 +105,21 @@ namespace Models
   protected:
     // The fields to query. Format: columns=wordsTopPv.
     // 
-    // For more information, see [Metrics in statistical reports](https://help.aliyun.com/document_detail/187665.html).
+    // For more information, see [Metrics for query analysis](https://help.aliyun.com/document_detail/187665.html).
     shared_ptr<string> columns_ {};
     // Specifies whether to use the distinct clause.
     shared_ptr<bool> distinct_ {};
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
     // The content of the query clause.
     shared_ptr<string> query_ {};
     // The content of the sort clause.
     shared_ptr<string> sortBy_ {};
-    // The beginning of the time range to query. The default value is the timestamp of 00:00:00 on the current day.
+    // The start of the time range to query. The value must be a UNIX timestamp. The default value is the UNIX timestamp for 00:00:00 on the current day.
     shared_ptr<int32_t> startTime_ {};
-    // The end of the time range to query. The default value is the timestamp of 24:00:00 on the current day.
+    // The end of the time range to query. The value must be a UNIX timestamp. The default value is the UNIX timestamp for 24:00:00 on the current day.
     shared_ptr<int32_t> stopTime_ {};
   };
 

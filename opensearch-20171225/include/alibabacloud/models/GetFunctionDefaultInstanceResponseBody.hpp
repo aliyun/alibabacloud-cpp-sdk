@@ -154,15 +154,15 @@ namespace Models
     shared_ptr<int64_t> httpCode_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The default running time.
+    // The default runtime.
     shared_ptr<int64_t> latency_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the request.
+    // The result.
     shared_ptr<GetFunctionDefaultInstanceResponseBody::Result> result_ {};
-    // The status of the request.
+    // The request status.
     shared_ptr<string> status_ {};
   };
 

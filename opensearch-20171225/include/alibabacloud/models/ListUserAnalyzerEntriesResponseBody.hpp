@@ -52,7 +52,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The entries of the custom analyzer. For more information, see [UserAnalyzerEntry](https://www.alibabacloud.com/help/en/open-search/industry-algorithm-edition/useranalyzerentry).
+    // The entries of the custom analyzer. For more information, see UserAnalyzerEntry.
     Darabonba::Json result_ {};
   };
 

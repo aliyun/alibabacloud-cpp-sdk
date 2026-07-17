@@ -106,7 +106,8 @@ namespace Models
         shared_ptr<string> arg_ {};
         // The attribute, feature functions, or field to be searched for.
         shared_ptr<string> attribute_ {};
-        // The weight. Valid values: [-100000,100000]. The value cannot be 0.
+        // The weight.
+        // Valid values: [-100000, 100000]. The value cannot be 0.
         shared_ptr<float> weight_ {};
       };
 

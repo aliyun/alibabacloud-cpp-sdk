@@ -134,7 +134,7 @@ namespace Models
         protected:
           // The name of the parameter.
           shared_ptr<string> name_ {};
-          // Indicates whether the parameter is required.
+          // Specifies whether the parameter is required.
           shared_ptr<string> required_ {};
         };
 
@@ -233,7 +233,7 @@ namespace Models
         protected:
           // The name of the parameter.
           shared_ptr<string> name_ {};
-          // Indicates whether the parameter is required.
+          // Specifies whether the parameter is required.
           shared_ptr<string> required_ {};
         };
 
@@ -267,11 +267,11 @@ namespace Models
 
 
       protected:
-        // The parameters that are used to create the instance.
+        // The parameters used to create an instance.
         shared_ptr<vector<VersionConfig::CreateParameters>> createParameters_ {};
-        // The dependencies of the instance.
+        // A list of instance dependencies.
         shared_ptr<vector<VersionConfig::Depends>> depends_ {};
-        // The parameters that are used to use the instance online.
+        // The parameters for using the instance online.
         shared_ptr<vector<VersionConfig::UsageParameters>> usageParameters_ {};
       };
 
@@ -326,16 +326,17 @@ namespace Models
       shared_ptr<string> functionName_ {};
       // The type of the feature. Valid values:
       // 
-      // *   PAAS
-      // *   SAAS
+      // - PAAS
+      // 
+      // - SAAS
       shared_ptr<string> functionType_ {};
-      // The type of the model.
+      // The model type.
       shared_ptr<string> modelType_ {};
-      // The configuration information about the instance.
+      // The configuration.
       shared_ptr<Result::VersionConfig> versionConfig_ {};
-      // The ID of the version.
+      // The version ID.
       shared_ptr<int64_t> versionId_ {};
-      // The name of the version.
+      // The version name.
       shared_ptr<string> versionName_ {};
     };
 
@@ -398,13 +399,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The time consumed for the request, in milliseconds.
+    // The request latency in milliseconds (ms).
     shared_ptr<int64_t> latency_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the request.
+    // The returned result.
     shared_ptr<GetFunctionCurrentVersionResponseBody::Result> result_ {};
     // The status of the request.
     shared_ptr<string> status_ {};

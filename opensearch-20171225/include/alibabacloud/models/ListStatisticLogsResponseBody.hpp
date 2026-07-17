@@ -62,9 +62,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. For more information, see
+    // The returned data. For more information, see:
     // 
-    // *   [Parameters of hotwords rankings](https://help.aliyun.com/document_detail/421248.html).
+    // - [Hotword rankings](https://help.aliyun.com/document_detail/421248.html)
     shared_ptr<vector<Darabonba::Json>> result_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

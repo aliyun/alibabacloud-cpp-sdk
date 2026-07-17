@@ -104,9 +104,9 @@ namespace Models
 
 
       protected:
-        // The parameters that are used by a function in the expression.
+        // The parameters for a function in the expression.
         shared_ptr<string> arg_ {};
-        // The attribute, feature function, or field to be searched for.
+        // The attribute, feature function, or search field.
         shared_ptr<string> attribute_ {};
         // The weight. Valid values: -100000 to 100000. The value cannot be 0.
         shared_ptr<float> weight_ {};
@@ -147,11 +147,11 @@ namespace Models
     protected:
       // Indicates whether the expression is the default one.
       shared_ptr<bool> active_ {};
-      // The description of the rough sort expression.
+      // The description.
       shared_ptr<string> description_ {};
-      // The information about the expression.
+      // Details about the expression.
       shared_ptr<vector<Result::Meta>> meta_ {};
-      // The name of the expression.
+      // The name of the resource.
       shared_ptr<string> name_ {};
     };
 
@@ -176,7 +176,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the rough sort expression.
+    // Details about the rough sort expression.
     shared_ptr<ModifyFirstRankResponseBody::Result> result_ {};
   };
 

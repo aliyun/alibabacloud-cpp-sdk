@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // For more information about a scheduled task, see [ScheduledTask](https://help.aliyun.com/document_detail/173610.html).
+    // The information about the scheduled task. For more information, see [ScheduledTask](https://help.aliyun.com/document_detail/173610.html).
     Darabonba::Json result_ {};
   };
 

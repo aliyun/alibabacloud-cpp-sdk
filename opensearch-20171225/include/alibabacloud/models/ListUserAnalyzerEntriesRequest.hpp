@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The key to be used to query entries.
+    // The entry key.
     shared_ptr<string> word_ {};
   };
 

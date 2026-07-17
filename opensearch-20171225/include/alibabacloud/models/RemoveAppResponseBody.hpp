@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return result.
+    // —
     shared_ptr<vector<int32_t>> result_ {};
   };
 

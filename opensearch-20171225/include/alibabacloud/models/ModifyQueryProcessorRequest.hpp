@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The request parameters.
+    // The request body.
     Darabonba::Json body_ {};
-    // Specifies whether the request is a dry run.
+    // Specifies whether to perform a dry run.
     shared_ptr<bool> dryRun_ {};
   };
 

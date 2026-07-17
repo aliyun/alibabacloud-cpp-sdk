@@ -125,42 +125,77 @@ namespace Models
         shared_ptr<int32_t> order_ {};
         // The internal name of the identified entity type. Valid values:
         // 
-        // *   brand
-        // *   category
-        // *   material
-        // *   element
-        // *   style
-        // *   color
-        // *   function
-        // *   scenario
-        // *   people
-        // *   season
-        // *   model
-        // *   region
-        // *   name
-        // *   adjective
-        // *   category-modifier
-        // *   size
-        // *   quality
-        // *   suit
-        // *   new-release
-        // *   series
-        // *   marketing
-        // *   entertainment
-        // *   organization
-        // *   movie
-        // *   game
-        // *   number
-        // *   unit
-        // *   common
-        // *   new-word
-        // *   proper-noun
-        // *   symbol
-        // *   prefix
-        // *   suffix
-        // *   gift
-        // *   negative
-        // *   agent
+        // - brand
+        // 
+        // - category
+        // 
+        // - material
+        // 
+        // - element
+        // 
+        // - style
+        // 
+        // - color
+        // 
+        // - function
+        // 
+        // - scenario
+        // 
+        // - people
+        // 
+        // - season
+        // 
+        // - model
+        // 
+        // - region
+        // 
+        // - name
+        // 
+        // - adjective
+        // 
+        // - category-modifier
+        // 
+        // - size
+        // 
+        // - quality
+        // 
+        // - suit
+        // 
+        // - new-release
+        // 
+        // - series
+        // 
+        // - marketing
+        // 
+        // - entertainment
+        // 
+        // - organization
+        // 
+        // - movie
+        // 
+        // - game
+        // 
+        // - number
+        // 
+        // - unit
+        // 
+        // - common
+        // 
+        // - new-word
+        // 
+        // - proper-noun
+        // 
+        // - symbol
+        // 
+        // - prefix
+        // 
+        // - suffix
+        // 
+        // - gift
+        // 
+        // - negative
+        // 
+        // - agent
         shared_ptr<string> tag_ {};
         // The description of the internal name of the identified entity type.
         shared_ptr<string> tagLabel_ {};
@@ -227,8 +262,9 @@ namespace Models
     protected:
       // The command. Valid values:
       // 
-      // *   add
-      // *   delete
+      // - add
+      // 
+      // - delete
       shared_ptr<string> cmd_ {};
       // The timestamp when the intervention entry was created.
       shared_ptr<int64_t> created_ {};
@@ -236,7 +272,7 @@ namespace Models
       Darabonba::Json relevance_ {};
       // The status of the intervention entry. Valid value:
       // 
-      // *   ACTIVE: The intervention entry takes effect.
+      // - ACTIVE: The intervention entry takes effect.
       shared_ptr<string> status_ {};
       // The content of the intervention entry for term weight analysis.
       shared_ptr<vector<Result::Tokens>> tokens_ {};

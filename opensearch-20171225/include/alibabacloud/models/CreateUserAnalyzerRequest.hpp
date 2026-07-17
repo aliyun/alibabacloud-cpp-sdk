@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The basic analyzer.
+    // The name of the basic analyzer.
     shared_ptr<string> business_ {};
-    // The application ID of the custom analyzer.
+    // The application ID for the custom model-based analyzer.
     shared_ptr<string> businessAppGroupId_ {};
-    // The basic analyzer type. Valid values: AUTO, MODEL, SYSTEM, and USER.
+    // The type of the basic analyzer. Valid values: AUTO, MODEL, SYSTEM, and USER.
     shared_ptr<string> businessType_ {};
-    // The analyzer name.
+    // The name of the analyzer.
     shared_ptr<string> name_ {};
     // The engine type. Valid values: HA3 and ES.
     shared_ptr<string> type_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Default value: false.
-    // Valid values:
-    // *   **true**
-    // *   **false**
+    // Specifies whether to perform a dry run. Valid values:
+    // 
+    // - true: sends a check request without creating the analyzer. The system checks the AccessKey, RAM user authorization, and required parameters.
+    // 
+    // - false (default): sends a regular request to create the analyzer.
     shared_ptr<bool> dryRun_ {};
   };
 

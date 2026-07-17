@@ -104,9 +104,9 @@ namespace Models
 
 
       protected:
-        // The parameters that are used by a function in the expression. For more information, see Rough sort functions.[](~~170007~~)
+        // The parameters of the function in the expression. For more information, see [Rough sort](https://help.aliyun.com/document_detail/170007.html).
         shared_ptr<string> arg_ {};
-        // The attribute, which refers to the scoring feature or search field, For more information about supported feature functions, see Rough sort functions.[](~~170007~~)
+        // The attribute. This can be a scoring feature or a search field. For information about available scoring features, see [Rough sort](https://help.aliyun.com/document_detail/170007.html).
         shared_ptr<string> attribute_ {};
         // The weight. Valid values: -100000 to 100000. The value cannot be 0.
         shared_ptr<float> weight_ {};
@@ -145,13 +145,13 @@ namespace Models
 
 
     protected:
-      // Specifies whether to set the fine sort expression as the default sort expression.
+      // Indicates whether this is the default expression.
       shared_ptr<bool> active_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // The information about the expression.
+      // The details of the expression.
       shared_ptr<vector<Result::Meta>> meta_ {};
-      // Parameter
+      // The name of the resource.
       shared_ptr<string> name_ {};
     };
 
@@ -176,7 +176,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the rough sort expression.
+    // The details of the rough sort expression.
     shared_ptr<RemoveFirstRankResponseBody::Result> result_ {};
   };
 

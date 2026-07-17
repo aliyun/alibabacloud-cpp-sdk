@@ -119,7 +119,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The results returned.
+    // The result.
     shared_ptr<vector<DescribeRegionsResponseBody::Result>> result_ {};
   };
 

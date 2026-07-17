@@ -39,12 +39,6 @@ namespace Models
 
   protected:
     // The output level.
-    // 
-    // Valid values:
-    // 
-    // *   simple
-    // *   normal
-    // *   detail
     shared_ptr<string> output_ {};
   };
 

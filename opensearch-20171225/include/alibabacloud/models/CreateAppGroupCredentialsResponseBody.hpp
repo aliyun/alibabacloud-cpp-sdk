@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The ID of the application group.
       shared_ptr<int64_t> appGroupId_ {};
+      // Indicates whether the credential is enabled.
       shared_ptr<bool> enabled_ {};
+      // The generated credential token.
       shared_ptr<string> token_ {};
+      // The credential type.
       shared_ptr<string> type_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The details of the operation result.
     shared_ptr<CreateAppGroupCredentialsResponseBody::Result> result_ {};
   };
 

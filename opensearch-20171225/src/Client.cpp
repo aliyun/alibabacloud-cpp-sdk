@@ -19,6 +19,19 @@ namespace OpenSearch20171225
 
 AlibabaCloud::OpenSearch20171225::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-east-1" , "opensearch.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "opensearch.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "opensearch.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "opensearch.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "opensearch.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "opensearch.cn-qingdao.aliyuncs.com"},
+    {"cn-hongkong" , "opensearch.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "opensearch.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "opensearch.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-5" , "opensearch.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-1" , "opensearch.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("opensearch", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -77,7 +90,7 @@ BindESUserAnalyzerResponse Client::bindESUserAnalyzer(const string &appGroupIden
 }
 
 /**
- * @summary Binds an Elasticsearch instance.
+ * @summary Binds an Elasticsearch instance as a dependency.
  *
  * @param request BindEsInstanceRequest
  * @param headers map
@@ -110,7 +123,7 @@ BindEsInstanceResponse Client::bindEsInstanceWithOptions(const string &appGroupI
 }
 
 /**
- * @summary Binds an Elasticsearch instance.
+ * @summary Binds an Elasticsearch instance as a dependency.
  *
  * @param request BindEsInstanceRequest
  * @return BindEsInstanceResponse
@@ -204,7 +217,7 @@ CreateABTestExperimentResponse Client::createABTestExperiment(const string &appG
 }
 
 /**
- * @summary Creates a test group.
+ * @summary Creates an experiment group.
  *
  * @param request CreateABTestGroupRequest
  * @param headers map
@@ -238,7 +251,7 @@ CreateABTestGroupResponse Client::createABTestGroupWithOptions(const string &app
 }
 
 /**
- * @summary Creates a test group.
+ * @summary Creates an experiment group.
  *
  * @param request CreateABTestGroupRequest
  * @return CreateABTestGroupResponse
@@ -250,7 +263,7 @@ CreateABTestGroupResponse Client::createABTestGroup(const string &appGroupIdenti
 }
 
 /**
- * @summary Creates an scenario.
+ * @summary Creates an experiment scenario.
  *
  * @param request CreateABTestSceneRequest
  * @param headers map
@@ -284,7 +297,7 @@ CreateABTestSceneResponse Client::createABTestSceneWithOptions(const string &app
 }
 
 /**
- * @summary Creates an scenario.
+ * @summary Creates an experiment scenario.
  *
  * @param request CreateABTestSceneRequest
  * @return CreateABTestSceneResponse
@@ -296,12 +309,12 @@ CreateABTestSceneResponse Client::createABTestScene(const string &appGroupIdenti
 }
 
 /**
- * @summary Creates a version for an OpenSearch application.
+ * @summary Creates a new version of an OpenSearch application.
  *
- * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
- * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
- * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
- * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+ * @description - If a Standard Edition application with the same name already exists, a new version is created.
+ * - The autoSwitch and realtimeShared parameters are required to create a new version.
+ * - The quota for the new version is automatically inherited from the previous version.
+ * - You cannot modify the quota when you create the new version.
  *
  * @param request CreateAppRequest
  * @param headers map
@@ -404,12 +417,12 @@ CreateAppResponse Client::createAppWithOptions(const string &appGroupIdentity, c
 }
 
 /**
- * @summary Creates a version for an OpenSearch application.
+ * @summary Creates a new version of an OpenSearch application.
  *
- * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
- * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
- * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
- * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+ * @description - If a Standard Edition application with the same name already exists, a new version is created.
+ * - The autoSwitch and realtimeShared parameters are required to create a new version.
+ * - The quota for the new version is automatically inherited from the previous version.
+ * - You cannot modify the quota when you create the new version.
  *
  * @param request CreateAppRequest
  * @return CreateAppResponse
@@ -486,6 +499,8 @@ CreateAppGroupResponse Client::createAppGroup(const CreateAppGroupRequest &reque
 }
 
 /**
+ * @summary Creates access credentials for a specified application group. This operation supports a dry run to preview the results.
+ *
  * @param request CreateAppGroupCredentialsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -523,6 +538,8 @@ CreateAppGroupCredentialsResponse Client::createAppGroupCredentialsWithOptions(c
 }
 
 /**
+ * @summary Creates access credentials for a specified application group. This operation supports a dry run to preview the results.
+ *
  * @param request CreateAppGroupCredentialsRequest
  * @return CreateAppGroupCredentialsResponse
  */
@@ -533,7 +550,82 @@ CreateAppGroupCredentialsResponse Client::createAppGroupCredentials(const string
 }
 
 /**
- * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+ * @summary 创建弹性计划
+ *
+ * @param request CreateElasticPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateElasticPlanResponse
+ */
+CreateElasticPlanResponse Client::createElasticPlanWithOptions(const string &appGroupIdentity, const CreateElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
+  json body = {};
+  if (!!request.hasCustomDates()) {
+    body["customDates"] = request.getCustomDates();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasElasticLcu()) {
+    body["elasticLcu"] = request.getElasticLcu();
+  }
+
+  if (!!request.hasEndHour()) {
+    body["endHour"] = request.getEndHour();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasScheduleType()) {
+    body["scheduleType"] = request.getScheduleType();
+  }
+
+  if (!!request.hasStartHour()) {
+    body["startHour"] = request.getStartHour();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateElasticPlan"},
+    {"version" , "2017-12-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v4/openapi/app-groups/" , Darabonba::Encode::Encoder::percentEncode(appGroupIdentity) , "/elastic-plans")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateElasticPlanResponse>();
+}
+
+/**
+ * @summary 创建弹性计划
+ *
+ * @param request CreateElasticPlanRequest
+ * @return CreateElasticPlanResponse
+ */
+CreateElasticPlanResponse Client::createElasticPlan(const string &appGroupIdentity, const CreateElasticPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createElasticPlanWithOptions(appGroupIdentity, request, headers, runtime);
+}
+
+/**
+ * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set `dryRun` to true, this operation validates the specified rough sort expression. By default, the value of `dryRun` is `false`.
  *
  * @param request CreateFirstRankRequest
  * @param headers map
@@ -567,7 +659,7 @@ CreateFirstRankResponse Client::createFirstRankWithOptions(const string &appGrou
 }
 
 /**
- * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+ * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set `dryRun` to true, this operation validates the specified rough sort expression. By default, the value of `dryRun` is `false`.
  *
  * @param request CreateFirstRankRequest
  * @return CreateFirstRankResponse
@@ -652,7 +744,7 @@ CreateFunctionInstanceResponse Client::createFunctionInstance(const string &appG
 }
 
 /**
- * @summary Creates an algorithm resource for a specific feature.
+ * @summary Creates an algorithm resource for a specified feature.
  *
  * @param request CreateFunctionResourceRequest
  * @param headers map
@@ -697,7 +789,7 @@ CreateFunctionResourceResponse Client::createFunctionResourceWithOptions(const s
 }
 
 /**
- * @summary Creates an algorithm resource for a specific feature.
+ * @summary Creates an algorithm resource for a specified feature.
  *
  * @param request CreateFunctionResourceRequest
  * @return CreateFunctionResourceResponse
@@ -709,7 +801,7 @@ CreateFunctionResourceResponse Client::createFunctionResource(const string &appG
 }
 
 /**
- * @summary Starts a training task for an algorithm instance.
+ * @summary Starts a training task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -734,7 +826,7 @@ CreateFunctionTaskResponse Client::createFunctionTaskWithOptions(const string &a
 }
 
 /**
- * @summary Starts a training task for an algorithm instance.
+ * @summary Starts a training task.
  *
  * @return CreateFunctionTaskResponse
  */
@@ -745,7 +837,7 @@ CreateFunctionTaskResponse Client::createFunctionTask(const string &appGroupIden
 }
 
 /**
- * @summary Create an intervention dictionary.
+ * @summary Creates an intervention dictionary.
  *
  * @param request CreateInterventionDictionaryRequest
  * @param headers map
@@ -792,7 +884,7 @@ CreateInterventionDictionaryResponse Client::createInterventionDictionaryWithOpt
 }
 
 /**
- * @summary Create an intervention dictionary.
+ * @summary Creates an intervention dictionary.
  *
  * @param request CreateInterventionDictionaryRequest
  * @return CreateInterventionDictionaryResponse
@@ -890,7 +982,7 @@ CreateScheduledTaskResponse Client::createScheduledTask(const string &appGroupId
 }
 
 /**
- * @summary Creates a query policy.
+ * @summary Creates a search strategy.
  *
  * @param request CreateSearchStrategyRequest
  * @param headers map
@@ -918,7 +1010,7 @@ CreateSearchStrategyResponse Client::createSearchStrategyWithOptions(const strin
 }
 
 /**
- * @summary Creates a query policy.
+ * @summary Creates a search strategy.
  *
  * @param request CreateSearchStrategyRequest
  * @return CreateSearchStrategyResponse
@@ -930,7 +1022,7 @@ CreateSearchStrategyResponse Client::createSearchStrategy(const string &appGroup
 }
 
 /**
- * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+ * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set the dryRun parameter to true, this operation validates the specified fine sort expression. The default value of this parameter is false.
  *
  * @param request CreateSecondRankRequest
  * @param headers map
@@ -964,7 +1056,7 @@ CreateSecondRankResponse Client::createSecondRankWithOptions(const string &appGr
 }
 
 /**
- * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+ * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set the dryRun parameter to true, this operation validates the specified fine sort expression. The default value of this parameter is false.
  *
  * @param request CreateSecondRankRequest
  * @return CreateSecondRankResponse
@@ -1033,7 +1125,7 @@ CreateSortScriptResponse Client::createSortScript(const string &appGroupIdentity
 }
 
 /**
- * @summary Create a custom analyzer.
+ * @summary Creates a custom analyzer.
  *
  * @param request CreateUserAnalyzerRequest
  * @param headers map
@@ -1088,7 +1180,7 @@ CreateUserAnalyzerResponse Client::createUserAnalyzerWithOptions(const CreateUse
 }
 
 /**
- * @summary Create a custom analyzer.
+ * @summary Creates a custom analyzer.
  *
  * @param request CreateUserAnalyzerRequest
  * @return CreateUserAnalyzerResponse
@@ -1100,7 +1192,7 @@ CreateUserAnalyzerResponse Client::createUserAnalyzer(const CreateUserAnalyzerRe
 }
 
 /**
- * @summary Deletes a test.
+ * @summary Deletes an experiment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1125,7 +1217,7 @@ DeleteABTestExperimentResponse Client::deleteABTestExperimentWithOptions(const s
 }
 
 /**
- * @summary Deletes a test.
+ * @summary Deletes an experiment.
  *
  * @return DeleteABTestExperimentResponse
  */
@@ -1136,7 +1228,7 @@ DeleteABTestExperimentResponse Client::deleteABTestExperiment(const string &appG
 }
 
 /**
- * @summary 删除实验组
+ * @summary Deletes an A/B test group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1161,7 +1253,7 @@ DeleteABTestGroupResponse Client::deleteABTestGroupWithOptions(const string &app
 }
 
 /**
- * @summary 删除实验组
+ * @summary Deletes an A/B test group.
  *
  * @return DeleteABTestGroupResponse
  */
@@ -1208,7 +1300,7 @@ DeleteABTestSceneResponse Client::deleteABTestScene(const string &appGroupIdenti
 }
 
 /**
- * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+ * @summary Deletes an algorithm instance. Before you delete an instance, ensure that it is not in use to prevent service interruptions.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1233,7 +1325,7 @@ DeleteFunctionInstanceResponse Client::deleteFunctionInstanceWithOptions(const s
 }
 
 /**
- * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+ * @summary Deletes an algorithm instance. Before you delete an instance, ensure that it is not in use to prevent service interruptions.
  *
  * @return DeleteFunctionInstanceResponse
  */
@@ -1244,7 +1336,7 @@ DeleteFunctionInstanceResponse Client::deleteFunctionInstance(const string &appG
 }
 
 /**
- * @summary Deletes an algorithm resource.
+ * @summary Deletes a specified algorithm resource.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1269,7 +1361,7 @@ DeleteFunctionResourceResponse Client::deleteFunctionResourceWithOptions(const s
 }
 
 /**
- * @summary Deletes an algorithm resource.
+ * @summary Deletes a specified algorithm resource.
  *
  * @return DeleteFunctionResourceResponse
  */
@@ -1280,7 +1372,7 @@ DeleteFunctionResourceResponse Client::deleteFunctionResource(const string &appG
 }
 
 /**
- * @summary Deletes a training task. The training task in progress cannot be deleted.
+ * @summary Deletes a training record. A training record that is in progress cannot be deleted.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1305,7 +1397,7 @@ DeleteFunctionTaskResponse Client::deleteFunctionTaskWithOptions(const string &a
 }
 
 /**
- * @summary Deletes a training task. The training task in progress cannot be deleted.
+ * @summary Deletes a training record. A training record that is in progress cannot be deleted.
  *
  * @return DeleteFunctionTaskResponse
  */
@@ -1316,7 +1408,7 @@ DeleteFunctionTaskResponse Client::deleteFunctionTask(const string &appGroupIden
 }
 
 /**
- * @summary 删除排序脚本
+ * @summary Deletes a sort script.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1341,7 +1433,7 @@ DeleteSortScriptResponse Client::deleteSortScriptWithOptions(const string &appGr
 }
 
 /**
- * @summary 删除排序脚本
+ * @summary Deletes a sort script.
  *
  * @return DeleteSortScriptResponse
  */
@@ -1388,7 +1480,7 @@ DeleteSortScriptFileResponse Client::deleteSortScriptFile(const string &appGroup
 }
 
 /**
- * @summary 获取实验详情
+ * @summary Retrieves the details of an experiment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1505,7 @@ DescribeABTestExperimentResponse Client::describeABTestExperimentWithOptions(con
 }
 
 /**
- * @summary 获取实验详情
+ * @summary Retrieves the details of an experiment.
  *
  * @return DescribeABTestExperimentResponse
  */
@@ -1424,7 +1516,7 @@ DescribeABTestExperimentResponse Client::describeABTestExperiment(const string &
 }
 
 /**
- * @summary Queries the details of a test group.
+ * @summary Retrieves the details of an A/B test group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1449,7 +1541,7 @@ DescribeABTestGroupResponse Client::describeABTestGroupWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of a test group.
+ * @summary Retrieves the details of an A/B test group.
  *
  * @return DescribeABTestGroupResponse
  */
@@ -1460,7 +1552,7 @@ DescribeABTestGroupResponse Client::describeABTestGroup(const string &appGroupId
 }
 
 /**
- * @summary Queries the information about an A/B test scenario.
+ * @summary Query an A/B test scenario.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1485,7 +1577,7 @@ DescribeABTestSceneResponse Client::describeABTestSceneWithOptions(const string 
 }
 
 /**
- * @summary Queries the information about an A/B test scenario.
+ * @summary Query an A/B test scenario.
  *
  * @return DescribeABTestSceneResponse
  */
@@ -1532,7 +1624,7 @@ DescribeAppResponse Client::describeApp(const string &appGroupIdentity, const st
 }
 
 /**
- * @summary Queries the details of an OpenSearch application.
+ * @summary Query an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1557,7 +1649,7 @@ DescribeAppGroupResponse Client::describeAppGroupWithOptions(const string &appGr
 }
 
 /**
- * @summary Queries the details of an OpenSearch application.
+ * @summary Query an OpenSearch application.
  *
  * @return DescribeAppGroupResponse
  */
@@ -1604,12 +1696,12 @@ DescribeAppStatisticsResponse Client::describeAppStatistics(const string &appGro
 }
 
 /**
- * @summary Queries the version list of an OpenSearch application.
+ * @summary Queries the versions of an OpenSearch application.
  *
- * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
- * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
- * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
- * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+ * @description - If a Standard Edition application with the same name exists, a new version is created.
+ * - When you create a new version, the autoSwitch and realtimeShared parameters are required.
+ * - When you create a new version, the quota is inherited from the previous version.
+ * - When you create a new version, modifications to the quota do not take effect.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1634,12 +1726,12 @@ DescribeAppsResponse Client::describeAppsWithOptions(const string &appGroupIdent
 }
 
 /**
- * @summary Queries the version list of an OpenSearch application.
+ * @summary Queries the versions of an OpenSearch application.
  *
- * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
- * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
- * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
- * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+ * @description - If a Standard Edition application with the same name exists, a new version is created.
+ * - When you create a new version, the autoSwitch and realtimeShared parameters are required.
+ * - When you create a new version, the quota is inherited from the previous version.
+ * - When you create a new version, modifications to the quota do not take effect.
  *
  * @return DescribeAppsResponse
  */
@@ -1650,7 +1742,7 @@ DescribeAppsResponse Client::describeApps(const string &appGroupIdentity) {
 }
 
 /**
- * @summary Queries the details of a data collection task of an application.
+ * @summary Retrieves the details of a data collection for a specified application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1767,7 @@ DescribeDataCollctionResponse Client::describeDataCollctionWithOptions(const str
 }
 
 /**
- * @summary Queries the details of a data collection task of an application.
+ * @summary Retrieves the details of a data collection for a specified application.
  *
  * @return DescribeDataCollctionResponse
  */
@@ -1686,7 +1778,62 @@ DescribeDataCollctionResponse Client::describeDataCollction(const string &appGro
 }
 
 /**
- * @summary Queries a rough sort expression that is configured for an OpenSearch application version.
+ * @summary 获取弹性计划详情
+ *
+ * @description - 若已存在同名标准版应用，则创建新版本；
+ * - 在新建版本情况下，autoSwitch 和 realtimeShared 也是必填的；
+ * - 在新建版本情况下，quota 是自动从上一个版本继承的；
+ * - 在新建版本情况下，修改 quota 是无效的。
+ *
+ * @param request DescribeElasticPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeElasticPlanResponse
+ */
+DescribeElasticPlanResponse Client::describeElasticPlanWithOptions(const string &appGroupIdentity, const string &planId, const DescribeElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeElasticPlan"},
+    {"version" , "2017-12-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v4/openapi/app-groups/" , Darabonba::Encode::Encoder::percentEncode(appGroupIdentity) , "/elastic-plans/" , Darabonba::Encode::Encoder::percentEncode(planId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeElasticPlanResponse>();
+}
+
+/**
+ * @summary 获取弹性计划详情
+ *
+ * @description - 若已存在同名标准版应用，则创建新版本；
+ * - 在新建版本情况下，autoSwitch 和 realtimeShared 也是必填的；
+ * - 在新建版本情况下，quota 是自动从上一个版本继承的；
+ * - 在新建版本情况下，修改 quota 是无效的。
+ *
+ * @param request DescribeElasticPlanRequest
+ * @return DescribeElasticPlanResponse
+ */
+DescribeElasticPlanResponse Client::describeElasticPlan(const string &appGroupIdentity, const string &planId, const DescribeElasticPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeElasticPlanWithOptions(appGroupIdentity, planId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the rough sort expression configured for an OpenSearch application version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1711,7 +1858,7 @@ DescribeFirstRankResponse Client::describeFirstRankWithOptions(const string &app
 }
 
 /**
- * @summary Queries a rough sort expression that is configured for an OpenSearch application version.
+ * @summary Queries the rough sort expression configured for an OpenSearch application version.
  *
  * @return DescribeFirstRankResponse
  */
@@ -1722,7 +1869,7 @@ DescribeFirstRankResponse Client::describeFirstRank(const string &appGroupIdenti
 }
 
 /**
- * @summary Queries the details of an intervention dictionary.
+ * @summary Retrieves the details of an intervention dictionary.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1747,7 +1894,7 @@ DescribeInterventionDictionaryResponse Client::describeInterventionDictionaryWit
 }
 
 /**
- * @summary Queries the details of an intervention dictionary.
+ * @summary Retrieves the details of an intervention dictionary.
  *
  * @return DescribeInterventionDictionaryResponse
  */
@@ -1758,7 +1905,7 @@ DescribeInterventionDictionaryResponse Client::describeInterventionDictionary(co
 }
 
 /**
- * @summary Queries the query analysis rule for a version of an OpenSearch application.
+ * @summary Describes a query analysis rule for a version of an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1783,7 +1930,7 @@ DescribeQueryProcessorResponse Client::describeQueryProcessorWithOptions(const s
 }
 
 /**
- * @summary Queries the query analysis rule for a version of an OpenSearch application.
+ * @summary Describes a query analysis rule for a version of an OpenSearch application.
  *
  * @return DescribeQueryProcessorResponse
  */
@@ -1794,7 +1941,7 @@ DescribeQueryProcessorResponse Client::describeQueryProcessor(const string &appG
 }
 
 /**
- * @summary Queries the endpoints of all regions that support OpenSearch.
+ * @summary Retrieves the endpoints for all regions.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1819,7 +1966,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const map<string, str
 }
 
 /**
- * @summary Queries the endpoints of all regions that support OpenSearch.
+ * @summary Retrieves the endpoints for all regions.
  *
  * @return DescribeRegionsResponse
  */
@@ -1830,7 +1977,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary 查看应用定时任务详情
+ * @summary Query a scheduled task for an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1855,7 +2002,7 @@ DescribeScheduledTaskResponse Client::describeScheduledTaskWithOptions(const str
 }
 
 /**
- * @summary 查看应用定时任务详情
+ * @summary Query a scheduled task for an OpenSearch application.
  *
  * @return DescribeScheduledTaskResponse
  */
@@ -1866,7 +2013,7 @@ DescribeScheduledTaskResponse Client::describeScheduledTask(const string &appGro
 }
 
 /**
- * @summary Queries a fine sort expression that is configured for a version of an OpenSearch application.
+ * @summary Queries the fine sort expression for a version of an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1891,7 +2038,7 @@ DescribeSecondRankResponse Client::describeSecondRankWithOptions(const string &a
 }
 
 /**
- * @summary Queries a fine sort expression that is configured for a version of an OpenSearch application.
+ * @summary Queries the fine sort expression for a version of an OpenSearch application.
  *
  * @return DescribeSecondRankResponse
  */
@@ -1902,7 +2049,7 @@ DescribeSecondRankResponse Client::describeSecondRank(const string &appGroupIden
 }
 
 /**
- * @summary 获取优化大师慢查询开通状态
+ * @summary Queries the status of the slow query feature.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +2074,7 @@ DescribeSlowQueryStatusResponse Client::describeSlowQueryStatusWithOptions(const
 }
 
 /**
- * @summary 获取优化大师慢查询开通状态
+ * @summary Queries the status of the slow query feature.
  *
  * @return DescribeSlowQueryStatusResponse
  */
@@ -1938,7 +2085,7 @@ DescribeSlowQueryStatusResponse Client::describeSlowQueryStatus(const string &ap
 }
 
 /**
- * @summary 获取自定义分析器详情
+ * @summary Retrieves the details of a custom analyzer.
  *
  * @param request DescribeUserAnalyzerRequest
  * @param headers map
@@ -1971,7 +2118,7 @@ DescribeUserAnalyzerResponse Client::describeUserAnalyzerWithOptions(const strin
 }
 
 /**
- * @summary 获取自定义分析器详情
+ * @summary Retrieves the details of a custom analyzer.
  *
  * @param request DescribeUserAnalyzerRequest
  * @return DescribeUserAnalyzerResponse
@@ -1983,7 +2130,7 @@ DescribeUserAnalyzerResponse Client::describeUserAnalyzer(const string &name, co
 }
 
 /**
- * @summary 禁用优化大师慢查询服务
+ * @summary Disables the slow query service for Search Diagnoser.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2008,7 +2155,7 @@ DisableSlowQueryResponse Client::disableSlowQueryWithOptions(const string &appGr
 }
 
 /**
- * @summary 禁用优化大师慢查询服务
+ * @summary Disables the slow query service for Search Diagnoser.
  *
  * @return DisableSlowQueryResponse
  */
@@ -2019,7 +2166,7 @@ DisableSlowQueryResponse Client::disableSlowQuery(const string &appGroupIdentity
 }
 
 /**
- * @summary Enables slow query optimization of Optimization Master.
+ * @summary Enables the slow query service for the optimizer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2044,7 +2191,7 @@ EnableSlowQueryResponse Client::enableSlowQueryWithOptions(const string &appGrou
 }
 
 /**
- * @summary Enables slow query optimization of Optimization Master.
+ * @summary Enables the slow query service for the optimizer.
  *
  * @return EnableSlowQueryResponse
  */
@@ -2101,7 +2248,7 @@ GenerateMergedTableResponse Client::generateMergedTable(const GenerateMergedTabl
 }
 
 /**
- * @summary Queries the type of an industry.
+ * @summary Retrieves the industry type.
  *
  * @param request GetDomainRequest
  * @param headers map
@@ -2134,7 +2281,7 @@ GetDomainResponse Client::getDomainWithOptions(const string &domainName, const G
 }
 
 /**
- * @summary Queries the type of an industry.
+ * @summary Retrieves the industry type.
  *
  * @param request GetDomainRequest
  * @return GetDomainResponse
@@ -2146,7 +2293,7 @@ GetDomainResponse Client::getDomain(const string &domainName, const GetDomainReq
 }
 
 /**
- * @summary Queries the version information about the current feature when you create an instance.
+ * @summary Retrieves the version information of the feature that is used to create an instance.
  *
  * @param request GetFunctionCurrentVersionRequest
  * @param headers map
@@ -2191,7 +2338,7 @@ GetFunctionCurrentVersionResponse Client::getFunctionCurrentVersionWithOptions(c
 }
 
 /**
- * @summary Queries the version information about the current feature when you create an instance.
+ * @summary Retrieves the version information of the feature that is used to create an instance.
  *
  * @param request GetFunctionCurrentVersionRequest
  * @return GetFunctionCurrentVersionResponse
@@ -2203,7 +2350,7 @@ GetFunctionCurrentVersionResponse Client::getFunctionCurrentVersion(const string
 }
 
 /**
- * @summary Queries the algorithm instance that an application uses by default.
+ * @summary Queries the default algorithm instance for an application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2228,7 +2375,7 @@ GetFunctionDefaultInstanceResponse Client::getFunctionDefaultInstanceWithOptions
 }
 
 /**
- * @summary Queries the algorithm instance that an application uses by default.
+ * @summary Queries the default algorithm instance for an application.
  *
  * @return GetFunctionDefaultInstanceResponse
  */
@@ -2239,7 +2386,7 @@ GetFunctionDefaultInstanceResponse Client::getFunctionDefaultInstance(const stri
 }
 
 /**
- * @summary Queries the details of an algorithm instance by instance name.
+ * @summary Query an algorithm instance by instance name.
  *
  * @param request GetFunctionInstanceRequest
  * @param headers map
@@ -2272,7 +2419,7 @@ GetFunctionInstanceResponse Client::getFunctionInstanceWithOptions(const string 
 }
 
 /**
- * @summary Queries the details of an algorithm instance by instance name.
+ * @summary Query an algorithm instance by instance name.
  *
  * @param request GetFunctionInstanceRequest
  * @return GetFunctionInstanceResponse
@@ -2284,7 +2431,7 @@ GetFunctionInstanceResponse Client::getFunctionInstance(const string &appGroupId
 }
 
 /**
- * @summary Queries an algorithm resource.
+ * @summary Retrieves the specified algorithm resource.
  *
  * @param request GetFunctionResourceRequest
  * @param headers map
@@ -2317,7 +2464,7 @@ GetFunctionResourceResponse Client::getFunctionResourceWithOptions(const string 
 }
 
 /**
- * @summary Queries an algorithm resource.
+ * @summary Retrieves the specified algorithm resource.
  *
  * @param request GetFunctionResourceRequest
  * @return GetFunctionResourceResponse
@@ -2365,7 +2512,7 @@ GetFunctionTaskResponse Client::getFunctionTask(const string &appGroupIdentity, 
 }
 
 /**
- * @summary Queries version information by version ID.
+ * @summary Queries the information about a function version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2390,7 +2537,7 @@ GetFunctionVersionResponse Client::getFunctionVersionWithOptions(const string &f
 }
 
 /**
- * @summary Queries version information by version ID.
+ * @summary Queries the information about a function version.
  *
  * @return GetFunctionVersionResponse
  */
@@ -2401,6 +2548,8 @@ GetFunctionVersionResponse Client::getFunctionVersion(const string &functionName
 }
 
 /**
+ * @summary Retrieves the names of all files in a specified script for a specific application version.
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetScriptFileNamesResponse
@@ -2424,6 +2573,8 @@ GetScriptFileNamesResponse Client::getScriptFileNamesWithOptions(const string &a
 }
 
 /**
+ * @summary Retrieves the names of all files in a specified script for a specific application version.
+ *
  * @return GetScriptFileNamesResponse
  */
 GetScriptFileNamesResponse Client::getScriptFileNames(const string &appGroupIdentity, const string &appVersionId, const string &scriptName) {
@@ -2433,7 +2584,7 @@ GetScriptFileNamesResponse Client::getScriptFileNames(const string &appGroupIden
 }
 
 /**
- * @summary Queries the details of a query policy.
+ * @summary Retrieves the details of a query policy.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2458,7 +2609,7 @@ GetSearchStrategyResponse Client::getSearchStrategyWithOptions(const string &app
 }
 
 /**
- * @summary Queries the details of a query policy.
+ * @summary Retrieves the details of a query policy.
  *
  * @return GetSearchStrategyResponse
  */
@@ -2469,7 +2620,7 @@ GetSearchStrategyResponse Client::getSearchStrategy(const string &appGroupIdenti
 }
 
 /**
- * @summary Queries the details of a sort script.
+ * @summary Retrieves the details of a sort script.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2494,7 +2645,7 @@ GetSortScriptResponse Client::getSortScriptWithOptions(const string &appGroupIde
 }
 
 /**
- * @summary Queries the details of a sort script.
+ * @summary Retrieves the details of a sort script.
  *
  * @return GetSortScriptResponse
  */
@@ -2505,7 +2656,7 @@ GetSortScriptResponse Client::getSortScript(const string &appGroupIdentity, cons
 }
 
 /**
- * @summary Queries the content of a sort script.
+ * @summary Retrieves the content of a sort script.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2530,7 +2681,7 @@ GetSortScriptFileResponse Client::getSortScriptFileWithOptions(const string &app
 }
 
 /**
- * @summary Queries the content of a sort script.
+ * @summary Retrieves the content of a sort script.
  *
  * @return GetSortScriptFileResponse
  */
@@ -2577,7 +2728,7 @@ ListABTestExperimentsResponse Client::listABTestExperiments(const string &appGro
 }
 
 /**
- * @summary Queries whitelists.
+ * @summary Lists whitelists.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2602,7 +2753,7 @@ ListABTestFixedFlowDividersResponse Client::listABTestFixedFlowDividersWithOptio
 }
 
 /**
- * @summary Queries whitelists.
+ * @summary Lists whitelists.
  *
  * @return ListABTestFixedFlowDividersResponse
  */
@@ -2613,7 +2764,7 @@ ListABTestFixedFlowDividersResponse Client::listABTestFixedFlowDividers(const st
 }
 
 /**
- * @summary 获取实验组清单
+ * @summary Retrieves a list of test groups.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2638,7 +2789,7 @@ ListABTestGroupsResponse Client::listABTestGroupsWithOptions(const string &appGr
 }
 
 /**
- * @summary 获取实验组清单
+ * @summary Retrieves a list of test groups.
  *
  * @return ListABTestGroupsResponse
  */
@@ -2687,9 +2838,9 @@ ListABTestScenesResponse Client::listABTestScenes(const string &appGroupIdentity
 /**
  * @summary Queries a list of OpenSearch applications.
  *
- * @description *   This operation allows you to query applications by application name, instance ID, and application type.
- * *   This operation allows you to sort the applications based on their creation time.
- * *   This operation supports the parameters for paging.
+ * @description - Filters applications by name, instance ID, and type.
+ * - Sorts applications by their creation time.
+ * - Supports paging.
  *
  * @param tmpReq ListAppGroupsRequest
  * @param headers map
@@ -2758,9 +2909,9 @@ ListAppGroupsResponse Client::listAppGroupsWithOptions(const ListAppGroupsReques
 /**
  * @summary Queries a list of OpenSearch applications.
  *
- * @description *   This operation allows you to query applications by application name, instance ID, and application type.
- * *   This operation allows you to sort the applications based on their creation time.
- * *   This operation supports the parameters for paging.
+ * @description - Filters applications by name, instance ID, and type.
+ * - Sorts applications by their creation time.
+ * - Supports paging.
  *
  * @param request ListAppGroupsRequest
  * @return ListAppGroupsResponse
@@ -2772,7 +2923,7 @@ ListAppGroupsResponse Client::listAppGroups(const ListAppGroupsRequest &request)
 }
 
 /**
- * @summary Queries the data collection tasks of an OpenSearch application.
+ * @summary Lists the data collections for an OpenSearch application.
  *
  * @param request ListDataCollectionsRequest
  * @param headers map
@@ -2809,7 +2960,7 @@ ListDataCollectionsResponse Client::listDataCollectionsWithOptions(const string 
 }
 
 /**
- * @summary Queries the data collection tasks of an OpenSearch application.
+ * @summary Lists the data collections for an OpenSearch application.
  *
  * @param request ListDataCollectionsRequest
  * @return ListDataCollectionsResponse
@@ -2821,7 +2972,7 @@ ListDataCollectionsResponse Client::listDataCollections(const string &appGroupId
 }
 
 /**
- * @summary Queries all fields in a table of a data source. This operation is for internal use only.
+ * @summary This internal API retrieves all fields from a specified data table.
  *
  * @param request ListDataSourceTableFieldsRequest
  * @param headers map
@@ -2858,7 +3009,7 @@ ListDataSourceTableFieldsResponse Client::listDataSourceTableFieldsWithOptions(c
 }
 
 /**
- * @summary Queries all fields in a table of a data source. This operation is for internal use only.
+ * @summary This internal API retrieves all fields from a specified data table.
  *
  * @param request ListDataSourceTableFieldsRequest
  * @return ListDataSourceTableFieldsResponse
@@ -2870,7 +3021,7 @@ ListDataSourceTableFieldsResponse Client::listDataSourceTableFields(const string
 }
 
 /**
- * @summary Obtains all data from a specified data source.
+ * @summary Retrieves all data from a specified data source.
  *
  * @param request ListDataSourceTablesRequest
  * @param headers map
@@ -2903,7 +3054,7 @@ ListDataSourceTablesResponse Client::listDataSourceTablesWithOptions(const strin
 }
 
 /**
- * @summary Obtains all data from a specified data source.
+ * @summary Retrieves all data from a specified data source.
  *
  * @param request ListDataSourceTablesRequest
  * @return ListDataSourceTablesResponse
@@ -2912,6 +3063,71 @@ ListDataSourceTablesResponse Client::listDataSourceTables(const string &dataSour
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listDataSourceTablesWithOptions(dataSourceType, request, headers, runtime);
+}
+
+/**
+ * @summary 获取弹性计划列表
+ *
+ * @param request ListElasticPlansRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListElasticPlansResponse
+ */
+ListElasticPlansResponse Client::listElasticPlansWithOptions(const string &appGroupIdentity, const ListElasticPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnabled()) {
+    query["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListElasticPlans"},
+    {"version" , "2017-12-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v4/openapi/app-groups/" , Darabonba::Encode::Encoder::percentEncode(appGroupIdentity) , "/elastic-plans")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListElasticPlansResponse>();
+}
+
+/**
+ * @summary 获取弹性计划列表
+ *
+ * @param request ListElasticPlansRequest
+ * @return ListElasticPlansResponse
+ */
+ListElasticPlansResponse Client::listElasticPlans(const string &appGroupIdentity, const ListElasticPlansRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listElasticPlansWithOptions(appGroupIdentity, request, headers, runtime);
 }
 
 /**
@@ -2951,7 +3167,7 @@ ListFirstRanksResponse Client::listFirstRanks(const string &appGroupIdentity, co
 }
 
 /**
- * @summary Queries all algorithm instances of a user, which meet specified conditions.
+ * @summary Lists all instances that match the specified conditions.
  *
  * @param request ListFunctionInstancesRequest
  * @param headers map
@@ -3004,7 +3220,7 @@ ListFunctionInstancesResponse Client::listFunctionInstancesWithOptions(const str
 }
 
 /**
- * @summary Queries all algorithm instances of a user, which meet specified conditions.
+ * @summary Lists all instances that match the specified conditions.
  *
  * @param request ListFunctionInstancesRequest
  * @return ListFunctionInstancesResponse
@@ -3016,7 +3232,7 @@ ListFunctionInstancesResponse Client::listFunctionInstances(const string &appGro
 }
 
 /**
- * @summary Queries algorithm resources.
+ * @summary Lists the algorithm resources.
  *
  * @param request ListFunctionResourcesRequest
  * @param headers map
@@ -3061,7 +3277,7 @@ ListFunctionResourcesResponse Client::listFunctionResourcesWithOptions(const str
 }
 
 /**
- * @summary Queries algorithm resources.
+ * @summary Lists the algorithm resources.
  *
  * @param request ListFunctionResourcesRequest
  * @return ListFunctionResourcesResponse
@@ -3073,7 +3289,7 @@ ListFunctionResourcesResponse Client::listFunctionResources(const string &appGro
 }
 
 /**
- * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
+ * @summary Queries the training tasks. The results are sorted in descending order by start time.
  *
  * @param request ListFunctionTasksRequest
  * @param headers map
@@ -3122,7 +3338,7 @@ ListFunctionTasksResponse Client::listFunctionTasksWithOptions(const string &app
 }
 
 /**
- * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
+ * @summary Queries the training tasks. The results are sorted in descending order by start time.
  *
  * @param request ListFunctionTasksRequest
  * @return ListFunctionTasksResponse
@@ -3134,7 +3350,7 @@ ListFunctionTasksResponse Client::listFunctionTasks(const string &appGroupIdenti
 }
 
 /**
- * @summary 获取用户的干预词典列表
+ * @summary Retrieves a list of intervention dictionaries.
  *
  * @param request ListInterventionDictionariesRequest
  * @param headers map
@@ -3175,7 +3391,7 @@ ListInterventionDictionariesResponse Client::listInterventionDictionariesWithOpt
 }
 
 /**
- * @summary 获取用户的干预词典列表
+ * @summary Retrieves a list of intervention dictionaries.
  *
  * @param request ListInterventionDictionariesRequest
  * @return ListInterventionDictionariesResponse
@@ -3240,7 +3456,7 @@ ListInterventionDictionaryEntriesResponse Client::listInterventionDictionaryEntr
 }
 
 /**
- * @summary 获取实体识别结果
+ * @summary Retrieves the Named Entity Recognition (NER) results.
  *
  * @param request ListInterventionDictionaryNerResultsRequest
  * @param headers map
@@ -3273,7 +3489,7 @@ ListInterventionDictionaryNerResultsResponse Client::listInterventionDictionaryN
 }
 
 /**
- * @summary 获取实体识别结果
+ * @summary Retrieves the Named Entity Recognition (NER) results.
  *
  * @param request ListInterventionDictionaryNerResultsRequest
  * @return ListInterventionDictionaryNerResultsResponse
@@ -3285,7 +3501,7 @@ ListInterventionDictionaryNerResultsResponse Client::listInterventionDictionaryN
 }
 
 /**
- * @summary Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+ * @summary Queries the list of resources associated with an intervention dictionary. If a query processor (QP) references the dictionary, the operation returns all associated applications and information about the QP.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3310,7 +3526,7 @@ ListInterventionDictionaryRelatedEntitiesResponse Client::listInterventionDictio
 }
 
 /**
- * @summary Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+ * @summary Queries the list of resources associated with an intervention dictionary. If a query processor (QP) references the dictionary, the operation returns all associated applications and information about the QP.
  *
  * @return ListInterventionDictionaryRelatedEntitiesResponse
  */
@@ -3321,7 +3537,7 @@ ListInterventionDictionaryRelatedEntitiesResponse Client::listInterventionDictio
 }
 
 /**
- * @summary 查看当前的处理流
+ * @summary Lists the current proceedings.
  *
  * @param request ListProceedingsRequest
  * @param headers map
@@ -3354,7 +3570,7 @@ ListProceedingsResponse Client::listProceedingsWithOptions(const string &appGrou
 }
 
 /**
- * @summary 查看当前的处理流
+ * @summary Lists the current proceedings.
  *
  * @param request ListProceedingsRequest
  * @return ListProceedingsResponse
@@ -3366,7 +3582,7 @@ ListProceedingsResponse Client::listProceedings(const string &appGroupIdentity, 
 }
 
 /**
- * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+ * @summary Tests the results of query analysis. This operation can be called only for existing applications of the Open Source-compatible Edition.
  *
  * @param request ListQueryProcessorAnalyzerResultsRequest
  * @param headers map
@@ -3399,7 +3615,7 @@ ListQueryProcessorAnalyzerResultsResponse Client::listQueryProcessorAnalyzerResu
 }
 
 /**
- * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+ * @summary Tests the results of query analysis. This operation can be called only for existing applications of the Open Source-compatible Edition.
  *
  * @param request ListQueryProcessorAnalyzerResultsRequest
  * @return ListQueryProcessorAnalyzerResultsResponse
@@ -3411,7 +3627,7 @@ ListQueryProcessorAnalyzerResultsResponse Client::listQueryProcessorAnalyzerResu
 }
 
 /**
- * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
+ * @summary Queries the recommended priority settings for entity types in Named Entity Recognition (NER).
  *
  * @param request ListQueryProcessorNersRequest
  * @param headers map
@@ -3444,7 +3660,7 @@ ListQueryProcessorNersResponse Client::listQueryProcessorNersWithOptions(const L
 }
 
 /**
- * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
+ * @summary Queries the recommended priority settings for entity types in Named Entity Recognition (NER).
  *
  * @param request ListQueryProcessorNersRequest
  * @return ListQueryProcessorNersResponse
@@ -3456,7 +3672,7 @@ ListQueryProcessorNersResponse Client::listQueryProcessorNers(const ListQueryPro
 }
 
 /**
- * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+ * @summary Queries a list of query analysis rules configured for a specific version of an OpenSearch application.
  *
  * @param request ListQueryProcessorsRequest
  * @param headers map
@@ -3489,7 +3705,7 @@ ListQueryProcessorsResponse Client::listQueryProcessorsWithOptions(const string 
 }
 
 /**
- * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+ * @summary Queries a list of query analysis rules configured for a specific version of an OpenSearch application.
  *
  * @param request ListQueryProcessorsRequest
  * @return ListQueryProcessorsResponse
@@ -3501,7 +3717,7 @@ ListQueryProcessorsResponse Client::listQueryProcessors(const string &appGroupId
 }
 
 /**
- * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+ * @summary Lists the quota approval tickets for a specified OpenSearch application.
  *
  * @param request ListQuotaReviewTasksRequest
  * @param headers map
@@ -3538,7 +3754,7 @@ ListQuotaReviewTasksResponse Client::listQuotaReviewTasksWithOptions(const strin
 }
 
 /**
- * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+ * @summary Lists the quota approval tickets for a specified OpenSearch application.
  *
  * @param request ListQuotaReviewTasksRequest
  * @return ListQuotaReviewTasksResponse
@@ -3550,7 +3766,7 @@ ListQuotaReviewTasksResponse Client::listQuotaReviewTasks(const string &appGroup
 }
 
 /**
- * @summary Queries a list of scheduled tasks of an OpenSearch application.
+ * @summary Queries a list of scheduled tasks for an OpenSearch application.
  *
  * @param request ListScheduledTasksRequest
  * @param headers map
@@ -3591,7 +3807,7 @@ ListScheduledTasksResponse Client::listScheduledTasksWithOptions(const string &a
 }
 
 /**
- * @summary Queries a list of scheduled tasks of an OpenSearch application.
+ * @summary Queries a list of scheduled tasks for an OpenSearch application.
  *
  * @param request ListScheduledTasksRequest
  * @return ListScheduledTasksResponse
@@ -3603,7 +3819,7 @@ ListScheduledTasksResponse Client::listScheduledTasks(const string &appGroupIden
 }
 
 /**
- * @summary Queries the details of query policies.
+ * @summary Retrieves the details of query policies.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3628,7 +3844,7 @@ ListSearchStrategiesResponse Client::listSearchStrategiesWithOptions(const strin
 }
 
 /**
- * @summary Queries the details of query policies.
+ * @summary Retrieves the details of query policies.
  *
  * @return ListSearchStrategiesResponse
  */
@@ -3639,7 +3855,7 @@ ListSearchStrategiesResponse Client::listSearchStrategies(const string &appGroup
 }
 
 /**
- * @summary Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+ * @summary Lists the fine sort expressions for a specific version of an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3664,7 +3880,7 @@ ListSecondRanksResponse Client::listSecondRanksWithOptions(const string &appGrou
 }
 
 /**
- * @summary Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+ * @summary Lists the fine sort expressions for a specific version of an OpenSearch application.
  *
  * @return ListSecondRanksResponse
  */
@@ -3675,7 +3891,7 @@ ListSecondRanksResponse Client::listSecondRanks(const string &appGroupIdentity, 
 }
 
 /**
- * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
+ * @summary Lists the optimization suggestions for slow queries from Search Diagnosis.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3700,7 +3916,7 @@ ListSlowQueryCategoriesResponse Client::listSlowQueryCategoriesWithOptions(const
 }
 
 /**
- * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
+ * @summary Lists the optimization suggestions for slow queries from Search Diagnosis.
  *
  * @return ListSlowQueryCategoriesResponse
  */
@@ -3711,7 +3927,7 @@ ListSlowQueryCategoriesResponse Client::listSlowQueryCategories(const string &ap
 }
 
 /**
- * @summary 列出优化大师慢查询Query清单
+ * @summary Lists the slow queries from the Query Optimizer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3736,7 +3952,7 @@ ListSlowQueryQueriesResponse Client::listSlowQueryQueriesWithOptions(const strin
 }
 
 /**
- * @summary 列出优化大师慢查询Query清单
+ * @summary Lists the slow queries from the Query Optimizer.
  *
  * @return ListSlowQueryQueriesResponse
  */
@@ -3747,7 +3963,7 @@ ListSlowQueryQueriesResponse Client::listSlowQueryQueries(const string &appGroup
 }
 
 /**
- * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+ * @summary Lists the sort expressions that are configured for a version of an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3772,7 +3988,7 @@ ListSortExpressionsResponse Client::listSortExpressionsWithOptions(const string 
 }
 
 /**
- * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+ * @summary Lists the sort expressions that are configured for a version of an OpenSearch application.
  *
  * @return ListSortExpressionsResponse
  */
@@ -3783,7 +3999,7 @@ ListSortExpressionsResponse Client::listSortExpressions(const string &appGroupId
 }
 
 /**
- * @summary Queries all sort scripts of an application version.
+ * @summary Lists all sort scripts for a specified application version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3808,7 +4024,7 @@ ListSortScriptsResponse Client::listSortScriptsWithOptions(const string &appGrou
 }
 
 /**
- * @summary Queries all sort scripts of an application version.
+ * @summary Lists all sort scripts for a specified application version.
  *
  * @return ListSortScriptsResponse
  */
@@ -3892,7 +4108,7 @@ ListStatisticLogsResponse Client::listStatisticLogs(const string &appGroupIdenti
 }
 
 /**
- * @summary Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+ * @summary Queries statistical reports, such as application, drop-down suggestion, top search hint, A/B test, and data quality reports.
  *
  * @param request ListStatisticReportRequest
  * @param headers map
@@ -3945,7 +4161,7 @@ ListStatisticReportResponse Client::listStatisticReportWithOptions(const string 
 }
 
 /**
- * @summary Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+ * @summary Queries statistical reports, such as application, drop-down suggestion, top search hint, A/B test, and data quality reports.
  *
  * @param request ListStatisticReportRequest
  * @return ListStatisticReportResponse
@@ -3957,7 +4173,7 @@ ListStatisticReportResponse Client::listStatisticReport(const string &appGroupId
 }
 
 /**
- * @summary Queries tagged resources.
+ * @summary Queries the tags of specified resources.
  *
  * @param tmpReq ListTagResourcesRequest
  * @param headers map
@@ -4012,7 +4228,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries tagged resources.
+ * @summary Queries the tags of specified resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -4077,7 +4293,7 @@ ListUserAnalyzerEntriesResponse Client::listUserAnalyzerEntries(const string &na
 }
 
 /**
- * @summary Queries the custom analyzers that belong to the current account.
+ * @summary Retrieves a list of custom analyzers for your account.
  *
  * @param request ListUserAnalyzersRequest
  * @param headers map
@@ -4114,7 +4330,7 @@ ListUserAnalyzersResponse Client::listUserAnalyzersWithOptions(const ListUserAna
 }
 
 /**
- * @summary Queries the custom analyzers that belong to the current account.
+ * @summary Retrieves a list of custom analyzers for your account.
  *
  * @param request ListUserAnalyzersRequest
  * @return ListUserAnalyzersResponse
@@ -4126,7 +4342,7 @@ ListUserAnalyzersResponse Client::listUserAnalyzers(const ListUserAnalyzersReque
 }
 
 /**
- * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+ * @summary Modifies the properties of an OpenSearch application or sets its online version.
  *
  * @param request ModifyAppGroupRequest
  * @param headers map
@@ -4177,7 +4393,7 @@ ModifyAppGroupResponse Client::modifyAppGroupWithOptions(const string &appGroupI
 }
 
 /**
- * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+ * @summary Modifies the properties of an OpenSearch application or sets its online version.
  *
  * @param request ModifyAppGroupRequest
  * @return ModifyAppGroupResponse
@@ -4189,7 +4405,7 @@ ModifyAppGroupResponse Client::modifyAppGroup(const string &appGroupIdentity, co
 }
 
 /**
- * @summary Modifies the quotas of an OpenSearch application.
+ * @summary Modifies the quota of an OpenSearch application.
  *
  * @param request ModifyAppGroupQuotaRequest
  * @param headers map
@@ -4227,7 +4443,7 @@ ModifyAppGroupQuotaResponse Client::modifyAppGroupQuotaWithOptions(const string 
 }
 
 /**
- * @summary Modifies the quotas of an OpenSearch application.
+ * @summary Modifies the quota of an OpenSearch application.
  *
  * @param request ModifyAppGroupQuotaRequest
  * @return ModifyAppGroupQuotaResponse
@@ -4239,7 +4455,82 @@ ModifyAppGroupQuotaResponse Client::modifyAppGroupQuota(const string &appGroupId
 }
 
 /**
- * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+ * @summary 更新弹性计划
+ *
+ * @param request ModifyElasticPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyElasticPlanResponse
+ */
+ModifyElasticPlanResponse Client::modifyElasticPlanWithOptions(const string &appGroupIdentity, const string &planId, const ModifyElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
+  json body = {};
+  if (!!request.hasCustomDates()) {
+    body["customDates"] = request.getCustomDates();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasElasticLcu()) {
+    body["elasticLcu"] = request.getElasticLcu();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasEndHour()) {
+    body["endHour"] = request.getEndHour();
+  }
+
+  if (!!request.hasScheduleType()) {
+    body["scheduleType"] = request.getScheduleType();
+  }
+
+  if (!!request.hasStartHour()) {
+    body["startHour"] = request.getStartHour();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModifyElasticPlan"},
+    {"version" , "2017-12-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v4/openapi/app-groups/" , Darabonba::Encode::Encoder::percentEncode(appGroupIdentity) , "/elastic-plans/" , Darabonba::Encode::Encoder::percentEncode(planId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyElasticPlanResponse>();
+}
+
+/**
+ * @summary 更新弹性计划
+ *
+ * @param request ModifyElasticPlanRequest
+ * @return ModifyElasticPlanResponse
+ */
+ModifyElasticPlanResponse Client::modifyElasticPlan(const string &appGroupIdentity, const string &planId, const ModifyElasticPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modifyElasticPlanWithOptions(appGroupIdentity, planId, request, headers, runtime);
+}
+
+/**
+ * @summary Modifies the rough sort expression for an OpenSearch application version. If you set the dryRun parameter to true, this operation validates the modified rough sort expression. The default value of this parameter is false.
  *
  * @param request ModifyFirstRankRequest
  * @param headers map
@@ -4273,7 +4564,7 @@ ModifyFirstRankResponse Client::modifyFirstRankWithOptions(const string &appGrou
 }
 
 /**
- * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+ * @summary Modifies the rough sort expression for an OpenSearch application version. If you set the dryRun parameter to true, this operation validates the modified rough sort expression. The default value of this parameter is false.
  *
  * @param request ModifyFirstRankRequest
  * @return ModifyFirstRankResponse
@@ -4285,7 +4576,7 @@ ModifyFirstRankResponse Client::modifyFirstRank(const string &appGroupIdentity, 
 }
 
 /**
- * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+ * @summary Modifies a query analysis rule for a specific application version. If you set the dryRun parameter to true, this operation checks the specified query analysis rule. If you do not specify the dryRun parameter, the default value is false.
  *
  * @param request ModifyQueryProcessorRequest
  * @param headers map
@@ -4319,7 +4610,7 @@ ModifyQueryProcessorResponse Client::modifyQueryProcessorWithOptions(const strin
 }
 
 /**
- * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+ * @summary Modifies a query analysis rule for a specific application version. If you set the dryRun parameter to true, this operation checks the specified query analysis rule. If you do not specify the dryRun parameter, the default value is false.
  *
  * @param request ModifyQueryProcessorRequest
  * @return ModifyQueryProcessorResponse
@@ -4371,7 +4662,7 @@ ModifyScheduledTaskResponse Client::modifyScheduledTask(const string &appGroupId
 }
 
 /**
- * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+ * @summary Modifies a fine sort expression for an OpenSearch application version. If you set `dryRun` to `true`, the modified fine sort expression is validated. The `dryRun` parameter is `false` by default.
  *
  * @param request ModifySecondRankRequest
  * @param headers map
@@ -4405,7 +4696,7 @@ ModifySecondRankResponse Client::modifySecondRankWithOptions(const string &appGr
 }
 
 /**
- * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+ * @summary Modifies a fine sort expression for an OpenSearch application version. If you set `dryRun` to `true`, the modified fine sort expression is validated. The `dryRun` parameter is `false` by default.
  *
  * @param request ModifySecondRankRequest
  * @return ModifySecondRankResponse
@@ -4417,7 +4708,7 @@ ModifySecondRankResponse Client::modifySecondRank(const string &appGroupIdentity
 }
 
 /**
- * @summary Accepts the changes in intervention entries.
+ * @summary Applies changes to intervention dictionary entries.
  *
  * @param request PushInterventionDictionaryEntriesRequest
  * @param headers map
@@ -4451,7 +4742,7 @@ PushInterventionDictionaryEntriesResponse Client::pushInterventionDictionaryEntr
 }
 
 /**
- * @summary Accepts the changes in intervention entries.
+ * @summary Applies changes to intervention dictionary entries.
  *
  * @param request PushInterventionDictionaryEntriesRequest
  * @return PushInterventionDictionaryEntriesResponse
@@ -4463,7 +4754,7 @@ PushInterventionDictionaryEntriesResponse Client::pushInterventionDictionaryEntr
 }
 
 /**
- * @summary Accepts the changes in the entries of a custom analyzer.
+ * @summary Applies changes to the entries of a custom analyzer.
  *
  * @param request PushUserAnalyzerEntriesRequest
  * @param headers map
@@ -4502,7 +4793,7 @@ PushUserAnalyzerEntriesResponse Client::pushUserAnalyzerEntriesWithOptions(const
 }
 
 /**
- * @summary Accepts the changes in the entries of a custom analyzer.
+ * @summary Applies changes to the entries of a custom analyzer.
  *
  * @param request PushUserAnalyzerEntriesRequest
  * @return PushUserAnalyzerEntriesResponse
@@ -4514,7 +4805,7 @@ PushUserAnalyzerEntriesResponse Client::pushUserAnalyzerEntries(const string &na
 }
 
 /**
- * @summary 发布排序脚本
+ * @summary Releases a sort script.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4539,7 +4830,7 @@ ReleaseSortScriptResponse Client::releaseSortScriptWithOptions(const string &app
 }
 
 /**
- * @summary 发布排序脚本
+ * @summary Releases a sort script.
  *
  * @return ReleaseSortScriptResponse
  */
@@ -4588,7 +4879,7 @@ RemoveAppResponse Client::removeApp(const string &appGroupIdentity, const string
 /**
  * @summary Deletes an OpenSearch application.
  *
- * @description You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+ * @description You can only delete pay-as-you-go applications. Subscription applications cannot be deleted.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4615,7 +4906,7 @@ RemoveAppGroupResponse Client::removeAppGroupWithOptions(const string &appGroupI
 /**
  * @summary Deletes an OpenSearch application.
  *
- * @description You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+ * @description You can only delete pay-as-you-go applications. Subscription applications cannot be deleted.
  *
  * @return RemoveAppGroupResponse
  */
@@ -4662,7 +4953,46 @@ RemoveDataCollectionResponse Client::removeDataCollection(const string &appGroup
 }
 
 /**
- * @summary Deletes a rough sort expression for a version of an OpenSearch application.
+ * @summary 获取弹性计划详情
+ *
+ * @param request RemoveElasticPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveElasticPlanResponse
+ */
+RemoveElasticPlanResponse Client::removeElasticPlanWithOptions(const string &appGroupIdentity, const string &planId, const RemoveElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveElasticPlan"},
+    {"version" , "2017-12-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v4/openapi/app-groups/" , Darabonba::Encode::Encoder::percentEncode(appGroupIdentity) , "/elastic-plans/" , Darabonba::Encode::Encoder::percentEncode(planId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveElasticPlanResponse>();
+}
+
+/**
+ * @summary 获取弹性计划详情
+ *
+ * @param request RemoveElasticPlanRequest
+ * @return RemoveElasticPlanResponse
+ */
+RemoveElasticPlanResponse Client::removeElasticPlan(const string &appGroupIdentity, const string &planId, const RemoveElasticPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return removeElasticPlanWithOptions(appGroupIdentity, planId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes the rough sort configuration of an OpenSearch application version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4687,7 +5017,7 @@ RemoveFirstRankResponse Client::removeFirstRankWithOptions(const string &appGrou
 }
 
 /**
- * @summary Deletes a rough sort expression for a version of an OpenSearch application.
+ * @summary Deletes the rough sort configuration of an OpenSearch application version.
  *
  * @return RemoveFirstRankResponse
  */
@@ -4734,7 +5064,7 @@ RemoveInterventionDictionaryResponse Client::removeInterventionDictionary(const 
 }
 
 /**
- * @summary Deletes a query analysis rule for an OpenSearch application version.
+ * @summary Removes a query analysis rule from an OpenSearch application version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4759,7 +5089,7 @@ RemoveQueryProcessorResponse Client::removeQueryProcessorWithOptions(const strin
 }
 
 /**
- * @summary Deletes a query analysis rule for an OpenSearch application version.
+ * @summary Removes a query analysis rule from an OpenSearch application version.
  *
  * @return RemoveQueryProcessorResponse
  */
@@ -4770,7 +5100,7 @@ RemoveQueryProcessorResponse Client::removeQueryProcessor(const string &appGroup
 }
 
 /**
- * @summary Deletes a scheduled task of an OpenSearch application.
+ * @summary Deletes a scheduled task from an OpenSearch application.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4795,7 +5125,7 @@ RemoveScheduledTaskResponse Client::removeScheduledTaskWithOptions(const string 
 }
 
 /**
- * @summary Deletes a scheduled task of an OpenSearch application.
+ * @summary Deletes a scheduled task from an OpenSearch application.
  *
  * @return RemoveScheduledTaskResponse
  */
@@ -4806,7 +5136,7 @@ RemoveScheduledTaskResponse Client::removeScheduledTask(const string &appGroupId
 }
 
 /**
- * @summary Deletes a query policy.
+ * @summary Deletes a search strategy.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4831,7 +5161,7 @@ RemoveSearchStrategyResponse Client::removeSearchStrategyWithOptions(const strin
 }
 
 /**
- * @summary Deletes a query policy.
+ * @summary Deletes a search strategy.
  *
  * @return RemoveSearchStrategyResponse
  */
@@ -4914,7 +5244,7 @@ RemoveUserAnalyzerResponse Client::removeUserAnalyzer(const string &name) {
 }
 
 /**
- * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+ * @summary Renews an application. This API operation is unavailable. To renew an application, use the OpenSearch console.
  *
  * @param request RenewAppGroupRequest
  * @param headers map
@@ -4948,7 +5278,7 @@ RenewAppGroupResponse Client::renewAppGroupWithOptions(const string &appGroupIde
 }
 
 /**
- * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+ * @summary Renews an application. This API operation is unavailable. To renew an application, use the OpenSearch console.
  *
  * @param request RenewAppGroupRequest
  * @return RenewAppGroupResponse
@@ -5045,7 +5375,7 @@ SaveSortScriptFileResponse Client::saveSortScriptFile(const string &appGroupIden
 }
 
 /**
- * @summary 立即进行慢查询分析
+ * @summary Starts a slow query analysis task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5070,7 +5400,7 @@ StartSlowQueryAnalyzerResponse Client::startSlowQueryAnalyzerWithOptions(const s
 }
 
 /**
- * @summary 立即进行慢查询分析
+ * @summary Starts a slow query analysis task.
  *
  * @return StartSlowQueryAnalyzerResponse
  */
@@ -5134,9 +5464,9 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Unbinds a custom analyzer from an Elasticsearch instance.
+ * @summary Detaches a custom analyzer from an Elasticsearch instance.
  *
- * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+ * @description Use this operation to detach a custom analyzer from an Elasticsearch instance.
  *
  * @param request UnbindESUserAnalyzerRequest
  * @param headers map
@@ -5164,9 +5494,9 @@ UnbindESUserAnalyzerResponse Client::unbindESUserAnalyzerWithOptions(const strin
 }
 
 /**
- * @summary Unbinds a custom analyzer from an Elasticsearch instance.
+ * @summary Detaches a custom analyzer from an Elasticsearch instance.
  *
- * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+ * @description Use this operation to detach a custom analyzer from an Elasticsearch instance.
  *
  * @param request UnbindESUserAnalyzerRequest
  * @return UnbindESUserAnalyzerResponse
@@ -5214,7 +5544,7 @@ UnbindEsInstanceResponse Client::unbindEsInstance(const string &appGroupIdentity
 }
 
 /**
- * @summary Remove tags from resources.
+ * @summary Removes tags from resources.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -5269,7 +5599,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Remove tags from resources.
+ * @summary Removes tags from resources.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -5281,7 +5611,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Modifies the parameters of an A/B test.
+ * @summary Updates the parameters of an A/B test experiment.
  *
  * @param request UpdateABTestExperimentRequest
  * @param headers map
@@ -5315,7 +5645,7 @@ UpdateABTestExperimentResponse Client::updateABTestExperimentWithOptions(const s
 }
 
 /**
- * @summary Modifies the parameters of an A/B test.
+ * @summary Updates the parameters of an A/B test experiment.
  *
  * @param request UpdateABTestExperimentRequest
  * @return UpdateABTestExperimentResponse
@@ -5327,7 +5657,7 @@ UpdateABTestExperimentResponse Client::updateABTestExperiment(const string &appG
 }
 
 /**
- * @summary Modifies whitelists.
+ * @summary Updates the whitelist data.
  *
  * @param request UpdateABTestFixedFlowDividersRequest
  * @param headers map
@@ -5355,7 +5685,7 @@ UpdateABTestFixedFlowDividersResponse Client::updateABTestFixedFlowDividersWithO
 }
 
 /**
- * @summary Modifies whitelists.
+ * @summary Updates the whitelist data.
  *
  * @param request UpdateABTestFixedFlowDividersRequest
  * @return UpdateABTestFixedFlowDividersResponse
@@ -5413,7 +5743,7 @@ UpdateABTestGroupResponse Client::updateABTestGroup(const string &appGroupIdenti
 }
 
 /**
- * @summary Modifies an A/B test scenario.
+ * @summary Modifies an experiment scenario.
  *
  * @param request UpdateABTestSceneRequest
  * @param headers map
@@ -5447,7 +5777,7 @@ UpdateABTestSceneResponse Client::updateABTestSceneWithOptions(const string &app
 }
 
 /**
- * @summary Modifies an A/B test scenario.
+ * @summary Modifies an experiment scenario.
  *
  * @param request UpdateABTestSceneRequest
  * @return UpdateABTestSceneResponse
@@ -5459,7 +5789,7 @@ UpdateABTestSceneResponse Client::updateABTestScene(const string &appGroupIdenti
 }
 
 /**
- * @summary 应用删除保护
+ * @summary Updates the delete protection status for an application group.
  *
  * @param request UpdateAppGroupDeleteProtectionRequest
  * @param headers map
@@ -5492,7 +5822,7 @@ UpdateAppGroupDeleteProtectionResponse Client::updateAppGroupDeleteProtectionWit
 }
 
 /**
- * @summary 应用删除保护
+ * @summary Updates the delete protection status for an application group.
  *
  * @param request UpdateAppGroupDeleteProtectionRequest
  * @return UpdateAppGroupDeleteProtectionResponse
@@ -5504,7 +5834,7 @@ UpdateAppGroupDeleteProtectionResponse Client::updateAppGroupDeleteProtection(co
 }
 
 /**
- * @summary Updates fetch fields. A dry run is supported.
+ * @summary This operation supports dry runs.
  *
  * @param request UpdateFetchFieldsRequest
  * @param headers map
@@ -5538,7 +5868,7 @@ UpdateFetchFieldsResponse Client::updateFetchFieldsWithOptions(const string &app
 }
 
 /**
- * @summary Updates fetch fields. A dry run is supported.
+ * @summary This operation supports dry runs.
  *
  * @param request UpdateFetchFieldsRequest
  * @return UpdateFetchFieldsResponse
@@ -5550,7 +5880,7 @@ UpdateFetchFieldsResponse Client::updateFetchFields(const string &appGroupIdenti
 }
 
 /**
- * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+ * @summary Sets the default algorithm instance for the specified application. The new algorithm instance automatically overwrites the previously set default instance. If no instance is specified, the default instance is canceled.
  *
  * @param request UpdateFunctionDefaultInstanceRequest
  * @param headers map
@@ -5583,7 +5913,7 @@ UpdateFunctionDefaultInstanceResponse Client::updateFunctionDefaultInstanceWithO
 }
 
 /**
- * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+ * @summary Sets the default algorithm instance for the specified application. The new algorithm instance automatically overwrites the previously set default instance. If no instance is specified, the default instance is canceled.
  *
  * @param request UpdateFunctionDefaultInstanceRequest
  * @return UpdateFunctionDefaultInstanceResponse
@@ -5595,7 +5925,7 @@ UpdateFunctionDefaultInstanceResponse Client::updateFunctionDefaultInstance(cons
 }
 
 /**
- * @summary Updates an algorithm instance.
+ * @summary Updates the configuration of a function instance.
  *
  * @param request UpdateFunctionInstanceRequest
  * @param headers map
@@ -5640,7 +5970,7 @@ UpdateFunctionInstanceResponse Client::updateFunctionInstanceWithOptions(const s
 }
 
 /**
- * @summary Updates an algorithm instance.
+ * @summary Updates the configuration of a function instance.
  *
  * @param request UpdateFunctionInstanceRequest
  * @return UpdateFunctionInstanceResponse
@@ -5654,7 +5984,7 @@ UpdateFunctionInstanceResponse Client::updateFunctionInstance(const string &appG
 /**
  * @summary Updates an algorithm resource.
  *
- * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+ * @description Updates the information of a resource specified by its name. You can modify only the data and description of the resource.
  *
  * @param request UpdateFunctionResourceRequest
  * @param headers map
@@ -5693,7 +6023,7 @@ UpdateFunctionResourceResponse Client::updateFunctionResourceWithOptions(const s
 /**
  * @summary Updates an algorithm resource.
  *
- * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+ * @description Updates the information of a resource specified by its name. You can modify only the data and description of the resource.
  *
  * @param request UpdateFunctionResourceRequest
  * @return UpdateFunctionResourceResponse
@@ -5705,7 +6035,7 @@ UpdateFunctionResourceResponse Client::updateFunctionResource(const string &appG
 }
 
 /**
- * @summary Modifies a query policy.
+ * @summary This operation supports dry runs.
  *
  * @param request UpdateSearchStrategyRequest
  * @param headers map
@@ -5733,7 +6063,7 @@ UpdateSearchStrategyResponse Client::updateSearchStrategyWithOptions(const strin
 }
 
 /**
- * @summary Modifies a query policy.
+ * @summary This operation supports dry runs.
  *
  * @param request UpdateSearchStrategyRequest
  * @return UpdateSearchStrategyResponse
@@ -5747,7 +6077,7 @@ UpdateSearchStrategyResponse Client::updateSearchStrategy(const string &appGroup
 /**
  * @summary Modifies the description of a sort script.
  *
- * @description You can call this operation to modify the description of a sort script.
+ * @description Modifies the description of a sort script.
  *
  * @param request UpdateSortScriptRequest
  * @param headers map
@@ -5782,7 +6112,7 @@ UpdateSortScriptResponse Client::updateSortScriptWithOptions(const string &appGr
 /**
  * @summary Modifies the description of a sort script.
  *
- * @description You can call this operation to modify the description of a sort script.
+ * @description Modifies the description of a sort script.
  *
  * @param request UpdateSortScriptRequest
  * @return UpdateSortScriptResponse
@@ -5794,7 +6124,7 @@ UpdateSortScriptResponse Client::updateSortScript(const string &appGroupIdentity
 }
 
 /**
- * @summary Updates summaries. A dry run is supported.
+ * @summary This operation supports dry runs.
  *
  * @param request UpdateSummariesRequest
  * @param headers map
@@ -5828,7 +6158,7 @@ UpdateSummariesResponse Client::updateSummariesWithOptions(const string &appGrou
 }
 
 /**
- * @summary Updates summaries. A dry run is supported.
+ * @summary This operation supports dry runs.
  *
  * @param request UpdateSummariesRequest
  * @return UpdateSummariesResponse
@@ -5840,7 +6170,7 @@ UpdateSummariesResponse Client::updateSummaries(const string &appGroupIdentity, 
 }
 
 /**
- * @summary Verifies data sources.
+ * @summary Validates data sources.
  *
  * @param request ValidateDataSourcesRequest
  * @param headers map
@@ -5868,7 +6198,7 @@ ValidateDataSourcesResponse Client::validateDataSourcesWithOptions(const Validat
 }
 
 /**
- * @summary Verifies data sources.
+ * @summary Validates data sources.
  *
  * @param request ValidateDataSourcesRequest
  * @return ValidateDataSourcesResponse

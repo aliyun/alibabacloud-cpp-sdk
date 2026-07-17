@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The error code. If no error occurs, this parameter is left empty.
+    // The error code. This is empty if the request succeeds.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The time consumed for the request. Unit: milliseconds.
+    // The request processing time in milliseconds.
     shared_ptr<double> latency_ {};
-    // The error message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status code. Valid values:
+    // The status of the request.
     // 
-    // *   OK
-    // *   FAIL
+    // - OK: The request was successful.
+    // 
+    // - FAIL: The request failed.
     shared_ptr<string> status_ {};
   };
 

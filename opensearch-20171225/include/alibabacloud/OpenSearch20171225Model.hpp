@@ -49,6 +49,9 @@
 #include <alibabacloud/models/CreateAppGroupCredentialsRequest.hpp>
 #include <alibabacloud/models/CreateAppGroupCredentialsResponseBody.hpp>
 #include <alibabacloud/models/CreateAppGroupCredentialsResponse.hpp>
+#include <alibabacloud/models/CreateElasticPlanRequest.hpp>
+#include <alibabacloud/models/CreateElasticPlanResponseBody.hpp>
+#include <alibabacloud/models/CreateElasticPlanResponse.hpp>
 #include <alibabacloud/models/CreateFirstRankRequest.hpp>
 #include <alibabacloud/models/CreateFirstRankResponseBody.hpp>
 #include <alibabacloud/models/CreateFirstRankResponse.hpp>
@@ -113,6 +116,9 @@
 #include <alibabacloud/models/DescribeAppsResponse.hpp>
 #include <alibabacloud/models/DescribeDataCollctionResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataCollctionResponse.hpp>
+#include <alibabacloud/models/DescribeElasticPlanRequest.hpp>
+#include <alibabacloud/models/DescribeElasticPlanResponseBody.hpp>
+#include <alibabacloud/models/DescribeElasticPlanResponse.hpp>
 #include <alibabacloud/models/DescribeFirstRankResponseBody.hpp>
 #include <alibabacloud/models/DescribeFirstRankResponse.hpp>
 #include <alibabacloud/models/DescribeInterventionDictionaryResponseBody.hpp>
@@ -184,6 +190,9 @@
 #include <alibabacloud/models/ListDataSourceTablesRequest.hpp>
 #include <alibabacloud/models/ListDataSourceTablesResponseBody.hpp>
 #include <alibabacloud/models/ListDataSourceTablesResponse.hpp>
+#include <alibabacloud/models/ListElasticPlansRequest.hpp>
+#include <alibabacloud/models/ListElasticPlansResponseBody.hpp>
+#include <alibabacloud/models/ListElasticPlansResponse.hpp>
 #include <alibabacloud/models/ListFirstRanksResponseBody.hpp>
 #include <alibabacloud/models/ListFirstRanksResponse.hpp>
 #include <alibabacloud/models/ListFunctionInstancesRequest.hpp>
@@ -258,6 +267,9 @@
 #include <alibabacloud/models/ModifyAppGroupQuotaRequest.hpp>
 #include <alibabacloud/models/ModifyAppGroupQuotaResponseBody.hpp>
 #include <alibabacloud/models/ModifyAppGroupQuotaResponse.hpp>
+#include <alibabacloud/models/ModifyElasticPlanRequest.hpp>
+#include <alibabacloud/models/ModifyElasticPlanResponseBody.hpp>
+#include <alibabacloud/models/ModifyElasticPlanResponse.hpp>
 #include <alibabacloud/models/ModifyFirstRankRequest.hpp>
 #include <alibabacloud/models/ModifyFirstRankResponseBody.hpp>
 #include <alibabacloud/models/ModifyFirstRankResponse.hpp>
@@ -284,6 +296,9 @@
 #include <alibabacloud/models/RemoveAppGroupResponse.hpp>
 #include <alibabacloud/models/RemoveDataCollectionResponseBody.hpp>
 #include <alibabacloud/models/RemoveDataCollectionResponse.hpp>
+#include <alibabacloud/models/RemoveElasticPlanRequest.hpp>
+#include <alibabacloud/models/RemoveElasticPlanResponseBody.hpp>
+#include <alibabacloud/models/RemoveElasticPlanResponse.hpp>
 #include <alibabacloud/models/RemoveFirstRankResponseBody.hpp>
 #include <alibabacloud/models/RemoveFirstRankResponse.hpp>
 #include <alibabacloud/models/RemoveInterventionDictionaryResponseBody.hpp>

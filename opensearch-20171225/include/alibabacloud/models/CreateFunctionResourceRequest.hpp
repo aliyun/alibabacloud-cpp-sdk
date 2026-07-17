@@ -140,24 +140,6 @@ namespace Models
             // The name of the feature.
             shared_ptr<string> name_ {};
             // The type of the feature.
-            // 
-            // Valid values:
-            // 
-            // *   item
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            // *   user
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
             shared_ptr<string> type_ {};
           };
 
@@ -172,7 +154,7 @@ namespace Models
 
 
         protected:
-          // The input features.
+          // The list of input features.
           shared_ptr<vector<Input::Features>> features_ {};
         };
 
@@ -203,56 +185,6 @@ namespace Models
 
       protected:
         // The type of the feature generator.
-        // 
-        // Valid values:
-        // 
-        // *   lookup
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   sequence
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   overlap
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   raw
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   combo
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   id
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
         shared_ptr<string> generator_ {};
         // The input.
         shared_ptr<Generators::Input> input_ {};
@@ -279,9 +211,9 @@ namespace Models
 
 
     protected:
-      // The content of the file that corresponds to a resource of the raw_file type.
+      // The file content. Use this for \\`raw_file\\` resources.
       shared_ptr<string> content_ {};
-      // The feature generators that correspond to resources of the feature_generator type.
+      // A list of feature generators. Use this for \\`feature_generator\\` resources.
       shared_ptr<vector<Data::Generators>> generators_ {};
     };
 
@@ -318,31 +250,13 @@ namespace Models
 
 
   protected:
-    // The resource data. The data structure varies with the resource type.
+    // The resource data. Its structure depends on the \\`ResourceType\\` value.
     shared_ptr<CreateFunctionResourceRequest::Data> data_ {};
     // The description of the resource.
     shared_ptr<string> description_ {};
     // The name of the resource.
     shared_ptr<string> resourceName_ {};
-    // The resource type.
-    // 
-    // Valid values:
-    // 
-    // *   feature_generator
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   raw_file
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The type of the resource.
     shared_ptr<string> resourceType_ {};
   };
 

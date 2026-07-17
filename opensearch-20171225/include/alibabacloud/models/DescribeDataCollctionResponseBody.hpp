@@ -133,39 +133,48 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The time when the data collection was created.
       shared_ptr<int32_t> created_ {};
-      // The type of data collected. Valid values:
+      // The type of the data collection.
       // 
-      // *   behavior: behavioral data.
-      // *   item_info: project information.
-      // *   industry_specific: industry-specific data.
+      // - behavior: User behavior data.
+      // 
+      // - item_info: Item information.
+      // 
+      // - industry_specific: Industry-specific attributes.
       shared_ptr<string> dataCollectionType_ {};
-      // The ID of the data collection task.
+      // The ID of the data collection.
       shared_ptr<string> id_ {};
-      // The industry name. Valid values:
+      // The name of the industry.
       // 
-      // *   general
-      // *   ecommerce
+      // - general: General
+      // 
+      // - ecommerce: E-commerce
       shared_ptr<string> industryName_ {};
-      // The name of the data collection task.
+      // The name of the data collection.
       shared_ptr<string> name_ {};
-      // The status of the data collection feature. Valid values:
+      // The status.
       // 
-      // *   0: The feature is disabled.
-      // *   1: The feature is being enabled.
-      // *   2: The feature is enabled.
-      // *   3: The feature failed to be enabled.
+      // - 0: The data collection is not enabled.
+      // 
+      // - 1: The data collection is being enabled.
+      // 
+      // - 2: The data collection is enabled.
+      // 
+      // - 3: The data collection failed to be enabled.
       shared_ptr<int32_t> status_ {};
-      // The sundial ID.
+      // The ID of the sundial.
       shared_ptr<string> sundialId_ {};
-      // The type of the source from which data was collected. Valid values:
+      // The type of the data collection client.
       // 
-      // *   server
-      // *   web
-      // *   app Note: Only server is supported.
+      // - server
+      // 
+      // - web
+      // 
+      // - app
+      //   Only server is supported.
       shared_ptr<string> type_ {};
-      // The time when the data collection task was updated.
+      // The time when the data collection was last updated.
       shared_ptr<int32_t> updated_ {};
     };
 
@@ -190,7 +199,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the data collection task.
+    // The data collection information.
     shared_ptr<DescribeDataCollctionResponseBody::Result> result_ {};
   };
 

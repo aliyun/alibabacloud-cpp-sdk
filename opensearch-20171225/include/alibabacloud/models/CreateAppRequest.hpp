@@ -150,15 +150,15 @@ namespace Models
 
 
       protected:
-        // The element that is used for highlighting.
+        // The HTML tag for highlight.
         shared_ptr<string> element_ {};
-        // The connector that is used to connect segments.
+        // The string used to connect snippets.
         shared_ptr<string> ellipsis_ {};
         // The field.
         shared_ptr<string> field_ {};
-        // The length of the segment. Valid values: 1 to 300.
+        // The length of the snippet. The value must be in the range of [1, 300].
         shared_ptr<int32_t> len_ {};
-        // The number of segments. Valid values: 1 to 5.
+        // The number of snippets. The value must be in the range of [1, 5].
         shared_ptr<string> snippet_ {};
       };
 
@@ -181,7 +181,7 @@ namespace Models
 
 
     protected:
-      // The collection of summary configurations.
+      // The summary configurations.
       shared_ptr<vector<Summaries::Meta>> meta_ {};
       // The group name.
       shared_ptr<string> name_ {};
@@ -249,7 +249,7 @@ namespace Models
       shared_ptr<bool> active_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The fine sort expression. You can define an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
+      // The fine sort expression. You can write an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
       Darabonba::Json meta_ {};
       // The name of the fine sort expression.
       shared_ptr<string> name_ {};
@@ -326,9 +326,9 @@ namespace Models
 
 
       protected:
-        // The name of the document time field.
+        // The document time field.
         shared_ptr<string> name_ {};
-        // The TTL. Unit: milliseconds.
+        // The time to live (TTL), in milliseconds.
         shared_ptr<int64_t> ttl_ {};
       };
 
@@ -418,10 +418,11 @@ namespace Models
 
 
       protected:
-        // The sort method.
+        // The sort order.
         // 
-        // *   ASC
-        // *   DESC
+        // - ASC
+        // 
+        // - DESC
         shared_ptr<string> direction_ {};
         // The sort field.
         shared_ptr<string> field_ {};
@@ -497,7 +498,7 @@ namespace Models
 
 
     protected:
-      // The sort configurations.
+      // The inverted index configurations.
       shared_ptr<vector<Schemas::IndexSortConfig>> indexSortConfig_ {};
       // The index schema.
       shared_ptr<Schemas::Indexes> indexes_ {};
@@ -505,13 +506,13 @@ namespace Models
       shared_ptr<string> name_ {};
       // The name of the level-1 routing field.
       shared_ptr<string> routeField_ {};
-      // The hot values of the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
+      // The list of hotspot values for the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
       shared_ptr<vector<string>> routeFieldValues_ {};
-      // The name of the level-2 routing field. This parameter takes effect only when the routeFieldValues parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+      // The name of the level-2 routing field. This parameter takes effect only when routeFieldValues is configured. By default, the primary key of the wide table is used.
       shared_ptr<string> secondRouteField_ {};
       // The table schema.
       Darabonba::Json tables_ {};
-      // The document clearing configurations.
+      // The document expiration configuration.
       shared_ptr<Schemas::TtlField> ttlField_ {};
     };
 
@@ -586,9 +587,9 @@ namespace Models
 
 
       protected:
-        // The name of the document time field.
+        // The document time field.
         shared_ptr<string> name_ {};
-        // The TTL. Unit: milliseconds.
+        // The time to live (TTL), in milliseconds.
         shared_ptr<int64_t> ttl_ {};
       };
 
@@ -678,7 +679,7 @@ namespace Models
 
 
       protected:
-        // The sort method.
+        // The sort order.
         shared_ptr<string> direction_ {};
         // The sort field.
         shared_ptr<string> field_ {};
@@ -754,7 +755,7 @@ namespace Models
 
 
     protected:
-      // The sort configurations.
+      // The inverted index configurations.
       shared_ptr<vector<Schema::IndexSortConfig>> indexSortConfig_ {};
       // The index schema.
       shared_ptr<Schema::Indexes> indexes_ {};
@@ -762,13 +763,13 @@ namespace Models
       shared_ptr<string> name_ {};
       // The name of the level-1 routing field.
       shared_ptr<string> routeField_ {};
-      // The hot values of the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
+      // The list of hotspot values for the level-1 routing field. After you configure this parameter, level-2 routing is enabled.
       shared_ptr<vector<string>> routeFieldValues_ {};
-      // The name of the level-2 routing field. This parameter takes effect only when the `routeFieldValues` parameter is configured. By default, the wide-table primary key field is used as the level-2 routing field.
+      // The name of the level-2 routing field. This parameter takes effect only when `routeFieldValues` is configured. By default, the primary key of the wide table is used.
       shared_ptr<string> secondRouteField_ {};
       // The table schema.
       Darabonba::Json tables_ {};
-      // The document clearing configurations.
+      // The document expiration configuration.
       shared_ptr<Schema::TtlField> ttlField_ {};
     };
 
@@ -854,17 +855,19 @@ namespace Models
       shared_ptr<bool> active_ {};
       // The industry category.
       shared_ptr<string> category_ {};
-      // The industry type. Valid values:
+      // The industry. Valid values:
       // 
-      // *   GENERAL
-      // *   ECOMMERCE
-      // *   IT_CONTENT
+      // - GENERAL: general
+      // 
+      // - ECOMMERCE: e-commerce
+      // 
+      // - IT_CONTENT: IT content
       shared_ptr<string> domain_ {};
-      // The index range.
+      // The indexes of the application.
       shared_ptr<vector<string>> indexes_ {};
       // The rule name.
       shared_ptr<string> name_ {};
-      // The features.
+      // The features that are included.
       shared_ptr<vector<Darabonba::Json>> processors_ {};
     };
 
@@ -939,14 +942,15 @@ namespace Models
       shared_ptr<bool> active_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The information about the expression. The information can be of the array or string type.
+      // The details of the expression. The value can be an array or a string.
       Darabonba::Json meta_ {};
       // The name of the rough sort expression.
       shared_ptr<string> name_ {};
-      // The expression type. Valid values:
+      // The type of the expression.
       // 
-      // *   STRUCT: The content of the expression is a structure.
-      // *   STRING (default): You can configure a custom formula.
+      // - STRUCT: structured expression.
+      // 
+      // - STRING: custom formula. This is the default value.
       shared_ptr<string> type_ {};
     };
 
@@ -1001,13 +1005,15 @@ namespace Models
     protected:
       // The industry category.
       shared_ptr<string> category_ {};
-      // The selected feature category. Valid values:
+      // The selected features.
       // 
-      // *   qp: query analysis
-      // *   algo: sort policy
-      // *   service: service
+      // - qp: query analysis
+      // 
+      // - algo: sort policy
+      // 
+      // - service: ancillary service
       Darabonba::Json functions_ {};
-      // The industry type.
+      // The industry.
       shared_ptr<string> name_ {};
     };
 
@@ -1107,34 +1113,45 @@ namespace Models
       shared_ptr<string> keyField_ {};
       // The information about the data source.
       Darabonba::Json parameters_ {};
-      // The plug-ins that are used for data processing.
+      // The data processing plugins for fields.
       // 
-      // name:
+      // Plugin name (name):
       // 
-      // *   JsonKeyValueExtractor
-      // *   MultiValueSpliter
-      // *   KeyValueExtractor
-      // *   StringCatenateExtractor
-      // *   HTMLTagRemover
+      // - JsonKeyValueExtractor
       // 
-      // parameters:
+      // - MultiValueSpliter
       // 
-      // *   JsonKeyValueExtractor
-      // *   MultiValueSpliter
-      // *   KeyValueExtractor
-      // *   StringCatenateExtractor
-      // *   HTMLTagRemover
+      // - KeyValueExtractor
+      // 
+      // - StringCatenateExtractor
+      // 
+      // - HTMLTagRemover
+      // 
+      // Plugin parameters (parameters):
+      // 
+      // - JsonKeyValueExtractor
+      // 
+      // - MultiValueSpliter
+      // 
+      // - KeyValueExtractor
+      // 
+      // - StringCatenateExtractor
+      // 
+      // - HTMLTagRemover
       Darabonba::Json plugins_ {};
       // The name of the wide table.
       shared_ptr<string> schemaName_ {};
-      // The name of the table in the application.
+      // The name of the application table.
       shared_ptr<string> tableName_ {};
-      // The type of the data source. Valid values:
+      // The type of the data source.
       // 
-      // *   rds
-      // *   odps
-      // *   opensearch
-      // *   polardb
+      // - rds
+      // 
+      // - odps
+      // 
+      // - opensearch
+      // 
+      // - polardb
       shared_ptr<string> type_ {};
     };
 
@@ -1244,7 +1261,7 @@ namespace Models
       shared_ptr<vector<Darabonba::Json>> imageContentRecognizerModels_ {};
       // The maximum length of the query clause.
       shared_ptr<int32_t> maxQueryClauseLength_ {};
-      // The timeout period. Unit: milliseconds.
+      // The timeout period for the cluster, in milliseconds.
       shared_ptr<int32_t> maxTimeoutMS_ {};
       shared_ptr<string> textEmbeddingModel_ {};
       shared_ptr<string> textSparseEmbeddingModel_ {};
@@ -1409,43 +1426,45 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically switch the created version to an online version. Valid values:
+    // Specifies whether to automatically set the new version as the online version after it is created.
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> autoSwitch_ {};
-    // The capability opening configurations.
+    // The feature configurations.
     shared_ptr<CreateAppRequest::Cluster> cluster_ {};
     shared_ptr<vector<Darabonba::Json>> configItems_ {};
-    // The configurations of data sources.
+    // The data source configurations.
     shared_ptr<vector<CreateAppRequest::DataSources>> dataSources_ {};
-    // The version description.
+    // The description of the version.
     shared_ptr<string> description_ {};
-    // The industry model module.
+    // The industry model.
     shared_ptr<CreateAppRequest::Domain> domain_ {};
     // The default display fields.
     shared_ptr<vector<string>> fetchFields_ {};
-    // The configurations of rough sort.
+    // The rough sort configurations.
     shared_ptr<vector<CreateAppRequest::FirstRanks>> firstRanks_ {};
     shared_ptr<vector<Darabonba::Json>> interpretations_ {};
-    // The zone identifier. Valid values:
+    // The network type. Valid values:
     // 
-    // *   vpc
-    // *   oxs
+    // - vpc
+    // 
+    // - oxs
     shared_ptr<string> networkType_ {};
     shared_ptr<vector<Darabonba::Json>> prompts_ {};
-    // The query intent understanding configurations.
+    // The intention recognition configurations.
     shared_ptr<vector<CreateAppRequest::QueryProcessors>> queryProcessors_ {};
     shared_ptr<bool> realtimeShared_ {};
-    // The single-table schema.
+    // The schema of the single-table application.
     shared_ptr<CreateAppRequest::Schema> schema_ {};
-    // The multi-table schema.
+    // The schema of the multi-table application.
     shared_ptr<vector<CreateAppRequest::Schemas>> schemas_ {};
-    // The configurations of fine sort.
+    // The fine sort configurations.
     shared_ptr<vector<CreateAppRequest::SecondRanks>> secondRanks_ {};
-    // The summary configurations of search results.
+    // The search result summary settings.
     shared_ptr<vector<CreateAppRequest::Summaries>> summaries_ {};
-    // Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+    // Specifies whether to perform a dry run. A dry run checks the validity of the data source but does not create the application. Valid values: true and false.
     shared_ptr<bool> dryRun_ {};
   };
 

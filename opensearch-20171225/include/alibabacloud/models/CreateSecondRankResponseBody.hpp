@@ -52,7 +52,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the fine sort expression.
+    // The information about the fine-sort expression.
     Darabonba::Json result_ {};
   };
 

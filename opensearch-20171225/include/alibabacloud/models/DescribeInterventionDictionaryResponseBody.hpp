@@ -98,20 +98,25 @@ namespace Models
     protected:
       // The custom analyzer.
       shared_ptr<string> analyzer_ {};
-      // The time when the the intervention dictionary was created.
+      // The time when the intervention dictionary was created.
       shared_ptr<string> created_ {};
-      // The name of the the intervention dictionary.
+      // The name of the intervention dictionary.
       shared_ptr<string> name_ {};
-      // Type
+      // The type of the intervention dictionary.
       // 
-      // *   stopword: an intervention dictionary for stop word filtering.
-      // *   synonym: an intervention dictionary for synonym configuration.
-      // *   correction: an intervention dictionary for spelling correction.
-      // *   category_prediction: an intervention dictionary for category prediction.
-      // *   ner: an intervention dictionary for named entity recognition.
-      // *   term_weighting: an intervention dictionary for term weight analysis.
+      // - stopword: an intervention dictionary for stop word filtering.
+      // 
+      // - synonym: an intervention dictionary for synonym configuration.
+      // 
+      // - correction: an intervention dictionary for spelling correction.
+      // 
+      // - category_prediction: an intervention dictionary for category prediction.
+      // 
+      // - ner: an intervention dictionary for Named Entity Recognition (NER).
+      // 
+      // - term_weighting: an intervention dictionary for term weight analysis.
       shared_ptr<string> type_ {};
-      // The time when the the intervention dictionary was modified.
+      // The time when the intervention dictionary was updated.
       shared_ptr<string> updated_ {};
     };
 
@@ -136,7 +141,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details about the intervention dictionary.
+    // The details of the intervention dictionary.
     shared_ptr<DescribeInterventionDictionaryResponseBody::Result> result_ {};
   };
 

@@ -173,11 +173,15 @@ namespace Models
       protected:
         // The status of the task. Valid values:
         // 
-        // *   success: succeeded
-        // *   failed: failed
-        // *   untrained: to be trained
-        // *   pending: being scheduled
-        // *   running: being trained
+        // - success: succeeded
+        // 
+        // - failed: failed
+        // 
+        // - untrained: to be trained
+        // 
+        // - pending: being scheduled
+        // 
+        // - running: being trained
         shared_ptr<string> dagStatus_ {};
         // The time consumed for the most recent run, in milliseconds.
         shared_ptr<int64_t> lastRunTime_ {};
@@ -422,13 +426,15 @@ namespace Models
       shared_ptr<string> modelType_ {};
       // How the instance is created. Valid values:
       // 
-      // *   user: The instance is created by user.
-      // *   builtin: The instance is created by the system.
+      // - user: The instance is created by user.
+      // 
+      // - builtin: The instance is created by the system.
       shared_ptr<string> source_ {};
       // The status of the instance. Valid values:
       // 
-      // 1.  unavailable: No model is available. Models must be trained before you can use them.
-      // 2.  available: Models can be used.
+      // 1. unavailable: No model is available. Models must be trained before you can use them.
+      // 
+      // 2. available: Models can be used.
       shared_ptr<string> status_ {};
       // The information about the training task. This parameter is not displayed if no task is available.
       shared_ptr<Result::Task> task_ {};

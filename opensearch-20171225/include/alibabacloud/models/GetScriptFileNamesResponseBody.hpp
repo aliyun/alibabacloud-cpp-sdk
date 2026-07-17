@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The time when the script file was created.
+      // The time when the script was created.
       shared_ptr<string> createTime_ {};
       // The name of the script file.
       shared_ptr<string> fileName_ {};
-      // The time when the script file was last modified.
+      // The time when the script was last modified.
       shared_ptr<string> modifyTime_ {};
-      // The path name of the script file.
+      // The path of the script.
       shared_ptr<string> pathName_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
-    // The files of the script.
+    // The list of scripts.
     shared_ptr<vector<GetScriptFileNamesResponseBody::Result>> result_ {};
   };
 

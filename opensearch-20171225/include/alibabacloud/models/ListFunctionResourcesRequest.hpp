@@ -67,36 +67,12 @@ namespace Models
 
   protected:
     // The output level.
-    // 
-    // Valid values:
-    // 
-    // *   simple
-    // *   normal
-    // *   detail
     shared_ptr<string> output_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the resource.
-    // 
-    // Valid values:
-    // 
-    // *   feature_generator
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   raw_file
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

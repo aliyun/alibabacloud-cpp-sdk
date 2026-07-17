@@ -133,27 +133,29 @@ namespace Models
 
 
     protected:
-      // Specifies whether to set the fine sort expression as the default sort expression.
+      // Indicates whether the expression is active.
       shared_ptr<bool> active_ {};
       // The time when the expression was created.
       shared_ptr<int32_t> created_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // The ID of the expression. This parameter appears only in the response.
+      // The ID of the expression. This parameter is returned only in the response.
       shared_ptr<string> id_ {};
-      // Indicates whether the expression is the default one. This parameter appears only in the response. Valid values:
+      // Indicates whether the expression is the default one. This parameter is returned only in the response.
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<string> isDefault_ {};
-      // Indicates whether the expression is a system expression. This parameter appears only in the response. Valid values:
+      // Indicates whether the expression is a system expression. This parameter is returned only in the response.
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<string> isSys_ {};
-      // The content of the fine sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
+      // The second-rank expression. You can write an expression that contains fields, feature functions, and mathematical functions to implement complex sort logic.
       shared_ptr<string> meta_ {};
-      // The name.
+      // The name of the expression.
       shared_ptr<string> name_ {};
       // The time when the expression was updated.
       shared_ptr<int32_t> updated_ {};
@@ -180,7 +182,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the fine sort expression.
+    // The details of the second-rank expression.
     shared_ptr<DescribeSecondRankResponseBody::Result> result_ {};
   };
 

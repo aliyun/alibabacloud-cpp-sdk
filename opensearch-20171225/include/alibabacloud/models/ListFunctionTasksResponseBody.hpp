@@ -137,25 +137,27 @@ namespace Models
 
 
     protected:
-      // The timestamp that indicates the end time. Unit: milliseconds. 0 indicates that the task has not ended.
+      // The time when the task ended. This is a UNIX timestamp in milliseconds. A value of 0 indicates that the task has not ended.
       shared_ptr<int64_t> endTime_ {};
-      // The value is a JSON string. It includes model evaluation information and training error information.
+      // A JSON string that contains information such as model evaluation results and training errors.
       shared_ptr<string> extendInfo_ {};
       // The name of the feature.
       shared_ptr<string> functionName_ {};
-      // The number of iterations.
+      // The iteration number.
       shared_ptr<string> generation_ {};
-      // The progress. 90 indicates 90%.
+      // The progress of the task. For example, a value of 90 indicates that the task is 90% complete.
       shared_ptr<int64_t> progress_ {};
       // The ID of the task.
       shared_ptr<string> runId_ {};
-      // The timestamp that indicates the start time. Unit: milliseconds.
+      // The time when the task started. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the task. Valid values:
+      // The status of the task.
       // 
-      // *   success
-      // *   failed
-      // *   running
+      // - success
+      // 
+      // - failed
+      // 
+      // - running
       shared_ptr<string> status_ {};
     };
 
@@ -225,9 +227,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The time consumed for the request, in milliseconds.
+    // The time consumed by the request, in milliseconds.
     shared_ptr<int64_t> latency_ {};
-    // The error message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

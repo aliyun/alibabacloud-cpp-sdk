@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The query policy.
+    // The search strategy.
     shared_ptr<SearchStrategy> body_ {};
   };
 

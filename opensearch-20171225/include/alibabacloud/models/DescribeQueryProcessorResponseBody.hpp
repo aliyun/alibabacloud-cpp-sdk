@@ -120,23 +120,25 @@ namespace Models
 
 
     protected:
-      // Indicates whether the query analysis rule is the default one.
+      // Indicates whether the rule is the default rule.
       shared_ptr<bool> active_ {};
-      // The time when the query analysis rule was created.
+      // The time when the rule was created.
       shared_ptr<int32_t> created_ {};
-      // The type of the industry. Valid values:
+      // The industry type.
       // 
-      // *   GENERAL
-      // *   ECOMMERCE
-      // *   IT_CONTENT
+      // - GENERAL: General
+      // 
+      // - ECOMMERCE: E-commerce
+      // 
+      // - IT_CONTENT: IT content
       shared_ptr<string> domain_ {};
       // The indexes to which the query analysis rule applies.
       shared_ptr<vector<string>> indexes_ {};
-      // The name of the query analysis rule.
+      // The name of the rule.
       shared_ptr<string> name_ {};
       // The features that are used in the query analysis rule.
       shared_ptr<vector<Darabonba::Json>> processors_ {};
-      // The time when the query analysis rule was last updated.
+      // The time when the rule was last updated.
       shared_ptr<int32_t> updated_ {};
     };
 

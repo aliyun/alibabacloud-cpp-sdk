@@ -136,27 +136,29 @@ namespace Models
 
 
     protected:
-      // Indicates whether the expression is the default one.
+      // Indicates whether the expression is active.
       shared_ptr<bool> active_ {};
       // The time when the expression was created.
       shared_ptr<int32_t> created_ {};
-      // Description
+      // The description of the expression.
       shared_ptr<string> description_ {};
-      // The expression ID. This parameter is displayed only in the response.
+      // The ID of the expression. This parameter is displayed only in the response.
       shared_ptr<string> id_ {};
-      // Indicates whether the expression is the default one. This parameter is displayed only in the response. Valid values:
+      // Indicates whether the expression is the default one. This parameter is displayed only in the response.
       // 
-      // *   true: the expression is the default one.
-      // *   false: the expression is not the default one.
+      // - true: The expression is the default one.
+      // 
+      // - false: The expression is not the default one.
       shared_ptr<string> isDefault_ {};
-      // Indicates whether the expression is a system expression. This parameter is displayed only in the response. Valid values:
+      // Indicates whether the expression is a system expression. This parameter is displayed only in the response.
       // 
-      // *   true: The expression is a system expression.
-      // *   false:The expression is not a system expression
+      // - true: The expression is a system expression.
+      // 
+      // - false: The expression is not a system expression.
       shared_ptr<string> isSys_ {};
-      // The content of the fine sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
+      // The content of the fine-sort expression. You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
       shared_ptr<string> meta_ {};
-      // Parameter
+      // The name of the expression.
       shared_ptr<string> name_ {};
       // The time when the expression was updated.
       shared_ptr<int32_t> updated_ {};
@@ -190,7 +192,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the fine sort expression.
+    // A list of fine-sort expressions.
     // 
     // For more information, see [SecondRank](https://help.aliyun.com/document_detail/170008.html).
     shared_ptr<vector<ListSecondRanksResponseBody::Result>> result_ {};

@@ -42,6 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(currentVersion, currentVersion_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(domain, domain_);
+        DARABONBA_PTR_TO_JSON(elasticLcu, elasticLcu_);
         DARABONBA_PTR_TO_JSON(engineType, engineType_);
         DARABONBA_PTR_TO_JSON(expireOn, expireOn_);
         DARABONBA_PTR_TO_JSON(firstRankAlgoDeploymentId, firstRankAlgoDeploymentId_);
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(currentVersion, currentVersion_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(domain, domain_);
+        DARABONBA_PTR_FROM_JSON(elasticLcu, elasticLcu_);
         DARABONBA_PTR_FROM_JSON(engineType, engineType_);
         DARABONBA_PTR_FROM_JSON(expireOn, expireOn_);
         DARABONBA_PTR_FROM_JSON(firstRankAlgoDeploymentId, firstRankAlgoDeploymentId_);
@@ -202,23 +204,29 @@ namespace Models
         shared_ptr<int32_t> docSize_ {};
         // The specifications. Valid values:
         // 
-        // *   opensearch.share.junior: basic.
-        // *   opensearch.share.common: shared general-purpose.
-        // *   opensearch.share.compute: shared computing.
-        // *   opensearch.share.storage: shared storage.
-        // *   opensearch.private.common: exclusive general-purpose.
-        // *   opensearch.private.compute: exclusive computing.
-        // *   opensearch.private.storage: exclusive storage.
+        // - opensearch.share.junior: basic.
+        // 
+        // - opensearch.share.common: shared general-purpose.
+        // 
+        // - opensearch.share.compute: shared computing.
+        // 
+        // - opensearch.share.storage: shared storage.
+        // 
+        // - opensearch.private.common: exclusive general-purpose.
+        // 
+        // - opensearch.private.compute: exclusive computing.
+        // 
+        // - opensearch.private.storage: exclusive storage.
         shared_ptr<string> spec_ {};
       };
 
       virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->chargingWay_ == nullptr && this->commodityCode_ == nullptr && this->created_ == nullptr && this->currentVersion_ == nullptr && this->description_ == nullptr
-        && this->domain_ == nullptr && this->engineType_ == nullptr && this->expireOn_ == nullptr && this->firstRankAlgoDeploymentId_ == nullptr && this->hasPendingQuotaReviewTask_ == nullptr
-        && this->id_ == nullptr && this->instanceId_ == nullptr && this->lockMode_ == nullptr && this->lockedByExpiration_ == nullptr && this->name_ == nullptr
-        && this->pendingSecondRankAlgoDeploymentId_ == nullptr && this->processingOrderId_ == nullptr && this->produced_ == nullptr && this->projectId_ == nullptr && this->quota_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->secondRankAlgoDeploymentId_ == nullptr && this->status_ == nullptr && this->switchedTime_ == nullptr && this->tags_ == nullptr
-        && this->type_ == nullptr && this->updated_ == nullptr; };
+        && this->domain_ == nullptr && this->elasticLcu_ == nullptr && this->engineType_ == nullptr && this->expireOn_ == nullptr && this->firstRankAlgoDeploymentId_ == nullptr
+        && this->hasPendingQuotaReviewTask_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr && this->lockMode_ == nullptr && this->lockedByExpiration_ == nullptr
+        && this->name_ == nullptr && this->pendingSecondRankAlgoDeploymentId_ == nullptr && this->processingOrderId_ == nullptr && this->produced_ == nullptr && this->projectId_ == nullptr
+        && this->quota_ == nullptr && this->resourceGroupId_ == nullptr && this->secondRankAlgoDeploymentId_ == nullptr && this->status_ == nullptr && this->switchedTime_ == nullptr
+        && this->tags_ == nullptr && this->type_ == nullptr && this->updated_ == nullptr; };
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -266,6 +274,13 @@ namespace Models
       void deleteDomain() { this->domain_ = nullptr;};
       inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
       inline Result& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+      // elasticLcu Field Functions 
+      bool hasElasticLcu() const { return this->elasticLcu_ != nullptr;};
+      void deleteElasticLcu() { this->elasticLcu_ = nullptr;};
+      inline int32_t getElasticLcu() const { DARABONBA_PTR_GET_DEFAULT(elasticLcu_, 0) };
+      inline Result& setElasticLcu(int32_t elasticLcu) { DARABONBA_PTR_SET_VALUE(elasticLcu_, elasticLcu) };
 
 
       // engineType Field Functions 
@@ -422,13 +437,15 @@ namespace Models
     protected:
       // The billing method. Valid values:
       // 
-      // *   POSTPAY: pay-as-you-go.
-      // *   PREPAY: subscription.
+      // - POSTPAY: pay-as-you-go.
+      // 
+      // - PREPAY: subscription.
       shared_ptr<string> chargeType_ {};
       // The billable item. Valid values:
       // 
-      // *   1: computing resources.
-      // *   2: queries per second (QPS).
+      // - 1: computing resources.
+      // 
+      // - 2: queries per second (QPS).
       shared_ptr<int32_t> chargingWay_ {};
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
@@ -440,6 +457,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The industry of the application.
       shared_ptr<string> domain_ {};
+      shared_ptr<int32_t> elasticLcu_ {};
       // The engine type.
       shared_ptr<string> engineType_ {};
       // The expiration time.
@@ -448,8 +466,9 @@ namespace Models
       shared_ptr<int32_t> firstRankAlgoDeploymentId_ {};
       // The approval state of the quotas. Valid values:
       // 
-      // *   0: The application is in service.
-      // *   1: The quotas are being reviewed.
+      // - 0: The application is in service.
+      // 
+      // - 1: The quotas are being reviewed.
       shared_ptr<int32_t> hasPendingQuotaReviewTask_ {};
       // The application ID.
       shared_ptr<string> id_ {};
@@ -457,9 +476,11 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The lock state. Valid values:
       // 
-      // *   Unlock: The instance is unlocked.
-      // *   LockByExpiration: The instance is automatically locked after it expires.
-      // *   ManualLock: The instance is manually locked.
+      // - Unlock: The instance is unlocked.
+      // 
+      // - LockByExpiration: The instance is automatically locked after it expires.
+      // 
+      // - ManualLock: The instance is manually locked.
       shared_ptr<string> lockMode_ {};
       // Indicates whether the instance is automatically locked after it expires.
       shared_ptr<int32_t> lockedByExpiration_ {};
@@ -471,8 +492,9 @@ namespace Models
       shared_ptr<string> processingOrderId_ {};
       // Indicates whether the application is created. Valid values:
       // 
-      // *   0: The application is being created.
-      // *   1: The application is created.
+      // - 0: The application is being created.
+      // 
+      // - 1: The application is created.
       shared_ptr<int32_t> produced_ {};
       // The name of the A/B test group.
       shared_ptr<string> projectId_ {};
@@ -484,11 +506,15 @@ namespace Models
       shared_ptr<int32_t> secondRankAlgoDeploymentId_ {};
       // The state of the application. Valid values:
       // 
-      // *   producing: The application is being created.
-      // *   review_pending: The application is being reviewed.
-      // *   config_pending: The application is to be configured.
-      // *   normal: The application is in service.
-      // *   frozen: The application is frozen.
+      // - producing: The application is being created.
+      // 
+      // - review_pending: The application is being reviewed.
+      // 
+      // - config_pending: The application is to be configured.
+      // 
+      // - normal: The application is in service.
+      // 
+      // - frozen: The application is frozen.
       shared_ptr<string> status_ {};
       // The timestamp when the current online version was published.
       shared_ptr<int32_t> switchedTime_ {};
@@ -496,8 +522,9 @@ namespace Models
       shared_ptr<vector<Result::Tags>> tags_ {};
       // The type of the application. Valid values:
       // 
-      // *   standard: a High-performance Search Edition application.
-      // *   enhanced: an Industry Algorithm Edition application.
+      // - standard: a High-performance Search Edition application.
+      // 
+      // - enhanced: an Industry Algorithm Edition application.
       shared_ptr<string> type_ {};
       // The timestamp when the application was last updated.
       shared_ptr<int32_t> updated_ {};

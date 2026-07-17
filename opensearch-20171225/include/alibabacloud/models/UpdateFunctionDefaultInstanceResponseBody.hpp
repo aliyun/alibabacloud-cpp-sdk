@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the request.
+    // The request status.
     shared_ptr<string> status_ {};
   };
 

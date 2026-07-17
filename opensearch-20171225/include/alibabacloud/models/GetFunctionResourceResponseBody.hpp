@@ -176,9 +176,9 @@ namespace Models
 
 
             protected:
-              // The name of the feature.
+              // The feature name.
               shared_ptr<string> name_ {};
-              // The type of the feature.
+              // The feature type.
               shared_ptr<string> type_ {};
             };
 
@@ -193,7 +193,7 @@ namespace Models
 
 
           protected:
-            // The input features.
+            // The list of input features.
             shared_ptr<vector<Input::Features>> features_ {};
           };
 
@@ -250,9 +250,9 @@ namespace Models
 
 
       protected:
-        // The content of the file that corresponds to a resource of the raw_file type.
+        // The content of the file for a resource of the raw_file type.
         shared_ptr<string> content_ {};
-        // The feature generators that correspond to resources of the feature_generator type.
+        // The list of feature generators for a resource of the feature_generator type.
         shared_ptr<vector<Data::Generators>> generators_ {};
       };
 
@@ -322,19 +322,19 @@ namespace Models
     protected:
       // The time when the resource was created. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The resource data. The data structure varies with the resource type.
+      // The resource data. The structure of the data varies based on the resourceType.
       shared_ptr<Result::Data> data_ {};
       // The description of the resource.
       shared_ptr<string> description_ {};
-      // The name of the feature.
+      // The feature name.
       shared_ptr<string> functionName_ {};
-      // The time when the resource was modified. Unit: milliseconds.
+      // The time when the resource was last modified. Unit: milliseconds.
       shared_ptr<int64_t> modifyTime_ {};
-      // The algorithm instances that are referenced.
+      // The list of referenced algorithm instance names.
       shared_ptr<vector<string>> referencedInstances_ {};
-      // The name of the resource.
+      // The resource name.
       shared_ptr<string> resourceName_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -393,22 +393,23 @@ namespace Models
 
 
   protected:
-    // The error code returned. If no error occurs, this value is empty.
+    // The returned error code. This is empty if no error occurred.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The time consumed for the API request. Unit: milliseconds.
+    // The time consumed by the API request. Unit: milliseconds.
     shared_ptr<double> latency_ {};
-    // The error message returned.
+    // The returned error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<GetFunctionResourceResponseBody::Result> result_ {};
-    // The HTTP status code. Valid values:
+    // The status code.
     // 
-    // *   OK
-    // *   FAIL
+    // - OK: The request was successful.
+    // 
+    // - FAIL: The request failed.
     shared_ptr<string> status_ {};
   };
 

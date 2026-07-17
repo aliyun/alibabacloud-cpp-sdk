@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -81,8 +82,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result.
     shared_ptr<UpdateAppGroupDeleteProtectionResponseBody::Result> result_ {};
   };
 

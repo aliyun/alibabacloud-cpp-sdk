@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The content of the optimization suggestion for the query.
+      // The information about the optimization suggestion.
       shared_ptr<string> appQuery_ {};
-      // The end of the time range that was queried.
+      // The end timestamp.
       shared_ptr<int32_t> end_ {};
       // The ID of the optimization suggestion.
       shared_ptr<int32_t> index_ {};
-      // The beginning of the time range that was queried.
+      // The start timestamp.
       shared_ptr<int32_t> start_ {};
     };
 
@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return result.
+    // The result of the request.
     shared_ptr<ListSlowQueryQueriesResponseBody::Result> result_ {};
   };
 

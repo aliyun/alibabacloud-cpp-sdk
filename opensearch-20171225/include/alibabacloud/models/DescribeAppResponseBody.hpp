@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(prompts, prompts_);
         DARABONBA_PTR_TO_JSON(queryProcessors, queryProcessors_);
         DARABONBA_PTR_TO_JSON(quota, quota_);
+        DARABONBA_PTR_TO_JSON(realtimeShared, realtimeShared_);
         DARABONBA_PTR_TO_JSON(schema, schema_);
         DARABONBA_PTR_TO_JSON(schemas, schemas_);
         DARABONBA_PTR_TO_JSON(secondRanks, secondRanks_);
@@ -73,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(prompts, prompts_);
         DARABONBA_PTR_FROM_JSON(queryProcessors, queryProcessors_);
         DARABONBA_PTR_FROM_JSON(quota, quota_);
+        DARABONBA_PTR_FROM_JSON(realtimeShared, realtimeShared_);
         DARABONBA_PTR_FROM_JSON(schema, schema_);
         DARABONBA_PTR_FROM_JSON(schemas, schemas_);
         DARABONBA_PTR_FROM_JSON(secondRanks, secondRanks_);
@@ -447,8 +449,9 @@ namespace Models
         protected:
           // The sort method. Valid values:
           // 
-          // *   ASC
-          // *   DESC
+          // - ASC
+          // 
+          // - DESC
           shared_ptr<string> direction_ {};
           // The sort field.
           shared_ptr<string> field_ {};
@@ -707,8 +710,9 @@ namespace Models
         protected:
           // The sort method. Valid values:
           // 
-          // *   ASC
-          // *   DESC
+          // - ASC
+          // 
+          // - DESC
           shared_ptr<string> direction_ {};
           // The sort field.
           shared_ptr<string> field_ {};
@@ -866,13 +870,19 @@ namespace Models
         shared_ptr<int32_t> qps_ {};
         // The specifications. Valid values:
         // 
-        // *   opensearch.share.junior: basic
-        // *   opensearch.share.common: shared general-purpose
-        // *   opensearch.share.compute: shared computing
-        // *   opensearch.share.storage: shared storage
-        // *   opensearch.private.common: exclusive general-purpose
-        // *   opensearch.private.compute: exclusive computing
-        // *   opensearch.private.storage: exclusive storage
+        // - opensearch.share.junior: basic
+        // 
+        // - opensearch.share.common: shared general-purpose
+        // 
+        // - opensearch.share.compute: shared computing
+        // 
+        // - opensearch.share.storage: shared storage
+        // 
+        // - opensearch.private.common: exclusive general-purpose
+        // 
+        // - opensearch.private.compute: exclusive computing
+        // 
+        // - opensearch.private.storage: exclusive storage
         shared_ptr<string> spec_ {};
       };
 
@@ -960,9 +970,11 @@ namespace Models
         shared_ptr<string> category_ {};
         // The industry type. Valid values:
         // 
-        // *   GENERAL
-        // *   ECOMMERCE
-        // *   IT_CONTENT
+        // - GENERAL
+        // 
+        // - ECOMMERCE
+        // 
+        // - IT_CONTENT
         shared_ptr<string> domain_ {};
         // Then index range.
         shared_ptr<vector<string>> indexes_ {};
@@ -1271,19 +1283,27 @@ namespace Models
         // 
         // name:
         // 
-        // *   JsonKeyValueExtractor
-        // *   MultiValueSpliter
-        // *   KeyValueExtractor
-        // *   StringCatenateExtractor
-        // *   HTMLTagRemover
+        // - JsonKeyValueExtractor
+        // 
+        // - MultiValueSpliter
+        // 
+        // - KeyValueExtractor
+        // 
+        // - StringCatenateExtractor
+        // 
+        // - HTMLTagRemover
         // 
         // parameters:
         // 
-        // *   JsonKeyValueExtractor
-        // *   MultiValueSpliter
-        // *   KeyValueExtractor
-        // *   StringCatenateExtractor
-        // *   HTMLTagRemover
+        // - JsonKeyValueExtractor
+        // 
+        // - MultiValueSpliter
+        // 
+        // - KeyValueExtractor
+        // 
+        // - StringCatenateExtractor
+        // 
+        // - HTMLTagRemover
         Darabonba::Json plugins_ {};
         // The name of the wide table.
         shared_ptr<string> schemaName_ {};
@@ -1291,10 +1311,13 @@ namespace Models
         shared_ptr<string> tableName_ {};
         // The type of the data source. Valid values:
         // 
-        // *   rds
-        // *   odps
-        // *   opensearch
-        // *   polardb
+        // - rds
+        // 
+        // - odps
+        // 
+        // - opensearch
+        // 
+        // - polardb
         shared_ptr<string> type_ {};
       };
 
@@ -1345,8 +1368,9 @@ namespace Models
       virtual bool empty() const override { return this->autoSwitch_ == nullptr
         && this->cluster_ == nullptr && this->clusterName_ == nullptr && this->dataSources_ == nullptr && this->description_ == nullptr && this->domain_ == nullptr
         && this->fetchFields_ == nullptr && this->firstRanks_ == nullptr && this->id_ == nullptr && this->interpretations_ == nullptr && this->isCurrent_ == nullptr
-        && this->progressPercent_ == nullptr && this->prompts_ == nullptr && this->queryProcessors_ == nullptr && this->quota_ == nullptr && this->schema_ == nullptr
-        && this->schemas_ == nullptr && this->secondRanks_ == nullptr && this->status_ == nullptr && this->summaries_ == nullptr && this->type_ == nullptr; };
+        && this->progressPercent_ == nullptr && this->prompts_ == nullptr && this->queryProcessors_ == nullptr && this->quota_ == nullptr && this->realtimeShared_ == nullptr
+        && this->schema_ == nullptr && this->schemas_ == nullptr && this->secondRanks_ == nullptr && this->status_ == nullptr && this->summaries_ == nullptr
+        && this->type_ == nullptr; };
       // autoSwitch Field Functions 
       bool hasAutoSwitch() const { return this->autoSwitch_ != nullptr;};
       void deleteAutoSwitch() { this->autoSwitch_ = nullptr;};
@@ -1470,6 +1494,13 @@ namespace Models
       inline Result& setQuota(Result::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
 
 
+      // realtimeShared Field Functions 
+      bool hasRealtimeShared() const { return this->realtimeShared_ != nullptr;};
+      void deleteRealtimeShared() { this->realtimeShared_ = nullptr;};
+      inline bool getRealtimeShared() const { DARABONBA_PTR_GET_DEFAULT(realtimeShared_, false) };
+      inline Result& setRealtimeShared(bool realtimeShared) { DARABONBA_PTR_SET_VALUE(realtimeShared_, realtimeShared) };
+
+
       // schema Field Functions 
       bool hasSchema() const { return this->schema_ != nullptr;};
       void deleteSchema() { this->schema_ = nullptr;};
@@ -1533,9 +1564,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The industry type. Valid values:
       // 
-      // *   GENERAL
-      // *   ECOMMERCE
-      // *   IT_CONTENT
+      // - GENERAL
+      // 
+      // - ECOMMERCE
+      // 
+      // - IT_CONTENT
       shared_ptr<Result::Domain> domain_ {};
       // The default display fields.
       shared_ptr<vector<string>> fetchFields_ {};
@@ -1555,6 +1588,7 @@ namespace Models
       shared_ptr<vector<Result::QueryProcessors>> queryProcessors_ {};
       // The quota information.
       shared_ptr<Result::Quota> quota_ {};
+      shared_ptr<bool> realtimeShared_ {};
       // The schema of the application.
       shared_ptr<Result::Schema> schema_ {};
       // The multi-table schema.
@@ -1563,21 +1597,29 @@ namespace Models
       shared_ptr<vector<Result::SecondRanks>> secondRanks_ {};
       // The status of the version. Valid values:
       // 
-      // *   ok: The version is normal.
-      // *   stopped: The version is suspended.
-      // *   frozen: The version is frozen.
-      // *   initializing: The version is being initialized.
-      // *   unavailable: The version is invalid.
-      // *   data_waiting: Data is to be initialized.
-      // *   data_preparing: Data is being initialized.
+      // - ok: The version is normal.
+      // 
+      // - stopped: The version is suspended.
+      // 
+      // - frozen: The version is frozen.
+      // 
+      // - initializing: The version is being initialized.
+      // 
+      // - unavailable: The version is invalid.
+      // 
+      // - data_waiting: Data is to be initialized.
+      // 
+      // - data_preparing: Data is being initialized.
       shared_ptr<string> status_ {};
       // The summary configurations of search results.
       shared_ptr<vector<Result::Summaries>> summaries_ {};
       // The edition type. Valid values:
       // 
-      // *   standard: a standard edition application.
-      // *   advance: an advanced edition application of an old version. New versions are not supported for this edition.
-      // *   enhanced: an advanced edition application of a new version.
+      // - standard: a standard edition application.
+      // 
+      // - advance: an advanced edition application of an old version. New versions are not supported for this edition.
+      // 
+      // - enhanced: an advanced edition application of a new version.
       shared_ptr<string> type_ {};
     };
 

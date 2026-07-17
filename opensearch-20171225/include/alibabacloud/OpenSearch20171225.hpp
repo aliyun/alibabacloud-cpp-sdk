@@ -39,7 +39,7 @@ namespace OpenSearch20171225
       Models::BindESUserAnalyzerResponse bindESUserAnalyzer(const string &appGroupIdentity, const string &esInstanceId, const Models::BindESUserAnalyzerRequest &request);
 
       /**
-       * @summary Binds an Elasticsearch instance.
+       * @summary Binds an Elasticsearch instance as a dependency.
        *
        * @param request BindEsInstanceRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace OpenSearch20171225
       Models::BindEsInstanceResponse bindEsInstanceWithOptions(const string &appGroupIdentity, const Models::BindEsInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds an Elasticsearch instance.
+       * @summary Binds an Elasticsearch instance as a dependency.
        *
        * @param request BindEsInstanceRequest
        * @return BindEsInstanceResponse
@@ -91,7 +91,7 @@ namespace OpenSearch20171225
       Models::CreateABTestExperimentResponse createABTestExperiment(const string &appGroupIdentity, const string &sceneId, const string &groupId, const Models::CreateABTestExperimentRequest &request);
 
       /**
-       * @summary Creates a test group.
+       * @summary Creates an experiment group.
        *
        * @param request CreateABTestGroupRequest
        * @param headers map
@@ -101,7 +101,7 @@ namespace OpenSearch20171225
       Models::CreateABTestGroupResponse createABTestGroupWithOptions(const string &appGroupIdentity, const string &sceneId, const Models::CreateABTestGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a test group.
+       * @summary Creates an experiment group.
        *
        * @param request CreateABTestGroupRequest
        * @return CreateABTestGroupResponse
@@ -109,7 +109,7 @@ namespace OpenSearch20171225
       Models::CreateABTestGroupResponse createABTestGroup(const string &appGroupIdentity, const string &sceneId, const Models::CreateABTestGroupRequest &request);
 
       /**
-       * @summary Creates an scenario.
+       * @summary Creates an experiment scenario.
        *
        * @param request CreateABTestSceneRequest
        * @param headers map
@@ -119,7 +119,7 @@ namespace OpenSearch20171225
       Models::CreateABTestSceneResponse createABTestSceneWithOptions(const string &appGroupIdentity, const Models::CreateABTestSceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an scenario.
+       * @summary Creates an experiment scenario.
        *
        * @param request CreateABTestSceneRequest
        * @return CreateABTestSceneResponse
@@ -127,12 +127,12 @@ namespace OpenSearch20171225
       Models::CreateABTestSceneResponse createABTestScene(const string &appGroupIdentity, const Models::CreateABTestSceneRequest &request);
 
       /**
-       * @summary Creates a version for an OpenSearch application.
+       * @summary Creates a new version of an OpenSearch application.
        *
-       * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-       * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-       * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-       * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+       * @description - If a Standard Edition application with the same name already exists, a new version is created.
+       * - The autoSwitch and realtimeShared parameters are required to create a new version.
+       * - The quota for the new version is automatically inherited from the previous version.
+       * - You cannot modify the quota when you create the new version.
        *
        * @param request CreateAppRequest
        * @param headers map
@@ -142,12 +142,12 @@ namespace OpenSearch20171225
       Models::CreateAppResponse createAppWithOptions(const string &appGroupIdentity, const Models::CreateAppRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a version for an OpenSearch application.
+       * @summary Creates a new version of an OpenSearch application.
        *
-       * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-       * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-       * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-       * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+       * @description - If a Standard Edition application with the same name already exists, a new version is created.
+       * - The autoSwitch and realtimeShared parameters are required to create a new version.
+       * - The quota for the new version is automatically inherited from the previous version.
+       * - You cannot modify the quota when you create the new version.
        *
        * @param request CreateAppRequest
        * @return CreateAppResponse
@@ -173,6 +173,8 @@ namespace OpenSearch20171225
       Models::CreateAppGroupResponse createAppGroup(const Models::CreateAppGroupRequest &request);
 
       /**
+       * @summary Creates access credentials for a specified application group. This operation supports a dry run to preview the results.
+       *
        * @param request CreateAppGroupCredentialsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -181,13 +183,33 @@ namespace OpenSearch20171225
       Models::CreateAppGroupCredentialsResponse createAppGroupCredentialsWithOptions(const string &appGroupIdentity, const Models::CreateAppGroupCredentialsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates access credentials for a specified application group. This operation supports a dry run to preview the results.
+       *
        * @param request CreateAppGroupCredentialsRequest
        * @return CreateAppGroupCredentialsResponse
        */
       Models::CreateAppGroupCredentialsResponse createAppGroupCredentials(const string &appGroupIdentity, const Models::CreateAppGroupCredentialsRequest &request);
 
       /**
-       * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+       * @summary 创建弹性计划
+       *
+       * @param request CreateElasticPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateElasticPlanResponse
+       */
+      Models::CreateElasticPlanResponse createElasticPlanWithOptions(const string &appGroupIdentity, const Models::CreateElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建弹性计划
+       *
+       * @param request CreateElasticPlanRequest
+       * @return CreateElasticPlanResponse
+       */
+      Models::CreateElasticPlanResponse createElasticPlan(const string &appGroupIdentity, const Models::CreateElasticPlanRequest &request);
+
+      /**
+       * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set `dryRun` to true, this operation validates the specified rough sort expression. By default, the value of `dryRun` is `false`.
        *
        * @param request CreateFirstRankRequest
        * @param headers map
@@ -197,7 +219,7 @@ namespace OpenSearch20171225
       Models::CreateFirstRankResponse createFirstRankWithOptions(const string &appGroupIdentity, const string &appId, const Models::CreateFirstRankRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+       * @summary Creates a rough sort expression for a version of an OpenSearch application. If you set `dryRun` to true, this operation validates the specified rough sort expression. By default, the value of `dryRun` is `false`.
        *
        * @param request CreateFirstRankRequest
        * @return CreateFirstRankResponse
@@ -227,7 +249,7 @@ namespace OpenSearch20171225
       Models::CreateFunctionInstanceResponse createFunctionInstance(const string &appGroupIdentity, const string &functionName, const Models::CreateFunctionInstanceRequest &request);
 
       /**
-       * @summary Creates an algorithm resource for a specific feature.
+       * @summary Creates an algorithm resource for a specified feature.
        *
        * @param request CreateFunctionResourceRequest
        * @param headers map
@@ -237,7 +259,7 @@ namespace OpenSearch20171225
       Models::CreateFunctionResourceResponse createFunctionResourceWithOptions(const string &appGroupIdentity, const string &functionName, const Models::CreateFunctionResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an algorithm resource for a specific feature.
+       * @summary Creates an algorithm resource for a specified feature.
        *
        * @param request CreateFunctionResourceRequest
        * @return CreateFunctionResourceResponse
@@ -245,7 +267,7 @@ namespace OpenSearch20171225
       Models::CreateFunctionResourceResponse createFunctionResource(const string &appGroupIdentity, const string &functionName, const Models::CreateFunctionResourceRequest &request);
 
       /**
-       * @summary Starts a training task for an algorithm instance.
+       * @summary Starts a training task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -254,14 +276,14 @@ namespace OpenSearch20171225
       Models::CreateFunctionTaskResponse createFunctionTaskWithOptions(const string &appGroupIdentity, const string &functionName, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a training task for an algorithm instance.
+       * @summary Starts a training task.
        *
        * @return CreateFunctionTaskResponse
        */
       Models::CreateFunctionTaskResponse createFunctionTask(const string &appGroupIdentity, const string &functionName, const string &instanceName);
 
       /**
-       * @summary Create an intervention dictionary.
+       * @summary Creates an intervention dictionary.
        *
        * @param request CreateInterventionDictionaryRequest
        * @param headers map
@@ -271,7 +293,7 @@ namespace OpenSearch20171225
       Models::CreateInterventionDictionaryResponse createInterventionDictionaryWithOptions(const Models::CreateInterventionDictionaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an intervention dictionary.
+       * @summary Creates an intervention dictionary.
        *
        * @param request CreateInterventionDictionaryRequest
        * @return CreateInterventionDictionaryResponse
@@ -315,7 +337,7 @@ namespace OpenSearch20171225
       Models::CreateScheduledTaskResponse createScheduledTask(const string &appGroupIdentity, const Models::CreateScheduledTaskRequest &request);
 
       /**
-       * @summary Creates a query policy.
+       * @summary Creates a search strategy.
        *
        * @param request CreateSearchStrategyRequest
        * @param headers map
@@ -325,7 +347,7 @@ namespace OpenSearch20171225
       Models::CreateSearchStrategyResponse createSearchStrategyWithOptions(const string &appGroupIdentity, const string &appId, const Models::CreateSearchStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a query policy.
+       * @summary Creates a search strategy.
        *
        * @param request CreateSearchStrategyRequest
        * @return CreateSearchStrategyResponse
@@ -333,7 +355,7 @@ namespace OpenSearch20171225
       Models::CreateSearchStrategyResponse createSearchStrategy(const string &appGroupIdentity, const string &appId, const Models::CreateSearchStrategyRequest &request);
 
       /**
-       * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+       * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set the dryRun parameter to true, this operation validates the specified fine sort expression. The default value of this parameter is false.
        *
        * @param request CreateSecondRankRequest
        * @param headers map
@@ -343,7 +365,7 @@ namespace OpenSearch20171225
       Models::CreateSecondRankResponse createSecondRankWithOptions(const string &appGroupIdentity, const string &appId, const Models::CreateSecondRankRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+       * @summary Creates a fine sort expression for a version of an OpenSearch application. If you set the dryRun parameter to true, this operation validates the specified fine sort expression. The default value of this parameter is false.
        *
        * @param request CreateSecondRankRequest
        * @return CreateSecondRankResponse
@@ -369,7 +391,7 @@ namespace OpenSearch20171225
       Models::CreateSortScriptResponse createSortScript(const string &appGroupIdentity, const string &appVersionId, const Models::CreateSortScriptRequest &request);
 
       /**
-       * @summary Create a custom analyzer.
+       * @summary Creates a custom analyzer.
        *
        * @param request CreateUserAnalyzerRequest
        * @param headers map
@@ -379,7 +401,7 @@ namespace OpenSearch20171225
       Models::CreateUserAnalyzerResponse createUserAnalyzerWithOptions(const Models::CreateUserAnalyzerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a custom analyzer.
+       * @summary Creates a custom analyzer.
        *
        * @param request CreateUserAnalyzerRequest
        * @return CreateUserAnalyzerResponse
@@ -387,7 +409,7 @@ namespace OpenSearch20171225
       Models::CreateUserAnalyzerResponse createUserAnalyzer(const Models::CreateUserAnalyzerRequest &request);
 
       /**
-       * @summary Deletes a test.
+       * @summary Deletes an experiment.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -396,14 +418,14 @@ namespace OpenSearch20171225
       Models::DeleteABTestExperimentResponse deleteABTestExperimentWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a test.
+       * @summary Deletes an experiment.
        *
        * @return DeleteABTestExperimentResponse
        */
       Models::DeleteABTestExperimentResponse deleteABTestExperiment(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId);
 
       /**
-       * @summary 删除实验组
+       * @summary Deletes an A/B test group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +434,7 @@ namespace OpenSearch20171225
       Models::DeleteABTestGroupResponse deleteABTestGroupWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除实验组
+       * @summary Deletes an A/B test group.
        *
        * @return DeleteABTestGroupResponse
        */
@@ -435,7 +457,7 @@ namespace OpenSearch20171225
       Models::DeleteABTestSceneResponse deleteABTestScene(const string &appGroupIdentity, const string &sceneId);
 
       /**
-       * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+       * @summary Deletes an algorithm instance. Before you delete an instance, ensure that it is not in use to prevent service interruptions.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -444,14 +466,14 @@ namespace OpenSearch20171225
       Models::DeleteFunctionInstanceResponse deleteFunctionInstanceWithOptions(const string &appGroupIdentity, const string &functionName, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+       * @summary Deletes an algorithm instance. Before you delete an instance, ensure that it is not in use to prevent service interruptions.
        *
        * @return DeleteFunctionInstanceResponse
        */
       Models::DeleteFunctionInstanceResponse deleteFunctionInstance(const string &appGroupIdentity, const string &functionName, const string &instanceName);
 
       /**
-       * @summary Deletes an algorithm resource.
+       * @summary Deletes a specified algorithm resource.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -460,14 +482,14 @@ namespace OpenSearch20171225
       Models::DeleteFunctionResourceResponse deleteFunctionResourceWithOptions(const string &appGroupIdentity, const string &functionName, const string &resourceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an algorithm resource.
+       * @summary Deletes a specified algorithm resource.
        *
        * @return DeleteFunctionResourceResponse
        */
       Models::DeleteFunctionResourceResponse deleteFunctionResource(const string &appGroupIdentity, const string &functionName, const string &resourceName);
 
       /**
-       * @summary Deletes a training task. The training task in progress cannot be deleted.
+       * @summary Deletes a training record. A training record that is in progress cannot be deleted.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -476,14 +498,14 @@ namespace OpenSearch20171225
       Models::DeleteFunctionTaskResponse deleteFunctionTaskWithOptions(const string &appGroupIdentity, const string &functionName, const string &instanceName, const string &generation, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a training task. The training task in progress cannot be deleted.
+       * @summary Deletes a training record. A training record that is in progress cannot be deleted.
        *
        * @return DeleteFunctionTaskResponse
        */
       Models::DeleteFunctionTaskResponse deleteFunctionTask(const string &appGroupIdentity, const string &functionName, const string &instanceName, const string &generation);
 
       /**
-       * @summary 删除排序脚本
+       * @summary Deletes a sort script.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -492,7 +514,7 @@ namespace OpenSearch20171225
       Models::DeleteSortScriptResponse deleteSortScriptWithOptions(const string &appGroupIdentity, const string &scriptName, const string &appVersionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除排序脚本
+       * @summary Deletes a sort script.
        *
        * @return DeleteSortScriptResponse
        */
@@ -515,7 +537,7 @@ namespace OpenSearch20171225
       Models::DeleteSortScriptFileResponse deleteSortScriptFile(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const string &fileName);
 
       /**
-       * @summary 获取实验详情
+       * @summary Retrieves the details of an experiment.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -524,14 +546,14 @@ namespace OpenSearch20171225
       Models::DescribeABTestExperimentResponse describeABTestExperimentWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实验详情
+       * @summary Retrieves the details of an experiment.
        *
        * @return DescribeABTestExperimentResponse
        */
       Models::DescribeABTestExperimentResponse describeABTestExperiment(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId);
 
       /**
-       * @summary Queries the details of a test group.
+       * @summary Retrieves the details of an A/B test group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,14 +562,14 @@ namespace OpenSearch20171225
       Models::DescribeABTestGroupResponse describeABTestGroupWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a test group.
+       * @summary Retrieves the details of an A/B test group.
        *
        * @return DescribeABTestGroupResponse
        */
       Models::DescribeABTestGroupResponse describeABTestGroup(const string &appGroupIdentity, const string &sceneId, const string &groupId);
 
       /**
-       * @summary Queries the information about an A/B test scenario.
+       * @summary Query an A/B test scenario.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -556,7 +578,7 @@ namespace OpenSearch20171225
       Models::DescribeABTestSceneResponse describeABTestSceneWithOptions(const string &appGroupIdentity, const string &sceneId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an A/B test scenario.
+       * @summary Query an A/B test scenario.
        *
        * @return DescribeABTestSceneResponse
        */
@@ -579,7 +601,7 @@ namespace OpenSearch20171225
       Models::DescribeAppResponse describeApp(const string &appGroupIdentity, const string &appId);
 
       /**
-       * @summary Queries the details of an OpenSearch application.
+       * @summary Query an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -588,7 +610,7 @@ namespace OpenSearch20171225
       Models::DescribeAppGroupResponse describeAppGroupWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an OpenSearch application.
+       * @summary Query an OpenSearch application.
        *
        * @return DescribeAppGroupResponse
        */
@@ -611,12 +633,12 @@ namespace OpenSearch20171225
       Models::DescribeAppStatisticsResponse describeAppStatistics(const string &appGroupIdentity, const string &appId);
 
       /**
-       * @summary Queries the version list of an OpenSearch application.
+       * @summary Queries the versions of an OpenSearch application.
        *
-       * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-       * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-       * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-       * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+       * @description - If a Standard Edition application with the same name exists, a new version is created.
+       * - When you create a new version, the autoSwitch and realtimeShared parameters are required.
+       * - When you create a new version, the quota is inherited from the previous version.
+       * - When you create a new version, modifications to the quota do not take effect.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,19 +647,19 @@ namespace OpenSearch20171225
       Models::DescribeAppsResponse describeAppsWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the version list of an OpenSearch application.
+       * @summary Queries the versions of an OpenSearch application.
        *
-       * @description *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-       * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-       * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-       * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+       * @description - If a Standard Edition application with the same name exists, a new version is created.
+       * - When you create a new version, the autoSwitch and realtimeShared parameters are required.
+       * - When you create a new version, the quota is inherited from the previous version.
+       * - When you create a new version, modifications to the quota do not take effect.
        *
        * @return DescribeAppsResponse
        */
       Models::DescribeAppsResponse describeApps(const string &appGroupIdentity);
 
       /**
-       * @summary Queries the details of a data collection task of an application.
+       * @summary Retrieves the details of a data collection for a specified application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,14 +668,42 @@ namespace OpenSearch20171225
       Models::DescribeDataCollctionResponse describeDataCollctionWithOptions(const string &appGroupIdentity, const string &dataCollectionIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a data collection task of an application.
+       * @summary Retrieves the details of a data collection for a specified application.
        *
        * @return DescribeDataCollctionResponse
        */
       Models::DescribeDataCollctionResponse describeDataCollction(const string &appGroupIdentity, const string &dataCollectionIdentity);
 
       /**
-       * @summary Queries a rough sort expression that is configured for an OpenSearch application version.
+       * @summary 获取弹性计划详情
+       *
+       * @description - 若已存在同名标准版应用，则创建新版本；
+       * - 在新建版本情况下，autoSwitch 和 realtimeShared 也是必填的；
+       * - 在新建版本情况下，quota 是自动从上一个版本继承的；
+       * - 在新建版本情况下，修改 quota 是无效的。
+       *
+       * @param request DescribeElasticPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeElasticPlanResponse
+       */
+      Models::DescribeElasticPlanResponse describeElasticPlanWithOptions(const string &appGroupIdentity, const string &planId, const Models::DescribeElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取弹性计划详情
+       *
+       * @description - 若已存在同名标准版应用，则创建新版本；
+       * - 在新建版本情况下，autoSwitch 和 realtimeShared 也是必填的；
+       * - 在新建版本情况下，quota 是自动从上一个版本继承的；
+       * - 在新建版本情况下，修改 quota 是无效的。
+       *
+       * @param request DescribeElasticPlanRequest
+       * @return DescribeElasticPlanResponse
+       */
+      Models::DescribeElasticPlanResponse describeElasticPlan(const string &appGroupIdentity, const string &planId, const Models::DescribeElasticPlanRequest &request);
+
+      /**
+       * @summary Queries the rough sort expression configured for an OpenSearch application version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -662,14 +712,14 @@ namespace OpenSearch20171225
       Models::DescribeFirstRankResponse describeFirstRankWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a rough sort expression that is configured for an OpenSearch application version.
+       * @summary Queries the rough sort expression configured for an OpenSearch application version.
        *
        * @return DescribeFirstRankResponse
        */
       Models::DescribeFirstRankResponse describeFirstRank(const string &appGroupIdentity, const string &appId, const string &name);
 
       /**
-       * @summary Queries the details of an intervention dictionary.
+       * @summary Retrieves the details of an intervention dictionary.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -678,14 +728,14 @@ namespace OpenSearch20171225
       Models::DescribeInterventionDictionaryResponse describeInterventionDictionaryWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an intervention dictionary.
+       * @summary Retrieves the details of an intervention dictionary.
        *
        * @return DescribeInterventionDictionaryResponse
        */
       Models::DescribeInterventionDictionaryResponse describeInterventionDictionary(const string &name);
 
       /**
-       * @summary Queries the query analysis rule for a version of an OpenSearch application.
+       * @summary Describes a query analysis rule for a version of an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -694,14 +744,14 @@ namespace OpenSearch20171225
       Models::DescribeQueryProcessorResponse describeQueryProcessorWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the query analysis rule for a version of an OpenSearch application.
+       * @summary Describes a query analysis rule for a version of an OpenSearch application.
        *
        * @return DescribeQueryProcessorResponse
        */
       Models::DescribeQueryProcessorResponse describeQueryProcessor(const string &appGroupIdentity, const string &appId, const string &name);
 
       /**
-       * @summary Queries the endpoints of all regions that support OpenSearch.
+       * @summary Retrieves the endpoints for all regions.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,14 +760,14 @@ namespace OpenSearch20171225
       Models::DescribeRegionsResponse describeRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the endpoints of all regions that support OpenSearch.
+       * @summary Retrieves the endpoints for all regions.
        *
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary 查看应用定时任务详情
+       * @summary Query a scheduled task for an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -726,14 +776,14 @@ namespace OpenSearch20171225
       Models::DescribeScheduledTaskResponse describeScheduledTaskWithOptions(const string &appGroupIdentity, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看应用定时任务详情
+       * @summary Query a scheduled task for an OpenSearch application.
        *
        * @return DescribeScheduledTaskResponse
        */
       Models::DescribeScheduledTaskResponse describeScheduledTask(const string &appGroupIdentity, const string &taskId);
 
       /**
-       * @summary Queries a fine sort expression that is configured for a version of an OpenSearch application.
+       * @summary Queries the fine sort expression for a version of an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -742,14 +792,14 @@ namespace OpenSearch20171225
       Models::DescribeSecondRankResponse describeSecondRankWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a fine sort expression that is configured for a version of an OpenSearch application.
+       * @summary Queries the fine sort expression for a version of an OpenSearch application.
        *
        * @return DescribeSecondRankResponse
        */
       Models::DescribeSecondRankResponse describeSecondRank(const string &appGroupIdentity, const string &appId, const string &name);
 
       /**
-       * @summary 获取优化大师慢查询开通状态
+       * @summary Queries the status of the slow query feature.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -758,14 +808,14 @@ namespace OpenSearch20171225
       Models::DescribeSlowQueryStatusResponse describeSlowQueryStatusWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取优化大师慢查询开通状态
+       * @summary Queries the status of the slow query feature.
        *
        * @return DescribeSlowQueryStatusResponse
        */
       Models::DescribeSlowQueryStatusResponse describeSlowQueryStatus(const string &appGroupIdentity);
 
       /**
-       * @summary 获取自定义分析器详情
+       * @summary Retrieves the details of a custom analyzer.
        *
        * @param request DescribeUserAnalyzerRequest
        * @param headers map
@@ -775,7 +825,7 @@ namespace OpenSearch20171225
       Models::DescribeUserAnalyzerResponse describeUserAnalyzerWithOptions(const string &name, const Models::DescribeUserAnalyzerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义分析器详情
+       * @summary Retrieves the details of a custom analyzer.
        *
        * @param request DescribeUserAnalyzerRequest
        * @return DescribeUserAnalyzerResponse
@@ -783,7 +833,7 @@ namespace OpenSearch20171225
       Models::DescribeUserAnalyzerResponse describeUserAnalyzer(const string &name, const Models::DescribeUserAnalyzerRequest &request);
 
       /**
-       * @summary 禁用优化大师慢查询服务
+       * @summary Disables the slow query service for Search Diagnoser.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -792,14 +842,14 @@ namespace OpenSearch20171225
       Models::DisableSlowQueryResponse disableSlowQueryWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用优化大师慢查询服务
+       * @summary Disables the slow query service for Search Diagnoser.
        *
        * @return DisableSlowQueryResponse
        */
       Models::DisableSlowQueryResponse disableSlowQuery(const string &appGroupIdentity);
 
       /**
-       * @summary Enables slow query optimization of Optimization Master.
+       * @summary Enables the slow query service for the optimizer.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -808,7 +858,7 @@ namespace OpenSearch20171225
       Models::EnableSlowQueryResponse enableSlowQueryWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables slow query optimization of Optimization Master.
+       * @summary Enables the slow query service for the optimizer.
        *
        * @return EnableSlowQueryResponse
        */
@@ -833,7 +883,7 @@ namespace OpenSearch20171225
       Models::GenerateMergedTableResponse generateMergedTable(const Models::GenerateMergedTableRequest &request);
 
       /**
-       * @summary Queries the type of an industry.
+       * @summary Retrieves the industry type.
        *
        * @param request GetDomainRequest
        * @param headers map
@@ -843,7 +893,7 @@ namespace OpenSearch20171225
       Models::GetDomainResponse getDomainWithOptions(const string &domainName, const Models::GetDomainRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the type of an industry.
+       * @summary Retrieves the industry type.
        *
        * @param request GetDomainRequest
        * @return GetDomainResponse
@@ -851,7 +901,7 @@ namespace OpenSearch20171225
       Models::GetDomainResponse getDomain(const string &domainName, const Models::GetDomainRequest &request);
 
       /**
-       * @summary Queries the version information about the current feature when you create an instance.
+       * @summary Retrieves the version information of the feature that is used to create an instance.
        *
        * @param request GetFunctionCurrentVersionRequest
        * @param headers map
@@ -861,7 +911,7 @@ namespace OpenSearch20171225
       Models::GetFunctionCurrentVersionResponse getFunctionCurrentVersionWithOptions(const string &functionName, const Models::GetFunctionCurrentVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the version information about the current feature when you create an instance.
+       * @summary Retrieves the version information of the feature that is used to create an instance.
        *
        * @param request GetFunctionCurrentVersionRequest
        * @return GetFunctionCurrentVersionResponse
@@ -869,7 +919,7 @@ namespace OpenSearch20171225
       Models::GetFunctionCurrentVersionResponse getFunctionCurrentVersion(const string &functionName, const Models::GetFunctionCurrentVersionRequest &request);
 
       /**
-       * @summary Queries the algorithm instance that an application uses by default.
+       * @summary Queries the default algorithm instance for an application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -878,14 +928,14 @@ namespace OpenSearch20171225
       Models::GetFunctionDefaultInstanceResponse getFunctionDefaultInstanceWithOptions(const string &appGroupIdentity, const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the algorithm instance that an application uses by default.
+       * @summary Queries the default algorithm instance for an application.
        *
        * @return GetFunctionDefaultInstanceResponse
        */
       Models::GetFunctionDefaultInstanceResponse getFunctionDefaultInstance(const string &appGroupIdentity, const string &functionName);
 
       /**
-       * @summary Queries the details of an algorithm instance by instance name.
+       * @summary Query an algorithm instance by instance name.
        *
        * @param request GetFunctionInstanceRequest
        * @param headers map
@@ -895,7 +945,7 @@ namespace OpenSearch20171225
       Models::GetFunctionInstanceResponse getFunctionInstanceWithOptions(const string &appGroupIdentity, const string &functionName, const string &instanceName, const Models::GetFunctionInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an algorithm instance by instance name.
+       * @summary Query an algorithm instance by instance name.
        *
        * @param request GetFunctionInstanceRequest
        * @return GetFunctionInstanceResponse
@@ -903,7 +953,7 @@ namespace OpenSearch20171225
       Models::GetFunctionInstanceResponse getFunctionInstance(const string &appGroupIdentity, const string &functionName, const string &instanceName, const Models::GetFunctionInstanceRequest &request);
 
       /**
-       * @summary Queries an algorithm resource.
+       * @summary Retrieves the specified algorithm resource.
        *
        * @param request GetFunctionResourceRequest
        * @param headers map
@@ -913,7 +963,7 @@ namespace OpenSearch20171225
       Models::GetFunctionResourceResponse getFunctionResourceWithOptions(const string &appGroupIdentity, const string &functionName, const string &resourceName, const Models::GetFunctionResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an algorithm resource.
+       * @summary Retrieves the specified algorithm resource.
        *
        * @param request GetFunctionResourceRequest
        * @return GetFunctionResourceResponse
@@ -937,7 +987,7 @@ namespace OpenSearch20171225
       Models::GetFunctionTaskResponse getFunctionTask(const string &appGroupIdentity, const string &functionName, const string &instanceName, const string &generation);
 
       /**
-       * @summary Queries version information by version ID.
+       * @summary Queries the information about a function version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -946,13 +996,15 @@ namespace OpenSearch20171225
       Models::GetFunctionVersionResponse getFunctionVersionWithOptions(const string &functionName, const string &versionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries version information by version ID.
+       * @summary Queries the information about a function version.
        *
        * @return GetFunctionVersionResponse
        */
       Models::GetFunctionVersionResponse getFunctionVersion(const string &functionName, const string &versionId);
 
       /**
+       * @summary Retrieves the names of all files in a specified script for a specific application version.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetScriptFileNamesResponse
@@ -960,12 +1012,14 @@ namespace OpenSearch20171225
       Models::GetScriptFileNamesResponse getScriptFileNamesWithOptions(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the names of all files in a specified script for a specific application version.
+       *
        * @return GetScriptFileNamesResponse
        */
       Models::GetScriptFileNamesResponse getScriptFileNames(const string &appGroupIdentity, const string &appVersionId, const string &scriptName);
 
       /**
-       * @summary Queries the details of a query policy.
+       * @summary Retrieves the details of a query policy.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -974,14 +1028,14 @@ namespace OpenSearch20171225
       Models::GetSearchStrategyResponse getSearchStrategyWithOptions(const string &appGroupIdentity, const string &appId, const string &strategyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a query policy.
+       * @summary Retrieves the details of a query policy.
        *
        * @return GetSearchStrategyResponse
        */
       Models::GetSearchStrategyResponse getSearchStrategy(const string &appGroupIdentity, const string &appId, const string &strategyName);
 
       /**
-       * @summary Queries the details of a sort script.
+       * @summary Retrieves the details of a sort script.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -990,14 +1044,14 @@ namespace OpenSearch20171225
       Models::GetSortScriptResponse getSortScriptWithOptions(const string &appGroupIdentity, const string &scriptName, const string &appVersionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a sort script.
+       * @summary Retrieves the details of a sort script.
        *
        * @return GetSortScriptResponse
        */
       Models::GetSortScriptResponse getSortScript(const string &appGroupIdentity, const string &scriptName, const string &appVersionId);
 
       /**
-       * @summary Queries the content of a sort script.
+       * @summary Retrieves the content of a sort script.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1006,7 +1060,7 @@ namespace OpenSearch20171225
       Models::GetSortScriptFileResponse getSortScriptFileWithOptions(const string &appGroupIdentity, const string &scriptName, const string &appVersionId, const string &fileName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the content of a sort script.
+       * @summary Retrieves the content of a sort script.
        *
        * @return GetSortScriptFileResponse
        */
@@ -1029,7 +1083,7 @@ namespace OpenSearch20171225
       Models::ListABTestExperimentsResponse listABTestExperiments(const string &appGroupIdentity, const string &sceneId, const string &groupId);
 
       /**
-       * @summary Queries whitelists.
+       * @summary Lists whitelists.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1038,14 +1092,14 @@ namespace OpenSearch20171225
       Models::ListABTestFixedFlowDividersResponse listABTestFixedFlowDividersWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whitelists.
+       * @summary Lists whitelists.
        *
        * @return ListABTestFixedFlowDividersResponse
        */
       Models::ListABTestFixedFlowDividersResponse listABTestFixedFlowDividers(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId);
 
       /**
-       * @summary 获取实验组清单
+       * @summary Retrieves a list of test groups.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1054,7 +1108,7 @@ namespace OpenSearch20171225
       Models::ListABTestGroupsResponse listABTestGroupsWithOptions(const string &appGroupIdentity, const string &sceneId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实验组清单
+       * @summary Retrieves a list of test groups.
        *
        * @return ListABTestGroupsResponse
        */
@@ -1079,9 +1133,9 @@ namespace OpenSearch20171225
       /**
        * @summary Queries a list of OpenSearch applications.
        *
-       * @description *   This operation allows you to query applications by application name, instance ID, and application type.
-       * *   This operation allows you to sort the applications based on their creation time.
-       * *   This operation supports the parameters for paging.
+       * @description - Filters applications by name, instance ID, and type.
+       * - Sorts applications by their creation time.
+       * - Supports paging.
        *
        * @param tmpReq ListAppGroupsRequest
        * @param headers map
@@ -1093,9 +1147,9 @@ namespace OpenSearch20171225
       /**
        * @summary Queries a list of OpenSearch applications.
        *
-       * @description *   This operation allows you to query applications by application name, instance ID, and application type.
-       * *   This operation allows you to sort the applications based on their creation time.
-       * *   This operation supports the parameters for paging.
+       * @description - Filters applications by name, instance ID, and type.
+       * - Sorts applications by their creation time.
+       * - Supports paging.
        *
        * @param request ListAppGroupsRequest
        * @return ListAppGroupsResponse
@@ -1103,7 +1157,7 @@ namespace OpenSearch20171225
       Models::ListAppGroupsResponse listAppGroups(const Models::ListAppGroupsRequest &request);
 
       /**
-       * @summary Queries the data collection tasks of an OpenSearch application.
+       * @summary Lists the data collections for an OpenSearch application.
        *
        * @param request ListDataCollectionsRequest
        * @param headers map
@@ -1113,7 +1167,7 @@ namespace OpenSearch20171225
       Models::ListDataCollectionsResponse listDataCollectionsWithOptions(const string &appGroupIdentity, const Models::ListDataCollectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data collection tasks of an OpenSearch application.
+       * @summary Lists the data collections for an OpenSearch application.
        *
        * @param request ListDataCollectionsRequest
        * @return ListDataCollectionsResponse
@@ -1121,7 +1175,7 @@ namespace OpenSearch20171225
       Models::ListDataCollectionsResponse listDataCollections(const string &appGroupIdentity, const Models::ListDataCollectionsRequest &request);
 
       /**
-       * @summary Queries all fields in a table of a data source. This operation is for internal use only.
+       * @summary This internal API retrieves all fields from a specified data table.
        *
        * @param request ListDataSourceTableFieldsRequest
        * @param headers map
@@ -1131,7 +1185,7 @@ namespace OpenSearch20171225
       Models::ListDataSourceTableFieldsResponse listDataSourceTableFieldsWithOptions(const string &dataSourceType, const Models::ListDataSourceTableFieldsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all fields in a table of a data source. This operation is for internal use only.
+       * @summary This internal API retrieves all fields from a specified data table.
        *
        * @param request ListDataSourceTableFieldsRequest
        * @return ListDataSourceTableFieldsResponse
@@ -1139,7 +1193,7 @@ namespace OpenSearch20171225
       Models::ListDataSourceTableFieldsResponse listDataSourceTableFields(const string &dataSourceType, const Models::ListDataSourceTableFieldsRequest &request);
 
       /**
-       * @summary Obtains all data from a specified data source.
+       * @summary Retrieves all data from a specified data source.
        *
        * @param request ListDataSourceTablesRequest
        * @param headers map
@@ -1149,12 +1203,30 @@ namespace OpenSearch20171225
       Models::ListDataSourceTablesResponse listDataSourceTablesWithOptions(const string &dataSourceType, const Models::ListDataSourceTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains all data from a specified data source.
+       * @summary Retrieves all data from a specified data source.
        *
        * @param request ListDataSourceTablesRequest
        * @return ListDataSourceTablesResponse
        */
       Models::ListDataSourceTablesResponse listDataSourceTables(const string &dataSourceType, const Models::ListDataSourceTablesRequest &request);
+
+      /**
+       * @summary 获取弹性计划列表
+       *
+       * @param request ListElasticPlansRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListElasticPlansResponse
+       */
+      Models::ListElasticPlansResponse listElasticPlansWithOptions(const string &appGroupIdentity, const Models::ListElasticPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取弹性计划列表
+       *
+       * @param request ListElasticPlansRequest
+       * @return ListElasticPlansResponse
+       */
+      Models::ListElasticPlansResponse listElasticPlans(const string &appGroupIdentity, const Models::ListElasticPlansRequest &request);
 
       /**
        * @summary Queries the rough sort expressions that are configured for a version of an OpenSearch application.
@@ -1173,7 +1245,7 @@ namespace OpenSearch20171225
       Models::ListFirstRanksResponse listFirstRanks(const string &appGroupIdentity, const string &appId);
 
       /**
-       * @summary Queries all algorithm instances of a user, which meet specified conditions.
+       * @summary Lists all instances that match the specified conditions.
        *
        * @param request ListFunctionInstancesRequest
        * @param headers map
@@ -1183,7 +1255,7 @@ namespace OpenSearch20171225
       Models::ListFunctionInstancesResponse listFunctionInstancesWithOptions(const string &appGroupIdentity, const string &functionName, const Models::ListFunctionInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all algorithm instances of a user, which meet specified conditions.
+       * @summary Lists all instances that match the specified conditions.
        *
        * @param request ListFunctionInstancesRequest
        * @return ListFunctionInstancesResponse
@@ -1191,7 +1263,7 @@ namespace OpenSearch20171225
       Models::ListFunctionInstancesResponse listFunctionInstances(const string &appGroupIdentity, const string &functionName, const Models::ListFunctionInstancesRequest &request);
 
       /**
-       * @summary Queries algorithm resources.
+       * @summary Lists the algorithm resources.
        *
        * @param request ListFunctionResourcesRequest
        * @param headers map
@@ -1201,7 +1273,7 @@ namespace OpenSearch20171225
       Models::ListFunctionResourcesResponse listFunctionResourcesWithOptions(const string &appGroupIdentity, const string &functionName, const Models::ListFunctionResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries algorithm resources.
+       * @summary Lists the algorithm resources.
        *
        * @param request ListFunctionResourcesRequest
        * @return ListFunctionResourcesResponse
@@ -1209,7 +1281,7 @@ namespace OpenSearch20171225
       Models::ListFunctionResourcesResponse listFunctionResources(const string &appGroupIdentity, const string &functionName, const Models::ListFunctionResourcesRequest &request);
 
       /**
-       * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
+       * @summary Queries the training tasks. The results are sorted in descending order by start time.
        *
        * @param request ListFunctionTasksRequest
        * @param headers map
@@ -1219,7 +1291,7 @@ namespace OpenSearch20171225
       Models::ListFunctionTasksResponse listFunctionTasksWithOptions(const string &appGroupIdentity, const string &functionName, const string &instanceName, const Models::ListFunctionTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the training tasks. The returned results are sorted by start time in descending order.
+       * @summary Queries the training tasks. The results are sorted in descending order by start time.
        *
        * @param request ListFunctionTasksRequest
        * @return ListFunctionTasksResponse
@@ -1227,7 +1299,7 @@ namespace OpenSearch20171225
       Models::ListFunctionTasksResponse listFunctionTasks(const string &appGroupIdentity, const string &functionName, const string &instanceName, const Models::ListFunctionTasksRequest &request);
 
       /**
-       * @summary 获取用户的干预词典列表
+       * @summary Retrieves a list of intervention dictionaries.
        *
        * @param request ListInterventionDictionariesRequest
        * @param headers map
@@ -1237,7 +1309,7 @@ namespace OpenSearch20171225
       Models::ListInterventionDictionariesResponse listInterventionDictionariesWithOptions(const Models::ListInterventionDictionariesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户的干预词典列表
+       * @summary Retrieves a list of intervention dictionaries.
        *
        * @param request ListInterventionDictionariesRequest
        * @return ListInterventionDictionariesResponse
@@ -1263,7 +1335,7 @@ namespace OpenSearch20171225
       Models::ListInterventionDictionaryEntriesResponse listInterventionDictionaryEntries(const string &name, const Models::ListInterventionDictionaryEntriesRequest &request);
 
       /**
-       * @summary 获取实体识别结果
+       * @summary Retrieves the Named Entity Recognition (NER) results.
        *
        * @param request ListInterventionDictionaryNerResultsRequest
        * @param headers map
@@ -1273,7 +1345,7 @@ namespace OpenSearch20171225
       Models::ListInterventionDictionaryNerResultsResponse listInterventionDictionaryNerResultsWithOptions(const string &name, const Models::ListInterventionDictionaryNerResultsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实体识别结果
+       * @summary Retrieves the Named Entity Recognition (NER) results.
        *
        * @param request ListInterventionDictionaryNerResultsRequest
        * @return ListInterventionDictionaryNerResultsResponse
@@ -1281,7 +1353,7 @@ namespace OpenSearch20171225
       Models::ListInterventionDictionaryNerResultsResponse listInterventionDictionaryNerResults(const string &name, const Models::ListInterventionDictionaryNerResultsRequest &request);
 
       /**
-       * @summary Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+       * @summary Queries the list of resources associated with an intervention dictionary. If a query processor (QP) references the dictionary, the operation returns all associated applications and information about the QP.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1290,14 +1362,14 @@ namespace OpenSearch20171225
       Models::ListInterventionDictionaryRelatedEntitiesResponse listInterventionDictionaryRelatedEntitiesWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+       * @summary Queries the list of resources associated with an intervention dictionary. If a query processor (QP) references the dictionary, the operation returns all associated applications and information about the QP.
        *
        * @return ListInterventionDictionaryRelatedEntitiesResponse
        */
       Models::ListInterventionDictionaryRelatedEntitiesResponse listInterventionDictionaryRelatedEntities(const string &name);
 
       /**
-       * @summary 查看当前的处理流
+       * @summary Lists the current proceedings.
        *
        * @param request ListProceedingsRequest
        * @param headers map
@@ -1307,7 +1379,7 @@ namespace OpenSearch20171225
       Models::ListProceedingsResponse listProceedingsWithOptions(const string &appGroupIdentity, const Models::ListProceedingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看当前的处理流
+       * @summary Lists the current proceedings.
        *
        * @param request ListProceedingsRequest
        * @return ListProceedingsResponse
@@ -1315,7 +1387,7 @@ namespace OpenSearch20171225
       Models::ListProceedingsResponse listProceedings(const string &appGroupIdentity, const Models::ListProceedingsRequest &request);
 
       /**
-       * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+       * @summary Tests the results of query analysis. This operation can be called only for existing applications of the Open Source-compatible Edition.
        *
        * @param request ListQueryProcessorAnalyzerResultsRequest
        * @param headers map
@@ -1325,7 +1397,7 @@ namespace OpenSearch20171225
       Models::ListQueryProcessorAnalyzerResultsResponse listQueryProcessorAnalyzerResultsWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const Models::ListQueryProcessorAnalyzerResultsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+       * @summary Tests the results of query analysis. This operation can be called only for existing applications of the Open Source-compatible Edition.
        *
        * @param request ListQueryProcessorAnalyzerResultsRequest
        * @return ListQueryProcessorAnalyzerResultsResponse
@@ -1333,7 +1405,7 @@ namespace OpenSearch20171225
       Models::ListQueryProcessorAnalyzerResultsResponse listQueryProcessorAnalyzerResults(const string &appGroupIdentity, const string &appId, const string &name, const Models::ListQueryProcessorAnalyzerResultsRequest &request);
 
       /**
-       * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
+       * @summary Queries the recommended priority settings for entity types in Named Entity Recognition (NER).
        *
        * @param request ListQueryProcessorNersRequest
        * @param headers map
@@ -1343,7 +1415,7 @@ namespace OpenSearch20171225
       Models::ListQueryProcessorNersResponse listQueryProcessorNersWithOptions(const Models::ListQueryProcessorNersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the recommended priority settings of entity types for named entity recognition (NER).
+       * @summary Queries the recommended priority settings for entity types in Named Entity Recognition (NER).
        *
        * @param request ListQueryProcessorNersRequest
        * @return ListQueryProcessorNersResponse
@@ -1351,7 +1423,7 @@ namespace OpenSearch20171225
       Models::ListQueryProcessorNersResponse listQueryProcessorNers(const Models::ListQueryProcessorNersRequest &request);
 
       /**
-       * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+       * @summary Queries a list of query analysis rules configured for a specific version of an OpenSearch application.
        *
        * @param request ListQueryProcessorsRequest
        * @param headers map
@@ -1361,7 +1433,7 @@ namespace OpenSearch20171225
       Models::ListQueryProcessorsResponse listQueryProcessorsWithOptions(const string &appGroupIdentity, const string &appId, const Models::ListQueryProcessorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+       * @summary Queries a list of query analysis rules configured for a specific version of an OpenSearch application.
        *
        * @param request ListQueryProcessorsRequest
        * @return ListQueryProcessorsResponse
@@ -1369,7 +1441,7 @@ namespace OpenSearch20171225
       Models::ListQueryProcessorsResponse listQueryProcessors(const string &appGroupIdentity, const string &appId, const Models::ListQueryProcessorsRequest &request);
 
       /**
-       * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+       * @summary Lists the quota approval tickets for a specified OpenSearch application.
        *
        * @param request ListQuotaReviewTasksRequest
        * @param headers map
@@ -1379,7 +1451,7 @@ namespace OpenSearch20171225
       Models::ListQuotaReviewTasksResponse listQuotaReviewTasksWithOptions(const string &appGroupIdentity, const Models::ListQuotaReviewTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+       * @summary Lists the quota approval tickets for a specified OpenSearch application.
        *
        * @param request ListQuotaReviewTasksRequest
        * @return ListQuotaReviewTasksResponse
@@ -1387,7 +1459,7 @@ namespace OpenSearch20171225
       Models::ListQuotaReviewTasksResponse listQuotaReviewTasks(const string &appGroupIdentity, const Models::ListQuotaReviewTasksRequest &request);
 
       /**
-       * @summary Queries a list of scheduled tasks of an OpenSearch application.
+       * @summary Queries a list of scheduled tasks for an OpenSearch application.
        *
        * @param request ListScheduledTasksRequest
        * @param headers map
@@ -1397,7 +1469,7 @@ namespace OpenSearch20171225
       Models::ListScheduledTasksResponse listScheduledTasksWithOptions(const string &appGroupIdentity, const Models::ListScheduledTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of scheduled tasks of an OpenSearch application.
+       * @summary Queries a list of scheduled tasks for an OpenSearch application.
        *
        * @param request ListScheduledTasksRequest
        * @return ListScheduledTasksResponse
@@ -1405,7 +1477,7 @@ namespace OpenSearch20171225
       Models::ListScheduledTasksResponse listScheduledTasks(const string &appGroupIdentity, const Models::ListScheduledTasksRequest &request);
 
       /**
-       * @summary Queries the details of query policies.
+       * @summary Retrieves the details of query policies.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1414,14 +1486,14 @@ namespace OpenSearch20171225
       Models::ListSearchStrategiesResponse listSearchStrategiesWithOptions(const string &appGroupIdentity, const string &appId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of query policies.
+       * @summary Retrieves the details of query policies.
        *
        * @return ListSearchStrategiesResponse
        */
       Models::ListSearchStrategiesResponse listSearchStrategies(const string &appGroupIdentity, const string &appId);
 
       /**
-       * @summary Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+       * @summary Lists the fine sort expressions for a specific version of an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1430,14 +1502,14 @@ namespace OpenSearch20171225
       Models::ListSecondRanksResponse listSecondRanksWithOptions(const string &appGroupIdentity, const string &appId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+       * @summary Lists the fine sort expressions for a specific version of an OpenSearch application.
        *
        * @return ListSecondRanksResponse
        */
       Models::ListSecondRanksResponse listSecondRanks(const string &appGroupIdentity, const string &appId);
 
       /**
-       * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
+       * @summary Lists the optimization suggestions for slow queries from Search Diagnosis.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1446,14 +1518,14 @@ namespace OpenSearch20171225
       Models::ListSlowQueryCategoriesResponse listSlowQueryCategoriesWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the suggestions that are provided by Optimization Master for slow queries.
+       * @summary Lists the optimization suggestions for slow queries from Search Diagnosis.
        *
        * @return ListSlowQueryCategoriesResponse
        */
       Models::ListSlowQueryCategoriesResponse listSlowQueryCategories(const string &appGroupIdentity);
 
       /**
-       * @summary 列出优化大师慢查询Query清单
+       * @summary Lists the slow queries from the Query Optimizer.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1462,14 +1534,14 @@ namespace OpenSearch20171225
       Models::ListSlowQueryQueriesResponse listSlowQueryQueriesWithOptions(const string &appGroupIdentity, const string &categoryIndex, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出优化大师慢查询Query清单
+       * @summary Lists the slow queries from the Query Optimizer.
        *
        * @return ListSlowQueryQueriesResponse
        */
       Models::ListSlowQueryQueriesResponse listSlowQueryQueries(const string &appGroupIdentity, const string &categoryIndex);
 
       /**
-       * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+       * @summary Lists the sort expressions that are configured for a version of an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1478,14 +1550,14 @@ namespace OpenSearch20171225
       Models::ListSortExpressionsResponse listSortExpressionsWithOptions(const string &appGroupIdentity, const string &appId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+       * @summary Lists the sort expressions that are configured for a version of an OpenSearch application.
        *
        * @return ListSortExpressionsResponse
        */
       Models::ListSortExpressionsResponse listSortExpressions(const string &appGroupIdentity, const string &appId);
 
       /**
-       * @summary Queries all sort scripts of an application version.
+       * @summary Lists all sort scripts for a specified application version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1494,7 +1566,7 @@ namespace OpenSearch20171225
       Models::ListSortScriptsResponse listSortScriptsWithOptions(const string &appGroupIdentity, const string &appVersionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all sort scripts of an application version.
+       * @summary Lists all sort scripts for a specified application version.
        *
        * @return ListSortScriptsResponse
        */
@@ -1519,7 +1591,7 @@ namespace OpenSearch20171225
       Models::ListStatisticLogsResponse listStatisticLogs(const string &appGroupIdentity, const string &moduleName, const Models::ListStatisticLogsRequest &request);
 
       /**
-       * @summary Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+       * @summary Queries statistical reports, such as application, drop-down suggestion, top search hint, A/B test, and data quality reports.
        *
        * @param request ListStatisticReportRequest
        * @param headers map
@@ -1529,7 +1601,7 @@ namespace OpenSearch20171225
       Models::ListStatisticReportResponse listStatisticReportWithOptions(const string &appGroupIdentity, const string &moduleName, const Models::ListStatisticReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+       * @summary Queries statistical reports, such as application, drop-down suggestion, top search hint, A/B test, and data quality reports.
        *
        * @param request ListStatisticReportRequest
        * @return ListStatisticReportResponse
@@ -1537,7 +1609,7 @@ namespace OpenSearch20171225
       Models::ListStatisticReportResponse listStatisticReport(const string &appGroupIdentity, const string &moduleName, const Models::ListStatisticReportRequest &request);
 
       /**
-       * @summary Queries tagged resources.
+       * @summary Queries the tags of specified resources.
        *
        * @param tmpReq ListTagResourcesRequest
        * @param headers map
@@ -1547,7 +1619,7 @@ namespace OpenSearch20171225
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tagged resources.
+       * @summary Queries the tags of specified resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1573,7 +1645,7 @@ namespace OpenSearch20171225
       Models::ListUserAnalyzerEntriesResponse listUserAnalyzerEntries(const string &name, const Models::ListUserAnalyzerEntriesRequest &request);
 
       /**
-       * @summary Queries the custom analyzers that belong to the current account.
+       * @summary Retrieves a list of custom analyzers for your account.
        *
        * @param request ListUserAnalyzersRequest
        * @param headers map
@@ -1583,7 +1655,7 @@ namespace OpenSearch20171225
       Models::ListUserAnalyzersResponse listUserAnalyzersWithOptions(const Models::ListUserAnalyzersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the custom analyzers that belong to the current account.
+       * @summary Retrieves a list of custom analyzers for your account.
        *
        * @param request ListUserAnalyzersRequest
        * @return ListUserAnalyzersResponse
@@ -1591,7 +1663,7 @@ namespace OpenSearch20171225
       Models::ListUserAnalyzersResponse listUserAnalyzers(const Models::ListUserAnalyzersRequest &request);
 
       /**
-       * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+       * @summary Modifies the properties of an OpenSearch application or sets its online version.
        *
        * @param request ModifyAppGroupRequest
        * @param headers map
@@ -1601,7 +1673,7 @@ namespace OpenSearch20171225
       Models::ModifyAppGroupResponse modifyAppGroupWithOptions(const string &appGroupIdentity, const Models::ModifyAppGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+       * @summary Modifies the properties of an OpenSearch application or sets its online version.
        *
        * @param request ModifyAppGroupRequest
        * @return ModifyAppGroupResponse
@@ -1609,7 +1681,7 @@ namespace OpenSearch20171225
       Models::ModifyAppGroupResponse modifyAppGroup(const string &appGroupIdentity, const Models::ModifyAppGroupRequest &request);
 
       /**
-       * @summary Modifies the quotas of an OpenSearch application.
+       * @summary Modifies the quota of an OpenSearch application.
        *
        * @param request ModifyAppGroupQuotaRequest
        * @param headers map
@@ -1619,7 +1691,7 @@ namespace OpenSearch20171225
       Models::ModifyAppGroupQuotaResponse modifyAppGroupQuotaWithOptions(const string &appGroupIdentity, const Models::ModifyAppGroupQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the quotas of an OpenSearch application.
+       * @summary Modifies the quota of an OpenSearch application.
        *
        * @param request ModifyAppGroupQuotaRequest
        * @return ModifyAppGroupQuotaResponse
@@ -1627,7 +1699,25 @@ namespace OpenSearch20171225
       Models::ModifyAppGroupQuotaResponse modifyAppGroupQuota(const string &appGroupIdentity, const Models::ModifyAppGroupQuotaRequest &request);
 
       /**
-       * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+       * @summary 更新弹性计划
+       *
+       * @param request ModifyElasticPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyElasticPlanResponse
+       */
+      Models::ModifyElasticPlanResponse modifyElasticPlanWithOptions(const string &appGroupIdentity, const string &planId, const Models::ModifyElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新弹性计划
+       *
+       * @param request ModifyElasticPlanRequest
+       * @return ModifyElasticPlanResponse
+       */
+      Models::ModifyElasticPlanResponse modifyElasticPlan(const string &appGroupIdentity, const string &planId, const Models::ModifyElasticPlanRequest &request);
+
+      /**
+       * @summary Modifies the rough sort expression for an OpenSearch application version. If you set the dryRun parameter to true, this operation validates the modified rough sort expression. The default value of this parameter is false.
        *
        * @param request ModifyFirstRankRequest
        * @param headers map
@@ -1637,7 +1727,7 @@ namespace OpenSearch20171225
       Models::ModifyFirstRankResponse modifyFirstRankWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const Models::ModifyFirstRankRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+       * @summary Modifies the rough sort expression for an OpenSearch application version. If you set the dryRun parameter to true, this operation validates the modified rough sort expression. The default value of this parameter is false.
        *
        * @param request ModifyFirstRankRequest
        * @return ModifyFirstRankResponse
@@ -1645,7 +1735,7 @@ namespace OpenSearch20171225
       Models::ModifyFirstRankResponse modifyFirstRank(const string &appGroupIdentity, const string &appId, const string &name, const Models::ModifyFirstRankRequest &request);
 
       /**
-       * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+       * @summary Modifies a query analysis rule for a specific application version. If you set the dryRun parameter to true, this operation checks the specified query analysis rule. If you do not specify the dryRun parameter, the default value is false.
        *
        * @param request ModifyQueryProcessorRequest
        * @param headers map
@@ -1655,7 +1745,7 @@ namespace OpenSearch20171225
       Models::ModifyQueryProcessorResponse modifyQueryProcessorWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const Models::ModifyQueryProcessorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+       * @summary Modifies a query analysis rule for a specific application version. If you set the dryRun parameter to true, this operation checks the specified query analysis rule. If you do not specify the dryRun parameter, the default value is false.
        *
        * @param request ModifyQueryProcessorRequest
        * @return ModifyQueryProcessorResponse
@@ -1681,7 +1771,7 @@ namespace OpenSearch20171225
       Models::ModifyScheduledTaskResponse modifyScheduledTask(const string &appGroupIdentity, const string &taskId, const Models::ModifyScheduledTaskRequest &request);
 
       /**
-       * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+       * @summary Modifies a fine sort expression for an OpenSearch application version. If you set `dryRun` to `true`, the modified fine sort expression is validated. The `dryRun` parameter is `false` by default.
        *
        * @param request ModifySecondRankRequest
        * @param headers map
@@ -1691,7 +1781,7 @@ namespace OpenSearch20171225
       Models::ModifySecondRankResponse modifySecondRankWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const Models::ModifySecondRankRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+       * @summary Modifies a fine sort expression for an OpenSearch application version. If you set `dryRun` to `true`, the modified fine sort expression is validated. The `dryRun` parameter is `false` by default.
        *
        * @param request ModifySecondRankRequest
        * @return ModifySecondRankResponse
@@ -1699,7 +1789,7 @@ namespace OpenSearch20171225
       Models::ModifySecondRankResponse modifySecondRank(const string &appGroupIdentity, const string &appId, const string &name, const Models::ModifySecondRankRequest &request);
 
       /**
-       * @summary Accepts the changes in intervention entries.
+       * @summary Applies changes to intervention dictionary entries.
        *
        * @param request PushInterventionDictionaryEntriesRequest
        * @param headers map
@@ -1709,7 +1799,7 @@ namespace OpenSearch20171225
       Models::PushInterventionDictionaryEntriesResponse pushInterventionDictionaryEntriesWithOptions(const string &name, const Models::PushInterventionDictionaryEntriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Accepts the changes in intervention entries.
+       * @summary Applies changes to intervention dictionary entries.
        *
        * @param request PushInterventionDictionaryEntriesRequest
        * @return PushInterventionDictionaryEntriesResponse
@@ -1717,7 +1807,7 @@ namespace OpenSearch20171225
       Models::PushInterventionDictionaryEntriesResponse pushInterventionDictionaryEntries(const string &name, const Models::PushInterventionDictionaryEntriesRequest &request);
 
       /**
-       * @summary Accepts the changes in the entries of a custom analyzer.
+       * @summary Applies changes to the entries of a custom analyzer.
        *
        * @param request PushUserAnalyzerEntriesRequest
        * @param headers map
@@ -1727,7 +1817,7 @@ namespace OpenSearch20171225
       Models::PushUserAnalyzerEntriesResponse pushUserAnalyzerEntriesWithOptions(const string &name, const Models::PushUserAnalyzerEntriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Accepts the changes in the entries of a custom analyzer.
+       * @summary Applies changes to the entries of a custom analyzer.
        *
        * @param request PushUserAnalyzerEntriesRequest
        * @return PushUserAnalyzerEntriesResponse
@@ -1735,7 +1825,7 @@ namespace OpenSearch20171225
       Models::PushUserAnalyzerEntriesResponse pushUserAnalyzerEntries(const string &name, const Models::PushUserAnalyzerEntriesRequest &request);
 
       /**
-       * @summary 发布排序脚本
+       * @summary Releases a sort script.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1744,7 +1834,7 @@ namespace OpenSearch20171225
       Models::ReleaseSortScriptResponse releaseSortScriptWithOptions(const string &appGroupIdentity, const string &scriptName, const string &appVersionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布排序脚本
+       * @summary Releases a sort script.
        *
        * @return ReleaseSortScriptResponse
        */
@@ -1769,7 +1859,7 @@ namespace OpenSearch20171225
       /**
        * @summary Deletes an OpenSearch application.
        *
-       * @description You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+       * @description You can only delete pay-as-you-go applications. Subscription applications cannot be deleted.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1780,7 +1870,7 @@ namespace OpenSearch20171225
       /**
        * @summary Deletes an OpenSearch application.
        *
-       * @description You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+       * @description You can only delete pay-as-you-go applications. Subscription applications cannot be deleted.
        *
        * @return RemoveAppGroupResponse
        */
@@ -1803,7 +1893,25 @@ namespace OpenSearch20171225
       Models::RemoveDataCollectionResponse removeDataCollection(const string &appGroupIdentity, const string &dataCollectionIdentity);
 
       /**
-       * @summary Deletes a rough sort expression for a version of an OpenSearch application.
+       * @summary 获取弹性计划详情
+       *
+       * @param request RemoveElasticPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveElasticPlanResponse
+       */
+      Models::RemoveElasticPlanResponse removeElasticPlanWithOptions(const string &appGroupIdentity, const string &planId, const Models::RemoveElasticPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取弹性计划详情
+       *
+       * @param request RemoveElasticPlanRequest
+       * @return RemoveElasticPlanResponse
+       */
+      Models::RemoveElasticPlanResponse removeElasticPlan(const string &appGroupIdentity, const string &planId, const Models::RemoveElasticPlanRequest &request);
+
+      /**
+       * @summary Deletes the rough sort configuration of an OpenSearch application version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1812,7 +1920,7 @@ namespace OpenSearch20171225
       Models::RemoveFirstRankResponse removeFirstRankWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a rough sort expression for a version of an OpenSearch application.
+       * @summary Deletes the rough sort configuration of an OpenSearch application version.
        *
        * @return RemoveFirstRankResponse
        */
@@ -1835,7 +1943,7 @@ namespace OpenSearch20171225
       Models::RemoveInterventionDictionaryResponse removeInterventionDictionary(const string &name);
 
       /**
-       * @summary Deletes a query analysis rule for an OpenSearch application version.
+       * @summary Removes a query analysis rule from an OpenSearch application version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1844,14 +1952,14 @@ namespace OpenSearch20171225
       Models::RemoveQueryProcessorResponse removeQueryProcessorWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a query analysis rule for an OpenSearch application version.
+       * @summary Removes a query analysis rule from an OpenSearch application version.
        *
        * @return RemoveQueryProcessorResponse
        */
       Models::RemoveQueryProcessorResponse removeQueryProcessor(const string &appGroupIdentity, const string &appId, const string &name);
 
       /**
-       * @summary Deletes a scheduled task of an OpenSearch application.
+       * @summary Deletes a scheduled task from an OpenSearch application.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1860,14 +1968,14 @@ namespace OpenSearch20171225
       Models::RemoveScheduledTaskResponse removeScheduledTaskWithOptions(const string &appGroupIdentity, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a scheduled task of an OpenSearch application.
+       * @summary Deletes a scheduled task from an OpenSearch application.
        *
        * @return RemoveScheduledTaskResponse
        */
       Models::RemoveScheduledTaskResponse removeScheduledTask(const string &appGroupIdentity, const string &taskId);
 
       /**
-       * @summary Deletes a query policy.
+       * @summary Deletes a search strategy.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1876,7 +1984,7 @@ namespace OpenSearch20171225
       Models::RemoveSearchStrategyResponse removeSearchStrategyWithOptions(const string &appGroupIdentity, const string &appId, const string &strategyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a query policy.
+       * @summary Deletes a search strategy.
        *
        * @return RemoveSearchStrategyResponse
        */
@@ -1915,7 +2023,7 @@ namespace OpenSearch20171225
       Models::RemoveUserAnalyzerResponse removeUserAnalyzer(const string &name);
 
       /**
-       * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+       * @summary Renews an application. This API operation is unavailable. To renew an application, use the OpenSearch console.
        *
        * @param request RenewAppGroupRequest
        * @param headers map
@@ -1925,7 +2033,7 @@ namespace OpenSearch20171225
       Models::RenewAppGroupResponse renewAppGroupWithOptions(const string &appGroupIdentity, const Models::RenewAppGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+       * @summary Renews an application. This API operation is unavailable. To renew an application, use the OpenSearch console.
        *
        * @param request RenewAppGroupRequest
        * @return RenewAppGroupResponse
@@ -1967,7 +2075,7 @@ namespace OpenSearch20171225
       Models::SaveSortScriptFileResponse saveSortScriptFile(const string &appGroupIdentity, const string &scriptName, const string &appVersionId, const string &fileName, const Models::SaveSortScriptFileRequest &request);
 
       /**
-       * @summary 立即进行慢查询分析
+       * @summary Starts a slow query analysis task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1976,7 +2084,7 @@ namespace OpenSearch20171225
       Models::StartSlowQueryAnalyzerResponse startSlowQueryAnalyzerWithOptions(const string &appGroupIdentity, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 立即进行慢查询分析
+       * @summary Starts a slow query analysis task.
        *
        * @return StartSlowQueryAnalyzerResponse
        */
@@ -2001,9 +2109,9 @@ namespace OpenSearch20171225
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Unbinds a custom analyzer from an Elasticsearch instance.
+       * @summary Detaches a custom analyzer from an Elasticsearch instance.
        *
-       * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+       * @description Use this operation to detach a custom analyzer from an Elasticsearch instance.
        *
        * @param request UnbindESUserAnalyzerRequest
        * @param headers map
@@ -2013,9 +2121,9 @@ namespace OpenSearch20171225
       Models::UnbindESUserAnalyzerResponse unbindESUserAnalyzerWithOptions(const string &appGroupIdentity, const string &esInstanceId, const Models::UnbindESUserAnalyzerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a custom analyzer from an Elasticsearch instance.
+       * @summary Detaches a custom analyzer from an Elasticsearch instance.
        *
-       * @description You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+       * @description Use this operation to detach a custom analyzer from an Elasticsearch instance.
        *
        * @param request UnbindESUserAnalyzerRequest
        * @return UnbindESUserAnalyzerResponse
@@ -2039,7 +2147,7 @@ namespace OpenSearch20171225
       Models::UnbindEsInstanceResponse unbindEsInstance(const string &appGroupIdentity);
 
       /**
-       * @summary Remove tags from resources.
+       * @summary Removes tags from resources.
        *
        * @param tmpReq UntagResourcesRequest
        * @param headers map
@@ -2049,7 +2157,7 @@ namespace OpenSearch20171225
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Remove tags from resources.
+       * @summary Removes tags from resources.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2057,7 +2165,7 @@ namespace OpenSearch20171225
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Modifies the parameters of an A/B test.
+       * @summary Updates the parameters of an A/B test experiment.
        *
        * @param request UpdateABTestExperimentRequest
        * @param headers map
@@ -2067,7 +2175,7 @@ namespace OpenSearch20171225
       Models::UpdateABTestExperimentResponse updateABTestExperimentWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId, const Models::UpdateABTestExperimentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the parameters of an A/B test.
+       * @summary Updates the parameters of an A/B test experiment.
        *
        * @param request UpdateABTestExperimentRequest
        * @return UpdateABTestExperimentResponse
@@ -2075,7 +2183,7 @@ namespace OpenSearch20171225
       Models::UpdateABTestExperimentResponse updateABTestExperiment(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId, const Models::UpdateABTestExperimentRequest &request);
 
       /**
-       * @summary Modifies whitelists.
+       * @summary Updates the whitelist data.
        *
        * @param request UpdateABTestFixedFlowDividersRequest
        * @param headers map
@@ -2085,7 +2193,7 @@ namespace OpenSearch20171225
       Models::UpdateABTestFixedFlowDividersResponse updateABTestFixedFlowDividersWithOptions(const string &appGroupIdentity, const string &sceneId, const string &groupId, const string &experimentId, const Models::UpdateABTestFixedFlowDividersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies whitelists.
+       * @summary Updates the whitelist data.
        *
        * @param request UpdateABTestFixedFlowDividersRequest
        * @return UpdateABTestFixedFlowDividersResponse
@@ -2111,7 +2219,7 @@ namespace OpenSearch20171225
       Models::UpdateABTestGroupResponse updateABTestGroup(const string &appGroupIdentity, const string &sceneId, const string &groupId, const Models::UpdateABTestGroupRequest &request);
 
       /**
-       * @summary Modifies an A/B test scenario.
+       * @summary Modifies an experiment scenario.
        *
        * @param request UpdateABTestSceneRequest
        * @param headers map
@@ -2121,7 +2229,7 @@ namespace OpenSearch20171225
       Models::UpdateABTestSceneResponse updateABTestSceneWithOptions(const string &appGroupIdentity, const string &sceneId, const Models::UpdateABTestSceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an A/B test scenario.
+       * @summary Modifies an experiment scenario.
        *
        * @param request UpdateABTestSceneRequest
        * @return UpdateABTestSceneResponse
@@ -2129,7 +2237,7 @@ namespace OpenSearch20171225
       Models::UpdateABTestSceneResponse updateABTestScene(const string &appGroupIdentity, const string &sceneId, const Models::UpdateABTestSceneRequest &request);
 
       /**
-       * @summary 应用删除保护
+       * @summary Updates the delete protection status for an application group.
        *
        * @param request UpdateAppGroupDeleteProtectionRequest
        * @param headers map
@@ -2139,7 +2247,7 @@ namespace OpenSearch20171225
       Models::UpdateAppGroupDeleteProtectionResponse updateAppGroupDeleteProtectionWithOptions(const string &appGroupIdentity, const Models::UpdateAppGroupDeleteProtectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用删除保护
+       * @summary Updates the delete protection status for an application group.
        *
        * @param request UpdateAppGroupDeleteProtectionRequest
        * @return UpdateAppGroupDeleteProtectionResponse
@@ -2147,7 +2255,7 @@ namespace OpenSearch20171225
       Models::UpdateAppGroupDeleteProtectionResponse updateAppGroupDeleteProtection(const string &appGroupIdentity, const Models::UpdateAppGroupDeleteProtectionRequest &request);
 
       /**
-       * @summary Updates fetch fields. A dry run is supported.
+       * @summary This operation supports dry runs.
        *
        * @param request UpdateFetchFieldsRequest
        * @param headers map
@@ -2157,7 +2265,7 @@ namespace OpenSearch20171225
       Models::UpdateFetchFieldsResponse updateFetchFieldsWithOptions(const string &appGroupIdentity, const string &appId, const Models::UpdateFetchFieldsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates fetch fields. A dry run is supported.
+       * @summary This operation supports dry runs.
        *
        * @param request UpdateFetchFieldsRequest
        * @return UpdateFetchFieldsResponse
@@ -2165,7 +2273,7 @@ namespace OpenSearch20171225
       Models::UpdateFetchFieldsResponse updateFetchFields(const string &appGroupIdentity, const string &appId, const Models::UpdateFetchFieldsRequest &request);
 
       /**
-       * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+       * @summary Sets the default algorithm instance for the specified application. The new algorithm instance automatically overwrites the previously set default instance. If no instance is specified, the default instance is canceled.
        *
        * @param request UpdateFunctionDefaultInstanceRequest
        * @param headers map
@@ -2175,7 +2283,7 @@ namespace OpenSearch20171225
       Models::UpdateFunctionDefaultInstanceResponse updateFunctionDefaultInstanceWithOptions(const string &appGroupIdentity, const string &functionName, const Models::UpdateFunctionDefaultInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+       * @summary Sets the default algorithm instance for the specified application. The new algorithm instance automatically overwrites the previously set default instance. If no instance is specified, the default instance is canceled.
        *
        * @param request UpdateFunctionDefaultInstanceRequest
        * @return UpdateFunctionDefaultInstanceResponse
@@ -2183,7 +2291,7 @@ namespace OpenSearch20171225
       Models::UpdateFunctionDefaultInstanceResponse updateFunctionDefaultInstance(const string &appGroupIdentity, const string &functionName, const Models::UpdateFunctionDefaultInstanceRequest &request);
 
       /**
-       * @summary Updates an algorithm instance.
+       * @summary Updates the configuration of a function instance.
        *
        * @param request UpdateFunctionInstanceRequest
        * @param headers map
@@ -2193,7 +2301,7 @@ namespace OpenSearch20171225
       Models::UpdateFunctionInstanceResponse updateFunctionInstanceWithOptions(const string &appGroupIdentity, const string &functionName, const string &instanceName, const Models::UpdateFunctionInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an algorithm instance.
+       * @summary Updates the configuration of a function instance.
        *
        * @param request UpdateFunctionInstanceRequest
        * @return UpdateFunctionInstanceResponse
@@ -2203,7 +2311,7 @@ namespace OpenSearch20171225
       /**
        * @summary Updates an algorithm resource.
        *
-       * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+       * @description Updates the information of a resource specified by its name. You can modify only the data and description of the resource.
        *
        * @param request UpdateFunctionResourceRequest
        * @param headers map
@@ -2215,7 +2323,7 @@ namespace OpenSearch20171225
       /**
        * @summary Updates an algorithm resource.
        *
-       * @description You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+       * @description Updates the information of a resource specified by its name. You can modify only the data and description of the resource.
        *
        * @param request UpdateFunctionResourceRequest
        * @return UpdateFunctionResourceResponse
@@ -2223,7 +2331,7 @@ namespace OpenSearch20171225
       Models::UpdateFunctionResourceResponse updateFunctionResource(const string &appGroupIdentity, const string &functionName, const string &resourceName, const Models::UpdateFunctionResourceRequest &request);
 
       /**
-       * @summary Modifies a query policy.
+       * @summary This operation supports dry runs.
        *
        * @param request UpdateSearchStrategyRequest
        * @param headers map
@@ -2233,7 +2341,7 @@ namespace OpenSearch20171225
       Models::UpdateSearchStrategyResponse updateSearchStrategyWithOptions(const string &appGroupIdentity, const string &appId, const string &strategyName, const Models::UpdateSearchStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a query policy.
+       * @summary This operation supports dry runs.
        *
        * @param request UpdateSearchStrategyRequest
        * @return UpdateSearchStrategyResponse
@@ -2243,7 +2351,7 @@ namespace OpenSearch20171225
       /**
        * @summary Modifies the description of a sort script.
        *
-       * @description You can call this operation to modify the description of a sort script.
+       * @description Modifies the description of a sort script.
        *
        * @param request UpdateSortScriptRequest
        * @param headers map
@@ -2255,7 +2363,7 @@ namespace OpenSearch20171225
       /**
        * @summary Modifies the description of a sort script.
        *
-       * @description You can call this operation to modify the description of a sort script.
+       * @description Modifies the description of a sort script.
        *
        * @param request UpdateSortScriptRequest
        * @return UpdateSortScriptResponse
@@ -2263,7 +2371,7 @@ namespace OpenSearch20171225
       Models::UpdateSortScriptResponse updateSortScript(const string &appGroupIdentity, const string &appVersionId, const string &scriptName, const Models::UpdateSortScriptRequest &request);
 
       /**
-       * @summary Updates summaries. A dry run is supported.
+       * @summary This operation supports dry runs.
        *
        * @param request UpdateSummariesRequest
        * @param headers map
@@ -2273,7 +2381,7 @@ namespace OpenSearch20171225
       Models::UpdateSummariesResponse updateSummariesWithOptions(const string &appGroupIdentity, const string &appId, const Models::UpdateSummariesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates summaries. A dry run is supported.
+       * @summary This operation supports dry runs.
        *
        * @param request UpdateSummariesRequest
        * @return UpdateSummariesResponse
@@ -2281,7 +2389,7 @@ namespace OpenSearch20171225
       Models::UpdateSummariesResponse updateSummaries(const string &appGroupIdentity, const string &appId, const Models::UpdateSummariesRequest &request);
 
       /**
-       * @summary Verifies data sources.
+       * @summary Validates data sources.
        *
        * @param request ValidateDataSourcesRequest
        * @param headers map
@@ -2291,7 +2399,7 @@ namespace OpenSearch20171225
       Models::ValidateDataSourcesResponse validateDataSourcesWithOptions(const Models::ValidateDataSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies data sources.
+       * @summary Validates data sources.
        *
        * @param request ValidateDataSourcesRequest
        * @return ValidateDataSourcesResponse

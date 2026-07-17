@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Query keywords.
+    // The keyword to search for.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

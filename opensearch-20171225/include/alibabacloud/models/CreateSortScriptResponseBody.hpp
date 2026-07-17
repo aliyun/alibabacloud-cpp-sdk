@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The sort phase to which the script applies.
+      // The applicable scope of the script.
       shared_ptr<string> scope_ {};
-      // The script name.
+      // The name of the script.
       shared_ptr<string> scriptName_ {};
-      // The script type.
+      // The type of the script.
       shared_ptr<string> type_ {};
     };
 
@@ -105,9 +105,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The response parameters.
+    // The returned result.
     shared_ptr<CreateSortScriptResponseBody::Result> result_ {};
   };
 

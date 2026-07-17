@@ -57,18 +57,23 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: 1.
+    // The page number to return. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 10.
+    // The number of entries to return on each page. The default value is 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the intervention dictionary. Valid values:
+    // The types of the intervention dictionaries. Format: urlencode(["synonym", "stopword"])
     // 
-    // *   stopword: an intervention dictionary for stop word filtering
-    // *   synonym: an intervention dictionary for synonym configuration
-    // *   correction: an intervention dictionary for spelling correction
-    // *   category_prediction: an intervention dictionary for category prediction
-    // *   ner: an intervention dictionary for named entity recognition (NER)
-    // *   term_weighting: an intervention dictionary for term weight analysis
+    // - stopword: an intervention dictionary for stop word filtering
+    // 
+    // - synonym: an intervention dictionary for synonym configuration
+    // 
+    // - correction: an intervention dictionary for spelling correction
+    // 
+    // - category_prediction: an intervention dictionary for category prediction
+    // 
+    // - ner: an intervention dictionary for Named Entity Recognition (NER)
+    // 
+    // - term_weighting: an intervention dictionary for term weight analysis
     shared_ptr<string> types_ {};
   };
 

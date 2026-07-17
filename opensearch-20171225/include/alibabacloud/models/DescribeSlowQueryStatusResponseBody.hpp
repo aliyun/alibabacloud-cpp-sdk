@@ -78,18 +78,21 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appGroupId_ {};
-      // The network type of the slow query optimization service. Valid values:
+      // The region.
       // 
-      // *   outer: the Internet
-      // *   internal: the internal network
+      // - outer: Public network
+      // 
+      // - internal: Internal network
       shared_ptr<string> region_ {};
-      // The status of the slow query optimization service. Valid values:
+      // The activation status.
       // 
-      // *   enabled
-      // *   disabled
-      // *   n/a
+      // - enabled: Enabled
+      // 
+      // - disabled: Disabled
+      // 
+      // - n/a: Unknown
       shared_ptr<string> status_ {};
     };
 
@@ -112,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The return result.
+    // The result.
     shared_ptr<DescribeSlowQueryStatusResponseBody::Result> result_ {};
   };
 

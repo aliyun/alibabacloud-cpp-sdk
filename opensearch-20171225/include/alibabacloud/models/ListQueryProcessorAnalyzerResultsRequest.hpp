@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The text to be tested.
+    // The text to test.
     // 
     // This parameter is required.
     shared_ptr<string> text_ {};

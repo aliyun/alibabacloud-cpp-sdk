@@ -108,20 +108,21 @@ namespace Models
 
 
     protected:
-      // The time when the test scenario was created.
+      // The time when the scene was created.
       shared_ptr<int32_t> created_ {};
-      // The ID of the test group.
+      // The ID of the group.
       shared_ptr<string> id_ {};
-      // The name of the A/B test group.
+      // The name of the group.
       shared_ptr<string> name_ {};
-      // The status. Valid values:
+      // The status of the scene. Valid values:
       // 
-      // *   0: not in effect
-      // *   1: in effect
+      // - 0: disabled
+      // 
+      // - 1: enabled
       shared_ptr<int32_t> status_ {};
-      // The time when the test scenario was last updated.
+      // The time when the scene was last updated.
       shared_ptr<int32_t> updated_ {};
-      // The ID of the test scenario
+      // The IDs of the scenes.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -146,7 +147,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned data.
+    // The result of the request.
     shared_ptr<CreateABTestSceneResponseBody::Result> result_ {};
   };
 

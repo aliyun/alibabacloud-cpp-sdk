@@ -61,12 +61,15 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The scheduled task type. Valid values:
+    // The type of the scheduled task. Valid values:
     // 
-    // *   wipe: data cleaning.
-    // *   fork: reindexing.
-    // *   check-status: application status check.
-    // *   index: reindexing.
+    // - wipe: data cleaning
+    // 
+    // - fork: reindexing
+    // 
+    // - check-status: application status check
+    // 
+    // - index: reindexing
     shared_ptr<string> type_ {};
   };
 

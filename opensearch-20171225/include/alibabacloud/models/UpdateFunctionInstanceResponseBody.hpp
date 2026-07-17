@@ -88,16 +88,20 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The time consumed for the request, in milliseconds.
+    // The time consumed by the request. Unit: milliseconds (ms).
     shared_ptr<int64_t> latency_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the request. Valid values:
+    // The request status.
     // 
-    // *       OK: The request was successful.
-    // *       FAIL: The request failed.
+    // - ```
+    //   OK: The request is successful.
+    //   ```
+    // - ```
+    //   FAIL: The request failed.
+    //   ```
     shared_ptr<string> status_ {};
   };
 

@@ -137,13 +137,19 @@ namespace Models
       shared_ptr<int32_t> docSize_ {};
       // The specifications. Valid values:
       // 
-      // *   opensearch.share.junior: basic
-      // *   opensearch.share.common: shared general-purpose
-      // *   opensearch.share.compute: shared computing
-      // *   opensearch.share.storage: shared storage
-      // *   opensearch.private.common: exclusive general-purpose
-      // *   opensearch.private.compute: exclusive computing
-      // *   opensearch.private.storage: exclusive storage
+      // - opensearch.share.junior: basic
+      // 
+      // - opensearch.share.common: shared general-purpose
+      // 
+      // - opensearch.share.compute: shared compute-optimized
+      // 
+      // - opensearch.share.storage: shared storage-optimized
+      // 
+      // - opensearch.private.common: exclusive general-purpose
+      // 
+      // - opensearch.private.compute: exclusive compute-optimized
+      // 
+      // - opensearch.private.storage: exclusive storage-optimized
       shared_ptr<string> spec_ {};
     };
 
@@ -198,8 +204,9 @@ namespace Models
   protected:
     // The billing method. Valid values:
     // 
-    // *   POSTPAY: pay-as-you-go
-    // *   PREPAY: subscription
+    // - POSTPAY: pay-as-you-go
+    // 
+    // - PREPAY: subscription
     shared_ptr<string> chargeType_ {};
     // The name of the application.
     shared_ptr<string> name_ {};
@@ -209,10 +216,11 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The tags.
     shared_ptr<vector<CreateAppGroupRequest::Tags>> tags_ {};
-    // The type of the application. Valid values:
+    // The application type. Valid values:
     // 
-    // *   standard
-    // *   enhanced
+    // - standard: Standard Edition
+    // 
+    // - enhanced: Premium Edition
     shared_ptr<string> type_ {};
   };
 

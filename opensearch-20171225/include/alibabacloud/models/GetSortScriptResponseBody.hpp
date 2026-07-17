@@ -120,11 +120,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The time when the script was last modified.
       shared_ptr<string> modifyTime_ {};
-      // The sort phase to which the script applies.
+      // The applicable scope of the script.
       shared_ptr<string> scope_ {};
       // The name of the script.
       shared_ptr<string> scriptName_ {};
-      // The status of the script. For more information, see the description of the status response parameter in the ListSortScripts topic.
+      // The status of the script. For more information, see the list of script statuses.
       shared_ptr<string> status_ {};
       // The type of the script.
       shared_ptr<string> type_ {};
@@ -149,7 +149,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The details of the script.
     shared_ptr<GetSortScriptResponseBody::Result> result_ {};

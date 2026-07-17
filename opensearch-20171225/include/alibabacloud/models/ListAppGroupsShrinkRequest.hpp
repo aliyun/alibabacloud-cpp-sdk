@@ -103,29 +103,31 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. Exact match is used.
+    // The ID of the instance. An exact match is performed.
     shared_ptr<string> instanceId_ {};
-    // The name of the application.
+    // The application name.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The method based on which applications are sorted. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   0: sorts applications in descending order by creation time.
-    // *   1: sorts applications in descending order by modification time.
+    // - 0: Sorts applications by creation time in descending order.
+    // 
+    // - 1: Sorts applications by modification time in descending order.
     // 
     // Default value: 0.
     shared_ptr<int32_t> sortBy_ {};
-    // The tags.
+    // A list of tags.
     shared_ptr<string> tagsShrink_ {};
     // The type of the application. Valid values:
     // 
-    // *   standard: a High-performance Search Edition application.
-    // *   enhanced: an Industry Algorithm Edition application.
+    // - standard: a Standard Edition application.
+    // 
+    // - enhanced: a Premium Edition application.
     shared_ptr<string> type_ {};
   };
 

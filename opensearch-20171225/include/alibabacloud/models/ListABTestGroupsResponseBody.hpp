@@ -105,8 +105,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The status of the test group. Valid values:
       // 
-      // *   0: not in effect
-      // *   1: in effect
+      // - 0: Not in effect
+      // 
+      // - 1: In effect
       shared_ptr<int32_t> status_ {};
       // The time when the test group was last modified.
       shared_ptr<int32_t> updated_ {};
@@ -131,7 +132,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The test groups.
     // 

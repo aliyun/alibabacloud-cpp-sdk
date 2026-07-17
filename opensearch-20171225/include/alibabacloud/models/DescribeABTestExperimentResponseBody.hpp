@@ -90,7 +90,7 @@ namespace Models
 
 
       protected:
-        // The name of the rough sort policy.
+        // The name of the coarse-grained ranking policy.
         shared_ptr<string> firstFormulaName_ {};
       };
 
@@ -149,22 +149,23 @@ namespace Models
 
 
     protected:
-      // The time when the test was created.
+      // The time when the experiment was created.
       shared_ptr<int32_t> created_ {};
-      // The ID of the test.
+      // The experiment ID.
       shared_ptr<string> id_ {};
-      // The name of the test.
+      // The alias of the experiment.
       shared_ptr<string> name_ {};
-      // The status of the test. Valid values:
+      // The status of the experiment.
       // 
-      // *   true: in effect
-      // *   false: not in effect
+      // - true: The experiment is online.
+      // 
+      // - false: The experiment is offline.
       shared_ptr<bool> online_ {};
-      // The parameters of the test.
+      // The experiment parameters.
       shared_ptr<Result::Params> params_ {};
-      // The percentage of traffic that is routed to the test.
+      // The percentage of traffic for the experiment bucketing.
       shared_ptr<int32_t> traffic_ {};
-      // The time when the test was last modified.
+      // The time when the experiment was last modified.
       shared_ptr<int32_t> updated_ {};
     };
 
@@ -187,9 +188,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the test.
+    // The details of the experiment.
     shared_ptr<DescribeABTestExperimentResponseBody::Result> result_ {};
   };
 

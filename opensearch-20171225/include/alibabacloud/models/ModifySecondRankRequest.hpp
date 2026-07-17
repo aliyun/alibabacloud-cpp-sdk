@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The request parameters.
+    // The request body, which contains the fine sort information.
     shared_ptr<SecondRank> body_ {};
-    // Specifies whether the request is a dry run.
+    // Specifies whether to perform a dry run.
     shared_ptr<bool> dryRun_ {};
   };
 

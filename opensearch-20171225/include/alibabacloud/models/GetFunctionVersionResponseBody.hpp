@@ -132,7 +132,7 @@ namespace Models
 
 
         protected:
-          // The name of the instance.
+          // The name of the parameter.
           shared_ptr<string> name_ {};
           // Indicates whether the parameter is required.
           shared_ptr<string> required_ {};
@@ -326,12 +326,13 @@ namespace Models
       shared_ptr<string> functionName_ {};
       // The type of the feature. Valid values:
       // 
-      // *   PAAS
-      // *   SAAS
+      // - PAAS
+      // 
+      // - SAAS
       shared_ptr<string> functionType_ {};
       // The type of the model.
       shared_ptr<string> modelType_ {};
-      // The configuration information.
+      // The version configuration.
       shared_ptr<Result::VersionConfig> versionConfig_ {};
       // The ID of the version.
       shared_ptr<int64_t> versionId_ {};
@@ -398,15 +399,15 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The maximum duration for which a task can be executed.
+    // The request latency.
     shared_ptr<int64_t> latency_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The result body.
     shared_ptr<GetFunctionVersionResponseBody::Result> result_ {};
-    // The status of the request.
+    // The request status.
     shared_ptr<string> status_ {};
   };
 

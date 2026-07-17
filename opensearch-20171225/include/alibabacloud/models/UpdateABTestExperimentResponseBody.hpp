@@ -117,22 +117,23 @@ namespace Models
 
 
     protected:
-      // The time when the test was created.
+      // The time when the experiment was created.
       shared_ptr<int32_t> created_ {};
-      // The test ID.
+      // The ID of the experiment.
       shared_ptr<string> id_ {};
-      // The alias of the test.
+      // The name of the experiment.
       shared_ptr<string> name_ {};
-      // Indicates whether the test is in effect. Valid values:
+      // The status of the experiment.
       // 
-      // *   true
-      // *   false
+      // - true: The experiment is online.
+      // 
+      // - false: The experiment is offline.
       shared_ptr<bool> online_ {};
-      // The test parameters.
+      // The parameters of the experiment.
       Darabonba::Json params_ {};
-      // The percentage of traffic that is routed to the test. Valid values: [0,100]
+      // The percentage of traffic allocated to the experiment. Valid values: 0 to 100.
       shared_ptr<int32_t> traffic_ {};
-      // The time when the test was last modified.
+      // The time when the experiment was last modified.
       shared_ptr<int32_t> updated_ {};
     };
 
@@ -155,9 +156,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the test.
+    // The details of the experiment.
     shared_ptr<UpdateABTestExperimentResponseBody::Result> result_ {};
   };
 

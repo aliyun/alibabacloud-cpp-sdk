@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The token that is used to retrieve the next page.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The resource IDs. You can specify a maximum number of 50 resource IDs.
+    // The resource IDs. You can specify a maximum of 50 resource IDs.
     shared_ptr<string> resourceIdShrink_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags. You can specify a maximum number of 20 tags.
+    // The tags to query. The list can contain a maximum of 20 tags.
     shared_ptr<string> tagShrink_ {};
   };
 

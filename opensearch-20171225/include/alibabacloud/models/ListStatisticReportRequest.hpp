@@ -84,24 +84,27 @@ namespace Models
 
 
   protected:
-    // The fields to query. Set this parameter in the format of columns="pv,uv,ipv". For more information, see [Metrics of statistical reports](https://help.aliyun.com/document_detail/187665.html).
+    // The fields to query. Specify the fields in the columns="pv,uv,ipv" format. For more information, see [Metrics of statistical reports](https://help.aliyun.com/document_detail/187665.html).
     shared_ptr<string> columns_ {};
-    // The end timestamp of the query. By default, the end time is the current time. Unit: seconds.
+    // The end timestamp, in seconds. The default value is the current timestamp.
     shared_ptr<int32_t> endTime_ {};
     // The page number.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The query conditions. Set this parameter in the format of k1:v1,k2:v2. Valid values:
+    // The query conditions, in the k1:v1,k2:v2 format. Valid values:
     // 
-    // *   experimentSerialNumber: the globally unique sequence number of the test
-    // *   sceneTag: the tag of the test scenario
-    // *   bizType: the type of the business
-    // *   modelId: the ID of the algorithm model
+    // - experimentSerialNumber: the globally unique serial number of the experiment.
+    // 
+    // - sceneTag: the tag of the scenario.
+    // 
+    // - bizType: the business identity.
+    // 
+    // - modelId: the ID of the algorithm model.
     shared_ptr<string> query_ {};
-    // The start timestamp of the query. Unit: seconds.
+    // The start timestamp, in seconds.
     shared_ptr<int32_t> startTime_ {};
   };
 

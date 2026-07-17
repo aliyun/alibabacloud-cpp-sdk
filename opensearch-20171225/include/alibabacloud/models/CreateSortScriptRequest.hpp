@@ -67,11 +67,11 @@ namespace Models
 
   protected:
     shared_ptr<string> description_ {};
-    // The sort phase to which the script applies.
+    // The applicable scope of the script.
     shared_ptr<string> scope_ {};
-    // The script name.
+    // The name of the script.
     shared_ptr<string> scriptName_ {};
-    // The script type. Set the value to cava_script.
+    // The type of the script. Only cava_script is supported.
     shared_ptr<string> type_ {};
   };
 

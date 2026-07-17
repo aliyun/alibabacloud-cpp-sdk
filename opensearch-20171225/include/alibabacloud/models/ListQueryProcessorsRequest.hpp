@@ -38,11 +38,13 @@ namespace Models
 
 
   protected:
-    // The scope of query analysis rules to be queried. Default value: 0. Valid values:
+    // Specifies whether to return default rules. The default value is 0. Valid values:
     // 
-    // *   0: queries all query analysis rules.
-    // *   1: queries the default query analysis rules.
-    // *   2: queries the query analysis rules that are not the default rules.
+    // - 0: Returns all query analysis rules.
+    // 
+    // - 1: Returns only default query analysis rules.
+    // 
+    // - 2: Returns only non-default query analysis rules.
     shared_ptr<int32_t> isActive_ {};
   };
 

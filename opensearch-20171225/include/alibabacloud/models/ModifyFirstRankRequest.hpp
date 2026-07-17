@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<FirstRank> body_ {};
-    // Specifies whether the request is a dry run.
+    // Specifies whether to perform a dry run.
     shared_ptr<bool> dryRun_ {};
   };
 

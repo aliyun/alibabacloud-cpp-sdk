@@ -150,9 +150,11 @@ namespace Models
       shared_ptr<int64_t> startTime_ {};
       // The status of the task. Valid values:
       // 
-      // *   success
-      // *   failed
-      // *   running
+      // - success
+      // 
+      // - failed
+      // 
+      // - running
       shared_ptr<string> status_ {};
     };
 
@@ -223,7 +225,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The result of the request.
     shared_ptr<GetFunctionTaskResponseBody::Result> result_ {};
-    // The status of the request.
+    // The request status.
     shared_ptr<string> status_ {};
   };
 

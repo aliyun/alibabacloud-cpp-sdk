@@ -228,7 +228,7 @@ namespace Models
         shared_ptr<string> category_ {};
         // The industry.
         shared_ptr<string> domain_ {};
-        // The abbreviation of the language that applies.
+        // The language code.
         shared_ptr<string> language_ {};
       };
 
@@ -341,17 +341,17 @@ namespace Models
 
 
     protected:
-      // The information about the instance.
+      // The ownership information of the instance.
       shared_ptr<Result::Belongs> belongs_ {};
-      // The parameters of the instance.
+      // The list of parameters for the instance.
       shared_ptr<vector<Result::CreateParameters>> createParameters_ {};
       // The time when the instance was created.
       shared_ptr<int64_t> createTime_ {};
-      // The cron expression used to schedule training, in the format of (Minutes Hours DayofMonth Month DayofWeek). If the value is empty, it indicates that no periodic training is performed.
+      // The training schedule. This is a cron expression in the format of Minutes Hours DayofMonth Month DayofWeek. If this parameter is empty, periodic training is not performed.
       shared_ptr<string> cron_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The extended information, which is a JSON string. It includes model evaluation information and error information.
+      // The extended information. This is a JSON string that contains information such as model evaluation results and error messages.
       shared_ptr<string> extendInfo_ {};
       // The name of the feature.
       shared_ptr<string> functionName_ {};
@@ -361,19 +361,21 @@ namespace Models
       shared_ptr<string> instanceName_ {};
       // The type of the model.
       shared_ptr<string> modelType_ {};
-      // How the instance is created. Valid values:
+      // The source of the instance. Valid values:
       // 
-      // *   user: The instance is created by user.
-      // *   builtin: The instance is created by system.
+      // - user: The instance is created by the user.
+      // 
+      // - builtin: The instance is created by the system.
       shared_ptr<string> source_ {};
-      // The state of the instance. Valid values:
+      // The status of the instance. Valid values:
       // 
-      // 1.  unavailable: No model is available. Models must be trained before you can use them.
-      // 2.  available: Models can be used.
+      // 1. unavailable: No model is available. You must train a model before you can use the instance.
+      // 
+      // 2. available: The instance is available.
       shared_ptr<string> status_ {};
-      // The parameters that are used.
+      // The list of parameters in use.
       shared_ptr<vector<Result::UsageParameters>> usageParameters_ {};
-      // The ID of the version.
+      // The version ID.
       shared_ptr<int64_t> versionId_ {};
     };
 
@@ -439,21 +441,21 @@ namespace Models
 
 
   protected:
-    // The error code. If no error occurs, the parameter is left empty.
+    // The error code. This parameter is empty if the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpCode_ {};
-    // The time consumed for the request, in milliseconds.
+    // The request latency, in milliseconds.
     shared_ptr<int64_t> latency_ {};
-    // The error message. If no error occurs, the parameter is left empty.
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the instances.
+    // The list of instances.
     shared_ptr<vector<ListFunctionInstancesResponseBody::Result>> result_ {};
     // The status of the request.
     shared_ptr<string> status_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

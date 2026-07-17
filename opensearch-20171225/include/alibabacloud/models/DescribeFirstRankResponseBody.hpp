@@ -106,7 +106,7 @@ namespace Models
       protected:
         // The parameters that are used by a function in the expression.
         shared_ptr<string> arg_ {};
-        // The attribute, feature function, or field to be searched for.
+        // The attribute, scoring feature, or search field.
         shared_ptr<string> attribute_ {};
         // The weight. Valid values: -100000 to 100000. The value cannot be 0.
         shared_ptr<float> weight_ {};
@@ -147,11 +147,11 @@ namespace Models
     protected:
       // Indicates whether the expression is the default one.
       shared_ptr<bool> active_ {};
-      // Description
+      // The description of the expression.
       shared_ptr<string> description_ {};
       // The information about the expression.
       shared_ptr<vector<Result::Meta>> meta_ {};
-      // Parameter
+      // The name of the expression.
       shared_ptr<string> name_ {};
     };
 

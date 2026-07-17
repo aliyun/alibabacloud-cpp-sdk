@@ -88,18 +88,19 @@ namespace Models
 
 
     protected:
-      // The operation to be performed on the entries.
+      // The operation to perform on the entries.
       // 
       // Valid values:
       // 
-      // *   add
-      // *   delete
+      // - add
+      // 
+      // - delete
       shared_ptr<string> cmd_ {};
       // The key to be used to query entries.
       shared_ptr<string> key_ {};
-      // Specifies whether to further analyze the terms that are generated after the search query is analyzed.
+      // Specifies whether to enable fine-grained splitting.
       // 
-      // Default value: true.
+      // Default: true
       shared_ptr<bool> splitEnabled_ {};
       // The analysis result.
       shared_ptr<string> value_ {};

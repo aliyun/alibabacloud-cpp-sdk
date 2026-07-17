@@ -149,21 +149,21 @@ namespace Models
 
 
       protected:
-        // Indicates whether the application is available.
+        // Indicates whether the dictionary is available.
         shared_ptr<bool> available_ {};
-        // The timestamp when the application was created.
+        // The timestamp when the dictionary was created.
         shared_ptr<int32_t> created_ {};
-        // The number of intervention entries.
+        // The number of entries.
         shared_ptr<int32_t> entriesCount_ {};
-        // The maximum number of intervention entries that can be created in the dictionary.
+        // The maximum number of entries in the dictionary.
         shared_ptr<int32_t> entriesLimit_ {};
         // The ID of the dictionary.
         shared_ptr<string> id_ {};
-        // The type. Valid value:
+        // The type of the dictionary. Valid value:
         // 
-        // *   segment
+        // - segment: A dictionary for word segmentation.
         shared_ptr<string> type_ {};
-        // The timestamp when the application was last updated.
+        // The timestamp when the dictionary was last updated.
         shared_ptr<int32_t> updated_ {};
       };
 
@@ -222,26 +222,37 @@ namespace Models
 
 
     protected:
-      // Indicates whether the application is available.
+      // Indicates whether the analyzer is available.
       shared_ptr<bool> available_ {};
       // The basic analyzer. Valid values:
       // 
-      // *   chn_standard: [a common analyzer in Chinese](https://help.aliyun.com/document_detail/179424.html)
-      // *   chn_scene_name: an analyzer for person names in Chinese
-      // *   chn_ecommerce: [an analyzer for E-commerce in Chinese](https://help.aliyun.com/document_detail/179424.html)
-      // *   chn_it_content: [an analyzer for IT content in Chinese](https://help.aliyun.com/document_detail/179424.html)
-      // *   en_min: a small-granularity analyzer in English
-      // *   th_standard: a common analyzer in Thai
-      // *   th_ecommerce: an analyzer for E-commerce in Thai
-      // *   vn_standard: a common analyzer in Vietnamese
-      // *   chn_community_it: an analyzer for IT community content in Chinese
-      // *   chn_ecommerce_general: a common analyzer for the E-commerce industry in Chinese
-      // *   chn_esports_general: a common analyzer for the gaming industry in Chinese
-      // *   chn_edu_question: an analyzer for question search of the education industry in Chinese
+      // - chn_standard: [A general-purpose analyzer for Chinese](https://help.aliyun.com/document_detail/179424.html).
+      // 
+      // - chn_scene_name: An analyzer for Chinese person names.
+      // 
+      // - chn_ecommerce: [An analyzer for e-commerce in Chinese](https://help.aliyun.com/document_detail/179424.html).
+      // 
+      // - chn_it_content: [An analyzer for IT content in Chinese](https://help.aliyun.com/document_detail/179424.html).
+      // 
+      // - en_min: A fine-grained analyzer for English.
+      // 
+      // - th_standard: A general-purpose analyzer for Thai.
+      // 
+      // - th_ecommerce: An analyzer for e-commerce in Thai.
+      // 
+      // - vn_standard: A general-purpose analyzer for Vietnamese.
+      // 
+      // - chn_community_it: An analyzer for IT community content in Chinese.
+      // 
+      // - chn_ecommerce_general: A general-purpose analyzer for the e-commerce industry in Chinese.
+      // 
+      // - chn_esports_general: A general-purpose analyzer for the gaming industry in Chinese.
+      // 
+      // - chn_edu_question: An analyzer for question-answering search in the education industry in Chinese.
       shared_ptr<string> business_ {};
-      // The timestamp when the application was created.
+      // The timestamp when the analyzer was created.
       shared_ptr<int32_t> created_ {};
-      // The dictionaries that are used by the custom analyzer.
+      // The dictionaries that the custom analyzer uses.
       // 
       // For more information, see [UserDict](https://help.aliyun.com/document_detail/178933.html).
       shared_ptr<vector<Result::Dicts>> dicts_ {};
@@ -249,7 +260,7 @@ namespace Models
       shared_ptr<string> id_ {};
       // The name of the custom analyzer.
       shared_ptr<string> name_ {};
-      // The timestamp when the application was last updated.
+      // The timestamp when the analyzer was last updated.
       shared_ptr<int32_t> updated_ {};
     };
 
@@ -281,11 +292,11 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The custom analyzer.
+    // The list of custom analyzers.
     // 
     // For more information, see [UserAnalyzer](https://help.aliyun.com/document_detail/178934.html).
     shared_ptr<vector<ListUserAnalyzersResponseBody::Result>> result_ {};
-    // The total number.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

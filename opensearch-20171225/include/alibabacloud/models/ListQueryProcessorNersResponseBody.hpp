@@ -90,13 +90,15 @@ namespace Models
     protected:
       // The name of the entity type.
       shared_ptr<string> label_ {};
-      // The priority of an entity type among entity types that have the same priority level. A smaller value indicates a higher priority. Default value: 0.
+      // The sort order within the same priority level. A smaller value indicates a higher priority. The default value is 0.
       shared_ptr<int32_t> order_ {};
       // The priority level of the entity type. Valid values:
       // 
-      // *   HIGH
-      // *   MIDDLE
-      // *   LOW
+      // - HIGH
+      // 
+      // - MIDDLE
+      // 
+      // - LOW
       shared_ptr<string> priority_ {};
       // The internal name of the entity type.
       shared_ptr<string> tag_ {};

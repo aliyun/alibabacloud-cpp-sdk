@@ -40,6 +40,7 @@ namespace Models
 
 
   protected:
+    // The request body.
     Darabonba::Json body_ {};
   };
 

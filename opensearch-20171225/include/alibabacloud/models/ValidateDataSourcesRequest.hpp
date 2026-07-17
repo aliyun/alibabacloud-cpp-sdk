@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request parameter. For more information, see [DataSource](https://help.aliyun.com/document_detail/170005.html).
+    // The request parameters. For more information, see [DataSource](https://help.aliyun.com/document_detail/170005.html).
     shared_ptr<DataSource> body_ {};
   };
 

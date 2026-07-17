@@ -104,11 +104,11 @@ namespace Models
 
 
       protected:
-        // The parameters of the data source.
+        // The parameter body.
         Darabonba::Json parameters_ {};
-        // The name of the table.
+        // The table name.
         shared_ptr<string> tableName_ {};
-        // The type of the data source.
+        // The data source type.
         shared_ptr<string> type_ {};
       };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
     protected:
-      // The code returned for the request.
+      // The status code.
       shared_ptr<string> code_ {};
       // The data source.
       shared_ptr<Result::DataSource> dataSource_ {};
-      // The status of the execution.
+      // The response message.
       shared_ptr<string> message_ {};
     };
 
@@ -167,7 +167,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The result returned.
+    // The request results.
     shared_ptr<vector<ValidateDataSourcesResponseBody::Result>> result_ {};
   };
 

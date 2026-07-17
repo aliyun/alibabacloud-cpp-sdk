@@ -75,19 +75,21 @@ namespace Models
 
 
   protected:
-    // The end time is less than the specified time. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+    // Returns tasks that ended before the specified time. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: 1.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time is greater than the specified time. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+    // Returns tasks that started after the specified time. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The status of the task. Valid values:
     // 
-    // *   success
-    // *   failed
-    // *   running
+    // - success
+    // 
+    // - failed
+    // 
+    // - running
     shared_ptr<string> status_ {};
   };
 

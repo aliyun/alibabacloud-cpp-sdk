@@ -150,7 +150,7 @@ namespace Models
 
 
         protected:
-          // The input features.
+          // A list of input features.
           shared_ptr<vector<Input::Features>> features_ {};
         };
 
@@ -207,9 +207,9 @@ namespace Models
 
 
     protected:
-      // The content of the file that corresponds to a resource of the raw_file type.
+      // The content of the file. This parameter is used for resources of the raw_file type.
       shared_ptr<string> content_ {};
-      // The feature generators that correspond to resources of the feature_generator type.
+      // The list of feature generators. This parameter is used for resources of the feature_generator type.
       shared_ptr<vector<Data::Generators>> generators_ {};
     };
 
@@ -232,7 +232,7 @@ namespace Models
 
 
   protected:
-    // The resource data. The data structure varies with the resource type.
+    // The data of the resource. The structure of this parameter varies based on the value of resourceType.
     shared_ptr<UpdateFunctionResourceRequest::Data> data_ {};
     // The description of the resource.
     shared_ptr<string> description_ {};

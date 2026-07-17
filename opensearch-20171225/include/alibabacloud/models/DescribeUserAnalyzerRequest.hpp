@@ -38,8 +38,9 @@ namespace Models
 
 
   protected:
-    // The Associated information,output properties based on hierarchy.
-    // * **all**: Outputs associated app information
+    // Specifies related information to return. The properties are returned based on the specified level.
+    // 
+    // - all: Returns information about the associated application.
     shared_ptr<string> with_ {};
   };
 

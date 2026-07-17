@@ -77,19 +77,23 @@ namespace Models
   protected:
     // The online version of the application.
     shared_ptr<string> currentVersion_ {};
-    // The description of the application.
+    // The description of the application group.
     shared_ptr<string> description_ {};
-    // The type of the industry. Valid values:
+    // The industry. Valid values:
     // 
-    // *   general: general.
-    // *   ecommerce: e-commerce.
-    // *   education: education.
-    // *   esports: electronic sports.
-    // *   community: content community.
+    // - general: general.
+    // 
+    // - ecommerce: e-commerce.
+    // 
+    // - education: education.
+    // 
+    // - esports: gaming.
+    // 
+    // - community: content community.
     shared_ptr<string> domain_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // Specifies whether to verify the application before modification. Valid values: true and false.
+    // Specifies whether to perform a dry run. Valid values: true and false.
     shared_ptr<bool> dryRun_ {};
   };
 
