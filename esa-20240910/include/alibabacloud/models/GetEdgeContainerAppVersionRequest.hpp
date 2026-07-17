@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+    // The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The version ID, which can be obtained by calling the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
+    // The version ID. You can call the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation to obtain the version ID.
     // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};

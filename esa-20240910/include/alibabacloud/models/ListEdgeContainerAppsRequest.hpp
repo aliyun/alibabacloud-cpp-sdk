@@ -84,27 +84,26 @@ namespace Models
 
 
   protected:
-    // The sorting field. This parameter is left empty by default. Valid values:
-    // 
-    // *   Name: the version name.
-    // *   CreateTime: the time when the version was created.
-    // *   UpdateTime: the time when the version was last modified.
+    // The field used for sorting. If this parameter is not specified, no sorting is applied. Valid values:
+    // - **Name**: the version name.
+    // - **CreateTime**: the version creation time.
+    // - **ModifyTime**: the version modification time.
     shared_ptr<string> orderKey_ {};
-    // The order in which you want to sort the query results. This parameter is left empty by default. Valid values:
+    // The sort order. If this parameter is not specified, no sorting is applied. Valid values:
     // 
-    // *   ASC: in ascending order.
-    // *   DESC: in descending order.
+    // - **Asc**: ascending order.
+    // 
+    // - **Desc**: descending order.
     shared_ptr<string> orderType_ {};
-    // The page number. Default value: **1**. Valid values: 1 to 65535.
+    // The page number. Default value: **1**. Valid values: **1 to 65535**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **20**. Valid values: 1 to 500.
+    // The number of entries per page. Default value: **20**. Valid values: **1 to 500**.
     shared_ptr<int32_t> pageSize_ {};
     // The search keyword.
     shared_ptr<string> searchKey_ {};
-    // The search criterion based on which you want to perform fuzzy search. Valid values:
-    // 
-    // *   Appid: the application ID.
-    // *   Name: the application name.
+    // The type of fuzzy match. Valid values:
+    // - **AppId**: the application ID.
+    // - **Name**: the application name.
     shared_ptr<string> searchType_ {};
   };
 

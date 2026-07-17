@@ -94,28 +94,28 @@ namespace Models
 
 
   protected:
-    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+    // The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The sorting field. Valid values:
-    // 
-    // *   Name: the version name.
-    // *   CreateTime: the time when the version was created.
-    // *   UpdateTime: the time when the version was last modified.
+    // The sort field. Valid values:
+    // - **Name**: the version name.
+    // - **CreateTime**: the version creation time.
+    // - **ModifyTime**: the version modification time.
     shared_ptr<string> orderKey_ {};
-    // The order in which you want to sort the query results. Valid values:
+    // The sort direction. Valid values:
     // 
-    // *   ASC: in ascending order.
-    // *   DESC: in descending order.
+    // - **Asc**: ascending order.
+    // 
+    // - **Desc**: descending order.
     shared_ptr<string> orderType_ {};
-    // The page number. Valid values: 1 to 65535.
+    // The page number. Valid values: any integer from **1** to **65535**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The page size. Valid values: any integer from **1** to **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The keyword used for the search.
+    // The query parameter.
     shared_ptr<string> searchKey_ {};
-    // The parameter used for fuzzy search. Valid values: VersionId and Name.
+    // The type for fuzzy match. Supported values: VersionId and Name.
     shared_ptr<string> searchType_ {};
   };
 

@@ -109,13 +109,13 @@ namespace Models
 
 
     protected:
-      // The aggregation method used.
+      // The aggregation method.
       shared_ptr<string> aggMethod_ {};
-      // The dimension of the aggregated data being queried.
+      // The summarized dimension name.
       shared_ptr<string> dimensionName_ {};
-      // The value of the aggregated dimension being queried.
+      // The summarized dimension value.
       shared_ptr<string> dimensionValue_ {};
-      // The value of the aggregated metric being queried.
+      // The summarized metric name.
       shared_ptr<string> fieldName_ {};
       // The aggregated value.
       Darabonba::Json value_ {};
@@ -186,9 +186,11 @@ namespace Models
 
 
       protected:
-        // Start timestamp of the time slice.
+        // The start time of the time slice.
+        // 
+        // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
         shared_ptr<string> timeStamp_ {};
-        // Value.
+        // The value.
         Darabonba::Json value_ {};
       };
 
@@ -225,13 +227,13 @@ namespace Models
 
 
     protected:
-      // Returned data.
+      // The returned data.
       shared_ptr<vector<Data::DetailData>> detailData_ {};
-      // Query dimension.
+      // The query dimension.
       shared_ptr<string> dimensionName_ {};
-      // Query dimension value.
+      // The dimension value.
       shared_ptr<string> dimensionValue_ {};
-      // Query metric value.
+      // The metric name.
       shared_ptr<string> fieldName_ {};
     };
 
@@ -292,23 +294,23 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBody::Data>> data_ {};
-    // The end time for fetching the data.
+    // The end time of the returned data.
     // 
-    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+    // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
     shared_ptr<string> endTime_ {};
-    // The granularity of the data, in seconds.
+    // The data granularity. Unit: seconds.
     shared_ptr<int64_t> interval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sampling rate, in %.
+    // The sampling rate. Unit: %.
     shared_ptr<float> samplingRate_ {};
-    // The start time for fetching the data.
+    // The start time for the data query.
     // 
-    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
-    // Aggregated query data.
+    // The summarized data.
     shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBody::SummarizedData>> summarizedData_ {};
   };
 

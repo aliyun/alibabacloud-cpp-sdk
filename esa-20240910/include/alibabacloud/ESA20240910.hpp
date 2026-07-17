@@ -672,7 +672,7 @@ namespace ESA20240910
       Models::CreateCustomScenePolicyResponse createCustomScenePolicy(const Models::CreateCustomScenePolicyRequest &request);
 
       /**
-       * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+       * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
        * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
        *
        * @param request CreateEdgeContainerAppRequest
@@ -682,7 +682,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerAppWithOptions(const Models::CreateEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+       * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
        * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
        *
        * @param request CreateEdgeContainerAppRequest
@@ -708,7 +708,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecret(const Models::CreateEdgeContainerAppImageSecretRequest &request);
 
       /**
-       * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+       * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
        *
        * @param request CreateEdgeContainerAppRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -717,7 +717,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecordWithOptions(const Models::CreateEdgeContainerAppRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+       * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
        *
        * @param request CreateEdgeContainerAppRecordRequest
        * @return CreateEdgeContainerAppRecordResponse
@@ -725,7 +725,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecord(const Models::CreateEdgeContainerAppRecordRequest &request);
 
       /**
-       * @summary Creates an edge container application version. You can iteratively publish applications by version.
+       * @summary Creates an edge container application version. You can iteratively release applications by version.
        * Note:
        * 1) Your account must have an ESA plan with the Edge Container feature enabled.
        * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -738,7 +738,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersionWithOptions(const Models::CreateEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an edge container application version. You can iteratively publish applications by version.
+       * @summary Creates an edge container application version. You can iteratively release applications by version.
        * Note:
        * 1) Your account must have an ESA plan with the Edge Container feature enabled.
        * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -1714,9 +1714,9 @@ namespace ESA20240910
 
       /**
        * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
-       * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
-       * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
-       * 3) Provide a complete three-step call example: create → bindomain → delete.
+       * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+       * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+       * 3) A complete three-step call example of create, bind, and delete is provided.
        *
        * @param request DeleteEdgeContainerAppRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1726,9 +1726,9 @@ namespace ESA20240910
 
       /**
        * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
-       * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
-       * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
-       * 3) Provide a complete three-step call example: create → bindomain → delete.
+       * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+       * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+       * 3) A complete three-step call example of create, bind, and delete is provided.
        *
        * @param request DeleteEdgeContainerAppRecordRequest
        * @return DeleteEdgeContainerAppRecordResponse
@@ -2983,16 +2983,16 @@ namespace ESA20240910
       Models::DescribeSiteLogsResponse describeSiteLogs(const Models::DescribeSiteLogsRequest &request);
 
       /**
-       * @summary Query traffic analysis time series data
+       * @summary Queries network traffic analysis timing data at the account dimension or site dimension.
        *
-       * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-       * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-       *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-       *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-       *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-       *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-       *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-       * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+       * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+       *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+       *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+       *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+       *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+       *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+       * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
        *
        * @param tmpReq DescribeSiteTimeSeriesDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3001,16 +3001,16 @@ namespace ESA20240910
       Models::DescribeSiteTimeSeriesDataResponse describeSiteTimeSeriesDataWithOptions(const Models::DescribeSiteTimeSeriesDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query traffic analysis time series data
+       * @summary Queries network traffic analysis timing data at the account dimension or site dimension.
        *
-       * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-       * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-       *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-       *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-       *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-       *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-       *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-       * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+       * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+       * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+       *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+       *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+       *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+       *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+       *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+       * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
        *
        * @param request DescribeSiteTimeSeriesDataRequest
        * @return DescribeSiteTimeSeriesDataResponse
@@ -3120,7 +3120,9 @@ namespace ESA20240910
       Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReport(const Models::DescribeTraceDiagnoseReportRequest &request);
 
       /**
-       * @summary Queries the page monitoring data.
+       * @summary Queries web page observation quality data.
+       *
+       * @description If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
        *
        * @param request DescribeUrlObservationDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3129,7 +3131,9 @@ namespace ESA20240910
       Models::DescribeUrlObservationDataResponse describeUrlObservationDataWithOptions(const Models::DescribeUrlObservationDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the page monitoring data.
+       * @summary Queries web page observation quality data.
+       *
+       * @description If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
        *
        * @param request DescribeUrlObservationDataRequest
        * @return DescribeUrlObservationDataResponse
@@ -3604,7 +3608,7 @@ namespace ESA20240910
       Models::GetEdgeContainerResponse getEdgeContainer(const Models::GetEdgeContainerRequest &request);
 
       /**
-       * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
+       * @summary Retrieves application information for an edge container, including basic application configurations and health check settings.
        *
        * @param request GetEdgeContainerAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3613,7 +3617,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResponse getEdgeContainerAppWithOptions(const Models::GetEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
+       * @summary Retrieves application information for an edge container, including basic application configurations and health check settings.
        *
        * @param request GetEdgeContainerAppRequest
        * @return GetEdgeContainerAppResponse
@@ -3689,7 +3693,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceStatusResponse getEdgeContainerAppResourceStatus(const Models::GetEdgeContainerAppResourceStatusRequest &request);
 
       /**
-       * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+       * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
        *
        * @param request GetEdgeContainerAppStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3698,7 +3702,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppStatusResponse getEdgeContainerAppStatusWithOptions(const Models::GetEdgeContainerAppStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+       * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
        *
        * @param request GetEdgeContainerAppStatusRequest
        * @return GetEdgeContainerAppStatusResponse
@@ -3706,7 +3710,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppStatusResponse getEdgeContainerAppStatus(const Models::GetEdgeContainerAppStatusRequest &request);
 
       /**
-       * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+       * @summary Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
        *
        * @param request GetEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3715,7 +3719,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppVersionResponse getEdgeContainerAppVersionWithOptions(const Models::GetEdgeContainerAppVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+       * @summary Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
        *
        * @param request GetEdgeContainerAppVersionRequest
        * @return GetEdgeContainerAppVersionResponse
@@ -4863,6 +4867,27 @@ namespace ESA20240910
       Models::GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuota(const Models::GetUserLogDeliveryQuotaRequest &request);
 
       /**
+       * @summary Queries the maximum value of a numeric quota across all plans under a user account.
+       *
+       * @description This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+       *
+       * @param request GetUserMaxPlanQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserMaxPlanQuotaResponse
+       */
+      Models::GetUserMaxPlanQuotaResponse getUserMaxPlanQuotaWithOptions(const Models::GetUserMaxPlanQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the maximum value of a numeric quota across all plans under a user account.
+       *
+       * @description This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+       *
+       * @param request GetUserMaxPlanQuotaRequest
+       * @return GetUserMaxPlanQuotaResponse
+       */
+      Models::GetUserMaxPlanQuotaResponse getUserMaxPlanQuota(const Models::GetUserMaxPlanQuotaRequest &request);
+
+      /**
        * @summary Queries the details of a WAF ruleset for a specified instance.
        *
        * @description ## Operation description
@@ -5037,7 +5062,24 @@ namespace ESA20240910
       Models::ListAsyncTasksResponse listAsyncTasks(const Models::ListAsyncTasksRequest &request);
 
       /**
-       * @summary Queries the cache reserve instances for your account.
+       * @summary Queries the list of Bot security instances.
+       *
+       * @param request ListBotInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBotInstancesResponse
+       */
+      Models::ListBotInstancesResponse listBotInstancesWithOptions(const Models::ListBotInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of Bot security instances.
+       *
+       * @param request ListBotInstancesRequest
+       * @return ListBotInstancesResponse
+       */
+      Models::ListBotInstancesResponse listBotInstances(const Models::ListBotInstancesRequest &request);
+
+      /**
+       * @summary Queries the list of cache reserve instances for the current user.
        *
        * @param request ListCacheReserveInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5046,7 +5088,7 @@ namespace ESA20240910
       Models::ListCacheReserveInstancesResponse listCacheReserveInstancesWithOptions(const Models::ListCacheReserveInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the cache reserve instances for your account.
+       * @summary Queries the list of cache reserve instances for the current user.
        *
        * @param request ListCacheReserveInstancesRequest
        * @return ListCacheReserveInstancesResponse
@@ -5296,7 +5338,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppRecordsResponse listEdgeContainerAppRecords(const Models::ListEdgeContainerAppRecordsRequest &request);
 
       /**
-       * @summary Lists versions of all containerized applications.
+       * @summary Retrieves the version list of an edge container application, including information about all successfully created applications.
        *
        * @param request ListEdgeContainerAppVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5305,7 +5347,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppVersionsResponse listEdgeContainerAppVersionsWithOptions(const Models::ListEdgeContainerAppVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists versions of all containerized applications.
+       * @summary Retrieves the version list of an edge container application, including information about all successfully created applications.
        *
        * @param request ListEdgeContainerAppVersionsRequest
        * @return ListEdgeContainerAppVersionsResponse
@@ -5313,7 +5355,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppVersionsResponse listEdgeContainerAppVersions(const Models::ListEdgeContainerAppVersionsRequest &request);
 
       /**
-       * @summary Queries all containerized applications in your Alibaba Cloud account.
+       * @summary Retrieves a list of edge container applications, including all edge applications created under the current account.
        *
        * @param request ListEdgeContainerAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5322,7 +5364,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppsResponse listEdgeContainerAppsWithOptions(const Models::ListEdgeContainerAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all containerized applications in your Alibaba Cloud account.
+       * @summary Retrieves a list of edge container applications, including all edge applications created under the current account.
        *
        * @param request ListEdgeContainerAppsRequest
        * @return ListEdgeContainerAppsResponse
@@ -5551,6 +5593,23 @@ namespace ESA20240910
        * @return ListInstanceQuotasWithUsageResponse
        */
       Models::ListInstanceQuotasWithUsageResponse listInstanceQuotasWithUsage(const Models::ListInstanceQuotasWithUsageRequest &request);
+
+      /**
+       * @summary Queries the quota information of multiple instances.
+       *
+       * @param request ListInstancesQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstancesQuotaResponse
+       */
+      Models::ListInstancesQuotaResponse listInstancesQuotaWithOptions(const Models::ListInstancesQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the quota information of multiple instances.
+       *
+       * @param request ListInstancesQuotaRequest
+       * @return ListInstancesQuotaResponse
+       */
+      Models::ListInstancesQuotaResponse listInstancesQuota(const Models::ListInstancesQuotaRequest &request);
 
       /**
        * @summary Retrieves the list of Keyless server configurations for a site.
@@ -5830,6 +5889,23 @@ namespace ESA20240910
        * @return ListPostpaidSitePlansResponse
        */
       Models::ListPostpaidSitePlansResponse listPostpaidSitePlans(const Models::ListPostpaidSitePlansRequest &request);
+
+      /**
+       * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+       *
+       * @param request ListQuotasMinEffectPlanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListQuotasMinEffectPlanResponse
+       */
+      Models::ListQuotasMinEffectPlanResponse listQuotasMinEffectPlanWithOptions(const Models::ListQuotasMinEffectPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+       *
+       * @param request ListQuotasMinEffectPlanRequest
+       * @return ListQuotasMinEffectPlanResponse
+       */
+      Models::ListQuotasMinEffectPlanResponse listQuotasMinEffectPlan(const Models::ListQuotasMinEffectPlanRequest &request);
 
       /**
        * @summary Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
@@ -6452,6 +6528,40 @@ namespace ESA20240910
       Models::ListWaitingRoomsResponse listWaitingRooms(const Models::ListWaitingRoomsRequest &request);
 
       /**
+       * @summary Modifies the feature configurations of a plan instance.
+       *
+       * @param tmpReq ModifyInstanceFeaturesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceFeaturesResponse
+       */
+      Models::ModifyInstanceFeaturesResponse modifyInstanceFeaturesWithOptions(const Models::ModifyInstanceFeaturesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the feature configurations of a plan instance.
+       *
+       * @param request ModifyInstanceFeaturesRequest
+       * @return ModifyInstanceFeaturesResponse
+       */
+      Models::ModifyInstanceFeaturesResponse modifyInstanceFeatures(const Models::ModifyInstanceFeaturesRequest &request);
+
+      /**
+       * @summary Disables plan-related configurations with one click when changing the plan for a site.
+       *
+       * @param request ModifySiteFeaturesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySiteFeaturesResponse
+       */
+      Models::ModifySiteFeaturesResponse modifySiteFeaturesWithOptions(const Models::ModifySiteFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables plan-related configurations with one click when changing the plan for a site.
+       *
+       * @param request ModifySiteFeaturesRequest
+       * @return ModifySiteFeaturesResponse
+       */
+      Models::ModifySiteFeaturesResponse modifySiteFeatures(const Models::ModifySiteFeaturesRequest &request);
+
+      /**
        * @summary Activates the edge container service.
        *
        * @param request OpenEdgeContainerRequest
@@ -6503,7 +6613,7 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCaches(const Models::PreloadCachesRequest &request);
 
       /**
-       * @summary Releases a specific version of a containerized application.
+       * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
        *
        * @param tmpReq PublishEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6512,7 +6622,7 @@ namespace ESA20240910
       Models::PublishEdgeContainerAppVersionResponse publishEdgeContainerAppVersionWithOptions(const Models::PublishEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases a specific version of a containerized application.
+       * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
        *
        * @param request PublishEdgeContainerAppVersionRequest
        * @return PublishEdgeContainerAppVersionResponse

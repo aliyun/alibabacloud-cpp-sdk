@@ -187,6 +187,8 @@ namespace Models
 
       protected:
         // The start time of the time slice.
+        // 
+        // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
         shared_ptr<string> timeStamp_ {};
         // The value.
         Darabonba::Json value_ {};
@@ -294,7 +296,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<DescribeSiteWafTimeSeriesDataResponseBody::Data>> data_ {};
-    // The end of the time range for the returned data.
+    // The end time of the returned data.
     // 
     // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
     shared_ptr<string> endTime_ {};
@@ -304,11 +306,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The sampling rate. Unit: %.
     shared_ptr<float> samplingRate_ {};
-    // The beginning of the time range to query.
+    // The start time for the data query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
-    // The summarized data.
+    // The summarized query data.
     shared_ptr<vector<DescribeSiteWafTimeSeriesDataResponseBody::SummarizedData>> summarizedData_ {};
   };
 

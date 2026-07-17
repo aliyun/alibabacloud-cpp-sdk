@@ -117,33 +117,33 @@ namespace Models
   protected:
     // The application ID.
     // 
+    // > 1) AppId is obtained by calling CreateEdgeContainerApp. 2) VersionId is obtained by calling CreateEdgeContainerAppVersion (AppId is required). 3) The complete call chain is CreateEdgeContainerApp → CreateEdgeContainerAppVersion → PublishEdgeContainerAppVersion.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+    // Specifies whether to perform a full release. This parameter takes effect only when PublishType is set to region.
     shared_ptr<bool> fullRelease_ {};
-    // The release percentage. Valid values: 1 to 100. Default value: 100.
+    // The publishing percentage. Valid values: **1 to 100**. Default value: **100**.
     shared_ptr<int32_t> percentage_ {};
-    // The environment to which you want to release the version. Valid values:
+    // The publishing environment. Valid values:
     // 
-    // - prod: the production environment.
-    // 
-    // - staging: the staging environment.
+    // - **prod**: production environment.
+    // - **staging**: staging environment.
     // 
     // This parameter is required.
     shared_ptr<string> publishEnv_ {};
-    // Specifies how the version is released. Valid values:
+    // The publishing type. Valid values:
+    // - **percentage**: publishes by percentage.
     // 
-    // - percentage: releases the version by percentage.
+    // - **region**: publishes by region.
     // 
-    // - region: releases the version by region.
-    // 
-    // If you do not specify this parameter, the version is released by percentage by default.
+    // If this parameter is not specified, percentage-based publishing is used by default.
     shared_ptr<string> publishType_ {};
-    // The regions to which the version is released.
+    // The list of publishing regions.
     shared_ptr<vector<string>> regions_ {};
-    // The remarks. This parameter is empty by default.
+    // The remarks. Default value: empty.
     shared_ptr<string> remarks_ {};
-    // The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
+    // The time when the publishing starts. If this parameter is not specified, the current time is used by default.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};

@@ -232,27 +232,27 @@ namespace Models
 
 
         protected:
-          // The probe command.
+          // The probe execution command.
           shared_ptr<string> command_ {};
-          // The number of consecutive failed health checks required for a container to be considered as unhealthy.
+          // The number of consecutive failed health checks for the container.
           shared_ptr<int32_t> failureThreshold_ {};
-          // The domain name that is used for health checks.
+          // The domain name for the health check.
           shared_ptr<string> host_ {};
-          // The request headers that are included in the container health check request.
+          // The HTTP request headers.
           shared_ptr<string> httpHeaders_ {};
-          // The latency for container probe initialization.
+          // The initial delay time for the container probe. Unit: seconds. For example, 5 indicates an initial delay of 5 seconds.
           shared_ptr<int32_t> initialDelaySeconds_ {};
-          // The path of the container health check.
+          // The path for the container health check.
           shared_ptr<string> path_ {};
-          // The interval between container health checks.
+          // The interval for the container health check. Unit: seconds. For example, 5 indicates a health check interval of 5 seconds.
           shared_ptr<int32_t> periodSeconds_ {};
-          // The port of the container health check. Valid values: **1** to **65535**.
+          // The port used by the backend server. Valid values: **1** to **65535**.
           shared_ptr<int32_t> port_ {};
-          // The protocol that the container health check request uses.
+          // The request protocol for the health check.
           shared_ptr<string> scheme_ {};
-          // The number of consecutive successful health checks required for a container to be considered as healthy.
+          // The number of consecutive successful health checks.
           shared_ptr<int32_t> successThreshold_ {};
-          // The timeout period of the container health check.
+          // The timeout period for the container health check. Unit: seconds. For example, 5 indicates a timeout of 5 seconds.
           shared_ptr<int32_t> timeoutSeconds_ {};
         };
 
@@ -358,23 +358,23 @@ namespace Models
 
 
         protected:
-          // The domain name of the Container Registry image.
+          // The ACR image domain name.
           shared_ptr<string> domain_ {};
-          // The ID of the Container Registry instance.
+          // The ACR site instance ID.
           shared_ptr<string> instanceId_ {};
           // Indicates whether the image is an enterprise-level image.
           shared_ptr<bool> isEnterpriseRegistry_ {};
           // The region ID.
           shared_ptr<string> regionId_ {};
-          // The ID of the image repository.
+          // The image repository ID.
           shared_ptr<string> repoId_ {};
           // The name of the image repository.
           shared_ptr<string> repoName_ {};
-          // The namespace to which the image repository belongs.
+          // The namespace of the image repository.
           shared_ptr<string> repoNamespace_ {};
           // The tag value.
           shared_ptr<string> tag_ {};
-          // The URL of the Container Registry image tag.
+          // The ACR image tag URL.
           shared_ptr<string> tagUrl_ {};
         };
 
@@ -478,31 +478,31 @@ namespace Models
 
 
       protected:
-        // The information about the Container Registry image.
+        // The ACR image information.
         shared_ptr<Containers::ACRImageInfo> ACRImageInfo_ {};
-        // The arguments that are passed to the container startup command.
+        // The startup arguments.
         shared_ptr<string> args_ {};
-        // The command that is used to start the container.
+        // The container startup command.
         shared_ptr<string> command_ {};
         // The environment variables.
         shared_ptr<string> envVariables_ {};
         // The image address.
         shared_ptr<string> image_ {};
-        // Indicates whether the image is a Container Registry image.
+        // Indicates whether the image is an ACR image.
         shared_ptr<bool> isACRImage_ {};
         // The version name.
         shared_ptr<string> name_ {};
-        // The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`. If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
+        // The command to execute after the container starts.
         shared_ptr<string> postStart_ {};
-        // The command that is run before the container is stopped.
+        // The command to execute before the container stops.
         shared_ptr<string> preStop_ {};
         // The probe content.
         shared_ptr<Containers::ProbeContent> probeContent_ {};
         // The probe type.
         shared_ptr<string> probeType_ {};
-        // The compute specification.
+        // The specifications.
         shared_ptr<string> spec_ {};
-        // The storage capacity of the container. Valid values: 0.5G, 10G, 20G, and 30G.
+        // The container storage specifications.
         shared_ptr<string> storage_ {};
       };
 
@@ -584,27 +584,25 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The container images deployed for this version.
+      // The list of images to be deployed for this version.
       shared_ptr<vector<Version::Containers>> containers_ {};
-      // The time when the version was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The creation time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The last publish time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> lastPublishTime_ {};
       // The version name.
       shared_ptr<string> name_ {};
-      // The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The publish time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> publishTime_ {};
       // The remarks.
       shared_ptr<string> remarks_ {};
       // The status of the current version. Valid values:
       // 
-      // - created: The version is created.
-      // 
-      // - failed: The version failed to be created.
-      // 
-      // - creating: The version is being created.
+      // - **created**: Created.
+      // - **failed**: Creation failed.
+      // - **creating**: Being created.
       shared_ptr<string> status_ {};
-      // The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The last modification time of the version. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
       // The ID of the created version.
       shared_ptr<string> versionId_ {};
@@ -631,7 +629,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the version.
+    // The version information.
     shared_ptr<GetEdgeContainerAppVersionResponseBody::Version> version_ {};
   };
 

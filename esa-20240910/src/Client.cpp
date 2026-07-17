@@ -2042,7 +2042,7 @@ CreateCustomScenePolicyResponse Client::createCustomScenePolicy(const CreateCust
 }
 
 /**
- * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+ * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
  * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
  *
  * @param request CreateEdgeContainerAppRequest
@@ -2126,7 +2126,7 @@ CreateEdgeContainerAppResponse Client::createEdgeContainerAppWithOptions(const C
 }
 
 /**
- * @summary Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+ * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
  * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
  *
  * @param request CreateEdgeContainerAppRequest
@@ -2192,7 +2192,7 @@ CreateEdgeContainerAppImageSecretResponse Client::createEdgeContainerAppImageSec
 }
 
 /**
- * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+ * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
  *
  * @param request CreateEdgeContainerAppRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2231,7 @@ CreateEdgeContainerAppRecordResponse Client::createEdgeContainerAppRecordWithOpt
 }
 
 /**
- * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+ * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
  *
  * @param request CreateEdgeContainerAppRecordRequest
  * @return CreateEdgeContainerAppRecordResponse
@@ -2242,7 +2242,7 @@ CreateEdgeContainerAppRecordResponse Client::createEdgeContainerAppRecord(const 
 }
 
 /**
- * @summary Creates an edge container application version. You can iteratively publish applications by version.
+ * @summary Creates an edge container application version. You can iteratively release applications by version.
  * Note:
  * 1) Your account must have an ESA plan with the Edge Container feature enabled.
  * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -2295,7 +2295,7 @@ CreateEdgeContainerAppVersionResponse Client::createEdgeContainerAppVersionWithO
 }
 
 /**
- * @summary Creates an edge container application version. You can iteratively publish applications by version.
+ * @summary Creates an edge container application version. You can iteratively release applications by version.
  * Note:
  * 1) Your account must have an ESA plan with the Edge Container feature enabled.
  * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -5863,9 +5863,9 @@ DeleteEdgeContainerAppImageSecretResponse Client::deleteEdgeContainerAppImageSec
 
 /**
  * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
- * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
- * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
- * 3) Provide a complete three-step call example: create → bindomain → delete.
+ * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+ * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+ * 3) A complete three-step call example of create, bind, and delete is provided.
  *
  * @param request DeleteEdgeContainerAppRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5905,9 +5905,9 @@ DeleteEdgeContainerAppRecordResponse Client::deleteEdgeContainerAppRecordWithOpt
 
 /**
  * @summary Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
- * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
- * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
- * 3) Provide a complete three-step call example: create → bindomain → delete.
+ * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+ * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+ * 3) A complete three-step call example of create, bind, and delete is provided.
  *
  * @param request DeleteEdgeContainerAppRecordRequest
  * @return DeleteEdgeContainerAppRecordResponse
@@ -9172,16 +9172,16 @@ DescribeSiteLogsResponse Client::describeSiteLogs(const DescribeSiteLogsRequest 
 }
 
 /**
- * @summary Query traffic analysis time series data
+ * @summary Queries network traffic analysis timing data at the account dimension or site dimension.
  *
- * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
- * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
- *   * For a span of 3 hours or less, it returns 1-minute granularity data.
- *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
- *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
- *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
- *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
- * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+ * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+ *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+ *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+ *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+ *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+ *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+ * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
  *
  * @param tmpReq DescribeSiteTimeSeriesDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9234,16 +9234,16 @@ DescribeSiteTimeSeriesDataResponse Client::describeSiteTimeSeriesDataWithOptions
 }
 
 /**
- * @summary Query traffic analysis time series data
+ * @summary Queries network traffic analysis timing data at the account dimension or site dimension.
  *
- * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
- * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
- *   * For a span of 3 hours or less, it returns 1-minute granularity data.
- *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
- *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
- *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
- *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
- * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+ * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+ * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+ *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+ *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+ *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+ *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+ *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+ * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
  *
  * @param request DescribeSiteTimeSeriesDataRequest
  * @return DescribeSiteTimeSeriesDataResponse
@@ -9534,7 +9534,9 @@ DescribeTraceDiagnoseReportResponse Client::describeTraceDiagnoseReport(const De
 }
 
 /**
- * @summary Queries the page monitoring data.
+ * @summary Queries web page observation quality data.
+ *
+ * @description If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
  *
  * @param request DescribeUrlObservationDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9585,7 +9587,9 @@ DescribeUrlObservationDataResponse Client::describeUrlObservationDataWithOptions
 }
 
 /**
- * @summary Queries the page monitoring data.
+ * @summary Queries web page observation quality data.
+ *
+ * @description If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
  *
  * @param request DescribeUrlObservationDataRequest
  * @return DescribeUrlObservationDataResponse
@@ -10734,7 +10738,7 @@ GetEdgeContainerResponse Client::getEdgeContainer(const GetEdgeContainerRequest 
 }
 
 /**
- * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
+ * @summary Retrieves application information for an edge container, including basic application configurations and health check settings.
  *
  * @param request GetEdgeContainerAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10765,7 +10769,7 @@ GetEdgeContainerAppResponse Client::getEdgeContainerAppWithOptions(const GetEdge
 }
 
 /**
- * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
+ * @summary Retrieves application information for an edge container, including basic application configurations and health check settings.
  *
  * @param request GetEdgeContainerAppRequest
  * @return GetEdgeContainerAppResponse
@@ -10940,7 +10944,7 @@ GetEdgeContainerAppResourceStatusResponse Client::getEdgeContainerAppResourceSta
 }
 
 /**
- * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+ * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
  *
  * @param request GetEdgeContainerAppStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10975,7 +10979,7 @@ GetEdgeContainerAppStatusResponse Client::getEdgeContainerAppStatusWithOptions(c
 }
 
 /**
- * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+ * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
  *
  * @param request GetEdgeContainerAppStatusRequest
  * @return GetEdgeContainerAppStatusResponse
@@ -10986,7 +10990,7 @@ GetEdgeContainerAppStatusResponse Client::getEdgeContainerAppStatus(const GetEdg
 }
 
 /**
- * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+ * @summary Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
  *
  * @param request GetEdgeContainerAppVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11013,7 +11017,7 @@ GetEdgeContainerAppVersionResponse Client::getEdgeContainerAppVersionWithOptions
 }
 
 /**
- * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+ * @summary Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
  *
  * @param request GetEdgeContainerAppVersionRequest
  * @return GetEdgeContainerAppVersionResponse
@@ -13596,6 +13600,52 @@ GetUserLogDeliveryQuotaResponse Client::getUserLogDeliveryQuota(const GetUserLog
 }
 
 /**
+ * @summary Queries the maximum value of a numeric quota across all plans under a user account.
+ *
+ * @description This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+ *
+ * @param request GetUserMaxPlanQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserMaxPlanQuotaResponse
+ */
+GetUserMaxPlanQuotaResponse Client::getUserMaxPlanQuotaWithOptions(const GetUserMaxPlanQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuotaName()) {
+    query["QuotaName"] = request.getQuotaName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUserMaxPlanQuota"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserMaxPlanQuotaResponse>();
+}
+
+/**
+ * @summary Queries the maximum value of a numeric quota across all plans under a user account.
+ *
+ * @description This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+ *
+ * @param request GetUserMaxPlanQuotaRequest
+ * @return GetUserMaxPlanQuotaResponse
+ */
+GetUserMaxPlanQuotaResponse Client::getUserMaxPlanQuota(const GetUserMaxPlanQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserMaxPlanQuotaWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a WAF ruleset for a specified instance.
  *
  * @description ## Operation description
@@ -14032,7 +14082,69 @@ ListAsyncTasksResponse Client::listAsyncTasks(const ListAsyncTasksRequest &reque
 }
 
 /**
- * @summary Queries the cache reserve instances for your account.
+ * @summary Queries the list of Bot security instances.
+ *
+ * @param request ListBotInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBotInstancesResponse
+ */
+ListBotInstancesResponse Client::listBotInstancesWithOptions(const ListBotInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBotInstances"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBotInstancesResponse>();
+}
+
+/**
+ * @summary Queries the list of Bot security instances.
+ *
+ * @param request ListBotInstancesRequest
+ * @return ListBotInstancesResponse
+ */
+ListBotInstancesResponse Client::listBotInstances(const ListBotInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBotInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of cache reserve instances for the current user.
  *
  * @param request ListCacheReserveInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14059,7 +14171,7 @@ ListCacheReserveInstancesResponse Client::listCacheReserveInstancesWithOptions(c
 }
 
 /**
- * @summary Queries the cache reserve instances for your account.
+ * @summary Queries the list of cache reserve instances for the current user.
  *
  * @param request ListCacheReserveInstancesRequest
  * @return ListCacheReserveInstancesResponse
@@ -14746,7 +14858,7 @@ ListEdgeContainerAppRecordsResponse Client::listEdgeContainerAppRecords(const Li
 }
 
 /**
- * @summary Lists versions of all containerized applications.
+ * @summary Retrieves the version list of an edge container application, including information about all successfully created applications.
  *
  * @param request ListEdgeContainerAppVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14773,7 +14885,7 @@ ListEdgeContainerAppVersionsResponse Client::listEdgeContainerAppVersionsWithOpt
 }
 
 /**
- * @summary Lists versions of all containerized applications.
+ * @summary Retrieves the version list of an edge container application, including information about all successfully created applications.
  *
  * @param request ListEdgeContainerAppVersionsRequest
  * @return ListEdgeContainerAppVersionsResponse
@@ -14784,7 +14896,7 @@ ListEdgeContainerAppVersionsResponse Client::listEdgeContainerAppVersions(const 
 }
 
 /**
- * @summary Queries all containerized applications in your Alibaba Cloud account.
+ * @summary Retrieves a list of edge container applications, including all edge applications created under the current account.
  *
  * @param request ListEdgeContainerAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14835,7 +14947,7 @@ ListEdgeContainerAppsResponse Client::listEdgeContainerAppsWithOptions(const Lis
 }
 
 /**
- * @summary Queries all containerized applications in your Alibaba Cloud account.
+ * @summary Retrieves a list of edge container applications, including all edge applications created under the current account.
  *
  * @param request ListEdgeContainerAppsRequest
  * @return ListEdgeContainerAppsResponse
@@ -15335,6 +15447,54 @@ ListInstanceQuotasWithUsageResponse Client::listInstanceQuotasWithUsageWithOptio
 ListInstanceQuotasWithUsageResponse Client::listInstanceQuotasWithUsage(const ListInstanceQuotasWithUsageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstanceQuotasWithUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the quota information of multiple instances.
+ *
+ * @param request ListInstancesQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstancesQuotaResponse
+ */
+ListInstancesQuotaResponse Client::listInstancesQuotaWithOptions(const ListInstancesQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuotaName()) {
+    query["QuotaName"] = request.getQuotaName();
+  }
+
+  json body = {};
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.getInstanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListInstancesQuota"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstancesQuotaResponse>();
+}
+
+/**
+ * @summary Queries the quota information of multiple instances.
+ *
+ * @param request ListInstancesQuotaRequest
+ * @return ListInstancesQuotaResponse
+ */
+ListInstancesQuotaResponse Client::listInstancesQuota(const ListInstancesQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstancesQuotaWithOptions(request, runtime);
 }
 
 /**
@@ -15982,6 +16142,44 @@ ListPostpaidSitePlansResponse Client::listPostpaidSitePlansWithOptions(const Lis
 ListPostpaidSitePlansResponse Client::listPostpaidSitePlans(const ListPostpaidSitePlansRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listPostpaidSitePlansWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+ *
+ * @param request ListQuotasMinEffectPlanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQuotasMinEffectPlanResponse
+ */
+ListQuotasMinEffectPlanResponse Client::listQuotasMinEffectPlanWithOptions(const ListQuotasMinEffectPlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListQuotasMinEffectPlan"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQuotasMinEffectPlanResponse>();
+}
+
+/**
+ * @summary Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+ *
+ * @param request ListQuotasMinEffectPlanRequest
+ * @return ListQuotasMinEffectPlanResponse
+ */
+ListQuotasMinEffectPlanResponse Client::listQuotasMinEffectPlan(const ListQuotasMinEffectPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listQuotasMinEffectPlanWithOptions(request, runtime);
 }
 
 /**
@@ -17691,6 +17889,108 @@ ListWaitingRoomsResponse Client::listWaitingRooms(const ListWaitingRoomsRequest 
 }
 
 /**
+ * @summary Modifies the feature configurations of a plan instance.
+ *
+ * @param tmpReq ModifyInstanceFeaturesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceFeaturesResponse
+ */
+ModifyInstanceFeaturesResponse Client::modifyInstanceFeaturesWithOptions(const ModifyInstanceFeaturesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstanceFeaturesShrinkRequest request = ModifyInstanceFeaturesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSiteFeatures()) {
+    request.setSiteFeaturesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSiteFeatures(), "SiteFeatures", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSiteFeaturesShrink()) {
+    query["SiteFeatures"] = request.getSiteFeaturesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceFeatures"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceFeaturesResponse>();
+}
+
+/**
+ * @summary Modifies the feature configurations of a plan instance.
+ *
+ * @param request ModifyInstanceFeaturesRequest
+ * @return ModifyInstanceFeaturesResponse
+ */
+ModifyInstanceFeaturesResponse Client::modifyInstanceFeatures(const ModifyInstanceFeaturesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceFeaturesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables plan-related configurations with one click when changing the plan for a site.
+ *
+ * @param request ModifySiteFeaturesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySiteFeaturesResponse
+ */
+ModifySiteFeaturesResponse Client::modifySiteFeaturesWithOptions(const ModifySiteFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNewInstanceId()) {
+    query["NewInstanceId"] = request.getNewInstanceId();
+  }
+
+  if (!!request.hasSiteFeatures()) {
+    query["SiteFeatures"] = request.getSiteFeatures();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySiteFeatures"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySiteFeaturesResponse>();
+}
+
+/**
+ * @summary Disables plan-related configurations with one click when changing the plan for a site.
+ *
+ * @param request ModifySiteFeaturesRequest
+ * @return ModifySiteFeaturesResponse
+ */
+ModifySiteFeaturesResponse Client::modifySiteFeatures(const ModifySiteFeaturesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySiteFeaturesWithOptions(request, runtime);
+}
+
+/**
  * @summary Activates the edge container service.
  *
  * @param request OpenEdgeContainerRequest
@@ -17835,7 +18135,7 @@ PreloadCachesResponse Client::preloadCaches(const PreloadCachesRequest &request)
 }
 
 /**
- * @summary Releases a specific version of a containerized application.
+ * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
  *
  * @param tmpReq PublishEdgeContainerAppVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17906,7 +18206,7 @@ PublishEdgeContainerAppVersionResponse Client::publishEdgeContainerAppVersionWit
 }
 
 /**
- * @summary Releases a specific version of a containerized application.
+ * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
  *
  * @param request PublishEdgeContainerAppVersionRequest
  * @return PublishEdgeContainerAppVersionResponse

@@ -199,7 +199,7 @@ namespace Models
 
 
       protected:
-        // The probe command for the exec probe type.
+        // The probe command for exec-type probes.
         shared_ptr<string> command_ {};
         // The number of consecutive failed health checks required.
         shared_ptr<int32_t> failureThreshold_ {};
@@ -207,11 +207,11 @@ namespace Models
         shared_ptr<string> host_ {};
         // The HTTP request headers.
         shared_ptr<string> httpHeaders_ {};
-        // The initial delay before the container probe starts, in seconds.
+        // The initial delay time for the container probe, in seconds. For example, 5 indicates that the initial delay is set to 5 seconds.
         shared_ptr<int32_t> initialDelaySeconds_ {};
         // The path for the container health check.
         shared_ptr<string> path_ {};
-        // The interval between container health checks, in seconds.
+        // The interval between container health checks, in seconds. For example, 5 indicates that the health check interval is set to 5 seconds.
         shared_ptr<int32_t> periodSeconds_ {};
         // The port for the container health check.
         shared_ptr<int32_t> port_ {};
@@ -219,7 +219,7 @@ namespace Models
         shared_ptr<string> scheme_ {};
         // The number of consecutive successful health checks required.
         shared_ptr<int32_t> successThreshold_ {};
-        // The timeout period for the container health check, in seconds.
+        // The timeout period for the container health check, in seconds. For example, 5 indicates that the timeout is set to 5 seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
       };
 
@@ -331,7 +331,7 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // Specifies whether the image is an enterprise-level image.
         shared_ptr<bool> isEnterpriseRegistry_ {};
-        // The list of regions for the ACR instance.
+        // The region list of the ACR instance.
         shared_ptr<string> regionId_ {};
         // The repository ID of the image.
         shared_ptr<string> repoId_ {};
@@ -451,7 +451,7 @@ namespace Models
       shared_ptr<string> args_ {};
       // The startup command. Separate multiple commands with spaces.
       shared_ptr<string> command_ {};
-      // The environment variables, in the format of key1=val1,key2=val2.
+      // The environment variables. Format: key1=val1,key2=val2.
       shared_ptr<string> envVariables_ {};
       // The image address.
       // 
@@ -465,22 +465,22 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The command to run before the container starts. Separate multiple commands with spaces. This command runs before the service starts and is typically used for initialization operations.
+      // The command to execute before the container starts. Separate multiple commands with spaces. This command is executed before the service starts and is typically used for initialization operations.
       shared_ptr<string> postStart_ {};
-      // The command to run before the container stops. Separate multiple commands with spaces. This command runs before the service exits and is typically used for cleanup operations.
+      // The command to execute before the container stops. Separate multiple commands with spaces. This command is executed before the service exits and is typically used for cleanup operations.
       shared_ptr<string> preStop_ {};
       // The container health probe content.
       // 
       // This parameter is required.
       shared_ptr<Containers::ProbeContent> probeContent_ {};
       // The probe type. Valid values:
-      // - **exec**: command-based.
+      // - **exec**: Command-based.
       // - **tcpSocket**: TCP-based.
       // - **httpGet**: HTTP-based.
       // 
       // This parameter is required.
       shared_ptr<string> probeType_ {};
-      // The container specifications. This parameter specifies the computing specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+      // The container specifications. Specifies the computing power specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
       // 
       // This parameter is required.
       shared_ptr<string> spec_ {};
@@ -524,10 +524,11 @@ namespace Models
 
   protected:
     // The application ID. You can call the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation to obtain the application ID.
+    // >Notice: 1) Your account must have an ESA plan with the Edge Container feature enabled. 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId. 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.</notice>
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The container group to deploy for this version, including specific image information. The image information consists of the image address, startup commands, parameters, environment variables, and probe rules. Multiple images are supported. This parameter is a JSON array.
+    // The container group to be deployed for this version, including specific image information. The image information consists of the image address, startup command, parameters, environment variables, and probe rules. Multiple images are supported in a JSON array structure.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateEdgeContainerAppVersionRequest::Containers>> containers_ {};

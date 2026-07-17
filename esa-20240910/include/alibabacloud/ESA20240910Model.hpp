@@ -817,6 +817,9 @@
 #include <alibabacloud/models/GetUserLogDeliveryQuotaRequest.hpp>
 #include <alibabacloud/models/GetUserLogDeliveryQuotaResponseBody.hpp>
 #include <alibabacloud/models/GetUserLogDeliveryQuotaResponse.hpp>
+#include <alibabacloud/models/GetUserMaxPlanQuotaRequest.hpp>
+#include <alibabacloud/models/GetUserMaxPlanQuotaResponseBody.hpp>
+#include <alibabacloud/models/GetUserMaxPlanQuotaResponse.hpp>
 #include <alibabacloud/models/GetUserWafRulesetRequest.hpp>
 #include <alibabacloud/models/GetUserWafRulesetResponseBody.hpp>
 #include <alibabacloud/models/GetUserWafRulesetResponse.hpp>
@@ -846,6 +849,9 @@
 #include <alibabacloud/models/ListAsyncTasksRequest.hpp>
 #include <alibabacloud/models/ListAsyncTasksResponseBody.hpp>
 #include <alibabacloud/models/ListAsyncTasksResponse.hpp>
+#include <alibabacloud/models/ListBotInstancesRequest.hpp>
+#include <alibabacloud/models/ListBotInstancesResponseBody.hpp>
+#include <alibabacloud/models/ListBotInstancesResponse.hpp>
 #include <alibabacloud/models/ListCacheReserveInstancesRequest.hpp>
 #include <alibabacloud/models/ListCacheReserveInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListCacheReserveInstancesResponse.hpp>
@@ -935,6 +941,9 @@
 #include <alibabacloud/models/ListInstanceQuotasWithUsageRequest.hpp>
 #include <alibabacloud/models/ListInstanceQuotasWithUsageResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceQuotasWithUsageResponse.hpp>
+#include <alibabacloud/models/ListInstancesQuotaRequest.hpp>
+#include <alibabacloud/models/ListInstancesQuotaResponseBody.hpp>
+#include <alibabacloud/models/ListInstancesQuotaResponse.hpp>
 #include <alibabacloud/models/ListKeylessServersRequest.hpp>
 #include <alibabacloud/models/ListKeylessServersResponseBody.hpp>
 #include <alibabacloud/models/ListKeylessServersResponse.hpp>
@@ -982,6 +991,9 @@
 #include <alibabacloud/models/ListPostpaidSitePlansRequest.hpp>
 #include <alibabacloud/models/ListPostpaidSitePlansResponseBody.hpp>
 #include <alibabacloud/models/ListPostpaidSitePlansResponse.hpp>
+#include <alibabacloud/models/ListQuotasMinEffectPlanRequest.hpp>
+#include <alibabacloud/models/ListQuotasMinEffectPlanResponseBody.hpp>
+#include <alibabacloud/models/ListQuotasMinEffectPlanResponse.hpp>
 #include <alibabacloud/models/ListRecordsRequest.hpp>
 #include <alibabacloud/models/ListRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListRecordsResponse.hpp>
@@ -1089,6 +1101,13 @@
 #include <alibabacloud/models/ListWaitingRoomsRequest.hpp>
 #include <alibabacloud/models/ListWaitingRoomsResponseBody.hpp>
 #include <alibabacloud/models/ListWaitingRoomsResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceFeaturesRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceFeaturesShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceFeaturesResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceFeaturesResponse.hpp>
+#include <alibabacloud/models/ModifySiteFeaturesRequest.hpp>
+#include <alibabacloud/models/ModifySiteFeaturesResponseBody.hpp>
+#include <alibabacloud/models/ModifySiteFeaturesResponse.hpp>
 #include <alibabacloud/models/OpenEdgeContainerRequest.hpp>
 #include <alibabacloud/models/OpenEdgeContainerResponseBody.hpp>
 #include <alibabacloud/models/OpenEdgeContainerResponse.hpp>

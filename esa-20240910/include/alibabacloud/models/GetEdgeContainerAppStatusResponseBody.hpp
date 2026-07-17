@@ -224,52 +224,51 @@ namespace Models
 
 
     protected:
-      // The base version of the application.
+      // The baseline version of the application.
       shared_ptr<string> baseLineVersion_ {};
-      // The deployment status of the application.
-      // 
-      // *   **undeploy**: The application is not deployed.
-      // *   **deploying**: The application is being deployed.
-      // *   **deployed**: The application is deployed.
-      // *   **undeploying**: The deployment is being canceled.
+      // The deployment status of the application. Valid values:
+      // - **undeploy**: not deployed.
+      // - **deploying**: being deployed.
+      // - **deployed**: deployed.
+      // - **undeploying**: being undeployed.
       shared_ptr<string> deployStatus_ {};
-      // The time when the application was deployed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The deployment time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> deployTime_ {};
-      // The release version of the application.
+      // The deployed version of the application.
       shared_ptr<string> deployedVersion_ {};
-      // The expected release percentage of the application.
+      // The expected publishing percentage of the application.
       shared_ptr<int32_t> expectPercentage_ {};
-      // Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+      // Indicates whether a full release is performed. This field takes effect only when PublishType is set to region.
       shared_ptr<bool> fullRelease_ {};
-      // The environment to which the application was released. Valid values:
+      // The publishing environment. Valid values:
       // 
-      // *   **prod**: the production environment.
-      // *   **staging**: the staging environment.
+      // - **prod**: production environment.
+      // - **staging**: staging environment.
       shared_ptr<string> publishEnv_ {};
-      // The release percentage of the application.
+      // The publishing percentage of the application.
       shared_ptr<int32_t> publishPercentage_ {};
-      // The release status of the application. Valid values:
-      // 
-      // *   **publishing**
-      // *   **published**
-      // *   **rollbacking**
-      // *   **rollbacked**
+      // The publishing status of the application. Valid values:
+      // - **publishing**: being published.
+      // - **published**: published.
+      // - **rollbacking**: being rolled back.
+      // - **rollbacked**: rolled back.
       shared_ptr<string> publishStatus_ {};
-      // The time when the application was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The publishing time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> publishTime_ {};
-      // Specifies how the version is released. Valid values:
+      // The publishing type. Valid values:
       // 
-      // *   percentage: releases the version by percentage.
-      // *   region: releases the version by region.
+      // - **percentage**: publish by percentage.
       // 
-      // If you do not specify this parameter, the version is released by percentage by default.
+      // - **region**: publish by region.
+      // 
+      // If this parameter is not specified, the default value percentage is used.
       shared_ptr<string> publishType_ {};
-      // The release version of the application.
+      // The publishing version of the application.
       shared_ptr<string> publishingVersion_ {};
       shared_ptr<AppStatus::Regions> regions_ {};
-      // The time when the last rollback was performed.
+      // The most recent rollback time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> rollbackTime_ {};
-      // The time when the application deployment was canceled. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The undeployment time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> unDeployTime_ {};
     };
 
@@ -292,7 +291,7 @@ namespace Models
 
 
   protected:
-    // The status of the application.
+    // The application status information.
     shared_ptr<GetEdgeContainerAppStatusResponseBody::AppStatus> appStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

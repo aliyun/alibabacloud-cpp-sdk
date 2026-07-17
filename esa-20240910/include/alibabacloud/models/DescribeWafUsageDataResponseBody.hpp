@@ -110,6 +110,8 @@ namespace Models
       // The domain record name.
       shared_ptr<string> recordName_ {};
       // The beginning of the time interval.
+      // 
+      // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
       shared_ptr<string> timeStamp_ {};
     };
 

@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The site ID.
+    // The site ID. This parameter is required. If it is not specified, the service returns InternalError(400). Call ListSites to obtain a valid SiteId before calling this operation.
     shared_ptr<int64_t> siteId_ {};
   };
 

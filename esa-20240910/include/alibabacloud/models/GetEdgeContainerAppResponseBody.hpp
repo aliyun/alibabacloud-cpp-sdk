@@ -185,28 +185,27 @@ namespace Models
 
 
       protected:
-        // The number of consecutive failed health checks required for an application to be considered as unhealthy.
+        // The number of consecutive failed health checks required.
         shared_ptr<int32_t> failTimes_ {};
-        // The domain name that is used for health checks.
+        // The domain name used for the health check.
         shared_ptr<string> host_ {};
-        // The range of health check status codes that indicate successful health checks.
+        // The range of HTTP status codes that indicate a successful health check.
         shared_ptr<string> httpCode_ {};
         // The interval between health checks. Unit: seconds.
         shared_ptr<int32_t> interval_ {};
-        // The HTTP method that the health check request uses.
+        // The method used for the health check.
         shared_ptr<string> method_ {};
-        // The health check port.
+        // The Health Check Port of the application.
         shared_ptr<int32_t> port_ {};
-        // The number of consecutive successful health checks required for an application to be considered as healthy.
+        // The number of consecutive successful health checks required.
         shared_ptr<int32_t> succTimes_ {};
         // The timeout period of the health check. Unit: seconds.
         shared_ptr<int32_t> timeout_ {};
         // The health check type. Valid values:
-        // 
-        // *   l7
-        // *   l4
+        // - **l7**: Layer 7 gateway.
+        // - **l4**: Layer 4 gateway.
         shared_ptr<string> type_ {};
-        // The health check URL.
+        // The path used for the health check.
         shared_ptr<string> uri_ {};
       };
 
@@ -310,36 +309,34 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The time when the application was created.
+      // The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The domain name that is associated with the application. If no domain name is associated with the application, the value is an empty string.
+      // The domain name bound to the application. If no domain name is bound, an empty string is returned.
       shared_ptr<string> domainName_ {};
-      // The type of the gateway. Valid values:
-      // 
-      // *   l7: Layer 7 gateway.
-      // *   l4: Layer 4 gateway.
+      // The gateway type. Valid values:
+      // - **l7**: Layer 7 gateway.
+      // - **l4**: Layer 4 gateway.
       shared_ptr<string> gatewayType_ {};
-      // The information about health checks.
+      // The health check information.
       shared_ptr<App::HealthCheck> healthCheck_ {};
       // The application name.
       shared_ptr<string> name_ {};
-      // Indicates whether QUIC is enabled.
+      // Indicates whether QUIC support is enabled.
       shared_ptr<string> quicCid_ {};
-      // The remarks about the application.
+      // The remarks of the application.
       shared_ptr<string> remarks_ {};
-      // The server port. Valid values: 1 to 65535.
+      // The service port number. Valid values: **1 to 65535**.
       shared_ptr<int32_t> servicePort_ {};
       // The status of the application. Valid values:
-      // 
-      // *   creating: The application is being created.
-      // *   failed: The application failed to be created.
-      // *   created: The application is created.
+      // - **creating**: Being created.
+      // - **failed**: Creation failed.
+      // - **created**: Created.
       shared_ptr<string> status_ {};
-      // The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+      // The backend port, which is also the service port of the application. Valid values: **1 to 65535**.
       shared_ptr<int32_t> targetPort_ {};
-      // The time when the application was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+      // The last modification time of the application. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
-      // The number of versions of the application.
+      // The number of application versions.
       shared_ptr<int32_t> versionCount_ {};
     };
 
@@ -362,7 +359,7 @@ namespace Models
 
 
   protected:
-    // The basic information about the application.
+    // The basic application information.
     shared_ptr<GetEdgeContainerAppResponseBody::App> app_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

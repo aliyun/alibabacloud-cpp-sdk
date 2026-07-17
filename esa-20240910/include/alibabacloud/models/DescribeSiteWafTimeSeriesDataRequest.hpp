@@ -82,7 +82,7 @@ namespace Models
       shared_ptr<vector<string>> dimension_ {};
       // The metric name.
       // 
-      // >For more information about the available dimensions, see [Data analytics field description](https://help.aliyun.com/document_detail/2878520.html).
+      // >For specific dimensions, see [Data analytics field description](https://help.aliyun.com/document_detail/2878520.html).
       shared_ptr<string> fieldName_ {};
     };
 
@@ -126,7 +126,7 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
+    // The end time for the data query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     // 
@@ -136,15 +136,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<DescribeSiteWafTimeSeriesDataRequest::Fields>> fields_ {};
-    // The time granularity of the queried data. Unit: seconds.
+    // The time granularity of the queried data, in seconds.
     // 
-    // Based on the maximum time span of a single query, this parameter supports the values 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **supported time granularity** section above.
+    // Based on the maximum time span of a single query, this parameter supports the following values: 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **supported query time granularity** section above.
     shared_ptr<string> interval_ {};
     // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
     // If this parameter is left empty, user-level data is queried.
     shared_ptr<string> siteId_ {};
-    // The beginning of the time range to query.
+    // The start time for the data query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
