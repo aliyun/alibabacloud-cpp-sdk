@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The ID of the resource, which is the ID of the instance.
+      // The resource ID, which is the instance ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resources. The returned value is fixed to **ALIYUN::HITSDB::INSTANCE**.
+      // The resource type. The value is fixed to **ALIYUN::HITSDB::INSTANCE**.
       shared_ptr<string> resourceType_ {};
-      // The key of the tag associated with the instance.
+      // The key of the tag.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag associated with the instance.
+      // The value of the tag.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The token used to start the next query.
+    // The token that is used to start the next query.
     // 
-    // > If not all results are returned in the first query, this parameter is returned. You can pass in the returned value of this parameter for the next query.
+    // > If not all results are returned in a query, the response includes this parameter. You can use the value of this parameter to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};

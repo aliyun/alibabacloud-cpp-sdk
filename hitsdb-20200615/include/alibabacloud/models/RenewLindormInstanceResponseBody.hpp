@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The ID of the order. You can obtain the order ID on the Orders page of the Expenses and Costs console.
+    // The ID of the order. You can find the order ID in the Order Management section of Expenses and Costs.
     shared_ptr<int64_t> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

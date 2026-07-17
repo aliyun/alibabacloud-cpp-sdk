@@ -84,6 +84,8 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};

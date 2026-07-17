@@ -57,6 +57,12 @@
 #include <alibabacloud/models/GetClientSourceIpRequest.hpp>
 #include <alibabacloud/models/GetClientSourceIpResponseBody.hpp>
 #include <alibabacloud/models/GetClientSourceIpResponse.hpp>
+#include <alibabacloud/models/GetComputeEngineJobDetailRequest.hpp>
+#include <alibabacloud/models/GetComputeEngineJobDetailResponseBody.hpp>
+#include <alibabacloud/models/GetComputeEngineJobDetailResponse.hpp>
+#include <alibabacloud/models/GetComputeEngineJobLogRequest.hpp>
+#include <alibabacloud/models/GetComputeEngineJobLogResponseBody.hpp>
+#include <alibabacloud/models/GetComputeEngineJobLogResponse.hpp>
 #include <alibabacloud/models/GetEngineDefaultAuthRequest.hpp>
 #include <alibabacloud/models/GetEngineDefaultAuthResponseBody.hpp>
 #include <alibabacloud/models/GetEngineDefaultAuthResponse.hpp>
@@ -125,6 +131,9 @@
 #include <alibabacloud/models/ListAutoScalingRulesRequest.hpp>
 #include <alibabacloud/models/ListAutoScalingRulesResponseBody.hpp>
 #include <alibabacloud/models/ListAutoScalingRulesResponse.hpp>
+#include <alibabacloud/models/ListComputeEngineJobRequest.hpp>
+#include <alibabacloud/models/ListComputeEngineJobResponseBody.hpp>
+#include <alibabacloud/models/ListComputeEngineJobResponse.hpp>
 #include <alibabacloud/models/ListLdpsComputeGroupsRequest.hpp>
 #include <alibabacloud/models/ListLdpsComputeGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListLdpsComputeGroupsResponse.hpp>

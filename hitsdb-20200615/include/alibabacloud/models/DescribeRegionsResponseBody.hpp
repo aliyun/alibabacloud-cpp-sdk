@@ -81,7 +81,7 @@ namespace Models
     protected:
       // The name of the region.
       shared_ptr<string> localName_ {};
-      // The endpoint for the region.
+      // The endpoint of the region.
       shared_ptr<string> regionEndpoint_ {};
       // The ID of the region.
       shared_ptr<string> regionId_ {};
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The regions supported by Lindorm.
+    // The list of regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

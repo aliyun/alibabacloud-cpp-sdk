@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the resource group into which you want to change.
+    // The ID of the destination resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

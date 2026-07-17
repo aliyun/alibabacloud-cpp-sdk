@@ -18,6 +18,30 @@ namespace Hitsdb20200615
 
 AlibabaCloud::Hitsdb20200615::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "hitsdb.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "hitsdb.us-east-1.aliyuncs.com"},
+    {"eu-west-1" , "hitsdb.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "hitsdb.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "hitsdb.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "hitsdb.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "hitsdb.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shenzhen" , "hitsdb.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "hitsdb.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "hitsdb.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "hitsdb.cn-qingdao.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "hitsdb.cn-north-2-gov-1.aliyuncs.com"},
+    {"cn-huhehaote" , "hitsdb.cn-huhehaote.aliyuncs.com"},
+    {"cn-hongkong" , "hitsdb.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "hitsdb.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "hitsdb.cn-hangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "hitsdb.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "hitsdb.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-5" , "hitsdb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "hitsdb.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-1" , "hitsdb.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "hitsdb.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("hitsdb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +60,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Changes a resource group to another.
+ * @summary Moves a resource to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -75,7 +99,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes a resource group to another.
+ * @summary Moves a resource to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -644,9 +668,11 @@ CreateLdpsComputeGroupResponse Client::createLdpsComputeGroup(const CreateLdpsCo
 }
 
 /**
- * @summary Creates a Lindorm instance.
+ * @summary Create a Lindorm instance.
  *
- * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+ * @description To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+ * >Notice: 
+ * If you do not specify any data engine parameters when you create an instance, the API call fails.
  *
  * @param request CreateLindormInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -857,9 +883,11 @@ CreateLindormInstanceResponse Client::createLindormInstanceWithOptions(const Cre
 }
 
 /**
- * @summary Creates a Lindorm instance.
+ * @summary Create a Lindorm instance.
  *
- * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+ * @description To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+ * >Notice: 
+ * If you do not specify any data engine parameters when you create an instance, the API call fails.
  *
  * @param request CreateLindormInstanceRequest
  * @return CreateLindormInstanceResponse
@@ -870,7 +898,11 @@ CreateLindormInstanceResponse Client::createLindormInstance(const CreateLindormI
 }
 
 /**
- * @summary 创建Lindorm实例
+ * @summary Creates a Lindorm V2 instance.
+ *
+ * @description You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+ * >Notice: 
+ * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
  *
  * @param request CreateLindormV2InstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1017,7 +1049,11 @@ CreateLindormV2InstanceResponse Client::createLindormV2InstanceWithOptions(const
 }
 
 /**
- * @summary 创建Lindorm实例
+ * @summary Creates a Lindorm V2 instance.
+ *
+ * @description You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+ * >Notice: 
+ * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
  *
  * @param request CreateLindormV2InstanceRequest
  * @return CreateLindormV2InstanceResponse
@@ -1354,7 +1390,7 @@ DeployLdpsSemiManagedComponentResponse Client::deployLdpsSemiManagedComponent(co
 }
 
 /**
- * @summary Obtains the regions supported by Lindorm.
+ * @summary Queries all regions where Lindorm is available.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1405,7 +1441,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Obtains the regions supported by Lindorm.
+ * @summary Queries all regions where Lindorm is available.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -1606,6 +1642,150 @@ GetClientSourceIpResponse Client::getClientSourceIp(const GetClientSourceIpReque
 }
 
 /**
+ * @summary 获取计算引擎作业详情
+ *
+ * @param request GetComputeEngineJobDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetComputeEngineJobDetailResponse
+ */
+GetComputeEngineJobDetailResponse Client::getComputeEngineJobDetailWithOptions(const GetComputeEngineJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetComputeEngineJobDetail"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetComputeEngineJobDetailResponse>();
+}
+
+/**
+ * @summary 获取计算引擎作业详情
+ *
+ * @param request GetComputeEngineJobDetailRequest
+ * @return GetComputeEngineJobDetailResponse
+ */
+GetComputeEngineJobDetailResponse Client::getComputeEngineJobDetail(const GetComputeEngineJobDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getComputeEngineJobDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取计算引擎作业日志
+ *
+ * @param request GetComputeEngineJobLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetComputeEngineJobLogResponse
+ */
+GetComputeEngineJobLogResponse Client::getComputeEngineJobLogWithOptions(const GetComputeEngineJobLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetComputeEngineJobLog"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetComputeEngineJobLogResponse>();
+}
+
+/**
+ * @summary 获取计算引擎作业日志
+ *
+ * @param request GetComputeEngineJobLogRequest
+ * @return GetComputeEngineJobLogResponse
+ */
+GetComputeEngineJobLogResponse Client::getComputeEngineJobLog(const GetComputeEngineJobLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getComputeEngineJobLogWithOptions(request, runtime);
+}
+
+/**
  * @param request GetEngineDefaultAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetEngineDefaultAuthResponse
@@ -1668,7 +1848,7 @@ GetEngineDefaultAuthResponse Client::getEngineDefaultAuth(const GetEngineDefault
 }
 
 /**
- * @summary Queries the whitelists configured for a Lindorm instance.
+ * @summary Retrieves the access whitelist for a Lindorm instance.
  *
  * @param request GetInstanceIpWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1719,7 +1899,7 @@ GetInstanceIpWhiteListResponse Client::getInstanceIpWhiteListWithOptions(const G
 }
 
 /**
- * @summary Queries the whitelists configured for a Lindorm instance.
+ * @summary Retrieves the access whitelist for a Lindorm instance.
  *
  * @param request GetInstanceIpWhiteListRequest
  * @return GetInstanceIpWhiteListResponse
@@ -1788,6 +1968,8 @@ GetInstanceSecurityGroupsResponse Client::getInstanceSecurityGroups(const GetIns
 }
 
 /**
+ * @summary Retrieves a summary of Lindorm instances in your account.
+ *
  * @param request GetInstanceSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceSummaryResponse
@@ -1837,6 +2019,8 @@ GetInstanceSummaryResponse Client::getInstanceSummaryWithOptions(const GetInstan
 }
 
 /**
+ * @summary Retrieves a summary of Lindorm instances in your account.
+ *
  * @param request GetInstanceSummaryRequest
  * @return GetInstanceSummaryResponse
  */
@@ -2122,9 +2306,9 @@ GetLindormEngineConfigResponse Client::getLindormEngineConfig(const GetLindormEn
 }
 
 /**
- * @summary Queries the details of each storage type in a Lindorm instance.
+ * @summary Retrieves the storage details for each storage medium in a specified Lindorm instance.
  *
- * @description If the version of the underlying storage engine in a Lindorm cluster is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail.
+ * @description For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
  *
  * @param request GetLindormFsUsedDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2179,9 +2363,9 @@ GetLindormFsUsedDetailResponse Client::getLindormFsUsedDetailWithOptions(const G
 }
 
 /**
- * @summary Queries the details of each storage type in a Lindorm instance.
+ * @summary Retrieves the storage details for each storage medium in a specified Lindorm instance.
  *
- * @description If the version of the underlying storage engine in a Lindorm cluster is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail.
+ * @description For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
  *
  * @param request GetLindormFsUsedDetailRequest
  * @return GetLindormFsUsedDetailResponse
@@ -2192,7 +2376,7 @@ GetLindormFsUsedDetailResponse Client::getLindormFsUsedDetail(const GetLindormFs
 }
 
 /**
- * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
+ * @summary Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
  *
  * @param request GetLindormInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2243,7 +2427,7 @@ GetLindormInstanceResponse Client::getLindormInstanceWithOptions(const GetLindor
 }
 
 /**
- * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
+ * @summary Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
  *
  * @param request GetLindormInstanceRequest
  * @return GetLindormInstanceResponse
@@ -2254,7 +2438,7 @@ GetLindormInstanceResponse Client::getLindormInstance(const GetLindormInstanceRe
 }
 
 /**
- * @summary Obtains the engine types supported by the specified Lindorm instance.
+ * @summary Queries the engine types that a Lindorm instance supports.
  *
  * @param request GetLindormInstanceEngineListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2309,7 +2493,7 @@ GetLindormInstanceEngineListResponse Client::getLindormInstanceEngineListWithOpt
 }
 
 /**
- * @summary Obtains the engine types supported by the specified Lindorm instance.
+ * @summary Queries the engine types that a Lindorm instance supports.
  *
  * @param request GetLindormInstanceEngineListRequest
  * @return GetLindormInstanceEngineListResponse
@@ -2320,7 +2504,7 @@ GetLindormInstanceEngineListResponse Client::getLindormInstanceEngineList(const 
 }
 
 /**
- * @summary Queries the instances that meet the specified conditions.
+ * @summary Queries a list of Lindorm instances.
  *
  * @param request GetLindormInstanceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2399,7 +2583,7 @@ GetLindormInstanceListResponse Client::getLindormInstanceListWithOptions(const G
 }
 
 /**
- * @summary Queries the instances that meet the specified conditions.
+ * @summary Queries a list of Lindorm instances.
  *
  * @param request GetLindormInstanceListRequest
  * @return GetLindormInstanceListResponse
@@ -2472,7 +2656,9 @@ GetLindormV2InstanceResponse Client::getLindormV2Instance(const GetLindormV2Inst
 }
 
 /**
- * @summary 查询新架构实例详情
+ * @summary Queries the details of an instance that uses the new architecture.
+ *
+ * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
  *
  * @param request GetLindormV2InstanceDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2523,7 +2709,9 @@ GetLindormV2InstanceDetailsResponse Client::getLindormV2InstanceDetailsWithOptio
 }
 
 /**
- * @summary 查询新架构实例详情
+ * @summary Queries the details of an instance that uses the new architecture.
+ *
+ * @description For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
  *
  * @param request GetLindormV2InstanceDetailsRequest
  * @return GetLindormV2InstanceDetailsResponse
@@ -2720,6 +2908,8 @@ GetLindormV2InstanceSecurityGroupsResponse Client::getLindormV2InstanceSecurityG
 }
 
 /**
+ * @summary Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+ *
  * @param request GetLindormV2StorageUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLindormV2StorageUsageResponse
@@ -2769,6 +2959,8 @@ GetLindormV2StorageUsageResponse Client::getLindormV2StorageUsageWithOptions(con
 }
 
 /**
+ * @summary Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+ *
  * @param request GetLindormV2StorageUsageRequest
  * @return GetLindormV2StorageUsageResponse
  */
@@ -3054,6 +3246,104 @@ ListAutoScalingRulesResponse Client::listAutoScalingRules(const ListAutoScalingR
 }
 
 /**
+ * @summary 查询计算引擎作业列表
+ *
+ * @param request ListComputeEngineJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListComputeEngineJobResponse
+ */
+ListComputeEngineJobResponse Client::listComputeEngineJobWithOptions(const ListComputeEngineJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComputeGroup()) {
+    query["ComputeGroup"] = request.getComputeGroup();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasJobName()) {
+    query["JobName"] = request.getJobName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasState()) {
+    query["State"] = request.getState();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListComputeEngineJob"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListComputeEngineJobResponse>();
+}
+
+/**
+ * @summary 查询计算引擎作业列表
+ *
+ * @param request ListComputeEngineJobRequest
+ * @return ListComputeEngineJobResponse
+ */
+ListComputeEngineJobResponse Client::listComputeEngineJob(const ListComputeEngineJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listComputeEngineJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取计算引擎资源组列表
  *
  * @param request ListLdpsComputeGroupsRequest
@@ -3120,7 +3410,7 @@ ListLdpsComputeGroupsResponse Client::listLdpsComputeGroups(const ListLdpsComput
 }
 
 /**
- * @summary Queries the tags associated with the specified Lindorm instance.
+ * @summary Get Lindorm instance-to-tag bindings.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3187,7 +3477,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags associated with the specified Lindorm instance.
+ * @summary Get Lindorm instance-to-tag bindings.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -3526,10 +3816,11 @@ ModifyAutoScalingRuleResponse Client::modifyAutoScalingRule(const ModifyAutoScal
 }
 
 /**
- * @summary Changes the billing method of the specified Lindorm instance.
+ * @summary Changes the billing method of a Lindorm instance.
  *
- * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
- * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/en/pricing-calculator?spm=a2c63.p38356.0.0.2b024c2adcHeXL&_p_lc=1#/commodity/hitsdb_lindormpre_public_intl) of Lindorm. Published on only international site (alibabacloud.com).
+ * @description Switches the billing method of an instance between subscription and pay-as-you-go.
+ * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
+ * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
  *
  * @param request ModifyInstancePayTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3592,10 +3883,11 @@ ModifyInstancePayTypeResponse Client::modifyInstancePayTypeWithOptions(const Mod
 }
 
 /**
- * @summary Changes the billing method of the specified Lindorm instance.
+ * @summary Changes the billing method of a Lindorm instance.
  *
- * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
- * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/en/pricing-calculator?spm=a2c63.p38356.0.0.2b024c2adcHeXL&_p_lc=1#/commodity/hitsdb_lindormpre_public_intl) of Lindorm. Published on only international site (alibabacloud.com).
+ * @description Switches the billing method of an instance between subscription and pay-as-you-go.
+ * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
+ * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
  *
  * @param request ModifyInstancePayTypeRequest
  * @return ModifyInstancePayTypeResponse
@@ -4104,7 +4396,7 @@ ReleaseLindormInstanceResponse Client::releaseLindormInstance(const ReleaseLindo
 }
 
 /**
- * @summary 释放实例
+ * @summary Releases a Lindorm instance.
  *
  * @param request ReleaseLindormV2InstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4159,7 +4451,7 @@ ReleaseLindormV2InstanceResponse Client::releaseLindormV2InstanceWithOptions(con
 }
 
 /**
- * @summary 释放实例
+ * @summary Releases a Lindorm instance.
  *
  * @param request ReleaseLindormV2InstanceRequest
  * @return ReleaseLindormV2InstanceResponse
@@ -4172,7 +4464,7 @@ ReleaseLindormV2InstanceResponse Client::releaseLindormV2Instance(const ReleaseL
 /**
  * @summary Renews a subscription Lindorm instance.
  *
- * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+ * @description You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
  * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
  *
  * @param request RenewLindormInstanceRequest
@@ -4238,7 +4530,7 @@ RenewLindormInstanceResponse Client::renewLindormInstanceWithOptions(const Renew
 /**
  * @summary Renews a subscription Lindorm instance.
  *
- * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+ * @description You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
  * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
  *
  * @param request RenewLindormInstanceRequest
@@ -4386,12 +4678,12 @@ SetDefaultOlapComputeGroupResponse Client::setDefaultOlapComputeGroup(const SetD
 }
 
 /**
- * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
+ * @summary Enables or disables the Lindorm protocol that is compatible with MySQL.
  *
- * @description Prerequisites
- * *   The LindormTable version of your instance is 2.6.0 or later.
- * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
- * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+ * @description Before you call this operation, make sure that the following requirements are met:
+ * - The version of LindormTable for the instance is 2.6.0 or later.
+ * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
+ * You can enable the MySQL protocol only if the two preceding conditions are met.
  *
  * @param request SwitchLSQLV3MySQLServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4446,12 +4738,12 @@ SwitchLSQLV3MySQLServiceResponse Client::switchLSQLV3MySQLServiceWithOptions(con
 }
 
 /**
- * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
+ * @summary Enables or disables the Lindorm protocol that is compatible with MySQL.
  *
- * @description Prerequisites
- * *   The LindormTable version of your instance is 2.6.0 or later.
- * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
- * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+ * @description Before you call this operation, make sure that the following requirements are met:
+ * - The version of LindormTable for the instance is 2.6.0 or later.
+ * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
+ * You can enable the MySQL protocol only if the two preceding conditions are met.
  *
  * @param request SwitchLSQLV3MySQLServiceRequest
  * @return SwitchLSQLV3MySQLServiceResponse
@@ -4462,7 +4754,7 @@ SwitchLSQLV3MySQLServiceResponse Client::switchLSQLV3MySQLService(const SwitchLS
 }
 
 /**
- * @summary Adds tags to one or more Lindorm instances.
+ * @summary Attaches tags to one or more Lindorm instances.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4525,7 +4817,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to one or more Lindorm instances.
+ * @summary Attaches tags to one or more Lindorm instances.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -4536,9 +4828,9 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from a Lindorm instance.
+ * @summary Detaches tags from Lindorm instances.
  *
- * @description If a tag is not added to any Lindorm instance, it is deleted.
+ * @description If a tag is not attached to any Lindorm instance, the tag is deleted.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4601,9 +4893,9 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from a Lindorm instance.
+ * @summary Detaches tags from Lindorm instances.
  *
- * @description If a tag is not added to any Lindorm instance, it is deleted.
+ * @description If a tag is not attached to any Lindorm instance, the tag is deleted.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -4614,7 +4906,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Configures an IP address whitelist for a Lindorm instance.
+ * @summary Sets the access whitelist for a Lindorm instance.
  *
  * @param request UpdateInstanceIpWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4677,7 +4969,7 @@ UpdateInstanceIpWhiteListResponse Client::updateInstanceIpWhiteListWithOptions(c
 }
 
 /**
- * @summary Configures an IP address whitelist for a Lindorm instance.
+ * @summary Sets the access whitelist for a Lindorm instance.
  *
  * @param request UpdateInstanceIpWhiteListRequest
  * @return UpdateInstanceIpWhiteListResponse
@@ -4820,7 +5112,11 @@ UpdateLdpsComputeGroupResponse Client::updateLdpsComputeGroup(const UpdateLdpsCo
 }
 
 /**
- * @summary 更新实例名称或删除保护
+ * @summary Updates the name or deletion protection settings of an instance.
+ *
+ * @description You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+ * >Notice: 
+ * If you do not specify data engine parameters when you create an instance, the API call fails.
  *
  * @param request UpdateLindormInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4879,7 +5175,11 @@ UpdateLindormInstanceAttributeResponse Client::updateLindormInstanceAttributeWit
 }
 
 /**
- * @summary 更新实例名称或删除保护
+ * @summary Updates the name or deletion protection settings of an instance.
+ *
+ * @description You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+ * >Notice: 
+ * If you do not specify data engine parameters when you create an instance, the API call fails.
  *
  * @param request UpdateLindormInstanceAttributeRequest
  * @return UpdateLindormInstanceAttributeResponse
@@ -4890,7 +5190,7 @@ UpdateLindormInstanceAttributeResponse Client::updateLindormInstanceAttribute(co
 }
 
 /**
- * @summary 更新LindormV2Instance
+ * @summary Updates a Lindorm instance.
  *
  * @param request UpdateLindormV2InstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4965,7 +5265,7 @@ UpdateLindormV2InstanceResponse Client::updateLindormV2InstanceWithOptions(const
 }
 
 /**
- * @summary 更新LindormV2Instance
+ * @summary Updates a Lindorm instance.
  *
  * @param request UpdateLindormV2InstanceRequest
  * @return UpdateLindormV2InstanceResponse
@@ -5046,7 +5346,7 @@ UpdateLindormV2InstanceParameterResponse Client::updateLindormV2InstanceParamete
 }
 
 /**
- * @summary 修改Lindorm新版实例白名单分组列表
+ * @summary Modifies the IP whitelists for a LindormV2 instance.
  *
  * @param request UpdateLindormV2WhiteIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5105,7 +5405,7 @@ UpdateLindormV2WhiteIpListResponse Client::updateLindormV2WhiteIpListWithOptions
 }
 
 /**
- * @summary 修改Lindorm新版实例白名单分组列表
+ * @summary Modifies the IP whitelists for a LindormV2 instance.
  *
  * @param request UpdateLindormV2WhiteIpListRequest
  * @return UpdateLindormV2WhiteIpListResponse
@@ -5116,9 +5416,9 @@ UpdateLindormV2WhiteIpListResponse Client::updateLindormV2WhiteIpList(const Upda
 }
 
 /**
- * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
+ * @summary Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
  *
- * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+ * @description For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
  *
  * @param request UpgradeLindormInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5253,9 +5553,9 @@ UpgradeLindormInstanceResponse Client::upgradeLindormInstanceWithOptions(const U
 }
 
 /**
- * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
+ * @summary Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
  *
- * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+ * @description For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
  *
  * @param request UpgradeLindormInstanceRequest
  * @return UpgradeLindormInstanceResponse

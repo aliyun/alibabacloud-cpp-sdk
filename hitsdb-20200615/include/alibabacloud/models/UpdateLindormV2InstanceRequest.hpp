@@ -147,13 +147,33 @@ namespace Models
 
 
       protected:
+        // The ID of the node group.
         shared_ptr<string> groupId_ {};
+        // The number of nodes.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> nodeCount_ {};
+        // The disk size of a single node. This parameter is not required.
         shared_ptr<int32_t> nodeDiskSize_ {};
+        // The disk type of the node. This parameter is not required. **This parameter is available only for specific scenarios and is accessible to users on a whitelist.**
         shared_ptr<string> nodeDiskType_ {};
+        // The node specifications of the engine.
+        // 
+        // - **lindorm.c.2xlarge**: 8 cores and 16 GB of memory.
+        // 
+        // - **lindorm.g.2xlarge**: 8 cores and 32 GB of memory.
+        // 
+        // - **lindorm.c.4xlarge**: 16 cores and 32 GB of memory.
+        // 
+        // - **lindorm.g.4xlarge**: 16 cores and 64 GB of memory.
+        // 
+        // - **lindorm.c.8xlarge**: 32 cores and 64 GB of memory.
+        // 
+        // - **lindorm.g.8xlarge**: 32 cores and 128 GB of memory.
+        // 
         // This parameter is required.
         shared_ptr<string> nodeSpec_ {};
+        // The name of the node group. **This parameter is required.** You can obtain the name by calling the GetLindormV2Instance operation.
         shared_ptr<string> resourceGroupName_ {};
       };
 
@@ -176,8 +196,25 @@ namespace Models
 
 
     protected:
+      // The engine type. Valid values:
+      // 
+      // - TABLE: LindormTable.
+      // 
+      // - TSDB: LindormTSDB.
+      // 
+      // - LSEARCH: search engine.
+      // 
+      // - LTS: LTS engine.
+      // 
+      // - LVECTOR: vector engine.
+      // 
+      // - LCOLUMN: column store.
+      // 
+      // - LAI: AI engine.
+      // 
       // This parameter is required.
       shared_ptr<string> engineType_ {};
+      // A list of engine node groups.
       shared_ptr<vector<EngineList::NodeGroupList>> nodeGroupList_ {};
     };
 
@@ -272,16 +309,30 @@ namespace Models
 
 
   protected:
+    // The capacity of the storage-optimized storage.
     shared_ptr<int32_t> capacityStorageSize_ {};
+    // The cloud storage capacity. Unit: GB.
     shared_ptr<int32_t> cloudStorageSize_ {};
+    // The cloud storage class.
+    // 
+    // - **PerformanceStorage**: performance cloud storage.
+    // 
+    // - **StandardStorage**: standard cloud storage.
     shared_ptr<string> cloudStorageType_ {};
+    // Specifies whether to enable storage-optimized storage.
     shared_ptr<bool> enableCapacityStorage_ {};
+    // A list of engine types.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateLindormV2InstanceRequest::EngineList>> engineList_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the instance is located. To query the latest region list, call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

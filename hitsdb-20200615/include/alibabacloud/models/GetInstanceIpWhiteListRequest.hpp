@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance whose whitelists you want to query. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426068.html) operation to obtain the instance ID.
+    // The ID of the instance. To obtain the ID, call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426068.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

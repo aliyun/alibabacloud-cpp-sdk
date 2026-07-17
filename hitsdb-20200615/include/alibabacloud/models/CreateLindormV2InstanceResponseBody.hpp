@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The detailed reason why the access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

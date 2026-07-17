@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason why the access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

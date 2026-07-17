@@ -103,8 +103,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable deletion protection. Valid values:
+    // 
+    // - **true**: Enabled.
+    // 
+    // - **false**: Disabled.
     shared_ptr<bool> deletionProtection_ {};
+    // The name of the instance.
     shared_ptr<string> instanceAlias_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};

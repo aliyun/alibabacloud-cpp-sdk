@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The ID of the Lindorm instance that is created.
+    // The ID of the created instance.
     shared_ptr<string> instanceId_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<int64_t> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

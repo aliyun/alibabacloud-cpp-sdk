@@ -117,31 +117,30 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the instances. Valid values:
+    // Specifies whether to detach all tags from the instances. Valid values:
     // 
-    // *   **true**: Remove all tags from the instances.
-    // *   **false**: Do not remove all tags from the instances.
+    // - **true**: Detach all tags from the instances.
     // 
-    // >  The default value of this parameter is false.
+    // - **false**: Do not detach all tags from the instances.
     // 
+    // > * The default value is false.
     // 
-    // 
-    // *   If you specify this parameter together with the TagKey parameter, this parameter does not take effect.
+    // - If TagKey is specified, this parameter is ignored.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of instances.
+    // A list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type. Set the value to **INSTANCE**.
+    // The resource type. The value is fixed to **INSTANCE**.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // The list of keys of the tags that you want to remove.
+    // A list of tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

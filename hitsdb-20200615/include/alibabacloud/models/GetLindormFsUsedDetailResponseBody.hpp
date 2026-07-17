@@ -188,31 +188,36 @@ namespace Models
 
 
     protected:
-      // The total storage capacity. Unit: bytes.
+      // The total storage capacity for this storage medium, in bytes.
       shared_ptr<string> capacity_ {};
       // The storage type of the cluster. Valid values:
       // 
-      // *   StandardCloudStorage
-      // *   PerformanceCloudStorage
-      // *   CapacityCloudStorage
-      // *   LocalSsdStorage
-      // *   LocalHddStorage
-      // *   LocalEbsStorage
+      // - `StandardCloudStorage`: standard cloud storage.
+      // 
+      // - `PerformanceCloudStorage`: performance cloud storage.
+      // 
+      // - `CapacityCloudStorage`: capacity cloud storage.
+      // 
+      // - `LocalSsdStorage`: local SSD.
+      // 
+      // - `LocalHddStorage`: local HDD.
+      // 
+      // - `LocalEbsStorage`: local block storage.
       shared_ptr<string> diskType_ {};
-      // The storage usage. Unit: bytes.
+      // The storage used on this storage medium, in bytes.
       shared_ptr<string> used_ {};
       shared_ptr<string> usedLindormColumn3_ {};
       shared_ptr<string> usedLindormMessage3_ {};
-      // The storage usage of the search engine. Unit: bytes.
+      // The storage used by the search engine on this storage medium, in bytes.
       shared_ptr<string> usedLindormSearch_ {};
-      // The storage usage of the compute engine. Unit: bytes.
+      // The storage used by the compute engine on this storage medium, in bytes.
       shared_ptr<string> usedLindormSpark_ {};
-      // The storage usage of the wide table engine. Unit: bytes.
+      // The storage used by the wide-column engine on this storage medium, in bytes.
       shared_ptr<string> usedLindormTable_ {};
-      // The storage usage of the time series engine. Unit: bytes.
+      // The storage used by the time series engine on this storage medium, in bytes.
       shared_ptr<string> usedLindormTsdb_ {};
       shared_ptr<string> usedLindormVector3_ {};
-      // The storage usage of other resources, such as logs and recycle bins. Unit: bytes.
+      // The storage used by other components, such as logs and trash, on this storage medium, in bytes.
       shared_ptr<string> usedOther_ {};
     };
 
@@ -364,45 +369,45 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // Details on why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The total storage space of the cluster. Unit: bytes.
+    // The total storage capacity of the cluster, in bytes.
     shared_ptr<string> fsCapacity_ {};
-    // The cold storage space of the cluster. Unit: bytes.
+    // The cold storage capacity of the cluster, in bytes.
     shared_ptr<string> fsCapacityCold_ {};
-    // The hot storage space of the cluster. Unit: bytes.
+    // The hot storage capacity of the cluster, in bytes.
     shared_ptr<string> fsCapacityHot_ {};
-    // The cold storage usage of the cluster. Unit: bytes.
+    // The cold storage used by the cluster, in bytes.
     shared_ptr<string> fsUsedCold_ {};
-    // The cold storage usage of the table data of the search engine. Unit: bytes.
+    // The cold storage space used by table data of the search engine, in bytes.
     shared_ptr<string> fsUsedColdOnLindormSearch_ {};
-    // The cold storage usage of the table data of the time series engine. Unit: bytes.
+    // The cold storage space used by table data of the time series engine, in bytes.
     shared_ptr<string> fsUsedColdOnLindormTSDB_ {};
-    // The cold storage usage of the table data of the wide table engine. Unit: bytes.
+    // The cold storage space used by table data of the wide-column engine, in bytes.
     shared_ptr<string> fsUsedColdOnLindormTable_ {};
-    // The hot storage usage of the cluster. Unit: bytes.
+    // The hot storage used by the cluster, in bytes.
     shared_ptr<string> fsUsedHot_ {};
-    // The hot storage usage of the table data of the search engine. Unit: bytes.
+    // The hot storage space used by table data of the search engine, in bytes.
     shared_ptr<string> fsUsedHotOnLindormSearch_ {};
-    // The hot storage usage of the table data of the time series engine. Unit: bytes.
+    // The hot storage space used by table data of the time series engine, in bytes.
     shared_ptr<string> fsUsedHotOnLindormTSDB_ {};
-    // The hot storage usage of the table data of the wide table engine. Unit: bytes.
+    // The hot storage space used by table data of the wide-column engine, in bytes.
     shared_ptr<string> fsUsedHotOnLindormTable_ {};
-    // The storage usage of the search engine. Unit: bytes.
+    // The storage space used by the search engine in the cluster, in bytes.
     shared_ptr<string> fsUsedOnLindormSearch_ {};
-    // The storage usage of the time series engine. Unit: bytes.
+    // The storage space used by the time series engine in the cluster, in bytes.
     shared_ptr<string> fsUsedOnLindormTSDB_ {};
-    // The space usage of the wide table engine. Unit: bytes.
+    // The storage space used by the wide-column engine in the cluster, in bytes.
     shared_ptr<string> fsUsedOnLindormTable_ {};
-    // The storage usage of the table data of the wide table engine. Unit: bytes.
+    // The storage space used by table data of the wide-column engine, in bytes.
     shared_ptr<string> fsUsedOnLindormTableData_ {};
-    // The storage usage of the log data of the wide table engine. Unit: bytes.
+    // The storage space used by log data of the wide-column engine, in bytes.
     shared_ptr<string> fsUsedOnLindormTableWAL_ {};
-    // If the version of the underlying storage engine is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail. Storage details are returned based on the storage type.
+    // For clusters that run storage engine v4.1.9 or later, this parameter provides authoritative storage details categorized by storage medium.
     shared_ptr<vector<GetLindormFsUsedDetailResponseBody::LStorageUsageList>> LStorageUsageList_ {};
-    // The request ID. Each request has a unique ID. You can use the request ID to locate and troubleshoot issues.
+    // The ID of the request. This unique identifier is generated by Alibaba Cloud for each request and is used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the return value is valid. Valid values: true and false. If a value of false is returned, you must provide the request ID for troubleshooting.
+    // Indicates whether the response is valid. A value of `false` indicates that an error occurred, and you must provide the request ID for troubleshooting.
     shared_ptr<string> valid_ {};
   };
 

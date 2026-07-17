@@ -82,10 +82,17 @@ namespace Models
 
 
   protected:
+    // The detailed reason why the access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The capacity information for each storage medium.
     shared_ptr<vector<Darabonba::Json>> capacityByDiskCategory_ {};
+    // The capacity information for the multi-zone instance.
+    // 
+    // {"ZoneId":{"CapacityByDiskCategory":{...},"UsageByDiskCategory":{...}}}
     Darabonba::Json instanceStorageZoneMap_ {};
+    // The ID of the request. Alibaba Cloud generates this unique ID for each request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The usage information for each storage medium.
     shared_ptr<vector<Darabonba::Json>> usageByDiskCategory_ {};
   };
 

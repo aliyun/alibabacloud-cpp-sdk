@@ -113,24 +113,31 @@ namespace Models
 
 
       protected:
-        // The method by which the connection information can be used to access LindormTable. Valid values:
+        // The connection method for LindormTable. Valid values:
         // 
-        // *   **0**: The default value. This value can be ignored.
-        // *   **1**: The connection information can be used to access LindormTable by using ApsaraDB for HBase API for Java.
-        // *   **2**: The connection information can be used to access LindormTable by using ApsaraDB for HBase API for a non-Java language.
-        // *   **3**: The connection information can be used to access LindormTable by using the LindormTable endpoint for CQL.
-        // *   **4**: The connection information can be used to access LindormTable by using the LindormTable endpoint for SQL.
-        // *   **5**: The connection information can be used to access Lindorm by using the LindormTable endpoint for Amazon S3.
-        // *   **6**: The connection information can be used to access Lindorm by using the LindormTable endpoint for MySQL.
+        // - **0**: This is the default value and can be ignored.
+        // 
+        // - **1**: Use the HBase Java API to access LindormTable.
+        // 
+        // - **2**: Use a non-Java HBase API to access LindormTable.
+        // 
+        // - **3**: Use CQL to access LindormTable.
+        // 
+        // - **4**: Use the LindormTable SQL endpoint.
+        // 
+        // - **5**: Use the S3-compatible endpoint for LindormTable.
+        // 
+        // - **6**: Use the MySQL-compatible endpoint for LindormTable.
         shared_ptr<int32_t> accessType_ {};
-        // The endpoint that is used to connect to the engine.
+        // The database endpoint.
         shared_ptr<string> connectionString_ {};
-        // The network type of the endpoint. Valid values:
+        // The network type of the database endpoint. Valid values:
         // 
-        // *   **0**: Internet
-        // *   **2**: virtual private cloud (VPC)
+        // - **0**: Internet.
+        // 
+        // - **2**: Virtual private cloud (VPC).
         shared_ptr<string> netType_ {};
-        // The port number used to connect to the engine.
+        // The port number of the database endpoint.
         shared_ptr<int32_t> port_ {};
       };
 
@@ -153,14 +160,17 @@ namespace Models
 
 
     protected:
-      // The type of engine that can run on the instance. Valid values:
+      // The engine type. Valid values:
       // 
-      // *   **lindorm**: LindormTable.
-      // *   **tsdb**: LindormTSDB.
-      // *   **solr**: LindormSearch.
-      // *   **store**: LindormDFS.
+      // - **lindorm**: LindormTable.
+      // 
+      // - **tsdb**: LindormTSDB.
+      // 
+      // - **solr**: Search engine.
+      // 
+      // - **store**: File engine.
       shared_ptr<string> engineType_ {};
-      // The list of connection information about the engine.
+      // The list of database connection information for the engine.
       shared_ptr<vector<EngineList::NetInfoList>> netInfoList_ {};
     };
 
@@ -197,13 +207,13 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The detailed reason why the access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The list of engines that can run on the specified instance.
+    // The list of engine types.
     shared_ptr<vector<GetLindormInstanceEngineListResponseBody::EngineList>> engineList_ {};
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

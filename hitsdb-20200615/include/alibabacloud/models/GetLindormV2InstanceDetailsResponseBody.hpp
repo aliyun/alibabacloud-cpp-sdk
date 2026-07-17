@@ -144,7 +144,9 @@ namespace Models
 
 
     protected:
+      // The group name. The name can contain only letters, digits, and underscores (_).
       shared_ptr<string> groupName_ {};
+      // The IP addresses in the whitelist.
       shared_ptr<string> ipList_ {};
     };
 
@@ -190,7 +192,9 @@ namespace Models
 
 
     protected:
+      // The instance storage usage.
       shared_ptr<vector<Darabonba::Json>> capacityByDiskCategory_ {};
+      // The storage usage of each engine.
       Darabonba::Json engineUsage_ {};
     };
 
@@ -343,16 +347,101 @@ namespace Models
 
 
       protected:
+        // Deprecated.
         shared_ptr<string> category_ {};
+        // The number of vCPUs for the node.
         shared_ptr<int32_t> cpuCoreCount_ {};
+        // Indicates whether a local disk is attached to the node.
         shared_ptr<bool> enableAttachLocalDisk_ {};
+        // The capacity of the local disk in GB.
         shared_ptr<int64_t> localDiskCapacity_ {};
+        // The type of the local cloud disk.
+        // 
+        // - cloud_essd: performance cloud disk
+        // 
+        // - cloud_efficiency: standard cloud disk
         shared_ptr<string> localDiskCategory_ {};
+        // The memory size of the node in GiB.
         shared_ptr<int32_t> memorySizeGiB_ {};
+        // The node specifications.
+        // 
+        // If you select Performance cloud storage or Standard cloud storage, this parameter can be set to one of the following values:
+        // 
+        // - lindorm.c.2xlarge: 8 vCPUs, 16 GB memory.
+        // 
+        // - lindorm.g.2xlarge: 8 vCPUs, 32 GB memory.
+        // 
+        // - lindorm.c.4xlarge: 16 vCPUs, 32 GB memory.
+        // 
+        // - lindorm.g.4xlarge: 16 vCPUs, 64 GB memory.
+        // 
+        // - lindorm.c.8xlarge: 32 vCPUs, 64 GB memory.
+        // 
+        // - lindorm.g.8xlarge: 32 vCPUs, 128 GB memory.
+        // 
+        // - lindorm.r.2xlarge: 8 vCPUs, 64 GB memory.
+        // 
+        // - lindorm.r.4xlarge: 16 vCPUs, 128 GB memory.
+        // 
+        // - lindorm.r.8xlarge: 32 vCPUs, 256 GB memory.
+        // 
+        // If you select Local SSD, this parameter can be set to one of the following values:
+        // 
+        // - lindorm.i4.xlarge: 4 vCPUs, 32 GB memory (I4).
+        // 
+        // - lindorm.i4.2xlarge: 8 vCPUs, 64 GB memory (I4).
+        // 
+        // - lindorm.i4.4xlarge: 16 vCPUs, 128 GB memory (I4).
+        // 
+        // - lindorm.i4.8xlarge: 32 vCPUs, 256 GB memory (I4).
+        // 
+        // - lindorm.i3.xlarge: 4 vCPUs, 32 GB memory (I3).
+        // 
+        // - lindorm.i3.2xlarge: 8 vCPUs, 64 GB memory (I3).
+        // 
+        // - lindorm.i3.4xlarge: 16 vCPUs, 128 GB memory (I3).
+        // 
+        // - lindorm.i3.8xlarge: 32 vCPUs, 256 GB memory (I3).
+        // 
+        // - lindorm.i2.xlarge: 4 vCPUs, 32 GB memory (I2).
+        // 
+        // - lindorm.i2.2xlarge: 8 vCPUs, 64 GB memory (I2).
+        // 
+        // - lindorm.i2.4xlarge: 16 vCPUs, 128 GB memory (I2).
+        // 
+        // - lindorm.i2.8xlarge: 32 vCPUs, 256 GB memory (I2).
+        // 
+        // If you select Big Data, this parameter can be set to one of the following values:
+        // 
+        // - lindorm.sd3c.3xlarge: 14 vCPUs, 56 GB memory (D3C PRO).
+        // 
+        // - lindorm.sd3c.7xlarge: 28 vCPUs, 112 GB memory (D3C PRO).
+        // 
+        // - lindorm.sd3c.14xlarge: 56 vCPUs, 224 GB memory (D3C PRO).
+        // 
+        // - lindorm.d2c.6xlarge: 24 vCPUs, 88 GB memory (D2C).
+        // 
+        // - lindorm.d2c.12xlarge: 48 vCPUs, 176 GB memory (D2C).
+        // 
+        // - lindorm.d2c.24xlarge: 96 vCPUs, 352 GB memory (D2C).
+        // 
+        // - lindorm.d2s.5xlarge: 20 vCPUs, 88 GB memory (D2S).
+        // 
+        // - lindorm.d2s.10xlarge: 40 vCPUs, 176 GB memory (D2S).
+        // 
+        // - lindorm.d1.2xlarge: 8 vCPUs, 32 GB memory (D1NE).
+        // 
+        // - lindorm.d1.4xlarge: 16 vCPUs, 64 GB memory (D1NE).
+        // 
+        // - lindorm.d1.6xlarge: 24 vCPUs, 96 GB memory (D1NE).
         shared_ptr<string> nodeSpec_ {};
+        // The number of nodes.
         shared_ptr<int32_t> quantity_ {};
+        // The name of the node group. **Required**. This must be the same as the name used during creation.
         shared_ptr<string> resourceGroupName_ {};
+        // The unique ID that corresponds to the delivery group ID.
         shared_ptr<string> specId_ {};
+        // The node status.
         shared_ptr<string> status_ {};
       };
 
@@ -403,8 +492,15 @@ namespace Models
 
 
       protected:
+        // The endpoint.
         shared_ptr<string> address_ {};
+        // The port number of the database endpoint.
         shared_ptr<string> port_ {};
+        // The endpoint type.
+        // 
+        // - INTRANET: VPC private endpoint.
+        // 
+        // - INTERNET: Public endpoint.
         shared_ptr<string> type_ {};
       };
 
@@ -457,11 +553,33 @@ namespace Models
 
 
     protected:
+      // A list of engine endpoints.
       shared_ptr<vector<EngineList::ConnectAddressList>> connectAddressList_ {};
+      // The engine type. Valid values:
+      // 
+      // - **TABLE**: LindormTable.
+      // 
+      // - **TSDB**: LindormTSDB.
+      // 
+      // - **LSEARCH**: Search engine.
+      // 
+      // - **LTS**: LTS engine.
+      // 
+      // - **LVECTOR**: Vector engine.
+      // 
+      // - **LCOLUMN**: Column store.
       shared_ptr<string> engine_ {};
+      // Indicates whether the engine is the latest version. Valid values:
+      // 
+      // - **true**: The engine is the latest version.
+      // 
+      // - **false**: The engine is not the latest version.
       shared_ptr<bool> isLastVersion_ {};
+      // The latest version number for the engine type.
       shared_ptr<string> latestVersion_ {};
+      // A list of engine node groups.
       shared_ptr<vector<EngineList::NodeGroup>> nodeGroup_ {};
+      // The version number of the engine type.
       shared_ptr<string> version_ {};
     };
 
@@ -756,44 +874,155 @@ namespace Models
 
 
   protected:
+    // The 16-digit AliUid of the Alibaba Cloud account.
     shared_ptr<int64_t> aliUid_ {};
+    // For a multi-zone instance, this is the ID of the virtual switch in the arbiter zone. The vSwitch must be in the zone specified by ArbiterZoneId.
     shared_ptr<string> arbiterVSwitchId_ {};
+    // For a multi-zone instance, this is the ID of the arbiter zone.
     shared_ptr<string> arbiterZoneId_ {};
+    // Indicates whether auto-renewal is enabled. Valid values:
+    // 
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
+    // 
+    // > This parameter is returned only for subscription instances.
     shared_ptr<bool> autoRenew_ {};
+    // The cloud storage capacity in GB.
     shared_ptr<int64_t> cloudStorageSize_ {};
+    // The capacity of the storage-optimized cloud storage.
     shared_ptr<int32_t> coldStorage_ {};
+    // The number of milliseconds between the instance creation time and 00:00:00 on January 1, 1970.
     shared_ptr<int64_t> createMilliseconds_ {};
+    // Indicates whether deletion protection is enabled. Valid values:
+    // 
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
     shared_ptr<string> deletionProtection_ {};
+    // The storage class. Valid values:
+    // 
+    // - **StandardStorage**: Standard cloud storage.
+    // 
+    // - **PerformanceStorage**: Performance cloud storage.
     shared_ptr<string> diskCategory_ {};
+    // The disk space threshold.
     shared_ptr<string> diskThreshold_ {};
+    // The disk space usage.
     shared_ptr<string> diskUsage_ {};
+    // Indicates whether the compute engine is enabled for the instance. Valid values:
+    // 
+    // - **true**: enabled.
+    // 
+    // - **false**: disabled.
     shared_ptr<bool> enableCompute_ {};
+    // Indicates whether the file engine is enabled.
     shared_ptr<string> enableFs_ {};
+    // Indicates whether transparent data encryption (TDE) is enabled for storage.
     shared_ptr<string> enableStoreTDE_ {};
+    // The list of engine information.
     shared_ptr<vector<GetLindormV2InstanceDetailsResponseBody::EngineList>> engineList_ {};
+    // The number of milliseconds between the instance expiration time and 00:00:00 on January 1, 1970.
     shared_ptr<int64_t> expiredMilliseconds_ {};
+    // The default initial password.
     shared_ptr<string> initialRootPassword_ {};
+    // The instance name.
     shared_ptr<string> instanceAlias_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The instance status. Valid values:
+    // 
+    // - **CREATING**: The instance is being created.
+    // 
+    // - **ACTIVATION**: The instance is running.
+    // 
+    // - **COLD_EXPANDING**: The storage-optimized cloud storage is being scaled out.
+    // 
+    // - **MINOR_VERSION_TRANSING**: The minor version is being upgraded.
+    // 
+    // - **RESIZING**: The nodes are being scaled out.
+    // 
+    // - **SHRINKING**: The nodes are being scaled in.
+    // 
+    // - **CLASS_CHANGING**: The instance specifications are being upgraded or downgraded.
+    // 
+    // - **SSL_SWITCHING**: The SSL certificate is being changed.
+    // 
+    // - **CDC_OPENING**: The data subscription feature is being enabled.
+    // 
+    // - **TRANSFER**: Data is being migrated.
+    // 
+    // - **DATABASE_TRANSFER**: Data is being migrated to the database.
+    // 
+    // - **GUARD_CREATING**: A disaster recovery instance is being created.
+    // 
+    // - **BACKUP_RECOVERING**: Data is being restored from a backup.
+    // 
+    // - **DATABASE_IMPORTING**: Data is being imported.
+    // 
+    // - **NET_MODIFYING**: The network is being modified.
+    // 
+    // - **NET_SWITCHING**: The network is being switched between the private network and the public network.
+    // 
+    // - **NET_CREATING**: A network connection is being created.
+    // 
+    // - **NET_DELETING**: A network connection is being deleted.
+    // 
+    // - **DELETING**: The instance is being deleted.
+    // 
+    // - **RESTARTING**: The instance is being restarted.
+    // 
+    // - **LOCKED**: The instance has expired and is locked.
     shared_ptr<string> instanceStatus_ {};
+    // The instance type. Valid value:
+    // 
+    // - basic: Production.
     shared_ptr<string> instanceType_ {};
+    // The end time of the maintenance window.
     shared_ptr<string> maintainEndTime_ {};
+    // The start time of the maintenance window.
     shared_ptr<string> maintainStartTime_ {};
+    // The network type of the instance.
     shared_ptr<string> networkType_ {};
+    // The billing method of the instance. Valid values:
+    // 
+    // - **PREPAY**: subscription.
+    // 
+    // - **POSTPAY**: pay-as-you-go.
     shared_ptr<string> payType_ {};
+    // For a multi-zone instance, this is the ID of the virtual switch in the primary zone. The vSwitch must be in the zone specified by PrimaryZoneId.
     shared_ptr<string> primaryVSwitchId_ {};
+    // For a multi-zone instance, this is the ID of the primary zone.
     shared_ptr<string> primaryZoneId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The instance type. Valid values:
+    // 
+    // - **lindorm_v2**: Lindorm V2 single-zone instance.
+    // 
+    // - **lindorm_v2_multizone**: Lindorm V2 Multi-zone Deployment (Basic) instance.
+    // 
+    // - **lindorm_v2_multizone_ha**: Lindorm V2 multi-zone High-availability Edition instance.
     shared_ptr<string> serviceType_ {};
+    // For a multi-zone instance, this is the ID of the virtual switch in the secondary zone. The vSwitch must be in the zone specified by StandbyZoneId.
     shared_ptr<string> standbyVSwitchId_ {};
+    // For a multi-zone instance, this is the ID of the secondary zone.
     shared_ptr<string> standbyZoneId_ {};
+    // The instance storage usage.
     shared_ptr<GetLindormV2InstanceDetailsResponseBody::StorageUsage> storageUsage_ {};
+    // The ID of the virtual private cloud (VPC) where the instance resides.
     shared_ptr<string> vpcId_ {};
+    // The ID of the virtual switch.
     shared_ptr<string> vswitchId_ {};
+    // The instance access whitelist.
     shared_ptr<vector<GetLindormV2InstanceDetailsResponseBody::WhiteIpList>> whiteIpList_ {};
+    // The deployment details of the engine in the zone.
     Darabonba::Json zoneEngineInfoMap_ {};
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

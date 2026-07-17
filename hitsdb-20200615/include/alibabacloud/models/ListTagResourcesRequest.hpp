@@ -86,13 +86,13 @@ namespace Models
 
 
     protected:
-      // The keys of the tags associated with the instances you want to query.
+      // The key of the tag.
       // 
-      // > You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+      // > Each tag is a key-value pair. This parameter specifies the key.
       shared_ptr<string> key_ {};
-      // The values of the tags associated with the instances you want to query.
+      // The value of the tag.
       // 
-      // > You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+      // > Each tag is a key-value pair. This parameter specifies the value.
       shared_ptr<string> value_ {};
     };
 
@@ -174,17 +174,17 @@ namespace Models
 
 
   protected:
-    // The token used to start the next query to retrieve more results.
+    // The token to retrieve the next page of results.
     // 
-    // > This parameter is not required in the first query. If not all results are returned in one query, you can pass in the **NextToken** value returned for the query to perform the next query.
+    // > Do not specify this parameter for your first request. If the response returns a **NextToken**, more results are available. To retrieve the next page, include the returned **NextToken** value in your next request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region in which the instances whose tags you want to query are located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
+    // The ID of the region where the instance is located. Call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to get a list of available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of resource IDs.
+    // A list of resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -193,7 +193,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // The list of tags associated with the instances you want to query.
+    // A list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

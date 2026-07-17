@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The name of the IP address whitelist.
+      // The name of the whitelist group.
       shared_ptr<string> groupName_ {};
-      // The IP addresses in the whitelist.
+      // The IP address whitelist.
       shared_ptr<string> securityIpList_ {};
     };
 
@@ -124,15 +124,15 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
+    // The details about why the access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The details about the IP address whitelists.
+    // A list of whitelist groups.
     shared_ptr<vector<GetInstanceIpWhiteListResponseBody::GroupList>> groupList_ {};
-    // The ID of the Lindorm instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The list of IP addresses in the whitelist of the instance.
+    // A list of IP addresses in the whitelist.
     shared_ptr<vector<string>> ipList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
