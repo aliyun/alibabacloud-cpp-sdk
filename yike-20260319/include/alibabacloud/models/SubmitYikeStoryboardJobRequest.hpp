@@ -202,7 +202,7 @@ namespace Models
     shared_ptr<bool> keepOriginDialogue_ {};
     // The model parameters in JSON format.
     // 
-    // "AudioEnable": false disables audio.
+    //  "AudioEnable": false disables audio.
     shared_ptr<string> modelParams_ {};
     // The narration voice ID. Valid values:
     // - sys_GracefulPoisedWoman: mature graceful female
@@ -215,14 +215,14 @@ namespace Models
     // - sys_SereneIntellect: serene intellectual male
     // - sys_MajesticBaritone: majestic baritone male
     // - sys_GravellySoulful: gravelly soulful male
-    // - sys_ClassicYoungMan: classic narrator male
-    // - sys_WiseYoungMan: wise narrator male
-    // - sys_ClassicYoungWoman: classic narrator female
-    // - sys_IntellectualYoungWoman: intellectual narrator female
-    // - sys_GentleYoungMan: gentle narrator male
+    // - sys_ClassicYoungMan: classic narration male
+    // - sys_WiseYoungMan: wise narration male
+    // - sys_ClassicYoungWoman: classic narration female
+    // - sys_IntellectualYoungWoman: intellectual narration female
+    // - sys_GentleYoungMan: gentle narration male
     // - sys_thoughtfulBoy: thoughtful boy
     // - sys_RichBassMale: rich bass male
-    // - sys_ClassicMiddleAgedWoman: classic middle-aged narrator female
+    // - sys_ClassicMiddleAgedWoman: classic middle-aged narration female
     shared_ptr<string> narrationVoiceId_ {};
     shared_ptr<bool> needCaption_ {};
     // The resolution of the output video. Valid values:

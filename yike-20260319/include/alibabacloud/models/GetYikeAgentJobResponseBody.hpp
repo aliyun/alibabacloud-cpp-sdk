@@ -190,15 +190,15 @@ namespace Models
 
 
   protected:
-    // The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
+    // The time when the task started, in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> createTime_ {};
     // The error code. This parameter is returned only when the task is in the Failed state.
     shared_ptr<string> errorCode_ {};
-    // The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
+    // The time when the task ended, in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> finishTime_ {};
     // The task ID.
     shared_ptr<string> jobId_ {};
-    // The input parameters of the task. The value is a JSON string.
+    // The input parameters of the task, in JSON string format.
     shared_ptr<string> jobParams_ {};
     // The task results. This parameter is valid only when the task is in the Succeeded state.
     shared_ptr<vector<GetYikeAgentJobResponseBody::JobResult>> jobResult_ {};
@@ -206,7 +206,7 @@ namespace Models
     // 
     // - Running
     // - Succeeded
-    // - Failed.
+    // - Failed
     shared_ptr<string> jobStatus_ {};
     // The agent task type. Valid values:
     // 

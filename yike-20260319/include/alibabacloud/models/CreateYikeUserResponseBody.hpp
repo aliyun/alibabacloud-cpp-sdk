@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The nickname of the user.
+      // The user nickname.
       shared_ptr<string> nickname_ {};
       // The user ID.
       shared_ptr<string> userId_ {};

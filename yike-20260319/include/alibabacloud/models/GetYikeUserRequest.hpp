@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The username of the WonderClip sub-account.
+    // The username of the RAM user.
     shared_ptr<string> userName_ {};
   };
 

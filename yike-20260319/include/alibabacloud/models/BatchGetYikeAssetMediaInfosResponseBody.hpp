@@ -257,37 +257,37 @@ namespace Models
         shared_ptr<string> biz_ {};
         // The business type of the media asset.
         shared_ptr<string> businessType_ {};
-        // The category.
+        // The category of the media asset.
         shared_ptr<string> category_ {};
-        // The cover URL.
+        // The URL of the cover image.
         shared_ptr<string> coverURL_ {};
         // The time when the media asset was created.
         shared_ptr<string> createTime_ {};
         // The time when the media asset was deleted.
         shared_ptr<string> deletedTime_ {};
-        // The content description.
+        // The description of the media asset content.
         shared_ptr<string> description_ {};
         // The address of the media asset to be registered in the corresponding system.
         shared_ptr<string> inputURL_ {};
         // MediaId
         shared_ptr<string> mediaId_ {};
-        // The tags.
+        // The tags of the media asset.
         shared_ptr<string> mediaTags_ {};
         // The media type of the media asset.
         shared_ptr<string> mediaType_ {};
-        // The time when the media asset was modified.
+        // The time when the media asset was last modified.
         shared_ptr<string> modifiedTime_ {};
-        // The snapshots.
+        // The snapshots of the media asset.
         shared_ptr<string> snapshots_ {};
-        // The source.
+        // The source of the media asset.
         shared_ptr<string> source_ {};
-        // The sprite images.
+        // The sprite images of the media asset.
         shared_ptr<string> spriteImages_ {};
-        // The resource status.
+        // The status of the resource.
         shared_ptr<string> status_ {};
-        // The title.
+        // The title of the media asset.
         shared_ptr<string> title_ {};
-        // The transcoding status.
+        // The transcoding status of the media asset.
         shared_ptr<string> transcodeStatus_ {};
         // The user data.
         shared_ptr<string> userData_ {};
@@ -432,27 +432,27 @@ namespace Models
 
 
         protected:
-          // The bitrate.
+          // The bitrate of the file.
           shared_ptr<string> bitrate_ {};
-          // The duration.
+          // The duration of the file.
           shared_ptr<string> duration_ {};
-          // The file name.
+          // The name of the file.
           shared_ptr<string> fileName_ {};
-          // The file size, in bytes.
+          // The size of the file, in bytes.
           shared_ptr<string> fileSize_ {};
-          // The file status.
+          // The status of the file.
           shared_ptr<string> fileStatus_ {};
-          // The file type.
+          // The type of the file.
           shared_ptr<string> fileType_ {};
           // The OSS URL of the file.
           shared_ptr<string> fileUrl_ {};
-          // The container format.
+          // The container format of the file.
           shared_ptr<string> formatName_ {};
-          // The height.
+          // The height of the file.
           shared_ptr<string> height_ {};
           // The storage region of the file.
           shared_ptr<string> region_ {};
-          // The width.
+          // The width of the file.
           shared_ptr<string> width_ {};
         };
 
@@ -467,7 +467,7 @@ namespace Models
 
 
       protected:
-        // The basic file information, including the duration and size.
+        // The basic file information, including duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -607,21 +607,21 @@ namespace Models
         shared_ptr<string> auditStatus_ {};
         // The ID of the creation task.
         shared_ptr<string> creationJobId_ {};
-        // The folder ID.
+        // The ID of the folder.
         shared_ptr<string> folderId_ {};
         // Indicates whether the media asset is marked as a favorite.
         shared_ptr<string> isFavorite_ {};
         // Indicates whether the media asset is logically deleted.
         shared_ptr<string> isLogicalDeleted_ {};
-        // The media asset subtype.
+        // The subtype of the media asset.
         shared_ptr<string> mediaAssetSubType_ {};
-        // The media asset type.
+        // The type of the media asset.
         shared_ptr<string> mediaAssetType_ {};
-        // The project ID.
+        // The ID of the project.
         shared_ptr<string> productionId_ {};
-        // The source ID.
+        // The ID of the source.
         shared_ptr<string> sourceId_ {};
-        // The source name.
+        // The name of the source.
         shared_ptr<string> sourceName_ {};
         // The source type.
         shared_ptr<string> sourceType_ {};
@@ -670,7 +670,7 @@ namespace Models
       shared_ptr<vector<MediaInfos::FileInfoList>> fileInfoList_ {};
       // BasicInfo
       shared_ptr<MediaInfos::MediaBasicInfo> mediaBasicInfo_ {};
-      // The media asset ID.
+      // The ID of the media asset.
       shared_ptr<string> mediaId_ {};
     };
 

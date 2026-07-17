@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The OSS URL of the file, without authentication.
+    // The OSS URL of the file (without authentication).
     shared_ptr<string> fileURL_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

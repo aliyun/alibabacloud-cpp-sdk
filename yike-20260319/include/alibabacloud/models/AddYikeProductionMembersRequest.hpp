@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> productionId_ {};
-    // The IDs of the RAM users.
+    // The RAM user IDs.
     // 
     // This parameter is required.
     shared_ptr<string> yikeUserIds_ {};

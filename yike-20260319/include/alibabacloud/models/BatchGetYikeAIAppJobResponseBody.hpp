@@ -331,7 +331,7 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The input parameters for running the AI application. The value is a JSON-serialized string.
+      // The input parameters for running the AI application. The value is a JSON serialize string.
       shared_ptr<string> appInputConfig_ {};
       // The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> executionFinishTime_ {};
@@ -349,7 +349,7 @@ namespace Models
       // - Created: The task is created.
       // - Queuing: The task is queuing.
       // - Executing: The task is being executed.
-      // - Finished: The task is finished.
+      // - Finished: The task is completed.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
     };

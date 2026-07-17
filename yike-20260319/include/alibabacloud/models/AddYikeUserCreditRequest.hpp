@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> credit_ {};
-    // The ID of the sub-account user.
+    // The sub-account user ID.
     // 
     // This parameter is required.
     shared_ptr<string> yikeUserId_ {};

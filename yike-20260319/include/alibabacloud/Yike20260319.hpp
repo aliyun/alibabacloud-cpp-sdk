@@ -21,7 +21,7 @@ namespace Yike20260319
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds a member to a Yike project.
+       * @summary Adds members to a Yike project.
        *
        * @param request AddYikeProductionMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Yike20260319
       Models::AddYikeProductionMembersResponse addYikeProductionMembersWithOptions(const Models::AddYikeProductionMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a member to a Yike project.
+       * @summary Adds members to a Yike project.
        *
        * @param request AddYikeProductionMembersRequest
        * @return AddYikeProductionMembersResponse
@@ -72,7 +72,7 @@ namespace Yike20260319
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJob(const Models::BatchGetYikeAIAppJobRequest &request);
 
       /**
-       * @summary Retrieves information about multiple media assets in a batch.
+       * @summary Retrieves media asset information in batches.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Yike20260319
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfosWithOptions(const Models::BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about multiple media assets in a batch.
+       * @summary Retrieves media asset information in batches.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @return BatchGetYikeAssetMediaInfosResponse
@@ -106,6 +106,23 @@ namespace Yike20260319
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
+       * @summary 创建一刻云剪辑工程
+       *
+       * @param request CreateYikeEditingProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateYikeEditingProjectResponse
+       */
+      Models::CreateYikeEditingProjectResponse createYikeEditingProjectWithOptions(const Models::CreateYikeEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一刻云剪辑工程
+       *
+       * @param request CreateYikeEditingProjectRequest
+       * @return CreateYikeEditingProjectResponse
+       */
+      Models::CreateYikeEditingProjectResponse createYikeEditingProject(const Models::CreateYikeEditingProjectRequest &request);
+
+      /**
        * @summary Creates a project.
        *
        * @param request CreateYikeProductionRequest
@@ -123,7 +140,7 @@ namespace Yike20260319
       Models::CreateYikeProductionResponse createYikeProduction(const Models::CreateYikeProductionRequest &request);
 
       /**
-       * @summary Creates a sub-account user in WonderClip.
+       * @summary Creates a sub-user.
        *
        * @param request CreateYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +149,7 @@ namespace Yike20260319
       Models::CreateYikeUserResponse createYikeUserWithOptions(const Models::CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a sub-account user in WonderClip.
+       * @summary Creates a sub-user.
        *
        * @param request CreateYikeUserRequest
        * @return CreateYikeUserResponse
@@ -177,7 +194,7 @@ namespace Yike20260319
        * @summary Queries an image generation task.
        *
        * @description ## Request description
-       * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request GetImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -189,7 +206,7 @@ namespace Yike20260319
        * @summary Queries an image generation task.
        *
        * @description ## Request description
-       * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request GetImageGenerationJobRequest
        * @return GetImageGenerationJobResponse
@@ -197,7 +214,7 @@ namespace Yike20260319
       Models::GetImageGenerationJobResponse getImageGenerationJob(const Models::GetImageGenerationJobRequest &request);
 
       /**
-       * @summary Queries an AI video generation task.
+       * @summary Queries a video generation task.
        *
        * @param request GetVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -206,7 +223,7 @@ namespace Yike20260319
       Models::GetVideoGenerationJobResponse getVideoGenerationJobWithOptions(const Models::GetVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an AI video generation task.
+       * @summary Queries a video generation task.
        *
        * @param request GetVideoGenerationJobRequest
        * @return GetVideoGenerationJobResponse
@@ -214,7 +231,7 @@ namespace Yike20260319
       Models::GetVideoGenerationJobResponse getVideoGenerationJob(const Models::GetVideoGenerationJobRequest &request);
 
       /**
-       * @summary Retrieves the details of an AI application task.
+       * @summary Retrieves an AI application task from China International Communications Group (YIKE) AI.
        *
        * @param request GetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +240,7 @@ namespace Yike20260319
       Models::GetYikeAIAppJobResponse getYikeAIAppJobWithOptions(const Models::GetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an AI application task.
+       * @summary Retrieves an AI application task from China International Communications Group (YIKE) AI.
        *
        * @param request GetYikeAIAppJobRequest
        * @return GetYikeAIAppJobResponse
@@ -231,7 +248,24 @@ namespace Yike20260319
       Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
 
       /**
-       * @summary Queries an agent task.
+       * @summary Retrieves the membership plan and credit information for a Yike primary account.
+       *
+       * @param request GetYikeAccountCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAccountCreditResponse
+       */
+      Models::GetYikeAccountCreditResponse getYikeAccountCreditWithOptions(const Models::GetYikeAccountCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the membership plan and credit information for a Yike primary account.
+       *
+       * @param request GetYikeAccountCreditRequest
+       * @return GetYikeAccountCreditResponse
+       */
+      Models::GetYikeAccountCreditResponse getYikeAccountCredit(const Models::GetYikeAccountCreditRequest &request);
+
+      /**
+       * @summary Queries an intelligent agent task.
        *
        * @param request GetYikeAgentJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -240,7 +274,7 @@ namespace Yike20260319
       Models::GetYikeAgentJobResponse getYikeAgentJobWithOptions(const Models::GetYikeAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an agent task.
+       * @summary Queries an intelligent agent task.
        *
        * @param request GetYikeAgentJobRequest
        * @return GetYikeAgentJobResponse
@@ -316,7 +350,7 @@ namespace Yike20260319
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
 
       /**
-       * @summary Retrieves information about a WonderClip sub-account.
+       * @summary Retrieves the information of a Yike RAM user.
        *
        * @param request GetYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +359,7 @@ namespace Yike20260319
       Models::GetYikeUserResponse getYikeUserWithOptions(const Models::GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a WonderClip sub-account.
+       * @summary Retrieves the information of a Yike RAM user.
        *
        * @param request GetYikeUserRequest
        * @return GetYikeUserResponse
@@ -333,7 +367,7 @@ namespace Yike20260319
       Models::GetYikeUserResponse getYikeUser(const Models::GetYikeUserRequest &request);
 
       /**
-       * @summary Queries the credit balance of a WonderClip user.
+       * @summary Queries the credits of a Yike user.
        *
        * @param request GetYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -342,7 +376,7 @@ namespace Yike20260319
       Models::GetYikeUserCreditResponse getYikeUserCreditWithOptions(const Models::GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the credit balance of a WonderClip user.
+       * @summary Queries the credits of a Yike user.
        *
        * @param request GetYikeUserCreditRequest
        * @return GetYikeUserCreditResponse
@@ -350,7 +384,7 @@ namespace Yike20260319
       Models::GetYikeUserCreditResponse getYikeUserCredit(const Models::GetYikeUserCreditRequest &request);
 
       /**
-       * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
+       * @summary Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
        *
        * @param request GetYikeVoiceNarratorJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -359,7 +393,7 @@ namespace Yike20260319
       Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJobWithOptions(const Models::GetYikeVoiceNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
+       * @summary Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
        *
        * @param request GetYikeVoiceNarratorJobRequest
        * @return GetYikeVoiceNarratorJobResponse
@@ -384,7 +418,7 @@ namespace Yike20260319
       Models::ListYikeAssetFoldersResponse listYikeAssetFolders(const Models::ListYikeAssetFoldersRequest &request);
 
       /**
-       * @summary Retrieves a list of Yike projects.
+       * @summary Retrieves the list of Yike projects.
        *
        * @param request ListYikeProductionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -393,7 +427,7 @@ namespace Yike20260319
       Models::ListYikeProductionsResponse listYikeProductionsWithOptions(const Models::ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of Yike projects.
+       * @summary Retrieves the list of Yike projects.
        *
        * @param request ListYikeProductionsRequest
        * @return ListYikeProductionsResponse
@@ -401,7 +435,7 @@ namespace Yike20260319
       Models::ListYikeProductionsResponse listYikeProductions(const Models::ListYikeProductionsRequest &request);
 
       /**
-       * @summary Get Yike Workspace List
+       * @summary Retrieves the list of Yike workspaces.
        *
        * @param request ListYikeWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -410,7 +444,7 @@ namespace Yike20260319
       Models::ListYikeWorkspacesResponse listYikeWorkspacesWithOptions(const Models::ListYikeWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Yike Workspace List
+       * @summary Retrieves the list of Yike workspaces.
        *
        * @param request ListYikeWorkspacesRequest
        * @return ListYikeWorkspacesResponse
@@ -435,7 +469,7 @@ namespace Yike20260319
       Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJob(const Models::PrecheckYikeAIAppJobRequest &request);
 
       /**
-       * @summary Registers a Yike media asset.
+       * @summary Registers a media asset.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -444,7 +478,7 @@ namespace Yike20260319
       Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfoWithOptions(const Models::RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers a Yike media asset.
+       * @summary Registers a media asset.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @return RegisterYikeAssetMediaInfoResponse
@@ -486,7 +520,7 @@ namespace Yike20260319
       Models::SetYikeCallbackConfigResponse setYikeCallbackConfig(const Models::SetYikeCallbackConfigRequest &request);
 
       /**
-       * @summary Sets the user role.
+       * @summary Sets the role of a user.
        *
        * @param request SetYikeUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -495,7 +529,7 @@ namespace Yike20260319
       Models::SetYikeUserRoleResponse setYikeUserRoleWithOptions(const Models::SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the user role.
+       * @summary Sets the role of a user.
        *
        * @param request SetYikeUserRoleRequest
        * @return SetYikeUserRoleResponse
@@ -503,7 +537,7 @@ namespace Yike20260319
       Models::SetYikeUserRoleResponse setYikeUserRole(const Models::SetYikeUserRoleRequest &request);
 
       /**
-       * @summary Reclaims credits from a user.
+       * @summary Deducts user credits.
        *
        * @param request SubYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -512,7 +546,7 @@ namespace Yike20260319
       Models::SubYikeUserCreditResponse subYikeUserCreditWithOptions(const Models::SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reclaims credits from a user.
+       * @summary Deducts user credits.
        *
        * @param request SubYikeUserCreditRequest
        * @return SubYikeUserCreditResponse
@@ -522,8 +556,8 @@ namespace Yike20260319
       /**
        * @summary Submits an image generation task.
        *
-       * @description ## Operation description
-       * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+       * @description ## Request description
+       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -534,8 +568,8 @@ namespace Yike20260319
       /**
        * @summary Submits an image generation task.
        *
-       * @description ## Operation description
-       * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+       * @description ## Request description
+       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitImageGenerationJobRequest
        * @return SubmitImageGenerationJobResponse
@@ -546,7 +580,7 @@ namespace Yike20260319
        * @summary Submits a video generation task.
        *
        * @description ## Request description
-       * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -558,7 +592,7 @@ namespace Yike20260319
        * @summary Submits a video generation task.
        *
        * @description ## Request description
-       * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitVideoGenerationJobRequest
        * @return SubmitVideoGenerationJobResponse
@@ -714,7 +748,7 @@ namespace Yike20260319
       Models::UpdateYikeProductionResponse updateYikeProduction(const Models::UpdateYikeProductionRequest &request);
 
       /**
-       * @summary Modifies the permissions of a Yike project member.
+       * @summary Modifies the permissions of a China Short Video (Yike) project member.
        *
        * @param request UpdateYikeProductionMemberAuthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +757,7 @@ namespace Yike20260319
       Models::UpdateYikeProductionMemberAuthResponse updateYikeProductionMemberAuthWithOptions(const Models::UpdateYikeProductionMemberAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the permissions of a Yike project member.
+       * @summary Modifies the permissions of a China Short Video (Yike) project member.
        *
        * @param request UpdateYikeProductionMemberAuthRequest
        * @return UpdateYikeProductionMemberAuthResponse

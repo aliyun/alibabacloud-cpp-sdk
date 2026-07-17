@@ -50,7 +50,7 @@ namespace Models
   protected:
     // RequestId
     shared_ptr<string> requestId_ {};
-    // Indicates whether the member is added.
+    // Indicates whether the members were added successfully.
     shared_ptr<bool> result_ {};
   };
 

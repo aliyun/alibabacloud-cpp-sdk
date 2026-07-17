@@ -18,6 +18,9 @@
 #include <alibabacloud/models/CreateYikeAssetUploadRequest.hpp>
 #include <alibabacloud/models/CreateYikeAssetUploadResponseBody.hpp>
 #include <alibabacloud/models/CreateYikeAssetUploadResponse.hpp>
+#include <alibabacloud/models/CreateYikeEditingProjectRequest.hpp>
+#include <alibabacloud/models/CreateYikeEditingProjectResponseBody.hpp>
+#include <alibabacloud/models/CreateYikeEditingProjectResponse.hpp>
 #include <alibabacloud/models/CreateYikeProductionRequest.hpp>
 #include <alibabacloud/models/CreateYikeProductionResponseBody.hpp>
 #include <alibabacloud/models/CreateYikeProductionResponse.hpp>
@@ -39,6 +42,9 @@
 #include <alibabacloud/models/GetYikeAIAppJobRequest.hpp>
 #include <alibabacloud/models/GetYikeAIAppJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAIAppJobResponse.hpp>
+#include <alibabacloud/models/GetYikeAccountCreditRequest.hpp>
+#include <alibabacloud/models/GetYikeAccountCreditResponseBody.hpp>
+#include <alibabacloud/models/GetYikeAccountCreditResponse.hpp>
 #include <alibabacloud/models/GetYikeAgentJobRequest.hpp>
 #include <alibabacloud/models/GetYikeAgentJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAgentJobResponse.hpp>

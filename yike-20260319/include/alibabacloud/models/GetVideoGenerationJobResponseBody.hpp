@@ -183,7 +183,7 @@ namespace Models
       shared_ptr<string> aspectRatio_ {};
       // The video duration. Unit: seconds.
       shared_ptr<string> duration_ {};
-      // The error message. This parameter is returned when the task is in the Failed state.
+      // The error message. This parameter is returned only when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The task input.
       shared_ptr<string> input_ {};
@@ -197,9 +197,9 @@ namespace Models
       shared_ptr<string> model_ {};
       // The number of generated videos.
       shared_ptr<int32_t> n_ {};
-      // The output result in JsonString format. The following fields are included:
+      // The generation result. The value is a JSON string that contains the following fields:
       // 
-      // Medias: a list of media information (Media objects). The Media object contains the following fields:
+      // Medias: a list of Media objects. Each Media object contains the following fields:
       // MediaId: String. The media asset ID.
       // OutputUrl: String. The media URL (with the authentication string).
       shared_ptr<string> output_ {};

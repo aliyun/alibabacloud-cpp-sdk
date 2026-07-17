@@ -319,7 +319,7 @@ namespace Models
   protected:
     // The AI application ID.
     shared_ptr<string> appId_ {};
-    // The input parameters for the AI application run. The value is a string obtained after JSON serialize.
+    // The input parameters for the AI application execution, a string after JSON serialization.
     shared_ptr<string> appParams_ {};
     // The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> executionFinishTime_ {};
@@ -336,11 +336,12 @@ namespace Models
     // The task execution result.
     shared_ptr<GetYikeAIAppJobResponseBody::Result> result_ {};
     // The task status. Valid values:
-    // - Created: The task is created.
+    // 
+    // - Created: The task is just created.
     // - Queuing: The task is queuing.
     // - Executing: The task is being executed.
-    // - Finished: The task is finished.
-    // - Failed: The task failed.
+    // - Finished: The task execution is complete.
+    // - Failed: The task execution failed.
     shared_ptr<string> status_ {};
   };
 

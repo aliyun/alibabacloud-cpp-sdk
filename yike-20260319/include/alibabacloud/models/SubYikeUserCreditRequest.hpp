@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The number of credits to reclaim. The value must be greater than 0 and cannot exceed the sub-account credit balance.
+    // The number of credits to deduct. The value must be greater than 0 and cannot exceed the sub-account credit balance.
     // 
     // This parameter is required.
     shared_ptr<int32_t> credit_ {};

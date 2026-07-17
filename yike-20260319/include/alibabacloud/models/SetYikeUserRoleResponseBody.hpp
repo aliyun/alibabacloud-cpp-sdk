@@ -50,8 +50,8 @@ namespace Models
   protected:
     // RequestId
     shared_ptr<string> requestId_ {};
-    // Indicates whether the role is set. Valid values:
-    // - true: Successful.
+    // Indicates whether the role is set successfully. Valid values:
+    // - true: Succeeded.
     // - false: Failed.
     shared_ptr<bool> result_ {};
   };

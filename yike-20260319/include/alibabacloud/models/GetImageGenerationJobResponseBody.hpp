@@ -172,7 +172,7 @@ namespace Models
     protected:
       // The video aspect ratio.
       shared_ptr<string> aspectRatio_ {};
-      // The error message. This parameter is of the String type and is returned when the task is in the Failed state.
+      // The error message. This parameter is returned only when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The task input.
       shared_ptr<string> input_ {};
@@ -193,7 +193,7 @@ namespace Models
       shared_ptr<string> output_ {};
       // The resolution of the generated video.
       shared_ptr<string> resolution_ {};
-      // The scenario type. Currently only `general` is supported.
+      // The scenario type. Currently, only `general` is supported.
       shared_ptr<string> scene_ {};
       // The task status. Valid values:
       // - Created: The task is created.

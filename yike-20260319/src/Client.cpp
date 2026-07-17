@@ -19,7 +19,8 @@ namespace Yike20260319
 AlibabaCloud::Yike20260319::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-shanghai" , "yike.cn-shanghai.aliyuncs.com"}
+    {"cn-shanghai" , "yike.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "yike.ap-southeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("yike", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -39,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a member to a Yike project.
+ * @summary Adds members to a Yike project.
  *
  * @param request AddYikeProductionMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -74,7 +75,7 @@ AddYikeProductionMembersResponse Client::addYikeProductionMembersWithOptions(con
 }
 
 /**
- * @summary Adds a member to a Yike project.
+ * @summary Adds members to a Yike project.
  *
  * @param request AddYikeProductionMembersRequest
  * @return AddYikeProductionMembersResponse
@@ -173,7 +174,7 @@ BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJob(const BatchGetYikeAIAp
 }
 
 /**
- * @summary Retrieves information about multiple media assets in a batch.
+ * @summary Retrieves media asset information in batches.
  *
  * @param request BatchGetYikeAssetMediaInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +205,7 @@ BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfosWithOptio
 }
 
 /**
- * @summary Retrieves information about multiple media assets in a batch.
+ * @summary Retrieves media asset information in batches.
  *
  * @param request BatchGetYikeAssetMediaInfosRequest
  * @return BatchGetYikeAssetMediaInfosResponse
@@ -261,6 +262,62 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUpload(const CreateYikeAsse
 }
 
 /**
+ * @summary 创建一刻云剪辑工程
+ *
+ * @param request CreateYikeEditingProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateYikeEditingProjectResponse
+ */
+CreateYikeEditingProjectResponse Client::createYikeEditingProjectWithOptions(const CreateYikeEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCoverURL()) {
+    query["CoverURL"] = request.getCoverURL();
+  }
+
+  if (!!request.hasMaterialMaps()) {
+    query["MaterialMaps"] = request.getMaterialMaps();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  json body = {};
+  if (!!request.hasTimeline()) {
+    body["Timeline"] = request.getTimeline();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateYikeEditingProject"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateYikeEditingProjectResponse>();
+}
+
+/**
+ * @summary 创建一刻云剪辑工程
+ *
+ * @param request CreateYikeEditingProjectRequest
+ * @return CreateYikeEditingProjectResponse
+ */
+CreateYikeEditingProjectResponse Client::createYikeEditingProject(const CreateYikeEditingProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createYikeEditingProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a project.
  *
  * @param request CreateYikeProductionRequest
@@ -307,7 +364,7 @@ CreateYikeProductionResponse Client::createYikeProduction(const CreateYikeProduc
 }
 
 /**
- * @summary Creates a sub-account user in WonderClip.
+ * @summary Creates a sub-user.
  *
  * @param request CreateYikeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -354,7 +411,7 @@ CreateYikeUserResponse Client::createYikeUserWithOptions(const CreateYikeUserReq
 }
 
 /**
- * @summary Creates a sub-account user in WonderClip.
+ * @summary Creates a sub-user.
  *
  * @param request CreateYikeUserRequest
  * @return CreateYikeUserResponse
@@ -460,7 +517,7 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const Delete
  * @summary Queries an image generation task.
  *
  * @description ## Request description
- * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request GetImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -494,7 +551,7 @@ GetImageGenerationJobResponse Client::getImageGenerationJobWithOptions(const Get
  * @summary Queries an image generation task.
  *
  * @description ## Request description
- * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request GetImageGenerationJobRequest
  * @return GetImageGenerationJobResponse
@@ -505,7 +562,7 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 }
 
 /**
- * @summary Queries an AI video generation task.
+ * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -514,10 +571,6 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const GetVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.getClientToken();
-  }
-
   if (!!request.hasJobId()) {
     query["JobId"] = request.getJobId();
   }
@@ -540,7 +593,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary Queries an AI video generation task.
+ * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -551,7 +604,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenera
 }
 
 /**
- * @summary Retrieves the details of an AI application task.
+ * @summary Retrieves an AI application task from China International Communications Group (YIKE) AI.
  *
  * @param request GetYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -582,7 +635,7 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJobWithOptions(const GetYikeAIAppJob
 }
 
 /**
- * @summary Retrieves the details of an AI application task.
+ * @summary Retrieves an AI application task from China International Communications Group (YIKE) AI.
  *
  * @param request GetYikeAIAppJobRequest
  * @return GetYikeAIAppJobResponse
@@ -593,7 +646,42 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJob(const GetYikeAIAppJobRequest &re
 }
 
 /**
- * @summary Queries an agent task.
+ * @summary Retrieves the membership plan and credit information for a Yike primary account.
+ *
+ * @param request GetYikeAccountCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeAccountCreditResponse
+ */
+GetYikeAccountCreditResponse Client::getYikeAccountCreditWithOptions(const GetYikeAccountCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetYikeAccountCredit"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeAccountCreditResponse>();
+}
+
+/**
+ * @summary Retrieves the membership plan and credit information for a Yike primary account.
+ *
+ * @param request GetYikeAccountCreditRequest
+ * @return GetYikeAccountCreditResponse
+ */
+GetYikeAccountCreditResponse Client::getYikeAccountCredit(const GetYikeAccountCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeAccountCreditWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries an intelligent agent task.
  *
  * @param request GetYikeAgentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +712,7 @@ GetYikeAgentJobResponse Client::getYikeAgentJobWithOptions(const GetYikeAgentJob
 }
 
 /**
- * @summary Queries an agent task.
+ * @summary Queries an intelligent agent task.
  *
  * @param request GetYikeAgentJobRequest
  * @return GetYikeAgentJobResponse
@@ -803,7 +891,7 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJob(const GetYikeStoryboar
 }
 
 /**
- * @summary Retrieves information about a WonderClip sub-account.
+ * @summary Retrieves the information of a Yike RAM user.
  *
  * @param request GetYikeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -834,7 +922,7 @@ GetYikeUserResponse Client::getYikeUserWithOptions(const GetYikeUserRequest &req
 }
 
 /**
- * @summary Retrieves information about a WonderClip sub-account.
+ * @summary Retrieves the information of a Yike RAM user.
  *
  * @param request GetYikeUserRequest
  * @return GetYikeUserResponse
@@ -845,7 +933,7 @@ GetYikeUserResponse Client::getYikeUser(const GetYikeUserRequest &request) {
 }
 
 /**
- * @summary Queries the credit balance of a WonderClip user.
+ * @summary Queries the credits of a Yike user.
  *
  * @param request GetYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -876,7 +964,7 @@ GetYikeUserCreditResponse Client::getYikeUserCreditWithOptions(const GetYikeUser
 }
 
 /**
- * @summary Queries the credit balance of a WonderClip user.
+ * @summary Queries the credits of a Yike user.
  *
  * @param request GetYikeUserCreditRequest
  * @return GetYikeUserCreditResponse
@@ -887,7 +975,7 @@ GetYikeUserCreditResponse Client::getYikeUserCredit(const GetYikeUserCreditReque
 }
 
 /**
- * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
+ * @summary Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
  *
  * @param request GetYikeVoiceNarratorJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -918,7 +1006,7 @@ GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJobWithOptions(const
 }
 
 /**
- * @summary Queries an intelligent video generation task for a narration-only video without a digital human.
+ * @summary Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
  *
  * @param request GetYikeVoiceNarratorJobRequest
  * @return GetYikeVoiceNarratorJobResponse
@@ -979,7 +1067,7 @@ ListYikeAssetFoldersResponse Client::listYikeAssetFolders(const ListYikeAssetFol
 }
 
 /**
- * @summary Retrieves a list of Yike projects.
+ * @summary Retrieves the list of Yike projects.
  *
  * @param request ListYikeProductionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1026,7 +1114,7 @@ ListYikeProductionsResponse Client::listYikeProductionsWithOptions(const ListYik
 }
 
 /**
- * @summary Retrieves a list of Yike projects.
+ * @summary Retrieves the list of Yike projects.
  *
  * @param request ListYikeProductionsRequest
  * @return ListYikeProductionsResponse
@@ -1037,7 +1125,7 @@ ListYikeProductionsResponse Client::listYikeProductions(const ListYikeProduction
 }
 
 /**
- * @summary Get Yike Workspace List
+ * @summary Retrieves the list of Yike workspaces.
  *
  * @param request ListYikeWorkspacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1072,7 +1160,7 @@ ListYikeWorkspacesResponse Client::listYikeWorkspacesWithOptions(const ListYikeW
 }
 
 /**
- * @summary Get Yike Workspace List
+ * @summary Retrieves the list of Yike workspaces.
  *
  * @param request ListYikeWorkspacesRequest
  * @return ListYikeWorkspacesResponse
@@ -1129,7 +1217,7 @@ PrecheckYikeAIAppJobResponse Client::precheckYikeAIAppJob(const PrecheckYikeAIAp
 }
 
 /**
- * @summary Registers a Yike media asset.
+ * @summary Registers a media asset.
  *
  * @param request RegisterYikeAssetMediaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1172,7 +1260,7 @@ RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfoWithOptions
 }
 
 /**
- * @summary Registers a Yike media asset.
+ * @summary Registers a media asset.
  *
  * @param request RegisterYikeAssetMediaInfoRequest
  * @return RegisterYikeAssetMediaInfoResponse
@@ -1271,7 +1359,7 @@ SetYikeCallbackConfigResponse Client::setYikeCallbackConfig(const SetYikeCallbac
 }
 
 /**
- * @summary Sets the user role.
+ * @summary Sets the role of a user.
  *
  * @param request SetYikeUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1306,7 +1394,7 @@ SetYikeUserRoleResponse Client::setYikeUserRoleWithOptions(const SetYikeUserRole
 }
 
 /**
- * @summary Sets the user role.
+ * @summary Sets the role of a user.
  *
  * @param request SetYikeUserRoleRequest
  * @return SetYikeUserRoleResponse
@@ -1317,7 +1405,7 @@ SetYikeUserRoleResponse Client::setYikeUserRole(const SetYikeUserRoleRequest &re
 }
 
 /**
- * @summary Reclaims credits from a user.
+ * @summary Deducts user credits.
  *
  * @param request SubYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1352,7 +1440,7 @@ SubYikeUserCreditResponse Client::subYikeUserCreditWithOptions(const SubYikeUser
 }
 
 /**
- * @summary Reclaims credits from a user.
+ * @summary Deducts user credits.
  *
  * @param request SubYikeUserCreditRequest
  * @return SubYikeUserCreditResponse
@@ -1365,8 +1453,8 @@ SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditReque
 /**
  * @summary Submits an image generation task.
  *
- * @description ## Operation description
- * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+ * @description ## Request description
+ * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1435,8 +1523,8 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 /**
  * @summary Submits an image generation task.
  *
- * @description ## Operation description
- * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+ * @description ## Request description
+ * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -1450,7 +1538,7 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
  * @summary Submits a video generation task.
  *
  * @description ## Request description
- * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1524,7 +1612,7 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
  * @summary Submits a video generation task.
  *
  * @description ## Request description
- * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitVideoGenerationJobRequest
  * @return SubmitVideoGenerationJobResponse
@@ -1989,7 +2077,7 @@ UpdateYikeProductionResponse Client::updateYikeProduction(const UpdateYikeProduc
 }
 
 /**
- * @summary Modifies the permissions of a Yike project member.
+ * @summary Modifies the permissions of a China Short Video (Yike) project member.
  *
  * @param request UpdateYikeProductionMemberAuthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2028,7 +2116,7 @@ UpdateYikeProductionMemberAuthResponse Client::updateYikeProductionMemberAuthWit
 }
 
 /**
- * @summary Modifies the permissions of a Yike project member.
+ * @summary Modifies the permissions of a China Short Video (Yike) project member.
  *
  * @param request UpdateYikeProductionMemberAuthRequest
  * @return UpdateYikeProductionMemberAuthResponse

@@ -130,7 +130,7 @@ namespace Models
         protected:
           // The download URL of the SRT file.
           shared_ptr<string> srtUrl_ {};
-          // The type enumeration. Currently, only VoiceOver is supported.
+          // The type enumeration. Currently only VoiceOver is supported.
           shared_ptr<string> tag_ {};
         };
 
@@ -169,11 +169,11 @@ namespace Models
       protected:
         // The download URL of the audio file.
         shared_ptr<string> audioUrl_ {};
-        // The download URL of the PR project file (not supported).
+        // The download URL of the PR project file (not supported currently).
         shared_ptr<string> projectUrl_ {};
         // The subtitle list.
         shared_ptr<vector<ExportResult::SrtList>> srtList_ {};
-        // The editing timeline (not supported).
+        // The editing timeline (not supported currently).
         shared_ptr<string> timeline_ {};
       };
 
