@@ -1474,6 +1474,56 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectory(const CreateMate
 }
 
 /**
+ * @summary 创建RBAC角色
+ *
+ * @description 万小智2.0AI对话
+ *
+ * @param request CreateRbacRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRbacRoleResponse
+ */
+CreateRbacRoleResponse Client::createRbacRoleWithOptions(const CreateRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasRoleData()) {
+    query["RoleData"] = request.getRoleData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRbacRole"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRbacRoleResponse>();
+}
+
+/**
+ * @summary 创建RBAC角色
+ *
+ * @description 万小智2.0AI对话
+ *
+ * @param request CreateRbacRoleRequest
+ * @return CreateRbacRoleResponse
+ */
+CreateRbacRoleResponse Client::createRbacRole(const CreateRbacRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRbacRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes and unbinds the SSL certificate that is bound to a website.
  *
  * @param request DeleteAppDomainCertificateRequest
@@ -1860,6 +1910,56 @@ DeleteMaterialTaskResponse Client::deleteMaterialTask(const DeleteMaterialTaskRe
 }
 
 /**
+ * @summary 删除RBAC角色
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request DeleteRbacRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRbacRoleResponse
+ */
+DeleteRbacRoleResponse Client::deleteRbacRoleWithOptions(const DeleteRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasRoleId()) {
+    query["RoleId"] = request.getRoleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRbacRole"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRbacRoleResponse>();
+}
+
+/**
+ * @summary 删除RBAC角色
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request DeleteRbacRoleRequest
+ * @return DeleteRbacRoleResponse
+ */
+DeleteRbacRoleResponse Client::deleteRbacRole(const DeleteRbacRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteRbacRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
  *
  * @param request DescribeAppDomainDnsRecordRequest
@@ -2078,9 +2178,55 @@ ExportMaterialFileResponse Client::exportMaterialFile(const ExportMaterialFileRe
 }
 
 /**
- * @summary WanXiaoZhi 2.0 - Obtain Site Preview URL
+ * @summary 导出RBAC配置
  *
- * @description WanXiaoZhi 2.0 - Obtain Site Preview URL
+ * @description 查询资源对应的supabase实例配置信息
+ *
+ * @param request ExportRbacConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportRbacConfigResponse
+ */
+ExportRbacConfigResponse Client::exportRbacConfigWithOptions(const ExportRbacConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExportRbacConfig"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportRbacConfigResponse>();
+}
+
+/**
+ * @summary 导出RBAC配置
+ *
+ * @description 查询资源对应的supabase实例配置信息
+ *
+ * @param request ExportRbacConfigRequest
+ * @return ExportRbacConfigResponse
+ */
+ExportRbacConfigResponse Client::exportRbacConfig(const ExportRbacConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportRbacConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the site preview URL for WanXiaoZhi 2.0.
+ *
+ * @description Retrieves the site preview URL for WanXiaoZhi 2.0.
  *
  * @param request GetAIStaffPreviewUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2115,9 +2261,9 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrlWithOptions(const GetAI
 }
 
 /**
- * @summary WanXiaoZhi 2.0 - Obtain Site Preview URL
+ * @summary Retrieves the site preview URL for WanXiaoZhi 2.0.
  *
- * @description WanXiaoZhi 2.0 - Obtain Site Preview URL
+ * @description Retrieves the site preview URL for WanXiaoZhi 2.0.
  *
  * @param request GetAIStaffPreviewUrlRequest
  * @return GetAIStaffPreviewUrlResponse
@@ -5168,6 +5314,286 @@ ListPromotionOfferRecordsForPartnerResponse Client::listPromotionOfferRecordsFor
 }
 
 /**
+ * @summary 查询RBAC组织树
+ *
+ * @description 获取生码插件配置信息
+ *
+ * @param request ListRbacOrgTreeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRbacOrgTreeResponse
+ */
+ListRbacOrgTreeResponse Client::listRbacOrgTreeWithOptions(const ListRbacOrgTreeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRbacOrgTree"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRbacOrgTreeResponse>();
+}
+
+/**
+ * @summary 查询RBAC组织树
+ *
+ * @description 获取生码插件配置信息
+ *
+ * @param request ListRbacOrgTreeRequest
+ * @return ListRbacOrgTreeResponse
+ */
+ListRbacOrgTreeResponse Client::listRbacOrgTree(const ListRbacOrgTreeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRbacOrgTreeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询RBAC权限列表
+ *
+ * @description 万小智2.0创建AI会话接口
+ *
+ * @param request ListRbacPermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRbacPermissionsResponse
+ */
+ListRbacPermissionsResponse Client::listRbacPermissionsWithOptions(const ListRbacPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRbacPermissions"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRbacPermissionsResponse>();
+}
+
+/**
+ * @summary 查询RBAC权限列表
+ *
+ * @description 万小智2.0创建AI会话接口
+ *
+ * @param request ListRbacPermissionsRequest
+ * @return ListRbacPermissionsResponse
+ */
+ListRbacPermissionsResponse Client::listRbacPermissions(const ListRbacPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRbacPermissionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询RBAC角色层级
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request ListRbacRoleHierarchyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRbacRoleHierarchyResponse
+ */
+ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchyWithOptions(const ListRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRbacRoleHierarchy"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRbacRoleHierarchyResponse>();
+}
+
+/**
+ * @summary 查询RBAC角色层级
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request ListRbacRoleHierarchyRequest
+ * @return ListRbacRoleHierarchyResponse
+ */
+ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchy(const ListRbacRoleHierarchyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRbacRoleHierarchyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询RBAC角色列表
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request ListRbacRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRbacRolesResponse
+ */
+ListRbacRolesResponse Client::listRbacRolesWithOptions(const ListRbacRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRbacRoles"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRbacRolesResponse>();
+}
+
+/**
+ * @summary 查询RBAC角色列表
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request ListRbacRolesRequest
+ * @return ListRbacRolesResponse
+ */
+ListRbacRolesResponse Client::listRbacRoles(const ListRbacRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRbacRolesWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the specifications of a website building application instance.
  *
  * @param request ModifyAppInstanceSpecRequest
@@ -7039,6 +7465,60 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartner(const Re
 }
 
 /**
+ * @summary 移除RBAC角色层级
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request RemoveRbacRoleHierarchyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveRbacRoleHierarchyResponse
+ */
+RemoveRbacRoleHierarchyResponse Client::removeRbacRoleHierarchyWithOptions(const RemoveRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChildRoleId()) {
+    query["ChildRoleId"] = request.getChildRoleId();
+  }
+
+  if (!!request.hasParentRoleId()) {
+    query["ParentRoleId"] = request.getParentRoleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveRbacRoleHierarchy"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveRbacRoleHierarchyResponse>();
+}
+
+/**
+ * @summary 移除RBAC角色层级
+ *
+ * @description 查询应用实例信息
+ *
+ * @param request RemoveRbacRoleHierarchyRequest
+ * @return RemoveRbacRoleHierarchyResponse
+ */
+RemoveRbacRoleHierarchyResponse Client::removeRbacRoleHierarchy(const RemoveRbacRoleHierarchyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeRbacRoleHierarchyWithOptions(request, runtime);
+}
+
+/**
  * @summary Renews a website builder application instance.
  *
  * @param request RenewAppInstanceRequest
@@ -7520,6 +8000,60 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificateWithOptions(const
 SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDomainCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setAppDomainCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置RBAC角色层级
+ *
+ * @description 获取生码插件配置信息
+ *
+ * @param request SetRbacRoleHierarchyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetRbacRoleHierarchyResponse
+ */
+SetRbacRoleHierarchyResponse Client::setRbacRoleHierarchyWithOptions(const SetRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChildRoleId()) {
+    query["ChildRoleId"] = request.getChildRoleId();
+  }
+
+  if (!!request.hasParentRoleId()) {
+    query["ParentRoleId"] = request.getParentRoleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetRbacRoleHierarchy"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetRbacRoleHierarchyResponse>();
+}
+
+/**
+ * @summary 设置RBAC角色层级
+ *
+ * @description 获取生码插件配置信息
+ *
+ * @param request SetRbacRoleHierarchyRequest
+ * @return SetRbacRoleHierarchyResponse
+ */
+SetRbacRoleHierarchyResponse Client::setRbacRoleHierarchy(const SetRbacRoleHierarchyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setRbacRoleHierarchyWithOptions(request, runtime);
 }
 
 /**
@@ -8280,6 +8814,60 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBindingWithOptions(const Updat
 UpdateMiniAppBindingResponse Client::updateMiniAppBinding(const UpdateMiniAppBindingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMiniAppBindingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新RBAC角色
+ *
+ * @description 获取生码插件配置信息
+ *
+ * @param request UpdateRbacRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRbacRoleResponse
+ */
+UpdateRbacRoleResponse Client::updateRbacRoleWithOptions(const UpdateRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasRoleData()) {
+    query["RoleData"] = request.getRoleData();
+  }
+
+  if (!!request.hasRoleId()) {
+    query["RoleId"] = request.getRoleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateRbacRole"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRbacRoleResponse>();
+}
+
+/**
+ * @summary 更新RBAC角色
+ *
+ * @description 获取生码插件配置信息
+ *
+ * @param request UpdateRbacRoleRequest
+ * @return UpdateRbacRoleResponse
+ */
+UpdateRbacRoleResponse Client::updateRbacRole(const UpdateRbacRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateRbacRoleWithOptions(request, runtime);
 }
 
 /**

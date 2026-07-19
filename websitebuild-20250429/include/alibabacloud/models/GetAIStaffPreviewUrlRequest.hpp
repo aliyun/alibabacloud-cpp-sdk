@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // session ID
+    // The session ID.
     shared_ptr<string> conversationId_ {};
-    // is application restart required
+    // Specifies whether to restart the application.
     shared_ptr<bool> restart_ {};
   };
 
