@@ -746,6 +746,7 @@ namespace Models
           shared_ptr<string> fromCityAdCode_ {};
           shared_ptr<string> fromCityName_ {};
           shared_ptr<string> fromStationName_ {};
+          // itemId
           shared_ptr<int64_t> itemId_ {};
           shared_ptr<int64_t> runTime_ {};
           shared_ptr<string> subFromCityAdCode_ {};
@@ -1844,8 +1845,10 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<TrainOrderQueryV2ResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

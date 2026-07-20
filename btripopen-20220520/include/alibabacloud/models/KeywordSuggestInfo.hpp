@@ -143,17 +143,29 @@ namespace Models
 
 
   protected:
+    // The address.
     shared_ptr<string> address_ {};
+    // The business area.
     shared_ptr<KeywordSuggestInfo> businessAreaWithCity_ {};
+    // The city code.
     shared_ptr<int32_t> cityCode_ {};
+    // The city name.
     shared_ptr<string> cityName_ {};
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // The hotel ID.
     shared_ptr<string> hotelId_ {};
+    // The icon.
     shared_ptr<string> icon_ {};
+    // The rating.
     shared_ptr<string> point_ {};
+    // The hotel starting price, in CNY.
     shared_ptr<string> price_ {};
+    // The region.
     shared_ptr<int32_t> region_ {};
+    // The type.
     shared_ptr<int32_t> type_ {};
+    // The type description.
     shared_ptr<string> typeDesc_ {};
   };
 

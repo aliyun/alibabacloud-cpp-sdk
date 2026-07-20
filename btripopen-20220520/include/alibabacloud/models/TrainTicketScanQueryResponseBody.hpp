@@ -420,7 +420,9 @@ namespace Models
         shared_ptr<string> serialNumber_ {};
         shared_ptr<string> taxAmount_ {};
         shared_ptr<string> taxRate_ {};
+        // 取票号
         shared_ptr<string> ticketNo_ {};
+        // 车次
         shared_ptr<string> trainNo_ {};
         shared_ptr<string> xmlUrl_ {};
       };
@@ -522,8 +524,10 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<TrainTicketScanQueryResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

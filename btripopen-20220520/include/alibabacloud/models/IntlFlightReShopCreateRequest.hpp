@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The full name of the passenger.
       shared_ptr<string> fullName_ {};
+      // The ID of the passenger.
       shared_ptr<int64_t> passengerId_ {};
     };
 
@@ -166,20 +168,37 @@ namespace Models
 
 
   protected:
+    // The key for the asynchronous application.
     shared_ptr<string> asyncApplyKey_ {};
+    // Specifies whether to use the asynchronous commit pattern. If asynchronous commit is used, only a key is returned before the application result is available.
     shared_ptr<bool> asyncApplyMode_ {};
+    // The business travel order ID. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> orderId_ {};
+    // The ID of the rebooking product.
+    // 
     // This parameter is required.
     shared_ptr<string> otaItemId_ {};
+    // The external order ID.
     shared_ptr<string> outOrderId_ {};
+    // The external rebooking application ID.
     shared_ptr<string> outReShopApplyId_ {};
+    // The rebooking group key returned by the inquiry operation.
+    // 
     // This parameter is required.
     shared_ptr<string> passengerJourneyGroupKey_ {};
+    // The rebooking reason code.
+    // 
     // This parameter is required.
     shared_ptr<string> reShopReasonCode_ {};
+    // The list of passengers selected for rebooking.
+    // 
     // This parameter is required.
     shared_ptr<vector<IntlFlightReShopCreateRequest::SelectedPassengers>> selectedPassengers_ {};
+    // The total rebooking fee (excluding the service fee), in cents.
+    //      * Total rebooking fee = cabin upgrade fee + handling fee + tax difference (applicable to international flights).
+    //      * Pass in this parameter when fees are incurred to verify whether the price has changed.
     shared_ptr<int64_t> totalReShopFee_ {};
   };
 

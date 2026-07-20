@@ -630,6 +630,7 @@ namespace Models
 
               protected:
                 shared_ptr<bool> isStruct_ {};
+                // PTC
                 shared_ptr<string> ptc_ {};
                 shared_ptr<vector<RefundSubItems::RefundSubContents>> refundSubContents_ {};
                 shared_ptr<string> title_ {};
@@ -1013,6 +1014,7 @@ namespace Models
 
               protected:
                 shared_ptr<bool> isStruct_ {};
+                // PTC
                 shared_ptr<string> ptc_ {};
                 shared_ptr<vector<RefundSubItems::RefundSubContents>> refundSubContents_ {};
                 shared_ptr<string> title_ {};
@@ -1619,6 +1621,7 @@ namespace Models
                 shared_ptr<vector<BaggageSubItems::BaggageSubContentVisualizes>> baggageSubContentVisualizes_ {};
                 shared_ptr<vector<Darabonba::Json>> extraContentVisualizes_ {};
                 shared_ptr<bool> isStruct_ {};
+                // PTC
                 shared_ptr<string> ptc_ {};
                 shared_ptr<string> title_ {};
               };
@@ -2493,6 +2496,7 @@ namespace Models
 
             protected:
               shared_ptr<bool> isStruct_ {};
+              // PTC
               shared_ptr<string> ptc_ {};
               shared_ptr<vector<RefundSubItems::RefundSubContents>> refundSubContents_ {};
               shared_ptr<string> title_ {};
@@ -2876,6 +2880,7 @@ namespace Models
 
             protected:
               shared_ptr<bool> isStruct_ {};
+              // PTC
               shared_ptr<string> ptc_ {};
               shared_ptr<vector<RefundSubItems::RefundSubContents>> refundSubContents_ {};
               shared_ptr<string> title_ {};
@@ -3482,6 +3487,7 @@ namespace Models
               shared_ptr<vector<BaggageSubItems::BaggageSubContentVisualizes>> baggageSubContentVisualizes_ {};
               shared_ptr<vector<Darabonba::Json>> extraContentVisualizes_ {};
               shared_ptr<bool> isStruct_ {};
+              // PTC
               shared_ptr<string> ptc_ {};
               shared_ptr<string> title_ {};
             };
@@ -4213,6 +4219,7 @@ namespace Models
 
               protected:
                 shared_ptr<bool> isStruct_ {};
+                // PTC
                 shared_ptr<string> ptc_ {};
                 shared_ptr<vector<RefundSubItems::RefundSubContents>> refundSubContents_ {};
                 shared_ptr<string> title_ {};
@@ -4596,6 +4603,7 @@ namespace Models
 
               protected:
                 shared_ptr<bool> isStruct_ {};
+                // PTC
                 shared_ptr<string> ptc_ {};
                 shared_ptr<vector<RefundSubItems::RefundSubContents>> refundSubContents_ {};
                 shared_ptr<string> title_ {};
@@ -5202,6 +5210,7 @@ namespace Models
                 shared_ptr<vector<BaggageSubItems::BaggageSubContentVisualizes>> baggageSubContentVisualizes_ {};
                 shared_ptr<vector<Darabonba::Json>> extraContentVisualizes_ {};
                 shared_ptr<bool> isStruct_ {};
+                // PTC
                 shared_ptr<string> ptc_ {};
                 shared_ptr<string> title_ {};
               };

@@ -1027,6 +1027,7 @@ namespace Models
           shared_ptr<string> depCityCode_ {};
           shared_ptr<string> depCityName_ {};
           shared_ptr<string> depTime_ {};
+          // duration
           shared_ptr<int32_t> duration_ {};
           Darabonba::Json extraInfo_ {};
           shared_ptr<string> flightNo_ {};
@@ -1237,9 +1238,12 @@ namespace Models
   protected:
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
+    // module
     shared_ptr<FlightOtaSearchV2ResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

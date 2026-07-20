@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to use the group travel standard.
+    // 
     // This parameter is required.
     shared_ptr<bool> fromGroup_ {};
+    // The personnel rule code.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> ruleCode_ {};
+    // The service categories to query.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceTypeListShrink_ {};
   };

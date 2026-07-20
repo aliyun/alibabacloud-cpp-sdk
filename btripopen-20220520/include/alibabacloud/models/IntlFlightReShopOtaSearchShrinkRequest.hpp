@@ -103,17 +103,29 @@ namespace Models
 
 
   protected:
+    // The business travel order ID. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> orderId_ {};
+    // The external order ID.
     shared_ptr<string> outOrderId_ {};
+    // Specifies whether to enable external polling. When enabled, the external frontend controls polling, which reduces the response time (RT) of a single search. Default value: false.
     shared_ptr<bool> outWheelSearch_ {};
+    // The rebooking group key returned by the consultation operation.
+    // 
     // This parameter is required.
     shared_ptr<string> passengerJourneyGroupKey_ {};
+    // The rebooking reason code.
     shared_ptr<string> reShopReasonCode_ {};
+    // The search journeys. Only pass the journeys to be rebooked.
+    // 
     // This parameter is required.
     shared_ptr<string> searchJourneysShrink_ {};
+    // The list of selected passengers for rebooking.
+    // 
     // This parameter is required.
     shared_ptr<string> selectedPassengersShrink_ {};
+    // The query record token used for external polling.
     shared_ptr<string> token_ {};
   };
 

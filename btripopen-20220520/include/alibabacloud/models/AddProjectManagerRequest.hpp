@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The employee ID.
       shared_ptr<string> entityId_ {};
+      // Required. Currently only supports "1" (employee).
       shared_ptr<string> entityType_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // The list of manager group entities. Currently, entityType only supports "1" (employee). The maximum number is 10.
     shared_ptr<vector<AddProjectManagerRequest::OrgEntities>> orgEntities_ {};
+    // The third-party project ID. You must specify at least one of project_id and out_project_id.
     shared_ptr<string> outProjectId_ {};
+    // The internal project ID. You must specify at least one of project_id and out_project_id.
     shared_ptr<int64_t> projectId_ {};
   };
 

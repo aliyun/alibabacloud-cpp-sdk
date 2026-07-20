@@ -282,17 +282,29 @@ namespace Models
 
 
         protected:
+          // 航班至
           shared_ptr<string> arrivalStation_ {};
+          // 座位等级
           shared_ptr<string> cabinClass_ {};
+          // 承运人
           shared_ptr<string> carrier_ {};
+          // 航班从
           shared_ptr<string> departureStation_ {};
+          // 日期
           shared_ptr<string> flightDate_ {};
+          // 航班号
           shared_ptr<string> flightNumber_ {};
+          // 时间
           shared_ptr<string> flightTime_ {};
+          // 免费行李
           shared_ptr<string> freeBaggageAllowance_ {};
+          // 行号
           shared_ptr<string> index_ {};
+          // 客票级别
           shared_ptr<string> seatClass_ {};
+          // 客票生效日期
           shared_ptr<string> validFromDate_ {};
+          // 有效截止日期
           shared_ptr<string> validToDate_ {};
         };
 
@@ -545,6 +557,7 @@ namespace Models
 
 
       protected:
+        // 销售单位代号
         shared_ptr<string> agentCode_ {};
         shared_ptr<string> applyId_ {};
         shared_ptr<string> billDate_ {};
@@ -552,13 +565,17 @@ namespace Models
         shared_ptr<string> build_ {};
         shared_ptr<string> costCenter_ {};
         shared_ptr<string> department_ {};
+        // 机票行程明细
         shared_ptr<vector<Items::Flights>> flights_ {};
         shared_ptr<string> fuelSurcharge_ {};
+        // UK
         shared_ptr<string> id_ {};
         shared_ptr<string> insurance_ {};
         shared_ptr<string> invoiceTitle_ {};
         shared_ptr<int32_t> invoiceType_ {};
+        // 填开单位
         shared_ptr<string> issueCompany_ {};
+        // 填开日期
         shared_ptr<string> issueDate_ {};
         shared_ptr<string> itineraryNum_ {};
         shared_ptr<string> ofdOssUrl_ {};
@@ -568,6 +585,7 @@ namespace Models
         shared_ptr<string> passengerName_ {};
         shared_ptr<string> pdfOssUrl_ {};
         shared_ptr<string> project_ {};
+        // 提示信息
         shared_ptr<string> promptMessage_ {};
         shared_ptr<string> purchaserName_ {};
         shared_ptr<string> purchaserTaxNo_ {};
@@ -577,6 +595,7 @@ namespace Models
         shared_ptr<string> ticketNo_ {};
         shared_ptr<string> ticketPrice_ {};
         shared_ptr<string> totalPrice_ {};
+        // 验证码
         shared_ptr<string> validationCode_ {};
         shared_ptr<string> xmlOssUrl_ {};
       };
@@ -678,8 +697,10 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<FlightItineraryScanQueryResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

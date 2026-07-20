@@ -129,11 +129,17 @@ namespace Models
 
 
       protected:
+        // The total amount, in cents.
         shared_ptr<int64_t> totalAmount_ {};
+        // The service fee amount in cents.
         shared_ptr<int64_t> handlingAmount_ {};
+        // The upgrade fee amount, in cents.
         shared_ptr<int64_t> upgradeAmount_ {};
+        // The tax difference amount, in cents.
         shared_ptr<int64_t> taxDiffAmount_ {};
+        // Indicates whether a direct price is available. Default value: true.
         shared_ptr<bool> hasPrice_ {};
+        // The text prompt displayed when no direct price is available.
         shared_ptr<string> nonPriceText_ {};
       };
 
@@ -175,7 +181,9 @@ namespace Models
 
 
       protected:
+        // The journey ordinal number, starting from 0.
         shared_ptr<int32_t> journeyIndex_ {};
+        // The segment ordinal number, starting from 0 within the same journey.
         shared_ptr<int32_t> segmentIndex_ {};
       };
 
@@ -200,7 +208,9 @@ namespace Models
 
 
     protected:
+      // The segment position information, indicating which journey and which segment within the overall itinerary.
       shared_ptr<SegmentPriceList::SegmentPosition> segmentPosition_ {};
+      // The rebooking price.
       shared_ptr<SegmentPriceList::SearchPrice> searchPrice_ {};
     };
 
@@ -278,11 +288,17 @@ namespace Models
 
 
     protected:
+      // The total amount, in cents.
       shared_ptr<int64_t> totalAmount_ {};
+      // The service fee amount in cents.
       shared_ptr<int64_t> handlingAmount_ {};
+      // The upgrade fee amount, in cents.
       shared_ptr<int64_t> upgradeAmount_ {};
+      // The tax difference amount, in cents.
       shared_ptr<int64_t> taxDiffAmount_ {};
+      // Indicates whether a direct price is available. Default value: true.
       shared_ptr<bool> hasPrice_ {};
+      // The text prompt displayed when no direct price is available.
       shared_ptr<string> nonPriceText_ {};
     };
 
@@ -381,11 +397,21 @@ namespace Models
 
 
       protected:
+        // The cabin code.
         shared_ptr<string> cabin_ {};
+        // The cabin class. Valid values:
+        // - F: First class.
+        // - C: Business class.
+        // - Y: Economy class.
+        // - P: Premium economy class.
         shared_ptr<string> cabinClass_ {};
+        // The cabin class name.
         shared_ptr<string> cabinClassName_ {};
+        // The number of remaining seats in the cabin. Valid values: 0-9 (0 to 9 seats remaining) or A (more than 9 seats).
         shared_ptr<string> quantity_ {};
+        // The cabin class description.
         shared_ptr<string> cabinClassMemo_ {};
+        // The domestic special notes.
         shared_ptr<string> specification_ {};
       };
 
@@ -427,7 +453,9 @@ namespace Models
 
 
       protected:
+        // The journey ordinal number, starting from 0.
         shared_ptr<int32_t> journeyIndex_ {};
+        // The segment ordinal number, starting from 0 within the same journey.
         shared_ptr<int32_t> segmentIndex_ {};
       };
 
@@ -452,7 +480,9 @@ namespace Models
 
 
     protected:
+      // The segment position information, indicating which journey and which segment within the overall itinerary.
       shared_ptr<CabinQuantityList::SegmentPosition> segmentPosition_ {};
+      // The detailed cabin information.
       shared_ptr<CabinQuantityList::CabinInfo> cabinInfo_ {};
     };
 
@@ -486,8 +516,11 @@ namespace Models
 
 
   protected:
+    // The remaining cabin inventory for each segment.
     shared_ptr<vector<ModuleReShopItemListShoppingItemMapValue::CabinQuantityList>> cabinQuantityList_ {};
+    // The rebooking search price.
     shared_ptr<ModuleReShopItemListShoppingItemMapValue::SearchPrice> searchPrice_ {};
+    // The price for each segment. This field may not have a value because airline bundled products may not have segment-level pricing.
     shared_ptr<vector<ModuleReShopItemListShoppingItemMapValue::SegmentPriceList>> segmentPriceList_ {};
   };
 

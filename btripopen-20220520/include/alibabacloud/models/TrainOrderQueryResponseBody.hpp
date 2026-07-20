@@ -870,7 +870,9 @@ namespace Models
         shared_ptr<string> corpName_ {};
         shared_ptr<string> departId_ {};
         shared_ptr<string> departName_ {};
+        // 火车票超标审批id
         shared_ptr<string> exceedApplyId_ {};
+        // 火车票超标审批三方id
         shared_ptr<string> exceedThirdPartApplyId_ {};
         shared_ptr<string> gmtCreate_ {};
         shared_ptr<string> gmtModify_ {};

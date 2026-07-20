@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // The category, such as flight, hotel, or train.
       shared_ptr<string> bizType_ {};
+      // The price map. Key: min and max.
       shared_ptr<map<string, ModulePriceMapValue>> priceMap_ {};
+      // The type, such as economy class, business class, first class, G/D train, other, or travel standard.
       shared_ptr<string> type_ {};
     };
 
@@ -134,10 +137,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<int32_t> code_ {};
+    // The response data.
     shared_ptr<vector<EstimatedPriceQueryV2ResponseBody::Module>> module_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

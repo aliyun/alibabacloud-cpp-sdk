@@ -139,6 +139,7 @@ namespace Models
     shared_ptr<string> outSubOrderId_ {};
     shared_ptr<string> passengerSegmentRelationsShrink_ {};
     shared_ptr<string> reason_ {};
+    // sessionId
     shared_ptr<string> sessionId_ {};
     shared_ptr<bool> voluntary_ {};
   };

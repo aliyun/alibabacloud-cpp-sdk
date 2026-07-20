@@ -166,7 +166,9 @@ namespace Models
 
 
           protected:
+            // The journey ordinal number, starting from 0.
             shared_ptr<int32_t> journeyIndex_ {};
+            // The segment ordinal number, starting from 0 within the same journey.
             shared_ptr<int32_t> segmentIndex_ {};
           };
 
@@ -283,15 +285,26 @@ namespace Models
 
 
           protected:
+            // Indicates whether refund is supported.
             shared_ptr<bool> cancelFeeInd_ {};
+            // Indicates whether date change is supported.
             shared_ptr<bool> changeFeeInd_ {};
+            // 改签规则简述
             shared_ptr<string> changeRuleDesc_ {};
+            // 改签规则展示颜色
             shared_ptr<string> changeRuleShowColor_ {};
+            // The refund and change rules mapped by passenger type. Key: ADT/CHD/INF. Value: refund/change rule.
             shared_ptr<map<string, vector<ModuleReShopItemListSubItemsRefundChangeRuleOfferPenaltyInfoMapValue>>> offerPenaltyInfoMap_ {};
+            // The refund and change summary.
             shared_ptr<string> refundChangeDigest_ {};
+            // The refund and change rule description.
+            // [_single.
             shared_ptr<string> refundChangeRuleDesc_ {};
+            // 退票规则简述
             shared_ptr<string> refundRuleDesc_ {};
+            // 退票规则展示颜色
             shared_ptr<string> refundRuleShowColor_ {};
+            // Indicates whether structured refund and change rule data is available.
             shared_ptr<bool> structuredRefund_ {};
           };
 
@@ -362,10 +375,15 @@ namespace Models
 
 
           protected:
+            // The display color of the baggage allowance description.
             shared_ptr<string> baggageDescShowColor_ {};
+            // The baggage summary.
             shared_ptr<string> baggageDigest_ {};
+            // The baggage rule description.
             shared_ptr<string> baggageRuleDesc_ {};
+            // The baggage information mapped by passenger type. Key: ADT/CHD/INF. Value: baggage information.
             shared_ptr<map<string, vector<ModuleReShopItemListSubItemsBaggageRuleOfferBaggageInfoMapValue>>> offerBaggageInfoMap_ {};
+            // Indicates whether the baggage data is structured.
             shared_ptr<bool> structuredBaggage_ {};
           };
 
@@ -432,12 +450,19 @@ namespace Models
 
 
         protected:
+          // The baggage allowance information of the sub-item.
           shared_ptr<SubItems::BaggageRule> baggageRule_ {};
+          // The discount value.
           shared_ptr<double> discountNum_ {};
+          // The refund and change information of the sub-item.
           shared_ptr<SubItems::RefundChangeRule> refundChangeRule_ {};
+          // The list of segment keys included in the sub-item.
           shared_ptr<vector<string>> segmentKeys_ {};
+          // The list of segment position information included in the sub-item.
           shared_ptr<vector<SubItems::SegmentPositionList>> segmentPositionList_ {};
+          // The pricing information mapped by passenger type. Key: ADT (adult), CHD (child), or INFANT (infant).
           shared_ptr<map<string, ModuleReShopItemListSubItemsShoppingItemMapValue>> shoppingItemMap_ {};
+          // The unique item ID.
           shared_ptr<string> uniqKey_ {};
         };
 
@@ -476,9 +501,16 @@ namespace Models
 
 
       protected:
+        // The item ID.
         shared_ptr<string> itemId_ {};
+        // 商品类型。
+        // 
+        // - normal-普通商品
+        // - combination-组合特价
         shared_ptr<string> itemType_ {};
+        // The pricing information mapped by passenger type.
         shared_ptr<map<string, ModuleReShopItemListShoppingItemMapValue>> shoppingItemMap_ {};
+        // The sub-items. Combined products may have multiple sub-items.
         shared_ptr<vector<ReShopItemList::SubItems>> subItems_ {};
       };
 
@@ -671,10 +703,15 @@ namespace Models
 
 
           protected:
+            // The airline code.
             shared_ptr<string> airlineCode_ {};
+            // The airline name.
             shared_ptr<string> airlineName_ {};
+            // Indicates whether the airline is a low-cost airline.
             shared_ptr<bool> cheapAirline_ {};
+            // The URL of the airline icon.
             shared_ptr<string> iconUrl_ {};
+            // The short name of the airline.
             shared_ptr<string> shortName_ {};
           };
 
@@ -738,9 +775,15 @@ namespace Models
 
 
           protected:
+            // The transit visa information for the departure city.
             shared_ptr<string> depCityVisaRemark_ {};
+            // The transit visa type for the departure city. Valid values:
+            // - 0: No transit visa required.
+            // - 1: Transit visa required.
             shared_ptr<int32_t> depCityVisaType_ {};
+            // The transit visa information for stopover cities. Each stopover city corresponds to one entry.
             shared_ptr<vector<string>> stopCityVisaRemarks_ {};
+            // The transit visa types for stopover cities. Each stopover city corresponds to one entry.
             shared_ptr<vector<int32_t>> stopCityVisaTypes_ {};
           };
 
@@ -818,11 +861,17 @@ namespace Models
 
 
           protected:
+            // The aircraft age.
             shared_ptr<string> aircraftAge_ {};
+            // The average delay duration.
             shared_ptr<string> avgDelayTime_ {};
+            // The flight cancellation rate.
             shared_ptr<string> flightCancelRate_ {};
+            // The jet bridge rate.
             shared_ptr<string> jetBridgeRate_ {};
+            // The on-time rate information.
             shared_ptr<string> onTimeRate_ {};
+            // Indicates whether Wi-Fi is available.
             shared_ptr<bool> wifi_ {};
           };
 
@@ -864,7 +913,15 @@ namespace Models
 
 
           protected:
+            // The baggage transfer type for the departure city. Valid values:
+            // - 0: Re-check baggage.
+            // - 1: Through check.
+            // - null: Unknown.
             shared_ptr<int32_t> depCityLuggageDirect_ {};
+            // The baggage transfer type for the departure city. Valid values:
+            // - 0: Re-check baggage.
+            // - 1: Through check.
+            // - null: Unknown.
             shared_ptr<int32_t> stopCityLuggageDirect_ {};
           };
 
@@ -1016,15 +1073,27 @@ namespace Models
 
 
             protected:
+              // The administrative division code.
               shared_ptr<string> adcode_ {};
+              // The airport city code.
               shared_ptr<string> airportCityCode_ {};
+              // The city name of the airport.
               shared_ptr<string> airportCityName_ {};
+              // The airport code.
               shared_ptr<string> airportCode_ {};
+              // The airport name.
               shared_ptr<string> airportName_ {};
+              // The parent city name of the airport.
               shared_ptr<string> airportParentCityName_ {};
+              // The administrative division code of the county-level city where the airport is located.
+              // >Notice: This value is null if the airport is not at the county level.
               shared_ptr<string> countyCityAdcode_ {};
+              // The name of the county-level city where the airport is located.
+              // >Notice: This value is null if the airport is not at the county level.
               shared_ptr<string> countyCityName_ {};
+              // The administrative division code of the prefecture-level city where the airport is located.
               shared_ptr<string> prefectureCityAdcode_ {};
+              // The name of the prefecture-level city where the airport is located.
               shared_ptr<string> prefectureCityName_ {};
             };
 
@@ -1104,15 +1173,25 @@ namespace Models
 
 
           protected:
+            // The stopover airport.
             shared_ptr<string> stopAirport_ {};
+            // The county information of the stopover airport.
             shared_ptr<FlightStopInfoList::StopAirportCountyInfo> stopAirportCountyInfo_ {};
+            // The name of the stopover airport.
             shared_ptr<string> stopAirportName_ {};
+            // The arrival terminal at the stopover.
             shared_ptr<string> stopArrTerm_ {};
+            // The arrival time at the stopover. Format: yyyy-MM-dd HH:mm.
             shared_ptr<string> stopArrTime_ {};
+            // The three-letter code of the stopover city.
             shared_ptr<string> stopCityCode_ {};
+            // The name of the stopover city.
             shared_ptr<string> stopCityName_ {};
+            // The departure terminal at the stopover.
             shared_ptr<string> stopDepTerm_ {};
+            // The departure time from the stopover. Format: yyyy-MM-dd HH:mm.
             shared_ptr<string> stopDepTime_ {};
+            // The stopover duration in minutes.
             shared_ptr<string> stopTime_ {};
           };
 
@@ -1202,10 +1281,15 @@ namespace Models
 
 
             protected:
+              // The airline code.
               shared_ptr<string> airlineCode_ {};
+              // The airline name.
               shared_ptr<string> airlineName_ {};
+              // Indicates whether the airline is a low-cost airline.
               shared_ptr<bool> cheapAirline_ {};
+              // The URL of the airline icon.
               shared_ptr<string> iconUrl_ {};
+              // The short name of the airline.
               shared_ptr<string> shortName_ {};
             };
 
@@ -1228,7 +1312,9 @@ namespace Models
 
 
           protected:
+            // The operating airline information.
             shared_ptr<FlightShareInfo::OperatingAirlineInfo> operatingAirlineInfo_ {};
+            // The operating flight number. This field has a value only for codeshare flights.
             shared_ptr<string> operatingFlightNo_ {};
           };
 
@@ -1288,9 +1374,13 @@ namespace Models
 
 
           protected:
+            // The airport code.
             shared_ptr<string> airportCode_ {};
+            // The airport name.
             shared_ptr<string> airportName_ {};
+            // The short name of the airport.
             shared_ptr<string> airportShortName_ {};
+            // The terminal.
             shared_ptr<string> terminal_ {};
           };
 
@@ -1350,9 +1440,13 @@ namespace Models
 
 
           protected:
+            // The airport code.
             shared_ptr<string> airportCode_ {};
+            // The airport name.
             shared_ptr<string> airportName_ {};
+            // The short name of the airport.
             shared_ptr<string> airportShortName_ {};
+            // The terminal.
             shared_ptr<string> terminal_ {};
           };
 
@@ -1421,10 +1515,15 @@ namespace Models
 
 
           protected:
+            // The airline code.
             shared_ptr<string> airlineCode_ {};
+            // The airline name.
             shared_ptr<string> airlineName_ {};
+            // Indicates whether the airline is a low-cost airline.
             shared_ptr<bool> cheapAirline_ {};
+            // The URL of the airline icon.
             shared_ptr<string> iconUrl_ {};
+            // The short name of the airline.
             shared_ptr<string> shortName_ {};
           };
 
@@ -1700,40 +1799,75 @@ namespace Models
 
 
         protected:
+          // The marketing airline information.
           shared_ptr<FlightSegmentInfos::AirlineInfo> airlineInfo_ {};
+          // The arrival airport information.
           shared_ptr<FlightSegmentInfos::ArrAirportInfo> arrAirportInfo_ {};
+          // The three-letter code of the arrival city.
           shared_ptr<string> arrCityCode_ {};
+          // The name of the arrival city.
           shared_ptr<string> arrCityName_ {};
+          // The arrival time. Format: yyyy-MM-dd HH:mm.
           shared_ptr<string> arrTime_ {};
+          // The arrival time with time zone. Format: 2022-06-06T12:56:34Z.
           shared_ptr<string> arrTimeUTC_ {};
+          // The departure airport information.
           shared_ptr<FlightSegmentInfos::DepAirportInfo> depAirportInfo_ {};
+          // The three-letter code of the departure city.
           shared_ptr<string> depCityCode_ {};
+          // The name of the departure city.
           shared_ptr<string> depCityName_ {};
+          // The departure time. Format: yyyy-MM-dd HH:mm.
           shared_ptr<string> depTime_ {};
+          // The departure time with time zone. Format: 2022-06-06T12:56:34Z.
           shared_ptr<string> depTimeUTC_ {};
+          // The total duration of the segment in minutes.
           shared_ptr<int32_t> duration_ {};
+          // The flight number.
           shared_ptr<string> flightNo_ {};
+          // The codeshare flight information.
           shared_ptr<FlightSegmentInfos::FlightShareInfo> flightShareInfo_ {};
+          // The aircraft type name.
           shared_ptr<string> flightSize_ {};
+          // The list of flight stopovers.
           shared_ptr<vector<FlightSegmentInfos::FlightStopInfoList>> flightStopInfoList_ {};
+          // The aircraft type code.
           shared_ptr<string> flightType_ {};
+          // The journey index.
           shared_ptr<int32_t> journeyIndex_ {};
+          // Indicates whether luggage is through-checked for the current segment.
           shared_ptr<FlightSegmentInfos::LuggageDirectInfo> luggageDirectInfo_ {};
+          // The manufacturer.
           shared_ptr<string> manufacturer_ {};
+          // The meal availability. Valid values: 0 (no meal) and 1 (meal provided).
           shared_ptr<int32_t> meal_ {};
+          // The meal description.
           shared_ptr<string> mealDesc_ {};
+          // The flight mileage.
           shared_ptr<int32_t> miles_ {};
+          // The on-time rate information, such as "arrival on-time rate 90%".
           shared_ptr<string> onTimeRate_ {};
+          // The number of extra days. For example, 1 indicates the flight crosses 1 day.
           shared_ptr<int32_t> oneMore_ {};
+          // The cross-day display text.
           shared_ptr<string> oneMoreShow_ {};
+          // The other information about the flight segment.
           shared_ptr<FlightSegmentInfos::OtherInfo> otherInfo_ {};
+          // The segment index, starting from 0 within the same journey.
           shared_ptr<int32_t> segmentIndex_ {};
+          // The unique key of the segment. Format: flight number + departure airport + arrival airport + departure date (MMdd).
           shared_ptr<string> segmentKey_ {};
+          // The transit visa information for the current segment.
           shared_ptr<FlightSegmentInfos::SegmentVisaRemark> segmentVisaRemark_ {};
+          // Indicates whether the flight is a codeshare flight.
           shared_ptr<bool> share_ {};
+          // The short name of the aircraft type.
           shared_ptr<string> shortFlightSize_ {};
+          // Indicates whether the flight has a stopover.
           shared_ptr<bool> stop_ {};
+          // The ticketing airline information.
           shared_ptr<FlightSegmentInfos::TicketingAirlineInfo> ticketingAirlineInfo_ {};
+          // The total duration of the segment.
           shared_ptr<string> totalTime_ {};
         };
 
@@ -1813,15 +1947,25 @@ namespace Models
 
 
       protected:
+        // The three-letter code of the arrival city.
         shared_ptr<string> arrCityCode_ {};
+        // The name of the arrival city.
         shared_ptr<string> arrCityName_ {};
+        // The arrival time. Format: yyyy-MM-dd HH:mm.
         shared_ptr<string> arrTime_ {};
+        // The three-letter code of the departure city.
         shared_ptr<string> depCityCode_ {};
+        // The name of the departure city.
         shared_ptr<string> depCityName_ {};
+        // The departure time. Format: yyyy-MM-dd HH:mm.
         shared_ptr<string> depTime_ {};
+        // The total duration in minutes.
         shared_ptr<int32_t> duration_ {};
+        // The flight segment information.
         shared_ptr<vector<FlightJourneyInfos::FlightSegmentInfos>> flightSegmentInfos_ {};
+        // The journey index, starting from 0.
         shared_ptr<int32_t> journeyIndex_ {};
+        // The transfer duration.
         shared_ptr<int32_t> transferTime_ {};
       };
 
@@ -1867,10 +2011,15 @@ namespace Models
 
 
     protected:
+      // The flight journey information.
       shared_ptr<vector<Module::FlightJourneyInfos>> flightJourneyInfos_ {};
+      // 是否需要继续轮询
       shared_ptr<bool> needContinue_ {};
+      // 下次搜索等待时间，单位毫秒
       shared_ptr<int32_t> nextReqWaitTime_ {};
+      // The list of quoted items.
       shared_ptr<vector<Module::ReShopItemList>> reShopItemList_ {};
+      // The query record token used for external polling.
       shared_ptr<string> token_ {};
     };
 
@@ -1921,11 +2070,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The data.
     shared_ptr<IntlFlightReShopOtaSearchResponseBody::Module> module_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The global trace ID of the request, typically used for troubleshooting.
     shared_ptr<string> traceId_ {};
   };
 

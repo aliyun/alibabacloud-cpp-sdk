@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The redirect URL.
       shared_ptr<string> url_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The description.
     shared_ptr<string> message_ {};
+    // The response data.
     shared_ptr<AddressGetResponseBody::Module> module_ {};
+    // The unique identifier of this request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Use this parameter to determine the result of the call.
     shared_ptr<bool> success_ {};
+    // The global trace identifier of the request, typically used for troubleshooting.
     shared_ptr<string> traceId_ {};
   };
 

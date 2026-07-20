@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The number of removed personnel, departments, or roles.
       shared_ptr<int32_t> removeNum_ {};
+      // The number of entities under the invoice header.
       shared_ptr<int32_t> selectedUserNum_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // The remarks on the result, such as a description of the result.
     shared_ptr<string> message_ {};
+    // The return value from the server. An empty value is returned if no result is available or an exception occurs.
     shared_ptr<DeleteInvoiceEntityResponseBody::Module> module_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

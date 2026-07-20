@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(page_no, pageNo_);
       DARABONBA_PTR_TO_JSON(page_size, pageSize_);
       DARABONBA_PTR_TO_JSON(rule_name, ruleName_);
+      DARABONBA_PTR_TO_JSON(user_id, userId_);
     };
     friend void from_json(const Darabonba::Json& j, TravelStandardListQueryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(from_group, fromGroup_);
       DARABONBA_PTR_FROM_JSON(page_no, pageNo_);
       DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
       DARABONBA_PTR_FROM_JSON(rule_name, ruleName_);
+      DARABONBA_PTR_FROM_JSON(user_id, userId_);
     };
     TravelStandardListQueryRequest() = default ;
     TravelStandardListQueryRequest(const TravelStandardListQueryRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fromGroup_ == nullptr
-        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->ruleName_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->ruleName_ == nullptr && this->userId_ == nullptr; };
     // fromGroup Field Functions 
     bool hasFromGroup() const { return this->fromGroup_ != nullptr;};
     void deleteFromGroup() { this->fromGroup_ = nullptr;};
@@ -65,13 +67,28 @@ namespace Models
     inline TravelStandardListQueryRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline TravelStandardListQueryRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
   protected:
+    // Applicable to parent-subsidiary enterprises. Set this parameter to true to query the unified group travel standards. If left empty, the system returns the travel rules that are currently in effect for the enterprise.
     shared_ptr<bool> fromGroup_ {};
+    // The page number, starting from 1.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Maximum value: 50.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the travel standard to search for.
     shared_ptr<string> ruleName_ {};
+    // The user ID. Specify this parameter to query the travel standards bound to an employee.
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

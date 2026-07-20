@@ -296,34 +296,68 @@ namespace Models
 
 
   protected:
+    // The departure city code.
     shared_ptr<string> startCityCode_ {};
+    // The arrival city code.
     shared_ptr<string> endCityCode_ {};
+    // The number of carry-on baggage pieces.
     shared_ptr<int32_t> carryFreePc_ {};
+    // The carry-on baggage weight.
     shared_ptr<int32_t> carryBagWeight_ {};
+    // The weight unit of carry-on baggage.
     shared_ptr<string> carryOnWeightUnit_ {};
+    // The carry-on baggage size.
     shared_ptr<string> carryBagSize_ {};
+    // Indicates whether the carry-on baggage weight represents the total weight.
     shared_ptr<bool> isAllCarryBagWeight_ {};
+    // The total number of carry-on and checked baggage pieces. This field is for domestic flights only.
     shared_ptr<int64_t> totalPcs_ {};
+    // The total weight of carry-on and checked baggage. This field is for domestic flights only.
     shared_ptr<int64_t> totalWeight_ {};
+    // The unknown flag for carry-on baggage.
     shared_ptr<bool> carryUnknown_ {};
+    // The length of carry-on baggage.
     shared_ptr<int32_t> carryLength_ {};
+    // The width of carry-on baggage.
     shared_ptr<int32_t> carryWidth_ {};
+    // The height of carry-on baggage.
     shared_ptr<int32_t> carryHeight_ {};
+    // The sum of length, width, and height of carry-on baggage.
     shared_ptr<int32_t> carrySumOfLengthWidthHeight_ {};
+    // The number of checked baggage pieces.
     shared_ptr<int64_t> freePcs_ {};
+    // The maximum weight of checked baggage, in pounds or kilograms.
     shared_ptr<int64_t> baggageWeight_ {};
+    // The weight unit of checked baggage.
     shared_ptr<string> baggageUnit_ {};
+    // The checked baggage size.
     shared_ptr<string> baggageSize_ {};
+    // Indicates whether the checked baggage weight represents the total weight of all pieces.
     shared_ptr<bool> allWeight_ {};
+    // The length of checked baggage.
     shared_ptr<int32_t> length_ {};
+    // The width of checked baggage.
     shared_ptr<int32_t> width_ {};
+    // The height of checked baggage.
     shared_ptr<int32_t> height_ {};
+    // The sum of length, width, and height of checked baggage.
     shared_ptr<int32_t> sumOfLengthWidthHeight_ {};
+    // The unknown baggage flag.
     shared_ptr<bool> unknown_ {};
+    // The Chinese description of the baggage allowance.
     shared_ptr<string> cnDesc_ {};
+    // The English description of the baggage allowance.
     shared_ptr<string> enDesc_ {};
+    // The extended attributes in JSON format. For domestic flights, this field stores multiple text fields with the following field names:
+    // - label: label
+    // - excessInstruction: excess baggage instructions
+    // - babyCar: baby stroller instructions
+    // - phoneText: SMS text
+    // - defaultRule: fallback rule
     shared_ptr<string> attribute_ {};
+    // The baggage price.
     shared_ptr<int32_t> baggagePrice_ {};
+    // The carry-on baggage tips.
     shared_ptr<string> carryOnBaggageTips_ {};
   };
 

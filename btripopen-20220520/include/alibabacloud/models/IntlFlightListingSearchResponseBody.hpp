@@ -778,6 +778,7 @@ namespace Models
             shared_ptr<string> depCityCode_ {};
             shared_ptr<string> depCityName_ {};
             shared_ptr<string> depTime_ {};
+            // duration
             shared_ptr<int32_t> duration_ {};
             shared_ptr<string> flightNo_ {};
             shared_ptr<FlightSegmentInfos::FlightShareInfo> flightShareInfo_ {};

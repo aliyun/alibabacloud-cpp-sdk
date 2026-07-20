@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The price, in cents.
     shared_ptr<int64_t> price_ {};
+    // The service number, such as a flight number or train number.
     shared_ptr<string> serviceNo_ {};
   };
 

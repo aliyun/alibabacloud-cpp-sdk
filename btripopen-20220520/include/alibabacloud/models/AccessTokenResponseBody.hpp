@@ -88,8 +88,11 @@ namespace Models
 
 
     protected:
+      // The validity duration of the token. The initial value is 2 hours (7200000 ms). To prevent token expiration, set the refresh interval to: **5 minutes ≤ interval ≤ 2 hours**. If you refresh within this interval, the token obtained from the previous request remains valid.
       shared_ptr<int64_t> expire_ {};
+      // The time when the token takes effect.
       shared_ptr<int64_t> start_ {};
+      // The application access token.
       shared_ptr<string> token_ {};
     };
 
@@ -131,7 +134,9 @@ namespace Models
 
 
     protected:
+      // **Deprecated. Use the** `module` **field instead**.
       shared_ptr<int64_t> expire_ {};
+      // **Deprecated. Use the** `module` **field instead**.
       shared_ptr<string> token_ {};
     };
 
@@ -192,12 +197,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data. **Deprecated. Use the** `module` **field instead**.
     shared_ptr<AccessTokenResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response data.
     shared_ptr<AccessTokenResponseBody::Module> module_ {};
+    // The unique identifier of this request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The global trace identifier of the request, typically used for troubleshooting.
     shared_ptr<string> traceId_ {};
   };
 

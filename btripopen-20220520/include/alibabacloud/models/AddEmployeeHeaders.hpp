@@ -52,6 +52,9 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // The enterprise access token.
+    // - When calling the operation over HTTP, include this as a **required parameter** in the request URL. For information about how to obtain the token, refer to [Enterprise access token](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+    // - When appending the token to the URL, use any of the following formats: `so_corp_token=value`, `dtb_corp_token=value`, or `corp_token=value`. **Recommended:** `corp_token=value`.
     shared_ptr<string> xAcsBtripCorpToken_ {};
   };
 

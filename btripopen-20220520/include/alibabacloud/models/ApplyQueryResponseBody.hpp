@@ -2000,6 +2000,7 @@ namespace Models
       shared_ptr<string> corpName_ {};
       shared_ptr<string> departId_ {};
       shared_ptr<string> departName_ {};
+      // 补充描述，账单中将会体现此字段的值。可以用于企业的统计和对账
       shared_ptr<string> extendField_ {};
       shared_ptr<vector<Module::ExternalTravelerList>> externalTravelerList_ {};
       shared_ptr<int64_t> flightBudget_ {};

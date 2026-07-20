@@ -84,16 +84,27 @@ namespace Models
 
 
   protected:
+    // The category.
+    // 
     // This parameter is required.
     shared_ptr<string> bizType_ {};
+    // The departure date.
+    // 
     // This parameter is required.
     shared_ptr<string> departDate_ {};
+    // The departure or check-in city.
+    // 
     // This parameter is required.
     shared_ptr<string> fromCity_ {};
+    // The arrival date.
+    // 
     // This parameter is required.
     shared_ptr<string> leaveDate_ {};
+    // The arrival or check-out city.
+    // 
     // This parameter is required.
     shared_ptr<string> toCity_ {};
+    // The user ID. This parameter is required for the hotel category.
     shared_ptr<string> userId_ {};
   };
 

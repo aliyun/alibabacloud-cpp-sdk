@@ -346,6 +346,7 @@ namespace Models
       shared_ptr<int32_t> firstStandardPrice_ {};
       shared_ptr<int32_t> businessStandardPrice_ {};
       shared_ptr<int32_t> commonStandardPrice_ {};
+      // fdPrice
       shared_ptr<int32_t> interTicketPrice_ {};
       shared_ptr<int32_t> subtractedPrice_ {};
       shared_ptr<int32_t> originCommonPrice_ {};
@@ -395,6 +396,7 @@ namespace Models
 
 
   protected:
+    // id
     shared_ptr<string> id_ {};
     shared_ptr<map<string, ModuleFlightItemListItemListShoppingItemMapValueCabinQuantityValue>> cabinQuantity_ {};
     shared_ptr<ModuleFlightItemListItemListShoppingItemMapValue::SearchPrice> searchPrice_ {};

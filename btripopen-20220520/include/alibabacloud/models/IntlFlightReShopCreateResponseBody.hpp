@@ -104,10 +104,15 @@ namespace Models
 
 
     protected:
+      // The asynchronous application key, used in the asynchronous commit pattern.
       shared_ptr<string> asyncApplyKey_ {};
+      // Indicates whether a retry is required. This parameter is used in the asynchronous commit pattern.
       shared_ptr<bool> needRetry_ {};
+      // The retry time interval, in milliseconds.
       shared_ptr<int64_t> nextRetryInterval_ {};
+      // The external rebooking application ID.
       shared_ptr<string> outReShopApplyId_ {};
+      // The business travel rebooking application ID.
       shared_ptr<string> reShopApplyId_ {};
     };
 
@@ -158,11 +163,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response data.
     shared_ptr<IntlFlightReShopCreateResponseBody::Module> module_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The global trace ID of the request, typically used for troubleshooting.
     shared_ptr<string> traceId_ {};
   };
 

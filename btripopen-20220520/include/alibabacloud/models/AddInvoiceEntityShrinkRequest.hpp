@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The list of entities.
+    // 
     // This parameter is required.
     shared_ptr<string> entitiesShrink_ {};
+    // The third-party invoice ID.
+    // 
     // This parameter is required.
     shared_ptr<string> thirdPartId_ {};
   };

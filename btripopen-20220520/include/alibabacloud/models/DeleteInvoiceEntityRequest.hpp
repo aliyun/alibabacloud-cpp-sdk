@@ -72,7 +72,13 @@ namespace Models
 
 
     protected:
+      // The entity ID, which can be a personnel ID, department ID, role ID, or third-party department ID.
       shared_ptr<string> entityId_ {};
+      // The entity type. Valid values:
+      // - 1: employee
+      // - 2: department
+      // - 3: role
+      // - 4: third-party department
       shared_ptr<string> entityType_ {};
     };
 
@@ -102,8 +108,12 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete all applicable personnel. If del_all is set to true, all entities under the invoice header are deleted, and the entity list parameter is not validated.
     shared_ptr<bool> delAll_ {};
+    // The entity list. This parameter is required when del_all is set to false or null.
     shared_ptr<vector<DeleteInvoiceEntityRequest::Entities>> entities_ {};
+    // The third-party invoice ID.
+    // 
     // This parameter is required.
     shared_ptr<string> thirdPartId_ {};
   };

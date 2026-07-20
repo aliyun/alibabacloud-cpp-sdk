@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The full name of the passenger.
       shared_ptr<string> fullName_ {};
+      // The passenger ID.
       shared_ptr<int64_t> passengerId_ {};
     };
 
@@ -167,9 +169,13 @@ namespace Models
 
 
       protected:
+        // The three-letter code of the arrival city.
         shared_ptr<string> arrCityCode_ {};
+        // The three-letter code of the departure city.
         shared_ptr<string> depCityCode_ {};
+        // The departure time. Format: yyyy-MM-dd HH:mm.
         shared_ptr<string> flightTime_ {};
+        // The marketing flight number.
         shared_ptr<string> marketFlightNo_ {};
       };
 
@@ -206,9 +212,13 @@ namespace Models
 
 
     protected:
+      // The three-letter code of the arrival city.
       shared_ptr<string> arrCityCode_ {};
+      // The three-letter code of the departure city.
       shared_ptr<string> depCityCode_ {};
+      // The departure date. Format: yyyy-MM-dd.
       shared_ptr<string> depDate_ {};
+      // The selected flight information for rebooking.
       shared_ptr<vector<SearchJourneys::SelectedFlights>> selectedFlights_ {};
     };
 
@@ -276,17 +286,29 @@ namespace Models
 
 
   protected:
+    // The business travel order ID. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> orderId_ {};
+    // The external order ID.
     shared_ptr<string> outOrderId_ {};
+    // Specifies whether to enable external polling. When enabled, the external frontend controls polling, which reduces the response time (RT) of a single search. Default value: false.
     shared_ptr<bool> outWheelSearch_ {};
+    // The rebooking group key returned by the consultation operation.
+    // 
     // This parameter is required.
     shared_ptr<string> passengerJourneyGroupKey_ {};
+    // The rebooking reason code.
     shared_ptr<string> reShopReasonCode_ {};
+    // The search journeys. Only pass the journeys to be rebooked.
+    // 
     // This parameter is required.
     shared_ptr<vector<IntlFlightReShopOtaSearchRequest::SearchJourneys>> searchJourneys_ {};
+    // The list of selected passengers for rebooking.
+    // 
     // This parameter is required.
     shared_ptr<vector<IntlFlightReShopOtaSearchRequest::SelectedPassengers>> selectedPassengers_ {};
+    // The query record token used for external polling.
     shared_ptr<string> token_ {};
   };
 

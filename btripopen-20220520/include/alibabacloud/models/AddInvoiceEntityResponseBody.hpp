@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The number of added personnel, departments, or roles.
       shared_ptr<int32_t> addNum_ {};
+      // The number of entities under the invoice header.
       shared_ptr<int32_t> selectedUserNum_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The result code.
     shared_ptr<string> code_ {};
+    // The remarks on the result, such as a description of the result.
     shared_ptr<string> message_ {};
+    // The return value from the server. This parameter is empty if no result is returned or an exception occurs.
     shared_ptr<AddInvoiceEntityResponseBody::Module> module_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. This parameter is set by the server. The value is false when an exception occurs or when the result is null.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

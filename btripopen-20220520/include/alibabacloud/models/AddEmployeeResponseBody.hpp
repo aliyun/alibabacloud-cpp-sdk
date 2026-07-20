@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The description.
     shared_ptr<string> message_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
+    // The global trace identifier of the request, which is typically used for troubleshooting.
     shared_ptr<string> traceId_ {};
   };
 

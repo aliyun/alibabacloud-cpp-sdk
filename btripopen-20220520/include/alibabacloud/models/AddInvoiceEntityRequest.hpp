@@ -79,10 +79,20 @@ namespace Models
 
 
     protected:
+      // The entity ID, which can be an employee ID, department ID, role ID, or third-party department ID.
+      // 
       // This parameter is required.
       shared_ptr<string> entityId_ {};
+      // The entity name, which can be an employee name, department name, role name, or third-party department name.
+      // 
       // This parameter is required.
       shared_ptr<string> entityName_ {};
+      // The entity type. Valid values:
+      // - 1: employee
+      // - 2: department
+      // - 3: role
+      // - 4: third-party department
+      // 
       // This parameter is required.
       shared_ptr<string> entityType_ {};
     };
@@ -106,8 +116,12 @@ namespace Models
 
 
   protected:
+    // The list of entities.
+    // 
     // This parameter is required.
     shared_ptr<vector<AddInvoiceEntityRequest::Entities>> entities_ {};
+    // The third-party invoice ID.
+    // 
     // This parameter is required.
     shared_ptr<string> thirdPartId_ {};
   };

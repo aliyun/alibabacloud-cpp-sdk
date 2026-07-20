@@ -204,25 +204,54 @@ namespace Models
 
 
   protected:
+    // The redirect page type. For illustrations of each page, refer to [How to implement SSO redirection - Appendix](https://openapi.alibtrip.com/doc/toDocDetail?docId=4746411).
+    // 
     // This parameter is required.
     shared_ptr<int32_t> actionType_ {};
+    // The three-letter code of the arrival city.
     shared_ptr<string> arrCityCode_ {};
+    // The arrival city name.
     shared_ptr<string> arrCityName_ {};
+    // The car service scenario.
     shared_ptr<string> carScenesCode_ {};
+    // The three-letter code of the departure city.
     shared_ptr<string> depCityCode_ {};
+    // The departure city name.
     shared_ptr<string> depCityName_ {};
+    // The departure date.
     shared_ptr<string> depDate_ {};
+    // The itinerary ID.
+    // - When the redirect page is the business travel booking page (`action_type = 1`), you can optionally pass this parameter to quickly redirect to the booking page of the category associated with the itinerary.
+    // - The itinerary ID must have been submitted to the Alibaba Business Travel system through the [Create a business trip approval](https://openapi.alibtrip.com/doc/toDocDetail?docId=4929938) operation.
     shared_ptr<string> itineraryId_ {};
+    // Specifies whether to skip the booking intermediate page.
+    // 1. Set this parameter to 2 to skip the booking intermediate page. When skipping the intermediate page, the **itinerary_id** parameter is required. If this parameter is empty or set to a value other than 2, the intermediate page is not skipped.
+    // 2. This parameter is available when the redirect page is the **H5 booking page** (`action_type = 1`) and the category is **flight** (`type = 1`) or **train** (`type = 2`).
     shared_ptr<int32_t> middlePage_ {};
+    // The order ID. This parameter is required when the redirect page type is the specified order details page on either platform (`action_type = 11 or 12`).
     shared_ptr<string> orderId_ {};
+    // The contact phone number, typically used for car service scenarios.
     shared_ptr<string> phone_ {};
+    // Session parameters. The format must be a JSON string where both keys and values are strings.
+    // Example: "{\\"returnURL\\":\\"https://open.alibtrip.com/\\"}"
     shared_ptr<string> sessionParameters_ {};
+    // The sub-enterprise ID. Pass this parameter to redirect to the business page of the specified sub-enterprise.
+    // - **View permissions**: Only enterprise administrators have view permissions.
+    // - **Path to obtain**: Enterprise management console > Parent-child account management > Account management > Sub-account management > Company ID.
     shared_ptr<string> subCorpId_ {};
+    // The redirect URL after Taobao account binding.
     shared_ptr<string> taobaoCallbackUrl_ {};
+    // The third-party approval ID.
     shared_ptr<string> thirdpartApplyId_ {};
+    // The ID of the actual traveler (the person being booked for).
     shared_ptr<string> travelerId_ {};
+    // The business type. This parameter is required when the redirect page is the **booking page** (`action_type = 1`) or the **order view page** (`action_type = 2`).
     shared_ptr<int32_t> type_ {};
+    // Specifies whether to use proxy booking mode.
+    // - The proxy booking page is accessible only when this parameter is set to 1.
     shared_ptr<int32_t> useBookingProxy_ {};
+    // The employee ID. The employee must be registered in the business travel system before you pass this parameter. Otherwise, the call fails.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

@@ -141,8 +141,10 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<string> message_ {};
     shared_ptr<GroupCorpTokenResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<string> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

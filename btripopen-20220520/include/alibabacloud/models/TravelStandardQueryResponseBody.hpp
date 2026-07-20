@@ -120,7 +120,9 @@ namespace Models
 
 
         protected:
+          // The code of the control item.
           shared_ptr<string> code_ {};
+          // The value selected by the user.
           shared_ptr<string> value_ {};
         };
 
@@ -191,10 +193,15 @@ namespace Models
 
 
         protected:
+          // The enabled service categories.
           shared_ptr<vector<string>> openServiceTypeList_ {};
+          // The travel standard code.
           shared_ptr<int64_t> ruleCode_ {};
+          // The description of the travel standard.
           shared_ptr<string> ruleDesc_ {};
+          // The ID of the main travel standard.
           shared_ptr<int64_t> ruleId_ {};
+          // The name of the travel standard.
           shared_ptr<string> ruleName_ {};
         };
 
@@ -219,7 +226,9 @@ namespace Models
 
 
       protected:
+        // The main travel standard information.
         shared_ptr<ReserveRule::MainReserveRule> mainReserveRule_ {};
+        // The module configuration information.
         shared_ptr<vector<ReserveRule::ModuleConfigList>> moduleConfigList_ {};
       };
 
@@ -244,7 +253,9 @@ namespace Models
 
 
     protected:
+      // The service categories activated for the enterprise.
       shared_ptr<vector<string>> activatedServiceTypeList_ {};
+      // The travel standard information, which consists of the main travel standard information and module configuration information.
       shared_ptr<Module::ReserveRule> reserveRule_ {};
     };
 
@@ -295,11 +306,17 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The response data.
     shared_ptr<TravelStandardQueryResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

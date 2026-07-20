@@ -1206,6 +1206,7 @@ namespace Models
       shared_ptr<int64_t> hotelIntlRuleCode_ {};
       shared_ptr<int64_t> hotelRuleCode_ {};
       shared_ptr<string> internationalFlightCabins_ {};
+      // 超级经济舱折扣。1到10的整数
       shared_ptr<int32_t> premiumEconomyDiscount_ {};
       shared_ptr<int32_t> reserveType_ {};
       shared_ptr<int64_t> trainRuleCode_ {};
@@ -2151,6 +2152,7 @@ namespace Models
       shared_ptr<int64_t> hotelIntlRuleCode_ {};
       shared_ptr<int64_t> hotelRuleCode_ {};
       shared_ptr<string> internationalFlightCabins_ {};
+      // 超级经济舱折扣。1到10的整数
       shared_ptr<int32_t> premiumEconomyDiscount_ {};
       shared_ptr<int32_t> reserveType_ {};
       shared_ptr<int64_t> trainRuleCode_ {};
@@ -2936,6 +2938,7 @@ namespace Models
     shared_ptr<ApplyModifyRequest::DefaultStandard> defaultStandard_ {};
     shared_ptr<string> departId_ {};
     shared_ptr<string> departName_ {};
+    // 可将补充描述传入此字段，账单中将会体现此字段的值。可以用于企业的统计和对账
     shared_ptr<string> extendField_ {};
     shared_ptr<vector<ApplyModifyRequest::ExternalTravelerList>> externalTravelerList_ {};
     shared_ptr<ApplyModifyRequest::ExternalTravelerStandard> externalTravelerStandard_ {};
@@ -2952,6 +2955,7 @@ namespace Models
     shared_ptr<string> paymentDepartmentId_ {};
     shared_ptr<string> paymentDepartmentName_ {};
     shared_ptr<int32_t> status_ {};
+    // 子企业Id
     shared_ptr<string> subCorpId_ {};
     // This parameter is required.
     shared_ptr<string> thirdpartApplyId_ {};

@@ -214,17 +214,26 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> billConfirmed_ {};
+        // 用车金额（单位：元）
         shared_ptr<double> carAmount_ {};
+        // 违约金金额（单位：元）
         shared_ptr<double> damageAmount_ {};
+        // 机票金额（单位：元）
         shared_ptr<double> flightAmount_ {};
+        // 福豆金额（单位：元）
         shared_ptr<double> fuPoint_ {};
+        // 酒店金额（单位：元）
         shared_ptr<double> hotelAmount_ {};
+        // 国际机票金额（单位：元）
         shared_ptr<double> ieFlightAmount_ {};
         shared_ptr<double> ieHotelAmount_ {};
+        // 账期日：YYYYMMDD
         shared_ptr<int64_t> mailBillDate_ {};
         shared_ptr<double> mealAmount_ {};
         shared_ptr<double> metroAmount_ {};
+        // 服务费金额（单位：元）
         shared_ptr<double> serviceAmount_ {};
+        // 火车票金额（单位：元）
         shared_ptr<double> trainAmount_ {};
         shared_ptr<double> vasAmount_ {};
       };
@@ -263,6 +272,7 @@ namespace Models
 
     protected:
       shared_ptr<string> endDate_ {};
+      // CorpMonthAccountBillFeeDetail
       shared_ptr<Module::MonthAccountBillDetail> monthAccountBillDetail_ {};
       shared_ptr<string> startDate_ {};
       shared_ptr<string> url_ {};

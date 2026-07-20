@@ -88,8 +88,11 @@ namespace Models
 
 
     protected:
+      // The number of managers added in this operation (always 0 for the remove process).
       shared_ptr<int32_t> addNum_ {};
+      // The number of managers removed in this operation (always 0 for the add process).
       shared_ptr<int32_t> removeNum_ {};
+      // The parsed btrip_rule.rule_code (501 + projectId), which helps callers with troubleshooting and reconciliation.
       shared_ptr<int64_t> ruleCode_ {};
     };
 
@@ -148,12 +151,23 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The response data.
     shared_ptr<AddProjectManagerResponseBody::Module> module_ {};
+    // requestId
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - true: Successful.
+    // 
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the custom enterprise role.
+    // 
     // This parameter is required.
     shared_ptr<string> roleId_ {};
+    // The list of member IDs. The maximum number of members per request is 500.
+    // 
     // This parameter is required.
     shared_ptr<string> userIdListShrink_ {};
   };

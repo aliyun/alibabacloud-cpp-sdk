@@ -198,23 +198,70 @@ namespace Models
 
 
   protected:
+    // Indicates whether the rule is applicable.
     shared_ptr<bool> struct_ {};
+    // Indicates whether refund is supported.
     shared_ptr<bool> cancelFeeInd_ {};
+    // Indicates whether date change is supported.
     shared_ptr<bool> changeFeeInd_ {};
+    // Indicates whether upgrade is supported.
     shared_ptr<bool> upgradeFeeInd_ {};
+    // Indicates whether reissue is supported.
     shared_ptr<bool> reissueInd_ {};
+    // The rule type. Valid values:
+    // 
+    // - 0: Refund fee.
+    // - 1: Change fee.
+    // - 2: No-show penalty.
+    // - 3: Other.
+    // - 4: Upgrade fee.
+    // - 5: Endorsement.
+    // - 6: Deduction for used segments.
+    // - 100: Tax refund.
     shared_ptr<int32_t> penaltyTypeCode_ {};
+    // The applicability scope of the rule. Valid values:
+    //    
+    // - 1: All unused.
+    // - 2: Partially unused.
+    // - 3: Outbound.
+    // - 4: Inbound.
     shared_ptr<int32_t> penaltyApplyRangeCode_ {};
+    // The charge method of the rule. Valid values:
+    // 
+    // - 0: Charged per whole trip.
+    // - 1: Charged per direction.
+    // - 2: Charged per segment.
     shared_ptr<int32_t> penaltyChargeTypeCode_ {};
+    // The fee amount.
     shared_ptr<double> fee_ {};
+    // The currency of the fee.
     shared_ptr<string> currency_ {};
+    // The fee percentage.
     shared_ptr<double> penaltyPercent_ {};
+    // The start time of the rule time range.
     shared_ptr<int32_t> startTime_ {};
+    // The end time of the rule time range.
     shared_ptr<int32_t> endTime_ {};
+    // The time unit. Valid values:
+    // 
+    // - 0: Hours.
+    // - 1: Days.
     shared_ptr<int32_t> timeUnitCode_ {};
+    // The rule title.
     shared_ptr<string> title_ {};
+    // 起飞时间
     shared_ptr<string> depTime_ {};
+    // 航段序号，
+    // 
+    // - OUTBOUND_FIRST("去程第一段")
+    // 
+    // - OUTBOUND_SECOND("去程第二段")
+    // 
+    // - INBOUND_FIRST("回程第一段")
+    // 
+    // - INBOUND_SECOND("回程第二段")
     shared_ptr<string> segmentNumber_ {};
+    // 各类非结构化补充说明
     shared_ptr<map<string, string>> descInfos_ {};
   };
 

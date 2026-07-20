@@ -145,7 +145,9 @@ namespace Models
 
 
           protected:
+            // The travel standard description item.
             shared_ptr<string> key_ {};
+            // The value of the travel standard description item.
             shared_ptr<string> value_ {};
           };
 
@@ -175,8 +177,11 @@ namespace Models
 
 
         protected:
+          // The description of the travel standard.
           shared_ptr<vector<ReserveRuleDesc::DataList>> dataList_ {};
+          // The title of the travel standard detail.
           shared_ptr<string> title_ {};
+          // The category of the travel standard detail.
           shared_ptr<string> type_ {};
         };
 
@@ -247,10 +252,15 @@ namespace Models
 
 
         protected:
+          // The list of enabled service categories.
           shared_ptr<vector<string>> openServiceTypeList_ {};
+          // The personnel rule code.
           shared_ptr<int64_t> ruleCode_ {};
+          // The description of the travel standard.
           shared_ptr<string> ruleDesc_ {};
+          // The ID of the primary travel standard.
           shared_ptr<int64_t> ruleId_ {};
+          // The name of the travel standard.
           shared_ptr<string> ruleName_ {};
         };
 
@@ -282,8 +292,11 @@ namespace Models
 
 
       protected:
+        // The primary travel standard information.
         shared_ptr<Items::MainReserveRule> mainReserveRule_ {};
+        // The description of the travel standard.
         shared_ptr<vector<Items::ReserveRuleDesc>> reserveRuleDesc_ {};
+        // The applicable personnel scope of the travel standard.
         shared_ptr<int32_t> scope_ {};
       };
 
@@ -306,7 +319,9 @@ namespace Models
 
 
     protected:
+      // The list of travel standards.
       shared_ptr<vector<Module::Items>> items_ {};
+      // The total number of travel standards.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -357,11 +372,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<int32_t> code_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The response data. Returned by the server. An empty value is returned if no results are found or an exception occurs.
     shared_ptr<TravelStandardListQueryResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> traceId_ {};
   };
 

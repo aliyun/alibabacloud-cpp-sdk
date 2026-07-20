@@ -187,15 +187,29 @@ namespace Models
 
 
     protected:
+      // The birthday of the employee.
+      // - Format: yy-MM-dd.
       shared_ptr<string> birthday_ {};
+      // The expiration date of the certificate.
+      // - Format: `yy-MM-dd`.
       shared_ptr<string> certExpiredTime_ {};
+      // The two-letter country/region code (Country Code) of the certificate issuing country/region.
       shared_ptr<string> certNation_ {};
+      // The certificate number.
       shared_ptr<string> certNo_ {};
+      // The certificate type.
       shared_ptr<int32_t> certType_ {};
+      // The gender of the employee, which must be consistent with the certificate information.
       shared_ptr<string> gender_ {};
+      // The two-letter country/region code (Country Code) of the employee.
       shared_ptr<string> nationality_ {};
+      // The mobile phone number of the employee.
       shared_ptr<string> phone_ {};
+      // The name of the employee, which must be consistent with the certificate information.
       shared_ptr<string> realName_ {};
+      // The English name of the employee. Follow these format requirements:
+      // - Separate the last name and first name with "/", for example: LastName/FirstName.
+      // - Do not include spaces between the last name and first name.
       shared_ptr<string> realNameEn_ {};
     };
 
@@ -237,7 +251,9 @@ namespace Models
 
 
     protected:
+      // The 6-digit administrative division code.
       shared_ptr<string> code_ {};
+      // The administrative division level: province or city.
       shared_ptr<string> level_ {};
     };
 
@@ -426,30 +442,64 @@ namespace Models
 
 
   protected:
+    // The account email address. This parameter can be specified when the enterprise activation method is email activation.
     shared_ptr<string> accountEmail_ {};
+    // The account phone number. For enterprises with international phone numbers enabled, specify international numbers, Hong Kong (China), Macao (China), and Taiwan (China) numbers in the format +xx-xxxxxx.
     shared_ptr<string> accountPhone_ {};
+    // The custom extension field for the employee, which supports key-value pairs.
+    // 
+    // - Format: JSON string.
     shared_ptr<string> attribute_ {};
+    // The avatar of the employee. Specify the URL of the image.
     shared_ptr<string> avatar_ {};
+    // The 6-digit administrative code of the work location.
+    // - A maximum of two different administrative codes can be specified.
     shared_ptr<vector<string>> baseCityCodeList_ {};
+    // The base location information of the employee.
     shared_ptr<vector<AddEmployeeRequest::BaseLocationList>> baseLocationList_ {};
+    // The birthday of the employee.
+    // - Format: yy-MM-dd.
     shared_ptr<string> birthday_ {};
+    // The certificate information of the employee.
     shared_ptr<vector<AddEmployeeRequest::CertList>> certList_ {};
+    // The collection of role IDs associated with the employee. The number of roles associated with a single employee must be less than or equal to 200. Otherwise, the employee synchronization fails.
     shared_ptr<vector<string>> customRoleCodeList_ {};
+    // The email address of the employee.
     shared_ptr<string> email_ {};
+    // The gender of the employee.
     shared_ptr<string> gender_ {};
+    // Specifies whether the employee is an Alibaba Business Travel enterprise administrator.
     shared_ptr<bool> isAdmin_ {};
+    // Specifies whether the employee is the boss.
     shared_ptr<bool> isBoss_ {};
+    // Specifies whether the employee is a department manager.
     shared_ptr<bool> isDeptLeader_ {};
+    // The employee number, which serves as a unique identifier for the employee along with `user_id`. Ensure that the value is unique.
     shared_ptr<string> jobNo_ {};
+    // The ID of the direct manager of the employee.
     shared_ptr<string> managerUserId_ {};
+    // The list of departments to which the employee belongs.
     shared_ptr<vector<string>> outDeptIdList_ {};
+    // The mobile phone number of the employee.
+    // - This field is commonly used for booking business travel services across various categories. **In this case, it is required.**
+    // - If your enterprise is a government agency or other special enterprise, call 400-800-5890 to contact an Alibaba Business Travel customer service representative.
     shared_ptr<string> phone_ {};
+    // The position level of the employee, which is commonly used to match different travel standards.
     shared_ptr<string> positionLevel_ {};
+    // The name of the employee.
     shared_ptr<string> realName_ {};
+    // The English name of the employee. Follow these format requirements:
+    // - Separate the last name and first name with "/", for example: LastName/FirstName.
+    // - Do not include spaces between the last name and first name.
     shared_ptr<string> realNameEn_ {};
+    // The unique identifier of the same employee across multiple enterprises (parent and subsidiary enterprises).
     shared_ptr<string> unionId_ {};
+    // The employee ID, which is the unique identifier of the employee within the enterprise. Ensure that this value is unique.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
+    // The nickname of the employee.
+    // 
     // This parameter is required.
     shared_ptr<string> userNick_ {};
   };

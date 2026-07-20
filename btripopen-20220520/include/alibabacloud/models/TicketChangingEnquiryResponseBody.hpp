@@ -1339,6 +1339,7 @@ namespace Models
 
 
               protected:
+                // attributes
                 Darabonba::Json attributes_ {};
                 shared_ptr<vector<BaggageSubItems::BaggageSubContentVisualizes>> baggageSubContentVisualizes_ {};
                 shared_ptr<vector<BaggageSubItems::BaggageSubContents>> baggageSubContents_ {};
