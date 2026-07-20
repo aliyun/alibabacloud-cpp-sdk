@@ -53,9 +53,7 @@ namespace Models
 
 
   protected:
-    // The receivers to add.
     shared_ptr<vector<string>> addedReceivers_ {};
-    // The receivers to remove.
     shared_ptr<vector<string>> removedReceivers_ {};
   };
 

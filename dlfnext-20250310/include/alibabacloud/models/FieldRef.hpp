@@ -60,11 +60,8 @@ namespace Models
 
 
   protected:
-    // Text sequence
     shared_ptr<int32_t> index_ {};
-    // Table name
     shared_ptr<string> name_ {};
-    // File type
     shared_ptr<FullDataType> type_ {};
   };
 

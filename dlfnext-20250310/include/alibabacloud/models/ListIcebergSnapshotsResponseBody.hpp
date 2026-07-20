@@ -52,9 +52,7 @@ namespace Models
 
 
   protected:
-    // The pagination token for the next page of results. If this parameter is null, all results have been returned.
     shared_ptr<string> nextPageToken_ {};
-    // The list of snapshots.
     shared_ptr<vector<IcebergSnapshot>> snapshots_ {};
   };
 

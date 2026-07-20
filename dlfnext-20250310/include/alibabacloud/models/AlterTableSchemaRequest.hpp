@@ -41,7 +41,6 @@ namespace Models
 
 
   protected:
-    // The table schema.
     shared_ptr<Schema> schema_ {};
   };
 

@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The comment for the share.
     shared_ptr<string> comment_ {};
-    // Specifies whether to enable the write permission for the share.
     shared_ptr<bool> enableWrite_ {};
-    // The name of the share.
     shared_ptr<string> shareName_ {};
   };
 

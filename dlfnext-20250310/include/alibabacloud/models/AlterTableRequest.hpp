@@ -42,7 +42,6 @@ namespace Models
 
 
   protected:
-    // The changes made to the table.
     shared_ptr<vector<FullSchemaChange>> changes_ {};
   };
 

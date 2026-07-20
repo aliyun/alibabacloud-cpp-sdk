@@ -51,7 +51,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Updates a catalog.
+ * @summary 更新数据目录
  *
  * @param request AlterCatalogRequest
  * @param headers map
@@ -88,7 +88,7 @@ AlterCatalogResponse Client::alterCatalogWithOptions(const string &catalog, cons
 }
 
 /**
- * @summary Updates a catalog.
+ * @summary 更新数据目录
  *
  * @param request AlterCatalogRequest
  * @return AlterCatalogResponse
@@ -100,7 +100,7 @@ AlterCatalogResponse Client::alterCatalog(const string &catalog, const AlterCata
 }
 
 /**
- * @summary Updates a database.
+ * @summary 更新数据库
  *
  * @param request AlterDatabaseRequest
  * @param headers map
@@ -137,7 +137,7 @@ AlterDatabaseResponse Client::alterDatabaseWithOptions(const string &catalogId, 
 }
 
 /**
- * @summary Updates a database.
+ * @summary 更新数据库
  *
  * @param request AlterDatabaseRequest
  * @return AlterDatabaseResponse
@@ -149,7 +149,7 @@ AlterDatabaseResponse Client::alterDatabase(const string &catalogId, const strin
 }
 
 /**
- * @summary Updates a sink.
+ * @summary 更新接收者
  *
  * @param request AlterReceiverRequest
  * @param headers map
@@ -186,7 +186,7 @@ AlterReceiverResponse Client::alterReceiverWithOptions(const string &receiver, c
 }
 
 /**
- * @summary Updates a sink.
+ * @summary 更新接收者
  *
  * @param request AlterReceiverRequest
  * @return AlterReceiverResponse
@@ -198,7 +198,7 @@ AlterReceiverResponse Client::alterReceiver(const string &receiver, const AlterR
 }
 
 /**
- * @summary Updates a share.
+ * @summary 更新共享
  *
  * @param request AlterShareRequest
  * @param headers map
@@ -239,7 +239,7 @@ AlterShareResponse Client::alterShareWithOptions(const string &share, const Alte
 }
 
 /**
- * @summary Updates a share.
+ * @summary 更新共享
  *
  * @param request AlterShareRequest
  * @return AlterShareResponse
@@ -251,7 +251,7 @@ AlterShareResponse Client::alterShare(const string &share, const AlterShareReque
 }
 
 /**
- * @summary Updates the receivers of a share.
+ * @summary 更新共享中的接收者
  *
  * @param request AlterShareReceiversRequest
  * @param headers map
@@ -288,7 +288,7 @@ AlterShareReceiversResponse Client::alterShareReceiversWithOptions(const string 
 }
 
 /**
- * @summary Updates the receivers of a share.
+ * @summary 更新共享中的接收者
  *
  * @param request AlterShareReceiversRequest
  * @return AlterShareReceiversResponse
@@ -300,7 +300,7 @@ AlterShareReceiversResponse Client::alterShareReceivers(const string &share, con
 }
 
 /**
- * @summary Modifies shared resources.
+ * @summary 更改共享资源
  *
  * @param request AlterShareResourcesRequest
  * @param headers map
@@ -337,7 +337,7 @@ AlterShareResourcesResponse Client::alterShareResourcesWithOptions(const string 
 }
 
 /**
- * @summary Modifies shared resources.
+ * @summary 更改共享资源
  *
  * @param request AlterShareResourcesRequest
  * @return AlterShareResourcesResponse
@@ -349,7 +349,7 @@ AlterShareResourcesResponse Client::alterShareResources(const string &share, con
 }
 
 /**
- * @summary Updates a table.
+ * @summary 更改Table
  *
  * @param request AlterTableRequest
  * @param headers map
@@ -382,7 +382,7 @@ AlterTableResponse Client::alterTableWithOptions(const string &catalogId, const 
 }
 
 /**
- * @summary Updates a table.
+ * @summary 更改Table
  *
  * @param request AlterTableRequest
  * @return AlterTableResponse
@@ -394,7 +394,7 @@ AlterTableResponse Client::alterTable(const string &catalogId, const string &dat
 }
 
 /**
- * @summary Changes the table schema.
+ * @summary 更改Table Schema
  *
  * @param request AlterTableSchemaRequest
  * @param headers map
@@ -427,7 +427,7 @@ AlterTableSchemaResponse Client::alterTableSchemaWithOptions(const string &catal
 }
 
 /**
- * @summary Changes the table schema.
+ * @summary 更改Table Schema
  *
  * @param request AlterTableSchemaRequest
  * @return AlterTableSchemaResponse
@@ -439,7 +439,7 @@ AlterTableSchemaResponse Client::alterTableSchema(const string &catalogId, const
 }
 
 /**
- * @summary Grants permissions to one or more DLF users or roles.
+ * @summary 批量授权
  *
  * @param request BatchGrantPermissionsRequest
  * @param headers map
@@ -472,7 +472,7 @@ BatchGrantPermissionsResponse Client::batchGrantPermissionsWithOptions(const str
 }
 
 /**
- * @summary Grants permissions to one or more DLF users or roles.
+ * @summary 批量授权
  *
  * @param request BatchGrantPermissionsRequest
  * @return BatchGrantPermissionsResponse
@@ -484,7 +484,7 @@ BatchGrantPermissionsResponse Client::batchGrantPermissions(const string &catalo
 }
 
 /**
- * @summary Revokes permissions in a batch.
+ * @summary 批量取消授权
  *
  * @param request BatchRevokePermissionsRequest
  * @param headers map
@@ -517,7 +517,7 @@ BatchRevokePermissionsResponse Client::batchRevokePermissionsWithOptions(const s
 }
 
 /**
- * @summary Revokes permissions in a batch.
+ * @summary 批量取消授权
  *
  * @param request BatchRevokePermissionsRequest
  * @return BatchRevokePermissionsResponse
@@ -529,7 +529,7 @@ BatchRevokePermissionsResponse Client::batchRevokePermissions(const string &cata
 }
 
 /**
- * @summary Creates a catalog.
+ * @summary 创建数据目录
  *
  * @param request CreateCatalogRequest
  * @param headers map
@@ -578,7 +578,7 @@ CreateCatalogResponse Client::createCatalogWithOptions(const CreateCatalogReques
 }
 
 /**
- * @summary Creates a catalog.
+ * @summary 创建数据目录
  *
  * @param request CreateCatalogRequest
  * @return CreateCatalogResponse
@@ -590,7 +590,7 @@ CreateCatalogResponse Client::createCatalog(const CreateCatalogRequest &request)
 }
 
 /**
- * @summary Creates a database.
+ * @summary 创建数据库
  *
  * @param request CreateDatabaseRequest
  * @param headers map
@@ -627,7 +627,7 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const string &catalogId
 }
 
 /**
- * @summary Creates a database.
+ * @summary 创建数据库
  *
  * @param request CreateDatabaseRequest
  * @return CreateDatabaseResponse
@@ -639,7 +639,7 @@ CreateDatabaseResponse Client::createDatabase(const string &catalogId, const Cre
 }
 
 /**
- * @summary Creates a receiver.
+ * @summary 创建接收者
  *
  * @param request CreateReceiverRequest
  * @param headers map
@@ -680,7 +680,7 @@ CreateReceiverResponse Client::createReceiverWithOptions(const CreateReceiverReq
 }
 
 /**
- * @summary Creates a receiver.
+ * @summary 创建接收者
  *
  * @param request CreateReceiverRequest
  * @return CreateReceiverResponse
@@ -692,7 +692,7 @@ CreateReceiverResponse Client::createReceiver(const CreateReceiverRequest &reque
 }
 
 /**
- * @summary Creates a DLF role.
+ * @summary 创建角色
  *
  * @param request CreateRoleRequest
  * @param headers map
@@ -733,7 +733,7 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &reques
 }
 
 /**
- * @summary Creates a DLF role.
+ * @summary 创建角色
  *
  * @param request CreateRoleRequest
  * @return CreateRoleResponse
@@ -745,7 +745,7 @@ CreateRoleResponse Client::createRole(const CreateRoleRequest &request) {
 }
 
 /**
- * @summary Creates a share.
+ * @summary 创建共享
  *
  * @param request CreateShareRequest
  * @param headers map
@@ -786,7 +786,7 @@ CreateShareResponse Client::createShareWithOptions(const CreateShareRequest &req
 }
 
 /**
- * @summary Creates a share.
+ * @summary 创建共享
  *
  * @param request CreateShareRequest
  * @return CreateShareResponse
@@ -798,7 +798,7 @@ CreateShareResponse Client::createShare(const CreateShareRequest &request) {
 }
 
 /**
- * @summary Creates a table.
+ * @summary 创建表
  *
  * @param request CreateTableRequest
  * @param headers map
@@ -835,7 +835,7 @@ CreateTableResponse Client::createTableWithOptions(const string &catalogId, cons
 }
 
 /**
- * @summary Creates a table.
+ * @summary 创建表
  *
  * @param request CreateTableRequest
  * @return CreateTableResponse
@@ -847,7 +847,7 @@ CreateTableResponse Client::createTable(const string &catalogId, const string &d
 }
 
 /**
- * @summary Deletes a DLF role.
+ * @summary 删除角色
  *
  * @param request DeleteRoleRequest
  * @param headers map
@@ -880,7 +880,7 @@ DeleteRoleResponse Client::deleteRoleWithOptions(const DeleteRoleRequest &reques
 }
 
 /**
- * @summary Deletes a DLF role.
+ * @summary 删除角色
  *
  * @param request DeleteRoleRequest
  * @return DeleteRoleResponse
@@ -892,7 +892,7 @@ DeleteRoleResponse Client::deleteRole(const DeleteRoleRequest &request) {
 }
 
 /**
- * @summary Retrieves the regions where DLF is activated.
+ * @summary 查询 DLF 开通地域
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -917,7 +917,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const map<string, str
 }
 
 /**
- * @summary Retrieves the regions where DLF is activated.
+ * @summary 查询 DLF 开通地域
  *
  * @return DescribeRegionsResponse
  */
@@ -928,7 +928,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+ * @summary 删除数据湖Catalog
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -953,7 +953,7 @@ DropCatalogResponse Client::dropCatalogWithOptions(const string &catalog, const 
 }
 
 /**
- * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+ * @summary 删除数据湖Catalog
  *
  * @return DropCatalogResponse
  */
@@ -964,7 +964,7 @@ DropCatalogResponse Client::dropCatalog(const string &catalog) {
 }
 
 /**
- * @summary Drops a database.
+ * @summary 删除数据库
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +989,7 @@ DropDatabaseResponse Client::dropDatabaseWithOptions(const string &catalogId, co
 }
 
 /**
- * @summary Drops a database.
+ * @summary 删除数据库
  *
  * @return DropDatabaseResponse
  */
@@ -1000,7 +1000,7 @@ DropDatabaseResponse Client::dropDatabase(const string &catalogId, const string 
 }
 
 /**
- * @summary Removes a receiver.
+ * @summary 删除接收者
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1025,7 +1025,7 @@ DropReceiverResponse Client::dropReceiverWithOptions(const string &receiver, con
 }
 
 /**
- * @summary Removes a receiver.
+ * @summary 删除接收者
  *
  * @return DropReceiverResponse
  */
@@ -1036,7 +1036,7 @@ DropReceiverResponse Client::dropReceiver(const string &receiver) {
 }
 
 /**
- * @summary Deletes a share.
+ * @summary 删除共享
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1061,7 +1061,7 @@ DropShareResponse Client::dropShareWithOptions(const string &share, const map<st
 }
 
 /**
- * @summary Deletes a share.
+ * @summary 删除共享
  *
  * @return DropShareResponse
  */
@@ -1072,7 +1072,7 @@ DropShareResponse Client::dropShare(const string &share) {
 }
 
 /**
- * @summary Drops a table.
+ * @summary 删除表
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1097,7 +1097,7 @@ DropTableResponse Client::dropTableWithOptions(const string &catalogId, const st
 }
 
 /**
- * @summary Drops a table.
+ * @summary 删除表
  *
  * @return DropTableResponse
  */
@@ -1108,7 +1108,7 @@ DropTableResponse Client::dropTable(const string &catalogId, const string &datab
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary 查看数据湖Catalog
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1133,7 +1133,7 @@ GetCatalogResponse Client::getCatalogWithOptions(const string &catalog, const ma
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary 查看数据湖Catalog
  *
  * @return GetCatalogResponse
  */
@@ -1144,7 +1144,7 @@ GetCatalogResponse Client::getCatalog(const string &catalog) {
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary 查看数据湖Catalog
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1169,7 @@ GetCatalogByIdResponse Client::getCatalogByIdWithOptions(const string &id, const
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary 查看数据湖Catalog
  *
  * @return GetCatalogByIdResponse
  */
@@ -1180,7 +1180,46 @@ GetCatalogByIdResponse Client::getCatalogById(const string &id) {
 }
 
 /**
- * @summary Retrieves the storage overview of a data catalog.
+ * @summary 获取为 Catalog 配置 BYOK SSE-KMS 所需的 DLF 授权信息(data-access 角色 ARN 与 KMS Key Policy 片段)
+ *
+ * @param request GetCatalogKmsGrantsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCatalogKmsGrantsResponse
+ */
+GetCatalogKmsGrantsResponse Client::getCatalogKmsGrantsWithOptions(const string &catalog, const GetCatalogKmsGrantsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCatalogKmsGrants"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Encode::Encoder::percentEncode(catalog) , "/kms/grants")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCatalogKmsGrantsResponse>();
+}
+
+/**
+ * @summary 获取为 Catalog 配置 BYOK SSE-KMS 所需的 DLF 授权信息(data-access 角色 ARN 与 KMS Key Policy 片段)
+ *
+ * @param request GetCatalogKmsGrantsRequest
+ * @return GetCatalogKmsGrantsResponse
+ */
+GetCatalogKmsGrantsResponse Client::getCatalogKmsGrants(const string &catalog, const GetCatalogKmsGrantsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCatalogKmsGrantsWithOptions(catalog, request, headers, runtime);
+}
+
+/**
+ * @summary 查看表
  *
  * @param request GetCatalogSummaryRequest
  * @param headers map
@@ -1213,7 +1252,7 @@ GetCatalogSummaryResponse Client::getCatalogSummaryWithOptions(const string &cat
 }
 
 /**
- * @summary Retrieves the storage overview of a data catalog.
+ * @summary 查看表
  *
  * @param request GetCatalogSummaryRequest
  * @return GetCatalogSummaryResponse
@@ -1225,7 +1264,7 @@ GetCatalogSummaryResponse Client::getCatalogSummary(const string &catalogId, con
 }
 
 /**
- * @summary Retrieves the storage overview trend for a catalog.
+ * @summary 查看表
  *
  * @param request GetCatalogSummaryTrendRequest
  * @param headers map
@@ -1262,7 +1301,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrendWithOptions(const s
 }
 
 /**
- * @summary Retrieves the storage overview trend for a catalog.
+ * @summary 查看表
  *
  * @param request GetCatalogSummaryTrendRequest
  * @return GetCatalogSummaryTrendResponse
@@ -1274,7 +1313,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrend(const string &cata
 }
 
 /**
- * @summary Obtains a temporary access credential (token) for a catalog.
+ * @summary 获取数据湖Catalog的临时访问凭证
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1299,7 +1338,7 @@ GetCatalogTokenResponse Client::getCatalogTokenWithOptions(const string &catalog
 }
 
 /**
- * @summary Obtains a temporary access credential (token) for a catalog.
+ * @summary 获取数据湖Catalog的临时访问凭证
  *
  * @return GetCatalogTokenResponse
  */
@@ -1310,7 +1349,7 @@ GetCatalogTokenResponse Client::getCatalogToken(const string &catalog) {
 }
 
 /**
- * @summary Retrieves the details of a database.
+ * @summary 查看数据库
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1335,7 +1374,7 @@ GetDatabaseResponse Client::getDatabaseWithOptions(const string &catalogId, cons
 }
 
 /**
- * @summary Retrieves the details of a database.
+ * @summary 查看数据库
  *
  * @return GetDatabaseResponse
  */
@@ -1346,7 +1385,7 @@ GetDatabaseResponse Client::getDatabase(const string &catalogId, const string &d
 }
 
 /**
- * @summary You can view an inventory overview.
+ * @summary 查看表
  *
  * @param request GetDatabaseSummaryRequest
  * @param headers map
@@ -1379,7 +1418,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummaryWithOptions(const string &c
 }
 
 /**
- * @summary You can view an inventory overview.
+ * @summary 查看表
  *
  * @param request GetDatabaseSummaryRequest
  * @return GetDatabaseSummaryResponse
@@ -1391,7 +1430,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummary(const string &catalogId, c
 }
 
 /**
- * @summary Retrieves information about an Iceberg namespace.
+ * @summary 查看iceberg数据库
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1416,7 +1455,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespaceWithOptions(const string 
 }
 
 /**
- * @summary Retrieves information about an Iceberg namespace.
+ * @summary 查看iceberg数据库
  *
  * @return GetIcebergNamespaceResponse
  */
@@ -1427,7 +1466,7 @@ GetIcebergNamespaceResponse Client::getIcebergNamespace(const string &catalogId,
 }
 
 /**
- * @summary Retrieves the details of a table.
+ * @summary 查看表
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1452,7 +1491,7 @@ GetIcebergTableResponse Client::getIcebergTableWithOptions(const string &catalog
 }
 
 /**
- * @summary Retrieves the details of a table.
+ * @summary 查看表
  *
  * @return GetIcebergTableResponse
  */
@@ -1463,7 +1502,46 @@ GetIcebergTableResponse Client::getIcebergTable(const string &catalogId, const s
 }
 
 /**
- * @summary Retrieves a receiver.
+ * @summary 获取查询
+ *
+ * @param request GetQueryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQueryResponse
+ */
+GetQueryResponse Client::getQueryWithOptions(const string &queryId, const GetQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQuery"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/query/" , Darabonba::Encode::Encoder::percentEncode(queryId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQueryResponse>();
+}
+
+/**
+ * @summary 获取查询
+ *
+ * @param request GetQueryRequest
+ * @return GetQueryResponse
+ */
+GetQueryResponse Client::getQuery(const string &queryId, const GetQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getQueryWithOptions(queryId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取接收者
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1488,7 +1566,7 @@ GetReceiverResponse Client::getReceiverWithOptions(const string &receiver, const
 }
 
 /**
- * @summary Retrieves a receiver.
+ * @summary 获取接收者
  *
  * @return GetReceiverResponse
  */
@@ -1499,7 +1577,7 @@ GetReceiverResponse Client::getReceiver(const string &receiver) {
 }
 
 /**
- * @summary Queries the DLF activation status of in a region.
+ * @summary 查询 DLF 当前地域开通状态
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1524,7 +1602,7 @@ GetRegionStatusResponse Client::getRegionStatusWithOptions(const map<string, str
 }
 
 /**
- * @summary Queries the DLF activation status of in a region.
+ * @summary 查询 DLF 当前地域开通状态
  *
  * @return GetRegionStatusResponse
  */
@@ -1535,7 +1613,7 @@ GetRegionStatusResponse Client::getRegionStatus() {
 }
 
 /**
- * @summary Retrieves a role.
+ * @summary 获取角色
  *
  * @param request GetRoleRequest
  * @param headers map
@@ -1568,7 +1646,7 @@ GetRoleResponse Client::getRoleWithOptions(const GetRoleRequest &request, const 
 }
 
 /**
- * @summary Retrieves a role.
+ * @summary 获取角色
  *
  * @param request GetRoleRequest
  * @return GetRoleResponse
@@ -1580,7 +1658,7 @@ GetRoleResponse Client::getRole(const GetRoleRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a share.
+ * @summary 获取共享
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1605,7 +1683,7 @@ GetShareResponse Client::getShareWithOptions(const string &share, const map<stri
 }
 
 /**
- * @summary Retrieves the details of a share.
+ * @summary 获取共享
  *
  * @return GetShareResponse
  */
@@ -1616,7 +1694,7 @@ GetShareResponse Client::getShare(const string &share) {
 }
 
 /**
- * @summary Retrieves the details of a table in a data lake.
+ * @summary 查看表
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1641,7 +1719,7 @@ GetTableResponse Client::getTableWithOptions(const string &catalogId, const stri
 }
 
 /**
- * @summary Retrieves the details of a table in a data lake.
+ * @summary 查看表
  *
  * @return GetTableResponse
  */
@@ -1652,7 +1730,7 @@ GetTableResponse Client::getTable(const string &catalogId, const string &databas
 }
 
 /**
- * @summary Retrieves the compaction details of a table.
+ * @summary 查看表Compaction详情
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1677,7 +1755,7 @@ GetTableCompactionResponse Client::getTableCompactionWithOptions(const string &c
 }
 
 /**
- * @summary Retrieves the compaction details of a table.
+ * @summary 查看表Compaction详情
  *
  * @return GetTableCompactionResponse
  */
@@ -1688,7 +1766,7 @@ GetTableCompactionResponse Client::getTableCompaction(const string &catalogId, c
 }
 
 /**
- * @summary Queries a table snapshot.
+ * @summary 查看表快照
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1713,7 +1791,7 @@ GetTableSnapshotResponse Client::getTableSnapshotWithOptions(const string &catal
 }
 
 /**
- * @summary Queries a table snapshot.
+ * @summary 查看表快照
  *
  * @return GetTableSnapshotResponse
  */
@@ -1724,7 +1802,7 @@ GetTableSnapshotResponse Client::getTableSnapshot(const string &catalogId, const
 }
 
 /**
- * @summary Retrieves the storage summary for a table.
+ * @summary 查看表
  *
  * @param request GetTableSummaryRequest
  * @param headers map
@@ -1757,7 +1835,7 @@ GetTableSummaryResponse Client::getTableSummaryWithOptions(const string &catalog
 }
 
 /**
- * @summary Retrieves the storage summary for a table.
+ * @summary 查看表
  *
  * @param request GetTableSummaryRequest
  * @return GetTableSummaryResponse
@@ -1769,7 +1847,7 @@ GetTableSummaryResponse Client::getTableSummary(const string &catalogId, const s
 }
 
 /**
- * @summary Obtains a temporary access credential for a data lake table.
+ * @summary 获取数据湖表的临时访问凭证
  *
  * @param request GetTableTokenRequest
  * @param headers map
@@ -1802,7 +1880,7 @@ GetTableTokenResponse Client::getTableTokenWithOptions(const string &catalogId, 
 }
 
 /**
- * @summary Obtains a temporary access credential for a data lake table.
+ * @summary 获取数据湖表的临时访问凭证
  *
  * @param request GetTableTokenRequest
  * @return GetTableTokenResponse
@@ -1814,7 +1892,7 @@ GetTableTokenResponse Client::getTableToken(const string &catalogId, const strin
 }
 
 /**
- * @summary Retrieves a user.
+ * @summary 获取用户
  *
  * @param request GetUserRequest
  * @param headers map
@@ -1847,7 +1925,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary Retrieves a user.
+ * @summary 获取用户
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -1859,7 +1937,7 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
- * @summary Obtain the VPC configuration.
+ * @summary 获取可信 VPC 配置
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1884,7 +1962,7 @@ GetVpcConfigResponse Client::getVpcConfigWithOptions(const map<string, string> &
 }
 
 /**
- * @summary Obtain the VPC configuration.
+ * @summary 获取可信 VPC 配置
  *
  * @return GetVpcConfigResponse
  */
@@ -1895,7 +1973,7 @@ GetVpcConfigResponse Client::getVpcConfig() {
 }
 
 /**
- * @summary Grants a role to one or more users.
+ * @summary 批量授予角色权限给用户
  *
  * @param request GrantRoleToUsersRequest
  * @param headers map
@@ -1932,7 +2010,7 @@ GrantRoleToUsersResponse Client::grantRoleToUsersWithOptions(const GrantRoleToUs
 }
 
 /**
- * @summary Grants a role to one or more users.
+ * @summary 批量授予角色权限给用户
  *
  * @param request GrantRoleToUsersRequest
  * @return GrantRoleToUsersResponse
@@ -1944,7 +2022,7 @@ GrantRoleToUsersResponse Client::grantRoleToUsers(const GrantRoleToUsersRequest 
 }
 
 /**
- * @summary Lists catalogs.
+ * @summary 查看数据目录列表
  *
  * @param request ListCatalogsRequest
  * @param headers map
@@ -1985,7 +2063,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
 }
 
 /**
- * @summary Lists catalogs.
+ * @summary 查看数据目录列表
  *
  * @param request ListCatalogsRequest
  * @return ListCatalogsResponse
@@ -1997,7 +2075,7 @@ ListCatalogsResponse Client::listCatalogs(const ListCatalogsRequest &request) {
 }
 
 /**
- * @summary Retrieves database details.
+ * @summary 查看数据库列表
  *
  * @param request ListDatabaseDetailsRequest
  * @param headers map
@@ -2019,6 +2097,10 @@ ListDatabaseDetailsResponse Client::listDatabaseDetailsWithOptions(const string 
     query["pageToken"] = request.getPageToken();
   }
 
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -2038,7 +2120,7 @@ ListDatabaseDetailsResponse Client::listDatabaseDetailsWithOptions(const string 
 }
 
 /**
- * @summary Retrieves database details.
+ * @summary 查看数据库列表
  *
  * @param request ListDatabaseDetailsRequest
  * @return ListDatabaseDetailsResponse
@@ -2050,7 +2132,7 @@ ListDatabaseDetailsResponse Client::listDatabaseDetails(const string &catalogId,
 }
 
 /**
- * @summary Retrieves databases.
+ * @summary 查看数据库列表
  *
  * @param request ListDatabasesRequest
  * @param headers map
@@ -2091,7 +2173,7 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const string &catalogId, 
 }
 
 /**
- * @summary Retrieves databases.
+ * @summary 查看数据库列表
  *
  * @param request ListDatabasesRequest
  * @return ListDatabasesResponse
@@ -2103,7 +2185,7 @@ ListDatabasesResponse Client::listDatabases(const string &catalogId, const ListD
 }
 
 /**
- * @summary Lists functions.
+ * @summary 查看函数列表
  *
  * @param request ListFunctionsRequest
  * @param headers map
@@ -2144,7 +2226,7 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const string &catalogId, 
 }
 
 /**
- * @summary Lists functions.
+ * @summary 查看函数列表
  *
  * @param request ListFunctionsRequest
  * @return ListFunctionsResponse
@@ -2156,7 +2238,7 @@ ListFunctionsResponse Client::listFunctions(const string &catalogId, const strin
 }
 
 /**
- * @summary Lists Iceberg namespaces.
+ * @summary 查看iceberg数据库列表
  *
  * @param request ListIcebergNamespaceDetailsRequest
  * @param headers map
@@ -2197,7 +2279,7 @@ ListIcebergNamespaceDetailsResponse Client::listIcebergNamespaceDetailsWithOptio
 }
 
 /**
- * @summary Lists Iceberg namespaces.
+ * @summary 查看iceberg数据库列表
  *
  * @param request ListIcebergNamespaceDetailsRequest
  * @return ListIcebergNamespaceDetailsResponse
@@ -2209,7 +2291,7 @@ ListIcebergNamespaceDetailsResponse Client::listIcebergNamespaceDetails(const st
 }
 
 /**
- * @summary Lists the snapshots of an Iceberg table.
+ * @summary 查看iceberg表快照列表
  *
  * @param request ListIcebergSnapshotsRequest
  * @param headers map
@@ -2246,7 +2328,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshotsWithOptions(const strin
 }
 
 /**
- * @summary Lists the snapshots of an Iceberg table.
+ * @summary 查看iceberg表快照列表
  *
  * @param request ListIcebergSnapshotsRequest
  * @return ListIcebergSnapshotsResponse
@@ -2258,7 +2340,7 @@ ListIcebergSnapshotsResponse Client::listIcebergSnapshots(const string &catalogI
 }
 
 /**
- * @summary Lists the details of Iceberg tables.
+ * @summary 查看iceberg表详情列表
  *
  * @param request ListIcebergTableDetailsRequest
  * @param headers map
@@ -2299,7 +2381,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetailsWithOptions(const
 }
 
 /**
- * @summary Lists the details of Iceberg tables.
+ * @summary 查看iceberg表详情列表
  *
  * @param request ListIcebergTableDetailsRequest
  * @return ListIcebergTableDetailsResponse
@@ -2311,7 +2393,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetails(const string &ca
 }
 
 /**
- * @summary Retrieves storage overview for partitions.
+ * @summary 查看表
  *
  * @param request ListPartitionSummariesRequest
  * @param headers map
@@ -2352,7 +2434,7 @@ ListPartitionSummariesResponse Client::listPartitionSummariesWithOptions(const s
 }
 
 /**
- * @summary Retrieves storage overview for partitions.
+ * @summary 查看表
  *
  * @param request ListPartitionSummariesRequest
  * @return ListPartitionSummariesResponse
@@ -2364,7 +2446,7 @@ ListPartitionSummariesResponse Client::listPartitionSummaries(const string &cata
 }
 
 /**
- * @summary Lists partitions.
+ * @summary listPartitions
  *
  * @param request ListPartitionsRequest
  * @param headers map
@@ -2405,7 +2487,7 @@ ListPartitionsResponse Client::listPartitionsWithOptions(const string &catalogId
 }
 
 /**
- * @summary Lists partitions.
+ * @summary listPartitions
  *
  * @param request ListPartitionsRequest
  * @return ListPartitionsResponse
@@ -2417,7 +2499,7 @@ ListPartitionsResponse Client::listPartitions(const string &catalogId, const str
 }
 
 /**
- * @summary Retrieves a list of partitions by their names.
+ * @summary listPartitionsByNames
  *
  * @param request ListPartitionsByNamesRequest
  * @param headers map
@@ -2450,7 +2532,7 @@ ListPartitionsByNamesResponse Client::listPartitionsByNamesWithOptions(const str
 }
 
 /**
- * @summary Retrieves a list of partitions by their names.
+ * @summary listPartitionsByNames
  *
  * @param request ListPartitionsByNamesRequest
  * @return ListPartitionsByNamesResponse
@@ -2462,7 +2544,7 @@ ListPartitionsByNamesResponse Client::listPartitionsByNames(const string &catalo
 }
 
 /**
- * @summary Retrieves the permissions for a resource or principal.
+ * @summary 获取指定资源或指定Principal的权限信息
  *
  * @param request ListPermissionsRequest
  * @param headers map
@@ -2523,7 +2605,7 @@ ListPermissionsResponse Client::listPermissionsWithOptions(const string &catalog
 }
 
 /**
- * @summary Retrieves the permissions for a resource or principal.
+ * @summary 获取指定资源或指定Principal的权限信息
  *
  * @param request ListPermissionsRequest
  * @return ListPermissionsResponse
@@ -2535,7 +2617,7 @@ ListPermissionsResponse Client::listPermissions(const string &catalogId, const L
 }
 
 /**
- * @summary Retrieves shares.
+ * @summary 获取提供的共享列表
  *
  * @param request ListProvidedSharesRequest
  * @param headers map
@@ -2572,7 +2654,7 @@ ListProvidedSharesResponse Client::listProvidedSharesWithOptions(const ListProvi
 }
 
 /**
- * @summary Retrieves shares.
+ * @summary 获取提供的共享列表
  *
  * @param request ListProvidedSharesRequest
  * @return ListProvidedSharesResponse
@@ -2584,7 +2666,7 @@ ListProvidedSharesResponse Client::listProvidedShares(const ListProvidedSharesRe
 }
 
 /**
- * @summary Retrieves received shares.
+ * @summary 获取接收的共享列表
  *
  * @param request ListReceivedSharesRequest
  * @param headers map
@@ -2621,7 +2703,7 @@ ListReceivedSharesResponse Client::listReceivedSharesWithOptions(const ListRecei
 }
 
 /**
- * @summary Retrieves received shares.
+ * @summary 获取接收的共享列表
  *
  * @param request ListReceivedSharesRequest
  * @return ListReceivedSharesResponse
@@ -2633,7 +2715,7 @@ ListReceivedSharesResponse Client::listReceivedShares(const ListReceivedSharesRe
 }
 
 /**
- * @summary Queries a list of receivers.
+ * @summary 获取接收者列表
  *
  * @param request ListReceiversRequest
  * @param headers map
@@ -2674,7 +2756,7 @@ ListReceiversResponse Client::listReceiversWithOptions(const ListReceiversReques
 }
 
 /**
- * @summary Queries a list of receivers.
+ * @summary 获取接收者列表
  *
  * @param request ListReceiversRequest
  * @return ListReceiversResponse
@@ -2686,7 +2768,7 @@ ListReceiversResponse Client::listReceivers(const ListReceiversRequest &request)
 }
 
 /**
- * @summary Retrieves the users for a role.
+ * @summary 获取角色用户列表
  *
  * @param request ListRoleUsersRequest
  * @param headers map
@@ -2727,7 +2809,7 @@ ListRoleUsersResponse Client::listRoleUsersWithOptions(const ListRoleUsersReques
 }
 
 /**
- * @summary Retrieves the users for a role.
+ * @summary 获取角色用户列表
  *
  * @param request ListRoleUsersRequest
  * @return ListRoleUsersResponse
@@ -2739,7 +2821,7 @@ ListRoleUsersResponse Client::listRoleUsers(const ListRoleUsersRequest &request)
 }
 
 /**
- * @summary Retrieves roles.
+ * @summary 获取角色列表
  *
  * @param request ListRolesRequest
  * @param headers map
@@ -2780,7 +2862,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
 }
 
 /**
- * @summary Retrieves roles.
+ * @summary 获取角色列表
  *
  * @param request ListRolesRequest
  * @return ListRolesResponse
@@ -2792,7 +2874,7 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
 }
 
 /**
- * @summary Gets the receivers of a share.
+ * @summary 获取共享中的接收者列表
  *
  * @param request ListShareReceiversRequest
  * @param headers map
@@ -2829,7 +2911,7 @@ ListShareReceiversResponse Client::listShareReceiversWithOptions(const string &s
 }
 
 /**
- * @summary Gets the receivers of a share.
+ * @summary 获取共享中的接收者列表
  *
  * @param request ListShareReceiversRequest
  * @return ListShareReceiversResponse
@@ -2841,7 +2923,7 @@ ListShareReceiversResponse Client::listShareReceivers(const string &share, const
 }
 
 /**
- * @summary Retrieves shared resources.
+ * @summary 获取共享资源列表
  *
  * @param request ListShareResourcesRequest
  * @param headers map
@@ -2878,7 +2960,7 @@ ListShareResourcesResponse Client::listShareResourcesWithOptions(const string &s
 }
 
 /**
- * @summary Retrieves shared resources.
+ * @summary 获取共享资源列表
  *
  * @param request ListShareResourcesRequest
  * @return ListShareResourcesResponse
@@ -2890,7 +2972,7 @@ ListShareResourcesResponse Client::listShareResources(const string &share, const
 }
 
 /**
- * @summary Returns a list of table snapshots.
+ * @summary 查看表快照列表
  *
  * @param request ListSnapshotsRequest
  * @param headers map
@@ -2927,7 +3009,7 @@ ListSnapshotsResponse Client::listSnapshotsWithOptions(const string &catalogId, 
 }
 
 /**
- * @summary Returns a list of table snapshots.
+ * @summary 查看表快照列表
  *
  * @param request ListSnapshotsRequest
  * @return ListSnapshotsResponse
@@ -2939,7 +3021,7 @@ ListSnapshotsResponse Client::listSnapshots(const string &catalogId, const strin
 }
 
 /**
- * @summary Lists the details of one or more tables.
+ * @summary 查看表详情列表
  *
  * @param request ListTableDetailsRequest
  * @param headers map
@@ -2955,6 +3037,10 @@ ListTableDetailsResponse Client::listTableDetailsWithOptions(const string &catal
 
   if (!!request.hasPageToken()) {
     query["pageToken"] = request.getPageToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
   }
 
   if (!!request.hasTableNamePattern()) {
@@ -2984,7 +3070,7 @@ ListTableDetailsResponse Client::listTableDetailsWithOptions(const string &catal
 }
 
 /**
- * @summary Lists the details of one or more tables.
+ * @summary 查看表详情列表
  *
  * @param request ListTableDetailsRequest
  * @return ListTableDetailsResponse
@@ -2996,7 +3082,7 @@ ListTableDetailsResponse Client::listTableDetails(const string &catalogId, const
 }
 
 /**
- * @summary Retrieves a list of tables.
+ * @summary 查看表详情列表
  *
  * @param request ListTablesRequest
  * @param headers map
@@ -3037,7 +3123,7 @@ ListTablesResponse Client::listTablesWithOptions(const string &catalogId, const 
 }
 
 /**
- * @summary Retrieves a list of tables.
+ * @summary 查看表详情列表
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -3049,7 +3135,7 @@ ListTablesResponse Client::listTables(const string &catalogId, const string &dat
 }
 
 /**
- * @summary Retrieves the roles assigned to a user.
+ * @summary 获取用户角色列表
  *
  * @param request ListUserRolesRequest
  * @param headers map
@@ -3090,7 +3176,7 @@ ListUserRolesResponse Client::listUserRolesWithOptions(const ListUserRolesReques
 }
 
 /**
- * @summary Retrieves the roles assigned to a user.
+ * @summary 获取用户角色列表
  *
  * @param request ListUserRolesRequest
  * @return ListUserRolesResponse
@@ -3102,7 +3188,7 @@ ListUserRolesResponse Client::listUserRoles(const ListUserRolesRequest &request)
 }
 
 /**
- * @summary Retrieves a list of users.
+ * @summary 获取用户列表
  *
  * @param request ListUsersRequest
  * @param headers map
@@ -3147,7 +3233,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Retrieves a list of users.
+ * @summary 获取用户列表
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -3159,7 +3245,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary Lists the details of one or more views.
+ * @summary 查看视图详情列表
  *
  * @param request ListViewDetailsRequest
  * @param headers map
@@ -3200,7 +3286,7 @@ ListViewDetailsResponse Client::listViewDetailsWithOptions(const string &catalog
 }
 
 /**
- * @summary Lists the details of one or more views.
+ * @summary 查看视图详情列表
  *
  * @param request ListViewDetailsRequest
  * @return ListViewDetailsResponse
@@ -3212,7 +3298,7 @@ ListViewDetailsResponse Client::listViewDetails(const string &catalogId, const s
 }
 
 /**
- * @summary Returns the names of views.
+ * @summary 查看视图详情列表
  *
  * @param request ListViewsRequest
  * @param headers map
@@ -3253,7 +3339,7 @@ ListViewsResponse Client::listViewsWithOptions(const string &catalogId, const st
 }
 
 /**
- * @summary Returns the names of views.
+ * @summary 查看视图详情列表
  *
  * @param request ListViewsRequest
  * @return ListViewsResponse
@@ -3265,7 +3351,7 @@ ListViewsResponse Client::listViews(const string &catalogId, const string &datab
 }
 
 /**
- * @summary Syncs users.
+ * @summary 刷新用户同步
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3290,7 +3376,7 @@ RefreshUserSyncResponse Client::refreshUserSyncWithOptions(const map<string, str
 }
 
 /**
- * @summary Syncs users.
+ * @summary 刷新用户同步
  *
  * @return RefreshUserSyncResponse
  */
@@ -3301,7 +3387,7 @@ RefreshUserSyncResponse Client::refreshUserSync() {
 }
 
 /**
- * @summary Revokes a role from one or more users.
+ * @summary 批量取消授予角色权限给用户
  *
  * @param request RevokeRoleFromUsersRequest
  * @param headers map
@@ -3338,7 +3424,7 @@ RevokeRoleFromUsersResponse Client::revokeRoleFromUsersWithOptions(const RevokeR
 }
 
 /**
- * @summary Revokes a role from one or more users.
+ * @summary 批量取消授予角色权限给用户
  *
  * @param request RevokeRoleFromUsersRequest
  * @return RevokeRoleFromUsersResponse
@@ -3350,7 +3436,7 @@ RevokeRoleFromUsersResponse Client::revokeRoleFromUsers(const RevokeRoleFromUser
 }
 
 /**
- * @summary Rolls back a table.
+ * @summary 回滚表
  *
  * @param request RollbackTableRequest
  * @param headers map
@@ -3383,7 +3469,7 @@ RollbackTableResponse Client::rollbackTableWithOptions(const string &catalogId, 
 }
 
 /**
- * @summary Rolls back a table.
+ * @summary 回滚表
  *
  * @param request RollbackTableRequest
  * @return RollbackTableResponse
@@ -3395,7 +3481,68 @@ RollbackTableResponse Client::rollbackTable(const string &catalogId, const strin
 }
 
 /**
- * @summary Subscribes to DLF in the current region.
+ * @summary 提交查询
+ *
+ * @param request SubmitQueryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitQueryResponse
+ */
+SubmitQueryResponse Client::submitQueryWithOptions(const SubmitQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDefaultCatalog()) {
+    body["defaultCatalog"] = request.getDefaultCatalog();
+  }
+
+  if (!!request.hasDefaultDatabase()) {
+    body["defaultDatabase"] = request.getDefaultDatabase();
+  }
+
+  if (!!request.hasLimit()) {
+    body["limit"] = request.getLimit();
+  }
+
+  if (!!request.hasSql()) {
+    body["sql"] = request.getSql();
+  }
+
+  if (!!request.hasTier()) {
+    body["tier"] = request.getTier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitQuery"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitQueryResponse>();
+}
+
+/**
+ * @summary 提交查询
+ *
+ * @param request SubmitQueryRequest
+ * @return SubmitQueryResponse
+ */
+SubmitQueryResponse Client::submitQuery(const SubmitQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return submitQueryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 订阅当前地域的 DLF
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3420,7 +3567,7 @@ SubscribeResponse Client::subscribeWithOptions(const map<string, string> &header
 }
 
 /**
- * @summary Subscribes to DLF in the current region.
+ * @summary 订阅当前地域的 DLF
  *
  * @return SubscribeResponse
  */
@@ -3431,7 +3578,7 @@ SubscribeResponse Client::subscribe() {
 }
 
 /**
- * @summary Updates a DLF role.
+ * @summary 更新角色
  *
  * @param request UpdateRoleRequest
  * @param headers map
@@ -3472,7 +3619,7 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
 }
 
 /**
- * @summary Updates a DLF role.
+ * @summary 更新角色
  *
  * @param request UpdateRoleRequest
  * @return UpdateRoleResponse
@@ -3484,7 +3631,7 @@ UpdateRoleResponse Client::updateRole(const UpdateRoleRequest &request) {
 }
 
 /**
- * @summary Updates the users for a role.
+ * @summary 更新角色用户
  *
  * @param request UpdateRoleUsersRequest
  * @param headers map
@@ -3521,7 +3668,7 @@ UpdateRoleUsersResponse Client::updateRoleUsersWithOptions(const UpdateRoleUsers
 }
 
 /**
- * @summary Updates the users for a role.
+ * @summary 更新角色用户
  *
  * @param request UpdateRoleUsersRequest
  * @return UpdateRoleUsersResponse
@@ -3530,6 +3677,51 @@ UpdateRoleUsersResponse Client::updateRoleUsers(const UpdateRoleUsersRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateRoleUsersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 校验 Catalog 的 BYOK SSE-KMS 配置:用下发的临时凭证对存储桶做一次 SSE-KMS 写探针并校验
+ *
+ * @param request VerifyCatalogKmsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyCatalogKmsResponse
+ */
+VerifyCatalogKmsResponse Client::verifyCatalogKmsWithOptions(const string &catalog, const VerifyCatalogKmsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasKmsKeyId()) {
+    body["kmsKeyId"] = request.getKmsKeyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "VerifyCatalogKms"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/catalogs/" , Darabonba::Encode::Encoder::percentEncode(catalog) , "/kms/verify")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyCatalogKmsResponse>();
+}
+
+/**
+ * @summary 校验 Catalog 的 BYOK SSE-KMS 配置:用下发的临时凭证对存储桶做一次 SSE-KMS 写探针并校验
+ *
+ * @param request VerifyCatalogKmsRequest
+ * @return VerifyCatalogKmsResponse
+ */
+VerifyCatalogKmsResponse Client::verifyCatalogKms(const string &catalog, const VerifyCatalogKmsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return verifyCatalogKmsWithOptions(catalog, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace DlfNext20250310

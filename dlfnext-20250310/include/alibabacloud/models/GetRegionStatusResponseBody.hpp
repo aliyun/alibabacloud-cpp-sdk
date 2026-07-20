@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether DLF\\"s service-linked role has been created.
     shared_ptr<bool> serviceRoleExists_ {};
-    // The status.
     shared_ptr<string> status_ {};
   };
 

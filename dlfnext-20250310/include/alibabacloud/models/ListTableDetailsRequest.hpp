@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListTableDetailsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(pageToken, pageToken_);
+      DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(tableNamePattern, tableNamePattern_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ListTableDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(pageToken, pageToken_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(tableNamePattern, tableNamePattern_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->pageToken_ == nullptr && this->tableNamePattern_ == nullptr && this->type_ == nullptr; };
+        && this->pageToken_ == nullptr && this->status_ == nullptr && this->tableNamePattern_ == nullptr && this->type_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deletePageToken() { this->pageToken_ = nullptr;};
     inline string getPageToken() const { DARABONBA_PTR_GET_DEFAULT(pageToken_, "") };
     inline ListTableDetailsRequest& setPageToken(string pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListTableDetailsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // tableNamePattern Field Functions 
@@ -66,13 +75,10 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. Pass the token that was returned by the previous request. For the first request, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
-    // The pattern used to filter table names.
+    shared_ptr<string> status_ {};
     shared_ptr<string> tableNamePattern_ {};
-    // The type.
     shared_ptr<string> type_ {};
   };
 

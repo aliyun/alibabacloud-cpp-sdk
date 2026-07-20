@@ -151,29 +151,25 @@ namespace Models
 
 
   protected:
-    // The type of change.
     shared_ptr<string> action_ {};
-    // The description. This parameter is required when `action` is `UpdateComment` or `AddColumn`.
+    // required in UpdateComment/AddColumn
     shared_ptr<string> comment_ {};
-    // The column type. This parameter is required when `action` is `AddColumn`.
     shared_ptr<FullDataType> dataType_ {};
-    // The table column names. This parameter is required when `action` is `AddColumn`, `RenameColumn`, `DropColumn`, `UpdateColumnComment`, `UpdateColumnType`, or `UpdateColumnNullability`.
+    // required in AddColumn/RenameColumn/DropColumn/UpdateColumnComment/UpdateColumnType/UpdateColumnNullability
     shared_ptr<vector<string>> fieldNames_ {};
-    // Specifies whether the column is nullable. This parameter is required when the `action` is `UpdateColumnType`.
+    // required in UpdateColumnType
     shared_ptr<bool> keepNullability_ {};
-    // The key for the configuration. This parameter is required when `action` is `SetOption` or `RemoveOption`.
+    // required in SetOption/RemoveOption
     shared_ptr<string> key_ {};
-    // The column to move. This parameter is required when `action` is `AddColumn` or `UpdateColumnPosition`.
     shared_ptr<Move> move_ {};
-    // The new description for the column. This parameter is required when `action` is `UpdateColumnComment`.
+    // required in UpdateColumnComment
     shared_ptr<string> newComment_ {};
-    // The new column type. This parameter is required when `action` is `UpdateColumnType`.
     shared_ptr<FullDataType> newDataType_ {};
-    // The new name of the column. This parameter is required when `action` is `RenameColumn`.
+    // required in RenameColumn
     shared_ptr<string> newName_ {};
-    // Specifies whether the new column is nullable. This parameter is required when `action` is `UpdateColumnType`.
+    // required in UpdateColumnNullability
     shared_ptr<bool> newNullability_ {};
-    // The value of the configuration. This parameter is required when `action` is `SetOption`.
+    // required in SetOption
     shared_ptr<string> value_ {};
   };
 

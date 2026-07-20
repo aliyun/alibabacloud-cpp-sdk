@@ -41,7 +41,6 @@ namespace Models
 
 
   protected:
-    // The details of the instance.
     shared_ptr<FullInstant> instant_ {};
   };
 

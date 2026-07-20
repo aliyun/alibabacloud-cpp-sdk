@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_PERMISSION_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
+#include <alibabacloud/models/ColumnMask.hpp>
 #include <alibabacloud/models/RowFilter.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -16,6 +18,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const Permission& obj) { 
       DARABONBA_PTR_TO_JSON(access, access_);
+      DARABONBA_PTR_TO_JSON(columnMasking, columnMasking_);
       DARABONBA_PTR_TO_JSON(columns, columns_);
       DARABONBA_PTR_TO_JSON(database, database_);
       DARABONBA_PTR_TO_JSON(expireTime, expireTime_);
@@ -28,6 +31,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, Permission& obj) { 
       DARABONBA_PTR_FROM_JSON(access, access_);
+      DARABONBA_PTR_FROM_JSON(columnMasking, columnMasking_);
       DARABONBA_PTR_FROM_JSON(columns, columns_);
       DARABONBA_PTR_FROM_JSON(database, database_);
       DARABONBA_PTR_FROM_JSON(expireTime, expireTime_);
@@ -96,13 +100,22 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->access_ == nullptr
-        && this->columns_ == nullptr && this->database_ == nullptr && this->expireTime_ == nullptr && this->function_ == nullptr && this->principal_ == nullptr
-        && this->resourceType_ == nullptr && this->rowFilter_ == nullptr && this->table_ == nullptr && this->view_ == nullptr; };
+        && this->columnMasking_ == nullptr && this->columns_ == nullptr && this->database_ == nullptr && this->expireTime_ == nullptr && this->function_ == nullptr
+        && this->principal_ == nullptr && this->resourceType_ == nullptr && this->rowFilter_ == nullptr && this->table_ == nullptr && this->view_ == nullptr; };
     // access Field Functions 
     bool hasAccess() const { return this->access_ != nullptr;};
     void deleteAccess() { this->access_ = nullptr;};
     inline string getAccess() const { DARABONBA_PTR_GET_DEFAULT(access_, "") };
     inline Permission& setAccess(string access) { DARABONBA_PTR_SET_VALUE(access_, access) };
+
+
+    // columnMasking Field Functions 
+    bool hasColumnMasking() const { return this->columnMasking_ != nullptr;};
+    void deleteColumnMasking() { this->columnMasking_ = nullptr;};
+    inline const map<string, ColumnMask> & getColumnMasking() const { DARABONBA_PTR_GET_CONST(columnMasking_, map<string, ColumnMask>) };
+    inline map<string, ColumnMask> getColumnMasking() { DARABONBA_PTR_GET(columnMasking_, map<string, ColumnMask>) };
+    inline Permission& setColumnMasking(const map<string, ColumnMask> & columnMasking) { DARABONBA_PTR_SET_VALUE(columnMasking_, columnMasking) };
+    inline Permission& setColumnMasking(map<string, ColumnMask> && columnMasking) { DARABONBA_PTR_SET_RVALUE(columnMasking_, columnMasking) };
 
 
     // columns Field Functions 
@@ -173,19 +186,15 @@ namespace Models
 
 
   protected:
-    // The access type.
     shared_ptr<string> access_ {};
+    shared_ptr<map<string, ColumnMask>> columnMasking_ {};
     shared_ptr<Permission::Columns> columns_ {};
-    // The name of the database.
     shared_ptr<string> database_ {};
     shared_ptr<string> expireTime_ {};
     shared_ptr<string> function_ {};
-    // The user resource descriptor.
     shared_ptr<string> principal_ {};
-    // The resource type of the permission.
     shared_ptr<string> resourceType_ {};
     shared_ptr<RowFilter> rowFilter_ {};
-    // The name of the data table.
     shared_ptr<string> table_ {};
     shared_ptr<string> view_ {};
   };

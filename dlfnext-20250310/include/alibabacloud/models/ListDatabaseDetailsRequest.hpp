@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(databaseNamePattern, databaseNamePattern_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(pageToken, pageToken_);
+      DARABONBA_PTR_TO_JSON(status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListDatabaseDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(databaseNamePattern, databaseNamePattern_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(pageToken, pageToken_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
     };
     ListDatabaseDetailsRequest() = default ;
     ListDatabaseDetailsRequest(const ListDatabaseDetailsRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->databaseNamePattern_ == nullptr
-        && this->maxResults_ == nullptr && this->pageToken_ == nullptr; };
+        && this->maxResults_ == nullptr && this->pageToken_ == nullptr && this->status_ == nullptr; };
     // databaseNamePattern Field Functions 
     bool hasDatabaseNamePattern() const { return this->databaseNamePattern_ != nullptr;};
     void deleteDatabaseNamePattern() { this->databaseNamePattern_ = nullptr;};
@@ -56,15 +58,18 @@ namespace Models
     inline ListDatabaseDetailsRequest& setPageToken(string pageToken) { DARABONBA_PTR_SET_VALUE(pageToken_, pageToken) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListDatabaseDetailsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
-    // The database name pattern for fuzzy matching. Supports the percent sign (%).
     shared_ptr<string> databaseNamePattern_ {};
-    // The number of entries to return on each page.
-    // Default value: 1000.
-    // Maximum value: 1000.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If the response does not include this token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

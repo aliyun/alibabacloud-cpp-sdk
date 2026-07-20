@@ -80,11 +80,8 @@ namespace Models
 
 
     protected:
-      // The time when the VPC was created, in UNIX timestamp milliseconds.
       shared_ptr<int64_t> createdAt_ {};
-      // List of configuration items.
       shared_ptr<map<string, string>> extendedOptions_ {};
-      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -99,7 +96,6 @@ namespace Models
 
 
   protected:
-    // List of trusted VPCs.
     shared_ptr<vector<GetVpcConfigResponseBody::TrustedVpcs>> trustedVpcs_ {};
   };
 

@@ -158,33 +158,25 @@ namespace Models
 
 
   protected:
-    // The database creation time.
+    // Creation timestamp in milliseconds
     shared_ptr<int64_t> createdAt_ {};
-    // The database name.
+    // 库名 - Database name
     shared_ptr<string> databaseName_ {};
-    // The date when the storage overview data was updated.
+    // Last profile update date in format yyyyMMdd
     shared_ptr<string> generatedDate_ {};
-    // The storage location.
+    // Storage location URI
     shared_ptr<string> location_ {};
-    // The storage size of Archive data files.
     shared_ptr<int64_t> objTypeArchiveSize_ {};
-    // The storage size of Cold Archive data files.
     shared_ptr<int64_t> objTypeColdArchiveSize_ {};
-    // The storage size of Infrequent Access data files.
     shared_ptr<int64_t> objTypeIaSize_ {};
-    // The storage size of Standard data files.
     shared_ptr<int64_t> objTypeStandardSize_ {};
-    // The total number of partitions.
     shared_ptr<int64_t> partitionCount_ {};
-    // The total number of tables.
+    // Total storage in bytes
     shared_ptr<int64_t> tableCount_ {};
-    // The total number of files.
     shared_ptr<int64_t> totalFileCount_ {};
-    // The storage capacity.
+    // Total file count
     shared_ptr<int64_t> totalFileSizeInBytes_ {};
-    // The total number of metadata files.
     shared_ptr<int64_t> totalMetaFileCount_ {};
-    // The storage size of metadata files, in bytes.
     shared_ptr<int64_t> totalMetaSizeInBytes_ {};
   };
 

@@ -52,9 +52,7 @@ namespace Models
 
 
   protected:
-    // The token to retrieve the next page of results. A null value indicates that this is the last page.
     shared_ptr<string> nextPageToken_ {};
-    // The shares.
     shared_ptr<vector<Share>> shares_ {};
   };
 

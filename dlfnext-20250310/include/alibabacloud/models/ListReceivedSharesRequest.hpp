@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If the response does not include this token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
   };
 

@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The storage summary date.
     shared_ptr<string> date_ {};
   };
 

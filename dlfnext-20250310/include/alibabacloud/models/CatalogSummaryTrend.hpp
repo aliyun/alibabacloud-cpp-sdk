@@ -98,17 +98,17 @@ namespace Models
 
 
   protected:
-    // The trend of total metadata requests.
+    // API visit count trends
     shared_ptr<vector<DateSummary>> apiVisitCount_ {};
-    // The trend of file access count.
+    // file access count trends
     shared_ptr<vector<DateSummary>> fileAccessCount_ {};
-    // The data access traffic trend.
+    // Table count trends
     shared_ptr<vector<DateSummary>> throughput_ {};
-    // The trend of total file count.
+    // Historical total file count
     shared_ptr<vector<DateSummary>> totalFileCount_ {};
-    // The trend of total storage capacity.
+    // Database count trends
     shared_ptr<vector<DateSummary>> totalFileSizeInBytes_ {};
-    // The trend of total metadata object count.
+    // Latest snapshot file count
     shared_ptr<vector<DateSummary>> totalMetaCount_ {};
   };
 

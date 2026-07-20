@@ -179,37 +179,28 @@ namespace Models
 
 
   protected:
-    // The creation timestamp for the partition.
+    // Partition creation timestamp in milliseconds
     shared_ptr<int64_t> createdAt_ {};
-    // The name of the database.
+    // Database name
     shared_ptr<string> databaseName_ {};
-    // The last access timestamp for the partition\\"s data.
+    // Total files in partition
     shared_ptr<int64_t> lastAccessTime_ {};
-    // The last requester.
     shared_ptr<string> lastRequester_ {};
-    // The name of the partition.
+    // Partition identifier
     shared_ptr<string> partitionName_ {};
-    // The storage action parameters.
     shared_ptr<map<string, string>> storageActionParams_ {};
-    // The storage action timestamp.
     shared_ptr<int64_t> storageActionTimestamp_ {};
-    // The storage class.
     shared_ptr<string> storageClass_ {};
-    // The name of the table.
+    // Table name
     shared_ptr<string> tableName_ {};
-    // The top requester.
     shared_ptr<string> topRequester_ {};
-    // Total file access count.
     shared_ptr<int64_t> totalFileAccessNum_ {};
-    // Total file access count over the last 30 days.
     shared_ptr<int64_t> totalFileAccessNum30d_ {};
-    // Total file access count over the last 7 days.
     shared_ptr<int64_t> totalFileAccessNum7d_ {};
-    // The total number of files in the partition.
+    // 24h access count
     shared_ptr<int64_t> totalFileCount_ {};
-    // The total size, in bytes, of all files in the partition.
+    // Last data access timestamp in milliseconds
     shared_ptr<int64_t> totalFileSizeInBytes_ {};
-    // The last update timestamp for the partition.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

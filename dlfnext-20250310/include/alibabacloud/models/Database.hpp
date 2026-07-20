@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(options, options_);
       DARABONBA_PTR_TO_JSON(owner, owner_);
+      DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(tableCount, tableCount_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_TO_JSON(updatedBy, updatedBy_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(options, options_);
       DARABONBA_PTR_FROM_JSON(owner, owner_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(tableCount, tableCount_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_FROM_JSON(updatedBy, updatedBy_);
@@ -50,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->createdBy_ == nullptr && this->id_ == nullptr && this->location_ == nullptr && this->name_ == nullptr && this->options_ == nullptr
-        && this->owner_ == nullptr && this->tableCount_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
+        && this->owner_ == nullptr && this->status_ == nullptr && this->tableCount_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline Database& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline Database& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // tableCount Field Functions 
     bool hasTableCount() const { return this->tableCount_ != nullptr;};
     void deleteTableCount() { this->tableCount_ = nullptr;};
@@ -124,25 +133,16 @@ namespace Models
 
 
   protected:
-    // The database creation time.
     shared_ptr<int64_t> createdAt_ {};
-    // The database creator.
     shared_ptr<string> createdBy_ {};
-    // The database UUID.
     shared_ptr<string> id_ {};
-    // The database URI.
     shared_ptr<string> location_ {};
-    // The database name.
     shared_ptr<string> name_ {};
-    // The extension options.
     shared_ptr<map<string, string>> options_ {};
-    // The owner.
     shared_ptr<string> owner_ {};
-    // The number of tables in the database.
+    shared_ptr<string> status_ {};
     shared_ptr<int64_t> tableCount_ {};
-    // The time when the database was last updated.
     shared_ptr<int64_t> updatedAt_ {};
-    // The user who last updated the database.
     shared_ptr<string> updatedBy_ {};
   };
 

@@ -95,9 +95,7 @@ namespace Models
 
 
     protected:
-      // vSwitch ID
       shared_ptr<string> vSwitchId_ {};
-      // Instance zone
       shared_ptr<string> zone_ {};
     };
 
@@ -208,42 +206,19 @@ namespace Models
 
 
   protected:
-    // Cluster ID
     shared_ptr<string> clusterId_ {};
-    // Cluster name
     shared_ptr<string> clusterName_ {};
-    // Creation time
     shared_ptr<int64_t> createdAt_ {};
-    // Creator name
     shared_ptr<string> createdBy_ {};
-    // Version of the deployed instance
     shared_ptr<string> deployInstanceVersion_ {};
-    // Deployed options version
     shared_ptr<int64_t> deployOptionsVersion_ {};
-    // Milvus Version
     shared_ptr<string> instanceVersion_ {};
-    // Cache cluster configuration
     shared_ptr<map<string, string>> options_ {};
-    // Options version
     shared_ptr<int64_t> optionsVersion_ {};
-    // Cache cluster status. Valid values:
-    // ● NEW: Newly created and not started.
-    // ● STARTING: Starting.
-    // ● START_FAILED: Start failed.
-    // ● RUNNING: Running.
-    // ● PENDING_RESTART: Pending restart.
-    // ● PENDING_TERMINATE: Pending termination.
-    // ● TERMINATING: Terminating.
-    // ● TERMINATE_FAILED: Termination failed.
-    // ● TERMINATED: Terminated.
     shared_ptr<string> status_ {};
-    // Update time
     shared_ptr<int64_t> updatedAt_ {};
-    // Updater name
     shared_ptr<string> updatedBy_ {};
-    // vSwitch list
     shared_ptr<vector<CacheCluster::VSwitches>> vSwitches_ {};
-    // VPC ID
     shared_ptr<string> vpcId_ {};
   };
 

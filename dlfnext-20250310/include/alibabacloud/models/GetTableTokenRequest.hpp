@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // Specifies whether the access is from a VPC.
     shared_ptr<bool> isInternal_ {};
   };
 

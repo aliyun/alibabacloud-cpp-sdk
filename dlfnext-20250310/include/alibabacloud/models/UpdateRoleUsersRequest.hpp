@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // The resource descriptor of the DLF role.
     shared_ptr<string> rolePrincipal_ {};
-    // The resource descriptors of the users.
     shared_ptr<vector<string>> userPrincipals_ {};
   };
 

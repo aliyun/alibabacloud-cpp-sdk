@@ -52,9 +52,7 @@ namespace Models
 
 
   protected:
-    // The pagination token used to retrieve the next page of data. If null is returned, the current page is the last page.
     shared_ptr<string> nextPageToken_ {};
-    // The roles.
     shared_ptr<vector<Role>> roles_ {};
   };
 

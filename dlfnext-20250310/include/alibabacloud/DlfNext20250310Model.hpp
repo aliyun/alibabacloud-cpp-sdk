@@ -8,6 +8,7 @@
 #include <alibabacloud/models/CatalogSummary.hpp>
 #include <alibabacloud/models/DateSummary.hpp>
 #include <alibabacloud/models/CatalogSummaryTrend.hpp>
+#include <alibabacloud/models/ColumnMask.hpp>
 #include <alibabacloud/models/FullDataType.hpp>
 #include <alibabacloud/models/DataField.hpp>
 #include <alibabacloud/models/Database.hpp>
@@ -104,6 +105,9 @@
 #include <alibabacloud/models/DropTableResponse.hpp>
 #include <alibabacloud/models/GetCatalogResponse.hpp>
 #include <alibabacloud/models/GetCatalogByIdResponse.hpp>
+#include <alibabacloud/models/GetCatalogKmsGrantsRequest.hpp>
+#include <alibabacloud/models/GetCatalogKmsGrantsResponseBody.hpp>
+#include <alibabacloud/models/GetCatalogKmsGrantsResponse.hpp>
 #include <alibabacloud/models/GetCatalogSummaryRequest.hpp>
 #include <alibabacloud/models/GetCatalogSummaryResponse.hpp>
 #include <alibabacloud/models/GetCatalogSummaryTrendRequest.hpp>
@@ -115,6 +119,9 @@
 #include <alibabacloud/models/GetDatabaseSummaryResponse.hpp>
 #include <alibabacloud/models/GetIcebergNamespaceResponse.hpp>
 #include <alibabacloud/models/GetIcebergTableResponse.hpp>
+#include <alibabacloud/models/GetQueryRequest.hpp>
+#include <alibabacloud/models/GetQueryResponseBody.hpp>
+#include <alibabacloud/models/GetQueryResponse.hpp>
 #include <alibabacloud/models/GetReceiverResponse.hpp>
 #include <alibabacloud/models/GetRegionStatusResponseBody.hpp>
 #include <alibabacloud/models/GetRegionStatusResponse.hpp>
@@ -214,10 +221,16 @@
 #include <alibabacloud/models/RevokeRoleFromUsersResponse.hpp>
 #include <alibabacloud/models/RollbackTableRequest.hpp>
 #include <alibabacloud/models/RollbackTableResponse.hpp>
+#include <alibabacloud/models/SubmitQueryRequest.hpp>
+#include <alibabacloud/models/SubmitQueryResponseBody.hpp>
+#include <alibabacloud/models/SubmitQueryResponse.hpp>
 #include <alibabacloud/models/SubscribeResponse.hpp>
 #include <alibabacloud/models/UpdateRoleRequest.hpp>
 #include <alibabacloud/models/UpdateRoleResponse.hpp>
 #include <alibabacloud/models/UpdateRoleUsersRequest.hpp>
 #include <alibabacloud/models/UpdateRoleUsersResponse.hpp>
+#include <alibabacloud/models/VerifyCatalogKmsRequest.hpp>
+#include <alibabacloud/models/VerifyCatalogKmsResponseBody.hpp>
+#include <alibabacloud/models/VerifyCatalogKmsResponse.hpp>
 
 #endif

@@ -86,13 +86,13 @@ namespace Models
 
 
     protected:
-      // The description.
+      // The region description
       shared_ptr<string> description_ {};
-      // The region ID.
+      // The region name
       shared_ptr<string> name_ {};
-      // The display name.
+      // The region show name
       shared_ptr<string> showName_ {};
-      // The type.
+      // The region type
       shared_ptr<string> type_ {};
     };
 
@@ -107,7 +107,6 @@ namespace Models
 
 
   protected:
-    // The regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
   };
 

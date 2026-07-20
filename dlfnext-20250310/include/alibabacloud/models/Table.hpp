@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(path, path_);
       DARABONBA_PTR_TO_JSON(schema, schema_);
       DARABONBA_PTR_TO_JSON(schemaId, schemaId_);
+      DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(storageAction, storageAction_);
       DARABONBA_PTR_TO_JSON(storageActionTimestamp, storageActionTimestamp_);
       DARABONBA_PTR_TO_JSON(storageClass, storageClass_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(path, path_);
       DARABONBA_PTR_FROM_JSON(schema, schema_);
       DARABONBA_PTR_FROM_JSON(schemaId, schemaId_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(storageAction, storageAction_);
       DARABONBA_PTR_FROM_JSON(storageActionTimestamp, storageActionTimestamp_);
       DARABONBA_PTR_FROM_JSON(storageClass, storageClass_);
@@ -63,8 +65,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->createdBy_ == nullptr && this->icebergTableMetadata_ == nullptr && this->id_ == nullptr && this->isExternal_ == nullptr && this->name_ == nullptr
-        && this->owner_ == nullptr && this->path_ == nullptr && this->schema_ == nullptr && this->schemaId_ == nullptr && this->storageAction_ == nullptr
-        && this->storageActionTimestamp_ == nullptr && this->storageClass_ == nullptr && this->type_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
+        && this->owner_ == nullptr && this->path_ == nullptr && this->schema_ == nullptr && this->schemaId_ == nullptr && this->status_ == nullptr
+        && this->storageAction_ == nullptr && this->storageActionTimestamp_ == nullptr && this->storageClass_ == nullptr && this->type_ == nullptr && this->updatedAt_ == nullptr
+        && this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -139,6 +142,13 @@ namespace Models
     inline Table& setSchemaId(int64_t schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline Table& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // storageAction Field Functions 
     bool hasStorageAction() const { return this->storageAction_ != nullptr;};
     void deleteStorageAction() { this->storageAction_ = nullptr;};
@@ -182,35 +192,22 @@ namespace Models
 
 
   protected:
-    // The time when the table was created.
     shared_ptr<int64_t> createdAt_ {};
-    // The user who created the table.
     shared_ptr<string> createdBy_ {};
     shared_ptr<IcebergTableMetadata> icebergTableMetadata_ {};
-    // The UUID of the table.
     shared_ptr<string> id_ {};
-    // Indicates whether the table is an external table.
     shared_ptr<bool> isExternal_ {};
-    // The name of the table.
     shared_ptr<string> name_ {};
-    // The owner of the table.
     shared_ptr<string> owner_ {};
-    // The table URI.
     shared_ptr<string> path_ {};
-    // The table schema.
     shared_ptr<Schema> schema_ {};
-    // The ID of the schema.
     shared_ptr<int64_t> schemaId_ {};
-    // The storage action.
+    shared_ptr<string> status_ {};
     shared_ptr<string> storageAction_ {};
-    // The timestamp of the storage action.
     shared_ptr<int64_t> storageActionTimestamp_ {};
-    // The storage class of the table.
     shared_ptr<string> storageClass_ {};
     shared_ptr<string> type_ {};
-    // The time when the table was last updated.
     shared_ptr<int64_t> updatedAt_ {};
-    // The user who last updated the table.
     shared_ptr<string> updatedBy_ {};
   };
 

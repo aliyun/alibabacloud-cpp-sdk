@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The resource descriptor of the role to delete.
     shared_ptr<string> rolePrincipal_ {};
   };
 

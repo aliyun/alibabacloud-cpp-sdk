@@ -42,7 +42,6 @@ namespace Models
 
 
   protected:
-    // 分区规格列表。
     shared_ptr<vector<map<string, string>>> specs_ {};
   };
 

@@ -84,9 +84,7 @@ namespace Models
 
 
     protected:
-      // The name of the column.
       shared_ptr<string> name_ {};
-      // The data type of the column.
       shared_ptr<string> type_ {};
     };
 
@@ -159,23 +157,14 @@ namespace Models
 
 
   protected:
-    // A temporary URL to download the result set, provided only when the result set is too large to return directly.
     shared_ptr<string> downloadUrl_ {};
-    // The error message, present only if the execution fails.
     shared_ptr<string> error_ {};
-    // The error code, present only if the execution fails.
     shared_ptr<string> errorCode_ {};
-    // The statement\\"s total execution time, in milliseconds.
     shared_ptr<int64_t> executionTime_ {};
-    // The zero-based index of the SQL statement in a batch execution.
     shared_ptr<int32_t> index_ {};
-    // The number of rows affected or returned by the statement.
     shared_ptr<int32_t> rowCount_ {};
-    // An array of objects describing the result set\\"s schema. Each object defines a column.
     shared_ptr<vector<StatementResult::Schema>> schema_ {};
-    // The original SQL statement.
     shared_ptr<string> sql_ {};
-    // The statement\\"s execution status. Possible values are `RUNNING`, `FINISHED`, `CANCELED`, or `FAILED`.
     shared_ptr<string> status_ {};
   };
 

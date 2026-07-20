@@ -52,9 +52,7 @@ namespace Models
 
 
   protected:
-    // The ID of the catalog.
     shared_ptr<string> catalogId_ {};
-    // The shared resources.
     shared_ptr<vector<ShareResource>> shareResourceList_ {};
   };
 
