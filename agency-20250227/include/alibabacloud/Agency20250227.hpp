@@ -21,6 +21,74 @@ namespace Agency20250227
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 创建客户小记
+       *
+       * @param request CustomerNoteCreateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CustomerNoteCreateResponse
+       */
+      Models::CustomerNoteCreateResponse customerNoteCreateWithOptions(const Models::CustomerNoteCreateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建客户小记
+       *
+       * @param request CustomerNoteCreateRequest
+       * @return CustomerNoteCreateResponse
+       */
+      Models::CustomerNoteCreateResponse customerNoteCreate(const Models::CustomerNoteCreateRequest &request);
+
+      /**
+       * @summary 编辑客户小记
+       *
+       * @param request CustomerNoteEditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CustomerNoteEditResponse
+       */
+      Models::CustomerNoteEditResponse customerNoteEditWithOptions(const Models::CustomerNoteEditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 编辑客户小记
+       *
+       * @param request CustomerNoteEditRequest
+       * @return CustomerNoteEditResponse
+       */
+      Models::CustomerNoteEditResponse customerNoteEdit(const Models::CustomerNoteEditRequest &request);
+
+      /**
+       * @summary 分页查询客户小记列表
+       *
+       * @param request CustomerNoteListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CustomerNoteListResponse
+       */
+      Models::CustomerNoteListResponse customerNoteListWithOptions(const Models::CustomerNoteListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询客户小记列表
+       *
+       * @param request CustomerNoteListRequest
+       * @return CustomerNoteListResponse
+       */
+      Models::CustomerNoteListResponse customerNoteList(const Models::CustomerNoteListRequest &request);
+
+      /**
+       * @summary 查询客户小记详情
+       *
+       * @param request CustomerNoteListDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CustomerNoteListDetailResponse
+       */
+      Models::CustomerNoteListDetailResponse customerNoteListDetailWithOptions(const Models::CustomerNoteListDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询客户小记详情
+       *
+       * @param request CustomerNoteListDetailRequest
+       * @return CustomerNoteListDetailResponse
+       */
+      Models::CustomerNoteListDetailResponse customerNoteListDetail(const Models::CustomerNoteListDetailRequest &request);
+
+      /**
        * @summary Queries exported bill files.
        *
        * @param request GetBillDetailFileListRequest

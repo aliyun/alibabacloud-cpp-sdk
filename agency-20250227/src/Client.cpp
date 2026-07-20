@@ -95,6 +95,218 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 创建客户小记
+ *
+ * @param request CustomerNoteCreateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CustomerNoteCreateResponse
+ */
+CustomerNoteCreateResponse Client::customerNoteCreateWithOptions(const CustomerNoteCreateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContactInformation()) {
+    body["ContactInformation"] = request.getContactInformation();
+  }
+
+  if (!!request.hasContactName()) {
+    body["ContactName"] = request.getContactName();
+  }
+
+  if (!!request.hasCustomerName()) {
+    body["CustomerName"] = request.getCustomerName();
+  }
+
+  if (!!request.hasCustomerUid()) {
+    body["CustomerUid"] = request.getCustomerUid();
+  }
+
+  if (!!request.hasNoteContent()) {
+    body["NoteContent"] = request.getNoteContent();
+  }
+
+  if (!!request.hasTouchDate()) {
+    body["TouchDate"] = request.getTouchDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CustomerNoteCreate"},
+    {"version" , "2025-02-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CustomerNoteCreateResponse>();
+}
+
+/**
+ * @summary 创建客户小记
+ *
+ * @param request CustomerNoteCreateRequest
+ * @return CustomerNoteCreateResponse
+ */
+CustomerNoteCreateResponse Client::customerNoteCreate(const CustomerNoteCreateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return customerNoteCreateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 编辑客户小记
+ *
+ * @param request CustomerNoteEditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CustomerNoteEditResponse
+ */
+CustomerNoteEditResponse Client::customerNoteEditWithOptions(const CustomerNoteEditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContactInformation()) {
+    body["ContactInformation"] = request.getContactInformation();
+  }
+
+  if (!!request.hasContactName()) {
+    body["ContactName"] = request.getContactName();
+  }
+
+  if (!!request.hasNoteContent()) {
+    body["NoteContent"] = request.getNoteContent();
+  }
+
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.getNoteId();
+  }
+
+  if (!!request.hasTouchDate()) {
+    body["TouchDate"] = request.getTouchDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CustomerNoteEdit"},
+    {"version" , "2025-02-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CustomerNoteEditResponse>();
+}
+
+/**
+ * @summary 编辑客户小记
+ *
+ * @param request CustomerNoteEditRequest
+ * @return CustomerNoteEditResponse
+ */
+CustomerNoteEditResponse Client::customerNoteEdit(const CustomerNoteEditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return customerNoteEditWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询客户小记列表
+ *
+ * @param request CustomerNoteListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CustomerNoteListResponse
+ */
+CustomerNoteListResponse Client::customerNoteListWithOptions(const CustomerNoteListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCustomerUid()) {
+    body["CustomerUid"] = request.getCustomerUid();
+  }
+
+  if (!!request.hasPageNum()) {
+    body["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CustomerNoteList"},
+    {"version" , "2025-02-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CustomerNoteListResponse>();
+}
+
+/**
+ * @summary 分页查询客户小记列表
+ *
+ * @param request CustomerNoteListRequest
+ * @return CustomerNoteListResponse
+ */
+CustomerNoteListResponse Client::customerNoteList(const CustomerNoteListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return customerNoteListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询客户小记详情
+ *
+ * @param request CustomerNoteListDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CustomerNoteListDetailResponse
+ */
+CustomerNoteListDetailResponse Client::customerNoteListDetailWithOptions(const CustomerNoteListDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.getNoteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CustomerNoteListDetail"},
+    {"version" , "2025-02-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CustomerNoteListDetailResponse>();
+}
+
+/**
+ * @summary 查询客户小记详情
+ *
+ * @param request CustomerNoteListDetailRequest
+ * @return CustomerNoteListDetailResponse
+ */
+CustomerNoteListDetailResponse Client::customerNoteListDetail(const CustomerNoteListDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return customerNoteListDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries exported bill files.
  *
  * @param request GetBillDetailFileListRequest
