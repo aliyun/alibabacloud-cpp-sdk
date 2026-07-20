@@ -232,7 +232,7 @@ namespace Models
 
 
     protected:
-      // The CNAME record value for verification-free authorization. This field may be empty.
+      // The CNAME record value for verification-free authorization. This value may be empty.
       shared_ptr<string> cname_ {};
       // The prefix for CNAME validation.
       shared_ptr<string> cnameKey_ {};
@@ -244,7 +244,7 @@ namespace Models
       shared_ptr<string> validationKey_ {};
       // The validation type. Valid values: TXT, HTTP, and CNAME.
       shared_ptr<string> validationType_ {};
-      // The host record value for validation.
+      // The validation host record value.
       shared_ptr<string> validationValue_ {};
     };
 
@@ -312,7 +312,7 @@ namespace Models
       // - expedite: application assistance.
       // - remote: offline deployment.
       shared_ptr<string> dingGroupType_ {};
-      // The link to join the expert service DingTalk group.
+      // The URL for joining the expert service DingTalk group.
       shared_ptr<string> dingGroupUrl_ {};
     };
 
@@ -600,7 +600,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether automatic managed renewal is enabled. Valid values:
+    // Indicates whether automatic managed renewal is enabled. Valid values:
     // - enable: Enabled.
     // - disable: Disabled.
     shared_ptr<string> autoReissue_ {};
@@ -617,10 +617,10 @@ namespace Models
     shared_ptr<int32_t> certificateId_ {};
     // The name of the instance. When a certificate is issued, this name is used as the default certificate name.
     shared_ptr<string> certificateName_ {};
-    // The end time of the latest certificate. The value is a UNIX timestamp. This field is empty if no certificate has been issued.
+    // The end time of the latest certificate, in timestamp format. This value is empty if no certificate has been issued.
     shared_ptr<int64_t> certificateNotAfter_ {};
     shared_ptr<int64_t> certificateNotBefore_ {};
-    // The revocation time of the latest certificate. The value is a UNIX timestamp.
+    // The revocation time of the latest certificate, in timestamp format.
     shared_ptr<int64_t> certificateRevokeTime_ {};
     // The status of the certificate. Valid values:
     // - **issued**: issued.
@@ -652,11 +652,11 @@ namespace Models
     // - online: system-generated. The Csr field is ignored.
     // - upload: user-uploaded. The Csr field is required.
     shared_ptr<string> generateCsrMethod_ {};
-    // The expiration time of the instance. The value is a UNIX timestamp. If no certificate has been issued, this field is empty.
+    // The expiration time of the instance, in timestamp format. This value is empty if no certificate has been issued.
     shared_ptr<int64_t> instanceEndTime_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
-    // The start time of the instance. The value is a UNIX timestamp. If no certificate has been issued, this field is empty.
+    // The start time of the instance, in timestamp format. This value is empty if no certificate has been issued.
     shared_ptr<int64_t> instanceStartTime_ {};
     // The instance type. Valid values:
     // - **BUY**: formal certificate.
@@ -667,11 +667,11 @@ namespace Models
     // - **RSA_3072**
     // - **RSA_4096**
     // - **ECC_256**
-    // - **SM2**.
+    // - **SM2**
     shared_ptr<string> keyAlgorithm_ {};
-    // The end time of the instance purchase. The value is a UNIX timestamp. You can use this value to determine the purchase duration of the instance.
+    // The end time of the instance purchase, in timestamp format. This value is used to determine the purchase duration of the instance.
     shared_ptr<int64_t> orderEndTime_ {};
-    // The start time of the instance purchase. The value is a UNIX timestamp. You can use this value to determine the refund time limit.
+    // The start time of the instance purchase, in timestamp format. This value is used to determine the refund time limit.
     shared_ptr<int64_t> orderStartTime_ {};
     // The result returned by the certification authority (CA) during the last certificate operation.
     shared_ptr<string> pendingResult_ {};
@@ -700,7 +700,7 @@ namespace Models
     // 
     // - payed: the instance upgrade has been paid.
     // 
-    // - issued: the latest certificate has been issued after the instance upgrade.
+    // - issued: the latest certificate has been issued for the upgraded instance.
     shared_ptr<string> upgradeStatus_ {};
     // The validation method for the certificate application. Valid values:
     // - DNS: DNS validation, using TXT or CNAME.

@@ -42,7 +42,7 @@ namespace Cas20200407
       Models::AddCloudAccessResponse addCloudAccess(const Models::AddCloudAccessRequest &request);
 
       /**
-       * @summary Submits a certificate application for a Certificate Management Service instance.
+       * @summary Applies for a certificate.
        *
        * @param request ApplyCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -51,7 +51,7 @@ namespace Cas20200407
       Models::ApplyCertificateResponse applyCertificateWithOptions(const Models::ApplyCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a certificate application for a Certificate Management Service instance.
+       * @summary Applies for a certificate.
        *
        * @param request ApplyCertificateRequest
        * @return ApplyCertificateResponse
@@ -128,7 +128,7 @@ namespace Cas20200407
       Models::CancelOrderRequestResponse cancelOrderRequest(const Models::CancelOrderRequestRequest &request);
 
       /**
-       * @summary Cancels a pending certificate application that has not been issued.
+       * @summary Revokes a certificate application.
        *
        * @param request CancelPendingCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -137,7 +137,7 @@ namespace Cas20200407
       Models::CancelPendingCertificateResponse cancelPendingCertificateWithOptions(const Models::CancelPendingCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels a pending certificate application that has not been issued.
+       * @summary Revokes a certificate application.
        *
        * @param request CancelPendingCertificateRequest
        * @return CancelPendingCertificateResponse
@@ -222,6 +222,40 @@ namespace Cas20200407
        * @return CreateCertificateWithCsrRequestResponse
        */
       Models::CreateCertificateWithCsrRequestResponse createCertificateWithCsrRequest(const Models::CreateCertificateWithCsrRequestRequest &request);
+
+      /**
+       * @summary Creates a company.
+       *
+       * @param request CreateCompanyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCompanyResponse
+       */
+      Models::CreateCompanyResponse createCompanyWithOptions(const Models::CreateCompanyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a company.
+       *
+       * @param request CreateCompanyRequest
+       * @return CreateCompanyResponse
+       */
+      Models::CreateCompanyResponse createCompany(const Models::CreateCompanyRequest &request);
+
+      /**
+       * @summary Creates a certificate application contact.
+       *
+       * @param request CreateContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContactResponse
+       */
+      Models::CreateContactResponse createContactWithOptions(const Models::CreateContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a certificate application contact.
+       *
+       * @param request CreateContactRequest
+       * @return CreateContactResponse
+       */
+      Models::CreateContactResponse createContact(const Models::CreateContactRequest &request);
 
       /**
        * @summary Creates a certificate signing request (CSR) that contains information about an SSL certificate to apply for, such as the domain names and the certificate holder. You must provide a CSR when you submit a certificate application to a certificate authority (CA).
@@ -365,6 +399,40 @@ namespace Cas20200407
        * @return DeleteCloudAccessResponse
        */
       Models::DeleteCloudAccessResponse deleteCloudAccess(const Models::DeleteCloudAccessRequest &request);
+
+      /**
+       * @summary Deletes a company.
+       *
+       * @param request DeleteCompanyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCompanyResponse
+       */
+      Models::DeleteCompanyResponse deleteCompanyWithOptions(const Models::DeleteCompanyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a company.
+       *
+       * @param request DeleteCompanyRequest
+       * @return DeleteCompanyResponse
+       */
+      Models::DeleteCompanyResponse deleteCompany(const Models::DeleteCompanyRequest &request);
+
+      /**
+       * @summary Deletes a contact.
+       *
+       * @param request DeleteContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContactResponse
+       */
+      Models::DeleteContactResponse deleteContactWithOptions(const Models::DeleteContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a contact.
+       *
+       * @param request DeleteContactRequest
+       * @return DeleteContactResponse
+       */
+      Models::DeleteContactResponse deleteContact(const Models::DeleteContactRequest &request);
 
       /**
        * @summary Deletes a certificate signing request (CSR).
@@ -639,11 +707,11 @@ namespace Cas20200407
       Models::EncryptResponse encrypt(const Models::EncryptRequest &request);
 
       /**
-       * @summary Queries the total number of certificate-related assets, such as websites and cloud resources.
+       * @summary Queries the number of assets.
        *
-       * @description This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
-       * ## QPS Limit
-       * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+       * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+       * ## QPS limit
+       * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAssetCountResponse
@@ -651,11 +719,11 @@ namespace Cas20200407
       Models::GetAssetCountResponse getAssetCountWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the total number of certificate-related assets, such as websites and cloud resources.
+       * @summary Queries the number of assets.
        *
-       * @description This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
-       * ## QPS Limit
-       * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+       * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+       * ## QPS limit
+       * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
        *
        * @return GetAssetCountResponse
        */
@@ -696,6 +764,40 @@ namespace Cas20200407
        * @return GetCertificateDetailResponse
        */
       Models::GetCertificateDetailResponse getCertificateDetail(const Models::GetCertificateDetailRequest &request);
+
+      /**
+       * @summary Retrieves the details of a company.
+       *
+       * @param request GetCompanyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCompanyResponse
+       */
+      Models::GetCompanyResponse getCompanyWithOptions(const Models::GetCompanyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a company.
+       *
+       * @param request GetCompanyRequest
+       * @return GetCompanyResponse
+       */
+      Models::GetCompanyResponse getCompany(const Models::GetCompanyRequest &request);
+
+      /**
+       * @summary Retrieves a contact.
+       *
+       * @param request GetContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetContactResponse
+       */
+      Models::GetContactResponse getContactWithOptions(const Models::GetContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a contact.
+       *
+       * @param request GetContactRequest
+       * @return GetContactResponse
+       */
+      Models::GetContactResponse getContact(const Models::GetContactRequest &request);
 
       /**
        * @summary Queries the content of a certificate signing request (CSR).
@@ -816,9 +918,9 @@ namespace Cas20200407
       Models::GetTaskAttributeResponse getTaskAttribute(const Models::GetTaskAttributeRequest &request);
 
       /**
-       * @summary Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+       * @summary Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
        *
-       * @description The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+       * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request GetUserCertificateDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -827,9 +929,9 @@ namespace Cas20200407
       Models::GetUserCertificateDetailResponse getUserCertificateDetailWithOptions(const Models::GetUserCertificateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+       * @summary Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
        *
-       * @description The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+       * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request GetUserCertificateDetailRequest
        * @return GetUserCertificateDetailResponse
@@ -837,11 +939,11 @@ namespace Cas20200407
       Models::GetUserCertificateDetailResponse getUserCertificateDetail(const Models::GetUserCertificateDetailRequest &request);
 
       /**
-       * @summary Queries the certificate deployment statistics by cloud service type.
+       * @summary Queries the resource statistics list of cloud services.
        *
-       * @description Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+       * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
        * ## QPS limit
-       * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+       * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request ListAssetCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -850,11 +952,11 @@ namespace Cas20200407
       Models::ListAssetCountResponse listAssetCountWithOptions(const Models::ListAssetCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the certificate deployment statistics by cloud service type.
+       * @summary Queries the resource statistics list of cloud services.
        *
-       * @description Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+       * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
        * ## QPS limit
-       * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+       * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request ListAssetCountRequest
        * @return ListAssetCountResponse
@@ -959,7 +1061,24 @@ namespace Cas20200407
       Models::ListCloudResourcesResponse listCloudResources(const Models::ListCloudResourcesRequest &request);
 
       /**
-       * @summary Queries the contacts that receive certificate deployment notifications.
+       * @summary Retrieves a list of companies.
+       *
+       * @param request ListCompaniesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCompaniesResponse
+       */
+      Models::ListCompaniesResponse listCompaniesWithOptions(const Models::ListCompaniesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of companies.
+       *
+       * @param request ListCompaniesRequest
+       * @return ListCompaniesResponse
+       */
+      Models::ListCompaniesResponse listCompanies(const Models::ListCompaniesRequest &request);
+
+      /**
+       * @summary Retrieves a list of contacts.
        *
        * @param request ListContactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -968,7 +1087,7 @@ namespace Cas20200407
       Models::ListContactResponse listContactWithOptions(const Models::ListContactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the contacts that receive certificate deployment notifications.
+       * @summary Retrieves a list of contacts.
        *
        * @param request ListContactRequest
        * @return ListContactResponse
@@ -993,7 +1112,7 @@ namespace Cas20200407
       Models::ListCsrResponse listCsr(const Models::ListCsrRequest &request);
 
       /**
-       * @summary Queries the certificate deployment tasks that are created in your account.
+       * @summary Retrieves a list of deployment tasks after you create a deployment task.
        *
        * @param request ListDeploymentJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1002,7 +1121,7 @@ namespace Cas20200407
       Models::ListDeploymentJobResponse listDeploymentJobWithOptions(const Models::ListDeploymentJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the certificate deployment tasks that are created in your account.
+       * @summary Retrieves a list of deployment tasks after you create a deployment task.
        *
        * @param request ListDeploymentJobRequest
        * @return ListDeploymentJobResponse
@@ -1061,11 +1180,11 @@ namespace Cas20200407
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries the SSL certificates and certificate orders in your account.
+       * @summary Queries the list of user certificates or orders.
        *
-       * @description This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+       * @description This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
        * ## QPS limit
-       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ListUserCertificateOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1074,11 +1193,11 @@ namespace Cas20200407
       Models::ListUserCertificateOrderResponse listUserCertificateOrderWithOptions(const Models::ListUserCertificateOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the SSL certificates and certificate orders in your account.
+       * @summary Queries the list of user certificates or orders.
        *
-       * @description This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+       * @description This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
        * ## QPS limit
-       * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+       * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request ListUserCertificateOrderRequest
        * @return ListUserCertificateOrderResponse
@@ -1145,7 +1264,7 @@ namespace Cas20200407
       Models::MoveResourceGroupResponse moveResourceGroup(const Models::MoveResourceGroupRequest &request);
 
       /**
-       * @summary Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+       * @summary Refunds an instance within 7 days.
        *
        * @param request RefundInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1154,7 +1273,7 @@ namespace Cas20200407
       Models::RefundInstanceResponse refundInstanceWithOptions(const Models::RefundInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+       * @summary Refunds an instance within 7 days.
        *
        * @param request RefundInstanceRequest
        * @return RefundInstanceResponse
@@ -1248,7 +1367,41 @@ namespace Cas20200407
       Models::SignResponse sign(const Models::SignRequest &request);
 
       /**
-       * @summary Updates the private key associated with a certificate signing request (CSR).
+       * @summary Updates company information.
+       *
+       * @param request UpdateCompanyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCompanyResponse
+       */
+      Models::UpdateCompanyResponse updateCompanyWithOptions(const Models::UpdateCompanyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates company information.
+       *
+       * @param request UpdateCompanyRequest
+       * @return UpdateCompanyResponse
+       */
+      Models::UpdateCompanyResponse updateCompany(const Models::UpdateCompanyRequest &request);
+
+      /**
+       * @summary Updates a contact.
+       *
+       * @param request UpdateContactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateContactResponse
+       */
+      Models::UpdateContactResponse updateContactWithOptions(const Models::UpdateContactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a contact.
+       *
+       * @param request UpdateContactRequest
+       * @return UpdateContactResponse
+       */
+      Models::UpdateContactResponse updateContact(const Models::UpdateContactRequest &request);
+
+      /**
+       * @summary Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
        *
        * @param request UpdateCsrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1257,7 +1410,7 @@ namespace Cas20200407
       Models::UpdateCsrResponse updateCsrWithOptions(const Models::UpdateCsrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the private key associated with a certificate signing request (CSR).
+       * @summary Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
        *
        * @param request UpdateCsrRequest
        * @return UpdateCsrResponse

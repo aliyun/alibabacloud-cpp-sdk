@@ -132,9 +132,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -203,15 +203,15 @@ namespace Models
 
 
     protected:
-      // The common name of the certificate in the chain.
+      // The common name in the certificate chain.
       shared_ptr<string> commonName_ {};
       // The common name of the issuer.
       shared_ptr<string> issuerCommonName_ {};
-      // The expiration date of the certificate in the chain.
+      // The end time of the certificate chain validity period.
       shared_ptr<int64_t> notAfter_ {};
-      // The issuance date of the certificate in the chain.
+      // The start time of the certificate chain validity period.
       shared_ptr<int64_t> notBefore_ {};
-      // The number of days until the certificate in the chain expires.
+      // The remaining days of the certificate chain validity period.
       shared_ptr<int32_t> remainDay_ {};
     };
 
@@ -459,78 +459,76 @@ namespace Models
 
 
   protected:
-    // The algorithm of the certificate.
+    // The algorithm.
     shared_ptr<string> algorithm_ {};
     // Indicates whether the certificate was purchased from Alibaba Cloud. Valid values:
     // 
-    // - **true**: Yes
+    // - **true**: Yes.
     // 
-    // - **false**: No
+    // - **false**: No.
     shared_ptr<bool> buyInAliyun_ {};
-    // The content of the certificate that does not use a Chinese cryptographic algorithm. This parameter is returned only when the certFilter request parameter is false.
+    // The certificate content that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
     shared_ptr<string> cert_ {};
-    // The information about the certificate chain.
+    // The certificate chain information.
     shared_ptr<vector<GetUserCertificateDetailResponseBody::CertChain>> certChain_ {};
-    // The certificate ID followed by "-cn-hangzhou". For example, if the certificate ID is 123, the value of CertIdentifier is "123-cn-hangzhou".
+    // The certificate ID appended with "-cn-hangzhou". For example, if the certificate ID is 123, the CertIdentifier is "123-cn-hangzhou".
     shared_ptr<string> certIdentifier_ {};
     shared_ptr<string> certSha2_ {};
     // The city where the company or organization of the certificate purchaser is located.
     shared_ptr<string> city_ {};
-    // The primary domain name that is bound to the certificate.
+    // The primary domain name bound to the certificate.
     shared_ptr<string> common_ {};
     // The country where the company or organization of the certificate purchaser is located.
     shared_ptr<string> country_ {};
-    // The content of the encryption certificate that uses a Chinese cryptographic algorithm. The certificate is in PEM format. This parameter is returned only when the certFilter request parameter is false.
+    // The encryption certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
     shared_ptr<string> encryptCert_ {};
-    // The private key of the encryption certificate that uses a Chinese cryptographic algorithm. The private key is in PEM format. This parameter is returned only when the certFilter request parameter is false.
+    // The private key of the encryption certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
     shared_ptr<string> encryptPrivateKey_ {};
-    // The expiration date of the certificate.
+    // The certificate expiration date, in the format of YYYY-MM-DD.
     shared_ptr<string> endDate_ {};
     // Indicates whether the certificate has expired. Valid values:
-    // 
     // - **true**: The certificate has expired.
-    // 
     // - **false**: The certificate has not expired.
     shared_ptr<bool> expired_ {};
-    // The fingerprint of the certificate.
+    // The certificate fingerprint.
     shared_ptr<string> fingerprint_ {};
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<int64_t> id_ {};
-    // The ID of the resource instance.
+    // The resource instance ID.
     shared_ptr<string> instanceId_ {};
-    // The certification authority (CA) that issued the certificate.
+    // The certification authority.
     shared_ptr<string> issuer_ {};
-    // The private key of the certificate that does not use a Chinese cryptographic algorithm. This parameter is returned only when the certFilter request parameter is false.
+    // The private key that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
     shared_ptr<string> key_ {};
-    // The name of the certificate.
+    // The certificate name.
     shared_ptr<string> name_ {};
-    // The end time of the validity period of the certificate.
+    // The end time of the certificate validity period.
     shared_ptr<int64_t> notAfter_ {};
-    // The start time of the validity period of the certificate.
+    // The start time of the certificate validity period.
     shared_ptr<int64_t> notBefore_ {};
     // The ID of the certificate application order.
     shared_ptr<int64_t> orderId_ {};
-    // The name of the company or organization of the certificate purchaser.
+    // The name of the company or organization to which the certificate purchaser belongs.
     shared_ptr<string> orgName_ {};
     // The province where the company or organization of the certificate purchaser is located.
     shared_ptr<string> province_ {};
-    // The ID of the request. This unique ID is generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // All domain names that are bound to the certificate.
+    // All domain names bound to the certificate.
     shared_ptr<string> sans_ {};
-    // The serial number of the certificate.
+    // The certificate serial number.
     shared_ptr<string> serialNo_ {};
     // The SHA-2 value of the certificate.
     shared_ptr<string> sha2_ {};
-    // The content of the signing certificate that uses a Chinese cryptographic algorithm. The certificate is in PEM format. This parameter is returned only when the certFilter request parameter is false.
+    // The signing certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
     shared_ptr<string> signCert_ {};
-    // The private key of the signing certificate that uses a Chinese cryptographic algorithm. The private key is in PEM format. This parameter is returned only when the certFilter request parameter is false.
+    // The private key of the signing certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
     shared_ptr<string> signPrivateKey_ {};
-    // The issuance date of the certificate.
+    // The certificate issuance date, in the format of YYYY-MM-DD.
     shared_ptr<string> startDate_ {};
-    // The list of tags.
+    // The tag list.
     shared_ptr<vector<GetUserCertificateDetailResponseBody::Tags>> tags_ {};
   };
 

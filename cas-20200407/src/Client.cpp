@@ -149,7 +149,7 @@ AddCloudAccessResponse Client::addCloudAccess(const AddCloudAccessRequest &reque
 }
 
 /**
- * @summary Submits a certificate application for a Certificate Management Service instance.
+ * @summary Applies for a certificate.
  *
  * @param request ApplyCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -180,7 +180,7 @@ ApplyCertificateResponse Client::applyCertificateWithOptions(const ApplyCertific
 }
 
 /**
- * @summary Submits a certificate application for a Certificate Management Service instance.
+ * @summary Applies for a certificate.
  *
  * @param request ApplyCertificateRequest
  * @return ApplyCertificateResponse
@@ -351,7 +351,7 @@ CancelOrderRequestResponse Client::cancelOrderRequest(const CancelOrderRequestRe
 }
 
 /**
- * @summary Cancels a pending certificate application that has not been issued.
+ * @summary Revokes a certificate application.
  *
  * @param request CancelPendingCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -382,7 +382,7 @@ CancelPendingCertificateResponse Client::cancelPendingCertificateWithOptions(con
 }
 
 /**
- * @summary Cancels a pending certificate application that has not been issued.
+ * @summary Revokes a certificate application.
  *
  * @param request CancelPendingCertificateRequest
  * @return CancelPendingCertificateResponse
@@ -624,6 +624,150 @@ CreateCertificateWithCsrRequestResponse Client::createCertificateWithCsrRequestW
 CreateCertificateWithCsrRequestResponse Client::createCertificateWithCsrRequest(const CreateCertificateWithCsrRequestRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCertificateWithCsrRequestWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a company.
+ *
+ * @param request CreateCompanyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCompanyResponse
+ */
+CreateCompanyResponse Client::createCompanyWithOptions(const CreateCompanyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasCompanyAddress()) {
+    query["CompanyAddress"] = request.getCompanyAddress();
+  }
+
+  if (!!request.hasCompanyCode()) {
+    query["CompanyCode"] = request.getCompanyCode();
+  }
+
+  if (!!request.hasCompanyEmail()) {
+    query["CompanyEmail"] = request.getCompanyEmail();
+  }
+
+  if (!!request.hasCompanyName()) {
+    query["CompanyName"] = request.getCompanyName();
+  }
+
+  if (!!request.hasCompanyPhone()) {
+    query["CompanyPhone"] = request.getCompanyPhone();
+  }
+
+  if (!!request.hasCompanyType()) {
+    query["CompanyType"] = request.getCompanyType();
+  }
+
+  if (!!request.hasCountryCode()) {
+    query["CountryCode"] = request.getCountryCode();
+  }
+
+  if (!!request.hasDepartment()) {
+    query["Department"] = request.getDepartment();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPostCode()) {
+    query["PostCode"] = request.getPostCode();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCompany"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCompanyResponse>();
+}
+
+/**
+ * @summary Creates a company.
+ *
+ * @param request CreateCompanyRequest
+ * @return CreateCompanyResponse
+ */
+CreateCompanyResponse Client::createCompany(const CreateCompanyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCompanyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a certificate application contact.
+ *
+ * @param request CreateContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContactResponse
+ */
+CreateContactResponse Client::createContactWithOptions(const CreateContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasIdcard()) {
+    query["Idcard"] = request.getIdcard();
+  }
+
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasWebhooks()) {
+    query["Webhooks"] = request.getWebhooks();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContact"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContactResponse>();
+}
+
+/**
+ * @summary Creates a certificate application contact.
+ *
+ * @param request CreateContactRequest
+ * @return CreateContactResponse
+ */
+CreateContactResponse Client::createContact(const CreateContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContactWithOptions(request, runtime);
 }
 
 /**
@@ -1090,6 +1234,90 @@ DeleteCloudAccessResponse Client::deleteCloudAccessWithOptions(const DeleteCloud
 DeleteCloudAccessResponse Client::deleteCloudAccess(const DeleteCloudAccessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCloudAccessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a company.
+ *
+ * @param request DeleteCompanyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCompanyResponse
+ */
+DeleteCompanyResponse Client::deleteCompanyWithOptions(const DeleteCompanyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompanyId()) {
+    query["CompanyId"] = request.getCompanyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCompany"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCompanyResponse>();
+}
+
+/**
+ * @summary Deletes a company.
+ *
+ * @param request DeleteCompanyRequest
+ * @return DeleteCompanyResponse
+ */
+DeleteCompanyResponse Client::deleteCompany(const DeleteCompanyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCompanyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a contact.
+ *
+ * @param request DeleteContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContactResponse
+ */
+DeleteContactResponse Client::deleteContactWithOptions(const DeleteContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContactId()) {
+    query["ContactId"] = request.getContactId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContact"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContactResponse>();
+}
+
+/**
+ * @summary Deletes a contact.
+ *
+ * @param request DeleteContactRequest
+ * @return DeleteContactResponse
+ */
+DeleteContactResponse Client::deleteContact(const DeleteContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContactWithOptions(request, runtime);
 }
 
 /**
@@ -1739,11 +1967,11 @@ EncryptResponse Client::encrypt(const EncryptRequest &request) {
 }
 
 /**
- * @summary Queries the total number of certificate-related assets, such as websites and cloud resources.
+ * @summary Queries the number of assets.
  *
- * @description This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
- * ## QPS Limit
- * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+ * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+ * ## QPS limit
+ * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAssetCountResponse
@@ -1765,11 +1993,11 @@ GetAssetCountResponse Client::getAssetCountWithOptions(const Darabonba::RuntimeO
 }
 
 /**
- * @summary Queries the total number of certificate-related assets, such as websites and cloud resources.
+ * @summary Queries the number of assets.
  *
- * @description This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
- * ## QPS Limit
- * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+ * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+ * ## QPS limit
+ * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
  *
  * @return GetAssetCountResponse
  */
@@ -1854,6 +2082,90 @@ GetCertificateDetailResponse Client::getCertificateDetailWithOptions(const GetCe
 GetCertificateDetailResponse Client::getCertificateDetail(const GetCertificateDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getCertificateDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a company.
+ *
+ * @param request GetCompanyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCompanyResponse
+ */
+GetCompanyResponse Client::getCompanyWithOptions(const GetCompanyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompanyId()) {
+    query["CompanyId"] = request.getCompanyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCompany"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCompanyResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a company.
+ *
+ * @param request GetCompanyRequest
+ * @return GetCompanyResponse
+ */
+GetCompanyResponse Client::getCompany(const GetCompanyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCompanyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a contact.
+ *
+ * @param request GetContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContactResponse
+ */
+GetContactResponse Client::getContactWithOptions(const GetContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContactId()) {
+    query["ContactId"] = request.getContactId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContact"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContactResponse>();
+}
+
+/**
+ * @summary Retrieves a contact.
+ *
+ * @param request GetContactRequest
+ * @return GetContactResponse
+ */
+GetContactResponse Client::getContact(const GetContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContactWithOptions(request, runtime);
 }
 
 /**
@@ -2133,9 +2445,9 @@ GetTaskAttributeResponse Client::getTaskAttribute(const GetTaskAttributeRequest 
 }
 
 /**
- * @summary Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+ * @summary Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
  *
- * @description The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+ * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetUserCertificateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2170,9 +2482,9 @@ GetUserCertificateDetailResponse Client::getUserCertificateDetailWithOptions(con
 }
 
 /**
- * @summary Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+ * @summary Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
  *
- * @description The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+ * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request GetUserCertificateDetailRequest
  * @return GetUserCertificateDetailResponse
@@ -2183,11 +2495,11 @@ GetUserCertificateDetailResponse Client::getUserCertificateDetail(const GetUserC
 }
 
 /**
- * @summary Queries the certificate deployment statistics by cloud service type.
+ * @summary Queries the resource statistics list of cloud services.
  *
- * @description Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+ * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
  * ## QPS limit
- * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+ * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
  *
  * @param request ListAssetCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2230,11 +2542,11 @@ ListAssetCountResponse Client::listAssetCountWithOptions(const ListAssetCountReq
 }
 
 /**
- * @summary Queries the certificate deployment statistics by cloud service type.
+ * @summary Queries the resource statistics list of cloud services.
  *
- * @description Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+ * @description Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
  * ## QPS limit
- * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+ * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
  *
  * @param request ListAssetCountRequest
  * @return ListAssetCountResponse
@@ -2577,7 +2889,61 @@ ListCloudResourcesResponse Client::listCloudResources(const ListCloudResourcesRe
 }
 
 /**
- * @summary Queries the contacts that receive certificate deployment notifications.
+ * @summary Retrieves a list of companies.
+ *
+ * @param request ListCompaniesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCompaniesResponse
+ */
+ListCompaniesResponse Client::listCompaniesWithOptions(const ListCompaniesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompanyId()) {
+    query["CompanyId"] = request.getCompanyId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasShowSize()) {
+    query["ShowSize"] = request.getShowSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCompanies"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCompaniesResponse>();
+}
+
+/**
+ * @summary Retrieves a list of companies.
+ *
+ * @param request ListCompaniesRequest
+ * @return ListCompaniesResponse
+ */
+ListCompaniesResponse Client::listCompanies(const ListCompaniesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCompaniesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a list of contacts.
  *
  * @param request ListContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2616,7 +2982,7 @@ ListContactResponse Client::listContactWithOptions(const ListContactRequest &req
 }
 
 /**
- * @summary Queries the contacts that receive certificate deployment notifications.
+ * @summary Retrieves a list of contacts.
  *
  * @param request ListContactRequest
  * @return ListContactResponse
@@ -2681,7 +3047,7 @@ ListCsrResponse Client::listCsr(const ListCsrRequest &request) {
 }
 
 /**
- * @summary Queries the certificate deployment tasks that are created in your account.
+ * @summary Retrieves a list of deployment tasks after you create a deployment task.
  *
  * @param request ListDeploymentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2724,7 +3090,7 @@ ListDeploymentJobResponse Client::listDeploymentJobWithOptions(const ListDeploym
 }
 
 /**
- * @summary Queries the certificate deployment tasks that are created in your account.
+ * @summary Retrieves a list of deployment tasks after you create a deployment task.
  *
  * @param request ListDeploymentJobRequest
  * @return ListDeploymentJobResponse
@@ -2893,11 +3259,11 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Queries the SSL certificates and certificate orders in your account.
+ * @summary Queries the list of user certificates or orders.
  *
- * @description This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+ * @description This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
  * ## QPS limit
- * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request ListUserCertificateOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2948,11 +3314,11 @@ ListUserCertificateOrderResponse Client::listUserCertificateOrderWithOptions(con
 }
 
 /**
- * @summary Queries the SSL certificates and certificate orders in your account.
+ * @summary Queries the list of user certificates or orders.
  *
- * @description This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+ * @description This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
  * ## QPS limit
- * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
  *
  * @param request ListUserCertificateOrderRequest
  * @return ListUserCertificateOrderResponse
@@ -3147,7 +3513,7 @@ MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupReque
 }
 
 /**
- * @summary Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+ * @summary Refunds an instance within 7 days.
  *
  * @param request RefundInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3178,7 +3544,7 @@ RefundInstanceResponse Client::refundInstanceWithOptions(const RefundInstanceReq
 }
 
 /**
- * @summary Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+ * @summary Refunds an instance within 7 days.
  *
  * @param request RefundInstanceRequest
  * @return RefundInstanceResponse
@@ -3407,7 +3773,159 @@ SignResponse Client::sign(const SignRequest &request) {
 }
 
 /**
- * @summary Updates the private key associated with a certificate signing request (CSR).
+ * @summary Updates company information.
+ *
+ * @param request UpdateCompanyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCompanyResponse
+ */
+UpdateCompanyResponse Client::updateCompanyWithOptions(const UpdateCompanyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasCompanyAddress()) {
+    query["CompanyAddress"] = request.getCompanyAddress();
+  }
+
+  if (!!request.hasCompanyCode()) {
+    query["CompanyCode"] = request.getCompanyCode();
+  }
+
+  if (!!request.hasCompanyEmail()) {
+    query["CompanyEmail"] = request.getCompanyEmail();
+  }
+
+  if (!!request.hasCompanyId()) {
+    query["CompanyId"] = request.getCompanyId();
+  }
+
+  if (!!request.hasCompanyName()) {
+    query["CompanyName"] = request.getCompanyName();
+  }
+
+  if (!!request.hasCompanyPhone()) {
+    query["CompanyPhone"] = request.getCompanyPhone();
+  }
+
+  if (!!request.hasCompanyType()) {
+    query["CompanyType"] = request.getCompanyType();
+  }
+
+  if (!!request.hasCountryCode()) {
+    query["CountryCode"] = request.getCountryCode();
+  }
+
+  if (!!request.hasDepartment()) {
+    query["Department"] = request.getDepartment();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPostCode()) {
+    query["PostCode"] = request.getPostCode();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCompany"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCompanyResponse>();
+}
+
+/**
+ * @summary Updates company information.
+ *
+ * @param request UpdateCompanyRequest
+ * @return UpdateCompanyResponse
+ */
+UpdateCompanyResponse Client::updateCompany(const UpdateCompanyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCompanyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a contact.
+ *
+ * @param request UpdateContactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContactResponse
+ */
+UpdateContactResponse Client::updateContactWithOptions(const UpdateContactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContactId()) {
+    query["ContactId"] = request.getContactId();
+  }
+
+  if (!!request.hasEmail()) {
+    query["Email"] = request.getEmail();
+  }
+
+  if (!!request.hasIdcard()) {
+    query["Idcard"] = request.getIdcard();
+  }
+
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.getMobile();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasWebhooks()) {
+    query["Webhooks"] = request.getWebhooks();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContact"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContactResponse>();
+}
+
+/**
+ * @summary Updates a contact.
+ *
+ * @param request UpdateContactRequest
+ * @return UpdateContactResponse
+ */
+UpdateContactResponse Client::updateContact(const UpdateContactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContactWithOptions(request, runtime);
+}
+
+/**
+ * @summary Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
  *
  * @param request UpdateCsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3442,7 +3960,7 @@ UpdateCsrResponse Client::updateCsrWithOptions(const UpdateCsrRequest &request, 
 }
 
 /**
- * @summary Updates the private key associated with a certificate signing request (CSR).
+ * @summary Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
  *
  * @param request UpdateCsrRequest
  * @return UpdateCsrResponse

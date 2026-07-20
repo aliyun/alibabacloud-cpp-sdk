@@ -388,119 +388,102 @@ namespace Models
 
 
     protected:
-      // The algorithm. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The algorithm. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<string> algorithm_ {};
-      // The ID of the Alibaba Cloud order. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The Alibaba Cloud order ID. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> aliyunOrderId_ {};
-      // The purchase time. The value is a UNIX timestamp. Unit: milliseconds. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The purchase time. Unit: milliseconds. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> buyDate_ {};
-      // The expiration time of the certificate. The value is a UNIX timestamp. Unit: milliseconds. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The certificate expiration time. Unit: milliseconds. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> certEndTime_ {};
-      // The start time of the certificate. The value is a UNIX timestamp. Unit: milliseconds. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The certificate start time. Unit: milliseconds. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> certStartTime_ {};
-      // The certificate type. This parameter is returned when OrderType is set to CPACK or BUY. Valid values:
-      // 
-      // - **DV**: A DV certificate.
-      // 
-      // - **EV**: An EV certificate.
-      // 
-      // - **OV**: An OV certificate.
-      // 
-      // - **FREE**: A free certificate for personal trial. This value is supported only on the Alibaba Cloud China website (www\\.aliyun.com).
+      // The certificate type. Returned when OrderType is set to CPACK or BUY. Valid values:
+      // - **DV**: DV certificate.
+      // - **EV**: EV certificate.
+      // - **OV**: OV certificate.
+      // - **FREE**: personal test certificate (supported only on the China site).
       shared_ptr<string> certType_ {};
-      // The certificate ID. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate ID. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<int64_t> certificateId_ {};
-      // The city. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The city. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> city_ {};
-      // The primary domain name of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The common name of the certificate. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> commonName_ {};
-      // The country code. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The country code. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> country_ {};
-      // The domain name. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The domain name. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<string> domain_ {};
-      // The number of domain names that you purchased. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The total number of purchased domain names. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> domainCount_ {};
-      // The domain name type. This parameter is returned when OrderType is set to CPACK or BUY. Valid values:
+      // The domain name type. Returned when OrderType is set to CPACK or BUY. Valid values:
       // 
-      // - **ONE**: A single domain name.
-      // 
-      // - **MULTIPLE**: Multiple domain names.
-      // 
-      // - **WILDCARD**: A single wildcard domain name.
-      // 
-      // - **M_WILDCARD**: Multiple wildcard domain names.
-      // 
-      // - **MIX**: A hybrid domain name.
+      // - **ONE**: single domain name.
+      // - **MULTIPLE**: multiple domain names.
+      // - **WILDCARD**: single wildcard domain name.
+      // - **M_WILDCARD**: multiple wildcard domain names.
+      // - **MIX**: hybrid domain names.
       shared_ptr<string> domainType_ {};
-      // The end date of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate end date. Returned when OrderType is set to CERT or UPLOAD. The date is in the YYYY-MM-DD format.
       shared_ptr<string> endDate_ {};
-      // Indicates whether the certificate has expired. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // Indicates whether the certificate has expired. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<bool> expired_ {};
-      // The certificate fingerprint. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate fingerprint. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> fingerprint_ {};
       // The resource ID.
       shared_ptr<string> instanceId_ {};
-      // The issuer of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate issuer. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> issuer_ {};
-      // The certificate name. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate name. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> name_ {};
-      // The order ID. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The order ID. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> orderId_ {};
-      // The name of the organization that is associated with the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The organization name of the certificate. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> orgName_ {};
-      // The ID of the third-party certificate authority (CA) order. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The third-party CA order ID. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<string> partnerOrderId_ {};
-      // The code for the product specifications. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The order specification ID. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<string> productCode_ {};
-      // The name of the product specifications. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The order specification name. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<string> productName_ {};
-      // The province or autonomous region. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The province or autonomous region. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> province_ {};
-      // The ID of the resource group. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The resource group ID. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> resourceGroupId_ {};
-      // The brand, such as WoSign, CFCA, DigiCert, and vTrus. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The brand (such as WoSign, CFCA, DigiCert, and vTrus). Returned when OrderType is set to CPACK or BUY.
       shared_ptr<string> rootBrand_ {};
-      // The domain names that are bound to the certificate. Multiple domain names are separated by commas (,). This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // All domain names bound to the certificate. Multiple domain names are separated by commas (,). Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> sans_ {};
-      // The certificate serial number. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate serial number. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> serialNo_ {};
-      // The SHA-2 value of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The SHA-2 value of the certificate. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<string> sha2_ {};
-      // The order type. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The order type. Returned when OrderType is set to CPACK or BUY. Valid values:
       // 
-      // - **cpack**: An order for a resource plan.
-      // 
-      // - **buy**: A direct purchase.
+      // - **cpack**: resource virtual order.
+      // - **buy**: purchase order.
       shared_ptr<string> sourceType_ {};
-      // The start date of the certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // The certificate start date. Returned when OrderType is set to CERT or UPLOAD. The date is in the YYYY-MM-DD format.
       shared_ptr<string> startDate_ {};
-      // The status of the order or certificate. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The order or certificate status. Returned when OrderType is set to CPACK or BUY. Valid values:
       // 
-      // - **PAYED**: The certificate is pending application.
-      // 
-      // - **CHECKING**: The certificate is under review.
-      // 
-      // - **CHECKED_FAIL**: The review failed.
-      // 
-      // - **ISSUED**: The certificate is issued.
-      // 
-      // - **WILLEXPIRED**: The certificate is about to expire.
-      // 
-      // - **EXPIRED**: The certificate has expired.
-      // 
-      // - **NOTACTIVATED**: The certificate is not activated.
-      // 
-      // - **REVOKED**: The certificate is revoked.
+      // - **PAYED**: Pending application.
+      // - **CHECKING**: Under review.
+      // - **CHECKED_FAIL**: Review failed.
+      // - **ISSUED**: Issued.
+      // - **WILLEXPIRED**: About to expire.
+      // - **EXPIRED**: Expired.
+      // - **NOTACTIVATED**: Not activated.
+      // - **REVOKED**: Revoked.
       shared_ptr<string> status_ {};
-      // The hosting status. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The hosting status. Returned when OrderType is set to CPACK or BUY. Valid values:
       // 
       // - **unTrustee**: Not hosted.
-      // 
       // - **trustee**: Hosted.
       shared_ptr<string> trusteeStatus_ {};
-      // Indicates whether the certificate is an uploaded certificate. This parameter is returned when OrderType is set to CERT or UPLOAD.
+      // Indicates whether the certificate is an uploaded certificate. Returned when OrderType is set to CERT or UPLOAD.
       shared_ptr<bool> upload_ {};
-      // The number of wildcard domain names that you purchased. This parameter is returned when OrderType is set to CPACK or BUY.
+      // The number of purchased wildcard domain names. Returned when OrderType is set to CPACK or BUY.
       shared_ptr<int64_t> wildDomainCount_ {};
     };
 
@@ -544,15 +527,15 @@ namespace Models
 
 
   protected:
-    // The list of certificates and orders.
+    // The certificate and order list.
     shared_ptr<vector<ListUserCertificateOrderResponseBody::CertificateOrderList>> certificateOrderList_ {};
-    // The page number.
+    // The number of entries per page.
     shared_ptr<int64_t> currentPage_ {};
-    // The request ID. This ID is unique to each request. You can use this ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of entries on the current page.
+    // The number of entries per page.
     shared_ptr<int64_t> showSize_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

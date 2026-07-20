@@ -304,11 +304,11 @@ namespace Models
       shared_ptr<string> autoReissue_ {};
       // The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
       shared_ptr<string> brand_ {};
-      // The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+      // The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
       // - For the China site: certificate ID + "-cn-hangzhou"
       // - For the China site: certificate ID + "-ap-southeast-1"
       // 
-      // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
+      // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the International site is "123-ap-southeast-1".
       shared_ptr<string> certIdentifier_ {};
       // The domain name of the latest issued certificate.
       shared_ptr<string> certificateDomain_ {};
@@ -316,16 +316,17 @@ namespace Models
       shared_ptr<int64_t> certificateId_ {};
       // The certificate name.
       shared_ptr<string> certificateName_ {};
-      // The end time of the latest certificate, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+      // The end time of the latest certificate, in timestamp format. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> certificateNotAfter_ {};
+      // The start time of the latest certificate, in timestamp format. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> certificateNotBefore_ {};
-      // The revocation time of the latest certificate, in UNIX timestamp format.
+      // The revocation time of the latest certificate, in timestamp format.
       shared_ptr<int64_t> certificateRevokeTime_ {};
       // The status of the certificate. Valid values:
-      // - **issued**: issued.
-      // - **revoked**: revoked.
-      // - **willExpire**: about to expire.
-      // - **expired**: expired.
+      // - **issued**: Issued.
+      // - **revoked**: Revoked.
+      // - **willExpire**: About to expire.
+      // - **expired**: Expired.
       shared_ptr<string> certificateStatus_ {};
       // The type of the certificate. Valid values: DV, OV, and EV.
       shared_ptr<string> certificateType_ {};
@@ -333,24 +334,26 @@ namespace Models
       shared_ptr<string> domain_ {};
       // The number of exact-match domain names.
       shared_ptr<int32_t> fullDomainCount_ {};
-      // The expiration time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+      // The expiration time of the instance, in timestamp format. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> instanceEndTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The start time of the instance, in UNIX timestamp format. If no certificate has been issued, this value is empty.
+      // The start time of the instance, in timestamp format. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> instanceStartTime_ {};
-      // The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+      // The instance type. Valid values:
+      // - BUY: official certificate.
+      // - TEST: test certificate.
       shared_ptr<string> instanceType_ {};
       // The certificate algorithm. Default value: RSA_2048. Valid values:
       // - **RSA_2048**
       // - **RSA_3072**
       // - **RSA_4096**
       // - **ECC_256**
-      // - **SM2**.
+      // - **SM2**
       shared_ptr<string> keyAlgorithm_ {};
-      // The end time of the instance purchase, in UNIX timestamp format. This value is used to determine the purchase duration of the instance.
+      // The end time of the instance purchase, in timestamp format. Used to determine the purchase duration of the instance.
       shared_ptr<int64_t> orderEndTime_ {};
-      // The start time of the instance purchase, in UNIX timestamp format. This value is used to determine the refund time limit.
+      // The start time of the instance purchase, in timestamp format. Used to determine the refund time limit.
       shared_ptr<int64_t> orderStartTime_ {};
       // The result returned by the CA during the last certificate operation.
       shared_ptr<string> pendingResult_ {};

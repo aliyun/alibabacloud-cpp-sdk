@@ -68,31 +68,11 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The type of the deployment task.
-    // 
-    // Valid values:
-    // 
-    // - cloud: multi-cloud deployment task.
-    // 
-    // - user: cloud service deployment task. This type of task does not support Elastic Compute Service (ECS) instances.
+    // The task type.
     shared_ptr<string> jobType_ {};
-    // The number of entries to return on each page. Default value: 50.
+    // The number of certificates to display per page in a paged query. Default value: **50**.
     shared_ptr<int32_t> showSize_ {};
-    // The status of the deployment task.
-    // 
-    // Valid values:
-    // 
-    // - success
-    // 
-    // - pending
-    // 
-    // - scheduling
-    // 
-    // - processing
-    // 
-    // - error
-    // 
-    // - editing
+    // The deployment task status.
     shared_ptr<string> status_ {};
   };
 

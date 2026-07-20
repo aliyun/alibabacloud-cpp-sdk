@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATECSRRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_UPDATECSRRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETECOMPANYRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETECOMPANYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,21 +10,21 @@ namespace Cas20200407
 {
 namespace Models
 {
-  class UpdateCsrResponseBody : public Darabonba::Model {
+  class DeleteCompanyResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateCsrResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteCompanyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateCsrResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteCompanyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    UpdateCsrResponseBody() = default ;
-    UpdateCsrResponseBody(const UpdateCsrResponseBody &) = default ;
-    UpdateCsrResponseBody(UpdateCsrResponseBody &&) = default ;
-    UpdateCsrResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateCsrResponseBody() = default ;
-    UpdateCsrResponseBody& operator=(const UpdateCsrResponseBody &) = default ;
-    UpdateCsrResponseBody& operator=(UpdateCsrResponseBody &&) = default ;
+    DeleteCompanyResponseBody() = default ;
+    DeleteCompanyResponseBody(const DeleteCompanyResponseBody &) = default ;
+    DeleteCompanyResponseBody(DeleteCompanyResponseBody &&) = default ;
+    DeleteCompanyResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteCompanyResponseBody() = default ;
+    DeleteCompanyResponseBody& operator=(const DeleteCompanyResponseBody &) = default ;
+    DeleteCompanyResponseBody& operator=(DeleteCompanyResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,11 +34,11 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline UpdateCsrResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DeleteCompanyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

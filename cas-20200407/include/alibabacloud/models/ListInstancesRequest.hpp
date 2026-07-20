@@ -115,16 +115,18 @@ namespace Models
     // The certification authority (CA) brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
     shared_ptr<string> brand_ {};
     // The status of the certificate. Valid values:
-    // - **issued**: issued.
-    // - **revoked**: revoked.
-    // - **willExpire**: about to expire.
-    // - **expired**: expired.
+    // - **issued**: Issued.
+    // - **revoked**: Revoked.
+    // - **willExpire**: About to expire.
+    // - **expired**: Expired.
     shared_ptr<string> certificateStatus_ {};
     // The type of the certificate. Valid values: DV, OV, and EV.
     shared_ptr<string> certificateType_ {};
     // The page number of the current page in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+    // The instance type. Valid values:
+    // - BUY: official certificate.
+    // - TEST: test certificate.
     shared_ptr<string> instanceType_ {};
     // The keyword for fuzzy match. Matches domain names, instance names, or corresponding resource IDs.
     shared_ptr<string> keyword_ {};

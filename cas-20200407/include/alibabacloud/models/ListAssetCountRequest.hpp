@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The page number. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
-    // The expiration date of the certificate.
+    // The certificate expiration date, in seconds. The value is a UNIX timestamp.
     shared_ptr<int64_t> endDate_ {};
-    // The number of entries to return on each page. Default value: 50.
+    // The number of entries per page.
     shared_ptr<int64_t> showSize_ {};
-    // The date of certificate issuance.
+    // The certificate issuance date, in seconds. The value is a UNIX timestamp.
     shared_ptr<int64_t> startDate_ {};
   };
 

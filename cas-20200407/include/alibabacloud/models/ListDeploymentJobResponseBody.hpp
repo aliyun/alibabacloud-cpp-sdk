@@ -204,67 +204,57 @@ namespace Models
 
 
     protected:
-      // The domain names bound to the certificate of the deployment task.
+      // The domain names included in the certificate of the deployment task.
       shared_ptr<string> certDomain_ {};
-      // The type of the certificate. Valid values:
+      // The certificate type. Valid values:
       // 
       // - **upload**: uploaded certificate
-      // 
       // - **buy**: purchased certificate
-      // 
-      // - **free**: free certificate, available only on the China site (aliyun.com)
+      // - **free**: personal test certificate (supported only on the China site)
       shared_ptr<string> certType_ {};
-      // Indicates whether the deployment task is deleted. Valid values:
+      // The deletion flag. This parameter has no practical significance. Valid values:
       // 
-      // - **0**: not deleted
-      // 
-      // - **1**: deleted
+      // - **0**: not deleted.
+      // - **1**: deleted.
       shared_ptr<int32_t> del_ {};
-      // The end time of the deployment task.
+      // The end time of the deployment task execution, in UNIX timestamp format (seconds).
       shared_ptr<string> endTime_ {};
-      // The time when the deployment task was created.
+      // The time when the deployment task was created, in UNIX timestamp format (seconds).
       shared_ptr<string> gmtCreate_ {};
-      // The time when the deployment task was last modified.
+      // The time when the deployment task was last modified, in UNIX timestamp format (seconds).
       shared_ptr<string> gmtModified_ {};
-      // The ID of the deployment task. You can use the ID to query the details and status of the deployment task.
+      // The deployment task ID. You can use this ID to query the deployment task details and status.
       shared_ptr<int64_t> id_ {};
       // The instance ID of the deployment task.
       shared_ptr<string> instanceId_ {};
-      // The type of the deployment task.
+      // The task type. Valid values:
       // 
       // - **cloud**: multi-cloud deployment task.
-      // 
-      // - **user**: cloud service deployment task. This type of task does not support ECS instances.
+      // - **user**: cloud service deployment task (excluding ECS instances).
       shared_ptr<string> jobType_ {};
       // The name of the deployment task.
       shared_ptr<string> name_ {};
-      // The cloud service included in the resources of the deployment task.
+      // The cloud services included in the deployment task resources.
       shared_ptr<string> productName_ {};
-      // Indicates whether the rollback worker is included. For example, if a cloud service involved in a deployment task has been rolled back, **1** is returned. Valid values:
+      // Indicates whether the task contains a rollback worker. For example, if a cloud service in the task has been rolled back, the value **1** is returned. Valid values:
       // 
-      // - **0**: The rollback worker is not included.
-      // 
-      // - **1**: The rollback worker is included.
+      // - **0**: does not contain a rollback worker.
+      // - **1**: contains a rollback worker.
       shared_ptr<int32_t> rollback_ {};
-      // The time when the deployment task was scheduled.
+      // The scheduled time of the task, in UNIX timestamp format (seconds).
       shared_ptr<string> scheduleTime_ {};
-      // The start time of the deployment task.
+      // The start time of the deployment task execution, in UNIX timestamp format (seconds).
       shared_ptr<string> startTime_ {};
-      // The status of the deployment task. Valid values:
+      // The deployment task status. Valid values:
       // 
-      // - **pending**
-      // 
-      // - **editing**
-      // 
-      // - **scheduling**
-      // 
-      // - **processing**
-      // 
-      // - **error**
-      // 
-      // - **success**
+      // - **pending**: pending execution.
+      // - **editing**: being edited.
+      // - **scheduling**: being scheduled.
+      // - **processing**: being deployed.
+      // - **error**: deployment failed.
+      // - **success**: deployment succeeded.
       shared_ptr<string> status_ {};
-      // The ID of the user.
+      // The user account ID (UID).
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -308,11 +298,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The data returned for the request.
+    // The data returned by the API.
     shared_ptr<vector<ListDeploymentJobResponseBody::Data>> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The number of deployment tasks per page. Default value: **50**.
     shared_ptr<int32_t> showSize_ {};

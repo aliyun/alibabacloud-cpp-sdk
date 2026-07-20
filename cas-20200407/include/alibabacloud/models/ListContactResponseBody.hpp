@@ -124,19 +124,19 @@ namespace Models
 
 
     protected:
-      // The ID of the contact.
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
       // The email address of the contact.
       shared_ptr<string> email_ {};
-      // Indicates whether the email address passed the verification.
+      // Indicates whether the email address is verified.
       shared_ptr<int32_t> emailStatus_ {};
-      // The phone number.
+      // The mobile phone number.
       shared_ptr<string> mobile_ {};
-      // Indicates whether the phone number was verified.
+      // Indicates whether the mobile phone number is verified.
       shared_ptr<int32_t> mobileStatus_ {};
-      // The name of the contact.
+      // The contact name.
       shared_ptr<string> name_ {};
-      // The webhook URL of the chatbot.
+      // The webhook URL.
       shared_ptr<string> webhooks_ {};
     };
 
@@ -187,17 +187,17 @@ namespace Models
 
 
   protected:
-    // The contacts.
+    // The contact list.
     shared_ptr<vector<ListContactResponseBody::ContactList>> contactList_ {};
-    // The page number. Default value: **1**.
+    // The current page number in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The keyword used in the fuzzy search.
+    // The fuzzy match keyword.
     shared_ptr<string> keyword_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The number of certificates per page. Default value: **20**.
+    // The number of certificates displayed per page in a paged query. Default value: **20**.
     shared_ptr<int32_t> showSize_ {};
-    // The total number of entries returned.
+    // The total number of search results.
     shared_ptr<int64_t> totalCount_ {};
   };
 
