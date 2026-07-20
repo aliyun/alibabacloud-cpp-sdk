@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
+#include <alibabacloud/models/CreateSessionNetworkConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/PolarFsConfig.hpp>
 using namespace std;
@@ -17,6 +18,7 @@ namespace Models
   class Session : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Session& obj) { 
+      DARABONBA_PTR_TO_JSON(allowInternetAccess, allowInternetAccess_);
       DARABONBA_PTR_TO_JSON(containerId, containerId_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_TO_JSON(network, network_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
@@ -34,8 +37,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sessionStatus, sessionStatus_);
       DARABONBA_PTR_TO_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
+      DARABONBA_PTR_TO_JSON(trafficAccessToken, trafficAccessToken_);
     };
     friend void from_json(const Darabonba::Json& j, Session& obj) { 
+      DARABONBA_PTR_FROM_JSON(allowInternetAccess, allowInternetAccess_);
       DARABONBA_PTR_FROM_JSON(containerId, containerId_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
@@ -45,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_FROM_JSON(network, network_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
@@ -53,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sessionStatus, sessionStatus_);
       DARABONBA_PTR_FROM_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
+      DARABONBA_PTR_FROM_JSON(trafficAccessToken, trafficAccessToken_);
     };
     Session() = default ;
     Session(const Session &) = default ;
@@ -65,11 +72,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->containerId_ == nullptr
-        && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->functionName_ == nullptr
-        && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr
-        && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr && this->sessionId_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr
-        && this->sessionTTLInSeconds_ == nullptr; };
+    virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
+        && this->containerId_ == nullptr && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr
+        && this->functionName_ == nullptr && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr && this->network_ == nullptr
+        && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr && this->sessionId_ == nullptr
+        && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr && this->trafficAccessToken_ == nullptr; };
+    // allowInternetAccess Field Functions 
+    bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
+    void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
+    inline bool getAllowInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(allowInternetAccess_, false) };
+    inline Session& setAllowInternetAccess(bool allowInternetAccess) { DARABONBA_PTR_SET_VALUE(allowInternetAccess_, allowInternetAccess) };
+
+
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
@@ -137,6 +151,15 @@ namespace Models
     inline Session& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
 
 
+    // network Field Functions 
+    bool hasNetwork() const { return this->network_ != nullptr;};
+    void deleteNetwork() { this->network_ = nullptr;};
+    inline const CreateSessionNetworkConfig & getNetwork() const { DARABONBA_PTR_GET_CONST(network_, CreateSessionNetworkConfig) };
+    inline CreateSessionNetworkConfig getNetwork() { DARABONBA_PTR_GET(network_, CreateSessionNetworkConfig) };
+    inline Session& setNetwork(const CreateSessionNetworkConfig & network) { DARABONBA_PTR_SET_VALUE(network_, network) };
+    inline Session& setNetwork(CreateSessionNetworkConfig && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
+
+
     // ossMountConfig Field Functions 
     bool hasOssMountConfig() const { return this->ossMountConfig_ != nullptr;};
     void deleteOssMountConfig() { this->ossMountConfig_ = nullptr;};
@@ -197,12 +220,24 @@ namespace Models
     inline Session& setSessionTTLInSeconds(int64_t sessionTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sessionTTLInSeconds_, sessionTTLInSeconds) };
 
 
+    // trafficAccessToken Field Functions 
+    bool hasTrafficAccessToken() const { return this->trafficAccessToken_ != nullptr;};
+    void deleteTrafficAccessToken() { this->trafficAccessToken_ = nullptr;};
+    inline string getTrafficAccessToken() const { DARABONBA_PTR_GET_DEFAULT(trafficAccessToken_, "") };
+    inline Session& setTrafficAccessToken(string trafficAccessToken) { DARABONBA_PTR_SET_VALUE(trafficAccessToken_, trafficAccessToken) };
+
+
   protected:
-    // The instance ID of the function instance associated with the session.
+    shared_ptr<bool> allowInternetAccess_ {};
+    // The instance ID of the function associated with the session.
     shared_ptr<string> containerId_ {};
     // The time when the session was created.
     shared_ptr<string> createdTime_ {};
-    // Specifies whether to disable session ID reuse. Default value: False, which indicates that after the session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
+    // Specifies whether to disable session ID reuse after the session expires. Valid values:
+    // - False: After the session expires, you can use the same session ID to initiate requests. The system treats it as a new session and binds it to a new instance.
+    // - True: After the session expires, the session ID cannot be reused.
+    // 
+    // Default value: False.
     shared_ptr<bool> disableSessionIdReuse_ {};
     shared_ptr<bool> enableAutoPause_ {};
     shared_ptr<bool> enableAutoResume_ {};
@@ -213,22 +248,24 @@ namespace Models
     shared_ptr<string> lastModifiedTime_ {};
     // The NAS configuration. After configuration, the instance associated with the session can access the specified NAS resource.
     shared_ptr<NASConfig> nasConfig_ {};
+    shared_ptr<CreateSessionNetworkConfig> network_ {};
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
-    // The qualifier passed in when the customer created the session. If not specified, the default value is LATEST.
+    // The qualifier passed when the customer created the session. If not specified, the default value is LATEST.
     shared_ptr<string> qualifier_ {};
     // The session affinity type.
     shared_ptr<string> sessionAffinityType_ {};
     // The unique identifier of the function session.
     shared_ptr<string> sessionId_ {};
-    // The idle timeout period of the session.
+    // The session idle timeout.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
     // The session status. Valid values:
     // - Active: The session is valid.
     // - Expired: The session has expired.
     shared_ptr<string> sessionStatus_ {};
-    // The maximum lifetime of the session.
+    // The maximum session lifetime.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
+    shared_ptr<string> trafficAccessToken_ {};
   };
 
   } // namespace Models

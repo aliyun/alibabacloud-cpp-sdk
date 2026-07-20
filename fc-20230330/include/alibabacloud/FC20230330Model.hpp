@@ -56,6 +56,7 @@
 #include <alibabacloud/models/VPCConfig.hpp>
 #include <alibabacloud/models/CreateFunctionInput.hpp>
 #include <alibabacloud/models/CreateLayerVersionInput.hpp>
+#include <alibabacloud/models/CreateSessionNetworkConfig.hpp>
 #include <alibabacloud/models/CreateSessionInput.hpp>
 #include <alibabacloud/models/ElasticInterval.hpp>
 #include <alibabacloud/models/TimedPoolConfig.hpp>
@@ -159,6 +160,7 @@
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
 #include <alibabacloud/models/UpdateFunctionInput.hpp>
 #include <alibabacloud/models/UpdateResidentResourcePoolInput.hpp>
+#include <alibabacloud/models/UpdateSessionNetworkConfig.hpp>
 #include <alibabacloud/models/UpdateSessionInput.hpp>
 #include <alibabacloud/models/UpdateTriggerInput.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>

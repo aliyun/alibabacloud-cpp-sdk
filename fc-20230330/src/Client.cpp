@@ -2574,7 +2574,7 @@ ListVpcBindingsResponse Client::listVpcBindings(const string &functionName) {
 /**
  * @summary Pauses and saves a session.
  *
- * @description Pauses an active session by persisting the state of its associated runtime environment and then releasing compute resources. After the call, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use this operation to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions that are configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+ * @description Pauses an active session by persisting the state of its associated runtime environment and then releasing compute resources. After the call, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use this operation to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
  *
  * @param request PauseSessionRequest
  * @param headers map
@@ -2609,7 +2609,7 @@ PauseSessionResponse Client::pauseSessionWithOptions(const string &functionName,
 /**
  * @summary Pauses and saves a session.
  *
- * @description Pauses an active session by persisting the state of its associated runtime environment and then releasing compute resources. After the call, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use this operation to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions that are configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+ * @description Pauses an active session by persisting the state of its associated runtime environment and then releasing compute resources. After the call, the session status changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configuration (such as SessionTTL) and SessionID. You can use this operation to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
  *
  * @param request PauseSessionRequest
  * @return PauseSessionResponse

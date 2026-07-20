@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
+#include <alibabacloud/models/UpdateSessionNetworkConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/PolarFsConfig.hpp>
 using namespace std;
@@ -17,22 +18,26 @@ namespace Models
   class UpdateSessionInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSessionInput& obj) { 
+      DARABONBA_PTR_TO_JSON(allowInternetAccess, allowInternetAccess_);
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_TO_JSON(enableAutoPause, enableAutoPause_);
       DARABONBA_PTR_TO_JSON(enableAutoResume, enableAutoResume_);
       DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_TO_JSON(network, network_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateSessionInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(allowInternetAccess, allowInternetAccess_);
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_FROM_JSON(enableAutoPause, enableAutoPause_);
       DARABONBA_PTR_FROM_JSON(enableAutoResume, enableAutoResume_);
       DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_FROM_JSON(network, network_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
@@ -49,9 +54,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->disableSessionIdReuse_ == nullptr
-        && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr
-        && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+    virtual bool empty() const override { return this->allowInternetAccess_ == nullptr
+        && this->disableSessionIdReuse_ == nullptr && this->enableAutoPause_ == nullptr && this->enableAutoResume_ == nullptr && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr
+        && this->network_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+    // allowInternetAccess Field Functions 
+    bool hasAllowInternetAccess() const { return this->allowInternetAccess_ != nullptr;};
+    void deleteAllowInternetAccess() { this->allowInternetAccess_ = nullptr;};
+    inline bool getAllowInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(allowInternetAccess_, false) };
+    inline UpdateSessionInput& setAllowInternetAccess(bool allowInternetAccess) { DARABONBA_PTR_SET_VALUE(allowInternetAccess_, allowInternetAccess) };
+
+
     // disableSessionIdReuse Field Functions 
     bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
     void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
@@ -91,6 +103,15 @@ namespace Models
     inline UpdateSessionInput& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
 
 
+    // network Field Functions 
+    bool hasNetwork() const { return this->network_ != nullptr;};
+    void deleteNetwork() { this->network_ = nullptr;};
+    inline const UpdateSessionNetworkConfig & getNetwork() const { DARABONBA_PTR_GET_CONST(network_, UpdateSessionNetworkConfig) };
+    inline UpdateSessionNetworkConfig getNetwork() { DARABONBA_PTR_GET(network_, UpdateSessionNetworkConfig) };
+    inline UpdateSessionInput& setNetwork(const UpdateSessionNetworkConfig & network) { DARABONBA_PTR_SET_VALUE(network_, network) };
+    inline UpdateSessionInput& setNetwork(UpdateSessionNetworkConfig && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
+
+
     // ossMountConfig Field Functions 
     bool hasOssMountConfig() const { return this->ossMountConfig_ != nullptr;};
     void deleteOssMountConfig() { this->ossMountConfig_ = nullptr;};
@@ -124,18 +145,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to disable session ID reuse after the session expires. Valid values:
-    // - False: After the session associated with a SessionID expires, you can use the same SessionID to initiate requests. The system treats this as a new session and binds it to a new instance.
-    // - True: After the session associated with a SessionID expires, the SessionID cannot be reused.
-    // Default value: False.
+    shared_ptr<bool> allowInternetAccess_ {};
+    // Specifies whether to disable session ID reuse after the session expires. Default value: False, which indicates that after a session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
     shared_ptr<bool> disableSessionIdReuse_ {};
     shared_ptr<bool> enableAutoPause_ {};
     shared_ptr<bool> enableAutoResume_ {};
     shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     shared_ptr<NASConfig> nasConfig_ {};
+    shared_ptr<UpdateSessionNetworkConfig> network_ {};
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
     shared_ptr<PolarFsConfig> polarFsConfig_ {};
-    // The session idle timeout period.
+    // The session idle timeout.
     shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ {};
     // The session lifetime.
     shared_ptr<int64_t> sessionTTLInSeconds_ {};
