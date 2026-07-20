@@ -111,6 +111,52 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 }
 
 /**
+ * @summary 授予用户角色
+ *
+ * @param request AssignRbacUserRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssignRbacUserRoleResponse
+ */
+AssignRbacUserRoleResponse Client::assignRbacUserRoleWithOptions(const AssignRbacUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasUserRoleData()) {
+    query["UserRoleData"] = request.getUserRoleData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AssignRbacUserRole"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssignRbacUserRoleResponse>();
+}
+
+/**
+ * @summary 授予用户角色
+ *
+ * @param request AssignRbacUserRoleRequest
+ * @return AssignRbacUserRoleResponse
+ */
+AssignRbacUserRoleResponse Client::assignRbacUserRole(const AssignRbacUserRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return assignRbacUserRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Grants proxy-based O&M permissions for an application instance.
  *
  * @param request AuthorizeAppProxyOpsRequest
@@ -1474,9 +1520,101 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectory(const CreateMate
 }
 
 /**
- * @summary 创建RBAC角色
+ * @summary 创建组织单元
  *
- * @description 万小智2.0AI对话
+ * @param request CreateRbacOrgUnitRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRbacOrgUnitResponse
+ */
+CreateRbacOrgUnitResponse Client::createRbacOrgUnitWithOptions(const CreateRbacOrgUnitRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrgUnitData()) {
+    query["OrgUnitData"] = request.getOrgUnitData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRbacOrgUnit"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRbacOrgUnitResponse>();
+}
+
+/**
+ * @summary 创建组织单元
+ *
+ * @param request CreateRbacOrgUnitRequest
+ * @return CreateRbacOrgUnitResponse
+ */
+CreateRbacOrgUnitResponse Client::createRbacOrgUnit(const CreateRbacOrgUnitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRbacOrgUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建RBAC权限
+ *
+ * @param request CreateRbacPermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRbacPermissionResponse
+ */
+CreateRbacPermissionResponse Client::createRbacPermissionWithOptions(const CreateRbacPermissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPermissionData()) {
+    query["PermissionData"] = request.getPermissionData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRbacPermission"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRbacPermissionResponse>();
+}
+
+/**
+ * @summary 创建RBAC权限
+ *
+ * @param request CreateRbacPermissionRequest
+ * @return CreateRbacPermissionResponse
+ */
+CreateRbacPermissionResponse Client::createRbacPermission(const CreateRbacPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRbacPermissionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an RBAC role.
+ *
+ * @description Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1511,9 +1649,9 @@ CreateRbacRoleResponse Client::createRbacRoleWithOptions(const CreateRbacRoleReq
 }
 
 /**
- * @summary 创建RBAC角色
+ * @summary Creates an RBAC role.
  *
- * @description 万小智2.0AI对话
+ * @description Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateRbacRoleRequest
  * @return CreateRbacRoleResponse
@@ -1910,9 +2048,101 @@ DeleteMaterialTaskResponse Client::deleteMaterialTask(const DeleteMaterialTaskRe
 }
 
 /**
- * @summary 删除RBAC角色
+ * @summary 删除组织单元
  *
- * @description 查询应用实例信息
+ * @param request DeleteRbacOrgUnitRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRbacOrgUnitResponse
+ */
+DeleteRbacOrgUnitResponse Client::deleteRbacOrgUnitWithOptions(const DeleteRbacOrgUnitRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrgUnitId()) {
+    query["OrgUnitId"] = request.getOrgUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRbacOrgUnit"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRbacOrgUnitResponse>();
+}
+
+/**
+ * @summary 删除组织单元
+ *
+ * @param request DeleteRbacOrgUnitRequest
+ * @return DeleteRbacOrgUnitResponse
+ */
+DeleteRbacOrgUnitResponse Client::deleteRbacOrgUnit(const DeleteRbacOrgUnitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteRbacOrgUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除RBAC权限
+ *
+ * @param request DeleteRbacPermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRbacPermissionResponse
+ */
+DeleteRbacPermissionResponse Client::deleteRbacPermissionWithOptions(const DeleteRbacPermissionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasPermissionId()) {
+    query["PermissionId"] = request.getPermissionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRbacPermission"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRbacPermissionResponse>();
+}
+
+/**
+ * @summary 删除RBAC权限
+ *
+ * @param request DeleteRbacPermissionRequest
+ * @return DeleteRbacPermissionResponse
+ */
+DeleteRbacPermissionResponse Client::deleteRbacPermission(const DeleteRbacPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteRbacPermissionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an RBAC role.
+ *
+ * @description Queries application instance information.
  *
  * @param request DeleteRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1947,9 +2177,9 @@ DeleteRbacRoleResponse Client::deleteRbacRoleWithOptions(const DeleteRbacRoleReq
 }
 
 /**
- * @summary 删除RBAC角色
+ * @summary Deletes an RBAC role.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request DeleteRbacRoleRequest
  * @return DeleteRbacRoleResponse
@@ -2178,9 +2408,9 @@ ExportMaterialFileResponse Client::exportMaterialFile(const ExportMaterialFileRe
 }
 
 /**
- * @summary 导出RBAC配置
+ * @summary Exports the RBAC configuration.
  *
- * @description 查询资源对应的supabase实例配置信息
+ * @description Queries the Supabase instance configuration information corresponding to a resource.
  *
  * @param request ExportRbacConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2211,9 +2441,9 @@ ExportRbacConfigResponse Client::exportRbacConfigWithOptions(const ExportRbacCon
 }
 
 /**
- * @summary 导出RBAC配置
+ * @summary Exports the RBAC configuration.
  *
- * @description 查询资源对应的supabase实例配置信息
+ * @description Queries the Supabase instance configuration information corresponding to a resource.
  *
  * @param request ExportRbacConfigRequest
  * @return ExportRbacConfigResponse
@@ -5314,9 +5544,9 @@ ListPromotionOfferRecordsForPartnerResponse Client::listPromotionOfferRecordsFor
 }
 
 /**
- * @summary 查询RBAC组织树
+ * @summary Queries the RBAC organization tree.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ListRbacOrgTreeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5371,9 +5601,9 @@ ListRbacOrgTreeResponse Client::listRbacOrgTreeWithOptions(const ListRbacOrgTree
 }
 
 /**
- * @summary 查询RBAC组织树
+ * @summary Queries the RBAC organization tree.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ListRbacOrgTreeRequest
  * @return ListRbacOrgTreeResponse
@@ -5384,9 +5614,9 @@ ListRbacOrgTreeResponse Client::listRbacOrgTree(const ListRbacOrgTreeRequest &re
 }
 
 /**
- * @summary 查询RBAC权限列表
+ * @summary Queries the RBAC permission list.
  *
- * @description 万小智2.0创建AI会话接口
+ * @description Creates an AI conversation session through WanXiaoZhi 2.0.
  *
  * @param request ListRbacPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5441,9 +5671,9 @@ ListRbacPermissionsResponse Client::listRbacPermissionsWithOptions(const ListRba
 }
 
 /**
- * @summary 查询RBAC权限列表
+ * @summary Queries the RBAC permission list.
  *
- * @description 万小智2.0创建AI会话接口
+ * @description Creates an AI conversation session through WanXiaoZhi 2.0.
  *
  * @param request ListRbacPermissionsRequest
  * @return ListRbacPermissionsResponse
@@ -5454,9 +5684,9 @@ ListRbacPermissionsResponse Client::listRbacPermissions(const ListRbacPermission
 }
 
 /**
- * @summary 查询RBAC角色层级
+ * @summary Queries the RBAC role hierarchy.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request ListRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5511,9 +5741,9 @@ ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchyWithOptions(const Lis
 }
 
 /**
- * @summary 查询RBAC角色层级
+ * @summary Queries the RBAC role hierarchy.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request ListRbacRoleHierarchyRequest
  * @return ListRbacRoleHierarchyResponse
@@ -5524,9 +5754,9 @@ ListRbacRoleHierarchyResponse Client::listRbacRoleHierarchy(const ListRbacRoleHi
 }
 
 /**
- * @summary 查询RBAC角色列表
+ * @summary Queries the list of RBAC roles.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request ListRbacRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5581,9 +5811,9 @@ ListRbacRolesResponse Client::listRbacRolesWithOptions(const ListRbacRolesReques
 }
 
 /**
- * @summary 查询RBAC角色列表
+ * @summary Queries the list of RBAC roles.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request ListRbacRolesRequest
  * @return ListRbacRolesResponse
@@ -7038,6 +7268,176 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 }
 
 /**
+ * @summary 查询单个RBAC角色
+ *
+ * @param request QueryRbacRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryRbacRoleResponse
+ */
+QueryRbacRoleResponse Client::queryRbacRoleWithOptions(const QueryRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasRoleId()) {
+    query["RoleId"] = request.getRoleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryRbacRole"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryRbacRoleResponse>();
+}
+
+/**
+ * @summary 查询单个RBAC角色
+ *
+ * @param request QueryRbacRoleRequest
+ * @return QueryRbacRoleResponse
+ */
+QueryRbacRoleResponse Client::queryRbacRole(const QueryRbacRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryRbacRoleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询角色权限列表
+ *
+ * @param request QueryRbacRolePermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryRbacRolePermissionsResponse
+ */
+QueryRbacRolePermissionsResponse Client::queryRbacRolePermissionsWithOptions(const QueryRbacRolePermissionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRoleId()) {
+    query["RoleId"] = request.getRoleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryRbacRolePermissions"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryRbacRolePermissionsResponse>();
+}
+
+/**
+ * @summary 查询角色权限列表
+ *
+ * @param request QueryRbacRolePermissionsRequest
+ * @return QueryRbacRolePermissionsResponse
+ */
+QueryRbacRolePermissionsResponse Client::queryRbacRolePermissions(const QueryRbacRolePermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryRbacRolePermissionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询用户角色绑定
+ *
+ * @param request QueryRbacUserRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryRbacUserRolesResponse
+ */
+QueryRbacUserRolesResponse Client::queryRbacUserRolesWithOptions(const QueryRbacUserRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationUserId()) {
+    query["ApplicationUserId"] = request.getApplicationUserId();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.getOrderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryRbacUserRoles"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryRbacUserRolesResponse>();
+}
+
+/**
+ * @summary 查询用户角色绑定
+ *
+ * @param request QueryRbacUserRolesRequest
+ * @return QueryRbacUserRolesResponse
+ */
+QueryRbacUserRolesResponse Client::queryRbacUserRoles(const QueryRbacUserRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryRbacUserRolesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the auth configuration of a Supabase instance associated with a resource.
  *
  * @description Queries the auth configuration of a Supabase instance associated with a resource.
@@ -7465,9 +7865,9 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartner(const Re
 }
 
 /**
- * @summary 移除RBAC角色层级
+ * @summary Removes an RBAC role hierarchy.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request RemoveRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7506,9 +7906,9 @@ RemoveRbacRoleHierarchyResponse Client::removeRbacRoleHierarchyWithOptions(const
 }
 
 /**
- * @summary 移除RBAC角色层级
+ * @summary Removes an RBAC role hierarchy.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request RemoveRbacRoleHierarchyRequest
  * @return RemoveRbacRoleHierarchyResponse
@@ -7624,6 +8024,52 @@ RenewAppSandboxResponse Client::renewAppSandboxWithOptions(const RenewAppSandbox
 RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return renewAppSandboxWithOptions(request, runtime);
+}
+
+/**
+ * @summary 撤销用户角色
+ *
+ * @param request RevokeRbacUserRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeRbacUserRoleResponse
+ */
+RevokeRbacUserRoleResponse Client::revokeRbacUserRoleWithOptions(const RevokeRbacUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasUserRoleData()) {
+    query["UserRoleData"] = request.getUserRoleData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeRbacUserRole"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeRbacUserRoleResponse>();
+}
+
+/**
+ * @summary 撤销用户角色
+ *
+ * @param request RevokeRbacUserRoleRequest
+ * @return RevokeRbacUserRoleResponse
+ */
+RevokeRbacUserRoleResponse Client::revokeRbacUserRole(const RevokeRbacUserRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeRbacUserRoleWithOptions(request, runtime);
 }
 
 /**
@@ -8003,9 +8449,9 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDoma
 }
 
 /**
- * @summary 设置RBAC角色层级
+ * @summary Sets the RBAC role hierarchy.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request SetRbacRoleHierarchyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8044,9 +8490,9 @@ SetRbacRoleHierarchyResponse Client::setRbacRoleHierarchyWithOptions(const SetRb
 }
 
 /**
- * @summary 设置RBAC角色层级
+ * @summary Sets the RBAC role hierarchy.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request SetRbacRoleHierarchyRequest
  * @return SetRbacRoleHierarchyResponse
@@ -8817,9 +9263,59 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBinding(const UpdateMiniAppBin
 }
 
 /**
- * @summary 更新RBAC角色
+ * @summary 更新组织单元
  *
- * @description 获取生码插件配置信息
+ * @param request UpdateRbacOrgUnitRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRbacOrgUnitResponse
+ */
+UpdateRbacOrgUnitResponse Client::updateRbacOrgUnitWithOptions(const UpdateRbacOrgUnitRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasOrgUnitData()) {
+    query["OrgUnitData"] = request.getOrgUnitData();
+  }
+
+  if (!!request.hasOrgUnitId()) {
+    query["OrgUnitId"] = request.getOrgUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateRbacOrgUnit"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRbacOrgUnitResponse>();
+}
+
+/**
+ * @summary 更新组织单元
+ *
+ * @param request UpdateRbacOrgUnitRequest
+ * @return UpdateRbacOrgUnitResponse
+ */
+UpdateRbacOrgUnitResponse Client::updateRbacOrgUnit(const UpdateRbacOrgUnitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateRbacOrgUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates an RBAC role.
+ *
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8858,9 +9354,9 @@ UpdateRbacRoleResponse Client::updateRbacRoleWithOptions(const UpdateRbacRoleReq
 }
 
 /**
- * @summary 更新RBAC角色
+ * @summary Updates an RBAC role.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateRbacRoleRequest
  * @return UpdateRbacRoleResponse

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The child role ID.
     shared_ptr<string> childRoleId_ {};
+    // The parent role ID.
     shared_ptr<string> parentRoleId_ {};
   };
 

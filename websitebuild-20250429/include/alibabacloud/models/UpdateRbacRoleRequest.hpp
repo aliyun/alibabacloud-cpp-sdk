@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The application instance ID.
     shared_ptr<string> bizId_ {};
+    // The role data.
     shared_ptr<string> roleData_ {};
+    // The role ID.
     shared_ptr<string> roleId_ {};
   };
 

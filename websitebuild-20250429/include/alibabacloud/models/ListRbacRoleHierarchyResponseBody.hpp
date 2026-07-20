@@ -127,7 +127,9 @@ namespace Models
 
 
       protected:
+        // The child role ID.
         shared_ptr<string> childRoleId_ {};
+        // The parent role ID.
         shared_ptr<string> parentRoleId_ {};
       };
 
@@ -169,7 +171,9 @@ namespace Models
 
 
       protected:
+        // The child role ID.
         shared_ptr<string> childRoleId_ {};
+        // The parent role ID.
         shared_ptr<string> parentRoleId_ {};
       };
 
@@ -244,14 +248,23 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
+      // The decision weight.
       shared_ptr<Module::Next> next_ {};
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
+      // The server processes up to 1,000 most recent records beyond the pagination limit. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -355,18 +368,36 @@ namespace Models
 
 
   protected:
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether a retry is allowed. Valid values:
+    // - false: No retry is allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The number of entries per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The response object.
     shared_ptr<ListRbacRoleHierarchyResponseBody::Module> module_ {};
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

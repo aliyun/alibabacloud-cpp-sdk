@@ -154,10 +154,15 @@ namespace Models
 
 
       protected:
+        // The creation date.
         shared_ptr<string> createdAt_ {};
+        // The category level. The root category is 1.
         shared_ptr<int32_t> depth_ {};
+        // The primary key.
         shared_ptr<string> id_ {};
+        // The scenario name.
         shared_ptr<string> name_ {};
+        // The request path of the API.
         shared_ptr<string> path_ {};
       };
 
@@ -226,10 +231,15 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createdAt_ {};
+        // The directory level.
         shared_ptr<int32_t> depth_ {};
+        // The primary key.
         shared_ptr<string> id_ {};
+        // The file name.
         shared_ptr<string> name_ {};
+        // The script path.
         shared_ptr<string> path_ {};
       };
 
@@ -304,14 +314,23 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
+      // The next feature ID.
       shared_ptr<Module::Next> next_ {};
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
+      // Indicates whether the server processes a maximum of 1,000 most recent records beyond the pagination limit. If the results exceed 1,000 entries, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -415,18 +434,34 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
+    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The maximum number of entries per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The task object.
     shared_ptr<ListRbacOrgTreeResponseBody::Module> module_ {};
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

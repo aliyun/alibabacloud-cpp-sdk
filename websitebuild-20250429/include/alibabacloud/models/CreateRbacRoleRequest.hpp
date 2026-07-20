@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The business ID of the customer.
     shared_ptr<string> bizId_ {};
+    // The role data.
     shared_ptr<string> roleData_ {};
   };
 

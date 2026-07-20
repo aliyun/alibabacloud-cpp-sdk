@@ -42,6 +42,23 @@ namespace WebsiteBuild20250429
       Models::AllocateSupabaseForAdminResponse allocateSupabaseForAdmin(const Models::AllocateSupabaseForAdminRequest &request);
 
       /**
+       * @summary 授予用户角色
+       *
+       * @param request AssignRbacUserRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssignRbacUserRoleResponse
+       */
+      Models::AssignRbacUserRoleResponse assignRbacUserRoleWithOptions(const Models::AssignRbacUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 授予用户角色
+       *
+       * @param request AssignRbacUserRoleRequest
+       * @return AssignRbacUserRoleResponse
+       */
+      Models::AssignRbacUserRoleResponse assignRbacUserRole(const Models::AssignRbacUserRoleRequest &request);
+
+      /**
        * @summary Grants proxy-based O&M permissions for an application instance.
        *
        * @param request AuthorizeAppProxyOpsRequest
@@ -460,9 +477,43 @@ namespace WebsiteBuild20250429
       Models::CreateMaterialDirectoryResponse createMaterialDirectory(const Models::CreateMaterialDirectoryRequest &request);
 
       /**
-       * @summary 创建RBAC角色
+       * @summary 创建组织单元
        *
-       * @description 万小智2.0AI对话
+       * @param request CreateRbacOrgUnitRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRbacOrgUnitResponse
+       */
+      Models::CreateRbacOrgUnitResponse createRbacOrgUnitWithOptions(const Models::CreateRbacOrgUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建组织单元
+       *
+       * @param request CreateRbacOrgUnitRequest
+       * @return CreateRbacOrgUnitResponse
+       */
+      Models::CreateRbacOrgUnitResponse createRbacOrgUnit(const Models::CreateRbacOrgUnitRequest &request);
+
+      /**
+       * @summary 创建RBAC权限
+       *
+       * @param request CreateRbacPermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRbacPermissionResponse
+       */
+      Models::CreateRbacPermissionResponse createRbacPermissionWithOptions(const Models::CreateRbacPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建RBAC权限
+       *
+       * @param request CreateRbacPermissionRequest
+       * @return CreateRbacPermissionResponse
+       */
+      Models::CreateRbacPermissionResponse createRbacPermission(const Models::CreateRbacPermissionRequest &request);
+
+      /**
+       * @summary Creates an RBAC role.
+       *
+       * @description Wanxiaozhi 2.0 AI conversation.
        *
        * @param request CreateRbacRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -471,9 +522,9 @@ namespace WebsiteBuild20250429
       Models::CreateRbacRoleResponse createRbacRoleWithOptions(const Models::CreateRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建RBAC角色
+       * @summary Creates an RBAC role.
        *
-       * @description 万小智2.0AI对话
+       * @description Wanxiaozhi 2.0 AI conversation.
        *
        * @param request CreateRbacRoleRequest
        * @return CreateRbacRoleResponse
@@ -633,9 +684,43 @@ namespace WebsiteBuild20250429
       Models::DeleteMaterialTaskResponse deleteMaterialTask(const Models::DeleteMaterialTaskRequest &request);
 
       /**
-       * @summary 删除RBAC角色
+       * @summary 删除组织单元
        *
-       * @description 查询应用实例信息
+       * @param request DeleteRbacOrgUnitRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRbacOrgUnitResponse
+       */
+      Models::DeleteRbacOrgUnitResponse deleteRbacOrgUnitWithOptions(const Models::DeleteRbacOrgUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除组织单元
+       *
+       * @param request DeleteRbacOrgUnitRequest
+       * @return DeleteRbacOrgUnitResponse
+       */
+      Models::DeleteRbacOrgUnitResponse deleteRbacOrgUnit(const Models::DeleteRbacOrgUnitRequest &request);
+
+      /**
+       * @summary 删除RBAC权限
+       *
+       * @param request DeleteRbacPermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRbacPermissionResponse
+       */
+      Models::DeleteRbacPermissionResponse deleteRbacPermissionWithOptions(const Models::DeleteRbacPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除RBAC权限
+       *
+       * @param request DeleteRbacPermissionRequest
+       * @return DeleteRbacPermissionResponse
+       */
+      Models::DeleteRbacPermissionResponse deleteRbacPermission(const Models::DeleteRbacPermissionRequest &request);
+
+      /**
+       * @summary Deletes an RBAC role.
+       *
+       * @description Queries application instance information.
        *
        * @param request DeleteRbacRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -644,9 +729,9 @@ namespace WebsiteBuild20250429
       Models::DeleteRbacRoleResponse deleteRbacRoleWithOptions(const Models::DeleteRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除RBAC角色
+       * @summary Deletes an RBAC role.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request DeleteRbacRoleRequest
        * @return DeleteRbacRoleResponse
@@ -722,9 +807,9 @@ namespace WebsiteBuild20250429
       Models::ExportMaterialFileResponse exportMaterialFile(const Models::ExportMaterialFileRequest &request);
 
       /**
-       * @summary 导出RBAC配置
+       * @summary Exports the RBAC configuration.
        *
-       * @description 查询资源对应的supabase实例配置信息
+       * @description Queries the Supabase instance configuration information corresponding to a resource.
        *
        * @param request ExportRbacConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -733,9 +818,9 @@ namespace WebsiteBuild20250429
       Models::ExportRbacConfigResponse exportRbacConfigWithOptions(const Models::ExportRbacConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出RBAC配置
+       * @summary Exports the RBAC configuration.
        *
-       * @description 查询资源对应的supabase实例配置信息
+       * @description Queries the Supabase instance configuration information corresponding to a resource.
        *
        * @param request ExportRbacConfigRequest
        * @return ExportRbacConfigResponse
@@ -1892,9 +1977,9 @@ namespace WebsiteBuild20250429
       Models::ListPromotionOfferRecordsForPartnerResponse listPromotionOfferRecordsForPartner(const Models::ListPromotionOfferRecordsForPartnerRequest &request);
 
       /**
-       * @summary 查询RBAC组织树
+       * @summary Queries the RBAC organization tree.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request ListRbacOrgTreeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1903,9 +1988,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacOrgTreeResponse listRbacOrgTreeWithOptions(const Models::ListRbacOrgTreeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询RBAC组织树
+       * @summary Queries the RBAC organization tree.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request ListRbacOrgTreeRequest
        * @return ListRbacOrgTreeResponse
@@ -1913,9 +1998,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacOrgTreeResponse listRbacOrgTree(const Models::ListRbacOrgTreeRequest &request);
 
       /**
-       * @summary 查询RBAC权限列表
+       * @summary Queries the RBAC permission list.
        *
-       * @description 万小智2.0创建AI会话接口
+       * @description Creates an AI conversation session through WanXiaoZhi 2.0.
        *
        * @param request ListRbacPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1924,9 +2009,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacPermissionsResponse listRbacPermissionsWithOptions(const Models::ListRbacPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询RBAC权限列表
+       * @summary Queries the RBAC permission list.
        *
-       * @description 万小智2.0创建AI会话接口
+       * @description Creates an AI conversation session through WanXiaoZhi 2.0.
        *
        * @param request ListRbacPermissionsRequest
        * @return ListRbacPermissionsResponse
@@ -1934,9 +2019,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacPermissionsResponse listRbacPermissions(const Models::ListRbacPermissionsRequest &request);
 
       /**
-       * @summary 查询RBAC角色层级
+       * @summary Queries the RBAC role hierarchy.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request ListRbacRoleHierarchyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1945,9 +2030,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacRoleHierarchyResponse listRbacRoleHierarchyWithOptions(const Models::ListRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询RBAC角色层级
+       * @summary Queries the RBAC role hierarchy.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request ListRbacRoleHierarchyRequest
        * @return ListRbacRoleHierarchyResponse
@@ -1955,9 +2040,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacRoleHierarchyResponse listRbacRoleHierarchy(const Models::ListRbacRoleHierarchyRequest &request);
 
       /**
-       * @summary 查询RBAC角色列表
+       * @summary Queries the list of RBAC roles.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request ListRbacRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,9 +2051,9 @@ namespace WebsiteBuild20250429
       Models::ListRbacRolesResponse listRbacRolesWithOptions(const Models::ListRbacRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询RBAC角色列表
+       * @summary Queries the list of RBAC roles.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request ListRbacRolesRequest
        * @return ListRbacRolesResponse
@@ -2414,6 +2499,57 @@ namespace WebsiteBuild20250429
       Models::QueryMaterialTaskListResponse queryMaterialTaskList(const Models::QueryMaterialTaskListRequest &request);
 
       /**
+       * @summary 查询单个RBAC角色
+       *
+       * @param request QueryRbacRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryRbacRoleResponse
+       */
+      Models::QueryRbacRoleResponse queryRbacRoleWithOptions(const Models::QueryRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询单个RBAC角色
+       *
+       * @param request QueryRbacRoleRequest
+       * @return QueryRbacRoleResponse
+       */
+      Models::QueryRbacRoleResponse queryRbacRole(const Models::QueryRbacRoleRequest &request);
+
+      /**
+       * @summary 查询角色权限列表
+       *
+       * @param request QueryRbacRolePermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryRbacRolePermissionsResponse
+       */
+      Models::QueryRbacRolePermissionsResponse queryRbacRolePermissionsWithOptions(const Models::QueryRbacRolePermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询角色权限列表
+       *
+       * @param request QueryRbacRolePermissionsRequest
+       * @return QueryRbacRolePermissionsResponse
+       */
+      Models::QueryRbacRolePermissionsResponse queryRbacRolePermissions(const Models::QueryRbacRolePermissionsRequest &request);
+
+      /**
+       * @summary 查询用户角色绑定
+       *
+       * @param request QueryRbacUserRolesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryRbacUserRolesResponse
+       */
+      Models::QueryRbacUserRolesResponse queryRbacUserRolesWithOptions(const Models::QueryRbacUserRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户角色绑定
+       *
+       * @param request QueryRbacUserRolesRequest
+       * @return QueryRbacUserRolesResponse
+       */
+      Models::QueryRbacUserRolesResponse queryRbacUserRoles(const Models::QueryRbacUserRolesRequest &request);
+
+      /**
        * @summary Queries the auth configuration of a Supabase instance associated with a resource.
        *
        * @description Queries the auth configuration of a Supabase instance associated with a resource.
@@ -2543,9 +2679,9 @@ namespace WebsiteBuild20250429
       Models::RefundAppInstanceForPartnerResponse refundAppInstanceForPartner(const Models::RefundAppInstanceForPartnerRequest &request);
 
       /**
-       * @summary 移除RBAC角色层级
+       * @summary Removes an RBAC role hierarchy.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request RemoveRbacRoleHierarchyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2554,9 +2690,9 @@ namespace WebsiteBuild20250429
       Models::RemoveRbacRoleHierarchyResponse removeRbacRoleHierarchyWithOptions(const Models::RemoveRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除RBAC角色层级
+       * @summary Removes an RBAC role hierarchy.
        *
-       * @description 查询应用实例信息
+       * @description Queries application instance information.
        *
        * @param request RemoveRbacRoleHierarchyRequest
        * @return RemoveRbacRoleHierarchyResponse
@@ -2600,6 +2736,23 @@ namespace WebsiteBuild20250429
        * @return RenewAppSandboxResponse
        */
       Models::RenewAppSandboxResponse renewAppSandbox(const Models::RenewAppSandboxRequest &request);
+
+      /**
+       * @summary 撤销用户角色
+       *
+       * @param request RevokeRbacUserRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeRbacUserRoleResponse
+       */
+      Models::RevokeRbacUserRoleResponse revokeRbacUserRoleWithOptions(const Models::RevokeRbacUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 撤销用户角色
+       *
+       * @param request RevokeRbacUserRoleRequest
+       * @return RevokeRbacUserRoleResponse
+       */
+      Models::RevokeRbacUserRoleResponse revokeRbacUserRole(const Models::RevokeRbacUserRoleRequest &request);
 
       /**
        * @summary Code snapshot rollback
@@ -2720,9 +2873,9 @@ namespace WebsiteBuild20250429
       Models::SetAppDomainCertificateResponse setAppDomainCertificate(const Models::SetAppDomainCertificateRequest &request);
 
       /**
-       * @summary 设置RBAC角色层级
+       * @summary Sets the RBAC role hierarchy.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request SetRbacRoleHierarchyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2731,9 +2884,9 @@ namespace WebsiteBuild20250429
       Models::SetRbacRoleHierarchyResponse setRbacRoleHierarchyWithOptions(const Models::SetRbacRoleHierarchyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置RBAC角色层级
+       * @summary Sets the RBAC role hierarchy.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plugin.
        *
        * @param request SetRbacRoleHierarchyRequest
        * @return SetRbacRoleHierarchyResponse
@@ -2998,9 +3151,26 @@ namespace WebsiteBuild20250429
       Models::UpdateMiniAppBindingResponse updateMiniAppBinding(const Models::UpdateMiniAppBindingRequest &request);
 
       /**
-       * @summary 更新RBAC角色
+       * @summary 更新组织单元
        *
-       * @description 获取生码插件配置信息
+       * @param request UpdateRbacOrgUnitRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRbacOrgUnitResponse
+       */
+      Models::UpdateRbacOrgUnitResponse updateRbacOrgUnitWithOptions(const Models::UpdateRbacOrgUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新组织单元
+       *
+       * @param request UpdateRbacOrgUnitRequest
+       * @return UpdateRbacOrgUnitResponse
+       */
+      Models::UpdateRbacOrgUnitResponse updateRbacOrgUnit(const Models::UpdateRbacOrgUnitRequest &request);
+
+      /**
+       * @summary Updates an RBAC role.
+       *
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request UpdateRbacRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3009,9 +3179,9 @@ namespace WebsiteBuild20250429
       Models::UpdateRbacRoleResponse updateRbacRoleWithOptions(const Models::UpdateRbacRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新RBAC角色
+       * @summary Updates an RBAC role.
        *
-       * @description 获取生码插件配置信息
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request UpdateRbacRoleRequest
        * @return UpdateRbacRoleResponse

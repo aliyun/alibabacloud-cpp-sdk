@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETERBACROLERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DELETERBACROLERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATERBACORGUNITRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATERBACORGUNITRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace WebsiteBuild20250429
 {
 namespace Models
 {
-  class DeleteRbacRoleResponseBody : public Darabonba::Model {
+  class CreateRbacOrgUnitResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteRbacRoleResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateRbacOrgUnitResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(AllowRetry, allowRetry_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
@@ -26,7 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RootErrorMsg, rootErrorMsg_);
       DARABONBA_PTR_TO_JSON(Synchro, synchro_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteRbacRoleResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateRbacOrgUnitResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(AllowRetry, allowRetry_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -39,13 +39,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RootErrorMsg, rootErrorMsg_);
       DARABONBA_PTR_FROM_JSON(Synchro, synchro_);
     };
-    DeleteRbacRoleResponseBody() = default ;
-    DeleteRbacRoleResponseBody(const DeleteRbacRoleResponseBody &) = default ;
-    DeleteRbacRoleResponseBody(DeleteRbacRoleResponseBody &&) = default ;
-    DeleteRbacRoleResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteRbacRoleResponseBody() = default ;
-    DeleteRbacRoleResponseBody& operator=(const DeleteRbacRoleResponseBody &) = default ;
-    DeleteRbacRoleResponseBody& operator=(DeleteRbacRoleResponseBody &&) = default ;
+    CreateRbacOrgUnitResponseBody() = default ;
+    CreateRbacOrgUnitResponseBody(const CreateRbacOrgUnitResponseBody &) = default ;
+    CreateRbacOrgUnitResponseBody(CreateRbacOrgUnitResponseBody &&) = default ;
+    CreateRbacOrgUnitResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateRbacOrgUnitResponseBody() = default ;
+    CreateRbacOrgUnitResponseBody& operator=(const CreateRbacOrgUnitResponseBody &) = default ;
+    CreateRbacOrgUnitResponseBody& operator=(CreateRbacOrgUnitResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -57,35 +57,35 @@ namespace Models
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
     inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
-    inline DeleteRbacRoleResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+    inline CreateRbacOrgUnitResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // allowRetry Field Functions 
     bool hasAllowRetry() const { return this->allowRetry_ != nullptr;};
     void deleteAllowRetry() { this->allowRetry_ = nullptr;};
     inline bool getAllowRetry() const { DARABONBA_PTR_GET_DEFAULT(allowRetry_, false) };
-    inline DeleteRbacRoleResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
+    inline CreateRbacOrgUnitResponseBody& setAllowRetry(bool allowRetry) { DARABONBA_PTR_SET_VALUE(allowRetry_, allowRetry) };
 
 
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
     inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
-    inline DeleteRbacRoleResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+    inline CreateRbacOrgUnitResponseBody& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
     inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
-    inline DeleteRbacRoleResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
+    inline CreateRbacOrgUnitResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
     inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
-    inline DeleteRbacRoleResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
+    inline CreateRbacOrgUnitResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // errorArgs Field Functions 
@@ -93,70 +93,56 @@ namespace Models
     void deleteErrorArgs() { this->errorArgs_ = nullptr;};
     inline const vector<Darabonba::Json> & getErrorArgs() const { DARABONBA_PTR_GET_CONST(errorArgs_, vector<Darabonba::Json>) };
     inline vector<Darabonba::Json> getErrorArgs() { DARABONBA_PTR_GET(errorArgs_, vector<Darabonba::Json>) };
-    inline DeleteRbacRoleResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
-    inline DeleteRbacRoleResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
+    inline CreateRbacOrgUnitResponseBody& setErrorArgs(const vector<Darabonba::Json> & errorArgs) { DARABONBA_PTR_SET_VALUE(errorArgs_, errorArgs) };
+    inline CreateRbacOrgUnitResponseBody& setErrorArgs(vector<Darabonba::Json> && errorArgs) { DARABONBA_PTR_SET_RVALUE(errorArgs_, errorArgs) };
 
 
     // module Field Functions 
     bool hasModule() const { return this->module_ != nullptr;};
     void deleteModule() { this->module_ = nullptr;};
-    inline bool getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, false) };
-    inline DeleteRbacRoleResponseBody& setModule(bool module) { DARABONBA_PTR_SET_VALUE(module_, module) };
+    inline string getModule() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline CreateRbacOrgUnitResponseBody& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DeleteRbacRoleResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CreateRbacOrgUnitResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // rootErrorCode Field Functions 
     bool hasRootErrorCode() const { return this->rootErrorCode_ != nullptr;};
     void deleteRootErrorCode() { this->rootErrorCode_ = nullptr;};
     inline string getRootErrorCode() const { DARABONBA_PTR_GET_DEFAULT(rootErrorCode_, "") };
-    inline DeleteRbacRoleResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
+    inline CreateRbacOrgUnitResponseBody& setRootErrorCode(string rootErrorCode) { DARABONBA_PTR_SET_VALUE(rootErrorCode_, rootErrorCode) };
 
 
     // rootErrorMsg Field Functions 
     bool hasRootErrorMsg() const { return this->rootErrorMsg_ != nullptr;};
     void deleteRootErrorMsg() { this->rootErrorMsg_ = nullptr;};
     inline string getRootErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(rootErrorMsg_, "") };
-    inline DeleteRbacRoleResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
+    inline CreateRbacOrgUnitResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
     inline bool getSynchro() const { DARABONBA_PTR_GET_DEFAULT(synchro_, false) };
-    inline DeleteRbacRoleResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
+    inline CreateRbacOrgUnitResponseBody& setSynchro(bool synchro) { DARABONBA_PTR_SET_VALUE(synchro_, synchro) };
 
 
   protected:
-    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the `%s` variable in the **ErrMessage** parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The response data.
-    shared_ptr<bool> module_ {};
-    // Id of the request
+    shared_ptr<string> module_ {};
     shared_ptr<string> requestId_ {};
-    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

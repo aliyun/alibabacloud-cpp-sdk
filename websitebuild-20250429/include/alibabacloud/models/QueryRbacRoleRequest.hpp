@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETERBACROLEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_DELETERBACROLEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_QUERYRBACROLEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_QUERYRBACROLEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace WebsiteBuild20250429
 {
 namespace Models
 {
-  class DeleteRbacRoleRequest : public Darabonba::Model {
+  class QueryRbacRoleRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteRbacRoleRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const QueryRbacRoleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(RoleId, roleId_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteRbacRoleRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, QueryRbacRoleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(RoleId, roleId_);
     };
-    DeleteRbacRoleRequest() = default ;
-    DeleteRbacRoleRequest(const DeleteRbacRoleRequest &) = default ;
-    DeleteRbacRoleRequest(DeleteRbacRoleRequest &&) = default ;
-    DeleteRbacRoleRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteRbacRoleRequest() = default ;
-    DeleteRbacRoleRequest& operator=(const DeleteRbacRoleRequest &) = default ;
-    DeleteRbacRoleRequest& operator=(DeleteRbacRoleRequest &&) = default ;
+    QueryRbacRoleRequest() = default ;
+    QueryRbacRoleRequest(const QueryRbacRoleRequest &) = default ;
+    QueryRbacRoleRequest(QueryRbacRoleRequest &&) = default ;
+    QueryRbacRoleRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryRbacRoleRequest() = default ;
+    QueryRbacRoleRequest& operator=(const QueryRbacRoleRequest &) = default ;
+    QueryRbacRoleRequest& operator=(QueryRbacRoleRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,18 @@ namespace Models
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
-    inline DeleteRbacRoleRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+    inline QueryRbacRoleRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
     inline string getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, "") };
-    inline DeleteRbacRoleRequest& setRoleId(string roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
+    inline QueryRbacRoleRequest& setRoleId(string roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
   protected:
-    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // The role ID.
     shared_ptr<string> roleId_ {};
   };
 
