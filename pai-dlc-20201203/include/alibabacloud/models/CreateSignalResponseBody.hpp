@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The job ID.
     shared_ptr<string> jobId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The signal code.
     shared_ptr<string> signal_ {};
+    // The signal ID.
     shared_ptr<string> signalId_ {};
+    // The signal status.
     shared_ptr<string> status_ {};
   };
 

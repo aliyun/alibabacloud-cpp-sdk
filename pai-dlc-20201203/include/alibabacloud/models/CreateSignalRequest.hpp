@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The signal code.
     shared_ptr<string> signal_ {};
+    // The signal delivery scope.
     shared_ptr<SignalTarget> target_ {};
   };
 

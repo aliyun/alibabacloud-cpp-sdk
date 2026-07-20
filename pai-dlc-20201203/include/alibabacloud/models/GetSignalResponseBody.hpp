@@ -145,17 +145,29 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> gmtCreated_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The job ID.
     shared_ptr<string> jobId_ {};
+    // The status description, which contains a summary for each pod (number of successful deliveries, names of failed or pending pods, etc.).
     shared_ptr<string> message_ {};
+    // The list of pod names.
     shared_ptr<vector<string>> podNames_ {};
+    // The status reason code, such as `Completed`, `SignalFailed`, or `StoppedByJobEnded`.
     shared_ptr<string> reason_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of role objects.
     shared_ptr<vector<string>> roles_ {};
+    // The delivery scope.
     shared_ptr<string> scope_ {};
+    // The signal.
     shared_ptr<string> signal_ {};
+    // The signal ID.
     shared_ptr<string> signalId_ {};
+    // The signal status.
     shared_ptr<string> status_ {};
   };
 

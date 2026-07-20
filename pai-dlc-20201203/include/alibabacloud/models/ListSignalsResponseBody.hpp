@@ -155,15 +155,25 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The message returned with the result.
       shared_ptr<string> message_ {};
+      // The list of pod names.
       shared_ptr<vector<string>> podNames_ {};
+      // The reason.
       shared_ptr<string> reason_ {};
+      // The list of role types.
       shared_ptr<vector<string>> roles_ {};
+      // The delivery scope.
       shared_ptr<string> scope_ {};
+      // The signal code.
       shared_ptr<string> signal_ {};
+      // The signal ID.
       shared_ptr<string> signalId_ {};
+      // The signal status.
       shared_ptr<string> status_ {};
     };
 
@@ -214,11 +224,17 @@ namespace Models
 
 
   protected:
+    // The job ID.
     shared_ptr<string> jobId_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of signal records for the job. Each element has the same structure as the response of GetSignal.
     shared_ptr<vector<ListSignalsResponseBody::Signals>> signals_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

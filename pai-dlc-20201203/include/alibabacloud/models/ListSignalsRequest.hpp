@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The field used for sorting.
     shared_ptr<string> sortBy_ {};
+    // The signal status.
     shared_ptr<string> status_ {};
+    // The temporary token used for authentication.
     shared_ptr<string> token_ {};
   };
 

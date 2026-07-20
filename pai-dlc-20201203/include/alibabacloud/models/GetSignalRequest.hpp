@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The temporary token used for authentication.
     shared_ptr<string> token_ {};
   };
 
