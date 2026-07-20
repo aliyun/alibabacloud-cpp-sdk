@@ -74,8 +74,8 @@ namespace Agency20250227
       /**
        * @summary Downloads the commission details of an international partner.
        *
-       * @description Make sure that the current caller identity is a T1 distribution partner. 
-       * <notice>Available only for international sites.</notice>.
+       * @description Ensure that the current caller identity is a T1 distribution partner. 
+       * <notice>Available only for international site.</notice>.
        *
        * @param request GetIntlCommissionDetailFileListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -86,8 +86,8 @@ namespace Agency20250227
       /**
        * @summary Downloads the commission details of an international partner.
        *
-       * @description Make sure that the current caller identity is a T1 distribution partner. 
-       * <notice>Available only for international sites.</notice>.
+       * @description Ensure that the current caller identity is a T1 distribution partner. 
+       * <notice>Available only for international site.</notice>.
        *
        * @param request GetIntlCommissionDetailFileListRequest
        * @return GetIntlCommissionDetailFileListResponse

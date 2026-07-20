@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The billing month.
+    // The bill month.
     // 
     // This parameter is required.
     shared_ptr<string> billMonth_ {};
@@ -106,11 +106,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ossAccessKeySecret_ {};
-    // The name of the OSS bucket.
+    // The OSS bucket.
     // 
     // This parameter is required.
     shared_ptr<string> ossBucketName_ {};
-    // The endpoint of the region where the Object Storage Service (OSS) bucket for the file sharing resides.
+    // The endpoint of the region where the Object Storage Service (OSS) bucket for file sharing resides.
     // 
     // This parameter is required.
     shared_ptr<string> ossEndpoint_ {};

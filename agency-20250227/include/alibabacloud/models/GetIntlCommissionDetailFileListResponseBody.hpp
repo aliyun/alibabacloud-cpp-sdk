@@ -108,11 +108,7 @@ namespace Models
 
 
       protected:
-        // The push status of the OSS file. Valid values:
-        // - 初始化状态: initialization status
-        // - 处理中: processing
-        // - 处理成功: processing succeeded
-        // - 处理失败: processing failed.
+        // The OSS file push status. Valid values: init, processing, succeeded, or failed.
         shared_ptr<string> bucketSyncStatus_ {};
         // The commission policy name.
         shared_ptr<string> commissionPolicyName_ {};
@@ -146,7 +142,7 @@ namespace Models
 
 
     protected:
-      // The billing month.
+      // The bill month.
       shared_ptr<string> billMonth_ {};
       // The file list object.
       shared_ptr<vector<Data::FileList>> fileList_ {};
@@ -202,7 +198,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 
