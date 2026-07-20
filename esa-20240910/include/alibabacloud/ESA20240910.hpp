@@ -672,8 +672,8 @@ namespace ESA20240910
       Models::CreateCustomScenePolicyResponse createCustomScenePolicy(const Models::CreateCustomScenePolicyRequest &request);
 
       /**
-       * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
-       * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+       * @summary Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+       * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
        *
        * @param request CreateEdgeContainerAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -682,8 +682,8 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerAppWithOptions(const Models::CreateEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
-       * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+       * @summary Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+       * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
        *
        * @param request CreateEdgeContainerAppRequest
        * @return CreateEdgeContainerAppResponse
@@ -708,7 +708,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecret(const Models::CreateEdgeContainerAppImageSecretRequest &request);
 
       /**
-       * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+       * @summary Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
        *
        * @param request CreateEdgeContainerAppRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -717,7 +717,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecordWithOptions(const Models::CreateEdgeContainerAppRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+       * @summary Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
        *
        * @param request CreateEdgeContainerAppRecordRequest
        * @return CreateEdgeContainerAppRecordResponse
@@ -3695,6 +3695,8 @@ namespace ESA20240910
       /**
        * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
        *
+       * @description You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
+       *
        * @param request GetEdgeContainerAppStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetEdgeContainerAppStatusResponse
@@ -3703,6 +3705,8 @@ namespace ESA20240910
 
       /**
        * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
+       *
+       * @description You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
        *
        * @param request GetEdgeContainerAppStatusRequest
        * @return GetEdgeContainerAppStatusResponse
@@ -6613,7 +6617,9 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCaches(const Models::PreloadCachesRequest &request);
 
       /**
-       * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+       * @summary Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+       *
+       * @description Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
        *
        * @param tmpReq PublishEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6622,7 +6628,9 @@ namespace ESA20240910
       Models::PublishEdgeContainerAppVersionResponse publishEdgeContainerAppVersionWithOptions(const Models::PublishEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+       * @summary Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+       *
+       * @description Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
        *
        * @param request PublishEdgeContainerAppVersionRequest
        * @return PublishEdgeContainerAppVersionResponse
@@ -7917,6 +7925,23 @@ namespace ESA20240910
        * @return UpdateRewriteUrlRuleResponse
        */
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRule(const Models::UpdateRewriteUrlRuleRequest &request);
+
+      /**
+       * @summary Modifies the build configuration of an EdgeRoutine (ER).
+       *
+       * @param tmpReq UpdateRoutineBuildConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRoutineBuildConfigurationResponse
+       */
+      Models::UpdateRoutineBuildConfigurationResponse updateRoutineBuildConfigurationWithOptions(const Models::UpdateRoutineBuildConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the build configuration of an EdgeRoutine (ER).
+       *
+       * @param request UpdateRoutineBuildConfigurationRequest
+       * @return UpdateRoutineBuildConfigurationResponse
+       */
+      Models::UpdateRoutineBuildConfigurationResponse updateRoutineBuildConfiguration(const Models::UpdateRoutineBuildConfigurationRequest &request);
 
       /**
        * @summary Modifies the description of a routine.

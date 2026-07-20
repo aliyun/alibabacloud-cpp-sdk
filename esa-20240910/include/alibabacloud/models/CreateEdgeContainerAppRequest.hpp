@@ -162,9 +162,9 @@ namespace Models
     // - Valid values: **1 to 10**. 
     // - Default value: **5**.
     shared_ptr<int32_t> healthCheckFailTimes_ {};
-    // The domain name used for health checks. If not specified, the value is empty by default.
+    // The domain name used for health checks. If this parameter is not specified, the value is empty by default.
     shared_ptr<string> healthCheckHost_ {};
-    // The HTTP status code that indicates a Normal health check result. Valid values:
+    // The HTTP status code that indicates the health check is Normal. Valid values:
     // 
     // - **http_2xx** (default).
     // - **http_3xx**.
@@ -176,8 +176,8 @@ namespace Models
     shared_ptr<int32_t> healthCheckInterval_ {};
     // The health check method for HTTP-type listeners. Valid values:
     // 
-    // - **HEAD** (default): requests only the header of the page.
-    // - **GET**: requests the specified page information and returns the entity body.
+    // - **HEAD** (default): Requests only the headers of the page.
+    // - **GET**: Requests the specified page information and returns the entity body.
     shared_ptr<string> healthCheckMethod_ {};
     // The port used for health checks.
     // - Valid values: **1 to 65535**.
@@ -193,7 +193,7 @@ namespace Models
     // - Default value: **3**.
     // - Unit: **seconds**.
     shared_ptr<int32_t> healthCheckTimeout_ {};
-    // The health check type, which includes Layer 4 and Layer 7 probing. If not specified, the value is empty by default.
+    // The health check type, which includes Layer 4 and Layer 7 probing. If this parameter is not specified, the value is empty by default.
     // 
     // Valid values:
     // 
@@ -201,17 +201,17 @@ namespace Models
     // - **l7**: Layer 7 probing.
     shared_ptr<string> healthCheckType_ {};
     // The URI used for health checks.
-    // - Length limit: **1** to **80** characters.
+    // - The length is limited to **1** to **80** characters.
     // - Default value: **"/"**.
     shared_ptr<string> healthCheckURI_ {};
     // The application name. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name must be 6 to 128 characters in length.
-    // >Notice: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.</notice>
+    // >Notice: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.</notice>
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The remarks. If not specified, the value is empty by default.
+    // The remarks. If this parameter is not specified, the value is empty by default.
     shared_ptr<string> remarks_ {};
-    // The service port number. Valid values: 1 to 65535.
+    // The server port number. Only 80 and 443 are accepted.
     // 
     // This parameter is required.
     shared_ptr<int32_t> servicePort_ {};

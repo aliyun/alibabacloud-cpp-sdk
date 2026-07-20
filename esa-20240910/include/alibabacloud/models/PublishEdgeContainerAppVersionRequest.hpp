@@ -117,7 +117,7 @@ namespace Models
   protected:
     // The application ID.
     // 
-    // > 1) AppId is obtained by calling CreateEdgeContainerApp. 2) VersionId is obtained by calling CreateEdgeContainerAppVersion (AppId is required). 3) The complete call chain is CreateEdgeContainerApp → CreateEdgeContainerAppVersion → PublishEdgeContainerAppVersion.
+    // > 1) Obtain the AppId by calling CreateEdgeContainerApp. 2) Obtain the VersionId by calling CreateEdgeContainerAppVersion (which requires the AppId). 3) The complete call chain is CreateEdgeContainerApp → CreateEdgeContainerAppVersion → PublishEdgeContainerAppVersion.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
@@ -133,9 +133,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> publishEnv_ {};
     // The publishing type. Valid values:
-    // - **percentage**: publishes by percentage.
+    // - **percentage**: Publish by percentage.
     // 
-    // - **region**: publishes by region.
+    // - **region**: Publish by region.
     // 
     // If this parameter is not specified, percentage-based publishing is used by default.
     shared_ptr<string> publishType_ {};

@@ -2042,8 +2042,8 @@ CreateCustomScenePolicyResponse Client::createCustomScenePolicy(const CreateCust
 }
 
 /**
- * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
- * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+ * @summary Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+ * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
  *
  * @param request CreateEdgeContainerAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2126,8 +2126,8 @@ CreateEdgeContainerAppResponse Client::createEdgeContainerAppWithOptions(const C
 }
 
 /**
- * @summary Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
- * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+ * @summary Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+ * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
  *
  * @param request CreateEdgeContainerAppRequest
  * @return CreateEdgeContainerAppResponse
@@ -2192,7 +2192,7 @@ CreateEdgeContainerAppImageSecretResponse Client::createEdgeContainerAppImageSec
 }
 
 /**
- * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+ * @summary Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
  *
  * @param request CreateEdgeContainerAppRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2231,7 @@ CreateEdgeContainerAppRecordResponse Client::createEdgeContainerAppRecordWithOpt
 }
 
 /**
- * @summary Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+ * @summary Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
  *
  * @param request CreateEdgeContainerAppRecordRequest
  * @return CreateEdgeContainerAppRecordResponse
@@ -10946,6 +10946,8 @@ GetEdgeContainerAppResourceStatusResponse Client::getEdgeContainerAppResourceSta
 /**
  * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
  *
+ * @description You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
+ *
  * @param request GetEdgeContainerAppStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetEdgeContainerAppStatusResponse
@@ -10980,6 +10982,8 @@ GetEdgeContainerAppStatusResponse Client::getEdgeContainerAppStatusWithOptions(c
 
 /**
  * @summary Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
+ *
+ * @description You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
  *
  * @param request GetEdgeContainerAppStatusRequest
  * @return GetEdgeContainerAppStatusResponse
@@ -18135,7 +18139,9 @@ PreloadCachesResponse Client::preloadCaches(const PreloadCachesRequest &request)
 }
 
 /**
- * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+ * @summary Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+ *
+ * @description Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
  *
  * @param tmpReq PublishEdgeContainerAppVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18206,7 +18212,9 @@ PublishEdgeContainerAppVersionResponse Client::publishEdgeContainerAppVersionWit
 }
 
 /**
- * @summary Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+ * @summary Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+ *
+ * @description Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
  *
  * @param request PublishEdgeContainerAppVersionRequest
  * @return PublishEdgeContainerAppVersionResponse
@@ -22720,6 +22728,102 @@ UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRuleWithOptions(const Updat
 UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRule(const UpdateRewriteUrlRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRewriteUrlRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the build configuration of an EdgeRoutine (ER).
+ *
+ * @param tmpReq UpdateRoutineBuildConfigurationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRoutineBuildConfigurationResponse
+ */
+UpdateRoutineBuildConfigurationResponse Client::updateRoutineBuildConfigurationWithOptions(const UpdateRoutineBuildConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateRoutineBuildConfigurationShrinkRequest request = UpdateRoutineBuildConfigurationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEnvironmentVariables()) {
+    request.setEnvironmentVariablesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvironmentVariables(), "EnvironmentVariables", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAssetsDirectory()) {
+    query["AssetsDirectory"] = request.getAssetsDirectory();
+  }
+
+  if (!!request.hasBuildBranches()) {
+    query["BuildBranches"] = request.getBuildBranches();
+  }
+
+  if (!!request.hasBuildCommand()) {
+    query["BuildCommand"] = request.getBuildCommand();
+  }
+
+  if (!!request.hasEnvironmentVariablesShrink()) {
+    query["EnvironmentVariables"] = request.getEnvironmentVariablesShrink();
+  }
+
+  if (!!request.hasGitAccountId()) {
+    query["GitAccountId"] = request.getGitAccountId();
+  }
+
+  if (!!request.hasInstallCommand()) {
+    query["InstallCommand"] = request.getInstallCommand();
+  }
+
+  if (!!request.hasIsPrivate()) {
+    query["IsPrivate"] = request.getIsPrivate();
+  }
+
+  if (!!request.hasNodeVersion()) {
+    query["NodeVersion"] = request.getNodeVersion();
+  }
+
+  if (!!request.hasProductionBranch()) {
+    query["ProductionBranch"] = request.getProductionBranch();
+  }
+
+  if (!!request.hasRepository()) {
+    query["Repository"] = request.getRepository();
+  }
+
+  if (!!request.hasRootDirectory()) {
+    query["RootDirectory"] = request.getRootDirectory();
+  }
+
+  if (!!request.hasRoutineEntry()) {
+    query["RoutineEntry"] = request.getRoutineEntry();
+  }
+
+  if (!!request.hasRoutineName()) {
+    query["RoutineName"] = request.getRoutineName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateRoutineBuildConfiguration"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRoutineBuildConfigurationResponse>();
+}
+
+/**
+ * @summary Modifies the build configuration of an EdgeRoutine (ER).
+ *
+ * @param request UpdateRoutineBuildConfigurationRequest
+ * @return UpdateRoutineBuildConfigurationResponse
+ */
+UpdateRoutineBuildConfigurationResponse Client::updateRoutineBuildConfiguration(const UpdateRoutineBuildConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateRoutineBuildConfigurationWithOptions(request, runtime);
 }
 
 /**

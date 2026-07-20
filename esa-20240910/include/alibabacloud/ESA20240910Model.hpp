@@ -1344,6 +1344,10 @@
 #include <alibabacloud/models/UpdateRewriteUrlRuleRequest.hpp>
 #include <alibabacloud/models/UpdateRewriteUrlRuleResponseBody.hpp>
 #include <alibabacloud/models/UpdateRewriteUrlRuleResponse.hpp>
+#include <alibabacloud/models/UpdateRoutineBuildConfigurationRequest.hpp>
+#include <alibabacloud/models/UpdateRoutineBuildConfigurationShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateRoutineBuildConfigurationResponseBody.hpp>
+#include <alibabacloud/models/UpdateRoutineBuildConfigurationResponse.hpp>
 #include <alibabacloud/models/UpdateRoutineConfigDescriptionRequest.hpp>
 #include <alibabacloud/models/UpdateRoutineConfigDescriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateRoutineConfigDescriptionResponse.hpp>
