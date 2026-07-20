@@ -140,6 +140,23 @@ namespace RiskManagement20260424
       Models::DescribeSuspEventsResponse describeSuspEvents(const Models::DescribeSuspEventsRequest &request);
 
       /**
+       * @summary sas-查看已购买的云安全中心实例的版本详情
+       *
+       * @param tmpReq DescribeVersionConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVersionConfigResponse
+       */
+      Models::DescribeVersionConfigResponse describeVersionConfigWithOptions(const Models::DescribeVersionConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary sas-查看已购买的云安全中心实例的版本详情
+       *
+       * @param request DescribeVersionConfigRequest
+       * @return DescribeVersionConfigResponse
+       */
+      Models::DescribeVersionConfigResponse describeVersionConfig(const Models::DescribeVersionConfigRequest &request);
+
+      /**
        * @summary 获取告警记录分析结果
        *
        * @param tmpReq GetAlertRecordAnalysisResultRequest
@@ -191,6 +208,23 @@ namespace RiskManagement20260424
       Models::GetCanTrySasResponse getCanTrySas(const Models::GetCanTrySasRequest &request);
 
       /**
+       * @summary 获取安全合规包id
+       *
+       * @param request GetCompliancePackIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCompliancePackIdResponse
+       */
+      Models::GetCompliancePackIdResponse getCompliancePackIdWithOptions(const Models::GetCompliancePackIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全合规包id
+       *
+       * @param request GetCompliancePackIdRequest
+       * @return GetCompliancePackIdResponse
+       */
+      Models::GetCompliancePackIdResponse getCompliancePackId(const Models::GetCompliancePackIdRequest &request);
+
+      /**
        * @summary 获取一键处置赋权状态
        *
        * @param request GetDisposalToolStatusRequest
@@ -206,6 +240,159 @@ namespace RiskManagement20260424
        * @return GetDisposalToolStatusResponse
        */
       Models::GetDisposalToolStatusResponse getDisposalToolStatus(const Models::GetDisposalToolStatusRequest &request);
+
+      /**
+       * @summary 获取用户确认安全联系人记录
+       *
+       * @param request GetNotificationClickRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNotificationClickRecordResponse
+       */
+      Models::GetNotificationClickRecordResponse getNotificationClickRecordWithOptions(const Models::GetNotificationClickRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户确认安全联系人记录
+       *
+       * @param request GetNotificationClickRecordRequest
+       * @return GetNotificationClickRecordResponse
+       */
+      Models::GetNotificationClickRecordResponse getNotificationClickRecord(const Models::GetNotificationClickRecordRequest &request);
+
+      /**
+       * @summary 获取安全联系人全部信息
+       *
+       * @param request GetNotificationContactsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNotificationContactsResponse
+       */
+      Models::GetNotificationContactsResponse getNotificationContactsWithOptions(const Models::GetNotificationContactsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全联系人全部信息
+       *
+       * @param request GetNotificationContactsRequest
+       * @return GetNotificationContactsResponse
+       */
+      Models::GetNotificationContactsResponse getNotificationContacts(const Models::GetNotificationContactsRequest &request);
+
+      /**
+       * @summary 获取安全联系人待处理数
+       *
+       * @param request GetNotificationPendNumberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNotificationPendNumberResponse
+       */
+      Models::GetNotificationPendNumberResponse getNotificationPendNumberWithOptions(const Models::GetNotificationPendNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全联系人待处理数
+       *
+       * @param request GetNotificationPendNumberRequest
+       * @return GetNotificationPendNumberResponse
+       */
+      Models::GetNotificationPendNumberResponse getNotificationPendNumber(const Models::GetNotificationPendNumberRequest &request);
+
+      /**
+       * @summary 查询云资源管控事件详情
+       *
+       * @param tmpReq GetResourceControlEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetResourceControlEventResponse
+       */
+      Models::GetResourceControlEventResponse getResourceControlEventWithOptions(const Models::GetResourceControlEventRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云资源管控事件详情
+       *
+       * @param request GetResourceControlEventRequest
+       * @return GetResourceControlEventResponse
+       */
+      Models::GetResourceControlEventResponse getResourceControlEvent(const Models::GetResourceControlEventRequest &request);
+
+      /**
+       * @summary 获取安全体检基础信息
+       *
+       * @param request GetSecurityCheckBaseInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityCheckBaseInfoResponse
+       */
+      Models::GetSecurityCheckBaseInfoResponse getSecurityCheckBaseInfoWithOptions(const Models::GetSecurityCheckBaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全体检基础信息
+       *
+       * @param request GetSecurityCheckBaseInfoRequest
+       * @return GetSecurityCheckBaseInfoResponse
+       */
+      Models::GetSecurityCheckBaseInfoResponse getSecurityCheckBaseInfo(const Models::GetSecurityCheckBaseInfoRequest &request);
+
+      /**
+       * @summary 获取安全检查结果基础信息
+       *
+       * @param request GetSecurityCheckResultBaseInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityCheckResultBaseInfoResponse
+       */
+      Models::GetSecurityCheckResultBaseInfoResponse getSecurityCheckResultBaseInfoWithOptions(const Models::GetSecurityCheckResultBaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全检查结果基础信息
+       *
+       * @param request GetSecurityCheckResultBaseInfoRequest
+       * @return GetSecurityCheckResultBaseInfoResponse
+       */
+      Models::GetSecurityCheckResultBaseInfoResponse getSecurityCheckResultBaseInfo(const Models::GetSecurityCheckResultBaseInfoRequest &request);
+
+      /**
+       * @summary 获取安全优化建议列表
+       *
+       * @param tmpReq GetSecuritySuggestionListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecuritySuggestionListResponse
+       */
+      Models::GetSecuritySuggestionListResponse getSecuritySuggestionListWithOptions(const Models::GetSecuritySuggestionListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全优化建议列表
+       *
+       * @param request GetSecuritySuggestionListRequest
+       * @return GetSecuritySuggestionListResponse
+       */
+      Models::GetSecuritySuggestionListResponse getSecuritySuggestionList(const Models::GetSecuritySuggestionListRequest &request);
+
+      /**
+       * @summary 获取安全优化建议条数
+       *
+       * @param request GetSecuritySuggestionNumberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecuritySuggestionNumberResponse
+       */
+      Models::GetSecuritySuggestionNumberResponse getSecuritySuggestionNumberWithOptions(const Models::GetSecuritySuggestionNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安全优化建议条数
+       *
+       * @param request GetSecuritySuggestionNumberRequest
+       * @return GetSecuritySuggestionNumberResponse
+       */
+      Models::GetSecuritySuggestionNumberResponse getSecuritySuggestionNumber(const Models::GetSecuritySuggestionNumberRequest &request);
+
+      /**
+       * @summary 获取服务关联角色状态
+       *
+       * @param request GetServiceLinkedRoleStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceLinkedRoleStatusResponse
+       */
+      Models::GetServiceLinkedRoleStatusResponse getServiceLinkedRoleStatusWithOptions(const Models::GetServiceLinkedRoleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取服务关联角色状态
+       *
+       * @param request GetServiceLinkedRoleStatusRequest
+       * @return GetServiceLinkedRoleStatusResponse
+       */
+      Models::GetServiceLinkedRoleStatusResponse getServiceLinkedRoleStatus(const Models::GetServiceLinkedRoleStatusRequest &request);
 
       /**
        * @summary sas-获取有效抵扣实例
@@ -276,6 +463,57 @@ namespace RiskManagement20260424
       Models::OpenTrialPackageResponse openTrialPackage(const Models::OpenTrialPackageRequest &request);
 
       /**
+       * @summary 查询账号安全事件
+       *
+       * @param request QueryAccountSafetyIncidentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAccountSafetyIncidentResponse
+       */
+      Models::QueryAccountSafetyIncidentResponse queryAccountSafetyIncidentWithOptions(const Models::QueryAccountSafetyIncidentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询账号安全事件
+       *
+       * @param request QueryAccountSafetyIncidentRequest
+       * @return QueryAccountSafetyIncidentResponse
+       */
+      Models::QueryAccountSafetyIncidentResponse queryAccountSafetyIncident(const Models::QueryAccountSafetyIncidentRequest &request);
+
+      /**
+       * @summary 查询云上安全指南的订阅状态
+       *
+       * @param request QueryGuideSubStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryGuideSubStatusResponse
+       */
+      Models::QueryGuideSubStatusResponse queryGuideSubStatusWithOptions(const Models::QueryGuideSubStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云上安全指南的订阅状态
+       *
+       * @param request QueryGuideSubStatusRequest
+       * @return QueryGuideSubStatusResponse
+       */
+      Models::QueryGuideSubStatusResponse queryGuideSubStatus(const Models::QueryGuideSubStatusRequest &request);
+
+      /**
+       * @summary 查询云资源管控事件
+       *
+       * @param tmpReq QueryResourceControlEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryResourceControlEventsResponse
+       */
+      Models::QueryResourceControlEventsResponse queryResourceControlEventsWithOptions(const Models::QueryResourceControlEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云资源管控事件
+       *
+       * @param request QueryResourceControlEventsRequest
+       * @return QueryResourceControlEventsResponse
+       */
+      Models::QueryResourceControlEventsResponse queryResourceControlEvents(const Models::QueryResourceControlEventsRequest &request);
+
+      /**
        * @summary 查询安全体检简报
        *
        * @param request QuerySecurityCheckReportRequest
@@ -310,6 +548,40 @@ namespace RiskManagement20260424
       Models::StartDisposalToolServiceResponse startDisposalToolService(const Models::StartDisposalToolServiceRequest &request);
 
       /**
+       * @summary 开启安全体检
+       *
+       * @param request StartSecurityCheckServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartSecurityCheckServiceResponse
+       */
+      Models::StartSecurityCheckServiceResponse startSecurityCheckServiceWithOptions(const Models::StartSecurityCheckServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启安全体检
+       *
+       * @param request StartSecurityCheckServiceRequest
+       * @return StartSecurityCheckServiceResponse
+       */
+      Models::StartSecurityCheckServiceResponse startSecurityCheckService(const Models::StartSecurityCheckServiceRequest &request);
+
+      /**
+       * @summary 申请解封
+       *
+       * @param tmpReq SubmitApplyRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitApplyRecordResponse
+       */
+      Models::SubmitApplyRecordResponse submitApplyRecordWithOptions(const Models::SubmitApplyRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 申请解封
+       *
+       * @param request SubmitApplyRecordRequest
+       * @return SubmitApplyRecordResponse
+       */
+      Models::SubmitApplyRecordResponse submitApplyRecord(const Models::SubmitApplyRecordRequest &request);
+
+      /**
        * @summary sas-更新后付费绑定关系
        *
        * @param tmpReq UpdatePostPaidBindRelRequest
@@ -325,6 +597,23 @@ namespace RiskManagement20260424
        * @return UpdatePostPaidBindRelResponse
        */
       Models::UpdatePostPaidBindRelResponse updatePostPaidBindRel(const Models::UpdatePostPaidBindRelRequest &request);
+
+      /**
+       * @summary 更新体检结果
+       *
+       * @param request UpdateSecurityCheckResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityCheckResultResponse
+       */
+      Models::UpdateSecurityCheckResultResponse updateSecurityCheckResultWithOptions(const Models::UpdateSecurityCheckResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新体检结果
+       *
+       * @param request UpdateSecurityCheckResultRequest
+       * @return UpdateSecurityCheckResultResponse
+       */
+      Models::UpdateSecurityCheckResultResponse updateSecurityCheckResult(const Models::UpdateSecurityCheckResultRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace RiskManagement20260424
