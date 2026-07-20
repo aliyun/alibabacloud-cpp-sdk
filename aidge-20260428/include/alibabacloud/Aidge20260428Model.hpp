@@ -68,6 +68,10 @@
 #include <alibabacloud/models/TextTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/TextTranslateResponseBody.hpp>
 #include <alibabacloud/models/TextTranslateResponse.hpp>
+#include <alibabacloud/models/VideoTranslationRequest.hpp>
+#include <alibabacloud/models/VideoTranslationShrinkRequest.hpp>
+#include <alibabacloud/models/VideoTranslationResponseBody.hpp>
+#include <alibabacloud/models/VideoTranslationResponse.hpp>
 #include <alibabacloud/models/VisionFlowRequest.hpp>
 #include <alibabacloud/models/VisionFlowShrinkRequest.hpp>
 #include <alibabacloud/models/VisionFlowResponseBody.hpp>
