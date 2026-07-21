@@ -13,6 +13,7 @@ namespace Models
   class QueryPayOrderToMsenceResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryPayOrderToMsenceResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(MpaasUserGamecenterPaymentQuerystatusResponse, mpaasUserGamecenterPaymentQuerystatusResponse_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResultCode, resultCode_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, QueryPayOrderToMsenceResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(MpaasUserGamecenterPaymentQuerystatusResponse, mpaasUserGamecenterPaymentQuerystatusResponse_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResultCode, resultCode_);
@@ -79,8 +81,15 @@ namespace Models
       shared_ptr<string> orderStatus_ {};
     };
 
-    virtual bool empty() const override { return this->mpaasUserGamecenterPaymentQuerystatusResponse_ == nullptr
-        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->mpaasUserGamecenterPaymentQuerystatusResponse_ == nullptr && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline QueryPayOrderToMsenceResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
     // mpaasUserGamecenterPaymentQuerystatusResponse Field Functions 
     bool hasMpaasUserGamecenterPaymentQuerystatusResponse() const { return this->mpaasUserGamecenterPaymentQuerystatusResponse_ != nullptr;};
     void deleteMpaasUserGamecenterPaymentQuerystatusResponse() { this->mpaasUserGamecenterPaymentQuerystatusResponse_ = nullptr;};
@@ -119,6 +128,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
     shared_ptr<QueryPayOrderToMsenceResponseBody::MpaasUserGamecenterPaymentQuerystatusResponse> mpaasUserGamecenterPaymentQuerystatusResponse_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};

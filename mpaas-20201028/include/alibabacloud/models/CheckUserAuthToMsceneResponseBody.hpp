@@ -13,6 +13,7 @@ namespace Models
   class CheckUserAuthToMsceneResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CheckUserAuthToMsceneResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(MpaasUserAuthCheckResponse, mpaasUserAuthCheckResponse_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResultCode, resultCode_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, CheckUserAuthToMsceneResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(MpaasUserAuthCheckResponse, mpaasUserAuthCheckResponse_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResultCode, resultCode_);
@@ -68,8 +70,15 @@ namespace Models
       shared_ptr<bool> matched_ {};
     };
 
-    virtual bool empty() const override { return this->mpaasUserAuthCheckResponse_ == nullptr
-        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->mpaasUserAuthCheckResponse_ == nullptr && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMsg_ == nullptr && this->success_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline CheckUserAuthToMsceneResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
     // mpaasUserAuthCheckResponse Field Functions 
     bool hasMpaasUserAuthCheckResponse() const { return this->mpaasUserAuthCheckResponse_ != nullptr;};
     void deleteMpaasUserAuthCheckResponse() { this->mpaasUserAuthCheckResponse_ = nullptr;};
@@ -108,6 +117,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
     shared_ptr<CheckUserAuthToMsceneResponseBody::MpaasUserAuthCheckResponse> mpaasUserAuthCheckResponse_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};
