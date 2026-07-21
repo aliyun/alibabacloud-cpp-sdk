@@ -113,15 +113,24 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
+    // The department ID to filter the results.
     shared_ptr<int64_t> clientId_ {};
+    // The query\\"s end time, specified as a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The time granularity for data aggregation. Valid values: `hourly` and `daily`. Default value: `hourly`.
     shared_ptr<string> granularity_ {};
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The model types to query. Separate multiple types with a comma.
     shared_ptr<string> modelTypes_ {};
-    // nextToken
+    // A token from a previous response used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // A keyword for a fuzzy search on the model name or model code.
     shared_ptr<string> search_ {};
+    // The query\\"s start time, specified as a UNIX timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

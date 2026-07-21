@@ -99,12 +99,20 @@ namespace Models
 
 
     protected:
+      // The content of the message.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // Indicates whether the message is off-topic. This parameter is used for flow control.
       shared_ptr<bool> isOffTopicControl_ {};
+      // Indicates whether the message is on-topic.
       shared_ptr<bool> isOnTopic_ {};
+      // The sequence number of the message.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The message author\\"s role.
+      // 
       // This parameter is required.
       shared_ptr<string> role_ {};
     };
@@ -165,11 +173,18 @@ namespace Models
 
 
     protected:
+      // The content of the assistant\\"s message.
+      // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
+      // The translated content of the assistant\\"s message.
       shared_ptr<string> assistantTranslate_ {};
+      // The sequence number of the task.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The content of the user\\"s message.
+      // 
       // This parameter is required.
       shared_ptr<string> user_ {};
     };
@@ -202,9 +217,14 @@ namespace Models
 
 
   protected:
+    // An array of dialogue task objects.
+    // 
     // This parameter is required.
     shared_ptr<vector<ExecuteAITeacherSyncDialogueTranslateRequest::DialogueTasks>> dialogueTasks_ {};
+    // An array of dialogue record objects.
     shared_ptr<vector<ExecuteAITeacherSyncDialogueTranslateRequest::Records>> records_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

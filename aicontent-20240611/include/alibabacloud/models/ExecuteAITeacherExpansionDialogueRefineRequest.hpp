@@ -82,8 +82,12 @@ namespace Models
 
 
     protected:
+      // The name or persona of the AI assistant.
+      // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
+      // The name or persona of the user.
+      // 
       // This parameter is required.
       shared_ptr<string> user_ {};
     };
@@ -153,12 +157,20 @@ namespace Models
 
 
     protected:
+      // The content of the dialogue turn.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // Manages the off-topic conversation flow. This flag is forcibly set to `true` to switch the dialogue task if the conversation has gone off-topic more than twice.
       shared_ptr<bool> isOffTopicControl_ {};
+      // Indicates whether the user\\"s response is on-topic.
       shared_ptr<bool> isOnTopic_ {};
+      // The sequence number of the dialogue turn.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The role of the speaker in the dialogue turn.
+      // 
       // This parameter is required.
       shared_ptr<string> role_ {};
     };
@@ -219,11 +231,18 @@ namespace Models
 
 
     protected:
+      // The AI\\"s dialogue content.
+      // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
+      // The translated content of the AI\\"s dialogue.
       shared_ptr<string> assistantTranslate_ {};
+      // The sequence number of the dialogue task.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The user\\"s dialogue content.
+      // 
       // This parameter is required.
       shared_ptr<string> user_ {};
     };
@@ -294,18 +313,32 @@ namespace Models
 
 
   protected:
+    // The background of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> background_ {};
+    // A collection of dialogue tasks.
+    // 
     // This parameter is required.
     shared_ptr<vector<ExecuteAITeacherExpansionDialogueRefineRequest::DialogueTasks>> dialogueTasks_ {};
+    // The language code for the dialogue.
     shared_ptr<string> languageCode_ {};
+    // A list of dialogue records.
+    // 
     // This parameter is required.
     shared_ptr<vector<ExecuteAITeacherExpansionDialogueRefineRequest::Records>> records_ {};
+    // The role settings for the conversation.
+    // 
     // This parameter is required.
     shared_ptr<ExecuteAITeacherExpansionDialogueRefineRequest::RoleInfo> roleInfo_ {};
+    // The opening sentence of the dialogue.
     shared_ptr<string> startSentence_ {};
+    // The main topic of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> topic_ {};
+    // The unique identifier for the user.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

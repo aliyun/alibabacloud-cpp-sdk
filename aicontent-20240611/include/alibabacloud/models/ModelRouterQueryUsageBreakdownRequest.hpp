@@ -112,16 +112,28 @@ namespace Models
 
 
   protected:
+    // Optional. Filters results by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
     shared_ptr<int64_t> apiKeyId_ {};
+    // Optional. Filters results by department ID.
     shared_ptr<int64_t> clientId_ {};
+    // The query end time, in UNIX timestamp (seconds).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The aggregation granularity. Valid values: hourly and daily.
+    // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page. Default value: 20. Maximum value: 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The query start time, in UNIX timestamp (seconds).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

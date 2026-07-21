@@ -108,16 +108,28 @@ namespace Models
 
 
   protected:
+    // The grade.
+    // 
     // This parameter is required.
     shared_ptr<string> grade_ {};
+    // A list of key sentences.
     shared_ptr<vector<string>> keySentences_ {};
+    // A list of keywords.
     shared_ptr<vector<string>> keyWords_ {};
+    // The learning objective.
     shared_ptr<string> learningObject_ {};
+    // The source text for generating questions.
+    // 
     // This parameter is required.
     shared_ptr<string> textContent_ {};
+    // The textbook.
     shared_ptr<string> textbook_ {};
+    // The dialogue topic.
+    // 
     // This parameter is required.
     shared_ptr<string> topic_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

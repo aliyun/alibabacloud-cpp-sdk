@@ -163,14 +163,23 @@ namespace Models
 
 
       protected:
+        // The book ID.
         shared_ptr<string> bookId_ {};
+        // The book volume. `0` indicates a single-volume edition, `1` indicates Volume 1, and `2` indicates Volume 2.
         shared_ptr<string> bookVolume_ {};
+        // The edition.
         shared_ptr<string> edition_ {};
+        // The grade. Valid values: 1–9.
         shared_ptr<string> grade_ {};
+        // The impression.
         shared_ptr<string> impression_ {};
+        // The International Standard Book Number (ISBN).
         shared_ptr<string> isbn_ {};
+        // The publisher.
         shared_ptr<string> publisher_ {};
+        // The subject.
         shared_ptr<string> subject_ {};
+        // The version.
         shared_ptr<string> version_ {};
       };
 
@@ -262,7 +271,9 @@ namespace Models
 
 
           protected:
+            // The label ID.
             shared_ptr<string> labelId_ {};
+            // The label name.
             shared_ptr<string> labelName_ {};
           };
 
@@ -329,7 +340,9 @@ namespace Models
 
 
             protected:
+              // The label ID.
               shared_ptr<string> labelId_ {};
+              // The label name.
               shared_ptr<string> labelName_ {};
             };
 
@@ -368,9 +381,13 @@ namespace Models
 
 
           protected:
+            // Child nodes for backward compatibility. This property is optional.
             Darabonba::Json children_ {};
+            // The directory ID.
             shared_ptr<string> directoryId_ {};
+            // The directory name.
             shared_ptr<string> directoryName_ {};
+            // The topic.
             shared_ptr<vector<Section::Topic>> topic_ {};
           };
 
@@ -409,9 +426,13 @@ namespace Models
 
 
         protected:
+          // The directory ID.
           shared_ptr<string> directoryId_ {};
+          // The directory name.
           shared_ptr<string> directoryName_ {};
+          // The section.
           shared_ptr<vector<Unit::Section>> section_ {};
+          // The topic.
           shared_ptr<vector<Unit::Topic>> topic_ {};
         };
 
@@ -453,7 +474,9 @@ namespace Models
 
 
         protected:
+          // The label ID.
           shared_ptr<string> labelId_ {};
+          // The label name.
           shared_ptr<string> labelName_ {};
         };
 
@@ -492,9 +515,13 @@ namespace Models
 
 
       protected:
+        // The directory ID.
         shared_ptr<string> directoryId_ {};
+        // The directory name.
         shared_ptr<string> directoryName_ {};
+        // The topic.
         shared_ptr<vector<DirectoryTree::Topic>> topic_ {};
+        // The unit.
         shared_ptr<vector<DirectoryTree::Unit>> unit_ {};
       };
 
@@ -519,7 +546,9 @@ namespace Models
 
 
     protected:
+      // The directory tree.
       shared_ptr<vector<Data::DirectoryTree>> directoryTree_ {};
+      // The edition details.
       shared_ptr<Data::EditionInfo> editionInfo_ {};
     };
 
@@ -570,12 +599,17 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<ListTextbookAssistantBookDirectoriesResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Tab UUID
     shared_ptr<string> key_ {};
+    // Tab display name
     shared_ptr<string> label_ {};
+    // List of associated model types
     shared_ptr<vector<string>> modelTypes_ {};
   };
 

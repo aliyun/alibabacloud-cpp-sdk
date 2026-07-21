@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The assistant\\"s suggestion in Chinese.
       shared_ptr<string> chineseResult_ {};
+      // The assistant\\"s suggestion in English.
       shared_ptr<string> englishResult_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The object that contains the result of the request.
     shared_ptr<GetAITeacherSyncDialogueSuggestionResponseBody::Data> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // A unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -19,7 +19,13 @@ namespace AiContent20240611
 {
 
 AlibabaCloud::AiContent20240611::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"public" , "aicontent.aliyuncs.com"},
+    {"cn-shanghai" , "aicontent.aliyuncs.com"},
+    {"cn-hangzhou" , "aicontent.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "aicontent.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aicontent", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -38,7 +44,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 拓展练问答对生成
+ * @summary Generate Q&A pairs to expand data.
  *
  * @param request AITeacherExpansionPracticeTaskGenerateRequest
  * @param headers map
@@ -99,7 +105,7 @@ AITeacherExpansionPracticeTaskGenerateResponse Client::aITeacherExpansionPractic
 }
 
 /**
- * @summary 拓展练问答对生成
+ * @summary Generate Q&A pairs to expand data.
  *
  * @param request AITeacherExpansionPracticeTaskGenerateRequest
  * @return AITeacherExpansionPracticeTaskGenerateResponse
@@ -111,7 +117,7 @@ AITeacherExpansionPracticeTaskGenerateResponse Client::aITeacherExpansionPractic
 }
 
 /**
- * @summary 同步基础练问答对生成
+ * @summary Synchronous basic practice is primarily for dialogue tasks with a ground truth. Although this mode allows some deviation from the ground truth, the AI strictly requires users to follow it.
  *
  * @param request AITeacherSyncPracticeTaskGenerateRequest
  * @param headers map
@@ -172,7 +178,7 @@ AITeacherSyncPracticeTaskGenerateResponse Client::aITeacherSyncPracticeTaskGener
 }
 
 /**
- * @summary 同步基础练问答对生成
+ * @summary Synchronous basic practice is primarily for dialogue tasks with a ground truth. Although this mode allows some deviation from the ground truth, the AI strictly requires users to follow it.
  *
  * @param request AITeacherSyncPracticeTaskGenerateRequest
  * @return AITeacherSyncPracticeTaskGenerateResponse
@@ -184,7 +190,7 @@ AITeacherSyncPracticeTaskGenerateResponse Client::aITeacherSyncPracticeTaskGener
 }
 
 /**
- * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+ * @summary Lists the services available on the Alibaba Cloud Console.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -209,7 +215,7 @@ AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse Client::aliyunConsoleO
 }
 
 /**
- * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+ * @summary Lists the services available on the Alibaba Cloud Console.
  *
  * @return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse
  */
@@ -220,7 +226,7 @@ AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse Client::aliyunConsoleO
 }
 
 /**
- * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+ * @summary Lists the services available in the Alibaba Cloud console.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -245,7 +251,7 @@ AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse Client::aliyunConsoleO
 }
 
 /**
- * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+ * @summary Lists the services available in the Alibaba Cloud console.
  *
  * @return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse
  */
@@ -256,7 +262,7 @@ AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse Client::aliyunConsoleO
 }
 
 /**
- * @summary 阿里云控制台/列出购买过的资源列表
+ * @summary Alibaba Cloud Management Console / List purchased resources
  *
  * @param request AliyunConsoleOpenApiQueryPaidResourceRequest
  * @param headers map
@@ -321,7 +327,7 @@ AliyunConsoleOpenApiQueryPaidResourceResponse Client::aliyunConsoleOpenApiQueryP
 }
 
 /**
- * @summary 阿里云控制台/列出购买过的资源列表
+ * @summary Alibaba Cloud Management Console / List purchased resources
  *
  * @param request AliyunConsoleOpenApiQueryPaidResourceRequest
  * @return AliyunConsoleOpenApiQueryPaidResourceResponse
@@ -333,7 +339,7 @@ AliyunConsoleOpenApiQueryPaidResourceResponse Client::aliyunConsoleOpenApiQueryP
 }
 
 /**
- * @summary 智能批改/口语评测/统计/调用量
+ * @summary Intelligent Correction / Oral Evaluation / Statistics / call volume
  *
  * @param request CountOralEvaluationStatisticsCallsRequest
  * @param headers map
@@ -361,7 +367,7 @@ CountOralEvaluationStatisticsCallsResponse Client::countOralEvaluationStatistics
 }
 
 /**
- * @summary 智能批改/口语评测/统计/调用量
+ * @summary Intelligent Correction / Oral Evaluation / Statistics / call volume
  *
  * @param request CountOralEvaluationStatisticsCallsRequest
  * @return CountOralEvaluationStatisticsCallsResponse
@@ -373,7 +379,7 @@ CountOralEvaluationStatisticsCallsResponse Client::countOralEvaluationStatistics
 }
 
 /**
- * @summary 智能批改/口语评测/统计/并发数
+ * @summary Intelligent grading / oral evaluation / statistics / concurrency
  *
  * @param request CountOralEvaluationStatisticsConcurrentRequest
  * @param headers map
@@ -401,7 +407,7 @@ CountOralEvaluationStatisticsConcurrentResponse Client::countOralEvaluationStati
 }
 
 /**
- * @summary 智能批改/口语评测/统计/并发数
+ * @summary Intelligent grading / oral evaluation / statistics / concurrency
  *
  * @param request CountOralEvaluationStatisticsConcurrentRequest
  * @return CountOralEvaluationStatisticsConcurrentResponse
@@ -413,7 +419,7 @@ CountOralEvaluationStatisticsConcurrentResponse Client::countOralEvaluationStati
 }
 
 /**
- * @summary 智能批改/口语评测/统计/调用错误
+ * @summary Retrieves statistics about API call errors for the oral evaluation service.
  *
  * @param request CountOralEvaluationStatisticsErrorRequest
  * @param headers map
@@ -441,7 +447,7 @@ CountOralEvaluationStatisticsErrorResponse Client::countOralEvaluationStatistics
 }
 
 /**
- * @summary 智能批改/口语评测/统计/调用错误
+ * @summary Retrieves statistics about API call errors for the oral evaluation service.
  *
  * @param request CountOralEvaluationStatisticsErrorRequest
  * @return CountOralEvaluationStatisticsErrorResponse
@@ -453,7 +459,7 @@ CountOralEvaluationStatisticsErrorResponse Client::countOralEvaluationStatistics
 }
 
 /**
- * @summary 阿里云控制台/授权凭证创建
+ * @summary Creates an access warrant.
  *
  * @param request CreateAccessWarrantRequest
  * @param headers map
@@ -506,7 +512,7 @@ CreateAccessWarrantResponse Client::createAccessWarrantWithOptions(const CreateA
 }
 
 /**
- * @summary 阿里云控制台/授权凭证创建
+ * @summary Creates an access warrant.
  *
  * @param request CreateAccessWarrantRequest
  * @return CreateAccessWarrantResponse
@@ -518,7 +524,7 @@ CreateAccessWarrantResponse Client::createAccessWarrant(const CreateAccessWarran
 }
 
 /**
- * @summary 阿里云控制台/创建项目
+ * @summary Alibaba Cloud console > Create Project
  *
  * @param request CreateProjectRequest
  * @param headers map
@@ -555,7 +561,7 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
 }
 
 /**
- * @summary 阿里云控制台/创建项目
+ * @summary Alibaba Cloud console > Create Project
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -567,7 +573,7 @@ CreateProjectResponse Client::createProject(const CreateProjectRequest &request)
 }
 
 /**
- * @summary 中文作文辅导
+ * @summary Executes a workflow for Chinese composition tutoring.
  *
  * @param request ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
  * @param headers map
@@ -642,7 +648,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 中文作文辅导
+ * @summary Executes a workflow for Chinese composition tutoring.
  *
  * @param request ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
  * @param headers map
@@ -703,7 +709,7 @@ ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse Client::executeAIT
 }
 
 /**
- * @summary 中文作文辅导
+ * @summary Executes a workflow for Chinese composition tutoring.
  *
  * @param request ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
  * @return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
@@ -715,7 +721,7 @@ ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse Client::executeAIT
 }
 
 /**
- * @summary 英语作文辅导
+ * @summary English Composition Tutoring
  *
  * @param request ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
  * @param headers map
@@ -790,7 +796,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 英语作文辅导
+ * @summary English Composition Tutoring
  *
  * @param request ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
  * @param headers map
@@ -851,7 +857,7 @@ ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse Client::executeAIT
 }
 
 /**
- * @summary 英语作文辅导
+ * @summary English Composition Tutoring
  *
  * @param request ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
  * @return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
@@ -863,7 +869,7 @@ ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse Client::executeAIT
 }
 
 /**
- * @summary 英文释义
+ * @summary Answers English-related questions.
  *
  * @param request ExecuteAITeacherEnglishParaphraseChatMessageRequest
  * @param headers map
@@ -938,7 +944,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 英文释义
+ * @summary Answers English-related questions.
  *
  * @param request ExecuteAITeacherEnglishParaphraseChatMessageRequest
  * @param headers map
@@ -999,7 +1005,7 @@ ExecuteAITeacherEnglishParaphraseChatMessageResponse Client::executeAITeacherEng
 }
 
 /**
- * @summary 英文释义
+ * @summary Answers English-related questions.
  *
  * @param request ExecuteAITeacherEnglishParaphraseChatMessageRequest
  * @return ExecuteAITeacherEnglishParaphraseChatMessageResponse
@@ -1011,7 +1017,7 @@ ExecuteAITeacherEnglishParaphraseChatMessageResponse Client::executeAITeacherEng
 }
 
 /**
- * @summary 进行拓展练对话
+ * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
  *
  * @param request ExecuteAITeacherExpansionDialogueRequest
  * @param headers map
@@ -1072,7 +1078,7 @@ ExecuteAITeacherExpansionDialogueResponse Client::executeAITeacherExpansionDialo
 }
 
 /**
- * @summary 进行拓展练对话
+ * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
  *
  * @param request ExecuteAITeacherExpansionDialogueRequest
  * @return ExecuteAITeacherExpansionDialogueResponse
@@ -1084,7 +1090,7 @@ ExecuteAITeacherExpansionDialogueResponse Client::executeAITeacherExpansionDialo
 }
 
 /**
- * @summary 拓展练根据上下文进行润色
+ * @summary Uses context to polish the expanded text.
  *
  * @param request ExecuteAITeacherExpansionDialogueRefineRequest
  * @param headers map
@@ -1145,7 +1151,7 @@ ExecuteAITeacherExpansionDialogueRefineResponse Client::executeAITeacherExpansio
 }
 
 /**
- * @summary 拓展练根据上下文进行润色
+ * @summary Uses context to polish the expanded text.
  *
  * @param request ExecuteAITeacherExpansionDialogueRefineRequest
  * @return ExecuteAITeacherExpansionDialogueRefineResponse
@@ -1157,7 +1163,7 @@ ExecuteAITeacherExpansionDialogueRefineResponse Client::executeAITeacherExpansio
 }
 
 /**
- * @summary 拓展练语境翻译
+ * @summary Further Contextual Translation Practice.
  *
  * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
  * @param headers map
@@ -1214,7 +1220,7 @@ ExecuteAITeacherExpansionDialogueTranslateResponse Client::executeAITeacherExpan
 }
 
 /**
- * @summary 拓展练语境翻译
+ * @summary Further Contextual Translation Practice.
  *
  * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
  * @return ExecuteAITeacherExpansionDialogueTranslateResponse
@@ -1226,7 +1232,7 @@ ExecuteAITeacherExpansionDialogueTranslateResponse Client::executeAITeacherExpan
 }
 
 /**
- * @summary 语法检测
+ * @summary Performs a grammar check.
  *
  * @param request ExecuteAITeacherGrammarCheckRequest
  * @param headers map
@@ -1263,7 +1269,7 @@ ExecuteAITeacherGrammarCheckResponse Client::executeAITeacherGrammarCheckWithOpt
 }
 
 /**
- * @summary 语法检测
+ * @summary Performs a grammar check.
  *
  * @param request ExecuteAITeacherGrammarCheckRequest
  * @return ExecuteAITeacherGrammarCheckResponse
@@ -1275,7 +1281,7 @@ ExecuteAITeacherGrammarCheckResponse Client::executeAITeacherGrammarCheck(const 
 }
 
 /**
- * @summary 进行同步练对话
+ * @summary Practice synchronous dialogue.
  *
  * @param request ExecuteAITeacherSyncDialogueRequest
  * @param headers map
@@ -1320,7 +1326,7 @@ ExecuteAITeacherSyncDialogueResponse Client::executeAITeacherSyncDialogueWithOpt
 }
 
 /**
- * @summary 进行同步练对话
+ * @summary Practice synchronous dialogue.
  *
  * @param request ExecuteAITeacherSyncDialogueRequest
  * @return ExecuteAITeacherSyncDialogueResponse
@@ -1332,7 +1338,7 @@ ExecuteAITeacherSyncDialogueResponse Client::executeAITeacherSyncDialogue(const 
 }
 
 /**
- * @summary 同步练语境翻译
+ * @summary You can practice contextual translation in real-time.
  *
  * @param request ExecuteAITeacherSyncDialogueTranslateRequest
  * @param headers map
@@ -1373,7 +1379,7 @@ ExecuteAITeacherSyncDialogueTranslateResponse Client::executeAITeacherSyncDialog
 }
 
 /**
- * @summary 同步练语境翻译
+ * @summary You can practice contextual translation in real-time.
  *
  * @param request ExecuteAITeacherSyncDialogueTranslateRequest
  * @return ExecuteAITeacherSyncDialogueTranslateResponse
@@ -1385,7 +1391,7 @@ ExecuteAITeacherSyncDialogueTranslateResponse Client::executeAITeacherSyncDialog
 }
 
 /**
- * @summary 进行AI对话
+ * @summary Executes a dialogue turn with the Textbook Assistant.
  *
  * @param request ExecuteTextbookAssistantDialogueRequest
  * @param headers map
@@ -1430,7 +1436,7 @@ ExecuteTextbookAssistantDialogueResponse Client::executeTextbookAssistantDialogu
 }
 
 /**
- * @summary 进行AI对话
+ * @summary Executes a dialogue turn with the Textbook Assistant.
  *
  * @param request ExecuteTextbookAssistantDialogueRequest
  * @return ExecuteTextbookAssistantDialogueResponse
@@ -1442,7 +1448,7 @@ ExecuteTextbookAssistantDialogueResponse Client::executeTextbookAssistantDialogu
 }
 
 /**
- * @summary 调整难度
+ * @summary Adjusts the difficulty of the textbook assistant\\"s dialogue.
  *
  * @param request ExecuteTextbookAssistantDifficultyRequest
  * @param headers map
@@ -1491,7 +1497,7 @@ ExecuteTextbookAssistantDifficultyResponse Client::executeTextbookAssistantDiffi
 }
 
 /**
- * @summary 调整难度
+ * @summary Adjusts the difficulty of the textbook assistant\\"s dialogue.
  *
  * @param request ExecuteTextbookAssistantDifficultyRequest
  * @return ExecuteTextbookAssistantDifficultyResponse
@@ -1503,7 +1509,7 @@ ExecuteTextbookAssistantDifficultyResponse Client::executeTextbookAssistantDiffi
 }
 
 /**
- * @summary 语法检测
+ * @summary Performs a grammar check.
  *
  * @param request ExecuteTextbookAssistantGrammarCheckRequest
  * @param headers map
@@ -1548,7 +1554,7 @@ ExecuteTextbookAssistantGrammarCheckResponse Client::executeTextbookAssistantGra
 }
 
 /**
- * @summary 语法检测
+ * @summary Performs a grammar check.
  *
  * @param request ExecuteTextbookAssistantGrammarCheckRequest
  * @return ExecuteTextbookAssistantGrammarCheckResponse
@@ -1560,7 +1566,7 @@ ExecuteTextbookAssistantGrammarCheckResponse Client::executeTextbookAssistantGra
 }
 
 /**
- * @summary 句子润色
+ * @summary Refines a sentence based on the conversational context.
  *
  * @param request ExecuteTextbookAssistantRefineByContextRequest
  * @param headers map
@@ -1605,7 +1611,7 @@ ExecuteTextbookAssistantRefineByContextResponse Client::executeTextbookAssistant
 }
 
 /**
- * @summary 句子润色
+ * @summary Refines a sentence based on the conversational context.
  *
  * @param request ExecuteTextbookAssistantRefineByContextRequest
  * @return ExecuteTextbookAssistantRefineByContextResponse
@@ -1617,7 +1623,7 @@ ExecuteTextbookAssistantRefineByContextResponse Client::executeTextbookAssistant
 }
 
 /**
- * @summary 对话重试
+ * @summary This operation retries a conversation.
  *
  * @param request ExecuteTextbookAssistantRetryConversationRequest
  * @param headers map
@@ -1662,7 +1668,7 @@ ExecuteTextbookAssistantRetryConversationResponse Client::executeTextbookAssista
 }
 
 /**
- * @summary 对话重试
+ * @summary This operation retries a conversation.
  *
  * @param request ExecuteTextbookAssistantRetryConversationRequest
  * @return ExecuteTextbookAssistantRetryConversationResponse
@@ -1674,7 +1680,7 @@ ExecuteTextbookAssistantRetryConversationResponse Client::executeTextbookAssista
 }
 
 /**
- * @summary 进行对话-流式输出
+ * @summary Starts a conversation and returns a streaming output.
  *
  * @param request ExecuteTextbookAssistantSseDialogueRequest
  * @param headers map
@@ -1733,7 +1739,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 进行对话-流式输出
+ * @summary Starts a conversation and returns a streaming output.
  *
  * @param request ExecuteTextbookAssistantSseDialogueRequest
  * @param headers map
@@ -1778,7 +1784,7 @@ ExecuteTextbookAssistantSseDialogueResponse Client::executeTextbookAssistantSseD
 }
 
 /**
- * @summary 进行对话-流式输出
+ * @summary Starts a conversation and returns a streaming output.
  *
  * @param request ExecuteTextbookAssistantSseDialogueRequest
  * @return ExecuteTextbookAssistantSseDialogueResponse
@@ -1790,7 +1796,7 @@ ExecuteTextbookAssistantSseDialogueResponse Client::executeTextbookAssistantSseD
 }
 
 /**
- * @summary 开启自由对话
+ * @summary Starts a conversation with the AI teacher. The teacher then sends the initial message.
  *
  * @param request ExecuteTextbookAssistantStartConversationRequest
  * @param headers map
@@ -1831,7 +1837,7 @@ ExecuteTextbookAssistantStartConversationResponse Client::executeTextbookAssista
 }
 
 /**
- * @summary 开启自由对话
+ * @summary Starts a conversation with the AI teacher. The teacher then sends the initial message.
  *
  * @param request ExecuteTextbookAssistantStartConversationRequest
  * @return ExecuteTextbookAssistantStartConversationResponse
@@ -1843,7 +1849,7 @@ ExecuteTextbookAssistantStartConversationResponse Client::executeTextbookAssista
 }
 
 /**
- * @summary 获取鉴权参数
+ * @summary Generates a suggested response from the textbook-based AI teacher.
  *
  * @param request ExecuteTextbookAssistantSuggestionRequest
  * @param headers map
@@ -1888,7 +1894,7 @@ ExecuteTextbookAssistantSuggestionResponse Client::executeTextbookAssistantSugge
 }
 
 /**
- * @summary 获取鉴权参数
+ * @summary Generates a suggested response from the textbook-based AI teacher.
  *
  * @param request ExecuteTextbookAssistantSuggestionRequest
  * @return ExecuteTextbookAssistantSuggestionResponse
@@ -1900,7 +1906,7 @@ ExecuteTextbookAssistantSuggestionResponse Client::executeTextbookAssistantSugge
 }
 
 /**
- * @summary 翻译消息内容
+ * @summary Translates the content of a message.
  *
  * @param request ExecuteTextbookAssistantTranslateRequest
  * @param headers map
@@ -1945,7 +1951,7 @@ ExecuteTextbookAssistantTranslateResponse Client::executeTextbookAssistantTransl
 }
 
 /**
- * @summary 翻译消息内容
+ * @summary Translates the content of a message.
  *
  * @param request ExecuteTextbookAssistantTranslateRequest
  * @return ExecuteTextbookAssistantTranslateResponse
@@ -1957,7 +1963,7 @@ ExecuteTextbookAssistantTranslateResponse Client::executeTextbookAssistantTransl
 }
 
 /**
- * @summary 拓展练小助手
+ * @summary Supplemental Practice Assistant
  *
  * @param request GetAITeacherExpansionDialogueSuggestionRequest
  * @param headers map
@@ -2018,7 +2024,7 @@ GetAITeacherExpansionDialogueSuggestionResponse Client::getAITeacherExpansionDia
 }
 
 /**
- * @summary 拓展练小助手
+ * @summary Supplemental Practice Assistant
  *
  * @param request GetAITeacherExpansionDialogueSuggestionRequest
  * @return GetAITeacherExpansionDialogueSuggestionResponse
@@ -2030,7 +2036,7 @@ GetAITeacherExpansionDialogueSuggestionResponse Client::getAITeacherExpansionDia
 }
 
 /**
- * @summary 同步练小助手
+ * @summary Sync Practice Assistant
  *
  * @param request GetAITeacherSyncDialogueSuggestionRequest
  * @param headers map
@@ -2075,7 +2081,7 @@ GetAITeacherSyncDialogueSuggestionResponse Client::getAITeacherSyncDialogueSugge
 }
 
 /**
- * @summary 同步练小助手
+ * @summary Sync Practice Assistant
  *
  * @param request GetAITeacherSyncDialogueSuggestionRequest
  * @return GetAITeacherSyncDialogueSuggestionResponse
@@ -2087,7 +2093,7 @@ GetAITeacherSyncDialogueSuggestionResponse Client::getAITeacherSyncDialogueSugge
 }
 
 /**
- * @summary 获取请求鉴权参数
+ * @summary Obtains an authorization token to make API calls.
  *
  * @param request GetTextbookAssistantTokenRequest
  * @param headers map
@@ -2124,7 +2130,7 @@ GetTextbookAssistantTokenResponse Client::getTextbookAssistantTokenWithOptions(c
 }
 
 /**
- * @summary 获取请求鉴权参数
+ * @summary Obtains an authorization token to make API calls.
  *
  * @param request GetTextbookAssistantTokenRequest
  * @return GetTextbookAssistantTokenResponse
@@ -2136,7 +2142,7 @@ GetTextbookAssistantTokenResponse Client::getTextbookAssistantToken(const GetTex
 }
 
 /**
- * @summary 批量获取文章详情
+ * @summary Batch get article details
  *
  * @param request ListTextbookAssistantArticleDetailsRequest
  * @param headers map
@@ -2173,7 +2179,7 @@ ListTextbookAssistantArticleDetailsResponse Client::listTextbookAssistantArticle
 }
 
 /**
- * @summary 批量获取文章详情
+ * @summary Batch get article details
  *
  * @param request ListTextbookAssistantArticleDetailsRequest
  * @return ListTextbookAssistantArticleDetailsResponse
@@ -2185,7 +2191,7 @@ ListTextbookAssistantArticleDetailsResponse Client::listTextbookAssistantArticle
 }
 
 /**
- * @summary 获取文章列表
+ * @summary Returns a list of articles.
  *
  * @param request ListTextbookAssistantArticlesRequest
  * @param headers map
@@ -2222,7 +2228,7 @@ ListTextbookAssistantArticlesResponse Client::listTextbookAssistantArticlesWithO
 }
 
 /**
- * @summary 获取文章列表
+ * @summary Returns a list of articles.
  *
  * @param request ListTextbookAssistantArticlesRequest
  * @return ListTextbookAssistantArticlesResponse
@@ -2234,7 +2240,7 @@ ListTextbookAssistantArticlesResponse Client::listTextbookAssistantArticles(cons
 }
 
 /**
- * @summary 获取书本下的目录信息
+ * @summary Gets the table of contents of a book.
  *
  * @param request ListTextbookAssistantBookDirectoriesRequest
  * @param headers map
@@ -2275,7 +2281,7 @@ ListTextbookAssistantBookDirectoriesResponse Client::listTextbookAssistantBookDi
 }
 
 /**
- * @summary 获取书本下的目录信息
+ * @summary Gets the table of contents of a book.
  *
  * @param request ListTextbookAssistantBookDirectoriesRequest
  * @return ListTextbookAssistantBookDirectoriesResponse
@@ -2287,7 +2293,7 @@ ListTextbookAssistantBookDirectoriesResponse Client::listTextbookAssistantBookDi
 }
 
 /**
- * @summary 获取包含年级下的书本列表
+ * @summary Retrieves a list of books for a specified grade.
  *
  * @param request ListTextbookAssistantBooksRequest
  * @param headers map
@@ -2344,7 +2350,7 @@ ListTextbookAssistantBooksResponse Client::listTextbookAssistantBooksWithOptions
 }
 
 /**
- * @summary 获取包含年级下的书本列表
+ * @summary Retrieves a list of books for a specified grade.
  *
  * @param request ListTextbookAssistantBooksRequest
  * @return ListTextbookAssistantBooksResponse
@@ -2356,7 +2362,7 @@ ListTextbookAssistantBooksResponse Client::listTextbookAssistantBooks(const List
 }
 
 /**
- * @summary 获取有资源的年级信息
+ * @summary Retrieves the available grades and volumes for the Textbook Assistant.
  *
  * @param request ListTextbookAssistantGradeVolumesRequest
  * @param headers map
@@ -2393,7 +2399,7 @@ ListTextbookAssistantGradeVolumesResponse Client::listTextbookAssistantGradeVolu
 }
 
 /**
- * @summary 获取有资源的年级信息
+ * @summary Retrieves the available grades and volumes for the Textbook Assistant.
  *
  * @param request ListTextbookAssistantGradeVolumesRequest
  * @return ListTextbookAssistantGradeVolumesResponse
@@ -2405,7 +2411,7 @@ ListTextbookAssistantGradeVolumesResponse Client::listTextbookAssistantGradeVolu
 }
 
 /**
- * @summary 获取文章内容详情
+ * @summary Get Article Details
  *
  * @param request ListTextbookAssistantSceneDetailsRequest
  * @param headers map
@@ -2442,7 +2448,7 @@ ListTextbookAssistantSceneDetailsResponse Client::listTextbookAssistantSceneDeta
 }
 
 /**
- * @summary 获取文章内容详情
+ * @summary Get Article Details
  *
  * @param request ListTextbookAssistantSceneDetailsRequest
  * @return ListTextbookAssistantSceneDetailsResponse
@@ -2454,7 +2460,7 @@ ListTextbookAssistantSceneDetailsResponse Client::listTextbookAssistantSceneDeta
 }
 
 /**
- * @summary 计费管理/获取成本监控Tab配置
+ * @summary Retrieves the tab configuration for usage monitoring.
  *
  * @param request ModelRouterBillingCostTabsRequest
  * @param headers map
@@ -2491,7 +2497,7 @@ ModelRouterBillingCostTabsResponse Client::modelRouterBillingCostTabsWithOptions
 }
 
 /**
- * @summary 计费管理/获取成本监控Tab配置
+ * @summary Retrieves the tab configuration for usage monitoring.
  *
  * @param request ModelRouterBillingCostTabsRequest
  * @return ModelRouterBillingCostTabsResponse
@@ -2503,7 +2509,7 @@ ModelRouterBillingCostTabsResponse Client::modelRouterBillingCostTabs(const Mode
 }
 
 /**
- * @summary 聊天/聊天接口
+ * @summary Generates a chat completion.
  *
  * @param request ModelRouterChatCompletionsRequest
  * @param headers map
@@ -2545,7 +2551,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 聊天/聊天接口
+ * @summary Generates a chat completion.
  *
  * @param request ModelRouterChatCompletionsRequest
  * @param headers map
@@ -2573,7 +2579,7 @@ ModelRouterChatCompletionsResponse Client::modelRouterChatCompletionsWithOptions
 }
 
 /**
- * @summary 聊天/聊天接口
+ * @summary Generates a chat completion.
  *
  * @param request ModelRouterChatCompletionsRequest
  * @return ModelRouterChatCompletionsResponse
@@ -2585,7 +2591,7 @@ ModelRouterChatCompletionsResponse Client::modelRouterChatCompletions(const Mode
 }
 
 /**
- * @summary 客户管理/启用部门余额限流
+ * @summary Configures balance throttling for a department.
  *
  * @param request ModelRouterConfigureClientBalanceRequest
  * @param headers map
@@ -2626,7 +2632,7 @@ ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBala
 }
 
 /**
- * @summary 客户管理/启用部门余额限流
+ * @summary Configures balance throttling for a department.
  *
  * @param request ModelRouterConfigureClientBalanceRequest
  * @return ModelRouterConfigureClientBalanceResponse
@@ -2638,7 +2644,7 @@ ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBala
 }
 
 /**
- * @summary API密钥管理/复制API密钥
+ * @summary Copies an API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2663,7 +2669,7 @@ ModelRouterCopyApiKeyResponse Client::modelRouterCopyApiKeyWithOptions(const str
 }
 
 /**
- * @summary API密钥管理/复制API密钥
+ * @summary Copies an API key.
  *
  * @return ModelRouterCopyApiKeyResponse
  */
@@ -2674,7 +2680,7 @@ ModelRouterCopyApiKeyResponse Client::modelRouterCopyApiKey(const string &id) {
 }
 
 /**
- * @summary API密钥管理/创建API密钥
+ * @summary API key management / Create an API key
  *
  * @param request ModelRouterCreateApiKeyRequest
  * @param headers map
@@ -2707,7 +2713,7 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKeyWithOptions(const
 }
 
 /**
- * @summary API密钥管理/创建API密钥
+ * @summary API key management / Create an API key
  *
  * @param request ModelRouterCreateApiKeyRequest
  * @return ModelRouterCreateApiKeyResponse
@@ -2719,7 +2725,9 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKey(const ModelRoute
 }
 
 /**
- * @summary 客户管理/创建余额交易
+ * @summary Creates a balance transaction for customer management.
+ *
+ * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterCreateBalanceTransactionRequest
  * @param headers map
@@ -2731,6 +2739,14 @@ ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTran
   json body = {};
   if (!!request.hasAmount()) {
     body["amount"] = request.getAmount();
+  }
+
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
   }
 
   if (!!request.hasRemark()) {
@@ -2760,7 +2776,9 @@ ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTran
 }
 
 /**
- * @summary 客户管理/创建余额交易
+ * @summary Creates a balance transaction for customer management.
+ *
+ * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterCreateBalanceTransactionRequest
  * @return ModelRouterCreateBalanceTransactionResponse
@@ -2772,7 +2790,7 @@ ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTran
 }
 
 /**
- * @summary 计费管理/创建计费规则
+ * @summary Billing Management/Create Billing Rule
  *
  * @param request ModelRouterCreateBillingRuleRequest
  * @param headers map
@@ -2825,7 +2843,7 @@ ModelRouterCreateBillingRuleResponse Client::modelRouterCreateBillingRuleWithOpt
 }
 
 /**
- * @summary 计费管理/创建计费规则
+ * @summary Billing Management/Create Billing Rule
  *
  * @param request ModelRouterCreateBillingRuleRequest
  * @return ModelRouterCreateBillingRuleResponse
@@ -2837,7 +2855,7 @@ ModelRouterCreateBillingRuleResponse Client::modelRouterCreateBillingRule(const 
 }
 
 /**
- * @summary 客户管理/创建客户
+ * @summary Client management / Create client
  *
  * @param request ModelRouterCreateClientRequest
  * @param headers map
@@ -2894,7 +2912,7 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClientWithOptions(const
 }
 
 /**
- * @summary 客户管理/创建客户
+ * @summary Client management / Create client
  *
  * @param request ModelRouterCreateClientRequest
  * @return ModelRouterCreateClientResponse
@@ -2906,7 +2924,7 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClient(const ModelRoute
 }
 
 /**
- * @summary 对话管理/新建对话
+ * @summary Conversation management / Create conversation
  *
  * @param request ModelRouterCreateConversationRequest
  * @param headers map
@@ -2947,7 +2965,7 @@ ModelRouterCreateConversationResponse Client::modelRouterCreateConversationWithO
 }
 
 /**
- * @summary 对话管理/新建对话
+ * @summary Conversation management / Create conversation
  *
  * @param request ModelRouterCreateConversationRequest
  * @return ModelRouterCreateConversationResponse
@@ -2959,7 +2977,7 @@ ModelRouterCreateConversationResponse Client::modelRouterCreateConversation(cons
 }
 
 /**
- * @summary 模型管理/创建模型
+ * @summary Creates a model.
  *
  * @param request ModelRouterCreateModelRequest
  * @param headers map
@@ -3036,7 +3054,7 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModelWithOptions(const M
 }
 
 /**
- * @summary 模型管理/创建模型
+ * @summary Creates a model.
  *
  * @param request ModelRouterCreateModelRequest
  * @return ModelRouterCreateModelResponse
@@ -3048,7 +3066,68 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModel(const ModelRouterC
 }
 
 /**
- * @summary API密钥管理/删除API密钥
+ * @summary 客户管理/创建周期充值订阅
+ *
+ * @description 该接口已弃用，请勿使用
+ *
+ * @param request ModelRouterCreateSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateSubscriptionResponse
+ */
+ModelRouterCreateSubscriptionResponse Client::modelRouterCreateSubscriptionWithOptions(const string &id, const ModelRouterCreateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasEffectiveTime()) {
+    body["effectiveTime"] = request.getEffectiveTime();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
+  }
+
+  if (!!request.hasSubscriptionAmount()) {
+    body["subscriptionAmount"] = request.getSubscriptionAmount();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateSubscription"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/subscription")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateSubscriptionResponse>();
+}
+
+/**
+ * @summary 客户管理/创建周期充值订阅
+ *
+ * @description 该接口已弃用，请勿使用
+ *
+ * @param request ModelRouterCreateSubscriptionRequest
+ * @return ModelRouterCreateSubscriptionResponse
+ */
+ModelRouterCreateSubscriptionResponse Client::modelRouterCreateSubscription(const string &id, const ModelRouterCreateSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateSubscriptionWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary API Key Management / Delete API Key
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3073,7 +3152,7 @@ ModelRouterDeleteApiKeyResponse Client::modelRouterDeleteApiKeyWithOptions(const
 }
 
 /**
- * @summary API密钥管理/删除API密钥
+ * @summary API Key Management / Delete API Key
  *
  * @return ModelRouterDeleteApiKeyResponse
  */
@@ -3084,7 +3163,7 @@ ModelRouterDeleteApiKeyResponse Client::modelRouterDeleteApiKey(const string &id
 }
 
 /**
- * @summary 客户管理/删除客户
+ * @summary Deletes a client.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3109,7 +3188,7 @@ ModelRouterDeleteClientResponse Client::modelRouterDeleteClientWithOptions(const
 }
 
 /**
- * @summary 客户管理/删除客户
+ * @summary Deletes a client.
  *
  * @return ModelRouterDeleteClientResponse
  */
@@ -3120,7 +3199,7 @@ ModelRouterDeleteClientResponse Client::modelRouterDeleteClient(const string &id
 }
 
 /**
- * @summary 对话管理/删除对话
+ * @summary Conversation management/Delete conversation
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3145,7 +3224,7 @@ ModelRouterDeleteConversationResponse Client::modelRouterDeleteConversationWithO
 }
 
 /**
- * @summary 对话管理/删除对话
+ * @summary Conversation management/Delete conversation
  *
  * @return ModelRouterDeleteConversationResponse
  */
@@ -3156,7 +3235,7 @@ ModelRouterDeleteConversationResponse Client::modelRouterDeleteConversation(cons
 }
 
 /**
- * @summary 模型管理/删除模型
+ * @summary Model Management / Delete Model
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3181,7 +3260,7 @@ ModelRouterDeleteModelResponse Client::modelRouterDeleteModelWithOptions(const s
 }
 
 /**
- * @summary 模型管理/删除模型
+ * @summary Model Management / Delete Model
  *
  * @return ModelRouterDeleteModelResponse
  */
@@ -3192,7 +3271,7 @@ ModelRouterDeleteModelResponse Client::modelRouterDeleteModel(const string &id) 
 }
 
 /**
- * @summary 客户管理/获取部门余额
+ * @summary Client Management/Get department balance
  *
  * @param request ModelRouterGetClientBalanceRequest
  * @param headers map
@@ -3219,7 +3298,7 @@ ModelRouterGetClientBalanceResponse Client::modelRouterGetClientBalanceWithOptio
 }
 
 /**
- * @summary 客户管理/获取部门余额
+ * @summary Client Management/Get department balance
  *
  * @param request ModelRouterGetClientBalanceRequest
  * @return ModelRouterGetClientBalanceResponse
@@ -3231,7 +3310,7 @@ ModelRouterGetClientBalanceResponse Client::modelRouterGetClientBalance(const st
 }
 
 /**
- * @summary 客户管理/获取部门余额变更日志
+ * @summary Gets the balance change log for a specified department.
  *
  * @param request ModelRouterGetClientBalanceLogsRequest
  * @param headers map
@@ -3280,7 +3359,7 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogsW
 }
 
 /**
- * @summary 客户管理/获取部门余额变更日志
+ * @summary Gets the balance change log for a specified department.
  *
  * @param request ModelRouterGetClientBalanceLogsRequest
  * @return ModelRouterGetClientBalanceLogsResponse
@@ -3292,7 +3371,68 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogs(
 }
 
 /**
- * @summary API密钥管理/获取API密钥详情
+ * @summary 客户管理/查询周期充值订阅列表
+ *
+ * @description 该接口已弃用，请勿使用
+ *
+ * @param request ModelRouterListSubscriptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterListSubscriptionsResponse
+ */
+ModelRouterListSubscriptionsResponse Client::modelRouterListSubscriptionsWithOptions(const string &id, const ModelRouterListSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBalanceType()) {
+    query["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterListSubscriptions"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/subscription")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterListSubscriptionsResponse>();
+}
+
+/**
+ * @summary 客户管理/查询周期充值订阅列表
+ *
+ * @description 该接口已弃用，请勿使用
+ *
+ * @param request ModelRouterListSubscriptionsRequest
+ * @return ModelRouterListSubscriptionsResponse
+ */
+ModelRouterListSubscriptionsResponse Client::modelRouterListSubscriptions(const string &id, const ModelRouterListSubscriptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterListSubscriptionsWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a specific API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3317,7 +3457,7 @@ ModelRouterQueryApiKeyResponse Client::modelRouterQueryApiKeyWithOptions(const s
 }
 
 /**
- * @summary API密钥管理/获取API密钥详情
+ * @summary Retrieves the details of a specific API key.
  *
  * @return ModelRouterQueryApiKeyResponse
  */
@@ -3328,7 +3468,7 @@ ModelRouterQueryApiKeyResponse Client::modelRouterQueryApiKey(const string &id) 
 }
 
 /**
- * @summary API密钥管理/获取API密钥列表
+ * @summary Retrieves a list of API keys.
  *
  * @param request ModelRouterQueryApiKeyListRequest
  * @param headers map
@@ -3401,7 +3541,7 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyListWithOptions
 }
 
 /**
- * @summary API密钥管理/获取API密钥列表
+ * @summary Retrieves a list of API keys.
  *
  * @param request ModelRouterQueryApiKeyListRequest
  * @return ModelRouterQueryApiKeyListResponse
@@ -3413,7 +3553,7 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 }
 
 /**
- * @summary 计费管理/批量查询计费明细
+ * @summary Billing > Query billing cost breakdown
  *
  * @param request ModelRouterQueryBillingCostBreakdownRequest
  * @param headers map
@@ -3486,7 +3626,7 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 }
 
 /**
- * @summary 计费管理/批量查询计费明细
+ * @summary Billing > Query billing cost breakdown
  *
  * @param request ModelRouterQueryBillingCostBreakdownRequest
  * @return ModelRouterQueryBillingCostBreakdownResponse
@@ -3498,7 +3638,7 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 }
 
 /**
- * @summary 计费管理/查询计费规则列表
+ * @summary Billing management / Query billing rule list
  *
  * @param request ModelRouterQueryBillingRuleListRequest
  * @param headers map
@@ -3563,7 +3703,7 @@ ModelRouterQueryBillingRuleListResponse Client::modelRouterQueryBillingRuleListW
 }
 
 /**
- * @summary 计费管理/查询计费规则列表
+ * @summary Billing management / Query billing rule list
  *
  * @param request ModelRouterQueryBillingRuleListRequest
  * @return ModelRouterQueryBillingRuleListResponse
@@ -3575,7 +3715,7 @@ ModelRouterQueryBillingRuleListResponse Client::modelRouterQueryBillingRuleList(
 }
 
 /**
- * @summary 客户管理/获取部门折扣修改历史
+ * @summary Retrieves the discount modification history for a client.
  *
  * @param request ModelRouterQueryClientDiscountLogsRequest
  * @param headers map
@@ -3612,7 +3752,7 @@ ModelRouterQueryClientDiscountLogsResponse Client::modelRouterQueryClientDiscoun
 }
 
 /**
- * @summary 客户管理/获取部门折扣修改历史
+ * @summary Retrieves the discount modification history for a client.
  *
  * @param request ModelRouterQueryClientDiscountLogsRequest
  * @return ModelRouterQueryClientDiscountLogsResponse
@@ -3624,7 +3764,7 @@ ModelRouterQueryClientDiscountLogsResponse Client::modelRouterQueryClientDiscoun
 }
 
 /**
- * @summary 客户管理/获取客户列表
+ * @summary Retrieves a list of clients.
  *
  * @param request ModelRouterQueryClientListRequest
  * @param headers map
@@ -3693,7 +3833,7 @@ ModelRouterQueryClientListResponse Client::modelRouterQueryClientListWithOptions
 }
 
 /**
- * @summary 客户管理/获取客户列表
+ * @summary Retrieves a list of clients.
  *
  * @param request ModelRouterQueryClientListRequest
  * @return ModelRouterQueryClientListResponse
@@ -3705,7 +3845,7 @@ ModelRouterQueryClientListResponse Client::modelRouterQueryClientList(const Mode
 }
 
 /**
- * @summary 客户管理/获取客户树
+ * @summary Returns a hierarchical tree of customers.
  *
  * @param request ModelRouterQueryClientTreeRequest
  * @param headers map
@@ -3742,7 +3882,7 @@ ModelRouterQueryClientTreeResponse Client::modelRouterQueryClientTreeWithOptions
 }
 
 /**
- * @summary 客户管理/获取客户树
+ * @summary Returns a hierarchical tree of customers.
  *
  * @param request ModelRouterQueryClientTreeRequest
  * @return ModelRouterQueryClientTreeResponse
@@ -3754,7 +3894,7 @@ ModelRouterQueryClientTreeResponse Client::modelRouterQueryClientTree(const Mode
 }
 
 /**
- * @summary 对话管理/获取对话详情
+ * @summary Retrieves the details of a conversation.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3779,7 +3919,7 @@ ModelRouterQueryConversationResponse Client::modelRouterQueryConversationWithOpt
 }
 
 /**
- * @summary 对话管理/获取对话详情
+ * @summary Retrieves the details of a conversation.
  *
  * @return ModelRouterQueryConversationResponse
  */
@@ -3790,7 +3930,7 @@ ModelRouterQueryConversationResponse Client::modelRouterQueryConversation(const 
 }
 
 /**
- * @summary 对话管理/获取对话列表
+ * @summary Conversation management/Conversation list
  *
  * @param request ModelRouterQueryConversationListRequest
  * @param headers map
@@ -3859,7 +3999,7 @@ ModelRouterQueryConversationListResponse Client::modelRouterQueryConversationLis
 }
 
 /**
- * @summary 对话管理/获取对话列表
+ * @summary Conversation management/Conversation list
  *
  * @param request ModelRouterQueryConversationListRequest
  * @return ModelRouterQueryConversationListResponse
@@ -3871,7 +4011,7 @@ ModelRouterQueryConversationListResponse Client::modelRouterQueryConversationLis
 }
 
 /**
- * @summary 计费管理/获取模型明细
+ * @summary billing management / Model details
  *
  * @param request ModelRouterQueryCostModelDetailRequest
  * @param headers map
@@ -3940,7 +4080,7 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailW
 }
 
 /**
- * @summary 计费管理/获取模型明细
+ * @summary billing management / Model details
  *
  * @param request ModelRouterQueryCostModelDetailRequest
  * @return ModelRouterQueryCostModelDetailResponse
@@ -3952,7 +4092,7 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetail(
 }
 
 /**
- * @summary 计费管理/获取调用模型列表
+ * @summary billing management / Retrieves a list of invoked models
  *
  * @param request ModelRouterQueryCostModelListRequest
  * @param headers map
@@ -4017,7 +4157,7 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithO
 }
 
 /**
- * @summary 计费管理/获取调用模型列表
+ * @summary billing management / Retrieves a list of invoked models
  *
  * @param request ModelRouterQueryCostModelListRequest
  * @return ModelRouterQueryCostModelListResponse
@@ -4029,7 +4169,7 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelList(cons
 }
 
 /**
- * @summary 计费管理/获取成本概览指标
+ * @summary billing management / Get cost overview metrics
  *
  * @param request ModelRouterQueryCostOverviewMetricsRequest
  * @param headers map
@@ -4090,7 +4230,7 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
 }
 
 /**
- * @summary 计费管理/获取成本概览指标
+ * @summary billing management / Get cost overview metrics
  *
  * @param request ModelRouterQueryCostOverviewMetricsRequest
  * @return ModelRouterQueryCostOverviewMetricsResponse
@@ -4102,7 +4242,7 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
 }
 
 /**
- * @summary 计费管理/获取费用趋势
+ * @summary billing management / Cost trends
  *
  * @param request ModelRouterQueryCostTrendMetricsRequest
  * @param headers map
@@ -4163,7 +4303,7 @@ ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetric
 }
 
 /**
- * @summary 计费管理/获取费用趋势
+ * @summary billing management / Cost trends
  *
  * @param request ModelRouterQueryCostTrendMetricsRequest
  * @return ModelRouterQueryCostTrendMetricsResponse
@@ -4175,7 +4315,7 @@ ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetric
 }
 
 /**
- * @summary 模型管理/获取模型详情
+ * @summary Retrieves details for a specific model.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4200,7 +4340,7 @@ ModelRouterQueryModelResponse Client::modelRouterQueryModelWithOptions(const str
 }
 
 /**
- * @summary 模型管理/获取模型详情
+ * @summary Retrieves details for a specific model.
  *
  * @return ModelRouterQueryModelResponse
  */
@@ -4211,7 +4351,7 @@ ModelRouterQueryModelResponse Client::modelRouterQueryModel(const string &id) {
 }
 
 /**
- * @summary 模型管理/获取模型列表
+ * @summary Model management/Get model list
  *
  * @param request ModelRouterQueryModelListRequest
  * @param headers map
@@ -4284,7 +4424,7 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelListWithOptions(c
 }
 
 /**
- * @summary 模型管理/获取模型列表
+ * @summary Model management/Get model list
  *
  * @param request ModelRouterQueryModelListRequest
  * @return ModelRouterQueryModelListResponse
@@ -4296,7 +4436,9 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelList(const ModelR
 }
 
 /**
- * @summary Nacos配置/获取Nacos服务提供者列表
+ * @summary Configures Nacos or retrieves the list of Nacos service providers.
+ *
+ * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterQueryNacosProvidersRequest
  * @param headers map
@@ -4357,7 +4499,9 @@ ModelRouterQueryNacosProvidersResponse Client::modelRouterQueryNacosProvidersWit
 }
 
 /**
- * @summary Nacos配置/获取Nacos服务提供者列表
+ * @summary Configures Nacos or retrieves the list of Nacos service providers.
+ *
+ * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterQueryNacosProvidersRequest
  * @return ModelRouterQueryNacosProvidersResponse
@@ -4369,7 +4513,7 @@ ModelRouterQueryNacosProvidersResponse Client::modelRouterQueryNacosProviders(co
 }
 
 /**
- * @summary Nacos配置/获取Nacos标签列表
+ * @summary Retrieves a list of tags from Nacos.
  *
  * @param request ModelRouterQueryNacosTagsRequest
  * @param headers map
@@ -4434,7 +4578,7 @@ ModelRouterQueryNacosTagsResponse Client::modelRouterQueryNacosTagsWithOptions(c
 }
 
 /**
- * @summary Nacos配置/获取Nacos标签列表
+ * @summary Retrieves a list of tags from Nacos.
  *
  * @param request ModelRouterQueryNacosTagsRequest
  * @return ModelRouterQueryNacosTagsResponse
@@ -4446,7 +4590,7 @@ ModelRouterQueryNacosTagsResponse Client::modelRouterQueryNacosTags(const ModelR
 }
 
 /**
- * @summary 模型观测/获取观测图表数据
+ * @summary Retrieves chart data for model observation.
  *
  * @param request ModelRouterQueryObservationChartsRequest
  * @param headers map
@@ -4499,7 +4643,7 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 }
 
 /**
- * @summary 模型观测/获取观测图表数据
+ * @summary Retrieves chart data for model observation.
  *
  * @param request ModelRouterQueryObservationChartsRequest
  * @return ModelRouterQueryObservationChartsResponse
@@ -4511,7 +4655,7 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 }
 
 /**
- * @summary 模型观测/获取观测日志列表
+ * @summary Model Observation / Observation Logs
  *
  * @param request ModelRouterQueryObservationLogsRequest
  * @param headers map
@@ -4596,7 +4740,7 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogsW
 }
 
 /**
- * @summary 模型观测/获取观测日志列表
+ * @summary Model Observation / Observation Logs
  *
  * @param request ModelRouterQueryObservationLogsRequest
  * @return ModelRouterQueryObservationLogsResponse
@@ -4608,7 +4752,7 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogs(
 }
 
 /**
- * @summary 模型观测/获取观测指标数据
+ * @summary Model Observation > Get Observation Metric Data
  *
  * @param request ModelRouterQueryObservationMetricsRequest
  * @param headers map
@@ -4693,7 +4837,7 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
 }
 
 /**
- * @summary 模型观测/获取观测指标数据
+ * @summary Model Observation > Get Observation Metric Data
  *
  * @param request ModelRouterQueryObservationMetricsRequest
  * @return ModelRouterQueryObservationMetricsResponse
@@ -4705,7 +4849,7 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
 }
 
 /**
- * @summary 用量管理/批量查询用量明细
+ * @summary Queries usage details in batches for usage management.
  *
  * @param request ModelRouterQueryUsageBreakdownRequest
  * @param headers map
@@ -4770,7 +4914,7 @@ ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdownWit
 }
 
 /**
- * @summary 用量管理/批量查询用量明细
+ * @summary Queries usage details in batches for usage management.
  *
  * @param request ModelRouterQueryUsageBreakdownRequest
  * @return ModelRouterQueryUsageBreakdownResponse
@@ -4782,7 +4926,7 @@ ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdown(co
 }
 
 /**
- * @summary 流控管理/写入流控配置
+ * @summary Flow control management / Save flow control configuration
  *
  * @param request ModelRouterSaveFlowConfigRequest
  * @param headers map
@@ -4827,7 +4971,7 @@ ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfigWithOptions(c
 }
 
 /**
- * @summary 流控管理/写入流控配置
+ * @summary Flow control management / Save flow control configuration
  *
  * @param request ModelRouterSaveFlowConfigRequest
  * @return ModelRouterSaveFlowConfigResponse
@@ -4839,7 +4983,52 @@ ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfig(const ModelR
 }
 
 /**
- * @summary 计费管理/更新计费规则
+ * @summary 客户管理/停止周期充值订阅
+ *
+ * @param request ModelRouterStopSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterStopSubscriptionResponse
+ */
+ModelRouterStopSubscriptionResponse Client::modelRouterStopSubscriptionWithOptions(const string &id, const ModelRouterStopSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterStopSubscription"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/subscription/stop")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterStopSubscriptionResponse>();
+}
+
+/**
+ * @summary 客户管理/停止周期充值订阅
+ *
+ * @param request ModelRouterStopSubscriptionRequest
+ * @return ModelRouterStopSubscriptionResponse
+ */
+ModelRouterStopSubscriptionResponse Client::modelRouterStopSubscription(const string &id, const ModelRouterStopSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterStopSubscriptionWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Billing management/Update billing rules
  *
  * @param request ModelRouterUpdateBillingRuleRequest
  * @param headers map
@@ -4892,7 +5081,7 @@ ModelRouterUpdateBillingRuleResponse Client::modelRouterUpdateBillingRuleWithOpt
 }
 
 /**
- * @summary 计费管理/更新计费规则
+ * @summary Billing management/Update billing rules
  *
  * @param request ModelRouterUpdateBillingRuleRequest
  * @return ModelRouterUpdateBillingRuleResponse
@@ -4904,7 +5093,7 @@ ModelRouterUpdateBillingRuleResponse Client::modelRouterUpdateBillingRule(const 
 }
 
 /**
- * @summary 客户管理/更新客户
+ * @summary Updates a specified client\\"s information.
  *
  * @param request ModelRouterUpdateClientRequest
  * @param headers map
@@ -4961,7 +5150,7 @@ ModelRouterUpdateClientResponse Client::modelRouterUpdateClientWithOptions(const
 }
 
 /**
- * @summary 客户管理/更新客户
+ * @summary Updates a specified client\\"s information.
  *
  * @param request ModelRouterUpdateClientRequest
  * @return ModelRouterUpdateClientResponse
@@ -4973,7 +5162,7 @@ ModelRouterUpdateClientResponse Client::modelRouterUpdateClient(const string &id
 }
 
 /**
- * @summary 对话管理/更新对话
+ * @summary Conversation management / Update conversation
  *
  * @param request ModelRouterUpdateConversationRequest
  * @param headers map
@@ -5018,7 +5207,7 @@ ModelRouterUpdateConversationResponse Client::modelRouterUpdateConversationWithO
 }
 
 /**
- * @summary 对话管理/更新对话
+ * @summary Conversation management / Update conversation
  *
  * @param request ModelRouterUpdateConversationRequest
  * @return ModelRouterUpdateConversationResponse
@@ -5030,7 +5219,7 @@ ModelRouterUpdateConversationResponse Client::modelRouterUpdateConversation(cons
 }
 
 /**
- * @summary 模型管理/更新模型
+ * @summary Model Management / Update Model
  *
  * @param request ModelRouterUpdateModelRequest
  * @param headers map
@@ -5103,7 +5292,7 @@ ModelRouterUpdateModelResponse Client::modelRouterUpdateModelWithOptions(const s
 }
 
 /**
- * @summary 模型管理/更新模型
+ * @summary Model Management / Update Model
  *
  * @param request ModelRouterUpdateModelRequest
  * @return ModelRouterUpdateModelResponse
@@ -5115,7 +5304,7 @@ ModelRouterUpdateModelResponse Client::modelRouterUpdateModel(const string &id, 
 }
 
 /**
- * @summary 个性化文生图/基于一个预训练模型创建图片推理任务
+ * @summary Personalized text-to-image: Create image inference tasks using a pre-trained model.
  *
  * @param request PersonalizedTextToImageAddInferenceJobRequest
  * @param headers map
@@ -5168,7 +5357,7 @@ PersonalizedTextToImageAddInferenceJobResponse Client::personalizedTextToImageAd
 }
 
 /**
- * @summary 个性化文生图/基于一个预训练模型创建图片推理任务
+ * @summary Personalized text-to-image: Create image inference tasks using a pre-trained model.
  *
  * @param request PersonalizedTextToImageAddInferenceJobRequest
  * @return PersonalizedTextToImageAddInferenceJobResponse
@@ -5180,7 +5369,7 @@ PersonalizedTextToImageAddInferenceJobResponse Client::personalizedTextToImageAd
 }
 
 /**
- * @summary 个性化文生图/通过唯一的图片编号获取图片内容
+ * @summary Retrieves the content of an image from the personalized text-to-image service using its unique image ID.
  *
  * @param request PersonalizedTextToImageQueryImageAssetRequest
  * @param headers map
@@ -5217,7 +5406,7 @@ PersonalizedTextToImageQueryImageAssetResponse Client::personalizedTextToImageQu
 }
 
 /**
- * @summary 个性化文生图/通过唯一的图片编号获取图片内容
+ * @summary Retrieves the content of an image from the personalized text-to-image service using its unique image ID.
  *
  * @param request PersonalizedTextToImageQueryImageAssetRequest
  * @return PersonalizedTextToImageQueryImageAssetResponse
@@ -5229,7 +5418,7 @@ PersonalizedTextToImageQueryImageAssetResponse Client::personalizedTextToImageQu
 }
 
 /**
- * @summary 个性化文生图/查询预制模型推理任务的状态
+ * @summary Queries the status of a personalized text-to-image inference job.
  *
  * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
  * @param headers map
@@ -5262,7 +5451,7 @@ PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse Client::personalize
 }
 
 /**
- * @summary 个性化文生图/查询预制模型推理任务的状态
+ * @summary Queries the status of a personalized text-to-image inference job.
  *
  * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
  * @return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse
@@ -5274,7 +5463,7 @@ PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse Client::personalize
 }
 
 /**
- * @summary 个性化文生图/基于一个模型创建图片推理任务
+ * @summary Creates an inference job to generate images based on a personalized text-to-image model.
  *
  * @param request Personalizedtxt2imgAddInferenceJobRequest
  * @param headers map
@@ -5319,7 +5508,7 @@ Personalizedtxt2imgAddInferenceJobResponse Client::personalizedtxt2imgAddInferen
 }
 
 /**
- * @summary 个性化文生图/基于一个模型创建图片推理任务
+ * @summary Creates an inference job to generate images based on a personalized text-to-image model.
  *
  * @param request Personalizedtxt2imgAddInferenceJobRequest
  * @return Personalizedtxt2imgAddInferenceJobResponse
@@ -5331,7 +5520,7 @@ Personalizedtxt2imgAddInferenceJobResponse Client::personalizedtxt2imgAddInferen
 }
 
 /**
- * @summary 个性化文生图/创建一个模型训练任务
+ * @summary Personalized text-to-image: Create a model training task.
  *
  * @param request Personalizedtxt2imgAddModelTrainJobRequest
  * @param headers map
@@ -5376,7 +5565,7 @@ Personalizedtxt2imgAddModelTrainJobResponse Client::personalizedtxt2imgAddModelT
 }
 
 /**
- * @summary 个性化文生图/创建一个模型训练任务
+ * @summary Personalized text-to-image: Create a model training task.
  *
  * @param request Personalizedtxt2imgAddModelTrainJobRequest
  * @return Personalizedtxt2imgAddModelTrainJobResponse
@@ -5388,7 +5577,7 @@ Personalizedtxt2imgAddModelTrainJobResponse Client::personalizedtxt2imgAddModelT
 }
 
 /**
- * @summary 个性化文生图/图片二进制内容获取
+ * @summary Retrieves the binary data of an image generated by the personalized text-to-image service.
  *
  * @param request Personalizedtxt2imgQueryImageAssetRequest
  * @param headers map
@@ -5433,7 +5622,7 @@ Personalizedtxt2imgQueryImageAssetResponse Client::personalizedtxt2imgQueryImage
 }
 
 /**
- * @summary 个性化文生图/图片二进制内容获取
+ * @summary Retrieves the binary data of an image generated by the personalized text-to-image service.
  *
  * @param request Personalizedtxt2imgQueryImageAssetRequest
  * @return Personalizedtxt2imgQueryImageAssetResponse
@@ -5445,7 +5634,7 @@ Personalizedtxt2imgQueryImageAssetResponse Client::personalizedtxt2imgQueryImage
 }
 
 /**
- * @summary 个性化文生图/查询模型推理任务的状态和结果信息
+ * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
  *
  * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
  * @param headers map
@@ -5478,7 +5667,7 @@ Personalizedtxt2imgQueryInferenceJobInfoResponse Client::personalizedtxt2imgQuer
 }
 
 /**
- * @summary 个性化文生图/查询模型推理任务的状态和结果信息
+ * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
  *
  * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
  * @return Personalizedtxt2imgQueryInferenceJobInfoResponse
@@ -5490,7 +5679,7 @@ Personalizedtxt2imgQueryInferenceJobInfoResponse Client::personalizedtxt2imgQuer
 }
 
 /**
- * @summary 个性化文生图/查询模型训练任务列表
+ * @summary Your personalized model training tasks: image generation and query models.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5515,7 +5704,7 @@ Personalizedtxt2imgQueryModelTrainJobListResponse Client::personalizedtxt2imgQue
 }
 
 /**
- * @summary 个性化文生图/查询模型训练任务列表
+ * @summary Your personalized model training tasks: image generation and query models.
  *
  * @return Personalizedtxt2imgQueryModelTrainJobListResponse
  */
@@ -5526,7 +5715,7 @@ Personalizedtxt2imgQueryModelTrainJobListResponse Client::personalizedtxt2imgQue
 }
 
 /**
- * @summary 个性化文生图/模型训练状态查询
+ * @summary Queries the training status of a personalized text-to-image model.
  *
  * @param request Personalizedtxt2imgQueryModelTrainStatusRequest
  * @param headers map
@@ -5559,7 +5748,7 @@ Personalizedtxt2imgQueryModelTrainStatusResponse Client::personalizedtxt2imgQuer
 }
 
 /**
- * @summary 个性化文生图/模型训练状态查询
+ * @summary Queries the training status of a personalized text-to-image model.
  *
  * @param request Personalizedtxt2imgQueryModelTrainStatusRequest
  * @return Personalizedtxt2imgQueryModelTrainStatusResponse
@@ -5571,7 +5760,7 @@ Personalizedtxt2imgQueryModelTrainStatusResponse Client::personalizedtxt2imgQuer
 }
 
 /**
- * @summary 阿里云控制台/获取应用访问识别码(appkey)信息
+ * @summary Queries information about an application access ID (appkey).
  *
  * @param request QueryApplicationAccessIdRequest
  * @param headers map
@@ -5604,7 +5793,7 @@ QueryApplicationAccessIdResponse Client::queryApplicationAccessIdWithOptions(con
 }
 
 /**
- * @summary 阿里云控制台/获取应用访问识别码(appkey)信息
+ * @summary Queries information about an application access ID (appkey).
  *
  * @param request QueryApplicationAccessIdRequest
  * @return QueryApplicationAccessIdResponse
@@ -5616,7 +5805,7 @@ QueryApplicationAccessIdResponse Client::queryApplicationAccessId(const QueryApp
 }
 
 /**
- * @summary 阿里云控制台/获取项目列表
+ * @summary Alibaba Cloud console / Project list
  *
  * @param request QueryProjectRequest
  * @param headers map
@@ -5649,7 +5838,7 @@ QueryProjectResponse Client::queryProjectWithOptions(const QueryProjectRequest &
 }
 
 /**
- * @summary 阿里云控制台/获取项目列表
+ * @summary Alibaba Cloud console / Project list
  *
  * @param request QueryProjectRequest
  * @return QueryProjectResponse
@@ -5661,7 +5850,7 @@ QueryProjectResponse Client::queryProject(const QueryProjectRequest &request) {
 }
 
 /**
- * @summary 阿里云控制台/获取项目列表
+ * @summary Alibaba Cloud console / Project List
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5686,7 +5875,7 @@ QueryProjectListResponse Client::queryProjectListWithOptions(const map<string, s
 }
 
 /**
- * @summary 阿里云控制台/获取项目列表
+ * @summary Alibaba Cloud console / Project List
  *
  * @return QueryProjectListResponse
  */
@@ -5697,7 +5886,7 @@ QueryProjectListResponse Client::queryProjectList() {
 }
 
 /**
- * @summary 阿里云控制台/已经购买过的服务项目
+ * @summary Alibaba Cloud Console / Purchased Services
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5722,7 +5911,7 @@ QueryPurchasedServiceResponse Client::queryPurchasedServiceWithOptions(const map
 }
 
 /**
- * @summary 阿里云控制台/已经购买过的服务项目
+ * @summary Alibaba Cloud Console / Purchased Services
  *
  * @return QueryPurchasedServiceResponse
  */
@@ -5733,7 +5922,7 @@ QueryPurchasedServiceResponse Client::queryPurchasedService() {
 }
 
 /**
- * @summary 阿里云控制台/更新项目信息
+ * @summary Alibaba Cloud Console / Update project information
  *
  * @param request UpdateProjectRequest
  * @param headers map
@@ -5770,7 +5959,7 @@ UpdateProjectResponse Client::updateProjectWithOptions(const UpdateProjectReques
 }
 
 /**
- * @summary 阿里云控制台/更新项目信息
+ * @summary Alibaba Cloud Console / Update project information
  *
  * @param request UpdateProjectRequest
  * @return UpdateProjectResponse

@@ -89,10 +89,15 @@ namespace Models
   protected:
     // appId,appkey
     shared_ptr<string> applicationAccessId_ {};
+    // End time
     shared_ptr<string> endTime_ {};
+    // List of error codes
     shared_ptr<vector<string>> errorCode_ {};
+    // Query granularity (Hour, Day, Month)
     shared_ptr<string> granularity_ {};
+    // Project ID
     shared_ptr<string> projectId_ {};
+    // Start time
     shared_ptr<string> startTime_ {};
   };
 

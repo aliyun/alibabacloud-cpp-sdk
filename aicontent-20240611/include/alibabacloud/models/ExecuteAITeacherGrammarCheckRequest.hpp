@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The sentence to check.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

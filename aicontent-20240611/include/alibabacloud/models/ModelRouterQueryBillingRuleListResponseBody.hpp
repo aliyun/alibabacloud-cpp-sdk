@@ -219,19 +219,33 @@ namespace Models
 
 
       protected:
+        // Billing type
         shared_ptr<string> billingType_ {};
+        // Delete marker
         shared_ptr<int32_t> deleteTag_ {};
+        // Effective time
         shared_ptr<string> effectiveTime_ {};
+        // Expiration time
         shared_ptr<string> expireTime_ {};
+        // Creation time
         shared_ptr<string> gmtCreate_ {};
+        // Modification time
         shared_ptr<string> gmtModified_ {};
+        // Rule ID
         shared_ptr<int64_t> id_ {};
+        // Model identifier
         shared_ptr<string> modelCode_ {};
+        // Model ID
         shared_ptr<int64_t> modelId_ {};
+        // Model name
         shared_ptr<string> modelName_ {};
+        // Model type
         shared_ptr<string> modelType_ {};
+        // Billing configuration
         Darabonba::Json pricingConfig_ {};
+        // Vendor identifier
         shared_ptr<string> symbol_ {};
+        // Version number
         shared_ptr<int32_t> version_ {};
       };
 
@@ -268,9 +282,13 @@ namespace Models
 
 
     protected:
+      // List of billing rules
       shared_ptr<vector<Data::List>> list_ {};
+      // Current page number
       shared_ptr<int32_t> page_ {};
+      // Number of items per page
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of records
       shared_ptr<int32_t> total_ {};
     };
 
@@ -336,15 +354,21 @@ namespace Models
 
 
   protected:
+    // Response data
     shared_ptr<ModelRouterQueryBillingRuleListResponseBody::Data> data_ {};
+    // Error code
     shared_ptr<string> errCode_ {};
+    // Error message
     shared_ptr<string> errMessage_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
     // maxResults
     shared_ptr<int32_t> maxResults_ {};
     // nextToken
     shared_ptr<string> nextToken_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

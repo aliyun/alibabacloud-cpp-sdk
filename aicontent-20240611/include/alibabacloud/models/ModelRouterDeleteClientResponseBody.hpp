@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Whether the client was deleted successfully.
     shared_ptr<bool> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

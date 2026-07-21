@@ -92,10 +92,15 @@ namespace Models
 
   protected:
     shared_ptr<vector<MetricDefRespDTO>> columns_ {};
+    // Aggregation granularity: hourly or daily
     shared_ptr<string> granularity_ {};
+    // Current page number
     shared_ptr<int32_t> page_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
+    // List of billing details data
     shared_ptr<vector<BillingCostBreakdownRowDTO>> rows_ {};
+    // Total number of entries
     shared_ptr<int64_t> total_ {};
   };
 

@@ -73,9 +73,13 @@ namespace Models
 
 
   protected:
+    // List of column definitions
     shared_ptr<vector<MetricDefRespDTO>> columns_ {};
+    // Field Name of ID
     shared_ptr<string> idField_ {};
+    // Field Name of Name
     shared_ptr<string> nameField_ {};
+    // List of model data rows
     shared_ptr<vector<ModelRowDTO>> rows_ {};
   };
 

@@ -110,13 +110,21 @@ namespace Models
 
 
   protected:
+    // List of column definitions
     shared_ptr<vector<MetricDefRespDTO>> columns_ {};
+    // Current granularity: daily/hourly
     shared_ptr<string> granularity_ {};
+    // Model ID
     shared_ptr<int64_t> modelId_ {};
+    // Model name
     shared_ptr<string> modelName_ {};
+    // Current page
     shared_ptr<int32_t> page_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
+    // List of data rows
     shared_ptr<vector<CostModelDetailRowDTO>> rows_ {};
+    // Total number of entries
     shared_ptr<int32_t> total_ {};
   };
 

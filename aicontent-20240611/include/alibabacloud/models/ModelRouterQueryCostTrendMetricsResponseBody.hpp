@@ -106,14 +106,21 @@ namespace Models
 
 
   protected:
+    // The data object containing the cost trend metrics.
     shared_ptr<CostQueryTrendDTO> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
+    // A token to retrieve the next page of results. If no token is returned, all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The unique request ID. If you encounter a problem, provide this ID to technical support for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of `true` indicates success, and `false` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

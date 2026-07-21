@@ -86,6 +86,7 @@ namespace Models
 
 
       protected:
+        // The refined sentence.
         shared_ptr<string> result_ {};
       };
 
@@ -100,6 +101,7 @@ namespace Models
 
 
     protected:
+      // The result data.
       shared_ptr<Data::Result> result_ {};
     };
 
@@ -150,12 +152,17 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<ExecuteTextbookAssistantRefineByContextResponseBody::Data> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<int32_t> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Id of the request
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // A value of `true` indicates that the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

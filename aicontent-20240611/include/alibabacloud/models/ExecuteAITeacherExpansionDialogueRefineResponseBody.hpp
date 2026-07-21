@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The refinement result.
       shared_ptr<string> result_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The object that contains the refinement result.
     shared_ptr<ExecuteAITeacherExpansionDialogueRefineResponseBody::Data> data_ {};
+    // The error code. Returned only when the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message. Returned only when the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

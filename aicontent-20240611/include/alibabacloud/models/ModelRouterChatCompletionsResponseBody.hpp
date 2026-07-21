@@ -86,11 +86,17 @@ namespace Models
 
 
   protected:
+    // Contains the core response data.
     Darabonba::Json data_ {};
+    // The error code returned when a request fails.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // A unique request identifier for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

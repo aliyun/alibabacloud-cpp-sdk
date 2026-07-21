@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The API authorization token. You can obtain the token by calling the operation that generates the token for the English Textbook-style AI Teacher feature.
     shared_ptr<string> authToken_ {};
+    // A list of scene IDs.
     shared_ptr<vector<string>> sceneIdList_ {};
   };
 

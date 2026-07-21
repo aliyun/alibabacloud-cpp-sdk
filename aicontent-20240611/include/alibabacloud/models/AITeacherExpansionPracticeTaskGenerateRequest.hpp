@@ -108,16 +108,28 @@ namespace Models
 
 
   protected:
+    // The grade.
+    // 
     // This parameter is required.
     shared_ptr<string> grade_ {};
+    // A list of key sentences from the `textContent` to focus on during task generation.
     shared_ptr<vector<string>> keySentences_ {};
+    // A list of keywords from the `textContent` to focus on during task generation.
     shared_ptr<vector<string>> keyWords_ {};
+    // The learning object to guide task generation.
     shared_ptr<string> learningObject_ {};
+    // The reference article used to generate questions.
+    // 
     // This parameter is required.
     shared_ptr<string> textContent_ {};
+    // The name of the textbook.
     shared_ptr<string> textbook_ {};
+    // The conversation topic.
+    // 
     // This parameter is required.
     shared_ptr<string> topic_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The authorization token. Obtain this token from the API to send Service Window messages.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The directory ID. Obtain this ID by calling the API to retrieve textbook directories.
+    // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
   };

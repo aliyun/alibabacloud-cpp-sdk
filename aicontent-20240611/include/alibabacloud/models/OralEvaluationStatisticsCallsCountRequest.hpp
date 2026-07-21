@@ -77,9 +77,13 @@ namespace Models
   protected:
     // appId,appkey
     shared_ptr<string> applicationAccessId_ {};
+    // End Time
     shared_ptr<string> endTime_ {};
+    // Query granularity (hour, Day, month)
     shared_ptr<string> granularity_ {};
+    // project ID
     shared_ptr<string> projectId_ {};
+    // Start Time
     shared_ptr<string> startTime_ {};
   };
 

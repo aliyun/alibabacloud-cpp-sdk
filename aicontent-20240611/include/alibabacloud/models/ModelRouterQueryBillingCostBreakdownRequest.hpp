@@ -131,17 +131,30 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
+    // The ID of the client to query. If not specified, data for all clients is returned.
     shared_ptr<int64_t> clientId_ {};
+    // The end time for the query, specified as a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The granularity for data aggregation. Valid values: `hourly` and `daily`.
+    // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The maximum number of results to return. This parameter is used for pagination along with `nextToken` and is mutually exclusive with `page` and `pageSize`.
     shared_ptr<int32_t> maxResults_ {};
+    // The ID of the model to query. If not specified, data for all models is returned.
     shared_ptr<int64_t> modelId_ {};
+    // The types of the models to query, separated by commas. For example: `Chat,Embedding`. If not specified, data for all model types is returned.
     shared_ptr<string> modelTypes_ {};
+    // The pagination token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The page number. Default: 1.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page. Default: 20. Maximum: 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time for the query, specified as a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

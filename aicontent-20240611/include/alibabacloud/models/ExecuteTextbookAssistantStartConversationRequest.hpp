@@ -57,10 +57,30 @@ namespace Models
 
 
   protected:
+    // How you obtain this ID depends on the value of `scenario`.
+    // 
+    // **When the `scenario` input parameter is `SYNC`:**
+    // 
+    // 1. From the `Get Article List` response, use the top-level `articleId` field.
+    // 
+    // 2. From the `Get Article Details` response, use the top-level `articleId` field.
+    // 
+    // **When the `scenario` input parameter is `EXPAND`:**
+    // 
+    // 1. From the `Get Article Details` response, use the `sceneid` field from an element in the `sceneList` array.
+    // 
     // This parameter is required.
     shared_ptr<string> articleId_ {};
+    // The authorization token for the API call. Obtain this token by calling the operation that provides the authorization token for the textbook-style AI teacher feature.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The practice scenario. Valid values:
+    // 
+    // `SYNC`: synchronous practice
+    // 
+    // `EXPAND`: expansion practice
+    // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
   };

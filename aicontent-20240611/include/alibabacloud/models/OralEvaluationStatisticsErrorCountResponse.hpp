@@ -135,8 +135,12 @@ namespace Models
 
 
           protected:
+            // The count for the statistical item.
+            // 
             // This parameter is required.
             shared_ptr<int32_t> count_ {};
+            // The name of the statistical item, which defines the display granularity.
+            // 
             // This parameter is required.
             shared_ptr<string> name_ {};
           };
@@ -167,8 +171,11 @@ namespace Models
 
 
         protected:
+          // A list of statistical items.
           shared_ptr<vector<Data::DataItem>> data_ {};
+          // The error code.
           shared_ptr<string> errorCode_ {};
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -191,8 +198,9 @@ namespace Models
 
 
       protected:
+        // A list of datasets.
         shared_ptr<vector<ApplicationData::Data>> data_ {};
-        // appId,appkey
+        // The App ID or App Key.
         // 
         // This parameter is required.
         shared_ptr<string> applicationAccessId_ {};
@@ -217,7 +225,10 @@ namespace Models
 
 
     protected:
+      // A list of statistical data objects for the application.
       shared_ptr<vector<ProjectData::ApplicationData>> applicationData_ {};
+      // The internal ID of the application.
+      // 
       // This parameter is required.
       shared_ptr<string> applicationInternalId_ {};
     };
@@ -241,7 +252,10 @@ namespace Models
 
 
   protected:
+    // Contains the statistical data aggregated by project.
     shared_ptr<OralEvaluationStatisticsErrorCountResponse::ProjectData> projectData_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
   };

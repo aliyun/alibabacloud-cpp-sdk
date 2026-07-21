@@ -103,17 +103,30 @@ namespace Models
 
 
   protected:
+    // The unique ID for the chat session.
     shared_ptr<string> chatId_ {};
+    // The user\\"s chat message.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The grade level.
     shared_ptr<int64_t> grade_ {};
+    // A unique identifier for the question.
     shared_ptr<string> questionId_ {};
+    // The user\\"s question.
+    // 
     // This parameter is required.
     shared_ptr<string> questionInfo_ {};
+    // The response mode. Set this to `streaming` to receive the response as a stream of events.
+    // 
     // This parameter is required.
     shared_ptr<string> responseMode_ {};
+    // The user\\"s answer to the question.
+    // 
     // This parameter is required.
     shared_ptr<string> userAnswer_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

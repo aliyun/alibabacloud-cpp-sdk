@@ -51,7 +51,10 @@ namespace Models
 
 
   protected:
+    // A list of article IDs to retrieve.
     shared_ptr<vector<string>> articleIdList_ {};
+    // The authorization token obtained from the "Get Authorization Token for the English Textbook-Style AI Teacher" API.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
   };

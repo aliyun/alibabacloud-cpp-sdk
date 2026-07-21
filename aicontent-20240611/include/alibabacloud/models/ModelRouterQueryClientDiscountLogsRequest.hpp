@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
+    // The token to retrieve the next page of results. Omit this parameter to get the first page.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The translation result.
       shared_ptr<string> result_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ExecuteAITeacherExpansionDialogueTranslateResponseBody::Data> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

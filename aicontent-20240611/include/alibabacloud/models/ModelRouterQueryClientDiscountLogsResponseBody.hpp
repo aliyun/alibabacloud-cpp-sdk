@@ -146,14 +146,23 @@ namespace Models
 
 
     protected:
+      // The client ID.
       shared_ptr<int64_t> clientId_ {};
+      // A flag that indicates whether the record is deleted. A value of 0 means the record is active.
       shared_ptr<int64_t> deleteTag_ {};
+      // The discount.
       shared_ptr<float> discount_ {};
+      // The time when the discount took effect.
       shared_ptr<string> effectiveTime_ {};
+      // The time when the discount expires.
       shared_ptr<string> expireTime_ {};
+      // The time when the record was created.
       shared_ptr<string> gmtCreate_ {};
+      // The time when the record was last modified.
       shared_ptr<string> gmtModified_ {};
+      // The record ID.
       shared_ptr<int64_t> id_ {};
+      // The remark.
       shared_ptr<string> remark_ {};
     };
 
@@ -219,15 +228,21 @@ namespace Models
 
 
   protected:
+    // The list of discount modification logs.
     shared_ptr<vector<ModelRouterQueryClientDiscountLogsResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // maxResults
+    // The maximum number of results returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
+    // The token to use in a subsequent request to retrieve the next page of results. If this parameter is not returned, all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

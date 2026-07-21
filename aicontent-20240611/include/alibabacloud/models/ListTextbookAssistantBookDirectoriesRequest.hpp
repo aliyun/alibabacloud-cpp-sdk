@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The API authorization token. You can obtain this token from the authorization API for the AI English teacher feature.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The book ID. You can obtain this ID from the API for retrieving English textbooks.
+    // 
     // This parameter is required.
     shared_ptr<string> bookId_ {};
+    // The exercise scenario.
+    // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
   };

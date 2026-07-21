@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The client ID. A value of `null` represents the default client.
     shared_ptr<int64_t> clientId_ {};
   };
 

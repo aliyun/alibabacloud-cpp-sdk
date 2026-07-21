@@ -126,12 +126,19 @@ namespace Models
 
 
     protected:
+      // The time when the inference job was created.
       shared_ptr<string> createTime_ {};
+      // The ID of the inference job.
       shared_ptr<string> id_ {};
+      // The status of the inference job.
       shared_ptr<string> jobStatus_ {};
+      // The progress of the inference job.
       shared_ptr<double> jobTrainProgress_ {};
+      // The ID of the model.
       shared_ptr<string> modelId_ {};
+      // The ID of the prompt.
       shared_ptr<string> promptId_ {};
+      // A list of URLs for the generated images.
       shared_ptr<vector<string>> resultImageUrl_ {};
     };
 
@@ -182,11 +189,17 @@ namespace Models
 
 
   protected:
+    // The object that contains the query results.
     shared_ptr<Personalizedtxt2imgQueryInferenceJobInfoResponseBody::Data> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

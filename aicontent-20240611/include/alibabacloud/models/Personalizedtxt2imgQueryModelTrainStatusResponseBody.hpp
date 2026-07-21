@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The model training status.
       shared_ptr<string> modelTrainStatus_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<Personalizedtxt2imgQueryModelTrainStatusResponseBody::Data> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

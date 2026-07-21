@@ -122,18 +122,28 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
+    // The department ID by which to filter results.
     shared_ptr<int64_t> clientId_ {};
+    // The end of the time range to query, specified as a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // maxResults
+    // The maximum number of results to return per page. This parameter is recommended for pagination.
     shared_ptr<int32_t> maxResults_ {};
+    // The model ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> modelId_ {};
-    // nextToken
+    // The token to retrieve the next page of results. Obtain this token from the `nextToken` field in a previous response.
     shared_ptr<string> nextToken_ {};
+    // The page number. This parameter is part of an older pagination method. For better performance and consistency, use `maxResults` and `nextToken` instead.
     shared_ptr<int32_t> page_ {};
+    // The page number. This parameter is part of an older pagination method. For better performance and consistency, use `maxResults` and `nextToken` instead.
     shared_ptr<int32_t> pageIndex_ {};
+    // The page size. Default: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The start of the time range to query, specified as a Unix timestamp in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

@@ -112,8 +112,12 @@ namespace Models
 
 
         protected:
+          // The corresponding count.
+          // 
           // This parameter is required.
           shared_ptr<int32_t> count_ {};
+          // The name of the statistic.
+          // 
           // This parameter is required.
           shared_ptr<string> name_ {};
         };
@@ -137,8 +141,9 @@ namespace Models
 
 
       protected:
+        // A list of data objects.
         shared_ptr<vector<ApplicationData::Data>> data_ {};
-        // appkey
+        // The appkey.
         // 
         // This parameter is required.
         shared_ptr<string> applicationAccessId_ {};
@@ -163,7 +168,10 @@ namespace Models
 
 
     protected:
+      // A list of application data objects.
       shared_ptr<vector<ProjectData::ApplicationData>> applicationData_ {};
+      // The internal application ID.
+      // 
       // This parameter is required.
       shared_ptr<string> applicationInternalId_ {};
     };
@@ -187,8 +195,12 @@ namespace Models
 
 
   protected:
+    // The project statistics.
+    // 
     // This parameter is required.
     shared_ptr<OralEvaluationStatisticsCallsCountResponse::ProjectData> projectData_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
   };

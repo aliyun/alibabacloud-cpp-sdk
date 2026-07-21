@@ -164,15 +164,24 @@ namespace Models
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
     shared_ptr<string> apiKeyName_ {};
+    // Billing type; currently fixed as total_amount
     shared_ptr<string> billingType_ {};
+    // Department ID; 0 indicates no associated department
     shared_ptr<int64_t> clientId_ {};
+    // Department name
     shared_ptr<string> clientName_ {};
     shared_ptr<string> dimValues_ {};
+    // Model identifier
     shared_ptr<string> modelCode_ {};
+    // Model ID
     shared_ptr<int64_t> modelId_ {};
+    // Model name
     shared_ptr<string> modelName_ {};
+    // Statistics category
     shared_ptr<string> modelType_ {};
+    // Payable amount, rounded to 8 decimal places
     shared_ptr<float> payableAmount_ {};
+    // Statistics time point, Unix timestamp (seconds)
     shared_ptr<int64_t> summaryTime_ {};
     shared_ptr<vector<BillingBillTierDTO>> tiers_ {};
     shared_ptr<string> values_ {};

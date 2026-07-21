@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The authorization token. Obtain this token by calling the API that authorizes the Textbook Assistant feature.
     shared_ptr<string> authToken_ {};
+    // The scenario. Valid values: `SYNC` (synchronized practice) and `EXPAND` (extended practice).
+    // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
   };

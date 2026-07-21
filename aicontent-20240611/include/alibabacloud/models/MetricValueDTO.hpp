@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Metric key name
     shared_ptr<string> key_ {};
+    // Metric display name
     shared_ptr<string> label_ {};
+    // Metric unit
     shared_ptr<string> unit_ {};
+    // Metric value
     shared_ptr<float> value_ {};
   };
 

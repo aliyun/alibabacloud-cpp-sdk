@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // Filters the results by the specified client ID.
     shared_ptr<int64_t> clientId_ {};
+    // The grouping field.
     shared_ptr<string> groupBy_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Specifies whether to return the total count of results.
     shared_ptr<bool> needTotalCount_ {};
+    // The token for retrieving the next page of results. An empty value indicates that all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The sort field.
     shared_ptr<string> orderBy_ {};
+    // The sort order.
     shared_ptr<string> orderDirection_ {};
+    // The page number to retrieve.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of results per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters the results by the specified status.
     shared_ptr<int32_t> status_ {};
   };
 

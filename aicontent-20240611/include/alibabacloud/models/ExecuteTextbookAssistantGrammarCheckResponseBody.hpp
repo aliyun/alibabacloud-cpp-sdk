@@ -105,8 +105,11 @@ namespace Models
 
 
       protected:
+        // The error analysis.
         shared_ptr<string> analysis_ {};
+        // The corrected sentence.
         shared_ptr<string> correction_ {};
+        // The grammar check result. Valid values: `Has_Error` (an error was found), `No_Error` (no errors were found), and `Invalid_Sentence` (the sentence could not be parsed).
         shared_ptr<string> correctionStatus_ {};
       };
 
@@ -121,6 +124,7 @@ namespace Models
 
 
     protected:
+      // The result data.
       shared_ptr<Data::Result> result_ {};
     };
 
@@ -171,12 +175,17 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<ExecuteTextbookAssistantGrammarCheckResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

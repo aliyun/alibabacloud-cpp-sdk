@@ -21,7 +21,7 @@ namespace AiContent20240611
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 拓展练问答对生成
+       * @summary Generate Q&A pairs to expand data.
        *
        * @param request AITeacherExpansionPracticeTaskGenerateRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace AiContent20240611
       Models::AITeacherExpansionPracticeTaskGenerateResponse aITeacherExpansionPracticeTaskGenerateWithOptions(const Models::AITeacherExpansionPracticeTaskGenerateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 拓展练问答对生成
+       * @summary Generate Q&A pairs to expand data.
        *
        * @param request AITeacherExpansionPracticeTaskGenerateRequest
        * @return AITeacherExpansionPracticeTaskGenerateResponse
@@ -39,7 +39,7 @@ namespace AiContent20240611
       Models::AITeacherExpansionPracticeTaskGenerateResponse aITeacherExpansionPracticeTaskGenerate(const Models::AITeacherExpansionPracticeTaskGenerateRequest &request);
 
       /**
-       * @summary 同步基础练问答对生成
+       * @summary Synchronous basic practice is primarily for dialogue tasks with a ground truth. Although this mode allows some deviation from the ground truth, the AI strictly requires users to follow it.
        *
        * @param request AITeacherSyncPracticeTaskGenerateRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace AiContent20240611
       Models::AITeacherSyncPracticeTaskGenerateResponse aITeacherSyncPracticeTaskGenerateWithOptions(const Models::AITeacherSyncPracticeTaskGenerateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步基础练问答对生成
+       * @summary Synchronous basic practice is primarily for dialogue tasks with a ground truth. Although this mode allows some deviation from the ground truth, the AI strictly requires users to follow it.
        *
        * @param request AITeacherSyncPracticeTaskGenerateRequest
        * @return AITeacherSyncPracticeTaskGenerateResponse
@@ -57,7 +57,7 @@ namespace AiContent20240611
       Models::AITeacherSyncPracticeTaskGenerateResponse aITeacherSyncPracticeTaskGenerate(const Models::AITeacherSyncPracticeTaskGenerateRequest &request);
 
       /**
-       * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+       * @summary Lists the services available on the Alibaba Cloud Console.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,14 +66,14 @@ namespace AiContent20240611
       Models::AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieListWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+       * @summary Lists the services available on the Alibaba Cloud Console.
        *
        * @return AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse
        */
       Models::AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse aliyunConsoleOpenApiQueryAliyunConsoleServcieList();
 
       /**
-       * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+       * @summary Lists the services available in the Alibaba Cloud console.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -82,14 +82,14 @@ namespace AiContent20240611
       Models::AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/列出阿里云控制台上可使用的服务列表
+       * @summary Lists the services available in the Alibaba Cloud console.
        *
        * @return AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse
        */
       Models::AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse aliyunConsoleOpenApiQueryAliyunConsoleServiceList();
 
       /**
-       * @summary 阿里云控制台/列出购买过的资源列表
+       * @summary Alibaba Cloud Management Console / List purchased resources
        *
        * @param request AliyunConsoleOpenApiQueryPaidResourceRequest
        * @param headers map
@@ -99,7 +99,7 @@ namespace AiContent20240611
       Models::AliyunConsoleOpenApiQueryPaidResourceResponse aliyunConsoleOpenApiQueryPaidResourceWithOptions(const Models::AliyunConsoleOpenApiQueryPaidResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/列出购买过的资源列表
+       * @summary Alibaba Cloud Management Console / List purchased resources
        *
        * @param request AliyunConsoleOpenApiQueryPaidResourceRequest
        * @return AliyunConsoleOpenApiQueryPaidResourceResponse
@@ -107,7 +107,7 @@ namespace AiContent20240611
       Models::AliyunConsoleOpenApiQueryPaidResourceResponse aliyunConsoleOpenApiQueryPaidResource(const Models::AliyunConsoleOpenApiQueryPaidResourceRequest &request);
 
       /**
-       * @summary 智能批改/口语评测/统计/调用量
+       * @summary Intelligent Correction / Oral Evaluation / Statistics / call volume
        *
        * @param request CountOralEvaluationStatisticsCallsRequest
        * @param headers map
@@ -117,7 +117,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsCallsResponse countOralEvaluationStatisticsCallsWithOptions(const Models::CountOralEvaluationStatisticsCallsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能批改/口语评测/统计/调用量
+       * @summary Intelligent Correction / Oral Evaluation / Statistics / call volume
        *
        * @param request CountOralEvaluationStatisticsCallsRequest
        * @return CountOralEvaluationStatisticsCallsResponse
@@ -125,7 +125,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsCallsResponse countOralEvaluationStatisticsCalls(const Models::CountOralEvaluationStatisticsCallsRequest &request);
 
       /**
-       * @summary 智能批改/口语评测/统计/并发数
+       * @summary Intelligent grading / oral evaluation / statistics / concurrency
        *
        * @param request CountOralEvaluationStatisticsConcurrentRequest
        * @param headers map
@@ -135,7 +135,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsConcurrentResponse countOralEvaluationStatisticsConcurrentWithOptions(const Models::CountOralEvaluationStatisticsConcurrentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能批改/口语评测/统计/并发数
+       * @summary Intelligent grading / oral evaluation / statistics / concurrency
        *
        * @param request CountOralEvaluationStatisticsConcurrentRequest
        * @return CountOralEvaluationStatisticsConcurrentResponse
@@ -143,7 +143,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsConcurrentResponse countOralEvaluationStatisticsConcurrent(const Models::CountOralEvaluationStatisticsConcurrentRequest &request);
 
       /**
-       * @summary 智能批改/口语评测/统计/调用错误
+       * @summary Retrieves statistics about API call errors for the oral evaluation service.
        *
        * @param request CountOralEvaluationStatisticsErrorRequest
        * @param headers map
@@ -153,7 +153,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsErrorResponse countOralEvaluationStatisticsErrorWithOptions(const Models::CountOralEvaluationStatisticsErrorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能批改/口语评测/统计/调用错误
+       * @summary Retrieves statistics about API call errors for the oral evaluation service.
        *
        * @param request CountOralEvaluationStatisticsErrorRequest
        * @return CountOralEvaluationStatisticsErrorResponse
@@ -161,7 +161,7 @@ namespace AiContent20240611
       Models::CountOralEvaluationStatisticsErrorResponse countOralEvaluationStatisticsError(const Models::CountOralEvaluationStatisticsErrorRequest &request);
 
       /**
-       * @summary 阿里云控制台/授权凭证创建
+       * @summary Creates an access warrant.
        *
        * @param request CreateAccessWarrantRequest
        * @param headers map
@@ -171,7 +171,7 @@ namespace AiContent20240611
       Models::CreateAccessWarrantResponse createAccessWarrantWithOptions(const Models::CreateAccessWarrantRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/授权凭证创建
+       * @summary Creates an access warrant.
        *
        * @param request CreateAccessWarrantRequest
        * @return CreateAccessWarrantResponse
@@ -179,7 +179,7 @@ namespace AiContent20240611
       Models::CreateAccessWarrantResponse createAccessWarrant(const Models::CreateAccessWarrantRequest &request);
 
       /**
-       * @summary 阿里云控制台/创建项目
+       * @summary Alibaba Cloud console > Create Project
        *
        * @param request CreateProjectRequest
        * @param headers map
@@ -189,7 +189,7 @@ namespace AiContent20240611
       Models::CreateProjectResponse createProjectWithOptions(const Models::CreateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/创建项目
+       * @summary Alibaba Cloud console > Create Project
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -197,7 +197,7 @@ namespace AiContent20240611
       Models::CreateProjectResponse createProject(const Models::CreateProjectRequest &request);
 
       /**
-       * @summary 中文作文辅导
+       * @summary Executes a workflow for Chinese composition tutoring.
        *
        * @param request ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
        * @param headers map
@@ -207,7 +207,7 @@ namespace AiContent20240611
       FutureGenerator<Models::ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse> executeAITeacherChineseCompositionTutoringWorkflowRunWithSSE(const Models::ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 中文作文辅导
+       * @summary Executes a workflow for Chinese composition tutoring.
        *
        * @param request ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
        * @param headers map
@@ -217,7 +217,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions(const Models::ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 中文作文辅导
+       * @summary Executes a workflow for Chinese composition tutoring.
        *
        * @param request ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
        * @return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
@@ -225,7 +225,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse executeAITeacherChineseCompositionTutoringWorkflowRun(const Models::ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest &request);
 
       /**
-       * @summary 英语作文辅导
+       * @summary English Composition Tutoring
        *
        * @param request ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
        * @param headers map
@@ -235,7 +235,7 @@ namespace AiContent20240611
       FutureGenerator<Models::ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse> executeAITeacherEnglishCompositionTutoringWorkflowRunWithSSE(const Models::ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 英语作文辅导
+       * @summary English Composition Tutoring
        *
        * @param request ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
        * @param headers map
@@ -245,7 +245,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions(const Models::ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 英语作文辅导
+       * @summary English Composition Tutoring
        *
        * @param request ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
        * @return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
@@ -253,7 +253,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse executeAITeacherEnglishCompositionTutoringWorkflowRun(const Models::ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest &request);
 
       /**
-       * @summary 英文释义
+       * @summary Answers English-related questions.
        *
        * @param request ExecuteAITeacherEnglishParaphraseChatMessageRequest
        * @param headers map
@@ -263,7 +263,7 @@ namespace AiContent20240611
       FutureGenerator<Models::ExecuteAITeacherEnglishParaphraseChatMessageResponse> executeAITeacherEnglishParaphraseChatMessageWithSSE(const Models::ExecuteAITeacherEnglishParaphraseChatMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 英文释义
+       * @summary Answers English-related questions.
        *
        * @param request ExecuteAITeacherEnglishParaphraseChatMessageRequest
        * @param headers map
@@ -273,7 +273,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherEnglishParaphraseChatMessageResponse executeAITeacherEnglishParaphraseChatMessageWithOptions(const Models::ExecuteAITeacherEnglishParaphraseChatMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 英文释义
+       * @summary Answers English-related questions.
        *
        * @param request ExecuteAITeacherEnglishParaphraseChatMessageRequest
        * @return ExecuteAITeacherEnglishParaphraseChatMessageResponse
@@ -281,7 +281,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherEnglishParaphraseChatMessageResponse executeAITeacherEnglishParaphraseChatMessage(const Models::ExecuteAITeacherEnglishParaphraseChatMessageRequest &request);
 
       /**
-       * @summary 进行拓展练对话
+       * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
        *
        * @param request ExecuteAITeacherExpansionDialogueRequest
        * @param headers map
@@ -291,7 +291,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueResponse executeAITeacherExpansionDialogueWithOptions(const Models::ExecuteAITeacherExpansionDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进行拓展练对话
+       * @summary Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
        *
        * @param request ExecuteAITeacherExpansionDialogueRequest
        * @return ExecuteAITeacherExpansionDialogueResponse
@@ -299,7 +299,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueResponse executeAITeacherExpansionDialogue(const Models::ExecuteAITeacherExpansionDialogueRequest &request);
 
       /**
-       * @summary 拓展练根据上下文进行润色
+       * @summary Uses context to polish the expanded text.
        *
        * @param request ExecuteAITeacherExpansionDialogueRefineRequest
        * @param headers map
@@ -309,7 +309,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueRefineResponse executeAITeacherExpansionDialogueRefineWithOptions(const Models::ExecuteAITeacherExpansionDialogueRefineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 拓展练根据上下文进行润色
+       * @summary Uses context to polish the expanded text.
        *
        * @param request ExecuteAITeacherExpansionDialogueRefineRequest
        * @return ExecuteAITeacherExpansionDialogueRefineResponse
@@ -317,7 +317,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueRefineResponse executeAITeacherExpansionDialogueRefine(const Models::ExecuteAITeacherExpansionDialogueRefineRequest &request);
 
       /**
-       * @summary 拓展练语境翻译
+       * @summary Further Contextual Translation Practice.
        *
        * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
        * @param headers map
@@ -327,7 +327,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueTranslateResponse executeAITeacherExpansionDialogueTranslateWithOptions(const Models::ExecuteAITeacherExpansionDialogueTranslateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 拓展练语境翻译
+       * @summary Further Contextual Translation Practice.
        *
        * @param request ExecuteAITeacherExpansionDialogueTranslateRequest
        * @return ExecuteAITeacherExpansionDialogueTranslateResponse
@@ -335,7 +335,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherExpansionDialogueTranslateResponse executeAITeacherExpansionDialogueTranslate(const Models::ExecuteAITeacherExpansionDialogueTranslateRequest &request);
 
       /**
-       * @summary 语法检测
+       * @summary Performs a grammar check.
        *
        * @param request ExecuteAITeacherGrammarCheckRequest
        * @param headers map
@@ -345,7 +345,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherGrammarCheckResponse executeAITeacherGrammarCheckWithOptions(const Models::ExecuteAITeacherGrammarCheckRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 语法检测
+       * @summary Performs a grammar check.
        *
        * @param request ExecuteAITeacherGrammarCheckRequest
        * @return ExecuteAITeacherGrammarCheckResponse
@@ -353,7 +353,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherGrammarCheckResponse executeAITeacherGrammarCheck(const Models::ExecuteAITeacherGrammarCheckRequest &request);
 
       /**
-       * @summary 进行同步练对话
+       * @summary Practice synchronous dialogue.
        *
        * @param request ExecuteAITeacherSyncDialogueRequest
        * @param headers map
@@ -363,7 +363,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogueWithOptions(const Models::ExecuteAITeacherSyncDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进行同步练对话
+       * @summary Practice synchronous dialogue.
        *
        * @param request ExecuteAITeacherSyncDialogueRequest
        * @return ExecuteAITeacherSyncDialogueResponse
@@ -371,7 +371,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueResponse executeAITeacherSyncDialogue(const Models::ExecuteAITeacherSyncDialogueRequest &request);
 
       /**
-       * @summary 同步练语境翻译
+       * @summary You can practice contextual translation in real-time.
        *
        * @param request ExecuteAITeacherSyncDialogueTranslateRequest
        * @param headers map
@@ -381,7 +381,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslateWithOptions(const Models::ExecuteAITeacherSyncDialogueTranslateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步练语境翻译
+       * @summary You can practice contextual translation in real-time.
        *
        * @param request ExecuteAITeacherSyncDialogueTranslateRequest
        * @return ExecuteAITeacherSyncDialogueTranslateResponse
@@ -389,7 +389,7 @@ namespace AiContent20240611
       Models::ExecuteAITeacherSyncDialogueTranslateResponse executeAITeacherSyncDialogueTranslate(const Models::ExecuteAITeacherSyncDialogueTranslateRequest &request);
 
       /**
-       * @summary 进行AI对话
+       * @summary Executes a dialogue turn with the Textbook Assistant.
        *
        * @param request ExecuteTextbookAssistantDialogueRequest
        * @param headers map
@@ -399,7 +399,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantDialogueResponse executeTextbookAssistantDialogueWithOptions(const Models::ExecuteTextbookAssistantDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进行AI对话
+       * @summary Executes a dialogue turn with the Textbook Assistant.
        *
        * @param request ExecuteTextbookAssistantDialogueRequest
        * @return ExecuteTextbookAssistantDialogueResponse
@@ -407,7 +407,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantDialogueResponse executeTextbookAssistantDialogue(const Models::ExecuteTextbookAssistantDialogueRequest &request);
 
       /**
-       * @summary 调整难度
+       * @summary Adjusts the difficulty of the textbook assistant\\"s dialogue.
        *
        * @param request ExecuteTextbookAssistantDifficultyRequest
        * @param headers map
@@ -417,7 +417,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantDifficultyResponse executeTextbookAssistantDifficultyWithOptions(const Models::ExecuteTextbookAssistantDifficultyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调整难度
+       * @summary Adjusts the difficulty of the textbook assistant\\"s dialogue.
        *
        * @param request ExecuteTextbookAssistantDifficultyRequest
        * @return ExecuteTextbookAssistantDifficultyResponse
@@ -425,7 +425,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantDifficultyResponse executeTextbookAssistantDifficulty(const Models::ExecuteTextbookAssistantDifficultyRequest &request);
 
       /**
-       * @summary 语法检测
+       * @summary Performs a grammar check.
        *
        * @param request ExecuteTextbookAssistantGrammarCheckRequest
        * @param headers map
@@ -435,7 +435,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantGrammarCheckResponse executeTextbookAssistantGrammarCheckWithOptions(const Models::ExecuteTextbookAssistantGrammarCheckRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 语法检测
+       * @summary Performs a grammar check.
        *
        * @param request ExecuteTextbookAssistantGrammarCheckRequest
        * @return ExecuteTextbookAssistantGrammarCheckResponse
@@ -443,7 +443,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantGrammarCheckResponse executeTextbookAssistantGrammarCheck(const Models::ExecuteTextbookAssistantGrammarCheckRequest &request);
 
       /**
-       * @summary 句子润色
+       * @summary Refines a sentence based on the conversational context.
        *
        * @param request ExecuteTextbookAssistantRefineByContextRequest
        * @param headers map
@@ -453,7 +453,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantRefineByContextResponse executeTextbookAssistantRefineByContextWithOptions(const Models::ExecuteTextbookAssistantRefineByContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 句子润色
+       * @summary Refines a sentence based on the conversational context.
        *
        * @param request ExecuteTextbookAssistantRefineByContextRequest
        * @return ExecuteTextbookAssistantRefineByContextResponse
@@ -461,7 +461,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantRefineByContextResponse executeTextbookAssistantRefineByContext(const Models::ExecuteTextbookAssistantRefineByContextRequest &request);
 
       /**
-       * @summary 对话重试
+       * @summary This operation retries a conversation.
        *
        * @param request ExecuteTextbookAssistantRetryConversationRequest
        * @param headers map
@@ -471,7 +471,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantRetryConversationResponse executeTextbookAssistantRetryConversationWithOptions(const Models::ExecuteTextbookAssistantRetryConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话重试
+       * @summary This operation retries a conversation.
        *
        * @param request ExecuteTextbookAssistantRetryConversationRequest
        * @return ExecuteTextbookAssistantRetryConversationResponse
@@ -479,7 +479,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantRetryConversationResponse executeTextbookAssistantRetryConversation(const Models::ExecuteTextbookAssistantRetryConversationRequest &request);
 
       /**
-       * @summary 进行对话-流式输出
+       * @summary Starts a conversation and returns a streaming output.
        *
        * @param request ExecuteTextbookAssistantSseDialogueRequest
        * @param headers map
@@ -489,7 +489,7 @@ namespace AiContent20240611
       FutureGenerator<Models::ExecuteTextbookAssistantSseDialogueResponse> executeTextbookAssistantSseDialogueWithSSE(const Models::ExecuteTextbookAssistantSseDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进行对话-流式输出
+       * @summary Starts a conversation and returns a streaming output.
        *
        * @param request ExecuteTextbookAssistantSseDialogueRequest
        * @param headers map
@@ -499,7 +499,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantSseDialogueResponse executeTextbookAssistantSseDialogueWithOptions(const Models::ExecuteTextbookAssistantSseDialogueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进行对话-流式输出
+       * @summary Starts a conversation and returns a streaming output.
        *
        * @param request ExecuteTextbookAssistantSseDialogueRequest
        * @return ExecuteTextbookAssistantSseDialogueResponse
@@ -507,7 +507,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantSseDialogueResponse executeTextbookAssistantSseDialogue(const Models::ExecuteTextbookAssistantSseDialogueRequest &request);
 
       /**
-       * @summary 开启自由对话
+       * @summary Starts a conversation with the AI teacher. The teacher then sends the initial message.
        *
        * @param request ExecuteTextbookAssistantStartConversationRequest
        * @param headers map
@@ -517,7 +517,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantStartConversationResponse executeTextbookAssistantStartConversationWithOptions(const Models::ExecuteTextbookAssistantStartConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启自由对话
+       * @summary Starts a conversation with the AI teacher. The teacher then sends the initial message.
        *
        * @param request ExecuteTextbookAssistantStartConversationRequest
        * @return ExecuteTextbookAssistantStartConversationResponse
@@ -525,7 +525,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantStartConversationResponse executeTextbookAssistantStartConversation(const Models::ExecuteTextbookAssistantStartConversationRequest &request);
 
       /**
-       * @summary 获取鉴权参数
+       * @summary Generates a suggested response from the textbook-based AI teacher.
        *
        * @param request ExecuteTextbookAssistantSuggestionRequest
        * @param headers map
@@ -535,7 +535,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantSuggestionResponse executeTextbookAssistantSuggestionWithOptions(const Models::ExecuteTextbookAssistantSuggestionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取鉴权参数
+       * @summary Generates a suggested response from the textbook-based AI teacher.
        *
        * @param request ExecuteTextbookAssistantSuggestionRequest
        * @return ExecuteTextbookAssistantSuggestionResponse
@@ -543,7 +543,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantSuggestionResponse executeTextbookAssistantSuggestion(const Models::ExecuteTextbookAssistantSuggestionRequest &request);
 
       /**
-       * @summary 翻译消息内容
+       * @summary Translates the content of a message.
        *
        * @param request ExecuteTextbookAssistantTranslateRequest
        * @param headers map
@@ -553,7 +553,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantTranslateResponse executeTextbookAssistantTranslateWithOptions(const Models::ExecuteTextbookAssistantTranslateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 翻译消息内容
+       * @summary Translates the content of a message.
        *
        * @param request ExecuteTextbookAssistantTranslateRequest
        * @return ExecuteTextbookAssistantTranslateResponse
@@ -561,7 +561,7 @@ namespace AiContent20240611
       Models::ExecuteTextbookAssistantTranslateResponse executeTextbookAssistantTranslate(const Models::ExecuteTextbookAssistantTranslateRequest &request);
 
       /**
-       * @summary 拓展练小助手
+       * @summary Supplemental Practice Assistant
        *
        * @param request GetAITeacherExpansionDialogueSuggestionRequest
        * @param headers map
@@ -571,7 +571,7 @@ namespace AiContent20240611
       Models::GetAITeacherExpansionDialogueSuggestionResponse getAITeacherExpansionDialogueSuggestionWithOptions(const Models::GetAITeacherExpansionDialogueSuggestionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 拓展练小助手
+       * @summary Supplemental Practice Assistant
        *
        * @param request GetAITeacherExpansionDialogueSuggestionRequest
        * @return GetAITeacherExpansionDialogueSuggestionResponse
@@ -579,7 +579,7 @@ namespace AiContent20240611
       Models::GetAITeacherExpansionDialogueSuggestionResponse getAITeacherExpansionDialogueSuggestion(const Models::GetAITeacherExpansionDialogueSuggestionRequest &request);
 
       /**
-       * @summary 同步练小助手
+       * @summary Sync Practice Assistant
        *
        * @param request GetAITeacherSyncDialogueSuggestionRequest
        * @param headers map
@@ -589,7 +589,7 @@ namespace AiContent20240611
       Models::GetAITeacherSyncDialogueSuggestionResponse getAITeacherSyncDialogueSuggestionWithOptions(const Models::GetAITeacherSyncDialogueSuggestionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步练小助手
+       * @summary Sync Practice Assistant
        *
        * @param request GetAITeacherSyncDialogueSuggestionRequest
        * @return GetAITeacherSyncDialogueSuggestionResponse
@@ -597,7 +597,7 @@ namespace AiContent20240611
       Models::GetAITeacherSyncDialogueSuggestionResponse getAITeacherSyncDialogueSuggestion(const Models::GetAITeacherSyncDialogueSuggestionRequest &request);
 
       /**
-       * @summary 获取请求鉴权参数
+       * @summary Obtains an authorization token to make API calls.
        *
        * @param request GetTextbookAssistantTokenRequest
        * @param headers map
@@ -607,7 +607,7 @@ namespace AiContent20240611
       Models::GetTextbookAssistantTokenResponse getTextbookAssistantTokenWithOptions(const Models::GetTextbookAssistantTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取请求鉴权参数
+       * @summary Obtains an authorization token to make API calls.
        *
        * @param request GetTextbookAssistantTokenRequest
        * @return GetTextbookAssistantTokenResponse
@@ -615,7 +615,7 @@ namespace AiContent20240611
       Models::GetTextbookAssistantTokenResponse getTextbookAssistantToken(const Models::GetTextbookAssistantTokenRequest &request);
 
       /**
-       * @summary 批量获取文章详情
+       * @summary Batch get article details
        *
        * @param request ListTextbookAssistantArticleDetailsRequest
        * @param headers map
@@ -625,7 +625,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantArticleDetailsResponse listTextbookAssistantArticleDetailsWithOptions(const Models::ListTextbookAssistantArticleDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取文章详情
+       * @summary Batch get article details
        *
        * @param request ListTextbookAssistantArticleDetailsRequest
        * @return ListTextbookAssistantArticleDetailsResponse
@@ -633,7 +633,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantArticleDetailsResponse listTextbookAssistantArticleDetails(const Models::ListTextbookAssistantArticleDetailsRequest &request);
 
       /**
-       * @summary 获取文章列表
+       * @summary Returns a list of articles.
        *
        * @param request ListTextbookAssistantArticlesRequest
        * @param headers map
@@ -643,7 +643,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantArticlesResponse listTextbookAssistantArticlesWithOptions(const Models::ListTextbookAssistantArticlesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文章列表
+       * @summary Returns a list of articles.
        *
        * @param request ListTextbookAssistantArticlesRequest
        * @return ListTextbookAssistantArticlesResponse
@@ -651,7 +651,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantArticlesResponse listTextbookAssistantArticles(const Models::ListTextbookAssistantArticlesRequest &request);
 
       /**
-       * @summary 获取书本下的目录信息
+       * @summary Gets the table of contents of a book.
        *
        * @param request ListTextbookAssistantBookDirectoriesRequest
        * @param headers map
@@ -661,7 +661,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantBookDirectoriesResponse listTextbookAssistantBookDirectoriesWithOptions(const Models::ListTextbookAssistantBookDirectoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取书本下的目录信息
+       * @summary Gets the table of contents of a book.
        *
        * @param request ListTextbookAssistantBookDirectoriesRequest
        * @return ListTextbookAssistantBookDirectoriesResponse
@@ -669,7 +669,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantBookDirectoriesResponse listTextbookAssistantBookDirectories(const Models::ListTextbookAssistantBookDirectoriesRequest &request);
 
       /**
-       * @summary 获取包含年级下的书本列表
+       * @summary Retrieves a list of books for a specified grade.
        *
        * @param request ListTextbookAssistantBooksRequest
        * @param headers map
@@ -679,7 +679,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantBooksResponse listTextbookAssistantBooksWithOptions(const Models::ListTextbookAssistantBooksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取包含年级下的书本列表
+       * @summary Retrieves a list of books for a specified grade.
        *
        * @param request ListTextbookAssistantBooksRequest
        * @return ListTextbookAssistantBooksResponse
@@ -687,7 +687,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantBooksResponse listTextbookAssistantBooks(const Models::ListTextbookAssistantBooksRequest &request);
 
       /**
-       * @summary 获取有资源的年级信息
+       * @summary Retrieves the available grades and volumes for the Textbook Assistant.
        *
        * @param request ListTextbookAssistantGradeVolumesRequest
        * @param headers map
@@ -697,7 +697,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantGradeVolumesResponse listTextbookAssistantGradeVolumesWithOptions(const Models::ListTextbookAssistantGradeVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取有资源的年级信息
+       * @summary Retrieves the available grades and volumes for the Textbook Assistant.
        *
        * @param request ListTextbookAssistantGradeVolumesRequest
        * @return ListTextbookAssistantGradeVolumesResponse
@@ -705,7 +705,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantGradeVolumesResponse listTextbookAssistantGradeVolumes(const Models::ListTextbookAssistantGradeVolumesRequest &request);
 
       /**
-       * @summary 获取文章内容详情
+       * @summary Get Article Details
        *
        * @param request ListTextbookAssistantSceneDetailsRequest
        * @param headers map
@@ -715,7 +715,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantSceneDetailsResponse listTextbookAssistantSceneDetailsWithOptions(const Models::ListTextbookAssistantSceneDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文章内容详情
+       * @summary Get Article Details
        *
        * @param request ListTextbookAssistantSceneDetailsRequest
        * @return ListTextbookAssistantSceneDetailsResponse
@@ -723,7 +723,7 @@ namespace AiContent20240611
       Models::ListTextbookAssistantSceneDetailsResponse listTextbookAssistantSceneDetails(const Models::ListTextbookAssistantSceneDetailsRequest &request);
 
       /**
-       * @summary 计费管理/获取成本监控Tab配置
+       * @summary Retrieves the tab configuration for usage monitoring.
        *
        * @param request ModelRouterBillingCostTabsRequest
        * @param headers map
@@ -733,7 +733,7 @@ namespace AiContent20240611
       Models::ModelRouterBillingCostTabsResponse modelRouterBillingCostTabsWithOptions(const Models::ModelRouterBillingCostTabsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/获取成本监控Tab配置
+       * @summary Retrieves the tab configuration for usage monitoring.
        *
        * @param request ModelRouterBillingCostTabsRequest
        * @return ModelRouterBillingCostTabsResponse
@@ -741,7 +741,7 @@ namespace AiContent20240611
       Models::ModelRouterBillingCostTabsResponse modelRouterBillingCostTabs(const Models::ModelRouterBillingCostTabsRequest &request);
 
       /**
-       * @summary 聊天/聊天接口
+       * @summary Generates a chat completion.
        *
        * @param request ModelRouterChatCompletionsRequest
        * @param headers map
@@ -751,7 +751,7 @@ namespace AiContent20240611
       FutureGenerator<Models::ModelRouterChatCompletionsResponse> modelRouterChatCompletionsWithSSE(const Models::ModelRouterChatCompletionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 聊天/聊天接口
+       * @summary Generates a chat completion.
        *
        * @param request ModelRouterChatCompletionsRequest
        * @param headers map
@@ -761,7 +761,7 @@ namespace AiContent20240611
       Models::ModelRouterChatCompletionsResponse modelRouterChatCompletionsWithOptions(const Models::ModelRouterChatCompletionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 聊天/聊天接口
+       * @summary Generates a chat completion.
        *
        * @param request ModelRouterChatCompletionsRequest
        * @return ModelRouterChatCompletionsResponse
@@ -769,7 +769,7 @@ namespace AiContent20240611
       Models::ModelRouterChatCompletionsResponse modelRouterChatCompletions(const Models::ModelRouterChatCompletionsRequest &request);
 
       /**
-       * @summary 客户管理/启用部门余额限流
+       * @summary Configures balance throttling for a department.
        *
        * @param request ModelRouterConfigureClientBalanceRequest
        * @param headers map
@@ -779,7 +779,7 @@ namespace AiContent20240611
       Models::ModelRouterConfigureClientBalanceResponse modelRouterConfigureClientBalanceWithOptions(const string &id, const Models::ModelRouterConfigureClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/启用部门余额限流
+       * @summary Configures balance throttling for a department.
        *
        * @param request ModelRouterConfigureClientBalanceRequest
        * @return ModelRouterConfigureClientBalanceResponse
@@ -787,7 +787,7 @@ namespace AiContent20240611
       Models::ModelRouterConfigureClientBalanceResponse modelRouterConfigureClientBalance(const string &id, const Models::ModelRouterConfigureClientBalanceRequest &request);
 
       /**
-       * @summary API密钥管理/复制API密钥
+       * @summary Copies an API key.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -796,14 +796,14 @@ namespace AiContent20240611
       Models::ModelRouterCopyApiKeyResponse modelRouterCopyApiKeyWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API密钥管理/复制API密钥
+       * @summary Copies an API key.
        *
        * @return ModelRouterCopyApiKeyResponse
        */
       Models::ModelRouterCopyApiKeyResponse modelRouterCopyApiKey(const string &id);
 
       /**
-       * @summary API密钥管理/创建API密钥
+       * @summary API key management / Create an API key
        *
        * @param request ModelRouterCreateApiKeyRequest
        * @param headers map
@@ -813,7 +813,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateApiKeyResponse modelRouterCreateApiKeyWithOptions(const Models::ModelRouterCreateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API密钥管理/创建API密钥
+       * @summary API key management / Create an API key
        *
        * @param request ModelRouterCreateApiKeyRequest
        * @return ModelRouterCreateApiKeyResponse
@@ -821,7 +821,9 @@ namespace AiContent20240611
       Models::ModelRouterCreateApiKeyResponse modelRouterCreateApiKey(const Models::ModelRouterCreateApiKeyRequest &request);
 
       /**
-       * @summary 客户管理/创建余额交易
+       * @summary Creates a balance transaction for customer management.
+       *
+       * @description This operation is deprecated. Do not use it.
        *
        * @param request ModelRouterCreateBalanceTransactionRequest
        * @param headers map
@@ -831,7 +833,9 @@ namespace AiContent20240611
       Models::ModelRouterCreateBalanceTransactionResponse modelRouterCreateBalanceTransactionWithOptions(const string &id, const Models::ModelRouterCreateBalanceTransactionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/创建余额交易
+       * @summary Creates a balance transaction for customer management.
+       *
+       * @description This operation is deprecated. Do not use it.
        *
        * @param request ModelRouterCreateBalanceTransactionRequest
        * @return ModelRouterCreateBalanceTransactionResponse
@@ -839,7 +843,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateBalanceTransactionResponse modelRouterCreateBalanceTransaction(const string &id, const Models::ModelRouterCreateBalanceTransactionRequest &request);
 
       /**
-       * @summary 计费管理/创建计费规则
+       * @summary Billing Management/Create Billing Rule
        *
        * @param request ModelRouterCreateBillingRuleRequest
        * @param headers map
@@ -849,7 +853,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateBillingRuleResponse modelRouterCreateBillingRuleWithOptions(const Models::ModelRouterCreateBillingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/创建计费规则
+       * @summary Billing Management/Create Billing Rule
        *
        * @param request ModelRouterCreateBillingRuleRequest
        * @return ModelRouterCreateBillingRuleResponse
@@ -857,7 +861,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateBillingRuleResponse modelRouterCreateBillingRule(const Models::ModelRouterCreateBillingRuleRequest &request);
 
       /**
-       * @summary 客户管理/创建客户
+       * @summary Client management / Create client
        *
        * @param request ModelRouterCreateClientRequest
        * @param headers map
@@ -867,7 +871,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateClientResponse modelRouterCreateClientWithOptions(const Models::ModelRouterCreateClientRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/创建客户
+       * @summary Client management / Create client
        *
        * @param request ModelRouterCreateClientRequest
        * @return ModelRouterCreateClientResponse
@@ -875,7 +879,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateClientResponse modelRouterCreateClient(const Models::ModelRouterCreateClientRequest &request);
 
       /**
-       * @summary 对话管理/新建对话
+       * @summary Conversation management / Create conversation
        *
        * @param request ModelRouterCreateConversationRequest
        * @param headers map
@@ -885,7 +889,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateConversationResponse modelRouterCreateConversationWithOptions(const Models::ModelRouterCreateConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话管理/新建对话
+       * @summary Conversation management / Create conversation
        *
        * @param request ModelRouterCreateConversationRequest
        * @return ModelRouterCreateConversationResponse
@@ -893,7 +897,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateConversationResponse modelRouterCreateConversation(const Models::ModelRouterCreateConversationRequest &request);
 
       /**
-       * @summary 模型管理/创建模型
+       * @summary Creates a model.
        *
        * @param request ModelRouterCreateModelRequest
        * @param headers map
@@ -903,7 +907,7 @@ namespace AiContent20240611
       Models::ModelRouterCreateModelResponse modelRouterCreateModelWithOptions(const Models::ModelRouterCreateModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型管理/创建模型
+       * @summary Creates a model.
        *
        * @param request ModelRouterCreateModelRequest
        * @return ModelRouterCreateModelResponse
@@ -911,7 +915,29 @@ namespace AiContent20240611
       Models::ModelRouterCreateModelResponse modelRouterCreateModel(const Models::ModelRouterCreateModelRequest &request);
 
       /**
-       * @summary API密钥管理/删除API密钥
+       * @summary 客户管理/创建周期充值订阅
+       *
+       * @description 该接口已弃用，请勿使用
+       *
+       * @param request ModelRouterCreateSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateSubscriptionResponse
+       */
+      Models::ModelRouterCreateSubscriptionResponse modelRouterCreateSubscriptionWithOptions(const string &id, const Models::ModelRouterCreateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/创建周期充值订阅
+       *
+       * @description 该接口已弃用，请勿使用
+       *
+       * @param request ModelRouterCreateSubscriptionRequest
+       * @return ModelRouterCreateSubscriptionResponse
+       */
+      Models::ModelRouterCreateSubscriptionResponse modelRouterCreateSubscription(const string &id, const Models::ModelRouterCreateSubscriptionRequest &request);
+
+      /**
+       * @summary API Key Management / Delete API Key
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,14 +946,14 @@ namespace AiContent20240611
       Models::ModelRouterDeleteApiKeyResponse modelRouterDeleteApiKeyWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API密钥管理/删除API密钥
+       * @summary API Key Management / Delete API Key
        *
        * @return ModelRouterDeleteApiKeyResponse
        */
       Models::ModelRouterDeleteApiKeyResponse modelRouterDeleteApiKey(const string &id);
 
       /**
-       * @summary 客户管理/删除客户
+       * @summary Deletes a client.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -936,14 +962,14 @@ namespace AiContent20240611
       Models::ModelRouterDeleteClientResponse modelRouterDeleteClientWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/删除客户
+       * @summary Deletes a client.
        *
        * @return ModelRouterDeleteClientResponse
        */
       Models::ModelRouterDeleteClientResponse modelRouterDeleteClient(const string &id);
 
       /**
-       * @summary 对话管理/删除对话
+       * @summary Conversation management/Delete conversation
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -952,14 +978,14 @@ namespace AiContent20240611
       Models::ModelRouterDeleteConversationResponse modelRouterDeleteConversationWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话管理/删除对话
+       * @summary Conversation management/Delete conversation
        *
        * @return ModelRouterDeleteConversationResponse
        */
       Models::ModelRouterDeleteConversationResponse modelRouterDeleteConversation(const string &id);
 
       /**
-       * @summary 模型管理/删除模型
+       * @summary Model Management / Delete Model
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -968,14 +994,14 @@ namespace AiContent20240611
       Models::ModelRouterDeleteModelResponse modelRouterDeleteModelWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型管理/删除模型
+       * @summary Model Management / Delete Model
        *
        * @return ModelRouterDeleteModelResponse
        */
       Models::ModelRouterDeleteModelResponse modelRouterDeleteModel(const string &id);
 
       /**
-       * @summary 客户管理/获取部门余额
+       * @summary Client Management/Get department balance
        *
        * @param request ModelRouterGetClientBalanceRequest
        * @param headers map
@@ -985,7 +1011,7 @@ namespace AiContent20240611
       Models::ModelRouterGetClientBalanceResponse modelRouterGetClientBalanceWithOptions(const string &id, const Models::ModelRouterGetClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/获取部门余额
+       * @summary Client Management/Get department balance
        *
        * @param request ModelRouterGetClientBalanceRequest
        * @return ModelRouterGetClientBalanceResponse
@@ -993,7 +1019,7 @@ namespace AiContent20240611
       Models::ModelRouterGetClientBalanceResponse modelRouterGetClientBalance(const string &id, const Models::ModelRouterGetClientBalanceRequest &request);
 
       /**
-       * @summary 客户管理/获取部门余额变更日志
+       * @summary Gets the balance change log for a specified department.
        *
        * @param request ModelRouterGetClientBalanceLogsRequest
        * @param headers map
@@ -1003,7 +1029,7 @@ namespace AiContent20240611
       Models::ModelRouterGetClientBalanceLogsResponse modelRouterGetClientBalanceLogsWithOptions(const string &id, const Models::ModelRouterGetClientBalanceLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/获取部门余额变更日志
+       * @summary Gets the balance change log for a specified department.
        *
        * @param request ModelRouterGetClientBalanceLogsRequest
        * @return ModelRouterGetClientBalanceLogsResponse
@@ -1011,7 +1037,29 @@ namespace AiContent20240611
       Models::ModelRouterGetClientBalanceLogsResponse modelRouterGetClientBalanceLogs(const string &id, const Models::ModelRouterGetClientBalanceLogsRequest &request);
 
       /**
-       * @summary API密钥管理/获取API密钥详情
+       * @summary 客户管理/查询周期充值订阅列表
+       *
+       * @description 该接口已弃用，请勿使用
+       *
+       * @param request ModelRouterListSubscriptionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterListSubscriptionsResponse
+       */
+      Models::ModelRouterListSubscriptionsResponse modelRouterListSubscriptionsWithOptions(const string &id, const Models::ModelRouterListSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/查询周期充值订阅列表
+       *
+       * @description 该接口已弃用，请勿使用
+       *
+       * @param request ModelRouterListSubscriptionsRequest
+       * @return ModelRouterListSubscriptionsResponse
+       */
+      Models::ModelRouterListSubscriptionsResponse modelRouterListSubscriptions(const string &id, const Models::ModelRouterListSubscriptionsRequest &request);
+
+      /**
+       * @summary Retrieves the details of a specific API key.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1020,14 +1068,14 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyResponse modelRouterQueryApiKeyWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API密钥管理/获取API密钥详情
+       * @summary Retrieves the details of a specific API key.
        *
        * @return ModelRouterQueryApiKeyResponse
        */
       Models::ModelRouterQueryApiKeyResponse modelRouterQueryApiKey(const string &id);
 
       /**
-       * @summary API密钥管理/获取API密钥列表
+       * @summary Retrieves a list of API keys.
        *
        * @param request ModelRouterQueryApiKeyListRequest
        * @param headers map
@@ -1037,7 +1085,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyListResponse modelRouterQueryApiKeyListWithOptions(const Models::ModelRouterQueryApiKeyListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary API密钥管理/获取API密钥列表
+       * @summary Retrieves a list of API keys.
        *
        * @param request ModelRouterQueryApiKeyListRequest
        * @return ModelRouterQueryApiKeyListResponse
@@ -1045,7 +1093,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyListResponse modelRouterQueryApiKeyList(const Models::ModelRouterQueryApiKeyListRequest &request);
 
       /**
-       * @summary 计费管理/批量查询计费明细
+       * @summary Billing > Query billing cost breakdown
        *
        * @param request ModelRouterQueryBillingCostBreakdownRequest
        * @param headers map
@@ -1055,7 +1103,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryBillingCostBreakdownResponse modelRouterQueryBillingCostBreakdownWithOptions(const Models::ModelRouterQueryBillingCostBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/批量查询计费明细
+       * @summary Billing > Query billing cost breakdown
        *
        * @param request ModelRouterQueryBillingCostBreakdownRequest
        * @return ModelRouterQueryBillingCostBreakdownResponse
@@ -1063,7 +1111,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryBillingCostBreakdownResponse modelRouterQueryBillingCostBreakdown(const Models::ModelRouterQueryBillingCostBreakdownRequest &request);
 
       /**
-       * @summary 计费管理/查询计费规则列表
+       * @summary Billing management / Query billing rule list
        *
        * @param request ModelRouterQueryBillingRuleListRequest
        * @param headers map
@@ -1073,7 +1121,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryBillingRuleListResponse modelRouterQueryBillingRuleListWithOptions(const Models::ModelRouterQueryBillingRuleListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/查询计费规则列表
+       * @summary Billing management / Query billing rule list
        *
        * @param request ModelRouterQueryBillingRuleListRequest
        * @return ModelRouterQueryBillingRuleListResponse
@@ -1081,7 +1129,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryBillingRuleListResponse modelRouterQueryBillingRuleList(const Models::ModelRouterQueryBillingRuleListRequest &request);
 
       /**
-       * @summary 客户管理/获取部门折扣修改历史
+       * @summary Retrieves the discount modification history for a client.
        *
        * @param request ModelRouterQueryClientDiscountLogsRequest
        * @param headers map
@@ -1091,7 +1139,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientDiscountLogsResponse modelRouterQueryClientDiscountLogsWithOptions(const string &id, const Models::ModelRouterQueryClientDiscountLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/获取部门折扣修改历史
+       * @summary Retrieves the discount modification history for a client.
        *
        * @param request ModelRouterQueryClientDiscountLogsRequest
        * @return ModelRouterQueryClientDiscountLogsResponse
@@ -1099,7 +1147,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientDiscountLogsResponse modelRouterQueryClientDiscountLogs(const string &id, const Models::ModelRouterQueryClientDiscountLogsRequest &request);
 
       /**
-       * @summary 客户管理/获取客户列表
+       * @summary Retrieves a list of clients.
        *
        * @param request ModelRouterQueryClientListRequest
        * @param headers map
@@ -1109,7 +1157,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientListResponse modelRouterQueryClientListWithOptions(const Models::ModelRouterQueryClientListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/获取客户列表
+       * @summary Retrieves a list of clients.
        *
        * @param request ModelRouterQueryClientListRequest
        * @return ModelRouterQueryClientListResponse
@@ -1117,7 +1165,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientListResponse modelRouterQueryClientList(const Models::ModelRouterQueryClientListRequest &request);
 
       /**
-       * @summary 客户管理/获取客户树
+       * @summary Returns a hierarchical tree of customers.
        *
        * @param request ModelRouterQueryClientTreeRequest
        * @param headers map
@@ -1127,7 +1175,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientTreeResponse modelRouterQueryClientTreeWithOptions(const Models::ModelRouterQueryClientTreeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/获取客户树
+       * @summary Returns a hierarchical tree of customers.
        *
        * @param request ModelRouterQueryClientTreeRequest
        * @return ModelRouterQueryClientTreeResponse
@@ -1135,7 +1183,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryClientTreeResponse modelRouterQueryClientTree(const Models::ModelRouterQueryClientTreeRequest &request);
 
       /**
-       * @summary 对话管理/获取对话详情
+       * @summary Retrieves the details of a conversation.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1144,14 +1192,14 @@ namespace AiContent20240611
       Models::ModelRouterQueryConversationResponse modelRouterQueryConversationWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话管理/获取对话详情
+       * @summary Retrieves the details of a conversation.
        *
        * @return ModelRouterQueryConversationResponse
        */
       Models::ModelRouterQueryConversationResponse modelRouterQueryConversation(const string &id);
 
       /**
-       * @summary 对话管理/获取对话列表
+       * @summary Conversation management/Conversation list
        *
        * @param request ModelRouterQueryConversationListRequest
        * @param headers map
@@ -1161,7 +1209,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryConversationListResponse modelRouterQueryConversationListWithOptions(const Models::ModelRouterQueryConversationListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话管理/获取对话列表
+       * @summary Conversation management/Conversation list
        *
        * @param request ModelRouterQueryConversationListRequest
        * @return ModelRouterQueryConversationListResponse
@@ -1169,7 +1217,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryConversationListResponse modelRouterQueryConversationList(const Models::ModelRouterQueryConversationListRequest &request);
 
       /**
-       * @summary 计费管理/获取模型明细
+       * @summary billing management / Model details
        *
        * @param request ModelRouterQueryCostModelDetailRequest
        * @param headers map
@@ -1179,7 +1227,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetailWithOptions(const Models::ModelRouterQueryCostModelDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/获取模型明细
+       * @summary billing management / Model details
        *
        * @param request ModelRouterQueryCostModelDetailRequest
        * @return ModelRouterQueryCostModelDetailResponse
@@ -1187,7 +1235,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetail(const Models::ModelRouterQueryCostModelDetailRequest &request);
 
       /**
-       * @summary 计费管理/获取调用模型列表
+       * @summary billing management / Retrieves a list of invoked models
        *
        * @param request ModelRouterQueryCostModelListRequest
        * @param headers map
@@ -1197,7 +1245,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelListWithOptions(const Models::ModelRouterQueryCostModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/获取调用模型列表
+       * @summary billing management / Retrieves a list of invoked models
        *
        * @param request ModelRouterQueryCostModelListRequest
        * @return ModelRouterQueryCostModelListResponse
@@ -1205,7 +1253,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelList(const Models::ModelRouterQueryCostModelListRequest &request);
 
       /**
-       * @summary 计费管理/获取成本概览指标
+       * @summary billing management / Get cost overview metrics
        *
        * @param request ModelRouterQueryCostOverviewMetricsRequest
        * @param headers map
@@ -1215,7 +1263,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostOverviewMetricsResponse modelRouterQueryCostOverviewMetricsWithOptions(const Models::ModelRouterQueryCostOverviewMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/获取成本概览指标
+       * @summary billing management / Get cost overview metrics
        *
        * @param request ModelRouterQueryCostOverviewMetricsRequest
        * @return ModelRouterQueryCostOverviewMetricsResponse
@@ -1223,7 +1271,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostOverviewMetricsResponse modelRouterQueryCostOverviewMetrics(const Models::ModelRouterQueryCostOverviewMetricsRequest &request);
 
       /**
-       * @summary 计费管理/获取费用趋势
+       * @summary billing management / Cost trends
        *
        * @param request ModelRouterQueryCostTrendMetricsRequest
        * @param headers map
@@ -1233,7 +1281,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostTrendMetricsResponse modelRouterQueryCostTrendMetricsWithOptions(const Models::ModelRouterQueryCostTrendMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/获取费用趋势
+       * @summary billing management / Cost trends
        *
        * @param request ModelRouterQueryCostTrendMetricsRequest
        * @return ModelRouterQueryCostTrendMetricsResponse
@@ -1241,7 +1289,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostTrendMetricsResponse modelRouterQueryCostTrendMetrics(const Models::ModelRouterQueryCostTrendMetricsRequest &request);
 
       /**
-       * @summary 模型管理/获取模型详情
+       * @summary Retrieves details for a specific model.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1250,14 +1298,14 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelResponse modelRouterQueryModelWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型管理/获取模型详情
+       * @summary Retrieves details for a specific model.
        *
        * @return ModelRouterQueryModelResponse
        */
       Models::ModelRouterQueryModelResponse modelRouterQueryModel(const string &id);
 
       /**
-       * @summary 模型管理/获取模型列表
+       * @summary Model management/Get model list
        *
        * @param request ModelRouterQueryModelListRequest
        * @param headers map
@@ -1267,7 +1315,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelListResponse modelRouterQueryModelListWithOptions(const Models::ModelRouterQueryModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型管理/获取模型列表
+       * @summary Model management/Get model list
        *
        * @param request ModelRouterQueryModelListRequest
        * @return ModelRouterQueryModelListResponse
@@ -1275,7 +1323,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelListResponse modelRouterQueryModelList(const Models::ModelRouterQueryModelListRequest &request);
 
       /**
-       * @summary Nacos配置/获取Nacos服务提供者列表
+       * @summary Configures Nacos or retrieves the list of Nacos service providers.
+       *
+       * @description This operation is deprecated. Do not use it.
        *
        * @param request ModelRouterQueryNacosProvidersRequest
        * @param headers map
@@ -1285,7 +1335,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosProvidersResponse modelRouterQueryNacosProvidersWithOptions(const Models::ModelRouterQueryNacosProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Nacos配置/获取Nacos服务提供者列表
+       * @summary Configures Nacos or retrieves the list of Nacos service providers.
+       *
+       * @description This operation is deprecated. Do not use it.
        *
        * @param request ModelRouterQueryNacosProvidersRequest
        * @return ModelRouterQueryNacosProvidersResponse
@@ -1293,7 +1345,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosProvidersResponse modelRouterQueryNacosProviders(const Models::ModelRouterQueryNacosProvidersRequest &request);
 
       /**
-       * @summary Nacos配置/获取Nacos标签列表
+       * @summary Retrieves a list of tags from Nacos.
        *
        * @param request ModelRouterQueryNacosTagsRequest
        * @param headers map
@@ -1303,7 +1355,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosTagsResponse modelRouterQueryNacosTagsWithOptions(const Models::ModelRouterQueryNacosTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Nacos配置/获取Nacos标签列表
+       * @summary Retrieves a list of tags from Nacos.
        *
        * @param request ModelRouterQueryNacosTagsRequest
        * @return ModelRouterQueryNacosTagsResponse
@@ -1311,7 +1363,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosTagsResponse modelRouterQueryNacosTags(const Models::ModelRouterQueryNacosTagsRequest &request);
 
       /**
-       * @summary 模型观测/获取观测图表数据
+       * @summary Retrieves chart data for model observation.
        *
        * @param request ModelRouterQueryObservationChartsRequest
        * @param headers map
@@ -1321,7 +1373,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationChartsResponse modelRouterQueryObservationChartsWithOptions(const Models::ModelRouterQueryObservationChartsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型观测/获取观测图表数据
+       * @summary Retrieves chart data for model observation.
        *
        * @param request ModelRouterQueryObservationChartsRequest
        * @return ModelRouterQueryObservationChartsResponse
@@ -1329,7 +1381,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationChartsResponse modelRouterQueryObservationCharts(const Models::ModelRouterQueryObservationChartsRequest &request);
 
       /**
-       * @summary 模型观测/获取观测日志列表
+       * @summary Model Observation / Observation Logs
        *
        * @param request ModelRouterQueryObservationLogsRequest
        * @param headers map
@@ -1339,7 +1391,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationLogsResponse modelRouterQueryObservationLogsWithOptions(const Models::ModelRouterQueryObservationLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型观测/获取观测日志列表
+       * @summary Model Observation / Observation Logs
        *
        * @param request ModelRouterQueryObservationLogsRequest
        * @return ModelRouterQueryObservationLogsResponse
@@ -1347,7 +1399,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationLogsResponse modelRouterQueryObservationLogs(const Models::ModelRouterQueryObservationLogsRequest &request);
 
       /**
-       * @summary 模型观测/获取观测指标数据
+       * @summary Model Observation > Get Observation Metric Data
        *
        * @param request ModelRouterQueryObservationMetricsRequest
        * @param headers map
@@ -1357,7 +1409,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationMetricsResponse modelRouterQueryObservationMetricsWithOptions(const Models::ModelRouterQueryObservationMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型观测/获取观测指标数据
+       * @summary Model Observation > Get Observation Metric Data
        *
        * @param request ModelRouterQueryObservationMetricsRequest
        * @return ModelRouterQueryObservationMetricsResponse
@@ -1365,7 +1417,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationMetricsResponse modelRouterQueryObservationMetrics(const Models::ModelRouterQueryObservationMetricsRequest &request);
 
       /**
-       * @summary 用量管理/批量查询用量明细
+       * @summary Queries usage details in batches for usage management.
        *
        * @param request ModelRouterQueryUsageBreakdownRequest
        * @param headers map
@@ -1375,7 +1427,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryUsageBreakdownResponse modelRouterQueryUsageBreakdownWithOptions(const Models::ModelRouterQueryUsageBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用量管理/批量查询用量明细
+       * @summary Queries usage details in batches for usage management.
        *
        * @param request ModelRouterQueryUsageBreakdownRequest
        * @return ModelRouterQueryUsageBreakdownResponse
@@ -1383,7 +1435,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryUsageBreakdownResponse modelRouterQueryUsageBreakdown(const Models::ModelRouterQueryUsageBreakdownRequest &request);
 
       /**
-       * @summary 流控管理/写入流控配置
+       * @summary Flow control management / Save flow control configuration
        *
        * @param request ModelRouterSaveFlowConfigRequest
        * @param headers map
@@ -1393,7 +1445,7 @@ namespace AiContent20240611
       Models::ModelRouterSaveFlowConfigResponse modelRouterSaveFlowConfigWithOptions(const Models::ModelRouterSaveFlowConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流控管理/写入流控配置
+       * @summary Flow control management / Save flow control configuration
        *
        * @param request ModelRouterSaveFlowConfigRequest
        * @return ModelRouterSaveFlowConfigResponse
@@ -1401,7 +1453,25 @@ namespace AiContent20240611
       Models::ModelRouterSaveFlowConfigResponse modelRouterSaveFlowConfig(const Models::ModelRouterSaveFlowConfigRequest &request);
 
       /**
-       * @summary 计费管理/更新计费规则
+       * @summary 客户管理/停止周期充值订阅
+       *
+       * @param request ModelRouterStopSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterStopSubscriptionResponse
+       */
+      Models::ModelRouterStopSubscriptionResponse modelRouterStopSubscriptionWithOptions(const string &id, const Models::ModelRouterStopSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/停止周期充值订阅
+       *
+       * @param request ModelRouterStopSubscriptionRequest
+       * @return ModelRouterStopSubscriptionResponse
+       */
+      Models::ModelRouterStopSubscriptionResponse modelRouterStopSubscription(const string &id, const Models::ModelRouterStopSubscriptionRequest &request);
+
+      /**
+       * @summary Billing management/Update billing rules
        *
        * @param request ModelRouterUpdateBillingRuleRequest
        * @param headers map
@@ -1411,7 +1481,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateBillingRuleResponse modelRouterUpdateBillingRuleWithOptions(const string &id, const Models::ModelRouterUpdateBillingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 计费管理/更新计费规则
+       * @summary Billing management/Update billing rules
        *
        * @param request ModelRouterUpdateBillingRuleRequest
        * @return ModelRouterUpdateBillingRuleResponse
@@ -1419,7 +1489,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateBillingRuleResponse modelRouterUpdateBillingRule(const string &id, const Models::ModelRouterUpdateBillingRuleRequest &request);
 
       /**
-       * @summary 客户管理/更新客户
+       * @summary Updates a specified client\\"s information.
        *
        * @param request ModelRouterUpdateClientRequest
        * @param headers map
@@ -1429,7 +1499,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateClientResponse modelRouterUpdateClientWithOptions(const string &id, const Models::ModelRouterUpdateClientRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 客户管理/更新客户
+       * @summary Updates a specified client\\"s information.
        *
        * @param request ModelRouterUpdateClientRequest
        * @return ModelRouterUpdateClientResponse
@@ -1437,7 +1507,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateClientResponse modelRouterUpdateClient(const string &id, const Models::ModelRouterUpdateClientRequest &request);
 
       /**
-       * @summary 对话管理/更新对话
+       * @summary Conversation management / Update conversation
        *
        * @param request ModelRouterUpdateConversationRequest
        * @param headers map
@@ -1447,7 +1517,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateConversationResponse modelRouterUpdateConversationWithOptions(const string &id, const Models::ModelRouterUpdateConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对话管理/更新对话
+       * @summary Conversation management / Update conversation
        *
        * @param request ModelRouterUpdateConversationRequest
        * @return ModelRouterUpdateConversationResponse
@@ -1455,7 +1525,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateConversationResponse modelRouterUpdateConversation(const string &id, const Models::ModelRouterUpdateConversationRequest &request);
 
       /**
-       * @summary 模型管理/更新模型
+       * @summary Model Management / Update Model
        *
        * @param request ModelRouterUpdateModelRequest
        * @param headers map
@@ -1465,7 +1535,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateModelResponse modelRouterUpdateModelWithOptions(const string &id, const Models::ModelRouterUpdateModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模型管理/更新模型
+       * @summary Model Management / Update Model
        *
        * @param request ModelRouterUpdateModelRequest
        * @return ModelRouterUpdateModelResponse
@@ -1473,7 +1543,7 @@ namespace AiContent20240611
       Models::ModelRouterUpdateModelResponse modelRouterUpdateModel(const string &id, const Models::ModelRouterUpdateModelRequest &request);
 
       /**
-       * @summary 个性化文生图/基于一个预训练模型创建图片推理任务
+       * @summary Personalized text-to-image: Create image inference tasks using a pre-trained model.
        *
        * @param request PersonalizedTextToImageAddInferenceJobRequest
        * @param headers map
@@ -1483,7 +1553,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageAddInferenceJobResponse personalizedTextToImageAddInferenceJobWithOptions(const Models::PersonalizedTextToImageAddInferenceJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/基于一个预训练模型创建图片推理任务
+       * @summary Personalized text-to-image: Create image inference tasks using a pre-trained model.
        *
        * @param request PersonalizedTextToImageAddInferenceJobRequest
        * @return PersonalizedTextToImageAddInferenceJobResponse
@@ -1491,7 +1561,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageAddInferenceJobResponse personalizedTextToImageAddInferenceJob(const Models::PersonalizedTextToImageAddInferenceJobRequest &request);
 
       /**
-       * @summary 个性化文生图/通过唯一的图片编号获取图片内容
+       * @summary Retrieves the content of an image from the personalized text-to-image service using its unique image ID.
        *
        * @param request PersonalizedTextToImageQueryImageAssetRequest
        * @param headers map
@@ -1501,7 +1571,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryImageAssetResponse personalizedTextToImageQueryImageAssetWithOptions(const Models::PersonalizedTextToImageQueryImageAssetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/通过唯一的图片编号获取图片内容
+       * @summary Retrieves the content of an image from the personalized text-to-image service using its unique image ID.
        *
        * @param request PersonalizedTextToImageQueryImageAssetRequest
        * @return PersonalizedTextToImageQueryImageAssetResponse
@@ -1509,7 +1579,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryImageAssetResponse personalizedTextToImageQueryImageAsset(const Models::PersonalizedTextToImageQueryImageAssetRequest &request);
 
       /**
-       * @summary 个性化文生图/查询预制模型推理任务的状态
+       * @summary Queries the status of a personalized text-to-image inference job.
        *
        * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
        * @param headers map
@@ -1519,7 +1589,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse personalizedTextToImageQueryPreModelInferenceJobInfoWithOptions(const Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/查询预制模型推理任务的状态
+       * @summary Queries the status of a personalized text-to-image inference job.
        *
        * @param request PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
        * @return PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse
@@ -1527,7 +1597,7 @@ namespace AiContent20240611
       Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoResponse personalizedTextToImageQueryPreModelInferenceJobInfo(const Models::PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest &request);
 
       /**
-       * @summary 个性化文生图/基于一个模型创建图片推理任务
+       * @summary Creates an inference job to generate images based on a personalized text-to-image model.
        *
        * @param request Personalizedtxt2imgAddInferenceJobRequest
        * @param headers map
@@ -1537,7 +1607,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgAddInferenceJobResponse personalizedtxt2imgAddInferenceJobWithOptions(const Models::Personalizedtxt2imgAddInferenceJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/基于一个模型创建图片推理任务
+       * @summary Creates an inference job to generate images based on a personalized text-to-image model.
        *
        * @param request Personalizedtxt2imgAddInferenceJobRequest
        * @return Personalizedtxt2imgAddInferenceJobResponse
@@ -1545,7 +1615,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgAddInferenceJobResponse personalizedtxt2imgAddInferenceJob(const Models::Personalizedtxt2imgAddInferenceJobRequest &request);
 
       /**
-       * @summary 个性化文生图/创建一个模型训练任务
+       * @summary Personalized text-to-image: Create a model training task.
        *
        * @param request Personalizedtxt2imgAddModelTrainJobRequest
        * @param headers map
@@ -1555,7 +1625,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgAddModelTrainJobResponse personalizedtxt2imgAddModelTrainJobWithOptions(const Models::Personalizedtxt2imgAddModelTrainJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/创建一个模型训练任务
+       * @summary Personalized text-to-image: Create a model training task.
        *
        * @param request Personalizedtxt2imgAddModelTrainJobRequest
        * @return Personalizedtxt2imgAddModelTrainJobResponse
@@ -1563,7 +1633,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgAddModelTrainJobResponse personalizedtxt2imgAddModelTrainJob(const Models::Personalizedtxt2imgAddModelTrainJobRequest &request);
 
       /**
-       * @summary 个性化文生图/图片二进制内容获取
+       * @summary Retrieves the binary data of an image generated by the personalized text-to-image service.
        *
        * @param request Personalizedtxt2imgQueryImageAssetRequest
        * @param headers map
@@ -1573,7 +1643,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryImageAssetResponse personalizedtxt2imgQueryImageAssetWithOptions(const Models::Personalizedtxt2imgQueryImageAssetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/图片二进制内容获取
+       * @summary Retrieves the binary data of an image generated by the personalized text-to-image service.
        *
        * @param request Personalizedtxt2imgQueryImageAssetRequest
        * @return Personalizedtxt2imgQueryImageAssetResponse
@@ -1581,7 +1651,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryImageAssetResponse personalizedtxt2imgQueryImageAsset(const Models::Personalizedtxt2imgQueryImageAssetRequest &request);
 
       /**
-       * @summary 个性化文生图/查询模型推理任务的状态和结果信息
+       * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
        *
        * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
        * @param headers map
@@ -1591,7 +1661,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryInferenceJobInfoResponse personalizedtxt2imgQueryInferenceJobInfoWithOptions(const Models::Personalizedtxt2imgQueryInferenceJobInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/查询模型推理任务的状态和结果信息
+       * @summary Retrieves the status and results of a Personalizedtxt2img inference job.
        *
        * @param request Personalizedtxt2imgQueryInferenceJobInfoRequest
        * @return Personalizedtxt2imgQueryInferenceJobInfoResponse
@@ -1599,7 +1669,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryInferenceJobInfoResponse personalizedtxt2imgQueryInferenceJobInfo(const Models::Personalizedtxt2imgQueryInferenceJobInfoRequest &request);
 
       /**
-       * @summary 个性化文生图/查询模型训练任务列表
+       * @summary Your personalized model training tasks: image generation and query models.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1608,14 +1678,14 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryModelTrainJobListResponse personalizedtxt2imgQueryModelTrainJobListWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/查询模型训练任务列表
+       * @summary Your personalized model training tasks: image generation and query models.
        *
        * @return Personalizedtxt2imgQueryModelTrainJobListResponse
        */
       Models::Personalizedtxt2imgQueryModelTrainJobListResponse personalizedtxt2imgQueryModelTrainJobList();
 
       /**
-       * @summary 个性化文生图/模型训练状态查询
+       * @summary Queries the training status of a personalized text-to-image model.
        *
        * @param request Personalizedtxt2imgQueryModelTrainStatusRequest
        * @param headers map
@@ -1625,7 +1695,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryModelTrainStatusResponse personalizedtxt2imgQueryModelTrainStatusWithOptions(const Models::Personalizedtxt2imgQueryModelTrainStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 个性化文生图/模型训练状态查询
+       * @summary Queries the training status of a personalized text-to-image model.
        *
        * @param request Personalizedtxt2imgQueryModelTrainStatusRequest
        * @return Personalizedtxt2imgQueryModelTrainStatusResponse
@@ -1633,7 +1703,7 @@ namespace AiContent20240611
       Models::Personalizedtxt2imgQueryModelTrainStatusResponse personalizedtxt2imgQueryModelTrainStatus(const Models::Personalizedtxt2imgQueryModelTrainStatusRequest &request);
 
       /**
-       * @summary 阿里云控制台/获取应用访问识别码(appkey)信息
+       * @summary Queries information about an application access ID (appkey).
        *
        * @param request QueryApplicationAccessIdRequest
        * @param headers map
@@ -1643,7 +1713,7 @@ namespace AiContent20240611
       Models::QueryApplicationAccessIdResponse queryApplicationAccessIdWithOptions(const Models::QueryApplicationAccessIdRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/获取应用访问识别码(appkey)信息
+       * @summary Queries information about an application access ID (appkey).
        *
        * @param request QueryApplicationAccessIdRequest
        * @return QueryApplicationAccessIdResponse
@@ -1651,7 +1721,7 @@ namespace AiContent20240611
       Models::QueryApplicationAccessIdResponse queryApplicationAccessId(const Models::QueryApplicationAccessIdRequest &request);
 
       /**
-       * @summary 阿里云控制台/获取项目列表
+       * @summary Alibaba Cloud console / Project list
        *
        * @param request QueryProjectRequest
        * @param headers map
@@ -1661,7 +1731,7 @@ namespace AiContent20240611
       Models::QueryProjectResponse queryProjectWithOptions(const Models::QueryProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/获取项目列表
+       * @summary Alibaba Cloud console / Project list
        *
        * @param request QueryProjectRequest
        * @return QueryProjectResponse
@@ -1669,7 +1739,7 @@ namespace AiContent20240611
       Models::QueryProjectResponse queryProject(const Models::QueryProjectRequest &request);
 
       /**
-       * @summary 阿里云控制台/获取项目列表
+       * @summary Alibaba Cloud console / Project List
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1678,14 +1748,14 @@ namespace AiContent20240611
       Models::QueryProjectListResponse queryProjectListWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/获取项目列表
+       * @summary Alibaba Cloud console / Project List
        *
        * @return QueryProjectListResponse
        */
       Models::QueryProjectListResponse queryProjectList();
 
       /**
-       * @summary 阿里云控制台/已经购买过的服务项目
+       * @summary Alibaba Cloud Console / Purchased Services
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1694,14 +1764,14 @@ namespace AiContent20240611
       Models::QueryPurchasedServiceResponse queryPurchasedServiceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/已经购买过的服务项目
+       * @summary Alibaba Cloud Console / Purchased Services
        *
        * @return QueryPurchasedServiceResponse
        */
       Models::QueryPurchasedServiceResponse queryPurchasedService();
 
       /**
-       * @summary 阿里云控制台/更新项目信息
+       * @summary Alibaba Cloud Console / Update project information
        *
        * @param request UpdateProjectRequest
        * @param headers map
@@ -1711,7 +1781,7 @@ namespace AiContent20240611
       Models::UpdateProjectResponse updateProjectWithOptions(const Models::UpdateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 阿里云控制台/更新项目信息
+       * @summary Alibaba Cloud Console / Update project information
        *
        * @param request UpdateProjectRequest
        * @return UpdateProjectResponse

@@ -9,6 +9,8 @@
 #include <alibabacloud/models/ApiKeyDecryptedDTO.hpp>
 #include <alibabacloud/models/ApiKeyListQry.hpp>
 #include <alibabacloud/models/ApiKeyUpdateCmd.hpp>
+#include <alibabacloud/models/BatchCreateModelItemDTO.hpp>
+#include <alibabacloud/models/BatchModelErrorDTO.hpp>
 #include <alibabacloud/models/BillingBillSummaryPointDTO.hpp>
 #include <alibabacloud/models/BillingBillSummaryRespDTO.hpp>
 #include <alibabacloud/models/BillingBillTierDTO.hpp>
@@ -61,6 +63,7 @@
 #include <alibabacloud/models/UsageInfoDTO.hpp>
 #include <alibabacloud/models/RequestLogDTO.hpp>
 #include <alibabacloud/models/RequestLogListQry.hpp>
+#include <alibabacloud/models/SubscriptionDTO.hpp>
 #include <alibabacloud/models/UsageBreakdownRowDTO.hpp>
 #include <alibabacloud/models/UsageBreakdownRespDTO.hpp>
 #include <alibabacloud/models/AITeacherExpansionPracticeTaskGenerateRequest.hpp>
@@ -201,6 +204,9 @@
 #include <alibabacloud/models/ModelRouterCreateModelRequest.hpp>
 #include <alibabacloud/models/ModelRouterCreateModelResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterCreateModelResponse.hpp>
+#include <alibabacloud/models/ModelRouterCreateSubscriptionRequest.hpp>
+#include <alibabacloud/models/ModelRouterCreateSubscriptionResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterCreateSubscriptionResponse.hpp>
 #include <alibabacloud/models/ModelRouterDeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterDeleteApiKeyResponse.hpp>
 #include <alibabacloud/models/ModelRouterDeleteClientResponseBody.hpp>
@@ -215,6 +221,9 @@
 #include <alibabacloud/models/ModelRouterGetClientBalanceLogsRequest.hpp>
 #include <alibabacloud/models/ModelRouterGetClientBalanceLogsResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterGetClientBalanceLogsResponse.hpp>
+#include <alibabacloud/models/ModelRouterListSubscriptionsRequest.hpp>
+#include <alibabacloud/models/ModelRouterListSubscriptionsResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterListSubscriptionsResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyResponse.hpp>
 #include <alibabacloud/models/ModelRouterQueryApiKeyListRequest.hpp>
@@ -278,6 +287,9 @@
 #include <alibabacloud/models/ModelRouterSaveFlowConfigRequest.hpp>
 #include <alibabacloud/models/ModelRouterSaveFlowConfigResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterSaveFlowConfigResponse.hpp>
+#include <alibabacloud/models/ModelRouterStopSubscriptionRequest.hpp>
+#include <alibabacloud/models/ModelRouterStopSubscriptionResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterStopSubscriptionResponse.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleRequest.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterUpdateBillingRuleResponse.hpp>

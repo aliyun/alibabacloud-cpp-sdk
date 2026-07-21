@@ -86,6 +86,7 @@ namespace Models
 
 
       protected:
+        // The dialogue content after the difficulty adjustment.
         shared_ptr<string> result_ {};
       };
 
@@ -100,6 +101,7 @@ namespace Models
 
 
     protected:
+      // A container for the result data.
       shared_ptr<Data::Result> result_ {};
     };
 
@@ -150,12 +152,17 @@ namespace Models
 
 
   protected:
+    // The data returned on a successful request.
     shared_ptr<ExecuteTextbookAssistantDifficultyResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

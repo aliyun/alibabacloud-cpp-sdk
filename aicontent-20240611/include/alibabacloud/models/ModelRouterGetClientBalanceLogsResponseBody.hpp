@@ -103,9 +103,13 @@ namespace Models
 
 
     protected:
+      // A list of balance change log entries.
       shared_ptr<vector<ClientBalanceLogDTO>> list_ {};
+      // The current page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of matching entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -171,14 +175,21 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ModelRouterGetClientBalanceLogsResponseBody::Data> data_ {};
+    // The error code returned on failure.
     shared_ptr<string> errCode_ {};
+    // The error message returned on failure.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
+    // The pagination token for the next page of results. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -87,13 +87,24 @@ namespace Models
 
 
   protected:
+    // The number of images to generate. Note: The maximum is 10 images per request in the test environment. If the value exceeds 10, it is treated as 10.
     shared_ptr<int32_t> imageNumber_ {};
+    // An array containing one or more image URLs. For example, `["url_1", "url_2", ...]`.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> imageUrl_ {};
+    // The English prompt for image generation. Use the placeholder for the subject. For example, change "a man in the snow" to "a in the snow".
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // A random seed to ensure reproducible image generation. The value must be within `[-1, 2147483647]`. If the value is outside this range or omitted, the system automatically generates a seed.
     shared_ptr<int64_t> seed_ {};
+    // Determines the influence of the reference image.
+    // Valid values: `0.3`, `0.4`, `0.5`, `0.6`, `0.7`, and `0.8`.
+    // A lower value decreases the influence of the reference image and increases the influence of the text prompt.
+    // The default is `0.5`, and you typically do not need to change this value.
     shared_ptr<double> strength_ {};
+    // The number of training steps for the model.
     shared_ptr<int32_t> trainSteps_ {};
   };
 

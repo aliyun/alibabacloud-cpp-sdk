@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The authorization token for the API call. Obtain this token by calling the "Authorization token for the Textbook-style AI English Teacher" API.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The ID of the current conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> chatId_ {};
+    // The use case. Valid values: `SYNC` for synchronous practice and `EXPAND` for expansion practice.
+    // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
+    // The message ID of the user\\"s reply.
+    // 
     // This parameter is required.
     shared_ptr<string> user_ {};
   };

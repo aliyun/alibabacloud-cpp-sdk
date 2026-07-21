@@ -14,11 +14,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModelRouterCreateBalanceTransactionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(amount, amount_);
+      DARABONBA_PTR_TO_JSON(balanceType, balanceType_);
+      DARABONBA_PTR_TO_JSON(idempotencyKey, idempotencyKey_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterCreateBalanceTransactionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(amount, amount_);
+      DARABONBA_PTR_FROM_JSON(balanceType, balanceType_);
+      DARABONBA_PTR_FROM_JSON(idempotencyKey, idempotencyKey_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
@@ -34,12 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
-        && this->remark_ == nullptr && this->type_ == nullptr; };
+        && this->balanceType_ == nullptr && this->idempotencyKey_ == nullptr && this->remark_ == nullptr && this->type_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
     inline double getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0.0) };
     inline ModelRouterCreateBalanceTransactionRequest& setAmount(double amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+    // balanceType Field Functions 
+    bool hasBalanceType() const { return this->balanceType_ != nullptr;};
+    void deleteBalanceType() { this->balanceType_ = nullptr;};
+    inline string getBalanceType() const { DARABONBA_PTR_GET_DEFAULT(balanceType_, "") };
+    inline ModelRouterCreateBalanceTransactionRequest& setBalanceType(string balanceType) { DARABONBA_PTR_SET_VALUE(balanceType_, balanceType) };
+
+
+    // idempotencyKey Field Functions 
+    bool hasIdempotencyKey() const { return this->idempotencyKey_ != nullptr;};
+    void deleteIdempotencyKey() { this->idempotencyKey_ = nullptr;};
+    inline string getIdempotencyKey() const { DARABONBA_PTR_GET_DEFAULT(idempotencyKey_, "") };
+    inline ModelRouterCreateBalanceTransactionRequest& setIdempotencyKey(string idempotencyKey) { DARABONBA_PTR_SET_VALUE(idempotencyKey_, idempotencyKey) };
 
 
     // remark Field Functions 
@@ -57,8 +75,17 @@ namespace Models
 
 
   protected:
+    // The transaction amount.
     shared_ptr<double> amount_ {};
+    // The target balance pool type. Default value: permanent. Valid values:
+    // - permanent: permanent balance pool (the amount never expires).
+    // - monthly: monthly balance pool (automatically reset to zero at the beginning of each month).
+    shared_ptr<string> balanceType_ {};
+    // The idempotency key. UUID v4 format is recommended. Maximum length: 32 characters. Repeated submissions with the same key are not executed again.
+    shared_ptr<string> idempotencyKey_ {};
+    // The remark.
     shared_ptr<string> remark_ {};
+    // The transaction type.
     shared_ptr<string> type_ {};
   };
 

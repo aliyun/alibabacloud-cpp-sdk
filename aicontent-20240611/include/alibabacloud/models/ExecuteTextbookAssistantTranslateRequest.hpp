@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the assistant\\"s message.
+    // 
     // This parameter is required.
     shared_ptr<string> assistant_ {};
+    // The authorization token. Obtain this token by calling the authorization operation for the AI Textbook Assistant feature.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The conversation ID.
+    // 
     // This parameter is required.
     shared_ptr<string> chatId_ {};
+    // The practice scenario. Valid values: SYNC for synchronous practice and EXPAND for extended practice.
+    // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
   };

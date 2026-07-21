@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The content associated with the event.
     shared_ptr<string> content_ {};
+    // The event type.
     shared_ptr<string> event_ {};
+    // The request ID. This ID is returned with every response and is useful for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

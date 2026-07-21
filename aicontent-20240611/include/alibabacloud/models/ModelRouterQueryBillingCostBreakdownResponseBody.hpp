@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The data object containing the billing breakdown. For details, see the response example.
     shared_ptr<BillingCostBreakdownRespDTO> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. If this parameter is not empty, pass its value in a subsequent request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

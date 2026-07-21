@@ -86,12 +86,47 @@ namespace Models
 
 
   protected:
+    // The billing type. The value must be `configurable`.
     shared_ptr<string> billingType_ {};
+    // The effective time, in RFC3339 format.
     shared_ptr<string> effectiveTime_ {};
+    // The expiration time, in RFC3339 format.
     shared_ptr<string> expireTime_ {};
+    // The model ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> modelId_ {};
+    // The `pricingConfig` is a JSON object whose internal field structure varies depending on the billing type.
+    // 
+    // 1. **Tiered token billing**<br>Applicable to chat models. This type uses tiered pricing based on the number of input tokens and supports different rates for standard mode, thinking mode, and cache hits.<br>JSON format:<br><br><br>
+    // 
+    //    Field descriptions:Constraints:
+    // 
+    // 2. **Per-image billing**<br>Applicable to `ImageGeneration` and `ImageEdit` models. Billing is based on the number of images generated or processed.<br>JSON format:<br><br><br>
+    // 
+    //    Field descriptions:
+    // 
+    // 3. **Video matrix billing**<br>Applicable to `VideoGeneration` and `VideoImageGeneration` models. Pricing is based on a combination of video resolution and the presence of an audio track.<br>Note: While the frontend UI may use a `matrix` field, API calls must use the `tiers` field to save the configuration. The `matrix` field is automatically converted to `tiers` on the server side. The format below is the standard API format.<br>JSON format:<br><br><br><br>
+    // 
+    //    Field descriptions:Constraints:
+    // 
+    // 4. **Billing by duration**<br>Applicable to automatic speech recognition (ASR) models. Billing is based on the audio duration.<br>JSON format:<br><br><br>
+    // 
+    //    Field descriptions:
+    // 
+    // 5. **Per-character billing**<br>Applicable to text-to-speech (TTS) models. Billing is based on the number of characters in the synthesized text.<br>JSON format:<br><br><br>
+    // 
+    //    Field descriptions:
+    // 
+    // 6. **Flat-rate token billing**<br>Applicable to models such as `Embedding`, `Rerank`, `MultimodalEmbedding`, and `MultimodalRerank`. This type uses a flat-rate pricing model without tiers.<br>JSON format:<br><br><br>
+    // 
+    //    Field descriptions:
+    // 
+    // 7. **Full-modal multi-dimensional billing**<br>Applicable to full-modal models such as `ChatFullmodal` (e.g., `qwen3.5-omni-plus`). It sets separate prices for the input and output of different modalities, such as text, audio, images, and video.<br>JSON format:<br><br><br>
+    // 
+    //    Field descriptions:
     Darabonba::Json pricingConfig_ {};
+    // The billing rule version number.
     shared_ptr<int32_t> version_ {};
   };
 

@@ -173,9 +173,12 @@ namespace Models
 
       protected:
         shared_ptr<Models::Extensions> extensions_ {};
+        // The model identifier.
         shared_ptr<string> identifier_ {};
         shared_ptr<string> inOut_ {};
+        // The input token limit.
         shared_ptr<string> inputToken_ {};
+        // The output token limit.
         shared_ptr<string> outputToken_ {};
         shared_ptr<string> type_ {};
       };
@@ -213,9 +216,13 @@ namespace Models
 
 
     protected:
+      // The base URL.
       shared_ptr<string> baseUrl_ {};
+      // The list of models.
       shared_ptr<vector<Data::Models>> models_ {};
+      // The provider name.
       shared_ptr<string> name_ {};
+      // The provider identifier.
       shared_ptr<string> symbol_ {};
     };
 
@@ -266,11 +273,17 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<vector<ModelRouterQueryNacosProvidersResponseBody::Data>> data_ {};
+    // The error message code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

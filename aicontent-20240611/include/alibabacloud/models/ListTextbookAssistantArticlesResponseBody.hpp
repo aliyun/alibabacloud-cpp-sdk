@@ -68,6 +68,7 @@ namespace Models
 
 
     protected:
+      // The article ID.
       shared_ptr<string> articleId_ {};
     };
 
@@ -118,12 +119,25 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<ListTextbookAssistantArticlesResponseBody::Data>> data_ {};
+    // The error code.
+    // 
+    // - A value of 0 indicates success.
+    // 
+    // - A value greater than 0 indicates a specific error.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // 
+    // - **true**: The call succeeded.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

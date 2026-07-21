@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Model identity
     shared_ptr<string> modelCode_ {};
+    // Model ID
     shared_ptr<int64_t> modelId_ {};
+    // Model name
     shared_ptr<string> modelName_ {};
+    // Metric value mapping, where the key is the metric name and the value is the numeric value
     shared_ptr<string> values_ {};
   };
 

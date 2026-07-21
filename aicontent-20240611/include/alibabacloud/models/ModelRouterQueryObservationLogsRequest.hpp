@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // Filters the results by API key ID.
     shared_ptr<int64_t> apiKeyId_ {};
+    // Filters the results by client ID.
     shared_ptr<int64_t> clientId_ {};
+    // The end time for a custom time range.
     shared_ptr<string> endTime_ {};
+    // The grouping field.
     shared_ptr<string> groupBy_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Filters the results by model ID.
     shared_ptr<int64_t> modelId_ {};
+    // Specifies whether to return the total count of results.
     shared_ptr<bool> needTotalCount_ {};
+    // The pagination token from a previous response to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The sort field.
     shared_ptr<string> orderBy_ {};
+    // The sort direction.
     shared_ptr<string> orderDirection_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time for a custom time range.
     shared_ptr<string> startTime_ {};
+    // The time range for the query. Valid values are `1h`, `6h`, `24h`, `7d`, and `30d`.
     shared_ptr<string> timeRange_ {};
   };
 

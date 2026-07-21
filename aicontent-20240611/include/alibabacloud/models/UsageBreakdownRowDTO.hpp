@@ -127,13 +127,21 @@ namespace Models
   protected:
     shared_ptr<int64_t> apiKeyId_ {};
     shared_ptr<string> apiKeyName_ {};
+    // Department ID; 0 indicates no associated department
     shared_ptr<int64_t> clientId_ {};
+    // Department name
     shared_ptr<string> clientName_ {};
+    // Array of usage metrics, containing only entries with non-zero values
     shared_ptr<vector<MetricKVPairDTO>> metrics_ {};
+    // Model identifier
     shared_ptr<string> modelCode_ {};
+    // Model ID
     shared_ptr<int64_t> modelId_ {};
+    // Model name
     shared_ptr<string> modelName_ {};
+    // Statistics scope
     shared_ptr<string> modelType_ {};
+    // Statistics time point, Unix timestamp (seconds)
     shared_ptr<int64_t> summaryTime_ {};
   };
 

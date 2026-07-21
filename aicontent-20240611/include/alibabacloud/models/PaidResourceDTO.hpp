@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The time the resource becomes effective.
     shared_ptr<string> effectiveTime_ {};
+    // The time the resource expires.
     shared_ptr<string> expireTime_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The total quantity.
     shared_ptr<int32_t> quantity_ {};
+    // The remaining quantity.
     shared_ptr<int32_t> remainQuantity_ {};
+    // The code of the resource type.
     shared_ptr<string> resourceCatalogCode_ {};
+    // The name of the resource type.
     shared_ptr<string> resourceCatalogName_ {};
+    // The code of the resource package.
     shared_ptr<string> resourcePackageCode_ {};
+    // The name of the resource package.
     shared_ptr<string> resourcePackageName_ {};
+    // The status of the resource.
     shared_ptr<string> resourceStatus_ {};
   };
 

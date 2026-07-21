@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // UNIX timestamp (Unix seconds)
     shared_ptr<int64_t> timestamp_ {};
+    // Metric value mapping, where the key is the metric name and the value is the numeric value
     shared_ptr<string> values_ {};
   };
 

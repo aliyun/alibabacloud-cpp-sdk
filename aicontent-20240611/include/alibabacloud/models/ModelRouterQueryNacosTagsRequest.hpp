@@ -113,13 +113,21 @@ namespace Models
 
   protected:
     shared_ptr<string> configType_ {};
+    // The field by which to group the results.
     shared_ptr<string> groupBy_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Specifies whether to return the total count of results.
     shared_ptr<bool> needTotalCount_ {};
+    // The token from a previous response to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The field by which to sort the results.
     shared_ptr<string> orderBy_ {};
+    // The sort order.
     shared_ptr<string> orderDirection_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of results to return per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

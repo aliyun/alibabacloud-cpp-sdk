@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The current page number.
         shared_ptr<int32_t> currentPage_ {};
+        // The maximum number of items per page.
         shared_ptr<int32_t> maxResults_ {};
+        // The total number of items.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -243,17 +246,29 @@ namespace Models
 
 
       protected:
+        // The author.
         shared_ptr<string> author_ {};
+        // The book ID.
         shared_ptr<string> bookId_ {};
+        // The book name.
         shared_ptr<string> bookName_ {};
+        // The cover image.
         shared_ptr<string> coverImage_ {};
+        // The edition.
         shared_ptr<string> edition_ {};
+        // The grade. Valid values are strings from `"1"` to `"9"`.
         shared_ptr<string> grade_ {};
+        // The impression.
         shared_ptr<string> impression_ {};
+        // The International Standard Book Number (ISBN).
         shared_ptr<string> isbn_ {};
+        // The publisher.
         shared_ptr<string> publisher_ {};
+        // The subject.
         shared_ptr<string> subject_ {};
+        // The textbook version.
         shared_ptr<string> version_ {};
+        // The volume. Valid values: `"0"` (all-in-one), `"1"` (first semester), and `"2"` (second semester).
         shared_ptr<string> volume_ {};
       };
 
@@ -278,7 +293,9 @@ namespace Models
 
 
     protected:
+      // A list of book objects.
       shared_ptr<vector<Data::BookList>> bookList_ {};
+      // The pagination data.
       shared_ptr<Data::PaginationData> paginationData_ {};
     };
 
@@ -329,12 +346,17 @@ namespace Models
 
 
   protected:
+    // The data object in the response.
     shared_ptr<ListTextbookAssistantBooksResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

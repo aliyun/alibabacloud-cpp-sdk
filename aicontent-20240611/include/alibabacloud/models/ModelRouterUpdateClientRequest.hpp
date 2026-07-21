@@ -94,12 +94,18 @@ namespace Models
 
 
   protected:
+    // The company address.
     shared_ptr<string> address_ {};
+    // A comma-separated list of model IDs that the client can use. If this parameter is left empty, the client can use all models.
     shared_ptr<string> allowedModels_ {};
+    // The contact information.
     shared_ptr<string> contact_ {};
     shared_ptr<double> discount_ {};
+    // The client name.
     shared_ptr<string> name_ {};
+    // A remark about the client.
     shared_ptr<string> remark_ {};
+    // The client\\"s status.
     shared_ptr<int32_t> status_ {};
   };
 

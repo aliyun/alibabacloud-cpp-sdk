@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The URL to activate the service.
     shared_ptr<string> buyUrl_ {};
+    // The URL of the service documentation.
     shared_ptr<string> documentUrl_ {};
+    // The maximum number of concurrent requests allowed for the free trial.
     shared_ptr<int32_t> freeConcurrencyCount_ {};
+    // The number of free API calls available.
     shared_ptr<int32_t> freeCount_ {};
+    // The unique code for the service.
     shared_ptr<string> serviceCode_ {};
+    // The display name of the service.
     shared_ptr<string> serviceName_ {};
   };
 

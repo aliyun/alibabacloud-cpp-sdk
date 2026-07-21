@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The grouping field.
     shared_ptr<string> groupBy_ {};
+    // A keyword to filter the results.
     shared_ptr<string> keyword_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Specifies whether to return the total count of items. Set to `true` to return the total count.
     shared_ptr<bool> needTotalCount_ {};
+    // The pagination token for the next page of results. To retrieve the first page, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
+    // The sort field.
     shared_ptr<string> orderBy_ {};
+    // The sort order. Valid values are `ASC` (ascending) and `DESC` (descending).
     shared_ptr<string> orderDirection_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of items to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters the results by status.
     shared_ptr<int32_t> status_ {};
   };
 

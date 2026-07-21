@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The authorization token. Use this token to make API calls to the English textbook-style AI teacher service.
       shared_ptr<string> authToken_ {};
+      // The expiration time of the authorization token, in seconds.
       shared_ptr<int32_t> expire_ {};
     };
 
@@ -128,12 +130,21 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<GetTextbookAssistantTokenResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the API call succeeded.
+    // 
+    // - **true**: The API call succeeded.
+    // 
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

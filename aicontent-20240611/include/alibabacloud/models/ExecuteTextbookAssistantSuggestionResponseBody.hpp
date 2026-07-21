@@ -96,7 +96,9 @@ namespace Models
 
 
       protected:
+        // The response from the AI teacher in Chinese.
         shared_ptr<string> chineseResult_ {};
+        // The response from the AI teacher in English.
         shared_ptr<string> englishResult_ {};
       };
 
@@ -111,6 +113,7 @@ namespace Models
 
 
     protected:
+      // The result data.
       shared_ptr<Data::Result> result_ {};
     };
 
@@ -161,12 +164,17 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<ExecuteTextbookAssistantSuggestionResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpstatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

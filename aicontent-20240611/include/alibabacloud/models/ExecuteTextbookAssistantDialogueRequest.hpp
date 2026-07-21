@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The authorization token required to call the API. To get this token, use the Textbook Assistant authorization API.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The chat ID for this turn.
+    // 
     // This parameter is required.
     shared_ptr<string> chatId_ {};
+    // The scenario. Valid values: SYNC for synchronous practice and EXPAND for extended practice.
+    // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
+    // The user\\"s message content.
+    // 
     // This parameter is required.
     shared_ptr<string> userMessage_ {};
   };

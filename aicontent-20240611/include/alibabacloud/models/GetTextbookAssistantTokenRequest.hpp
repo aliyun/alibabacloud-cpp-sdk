@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // The device model.
+    // 
     // This parameter is required.
     shared_ptr<string> model_ {};
   };

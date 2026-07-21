@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The application access ID (appkey).
     shared_ptr<string> applicationAccessId_ {};
   };
 

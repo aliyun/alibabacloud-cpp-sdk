@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<ConversationDTO> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
+    // A detailed message that explains the error.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the response.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

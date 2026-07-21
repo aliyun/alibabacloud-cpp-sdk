@@ -102,7 +102,9 @@ namespace Models
 
 
       protected:
+        // The Chinese translation of the AI assistant\\"s reply.
         shared_ptr<string> chineseResult_ {};
+        // The AI assistant\\"s reply in English.
         shared_ptr<string> englishResult_ {};
       };
 
@@ -139,9 +141,13 @@ namespace Models
 
 
     protected:
+      // The ID of the AI assistant\\"s reply.
       shared_ptr<string> assistant_ {};
+      // The conversation ID.
       shared_ptr<string> chatId_ {};
+      // Contains the result data.
       shared_ptr<Data::Result> result_ {};
+      // The ID of the user\\"s reply.
       shared_ptr<string> user_ {};
     };
 
@@ -192,12 +198,17 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ExecuteTextbookAssistantRetryConversationResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

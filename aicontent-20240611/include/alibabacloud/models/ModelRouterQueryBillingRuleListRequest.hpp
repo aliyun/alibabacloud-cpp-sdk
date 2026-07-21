@@ -112,16 +112,23 @@ namespace Models
 
 
   protected:
+    // Return only currently effective rules.
     shared_ptr<bool> activeOnly_ {};
     // maxResults
     shared_ptr<int32_t> maxResults_ {};
+    // Filter by model identifier.
     shared_ptr<string> modelCode_ {};
+    // Filter by model ID (required).
     shared_ptr<int32_t> modelId_ {};
+    // Filter by model type.
     shared_ptr<string> modelType_ {};
     // nextToken
     shared_ptr<string> nextToken_ {};
+    // Page number. Default is 1.
     shared_ptr<int32_t> page_ {};
+    // Page number (takes precedence).
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of items per page. Default is 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

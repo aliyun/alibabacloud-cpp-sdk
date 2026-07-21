@@ -162,13 +162,21 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The demo URL.
         shared_ptr<string> demoUrl_ {};
+        // The deployment mode. Valid values: client-side and server-side.
         shared_ptr<string> deployMode_ {};
+        // The development language.
         shared_ptr<string> developLanguage_ {};
+        // The documentation URL.
         shared_ptr<string> docUrl_ {};
+        // The SDK name.
         shared_ptr<string> sdkName_ {};
+        // The SDK URL.
         shared_ptr<string> sdkUrl_ {};
+        // The SDK version.
         shared_ptr<string> sdkVersion_ {};
       };
 
@@ -233,7 +241,9 @@ namespace Models
 
 
         protected:
+          // The application access ID, also known as the appkey.
           shared_ptr<string> applicationAccessId_ {};
+          // The application access secret. This field is returned only for requests made from the console.
           shared_ptr<string> applicationAccessSecret_ {};
         };
 
@@ -263,8 +273,11 @@ namespace Models
 
 
       protected:
+        // A list of access credentials for the application.
         shared_ptr<vector<ProjectApps::ApplicationAccessIds>> applicationAccessIds_ {};
+        // The application ID.
         shared_ptr<string> id_ {};
+        // The project ID.
         shared_ptr<string> projectId_ {};
       };
 
@@ -317,11 +330,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // A list of applications in the project.
       shared_ptr<vector<Data::ProjectApps>> projectApps_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // A list of SDKs for the project.
       shared_ptr<vector<Data::ProjectSDK>> projectSDK_ {};
+      // The project type.
       shared_ptr<string> projectType_ {};
     };
 
@@ -372,11 +391,17 @@ namespace Models
 
 
   protected:
+    // A list of projects.
     shared_ptr<vector<QueryProjectListResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

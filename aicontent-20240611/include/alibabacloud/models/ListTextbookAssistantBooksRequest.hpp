@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The authorization token for the API call. You can obtain this token by calling the authorization API for the AI textbook assistant feature.
+    // 
     // This parameter is required.
     shared_ptr<string> authToken_ {};
+    // The book ID.
     shared_ptr<string> bookId_ {};
+    // The grade level. The value is a string from "1" to "9".
     shared_ptr<string> grade_ {};
+    // The maximum number of results to return per page. The value cannot exceed 20.
     shared_ptr<string> maxResults_ {};
+    // The page number.
     shared_ptr<string> page_ {};
+    // The textbook version.
     shared_ptr<string> version_ {};
+    // The volume. Valid values: 0 (all-in-one volume), 1 (first volume), and 2 (second volume).
     shared_ptr<string> volume_ {};
   };
 

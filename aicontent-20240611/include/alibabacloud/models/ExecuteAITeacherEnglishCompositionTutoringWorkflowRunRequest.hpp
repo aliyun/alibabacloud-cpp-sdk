@@ -103,18 +103,36 @@ namespace Models
 
 
   protected:
+    // The essay outline.
     shared_ptr<string> essayOutline_ {};
+    // The essay requirements.
+    // 
     // This parameter is required.
     shared_ptr<string> essayRequirements_ {};
+    // The essay topic.
+    // 
     // This parameter is required.
     shared_ptr<string> essayTopic_ {};
+    // The essay type. Valid values:
+    // 
+    // `outline`: an outline
+    // 
+    // essay: essay
+    // 
     // This parameter is required.
     shared_ptr<string> essayType_ {};
+    // The required word count.
     shared_ptr<int64_t> essayWordCount_ {};
+    // The student\\"s grade level.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> grade_ {};
+    // The response mode. For example, set this value to `streaming` to receive server-sent events.
+    // 
     // This parameter is required.
     shared_ptr<string> responseMode_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

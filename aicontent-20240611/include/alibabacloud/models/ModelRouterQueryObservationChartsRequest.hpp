@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The API key ID to use as a filter.
     shared_ptr<int64_t> apiKeyId_ {};
+    // The client ID to use as a filter.
     shared_ptr<int64_t> clientId_ {};
+    // The end time of the custom time range, in ISO 8601 UTC format. If specified, `startTime` must also be provided.
     shared_ptr<string> endTime_ {};
+    // The model ID to use as a filter.
     shared_ptr<int64_t> modelId_ {};
+    // The start time of the custom time range, in ISO 8601 UTC format. If specified, `endTime` must also be provided.
     shared_ptr<string> startTime_ {};
+    // The time range for the query. Valid values are `1h`, `6h`, `24h`, `7d`, and `30d`. This parameter is mutually exclusive with `startTime` and `endTime`.
     shared_ptr<string> timeRange_ {};
   };
 

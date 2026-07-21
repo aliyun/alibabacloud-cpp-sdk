@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // An array containing the error statistics.
     shared_ptr<vector<OralEvaluationStatisticsErrorCountResponse>> data_ {};
+    // The error code returned if the request fails. This parameter is returned only when `success` is `false`.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the request fails. This parameter is returned only when `success` is `false`.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // `true` if the request succeeded; `false` otherwise.
     shared_ptr<bool> success_ {};
   };
 

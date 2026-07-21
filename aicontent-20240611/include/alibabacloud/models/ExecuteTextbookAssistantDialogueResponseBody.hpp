@@ -120,9 +120,13 @@ namespace Models
 
 
       protected:
+        // The Textbook Assistant\\"s reply in Chinese.
         shared_ptr<string> chineseResult_ {};
+        // The Textbook Assistant\\"s reply in English.
         shared_ptr<string> englishResult_ {};
+        // Indicates whether the dialogue is finished.
         shared_ptr<bool> isFinish_ {};
+        // Indicates whether the task is completed.
         shared_ptr<bool> isTaskCompleted_ {};
       };
 
@@ -159,9 +163,13 @@ namespace Models
 
 
     protected:
+      // The ID of the Textbook Assistant\\"s message.
       shared_ptr<string> assistant_ {};
+      // The chat ID for this turn.
       shared_ptr<string> chatId_ {};
+      // The returned data.
       shared_ptr<Data::Result> result_ {};
+      // The ID of the user\\"s reply.
       shared_ptr<string> user_ {};
     };
 
@@ -212,12 +220,17 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ExecuteTextbookAssistantDialogueResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

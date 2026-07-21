@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // The AI teacher\\"s response in Chinese.
       shared_ptr<string> chineseResult_ {};
+      // The AI teacher\\"s response in English.
       shared_ptr<string> englishResult_ {};
+      // Indicates whether the dialogue is finished.
       shared_ptr<bool> isFinish_ {};
+      // Indicates whether the response is off-topic.
       shared_ptr<bool> isOffTopicControl_ {};
+      // Indicates whether the response is on-topic.
       shared_ptr<bool> isOnTopic_ {};
+      // The index of the current question.
       shared_ptr<int32_t> questionIndex_ {};
     };
 
@@ -168,11 +174,17 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<ExecuteAITeacherExpansionDialogueResponseBody::Data> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // A unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

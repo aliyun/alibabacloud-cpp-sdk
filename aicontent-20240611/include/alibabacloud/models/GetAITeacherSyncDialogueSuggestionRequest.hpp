@@ -101,12 +101,20 @@ namespace Models
 
 
     protected:
+      // The message content.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // A control flag that indicates if a student\\"s response is off-topic. The value is based on the previous turn. If the conversation goes off-topic more than twice, the system sets this value to `true` to force a task switch.
       shared_ptr<bool> isOffTopicControl_ {};
+      // Specifies if the message is on topic. `true` indicates the message is on topic; `false` indicates it is off topic.
       shared_ptr<bool> isOnTopic_ {};
+      // The sequence number of the message in the conversation.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The role of the message author. Valid values: `assistant` (for AI-generated messages) and `user` (for user-provided messages).
+      // 
       // This parameter is required.
       shared_ptr<string> role_ {};
     };
@@ -167,11 +175,18 @@ namespace Models
 
 
     protected:
+      // The assistant\\"s message content.
+      // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
+      // The translation of the assistant\\"s message.
       shared_ptr<string> assistantTranslate_ {};
+      // The sequence number of the dialogue task.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The user\\"s message content.
+      // 
       // This parameter is required.
       shared_ptr<string> user_ {};
     };
@@ -211,11 +226,18 @@ namespace Models
 
 
   protected:
+    // A list of dialogue tasks.
+    // 
     // This parameter is required.
     shared_ptr<vector<GetAITeacherSyncDialogueSuggestionRequest::DialogueTasks>> dialogueTasks_ {};
+    // The language code.
     shared_ptr<string> languageCode_ {};
+    // A list of dialogue records.
+    // 
     // This parameter is required.
     shared_ptr<vector<GetAITeacherSyncDialogueSuggestionRequest::Records>> records_ {};
+    // The unique identifier for the end-user.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The merchant\\"s application ID.
     shared_ptr<string> appId_ {};
+    // The signature for the request parameters.
     shared_ptr<string> requestSign_ {};
+    // The 10-digit request timestamp in seconds.
     shared_ptr<string> timestamp_ {};
+    // The public IP address of the client device.
     shared_ptr<string> userClientIp_ {};
+    // The merchant\\"s user ID.
     shared_ptr<string> userId_ {};
+    // The duration, in seconds, for which the access warrant is valid.
     shared_ptr<int32_t> warrantAvailable_ {};
   };
 

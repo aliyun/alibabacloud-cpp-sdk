@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Aggregation granularity: hourly or daily
     shared_ptr<string> granularity_ {};
+    // Current page number
     shared_ptr<int32_t> page_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
+    // List of detailed data entries
     shared_ptr<vector<UsageBreakdownRowDTO>> rows_ {};
+    // Total number of entries
     shared_ptr<int64_t> total_ {};
   };
 

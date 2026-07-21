@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // The current balance.
     shared_ptr<double> balance_ {};
+    // The balance type. Valid values are `amount` or `tokens`.
     shared_ptr<string> balanceType_ {};
+    // The ID of the client.
     shared_ptr<int64_t> clientId_ {};
+    // Indicates whether balance-based rate limiting is enabled.
     shared_ptr<bool> enableBalance_ {};
+    // The creation timestamp.
     shared_ptr<string> gmtCreate_ {};
+    // The last modification timestamp.
     shared_ptr<string> gmtModified_ {};
-    // ID
+    // The unique ID of the balance record.
     shared_ptr<int64_t> id_ {};
   };
 

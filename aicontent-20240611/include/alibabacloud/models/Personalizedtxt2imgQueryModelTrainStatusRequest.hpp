@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The model ID.
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
   };

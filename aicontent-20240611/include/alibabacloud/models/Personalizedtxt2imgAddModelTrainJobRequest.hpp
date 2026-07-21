@@ -69,12 +69,19 @@ namespace Models
 
 
   protected:
+    // A list of one or more image URLs for training. For example: ["url_1", "url_2", ...]
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> imageUrl_ {};
+    // The name of the model training job.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // A single word that defines the object type in the training images, such as "girl", "person", "man", "boy", or "dog".
+    // 
     // This parameter is required.
     shared_ptr<string> objectType_ {};
+    // The number of training steps for the model training job.
     shared_ptr<int32_t> trainSteps_ {};
   };
 

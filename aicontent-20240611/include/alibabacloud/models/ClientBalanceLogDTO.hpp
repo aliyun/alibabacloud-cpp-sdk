@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The new balance.
     shared_ptr<double> balanceAfter_ {};
+    // The previous balance.
     shared_ptr<double> balanceBefore_ {};
+    // The change amount. A positive value represents a recharge, and a negative value represents a deduction.
     shared_ptr<double> changeAmount_ {};
+    // The type of change. Possible values are `auto_deduct`, `deduct`, or `recharge`.
     shared_ptr<string> changeType_ {};
+    // The client ID.
     shared_ptr<int64_t> clientId_ {};
+    // The creation time in ISO 8601 UTC format.
     shared_ptr<string> gmtCreate_ {};
+    // The unique record ID.
     shared_ptr<int64_t> id_ {};
+    // Notes about the balance change.
     shared_ptr<string> remark_ {};
   };
 

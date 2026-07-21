@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The number of images to generate. Note: Due to resource limits in the test environment, you can generate up to 10 images per request. The system automatically sets values greater than 10 to 10.
     shared_ptr<int32_t> imageNumber_ {};
+    // The model ID to use for the inference job.
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
+    // An English prompt describing the image to generate. Replace the subject with . For example, change "a man in the snow" to "a in the snow", and "a photo of a girl" to "a photo of a ".
+    // 
     // This parameter is required.
     shared_ptr<string> prompt_ {};
+    // The seed for the random number generator. Using the same seed ensures reproducible results. The value must be between -1 and 2,147,483,647. If the value is outside this range or is not specified, the system automatically generates a suitable seed.
     shared_ptr<int64_t> seed_ {};
   };
 

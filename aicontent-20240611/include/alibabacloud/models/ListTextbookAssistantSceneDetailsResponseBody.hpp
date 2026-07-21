@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // The word definition.
         shared_ptr<string> wordAnalysis_ {};
+        // The word ID.
         shared_ptr<string> wordId_ {};
+        // The word text.
         shared_ptr<string> wordText_ {};
       };
 
@@ -180,8 +183,11 @@ namespace Models
 
 
       protected:
+        // A list of image URLs related to the topic.
         shared_ptr<vector<string>> topicImageList_ {};
+        // The topic name.
         shared_ptr<string> topicName_ {};
+        // The translation of the topic name.
         shared_ptr<string> topicTranslate_ {};
       };
 
@@ -234,8 +240,11 @@ namespace Models
 
 
       protected:
+        // A list of image URLs related to the theme.
         shared_ptr<vector<string>> themeImageList_ {};
+        // The theme name.
         shared_ptr<string> themeName_ {};
+        // The translation of the theme name.
         shared_ptr<string> themeTranslate_ {};
       };
 
@@ -286,8 +295,11 @@ namespace Models
 
 
       protected:
+        // The sentence analysis.
         shared_ptr<string> sentenceAnalysis_ {};
+        // The sentence ID.
         shared_ptr<string> sentenceId_ {};
+        // The sentence text.
         shared_ptr<string> sentenceText_ {};
       };
 
@@ -329,7 +341,9 @@ namespace Models
 
 
       protected:
+        // The scene task description.
         shared_ptr<string> sceneTask_ {};
+        // The translation of the scene task description.
         shared_ptr<string> sceneTaskTranslate_ {};
       };
 
@@ -417,12 +431,19 @@ namespace Models
 
 
       protected:
+        // The role introduction.
         shared_ptr<string> introduction_ {};
+        // The translation of the role introduction.
         shared_ptr<string> introductionTranslate_ {};
+        // The role guidance text.
         shared_ptr<string> promoting_ {};
+        // The translation of the role guidance text.
         shared_ptr<string> promotingTranslate_ {};
+        // The role name.
         shared_ptr<string> roleName_ {};
+        // The translation of the role name.
         shared_ptr<string> roleNameTranslate_ {};
+        // The role type:
         shared_ptr<string> roleType_ {};
       };
 
@@ -521,16 +542,27 @@ namespace Models
 
 
     protected:
+      // A list of roles in the scene.
       shared_ptr<vector<Data::RoleList>> roleList_ {};
+      // The scene description.
       shared_ptr<string> scene_ {};
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
+      // A list of image URLs related to the current scene.
       shared_ptr<vector<string>> sceneImageList_ {};
+      // The scene task list.
       shared_ptr<vector<Data::SceneTaskList>> sceneTaskList_ {};
+      // The translation of the scene description.
       shared_ptr<string> sceneTranslate_ {};
+      // The sentence list.
       shared_ptr<vector<Data::SentenceList>> sentenceList_ {};
+      // The practice target.
       shared_ptr<string> target_ {};
+      // The theme details.
       shared_ptr<Data::Theme> theme_ {};
+      // The topic details.
       shared_ptr<Data::Topic> topic_ {};
+      // The word list.
       shared_ptr<vector<Data::WordList>> wordList_ {};
     };
 
@@ -581,12 +613,21 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<vector<ListTextbookAssistantSceneDetailsResponseBody::Data>> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
+    // 
+    // - **true**: The call succeeded.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

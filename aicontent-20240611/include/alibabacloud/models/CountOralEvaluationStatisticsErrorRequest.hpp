@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request body for retrieving error statistics for the oral evaluation service.
     shared_ptr<OralEvaluationStatisticsErrorCountRequest> body_ {};
   };
 

@@ -73,9 +73,13 @@ namespace Models
 
 
   protected:
+    // The default metric.
     shared_ptr<string> defaultMetric_ {};
+    // The granularity of the data. Valid values are `hourly` and `daily`.
     shared_ptr<string> granularity_ {};
+    // A list of metric definitions.
     shared_ptr<vector<MetricDefRespDTO>> metrics_ {};
+    // A list of data points for the trend.
     shared_ptr<vector<TrendPointDTO>> points_ {};
   };
 

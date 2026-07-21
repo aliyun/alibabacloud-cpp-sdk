@@ -103,14 +103,21 @@ namespace Models
 
 
   protected:
+    // A JSON-formatted string that represents the complete state of the conversation.
     shared_ptr<string> chatData_ {};
+    // The status of the conversation, where 0 means enabled and any non-zero value means disabled.
     shared_ptr<int32_t> deleteTag_ {};
+    // The creation time of the conversation, in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
+    // The modification time of the conversation, in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // ID
+    // The ID of the conversation.
     shared_ptr<int64_t> id_ {};
+    // The total number of messages in the conversation.
     shared_ptr<int32_t> messageCount_ {};
+    // A JSON-formatted string that contains an array of model IDs.
     shared_ptr<string> modelIds_ {};
+    // The title of the conversation.
     shared_ptr<string> title_ {};
   };
 

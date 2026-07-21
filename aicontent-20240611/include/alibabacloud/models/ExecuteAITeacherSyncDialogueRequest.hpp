@@ -101,12 +101,20 @@ namespace Models
 
 
     protected:
+      // The message content.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // Indicates whether the user\\"s response is off-topic, acting as a flow control mechanism. This value is based on how the user\\"s previous response aligned with the dialogue task. If the user goes off-topic more than twice, the system sets this parameter to `true` to trigger a task switch.
       shared_ptr<bool> isOffTopicControl_ {};
+      // Indicates whether the response is on-topic.
       shared_ptr<bool> isOnTopic_ {};
+      // The sequence number of the message.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The role of the message author.
+      // 
       // This parameter is required.
       shared_ptr<string> role_ {};
     };
@@ -167,11 +175,18 @@ namespace Models
 
 
     protected:
+      // The assistant\\"s dialogue content.
+      // 
       // This parameter is required.
       shared_ptr<string> assistant_ {};
+      // The translation of the assistant\\"s dialogue content.
       shared_ptr<string> assistantTranslate_ {};
+      // The sequence number of the task.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> order_ {};
+      // The user\\"s dialogue content.
+      // 
       // This parameter is required.
       shared_ptr<string> user_ {};
     };
@@ -211,10 +226,16 @@ namespace Models
 
 
   protected:
+    // An array of dialogue task objects.
+    // 
     // This parameter is required.
     shared_ptr<vector<ExecuteAITeacherSyncDialogueRequest::DialogueTasks>> dialogueTasks_ {};
+    // The language and dialect of the dialogue.
     shared_ptr<string> languageCode_ {};
+    // An array of dialogue record objects.
     shared_ptr<vector<ExecuteAITeacherSyncDialogueRequest::Records>> records_ {};
+    // A unique identifier for the user.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

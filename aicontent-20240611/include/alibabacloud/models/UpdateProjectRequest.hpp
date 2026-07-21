@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the project.
     shared_ptr<string> projectId_ {};
+    // The new name of the project.
     shared_ptr<string> projectName_ {};
   };
 

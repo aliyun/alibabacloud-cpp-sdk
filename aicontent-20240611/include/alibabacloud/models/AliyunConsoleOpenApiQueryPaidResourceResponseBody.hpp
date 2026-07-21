@@ -144,20 +144,29 @@ namespace Models
 
 
   protected:
+    // Data object
     shared_ptr<vector<PaidResourceDTO>> data_ {};
+    // Error message encoding
     shared_ptr<string> errCode_ {};
+    // error message
     shared_ptr<string> errMessage_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
     // maxResults
     shared_ptr<int32_t> maxResults_ {};
     // nextToken
     shared_ptr<string> nextToken_ {};
+    // Page index
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of items per page
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
     // skip
     shared_ptr<int32_t> skip_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Total quantity
     shared_ptr<int32_t> totalCount_ {};
   };
 

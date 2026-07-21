@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The AI teacher\\"s question.
         shared_ptr<string> assistant_ {};
+        // The student\\"s answer.
         shared_ptr<string> user_ {};
       };
 
@@ -147,7 +149,9 @@ namespace Models
 
 
       protected:
+        // The name of the AI teacher.
         shared_ptr<string> assistant_ {};
+        // The name of the student.
         shared_ptr<string> user_ {};
       };
 
@@ -193,10 +197,15 @@ namespace Models
 
 
     protected:
+      // The background of the conversation.
       shared_ptr<string> backgroundDescription_ {};
+      // The role settings.
       shared_ptr<Data::RoleSet> roleSet_ {};
+      // The opening sentence of the conversation.
       shared_ptr<string> startSentence_ {};
+      // A list of Q\\&A pairs.
       shared_ptr<vector<Data::TaskContent>> taskContent_ {};
+      // The task type.
       shared_ptr<string> taskType_ {};
     };
 
@@ -247,11 +256,17 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<AITeacherExpansionPracticeTaskGenerateResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request was successful.
     shared_ptr<bool> success_ {};
   };
 

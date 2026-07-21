@@ -162,13 +162,21 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The demo URL.
         shared_ptr<string> demoUrl_ {};
+        // The deployment mode. Valid values: client-side or server-side.
         shared_ptr<string> deployMode_ {};
+        // The development language.
         shared_ptr<string> developLanguage_ {};
+        // The documentation URL.
         shared_ptr<string> docUrl_ {};
+        // The SDK name.
         shared_ptr<string> sdkName_ {};
+        // The SDK URL.
         shared_ptr<string> sdkUrl_ {};
+        // The SDK version.
         shared_ptr<string> sdkVersion_ {};
       };
 
@@ -233,7 +241,9 @@ namespace Models
 
 
         protected:
+          // The application identifier, also known as the AppKey.
           shared_ptr<string> applicationAccessId_ {};
+          // The application secret. This is returned only for requests from the console.
           shared_ptr<string> applicationAccessSecret_ {};
         };
 
@@ -263,8 +273,11 @@ namespace Models
 
 
       protected:
+        // The application access credentials.
         shared_ptr<vector<ProjectApps::ApplicationAccessIds>> applicationAccessIds_ {};
+        // The internal ID of the application.
         shared_ptr<string> id_ {};
+        // The project ID.
         shared_ptr<string> projectId_ {};
       };
 
@@ -317,11 +330,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The list of project applications.
       shared_ptr<vector<Data::ProjectApps>> projectApps_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The project SDK.
       shared_ptr<vector<Data::ProjectSDK>> projectSDK_ {};
+      // The project type.
       shared_ptr<string> projectType_ {};
     };
 
@@ -372,11 +391,17 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<UpdateProjectResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

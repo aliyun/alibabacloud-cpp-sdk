@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The encoding format of the image. If this parameter is set to `base64`, the image is returned as a Base64-encoded string. If this parameter is omitted, the raw binary data of the image is returned.
     shared_ptr<string> encodeFormat_ {};
+    // The ID of the image.
+    // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
+    // The ID of the model.
+    // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
+    // The ID of the prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptId_ {};
   };

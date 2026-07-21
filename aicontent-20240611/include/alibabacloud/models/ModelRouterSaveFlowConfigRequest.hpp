@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The model ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> modelId_ {};
+    // The maximum number of requests per minute (RPM).
     shared_ptr<int32_t> rpm_ {};
+    // Specifies whether to enable smooth flow control.
     shared_ptr<bool> smoothFlowEnabled_ {};
+    // The maximum number of tokens per minute (TPM).
     shared_ptr<int32_t> tpm_ {};
   };
 
