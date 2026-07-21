@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the duplicated cloud computer policy.
+    // The ID of the cloned cloud computer policy.
     shared_ptr<string> policyGroupId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_TO_JSON(DesktopScenario, desktopScenario_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_FROM_JSON(DesktopScenario, desktopScenario_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creator_ == nullptr
-        && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->osType_ == nullptr && this->regionId_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotType_ == nullptr
-        && this->sourceDiskType_ == nullptr && this->startTime_ == nullptr; };
+        && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopScenario_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->osType_ == nullptr && this->regionId_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr
+        && this->snapshotType_ == nullptr && this->sourceDiskType_ == nullptr && this->startTime_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteDesktopName() { this->desktopName_ = nullptr;};
     inline string getDesktopName() const { DARABONBA_PTR_GET_DEFAULT(desktopName_, "") };
     inline DescribeSnapshotsRequest& setDesktopName(string desktopName) { DARABONBA_PTR_SET_VALUE(desktopName_, desktopName) };
+
+
+    // desktopScenario Field Functions 
+    bool hasDesktopScenario() const { return this->desktopScenario_ != nullptr;};
+    void deleteDesktopScenario() { this->desktopScenario_ = nullptr;};
+    inline string getDesktopScenario() const { DARABONBA_PTR_GET_DEFAULT(desktopScenario_, "") };
+    inline DescribeSnapshotsRequest& setDesktopScenario(string desktopScenario) { DARABONBA_PTR_SET_VALUE(desktopScenario_, desktopScenario) };
 
 
     // endTime Field Functions 
@@ -151,37 +160,37 @@ namespace Models
   protected:
     // The creator.
     shared_ptr<string> creator_ {};
-    // The ID of the cloud desktop.
+    // The cloud computer ID.
     shared_ptr<string> desktopId_ {};
-    // The name of the cloud desktop.
+    // The cloud computer name.
     shared_ptr<string> desktopName_ {};
-    // The end time to query for snapshots. The time follows the [ISO 8601](t10049.xdita#) standard and is in UTC. The format is `yyyy-mm-ddthh:mm:ssz`.
+    shared_ptr<string> desktopScenario_ {};
+    // The end of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging.    
     // 
-    // - Maximum value: 100.
-    // 
+    // - Maximum value: 100.    
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. This is the NextToken value from the previous API call.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The operating system type.
     shared_ptr<string> osType_ {};
-    // The ID of the region. Call [](t2167755.xdita#)to get a list of regions that support Elastic Desktop Service (EDS).
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The snapshot ID.
     shared_ptr<string> snapshotId_ {};
-    // The display name of the snapshot. The name must be 2 to 127 characters long. It must start with a letter. It can contain digits, underscores (_), and hyphens (-). The name cannot start with `auto` to avoid naming conflicts with automatic snapshots.
+    // The display name of the snapshot. The name must be 2 to 127 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter or Chinese character. The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
     shared_ptr<string> snapshotName_ {};
     // The snapshot type.
     shared_ptr<string> snapshotType_ {};
-    // The disk from which to create the snapshot.
+    // The type of the cloud disk for which to create the snapshot.
     // 
     // > The value is case-insensitive.
     shared_ptr<string> sourceDiskType_ {};
-    // The start time to query for snapshots. The time follows the [ISO 8601](t10049.xdita#) standard and is in UTC. The format is `yyyy-mm-ddthh:mm:ssz`.
+    // The beginning of the time range during which the snapshot was created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

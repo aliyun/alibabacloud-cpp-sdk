@@ -13,6 +13,7 @@ namespace Models
   class UploadImageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UploadImageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BootMode, bootMode_);
       DARABONBA_PTR_TO_JSON(DataDiskSize, dataDiskSize_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EnableSecurityCheck, enableSecurityCheck_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
     };
     friend void from_json(const Darabonba::Json& j, UploadImageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BootMode, bootMode_);
       DARABONBA_PTR_FROM_JSON(DataDiskSize, dataDiskSize_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EnableSecurityCheck, enableSecurityCheck_);
@@ -51,10 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dataDiskSize_ == nullptr
-        && this->description_ == nullptr && this->enableSecurityCheck_ == nullptr && this->gpuCategory_ == nullptr && this->gpuDriverType_ == nullptr && this->imageName_ == nullptr
-        && this->licenseType_ == nullptr && this->osType_ == nullptr && this->ossObjectPath_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
-        && this->systemDiskSize_ == nullptr; };
+    virtual bool empty() const override { return this->bootMode_ == nullptr
+        && this->dataDiskSize_ == nullptr && this->description_ == nullptr && this->enableSecurityCheck_ == nullptr && this->gpuCategory_ == nullptr && this->gpuDriverType_ == nullptr
+        && this->imageName_ == nullptr && this->licenseType_ == nullptr && this->osType_ == nullptr && this->ossObjectPath_ == nullptr && this->protocolType_ == nullptr
+        && this->regionId_ == nullptr && this->systemDiskSize_ == nullptr; };
+    // bootMode Field Functions 
+    bool hasBootMode() const { return this->bootMode_ != nullptr;};
+    void deleteBootMode() { this->bootMode_ = nullptr;};
+    inline string getBootMode() const { DARABONBA_PTR_GET_DEFAULT(bootMode_, "") };
+    inline UploadImageRequest& setBootMode(string bootMode) { DARABONBA_PTR_SET_VALUE(bootMode_, bootMode) };
+
+
     // dataDiskSize Field Functions 
     bool hasDataDiskSize() const { return this->dataDiskSize_ != nullptr;};
     void deleteDataDiskSize() { this->dataDiskSize_ = nullptr;};
@@ -140,73 +149,46 @@ namespace Models
 
 
   protected:
-    // The size of the data disk. Valid values: 80 to 500. Unit: GiB.
+    shared_ptr<string> bootMode_ {};
+    // The data cloud disk size. Valid values: 80 to 500. Unit: GiB.
     shared_ptr<int32_t> dataDiskSize_ {};
     // The description of the image. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // Specifies whether to enable security check.
     shared_ptr<bool> enableSecurityCheck_ {};
-    // Specifies whether the image is a GPU-accelerated image.
+    // Specifies whether the image is a GPU image.
     shared_ptr<bool> gpuCategory_ {};
     // The type of the pre-installed GPU driver.
-    // 
-    // Valid values:
-    // 
-    // *   gpu_grid9: This GPU driver is used on cloud computers of the following two specifications: graphics – 4 vCPUs, 23 GiB memory, 4 GiB GPU memory, and graphics – 10 vCPUs, 46 GiB memory, 8 GiB GPU memory.
-    // *   gpu_custom: You can install the driver later.
-    // *   gpu_grid12: This GPU driver is used on graphical cloud computers of specifications other than the following two specifications: graphics – 4 vCPUs, 23 GiB memory, & 4 GiB GPU memory, and graphics – 10 vCPUs, 46 GiB memory, & 8 GiB GPU memory.
     shared_ptr<string> gpuDriverType_ {};
-    // The name of the image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // The image name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> imageName_ {};
-    // The type of the license that is used to activate the operating system after the image is imported. Valid values:
+    // The license type used to activate the operating system after the image is imported. Valid values:
     // 
-    // *   Auto: Elastic Desktop Service detects the operating system of the image and allocates a license to the operating system. In this mode, the system first checks whether a license allocated by an official Alibaba Cloud channel is specified in the `Platform`. If a license allocated by an official Alibaba Cloud channel is specified, the system allocates the license to the imported image. If no such license is specified, the BYOL (Bring Your Own License) mode is used.
-    // *   Aliyun: The license that is allocated by an official Alibaba Cloud channel and is specified by `Platform` is used for the operating system distribution.
-    // *   BYOL: The license that comes with the source operating system is used. When you use the BYOL mode, make sure that your license key is supported by Alibaba Cloud.
+    // - Auto: Alibaba Cloud detects the source operating system and assigns a license. In automatic mode, the system first checks whether an Alibaba Cloud official license is available for the `Platform` you specified and assigns it to the imported image. If no such license is available, the system switches to BYOL (Bring Your Own License) mode.
+    // - Aliyun: Uses an Alibaba Cloud official license based on the `Platform` you specified.
+    // - BYOL: Uses the license that comes with the source operating system. When you use BYOL, make sure that your license key supports use on Alibaba Cloud.
     // 
     // Default value: Auto.
     // 
-    // >  Windows 10 cannot be activated by Alibaba Cloud. Set the `LicenseType` to BYOL for Windows 10.
+    // > Systems such as Windows 10 cannot be activated through Alibaba Cloud. Set `LicenseType` to BYOL for custom activation.
     shared_ptr<string> licenseType_ {};
-    // The type of the operating system.
-    // 
-    // Valid values:
-    // 
-    // *   Linux
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Windows
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The operating system type.
     shared_ptr<string> osType_ {};
-    // The object path of the image file in Object Storage Service (OSS).
+    // The OSS object path of the image file.
     // 
     // This parameter is required.
     shared_ptr<string> ossObjectPath_ {};
     // The protocol type.
-    // 
-    // Valid values:
-    // 
-    // *   ASP: in-house Adaptive Streaming Protocol (ASP)
     shared_ptr<string> protocolType_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The size of the system disk. Unit: GiB.
+    // The system cloud disk size. Unit: GiB.
     // 
-    // >  The system disk must be at least as large as the image.
+    // > The system cloud disk size cannot be smaller than the image file size.
     shared_ptr<string> systemDiskSize_ {};
   };
 

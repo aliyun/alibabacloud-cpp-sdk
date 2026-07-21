@@ -143,62 +143,34 @@ namespace Models
 
 
   protected:
-    // The command type.
-    // 
-    // Valid values:
-    // 
-    // *   RunPowerShellScript: the PowerShell command.
-    // *   RunBatScript: the Bat command.
+    // The command type of the O&M script.
     shared_ptr<string> commandType_ {};
-    // The encoding method of the command content and outputs.
-    // 
-    // Valid values:
-    // 
-    // *   Base64 (default): returns the Base64-encoded command content and command outputs.
-    // *   PlainText: returns the original command content and outputs in plain text.
+    // The encoding method of the returned data.
     shared_ptr<string> contentEncoding_ {};
-    // The cloud computer ID. If you specify a cloud computer, all command execution records of the cloud computer are queried.
+    // The cloud desktop ID. If you specify a cloud desktop, all script execution records for that cloud desktop are queried.
     shared_ptr<string> desktopId_ {};
-    // The cloud computer IDs.
+    // The list of cloud desktop IDs.
     // 
-    // >  The `DesktopId` parameter will be deprecated. We recommend using the DesktopIds parameter to specify cloud computer IDs instead.
+    // > The `DesktopId` parameter will be deprecated. Use this parameter to pass the list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIds_ {};
     // The user ID.
     shared_ptr<string> endUserId_ {};
-    // Specifies whether to return the execution results of the remote command on all cloud computers when executed across multiple cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether to return the execution results of all cloud desktops when a remote command is run on multiple cloud desktops.
     shared_ptr<bool> includeInvokeDesktops_ {};
-    // Specifies whether to return command outputs in the response.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false (default)
+    // Specifies whether to return the output of the script execution in the results.
     shared_ptr<bool> includeOutput_ {};
-    // The execution ID of the command. You can obtain the value by calling the [RunCommand](~~RunCommand~~) operation.
+    // The script execution ID. Obtained from the response of [RunCommand](~~RunCommand~~).
     shared_ptr<string> invokeId_ {};
-    // The execution status of the command. The value of this parameter is determined by the execution states of the command on all participating cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   Finished: The command execution completes on all cloud computers. Alternatively, the command execution is manually stopped on some cloud computers while it completes on the others.
-    // *   Stopped: The command execution stops.
-    // *   Failed: The command execution failed on all cloud computers.
-    // *   Running: Once there is a command execution in progress, the execution status defaults to Running.
-    // *   PartialFailed: If the command execution failed on part of the cloud computers, the execution status is considered partially failed.
+    // The overall execution status of the script. The overall execution status depends on the combined execution status of one or more cloud desktops in the execution.
     shared_ptr<string> invokeStatus_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.    
     // 
-    // *   Valid values: 1 to 50.
-    // *   Default value: 10.
+    // - Maximum value: 50.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value that is returned from the last call to the previous DescribeInvocations operation.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

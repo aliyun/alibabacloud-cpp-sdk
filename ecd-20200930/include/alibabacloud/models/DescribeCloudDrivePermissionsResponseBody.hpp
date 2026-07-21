@@ -72,9 +72,13 @@ namespace Models
 
 
     protected:
-      // List of end user IDs.
+      // The list of end user IDs.
       shared_ptr<vector<string>> endUsers_ {};
-      // File transfer permission between the enterprise cloud drive and on-premises devices for the user.
+      // The file transfer permission between the enterprise cloud drive and the on-premises device for the user. Valid values:
+      // 
+      // - CDS_CREATE_DOWNLOAD: has both upload and download permissions.
+      // - CDS_DOWNLOAD: has only download permission.
+      // - CDS_CREATE: has only upload permission.
       shared_ptr<string> permission_ {};
     };
 
@@ -97,9 +101,9 @@ namespace Models
 
 
   protected:
-    // List of enterprise cloud drive permission information.
+    // The list of permission settings for the enterprise cloud drive.
     shared_ptr<vector<DescribeCloudDrivePermissionsResponseBody::CloudDrivePermissionModels>> cloudDrivePermissionModels_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

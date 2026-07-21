@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the convenience office network that is locked.
+    // The ID of the locked convenience office network.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

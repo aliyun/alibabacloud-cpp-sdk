@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The name of the cloud computer policy that you want to create.
+    // The name of the new cloud computer policy.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the destination cloud computer policy that you want to clone.
+    // The ID of the cloud computer policy that you want to clone.
     // 
     // This parameter is required.
     shared_ptr<string> policyGroupId_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

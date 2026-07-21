@@ -80,6 +80,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(HibernationOptionsConfigured, hibernationOptionsConfigured_);
         DARABONBA_PTR_TO_JSON(HostName, hostName_);
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+        DARABONBA_PTR_TO_JSON(ImageName, imageName_);
         DARABONBA_PTR_TO_JSON(IsLdap, isLdap_);
         DARABONBA_PTR_TO_JSON(ManagementFlag, managementFlag_);
         DARABONBA_PTR_TO_JSON(ManagementFlags, managementFlags_);
@@ -107,6 +108,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SnapshotPolicyName, snapshotPolicyName_);
         DARABONBA_PTR_TO_JSON(StandardStartTime, standardStartTime_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+        DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
         DARABONBA_PTR_TO_JSON(SupportHibernation, supportHibernation_);
         DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -153,6 +155,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(HibernationOptionsConfigured, hibernationOptionsConfigured_);
         DARABONBA_PTR_FROM_JSON(HostName, hostName_);
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+        DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
         DARABONBA_PTR_FROM_JSON(IsLdap, isLdap_);
         DARABONBA_PTR_FROM_JSON(ManagementFlag, managementFlag_);
         DARABONBA_PTR_FROM_JSON(ManagementFlags, managementFlags_);
@@ -180,6 +183,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SnapshotPolicyName, snapshotPolicyName_);
         DARABONBA_PTR_FROM_JSON(StandardStartTime, standardStartTime_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+        DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
         DARABONBA_PTR_FROM_JSON(SupportHibernation, supportHibernation_);
         DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -290,11 +294,11 @@ namespace Models
 
 
       protected:
-        // The user ID connected to the desktop.
+        // The ID of the user connected to the cloud computer.
         shared_ptr<string> endUserId_ {};
-        // The time when the desktop session was established.
+        // The time when the cloud computer session was established.
         shared_ptr<string> establishmentTime_ {};
-        // The external user name.
+        // The external username.
         shared_ptr<string> externalUserName_ {};
       };
 
@@ -522,17 +526,17 @@ namespace Models
 
 
       protected:
-        // The current image version number of the desktop.
+        // The current image version of the cloud computer.
         shared_ptr<string> currentAppVersion_ {};
-        // The image version number to which the desktop can be upgraded.
+        // The image version to which the cloud computer can be upgraded.
         shared_ptr<string> newAppVersion_ {};
-        // The description of the upgradeable image version.
+        // The release note of the upgradable image version.
         shared_ptr<string> releaseNote_ {};
-        // The English description of the upgradeable version.
+        // The English release note of the upgradable version.
         shared_ptr<string> releaseNoteEn_ {};
-        // The Japanese description of the upgradeable version.
+        // The Japanese release note of the upgradable version.
         shared_ptr<string> releaseNoteJp_ {};
-        // The size of the upgradeable version installation package. Unit: KB.
+        // The size of the upgradable version installation package. Unit: KB.
         shared_ptr<int64_t> size_ {};
       };
 
@@ -601,13 +605,10 @@ namespace Models
 
 
       protected:
-        // The disk type.
-        // 
-        // - cloud_efficiency (ultra disk)
-        // 
-        //   - cloud_auto (extreme disk)
-        // 
-        //   - cloud_essd (enhanced SSD disk, supported only on select instance types)
+        // The cloud disk category.
+        // - cloud_efficiency (ultra cloud disk)
+        //    - cloud_auto (ESSD AutoPL cloud disk)
+        //    - cloud_essd (enhanced standard SSD, supported only by specific specifications)
         shared_ptr<string> diskCategory_ {};
         // The disk ID.
         shared_ptr<string> diskId_ {};
@@ -615,9 +616,9 @@ namespace Models
         shared_ptr<int32_t> diskSize_ {};
         // The disk type.
         shared_ptr<string> diskType_ {};
-        // The performance level of ESSD disks, if the disk uses ESSD.
+        // The performance level (PL) of the ESSD when the cloud disk is an ESSD.
         // 
-        // For differences between performance levels, see [](t583241.xdita#).
+        // For more information about the differences between performance levels, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
         shared_ptr<string> performanceLevel_ {};
       };
 
@@ -773,13 +774,14 @@ namespace Models
         && this->downgradeQuota_ == nullptr && this->downgradedTimes_ == nullptr && this->endUserIds_ == nullptr && this->entraDomainName_ == nullptr && this->envId_ == nullptr
         && this->envType_ == nullptr && this->expiredTime_ == nullptr && this->fotaUpdate_ == nullptr && this->gpuCategory_ == nullptr && this->gpuCount_ == nullptr
         && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->hibernationBeta_ == nullptr && this->hibernationOptionsConfigured_ == nullptr && this->hostName_ == nullptr
-        && this->imageId_ == nullptr && this->isLdap_ == nullptr && this->managementFlag_ == nullptr && this->managementFlags_ == nullptr && this->memory_ == nullptr
-        && this->networkInterfaceId_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr
-        && this->officeSiteVpcType_ == nullptr && this->osType_ == nullptr && this->osUpdate_ == nullptr && this->platform_ == nullptr && this->policyGroupId_ == nullptr
-        && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->progress_ == nullptr && this->protocolType_ == nullptr
-        && this->resourceGroups_ == nullptr && this->serialNumber_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr && this->snapshotPolicyId_ == nullptr
-        && this->snapshotPolicyName_ == nullptr && this->standardStartTime_ == nullptr && this->startTime_ == nullptr && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
+        && this->imageId_ == nullptr && this->imageName_ == nullptr && this->isLdap_ == nullptr && this->managementFlag_ == nullptr && this->managementFlags_ == nullptr
+        && this->memory_ == nullptr && this->networkInterfaceId_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
+        && this->officeSiteType_ == nullptr && this->officeSiteVpcType_ == nullptr && this->osType_ == nullptr && this->osUpdate_ == nullptr && this->platform_ == nullptr
+        && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->progress_ == nullptr
+        && this->protocolType_ == nullptr && this->resourceGroups_ == nullptr && this->serialNumber_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr
+        && this->snapshotPolicyId_ == nullptr && this->snapshotPolicyName_ == nullptr && this->standardStartTime_ == nullptr && this->startTime_ == nullptr && this->subnetId_ == nullptr
+        && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr
+        && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -1049,6 +1051,13 @@ namespace Models
       inline Desktops& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
+      // imageName Field Functions 
+      bool hasImageName() const { return this->imageName_ != nullptr;};
+      void deleteImageName() { this->imageName_ = nullptr;};
+      inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
+      inline Desktops& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
+
+
       // isLdap Field Functions 
       bool hasIsLdap() const { return this->isLdap_ != nullptr;};
       void deleteIsLdap() { this->isLdap_ = nullptr;};
@@ -1250,6 +1259,13 @@ namespace Models
       inline Desktops& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+      // subnetId Field Functions 
+      bool hasSubnetId() const { return this->subnetId_ != nullptr;};
+      void deleteSubnetId() { this->subnetId_ = nullptr;};
+      inline string getSubnetId() const { DARABONBA_PTR_GET_DEFAULT(subnetId_, "") };
+      inline Desktops& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
+
+
       // supportHibernation Field Functions 
       bool hasSupportHibernation() const { return this->supportHibernation_ != nullptr;};
       void deleteSupportHibernation() { this->supportHibernation_ = nullptr;};
@@ -1304,104 +1320,105 @@ namespace Models
     protected:
       shared_ptr<string> accountType_ {};
       shared_ptr<vector<string>> agentProviderList_ {};
-      // The number of concurrent sessions allowed per desktop in a multi-session desktop pool.
+      // The number of concurrent sessions allowed per cloud computer in a multi-session cloud computer pool.
       shared_ptr<int32_t> bindAmount_ {};
-      // The desktop template ID used by the desktop.
+      // The ID of the cloud computer template used by the cloud computer.
       shared_ptr<string> bundleId_ {};
-      // The desktop template name used by the desktop.
+      // The name of the cloud computer template used by the cloud computer.
       shared_ptr<string> bundleName_ {};
-      // The billing method for the desktop.
+      // The billing method of the cloud computer.
       shared_ptr<string> chargeType_ {};
       // The connection status of the user.
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the desktop was created.
+      // The time when the cloud computer was created.
       shared_ptr<string> creationTime_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> dataDiskCategory_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> dataDiskSize_ {};
       shared_ptr<vector<Desktops::DesktopDurationList>> desktopDurationList_ {};
-      // The desktop pool ID that the desktop belongs to. Default value: `null`.
+      // The ID of the cloud computer pool to which the cloud computer belongs. Default value: `null`.
       shared_ptr<string> desktopGroupId_ {};
-      // The desktop ID.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The desktop name.
+      // The cloud computer name.
       shared_ptr<string> desktopName_ {};
-      // The desktop status.
+      // The cloud computer status.
       shared_ptr<string> desktopStatus_ {};
-      // The desktop instance type.
+      // The cloud computer specifications.
       shared_ptr<string> desktopType_ {};
-      // The directory ID. This is the same as the office site ID (OfficeSiteId).
+      // The directory ID, which is the same as the office network ID (OfficeSiteId).
       shared_ptr<string> directoryId_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> directoryType_ {};
-      // Disk information.
+      // The disk information.
       shared_ptr<vector<Desktops::Disks>> disks_ {};
       shared_ptr<string> domainType_ {};
-      // The number of times the desktop can be downgraded.
+      // The number of times the specifications can be downgraded.
       shared_ptr<int64_t> downgradeQuota_ {};
-      // The number of times the desktop has been downgraded.
+      // The number of times the specifications have been downgraded.
       shared_ptr<int64_t> downgradedTimes_ {};
-      // The authorized user IDs for the desktop.
+      // The authorized user IDs of the cloud computer.
       shared_ptr<vector<string>> endUserIds_ {};
       shared_ptr<string> entraDomainName_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
-      // The expiration time for subscription desktops.
+      // The expiration time of the subscription cloud computer.
       shared_ptr<string> expiredTime_ {};
-      // The image version information for the desktop.
+      // The image version information of the cloud computer.
       shared_ptr<Desktops::FotaUpdate> fotaUpdate_ {};
-      // Whether the desktop is a GPU desktop.
+      // Indicates whether the cloud computer is a GPU cloud computer.
       shared_ptr<int64_t> gpuCategory_ {};
       // The number of GPUs.
       shared_ptr<float> gpuCount_ {};
-      // The GPU driver version for the desktop.
+      // The GPU driver version of the cloud computer.
       shared_ptr<string> gpuDriverVersion_ {};
-      // The GPU specification.
+      // The GPU specifications.
       shared_ptr<string> gpuSpec_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<bool> hibernationBeta_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<bool> hibernationOptionsConfigured_ {};
-      // The host name.
+      // The hostname.
       shared_ptr<string> hostName_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
+      shared_ptr<string> imageName_ {};
       shared_ptr<bool> isLdap_ {};
       // The management flag.
       shared_ptr<string> managementFlag_ {};
-      // The management flags.
+      // The management flag.
       shared_ptr<vector<string>> managementFlags_ {};
       // The memory size. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the secondary ENI created by the desktop service under a RAM or AD user. This value cannot be modified.
+      // The ID of the secondary elastic network interface (ENI) created by the cloud computer service under the RAM or AD user. This value cannot be modified.
       shared_ptr<string> networkInterfaceId_ {};
-      // The IP address of the secondary ENI created by the desktop service under a RAM or AD user.
+      // The IP address of the secondary ENI created by the cloud computer service under the RAM or AD user.
       shared_ptr<string> networkInterfaceIp_ {};
-      // The office site ID.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The office site name.
+      // The office network name.
       shared_ptr<string> officeSiteName_ {};
-      // The account system type for the office site.
+      // The account system type of the office network.
       shared_ptr<string> officeSiteType_ {};
-      // The VPC type of the office site.
+      // The VPC type of the office network.
       shared_ptr<string> officeSiteVpcType_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
       shared_ptr<Desktops::OsUpdate> osUpdate_ {};
       // The operating system platform information.
       shared_ptr<string> platform_ {};
-      // The desktop policy ID.
+      // The cloud computer policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The collection of desktop policy IDs.
+      // The list of cloud computer policy IDs.
       shared_ptr<vector<string>> policyGroupIdList_ {};
       // The policy name.
       shared_ptr<string> policyGroupName_ {};
-      // The list of desktop policy names.
+      // The list of cloud computer policy names.
       shared_ptr<vector<string>> policyGroupNameList_ {};
-      // The creation progress of the desktop.
+      // The creation progress of the cloud computer.
       shared_ptr<string> progress_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
@@ -1410,29 +1427,29 @@ namespace Models
       shared_ptr<string> serialNumber_ {};
       // The session type.
       shared_ptr<string> sessionType_ {};
-      // Session information for the desktop user.
+      // The user session information of the cloud computer.
       shared_ptr<vector<Desktops::Sessions>> sessions_ {};
       // The snapshot policy ID.
       shared_ptr<string> snapshotPolicyId_ {};
       // The snapshot policy name.
       shared_ptr<string> snapshotPolicyName_ {};
-      // The standard start time.
       shared_ptr<string> standardStartTime_ {};
-      // The first time the desktop started.
+      // The time when the cloud computer was first started.
       shared_ptr<string> startTime_ {};
-      // Whether hibernation is supported.
+      shared_ptr<string> subnetId_ {};
+      // Indicates whether hibernation is supported.
       shared_ptr<bool> supportHibernation_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> systemDiskCategory_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // Tag information.
+      // The tag information.
       shared_ptr<vector<Desktops::Tags>> tags_ {};
-      // Whether disk encryption is enabled.
+      // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the KMS key used when disk encryption is enabled. You can obtain it through the [](t22712.xdita#)interface.
+      // The KMS key ID used for disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
-      // The type of zone to query. Default value: `AvailabilityZone`, which refers to standard cloud availability zones.
+      // The zone type. Default value: `AvailabilityZone`, which indicates a standard cloud zone.
       shared_ptr<string> zoneType_ {};
     };
 
@@ -1483,17 +1500,17 @@ namespace Models
 
 
   protected:
-    // Details about the desktops.
+    // The details of cloud computers.
     shared_ptr<vector<DescribeDesktopsResponseBody::Desktops>> desktops_ {};
-    // The token that starts the next query. An empty NextToken means no more results.
+    // The pagination token for the next query. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The page number of the current page in a paged query.
+    // The page number of the current page for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries to return on each page in a paged query.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of desktops.
+    // The total number of cloud computers.
     shared_ptr<int32_t> totalCount_ {};
   };
 

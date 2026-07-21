@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SortType, sortType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
+      DARABONBA_PTR_TO_JSON(UserNames, userNames_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeGlobalDesktopRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SortType, sortType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
+      DARABONBA_PTR_FROM_JSON(UserNames, userNames_);
     };
     DescribeGlobalDesktopRecordsRequest() = default ;
     DescribeGlobalDesktopRecordsRequest(const DescribeGlobalDesktopRecordsRequest &) = default ;
@@ -68,7 +70,7 @@ namespace Models
         && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr
         && this->endUserId_ == nullptr && this->excludeDesktopStatusList_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr
         && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scope_ == nullptr && this->sortType_ == nullptr
-        && this->startTime_ == nullptr && this->subPayType_ == nullptr; };
+        && this->startTime_ == nullptr && this->subPayType_ == nullptr && this->userNames_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -201,69 +203,67 @@ namespace Models
     inline DescribeGlobalDesktopRecordsRequest& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
+    // userNames Field Functions 
+    bool hasUserNames() const { return this->userNames_ != nullptr;};
+    void deleteUserNames() { this->userNames_ = nullptr;};
+    inline const vector<string> & getUserNames() const { DARABONBA_PTR_GET_CONST(userNames_, vector<string>) };
+    inline vector<string> getUserNames() { DARABONBA_PTR_GET(userNames_, vector<string>) };
+    inline DescribeGlobalDesktopRecordsRequest& setUserNames(const vector<string> & userNames) { DARABONBA_PTR_SET_VALUE(userNames_, userNames) };
+    inline DescribeGlobalDesktopRecordsRequest& setUserNames(vector<string> && userNames) { DARABONBA_PTR_SET_RVALUE(userNames_, userNames) };
+
+
   protected:
     shared_ptr<string> businessChannel_ {};
-    // The IDs of the cloud desktops. You can specify up to 100 IDs.
+    // The cloud desktop IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
-    // The name of the cloud desktop.
+    // The cloud desktop name.
     shared_ptr<string> desktopName_ {};
-    // The ID of the resource group.
     shared_ptr<vector<string>> desktopStatusList_ {};
-    // The desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the supported desktop types.
+    // The cloud desktop type. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported cloud desktop type IDs.
     shared_ptr<string> desktopType_ {};
-    // The end time of the query. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format. The interval between the start and end times cannot exceed 30 days.
-    // 
+    // The end time. The maximum interval between the start time and end time is 30 days. Supported format:
     // - Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> endTime_ {};
-    // The ID of the end user.
-    // 
-    // - Asc: ascending order
-    // 
-    // - Desc: descending order
+    // The end user ID.
     shared_ptr<string> endUserId_ {};
     shared_ptr<vector<string>> excludeDesktopStatusList_ {};
-    // The ID of the office site.
-    // 
-    // - China (Shanghai)
-    // 
-    // - Singapore
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The field by which to sort the results. If you do not specify this parameter, the results are sorted by creation time in descending order. Valid value:
+    // The sort field. If not specified, results are sorted by creation time in descending order. Valid values:
     // 
-    // - `uptime`: Sorts the results by cloud desktop uptime.
+    // - uptime: sorts by cloud desktop uptime.
     shared_ptr<string> orderBy_ {};
-    // The page number to return.<br>Default value: 1.<br>
-    // 
-    // - Format: YYYY-MM-DDThh:mm:ssZ.
+    // The page number for a paged query.    
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
-    // 
+    // The region ID. Valid values:
     // - Shanghai
-    // 
     // - Singapore
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The query scope. This parameter is empty by default. Valid value:
+    // The query scope. This parameter is empty by default. Valid values:
     // 
-    // - `ADVANCED`: Queries statistical records, such as connection duration.
-    // 
-    // - postPaid: Pay-as-you-go.
-    // 
-    // - monthPackage: monthly time-based package.
+    // - ADVANCED: queries statistical records such as connection duration.
     shared_ptr<string> scope_ {};
-    // The sort order. The default is `Asc`. Valid values:
-    // 
-    // - `Asc`: ascending order
+    // The sort order. Default value: ascending order. Valid values:
+    // - Asc: ascending order.
+    // - Desc: descending order.
     shared_ptr<string> sortType_ {};
-    // The start time of the query. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The start time. Supported format:
+    // - Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> startTime_ {};
     // The billing method of the cloud desktop. Valid values:
+    // 
+    // - prePaid: monthly subscription with unlimited usage duration.
+    // - postPaid: pay-as-you-go.
+    // - monthPackage: monthly duration package.
     shared_ptr<string> subPayType_ {};
+    shared_ptr<vector<string>> userNames_ {};
   };
 
   } // namespace Models

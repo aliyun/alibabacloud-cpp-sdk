@@ -69,10 +69,10 @@ namespace Models
 
 
     protected:
-      // <props="china">Currency unit (CNY).
-      // <props="intl">Currency unit (USD).
+      // <props="china">The currency unit (CNY).
+      // <props="intl">The currency unit (USD).
       shared_ptr<string> currency_ {};
-      // This refund amount.
+      // The refund amount for this unsubscription.
       shared_ptr<float> refundFee_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Price details.
+    // The price details.
     shared_ptr<DescribeRefundPriceResponseBody::PriceInfo> priceInfo_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

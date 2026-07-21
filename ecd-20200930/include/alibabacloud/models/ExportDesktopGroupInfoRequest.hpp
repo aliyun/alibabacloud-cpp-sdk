@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The tag key. You cannot specify an empty string as a tag key. A tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+      // The tag key. This parameter cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify an empty string as a tag key. A tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+      // The tag value. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -191,41 +191,34 @@ namespace Models
 
 
   protected:
-    // The billing method of the cloud computer share.
-    // 
-    // Valid values:
-    // 
-    // - PostPaid: pay-as-you-go.
-    // 
-    // - PrePaid: subscription.
+    // The billing method of the shared cloud desktops.
     shared_ptr<string> chargeType_ {};
-    // The IDs of the cloud computer shares.
+    // The list of shared cloud desktop IDs.
     shared_ptr<vector<string>> desktopGroupId_ {};
-    // The name of the cloud computer share.
+    // The name of the shared cloud desktop.
     shared_ptr<string> desktopGroupName_ {};
-    // The IDs of the users to be authorized.
+    // The list of authorized user IDs for the shared cloud desktops.
     shared_ptr<vector<string>> endUserId_ {};
-    // The expiration date of the subscription cloud computer share.
+    // The expiration time of the subscription shared cloud desktops.
     shared_ptr<string> expiredTime_ {};
-    // The language of the response.
+    // The language type.
     shared_ptr<string> langType_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for a paged query.    
     // 
-    // Maximum value: 100.
-    // 
-    // Default value: 10.
+    // - Maximum value: 100.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The ID of the office network.
+    // The ID of the office network to which the shared cloud desktops belong.
     shared_ptr<string> officeSiteId_ {};
-    // The ID of the security policy.
+    // The ID of the policy associated with the shared cloud desktops.
     shared_ptr<string> policyGroupId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tags. You can specify up to 20 tags.
+    // The list of tags. A maximum of 20 tags can be specified.
     shared_ptr<vector<ExportDesktopGroupInfoRequest::Tag>> tag_ {};
   };
 

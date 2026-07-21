@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The URL of the exported file of the cloud computer list.
+    // The download URL of the exported cloud desktop list file.
     shared_ptr<string> url_ {};
   };
 

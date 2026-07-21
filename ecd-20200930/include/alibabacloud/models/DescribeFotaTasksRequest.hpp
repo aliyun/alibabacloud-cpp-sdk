@@ -97,34 +97,24 @@ namespace Models
 
 
   protected:
-    // >  This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<string> fotaStatus_ {};
-    // The language of the image version to update.
-    // 
-    // Valid values:
-    // 
-    // *   en: English.
-    // *   zh: Simplified Chinese.
+    // The language type of the upgrade version description.
     shared_ptr<string> lang_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
-    // *   Valid values: 1 to 100
-    // *   Default value: 20
+    // - Maximum value: 100.
+    // - Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the image update tasks.
+    // The list of image upgrade tasks.
     shared_ptr<vector<string>> taskUid_ {};
-    // Specifies whether to automatically push the image update task.
-    // 
-    // Valid values:
-    // 
-    // *   Running: automatically pushes the image update task.
-    // *   Pending: does not automatically push the image update task.
+    // Specifies whether the image upgrade task is automatically pushed.
     shared_ptr<string> userStatus_ {};
   };
 

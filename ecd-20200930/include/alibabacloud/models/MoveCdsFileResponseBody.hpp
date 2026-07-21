@@ -84,29 +84,11 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task. This parameter is not returned if you copy files. This parameter is returned if you copy folders in the backend in an asynchronous manner. You can call the GetAsyncTask operation to obtain the ID and details of an asynchronous task.
+      // The asynchronous task ID. This field is not returned when a file is copied. When a folder is copied, the copy operation is performed asynchronously in the background, so this field is returned. You can call [GetAsyncTask](https://help.aliyun.com/document_detail/2357404.html) and pass in this asynchronous task ID to obtain the task details.
       shared_ptr<string> asyncTaskId_ {};
-      // Indicates whether the file exists.
-      // 
-      // Valid values:
-      // 
-      // *   <!-- -->
-      // 
-      //     true
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   <!-- -->
-      // 
-      //     false
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // Indicates whether the file already exists.
       shared_ptr<bool> exist_ {};
-      // The ID of the file.
+      // The file ID.
       shared_ptr<string> fileId_ {};
     };
 
@@ -150,33 +132,15 @@ namespace Models
 
 
   protected:
-    // The result of the modification. A value of success indicates that the modification is successful. If the modification failed, an error message is returned.
+    // The execution result. The value `success` indicates that the operation is successful. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // The error message that is returned. This parameter is not returned if the value of Code is success.
+    // The error message. This parameter is not returned if Code is `success`.
     shared_ptr<string> message_ {};
-    // The response object when you move a file.
+    // The result of the move file operation.
     shared_ptr<MoveCdsFileResponseBody::MoveCdsFileModel> moveCdsFileModel_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
-    // 
-    // Valid values:
-    // 
-    // *   <!-- -->
-    // 
-    //     true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

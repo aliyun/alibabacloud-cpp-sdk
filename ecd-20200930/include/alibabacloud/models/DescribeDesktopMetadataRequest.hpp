@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IncludeDesktopGroup, includeDesktopGroup_);
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OperationTimeStart, operationTimeStart_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IncludeDesktopGroup, includeDesktopGroup_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OperationTimeStart, operationTimeStart_);
@@ -58,8 +60,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creationTimeStart_ == nullptr
         && this->desktopIds_ == nullptr && this->endUserId_ == nullptr && this->groupId_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
-        && this->includeDesktopGroup_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr
-        && this->operationTimeStart_ == nullptr && this->regionId_ == nullptr && this->searchRegionId_ == nullptr; };
+        && this->includeDesktopGroup_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->networkInterfaceIp_ == nullptr && this->nextToken_ == nullptr
+        && this->officeSiteId_ == nullptr && this->operationTimeStart_ == nullptr && this->regionId_ == nullptr && this->searchRegionId_ == nullptr; };
     // creationTimeStart Field Functions 
     bool hasCreationTimeStart() const { return this->creationTimeStart_ != nullptr;};
     void deleteCreationTimeStart() { this->creationTimeStart_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     inline DescribeDesktopMetadataRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
+    // networkInterfaceIp Field Functions 
+    bool hasNetworkInterfaceIp() const { return this->networkInterfaceIp_ != nullptr;};
+    void deleteNetworkInterfaceIp() { this->networkInterfaceIp_ = nullptr;};
+    inline string getNetworkInterfaceIp() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceIp_, "") };
+    inline DescribeDesktopMetadataRequest& setNetworkInterfaceIp(string networkInterfaceIp) { DARABONBA_PTR_SET_VALUE(networkInterfaceIp_, networkInterfaceIp) };
+
+
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -161,29 +170,32 @@ namespace Models
 
 
   protected:
-    // The creation time of the cloud computer. The time must be in the `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"` format and in UTC.
+    // The time when the cloud desktop was created. The time is in UTC format:
+    // `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
     shared_ptr<string> creationTimeStart_ {};
-    // A list of cloud computer IDs.
+    // The list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIds_ {};
-    // The ID of the end user.
+    // The end user ID.
     shared_ptr<string> endUserId_ {};
-    // The ID of the cloud computer share.
+    // The shared cloud desktop ID.
     shared_ptr<string> groupId_ {};
     // The hostname.
     shared_ptr<string> hostName_ {};
-    // The ID of the image.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // Specifies whether to include cloud computers in cloud computer shares in the response.
+    // Specifies whether the response includes cloud desktops in shared cloud desktop groups.
     shared_ptr<bool> includeDesktopGroup_ {};
-    // > This parameter is not yet available.
+    // >This parameter is not yet available.
     shared_ptr<string> keyword_ {};
-    // The maximum number of entries to return per page. Maximum: 100. Default: 10.
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned from the previous call to retrieve the next page of results.
+    shared_ptr<string> networkInterfaceIp_ {};
+    // The token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the office network.
+    // The workspace ID.
     shared_ptr<string> officeSiteId_ {};
-    // The start of the time range to query for operations. The time must be in the `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"` format and in UTC.
+    // The start time of the operation performed on the cloud desktop. The time is in UTC format:
+    // `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
     shared_ptr<string> operationTimeStart_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

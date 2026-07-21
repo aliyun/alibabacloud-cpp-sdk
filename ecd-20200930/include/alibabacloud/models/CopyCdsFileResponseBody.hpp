@@ -75,9 +75,9 @@ namespace Models
 
 
     protected:
-      // The ID of the asynchronous task. This parameter is not returned if you copy a file. This parameter is returned if you copy a folder in the backend in an asynchronous manner. You can call the GetAsyncTask operation to obtain the ID and details of an asynchronous task.
+      // The asynchronous task ID. This field is not returned when a file is copied. When a folder is copied, the copy operation is performed asynchronously in the background, so this field is returned. You can call [GetAsyncTask](https://help.aliyun.com/document_detail/2357404.html) and pass in this asynchronous task ID to obtain the task details.
       shared_ptr<string> asyncTaskId_ {};
-      // The ID of the copied file or folder.
+      // The ID of the new file or folder after the copy operation.
       shared_ptr<string> fileId_ {};
     };
 
@@ -121,33 +121,15 @@ namespace Models
 
 
   protected:
-    // The operation result. The value success indicates that the operation is successful. If the operation failed, an error message is returned.
+    // The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // The details about the file copying.
+    // The result of copying the file.
     shared_ptr<CopyCdsFileResponseBody::CopyCdsFileModel> copyCdsFileModel_ {};
-    // The error message that is returned. This parameter is not returned if the value of Code is success.
+    // The error message. This parameter is not returned if Code is `success`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
-    // 
-    // Valid values:
-    // 
-    // - true
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    // - false
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
-    // 
-    //   <!-- -->
+    // Indicates whether the operation is successful.
     shared_ptr<string> success_ {};
   };
 

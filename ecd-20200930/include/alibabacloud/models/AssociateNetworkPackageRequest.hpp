@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the premium bandwidth plan.
+    // The ID of the premium Internet bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> networkPackageId_ {};
-    // The ID of the office network. You can call the [DescribeNetworkPackages](https://help.aliyun.com/document_detail/216079.html) to obtain the ID of the office network to which a premium bandwidth plan is bound.
+    // The ID of the office network. You can call [DescribeNetworkPackages](https://help.aliyun.com/document_detail/216079.html) to obtain the ID of the office network associated with the premium Internet bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

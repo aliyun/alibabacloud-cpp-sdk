@@ -103,16 +103,11 @@ namespace Models
 
 
       protected:
-        // The ID of the convenience user.
+        // The user ID.
         // 
         // This parameter is required.
         shared_ptr<string> id_ {};
         // The user type.
-        // 
-        // Set the value to TENANT_ADMIN.
-        // 
-        // *   IT_Group: group.
-        // *   IT_User: user.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -151,31 +146,15 @@ namespace Models
 
 
     protected:
-      // The user of the cloud disk.
+      // The user object.
       // 
       // This parameter is required.
       shared_ptr<MemberList::CdsIdentity> cdsIdentity_ {};
-      // Specifies whether the users of the child group can inherit the folder permissions.
+      // Specifies whether sub-user groups inherit the permissions.
       shared_ptr<bool> disinheritSubGroup_ {};
-      // The time when the authorization expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The value never expires. You can specify a value that is predefined by the system for this parameter. Example: 4775500800000.
+      // The time when the authorization expires. The value is the number of milliseconds from January 1, 1970, 00:00:00 to the target time. To set permanent validity, specify a predefined system value, such as 4775500800000.
       shared_ptr<int64_t> expireTime_ {};
-      // You can set permissions by specifying roles or by customizing operation permissions. This field is used to set permissions by specifying roles. This field is mutually exclusive with `ActionList`.
-      // 
-      // Valid values:
-      // 
-      // *   SystemFileEditorWithoutShareLink: The role that can edit but cannot share files.
-      // *   SystemFileUploaderAndDownloaderWithShareLink: The role that can upload, download, and share files.
-      // *   SystemFileDownloader: The role that can download files.
-      // *   SystemFileEditorWithoutDelete: The role that can edit but cannot edit files.
-      // *   SystemFileOwner: The role that can collaborate with others on files.
-      // *   SystemFileDownloaderWithShareLink: The role that can download and share files.
-      // *   SystemFileUploaderAndViewer: The role that can preview and upload files.
-      // *   SystemFileViewer: The role that can preview files.
-      // *   SystemFileEditor: The role that can edit files.
-      // *   SystemFileUploaderWithShareLink: The role that can upload and share files.
-      // *   SystemFileUploader: The role that can upload files.
-      // *   SystemFileUploaderAndDownloader: The role that can upload and download files.
-      // *   SystemFileMetaViewer: The role that can view file list.
+      // Two methods are supported for setting permissions: specifying a role or customizing operation permissions. This parameter specifies a role for permission settings and is mutually exclusive with ActionList. If both parameters are specified, this parameter takes precedence.
       // 
       // This parameter is required.
       shared_ptr<string> roleId_ {};
@@ -228,23 +207,23 @@ namespace Models
 
 
   protected:
-    // The ID of the enterprise drive.
+    // The enterprise cloud disk ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The ID of the user who uses the network disk.
+    // The ID of the user who uses the cloud disk.
     shared_ptr<string> endUserId_ {};
-    // The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
+    // The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The ID of the team space.
+    // The team space ID.
     shared_ptr<string> groupId_ {};
-    // The users that you want to authorize to use the cloud disk.
+    // The list of authorized users.
     // 
     // This parameter is required.
     shared_ptr<vector<AddFilePermissionRequest::MemberList>> memberList_ {};
-    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

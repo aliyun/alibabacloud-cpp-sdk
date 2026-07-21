@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Sessions& obj) { 
         DARABONBA_PTR_TO_JSON(ConnectionStatus, connectionStatus_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_TO_JSON(DesktopGroupId, desktopGroupId_);
         DARABONBA_PTR_TO_JSON(DesktopGroupName, desktopGroupName_);
         DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
@@ -67,6 +68,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Sessions& obj) { 
         DARABONBA_PTR_FROM_JSON(ConnectionStatus, connectionStatus_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
         DARABONBA_PTR_FROM_JSON(DesktopGroupId, desktopGroupId_);
         DARABONBA_PTR_FROM_JSON(DesktopGroupName, desktopGroupName_);
         DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
@@ -141,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The ID of the end user.
+        // The end user ID.
         shared_ptr<string> endUserId_ {};
-        // The time the session was created.
+        // The time when the session was created.
         shared_ptr<string> establishmentTime_ {};
       };
 
@@ -185,18 +187,19 @@ namespace Models
 
 
       protected:
-        // The ID of the resource group.
+        // The enterprise resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The name of the resource group.
+        // The resource group name.
         shared_ptr<string> resourceGroupName_ {};
       };
 
       virtual bool empty() const override { return this->connectionStatus_ == nullptr
-        && this->cpu_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
-        && this->desktopStatus_ == nullptr && this->endUserId_ == nullptr && this->endUserIds_ == nullptr && this->gpuSpec_ == nullptr && this->latestConnectionTime_ == nullptr
-        && this->memory_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr
-        && this->platform_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->resourceGroups_ == nullptr && this->sessionIdleTime_ == nullptr
-        && this->sessions_ == nullptr && this->statusChangeTime_ == nullptr && this->subPayType_ == nullptr && this->totalConnectionTime_ == nullptr && this->upTime_ == nullptr; };
+        && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->desktopId_ == nullptr
+        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->endUserId_ == nullptr && this->endUserIds_ == nullptr && this->gpuSpec_ == nullptr
+        && this->latestConnectionTime_ == nullptr && this->memory_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr
+        && this->osType_ == nullptr && this->platform_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->resourceGroups_ == nullptr
+        && this->sessionIdleTime_ == nullptr && this->sessions_ == nullptr && this->statusChangeTime_ == nullptr && this->subPayType_ == nullptr && this->totalConnectionTime_ == nullptr
+        && this->upTime_ == nullptr; };
       // connectionStatus Field Functions 
       bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
       void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
@@ -209,6 +212,13 @@ namespace Models
       void deleteCpu() { this->cpu_ = nullptr;};
       inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
       inline Sessions& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // creationTime Field Functions 
+      bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+      void deleteCreationTime() { this->creationTime_ = nullptr;};
+      inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+      inline Sessions& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
 
 
       // desktopGroupId Field Functions 
@@ -390,67 +400,64 @@ namespace Models
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The ID of the desktop group.
+      shared_ptr<string> creationTime_ {};
+      // The shared cloud desktop ID.
       shared_ptr<string> desktopGroupId_ {};
-      // The name of the desktop group.
+      // The shared cloud desktop name.
       shared_ptr<string> desktopGroupName_ {};
-      // The ID of the cloud desktop.
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud desktop.
+      // The cloud desktop name.
       shared_ptr<string> desktopName_ {};
       // The desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // The ID of the end user.
+      // The end user ID.
       shared_ptr<string> endUserId_ {};
-      // A list of assigned end user IDs.
+      // The list of assigned end user IDs.
       shared_ptr<vector<string>> endUserIds_ {};
       // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
-      // The duration of the last connection, in seconds.
+      // The duration of the most recent connection to the cloud desktop. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
-      // The memory size of the cloud desktop, in MiB.
+      // The memory of the cloud desktop. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the office site.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office site.
+      // The office network name.
       shared_ptr<string> officeSiteName_ {};
-      // The office site type.
+      // The office network type.
       shared_ptr<string> officeSiteType_ {};
       // The operating system type. Valid values:
       // 
-      // - `Windows`
-      // 
-      // - `Linux`
+      // - Windows
+      // - Linux
       shared_ptr<string> osType_ {};
-      // The operating system version.
+      // The specific operating system version.
       shared_ptr<string> platform_ {};
       // The protocol type. Valid values:
       // 
-      // - `HDX`
-      // 
-      // - `ASP`
+      // - HDX
+      // - ASP
       shared_ptr<string> protocolType_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // A list of resource groups.
+      // The enterprise resource group name.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
-      // The idle duration of the session, in minutes.
+      // The session idle duration. Unit: minutes.
       shared_ptr<int64_t> sessionIdleTime_ {};
-      // A list of sessions.
+      // The session details.
       shared_ptr<vector<Sessions::SessionsItem>> sessions_ {};
       // The time when the cloud desktop status changed.
       shared_ptr<int64_t> statusChangeTime_ {};
-      // The billing method for the cloud desktop. Valid values:
+      // The billing method of the cloud desktop. Valid values:
       // 
-      // - `prePaid`: Subscription.
-      // 
-      // - `postPaid`: Pay-as-you-go.
-      // 
-      // - `monthPackage`: Monthly usage package.
+      // - prePaid: monthly subscription with unlimited usage duration.
+      // - postPaid: pay-as-you-go.
+      // - monthPackage: monthly duration package.
       shared_ptr<string> subPayType_ {};
-      // The total connection duration, in seconds.
+      // The total connection duration. Unit: seconds.
       shared_ptr<int64_t> totalConnectionTime_ {};
-      // The cloud desktop uptime, in seconds.
+      // The cloud desktop uptime. Unit: seconds.
       shared_ptr<int64_t> upTime_ {};
     };
 
@@ -482,9 +489,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of sessions.
+    // The session details.
     shared_ptr<vector<DescribeGlobalDesktopRecordsResponseBody::Sessions>> sessions_ {};
-    // The total number of entries.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

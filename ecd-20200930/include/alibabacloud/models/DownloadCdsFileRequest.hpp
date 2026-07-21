@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The enterprise drive ID.
+    // The enterprise cloud drive ID.
     shared_ptr<string> cdsId_ {};
     // The user ID.
     shared_ptr<string> endUserId_ {};

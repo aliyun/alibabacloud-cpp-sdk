@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CommandContent, commandContent_);
         DARABONBA_PTR_TO_JSON(CommandType, commandType_);
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_TO_JSON(DesktopScenario, desktopScenario_);
         DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
         DARABONBA_PTR_TO_JSON(InvocationStatus, invocationStatus_);
         DARABONBA_PTR_TO_JSON(InvokeDesktopCount, invokeDesktopCount_);
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CommandContent, commandContent_);
         DARABONBA_PTR_FROM_JSON(CommandType, commandType_);
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_FROM_JSON(DesktopScenario, desktopScenario_);
         DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
         DARABONBA_PTR_FROM_JSON(InvocationStatus, invocationStatus_);
         DARABONBA_PTR_FROM_JSON(InvokeDesktopCount, invokeDesktopCount_);
@@ -81,6 +83,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ExitCode, exitCode_);
           DARABONBA_PTR_TO_JSON(FinishTime, finishTime_);
           DARABONBA_PTR_TO_JSON(InvocationStatus, invocationStatus_);
+          DARABONBA_PTR_TO_JSON(JvsAgentId, jvsAgentId_);
           DARABONBA_PTR_TO_JSON(Output, output_);
           DARABONBA_PTR_TO_JSON(Repeats, repeats_);
           DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -97,6 +100,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ExitCode, exitCode_);
           DARABONBA_PTR_FROM_JSON(FinishTime, finishTime_);
           DARABONBA_PTR_FROM_JSON(InvocationStatus, invocationStatus_);
+          DARABONBA_PTR_FROM_JSON(JvsAgentId, jvsAgentId_);
           DARABONBA_PTR_FROM_JSON(Output, output_);
           DARABONBA_PTR_FROM_JSON(Repeats, repeats_);
           DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -116,8 +120,8 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->creationTime_ == nullptr
         && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->dropped_ == nullptr && this->errorCode_ == nullptr && this->errorInfo_ == nullptr
-        && this->exitCode_ == nullptr && this->finishTime_ == nullptr && this->invocationStatus_ == nullptr && this->output_ == nullptr && this->repeats_ == nullptr
-        && this->startTime_ == nullptr && this->stopTime_ == nullptr && this->updateTime_ == nullptr; };
+        && this->exitCode_ == nullptr && this->finishTime_ == nullptr && this->invocationStatus_ == nullptr && this->jvsAgentId_ == nullptr && this->output_ == nullptr
+        && this->repeats_ == nullptr && this->startTime_ == nullptr && this->stopTime_ == nullptr && this->updateTime_ == nullptr; };
         // creationTime Field Functions 
         bool hasCreationTime() const { return this->creationTime_ != nullptr;};
         void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -181,6 +185,13 @@ namespace Models
         inline InvokeDesktops& setInvocationStatus(string invocationStatus) { DARABONBA_PTR_SET_VALUE(invocationStatus_, invocationStatus) };
 
 
+        // jvsAgentId Field Functions 
+        bool hasJvsAgentId() const { return this->jvsAgentId_ != nullptr;};
+        void deleteJvsAgentId() { this->jvsAgentId_ = nullptr;};
+        inline string getJvsAgentId() const { DARABONBA_PTR_GET_DEFAULT(jvsAgentId_, "") };
+        inline InvokeDesktops& setJvsAgentId(string jvsAgentId) { DARABONBA_PTR_SET_VALUE(jvsAgentId_, jvsAgentId) };
+
+
         // output Field Functions 
         bool hasOutput() const { return this->output_ != nullptr;};
         void deleteOutput() { this->output_ = nullptr;};
@@ -217,72 +228,73 @@ namespace Models
 
 
       protected:
-        // The time when the command execution was performed.
+        // The creation time of the script process.
         shared_ptr<string> creationTime_ {};
-        // The cloud computer ID.
+        // The cloud desktop ID.
         shared_ptr<string> desktopId_ {};
-        // The cloud computer name.
+        // The cloud desktop name.
         shared_ptr<string> desktopName_ {};
-        // The size of the text that is truncated and discarded when the Output value exceeds 24 KB in size.
+        // The length of the truncated and discarded text after the text length in the Output field exceeds 24 KB.
         shared_ptr<int32_t> dropped_ {};
-        // The code explaining why the command failed to be sent or executed. Valid values:
+        // The error code for the command delivery failure or execution failure. Valid values:
         // 
-        // *   Null: The command is executed successfully.
-        // *   InstanceNotExists: The specified cloud computer does not exist or is released.
-        // *   InstanceReleased: The cloud computer is released during the execution.
-        // *   InstanceNotRunning: The cloud computer is not running during the execution.
-        // *   CommandNotApplicable: The command cannot be executed on the specified cloud computer.
-        // *   ClientNotRunning: The Cloud Assistant agent is not running.
-        // *   ClientNotResponse: The Cloud Assistant agent does not respond.
-        // *   ClientIsUpgrading: The Cloud Assistant agent is being updated.
-        // *   ClientNeedUpgrade: The Cloud Assistant agent needs to be updated.
-        // *   DeliveryTimeout: The command sending times out.
-        // *   ExecutionTimeout: The command execution times out.
-        // *   ExecutionException: An exception occurs when the command is being executed.
-        // *   ExecutionInterrupted: The command execution is interrupted.
-        // *   ExitCodeNonzero: The command execution completes, but the exit code is not 0.
+        // - Empty: The command ran normally.
+        // - InstanceNotExists: The specified cloud desktop does not exist or has been released.
+        // - InstanceReleased: The cloud desktop was released during task execution.
+        // - InstanceNotRunning: The cloud desktop was not running when the task was created.
+        // - CommandNotApplicable: The command is not applicable to the specified cloud desktop.
+        // - ClientNotRunning: The Cloud Assistant client is not running.
+        // - ClientNotResponse: The Cloud Assistant client is not responding.
+        // - ClientIsUpgrading: The Cloud Assistant client is being upgraded.
+        // - ClientNeedUpgrade: The Cloud Assistant client needs to be upgraded.
+        // - DeliveryTimeout: Command delivery timed out.
+        // - ExecutionTimeout: Command execution timed out.
+        // - ExecutionException: An exception occurred during command execution.
+        // - ExecutionInterrupted: Command execution was interrupted.
+        // - ExitCodeNonzero: Command execution completed with a non-zero exit code.
         shared_ptr<string> errorCode_ {};
-        // The message explaining why the command failed to be sent or executed. Valid values:
+        // The detailed information about the command delivery failure or execution failure. Valid values:
         // 
-        // *   Null: The command is executed successfully.
-        // *   the specified instance does not exists: The specified cloud computer does not exist or is released.
-        // *   the instance has released when create task: The cloud computer is released during the execution.
-        // *   the instance is not running when create task: The cloud computer is not running during the execution.
-        // *   the command is not applicable: The command cannot be executed on the specified cloud computer.
-        // *   the aliyun service is not running on the instance: The Cloud Assistant agent is not running.
-        // *   the aliyun service in the instance does not response: The Cloud Assistant agent does not respond.
-        // *   the aliyun service in the instance is upgrading now: The Cloud Assistant agent is being updated.
-        // *   the aliyun service in the instance need upgrade: The Cloud Assistant agent needs to be updated.
-        // *   the command delivery has been timeout: The command sending times out.
-        // *   the command execution has been timeout: The command execution times out.
-        // *   the command execution got an exception: An exception occurs when the command is being executed.
-        // *   the command execution has been interrupted: The command execution is interrupted.
-        // *   the command execution exit code is not zero: The command execution completes, but the exit code is not 0.
+        // - Empty: The command ran normally.
+        // - the specified instance does not exists: The specified cloud desktop does not exist or has been released.
+        // - the instance has released when create task: The cloud desktop was released during task execution.
+        // - the instance is not running when create task: The cloud desktop was not running when the task was created.
+        // - the command is not applicable: The command is not applicable to the specified cloud desktop.
+        // - the aliyun service is not running on the instance: The Cloud Assistant client is not running.
+        // - the aliyun service in the instance does not response: The Cloud Assistant client is not responding.
+        // - the aliyun service in the instance is upgrading now: The Cloud Assistant client is being upgraded.
+        // - the aliyun service in the instance need upgrade: The Cloud Assistant client needs to be upgraded.
+        // - the command delivery has been timeout: Command delivery timed out.
+        // - the command execution has been timeout: Command execution timed out.
+        // - the command execution got an exception: An exception occurred during command execution.
+        // - the command execution has been interrupted: Command execution was interrupted.
+        // - the command execution exit code is not zero: Command execution completed with a non-zero exit code.
         shared_ptr<string> errorInfo_ {};
-        // The exit code of the execution.
+        // The exit code of the script process.
         shared_ptr<int64_t> exitCode_ {};
-        // The time when the command execution ended.
+        // The end time of the script process.
         shared_ptr<string> finishTime_ {};
-        // The execution progress of the command on a single cloud computer.
+        // The script execution status on a single cloud desktop.
         shared_ptr<string> invocationStatus_ {};
-        // The command output.
+        shared_ptr<string> jvsAgentId_ {};
+        // The output of the script process.
         // 
-        // *   When the `IncludeOutput` parameter is set to false, the output is not returned.
-        // *   When the `ContentEncoding` parameter is set to Base64, the output is returned as a Base64-encoded string.
+        // - If the request parameter `IncludeOutput` is set to false, Output is not returned.
+        // - If the request parameter `ContentEncoding` is set to Base64, Output is the Base64-encoded output.
         shared_ptr<string> output_ {};
-        // The number of times the command has been executed on the cloud computer.
+        // The number of times the command was run on the cloud desktop.
         shared_ptr<int32_t> repeats_ {};
-        // The start time of the command execution.
+        // The time when the script process started running on the cloud desktop.
         shared_ptr<string> startTime_ {};
-        // The stop time of the command execution (StopInvocatio).
+        // The time when execution was stopped, if StopInvocation was called.
         shared_ptr<string> stopTime_ {};
-        // The time when the execution status was updated.
+        // The update time of the task status.
         shared_ptr<string> updateTime_ {};
       };
 
       virtual bool empty() const override { return this->commandContent_ == nullptr
-        && this->commandType_ == nullptr && this->creationTime_ == nullptr && this->endUserId_ == nullptr && this->invocationStatus_ == nullptr && this->invokeDesktopCount_ == nullptr
-        && this->invokeDesktopSucceedCount_ == nullptr && this->invokeDesktops_ == nullptr && this->invokeId_ == nullptr; };
+        && this->commandType_ == nullptr && this->creationTime_ == nullptr && this->desktopScenario_ == nullptr && this->endUserId_ == nullptr && this->invocationStatus_ == nullptr
+        && this->invokeDesktopCount_ == nullptr && this->invokeDesktopSucceedCount_ == nullptr && this->invokeDesktops_ == nullptr && this->invokeId_ == nullptr; };
       // commandContent Field Functions 
       bool hasCommandContent() const { return this->commandContent_ != nullptr;};
       void deleteCommandContent() { this->commandContent_ = nullptr;};
@@ -302,6 +314,13 @@ namespace Models
       void deleteCreationTime() { this->creationTime_ = nullptr;};
       inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
       inline Invocations& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+      // desktopScenario Field Functions 
+      bool hasDesktopScenario() const { return this->desktopScenario_ != nullptr;};
+      void deleteDesktopScenario() { this->desktopScenario_ = nullptr;};
+      inline string getDesktopScenario() const { DARABONBA_PTR_GET_DEFAULT(desktopScenario_, "") };
+      inline Invocations& setDesktopScenario(string desktopScenario) { DARABONBA_PTR_SET_VALUE(desktopScenario_, desktopScenario) };
 
 
       // endUserId Field Functions 
@@ -349,46 +368,39 @@ namespace Models
 
 
     protected:
-      // The Base64-encoded command content.
+      // The script content, transmitted in Base64 encoding.
       shared_ptr<string> commandContent_ {};
-      // The type of the command.
+      // The script type.
       shared_ptr<string> commandType_ {};
-      // The time when the execution task is created.
+      // The creation time of the task.
       shared_ptr<string> creationTime_ {};
-      // The ID of the end user.
+      shared_ptr<string> desktopScenario_ {};
+      // The end user ID.
       shared_ptr<string> endUserId_ {};
-      // The overall execution status of the command. The value of this parameter depends on the execution status of the command on all the involved cloud computers. Valid values:
+      // The overall execution status of the script. The overall execution status depends on the combined execution status of all cloud desktops in this call. Valid values:
       // 
-      // *   Pending: The command is being verified or sent. If the execution status is Pending on at least one cloud computer, the overall status is considered Pending.
-      // 
-      // *   Running: The command is being executed on cloud computers. If the execution status is Running on at least one cloud computer, the overall status is considered Running.
-      // 
-      // *   Success: If the execution status is Success on at least one cloud computer and either Success or Stopped on all other cloud computers, the overall status is considered Success.
-      // 
-      // *   Failed: If the execution status is Stopped or Failed on all cloud computers, the overall status is considered Failed. If any execution status on cloud computers matches one of the following values, Failed is returned.
-      // 
-      //     *   Invalid: The command is invalid.
-      //     *   Aborted: The command failed to be sent.
-      //     *   Failed: The command is executed, but the exit code is not 0.
-      //     *   Timeout: The command execution timed out.
-      //     *   Error: An error occurred when the command is being executed.
-      // 
-      // *   Stopping: The command execution is being stopped. If the execution status is Stopping on at least one cloud computer, the overall status is considered Stopping.
-      // 
-      // *   Stopped: The command execution stops. If the execution status is Stopped on at least one cloud computer, the overall status is considered Stopped. If any execution status on cloud computers matches one of the following values, Stopped is returned.
-      // 
-      //     *   Cancelled: The command execution is canceled.
-      //     *   Terminated: The command execution is terminated.
-      // 
-      // *   PartialFailed: The command execution succeeded on some cloud computers but failed on others. If the execution status on any cloud computer is Success, Failed, or Stopped, the overall status is considered PartialFailed.
+      // - Pending: The system is validating or sending the command. If the script execution status on at least one cloud desktop is Pending, the overall execution status is Pending.
+      // - Running: The command is running on the cloud desktop. If the script execution status on at least one cloud desktop is Running, the overall execution status is Running.
+      // - Success: The script execution status on each cloud desktop is Stopped or Success, and the script execution status on at least one cloud desktop is Success. The overall execution status is Success.
+      // - Failed: The script execution status on each cloud desktop is Stopped or Failed. The overall execution status is Failed. The return value is Failed when one or more of the following statuses occur on a cloud desktop:
+      //     - Command validation failed (Invalid).
+      //     - Command delivery failed (Aborted).
+      //     - Command execution completed but the exit code is non-zero (Failed).
+      //     - Command execution timed out (Timeout).
+      //     - Command execution encountered an exception (Error).
+      // - Stopping: The task is being stopped. If the script execution status on at least one instance is Stopping, the overall execution status is Stopping.
+      // - Stopped: The task has been stopped. If the script execution status on all instances is Stopped, the overall execution status is Stopped. The return value is Stopped when the script execution status on an instance is one of the following:
+      //     - Task cancelled (Cancelled).
+      //     - Task terminated (Terminated).
+      // - PartialFailed: Some instances succeeded and some instances failed. If the script execution status on each instance is Success, Failed, or Stopped, the overall execution status is PartialFailed.
       shared_ptr<string> invocationStatus_ {};
-      // The total number of cloud computers on which the command is executed.
+      // The total number of cloud desktops on which the script was run.
       shared_ptr<int32_t> invokeDesktopCount_ {};
-      // The total number of cloud computers on which the command execution succeeds.
+      // The total number of cloud desktops on which the script was run successfully.
       shared_ptr<int32_t> invokeDesktopSucceedCount_ {};
-      // The cloud computers on which the command is executed.
+      // The list of target cloud desktops for execution.
       shared_ptr<vector<Invocations::InvokeDesktops>> invokeDesktops_ {};
-      // The ID of the execution.
+      // The execution ID.
       shared_ptr<string> invokeId_ {};
     };
 
@@ -418,11 +430,11 @@ namespace Models
 
 
   protected:
-    // The command execution records.
+    // The array of script execution records.
     shared_ptr<vector<DescribeInvocationsResponseBody::Invocations>> invocations_ {};
-    // The query token that is returned from this call.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

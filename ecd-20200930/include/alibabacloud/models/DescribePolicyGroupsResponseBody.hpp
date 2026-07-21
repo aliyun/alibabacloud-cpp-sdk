@@ -87,6 +87,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileMigrate, fileMigrate_);
         DARABONBA_PTR_TO_JSON(FileTransfer, fileTransfer_);
         DARABONBA_PTR_TO_JSON(FileTransferAddress, fileTransferAddress_);
+        DARABONBA_PTR_TO_JSON(FileTransferInSize, fileTransferInSize_);
+        DARABONBA_PTR_TO_JSON(FileTransferInUnit, fileTransferInUnit_);
+        DARABONBA_PTR_TO_JSON(FileTransferOutSize, fileTransferOutSize_);
+        DARABONBA_PTR_TO_JSON(FileTransferOutUnit, fileTransferOutUnit_);
+        DARABONBA_PTR_TO_JSON(FileTransferSizeLimit, fileTransferSizeLimit_);
         DARABONBA_PTR_TO_JSON(FileTransferSpeed, fileTransferSpeed_);
         DARABONBA_PTR_TO_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_TO_JSON(GpuAcceleration, gpuAcceleration_);
@@ -232,6 +237,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileMigrate, fileMigrate_);
         DARABONBA_PTR_FROM_JSON(FileTransfer, fileTransfer_);
         DARABONBA_PTR_FROM_JSON(FileTransferAddress, fileTransferAddress_);
+        DARABONBA_PTR_FROM_JSON(FileTransferInSize, fileTransferInSize_);
+        DARABONBA_PTR_FROM_JSON(FileTransferInUnit, fileTransferInUnit_);
+        DARABONBA_PTR_FROM_JSON(FileTransferOutSize, fileTransferOutSize_);
+        DARABONBA_PTR_FROM_JSON(FileTransferOutUnit, fileTransferOutUnit_);
+        DARABONBA_PTR_FROM_JSON(FileTransferSizeLimit, fileTransferSizeLimit_);
         DARABONBA_PTR_FROM_JSON(FileTransferSpeed, fileTransferSpeed_);
         DARABONBA_PTR_FROM_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
         DARABONBA_PTR_FROM_JSON(GpuAcceleration, gpuAcceleration_);
@@ -943,7 +953,8 @@ namespace Models
         && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr
         && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainList_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr
         && this->edsCount_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserCount_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr
-        && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr
+        && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferInSize_ == nullptr && this->fileTransferInUnit_ == nullptr
+        && this->fileTransferOutSize_ == nullptr && this->fileTransferOutUnit_ == nullptr && this->fileTransferSizeLimit_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr
         && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr
         && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->keyboardControl_ == nullptr
         && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr
@@ -1284,6 +1295,41 @@ namespace Models
       void deleteFileTransferAddress() { this->fileTransferAddress_ = nullptr;};
       inline string getFileTransferAddress() const { DARABONBA_PTR_GET_DEFAULT(fileTransferAddress_, "") };
       inline DescribePolicyGroups& setFileTransferAddress(string fileTransferAddress) { DARABONBA_PTR_SET_VALUE(fileTransferAddress_, fileTransferAddress) };
+
+
+      // fileTransferInSize Field Functions 
+      bool hasFileTransferInSize() const { return this->fileTransferInSize_ != nullptr;};
+      void deleteFileTransferInSize() { this->fileTransferInSize_ = nullptr;};
+      inline int32_t getFileTransferInSize() const { DARABONBA_PTR_GET_DEFAULT(fileTransferInSize_, 0) };
+      inline DescribePolicyGroups& setFileTransferInSize(int32_t fileTransferInSize) { DARABONBA_PTR_SET_VALUE(fileTransferInSize_, fileTransferInSize) };
+
+
+      // fileTransferInUnit Field Functions 
+      bool hasFileTransferInUnit() const { return this->fileTransferInUnit_ != nullptr;};
+      void deleteFileTransferInUnit() { this->fileTransferInUnit_ = nullptr;};
+      inline string getFileTransferInUnit() const { DARABONBA_PTR_GET_DEFAULT(fileTransferInUnit_, "") };
+      inline DescribePolicyGroups& setFileTransferInUnit(string fileTransferInUnit) { DARABONBA_PTR_SET_VALUE(fileTransferInUnit_, fileTransferInUnit) };
+
+
+      // fileTransferOutSize Field Functions 
+      bool hasFileTransferOutSize() const { return this->fileTransferOutSize_ != nullptr;};
+      void deleteFileTransferOutSize() { this->fileTransferOutSize_ = nullptr;};
+      inline int32_t getFileTransferOutSize() const { DARABONBA_PTR_GET_DEFAULT(fileTransferOutSize_, 0) };
+      inline DescribePolicyGroups& setFileTransferOutSize(int32_t fileTransferOutSize) { DARABONBA_PTR_SET_VALUE(fileTransferOutSize_, fileTransferOutSize) };
+
+
+      // fileTransferOutUnit Field Functions 
+      bool hasFileTransferOutUnit() const { return this->fileTransferOutUnit_ != nullptr;};
+      void deleteFileTransferOutUnit() { this->fileTransferOutUnit_ = nullptr;};
+      inline string getFileTransferOutUnit() const { DARABONBA_PTR_GET_DEFAULT(fileTransferOutUnit_, "") };
+      inline DescribePolicyGroups& setFileTransferOutUnit(string fileTransferOutUnit) { DARABONBA_PTR_SET_VALUE(fileTransferOutUnit_, fileTransferOutUnit) };
+
+
+      // fileTransferSizeLimit Field Functions 
+      bool hasFileTransferSizeLimit() const { return this->fileTransferSizeLimit_ != nullptr;};
+      void deleteFileTransferSizeLimit() { this->fileTransferSizeLimit_ = nullptr;};
+      inline string getFileTransferSizeLimit() const { DARABONBA_PTR_GET_DEFAULT(fileTransferSizeLimit_, "") };
+      inline DescribePolicyGroups& setFileTransferSizeLimit(string fileTransferSizeLimit) { DARABONBA_PTR_SET_VALUE(fileTransferSizeLimit_, fileTransferSizeLimit) };
 
 
       // fileTransferSpeed Field Functions 
@@ -2071,6 +2117,11 @@ namespace Models
       // File transfer.
       shared_ptr<string> fileTransfer_ {};
       shared_ptr<string> fileTransferAddress_ {};
+      shared_ptr<int32_t> fileTransferInSize_ {};
+      shared_ptr<string> fileTransferInUnit_ {};
+      shared_ptr<int32_t> fileTransferOutSize_ {};
+      shared_ptr<string> fileTransferOutUnit_ {};
+      shared_ptr<string> fileTransferSizeLimit_ {};
       shared_ptr<string> fileTransferSpeed_ {};
       shared_ptr<string> fileTransferSpeedLocation_ {};
       // Whether to enable the image quality policy for graphics-specification cloud computers. Enable this policy if you have high requirements for cloud computer performance and user experience, such as in professional design scenarios.

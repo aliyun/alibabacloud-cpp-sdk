@@ -94,61 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk.
+    // The enterprise cloud disk ID.
     shared_ptr<string> cdsId_ {};
-    // The processing mode of files that have the same name.
-    // 
-    // Valid values:
-    // 
-    // *   <!-- -->
-    // 
-    //     refuse
-    // 
-    //     <!-- -->
-    // 
-    //     : If you want to create a file that uses the same name as an existing file in the cloud, the system denies your request and returns the details of the existing file.
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     auto_rename
-    // 
-    //     <!-- -->
-    // 
-    //     : If you want to create a file that uses the same name as an existing file in the cloud, the system renames the file that you want to create by appending the current time point.
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     ignore
-    // 
-    //     <!-- -->
-    // 
-    //     : The system allows you to create a file that uses the same name as an existing file in the cloud.
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     over_write
-    // 
-    //     <!-- -->
-    // 
-    //     : After you create a file that uses the same name as an existing file in the cloud, the new file overwrites the existing file.
-    // 
-    //     <!-- -->
+    // The policy for handling files with the same name.
     shared_ptr<string> conflictPolicy_ {};
-    // The user ID that you want to use to access the cloud disk.
+    // The ID of the user who uses the cloud disk.
     shared_ptr<string> endUserId_ {};
-    // The ID of the file.
+    // The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file.
     shared_ptr<string> fileId_ {};
-    // The group ID.
+    // The team space ID.
     shared_ptr<string> groupId_ {};
-    // The ID of the parent folder that you want to move. If you want to remove the root folder, set the value to root.
+    // The ID of the parent folder at the destination. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file. Set this parameter to `root` if you want to move the file to the root directory.
     shared_ptr<string> parentFolderId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

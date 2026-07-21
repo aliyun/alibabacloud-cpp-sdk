@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Mirror version.
+    // The image version. You can call [DescribeImages](https://help.aliyun.com/document_detail/188895.html) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> appVersion_ {};
-    // The ID of the cloud computer.
+    // The cloud computer ID.
     // 
     // This parameter is required.
     shared_ptr<string> desktopId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

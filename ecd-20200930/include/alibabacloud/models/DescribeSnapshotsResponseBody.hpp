@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DiskStatus, diskStatus_);
         DARABONBA_PTR_TO_JSON(EnvId, envId_);
         DARABONBA_PTR_TO_JSON(EnvType, envType_);
+        DARABONBA_PTR_TO_JSON(JvsId, jvsId_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
         DARABONBA_PTR_TO_JSON(Progress, progress_);
         DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
@@ -73,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DiskStatus, diskStatus_);
         DARABONBA_PTR_FROM_JSON(EnvId, envId_);
         DARABONBA_PTR_FROM_JSON(EnvType, envType_);
+        DARABONBA_PTR_FROM_JSON(JvsId, jvsId_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
         DARABONBA_PTR_FROM_JSON(Progress, progress_);
         DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
@@ -101,10 +103,10 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->creationTime_ == nullptr
         && this->creator_ == nullptr && this->deletionTime_ == nullptr && this->description_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
-        && this->desktopStatus_ == nullptr && this->diskStatus_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr && this->osType_ == nullptr
-        && this->progress_ == nullptr && this->protocolType_ == nullptr && this->remainTime_ == nullptr && this->restorePointId_ == nullptr && this->restorePointName_ == nullptr
-        && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotType_ == nullptr && this->sourceDiskSize_ == nullptr && this->sourceDiskType_ == nullptr
-        && this->status_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
+        && this->desktopStatus_ == nullptr && this->diskStatus_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr && this->jvsId_ == nullptr
+        && this->osType_ == nullptr && this->progress_ == nullptr && this->protocolType_ == nullptr && this->remainTime_ == nullptr && this->restorePointId_ == nullptr
+        && this->restorePointName_ == nullptr && this->snapshotId_ == nullptr && this->snapshotName_ == nullptr && this->snapshotType_ == nullptr && this->sourceDiskSize_ == nullptr
+        && this->sourceDiskType_ == nullptr && this->status_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // creationTime Field Functions 
       bool hasCreationTime() const { return this->creationTime_ != nullptr;};
       void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -173,6 +175,13 @@ namespace Models
       void deleteEnvType() { this->envType_ = nullptr;};
       inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
       inline Snapshots& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
+
+
+      // jvsId Field Functions 
+      bool hasJvsId() const { return this->jvsId_ != nullptr;};
+      void deleteJvsId() { this->jvsId_ = nullptr;};
+      inline string getJvsId() const { DARABONBA_PTR_GET_DEFAULT(jvsId_, "") };
+      inline Snapshots& setJvsId(string jvsId) { DARABONBA_PTR_SET_VALUE(jvsId_, jvsId) };
 
 
       // osType Field Functions 
@@ -274,53 +283,54 @@ namespace Models
 
 
     protected:
-      // The point in time at which the snapshot was created. The time follows the [ISO 8601](t10049.xdita#) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The user who creates the snapshot.
+      // The creator.
       shared_ptr<string> creator_ {};
-      // The snapshot creation time follows the [ISO 8601](t10049.xdita#) standard. It uses UTC+0 time and is formatted as `yyyy-mm-ddThh:mm:ssZ`.
+      // The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
       shared_ptr<string> deletionTime_ {};
-      // The description of the snapshot.
+      // The snapshot description.
       shared_ptr<string> description_ {};
-      // The ID of the cloud desktop to which the snapshot belongs.
+      // The ID of the cloud computer to which the snapshot belongs.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud desktop.
+      // The cloud computer name.
       shared_ptr<string> desktopName_ {};
-      // The status of the cloud desktop.
+      // The cloud computer status.
       shared_ptr<string> desktopStatus_ {};
-      // Status of the disk to which the snapshot belongs.
+      // The status of the cloud disk to which the snapshot belongs.
       shared_ptr<string> diskStatus_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
+      shared_ptr<string> jvsId_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The progress of creating the snapshot. Unit: %.
+      // The snapshot creation progress. Unit: percent.
       shared_ptr<string> progress_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
-      // The remaining time to complete snapshot creation. Unit: seconds.
+      // The remaining time required to create the snapshot. Unit: seconds.
       // 
-      // > When `Status` is `PROGRESSING`, the value of `RemainTime` is `-1`. This indicates that the system is calculating the remaining time.
+      // > When `Status` is `PROGRESSING`, a `RemainTime` value of `-1` indicates that the remaining time is being calculated.
       shared_ptr<int32_t> remainTime_ {};
-      // The ID of the restore point.
+      // The restore point ID.
       shared_ptr<string> restorePointId_ {};
-      // The name of the restore point.
+      // The restore point name.
       shared_ptr<string> restorePointName_ {};
       // The snapshot ID.
       shared_ptr<string> snapshotId_ {};
-      // The name of the snapshot.
+      // The snapshot name.
       shared_ptr<string> snapshotName_ {};
-      // The type of the snapshot.
+      // The snapshot creation type.
       shared_ptr<string> snapshotType_ {};
-      // The capacity of the source disk. Unit: GiB.
+      // The capacity of the source cloud disk. Unit: GiB.
       shared_ptr<string> sourceDiskSize_ {};
-      // The type of the source disk.
+      // The type of the source cloud disk.
       shared_ptr<string> sourceDiskType_ {};
-      // The status of the snapshot.
+      // The snapshot status.
       shared_ptr<string> status_ {};
-      // Indicates whether disk encryption is enabled.
+      // Indicates whether cloud disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [](t22712.xdita#)operation to query the list of KMS keys.
+      // The ID of the Key Management Service (KMS) key used for cloud disk encryption. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -350,11 +360,11 @@ namespace Models
 
 
   protected:
-    // The token that marks the start of the next page of results. If NextToken is empty, no more pages exist.
+    // The pagination token. If the NextToken parameter is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A collection of snapshots.
+    // The snapshot information.
     shared_ptr<vector<DescribeSnapshotsResponseBody::Snapshots>> snapshots_ {};
   };
 

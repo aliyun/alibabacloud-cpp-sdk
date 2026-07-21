@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // The tag key. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun` and cannot contain only spaces.
+      // The tag key. If you specify `Tag`, `Key` is required. The tag key cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. It also cannot consist of only spaces.
       shared_ptr<string> key_ {};
-      // The tag value. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+      // The tag value. The tag value cannot exceed 128 characters, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -218,145 +218,43 @@ namespace Models
 
 
   protected:
-    // The billing method of the cloud computer.
-    // 
-    // Default value: Postpaid. Valid values:
-    // 
-    // *   Postpaid: pay-as-you-go
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   PrePaid: subscription
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The billing method of the cloud desktop.
     shared_ptr<string> chargeType_ {};
-    // The IDs of the cloud computers. You can specify 1 to 100 IDs.
+    // The cloud desktop IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
-    // The name of the cloud computer.
+    // The name of the cloud desktop.
     shared_ptr<string> desktopName_ {};
-    // The status of the cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   Stopped
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Starting
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Rebuilding
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Running
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Stopping
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Expired
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Deleted
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Pending
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The status of the cloud desktop.
     shared_ptr<string> desktopStatus_ {};
-    // The IDs of the end users of the cloud computer. You can specify 1 to 100 IDs.
+    // The list of authorized usernames for the cloud desktop. You can specify 1 to 100 usernames.
     // 
-    // >  During a specific period of time, only one user can connect to and use the cloud computer.
+    // > Only one user can connect to and use the cloud desktop at a time.
     shared_ptr<vector<string>> endUserId_ {};
-    // The time when a subscription cloud computer expires.
+    // The expiration time of the subscription cloud desktop.
     shared_ptr<string> expiredTime_ {};
-    // The ID of the cloud computer pool to which the cloud computers belong.
+    // The ID of the cloud desktop pool to which the cloud desktop belongs.
     shared_ptr<string> groupId_ {};
-    // The language in which the cloud computer is displayed in the console UI. You can export the list of cloud computers in the specified language.
-    // 
-    // Default value: zh-CN. Valid values:
-    // 
-    // *   zh-CN: Simplified Chinese
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   en-GB: British English
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The language type displayed on the frontend page. The backend sets the language type of the exported file based on this value.
     shared_ptr<string> langType_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used for the next query. If this parameter is empty, all results are returned.
+    // The pagination token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The ID of the policy that is attached to the cloud computer.
+    // The ID of the policy associated with the cloud desktop.
     shared_ptr<string> policyGroupId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tags that are added to the cloud computer. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud computers by group. This facilitates search and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
+    // The list of tags. A tag consists of a key-value pair and is used to mark resources. You can use tags to group and manage cloud desktops for easier searching and batch operations. For more information, see [Use tags to manage cloud desktops](https://help.aliyun.com/document_detail/203781.html).
     shared_ptr<vector<ExportDesktopListInfoRequest::Tag>> tag_ {};
-    // The username of the end user who is using the cloud computer.
+    // The username of the user who is currently using the cloud desktop.
     shared_ptr<string> userName_ {};
   };
 

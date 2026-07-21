@@ -140,26 +140,21 @@ namespace Models
 
 
     protected:
-      // The image version. You can call the [DescribeImages](https://help.aliyun.com/document_detail/188895.html) operation to obtain the value of this parameter.
+      // The image version. You can call [DescribeImages](https://help.aliyun.com/document_detail/188895.html) to obtain this parameter.
       shared_ptr<string> appVersion_ {};
-      // >  This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> fotaProject_ {};
-      // The number of custom images that can be updated to this version.
+      // The number of custom images that can be upgraded to this version.
       shared_ptr<int32_t> pendingCustomImageCount_ {};
-      // The number of cloud computers whose images can be updated to this version.
+      // The number of cloud desktops that can be upgraded to this version.
       shared_ptr<int32_t> pendingDesktopCount_ {};
-      // The time when the image version available for update was published.
+      // The publish time of the upgrade version.
       shared_ptr<string> publishTime_ {};
-      // The description of the image version available for update.
+      // The upgrade version description.
       shared_ptr<string> releaseNote_ {};
-      // The size of the update package. Unit: KB.
+      // The size of the upgrade package. Unit: KB.
       shared_ptr<int32_t> size_ {};
-      // Indicates whether the image update task is automatically pushed.
-      // 
-      // Valid values:
-      // 
-      // *   Running: automatically pushes the image update task.
-      // *   Pending: does not automatically push the image update task.
+      // Indicates whether the image upgrade task is automatically pushed.
       shared_ptr<string> status_ {};
       // The ID of the image upgrade task.
       shared_ptr<string> taskUid_ {};
@@ -205,13 +200,13 @@ namespace Models
 
 
   protected:
-    // The returned message. If the request was successful, a `success` is returned. If the request failed, an error message is returned.
+    // The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // Details about the image update task.
+    // The image upgrade task information.
     shared_ptr<vector<DescribeFotaTasksResponseBody::FotaTasks>> fotaTasks_ {};
-    // The returned error message. This parameter is not returned if the Code value is a `success` message.
+    // The error message. This parameter is not returned if Code is `success`.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

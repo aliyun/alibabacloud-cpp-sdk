@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Events, events_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeClientEventsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Events, events_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     DescribeClientEventsResponseBody() = default ;
     DescribeClientEventsResponseBody(const DescribeClientEventsResponseBody &) = default ;
@@ -328,61 +330,59 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account associated with the event.
+      // The Alibaba Cloud account associated with the event.
       shared_ptr<string> aliUid_ {};
-      // The number of bytes received.
+      // The number of bytes received. Unit: bytes.
       shared_ptr<string> bytesReceived_ {};
-      // The number of bytes sent.
+      // The number of bytes sent. Unit: bytes.
       shared_ptr<string> bytesSend_ {};
-      // The IP address of the client.
+      // The client IP address.
       shared_ptr<string> clientIp_ {};
-      // The operating system of the client.
+      // The client operating system.
       shared_ptr<string> clientOS_ {};
       // The client version.
       shared_ptr<string> clientVersion_ {};
-      // The description of the event.
+      // The description.
       shared_ptr<string> description_ {};
-      // The ID of the desktop group.
+      // The cloud computer pool ID.
       shared_ptr<string> desktopGroupId_ {};
-      // The name of the desktop group.
+      // The cloud computer pool name.
       shared_ptr<string> desktopGroupName_ {};
-      // The ID of the cloud desktop.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The IP address of the cloud desktop.
+      // The IP address of the cloud computer.
       shared_ptr<string> desktopIp_ {};
-      // The name of the cloud desktop.
+      // The name of the cloud computer.
       shared_ptr<string> desktopName_ {};
-      // The ID of the cloud desktop\\"s directory.
+      // The directory ID to which the cloud computer belongs.
       shared_ptr<string> directoryId_ {};
       // The directory type.
       shared_ptr<string> directoryType_ {};
-      // The ID of the end user. The value can be the ID of a RAM user or the username of an AD user.
+      // The logon user information, which is a Resource Access Management (RAM) user ID or AD username.
       shared_ptr<string> endUserId_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
-      // The time the event occurred.
+      // The time when the event occurred.
       shared_ptr<string> eventTime_ {};
       // The event type.
       shared_ptr<string> eventType_ {};
-      // The ID of the cloud desktop\\"s office site.
+      // The ID of the office network to which the cloud computer belongs.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office site.
+      // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
-      // The type of account system for the office site.
+      // The account system type of the office network.
       shared_ptr<string> officeSiteType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The status of the event. This parameter is returned for `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
-      // 
-      // - `200`: Success.
-      // 
-      // - An error message, such as `FailedToGetConnectionTicket`.
+      // The status of the event action. This field typically appears in `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
+      // - 200: success.
+      // - A failure message is returned, such as FailedToGetConnectionTicket.
       shared_ptr<string> status_ {};
       shared_ptr<Events::TerminalInfo> terminalInfo_ {};
     };
 
     virtual bool empty() const override { return this->events_ == nullptr
-        && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
@@ -406,13 +406,21 @@ namespace Models
     inline DescribeClientEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline DescribeClientEventsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
-    // The list of user events.
+    // The user events.
     shared_ptr<vector<DescribeClientEventsResponseBody::Events>> events_ {};
-    // The pagination token. If this parameter is empty, all results have been returned.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

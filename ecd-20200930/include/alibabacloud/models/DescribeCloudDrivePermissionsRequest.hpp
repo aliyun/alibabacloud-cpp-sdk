@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // ID of the created enterprise cloud drive.
+    // The ID of the enterprise cloud drive.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

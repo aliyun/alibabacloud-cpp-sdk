@@ -69,21 +69,17 @@ namespace Models
 
 
   protected:
-    // The IDs of stream collaboration tasks.
+    // The list of coordination flow IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> coIds_ {};
-    // The ID of the end user that initiates stream collaboration. If the initiator is the administrator, skip this parameter.
+    // The ID of the end user who initiated the coordination flow. This parameter is not required if the request is initiated by an administrator.
     shared_ptr<string> endUserId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The type of the user.
-    // 
-    // Valid value:
-    // 
-    // * TENANT_ADMIN: administrator.
+    // The user type.
     shared_ptr<string> userType_ {};
   };
 

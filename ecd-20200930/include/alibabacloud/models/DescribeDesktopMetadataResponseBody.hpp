@@ -232,63 +232,53 @@ namespace Models
 
 
     protected:
-      // A list of agents that the cloud computer supports.
+      // The agents supported by the current cloud desktop.
       shared_ptr<vector<string>> agentProviderList_ {};
-      // The billing method of the cloud desktop. Valid values:
-      // 
-      // - `PostPaid`: pay-as-you-go
-      // 
-      // - `PrePaid`: subscription
+      // The billing type of the cloud desktop. Valid values:
+      // - PostPaid: pay-as-you-go.
+      // - PrePaid: subscription.
       shared_ptr<string> chargeType_ {};
-      // The creation time of the cloud desktop.
+      // The time when the cloud desktop was created.
       shared_ptr<string> creationTime_ {};
-      // The ID of the desktop group.
+      // The shared cloud desktop ID.
       shared_ptr<string> desktopGroupId_ {};
-      // The ID of the cloud desktop.
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
       // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
       // The status of the cloud desktop. Valid values:
-      // 
-      // - `Stopped`
-      // 
-      // - `Starting`
-      // 
-      // - `Rebuilding`
-      // 
-      // - `Running`
-      // 
-      // - `Stopping`
-      // 
-      // - `Expired`
-      // 
-      // - `Deleted`
-      // 
-      // - `Pending`
+      // - Stopped
+      // - Starting
+      // - Rebuilding
+      // - Running
+      // - Stopping
+      // - Expired
+      // - Deleted
+      // - Pending
       shared_ptr<string> desktopStatus_ {};
-      // The instance type of the cloud desktop.
+      // The cloud desktop specifications.
       shared_ptr<string> desktopType_ {};
-      // The expiration time of the cloud desktop. This parameter is returned only for cloud desktops that use the subscription billing method.
+      // The time when the cloud desktop expires. This value is returned only for cloud desktops whose billable methods is subscription.
       shared_ptr<string> expiredTime_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The name of the region.
+      // The local name of the region where the cloud desktop resides.
       shared_ptr<string> localName_ {};
-      // The management flags for the cloud computer.
+      // The management status of the cloud desktop.
       shared_ptr<vector<string>> managementFlags_ {};
-      // The private IP address of the instance\\"s network interface.
+      // The IP address of the member elastic network interface (ENI) of the instance.
       shared_ptr<string> memberEniIp_ {};
-      // The ID of the office network.
+      // The workspace ID.
       shared_ptr<string> officeSiteId_ {};
-      // The operating system of the cloud desktop.
+      // The operating system platform information.
       shared_ptr<string> platform_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The name of the resource group.
+      // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The time when the cloud desktop started.
+      // The start time of the cloud desktop.
       shared_ptr<string> startTime_ {};
     };
 
@@ -320,7 +310,7 @@ namespace Models
   protected:
     // The details of the cloud desktops.
     shared_ptr<vector<DescribeDesktopMetadataResponseBody::Desktops>> desktops_ {};
-    // The token used to retrieve the next page of results. If this parameter is empty, all results have been returned.
+    // The token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

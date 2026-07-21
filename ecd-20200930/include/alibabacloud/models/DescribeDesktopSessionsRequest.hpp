@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(EndUserIdFilter, endUserIdFilter_);
+      DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
       DARABONBA_PTR_TO_JSON(FillHardwareInfo, fillHardwareInfo_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(EndUserIdFilter, endUserIdFilter_);
+      DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
       DARABONBA_PTR_FROM_JSON(FillHardwareInfo, fillHardwareInfo_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
@@ -62,8 +64,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkOsSession_ == nullptr
         && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->endUserIdFilter_ == nullptr
-        && this->fillHardwareInfo_ == nullptr && this->language_ == nullptr && this->officeSiteId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionStatus_ == nullptr && this->startTime_ == nullptr && this->subPayType_ == nullptr; };
+        && this->endUserIds_ == nullptr && this->fillHardwareInfo_ == nullptr && this->language_ == nullptr && this->officeSiteId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionStatus_ == nullptr && this->startTime_ == nullptr
+        && this->subPayType_ == nullptr; };
     // checkOsSession Field Functions 
     bool hasCheckOsSession() const { return this->checkOsSession_ != nullptr;};
     void deleteCheckOsSession() { this->checkOsSession_ = nullptr;};
@@ -106,6 +109,15 @@ namespace Models
     void deleteEndUserIdFilter() { this->endUserIdFilter_ = nullptr;};
     inline string getEndUserIdFilter() const { DARABONBA_PTR_GET_DEFAULT(endUserIdFilter_, "") };
     inline DescribeDesktopSessionsRequest& setEndUserIdFilter(string endUserIdFilter) { DARABONBA_PTR_SET_VALUE(endUserIdFilter_, endUserIdFilter) };
+
+
+    // endUserIds Field Functions 
+    bool hasEndUserIds() const { return this->endUserIds_ != nullptr;};
+    void deleteEndUserIds() { this->endUserIds_ = nullptr;};
+    inline const vector<string> & getEndUserIds() const { DARABONBA_PTR_GET_CONST(endUserIds_, vector<string>) };
+    inline vector<string> getEndUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
+    inline DescribeDesktopSessionsRequest& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
+    inline DescribeDesktopSessionsRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
 
 
     // fillHardwareInfo Field Functions 
@@ -181,36 +193,37 @@ namespace Models
   protected:
     // Specifies whether to check the session status within the cloud computer.
     shared_ptr<bool> checkOsSession_ {};
-    // The ID of the cloud computer. You can specify 1 to 100 IDs.
+    // The cloud computer IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
-    // The name of the cloud computer.
+    // The cloud computer name.
     shared_ptr<string> desktopName_ {};
     // The end time of the query.
     shared_ptr<string> endTime_ {};
-    // The ID of the end user.
+    // The end user ID.
     shared_ptr<string> endUserId_ {};
-    // The ID of the end user. This parameter is the same as the `EndUserId` parameter. Specify only one of them.
+    // The end user ID. This parameter is the same as EndUserId. You only need to specify one of them.
     shared_ptr<string> endUserIdFilter_ {};
-    // Specifies whether to return information about the terminal.
+    shared_ptr<vector<string>> endUserIds_ {};
+    // Specifies whether to include terminal information in the response.
     shared_ptr<bool> fillHardwareInfo_ {};
-    // The language of the returned information.
+    // The language type of the response.
     shared_ptr<string> language_ {};
-    // The ID of the cloud computer.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The page number for a paged query.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries to return on each page for a paged query.
+    // The maximum number of rows per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region. Call [](t2167755.xdita#)to obtain a list of regions that Elastic Desktop Service (EDS) supports.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The connection status of the session.
+    // The session connection status.
     shared_ptr<string> sessionStatus_ {};
     // The start time of the query.
     shared_ptr<string> startTime_ {};
-    // The billing method of the cloud computer.
+    // The purchase method of the cloud computer.
     shared_ptr<string> subPayType_ {};
   };
 

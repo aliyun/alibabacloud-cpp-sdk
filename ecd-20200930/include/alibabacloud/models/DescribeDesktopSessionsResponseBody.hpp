@@ -153,13 +153,13 @@ namespace Models
 
 
       protected:
-        // The model of the terminal device.
+        // The terminal device information.
         shared_ptr<string> model_ {};
-        // The type of the terminal device.
+        // The terminal device type.
         shared_ptr<string> productName_ {};
-        // The serial number of the terminal device.
+        // The terminal device serial number.
         shared_ptr<string> serialNumber_ {};
-        // The universally unique identifier (UUID) of the logon device.
+        // The UUID of the logon device.
         shared_ptr<string> uuid_ {};
       };
 
@@ -201,9 +201,9 @@ namespace Models
 
 
       protected:
-        // The ID of the resource group.
+        // The resource group ID.
         shared_ptr<string> id_ {};
-        // The name of the resource group.
+        // The resource group name.
         shared_ptr<string> name_ {};
       };
 
@@ -379,49 +379,49 @@ namespace Models
 
 
     protected:
-      // The type of the account.
+      // The account type.
       shared_ptr<string> accountType_ {};
-      // The IP address of the client.
+      // The client IP address.
       shared_ptr<string> clientIp_ {};
-      // The operating system of the client.
+      // The client operating system.
       shared_ptr<string> clientOS_ {};
-      // The version of the client.
+      // The client version.
       shared_ptr<string> clientVersion_ {};
-      // The ID of the cloud computer.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The cloud computer name.
       shared_ptr<string> desktopName_ {};
-      // The type of the office network.
+      // The office network type.
       shared_ptr<string> directoryType_ {};
-      // The duration of remote assistance initiated by the end user. Unit: seconds.
+      // The duration of remote assistance for the end user. Unit: seconds.
       shared_ptr<int64_t> endUserApplyCoordinateTime_ {};
-      // The ID of the end user.
+      // The end user ID.
       shared_ptr<string> endUserId_ {};
-      // The duration of the last connection to the cloud computer. Unit: seconds.
+      // The duration of the most recent connection to the cloud computer. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
-      // The ID of the workspace.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office site.
+      // The office network name.
       shared_ptr<string> officeSiteName_ {};
-      // Indicates the session status of the cloud desktop.
+      // Specifies whether to check the session status within the cloud computer.
       shared_ptr<string> osSessionStatus_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
-      // The information about the resource group.
+      // The resource group information.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
-      // The time when the session ended.
+      // The end time of the session.
       shared_ptr<string> sessionEndTime_ {};
-      // The duration for which the session was idle. Unit: seconds.
+      // The session idle duration. Unit: seconds.
       shared_ptr<int64_t> sessionIdleTime_ {};
-      // The time when the session started.
+      // The start time of the session.
       shared_ptr<string> sessionStartTime_ {};
-      // The connection status of the session.
+      // The session connection status.
       shared_ptr<string> sessionStatus_ {};
-      // The billing method of the cloud computer.
+      // The purchase method of the cloud computer.
       shared_ptr<string> subPayType_ {};
-      // The description of the terminal device.
+      // The terminal device information.
       shared_ptr<Sessions::TerminalInfo> terminalInfo_ {};
       // The total connection duration. Unit: seconds.
       shared_ptr<int64_t> totalConnectionTime_ {};

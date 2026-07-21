@@ -119,19 +119,19 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated.
+      // Deprecated.
       shared_ptr<string> downloadType_ {};
       // The download URL.
       shared_ptr<string> downloadUrl_ {};
-      // This parameter is deprecated.
+      // Deprecated.
       shared_ptr<string> expirationSecond_ {};
-      // The validity period of the download URL.
+      // The expiration time of the file download URL.
       shared_ptr<string> expirationTime_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
-      // The size of the file. Unit: bytes.
+      // The file size, in bytes.
       shared_ptr<int64_t> size_ {};
-      // This parameter is deprecated.
+      // Deprecated.
       shared_ptr<string> streamUrl_ {};
     };
 
@@ -168,7 +168,7 @@ namespace Models
 
 
   protected:
-    // The download URL of the file.
+    // The URL for downloading the file.
     shared_ptr<DownloadCdsFileResponseBody::DownloadFileModel> downloadFileModel_ {};
     // The response message.
     shared_ptr<string> message_ {};

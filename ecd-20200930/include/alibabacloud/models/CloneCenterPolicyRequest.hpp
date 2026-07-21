@@ -77,33 +77,21 @@ namespace Models
   protected:
     // The business type.
     // 
-    // Valid values:
-    // 
-    // - 1: public cloud
-    // 
-    // - 8: commercial edition.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
-    // The name of the cloud computer policy that you want to clone.
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the cloud computer policy that you want to clone.
+    // The ID of the target cloud computer policy to clone.
     // 
     // This parameter is required.
     shared_ptr<string> policyGroupId_ {};
-    // The region ID. Set the value to cn-shanghai.
+    // The region ID. This feature is region-independent. Set this parameter to cn-shanghai.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource type.
-    // 
-    // Valid values:
-    // 
-    // - app: cloud applications.
-    // 
-    // - desktop: cloud computers.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

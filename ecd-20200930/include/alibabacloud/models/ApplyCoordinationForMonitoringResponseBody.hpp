@@ -116,37 +116,23 @@ namespace Models
 
 
     protected:
-      // The ID of the stream collaboration.
+      // The coordination flow ID.
       shared_ptr<string> coId_ {};
-      // The current status of the collaboration task.
-      // 
-      // Valid values:
-      // 
-      // - COORDINATING: The collaboration task is being executed.
-      // 
-      // - TERMINATING: The collaboration task is being terminated.
-      // 
-      // - TERMINATED: The collaboration task is terminated.
-      // 
-      // - PENDING: The collaboration task is pending to be executed.
+      // The current coordination status.
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.COORDINATING  ]coordinating
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATING  ] terminating
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.TERMINATED ]terminated
+      // [_single.resp.200.props.CoordinateFlowModels.items.CoordinateStatus.enum.PENDING ]pending acceptance
       shared_ptr<string> coordinateStatus_ {};
-      // The ticket that is used to establish the Adaptive Streaming Protocol (ASP)-based connection.
+      // The ticket used by ASP to establish a connection.
       shared_ptr<string> coordinateTicket_ {};
-      // The type of the initiator.
-      // 
-      // Valid values:
-      // 
-      // - ADMIN_INITIATE_FORCE: The administrator forcibly initiates the collaboration request.
-      // 
-      // - ADMIN_INITIATE: The administrator initiates the collaboration request.
-      // 
-      // - COORDINATOR_INITIATE_FORCE: The coordinator forcibly initiates the collaboration request.
+      // The initiator type.
       shared_ptr<string> initiatorType_ {};
-      // The ID of the Alibaba Cloud account of the end user.
+      // The Alibaba Cloud account ID of the user on the user side.
       shared_ptr<string> ownerUserId_ {};
-      // The ID of the cloud desktop.
+      // The cloud computer ID.
       shared_ptr<string> resourceId_ {};
-      // The name of the cloud desktop.
+      // The cloud computer name.
       shared_ptr<string> resourceName_ {};
     };
 
@@ -169,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The list of stream collaboration models.
+    // The list of coordination flow data.
     shared_ptr<vector<ApplyCoordinationForMonitoringResponseBody::CoordinateFlowModels>> coordinateFlowModels_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk.
+    // The enterprise drive ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The ID of the file sharing task.
+    // The share ID.
     // 
     // This parameter is required.
     shared_ptr<string> shareId_ {};

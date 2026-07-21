@@ -62,9 +62,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+ * @summary Unlocks an office network that was automatically locked after being idle for a period of time.
  *
- * @description If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+ * @description For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
  *
  * @param request ActivateOfficeSiteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -99,9 +99,9 @@ ActivateOfficeSiteResponse Client::activateOfficeSiteWithOptions(const ActivateO
 }
 
 /**
- * @summary Unlocks a convenience office network that is automatically locked due to a long idle period of time.
+ * @summary Unlocks an office network that was automatically locked after being idle for a period of time.
  *
- * @description If you do not create any cloud computer in a convenience office network within 15 days, the office network is automatically locked and virtual private cloud (VPC) resources are released. If you want to resume the office network, you can call this operation to unlock the office network.
+ * @description For office networks based on convenience accounts, if no cloud computers are created within 15 consecutive calendar days, the office network is automatically locked and VPC-related resources are released. To use the office network again, call this operation to unlock it.
  *
  * @param request ActivateOfficeSiteRequest
  * @return ActivateOfficeSiteResponse
@@ -224,9 +224,9 @@ AddDevicesResponse Client::addDevices(const AddDevicesRequest &request) {
 }
 
 /**
- * @summary Adds a shared folder to the network disk.
+ * @summary Creates a shared folder in a cloud disk.
  *
- * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+ * @description You can share a specified folder with other users and set access permissions for the folder.
  *
  * @param tmpReq AddFilePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -283,9 +283,9 @@ AddFilePermissionResponse Client::addFilePermissionWithOptions(const AddFilePerm
 }
 
 /**
- * @summary Adds a shared folder to the network disk.
+ * @summary Creates a shared folder in a cloud disk.
  *
- * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
+ * @description You can share a specified folder with other users and set access permissions for the folder.
  *
  * @param request AddFilePermissionRequest
  * @return AddFilePermissionResponse
@@ -542,7 +542,7 @@ ApplyAutoSnapshotPolicyResponse Client::applyAutoSnapshotPolicy(const ApplyAutoS
 }
 
 /**
- * @summary Applies for the coordinate permissions.
+ * @summary Requests permissions for stream coordination operations.
  *
  * @param request ApplyCoordinatePrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -589,7 +589,7 @@ ApplyCoordinatePrivilegeResponse Client::applyCoordinatePrivilegeWithOptions(con
 }
 
 /**
- * @summary Applies for the coordinate permissions.
+ * @summary Requests permissions for stream coordination operations.
  *
  * @param request ApplyCoordinatePrivilegeRequest
  * @return ApplyCoordinatePrivilegeResponse
@@ -600,7 +600,7 @@ ApplyCoordinatePrivilegeResponse Client::applyCoordinatePrivilege(const ApplyCoo
 }
 
 /**
- * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+ * @summary Sends a remote assistance request from an administrator to an end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
  *
  * @param request ApplyCoordinationForMonitoringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +651,7 @@ ApplyCoordinationForMonitoringResponse Client::applyCoordinationForMonitoringWit
 }
 
 /**
- * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
+ * @summary Sends a remote assistance request from an administrator to an end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
  *
  * @param request ApplyCoordinationForMonitoringRequest
  * @return ApplyCoordinationForMonitoringResponse
@@ -662,9 +662,9 @@ ApplyCoordinationForMonitoringResponse Client::applyCoordinationForMonitoring(co
 }
 
 /**
- * @summary Allows you to upgrade images.
+ * @summary Allows an image upgrade.
  *
- * @description The cloud computers for which you want to allow image updates must be in the Running state.
+ * @description The cloud computer must be in the Running state.
  *
  * @param request ApproveFotaUpdateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -703,9 +703,9 @@ ApproveFotaUpdateResponse Client::approveFotaUpdateWithOptions(const ApproveFota
 }
 
 /**
- * @summary Allows you to upgrade images.
+ * @summary Allows an image upgrade.
  *
- * @description The cloud computers for which you want to allow image updates must be in the Running state.
+ * @description The cloud computer must be in the Running state.
  *
  * @param request ApproveFotaUpdateRequest
  * @return ApproveFotaUpdateResponse
@@ -774,7 +774,7 @@ AssociateIpAddressResponse Client::associateIpAddress(const AssociateIpAddressRe
 }
 
 /**
- * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+ * @summary Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
  *
  * @param request AssociateNetworkPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -813,7 +813,7 @@ AssociateNetworkPackageResponse Client::associateNetworkPackageWithOptions(const
 }
 
 /**
- * @summary Binds a premium bandwidth plan to an office network. A premium bandwidth plan is used together with only one office network.
+ * @summary Associates a premium Internet bandwidth plan with an office network. A premium Internet bandwidth plan has a one-to-one bindingrelationship with an office network.
  *
  * @param request AssociateNetworkPackageRequest
  * @return AssociateNetworkPackageResponse
@@ -1008,11 +1008,11 @@ AttachEndUserResponse Client::attachEndUser(const AttachEndUserRequest &request)
 }
 
 /**
- * @summary Assigns multiple cloud computers to users in a batch.
+ * @summary Assigns users to multiple cloud computers in a batch.
  *
- * @description - The target cloud computers must be in the Running state.
- * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
- * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
+ * @description - The cloud computers must be in the Running state.
+ * - This operation immediately returns a result. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter: `ASSIGNING` indicates that the assignment is in progress, and other values indicate that the assignment is complete.
+ * - Check whether the assignment is complete every 2 to 5 seconds, for a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
  *
  * @param request BatchModifyEntitlementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1067,11 +1067,11 @@ BatchModifyEntitlementResponse Client::batchModifyEntitlementWithOptions(const B
 }
 
 /**
- * @summary Assigns multiple cloud computers to users in a batch.
+ * @summary Assigns users to multiple cloud computers in a batch.
  *
- * @description - The target cloud computers must be in the Running state.
- * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
- * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
+ * @description - The cloud computers must be in the Running state.
+ * - This operation immediately returns a result. To check whether the assignment is successful, call [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) and check the `ManagementFlags` response parameter: `ASSIGNING` indicates that the assignment is in progress, and other values indicate that the assignment is complete.
+ * - Check whether the assignment is complete every 2 to 5 seconds, for a maximum of 50 seconds. In most cases, the assignment is completed within 1 to 5 seconds.
  *
  * @param request BatchModifyEntitlementRequest
  * @return BatchModifyEntitlementResponse
@@ -1182,7 +1182,7 @@ CancelAutoSnapshotPolicyResponse Client::cancelAutoSnapshotPolicy(const CancelAu
 }
 
 /**
- * @summary Cancels a file sharing task.
+ * @summary Cancels file sharing.
  *
  * @param request CancelCdsFileShareLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1217,7 @@ CancelCdsFileShareLinkResponse Client::cancelCdsFileShareLinkWithOptions(const C
 }
 
 /**
- * @summary Cancels a file sharing task.
+ * @summary Cancels file sharing.
  *
  * @param request CancelCdsFileShareLinkRequest
  * @return CancelCdsFileShareLinkResponse
@@ -1228,7 +1228,7 @@ CancelCdsFileShareLinkResponse Client::cancelCdsFileShareLink(const CancelCdsFil
 }
 
 /**
- * @summary Cancels a remote assistance request to the end user.
+ * @summary Cancels a remote assistance request initiated to an end user.
  *
  * @param request CancelCoordinationForMonitoringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1271,7 +1271,7 @@ CancelCoordinationForMonitoringResponse Client::cancelCoordinationForMonitoringW
 }
 
 /**
- * @summary Cancels a remote assistance request to the end user.
+ * @summary Cancels a remote assistance request initiated to an end user.
  *
  * @param request CancelCoordinationForMonitoringRequest
  * @return CancelCoordinationForMonitoringResponse
@@ -1282,7 +1282,7 @@ CancelCoordinationForMonitoringResponse Client::cancelCoordinationForMonitoring(
 }
 
 /**
- * @summary Cancels the operation of copying an image to another region.
+ * @summary Cancels an ongoing image copy operation to another region.
  *
  * @param request CancelCopyImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1317,7 +1317,7 @@ CancelCopyImageResponse Client::cancelCopyImageWithOptions(const CancelCopyImage
 }
 
 /**
- * @summary Cancels the operation of copying an image to another region.
+ * @summary Cancels an ongoing image copy operation to another region.
  *
  * @param request CancelCopyImageRequest
  * @return CancelCopyImageResponse
@@ -1328,7 +1328,7 @@ CancelCopyImageResponse Client::cancelCopyImage(const CancelCopyImageRequest &re
 }
 
 /**
- * @summary Clones a policy based on an existing global policy.
+ * @summary Clones a policy based on an existing region-independent policy.
  *
  * @param request CloneCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1375,7 +1375,7 @@ CloneCenterPolicyResponse Client::cloneCenterPolicyWithOptions(const CloneCenter
 }
 
 /**
- * @summary Clones a policy based on an existing global policy.
+ * @summary Clones a policy based on an existing region-independent policy.
  *
  * @param request CloneCenterPolicyRequest
  * @return CloneCenterPolicyResponse
@@ -1386,7 +1386,7 @@ CloneCenterPolicyResponse Client::cloneCenterPolicy(const CloneCenterPolicyReque
 }
 
 /**
- * @summary Clones an existing policy to quickly create a policy.
+ * @summary Clones a cloud computer policy to quickly create a custom cloud computer policy.
  *
  * @param request ClonePolicyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1425,7 +1425,7 @@ ClonePolicyGroupResponse Client::clonePolicyGroupWithOptions(const ClonePolicyGr
 }
 
 /**
- * @summary Clones an existing policy to quickly create a policy.
+ * @summary Clones a cloud computer policy to quickly create a custom cloud computer policy.
  *
  * @param request ClonePolicyGroupRequest
  * @return ClonePolicyGroupResponse
@@ -1498,7 +1498,7 @@ CompleteCdsFileResponse Client::completeCdsFile(const CompleteCdsFileRequest &re
 }
 
 /**
- * @summary Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+ * @summary Configures a trust relationship for an AD office network. For office networks (formerly workspaces) that use the HDX protocol, you must configure conditional forwarders and trust relationships before the networks can function properly.
  *
  * @param request ConfigADConnectorTrustRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1541,7 +1541,7 @@ ConfigADConnectorTrustResponse Client::configADConnectorTrustWithOptions(const C
 }
 
 /**
- * @summary Configures a conditional forwarder and trust relationship for a high-definition experience (HDX)-based office network (formerly workspace). You can call the operation to configure a trust relationship for an enterprise Active Directory (AD) office network.
+ * @summary Configures a trust relationship for an AD office network. For office networks (formerly workspaces) that use the HDX protocol, you must configure conditional forwarders and trust relationships before the networks can function properly.
  *
  * @param request ConfigADConnectorTrustRequest
  * @return ConfigADConnectorTrustResponse
@@ -1552,7 +1552,7 @@ ConfigADConnectorTrustResponse Client::configADConnectorTrust(const ConfigADConn
 }
 
 /**
- * @summary Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+ * @summary Specifies the organizational unit (OU) and administrator for an AD office network (formerly workspace).
  *
  * @param request ConfigADConnectorUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1599,7 +1599,7 @@ ConfigADConnectorUserResponse Client::configADConnectorUserWithOptions(const Con
 }
 
 /**
- * @summary Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+ * @summary Specifies the organizational unit (OU) and administrator for an AD office network (formerly workspace).
  *
  * @param request ConfigADConnectorUserRequest
  * @return ConfigADConnectorUserResponse
@@ -1610,7 +1610,7 @@ ConfigADConnectorUserResponse Client::configADConnectorUser(const ConfigADConnec
 }
 
 /**
- * @summary Create a copy of a file or folder in the cloud drive.
+ * @summary Creates a copy of a file or folder in a cloud drive.
  *
  * @param request CopyCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1673,7 +1673,7 @@ CopyCdsFileResponse Client::copyCdsFileWithOptions(const CopyCdsFileRequest &req
 }
 
 /**
- * @summary Create a copy of a file or folder in the cloud drive.
+ * @summary Creates a copy of a file or folder in a cloud drive.
  *
  * @param request CopyCdsFileRequest
  * @return CopyCdsFileResponse
@@ -1684,7 +1684,7 @@ CopyCdsFileResponse Client::copyCdsFile(const CopyCdsFileRequest &request) {
 }
 
 /**
- * @summary Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+ * @summary Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region first, and then share it.
  *
  * @param request CopyImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1731,7 +1731,7 @@ CopyImageResponse Client::copyImageWithOptions(const CopyImageRequest &request, 
 }
 
 /**
- * @summary Copy an image to another region. If you want to share an image across regions, you can call this operation to copy the image to the destination region and then share the image.
+ * @summary Copies an image to another region. To share an image across regions, call this operation to copy the image to the destination region first, and then share it.
  *
  * @param request CopyImageRequest
  * @return CopyImageResponse
@@ -2344,7 +2344,7 @@ CreateCdsFileResponse Client::createCdsFile(const CreateCdsFileRequest &request)
 }
 
 /**
- * @summary Create a file share.
+ * @summary Creates a file share.
  *
  * @param request CreateCdsFileShareLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2427,7 +2427,7 @@ CreateCdsFileShareLinkResponse Client::createCdsFileShareLinkWithOptions(const C
 }
 
 /**
- * @summary Create a file share.
+ * @summary Creates a file share.
  *
  * @param request CreateCdsFileShareLinkRequest
  * @return CreateCdsFileShareLinkResponse
@@ -2438,7 +2438,7 @@ CreateCdsFileShareLinkResponse Client::createCdsFileShareLink(const CreateCdsFil
 }
 
 /**
- * @summary You can create a region-independent cloud desktop policy.
+ * @summary Creates a region-independent Cloud Desktop policy.
  *
  * @param request CreateCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2613,6 +2613,26 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasFileTransferAddress()) {
     query["FileTransferAddress"] = request.getFileTransferAddress();
+  }
+
+  if (!!request.hasFileTransferInSize()) {
+    query["FileTransferInSize"] = request.getFileTransferInSize();
+  }
+
+  if (!!request.hasFileTransferInUnit()) {
+    query["FileTransferInUnit"] = request.getFileTransferInUnit();
+  }
+
+  if (!!request.hasFileTransferOutSize()) {
+    query["FileTransferOutSize"] = request.getFileTransferOutSize();
+  }
+
+  if (!!request.hasFileTransferOutUnit()) {
+    query["FileTransferOutUnit"] = request.getFileTransferOutUnit();
+  }
+
+  if (!!request.hasFileTransferSizeLimit()) {
+    query["FileTransferSizeLimit"] = request.getFileTransferSizeLimit();
   }
 
   if (!!request.hasFileTransferSpeed()) {
@@ -2997,7 +3017,7 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 }
 
 /**
- * @summary You can create a region-independent cloud desktop policy.
+ * @summary Creates a region-independent Cloud Desktop policy.
  *
  * @param request CreateCenterPolicyRequest
  * @return CreateCenterPolicyResponse
@@ -4082,7 +4102,7 @@ CreateDesktopsResponse Client::createDesktops(const CreateDesktopsRequest &reque
 }
 
 /**
- * @summary Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
+ * @summary Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
  *
  * @param request CreateDiskEncryptionServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4113,7 +4133,7 @@ CreateDiskEncryptionServiceResponse Client::createDiskEncryptionServiceWithOptio
 }
 
 /**
- * @summary Enables disk encryption and creates the required service-linked role in your Resource Access Management (RAM) user account for the Enterprise Drive.
+ * @summary Enables the disk encryption feature and adds the service-linked role (SLR) for enterprise cloud drive encryption under the RAM user.
  *
  * @param request CreateDiskEncryptionServiceRequest
  * @return CreateDiskEncryptionServiceResponse
@@ -5770,7 +5790,7 @@ DeleteBundlesResponse Client::deleteBundles(const DeleteBundlesRequest &request)
 }
 
 /**
- * @summary Delete files or folders from the network disk.
+ * @summary Deletes a file or folder from a cloud drive.
  *
  * @param request DeleteCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5817,7 +5837,7 @@ DeleteCdsFileResponse Client::deleteCdsFileWithOptions(const DeleteCdsFileReques
 }
 
 /**
- * @summary Delete files or folders from the network disk.
+ * @summary Deletes a file or folder from a cloud drive.
  *
  * @param request DeleteCdsFileRequest
  * @return DeleteCdsFileResponse
@@ -5828,7 +5848,7 @@ DeleteCdsFileResponse Client::deleteCdsFile(const DeleteCdsFileRequest &request)
 }
 
 /**
- * @summary Deletes a global policy.
+ * @summary Deletes a non-region-specific policy.
  *
  * @param request DeleteCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5871,7 +5891,7 @@ DeleteCenterPolicyResponse Client::deleteCenterPolicyWithOptions(const DeleteCen
 }
 
 /**
- * @summary Deletes a global policy.
+ * @summary Deletes a non-region-specific policy.
  *
  * @param request DeleteCenterPolicyRequest
  * @return DeleteCenterPolicyResponse
@@ -7566,7 +7586,7 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyList(const Describe
 }
 
 /**
- * @summary Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
+ * @summary Queries the operation logs of end users, including events such as cloud computer startup, shutdown, and session disconnection.
  *
  * @param request DescribeClientEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7597,6 +7617,10 @@ DescribeClientEventsResponse Client::describeClientEventsWithOptions(const Descr
 
   if (!!request.hasEndUserId()) {
     query["EndUserId"] = request.getEndUserId();
+  }
+
+  if (!!request.hasEndUserIds()) {
+    query["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasEventType()) {
@@ -7657,7 +7681,7 @@ DescribeClientEventsResponse Client::describeClientEventsWithOptions(const Descr
 }
 
 /**
- * @summary Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
+ * @summary Queries the operation logs of end users, including events such as cloud computer startup, shutdown, and session disconnection.
  *
  * @param request DescribeClientEventsRequest
  * @return DescribeClientEventsResponse
@@ -7878,7 +7902,7 @@ DescribeCloudDriveGroupsResponse Client::describeCloudDriveGroups(const Describe
 }
 
 /**
- * @summary Query the permission settings details of the enterprise cloud drive.
+ * @summary Queries the permission settings of an enterprise cloud drive.
  *
  * @param request DescribeCloudDrivePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7913,7 +7937,7 @@ DescribeCloudDrivePermissionsResponse Client::describeCloudDrivePermissionsWithO
 }
 
 /**
- * @summary Query the permission settings details of the enterprise cloud drive.
+ * @summary Queries the permission settings of an enterprise cloud drive.
  *
  * @param request DescribeCloudDrivePermissionsRequest
  * @return DescribeCloudDrivePermissionsResponse
@@ -8368,9 +8392,9 @@ DescribeDesktopInfoResponse Client::describeDesktopInfo(const DescribeDesktopInf
 }
 
 /**
- * @summary Lists cloud computers and their metadata from all regions.
+ * @summary Queries the list and metadata of cloud desktops across all regions.
  *
- * @description This operation is centralized, available only in the China (Shanghai) and Singapore regions.
+ * @description This is a centralized API that only supports queries from the Shanghai and Singapore sites.
  *
  * @param request DescribeDesktopMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8415,6 +8439,10 @@ DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const
     query["MaxResults"] = request.getMaxResults();
   }
 
+  if (!!request.hasNetworkInterfaceIp()) {
+    query["NetworkInterfaceIp"] = request.getNetworkInterfaceIp();
+  }
+
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
   }
@@ -8453,9 +8481,9 @@ DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const
 }
 
 /**
- * @summary Lists cloud computers and their metadata from all regions.
+ * @summary Queries the list and metadata of cloud desktops across all regions.
  *
- * @description This operation is centralized, available only in the China (Shanghai) and Singapore regions.
+ * @description This is a centralized API that only supports queries from the Shanghai and Singapore sites.
  *
  * @param request DescribeDesktopMetadataRequest
  * @return DescribeDesktopMetadataResponse
@@ -8636,9 +8664,9 @@ DescribeDesktopOversoldUserGroupResponse Client::describeDesktopOversoldUserGrou
 }
 
 /**
- * @summary Queries the detailed session information for cloud computers.
+ * @summary Queries the detailed session information of a cloud computer.
  *
- * @description You can retrieve data only from the last 30 days.
+ * @description Only data within the last 30 days can be queried.
  *
  * @param request DescribeDesktopSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8669,6 +8697,10 @@ DescribeDesktopSessionsResponse Client::describeDesktopSessionsWithOptions(const
 
   if (!!request.hasEndUserIdFilter()) {
     query["EndUserIdFilter"] = request.getEndUserIdFilter();
+  }
+
+  if (!!request.hasEndUserIds()) {
+    query["EndUserIds"] = request.getEndUserIds();
   }
 
   if (!!request.hasFillHardwareInfo()) {
@@ -8729,9 +8761,9 @@ DescribeDesktopSessionsResponse Client::describeDesktopSessionsWithOptions(const
 }
 
 /**
- * @summary Queries the detailed session information for cloud computers.
+ * @summary Queries the detailed session information of a cloud computer.
  *
- * @description You can retrieve data only from the last 30 days.
+ * @description Only data within the last 30 days can be queried.
  *
  * @param request DescribeDesktopSessionsRequest
  * @return DescribeDesktopSessionsResponse
@@ -8868,7 +8900,7 @@ DescribeDesktopTypesResponse Client::describeDesktopTypes(const DescribeDesktopT
 }
 
 /**
- * @summary Query the details of your cloud computers.
+ * @summary Queries the details of cloud computers.
  *
  * @param request DescribeDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9047,7 +9079,7 @@ DescribeDesktopsResponse Client::describeDesktopsWithOptions(const DescribeDeskt
 }
 
 /**
- * @summary Query the details of your cloud computers.
+ * @summary Queries the details of cloud computers.
  *
  * @param request DescribeDesktopsRequest
  * @return DescribeDesktopsResponse
@@ -9590,7 +9622,7 @@ DescribeFotaPendingDesktopsResponse Client::describeFotaPendingDesktops(const De
 }
 
 /**
- * @summary Queries a list of update tasks.
+ * @summary Retrieves the list of image upgrade tasks.
  *
  * @param request DescribeFotaTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9645,7 +9677,7 @@ DescribeFotaTasksResponse Client::describeFotaTasksWithOptions(const DescribeFot
 }
 
 /**
- * @summary Queries a list of update tasks.
+ * @summary Retrieves the list of image upgrade tasks.
  *
  * @param request DescribeFotaTasksRequest
  * @return DescribeFotaTasksResponse
@@ -9656,12 +9688,12 @@ DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksReque
 }
 
 /**
- * @summary Queries basic information and usage duration for all recent Cloud Desktops.
+ * @summary Queries the basic information of all recent cloud desktops and their usage duration records.
  *
- * @description - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
- * - By default, this operation returns both active and deleted Cloud Desktops.
- * - You can query only Cloud Desktops deleted within the last three months.
- * - You cannot use the sort condition with other query conditions.
+ * @description - China site users should select Shanghai as the region. International site users should select Singapore.
+ * - By default, both deleted and non-deleted cloud desktops are queried.
+ * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
+ * - Sort conditions cannot be used together with other conditions.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9742,6 +9774,10 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
     query["SubPayType"] = request.getSubPayType();
   }
 
+  if (!!request.hasUserNames()) {
+    query["UserNames"] = request.getUserNames();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -9760,12 +9796,12 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 }
 
 /**
- * @summary Queries basic information and usage duration for all recent Cloud Desktops.
+ * @summary Queries the basic information of all recent cloud desktops and their usage duration records.
  *
- * @description - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
- * - By default, this operation returns both active and deleted Cloud Desktops.
- * - You can query only Cloud Desktops deleted within the last three months.
- * - You cannot use the sort condition with other query conditions.
+ * @description - China site users should select Shanghai as the region. International site users should select Singapore.
+ * - By default, both deleted and non-deleted cloud desktops are queried.
+ * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
+ * - Sort conditions cannot be used together with other conditions.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @return DescribeGlobalDesktopRecordsResponse
@@ -10192,10 +10228,10 @@ DescribeImagesResponse Client::describeImages(const DescribeImagesRequest &reque
 }
 
 /**
- * @summary Used to query the execution list and status of Cloud Assistant scripts.
+ * @summary Queries the execution list and status of Cloud Assistant scripts.
  *
- * @description - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.  
- * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
+ * @description - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+ * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
  *
  * @param request DescribeInvocationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10270,10 +10306,10 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @summary Used to query the execution list and status of Cloud Assistant scripts.
+ * @summary Queries the execution list and status of Cloud Assistant scripts.
  *
- * @description - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.  
- * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
+ * @description - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
+ * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
  *
  * @param request DescribeInvocationsRequest
  * @return DescribeInvocationsResponse
@@ -10384,7 +10420,7 @@ DescribeKmsKeysResponse Client::describeKmsKeys(const DescribeKmsKeysRequest &re
 }
 
 /**
- * @summary Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
+ * @summary Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
  *
  * @param request DescribeModificationPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10459,7 +10495,7 @@ DescribeModificationPriceResponse Client::describeModificationPriceWithOptions(c
 }
 
 /**
- * @summary Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
+ * @summary Queries the price for changing the specifications of a monthly-subscribed unlimited-duration cloud computer or premium Internet bandwidth.
  *
  * @param request DescribeModificationPriceRequest
  * @return DescribeModificationPriceResponse
@@ -11360,7 +11396,7 @@ DescribeRecordingsResponse Client::describeRecordings(const DescribeRecordingsRe
 }
 
 /**
- * @summary Query the refund amount for monthly subscription WUYING Workspaces.
+ * @summary Queries the unsubscription price of cloud computers purchased on a monthly basis.
  *
  * @param request DescribeRefundPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11403,7 +11439,7 @@ DescribeRefundPriceResponse Client::describeRefundPriceWithOptions(const Describ
 }
 
 /**
- * @summary Query the refund amount for monthly subscription WUYING Workspaces.
+ * @summary Queries the unsubscription price of cloud computers purchased on a monthly basis.
  *
  * @param request DescribeRefundPriceRequest
  * @return DescribeRefundPriceResponse
@@ -11818,7 +11854,7 @@ DescribeSessionStatisticResponse Client::describeSessionStatistic(const Describe
 }
 
 /**
- * @summary Queries the snapshots and their details for a cloud desktop.
+ * @summary Queries the snapshot list and snapshot details of a cloud computer.
  *
  * @param request DescribeSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11837,6 +11873,10 @@ DescribeSnapshotsResponse Client::describeSnapshotsWithOptions(const DescribeSna
 
   if (!!request.hasDesktopName()) {
     query["DesktopName"] = request.getDesktopName();
+  }
+
+  if (!!request.hasDesktopScenario()) {
+    query["DesktopScenario"] = request.getDesktopScenario();
   }
 
   if (!!request.hasEndTime()) {
@@ -11897,7 +11937,7 @@ DescribeSnapshotsResponse Client::describeSnapshotsWithOptions(const DescribeSna
 }
 
 /**
- * @summary Queries the snapshots and their details for a cloud desktop.
+ * @summary Queries the snapshot list and snapshot details of a cloud computer.
  *
  * @param request DescribeSnapshotsRequest
  * @return DescribeSnapshotsResponse
@@ -12856,7 +12896,7 @@ DissociateIpAddressResponse Client::dissociateIpAddress(const DissociateIpAddres
 }
 
 /**
- * @summary Unbinds a premium bandwidth plan from an office network.
+ * @summary Disassociates a premium Internet bandwidth plan from the office network to which it was previously bound.
  *
  * @param request DissociateNetworkPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12891,7 +12931,7 @@ DissociateNetworkPackageResponse Client::dissociateNetworkPackageWithOptions(con
 }
 
 /**
- * @summary Unbinds a premium bandwidth plan from an office network.
+ * @summary Disassociates a premium Internet bandwidth plan from the office network to which it was previously bound.
  *
  * @param request DissociateNetworkPackageRequest
  * @return DissociateNetworkPackageResponse
@@ -12902,7 +12942,7 @@ DissociateNetworkPackageResponse Client::dissociateNetworkPackage(const Dissocia
 }
 
 /**
- * @summary Obtains the download link of the target file.
+ * @summary Retrieves the download URL of a specified file.
  *
  * @param request DownloadCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12949,7 +12989,7 @@ DownloadCdsFileResponse Client::downloadCdsFileWithOptions(const DownloadCdsFile
 }
 
 /**
- * @summary Obtains the download link of the target file.
+ * @summary Retrieves the download URL of a specified file.
  *
  * @param request DownloadCdsFileRequest
  * @return DownloadCdsFileResponse
@@ -13046,7 +13086,7 @@ ExportClientEventsResponse Client::exportClientEvents(const ExportClientEventsRe
 }
 
 /**
- * @summary Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
+ * @summary Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
  *
  * @param request ExportDesktopGroupInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13121,7 +13161,7 @@ ExportDesktopGroupInfoResponse Client::exportDesktopGroupInfoWithOptions(const E
 }
 
 /**
- * @summary Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
+ * @summary Exports the list of shared cloud desktops and saves it as an XLSX file. Each shared cloud desktop record includes the shared cloud desktop ID and name, office network ID and name, shared cloud desktop template, and security policy name.
  *
  * @param request ExportDesktopGroupInfoRequest
  * @return ExportDesktopGroupInfoResponse
@@ -13132,24 +13172,24 @@ ExportDesktopGroupInfoResponse Client::exportDesktopGroupInfo(const ExportDeskto
 }
 
 /**
- * @summary Exports a cloud computer list as a CSV file.
+ * @summary Exports the cloud desktop list as a CSV file.
  *
- * @description The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
- * *   Cloud computer ID and name
- * *   Office network ID and name
- * *   The instance type, OS and protocol of the cloud computer
- * *   System disk and data disk of the cloud computer
- * *   The status
- * *   Purchase method
- * *   The time when the cloud computer expires
- * *   Remaining duration and total duration
- * *   Number of assigned users and number of current users
- * *   Office network type
- * *   The time when the cloud computer was created
- * *   Tags
- * *   Encryption status
- * *   IP
- * *   The hostname
+ * @description The cloud desktop list exported by calling this operation is saved as a CSV file. Each cloud desktop record includes the following fields:
+ * - Cloud desktop ID/Cloud desktop name
+ * - Office network ID/Office network name
+ * - Specifications/System/Protocol
+ * - System cloud disk/Data cloud disk
+ * - Status
+ * - Billing method
+ * - Expiration time
+ * - Remaining duration/Total duration
+ * - Number of assigned users/Current user
+ * - Office network type
+ * - Creation time
+ * - Tags
+ * - Encrypted or not
+ * - IP
+ * - Hostname
  *
  * @param request ExportDesktopListInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13236,24 +13276,24 @@ ExportDesktopListInfoResponse Client::exportDesktopListInfoWithOptions(const Exp
 }
 
 /**
- * @summary Exports a cloud computer list as a CSV file.
+ * @summary Exports the cloud desktop list as a CSV file.
  *
- * @description The cloud computer list exported by calling this operation is saved as a CSV file. Each entry of data of a cloud computer includes the following fields:
- * *   Cloud computer ID and name
- * *   Office network ID and name
- * *   The instance type, OS and protocol of the cloud computer
- * *   System disk and data disk of the cloud computer
- * *   The status
- * *   Purchase method
- * *   The time when the cloud computer expires
- * *   Remaining duration and total duration
- * *   Number of assigned users and number of current users
- * *   Office network type
- * *   The time when the cloud computer was created
- * *   Tags
- * *   Encryption status
- * *   IP
- * *   The hostname
+ * @description The cloud desktop list exported by calling this operation is saved as a CSV file. Each cloud desktop record includes the following fields:
+ * - Cloud desktop ID/Cloud desktop name
+ * - Office network ID/Office network name
+ * - Specifications/System/Protocol
+ * - System cloud disk/Data cloud disk
+ * - Status
+ * - Billing method
+ * - Expiration time
+ * - Remaining duration/Total duration
+ * - Number of assigned users/Current user
+ * - Office network type
+ * - Creation time
+ * - Tags
+ * - Encrypted or not
+ * - IP
+ * - Hostname
  *
  * @param request ExportDesktopListInfoRequest
  * @return ExportDesktopListInfoResponse
@@ -13264,7 +13304,7 @@ ExportDesktopListInfoResponse Client::exportDesktopListInfo(const ExportDesktopL
 }
 
 /**
- * @summary When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
+ * @summary Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
  *
  * @param request GetAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13299,7 +13339,7 @@ GetAsyncTaskResponse Client::getAsyncTaskWithOptions(const GetAsyncTaskRequest &
 }
 
 /**
- * @summary When you call the CopyCdsFile operation to copy a folder, the operation returns AsyncTaskId. Call this operation specifying the obtained AsyncTaskId, and you can query the information about the asynchronous task.
+ * @summary Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
  *
  * @param request GetAsyncTaskRequest
  * @return GetAsyncTaskResponse
@@ -14968,7 +15008,7 @@ ModifyCdsFileShareLinkResponse Client::modifyCdsFileShareLink(const ModifyCdsFil
 }
 
 /**
- * @summary Modifies a configuration that does not have a region-specific policy.
+ * @summary Modifies the configuration of a region-free policy.
  *
  * @param request ModifyCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15143,6 +15183,26 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasFileTransferAddress()) {
     query["FileTransferAddress"] = request.getFileTransferAddress();
+  }
+
+  if (!!request.hasFileTransferInSize()) {
+    query["FileTransferInSize"] = request.getFileTransferInSize();
+  }
+
+  if (!!request.hasFileTransferInUnit()) {
+    query["FileTransferInUnit"] = request.getFileTransferInUnit();
+  }
+
+  if (!!request.hasFileTransferOutSize()) {
+    query["FileTransferOutSize"] = request.getFileTransferOutSize();
+  }
+
+  if (!!request.hasFileTransferOutUnit()) {
+    query["FileTransferOutUnit"] = request.getFileTransferOutUnit();
+  }
+
+  if (!!request.hasFileTransferSizeLimit()) {
+    query["FileTransferSizeLimit"] = request.getFileTransferSizeLimit();
   }
 
   if (!!request.hasFileTransferSpeed()) {
@@ -15535,7 +15595,7 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 }
 
 /**
- * @summary Modifies a configuration that does not have a region-specific policy.
+ * @summary Modifies the configuration of a region-free policy.
  *
  * @param request ModifyCenterPolicyRequest
  * @return ModifyCenterPolicyResponse
@@ -18198,7 +18258,7 @@ ModifyUserToDesktopGroupResponse Client::modifyUserToDesktopGroup(const ModifyUs
 }
 
 /**
- * @summary Move files or folders.
+ * @summary Moves a file or folder in a cloud disk to a new location.
  *
  * @param request MoveCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18253,7 +18313,7 @@ MoveCdsFileResponse Client::moveCdsFileWithOptions(const MoveCdsFileRequest &req
 }
 
 /**
- * @summary Move files or folders.
+ * @summary Moves a file or folder in a cloud disk to a new location.
  *
  * @param request MoveCdsFileRequest
  * @return MoveCdsFileResponse
@@ -19374,7 +19434,7 @@ ResetSnapshotResponse Client::resetSnapshot(const ResetSnapshotRequest &request)
 }
 
 /**
- * @summary Revokes the coordinate permissions.
+ * @summary Cancels the permission for stream coordination operations.
  *
  * @param request RevokeCoordinatePrivilegeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19421,7 +19481,7 @@ RevokeCoordinatePrivilegeResponse Client::revokeCoordinatePrivilegeWithOptions(c
 }
 
 /**
- * @summary Revokes the coordinate permissions.
+ * @summary Cancels the permission for stream coordination operations.
  *
  * @param request RevokeCoordinatePrivilegeRequest
  * @return RevokeCoordinatePrivilegeResponse
@@ -20550,9 +20610,9 @@ UpdateFotaTaskResponse Client::updateFotaTask(const UpdateFotaTaskRequest &reque
 }
 
 /**
- * @summary Uploads your custom Windows image.
+ * @summary Uploads a custom Windows image.
  *
- * @description >  You can upload only Windows images.
+ * @description > Only Windows operating system images can be uploaded.
  *
  * @param request UploadImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20561,6 +20621,10 @@ UpdateFotaTaskResponse Client::updateFotaTask(const UpdateFotaTaskRequest &reque
 UploadImageResponse Client::uploadImageWithOptions(const UploadImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBootMode()) {
+    query["BootMode"] = request.getBootMode();
+  }
+
   if (!!request.hasDataDiskSize()) {
     query["DataDiskSize"] = request.getDataDiskSize();
   }
@@ -20627,9 +20691,9 @@ UploadImageResponse Client::uploadImageWithOptions(const UploadImageRequest &req
 }
 
 /**
- * @summary Uploads your custom Windows image.
+ * @summary Uploads a custom Windows image.
  *
- * @description >  You can upload only Windows images.
+ * @description > Only Windows operating system images can be uploaded.
  *
  * @param request UploadImageRequest
  * @return UploadImageResponse

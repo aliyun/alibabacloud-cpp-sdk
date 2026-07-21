@@ -106,21 +106,9 @@ namespace Models
       protected:
         // The cloud computer ID.
         shared_ptr<string> desktopId_ {};
-        // The authorized user IDs for the cloud computer.
+        // The user IDs (usernames) authorized for the cloud computer.
         shared_ptr<vector<string>> endUserIds_ {};
-        // The assign result for each cloud computer.
-        // 
-        // Valid values:
-        // 
-        // - FAILED
-        // 
-        // - NOT_STARTED
-        // 
-        // - STARTED
-        // 
-        // - PROCESSING
-        // 
-        // - FINISHED
+        // The assignment result of a single cloud computer.
         shared_ptr<string> innerStatus_ {};
       };
 
@@ -152,19 +140,7 @@ namespace Models
     protected:
       // The assignment results.
       shared_ptr<vector<Entitlements::AssignModels>> assignModels_ {};
-      // The result.
-      // 
-      // Valid values:
-      // 
-      // - FAILED
-      // 
-      // - NOT_STARTED
-      // 
-      // - STARTED
-      // 
-      // - PROCESSING
-      // 
-      // - FINISHED
+      // The overall assignment result.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -189,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The results.
+    // The collection of assignment results.
     shared_ptr<BatchModifyEntitlementResponseBody::Entitlements> entitlements_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

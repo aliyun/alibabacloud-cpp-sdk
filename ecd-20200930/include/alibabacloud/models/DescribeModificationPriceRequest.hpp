@@ -99,11 +99,11 @@ namespace Models
 
 
     protected:
-      // Cloud computer ID.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // System disk size. Unit: GiB.
+      // The system cloud disk size. Unit: GiB.
       shared_ptr<int32_t> rootDiskSizeGib_ {};
-      // Data disk size. Unit: GiB.
+      // The data cloud disk size. Unit: GiB.
       shared_ptr<int32_t> userDiskSizeGib_ {};
     };
 
@@ -198,77 +198,58 @@ namespace Models
 
 
   protected:
-    // The maximum public bandwidth. Unit: Mbit/s.
+    // The peak Internet bandwidth. Unit: Mbit/s.
     // 
-    // > Valid values when PayByTraffic is set to PayByBandwidth: 10 to 1000.
+    // > If you use the pay-by-bandwidth billing method, the valid values range from 10 to 1000.
     shared_ptr<int32_t> bandwidth_ {};
-    // The ID of either the monthly subscription cloud computer with unlimited hours or the premium bandwidth plan.
+    // The instance ID. The value can be the ID of a monthly-subscribed (unlimited-duration) cloud computer or the ID of a premium Internet bandwidth instance.
     shared_ptr<string> instanceId_ {};
-    // The specifications.
+    // The resource specification.
     // 
-    // - Valid values when you set `ResourceType` to `Desktop`:
+    // - If `ResourceType` is set to `Desktop`, valid values include:
+    //     - ecd.basic.small
+    //     - ecd.basic.large
+    //     - ecd.advanced.large
+    //     - ecd.advanced.xlarge
+    //     - ecd.performance.2xlarge
+    //     - ecd.graphics.xlarge
+    //     - ecd.graphics.2xlarge
+    //     - ecd.advanced.xlarge_s8d2
+    //     - ecd.advanced.xlarge_s8d7
+    //     - ecd.graphics.1g72c
+    //     - eds.general.2c2g
+    //     - eds.general.2c4g
+    //     - eds.general.2c8g
+    //     - eds.general.4c8g
+    //     - eds.general.4c16g
+    //     - eds.general.8c16g
+    //     - eds.general.8c32g
+    //     - eds.general.16c32g
     // 
-    //   - ecd.basic.small
-    // 
-    //   - ecd.basic.large
-    // 
-    //   - ecd.advanced.large
-    // 
-    //   - ecd.advanced.xlarge
-    // 
-    //   - ecd.performance.2xlarge
-    // 
-    //   - ecd.graphics.xlarge
-    // 
-    //   - ecd.graphics.2xlarge
-    // 
-    //   - ecd.advanced.xlarge_s8d2
-    // 
-    //   - ecd.advanced.xlarge_s8d7
-    // 
-    //   - ecd.graphics.1g72c
-    // 
-    //   - eds.general.2c2g
-    // 
-    //   - eds.general.2c4g
-    // 
-    //   - eds.general.2c8g
-    // 
-    //   - eds.general.4c8g
-    // 
-    //   - eds.general.4c16g
-    // 
-    //   - eds.general.8c16g
-    // 
-    //   - eds.general.8c32g
-    // 
-    //   - eds.general.16c32g
-    // 
-    // - You can skip this parameter if `ResourceType` is set to `NetworkPackage`.
+    // - If `ResourceType` is set to `NetworkPackage`, you do not need to specify this parameter.
     shared_ptr<string> instanceType_ {};
-    // Promotion activity ID.
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // User ID for resource ownership in resale mode. You do not need to specify this parameter if resale mode is not used.
+    // The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter in non-reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
-    // List of resource specification templates.
+    // The list of resource specification templates.
     shared_ptr<vector<DescribeModificationPriceRequest::ResourceSpecs>> resourceSpecs_ {};
-    // The resource type. The required parameters depend on the resource type.
+    // The resource type. The required parameters vary based on the resource type for which you want to query the specification change price:
     // 
-    // - When `ResourceType` is set to `Desktop`, the required parameters are `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib`.
-    // 
-    // - When `ResourceType` is set to `NetworkPackage`, the required parameter is `Bandwidth`.
+    // - If `ResourceType` is set to `Desktop`, you must specify the `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib` parameters.
+    // - If `ResourceType` is set to `NetworkPackage`, you must specify the `Bandwidth` parameter.
     shared_ptr<string> resourceType_ {};
-    // Performance level of the system disk. When the WUYING Workspace instance type is set to graphics-optimized or high clock speed, you can specify the disk performance level. For differences between performance levels, see [](t583241.xdita#).
+    // The performance level of the system cloud disk. You can configure the disk performance level in Settings when the cloud computer specification is set to graphics-accelerated or high frequency. For more information about the differences between performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD does not support performance level configuration.
     shared_ptr<string> rootDiskPerformanceLevel_ {};
-    // The size of the system disk. Unit: GiB.
+    // The system cloud disk size. Unit: GiB.
     shared_ptr<int32_t> rootDiskSizeGib_ {};
-    // Performance level of the data disk. When the WUYING Workspace instance type is set to graphics-optimized or high clock speed, you can specify the disk performance level. For differences between performance levels, see [](t583241.xdita#).
+    // The performance level of the data cloud disk. You can configure the disk performance level in Settings when the cloud computer specification is set to graphics-accelerated or high frequency. For more information about the differences between performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). standard SSD does not support performance level configuration.
     shared_ptr<string> userDiskPerformanceLevel_ {};
-    // The size of the data disk. Unit: GiB.
+    // The data cloud disk size. Unit: GiB.
     shared_ptr<int32_t> userDiskSizeGib_ {};
   };
 
