@@ -14,6 +14,7 @@ namespace Models
   class ListTemplatePageResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListTemplatePageResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Data, data_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalSize, totalSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListTemplatePageResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
@@ -208,9 +210,16 @@ namespace Models
       shared_ptr<string> variables_ {};
     };
 
-    virtual bool empty() const override { return this->code_ == nullptr
-        && this->currentPage_ == nullptr && this->data_ == nullptr && this->msg_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
-        && this->success_ == nullptr && this->totalSize_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->code_ == nullptr && this->currentPage_ == nullptr && this->data_ == nullptr && this->msg_ == nullptr && this->pageSize_ == nullptr
+        && this->requestId_ == nullptr && this->success_ == nullptr && this->totalSize_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline ListTemplatePageResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -270,6 +279,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
     shared_ptr<string> code_ {};
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<vector<ListTemplatePageResponseBody::Data>> data_ {};

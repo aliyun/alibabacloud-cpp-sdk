@@ -13,12 +13,14 @@ namespace Models
   class PushUnBindResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PushUnBindResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(PushResult, pushResult_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResultCode, resultCode_);
       DARABONBA_PTR_TO_JSON(ResultMessage, resultMessage_);
     };
     friend void from_json(const Darabonba::Json& j, PushUnBindResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(PushResult, pushResult_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResultCode, resultCode_);
@@ -87,8 +89,15 @@ namespace Models
       shared_ptr<bool> success_ {};
     };
 
-    virtual bool empty() const override { return this->pushResult_ == nullptr
-        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->pushResult_ == nullptr && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline PushUnBindResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
     // pushResult Field Functions 
     bool hasPushResult() const { return this->pushResult_ != nullptr;};
     void deletePushResult() { this->pushResult_ = nullptr;};
@@ -120,6 +129,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
     shared_ptr<PushUnBindResponseBody::PushResult> pushResult_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};

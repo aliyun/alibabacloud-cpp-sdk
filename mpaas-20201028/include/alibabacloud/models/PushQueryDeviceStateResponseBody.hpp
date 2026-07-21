@@ -13,6 +13,7 @@ namespace Models
   class PushQueryDeviceStateResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PushQueryDeviceStateResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, PushQueryDeviceStateResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
@@ -130,8 +132,15 @@ namespace Models
       shared_ptr<string> userId_ {};
     };
 
-    virtual bool empty() const override { return this->code_ == nullptr
-        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->code_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline PushQueryDeviceStateResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -170,6 +179,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
     shared_ptr<string> code_ {};
     shared_ptr<PushQueryDeviceStateResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};

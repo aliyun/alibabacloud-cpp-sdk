@@ -14,12 +14,14 @@ namespace Models
   class QueryPushAnalysisTaskListResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryPushAnalysisTaskListResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResultCode, resultCode_);
       DARABONBA_PTR_TO_JSON(ResultContent, resultContent_);
       DARABONBA_PTR_TO_JSON(ResultMessage, resultMessage_);
     };
     friend void from_json(const Darabonba::Json& j, QueryPushAnalysisTaskListResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResultCode, resultCode_);
       DARABONBA_PTR_FROM_JSON(ResultContent, resultContent_);
@@ -246,8 +248,15 @@ namespace Models
       shared_ptr<vector<ResultContent::Data>> data_ {};
     };
 
-    virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->resultCode_ == nullptr && this->resultContent_ == nullptr && this->resultMessage_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->requestId_ == nullptr && this->resultCode_ == nullptr && this->resultContent_ == nullptr && this->resultMessage_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline QueryPushAnalysisTaskListResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -279,6 +288,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resultCode_ {};
     shared_ptr<QueryPushAnalysisTaskListResponseBody::ResultContent> resultContent_ {};
