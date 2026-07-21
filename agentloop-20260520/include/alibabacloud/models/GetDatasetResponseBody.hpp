@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(datasetName, datasetName_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(isFavorite, isFavorite_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(schema, schema_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(datasetName, datasetName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(isFavorite, isFavorite_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(schema, schema_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->schema_ == nullptr && this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->isFavorite_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->schema_ == nullptr && this->updateTime_ == nullptr; };
     // agentSpace Field Functions 
     bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
     void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetDatasetResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // isFavorite Field Functions 
+    bool hasIsFavorite() const { return this->isFavorite_ != nullptr;};
+    void deleteIsFavorite() { this->isFavorite_ = nullptr;};
+    inline bool getIsFavorite() const { DARABONBA_PTR_GET_DEFAULT(isFavorite_, false) };
+    inline GetDatasetResponseBody& setIsFavorite(bool isFavorite) { DARABONBA_PTR_SET_VALUE(isFavorite_, isFavorite) };
 
 
     // regionId Field Functions 
@@ -117,6 +126,7 @@ namespace Models
     shared_ptr<string> datasetName_ {};
     // The dataset description.
     shared_ptr<string> description_ {};
+    shared_ptr<bool> isFavorite_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.

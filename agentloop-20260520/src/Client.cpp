@@ -2648,6 +2648,10 @@ UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &a
     body["description"] = request.getDescription();
   }
 
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},

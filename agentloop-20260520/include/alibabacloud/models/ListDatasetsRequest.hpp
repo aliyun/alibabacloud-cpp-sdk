@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The name of the dataset.
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
