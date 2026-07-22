@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceLanguage, sourceLanguage_);
       DARABONBA_PTR_TO_JSON(TargetLanguage, targetLanguage_);
       DARABONBA_PTR_TO_JSON(TranslatingBrandInTheProduct, translatingBrandInTheProduct_);
+      DARABONBA_PTR_TO_JSON(UseImageEditor, useImageEditor_);
     };
     friend void from_json(const Darabonba::Json& j, ImageTranslationStandardRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Glossary, glossary_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceLanguage, sourceLanguage_);
       DARABONBA_PTR_FROM_JSON(TargetLanguage, targetLanguage_);
       DARABONBA_PTR_FROM_JSON(TranslatingBrandInTheProduct, translatingBrandInTheProduct_);
+      DARABONBA_PTR_FROM_JSON(UseImageEditor, useImageEditor_);
     };
     ImageTranslationStandardRequest() = default ;
     ImageTranslationStandardRequest(const ImageTranslationStandardRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->glossary_ == nullptr
-        && this->imageUrl_ == nullptr && this->includingProductArea_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->translatingBrandInTheProduct_ == nullptr; };
+        && this->imageUrl_ == nullptr && this->includingProductArea_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->translatingBrandInTheProduct_ == nullptr
+        && this->useImageEditor_ == nullptr; };
     // glossary Field Functions 
     bool hasGlossary() const { return this->glossary_ != nullptr;};
     void deleteGlossary() { this->glossary_ = nullptr;};
@@ -83,25 +86,37 @@ namespace Models
     inline ImageTranslationStandardRequest& setTranslatingBrandInTheProduct(bool translatingBrandInTheProduct) { DARABONBA_PTR_SET_VALUE(translatingBrandInTheProduct_, translatingBrandInTheProduct) };
 
 
+    // useImageEditor Field Functions 
+    bool hasUseImageEditor() const { return this->useImageEditor_ != nullptr;};
+    void deleteUseImageEditor() { this->useImageEditor_ = nullptr;};
+    inline bool getUseImageEditor() const { DARABONBA_PTR_GET_DEFAULT(useImageEditor_, false) };
+    inline ImageTranslationStandardRequest& setUseImageEditor(bool useImageEditor) { DARABONBA_PTR_SET_VALUE(useImageEditor_, useImageEditor) };
+
+
   protected:
-    // The ID of the intervention glossary. This parameter is optional. Create the glossary in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+    // The intervention glossary ID. Optional. You must create the glossary separately in the console and provide its ID. If the provided glossary ID is empty, the translation results will not be modified.
     shared_ptr<string> glossary_ {};
-    // The URL of the original image. This parameter is required. Image requirements: the width and height cannot exceed 4000 × 4000 pixels, the file size cannot exceed 10 MB, and the supported formats are png, jpeg, jpg, bmp, and webp.
+    // - Image URL: Must be publicly accessible.
+    // - Format: png, jpeg, jpg, bmp, webp
+    // - Pixels: Width and height must not exceed 4000
+    // - File size: Original file ≤ 10 MB
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate text on the product subject in the image. This parameter is optional. Default value: false. This helps protect information by preventing translation of embedded information such as product names.
+    // Specifies whether to translate text on the image subject. Optional. Default value: false. This helps protect information and avoids translating embedded information such as product names.
     shared_ptr<bool> includingProductArea_ {};
-    // The source language code. This parameter is required. For supported language directions, see the supported language directions list.
+    // The source language code. Required. For supported language directions, see the supported language direction list.
     // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
-    // The target language code. This parameter is required. For supported language directions, see the supported language directions list.
+    // The target language code. Required. For supported language directions, see the supported language direction list.
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand names on the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
+    // Specifies whether to translate brand names on the image. Optional. Default value: false. This helps protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
+    // Specifies whether to return layer information such as text position, font, and color. When set to true, layer information is returned for secondary editing through an image editor. Default value: false.
+    shared_ptr<bool> useImageEditor_ {};
   };
 
   } // namespace Models

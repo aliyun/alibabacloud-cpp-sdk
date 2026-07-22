@@ -107,7 +107,7 @@ namespace Models
 
 
       protected:
-        // The number of characters in the source text.
+        // The source text character count.
         shared_ptr<int64_t> characters_ {};
         // The automatically detected source language code.
         shared_ptr<string> detectedLanguage_ {};
@@ -182,11 +182,11 @@ namespace Models
 
 
   protected:
-    // The response code. Returns "success" for successful calls.
+    // The response code. Returns "success" for normal calls.
     shared_ptr<string> code_ {};
     // The translation result data, including the translation list and usage information.
     shared_ptr<TextTranslateResponseBody::Data> data_ {};
-    // The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
+    // The error message. Returns "Success" for normal calls. Returns specific error information for exceptions, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
     // The request ID, used to identify a unique request call.
     shared_ptr<string> requestId_ {};
