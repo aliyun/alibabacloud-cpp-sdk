@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const PutEnableFwSwitchResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AbnormalResourceStatusList, abnormalResourceStatusList_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, PutEnableFwSwitchResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AbnormalResourceStatusList, abnormalResourceStatusList_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     PutEnableFwSwitchResponseBody() = default ;
@@ -79,20 +81,18 @@ namespace Models
 
 
     protected:
-      // A message that provides details about why an asset was not synchronized. Valid value:
-      // 
-      // - `cloudfirewall do not sync this ip address`: Cloud Firewall does not synchronize the IP address of the asset.
+      // The message when the asset is not synchronized. Valid values:
+      // - cloudfirewall do not sync this ip address: Cloud Firewall has not synchronized this asset IP address.
       shared_ptr<string> msg_ {};
-      // The IP address of the asset.
+      // The asset IP address.
       shared_ptr<string> resource_ {};
-      // The synchronization status of the asset. Valid value:
-      // 
-      // - `ip_not_sync`: The asset is not synchronized.
+      // The status of the asset that is not synchronized. Valid values:
+      // - ip_not_sync: The asset is not synchronized.
       shared_ptr<string> status_ {};
     };
 
     virtual bool empty() const override { return this->abnormalResourceStatusList_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->requestId_ == nullptr; };
     // abnormalResourceStatusList Field Functions 
     bool hasAbnormalResourceStatusList() const { return this->abnormalResourceStatusList_ != nullptr;};
     void deleteAbnormalResourceStatusList() { this->abnormalResourceStatusList_ = nullptr;};
@@ -100,6 +100,13 @@ namespace Models
     inline vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> getAbnormalResourceStatusList() { DARABONBA_PTR_GET(abnormalResourceStatusList_, vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>) };
     inline PutEnableFwSwitchResponseBody& setAbnormalResourceStatusList(const vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> & abnormalResourceStatusList) { DARABONBA_PTR_SET_VALUE(abnormalResourceStatusList_, abnormalResourceStatusList) };
     inline PutEnableFwSwitchResponseBody& setAbnormalResourceStatusList(vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList> && abnormalResourceStatusList) { DARABONBA_PTR_SET_RVALUE(abnormalResourceStatusList_, abnormalResourceStatusList) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline PutEnableFwSwitchResponseBody& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // requestId Field Functions 
@@ -110,8 +117,10 @@ namespace Models
 
 
   protected:
-    // Information about unsynchronized assets.
+    // The status information list of assets that are not synchronized.
     shared_ptr<vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>> abnormalResourceStatusList_ {};
+    // Indicates that this is a successful dry run response. A value of true indicates that only the dry run was completed and no real changes were made. This field is not returned or is set to false for real calls.
+    shared_ptr<bool> dryRun_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };

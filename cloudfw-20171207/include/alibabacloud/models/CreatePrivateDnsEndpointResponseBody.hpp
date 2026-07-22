@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> accessInstanceId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The task ID, which is the unique identifier of the task.
+    // The task ID, which uniquely identifies the task.
     shared_ptr<string> taskId_ {};
   };
 

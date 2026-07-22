@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AddressGroupName, addressGroupName_);
         DARABONBA_PTR_TO_JSON(AddressGroupUUID, addressGroupUUID_);
         DARABONBA_PTR_TO_JSON(ApplicationNameList, applicationNameList_);
+        DARABONBA_PTR_TO_JSON(ApplicationPortList, applicationPortList_);
         DARABONBA_PTR_TO_JSON(AssetCount, assetCount_);
         DARABONBA_PTR_TO_JSON(Business, business_);
         DARABONBA_PTR_TO_JSON(CategoryClassId, categoryClassId_);
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AddressGroupName, addressGroupName_);
         DARABONBA_PTR_FROM_JSON(AddressGroupUUID, addressGroupUUID_);
         DARABONBA_PTR_FROM_JSON(ApplicationNameList, applicationNameList_);
+        DARABONBA_PTR_FROM_JSON(ApplicationPortList, applicationPortList_);
         DARABONBA_PTR_FROM_JSON(AssetCount, assetCount_);
         DARABONBA_PTR_FROM_JSON(Business, business_);
         DARABONBA_PTR_FROM_JSON(CategoryClassId, categoryClassId_);
@@ -170,37 +172,75 @@ namespace Models
 
 
       protected:
-        // The category of the intelligence tag. Valid values:
+        // The categorization of the intelligence tags label. Valid values:
         // 
-        // - **Suspicious**: suspicious
-        // 
-        // - **Malicious**: malicious
-        // 
-        // - **Trusted**: trusted
+        // - **Suspicious**: Suspicious.
+        // - **Malicious**: Malicious.
+        // - **Trusted**: Trusted.
         shared_ptr<string> classId_ {};
-        // The risk level. Valid values:
+        // The risk assessment level. Valid values:
         // 
-        // - **1**: low
-        // 
-        // - **2**: medium
-        // 
-        // - **3**: high
+        // - **1**: Low.
+        // - **2**: Medium.
+        // - **3**: High.
         shared_ptr<int32_t> riskLevel_ {};
-        // The description of the tag.
+        // The tag description.
         shared_ptr<string> tagDescribe_ {};
-        // The ID of the intelligence tag.
+        // The intelligence tags label ID.
         shared_ptr<string> tagId_ {};
-        // The name of the tag.
+        // The tag name.
         shared_ptr<string> tagName_ {};
+      };
+
+      class ApplicationPortList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ApplicationPortList& obj) { 
+          DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
+          DARABONBA_PTR_TO_JSON(Port, port_);
+        };
+        friend void from_json(const Darabonba::Json& j, ApplicationPortList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
+          DARABONBA_PTR_FROM_JSON(Port, port_);
+        };
+        ApplicationPortList() = default ;
+        ApplicationPortList(const ApplicationPortList &) = default ;
+        ApplicationPortList(ApplicationPortList &&) = default ;
+        ApplicationPortList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ApplicationPortList() = default ;
+        ApplicationPortList& operator=(const ApplicationPortList &) = default ;
+        ApplicationPortList& operator=(ApplicationPortList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->applicationName_ == nullptr
+        && this->port_ == nullptr; };
+        // applicationName Field Functions 
+        bool hasApplicationName() const { return this->applicationName_ != nullptr;};
+        void deleteApplicationName() { this->applicationName_ = nullptr;};
+        inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
+        inline ApplicationPortList& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
+
+
+        // port Field Functions 
+        bool hasPort() const { return this->port_ != nullptr;};
+        void deletePort() { this->port_ = nullptr;};
+        inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+        inline ApplicationPortList& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
+      protected:
+        shared_ptr<string> applicationName_ {};
+        shared_ptr<int32_t> port_ {};
       };
 
       virtual bool empty() const override { return this->aclCoverage_ == nullptr
         && this->aclRecommendDetail_ == nullptr && this->aclStatus_ == nullptr && this->addressGroupName_ == nullptr && this->addressGroupUUID_ == nullptr && this->applicationNameList_ == nullptr
-        && this->assetCount_ == nullptr && this->business_ == nullptr && this->categoryClassId_ == nullptr && this->categoryId_ == nullptr && this->categoryName_ == nullptr
-        && this->domain_ == nullptr && this->groupName_ == nullptr && this->hasAcl_ == nullptr && this->hasAclRecommend_ == nullptr && this->inBytes_ == nullptr
-        && this->isMarkNormal_ == nullptr && this->organization_ == nullptr && this->outBytes_ == nullptr && this->privateAssetCount_ == nullptr && this->ruleId_ == nullptr
-        && this->ruleName_ == nullptr && this->securityReason_ == nullptr && this->securitySuggest_ == nullptr && this->sessionCount_ == nullptr && this->tagList_ == nullptr
-        && this->totalBytes_ == nullptr; };
+        && this->applicationPortList_ == nullptr && this->assetCount_ == nullptr && this->business_ == nullptr && this->categoryClassId_ == nullptr && this->categoryId_ == nullptr
+        && this->categoryName_ == nullptr && this->domain_ == nullptr && this->groupName_ == nullptr && this->hasAcl_ == nullptr && this->hasAclRecommend_ == nullptr
+        && this->inBytes_ == nullptr && this->isMarkNormal_ == nullptr && this->organization_ == nullptr && this->outBytes_ == nullptr && this->privateAssetCount_ == nullptr
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->securityReason_ == nullptr && this->securitySuggest_ == nullptr && this->sessionCount_ == nullptr
+        && this->tagList_ == nullptr && this->totalBytes_ == nullptr; };
       // aclCoverage Field Functions 
       bool hasAclCoverage() const { return this->aclCoverage_ != nullptr;};
       void deleteAclCoverage() { this->aclCoverage_ = nullptr;};
@@ -243,6 +283,15 @@ namespace Models
       inline vector<string> getApplicationNameList() { DARABONBA_PTR_GET(applicationNameList_, vector<string>) };
       inline DomainList& setApplicationNameList(const vector<string> & applicationNameList) { DARABONBA_PTR_SET_VALUE(applicationNameList_, applicationNameList) };
       inline DomainList& setApplicationNameList(vector<string> && applicationNameList) { DARABONBA_PTR_SET_RVALUE(applicationNameList_, applicationNameList) };
+
+
+      // applicationPortList Field Functions 
+      bool hasApplicationPortList() const { return this->applicationPortList_ != nullptr;};
+      void deleteApplicationPortList() { this->applicationPortList_ = nullptr;};
+      inline const vector<DomainList::ApplicationPortList> & getApplicationPortList() const { DARABONBA_PTR_GET_CONST(applicationPortList_, vector<DomainList::ApplicationPortList>) };
+      inline vector<DomainList::ApplicationPortList> getApplicationPortList() { DARABONBA_PTR_GET(applicationPortList_, vector<DomainList::ApplicationPortList>) };
+      inline DomainList& setApplicationPortList(const vector<DomainList::ApplicationPortList> & applicationPortList) { DARABONBA_PTR_SET_VALUE(applicationPortList_, applicationPortList) };
+      inline DomainList& setApplicationPortList(vector<DomainList::ApplicationPortList> && applicationPortList) { DARABONBA_PTR_SET_RVALUE(applicationPortList_, applicationPortList) };
 
 
       // assetCount Field Functions 
@@ -395,99 +444,89 @@ namespace Models
 
 
     protected:
-      // Indicates whether an access control policy is configured for the domain. Valid values:
+      // Indicates whether the access control policy covers the domain name. Valid values:
       // 
-      // - **Uncovered**: no
-      // 
-      // - **FullCoverage**: yes
+      // - **Uncovered**: Not covered.
+      // - **FullCoverage**: Covered.
       shared_ptr<string> aclCoverage_ {};
-      // The recommended action for the access control policy.
+      // The ACL recommendation details.
       shared_ptr<string> aclRecommendDetail_ {};
       // The health status of the access control policy. Valid values:
       // 
-      // - **Normal**: healthy
-      // 
-      // - **Abnormal**: unhealthy
+      // - **Normal**: Healthy.
+      // - **Abnormal**: Unhealthy.
       shared_ptr<string> aclStatus_ {};
       // The name of the address book.
       shared_ptr<string> addressGroupName_ {};
       // The UUID of the address book.
       shared_ptr<string> addressGroupUUID_ {};
-      // An array of application names.
+      // The application names.
       shared_ptr<vector<string>> applicationNameList_ {};
-      // The total number of assets that initiate outbound connections to the domain.
+      shared_ptr<vector<DomainList::ApplicationPortList>> applicationPortList_ {};
+      // The total number of assets that initiate outbound connections.
       shared_ptr<int64_t> assetCount_ {};
-      // The business to which the website belongs.
+      // The website business.
       shared_ptr<string> business_ {};
-      // The category of the intelligence tag. Valid values:
+      // The categorization of the intelligence tags label. Valid values:
       // 
-      // - **Suspicious**: suspicious
-      // 
-      // - **Malicious**: malicious
-      // 
-      // - **Trusted**: trusted
+      // - **Suspicious**: Suspicious.
+      // - **Malicious**: Malicious.
+      // - **Trusted**: Trusted.
       shared_ptr<string> categoryClassId_ {};
-      // The ID of the asset category. Valid values:
+      // The product category ID. Valid values:
       // 
-      // - **Aliyun**: Alibaba Cloud service
-      // 
-      // - **NotAliyun**: third-party service
+      // - **Aliyun**: Alibaba Cloud product.
+      // - **NotAliyun**: Non-Alibaba Cloud product.
       shared_ptr<string> categoryId_ {};
-      // The name of the asset category. Valid values:
+      // The category name of the product. Valid values:
       // 
-      // - Alibaba Cloud product
-      // 
-      // - Non-Alibaba Cloud product
+      // - **Alibaba Cloud product**
+      // - **Non-Alibaba Cloud product**
       shared_ptr<string> categoryName_ {};
-      // The outbound domain name.
+      // The domain name of outbound connections.
       shared_ptr<string> domain_ {};
-      // The name of the policy group.
+      // The group name of the rule.
       shared_ptr<string> groupName_ {};
-      // Indicates whether an access control policy is configured for the domain name. Valid values:
+      // Indicates whether an ACL already covers this domain name. Valid values:
       // 
-      // - **true**: yes
-      // 
-      // - **false**: no
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<string> hasAcl_ {};
-      // Indicates whether a recommended access control policy exists. Valid values:
+      // Indicates whether an ACL recommendation exists. Valid values:
       // 
-      // - **true**: yes
-      // 
-      // - **false**: no
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> hasAclRecommend_ {};
-      // The volume of inbound traffic, in bytes.
+      // The inbound traffic.
       shared_ptr<int64_t> inBytes_ {};
-      // Indicates whether the outbound domain name is marked as normal. Valid values:
+      // Indicates whether the Outbound Domain is marked as normal. Valid values:
       // 
-      // - **true**: normal
-      // 
-      // - **false**: not normal
+      // - **true**: Normal.
+      // - **false**: Abnormal.
       shared_ptr<bool> isMarkNormal_ {};
-      // The name of the organization.
+      // The organization name.
       shared_ptr<string> organization_ {};
-      // The volume of outbound traffic, in bytes.
+      // The outbound traffic.
       shared_ptr<int64_t> outBytes_ {};
-      // The total number of assets in a private network that initiate outbound connections to the domain.
+      // The total number of private network assets that initiate outbound connections.
       shared_ptr<int64_t> privateAssetCount_ {};
-      // The ID of the access control policy.
+      // The ACL rule ID.
       shared_ptr<string> ruleId_ {};
-      // The name of the access control policy.
+      // The ACL rule name.
       shared_ptr<string> ruleName_ {};
-      // The reason for the security recommendation.
+      // The security reason.
       shared_ptr<string> securityReason_ {};
-      // The recommended security action for the outbound domain name. Valid values:
+      // The security policy for the Outbound Domain of outbound connections. Valid values:
       // 
-      // - **pass**: allow
-      // 
-      // - **alert**: monitor
-      // 
-      // - **drop**: deny
+      // - **pass**: Allow.
+      // - **alert**: Monitor.
+      // - **drop**: Deny.
       shared_ptr<string> securitySuggest_ {};
       // The number of requests.
       shared_ptr<int64_t> sessionCount_ {};
-      // An array of tags.
+      // The tag list.
       shared_ptr<vector<DomainList::TagList>> tagList_ {};
-      // The total traffic volume, in bytes.
+      // The total traffic. Unit: bytes.
       shared_ptr<string> totalBytes_ {};
     };
 
@@ -517,11 +556,11 @@ namespace Models
 
 
   protected:
-    // An array of outbound domains.
+    // The list of Outbound Domain names.
     shared_ptr<vector<DescribeOutgoingDomainResponseBody::DomainList>> domainList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of outbound domains found.
+    // The total number of Outbound Domain names.
     shared_ptr<int32_t> totalCount_ {};
   };
 

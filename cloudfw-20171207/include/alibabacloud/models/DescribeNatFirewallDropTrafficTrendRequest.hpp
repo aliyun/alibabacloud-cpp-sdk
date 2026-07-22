@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time. Specify a UNIX timestamp in seconds. This parameter is required. If this parameter is not specified, the API returns ErrorTimeError (400). Specify a UNIX timestamp in seconds. The value of EndTime must be later than the value of StartTime.
     shared_ptr<int64_t> endTime_ {};
-    // The source IP address.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time. Specify a UNIX timestamp in seconds. This parameter is required. If this parameter is not specified, the API returns ErrorTimeError (400). Specify a UNIX timestamp in seconds. The value of StartTime must be earlier than the value of EndTime.
     shared_ptr<int64_t> startTime_ {};
   };
 

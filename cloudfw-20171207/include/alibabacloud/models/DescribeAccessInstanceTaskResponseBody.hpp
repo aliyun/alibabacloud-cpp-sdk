@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The name of the step.
+      // The step name.
       shared_ptr<string> stepName_ {};
-      // The progress of the step.
+      // The step progress.
       shared_ptr<string> stepProgress_ {};
-      // The status of the step.
+      // The step status.
       shared_ptr<string> stepStatus_ {};
     };
 
@@ -175,7 +175,7 @@ namespace Models
     shared_ptr<int64_t> taskStartTimestamp_ {};
     // The task status.
     shared_ptr<string> taskStatus_ {};
-    // The steps of the task.
+    // The task steps.
     shared_ptr<vector<DescribeAccessInstanceTaskResponseBody::TaskSteps>> taskSteps_ {};
   };
 

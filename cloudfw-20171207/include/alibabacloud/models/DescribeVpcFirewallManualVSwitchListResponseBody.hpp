@@ -156,25 +156,25 @@ namespace Models
     protected:
       // The UID of the Alibaba Cloud account.
       // 
-      // > The root account of the Cloud Firewall member account.
+      // > The primary account of the Cloud Firewall member accounts.
       shared_ptr<int64_t> aliUid_ {};
       // The number of available IP addresses in the vSwitch.
       shared_ptr<int64_t> availableIpAddressCount_ {};
       // The IPv4 CIDR block.
       shared_ptr<string> cidrBlock_ {};
-      // The ID of the owner.
+      // The owner user ID.
       shared_ptr<int64_t> ownerId_ {};
       // The region ID of the instance.
       shared_ptr<string> regionNo_ {};
-      // The ID of the associated route table.
+      // The ID of the associate a prefix list with a route table.
       shared_ptr<string> routeTableId_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
       // The name of the vSwitch.
       shared_ptr<string> vSwitchName_ {};
-      // The ID of the VPC instance.
+      // The VPC-connected instance ID.
       shared_ptr<string> vpcId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -206,11 +206,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of vSwitches.
+    // The vSwitch list.
     shared_ptr<vector<DescribeVpcFirewallManualVSwitchListResponseBody::VSwitchList>> vSwitchList_ {};
   };
 

@@ -201,21 +201,21 @@ namespace Models
     shared_ptr<string> applicationName_ {};
     // The category ID.
     shared_ptr<string> categoryId_ {};
-    // The number of the page to return.
+    // The current page number.
     shared_ptr<string> currentPage_ {};
     // The destination IP address.
     shared_ptr<string> dstIP_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to count only the traffic to AI services. The default value is false.
+    // Specifies whether to collect statistics only on traffic that accesses AI services. Default value: false.
     shared_ptr<string> isAITraffic_ {};
-    // The language of the response message.
+    // The language type of the received message.
     shared_ptr<string> lang_ {};
-    // The sorting order.
+    // The sort order.
     shared_ptr<string> order_ {};
-    // The number of the page to return.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The port number.
     shared_ptr<string> port_ {};
@@ -223,13 +223,13 @@ namespace Models
     shared_ptr<string> privateIP_ {};
     // The public IP address.
     shared_ptr<string> publicIP_ {};
-    // The security policy for the outbound connection.
+    // The security policy for Outbound Domain of outbound connections.
     shared_ptr<string> securitySuggest_ {};
-    // The field to use for sorting.
+    // The field by which to sort the results.
     shared_ptr<string> sort_ {};
-    // The source IP address of the visitor.
+    // The IP address of the access source. (This field is deprecated.)
     shared_ptr<string> sourceIp_ {};
-    // The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

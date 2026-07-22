@@ -186,57 +186,51 @@ namespace Models
 
 
   protected:
-    // The IP address of the local asset.
+    // The IP address of the local asset. You must specify at least one of AssetIP and Port. If both are left empty, the API returns a 400 error.
     shared_ptr<string> assetIP_ {};
-    // The page number.
+    // The page number in a paging query. Settings this parameter to specify the current page for paging.
     shared_ptr<string> currentPage_ {};
     // The traffic direction. Valid values:
+    // - **in**: inbound.
+    // - **out**: outbound.
     // 
-    // - **in**: inbound
-    // 
-    // - **out**: outbound
-    // 
-    // > If you do not specify this parameter, traffic in all directions is queried.
+    // >If this parameter is not specified in Settings, traffic in all directions is queried.
     shared_ptr<string> direction_ {};
-    // The end of the time range to query. This value is a UNIX timestamp that is accurate to the second.
+    // The end time of the query. The value is a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The protocol type. Valid values:
-    // 
-    // - **tcp**: TCP
-    // 
-    // - **udp**: UDP
+    // - **tcp**: TCP protocol.
+    // - **udp**: UDP protocol.
     shared_ptr<string> IPProtocol_ {};
-    // The language of the response. Valid values:
+    // The language type. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The sort order. Valid values:
     // 
-    // - **asc**: ascending
-    // 
-    // - **desc** (default): descending
+    // - **asc**: ascending order.
+    // -  **desc** (default): descending order.
     shared_ptr<string> order_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paging query.
     shared_ptr<string> pageSize_ {};
-    // The IP address of the peer asset.
+    // The source IP address of the peer.
     shared_ptr<string> peerAssetIP_ {};
     // The instance ID of the peer asset.
     shared_ptr<string> peerAssetInstanceId_ {};
     // The instance name of the peer asset.
     shared_ptr<string> peerAssetInstanceName_ {};
-    // The ID of the peer VPC.
+    // The instance ID of the peer VPC.
     shared_ptr<string> peerVpcId_ {};
-    // The port number.
+    // The port number. You must specify at least one of AssetIP and Port. If both are left empty, the API returns a 400 error.
     shared_ptr<string> port_ {};
-    // The risk level.
+    // The risk assessment level.
     shared_ptr<string> riskLevel_ {};
-    // The sorting criterion. Valid values are:
+    // The sort field. Valid values:
     // 
-    // - **InBytes**
+    //  - **InBytes**
     // 
     // - **OutBytes**
     // 
@@ -248,11 +242,11 @@ namespace Models
     // 
     // - **SessionCount**
     shared_ptr<string> sort_ {};
-    // The start of the time range to query. This value is a UNIX timestamp that is accurate to the second.
+    // The start time of the query. The value is a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The ID of the VPC.
+    // The VPC-connected instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

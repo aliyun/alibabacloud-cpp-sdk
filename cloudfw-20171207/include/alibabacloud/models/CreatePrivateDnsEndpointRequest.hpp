@@ -165,7 +165,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accessInstanceName_ {};
-    // The type of cloud firewall. Valid values:
+    // The type of the cloud firewall. Valid values:
     // - **internet**
     // - **vpc**
     // - **nat**
@@ -176,17 +176,17 @@ namespace Models
     // - **TCP**
     // - **UDP**
     shared_ptr<string> ipProtocol_ {};
-    // The UID of the Alibaba Cloud member account.
+    // The UID of the Alibaba Cloud member account. This parameter is required when you use Cloud Firewall to manage member accounts.
     shared_ptr<int64_t> memberUid_ {};
     // The port number.
     shared_ptr<int32_t> port_ {};
-    // The primary DNS.
+    // The primary DNS server.
     shared_ptr<string> primaryDns_ {};
-    // The ID of the primary vSwitch.
+    // The ID of the primary vSwitch. The zone of PrimaryVSwitchId and StandbyVSwitchId must be a zone that supports private DNS. Otherwise, an error is returned. The region must also be in the supported list.
     shared_ptr<string> primaryVSwitchId_ {};
     // The IP address of the primary vSwitch.
     shared_ptr<string> primaryVSwitchIp_ {};
-    // The type of private DNS. Valid values:
+    // The private DNS type. When PrivateDnsType is set to Custom, Port and IpProtocol are required. When PrivateDnsType is set to PrivateZone, the backend automatically sets the port to 53 and uses the default protocol. Valid values:
     // - **PrivateZone**
     // - **Custom** (default)
     // 
@@ -196,13 +196,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The standby DNS.
+    // The secondary DNS server.
     shared_ptr<string> standbyDns_ {};
-    // The ID of the standby vSwitch.
+    // The ID of the secondary vSwitch. The zone of PrimaryVSwitchId and StandbyVSwitchId must be a zone that supports private DNS. Otherwise, error code -200534 is returned. The region must also be in the supported list.
     shared_ptr<string> standbyVSwitchId_ {};
-    // The IP address of the standby vSwitch.
+    // The IP address of the secondary vSwitch.
     shared_ptr<string> standbyVSwitchIp_ {};
-    // The VPC instance ID.
+    // The instance ID of the VPC-connected instance.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

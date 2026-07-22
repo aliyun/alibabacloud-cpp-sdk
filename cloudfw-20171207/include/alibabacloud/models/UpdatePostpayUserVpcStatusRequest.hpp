@@ -59,17 +59,13 @@ namespace Models
   protected:
     // The ID of the Cloud Firewall instance.
     shared_ptr<string> instanceId_ {};
-    // The language of the request and response.
-    // 
-    // Valid values:
+    // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
-    // - en: English
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The operation to perform. Currently, only the open operation is supported.
-    // 
-    // - open: Enables the VPC border firewall.
+    // The operation type. Currently, only the activation operation is supported. Valid values:
+    // - open: activation
     shared_ptr<string> operate_ {};
   };
 

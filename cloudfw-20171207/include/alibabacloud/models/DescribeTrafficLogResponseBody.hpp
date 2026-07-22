@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeTrafficLogResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(DataList, dataList_);
       DARABONBA_PTR_TO_JSON(PageInfo, pageInfo_);
+      DARABONBA_PTR_TO_JSON(QueryId, queryId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeTrafficLogResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(DataList, dataList_);
       DARABONBA_PTR_FROM_JSON(PageInfo, pageInfo_);
+      DARABONBA_PTR_FROM_JSON(QueryId, queryId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     DescribeTrafficLogResponseBody() = default ;
@@ -363,7 +365,7 @@ namespace Models
       protected:
         // The region ID.
         shared_ptr<string> regionNo_ {};
-        // The VPC-connected instance ID.
+        // The VPC instance ID.
         shared_ptr<string> vpcId_ {};
         // The VPC instance name.
         shared_ptr<string> vpcName_ {};
@@ -730,35 +732,35 @@ namespace Models
 
 
     protected:
-      // The policy ID of the ACL pre-match. If this parameter is not specified, all policies are included.
+      // The policy ID of the ACL pre-match. If this parameter is empty, all policies are included.
       shared_ptr<string> aclPreRuleId_ {};
       // The policy name of the ACL pre-match.
       shared_ptr<string> aclPreRuleName_ {};
       // The ACL pre-match status. Valid values:
       // 
-      // **app_unknown**: application not identified
+      // **app_unknown**: application not identified.
       // 
-      // **domain_unknown**: domain name not identified
+      // **domain_unknown**: domain name not identified.
       // 
-      // **normal**: normal
+      // **normal**: normal.
       shared_ptr<string> aclPreState_ {};
       // The application identification status. Valid values:
       // 
-      // **none**: initial state
+      // **none**: initial state.
       // 
-      // **policy_discard**: connection establishment failed because the connection was blocked by a user ACL or threat intelligence rule
+      // **policy_discard**: connection establishment failed because the connection was blocked by a user ACL or threat intelligence rule.
       // 
-      // **tcp_not_establish**: TCP connection establishment failed
+      // **tcp_not_establish**: TCP connection establishment failed.
       // 
-      // **no_payload**: connection established, but DPI has analyzed 0 payloads
+      // **no_payload**: connection established, but DPI has analyzed 0 payloads.
       // 
-      // **analysing**: identification in progress
+      // **analysing**: identification in progress.
       // 
-      // **unknown_loose**: loose mode, identification failed, continuing identification
+      // **unknown_loose**: loose mode. Identification failed. Identification continues.
       // 
-      // **unknown_strict**: strict mode, identification failed
+      // **unknown_strict**: strict mode. Identification failed.
       // 
-      // **success**: identification succeeded
+      // **success**: identification succeeded.
       shared_ptr<string> appDpiState_ {};
       // The application ID.
       shared_ptr<int32_t> appId_ {};
@@ -782,7 +784,7 @@ namespace Models
       shared_ptr<string> direction_ {};
       // The domain name.
       shared_ptr<string> domainName_ {};
-      // The URL of the flow log.
+      // The URL in the flow log.
       shared_ptr<string> domainUrl_ {};
       // The destination IP address. Indicates that the intrusion prevention event contains this destination IP address.
       shared_ptr<string> dstIP_ {};
@@ -792,9 +794,9 @@ namespace Models
       shared_ptr<DataList::DstVpc> dstVpc_ {};
       // The end time of the data. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
-      // Other extended data.
+      // The additional extended data.
       shared_ptr<string> ext_ {};
-      // The inbound traffic.
+      // The inbound traffic in bytes.
       shared_ptr<string> inBytes_ {};
       // The number of inbound packets.
       shared_ptr<string> inPackets_ {};
@@ -808,7 +810,7 @@ namespace Models
       shared_ptr<string> location_ {};
       // The UID of the Cloud Firewall member accounts.
       shared_ptr<string> memberUid_ {};
-      // The outbound traffic.
+      // The outbound traffic in bytes.
       shared_ptr<string> outBytes_ {};
       // The number of outbound packets.
       shared_ptr<string> outPackets_ {};
@@ -827,16 +829,16 @@ namespace Models
       // The rule name.
       shared_ptr<string> ruleName_ {};
       // The final result of the traffic. Valid values:
-      // - **0**: Allow.
-      // - **1**: Alert.
-      // - **2**: Drop.
+      // - **0**: allowed.
+      // - **1**: alerted.
+      // - **2**: dropped.
       shared_ptr<int32_t> ruleResult_ {};
-      // The source of the matched detection rule. Valid values:
-      // - **0**: None.
-      // - **1**: Basic protection.
-      // - **2**: Virtual patches.
-      // - **3**: Access control.
-      // - **4**: Threat intelligence.
+      // The source of the hit detection rule. Valid values:
+      // - **0**: none.
+      // - **1**: basic protection.
+      // - **2**: Virtual Patches.
+      // - **3**: access control.
+      // - **4**: threat intelligence.
       shared_ptr<string> ruleSource_ {};
       // The rule list.
       shared_ptr<vector<DataList::Rules>> rules_ {};
@@ -863,7 +865,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->dataList_ == nullptr
-        && this->pageInfo_ == nullptr && this->requestId_ == nullptr; };
+        && this->pageInfo_ == nullptr && this->queryId_ == nullptr && this->requestId_ == nullptr; };
     // dataList Field Functions 
     bool hasDataList() const { return this->dataList_ != nullptr;};
     void deleteDataList() { this->dataList_ = nullptr;};
@@ -882,6 +884,13 @@ namespace Models
     inline DescribeTrafficLogResponseBody& setPageInfo(DescribeTrafficLogResponseBody::PageInfo && pageInfo) { DARABONBA_PTR_SET_RVALUE(pageInfo_, pageInfo) };
 
 
+    // queryId Field Functions 
+    bool hasQueryId() const { return this->queryId_ != nullptr;};
+    void deleteQueryId() { this->queryId_ = nullptr;};
+    inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+    inline DescribeTrafficLogResponseBody& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -894,6 +903,8 @@ namespace Models
     shared_ptr<vector<DescribeTrafficLogResponseBody::DataList>> dataList_ {};
     // The pagination information.
     shared_ptr<DescribeTrafficLogResponseBody::PageInfo> pageInfo_ {};
+    // The query ID. If the query is too large, a query ID is returned first. Use this query ID to retrieve results in subsequent requests.
+    shared_ptr<string> queryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };

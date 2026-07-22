@@ -85,7 +85,7 @@ namespace Models
     protected:
       // The number of blocked sessions.
       shared_ptr<int64_t> dropSession_ {};
-      // The data timestamp. The value is a UNIX timestamp. Unit: seconds.
+      // The data timestamp. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> time_ {};
       // The total number of requests.
       shared_ptr<int64_t> totalSession_ {};
@@ -124,13 +124,13 @@ namespace Models
 
 
   protected:
-    // The list of data for the Overview page.
+    // The data list on the overview page.
     shared_ptr<vector<DescribeNatFirewallDropTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The peak number of dropped sessions for the specified period.
+    // The maximum number of dropped sessions (peak value) within the corresponding period.
     shared_ptr<int64_t> dropSessionMax_ {};
-    // The timestamp that corresponds to the peak number of dropped sessions. The value is a UNIX timestamp. Unit: seconds.
+    // The period in which the maximum number of dropped sessions occurred. The value is a UNIX timestamp in seconds, which represents the number of seconds that have elapsed since January 1, 1970 (UTC).
     shared_ptr<string> dropSessionMaxTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

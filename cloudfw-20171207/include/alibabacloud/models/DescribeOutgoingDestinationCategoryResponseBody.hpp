@@ -115,13 +115,13 @@ namespace Models
 
 
       protected:
-        // The description of the outbound connection category.
+        // The outbound connections categorization description.
         shared_ptr<string> categoryDescribe_ {};
-        // The ID of the outbound connection category.
+        // The outbound connections categorization ID.
         shared_ptr<string> categoryId_ {};
-        // The name of the outbound connection category.
+        // The outbound connections categorization name.
         shared_ptr<string> categoryName_ {};
-        // The classification ID of the outbound connection category.
+        // The outbound connections categorization level ID.
         shared_ptr<string> classId_ {};
       };
 
@@ -158,13 +158,13 @@ namespace Models
 
 
     protected:
-      // The list of outbound connection categories.
+      // The list of outbound connections categorizations.
       shared_ptr<vector<TypeList::CategoryList>> categoryList_ {};
-      // The description of the fixed category.
+      // The fixed category description.
       shared_ptr<string> typeDescribe_ {};
       // The fixed category ID.
       shared_ptr<string> typeId_ {};
-      // The name of the fixed category.
+      // The fixed category name.
       shared_ptr<string> typeName_ {};
     };
 
@@ -194,11 +194,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of outbound connection categories.
+    // The list of outbound connections categorizations.
     shared_ptr<vector<DescribeOutgoingDestinationCategoryResponseBody::TypeList>> typeList_ {};
   };
 

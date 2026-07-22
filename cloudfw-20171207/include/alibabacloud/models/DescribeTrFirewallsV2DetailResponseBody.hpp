@@ -213,19 +213,19 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The instance ID of the Cloud Enterprise Network (CEN).
     shared_ptr<string> cenId_ {};
     // The description of the firewall.
     shared_ptr<string> firewallDescription_ {};
-    // The ID of the elastic network interface (ENI) of the firewall.
+    // The ID of the firewall ENI.
     shared_ptr<string> firewallEniId_ {};
-    // The ID of the VPC to which the ENI of the firewall belongs.
+    // The ID of the VPC in which the firewall ENI resides.
     shared_ptr<string> firewallEniVpcId_ {};
-    // The ID of the vSwitch to which the ENI of the firewall belongs.
+    // The ID of the vSwitch in which the firewall ENI resides.
     shared_ptr<string> firewallEniVswitchId_ {};
-    // The ID of the VPC firewall instance.
+    // The instance ID of the virtual private cloud (VPC) firewall.
     shared_ptr<string> firewallId_ {};
-    // The name of the VPC firewall instance.
+    // The instance name of the virtual private cloud (VPC) firewall.
     shared_ptr<string> firewallName_ {};
     // The status of the firewall. Valid values:
     // 
@@ -235,49 +235,49 @@ namespace Models
     // 
     // - Ready: The firewall is ready.
     shared_ptr<string> firewallStatus_ {};
-    // The CIDR block of the vSwitch that is automatically created in the firewall VPC to host the ENI of the firewall in automatic mode.
+    // The subnet CIDR block that is used to store the firewall ENI in the firewall VPC in automatic mode.
     shared_ptr<string> firewallSubnetCidr_ {};
-    // The status of the VPC firewall. Valid values:
+    // The status of the virtual private cloud (VPC) firewall. Valid values:
     // 
     // - **opened**: The firewall is enabled.
     // 
     // - **closed**: The firewall is disabled.
     // 
-    // - **notconfigured**: The firewall is not configured.
+    // - **notconfigured**: The virtual private cloud (VPC) firewall is not configured.
     // 
-    // - **configured**: The firewall is configured.
+    // - **configured**: The virtual private cloud (VPC) firewall is configured.
     // 
-    // - **creating**: The firewall is being created.
+    // - **creating**: The virtual private cloud (VPC) firewall is being created.
     // 
-    // - **opening**: The firewall is being enabled.
+    // - **opening**: The virtual private cloud (VPC) firewall is being enabled.
     // 
-    // - **deleting**: The firewall is being deleted.
+    // - **deleting**: The virtual private cloud (VPC) firewall is being deleted.
     // 
-    // > If you do not specify this parameter, VPC firewalls in all states are queried.
+    // 
+    // > If this parameter is not set, virtual private cloud (VPC) firewalls in all states are queried.
     shared_ptr<string> firewallSwitchStatus_ {};
-    // The CIDR block of the VPC that is automatically created for the firewall in automatic mode.
+    // The CIDR block of the firewall VPC in automatic mode.
     shared_ptr<string> firewallVpcCidr_ {};
     // The region ID of the transit router instance.
     shared_ptr<string> regionNo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The routing mode. Valid values:
     // 
     // - **managed**: automatic mode
-    // 
     // - **manual**: manual mode
     shared_ptr<string> routeMode_ {};
-    // The ID of the transit router attachment.
+    // The attachment ID that is used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentId_ {};
-    // The primary CIDR block of the vSwitch that is automatically created in the firewall VPC to connect to the transit router in automatic mode.
+    // The primary subnet CIDR block that is used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentMasterCidr_ {};
-    // The primary zone of the vSwitch that is automatically created in the firewall VPC to connect to the transit router in automatic mode.
+    // The primary zone of the subnet that is used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentMasterZone_ {};
-    // The secondary CIDR block of the vSwitch that is automatically created in the firewall VPC to connect to the transit router in automatic mode.
+    // The secondary subnet CIDR block that is used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentSlaveCidr_ {};
-    // The secondary zone of the vSwitch that is automatically created in the firewall VPC to connect to the transit router in automatic mode.
+    // The secondary zone of the subnet that is used to connect to the transit router in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentSlaveZone_ {};
-    // The ID of the transit router instance.
+    // The instance ID of the forward routing router.
     shared_ptr<string> transitRouterId_ {};
   };
 

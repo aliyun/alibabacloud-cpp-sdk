@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block of the route.
+      // The destination address of the route.
       shared_ptr<string> trFirewallRouteDestination_ {};
-      // The ID of the next hop for the route.
+      // The next hop ID of the route.
       shared_ptr<string> trFirewallRouteNexthop_ {};
       // The ID of the firewall routing policy.
       shared_ptr<string> trFirewallRoutePolicyId_ {};
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The list of route tables for the VPC firewall.
+    // The route table list of Cloud Firewall.
     shared_ptr<vector<DescribeTrFirewallsV2RouteListResponseBody::FirewallRouteDetailList>> firewallRouteDetailList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

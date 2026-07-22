@@ -94,19 +94,21 @@ namespace Models
 
 
   protected:
-    // The category ID.
+    // The category ID. Valid values are predefined destination category enumerations (25+ in total), such as TrustedDomain (trusted websites), AliPay (Alipay products), and CDN (CDN services). For the complete list of enumeration values and their semantics, refer to the product documentation.
     shared_ptr<string> categoryId_ {};
-    // The destination type.
+    // The destination type. This parameter is required. If this parameter is not specified, ErrorDstType is returned. Valid values:
+    // - Domain: domain name.
+    // - DstIP: IP address.
     shared_ptr<string> dstType_ {};
-    // The end time of the query. This is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. Specify the value as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The language of the response message.
+    // The language type of the response message.
     shared_ptr<string> lang_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The start time of the query. This is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. Specify the value as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

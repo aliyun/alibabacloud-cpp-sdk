@@ -259,15 +259,15 @@ namespace Models
 
 
     protected:
-      // The recommended Access Control List (ACL) details.
+      // The recommended ACL content.
       shared_ptr<string> aclRecommendDetail_ {};
       // The policy status.
       shared_ptr<string> aclStatus_ {};
-      // The business to which the domain name belongs.
+      // The domain name business.
       shared_ptr<string> business_ {};
       // The category ID.
       shared_ptr<string> categoryId_ {};
-      // The category name of the service.
+      // The category name of the product.
       shared_ptr<string> categoryName_ {};
       // The destination domain name.
       shared_ptr<string> dstDomain_ {};
@@ -281,13 +281,13 @@ namespace Models
       shared_ptr<bool> hasAclRecommend_ {};
       // The inbound traffic. Unit: bytes.
       shared_ptr<int64_t> inBytes_ {};
-      // Indicates whether the destination is manually marked as normal.
+      // Indicates whether the entry is manually marked as normal by the user.
       shared_ptr<bool> isMarkNormal_ {};
       // The outbound traffic. Unit: bytes.
       shared_ptr<int64_t> outBytes_ {};
       // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
-      // The list of tags.
+      // The tag list.
       shared_ptr<vector<DstList::TagList>> tagList_ {};
     };
 
@@ -317,9 +317,9 @@ namespace Models
 
 
   protected:
-    // The information about the destination addresses.
+    // The destination address information.
     shared_ptr<vector<DescribeOutgoingDestinationResponseBody::DstList>> dstList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

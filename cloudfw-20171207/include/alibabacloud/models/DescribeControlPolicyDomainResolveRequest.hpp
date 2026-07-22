@@ -75,17 +75,15 @@ namespace Models
 
 
   protected:
-    // The domain name.
+    // The domain name. This parameter is required.
     shared_ptr<string> domain_ {};
-    // The Cloud Firewall type.
+    // The type of the cloud firewall.
     shared_ptr<string> firewallType_ {};
-    // The supported IP address version.
+    // The supported IP address version. This parameter is required.
     shared_ptr<int32_t> ipVersion_ {};
-    // The language type. Valid values:
-    // - **en**: English
-    // - **zh**: Chinese.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The region ID.
+    // The region ID. This parameter is required.
     shared_ptr<string> regionNo_ {};
   };
 

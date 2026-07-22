@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NatFirewallId, natFirewallId_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(QueryId, queryId_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleResult, ruleResult_);
       DARABONBA_PTR_TO_JSON(RuleSource, ruleSource_);
@@ -82,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NatFirewallId, natFirewallId_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(QueryId, queryId_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleResult, ruleResult_);
       DARABONBA_PTR_FROM_JSON(RuleSource, ruleSource_);
@@ -115,9 +117,10 @@ namespace Models
         && this->dstPort_ == nullptr && this->dstVpcId_ == nullptr && this->dstVpcRegionNo_ == nullptr && this->endTime_ == nullptr && this->firewallType_ == nullptr
         && this->flowType_ == nullptr && this->ipProtocol_ == nullptr && this->ipVersion_ == nullptr && this->isp_ == nullptr && this->lang_ == nullptr
         && this->location_ == nullptr && this->memberUid_ == nullptr && this->natFirewallId_ == nullptr && this->natGatewayId_ == nullptr && this->pageSize_ == nullptr
-        && this->ruleId_ == nullptr && this->ruleResult_ == nullptr && this->ruleSource_ == nullptr && this->ruleSourceFinal_ == nullptr && this->sourceCode_ == nullptr
-        && this->sourceIp_ == nullptr && this->srcIP_ == nullptr && this->srcPort_ == nullptr && this->srcPrivateIP_ == nullptr && this->srcVpcId_ == nullptr
-        && this->srcVpcRegionNo_ == nullptr && this->startTime_ == nullptr && this->tlsScopeId_ == nullptr && this->vpcFirewallId_ == nullptr && this->vulLevel_ == nullptr; };
+        && this->queryId_ == nullptr && this->ruleId_ == nullptr && this->ruleResult_ == nullptr && this->ruleSource_ == nullptr && this->ruleSourceFinal_ == nullptr
+        && this->sourceCode_ == nullptr && this->sourceIp_ == nullptr && this->srcIP_ == nullptr && this->srcPort_ == nullptr && this->srcPrivateIP_ == nullptr
+        && this->srcVpcId_ == nullptr && this->srcVpcRegionNo_ == nullptr && this->startTime_ == nullptr && this->tlsScopeId_ == nullptr && this->vpcFirewallId_ == nullptr
+        && this->vulLevel_ == nullptr; };
     // aclPreRuleId Field Functions 
     bool hasAclPreRuleId() const { return this->aclPreRuleId_ != nullptr;};
     void deleteAclPreRuleId() { this->aclPreRuleId_ = nullptr;};
@@ -300,6 +303,13 @@ namespace Models
     inline DescribeTrafficLogRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // queryId Field Functions 
+    bool hasQueryId() const { return this->queryId_ != nullptr;};
+    void deleteQueryId() { this->queryId_ = nullptr;};
+    inline string getQueryId() const { DARABONBA_PTR_GET_DEFAULT(queryId_, "") };
+    inline DescribeTrafficLogRequest& setQueryId(string queryId) { DARABONBA_PTR_SET_VALUE(queryId_, queryId) };
+
+
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
@@ -418,13 +428,13 @@ namespace Models
     shared_ptr<string> assetRegion_ {};
     // The attack type.
     shared_ptr<string> attackType_ {};
-    // The page number of the query.
+    // The page number.
     shared_ptr<string> currentPage_ {};
     // The traffic direction.
     shared_ptr<string> direction_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
-    // The URL of the flow log.
+    // The URL in the flow log.
     shared_ptr<string> domainUrl_ {};
     // The destination IP address.
     shared_ptr<string> dstIP_ {};
@@ -448,13 +458,13 @@ namespace Models
     shared_ptr<string> ipVersion_ {};
     // The Internet service provider (ISP).
     shared_ptr<string> isp_ {};
-    // The language type of the received message. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The region of the source or destination IP address.
     shared_ptr<string> location_ {};
-    // The UID of the member accounts.
+    // The UID of one of the member accounts.
     shared_ptr<int64_t> memberUid_ {};
     // The NAT firewall ID.
     shared_ptr<string> natFirewallId_ {};
@@ -462,6 +472,8 @@ namespace Models
     shared_ptr<string> natGatewayId_ {};
     // The number of entries per page. Maximum value: 20.
     shared_ptr<string> pageSize_ {};
+    // The query ID. If the query is too large, a query ID is returned. Use this query ID to retrieve results in subsequent requests.
+    shared_ptr<string> queryId_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
     // The rule action result. Valid values:
@@ -486,7 +498,7 @@ namespace Models
     shared_ptr<string> srcVpcId_ {};
     // The region of the source VPC asset.
     shared_ptr<string> srcVpcRegionNo_ {};
-    // The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. A single query should not exceed one day.
+    // The start time. Specify a UNIX timestamp in seconds. Only data within the last 7 days can be queried. We recommend that a single query span no more than one day.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

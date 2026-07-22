@@ -545,6 +545,9 @@
 #include <alibabacloud/models/DescribeSlsAnalyzeOpenStatusRequest.hpp>
 #include <alibabacloud/models/DescribeSlsAnalyzeOpenStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeSlsAnalyzeOpenStatusResponse.hpp>
+#include <alibabacloud/models/DescribeTaskDispatchStatusRequest.hpp>
+#include <alibabacloud/models/DescribeTaskDispatchStatusResponseBody.hpp>
+#include <alibabacloud/models/DescribeTaskDispatchStatusResponse.hpp>
 #include <alibabacloud/models/DescribeThreatIntelligenceSwitchResponseBody.hpp>
 #include <alibabacloud/models/DescribeThreatIntelligenceSwitchResponse.hpp>
 #include <alibabacloud/models/DescribeTrFirewallPolicyBackUpAssociationListRequest.hpp>
@@ -732,6 +735,9 @@
 #include <alibabacloud/models/ModifySensitiveSwitchRequest.hpp>
 #include <alibabacloud/models/ModifySensitiveSwitchResponseBody.hpp>
 #include <alibabacloud/models/ModifySensitiveSwitchResponse.hpp>
+#include <alibabacloud/models/ModifySlsDispatchConfigRequest.hpp>
+#include <alibabacloud/models/ModifySlsDispatchConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifySlsDispatchConfigResponse.hpp>
 #include <alibabacloud/models/ModifySlsDispatchStatusRequest.hpp>
 #include <alibabacloud/models/ModifySlsDispatchStatusResponseBody.hpp>
 #include <alibabacloud/models/ModifySlsDispatchStatusResponse.hpp>

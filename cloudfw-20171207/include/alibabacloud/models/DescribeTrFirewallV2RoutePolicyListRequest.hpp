@@ -75,17 +75,18 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number in a paged query. Default value: 1. For more information about paging, see the corresponding parameter descriptions.
     shared_ptr<int32_t> currentPage_ {};
-    // The ID of the VPC firewall instance.
+    // The instance ID of the virtual private cloud (VPC) firewall.
+    // 
+    // > FirewallId is required. If this parameter is not specified, the ErrorParameters (400) error is returned. You can call DescribeTrFirewallsV2List to obtain the FirewallId. Prerequisites: CEN Enterprise Edition with a transit router and VPC mount are configured, and the FirewallId is obtained by calling DescribeTrFirewallsV2List.
     shared_ptr<string> firewallId_ {};
-    // The language of the response message. Valid values:
+    // The language of the response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: 10.
+    // The maximum number of entries per page in a paged query. Default value: 10. For more information about paging, see the corresponding parameter descriptions.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the firewall routing policy.
     shared_ptr<string> policyId_ {};

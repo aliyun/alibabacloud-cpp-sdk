@@ -134,39 +134,35 @@ namespace Models
     shared_ptr<string> currentPage_ {};
     // The domain name.
     shared_ptr<string> domain_ {};
-    // The end time. The value is a Unix timestamp that is accurate to the second.
+    // The end time. This value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     // The IP address of the asset.
     shared_ptr<string> IP_ {};
-    // Specifies whether to count only the traffic that is used to access AI services.
+    // Specifies whether to collect only the traffic that accesses AI services. This parameter is required. Set this parameter to "true". Otherwise, a parameter error is returned.
     shared_ptr<string> isAITraffic_ {};
-    // The language of the content within the request and response. Valid values:
+    // The language of the response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The field to sort by.
+    // The sort field. Valid values:
+    // 
+    // - TotalBytes: sorts by total traffic.
+    // - SessionCount: sorts by session count.
     // 
     // Default value: TotalBytes.
-    // 
-    // Valid values:
-    // 
-    // TotalBytes: Sorts by total traffic.
-    // 
-    // SessionCount: Sorts by the number of sessions.
     shared_ptr<string> order_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The sort order. Valid values: \\`asc\\`, \\`desc\\`.
+    // The sort order. Valid values: asc, desc.
     shared_ptr<string> sort_ {};
-    // The start time. The value is a Unix timestamp that is accurate to the second.
+    // The start time. This value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The VPC where the asset resides.
+    // The ID of the VPC where the asset resides.
     shared_ptr<string> vpcId_ {};
   };
 

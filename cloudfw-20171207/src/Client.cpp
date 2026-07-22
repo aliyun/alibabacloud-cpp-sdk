@@ -376,9 +376,9 @@ AddControlPolicyResponse Client::addControlPolicy(const AddControlPolicyRequest 
 }
 
 /**
- * @summary Add a DNS firewall ACL
+ * @summary Adds a DNS firewall access control list (ACL).
  *
- * @description Use this API to create a policy that allows, denies, or observes traffic passing through a NAT firewall.
+ * @description Creates an access control policy that allows, denies, or monitors traffic that passes through a NAT firewall.
  *
  * @param request AddDnsFirewallPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -453,9 +453,9 @@ AddDnsFirewallPolicyResponse Client::addDnsFirewallPolicyWithOptions(const AddDn
 }
 
 /**
- * @summary Add a DNS firewall ACL
+ * @summary Adds a DNS firewall access control list (ACL).
  *
- * @description Use this API to create a policy that allows, denies, or observes traffic passing through a NAT firewall.
+ * @description Creates an access control policy that allows, denies, or monitors traffic that passes through a NAT firewall.
  *
  * @param request AddDnsFirewallPolicyRequest
  * @return AddDnsFirewallPolicyResponse
@@ -518,9 +518,9 @@ AddDomainResolveRealtimeTaskResponse Client::addDomainResolveRealtimeTask(const 
 /**
  * @summary Adds member accounts to Cloud Firewall.
  *
- * @description This operation is used to add member accounts to Cloud Firewall.
+ * @description Adds member accounts to Cloud Firewall. The caller must be a delegated administrator (DA) or management account (MA) of the resource directory. Call DescribeInstanceRdAccounts to verify your identity before calling this operation.
  * ## QPS limit
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. We recommend that you take note of the limit when you call this operation.
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
  *
  * @param request AddInstanceMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -553,9 +553,9 @@ AddInstanceMembersResponse Client::addInstanceMembersWithOptions(const AddInstan
 /**
  * @summary Adds member accounts to Cloud Firewall.
  *
- * @description This operation is used to add member accounts to Cloud Firewall.
+ * @description Adds member accounts to Cloud Firewall. The caller must be a delegated administrator (DA) or management account (MA) of the resource directory. Call DescribeInstanceRdAccounts to verify your identity before calling this operation.
  * ## QPS limit
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. We recommend that you take note of the limit when you call this operation.
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
  *
  * @param request AddInstanceMembersRequest
  * @return AddInstanceMembersResponse
@@ -1014,7 +1014,9 @@ CreateInstanceSyncTaskResponse Client::createInstanceSyncTask(const CreateInstan
 }
 
 /**
- * @summary Creates an association for private IP traffic tracing with the Intrusion Prevention System (IPS).
+ * @summary Creates an IPS Private IP Tracing configuration. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+ *
+ * @description Creates an IPS private network association. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
  *
  * @param request CreateIpsPrivateAssocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1049,7 +1051,9 @@ CreateIpsPrivateAssocResponse Client::createIpsPrivateAssocWithOptions(const Cre
 }
 
 /**
- * @summary Creates an association for private IP traffic tracing with the Intrusion Prevention System (IPS).
+ * @summary Creates an IPS Private IP Tracing configuration. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
+ *
+ * @description Creates an IPS private network association. This feature is in public preview. Before calling this operation, contact your account manager to activate the feature. You can call DescribeIpsPrivateAssoc to query the FunctionAssocStatus field to confirm the activation status.
  *
  * @param request CreateIpsPrivateAssocRequest
  * @return CreateIpsPrivateAssocResponse
@@ -1300,9 +1304,9 @@ CreateNatFirewallSyncTaskResponse Client::createNatFirewallSyncTask(const Create
 }
 
 /**
- * @summary Create a private DNS endpoint
+ * @summary Creates a private DNS endpoint.
  *
- * @description Creates a private DNS endpoint for traffic that passes through the NAT Firewall to allow, deny, or monitor the traffic.
+ * @description Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
  *
  * @param request CreatePrivateDnsEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1385,9 +1389,9 @@ CreatePrivateDnsEndpointResponse Client::createPrivateDnsEndpointWithOptions(con
 }
 
 /**
- * @summary Create a private DNS endpoint
+ * @summary Creates a private DNS endpoint.
  *
- * @description Creates a private DNS endpoint for traffic that passes through the NAT Firewall to allow, deny, or monitor the traffic.
+ * @description Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
  *
  * @param request CreatePrivateDnsEndpointRequest
  * @return CreatePrivateDnsEndpointResponse
@@ -1530,7 +1534,7 @@ CreateSlsLogDispatchResponse Client::createSlsLogDispatch(const CreateSlsLogDisp
 }
 
 /**
- * @summary Creates a VPC firewall for a transit router.
+ * @summary Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router is enabled. (3) The transit router is synchronized to Cloud Firewall.
  *
  * @param request CreateTrFirewallV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1617,7 +1621,7 @@ CreateTrFirewallV2Response Client::createTrFirewallV2WithOptions(const CreateTrF
 }
 
 /**
- * @summary Creates a VPC firewall for a transit router.
+ * @summary Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router is enabled. (3) The transit router is synchronized to Cloud Firewall.
  *
  * @param request CreateTrFirewallV2Request
  * @return CreateTrFirewallV2Response
@@ -1628,7 +1632,7 @@ CreateTrFirewallV2Response Client::createTrFirewallV2(const CreateTrFirewallV2Re
 }
 
 /**
- * @summary Create a TR firewall routing rule.
+ * @summary Creates a routing rule for a VPC firewall for a transit router. Prerequisites: Activate Cloud Firewall → Create a CEN instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
  *
  * @param tmpReq CreateTrFirewallV2RoutePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1693,7 +1697,7 @@ CreateTrFirewallV2RoutePolicyResponse Client::createTrFirewallV2RoutePolicyWithO
 }
 
 /**
- * @summary Create a TR firewall routing rule.
+ * @summary Creates a routing rule for a VPC firewall for a transit router. Prerequisites: Activate Cloud Firewall → Create a CEN instance → Create an Enterprise Edition transit router → Add VPCs to the transit router route table → Call CreateTrFirewallV2 to create a VPC firewall for the transit router.
  *
  * @param request CreateTrFirewallV2RoutePolicyRequest
  * @return CreateTrFirewallV2RoutePolicyResponse
@@ -1704,11 +1708,11 @@ CreateTrFirewallV2RoutePolicyResponse Client::createTrFirewallV2RoutePolicy(cons
 }
 
 /**
- * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
+ * @summary Creates a virtual private cloud (VPC) firewall to protect mutual access traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
  *
- * @description This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
- * ## QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
+ * @description This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The VPC firewall protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect mutual access traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Ensure that no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+ * ## Rate limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
  *
  * @param request CreateVpcFirewallCenConfigureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1783,11 +1787,11 @@ CreateVpcFirewallCenConfigureResponse Client::createVpcFirewallCenConfigureWithO
 }
 
 /**
- * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
+ * @summary Creates a virtual private cloud (VPC) firewall to protect mutual access traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
  *
- * @description This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
- * ## QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
+ * @description This operation is used to create a virtual private cloud (VPC) firewall for VPC-connected instances in a CEN instance. The VPC firewall protects mutual access traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect mutual access traffic between VBRs, between CCNs, or between VBRs and CCNs. **Prerequisites**: (1) Invoke the Cbn CreateCen operation to create a CEN instance. (2) Create at least two VPCs. (3) Invoke the Cbn AttachCenChildInstance operation to associate the VPCs with the CEN instance. (4) Ensure that no conflicting RouteMaps or transit router (TR) routing entries exist in the CEN instance. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+ * ## Rate limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls appropriately.
  *
  * @param request CreateVpcFirewallCenConfigureRequest
  * @return CreateVpcFirewallCenConfigureResponse
@@ -1960,9 +1964,9 @@ CreateVpcFirewallConfigureResponse Client::createVpcFirewallConfigure(const Crea
 /**
  * @summary Adds an access control policy to a specified VPC firewall policy group.
  *
- * @description This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+ * @description This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through a Cloud Enterprise Network (CEN) instance or traffic between two VPCs connected through an Express Connect circuit.
  * ## QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation properly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
  *
  * @param request CreateVpcFirewallControlPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2087,9 +2091,9 @@ CreateVpcFirewallControlPolicyResponse Client::createVpcFirewallControlPolicyWit
 /**
  * @summary Adds an access control policy to a specified VPC firewall policy group.
  *
- * @description This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+ * @description This operation is used to add an access control policy to a specified virtual private cloud (VPC) firewall policy group. Different access control policies are used when a VPC firewall protects traffic between two VPCs connected through a Cloud Enterprise Network (CEN) instance or traffic between two VPCs connected through an Express Connect circuit.
  * ## QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation properly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Invoke this operation as appropriate.
  *
  * @param request CreateVpcFirewallControlPolicyRequest
  * @return CreateVpcFirewallControlPolicyResponse
@@ -3190,8 +3194,9 @@ DeleteVpcFirewallCenConfigureResponse Client::deleteVpcFirewallCenConfigure(cons
  *
  * @description This operation is used to delete a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect.
  * Before you invoke this operation, you must have already created a VPC firewall by invoking the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
- * ## Rate limit
- * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+ * This operation is asynchronous. After a successful invocation, the status changes to deleting. Poll DescribeVpcFirewallList until the target VpcFirewallId no longer appears. The firewall to be deleted must be in the opened or closed state. Firewalls in the notconfigured or deleting state cannot be deleted, and the ErrorFirewallStatus error is returned.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
  *
  * @param request DeleteVpcFirewallConfigureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3234,8 +3239,9 @@ DeleteVpcFirewallConfigureResponse Client::deleteVpcFirewallConfigureWithOptions
  *
  * @description This operation is used to delete a virtual private cloud (VPC) firewall that protects traffic between two VPCs connected through Express Connect.
  * Before you invoke this operation, you must have already created a VPC firewall by invoking the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
- * ## Rate limit
- * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+ * This operation is asynchronous. After a successful invocation, the status changes to deleting. Poll DescribeVpcFirewallList until the target VpcFirewallId no longer appears. The firewall to be deleted must be in the opened or closed state. Firewalls in the notconfigured or deleting state cannot be deleted, and the ErrorFirewallStatus error is returned.
+ * ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation appropriately.
  *
  * @param request DeleteVpcFirewallConfigureRequest
  * @return DeleteVpcFirewallConfigureResponse
@@ -3444,7 +3450,7 @@ DescribeAccessInstanceRegionListResponse Client::describeAccessInstanceRegionLis
 }
 
 /**
- * @summary Queries the progress of a synchronization task on a node.
+ * @summary Queries the progress of a synchronization node task.
  *
  * @param request DescribeAccessInstanceTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3471,7 +3477,7 @@ DescribeAccessInstanceTaskResponse Client::describeAccessInstanceTaskWithOptions
 }
 
 /**
- * @summary Queries the progress of a synchronization task on a node.
+ * @summary Queries the progress of a synchronization node task.
  *
  * @param request DescribeAccessInstanceTaskRequest
  * @return DescribeAccessInstanceTaskResponse
@@ -4396,7 +4402,7 @@ DescribeAssetListResponse Client::describeAssetList(const DescribeAssetListReque
 }
 
 /**
- * @summary Retrieves a list of asset risk levels.
+ * @summary Retrieves the risk levels of assets.
  *
  * @param request DescribeAssetRiskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4439,7 +4445,7 @@ DescribeAssetRiskListResponse Client::describeAssetRiskListWithOptions(const Des
 }
 
 /**
- * @summary Retrieves a list of asset risk levels.
+ * @summary Retrieves the risk levels of assets.
  *
  * @param request DescribeAssetRiskListRequest
  * @return DescribeAssetRiskListResponse
@@ -4946,7 +4952,7 @@ DescribeControlPolicyResponse Client::describeControlPolicy(const DescribeContro
 }
 
 /**
- * @summary Queries the domain name resolution results of an access control policy.
+ * @summary Queries the domain name parse results of an access control policy.
  *
  * @param request DescribeControlPolicyDomainResolveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4973,7 +4979,7 @@ DescribeControlPolicyDomainResolveResponse Client::describeControlPolicyDomainRe
 }
 
 /**
- * @summary Queries the domain name resolution results of an access control policy.
+ * @summary Queries the domain name parse results of an access control policy.
  *
  * @param request DescribeControlPolicyDomainResolveRequest
  * @return DescribeControlPolicyDomainResolveResponse
@@ -5410,7 +5416,7 @@ DescribeFirewallDropStatisticsResponse Client::describeFirewallDropStatistics() 
 }
 
 /**
- * @summary Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+ * @summary Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
  *
  * @param request DescribeFirewallDropTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5449,7 +5455,7 @@ DescribeFirewallDropTrendResponse Client::describeFirewallDropTrendWithOptions(c
 }
 
 /**
- * @summary Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+ * @summary Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
  *
  * @param request DescribeFirewallDropTrendRequest
  * @return DescribeFirewallDropTrendResponse
@@ -5460,10 +5466,10 @@ DescribeFirewallDropTrendResponse Client::describeFirewallDropTrend(const Descri
 }
 
 /**
- * @summary Retrieves the details of a firewall task.
+ * @summary Retrieves a firewall task.
  *
  * @description ### QPS limit
- * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeFirewallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5510,10 +5516,10 @@ DescribeFirewallTaskResponse Client::describeFirewallTaskWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the details of a firewall task.
+ * @summary Retrieves a firewall task.
  *
  * @description ### QPS limit
- * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeFirewallTaskRequest
  * @return DescribeFirewallTaskResponse
@@ -7708,7 +7714,7 @@ DescribeNatFirewallControlPolicyResponse Client::describeNatFirewallControlPolic
 }
 
 /**
- * @summary Overview - NAT firewall blocking trends
+ * @summary Queries the NAT firewall interception trend on the overview page.
  *
  * @param request DescribeNatFirewallDropTrafficTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7735,7 +7741,7 @@ DescribeNatFirewallDropTrafficTrendResponse Client::describeNatFirewallDropTraff
 }
 
 /**
- * @summary Overview - NAT firewall blocking trends
+ * @summary Queries the NAT firewall interception trend on the overview page.
  *
  * @param request DescribeNatFirewallDropTrafficTrendRequest
  * @return DescribeNatFirewallDropTrafficTrendResponse
@@ -8432,7 +8438,7 @@ DescribeOutgoingAssetListResponse Client::describeOutgoingAssetList(const Descri
 }
 
 /**
- * @summary This operation queries outbound destinations.
+ * @summary Queries outbound connection destinations.
  *
  * @param request DescribeOutgoingDestinationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8535,7 +8541,7 @@ DescribeOutgoingDestinationResponse Client::describeOutgoingDestinationWithOptio
 }
 
 /**
- * @summary This operation queries outbound destinations.
+ * @summary Queries outbound connection destinations.
  *
  * @param request DescribeOutgoingDestinationRequest
  * @return DescribeOutgoingDestinationResponse
@@ -8546,7 +8552,7 @@ DescribeOutgoingDestinationResponse Client::describeOutgoingDestination(const De
 }
 
 /**
- * @summary Queries the categories of outbound connection destinations.
+ * @summary Queries the destination categories of outbound connections.
  *
  * @param request DescribeOutgoingDestinationCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8605,7 +8611,7 @@ DescribeOutgoingDestinationCategoryResponse Client::describeOutgoingDestinationC
 }
 
 /**
- * @summary Queries the categories of outbound connection destinations.
+ * @summary Queries the destination categories of outbound connections.
  *
  * @param request DescribeOutgoingDestinationCategoryRequest
  * @return DescribeOutgoingDestinationCategoryResponse
@@ -8812,7 +8818,7 @@ DescribeOutgoingDestinationIPDetailResponse Client::describeOutgoingDestinationI
 }
 
 /**
- * @summary Retrieves information about outbound domain names.
+ * @summary Queries domain name information about outbound connections.
  *
  * @param request DescribeOutgoingDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8891,7 +8897,7 @@ DescribeOutgoingDomainResponse Client::describeOutgoingDomainWithOptions(const D
 }
 
 /**
- * @summary Retrieves information about outbound domain names.
+ * @summary Queries domain name information about outbound connections.
  *
  * @param request DescribeOutgoingDomainRequest
  * @return DescribeOutgoingDomainResponse
@@ -8902,7 +8908,7 @@ DescribeOutgoingDomainResponse Client::describeOutgoingDomain(const DescribeOutg
 }
 
 /**
- * @summary Retrieves the details of an outbound domain.
+ * @summary Retrieves the details of outbound domains.
  *
  * @param request DescribeOutgoingDomainDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8997,7 +9003,7 @@ DescribeOutgoingDomainDetailResponse Client::describeOutgoingDomainDetailWithOpt
 }
 
 /**
- * @summary Retrieves the details of an outbound domain.
+ * @summary Retrieves the details of outbound domains.
  *
  * @param request DescribeOutgoingDomainDetailRequest
  * @return DescribeOutgoingDomainDetailResponse
@@ -9428,7 +9434,7 @@ DescribePolicyPriorUsedResponse Client::describePolicyPriorUsed(const DescribePo
 /**
  * @summary Queries pay-as-you-go 2.0 bills.
  *
- * @description For pay-as-you-go users, the bill details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
+ * @description For pay-as-you-go users, the bill details are accurate to the specific resource instance granularity. For subscription users, only overall queries are supported.
  *
  * @param request DescribePostpayBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9481,7 +9487,7 @@ DescribePostpayBillResponse Client::describePostpayBillWithOptions(const Describ
 /**
  * @summary Queries pay-as-you-go 2.0 bills.
  *
- * @description For pay-as-you-go users, the bill details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
+ * @description For pay-as-you-go users, the bill details are accurate to the specific resource instance granularity. For subscription users, only overall queries are supported.
  *
  * @param request DescribePostpayBillRequest
  * @return DescribePostpayBillResponse
@@ -11059,7 +11065,7 @@ DescribeSdlEventStatisticResponse Client::describeSdlEventStatistic(const Descri
  * @summary Retrieves the packet payload of a sensitive data leak event.
  *
  * @description ## QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+ * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DescribeSdlLastPayloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11113,7 +11119,7 @@ DescribeSdlLastPayloadResponse Client::describeSdlLastPayloadWithOptions(const D
  * @summary Retrieves the packet payload of a sensitive data leak event.
  *
  * @description ## QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+ * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
  *
  * @param request DescribeSdlLastPayloadRequest
  * @return DescribeSdlLastPayloadResponse
@@ -11554,6 +11560,52 @@ DescribeSlsAnalyzeOpenStatusResponse Client::describeSlsAnalyzeOpenStatus(const 
 }
 
 /**
+ * @summary Queries the execution status of a log configuration modification task.
+ *
+ * @description Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
+ *
+ * @param request DescribeTaskDispatchStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTaskDispatchStatusResponse
+ */
+DescribeTaskDispatchStatusResponse Client::describeTaskDispatchStatusWithOptions(const DescribeTaskDispatchStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTaskDispatchStatus"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTaskDispatchStatusResponse>();
+}
+
+/**
+ * @summary Queries the execution status of a log configuration modification task.
+ *
+ * @description Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
+ *
+ * @param request DescribeTaskDispatchStatusRequest
+ * @return DescribeTaskDispatchStatusResponse
+ */
+DescribeTaskDispatchStatusResponse Client::describeTaskDispatchStatus(const DescribeTaskDispatchStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTaskDispatchStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the threat intelligence configuration information.
  *
  * @description This operation is generally used to perform a paged query on the information about access control policies of NAT firewalls.
@@ -11650,7 +11702,7 @@ DescribeTrFirewallPolicyBackUpAssociationListResponse Client::describeTrFirewall
 }
 
 /**
- * @summary Queries the list of routing policies for a VPC firewall for a transit router.
+ * @summary Retrieves the list of routing policies for a VPC firewall for a transit router.
  *
  * @param request DescribeTrFirewallV2RoutePolicyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11697,7 +11749,7 @@ DescribeTrFirewallV2RoutePolicyListResponse Client::describeTrFirewallV2RoutePol
 }
 
 /**
- * @summary Queries the list of routing policies for a VPC firewall for a transit router.
+ * @summary Retrieves the list of routing policies for a VPC firewall for a transit router.
  *
  * @param request DescribeTrFirewallV2RoutePolicyListRequest
  * @return DescribeTrFirewallV2RoutePolicyListResponse
@@ -11836,7 +11888,7 @@ DescribeTrFirewallsV2ListResponse Client::describeTrFirewallsV2List(const Descri
 }
 
 /**
- * @summary Queries the route tables for a VPC firewall for a transit router.
+ * @summary Retrieves the route table list of a VPC firewall for a transit router. Prerequisites: CEN → Enterprise Edition transit router → VPC connection → CreateTrFirewallV2 → routing policy.
  *
  * @param request DescribeTrFirewallsV2RouteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11883,7 +11935,7 @@ DescribeTrFirewallsV2RouteListResponse Client::describeTrFirewallsV2RouteListWit
 }
 
 /**
- * @summary Queries the route tables for a VPC firewall for a transit router.
+ * @summary Retrieves the route table list of a VPC firewall for a transit router. Prerequisites: CEN → Enterprise Edition transit router → VPC connection → CreateTrFirewallV2 → routing policy.
  *
  * @param request DescribeTrFirewallsV2RouteListRequest
  * @return DescribeTrFirewallsV2RouteListResponse
@@ -12009,6 +12061,10 @@ DescribeTrafficLogResponse Client::describeTrafficLogWithOptions(const DescribeT
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQueryId()) {
+    query["QueryId"] = request.getQueryId();
   }
 
   if (!!request.hasRuleId()) {
@@ -12530,10 +12586,10 @@ DescribeVfwIPSConfigListResponse Client::describeVfwIPSConfigList(const Describe
 }
 
 /**
- * @summary Queries the access details of a VPC firewall.
+ * @summary Retrieves the access details of a VPC firewall.
  *
- * @description ## QPS limits
- * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which can affect your business. We recommend that you call this API at a reasonable rate.
+ * @description ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeVpcFirewallAccessDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12632,10 +12688,10 @@ DescribeVpcFirewallAccessDetailResponse Client::describeVpcFirewallAccessDetailW
 }
 
 /**
- * @summary Queries the access details of a VPC firewall.
+ * @summary Retrieves the access details of a VPC firewall.
  *
- * @description ## QPS limits
- * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which can affect your business. We recommend that you call this API at a reasonable rate.
+ * @description ## QPS limit
+ * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeVpcFirewallAccessDetailRequest
  * @return DescribeVpcFirewallAccessDetailResponse
@@ -13670,7 +13726,9 @@ DescribeVpcFirewallListResponse Client::describeVpcFirewallList(const DescribeVp
 }
 
 /**
- * @summary Queries the list of vSwitches for a VPC firewall created in manual mode.
+ * @summary Queries the vSwitch list in manual mode for a VPC firewall.
+ *
+ * @description Queries the vSwitch list in manual mode for a firewall. **Required parameters**: If OwnerId (owner user ID, Long type) is empty, ErrorOwnerId is returned. If regionNo (region) is empty, ErrorRegionNoError is returned. If vpcId is empty, ErrorVpcIdError is returned. **Before you begin**: Call [DescribeVpcFirewallList](~~DescribeVpcFirewallList~~) to obtain VpcFirewallId, OwnerId (from LocalVpc.OwnerId or PeerVpc.OwnerId in the response), and VpcId (from LocalVpc.VpcId or PeerVpc.VpcId in the response).
  *
  * @param request DescribeVpcFirewallManualVSwitchListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13721,7 +13779,9 @@ DescribeVpcFirewallManualVSwitchListResponse Client::describeVpcFirewallManualVS
 }
 
 /**
- * @summary Queries the list of vSwitches for a VPC firewall created in manual mode.
+ * @summary Queries the vSwitch list in manual mode for a VPC firewall.
+ *
+ * @description Queries the vSwitch list in manual mode for a firewall. **Required parameters**: If OwnerId (owner user ID, Long type) is empty, ErrorOwnerId is returned. If regionNo (region) is empty, ErrorRegionNoError is returned. If vpcId is empty, ErrorVpcIdError is returned. **Before you begin**: Call [DescribeVpcFirewallList](~~DescribeVpcFirewallList~~) to obtain VpcFirewallId, OwnerId (from LocalVpc.OwnerId or PeerVpc.OwnerId in the response), and VpcId (from LocalVpc.VpcId or PeerVpc.VpcId in the response).
  *
  * @param request DescribeVpcFirewallManualVSwitchListRequest
  * @return DescribeVpcFirewallManualVSwitchListResponse
@@ -13786,10 +13846,10 @@ DescribeVpcFirewallPolicyPriorUsedResponse Client::describeVpcFirewallPolicyPrio
 }
 
 /**
- * @summary Retrieves the details of a VPC firewall precheck.
+ * @summary Retrieves the precheck details of a VPC firewall.
  *
  * @description ## QPS limit
- * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled. This may impact your business. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeVpcFirewallPrecheckDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13848,10 +13908,10 @@ DescribeVpcFirewallPrecheckDetailResponse Client::describeVpcFirewallPrecheckDet
 }
 
 /**
- * @summary Retrieves the details of a VPC firewall precheck.
+ * @summary Retrieves the precheck details of a VPC firewall.
  *
  * @description ## QPS limit
- * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled. This may impact your business. Plan your calls accordingly.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeVpcFirewallPrecheckDetailRequest
  * @return DescribeVpcFirewallPrecheckDetailResponse
@@ -13918,7 +13978,9 @@ DescribeVpcFirewallSummaryInfoResponse Client::describeVpcFirewallSummaryInfo(co
 }
 
 /**
- * @summary Retrieves a list of assets that access domain names through a VPC firewall.
+ * @summary Queries the list of assets that access domain names through a VPC firewall.
+ *
+ * @description Queries asset information for VPC Access. When calling this operation, set IsAITraffic to "true". Otherwise, error code -340103 is returned.
  *
  * @param request DescribeVpcFirewallTrafficAssetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13989,7 +14051,9 @@ DescribeVpcFirewallTrafficAssetListResponse Client::describeVpcFirewallTrafficAs
 }
 
 /**
- * @summary Retrieves a list of assets that access domain names through a VPC firewall.
+ * @summary Queries the list of assets that access domain names through a VPC firewall.
+ *
+ * @description Queries asset information for VPC Access. When calling this operation, set IsAITraffic to "true". Otherwise, error code -340103 is returned.
  *
  * @param request DescribeVpcFirewallTrafficAssetListRequest
  * @return DescribeVpcFirewallTrafficAssetListResponse
@@ -14404,7 +14468,9 @@ DisableSdlProtectedAssetResponse Client::disableSdlProtectedAsset(const DisableS
 }
 
 /**
- * @summary Enables data breach protection for assets.
+ * @summary Enables data leak protection for assets. Before calling this operation, ensure that the Sensitive Data Leak (SDL) feature is activated (query DescribeUserBuyVersion.Sdl, where 1 indicates activated).
+ *
+ * @description Enables data leak detection (SDL) protection for specified assets.
  *
  * @param request EnableSdlProtectedAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14439,7 +14505,9 @@ EnableSdlProtectedAssetResponse Client::enableSdlProtectedAssetWithOptions(const
 }
 
 /**
- * @summary Enables data breach protection for assets.
+ * @summary Enables data leak protection for assets. Before calling this operation, ensure that the Sensitive Data Leak (SDL) feature is activated (query DescribeUserBuyVersion.Sdl, where 1 indicates activated).
+ *
+ * @description Enables data leak detection (SDL) protection for specified assets.
  *
  * @param request EnableSdlProtectedAssetRequest
  * @return EnableSdlProtectedAssetResponse
@@ -15038,7 +15106,7 @@ ModifyDefaultIPSConfigResponse Client::modifyDefaultIPSConfig(const ModifyDefaul
 /**
  * @summary Modifies a DNS firewall rule.
  *
- * @description You can use this operation to modify a DNS firewall policy to accept, deny, or monitor traffic.
+ * @description Modifies a policy that allows, denies, or monitors traffic that passes through the DNS firewall.
  *
  * @param request ModifyDnsFirewallPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15111,7 +15179,7 @@ ModifyDnsFirewallPolicyResponse Client::modifyDnsFirewallPolicyWithOptions(const
 /**
  * @summary Modifies a DNS firewall rule.
  *
- * @description You can use this operation to modify a DNS firewall policy to accept, deny, or monitor traffic.
+ * @description Modifies a policy that allows, denies, or monitors traffic that passes through the DNS firewall.
  *
  * @param request ModifyDnsFirewallPolicyRequest
  * @return ModifyDnsFirewallPolicyResponse
@@ -15296,7 +15364,7 @@ ModifyIpsRulesResponse Client::modifyIpsRules(const ModifyIpsRulesRequest &reque
 }
 
 /**
- * @summary Resets Intrusion Prevention System (IPS) rules to the default settings.
+ * @summary Resets IPS rules to default.
  *
  * @param request ModifyIpsRulesToDefaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15351,7 +15419,7 @@ ModifyIpsRulesToDefaultResponse Client::modifyIpsRulesToDefaultWithOptions(const
 }
 
 /**
- * @summary Resets Intrusion Prevention System (IPS) rules to the default settings.
+ * @summary Resets IPS rules to default.
  *
  * @param request ModifyIpsRulesToDefaultRequest
  * @return ModifyIpsRulesToDefaultResponse
@@ -15844,6 +15912,60 @@ ModifySensitiveSwitchResponse Client::modifySensitiveSwitch(const ModifySensitiv
 }
 
 /**
+ * @summary Modifies the configurations for log delivery to Simple Log Service (SLS).
+ *
+ * @description Before calling this operation, call DescribeUserBuyVersion to obtain the LogVersion of the user.
+ *
+ * @param request ModifySlsDispatchConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySlsDispatchConfigResponse
+ */
+ModifySlsDispatchConfigResponse Client::modifySlsDispatchConfigWithOptions(const ModifySlsDispatchConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDetailConfig()) {
+    query["DetailConfig"] = request.getDetailConfig();
+  }
+
+  if (!!request.hasLogVersion()) {
+    query["LogVersion"] = request.getLogVersion();
+  }
+
+  if (!!request.hasModifyType()) {
+    query["ModifyType"] = request.getModifyType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySlsDispatchConfig"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySlsDispatchConfigResponse>();
+}
+
+/**
+ * @summary Modifies the configurations for log delivery to Simple Log Service (SLS).
+ *
+ * @description Before calling this operation, call DescribeUserBuyVersion to obtain the LogVersion of the user.
+ *
+ * @param request ModifySlsDispatchConfigRequest
+ * @return ModifySlsDispatchConfigResponse
+ */
+ModifySlsDispatchConfigResponse Client::modifySlsDispatchConfig(const ModifySlsDispatchConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySlsDispatchConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the log delivery settings for Simple Log Service (SLS).
  *
  * @description ## QPS limit
@@ -15950,7 +16072,7 @@ ModifyThreatIntelligenceSwitchResponse Client::modifyThreatIntelligenceSwitch(co
 }
 
 /**
- * @summary Modifies the configuration of a VPC firewall for a transit router.
+ * @summary Modifies the configuration of a VPC firewall for a transit router. Prerequisites: Create a Cloud Enterprise Network (CEN) Enterprise Edition transit router, call CreateTrFirewallV2 to create a VPC firewall for the transit router, and obtain the FirewallId before calling this operation.
  *
  * @param request ModifyTrFirewallV2ConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15989,7 +16111,7 @@ ModifyTrFirewallV2ConfigurationResponse Client::modifyTrFirewallV2ConfigurationW
 }
 
 /**
- * @summary Modifies the configuration of a VPC firewall for a transit router.
+ * @summary Modifies the configuration of a VPC firewall for a transit router. Prerequisites: Create a Cloud Enterprise Network (CEN) Enterprise Edition transit router, call CreateTrFirewallV2 to create a VPC firewall for the transit router, and obtain the FirewallId before calling this operation.
  *
  * @param request ModifyTrFirewallV2ConfigurationRequest
  * @return ModifyTrFirewallV2ConfigurationResponse
@@ -17002,11 +17124,11 @@ PutDisableAllFwSwitchResponse Client::putDisableAllFwSwitch(const PutDisableAllF
 }
 
 /**
- * @summary Disables a firewall switch.
+ * @summary Disables the firewall switch.
  *
- * @description This operation disables a firewall switch. After a firewall switch is disabled, traffic is no longer routed through Cloud Firewall.
+ * @description Disables the firewall switch. After the firewall switch is disabled, traffic does not pass through Cloud Firewall.
  * ## QPS limit
- * The QPS limit for this operation is 10 requests per second per user. Calls that exceed this limit are throttled, which may affect your business.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request PutDisableFwSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17015,6 +17137,14 @@ PutDisableAllFwSwitchResponse Client::putDisableAllFwSwitch(const PutDisableAllF
 PutDisableFwSwitchResponse Client::putDisableFwSwitchWithOptions(const PutDisableFwSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasIpVersion()) {
     query["IpVersion"] = request.getIpVersion();
   }
@@ -17061,11 +17191,11 @@ PutDisableFwSwitchResponse Client::putDisableFwSwitchWithOptions(const PutDisabl
 }
 
 /**
- * @summary Disables a firewall switch.
+ * @summary Disables the firewall switch.
  *
- * @description This operation disables a firewall switch. After a firewall switch is disabled, traffic is no longer routed through Cloud Firewall.
+ * @description Disables the firewall switch. After the firewall switch is disabled, traffic does not pass through Cloud Firewall.
  * ## QPS limit
- * The QPS limit for this operation is 10 requests per second per user. Calls that exceed this limit are throttled, which may affect your business.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as needed.
  *
  * @param request PutDisableFwSwitchRequest
  * @return PutDisableFwSwitchResponse
@@ -17134,11 +17264,11 @@ PutEnableAllFwSwitchResponse Client::putEnableAllFwSwitch(const PutEnableAllFwSw
 }
 
 /**
- * @summary Enable the firewall.
+ * @summary Enables a firewall switch.
  *
- * @description This API enables the firewall switch. Once enabled, traffic is routed through Cloud Firewall.
+ * @description Enables a firewall switch. Traffic passes through Cloud Firewall only after the firewall switch is enabled.
  * ## QPS limit
- * The QPS limit for this API is 5 requests per second for a single user. If you exceed this limit, the system throttles API calls, which may affect your business.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
  *
  * @param request PutEnableFwSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17147,6 +17277,14 @@ PutEnableAllFwSwitchResponse Client::putEnableAllFwSwitch(const PutEnableAllFwSw
 PutEnableFwSwitchResponse Client::putEnableFwSwitchWithOptions(const PutEnableFwSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasIpVersion()) {
     query["IpVersion"] = request.getIpVersion();
   }
@@ -17193,11 +17331,11 @@ PutEnableFwSwitchResponse Client::putEnableFwSwitchWithOptions(const PutEnableFw
 }
 
 /**
- * @summary Enable the firewall.
+ * @summary Enables a firewall switch.
  *
- * @description This API enables the firewall switch. Once enabled, traffic is routed through Cloud Firewall.
+ * @description Enables a firewall switch. Traffic passes through Cloud Firewall only after the firewall switch is enabled.
  * ## QPS limit
- * The QPS limit for this API is 5 requests per second for a single user. If you exceed this limit, the system throttles API calls, which may affect your business.
+ * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
  *
  * @param request PutEnableFwSwitchRequest
  * @return PutEnableFwSwitchResponse
@@ -17814,7 +17952,7 @@ UpdatePostpayUserNatStatusResponse Client::updatePostpayUserNatStatus(const Upda
 }
 
 /**
- * @summary Updates the status of the VPC border firewall for a pay-as-you-go user.
+ * @summary Updates the status of the virtual private cloud (VPC) firewall switch module for a pay-as-you-go user.
  *
  * @param request UpdatePostpayUserVpcStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17853,7 +17991,7 @@ UpdatePostpayUserVpcStatusResponse Client::updatePostpayUserVpcStatusWithOptions
 }
 
 /**
- * @summary Updates the status of the VPC border firewall for a pay-as-you-go user.
+ * @summary Updates the status of the virtual private cloud (VPC) firewall switch module for a pay-as-you-go user.
  *
  * @param request UpdatePostpayUserVpcStatusRequest
  * @return UpdatePostpayUserVpcStatusResponse

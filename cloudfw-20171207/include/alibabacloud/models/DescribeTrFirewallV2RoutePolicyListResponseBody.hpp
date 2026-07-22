@@ -210,35 +210,35 @@ namespace Models
 
 
     protected:
-      // The list of destination traffic redirection instances.
+      // The list of secondary traffic redirection instances.
       shared_ptr<vector<TrFirewallRoutePolicies::DestCandidateList>> destCandidateList_ {};
-      // The description of the policy.
+      // The policy description.
       shared_ptr<string> policyDescription_ {};
-      // The name of the policy.
+      // The policy name.
       shared_ptr<string> policyName_ {};
-      // The status of the policy. Valid values:
+      // The policy status. Valid values:
       // 
-      // - creating: The policy is being created.
+      // - creating: being created
       // 
-      // - deleting: The policy is being deleted.
+      // - deleting: being deleted
       // 
-      // - opening: The policy is being enabled.
+      // - opening: being enabled
       // 
-      // - opened: The policy is enabled.
+      // - opened: enabled
       // 
-      // - closing: The policy is being disabled.
+      // - closing: being disabled
       // 
-      // - closed: The policy is disabled.
+      // - closed: disabled
       shared_ptr<string> policyStatus_ {};
-      // The type of traffic redirection scenario for the VPC firewall. The firewall is created for a transit router that belongs to an Enterprise Edition Cloud Enterprise Network (CEN) instance. Valid values:
+      // The traffic redirection scenario type for the virtual private cloud (VPC) firewall on CEN Enterprise Edition. Valid values:
       // 
-      // - **fullmesh**: full-mesh
+      // - **fullmesh**: multi-point interconnection
       // 
       // - **one_to_one**: point-to-point
       // 
       // - **end_to_end**: point-to-multipoint
       shared_ptr<string> policyType_ {};
-      // The list of source traffic redirection instances.
+      // The list of primary traffic redirection instances.
       shared_ptr<vector<TrFirewallRoutePolicies::SrcCandidateList>> srcCandidateList_ {};
       // The ID of the firewall routing policy.
       shared_ptr<string> trFirewallRoutePolicyId_ {};
@@ -272,7 +272,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
     // The list of firewall routing policies.
     shared_ptr<vector<DescribeTrFirewallV2RoutePolicyListResponseBody::TrFirewallRoutePolicies>> trFirewallRoutePolicies_ {};

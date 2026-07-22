@@ -57,14 +57,14 @@ namespace Models
 
 
   protected:
-    // The end time of the query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds. This parameter is required. If this parameter is not specified, the API returns ErrorTimeError(400). The value must be a UNIX timestamp in seconds, and EndTime must be later than StartTime.
     shared_ptr<int64_t> endTime_ {};
-    // The language of the response. Valid values:
+    // The language of the response message.
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The start time of the query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds. This parameter is required. If this parameter is not specified, the API returns ErrorTimeError(400). The value must be a UNIX timestamp in seconds, and StartTime must be earlier than EndTime.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -162,11 +162,7 @@ namespace Models
       protected:
         // The risk category ID.
         shared_ptr<string> classId_ {};
-        // The risk level. Valid values:
-        // - **0**: no risk.
-        // - **1**: low risk.
-        // - **2**: medium risk.
-        // - **3**: high risk.
+        // The risk level.
         shared_ptr<int32_t> riskLevel_ {};
         // The tag description.
         shared_ptr<string> tagDescribe_ {};
@@ -345,7 +341,7 @@ namespace Models
       shared_ptr<int32_t> lastTime_ {};
       // The NAT gateway ID.
       shared_ptr<string> natGatewayId_ {};
-      // The NAT gateway name.
+      // The name of the NAT gateway.
       shared_ptr<string> natGatewayName_ {};
       // The outbound traffic (request traffic), in bytes.
       shared_ptr<int64_t> outBytes_ {};
@@ -359,7 +355,7 @@ namespace Models
       shared_ptr<string> resourceInstanceId_ {};
       // The name of the asset instance.
       shared_ptr<string> resourceInstanceName_ {};
-      // The type of the public IP address of the asset.
+      // The public IP address type of the asset.
       shared_ptr<string> resourceType_ {};
       // The ID of the ACL rule.
       shared_ptr<string> ruleId_ {};
@@ -371,7 +367,7 @@ namespace Models
       shared_ptr<vector<AssetList::TagList>> tagList_ {};
       // The total traffic.
       shared_ptr<string> totalBytes_ {};
-      // The VPC instance ID.
+      // The instance ID of the VPC-connected instance.
       shared_ptr<string> vpcId_ {};
     };
 

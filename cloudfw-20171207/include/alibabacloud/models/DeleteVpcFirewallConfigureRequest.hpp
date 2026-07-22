@@ -66,7 +66,7 @@ namespace Models
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of one of the member accounts of the current Alibaba Cloud account.
+    // The UID of a member account of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
     // The list of instance IDs of the virtual private cloud (VPC) firewalls to delete.
     // 

@@ -183,15 +183,15 @@ namespace Models
     shared_ptr<string> aclCoverage_ {};
     // The page number.
     shared_ptr<string> currentPage_ {};
-    // The domain name.
+    // The destination domain name to query. You must specify at least one of Domain or DomainList. If neither is specified, the API returns ErrorDomainName.
     shared_ptr<string> domain_ {};
-    // The list of domain names.
+    // The list of destination domain names to query. You must specify at least one of Domain or DomainList. If neither is specified, the API returns ErrorDomainName.
     shared_ptr<vector<string>> domainList_ {};
-    // The end of the time range to query. The value is a UNIX timestamp in seconds.
+    // The end time of the query. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to query NAT private network outbound connections.
+    // Specifies whether to query outbound connections from NAT private IP addresses.
     shared_ptr<string> IPType_ {};
     // The language type.
     shared_ptr<string> lang_ {};
@@ -209,7 +209,7 @@ namespace Models
     shared_ptr<string> sort_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp in seconds.
+    // The start time of the query. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

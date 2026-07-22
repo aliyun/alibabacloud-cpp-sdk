@@ -70,14 +70,14 @@ namespace Models
     // 
     // Valid values:
     // 
-    // - **zh**: (default) Chinese
+    // - **zh**: (default) Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The query conditions for the download task.
+    // The request query conditions for the download task. This parameter is required. If this parameter is not specified, the API returns error code -340408 (download task TaskData invalid).
     shared_ptr<string> taskData_ {};
-    // The task type. For valid values, call the API operation that queries file download task types.
+    // The task type. For valid values, call the operation that queries file download task types.
     shared_ptr<string> taskType_ {};
-    // The time zone for time information in the downloaded file. The value is an IANA time zone identifier. Default value: Asia/Shanghai (UTC+8).
+    // The time zone for time information in the downloaded file. Specify the value in IANA time zone identity format. Default value: Asia/Shanghai (UTC+8).
     shared_ptr<string> timeZone_ {};
   };
 

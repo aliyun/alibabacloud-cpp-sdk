@@ -107,7 +107,7 @@ namespace Models
       shared_ptr<int64_t> natDropSession_ {};
       // The time when the traffic occurred. The value is a UNIX timestamp in seconds.
       // 
-      // If the data at this point in time has not been processed, the values of all other fields are -1.
+      // If the data at this point in time has not been processed, the values of other fields are -1.
       shared_ptr<int64_t> time_ {};
       // The total number of sessions blocked by the firewall.
       shared_ptr<int64_t> totalDropSession_ {};

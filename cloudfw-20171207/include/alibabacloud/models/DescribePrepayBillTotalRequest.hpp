@@ -84,25 +84,23 @@ namespace Models
 
 
   protected:
-    // The billing type. Valid values:
-    // - elastic_traffic: elastic traffic.
-    // - sdl: sensitive data leak detection traffic.
+    // The bill type of the user. This parameter is required. An error is returned if this parameter is not specified. Valid values:
+    // - elastic_traffic: elastic traffic
+    // - sdl: sensitive data leak detection traffic
     shared_ptr<string> billType_ {};
     // The page number for a paged query. Default value: 1.
     shared_ptr<int64_t> currentPage_ {};
-    // The end time. Specify a UNIX timestamp in seconds.
+    // The end time. The value is a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The language. Valid values:
-    // - zh
-    // - en
-    // 
+    // The language. Enumeration value.
     // Default value: zh.
+    // Valid value: en.
     shared_ptr<string> lang_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The start time of the query. Specify a UNIX timestamp in seconds.
+    // The start time of the query. The value is a UNIX timestamp. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

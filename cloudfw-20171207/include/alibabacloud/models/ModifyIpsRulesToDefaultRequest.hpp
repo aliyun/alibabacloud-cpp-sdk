@@ -84,13 +84,11 @@ namespace Models
 
 
   protected:
-    // The application that is affected by the attack.
+    // The attack application.
     shared_ptr<string> attackApp_ {};
-    // The type of the Cloud Firewall. Valid values:
-    // 
-    // - **VpcFirewall**: VPC firewall.
-    // 
-    // - **InternetFirewall** (default): Internet firewall.
+    // The type of the cloud firewall. Valid values:
+    // - **VpcFirewall**: virtual private cloud (VPC) firewalls.
+    // - **InternetFirewall** (default): the Internet border firewall.
     shared_ptr<string> firewallType_ {};
     // The language of the content. Valid values:
     // 
@@ -98,17 +96,15 @@ namespace Models
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of the rule. Valid values:
-    // 
+    // The rule type. Valid values:
     // - **basicRule**
-    // 
     // - **customize**
     // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};
-    // The list of rules.
+    // The rule list. Conditional requirement: when RuleType is set to customize, you must specify at least one of this parameter or AttackApp. If you specify only RuleType without Rules or AttackApp, the API returns ErrorParameters.
     shared_ptr<string> rules_ {};
-    // The source IP address of the visitor.
+    // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
   };
 

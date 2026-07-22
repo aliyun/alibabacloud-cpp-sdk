@@ -279,7 +279,7 @@ namespace Models
     // - **MongoDB**
     // - **Memcache**
     // - **SSL**
-    // - **ANY**: all application types.
+    // - **ANY**: all application types
     shared_ptr<string> applicationName_ {};
     // The application types supported by the access control policy.
     shared_ptr<vector<string>> applicationNameList_ {};
@@ -287,20 +287,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The destination port of traffic in the virtual private cloud (VPC) firewall access control policy.
+    // The destination port in the virtual private cloud (VPC) firewall access control policy for traffic access.
     // 
-    // > Set this parameter when **DestPortType** is set to `port`.
+    // > When **DestPortType** is set to `port`, configure this parameter. When Proto is set to TCP/UDP/ICMP, either DestPort (with DestPortType=port) or DestPortGroup (with DestPortType=group) is conditionally required. Otherwise, ErrorParametersDestPort(400) is returned.
     shared_ptr<string> destPort_ {};
-    // The name of the destination port address book of traffic in the virtual private cloud (VPC) firewall access control policy.
+    // The name of the destination port address book for traffic access in the virtual private cloud (VPC) firewall access control policy.
     // 
-    // > Set this parameter when **DestPortType** is set to `group`.
+    // > When **DestPortType** is set to `group`, configure this parameter.
     shared_ptr<string> destPortGroup_ {};
-    // The type of the destination port of traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
+    // The type of the destination port for traffic access in the virtual private cloud (VPC) firewall access control policy. Valid values:
     // 
     // - **port**: port
-    // - **group**: port address book.
+    // - **group**: port address book
     shared_ptr<string> destPortType_ {};
-    // The destination address of traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
+    // The destination address in the virtual private cloud (VPC) firewall access control policy for traffic access. Valid values:
     // 
     // - If **DestinationType** is set to `net`, the value of **Destination** is a destination CIDR block.
     // 
@@ -314,23 +314,23 @@ namespace Models
     // 
     // - **net**: destination CIDR block
     // - **group**: destination address book
-    // - **domain**: destination domain name.
+    // - **domain**: destination domain name
     // 
     // This parameter is required.
     shared_ptr<string> destinationType_ {};
     // The domain name resolution method of the access control policy. Valid values:
     // 
-    // * **FQDN**: FQDN-based resolution
+    // * **FQDN**: FQDN-based
     // * **DNS**: DNS-based dynamic resolution
-    // * **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution.
+    // * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
     shared_ptr<string> domainResolveType_ {};
     // The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour and must be at least 30 minutes later than the start time.
-    // > If RepeatType is set to Permanent, EndTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified.
+    // > When RepeatType is set to Permanent, EndTime is empty. When RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must have a value.
     shared_ptr<int64_t> endTime_ {};
     // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The UID of a member account of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
@@ -340,12 +340,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> newOrder_ {};
-    // The security protocol type of traffic in the virtual private cloud (VPC) firewall access control policy. Valid values:
+    // The security protocol type for traffic access in the virtual private cloud (VPC) firewall access control policy. Valid values:
     // 
-    // - **ANY**: any protocol type. Set this value if the protocol type is uncertain.
+    // - **ANY**: any protocol type
     // - **TCP**
     // - **UDP**
-    // - **ICMP**.
+    // - **ICMP**
     // 
     // This parameter is required.
     shared_ptr<string> proto_ {};
@@ -354,28 +354,28 @@ namespace Models
     // - **true**: enables the access control policy.
     // - **false**: does not enable the access control policy.
     shared_ptr<string> release_ {};
-    // The days of the recurrence for the policy validity period of the access control policy.
-    // - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty collection.
+    // The days of a week or of a month on which the access control policy takes effect.
+    // - When RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty collection.
     //   Example: []
-    // - If RepeatType is set to Weekly, RepeatDays cannot be empty.
+    // - When RepeatType is set to Weekly, RepeatDays cannot be empty.
     //   Example: [0, 6]
-    // > If RepeatType is set to Weekly, the values in RepeatDays cannot be repeated.
-    // - If RepeatType is set to `Monthly`, RepeatDays cannot be empty.
+    // > When RepeatType is set to Weekly, RepeatDays does not allow duplicate values.
+    // - When RepeatType is set to `Monthly`, RepeatDays cannot be empty.
     //   Example: [1, 31]
-    // > If RepeatType is set to Monthly, the values in RepeatDays cannot be repeated.
+    // > When RepeatType is set to Monthly, RepeatDays does not allow duplicate values.
     shared_ptr<vector<int64_t>> repeatDays_ {};
     // The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or on the half hour and must be at least 30 minutes later than the recurrence start time.
-    // > If RepeatType is set to Permanent or None, RepeatEndTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified. The format is HH:MM (24-hour clock), such as 08:00.
+    // > When RepeatType is set to Permanent or None, RepeatEndTime is empty. When RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must have a value. Format: HH:MM (24-hour clock). Example: 08:00.
     shared_ptr<string> repeatEndTime_ {};
     // The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or on the half hour and must be at least 30 minutes earlier than the recurrence end time.
-    // > If RepeatType is set to Permanent or None, RepeatStartTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must be specified. The format is HH:MM (24-hour clock), such as 08:00.
+    // > When RepeatType is set to Permanent or None, RepeatStartTime is empty. When RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must have a value. Format: HH:MM (24-hour clock). Example: 08:00.
     shared_ptr<string> repeatStartTime_ {};
     // The recurrence type of the policy validity period for the access control policy. Valid values:
-    // - **Permanent** (default): The policy is always valid.
-    // - **None**: The policy is valid for a specified single time period.
-    // - **Daily**: The policy is valid on a daily basis.
-    // - **Weekly**: The policy is valid on a weekly basis.
-    // - **Monthly**: The policy is valid on a monthly basis.
+    // - **Permanent** (default): always
+    // - **None**: one-time
+    // - **Daily**: daily
+    // - **Weekly**: weekly
+    // - **Monthly**: monthly
     shared_ptr<string> repeatType_ {};
     // The source address in the virtual private cloud (VPC) firewall access control policy.
     // 
@@ -388,19 +388,19 @@ namespace Models
     // 
     // - **net**: source CIDR block
     // 
-    // - **group**: source address book.
+    // - **group**: source address book
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
     // The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour and must be at least 30 minutes earlier than the end time.
-    // > If RepeatType is set to Permanent, StartTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must be specified.
+    // > When RepeatType is set to Permanent, StartTime is empty. When RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must have a value.
     shared_ptr<int64_t> startTime_ {};
     // The ID of the virtual private cloud (VPC) firewall access control policy group.
-    // - If the VPC firewall protects traffic between two VPCs connected through CEN, the value of this parameter is the CEN instance ID.
+    // - If the VPC firewall protects traffic between two VPCs connected through a CEN instance, the value of this parameter is the CEN instance ID.
     //   
-    // - If the VPC firewall protects traffic between two VPCs connected through Express Connect, the value of this parameter is the VPC firewall instance ID.
+    // - If the VPC firewall protects traffic between two VPCs connected through an Express Connect circuit, the value of this parameter is the VPC firewall instance ID.
     // 
-    // > You can invoke the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to obtain the ID.
+    // > You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};

@@ -102,15 +102,15 @@ namespace Models
 
 
     protected:
-      // The information about the task step.
+      // The task information.
       shared_ptr<string> stepInfo_ {};
-      // Creating the Cloud Firewall.
+      // The name of the Cloud Firewall security step.
       shared_ptr<string> stepName_ {};
       // The progress of the task step.
       shared_ptr<string> stepProgress_ {};
       // The status of the task step. Valid values:
       // 
-      // - **init**
+      // - **init** 
       // 
       // - **running**
       // 
@@ -191,17 +191,17 @@ namespace Models
   protected:
     // Indicates whether the task exists.
     shared_ptr<bool> isFound_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The timestamp when the task was completed.
+    // The time when the task was completed.
     shared_ptr<string> taskFinishTimestamp_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<int64_t> taskId_ {};
-    // The name of the task.
+    // The task name.
     shared_ptr<string> taskName_ {};
-    // The timestamp when the task started.
+    // The time when the task was created.
     shared_ptr<string> taskStartTimestamp_ {};
-    // The status of the task. Valid values:
+    // The task status. Valid values:
     // 
     // - **init**
     // 
@@ -213,9 +213,9 @@ namespace Models
     // 
     // - **rollbackDone**
     shared_ptr<string> taskStatus_ {};
-    // The steps of the task.
+    // The task steps.
     shared_ptr<vector<DescribeFirewallTaskResponseBody::TaskSteps>> taskSteps_ {};
-    // The waiting time in minutes.
+    // The waiting time, in minutes.
     shared_ptr<string> taskWaitingTime_ {};
   };
 

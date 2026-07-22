@@ -66,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The ID of the VPC instance.
+    // The VPC-connected instance ID. You must specify at least one of TaskId and ChildInstanceId. If neither is specified, the API returns ErrorParameters(400).
     shared_ptr<string> childInstanceId_ {};
-    // The language of the response. Valid values:
+    // The language type. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The task ID.
+    // The task ID. You must specify at least one of TaskId and ChildInstanceId. If neither is specified, the API returns ErrorParameters(400).
     shared_ptr<string> taskId_ {};
     // The type of the task. Valid values:
     // 
-    // - **NAT**: NAT border task
+    // - **NAT**: NAT firewall task
     // 
-    // - **VPC**: VPC border task
+    // - **VPC**: VPC firewall task
     shared_ptr<string> taskType_ {};
   };
 

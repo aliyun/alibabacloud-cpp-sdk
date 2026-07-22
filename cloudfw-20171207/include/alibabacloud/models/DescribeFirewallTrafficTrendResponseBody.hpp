@@ -171,9 +171,9 @@ namespace Models
       shared_ptr<int64_t> internetBps_ {};
       // The NAT firewall traffic.
       shared_ptr<int64_t> natBps_ {};
-      // The time when the traffic occurred. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the traffic occurred. The value is a UNIX timestamp in seconds.
       // 
-      // If the data at this point in time has not been processed, the values of all other fields are -1.
+      // If the data at this point in time has not been processed, the values of other fields are -1.
       shared_ptr<int64_t> time_ {};
       // The total firewall traffic.
       shared_ptr<int64_t> totalBps_ {};
@@ -218,7 +218,7 @@ namespace Models
   protected:
     // The returned data list.
     shared_ptr<vector<DescribeFirewallTrafficTrendResponseBody::DataList>> dataList_ {};
-    // The timestamp when the peak total traffic occurred. The value is a UNIX timestamp. Unit: seconds.
+    // The timestamp when the peak total traffic occurred. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> maxBandwidthTime_ {};
     // The traffic distribution at the time of peak total traffic.
     shared_ptr<DescribeFirewallTrafficTrendResponseBody::MaxBandwidthTimeBps> maxBandwidthTimeBps_ {};

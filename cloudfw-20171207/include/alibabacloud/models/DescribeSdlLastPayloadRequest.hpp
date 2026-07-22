@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
-    // The destination IP address.
+    // The destination IP address. This is an optional parameter used to filter by destination IP address.
     shared_ptr<string> dstIp_ {};
-    // The end of the time range to query. Specify the value as a UNIX timestamp in seconds.
+    // The end time of the query (UNIX timestamp in seconds). This parameter is required. If this parameter is not specified, the API returns an error.
     shared_ptr<int64_t> endTime_ {};
     // The language of the response. Valid values:
     // 
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The type of sensitive credential.
+    // The type of sensitive credential. This parameter is required. If this parameter is not specified, the API returns an error.
     shared_ptr<string> sensitiveCategory_ {};
-    // The source IP address.
+    // The source IP address. This is an optional parameter used to filter by source IP address.
     shared_ptr<string> srcIp_ {};
-    // The beginning of the time range to query. Specify the value as a UNIX timestamp in seconds.
+    // The start time of the query (UNIX timestamp in seconds). This parameter is required. If this parameter is not specified, the API returns an error.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -190,21 +190,21 @@ namespace Models
       shared_ptr<float> dailyOverflowTraffic_ {};
       // The default bandwidth of the edition. Unit: Mbit/s.
       shared_ptr<int64_t> defaultBandwidth_ {};
-      // The elastic bandwidth. Unit: Mbit/s.
+      // The elastic bandwidth value. Unit: Mbit/s.
       shared_ptr<int64_t> elasticBandwidth_ {};
-      // The end time of the day. The value is a UNIX timestamp in seconds.
+      // The end time of the day. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
       // The extended bandwidth. Unit: Mbit/s.
       shared_ptr<int64_t> extensionBandwidth_ {};
       // The Internet traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> internetTrafficBandwidth_ {};
-      // The monthly free traffic quota for sensitive data detection. Unit: GB.
+      // The monthly free traffic for sensitive data detection. Unit: GB.
       shared_ptr<float> monthlyRemainingFreeTraffic_ {};
       // The NAT traffic bandwidth. Unit: Gbit/s.
       shared_ptr<float> natTrafficBandwidth_ {};
-      // The timestamp when the maximum combined bandwidth (Internet + VPC + NAT) occurred on that day.
+      // The timestamp when the maximum bandwidth (Internet + VPC + NAT) of the day occurred.
       shared_ptr<int64_t> overflowTime_ {};
-      // The start time of the day. The value is a UNIX timestamp in seconds.
+      // The start time of the day. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
       // The temporary upgrade bandwidth. Unit: Mbit/s.
       shared_ptr<int64_t> temporaryBandwidth_ {};
@@ -238,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The bill list, aggregated by day.
+    // The bill list, with each entry representing a day.
     shared_ptr<vector<DescribePrepayBillTotalResponseBody::BillList>> billList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

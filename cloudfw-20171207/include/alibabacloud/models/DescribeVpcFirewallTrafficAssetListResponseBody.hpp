@@ -110,13 +110,13 @@ namespace Models
     protected:
       // The IP address of the asset.
       shared_ptr<string> IP_ {};
-      // The number of intrusion prevention system (IPS) hits.
+      // The number of IPS hits.
       shared_ptr<int64_t> ipsHitCnt_ {};
       // The number of sessions.
       shared_ptr<int64_t> sessionCount_ {};
-      // The total traffic in bytes.
+      // The total traffic. Unit: bytes.
       shared_ptr<int64_t> totalBytes_ {};
-      // The VPC where the asset resides.
+      // The ID of the VPC where the asset resides.
       shared_ptr<string> vpcId_ {};
       // The name of the VPC where the asset resides.
       shared_ptr<string> vpcName_ {};
@@ -148,9 +148,9 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The data list.
     shared_ptr<vector<DescribeVpcFirewallTrafficAssetListResponseBody::DataList>> dataList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

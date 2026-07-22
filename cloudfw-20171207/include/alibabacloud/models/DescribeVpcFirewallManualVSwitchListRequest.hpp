@@ -75,9 +75,11 @@ namespace Models
 
 
   protected:
-    // The language of request and response messages.
+    // The language of the request and response. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The UID of the member account.
+    // The UID of the member accounts.
     shared_ptr<string> memberUid_ {};
     // This parameter is required.
     shared_ptr<int64_t> ownerId_ {};
@@ -85,7 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The ID of the VPC instance.
+    // The VPC-connected instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

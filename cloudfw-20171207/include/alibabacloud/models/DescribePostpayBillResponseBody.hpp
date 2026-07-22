@@ -183,26 +183,26 @@ namespace Models
 
 
     protected:
-      // The end time, expressed as a UNIX timestamp in seconds. The value is on the hour or on the day.
+      // The end time, expressed as a second-level UNIX timestamp. The value is on the hour or on the day.
       shared_ptr<int64_t> endTime_ {};
       // The number of Internet instances.
       shared_ptr<int64_t> internetInstanceCnt_ {};
       // The Internet traffic, in GB.
       shared_ptr<float> internetTraffic_ {};
-      // Indicates whether a deduction is applied. A value of 0 indicates that no deduction is applied. Any value greater than 0 indicates that a deduction is applied. If a deduction is applied, the bill is not generated.
-      // > This field is meaningful only when you query data at the hourly level.
+      // Indicates whether the bill is deducted. A value of 0 indicates that the bill is not deducted. Any value greater than 0 indicates that the bill is deducted. If the bill is deducted, it is not charged.
+      // > This field is meaningful only when you query hourly data.
       shared_ptr<int32_t> isDerated_ {};
-      // The log service usage duration, in TB × hours.
+      // The log service usage duration, in T × h.
       shared_ptr<int64_t> logStorage_ {};
       // The number of NAT instances.
       shared_ptr<int64_t> natInstanceCnt_ {};
       // The NAT traffic, in GB.
       shared_ptr<float> natTraffic_ {};
-      // The sensitive data leak detection usage duration, in hours.
+      // The data leak detection usage duration, in hours.
       shared_ptr<int64_t> sdl_ {};
       // The sensitive data detection traffic, in GB.
       shared_ptr<float> sdlTraffic_ {};
-      // The start time, expressed as a UNIX timestamp in seconds. The value is on the hour or on the day.
+      // The start time, expressed as a second-level UNIX timestamp. The value is on the hour or on the day.
       shared_ptr<int64_t> startTime_ {};
       // The threat intelligence usage duration, in hours.
       shared_ptr<int64_t> threatIntelligence_ {};

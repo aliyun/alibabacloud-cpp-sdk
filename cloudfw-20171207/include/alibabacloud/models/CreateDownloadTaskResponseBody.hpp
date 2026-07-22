@@ -70,17 +70,19 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The task status. Valid values:
     // 
-    // - finish: The task is complete. You can query the task to obtain the download URL of the task file.
+    // - finish: The task is completed. You can call a task query operation to obtain the download URL of the task file.
     // 
     // - start: The task has started.
     // 
     // - error: The task failed.
     // 
     // - expire: The task has expired. The task file is no longer valid and cannot be downloaded.
+    // 
+    // This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned. Use a task query operation to obtain the real-time status.
     shared_ptr<string> status_ {};
-    // The task ID, which uniquely identifies the task.
+    // The task ID, which uniquely identifies the task. This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned. Use a task query operation to obtain the task status and download URL.
     shared_ptr<int64_t> taskId_ {};
-    // The name of the file download task.
+    // The name of the file download task. This field is returned only under specific conditions, such as when the task is completed synchronously. In regular responses, only RequestId is returned.
     shared_ptr<string> taskName_ {};
   };
 

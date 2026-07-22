@@ -94,27 +94,27 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The Cloud Enterprise Network (CEN) instance ID.
     shared_ptr<string> cenId_ {};
-    // The language of the response. Valid values:
+    // The language type. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The UID of the member account in Cloud Firewall.
+    // The UID of the Cloud Firewall member accounts.
     shared_ptr<string> memberUid_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **cen_firewall**: a firewall for a CEN instance (Basic Edition)
+    // - **cen_firewall**: CEN basic edition firewall
     // 
-    // - **cen_tr_firewall**: a firewall for a CEN instance with a transit router
+    // - **cen_tr_firewall**: CEN-TR firewall
     shared_ptr<string> networkInstanceType_ {};
-    // The region ID.
+    // The region ID. This parameter is required. If it is not specified, ErrorParameters is returned.
     shared_ptr<string> region_ {};
-    // The ID of the transit router instance.
+    // The transit router instance ID. You must specify at least one of VpcId and TransitRouterId. Specify VpcId when querying a basic edition firewall, or specify TransitRouterId when querying a transit router (TR) scenario. If neither is specified, ErrorParameters is returned.
     shared_ptr<string> transitRouterId_ {};
-    // The ID of the VPC.
+    // The VPC-connected instance ID. You must specify at least one of VpcId and TransitRouterId. Specify VpcId when querying a basic edition firewall, or specify TransitRouterId when querying a forward routing (TR) scenario. If neither is specified, ErrorParameters is returned.
     shared_ptr<string> vpcId_ {};
   };
 

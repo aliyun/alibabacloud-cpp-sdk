@@ -218,15 +218,15 @@ namespace Models
 
   protected:
     // The security protection switch. Valid values:
-    // - **open**: enabled
-    // - **close**: disabled.
+    // - **open**: Enabled.
+    // - **close**: Disabled.
     shared_ptr<string> firewallSwitch_ {};
     // The zone of the firewall vSwitch.
     shared_ptr<string> fwVswitchZoneId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The ID of the NAT gateway.
     // 
@@ -256,8 +256,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
     // Specifies whether to use the automatic vSwitch mode. Valid values:
-    // - **true**: automatic mode
-    // - **false**: manual mode.
+    // - **true**: Automatic mode.
+    // - **false**: Manual mode.
+    // > The default value of VswitchAuto is true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
     shared_ptr<string> vswitchAuto_ {};
     // The CIDR block of the vSwitch. This parameter is required when the vSwitch is in automatic mode.
     shared_ptr<string> vswitchCidr_ {};

@@ -144,19 +144,19 @@ namespace Models
 
 
         protected:
-          // The information about the failed precheck.
+          // The information about the precheck failure.
           shared_ptr<string> info_ {};
-          // The name of the precheck item.
+          // The precheck item name.
           shared_ptr<string> name_ {};
-          // The status of the precheck item. Valid values:
+          // The status of each precheck item. Valid values:
           // 
           // - **running**: The precheck is in progress.
           // 
-          // - **passed**: The precheck is passed.
+          // - **passed**: The precheck passed.
           // 
           // - **failed**: The precheck failed.
           shared_ptr<string> status_ {};
-          // The suggested solution.
+          // The suggested action.
           shared_ptr<string> suggestion_ {};
         };
 
@@ -193,13 +193,13 @@ namespace Models
 
 
       protected:
-        // The number of rules that failed the precheck.
+        // The number of precheck rules that failed.
         shared_ptr<int32_t> failedCount_ {};
-        // The name of the precheck instance.
+        // The precheck instance name.
         shared_ptr<string> name_ {};
-        // The execution status of each precheck item.
+        // The execution details of each precheck item.
         shared_ptr<vector<PrecheckEntityGroups::PrecheckEntities>> precheckEntities_ {};
-        // The status of the precheck group. Valid values:
+        // The precheck status. Valid values:
         // 
         // - **running**
         // 
@@ -256,21 +256,21 @@ namespace Models
 
 
     protected:
-      // The ID of the firewall instance.
+      // The firewall instance ID.
       shared_ptr<string> firewallId_ {};
-      // The ID of the network instance.
+      // The network instance ID.
       shared_ptr<string> networkInstanceId_ {};
-      // The list of precheck item groups.
+      // The list of precheck entity groups.
       shared_ptr<vector<PrecheckDetail::PrecheckEntityGroups>> precheckEntityGroups_ {};
-      // The status of the precheck. Valid values:
+      // The precheck status. Valid values:
       // 
       // - **running**: The precheck is in progress.
       // 
-      // - **passed**: The precheck is passed.
+      // - **passed**: The precheck passed.
       // 
       // - **failed**: The precheck failed.
       shared_ptr<string> precheckStatus_ {};
-      // The timestamp of the precheck.
+      // The precheck timestamp.
       shared_ptr<string> precheckTimestamp_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
@@ -304,9 +304,9 @@ namespace Models
   protected:
     // Indicates whether a task exists.
     shared_ptr<bool> isFound_ {};
-    // The details of the precheck.
+    // The precheck details.
     shared_ptr<DescribeVpcFirewallPrecheckDetailResponseBody::PrecheckDetail> precheckDetail_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
