@@ -13,6 +13,7 @@ namespace Models
   class OperateRetryJobExecutionShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const OperateRetryJobExecutionShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(JobExecutionId, jobExecutionId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TriggerChild, triggerChild_);
     };
     friend void from_json(const Darabonba::Json& j, OperateRetryJobExecutionShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(JobExecutionId, jobExecutionId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appName_ == nullptr
-        && this->clusterId_ == nullptr && this->jobExecutionId_ == nullptr && this->taskListShrink_ == nullptr && this->triggerChild_ == nullptr; };
+    virtual bool empty() const override { return this->appGroupId_ == nullptr
+        && this->appName_ == nullptr && this->clusterId_ == nullptr && this->jobExecutionId_ == nullptr && this->taskListShrink_ == nullptr && this->triggerChild_ == nullptr; };
+    // appGroupId Field Functions 
+    bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+    void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+    inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+    inline OperateRetryJobExecutionShrinkRequest& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
+
+
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -75,23 +84,23 @@ namespace Models
 
 
   protected:
-    // The Application Name.
+    shared_ptr<int64_t> appGroupId_ {};
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The Cluster ID.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The Job Execution ID.
+    // The job execution ID.
     // 
     // This parameter is required.
     shared_ptr<string> jobExecutionId_ {};
-    // A list of Sub-task execution IDs for a Broadcast Sharding Job.
-    // 
-    // > To retry a specific Sub-task of a Broadcast Sharding Job, set this parameter to the execution ID of that Sub-task.
+    // The list of subtask execution IDs (for broadcast jobs).
+    // >To rerun a subtask of a broadcast job, set this field to the execution ID of the corresponding subtask.
     shared_ptr<string> taskListShrink_ {};
-    // Specifies whether to trigger downstream jobs.
+    // Specifies whether to trigger downstream nodes.
     shared_ptr<bool> triggerChild_ {};
   };
 

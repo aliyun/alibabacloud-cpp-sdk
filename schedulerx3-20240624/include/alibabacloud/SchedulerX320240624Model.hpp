@@ -111,6 +111,9 @@
 #include <alibabacloud/models/GetWorkflowExecutionDAGRequest.hpp>
 #include <alibabacloud/models/GetWorkflowExecutionDAGResponseBody.hpp>
 #include <alibabacloud/models/GetWorkflowExecutionDAGResponse.hpp>
+#include <alibabacloud/models/ImportAgentJobsRequest.hpp>
+#include <alibabacloud/models/ImportAgentJobsResponseBody.hpp>
+#include <alibabacloud/models/ImportAgentJobsResponse.hpp>
 #include <alibabacloud/models/ImportCalendarRequest.hpp>
 #include <alibabacloud/models/ImportCalendarResponseBody.hpp>
 #include <alibabacloud/models/ImportCalendarResponse.hpp>

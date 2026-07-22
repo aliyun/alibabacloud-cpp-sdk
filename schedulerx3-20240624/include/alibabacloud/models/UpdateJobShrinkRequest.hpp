@@ -13,6 +13,7 @@ namespace Models
   class UpdateJobShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateJobShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AttemptInterval, attemptInterval_);
       DARABONBA_PTR_TO_JSON(Calendar, calendar_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(XAttrs, XAttrs_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateJobShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AttemptInterval, attemptInterval_);
       DARABONBA_PTR_FROM_JSON(Calendar, calendar_);
@@ -79,12 +81,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appName_ == nullptr
-        && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->clusterId_ == nullptr && this->dependentStrategy_ == nullptr
-        && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->maxAttempt_ == nullptr
-        && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfigShrink_ == nullptr && this->noticeContactsShrink_ == nullptr && this->parameters_ == nullptr
-        && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTime_ == nullptr && this->startTimeType_ == nullptr
-        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr && this->weight_ == nullptr && this->XAttrs_ == nullptr; };
+    virtual bool empty() const override { return this->appGroupId_ == nullptr
+        && this->appName_ == nullptr && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->clusterId_ == nullptr
+        && this->dependentStrategy_ == nullptr && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr
+        && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfigShrink_ == nullptr && this->noticeContactsShrink_ == nullptr
+        && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTime_ == nullptr
+        && this->startTimeType_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr && this->weight_ == nullptr
+        && this->XAttrs_ == nullptr; };
+    // appGroupId Field Functions 
+    bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+    void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+    inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+    inline UpdateJobShrinkRequest& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
+
+
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -268,6 +278,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
     // This parameter is required.
@@ -299,8 +310,8 @@ namespace Models
     shared_ptr<int64_t> jobId_ {};
     // The maximum number of retry attempts upon node failure.
     shared_ptr<int32_t> maxAttempt_ {};
-    // The maximum number of concurrent instances of the node.
-    // >The maximum number of instances that can run at the same time for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
+    // The maximum number of concurrent instances for the node.
+    // >The maximum number of instances that can run simultaneously for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
     shared_ptr<int32_t> maxConcurrency_ {};
     // The node name.
     shared_ptr<string> name_ {};
@@ -310,14 +321,14 @@ namespace Models
     shared_ptr<string> noticeContactsShrink_ {};
     // The node parameters.
     shared_ptr<string> parameters_ {};
-    // The execution priority of the node. Valid values:
+    // The node execution priority. Valid values:
     // 
     // - 1: low
     // - 5: medium
     // - 10: high
     // - 15: very high
     shared_ptr<int32_t> priority_ {};
-    // The routing policy. Valid values:
+    // The routing strategy. Valid values:
     // 
     // - 1: round robin
     // - 2: random
@@ -328,7 +339,7 @@ namespace Models
     // - 7: consistent hashing
     // - 8: shard broadcast
     shared_ptr<int32_t> routeStrategy_ {};
-    // The script for non-BEAN nodes. Use this field to configure the script.
+    // The script content for non-BEAN nodes. Use this field to configure the script.
     shared_ptr<string> script_ {};
     // The scheduling start time.
     shared_ptr<int64_t> startTime_ {};
@@ -340,7 +351,7 @@ namespace Models
     // - cron: Specify a standard cron expression. Online verification is supported.
     // - api: No value is required.
     // - fixed_rate: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-    // - one_time: Specify a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+    // - one_time: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
     // The time type. Valid values:
     // 
@@ -351,7 +362,7 @@ namespace Models
     // - 100: api
     shared_ptr<int32_t> timeType_ {};
     // The time zone.
-    // > By default, the time zone of the SchedulerX server is used.
+    // > The default value is the time zone of the SchedulerX server.
     shared_ptr<string> timezone_ {};
     // The node weight.
     shared_ptr<int32_t> weight_ {};

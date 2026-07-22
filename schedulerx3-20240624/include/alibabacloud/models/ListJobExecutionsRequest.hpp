@@ -146,39 +146,26 @@ namespace Models
     shared_ptr<string> jobName_ {};
     // The current page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The start time.
     shared_ptr<string> startTime_ {};
     // The job execution status. Valid values:
-    // 
     // - 0: **UNKNOWN**.
-    // 
     // - 1: **WAITING**.
-    // 
     // - 2: **READY**.
-    // 
     // - 3: **RUNNING**.
-    // 
     // - 4: **SUCCESS**.
-    // 
     // - 5: **FAILED**.
-    // 
     // - 6: **PAUSED**.
-    // 
     // - 7: **SUBMITTED**.
-    // 
     // - 8: **REJECTED**.
-    // 
     // - 9: **ACCEPTED**.
-    // 
     // - 10: **PARTIAL_FAILED**.
-    // 
     // - 11: **SKIPPED**.
-    // 
     // - 12: **REMOVED**.
     shared_ptr<int32_t> status_ {};
-    // The workflow execution ID.
+    // The workflow instance ID.
     shared_ptr<int64_t> workflowExecutionId_ {};
   };
 

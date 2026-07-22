@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const OperateDesignateExecutorsShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AddressList, addressListShrink_);
+      DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(DesignateType, designateType_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, OperateDesignateExecutorsShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddressList, addressListShrink_);
+      DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(DesignateType, designateType_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressListShrink_ == nullptr
-        && this->appName_ == nullptr && this->clusterId_ == nullptr && this->designateType_ == nullptr && this->jobId_ == nullptr && this->transferable_ == nullptr; };
+        && this->appGroupId_ == nullptr && this->appName_ == nullptr && this->clusterId_ == nullptr && this->designateType_ == nullptr && this->jobId_ == nullptr
+        && this->transferable_ == nullptr; };
     // addressListShrink Field Functions 
     bool hasAddressListShrink() const { return this->addressListShrink_ != nullptr;};
     void deleteAddressListShrink() { this->addressListShrink_ = nullptr;};
     inline string getAddressListShrink() const { DARABONBA_PTR_GET_DEFAULT(addressListShrink_, "") };
     inline OperateDesignateExecutorsShrinkRequest& setAddressListShrink(string addressListShrink) { DARABONBA_PTR_SET_VALUE(addressListShrink_, addressListShrink) };
+
+
+    // appGroupId Field Functions 
+    bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+    void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+    inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+    inline OperateDesignateExecutorsShrinkRequest& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
 
 
     // appName Field Functions 
@@ -84,10 +94,11 @@ namespace Models
 
 
   protected:
-    // A list of machine addresses to designate.
+    // The address list.
     // 
     // This parameter is required.
     shared_ptr<string> addressListShrink_ {};
+    shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
     // This parameter is required.
@@ -96,15 +107,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The designation type. Valid values:
-    // 
-    // - **1**: By worker.
-    // 
-    // - **2**: By label.
+    // The type of the designated machine. Valid values:
+    // - **1**: designated worker.
+    // - **2**: designated label.
     // 
     // This parameter is required.
     shared_ptr<int32_t> designateType_ {};
-    // The job ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};

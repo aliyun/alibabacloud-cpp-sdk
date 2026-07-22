@@ -122,7 +122,7 @@ namespace Models
 
 
     protected:
-      // The Notification Recipient type. Valid values:
+      // The object type of the notification recipient. Valid values:
       // 
       // - 1: alert contact
       // 
@@ -245,42 +245,42 @@ namespace Models
     protected:
       shared_ptr<int32_t> endEarly_ {};
       shared_ptr<bool> endEarlyEnable_ {};
-      // Specifies whether to enable failure alerting. Valid values:
+      // Specifies whether to enable the failure alert. Valid values:
       // 
-      // - **true**: Failure alerting is enabled.
-      // - **false**: Failure alerting is disabled.
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> failEnable_ {};
       // The number of consecutive failures.
       // > An alert is sent only when the number of consecutive failures exceeds the configured value.
       shared_ptr<int32_t> failLimitTimes_ {};
-      // Specifies whether to enable alerting when no workers are available. Valid values:
-      // - **true**: Alerting for no available workers is enabled.
-      // - **false**: Alerting for no available workers is disabled.
+      // Specifies whether to enable the no-available-machine alert. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> missWorkerEnable_ {};
       // The notification channel. Valid values:
-      // - sms: text message
+      // - sms: SMS
       // - phone: phone call
       // - mail: email
       // - webhook: webhook
       // > Separate multiple notification channels with commas.
       shared_ptr<string> sendChannel_ {};
-      // Specifies whether to enable success notification. Valid values:
+      // Specifies whether to enable the success notification. Valid values:
       // 
       // - true: Enabled.
       // - false: Disabled.
       shared_ptr<bool> successNotice_ {};
       // The timeout period. Unit: seconds.
       shared_ptr<int64_t> timeout_ {};
-      // Specifies whether to enable timeout alerting. Valid values:
+      // Specifies whether to enable the timeout alert. Valid values:
       // 
       // - **true**: Enabled.
       // 
       // - **false**: Disabled.
       shared_ptr<bool> timeoutEnable_ {};
-      // Specifies whether to enable timeout termination. Valid values:
+      // Specifies whether to enable the timeout termination feature. Valid values:
       // 
-      // - **true**: Timeout termination is enabled.
-      // - **false**: Timeout termination is disabled.
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> timeoutKillEnable_ {};
     };
 
@@ -564,9 +564,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The retry interval upon failure. Unit: seconds. Default value: 30.
+    // The retry interval. Unit: seconds. Default value: 30.
     shared_ptr<int32_t> attemptInterval_ {};
-    // The custom calendar. This parameter is available only for the cron time type.
+    // The custom calendar. This parameter is optional for the cron time type.
     shared_ptr<string> calendar_ {};
     // The child node IDs. Separate multiple IDs with commas.
     shared_ptr<string> childJobId_ {};
@@ -580,12 +580,12 @@ namespace Models
     shared_ptr<int32_t> dependentStrategy_ {};
     // The node description.
     shared_ptr<string> description_ {};
-    // The client-side blocking strategy. Valid values:
+    // The client blocking strategy. Valid values:
     // - 1: serial execution on a single machine
     // - 2: ignore subsequent scheduling
     // - 3: override previous scheduling
     shared_ptr<int32_t> executorBlockStrategy_ {};
-    // The JobHandler name.
+    // The jobhandler name.
     shared_ptr<string> jobHandler_ {};
     // The node type.
     // 
@@ -627,16 +627,16 @@ namespace Models
     shared_ptr<int64_t> startTime_ {};
     // The start time type.
     shared_ptr<int32_t> startTimeType_ {};
-    // The node status. Default value: enabled. Valid values:
+    // The node status. Default value: 1 (enabled). Valid values:
     // - 0: disabled
     // - 1: enabled
     shared_ptr<int32_t> status_ {};
     // The time expression. Set this parameter based on the selected time type.
-    // - **none**: no value required.
-    // - **cron**: a standard cron expression. Online verification is supported.
-    // - **api**: no value required.
-    // - **fixed_rate**: a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
-    // - **one_time**: a scheduling time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+    // - **none**: No value is required.
+    // - **cron**: Specify a standard cron expression. Online verification is supported.
+    // - **api**: No value is required.
+    // - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 200 indicates that the node is triggered every 200 seconds.
+    // - **one_time**: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
     // The time type. Valid values:
     // - -1: none<br/>
@@ -651,7 +651,7 @@ namespace Models
     shared_ptr<string> timezone_ {};
     // The node weight.
     shared_ptr<int32_t> weight_ {};
-    // The extended attributes. This parameter is required for K8s node types.
+    // The configuration for K8s node types. Set this parameter if the node type is K8s.
     // Job node: {"resource":"job"}
     // Shell node: {"image":"busybox","resource":"shell"}
     shared_ptr<string> XAttrs_ {};

@@ -13,6 +13,7 @@ namespace Models
   class OperateExecuteJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const OperateExecuteJobRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(InstanceParameters, instanceParameters_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Worker, worker_);
     };
     friend void from_json(const Darabonba::Json& j, OperateExecuteJobRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(InstanceParameters, instanceParameters_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appName_ == nullptr
-        && this->clusterId_ == nullptr && this->instanceParameters_ == nullptr && this->jobId_ == nullptr && this->label_ == nullptr && this->worker_ == nullptr; };
+    virtual bool empty() const override { return this->appGroupId_ == nullptr
+        && this->appName_ == nullptr && this->clusterId_ == nullptr && this->instanceParameters_ == nullptr && this->jobId_ == nullptr && this->label_ == nullptr
+        && this->worker_ == nullptr; };
+    // appGroupId Field Functions 
+    bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+    void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+    inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+    inline OperateExecuteJobRequest& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
+
+
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
     // This parameter is required.
@@ -92,15 +103,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The custom parameters for the job instance.
+    // The instance parameters.
     shared_ptr<string> instanceParameters_ {};
-    // The job ID.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The label used to select a specific worker.
+    // The label of the specified machine.
     shared_ptr<string> label_ {};
-    // The address (`workerAddr`) of a specific worker.
+    // The workerAddr of the specified machine.
     shared_ptr<string> worker_ {};
   };
 

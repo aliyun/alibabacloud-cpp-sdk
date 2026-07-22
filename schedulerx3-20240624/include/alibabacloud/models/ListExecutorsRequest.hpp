@@ -13,12 +13,14 @@ namespace Models
   class ListExecutorsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListExecutorsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(Label, label_);
     };
     friend void from_json(const Darabonba::Json& j, ListExecutorsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appName_ == nullptr
-        && this->clusterId_ == nullptr && this->jobId_ == nullptr && this->label_ == nullptr; };
+    virtual bool empty() const override { return this->appGroupId_ == nullptr
+        && this->appName_ == nullptr && this->clusterId_ == nullptr && this->jobId_ == nullptr && this->label_ == nullptr; };
+    // appGroupId Field Functions 
+    bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+    void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+    inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+    inline ListExecutorsRequest& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
+
+
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
     // This parameter is required.

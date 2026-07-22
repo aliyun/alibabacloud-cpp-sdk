@@ -13,6 +13,7 @@ namespace Models
   class OperateRerunJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const OperateRerunJobRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(DataTime, dataTime_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartDate, startDate_);
     };
     friend void from_json(const Darabonba::Json& j, OperateRerunJobRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(DataTime, dataTime_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appName_ == nullptr
-        && this->clusterId_ == nullptr && this->dataTime_ == nullptr && this->endDate_ == nullptr && this->jobId_ == nullptr && this->startDate_ == nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->appName_ == nullptr && this->clusterId_ == nullptr && this->dataTime_ == nullptr && this->endDate_ == nullptr && this->jobId_ == nullptr
+        && this->startDate_ == nullptr; };
+    // appId Field Functions 
+    bool hasAppId() const { return this->appId_ != nullptr;};
+    void deleteAppId() { this->appId_ = nullptr;};
+    inline int64_t getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0L) };
+    inline OperateRerunJobRequest& setAppId(int64_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -84,27 +94,28 @@ namespace Models
 
 
   protected:
-    // The name of the application.
+    shared_ptr<int64_t> appId_ {};
+    // The application name.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The unique identifier of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The specific time of day for which to rerun the data. The format is `HH:mm:ss`.
+    // The data timestamp.
     // 
     // This parameter is required.
     shared_ptr<string> dataTime_ {};
-    // The end of the time range to rerun, specified as a Unix timestamp in milliseconds.
+    // The end time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
-    // The unique identifier of the job.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The start of the time range to rerun, specified as a Unix timestamp in milliseconds.
+    // The start time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};

@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::SchedulerX320240624::Models;
@@ -1066,7 +1067,7 @@ DeleteExecutorGroupResponse Client::deleteExecutorGroup(const DeleteExecutorGrou
 }
 
 /**
- * @summary Deletes multiple jobs in a batch.
+ * @summary Deletes nodes in batches.
  *
  * @param tmpReq DeleteJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1081,6 +1082,10 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
   }
 
   json body = {};
+  if (!!request.hasAppGroupId()) {
+    body["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     body["AppName"] = request.getAppName();
   }
@@ -1111,7 +1116,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
 }
 
 /**
- * @summary Deletes multiple jobs in a batch.
+ * @summary Deletes nodes in batches.
  *
  * @param request DeleteJobsRequest
  * @return DeleteJobsResponse
@@ -1486,7 +1491,7 @@ GetClusterResponse Client::getCluster(const GetClusterRequest &request) {
 }
 
 /**
- * @summary Retrieves the designation information for a job.
+ * @summary Retrieves the information about a specified machine.
  *
  * @param request GetDesigateInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +1518,7 @@ GetDesigateInfoResponse Client::getDesigateInfoWithOptions(const GetDesigateInfo
 }
 
 /**
- * @summary Retrieves the designation information for a job.
+ * @summary Retrieves the information about a specified machine.
  *
  * @param request GetDesigateInfoRequest
  * @return GetDesigateInfoResponse
@@ -1634,12 +1639,12 @@ GetJobExecutionResponse Client::getJobExecution(const GetJobExecutionRequest &re
 }
 
 /**
- * @summary Gets the details of a sharding task execution.
+ * @summary Retrieves the execution details of a sharding task.
  *
- * @description # Add the enhancement plugin
- * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
- * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhanced plugin
+ * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
+ * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1666,12 +1671,12 @@ GetJobExecutionProgressResponse Client::getJobExecutionProgressWithOptions(const
 }
 
 /**
- * @summary Gets the details of a sharding task execution.
+ * @summary Retrieves the execution details of a sharding task.
  *
- * @description # Add the enhancement plugin
- * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
- * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
- * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+ * @description # Import the enhanced plugin
+ * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
+ * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+ * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
  *
  * @param request GetJobExecutionProgressRequest
  * @return GetJobExecutionProgressResponse
@@ -2099,6 +2104,115 @@ GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAGWithOptions(const
 GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAG(const GetWorkflowExecutionDAGRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorkflowExecutionDAGWithOptions(request, runtime);
+}
+
+/**
+ * @summary 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ *
+ * @description 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ *
+ * @param request ImportAgentJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportAgentJobsResponse
+ */
+FutureGenerator<ImportAgentJobsResponse> Client::importAgentJobsWithSSE(const ImportAgentJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentName()) {
+    body["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasMigrateStrategy()) {
+    body["MigrateStrategy"] = request.getMigrateStrategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImportAgentJobs"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ImportAgentJobsResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ *
+ * @description 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ *
+ * @param request ImportAgentJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportAgentJobsResponse
+ */
+ImportAgentJobsResponse Client::importAgentJobsWithOptions(const ImportAgentJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentName()) {
+    body["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasMigrateStrategy()) {
+    body["MigrateStrategy"] = request.getMigrateStrategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImportAgentJobs"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportAgentJobsResponse>();
+}
+
+/**
+ * @summary 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ *
+ * @description 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+ *
+ * @param request ImportAgentJobsRequest
+ * @return ImportAgentJobsResponse
+ */
+ImportAgentJobsResponse Client::importAgentJobs(const ImportAgentJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importAgentJobsWithOptions(request, runtime);
 }
 
 /**
@@ -2712,7 +2826,7 @@ ListExecutorGroupResponse Client::listExecutorGroup(const ListExecutorGroupReque
 }
 
 /**
- * @summary Lists executors.
+ * @summary Queries the list of executors.
  *
  * @param request ListExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2739,7 +2853,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 }
 
 /**
- * @summary Lists executors.
+ * @summary Queries the list of executors.
  *
  * @param request ListExecutorsRequest
  * @return ListExecutorsResponse
@@ -2750,7 +2864,7 @@ ListExecutorsResponse Client::listExecutors(const ListExecutorsRequest &request)
 }
 
 /**
- * @summary Returns a list of task instances.
+ * @summary Retrieves a list of job instances.
  *
  * @param request ListJobExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2821,7 +2935,7 @@ ListJobExecutionsResponse Client::listJobExecutionsWithOptions(const ListJobExec
 }
 
 /**
- * @summary Returns a list of task instances.
+ * @summary Retrieves a list of job instances.
  *
  * @param request ListJobExecutionsRequest
  * @return ListJobExecutionsResponse
@@ -2890,7 +3004,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
 }
 
 /**
- * @summary Returns a task list.
+ * @summary Retrieves a list of jobs.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2957,7 +3071,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Returns a task list.
+ * @summary Retrieves a list of jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -3548,7 +3662,7 @@ OperateConnectDatasourceResponse Client::operateConnectDatasource(const OperateC
 }
 
 /**
- * @summary Designates one or more executors for a job.
+ * @summary Specifies the executor.
  *
  * @param tmpReq OperateDesignateExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3565,6 +3679,10 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutorsWithOptions(c
   json body = {};
   if (!!request.hasAddressListShrink()) {
     body["AddressList"] = request.getAddressListShrink();
+  }
+
+  if (!!request.hasAppGroupId()) {
+    body["AppGroupId"] = request.getAppGroupId();
   }
 
   if (!!request.hasAppName()) {
@@ -3605,7 +3723,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutorsWithOptions(c
 }
 
 /**
- * @summary Designates one or more executors for a job.
+ * @summary Specifies the executor.
  *
  * @param request OperateDesignateExecutorsRequest
  * @return OperateDesignateExecutorsResponse
@@ -3616,7 +3734,7 @@ OperateDesignateExecutorsResponse Client::operateDesignateExecutors(const Operat
 }
 
 /**
- * @summary Disables multiple jobs.
+ * @summary Disables nodes in batches.
  *
  * @param tmpReq OperateDisableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3631,6 +3749,10 @@ OperateDisableJobsResponse Client::operateDisableJobsWithOptions(const OperateDi
   }
 
   json body = {};
+  if (!!request.hasAppGroupId()) {
+    body["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     body["AppName"] = request.getAppName();
   }
@@ -3661,7 +3783,7 @@ OperateDisableJobsResponse Client::operateDisableJobsWithOptions(const OperateDi
 }
 
 /**
- * @summary Disables multiple jobs.
+ * @summary Disables nodes in batches.
  *
  * @param request OperateDisableJobsRequest
  * @return OperateDisableJobsResponse
@@ -3732,7 +3854,7 @@ OperateDisableWorkflowsResponse Client::operateDisableWorkflows(const OperateDis
 }
 
 /**
- * @summary Enables multiple jobs in a batch.
+ * @summary Starts nodes in batches.
  *
  * @param tmpReq OperateEnableJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3747,6 +3869,10 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
   }
 
   json body = {};
+  if (!!request.hasAppGroupId()) {
+    body["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     body["AppName"] = request.getAppName();
   }
@@ -3777,7 +3903,7 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
 }
 
 /**
- * @summary Enables multiple jobs in a batch.
+ * @summary Starts nodes in batches.
  *
  * @param request OperateEnableJobsRequest
  * @return OperateEnableJobsResponse
@@ -3844,7 +3970,7 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflows(const OperateEnabl
 }
 
 /**
- * @summary Executes a job on demand.
+ * @summary Runs a node once.
  *
  * @param request OperateExecuteJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3853,6 +3979,10 @@ OperateEnableWorkflowsResponse Client::operateEnableWorkflows(const OperateEnabl
 OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExecuteJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAppGroupId()) {
+    body["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     body["AppName"] = request.getAppName();
   }
@@ -3895,7 +4025,7 @@ OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExec
 }
 
 /**
- * @summary Executes a job on demand.
+ * @summary Runs a node once.
  *
  * @param request OperateExecuteJobRequest
  * @return OperateExecuteJobResponse
@@ -4160,7 +4290,7 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 }
 
 /**
- * @summary Reruns historical data for a job within a specified time range.
+ * @summary Reruns historical data for a node.
  *
  * @param request OperateRerunJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4169,6 +4299,10 @@ OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowEx
 OperateRerunJobResponse Client::operateRerunJobWithOptions(const OperateRerunJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
   if (!!request.hasAppName()) {
     query["AppName"] = request.getAppName();
   }
@@ -4211,7 +4345,7 @@ OperateRerunJobResponse Client::operateRerunJobWithOptions(const OperateRerunJob
 }
 
 /**
- * @summary Reruns historical data for a job within a specified time range.
+ * @summary Reruns historical data for a node.
  *
  * @param request OperateRerunJobRequest
  * @return OperateRerunJobResponse
@@ -4222,7 +4356,7 @@ OperateRerunJobResponse Client::operateRerunJob(const OperateRerunJobRequest &re
 }
 
 /**
- * @summary Retries a failed Job Instance.
+ * @summary Reruns a failed job instance.
  *
  * @param tmpReq OperateRetryJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4237,6 +4371,10 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
   }
 
   json query = {};
+  if (!!request.hasAppGroupId()) {
+    query["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     query["AppName"] = request.getAppName();
   }
@@ -4275,7 +4413,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
 }
 
 /**
- * @summary Retries a failed Job Instance.
+ * @summary Reruns a failed job instance.
  *
  * @param request OperateRetryJobExecutionRequest
  * @return OperateRetryJobExecutionResponse
@@ -4390,7 +4528,7 @@ OperateSkipJobExecutionResponse Client::operateSkipJobExecution(const OperateSki
 }
 
 /**
- * @summary Stops a running Job Execution.
+ * @summary Stops a running task instance.
  *
  * @param tmpReq OperateStopJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4405,6 +4543,10 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
   }
 
   json query = {};
+  if (!!request.hasAppGroupId()) {
+    query["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     query["AppName"] = request.getAppName();
   }
@@ -4439,7 +4581,7 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
 }
 
 /**
- * @summary Stops a running Job Execution.
+ * @summary Stops a running task instance.
  *
  * @param request OperateStopJobExecutionRequest
  * @return OperateStopJobExecutionResponse
@@ -5199,6 +5341,10 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
   }
 
   json body = {};
+  if (!!request.hasAppGroupId()) {
+    body["AppGroupId"] = request.getAppGroupId();
+  }
+
   if (!!request.hasAppName()) {
     body["AppName"] = request.getAppName();
   }

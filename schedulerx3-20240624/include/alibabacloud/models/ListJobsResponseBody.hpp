@@ -66,6 +66,7 @@ namespace Models
       class Records : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Records& obj) { 
+          DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
           DARABONBA_PTR_TO_JSON(AppName, appName_);
           DARABONBA_PTR_TO_JSON(AttemptInterval, attemptInterval_);
           DARABONBA_PTR_TO_JSON(Calendar, calendar_);
@@ -104,6 +105,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Xattrs, xattrs_);
         };
         friend void from_json(const Darabonba::Json& j, Records& obj) { 
+          DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
           DARABONBA_PTR_FROM_JSON(AttemptInterval, attemptInterval_);
           DARABONBA_PTR_FROM_JSON(Calendar, calendar_);
@@ -152,14 +154,22 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->appName_ == nullptr
-        && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->cleanMode_ == nullptr && this->creator_ == nullptr
-        && this->currentExecuteStatus_ == nullptr && this->dataOffset_ == nullptr && this->dependentStrategy_ == nullptr && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr
-        && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->jobType_ == nullptr && this->lastExecuteEndTime_ == nullptr && this->lastExecuteStatus_ == nullptr
-        && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->nodeType_ == nullptr && this->noticeConfig_ == nullptr
-        && this->noticeContacts_ == nullptr && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr
-        && this->startTimeType_ == nullptr && this->status_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeZone_ == nullptr
-        && this->timezone_ == nullptr && this->updater_ == nullptr && this->weight_ == nullptr && this->workflowId_ == nullptr && this->xattrs_ == nullptr; };
+        virtual bool empty() const override { return this->appGroupId_ == nullptr
+        && this->appName_ == nullptr && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->cleanMode_ == nullptr
+        && this->creator_ == nullptr && this->currentExecuteStatus_ == nullptr && this->dataOffset_ == nullptr && this->dependentStrategy_ == nullptr && this->description_ == nullptr
+        && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->jobType_ == nullptr && this->lastExecuteEndTime_ == nullptr
+        && this->lastExecuteStatus_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->nodeType_ == nullptr
+        && this->noticeConfig_ == nullptr && this->noticeContacts_ == nullptr && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr
+        && this->script_ == nullptr && this->startTimeType_ == nullptr && this->status_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr
+        && this->timeZone_ == nullptr && this->timezone_ == nullptr && this->updater_ == nullptr && this->weight_ == nullptr && this->workflowId_ == nullptr
+        && this->xattrs_ == nullptr; };
+        // appGroupId Field Functions 
+        bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+        void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+        inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+        inline Records& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
+
+
         // appName Field Functions 
         bool hasAppName() const { return this->appName_ != nullptr;};
         void deleteAppName() { this->appName_ = nullptr;};
@@ -413,9 +423,10 @@ namespace Models
 
 
       protected:
+        shared_ptr<int64_t> appGroupId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The retry interval, in seconds.
+        // The retry interval upon a fault. Unit: seconds.
         shared_ptr<int32_t> attemptInterval_ {};
         // The calendar.
         shared_ptr<string> calendar_ {};
@@ -423,17 +434,13 @@ namespace Models
         shared_ptr<string> childJobId_ {};
         // The cleanup mode.
         shared_ptr<string> cleanMode_ {};
-        // The ID of the user who created the job.
+        // The creator.
         shared_ptr<string> creator_ {};
         // The current execution status. Valid values:
-        // 
-        // - `0`: Not Started
-        // 
-        // - `1`: Running
-        // 
-        // - `2`: Queued
-        // 
-        // - `3`: Waiting
+        // - 0: not started
+        // - 1: running
+        // - 2: queued
+        // - 3: waiting
         shared_ptr<int32_t> currentExecuteStatus_ {};
         // The data offset.
         shared_ptr<int32_t> dataOffset_ {};
@@ -441,99 +448,79 @@ namespace Models
         shared_ptr<int32_t> dependentStrategy_ {};
         // The job description.
         shared_ptr<string> description_ {};
-        // The executor blocking strategy. Valid values:
-        // 
-        // - `1`: Serial Execution
-        // 
-        // - `2`: Discard Later
-        // 
-        // - `3`: Cover Earlier
+        // The client-side blocking strategy. Valid values:
+        // - 1: serial execution on a single machine
+        // - 2: ignore subsequent triggers
+        // - 3: override previous triggers
         shared_ptr<string> executorBlockStrategy_ {};
-        // The name of the job handler.
+        // The jobhandler name.
         shared_ptr<string> jobHandler_ {};
         // The job ID.
         shared_ptr<int64_t> jobId_ {};
         // The job type.
         shared_ptr<string> jobType_ {};
-        // The time when the last execution ended.
+        // The end time of the last execution.
         shared_ptr<string> lastExecuteEndTime_ {};
-        // The status of the last execution. Valid values:
-        // 
-        // - `4`: Success
-        // 
-        // - `5`: Failure
+        // The result of the last execution. Valid values:
+        // - 4: succeeded
+        // - 5: failed
         shared_ptr<int32_t> lastExecuteStatus_ {};
-        // The maximum number of retries for a failed job.
+        // The maximum number of retry attempts upon failure. Set this value based on your business requirements.
         shared_ptr<int32_t> maxAttempt_ {};
-        // The maximum concurrency.
+        // The maximum number of concurrent instances.
         shared_ptr<int32_t> maxConcurrency_ {};
         // The job name.
         shared_ptr<string> name_ {};
         // The node type.
         shared_ptr<int32_t> nodeType_ {};
-        // The notification configuration.
+        // The notice configuration.
         shared_ptr<string> noticeConfig_ {};
         // The notification contacts.
         shared_ptr<string> noticeContacts_ {};
         // The job parameters.
         shared_ptr<string> parameters_ {};
-        // The job priority.
+        // The job execution priority.
         shared_ptr<int32_t> priority_ {};
         // The routing strategy. Valid values:
-        // 
-        // - `1`: Round-robin
-        // 
-        // - `2`: Random
-        // 
-        // - `3`: First
-        // 
-        // - `4`: Last
-        // 
-        // - `5`: Least Frequently Used
-        // 
-        // - `6`: Least Recently Used
-        // 
-        // - `7`: Consistent Hashing
-        // 
-        // - `8`: Sharded Broadcast
+        // - 1: round-robin
+        // - 2: random
+        // - 3: first
+        // - 4: last
+        // - 5: least frequently used
+        // - 6: least recently used
+        // - 7: consistent hashing
+        // - 8: shard broadcast
         shared_ptr<int32_t> routeStrategy_ {};
         // The script content.
         shared_ptr<string> script_ {};
-        // The type of the start time.
+        // The start time type.
         shared_ptr<int32_t> startTimeType_ {};
         // The job status. Valid values:
-        // 
-        // - `0`: Disabled
-        // 
-        // - `1`: Enabled
+        // - 0: disabled
+        // - 1: enabled
         shared_ptr<int32_t> status_ {};
         // The time expression.
         shared_ptr<string> timeExpression_ {};
         // The time type. Valid values:
         // 
-        // - `-1`: none
-        // 
-        // - `1`: cron
-        // 
-        // - `3`: fix_rate
-        // 
-        // - `5`: one_time
-        // 
-        // - `100`: api
+        // - -1: none
+        // - 1: cron
+        // - 3: fix_rate
+        // - 5: one_time
+        // - 100: api
         shared_ptr<int32_t> timeType_ {};
         // The time zone.
         shared_ptr<string> timeZone_ {};
         // The time zone.
         shared_ptr<string> timezone_ {};
-        // The ID of the user who last updated the job.
+        // The updater.
         shared_ptr<string> updater_ {};
         // The job weight.
         shared_ptr<int32_t> weight_ {};
         // The workflow ID.
         shared_ptr<int64_t> workflowId_ {};
         // The extended attributes.
-        // 
-        // > This parameter is not currently supported.
+        // > Not supported.
         shared_ptr<string> xattrs_ {};
       };
 
@@ -574,9 +561,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // - A list of jobs.
+      // -
       shared_ptr<vector<Data::Records>> records_ {};
-      // The total number of jobs returned.
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -620,19 +607,17 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. A value of `200` indicates that the request was successful.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // - The returned data.
+    // -
     shared_ptr<ListJobsResponseBody::Data> data_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> message_ {};
-    // A unique ID that Alibaba Cloud generates for each request. Use this ID to troubleshoot issues.
+    // The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - `true`: The request was successful.
-    // 
-    // - `false`: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

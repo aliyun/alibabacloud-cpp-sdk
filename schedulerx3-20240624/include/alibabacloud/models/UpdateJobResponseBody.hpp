@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // - true: The call was successful.

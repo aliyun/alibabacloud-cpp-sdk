@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_OPERATESTOPJOBEXECUTIONRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_OPERATESTOPJOBEXECUTIONRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_IMPORTAGENTJOBSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_IMPORTAGENTJOBSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace SchedulerX320240624
 {
 namespace Models
 {
-  class OperateStopJobExecutionResponseBody : public Darabonba::Model {
+  class ImportAgentJobsResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const OperateStopJobExecutionResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ImportAgentJobsResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, OperateStopJobExecutionResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ImportAgentJobsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    OperateStopJobExecutionResponseBody() = default ;
-    OperateStopJobExecutionResponseBody(const OperateStopJobExecutionResponseBody &) = default ;
-    OperateStopJobExecutionResponseBody(OperateStopJobExecutionResponseBody &&) = default ;
-    OperateStopJobExecutionResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~OperateStopJobExecutionResponseBody() = default ;
-    OperateStopJobExecutionResponseBody& operator=(const OperateStopJobExecutionResponseBody &) = default ;
-    OperateStopJobExecutionResponseBody& operator=(OperateStopJobExecutionResponseBody &&) = default ;
+    ImportAgentJobsResponseBody() = default ;
+    ImportAgentJobsResponseBody(const ImportAgentJobsResponseBody &) = default ;
+    ImportAgentJobsResponseBody(ImportAgentJobsResponseBody &&) = default ;
+    ImportAgentJobsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ImportAgentJobsResponseBody() = default ;
+    ImportAgentJobsResponseBody& operator=(const ImportAgentJobsResponseBody &) = default ;
+    ImportAgentJobsResponseBody& operator=(ImportAgentJobsResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -41,38 +41,34 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
-    inline OperateStopJobExecutionResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline ImportAgentJobsResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline OperateStopJobExecutionResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline ImportAgentJobsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline OperateStopJobExecutionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ImportAgentJobsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline OperateStopJobExecutionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline ImportAgentJobsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The response code.
     shared_ptr<int32_t> code_ {};
-    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. **true**: The call was successful. **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

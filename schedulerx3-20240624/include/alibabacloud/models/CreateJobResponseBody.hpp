@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<CreateJobResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // - true: The call was successful.

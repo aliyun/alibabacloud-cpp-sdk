@@ -66,6 +66,7 @@ namespace Models
       class Records : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Records& obj) { 
+          DARABONBA_PTR_TO_JSON(AppGroupId, appGroupId_);
           DARABONBA_PTR_TO_JSON(AppName, appName_);
           DARABONBA_PTR_TO_JSON(Attempt, attempt_);
           DARABONBA_PTR_TO_JSON(DataTime, dataTime_);
@@ -92,6 +93,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(XAttrs, XAttrs_);
         };
         friend void from_json(const Darabonba::Json& j, Records& obj) { 
+          DARABONBA_PTR_FROM_JSON(AppGroupId, appGroupId_);
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
           DARABONBA_PTR_FROM_JSON(Attempt, attempt_);
           DARABONBA_PTR_FROM_JSON(DataTime, dataTime_);
@@ -128,12 +130,19 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->appName_ == nullptr
-        && this->attempt_ == nullptr && this->dataTime_ == nullptr && this->duration_ == nullptr && this->endTime_ == nullptr && this->executor_ == nullptr
-        && this->jobExecutionId_ == nullptr && this->jobId_ == nullptr && this->jobName_ == nullptr && this->jobType_ == nullptr && this->parameters_ == nullptr
-        && this->result_ == nullptr && this->routeStrategy_ == nullptr && this->scheduleTime_ == nullptr && this->serverIp_ == nullptr && this->status_ == nullptr
-        && this->timeType_ == nullptr && this->totalTokens_ == nullptr && this->triggerType_ == nullptr && this->workAddr_ == nullptr && this->workflowExecutionId_ == nullptr
-        && this->workflowId_ == nullptr && this->workflowName_ == nullptr && this->XAttrs_ == nullptr; };
+        virtual bool empty() const override { return this->appGroupId_ == nullptr
+        && this->appName_ == nullptr && this->attempt_ == nullptr && this->dataTime_ == nullptr && this->duration_ == nullptr && this->endTime_ == nullptr
+        && this->executor_ == nullptr && this->jobExecutionId_ == nullptr && this->jobId_ == nullptr && this->jobName_ == nullptr && this->jobType_ == nullptr
+        && this->parameters_ == nullptr && this->result_ == nullptr && this->routeStrategy_ == nullptr && this->scheduleTime_ == nullptr && this->serverIp_ == nullptr
+        && this->status_ == nullptr && this->timeType_ == nullptr && this->totalTokens_ == nullptr && this->triggerType_ == nullptr && this->workAddr_ == nullptr
+        && this->workflowExecutionId_ == nullptr && this->workflowId_ == nullptr && this->workflowName_ == nullptr && this->XAttrs_ == nullptr; };
+        // appGroupId Field Functions 
+        bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
+        void deleteAppGroupId() { this->appGroupId_ = nullptr;};
+        inline int64_t getAppGroupId() const { DARABONBA_PTR_GET_DEFAULT(appGroupId_, 0L) };
+        inline Records& setAppGroupId(int64_t appGroupId) { DARABONBA_PTR_SET_VALUE(appGroupId_, appGroupId) };
+
+
         // appName Field Functions 
         bool hasAppName() const { return this->appName_ != nullptr;};
         void deleteAppName() { this->appName_ = nullptr;};
@@ -303,119 +312,86 @@ namespace Models
 
 
       protected:
-        // The name of the application.
+        shared_ptr<int64_t> appGroupId_ {};
+        // The application name.
         shared_ptr<string> appName_ {};
-        // The attempt number for this execution. `1` indicates the initial run.
+        // The number of failed attempts.
         shared_ptr<int32_t> attempt_ {};
-        // The data timestamp for the job execution.
+        // The data timestamp of the job.
         shared_ptr<string> dataTime_ {};
-        // The duration of the job execution.
+        // The total running duration.
         shared_ptr<int64_t> duration_ {};
-        // The time when the job execution ended.
+        // The end time of the job.
         shared_ptr<string> endTime_ {};
-        // The ID of the executor.
+        // The executor ID.
         shared_ptr<string> executor_ {};
         // The job execution ID.
         shared_ptr<string> jobExecutionId_ {};
         // The job ID.
         shared_ptr<int64_t> jobId_ {};
-        // The name of the job.
+        // The job name.
         shared_ptr<string> jobName_ {};
-        // The type of the job.
+        // The job type.
         shared_ptr<string> jobType_ {};
-        // The parameters of the job.
+        // The job parameters.
         shared_ptr<string> parameters_ {};
-        // The execution result.
+        // The returned result.
         shared_ptr<string> result_ {};
-        // The strategy for routing the job to a worker. Valid values:
-        // 
-        // - 1: Round-robin
-        // 
-        // - 2: Random
-        // 
-        // - 3: First
-        // 
-        // - 4: Last
-        // 
-        // - 5: Least Frequently Used
-        // 
-        // - 6: Least Recently Used
-        // 
-        // - 7: Consistent Hashing
-        // 
-        // - 8: Sharded Broadcasting
+        // The routing strategy. Valid values:
+        // - 1: round-robin.
+        // - 2: random.
+        // - 3: first.
+        // - 4: last.
+        // - 5: least frequently used.
+        // - 6: least recently used.
+        // - 7: consistent hashing.
+        // - 8: shard broadcast.
         shared_ptr<int32_t> routeStrategy_ {};
-        // The time when the job was scheduled.
+        // The scheduling time of the job.
         shared_ptr<string> scheduleTime_ {};
-        // The IP address of the scheduler node.
+        // The scheduling node.
         shared_ptr<string> serverIp_ {};
         // The job execution status. Valid values:
-        // 
-        // - 0: UNKNOWN
-        // 
-        // - 1: WAITING
-        // 
-        // - 2: READY
-        // 
-        // - 3: RUNNING
-        // 
-        // - 4: SUCCESS
-        // 
-        // - 5: FAILED
-        // 
-        // - 6: PAUSED
-        // 
-        // - 7: SUBMITTED
-        // 
-        // - 8: REJECTED
-        // 
-        // - 9: ACCEPTED
-        // 
-        // - 10: PARTIAL_FAILED
-        // 
-        // - 11: SKIPPED
-        // 
-        // - 12: REMOVED
+        // - 0: UNKNOWN.
+        // - 1: WAITING.
+        // - 2: READY.
+        // - 3: RUNNING.
+        // - 4: SUCCESS.
+        // - 5: FAILED.
+        // - 6: PAUSED.
+        // - 7: SUBMITTED.
+        // - 8: REJECTED.
+        // - 9: ACCEPTED.
+        // - 10: PARTIAL_FAILED.
+        // - 11: SKIPPED.
+        // - 12: REMOVED.
         shared_ptr<int32_t> status_ {};
-        // The scheduling type. Valid values:
-        // 
-        // - -1: none<br>
-        // 
-        // - 1: cron<br>
-        // 
-        // - 3: fix_rate<br>
-        // 
-        // - 5: one_time<br>
-        // 
+        // The time type. Valid values:
+        // - -1: none<br/>
+        // - 1: cron<br/>
+        // - 3: fix_rate<br/>
+        // - 5: one_time<br/>
         // - 100: api
         shared_ptr<int32_t> timeType_ {};
-        // The total number of tokens consumed by the job execution.
+        // The tokens consumed by the AI job.
         shared_ptr<int32_t> totalTokens_ {};
-        // The method that triggered the job. Valid values:
-        // 
-        // - 0: unknown
-        // 
-        // - 1: schedule
-        // 
-        // - 2: rerun
-        // 
-        // - 3: api
-        // 
-        // - 4: user_retry
-        // 
-        // - 5: system_retry
-        // 
-        // - 6: manual
+        // The job trigger type. Valid values:
+        // - 0: unknown.
+        // - 1: schedule.
+        // - 2: rerun.
+        // - 3: api.
+        // - 4: user_retry.
+        // - 5: system_retry.
+        // - 6: manual.
         shared_ptr<int32_t> triggerType_ {};
-        // The address of the worker that executed the job instance.
+        // The machine on which the job instance runs.
         shared_ptr<string> workAddr_ {};
-        // The ID of the parent workflow instance, if applicable.
+        // The workflow instance ID.
         shared_ptr<string> workflowExecutionId_ {};
-        // The ID of the parent workflow, if applicable.
+        // The workflow ID.
         shared_ptr<int64_t> workflowId_ {};
-        // The name of the parent workflow, if applicable.
+        // The workflow name.
         shared_ptr<string> workflowName_ {};
-        // The extended attributes.
         shared_ptr<string> XAttrs_ {};
       };
 
@@ -456,9 +432,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // A list of job instances.
+      // The list of job instances.
       shared_ptr<vector<Data::Records>> records_ {};
-      // The total number of entries found.
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -506,17 +482,15 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The query result.
     shared_ptr<ListJobExecutionsResponseBody::Data> data_ {};
-    // The error message returned if the request fails.
+    // The error message.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The unique identifier for the request. Alibaba Cloud generates this ID to help troubleshoot issues.
+    // The request ID generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

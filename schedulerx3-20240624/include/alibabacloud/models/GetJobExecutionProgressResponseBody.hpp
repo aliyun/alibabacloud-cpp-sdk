@@ -165,21 +165,21 @@ namespace Models
 
 
       protected:
-        // The number of items that failed on this Worker.
+        // The number of failed items.
         shared_ptr<int32_t> failed_ {};
-        // The number of items pulled by this Worker.
+        // The number of pulled items.
         shared_ptr<int32_t> pulled_ {};
-        // The number of items in this Worker\\"s queue.
+        // The number of items in the queue.
         shared_ptr<int32_t> queue_ {};
-        // The number of items this Worker is currently running.
+        // The number of running items.
         shared_ptr<int32_t> running_ {};
-        // The number of items successfully processed by this Worker.
+        // The number of successful items.
         shared_ptr<int32_t> success_ {};
-        // The total number of items processed by this Worker.
+        // The total count.
         shared_ptr<int32_t> total_ {};
         // The trace ID.
         shared_ptr<string> traceId_ {};
-        // The address of the Worker.
+        // The worker address.
         shared_ptr<string> workerAddr_ {};
       };
 
@@ -221,9 +221,9 @@ namespace Models
 
 
       protected:
-        // The number of finished items in the job.
+        // The number of finished items.
         shared_ptr<int64_t> finished_ {};
-        // The total number of items in the job.
+        // The total count.
         shared_ptr<int64_t> total_ {};
       };
 
@@ -313,17 +313,17 @@ namespace Models
       protected:
         // The number of failed items.
         shared_ptr<int32_t> failed_ {};
-        // The name of the subtask.
+        // The task name.
         shared_ptr<string> name_ {};
         // The number of pulled items.
         shared_ptr<int32_t> pulled_ {};
-        // The number of items in the subtask\\"s queue.
+        // The number of items in the queue.
         shared_ptr<int32_t> queue_ {};
         // The number of running items.
         shared_ptr<int32_t> running_ {};
         // The number of successful items.
         shared_ptr<int32_t> success_ {};
-        // The total number of items in the subtask.
+        // The total count.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -405,11 +405,11 @@ namespace Models
 
 
         protected:
-          // The status code.
+          // The task status code.
           shared_ptr<string> code_ {};
-          // The name of the status.
+          // The status name.
           shared_ptr<string> name_ {};
-          // Informational messages about the status.
+          // The tip information.
           shared_ptr<map<string, string>> tips_ {};
         };
 
@@ -460,29 +460,23 @@ namespace Models
 
 
       protected:
-        // The shard ID.
+        // ID。
         shared_ptr<int64_t> id_ {};
-        // The execution ID of the sharding task.
+        // The shard execution ID.
         shared_ptr<string> jobExecutionId_ {};
-        // The execution result of the sharding task.
+        // The shard execution result.
         shared_ptr<string> result_ {};
-        // The execution status of the sharding task. Valid values:
-        // 
-        // - 0: UNKNOWN
-        // 
-        // - 1: INIT
-        // 
-        // - 2: PULLED
-        // 
-        // - 3: RUNNING
-        // 
-        // - 4: SUCCESS
-        // 
-        // - 5: FAILED
+        // The task execution status. Valid values:
+        // - 0: unknown.
+        // - 1: init.
+        // - 2: pulled.
+        // - 3: running.
+        // - 4: success.
+        // - 5: failed.
         shared_ptr<int32_t> status_ {};
-        // Detailed information about the execution status.
+        // The status type.
         shared_ptr<ShardingProgress::StatusType> statusType_ {};
-        // The address of the Worker.
+        // The worker address.
         shared_ptr<string> workerAddr_ {};
       };
 
@@ -524,9 +518,9 @@ namespace Models
 
 
       protected:
-        // The number of finished items in the root task.
+        // The number of finished items.
         shared_ptr<int64_t> finished_ {};
-        // The total number of items in the root task.
+        // The total count.
         shared_ptr<int64_t> total_ {};
       };
 
@@ -600,21 +594,21 @@ namespace Models
 
 
     protected:
-      // The job end time, in Unix milliseconds.
+      // The end time.
       shared_ptr<string> endTime_ {};
-      // The description of the job.
+      // The task description.
       shared_ptr<string> jobDescription_ {};
-      // The progress of the root task.
+      // The root task progress.
       shared_ptr<Data::RootProgress> rootProgress_ {};
-      // A list of progress details for each sharding task.
+      // The sharding task progress.
       shared_ptr<vector<Data::ShardingProgress>> shardingProgress_ {};
-      // The job start time, in Unix milliseconds.
+      // The start time.
       shared_ptr<string> startTime_ {};
-      // A list of progress details for each subtask.
+      // The subtask progress.
       shared_ptr<vector<Data::TaskProgress>> taskProgress_ {};
-      // The overall progress of the job.
+      // The overall task progress.
       shared_ptr<Data::TotalProgress> totalProgress_ {};
-      // A list of execution progress details for each Worker.
+      // The execution progress by worker.
       shared_ptr<vector<Data::WorkerProgress>> workerProgress_ {};
     };
 
@@ -658,18 +652,16 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<int32_t> code_ {};
-    // - The data returned by the request.
+    // -
     shared_ptr<GetJobExecutionProgressResponseBody::Data> data_ {};
-    // The error message returned when the request fails.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The unique identifier for the request, generated by Alibaba Cloud. Use this ID to troubleshoot issues.
+    // The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
-    // 
-    // - **true**: The request succeeded.
-    // 
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
