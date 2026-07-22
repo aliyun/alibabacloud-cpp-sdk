@@ -24,6 +24,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
+      DARABONBA_PTR_TO_JSON(SortKey, sortKey_);
+      DARABONBA_PTR_TO_JSON(SortType, sortType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
@@ -38,6 +40,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
+      DARABONBA_PTR_FROM_JSON(SortKey, sortKey_);
+      DARABONBA_PTR_FROM_JSON(SortType, sortType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
@@ -91,17 +95,17 @@ namespace Models
 
     protected:
       // The tag key. You can specify 1 to 20 tag keys.
-      // >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://..
+      // >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
       // The tag value.
-      // >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`..
+      // >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
         && this->chargeType_ == nullptr && this->instanceGroupIds_ == nullptr && this->instanceGroupName_ == nullptr && this->instanceVersion_ == nullptr && this->keyPairId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->saleMode_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->policyGroupId_ == nullptr && this->saleMode_ == nullptr && this->sortKey_ == nullptr
+        && this->sortType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -174,6 +178,20 @@ namespace Models
     inline DescribeAndroidInstanceGroupsRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
+    // sortKey Field Functions 
+    bool hasSortKey() const { return this->sortKey_ != nullptr;};
+    void deleteSortKey() { this->sortKey_ = nullptr;};
+    inline string getSortKey() const { DARABONBA_PTR_GET_DEFAULT(sortKey_, "") };
+    inline DescribeAndroidInstanceGroupsRequest& setSortKey(string sortKey) { DARABONBA_PTR_SET_VALUE(sortKey_, sortKey) };
+
+
+    // sortType Field Functions 
+    bool hasSortType() const { return this->sortType_ != nullptr;};
+    void deleteSortType() { this->sortType_ = nullptr;};
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline DescribeAndroidInstanceGroupsRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -194,7 +212,7 @@ namespace Models
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
     // The billing type.
-    // [_single.params.ChargeType.enum. PrePaid]Subscription.
+    // [_single.params.ChargeType.enum. PrePaid]subscription
     shared_ptr<string> chargeType_ {};
     // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
@@ -205,12 +223,14 @@ namespace Models
     shared_ptr<string> keyPairId_ {};
     // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the position from which the current read operation starts. Leave this parameter empty to read from the beginning.
+    // The pagination token that indicates the position from which to start reading. An empty value indicates reading from the beginning.
     shared_ptr<string> nextToken_ {};
     // The policy ID.
     shared_ptr<string> policyGroupId_ {};
     // The purchase mode of the cloud phone.
     shared_ptr<string> saleMode_ {};
+    shared_ptr<string> sortKey_ {};
+    shared_ptr<string> sortType_ {};
     // The instance group status.
     shared_ptr<string> status_ {};
     // The tags of the instance group. You can bind up to 20 tags to each instance.

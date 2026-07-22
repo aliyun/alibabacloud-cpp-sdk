@@ -442,6 +442,23 @@ namespace EdsAic20230930
       Models::CreatePolicyGroupResponse createPolicyGroup(const Models::CreatePolicyGroupRequest &request);
 
       /**
+       * @summary 创建定时任务
+       *
+       * @param tmpReq CreateScheduledTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateScheduledTaskResponse
+       */
+      Models::CreateScheduledTaskResponse createScheduledTaskWithOptions(const Models::CreateScheduledTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建定时任务
+       *
+       * @param request CreateScheduledTaskRequest
+       * @return CreateScheduledTaskResponse
+       */
+      Models::CreateScheduledTaskResponse createScheduledTask(const Models::CreateScheduledTaskRequest &request);
+
+      /**
        * @summary This asynchronous API operation generates a screenshot of a cloud phone.
        *
        * @description This operation creates a screenshot of a cloud phone and uploads it to the default Object Storage Service (OSS) bucket. The operation returns a task ID. You can then call the DescribeTasks operation to retrieve the download link for the screenshot.
@@ -640,6 +657,23 @@ namespace EdsAic20230930
       Models::DeletePolicyGroupResponse deletePolicyGroup(const Models::DeletePolicyGroupRequest &request);
 
       /**
+       * @summary Deletes an agent scheduled task.
+       *
+       * @param request DeleteScheduledTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteScheduledTaskResponse
+       */
+      Models::DeleteScheduledTaskResponse deleteScheduledTaskWithOptions(const Models::DeleteScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an agent scheduled task.
+       *
+       * @param request DeleteScheduledTaskRequest
+       * @return DeleteScheduledTaskResponse
+       */
+      Models::DeleteScheduledTaskResponse deleteScheduledTask(const Models::DeleteScheduledTaskRequest &request);
+
+      /**
        * @summary Deletes system property templates.
        *
        * @description Deleting property templates does not affect instances for which you have already called the [](t3010125.xdita#)operation to send templates.
@@ -678,7 +712,7 @@ namespace EdsAic20230930
       Models::DescribeAgentTaskResponse describeAgentTask(const Models::DescribeAgentTaskRequest &request);
 
       /**
-       * @summary Queries the details of a cloud phone instance group.
+       * @summary Queries the details of cloud phone instance groups.
        *
        * @param request DescribeAndroidInstanceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -687,7 +721,7 @@ namespace EdsAic20230930
       Models::DescribeAndroidInstanceGroupsResponse describeAndroidInstanceGroupsWithOptions(const Models::DescribeAndroidInstanceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a cloud phone instance group.
+       * @summary Queries the details of cloud phone instance groups.
        *
        * @param request DescribeAndroidInstanceGroupsRequest
        * @return DescribeAndroidInstanceGroupsResponse
@@ -771,8 +805,8 @@ namespace EdsAic20230930
       Models::DescribeBucketsResponse describeBuckets(const Models::DescribeBucketsRequest &request);
 
       /**
-       * @summary Queries the details of Cloud Phone matrices.
-       * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+       * @summary Queries the details of a cloud phone matrix.
+       * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
        *
        * @param request DescribeCloudPhoneNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -781,8 +815,8 @@ namespace EdsAic20230930
       Models::DescribeCloudPhoneNodesResponse describeCloudPhoneNodesWithOptions(const Models::DescribeCloudPhoneNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of Cloud Phone matrices.
-       * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+       * @summary Queries the details of a cloud phone matrix.
+       * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
        *
        * @param request DescribeCloudPhoneNodesRequest
        * @return DescribeCloudPhoneNodesResponse
@@ -1013,6 +1047,40 @@ namespace EdsAic20230930
        * @return DescribeRegionsResponse
        */
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
+       * @summary Queries the execution records of agent scheduled tasks.
+       *
+       * @param request DescribeScheduledTaskExecutionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeScheduledTaskExecutionsResponse
+       */
+      Models::DescribeScheduledTaskExecutionsResponse describeScheduledTaskExecutionsWithOptions(const Models::DescribeScheduledTaskExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the execution records of agent scheduled tasks.
+       *
+       * @param request DescribeScheduledTaskExecutionsRequest
+       * @return DescribeScheduledTaskExecutionsResponse
+       */
+      Models::DescribeScheduledTaskExecutionsResponse describeScheduledTaskExecutions(const Models::DescribeScheduledTaskExecutionsRequest &request);
+
+      /**
+       * @summary Queries the list of scheduled tasks for an agent.
+       *
+       * @param request DescribeScheduledTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeScheduledTasksResponse
+       */
+      Models::DescribeScheduledTasksResponse describeScheduledTasksWithOptions(const Models::DescribeScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of scheduled tasks for an agent.
+       *
+       * @param request DescribeScheduledTasksRequest
+       * @return DescribeScheduledTasksResponse
+       */
+      Models::DescribeScheduledTasksResponse describeScheduledTasks(const Models::DescribeScheduledTasksRequest &request);
 
       /**
        * @summary Queries the available specifications for cloud phones. This information is required to create an instance. For the cloud phone matrix mode, this operation also returns the minimum and maximum number of instances allowed per matrix.
@@ -1614,6 +1682,23 @@ namespace EdsAic20230930
        * @return ModifyPolicyGroupResponse
        */
       Models::ModifyPolicyGroupResponse modifyPolicyGroup(const Models::ModifyPolicyGroupRequest &request);
+
+      /**
+       * @summary Modifies an agent scheduled task.
+       *
+       * @param tmpReq ModifyScheduledTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyScheduledTaskResponse
+       */
+      Models::ModifyScheduledTaskResponse modifyScheduledTaskWithOptions(const Models::ModifyScheduledTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies an agent scheduled task.
+       *
+       * @param request ModifyScheduledTaskRequest
+       * @return ModifyScheduledTaskResponse
+       */
+      Models::ModifyScheduledTaskResponse modifyScheduledTask(const Models::ModifyScheduledTaskRequest &request);
 
       /**
        * @summary Modifies a property template.

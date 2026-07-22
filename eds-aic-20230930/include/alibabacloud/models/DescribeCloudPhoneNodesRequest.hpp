@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
       DARABONBA_PTR_TO_JSON(NodeNameList, nodeNameList_);
       DARABONBA_PTR_TO_JSON(ServerType, serverType_);
+      DARABONBA_PTR_TO_JSON(SortKey, sortKey_);
+      DARABONBA_PTR_TO_JSON(SortType, sortType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
@@ -36,6 +38,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
       DARABONBA_PTR_FROM_JSON(NodeNameList, nodeNameList_);
       DARABONBA_PTR_FROM_JSON(ServerType, serverType_);
+      DARABONBA_PTR_FROM_JSON(SortKey, sortKey_);
+      DARABONBA_PTR_FROM_JSON(SortType, sortType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
@@ -94,7 +98,8 @@ namespace Models
 
     virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
         && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->nodeIds_ == nullptr
-        && this->nodeName_ == nullptr && this->nodeNameList_ == nullptr && this->serverType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->nodeName_ == nullptr && this->nodeNameList_ == nullptr && this->serverType_ == nullptr && this->sortKey_ == nullptr && this->sortType_ == nullptr
+        && this->status_ == nullptr && this->tags_ == nullptr; };
     // bandwidthPackageId Field Functions 
     bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
     void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -162,6 +167,20 @@ namespace Models
     inline DescribeCloudPhoneNodesRequest& setServerType(string serverType) { DARABONBA_PTR_SET_VALUE(serverType_, serverType) };
 
 
+    // sortKey Field Functions 
+    bool hasSortKey() const { return this->sortKey_ != nullptr;};
+    void deleteSortKey() { this->sortKey_ = nullptr;};
+    inline string getSortKey() const { DARABONBA_PTR_GET_DEFAULT(sortKey_, "") };
+    inline DescribeCloudPhoneNodesRequest& setSortKey(string sortKey) { DARABONBA_PTR_SET_VALUE(sortKey_, sortKey) };
+
+
+    // sortType Field Functions 
+    bool hasSortType() const { return this->sortType_ != nullptr;};
+    void deleteSortType() { this->sortType_ = nullptr;};
+    inline string getSortType() const { DARABONBA_PTR_GET_DEFAULT(sortType_, "") };
+    inline DescribeCloudPhoneNodesRequest& setSortType(string sortType) { DARABONBA_PTR_SET_VALUE(sortType_, sortType) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -179,24 +198,26 @@ namespace Models
 
 
   protected:
-    // The ID of the bandwidth plan instance.
+    // The instance ID of the bandwidth plan.
     shared_ptr<string> bandwidthPackageId_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method. Only the subscription billing method is supported.
+    // The billing type. Only subscription is supported.
     shared_ptr<string> chargeType_ {};
-    // The maximum number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
+    // The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<string> maxResults_ {};
-    // The token for the next query. If a query does not return all results, NextToken is not empty. Use the returned NextToken in your next query to continue.
+    // The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can pass the returned NextToken in the next request to continue the query.
     shared_ptr<string> nextToken_ {};
-    // A list of Cloud Phone matrix IDs.
+    // The list of cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
-    // The name of the Cloud Phone matrix.
+    // The name of the cloud phone matrix.
     shared_ptr<string> nodeName_ {};
     shared_ptr<vector<string>> nodeNameList_ {};
-    // The instance type of the Cloud Phone matrix.
+    // The specifications of the cloud phone matrix.
     shared_ptr<string> serverType_ {};
-    // The status of the Cloud Phone matrix.
+    shared_ptr<string> sortKey_ {};
+    shared_ptr<string> sortType_ {};
+    // The status of the cloud phone matrix.
     shared_ptr<string> status_ {};
     shared_ptr<vector<DescribeCloudPhoneNodesRequest::Tags>> tags_ {};
   };

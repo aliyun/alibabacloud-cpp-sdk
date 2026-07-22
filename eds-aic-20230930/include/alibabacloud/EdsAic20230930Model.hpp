@@ -64,6 +64,10 @@
 #include <alibabacloud/models/CreatePolicyGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponse.hpp>
+#include <alibabacloud/models/CreateScheduledTaskRequest.hpp>
+#include <alibabacloud/models/CreateScheduledTaskShrinkRequest.hpp>
+#include <alibabacloud/models/CreateScheduledTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateScheduledTaskResponse.hpp>
 #include <alibabacloud/models/CreateScreenshotRequest.hpp>
 #include <alibabacloud/models/CreateScreenshotResponseBody.hpp>
 #include <alibabacloud/models/CreateScreenshotResponse.hpp>
@@ -96,6 +100,9 @@
 #include <alibabacloud/models/DeletePolicyGroupRequest.hpp>
 #include <alibabacloud/models/DeletePolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/DeletePolicyGroupResponse.hpp>
+#include <alibabacloud/models/DeleteScheduledTaskRequest.hpp>
+#include <alibabacloud/models/DeleteScheduledTaskResponseBody.hpp>
+#include <alibabacloud/models/DeleteScheduledTaskResponse.hpp>
 #include <alibabacloud/models/DeleteSystemPropertyTemplatesRequest.hpp>
 #include <alibabacloud/models/DeleteSystemPropertyTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DeleteSystemPropertyTemplatesResponse.hpp>
@@ -159,6 +166,12 @@
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeRegionsResponse.hpp>
+#include <alibabacloud/models/DescribeScheduledTaskExecutionsRequest.hpp>
+#include <alibabacloud/models/DescribeScheduledTaskExecutionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeScheduledTaskExecutionsResponse.hpp>
+#include <alibabacloud/models/DescribeScheduledTasksRequest.hpp>
+#include <alibabacloud/models/DescribeScheduledTasksResponseBody.hpp>
+#include <alibabacloud/models/DescribeScheduledTasksResponse.hpp>
 #include <alibabacloud/models/DescribeSpecRequest.hpp>
 #include <alibabacloud/models/DescribeSpecResponseBody.hpp>
 #include <alibabacloud/models/DescribeSpecResponse.hpp>
@@ -254,6 +267,10 @@
 #include <alibabacloud/models/ModifyPolicyGroupShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupResponse.hpp>
+#include <alibabacloud/models/ModifyScheduledTaskRequest.hpp>
+#include <alibabacloud/models/ModifyScheduledTaskShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyScheduledTaskResponseBody.hpp>
+#include <alibabacloud/models/ModifyScheduledTaskResponse.hpp>
 #include <alibabacloud/models/ModifySystemPropertyTemplateRequest.hpp>
 #include <alibabacloud/models/ModifySystemPropertyTemplateShrinkRequest.hpp>
 #include <alibabacloud/models/ModifySystemPropertyTemplateResponseBody.hpp>

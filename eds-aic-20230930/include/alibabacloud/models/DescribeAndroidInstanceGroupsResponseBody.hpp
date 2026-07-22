@@ -215,7 +215,7 @@ namespace Models
 
 
       protected:
-        // The disk size, in GB.
+        // The disk size (unit: GB).
         shared_ptr<int32_t> diskSize_ {};
         // The disk type.
         shared_ptr<string> diskType_ {};
@@ -282,7 +282,7 @@ namespace Models
         protected:
           // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The ID of the public network bandwidth throttling rule. This rule applies only to premium bandwidth.
+          // The ID of the public network bandwidth limit rule (applies only to premium bandwidth).
           shared_ptr<string> qosRuleId_ {};
         };
 
@@ -305,9 +305,9 @@ namespace Models
 
 
       protected:
-        // The public network bandwidth throttling rules bound to the instance.
+        // The public network bandwidth limit rule bound to the instance.
         shared_ptr<vector<BindQosRules::InstanceQosRule>> instanceQosRule_ {};
-        // The total number of public network bandwidth throttling rules for the instance group.
+        // The total number of public network bandwidth limit rules for the instance group.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -611,9 +611,9 @@ namespace Models
       shared_ptr<string> appInstanceGroupId_ {};
       // The architecture type.
       shared_ptr<string> architectureType_ {};
-      // The number of active instances.
+      // The number of available instances.
       // 
-      // > An instance is considered active if its instance status is not "Deleting" or "Deleted".
+      // > Available means the instance status is not "being deleted" or "deleted".
       shared_ptr<int32_t> availableInstanceAmount_ {};
       // The ID of the bandwidth package.
       shared_ptr<string> bandwidthPackageId_ {};
@@ -628,7 +628,7 @@ namespace Models
       shared_ptr<string> bandwidthPackageStatus_ {};
       // The type of the bandwidth package.
       shared_ptr<string> bandwidthPackageType_ {};
-      // The public network bandwidth throttling rules for the instance group.
+      // The public network bandwidth limit rules for the instance group.
       shared_ptr<InstanceGroupModel::BindQosRules> bindQosRules_ {};
       shared_ptr<string> channel_ {};
       // The billing method.
@@ -669,7 +669,7 @@ namespace Models
       shared_ptr<int32_t> memory_ {};
       // The network type of the instance.
       // 
-      // > This field is returned only for instance groups with a standard network.
+      // > This field is returned only for instance groups with standard networking.
       shared_ptr<string> networkType_ {};
       // The number of instances in the instance group.
       shared_ptr<string> numberOfInstances_ {};
@@ -680,7 +680,7 @@ namespace Models
       shared_ptr<string> policyGroupId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The rendering type of the instance group.
+      // The rendering method of the instance group.
       shared_ptr<string> renderingType_ {};
       // The height of the resolution.
       shared_ptr<int32_t> resolutionHeight_ {};
@@ -731,9 +731,9 @@ namespace Models
 
 
   protected:
-    // The details of the instance group.
+    // The details of the instance groups.
     shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBody::InstanceGroupModel>> instanceGroupModel_ {};
-    // The pagination token that indicates the position where the current call returns. An empty value indicates that all data has been read.
+    // The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

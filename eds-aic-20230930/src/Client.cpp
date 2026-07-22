@@ -1586,6 +1586,74 @@ CreatePolicyGroupResponse Client::createPolicyGroup(const CreatePolicyGroupReque
 }
 
 /**
+ * @summary 创建定时任务
+ *
+ * @param tmpReq CreateScheduledTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateScheduledTaskResponse
+ */
+CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateScheduledTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateScheduledTaskShrinkRequest request = CreateScheduledTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRunConfig()) {
+    request.setRunConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRunConfig(), "RunConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCronExpression()) {
+    query["CronExpression"] = request.getCronExpression();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasMaxExecutions()) {
+    query["MaxExecutions"] = request.getMaxExecutions();
+  }
+
+  if (!!request.hasRunConfigShrink()) {
+    query["RunConfig"] = request.getRunConfigShrink();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  if (!!request.hasUserPrompt()) {
+    query["UserPrompt"] = request.getUserPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateScheduledTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateScheduledTaskResponse>();
+}
+
+/**
+ * @summary 创建定时任务
+ *
+ * @param request CreateScheduledTaskRequest
+ * @return CreateScheduledTaskResponse
+ */
+CreateScheduledTaskResponse Client::createScheduledTask(const CreateScheduledTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createScheduledTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary This asynchronous API operation generates a screenshot of a cloud phone.
  *
  * @description This operation creates a screenshot of a cloud phone and uploads it to the default Object Storage Service (OSS) bucket. The operation returns a task ID. You can then call the DescribeTasks operation to retrieve the download link for the screenshot.
@@ -2070,6 +2138,48 @@ DeletePolicyGroupResponse Client::deletePolicyGroup(const DeletePolicyGroupReque
 }
 
 /**
+ * @summary Deletes an agent scheduled task.
+ *
+ * @param request DeleteScheduledTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteScheduledTaskResponse
+ */
+DeleteScheduledTaskResponse Client::deleteScheduledTaskWithOptions(const DeleteScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteScheduledTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteScheduledTaskResponse>();
+}
+
+/**
+ * @summary Deletes an agent scheduled task.
+ *
+ * @param request DeleteScheduledTaskRequest
+ * @return DeleteScheduledTaskResponse
+ */
+DeleteScheduledTaskResponse Client::deleteScheduledTask(const DeleteScheduledTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteScheduledTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes system property templates.
  *
  * @description Deleting property templates does not affect instances for which you have already called the [](t3010125.xdita#)operation to send templates.
@@ -2158,7 +2268,7 @@ DescribeAgentTaskResponse Client::describeAgentTask(const DescribeAgentTaskReque
 }
 
 /**
- * @summary Queries the details of a cloud phone instance group.
+ * @summary Queries the details of cloud phone instance groups.
  *
  * @param request DescribeAndroidInstanceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2207,6 +2317,14 @@ DescribeAndroidInstanceGroupsResponse Client::describeAndroidInstanceGroupsWithO
     query["SaleMode"] = request.getSaleMode();
   }
 
+  if (!!request.hasSortKey()) {
+    query["SortKey"] = request.getSortKey();
+  }
+
+  if (!!request.hasSortType()) {
+    query["SortType"] = request.getSortType();
+  }
+
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
   }
@@ -2233,7 +2351,7 @@ DescribeAndroidInstanceGroupsResponse Client::describeAndroidInstanceGroupsWithO
 }
 
 /**
- * @summary Queries the details of a cloud phone instance group.
+ * @summary Queries the details of cloud phone instance groups.
  *
  * @param request DescribeAndroidInstanceGroupsRequest
  * @return DescribeAndroidInstanceGroupsResponse
@@ -2592,8 +2710,8 @@ DescribeBucketsResponse Client::describeBuckets(const DescribeBucketsRequest &re
 }
 
 /**
- * @summary Queries the details of Cloud Phone matrices.
- * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+ * @summary Queries the details of a cloud phone matrix.
+ * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
  *
  * @param request DescribeCloudPhoneNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2638,6 +2756,14 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodesWithOptions(const
     query["ServerType"] = request.getServerType();
   }
 
+  if (!!request.hasSortKey()) {
+    query["SortKey"] = request.getSortKey();
+  }
+
+  if (!!request.hasSortType()) {
+    query["SortType"] = request.getSortType();
+  }
+
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
   }
@@ -2664,8 +2790,8 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodesWithOptions(const
 }
 
 /**
- * @summary Queries the details of Cloud Phone matrices.
- * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+ * @summary Queries the details of a cloud phone matrix.
+ * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
  *
  * @param request DescribeCloudPhoneNodesRequest
  * @return DescribeCloudPhoneNodesResponse
@@ -3443,6 +3569,142 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeRegionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the execution records of agent scheduled tasks.
+ *
+ * @param request DescribeScheduledTaskExecutionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeScheduledTaskExecutionsResponse
+ */
+DescribeScheduledTaskExecutionsResponse Client::describeScheduledTaskExecutionsWithOptions(const DescribeScheduledTaskExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeScheduledTaskExecutions"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeScheduledTaskExecutionsResponse>();
+}
+
+/**
+ * @summary Queries the execution records of agent scheduled tasks.
+ *
+ * @param request DescribeScheduledTaskExecutionsRequest
+ * @return DescribeScheduledTaskExecutionsResponse
+ */
+DescribeScheduledTaskExecutionsResponse Client::describeScheduledTaskExecutions(const DescribeScheduledTaskExecutionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeScheduledTaskExecutionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of scheduled tasks for an agent.
+ *
+ * @param request DescribeScheduledTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeScheduledTasksResponse
+ */
+DescribeScheduledTasksResponse Client::describeScheduledTasksWithOptions(const DescribeScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduledIds()) {
+    query["ScheduledIds"] = request.getScheduledIds();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeScheduledTasks"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeScheduledTasksResponse>();
+}
+
+/**
+ * @summary Queries the list of scheduled tasks for an agent.
+ *
+ * @param request DescribeScheduledTasksRequest
+ * @return DescribeScheduledTasksResponse
+ */
+DescribeScheduledTasksResponse Client::describeScheduledTasks(const DescribeScheduledTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeScheduledTasksWithOptions(request, runtime);
 }
 
 /**
@@ -5251,6 +5513,82 @@ ModifyPolicyGroupResponse Client::modifyPolicyGroupWithOptions(const ModifyPolic
 ModifyPolicyGroupResponse Client::modifyPolicyGroup(const ModifyPolicyGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPolicyGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies an agent scheduled task.
+ *
+ * @param tmpReq ModifyScheduledTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyScheduledTaskResponse
+ */
+ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyScheduledTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyScheduledTaskShrinkRequest request = ModifyScheduledTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRunConfig()) {
+    request.setRunConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRunConfig(), "RunConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCronExpression()) {
+    query["CronExpression"] = request.getCronExpression();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasRunConfigShrink()) {
+    query["RunConfig"] = request.getRunConfigShrink();
+  }
+
+  if (!!request.hasScheduledId()) {
+    query["ScheduledId"] = request.getScheduledId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  if (!!request.hasTaskVersion()) {
+    query["TaskVersion"] = request.getTaskVersion();
+  }
+
+  if (!!request.hasUserPrompt()) {
+    query["UserPrompt"] = request.getUserPrompt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyScheduledTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyScheduledTaskResponse>();
+}
+
+/**
+ * @summary Modifies an agent scheduled task.
+ *
+ * @param request ModifyScheduledTaskRequest
+ * @return ModifyScheduledTaskResponse
+ */
+ModifyScheduledTaskResponse Client::modifyScheduledTask(const ModifyScheduledTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyScheduledTaskWithOptions(request, runtime);
 }
 
 /**
