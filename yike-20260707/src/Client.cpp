@@ -92,6 +92,102 @@ BatchGetMediasResponse Client::batchGetMedias(const BatchGetMediasRequest &reque
 }
 
 /**
+ * @summary 创建分类
+ *
+ * @description 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+ *
+ * @param request CreateAssetCategoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAssetCategoryResponse
+ */
+CreateAssetCategoryResponse Client::createAssetCategoryWithOptions(const CreateAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryName()) {
+    query["CategoryName"] = request.getCategoryName();
+  }
+
+  if (!!request.hasParentId()) {
+    query["ParentId"] = request.getParentId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAssetCategory"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAssetCategoryResponse>();
+}
+
+/**
+ * @summary 创建分类
+ *
+ * @description 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+ *
+ * @param request CreateAssetCategoryRequest
+ * @return CreateAssetCategoryResponse
+ */
+CreateAssetCategoryResponse Client::createAssetCategory(const CreateAssetCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAssetCategoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除分类
+ *
+ * @description 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+ *
+ * @param request DeleteAssetCategoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAssetCategoryResponse
+ */
+DeleteAssetCategoryResponse Client::deleteAssetCategoryWithOptions(const DeleteAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.getCategoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAssetCategory"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAssetCategoryResponse>();
+}
+
+/**
+ * @summary 删除分类
+ *
+ * @description 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+ *
+ * @param request DeleteAssetCategoryRequest
+ * @return DeleteAssetCategoryResponse
+ */
+DeleteAssetCategoryResponse Client::deleteAssetCategory(const DeleteAssetCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAssetCategoryWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除媒资信息
  *
  * @param request DeleteMediasRequest
@@ -139,6 +235,48 @@ DeleteMediasResponse Client::deleteMediasWithOptions(const DeleteMediasRequest &
 DeleteMediasResponse Client::deleteMedias(const DeleteMediasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMediasWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询分类
+ *
+ * @param request GetAssetCategoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAssetCategoryResponse
+ */
+GetAssetCategoryResponse Client::getAssetCategoryWithOptions(const GetAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.getCategoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAssetCategory"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAssetCategoryResponse>();
+}
+
+/**
+ * @summary 查询分类
+ *
+ * @param request GetAssetCategoryRequest
+ * @return GetAssetCategoryResponse
+ */
+GetAssetCategoryResponse Client::getAssetCategory(const GetAssetCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAssetCategoryWithOptions(request, runtime);
 }
 
 /**
@@ -340,6 +478,10 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenera
 ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.getCategoryId();
+  }
+
   if (!!request.hasCoverURL()) {
     query["CoverURL"] = request.getCoverURL();
   }
@@ -417,6 +559,122 @@ ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &req
 ImportMediaResponse Client::importMedia(const ImportMediaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return importMediaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列出分类
+ *
+ * @param request ListAssetCategoriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAssetCategoriesResponse
+ */
+ListAssetCategoriesResponse Client::listAssetCategoriesWithOptions(const ListAssetCategoriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAssetCategories"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAssetCategoriesResponse>();
+}
+
+/**
+ * @summary 列出分类
+ *
+ * @param request ListAssetCategoriesRequest
+ * @return ListAssetCategoriesResponse
+ */
+ListAssetCategoriesResponse Client::listAssetCategories(const ListAssetCategoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAssetCategoriesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 搜索媒资
+ *
+ * @param request SearchMediaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchMediaResponse
+ */
+SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.getCategoryId();
+  }
+
+  if (!!request.hasEntityId()) {
+    query["EntityId"] = request.getEntityId();
+  }
+
+  if (!!request.hasMatch()) {
+    query["Match"] = request.getMatch();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScrollToken()) {
+    query["ScrollToken"] = request.getScrollToken();
+  }
+
+  if (!!request.hasSearchLibName()) {
+    query["SearchLibName"] = request.getSearchLibName();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchMedia"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchMediaResponse>();
+}
+
+/**
+ * @summary 搜索媒资
+ *
+ * @param request SearchMediaRequest
+ * @return SearchMediaResponse
+ */
+SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchMediaWithOptions(request, runtime);
 }
 
 /**
@@ -626,6 +884,56 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJob(const SubmitVi
 }
 
 /**
+ * @summary 更新媒资分类
+ *
+ * @description 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+ *
+ * @param request UpdateAssetCategoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAssetCategoryResponse
+ */
+UpdateAssetCategoryResponse Client::updateAssetCategoryWithOptions(const UpdateAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.getCategoryId();
+  }
+
+  if (!!request.hasCategoryName()) {
+    query["CategoryName"] = request.getCategoryName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAssetCategory"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAssetCategoryResponse>();
+}
+
+/**
+ * @summary 更新媒资分类
+ *
+ * @description 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+ *
+ * @param request UpdateAssetCategoryRequest
+ * @return UpdateAssetCategoryResponse
+ */
+UpdateAssetCategoryResponse Client::updateAssetCategory(const UpdateAssetCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAssetCategoryWithOptions(request, runtime);
+}
+
+/**
  * @summary UpdateMedia
  *
  * @description ## 请求说明
@@ -640,6 +948,10 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
   json query = {};
   if (!!request.hasAppendTags()) {
     query["AppendTags"] = request.getAppendTags();
+  }
+
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasCoverURL()) {

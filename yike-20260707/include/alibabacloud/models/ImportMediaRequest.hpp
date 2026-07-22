@@ -13,6 +13,7 @@ namespace Models
   class ImportMediaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImportMediaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_TO_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DynamicMetaData, dynamicMetaData_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, ImportMediaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
       DARABONBA_PTR_FROM_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DynamicMetaData, dynamicMetaData_);
@@ -51,10 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->coverURL_ == nullptr
-        && this->description_ == nullptr && this->dynamicMetaData_ == nullptr && this->entityId_ == nullptr && this->importSource_ == nullptr && this->inputURL_ == nullptr
-        && this->mediaTags_ == nullptr && this->mediaType_ == nullptr && this->overwrite_ == nullptr && this->registerConfig_ == nullptr && this->title_ == nullptr
-        && this->userData_ == nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && this->coverURL_ == nullptr && this->description_ == nullptr && this->dynamicMetaData_ == nullptr && this->entityId_ == nullptr && this->importSource_ == nullptr
+        && this->inputURL_ == nullptr && this->mediaTags_ == nullptr && this->mediaType_ == nullptr && this->overwrite_ == nullptr && this->registerConfig_ == nullptr
+        && this->title_ == nullptr && this->userData_ == nullptr; };
+    // categoryId Field Functions 
+    bool hasCategoryId() const { return this->categoryId_ != nullptr;};
+    void deleteCategoryId() { this->categoryId_ = nullptr;};
+    inline int64_t getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
+    inline ImportMediaRequest& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
+
+
     // coverURL Field Functions 
     bool hasCoverURL() const { return this->coverURL_ != nullptr;};
     void deleteCoverURL() { this->coverURL_ = nullptr;};
@@ -140,6 +149,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> categoryId_ {};
     shared_ptr<string> coverURL_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> dynamicMetaData_ {};

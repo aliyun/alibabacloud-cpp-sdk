@@ -44,6 +44,48 @@ namespace Yike20260707
       Models::BatchGetMediasResponse batchGetMedias(const Models::BatchGetMediasRequest &request);
 
       /**
+       * @summary 创建分类
+       *
+       * @description 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+       *
+       * @param request CreateAssetCategoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAssetCategoryResponse
+       */
+      Models::CreateAssetCategoryResponse createAssetCategoryWithOptions(const Models::CreateAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建分类
+       *
+       * @description 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+       *
+       * @param request CreateAssetCategoryRequest
+       * @return CreateAssetCategoryResponse
+       */
+      Models::CreateAssetCategoryResponse createAssetCategory(const Models::CreateAssetCategoryRequest &request);
+
+      /**
+       * @summary 删除分类
+       *
+       * @description 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+       *
+       * @param request DeleteAssetCategoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAssetCategoryResponse
+       */
+      Models::DeleteAssetCategoryResponse deleteAssetCategoryWithOptions(const Models::DeleteAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除分类
+       *
+       * @description 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+       *
+       * @param request DeleteAssetCategoryRequest
+       * @return DeleteAssetCategoryResponse
+       */
+      Models::DeleteAssetCategoryResponse deleteAssetCategory(const Models::DeleteAssetCategoryRequest &request);
+
+      /**
        * @summary 删除媒资信息
        *
        * @param request DeleteMediasRequest
@@ -59,6 +101,23 @@ namespace Yike20260707
        * @return DeleteMediasResponse
        */
       Models::DeleteMediasResponse deleteMedias(const Models::DeleteMediasRequest &request);
+
+      /**
+       * @summary 查询分类
+       *
+       * @param request GetAssetCategoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAssetCategoryResponse
+       */
+      Models::GetAssetCategoryResponse getAssetCategoryWithOptions(const Models::GetAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询分类
+       *
+       * @param request GetAssetCategoryRequest
+       * @return GetAssetCategoryResponse
+       */
+      Models::GetAssetCategoryResponse getAssetCategory(const Models::GetAssetCategoryRequest &request);
 
       /**
        * @summary 查询图片生成任务
@@ -158,6 +217,40 @@ namespace Yike20260707
       Models::ImportMediaResponse importMedia(const Models::ImportMediaRequest &request);
 
       /**
+       * @summary 列出分类
+       *
+       * @param request ListAssetCategoriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAssetCategoriesResponse
+       */
+      Models::ListAssetCategoriesResponse listAssetCategoriesWithOptions(const Models::ListAssetCategoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出分类
+       *
+       * @param request ListAssetCategoriesRequest
+       * @return ListAssetCategoriesResponse
+       */
+      Models::ListAssetCategoriesResponse listAssetCategories(const Models::ListAssetCategoriesRequest &request);
+
+      /**
+       * @summary 搜索媒资
+       *
+       * @param request SearchMediaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchMediaResponse
+       */
+      Models::SearchMediaResponse searchMediaWithOptions(const Models::SearchMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 搜索媒资
+       *
+       * @param request SearchMediaRequest
+       * @return SearchMediaResponse
+       */
+      Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
+
+      /**
        * @summary 提交图像生成接口
        *
        * @param request SubmitImageGenerationJobRequest
@@ -207,6 +300,27 @@ namespace Yike20260707
        * @return SubmitVideoGenerationJobResponse
        */
       Models::SubmitVideoGenerationJobResponse submitVideoGenerationJob(const Models::SubmitVideoGenerationJobRequest &request);
+
+      /**
+       * @summary 更新媒资分类
+       *
+       * @description 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+       *
+       * @param request UpdateAssetCategoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAssetCategoryResponse
+       */
+      Models::UpdateAssetCategoryResponse updateAssetCategoryWithOptions(const Models::UpdateAssetCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新媒资分类
+       *
+       * @description 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+       *
+       * @param request UpdateAssetCategoryRequest
+       * @return UpdateAssetCategoryResponse
+       */
+      Models::UpdateAssetCategoryResponse updateAssetCategory(const Models::UpdateAssetCategoryRequest &request);
 
       /**
        * @summary UpdateMedia

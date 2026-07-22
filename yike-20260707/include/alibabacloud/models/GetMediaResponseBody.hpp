@@ -146,6 +146,8 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const MediaBasicInfo& obj) { 
           DARABONBA_PTR_TO_JSON(BusinessType, businessType_);
+          DARABONBA_PTR_TO_JSON(CategoryId, categoryId_);
+          DARABONBA_PTR_TO_JSON(CategoryName, categoryName_);
           DARABONBA_PTR_TO_JSON(CoverURL, coverURL_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Description, description_);
@@ -165,6 +167,8 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, MediaBasicInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(BusinessType, businessType_);
+          DARABONBA_PTR_FROM_JSON(CategoryId, categoryId_);
+          DARABONBA_PTR_FROM_JSON(CategoryName, categoryName_);
           DARABONBA_PTR_FROM_JSON(CoverURL, coverURL_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -194,15 +198,29 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->businessType_ == nullptr
-        && this->coverURL_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->entityId_ == nullptr && this->inputURL_ == nullptr
-        && this->mediaId_ == nullptr && this->mediaTags_ == nullptr && this->mediaType_ == nullptr && this->modifiedTime_ == nullptr && this->snapshots_ == nullptr
-        && this->source_ == nullptr && this->spriteImages_ == nullptr && this->status_ == nullptr && this->title_ == nullptr && this->uploadSource_ == nullptr
-        && this->userData_ == nullptr; };
+        && this->categoryId_ == nullptr && this->categoryName_ == nullptr && this->coverURL_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
+        && this->entityId_ == nullptr && this->inputURL_ == nullptr && this->mediaId_ == nullptr && this->mediaTags_ == nullptr && this->mediaType_ == nullptr
+        && this->modifiedTime_ == nullptr && this->snapshots_ == nullptr && this->source_ == nullptr && this->spriteImages_ == nullptr && this->status_ == nullptr
+        && this->title_ == nullptr && this->uploadSource_ == nullptr && this->userData_ == nullptr; };
         // businessType Field Functions 
         bool hasBusinessType() const { return this->businessType_ != nullptr;};
         void deleteBusinessType() { this->businessType_ = nullptr;};
         inline string getBusinessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, "") };
         inline MediaBasicInfo& setBusinessType(string businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
+
+
+        // categoryId Field Functions 
+        bool hasCategoryId() const { return this->categoryId_ != nullptr;};
+        void deleteCategoryId() { this->categoryId_ = nullptr;};
+        inline int64_t getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, 0L) };
+        inline MediaBasicInfo& setCategoryId(int64_t categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
+
+
+        // categoryName Field Functions 
+        bool hasCategoryName() const { return this->categoryName_ != nullptr;};
+        void deleteCategoryName() { this->categoryName_ = nullptr;};
+        inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+        inline MediaBasicInfo& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
         // coverURL Field Functions 
@@ -319,6 +337,8 @@ namespace Models
 
       protected:
         shared_ptr<string> businessType_ {};
+        shared_ptr<int64_t> categoryId_ {};
+        shared_ptr<string> categoryName_ {};
         shared_ptr<string> coverURL_ {};
         shared_ptr<string> createTime_ {};
         shared_ptr<string> description_ {};
