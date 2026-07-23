@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Kind, kind_);
+        DARABONBA_PTR_TO_JSON(Moderation, moderation_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Kind, kind_);
+        DARABONBA_PTR_FROM_JSON(Moderation, moderation_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
@@ -71,9 +73,53 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Moderation : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Moderation& obj) { 
+          DARABONBA_PTR_TO_JSON(Reasons, reasons_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, Moderation& obj) { 
+          DARABONBA_PTR_FROM_JSON(Reasons, reasons_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        Moderation() = default ;
+        Moderation(const Moderation &) = default ;
+        Moderation(Moderation &&) = default ;
+        Moderation(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Moderation() = default ;
+        Moderation& operator=(const Moderation &) = default ;
+        Moderation& operator=(Moderation &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->reasons_ == nullptr
+        && this->status_ == nullptr; };
+        // reasons Field Functions 
+        bool hasReasons() const { return this->reasons_ != nullptr;};
+        void deleteReasons() { this->reasons_ = nullptr;};
+        inline const vector<string> & getReasons() const { DARABONBA_PTR_GET_CONST(reasons_, vector<string>) };
+        inline vector<string> getReasons() { DARABONBA_PTR_GET(reasons_, vector<string>) };
+        inline Moderation& setReasons(const vector<string> & reasons) { DARABONBA_PTR_SET_VALUE(reasons_, reasons) };
+        inline Moderation& setReasons(vector<string> && reasons) { DARABONBA_PTR_SET_RVALUE(reasons_, reasons) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Moderation& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        shared_ptr<vector<string>> reasons_ {};
+        shared_ptr<string> status_ {};
+      };
+
       virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->kind_ == nullptr && this->name_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->contentType_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->kind_ == nullptr && this->moderation_ == nullptr
+        && this->name_ == nullptr && this->updateTime_ == nullptr; };
       // content Field Functions 
       bool hasContent() const { return this->content_ != nullptr;};
       void deleteContent() { this->content_ = nullptr;};
@@ -109,6 +155,15 @@ namespace Models
       inline Pages& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
 
 
+      // moderation Field Functions 
+      bool hasModeration() const { return this->moderation_ != nullptr;};
+      void deleteModeration() { this->moderation_ = nullptr;};
+      inline const Pages::Moderation & getModeration() const { DARABONBA_PTR_GET_CONST(moderation_, Pages::Moderation) };
+      inline Pages::Moderation getModeration() { DARABONBA_PTR_GET(moderation_, Pages::Moderation) };
+      inline Pages& setModeration(const Pages::Moderation & moderation) { DARABONBA_PTR_SET_VALUE(moderation_, moderation) };
+      inline Pages& setModeration(Pages::Moderation && moderation) { DARABONBA_PTR_SET_RVALUE(moderation_, moderation) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -134,13 +189,14 @@ namespace Models
       shared_ptr<string> contentType_ {};
       // The description of the custom response page.
       shared_ptr<string> description_ {};
-      // The ID of the custom response page. You can call the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation to obtain the ID.
+      // The ID of the custom response page. You can obtain this value by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
       shared_ptr<int64_t> id_ {};
       // The type of the custom response page.
       shared_ptr<string> kind_ {};
+      shared_ptr<Pages::Moderation> moderation_ {};
       // The name of the custom response page.
       shared_ptr<string> name_ {};
-      // The time when the custom response page was last modified.
+      // The last modification time of the custom response page.
       // 
       // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
       // 

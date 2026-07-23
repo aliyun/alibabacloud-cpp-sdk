@@ -75,7 +75,7 @@ namespace Models
       // * text/html
       // * application/json
       shared_ptr<string> contentType_ {};
-      // The keyword used for fuzzy matching against the name or description of custom pages.
+      // The fuzzy match string for the name or description of a custom page.
       shared_ptr<string> nameDescriptionLike_ {};
     };
 

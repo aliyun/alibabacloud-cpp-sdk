@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The code description.
     shared_ptr<string> codeDescription_ {};
-    // The routine name.
+    // The name of the Edge Routine.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

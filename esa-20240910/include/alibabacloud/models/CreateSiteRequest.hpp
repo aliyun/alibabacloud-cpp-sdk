@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Coverage, coverage_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_TO_JSON(SiteName, siteName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSiteRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Coverage, coverage_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_FROM_JSON(SiteName, siteName_);
     };
     CreateSiteRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->coverage_ == nullptr && this->instanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->siteName_ == nullptr; };
+        && this->coverage_ == nullptr && this->instanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwner_ == nullptr && this->siteName_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline CreateSiteRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // resourceOwner Field Functions 
+    bool hasResourceOwner() const { return this->resourceOwner_ != nullptr;};
+    void deleteResourceOwner() { this->resourceOwner_ = nullptr;};
+    inline int64_t getResourceOwner() const { DARABONBA_PTR_GET_DEFAULT(resourceOwner_, 0L) };
+    inline CreateSiteRequest& setResourceOwner(int64_t resourceOwner) { DARABONBA_PTR_SET_VALUE(resourceOwner_, resourceOwner) };
+
+
     // siteName Field Functions 
     bool hasSiteName() const { return this->siteName_ != nullptr;};
     void deleteSiteName() { this->siteName_ = nullptr;};
@@ -89,12 +98,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> coverage_ {};
-    // The instance ID. You can obtain the instance ID by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. You must specify at least one of the instance ID and site ID. If both are specified, the instance ID takes precedence.
+    // The instance ID. You can call the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation to obtain the instance ID. You must specify at least one of the instance ID and site ID. If both are specified, the instance ID takes precedence.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The resource group ID. If you do not specify this parameter, the system automatically uses the default resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<int64_t> resourceOwner_ {};
     // The site name.
     // 
     // This parameter is required.

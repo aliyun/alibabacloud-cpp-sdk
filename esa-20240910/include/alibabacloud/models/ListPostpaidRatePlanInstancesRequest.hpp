@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(SortOrder, sortOrder_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(SortOrder, sortOrder_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkRemainingSiteQuota_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr
-        && this->status_ == nullptr && this->unrelatedType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceOwner_ == nullptr && this->sortBy_ == nullptr
+        && this->sortOrder_ == nullptr && this->status_ == nullptr && this->unrelatedType_ == nullptr; };
     // checkRemainingSiteQuota Field Functions 
     bool hasCheckRemainingSiteQuota() const { return this->checkRemainingSiteQuota_ != nullptr;};
     void deleteCheckRemainingSiteQuota() { this->checkRemainingSiteQuota_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListPostpaidRatePlanInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // resourceOwner Field Functions 
+    bool hasResourceOwner() const { return this->resourceOwner_ != nullptr;};
+    void deleteResourceOwner() { this->resourceOwner_ = nullptr;};
+    inline int64_t getResourceOwner() const { DARABONBA_PTR_GET_DEFAULT(resourceOwner_, 0L) };
+    inline ListPostpaidRatePlanInstancesRequest& setResourceOwner(int64_t resourceOwner) { DARABONBA_PTR_SET_VALUE(resourceOwner_, resourceOwner) };
 
 
     // sortBy Field Functions 
@@ -109,13 +118,14 @@ namespace Models
     // 
     // - false: Does not filter by this condition.
     shared_ptr<string> checkRemainingSiteQuota_ {};
-    // The instance ID. Specify this parameter to query a specific instance.
+    // The instance ID. Use this parameter to query a specific instance.
     shared_ptr<string> instanceId_ {};
     // The page number for paging queries. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page for paging queries. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The field by which to sort the results. Valid values:
+    shared_ptr<int64_t> resourceOwner_ {};
+    // The field by which to sort results. Valid values:
     // 
     // - CreateTime: sorted by creation time
     shared_ptr<string> sortBy_ {};

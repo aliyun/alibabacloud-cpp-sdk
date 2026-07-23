@@ -187,6 +187,10 @@
 #include <alibabacloud/models/CreateRoutineRequest.hpp>
 #include <alibabacloud/models/CreateRoutineResponseBody.hpp>
 #include <alibabacloud/models/CreateRoutineResponse.hpp>
+#include <alibabacloud/models/CreateRoutineBuildConfigurationRequest.hpp>
+#include <alibabacloud/models/CreateRoutineBuildConfigurationShrinkRequest.hpp>
+#include <alibabacloud/models/CreateRoutineBuildConfigurationResponseBody.hpp>
+#include <alibabacloud/models/CreateRoutineBuildConfigurationResponse.hpp>
 #include <alibabacloud/models/CreateRoutineCodeDeploymentRequest.hpp>
 #include <alibabacloud/models/CreateRoutineCodeDeploymentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRoutineCodeDeploymentResponseBody.hpp>
@@ -370,6 +374,9 @@
 #include <alibabacloud/models/DeleteRoutineRequest.hpp>
 #include <alibabacloud/models/DeleteRoutineResponseBody.hpp>
 #include <alibabacloud/models/DeleteRoutineResponse.hpp>
+#include <alibabacloud/models/DeleteRoutineBuildConfigurationRequest.hpp>
+#include <alibabacloud/models/DeleteRoutineBuildConfigurationResponseBody.hpp>
+#include <alibabacloud/models/DeleteRoutineBuildConfigurationResponse.hpp>
 #include <alibabacloud/models/DeleteRoutineCodeVersionRequest.hpp>
 #include <alibabacloud/models/DeleteRoutineCodeVersionResponseBody.hpp>
 #include <alibabacloud/models/DeleteRoutineCodeVersionResponse.hpp>
@@ -750,6 +757,12 @@
 #include <alibabacloud/models/GetRoutineAccessTokenRequest.hpp>
 #include <alibabacloud/models/GetRoutineAccessTokenResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineAccessTokenResponse.hpp>
+#include <alibabacloud/models/GetRoutineBuildRequest.hpp>
+#include <alibabacloud/models/GetRoutineBuildResponseBody.hpp>
+#include <alibabacloud/models/GetRoutineBuildResponse.hpp>
+#include <alibabacloud/models/GetRoutineBuildConfigurationRequest.hpp>
+#include <alibabacloud/models/GetRoutineBuildConfigurationResponseBody.hpp>
+#include <alibabacloud/models/GetRoutineBuildConfigurationResponse.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionRequest.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionResponse.hpp>
@@ -1003,6 +1016,12 @@
 #include <alibabacloud/models/ListRewriteUrlRulesRequest.hpp>
 #include <alibabacloud/models/ListRewriteUrlRulesResponseBody.hpp>
 #include <alibabacloud/models/ListRewriteUrlRulesResponse.hpp>
+#include <alibabacloud/models/ListRoutineBuildConfigurationsRequest.hpp>
+#include <alibabacloud/models/ListRoutineBuildConfigurationsResponseBody.hpp>
+#include <alibabacloud/models/ListRoutineBuildConfigurationsResponse.hpp>
+#include <alibabacloud/models/ListRoutineBuildsRequest.hpp>
+#include <alibabacloud/models/ListRoutineBuildsResponseBody.hpp>
+#include <alibabacloud/models/ListRoutineBuildsResponse.hpp>
 #include <alibabacloud/models/ListRoutineCanaryAreasResponseBody.hpp>
 #include <alibabacloud/models/ListRoutineCanaryAreasResponse.hpp>
 #include <alibabacloud/models/ListRoutineCodeVersionsRequest.hpp>
@@ -1131,6 +1150,9 @@
 #include <alibabacloud/models/PurchaseCacheReserveRequest.hpp>
 #include <alibabacloud/models/PurchaseCacheReserveResponseBody.hpp>
 #include <alibabacloud/models/PurchaseCacheReserveResponse.hpp>
+#include <alibabacloud/models/PurchaseDDoSInstanceRequest.hpp>
+#include <alibabacloud/models/PurchaseDDoSInstanceResponseBody.hpp>
+#include <alibabacloud/models/PurchaseDDoSInstanceResponse.hpp>
 #include <alibabacloud/models/PurchaseRatePlanRequest.hpp>
 #include <alibabacloud/models/PurchaseRatePlanResponseBody.hpp>
 #include <alibabacloud/models/PurchaseRatePlanResponse.hpp>
@@ -1145,6 +1167,9 @@
 #include <alibabacloud/models/PutKvWithHighCapacityAdvanceRequest.hpp>
 #include <alibabacloud/models/PutKvWithHighCapacityResponseBody.hpp>
 #include <alibabacloud/models/PutKvWithHighCapacityResponse.hpp>
+#include <alibabacloud/models/ReDoRoutineBuildRequest.hpp>
+#include <alibabacloud/models/ReDoRoutineBuildResponseBody.hpp>
+#include <alibabacloud/models/ReDoRoutineBuildResponse.hpp>
 #include <alibabacloud/models/RebuildEdgeContainerAppStagingEnvRequest.hpp>
 #include <alibabacloud/models/RebuildEdgeContainerAppStagingEnvResponseBody.hpp>
 #include <alibabacloud/models/RebuildEdgeContainerAppStagingEnvResponse.hpp>
@@ -1205,6 +1230,9 @@
 #include <alibabacloud/models/StartScheduledPreloadExecutionRequest.hpp>
 #include <alibabacloud/models/StartScheduledPreloadExecutionResponseBody.hpp>
 #include <alibabacloud/models/StartScheduledPreloadExecutionResponse.hpp>
+#include <alibabacloud/models/StopRoutineBuildRequest.hpp>
+#include <alibabacloud/models/StopRoutineBuildResponseBody.hpp>
+#include <alibabacloud/models/StopRoutineBuildResponse.hpp>
 #include <alibabacloud/models/StopScheduledPreloadExecutionRequest.hpp>
 #include <alibabacloud/models/StopScheduledPreloadExecutionResponseBody.hpp>
 #include <alibabacloud/models/StopScheduledPreloadExecutionResponse.hpp>
@@ -1376,6 +1404,9 @@
 #include <alibabacloud/models/UpdateSiteDeliveryTaskStatusRequest.hpp>
 #include <alibabacloud/models/UpdateSiteDeliveryTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateSiteDeliveryTaskStatusResponse.hpp>
+#include <alibabacloud/models/UpdateSiteInstanceRequest.hpp>
+#include <alibabacloud/models/UpdateSiteInstanceResponseBody.hpp>
+#include <alibabacloud/models/UpdateSiteInstanceResponse.hpp>
 #include <alibabacloud/models/UpdateSiteNameExclusiveRequest.hpp>
 #include <alibabacloud/models/UpdateSiteNameExclusiveResponseBody.hpp>
 #include <alibabacloud/models/UpdateSiteNameExclusiveResponse.hpp>

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Channel, channel_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Coverage, coverage_);
+      DARABONBA_PTR_TO_JSON(OveragePolicy, overagePolicy_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PlanCode, planCode_);
       DARABONBA_PTR_TO_JSON(PlanName, planName_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Channel, channel_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Coverage, coverage_);
+      DARABONBA_PTR_FROM_JSON(OveragePolicy, overagePolicy_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PlanCode, planCode_);
       DARABONBA_PTR_FROM_JSON(PlanName, planName_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->channel_ == nullptr && this->chargeType_ == nullptr && this->coverage_ == nullptr
-        && this->period_ == nullptr && this->planCode_ == nullptr && this->planName_ == nullptr && this->siteName_ == nullptr && this->type_ == nullptr; };
+        && this->overagePolicy_ == nullptr && this->period_ == nullptr && this->planCode_ == nullptr && this->planName_ == nullptr && this->siteName_ == nullptr
+        && this->type_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -94,6 +97,13 @@ namespace Models
     inline PurchaseRatePlanRequest& setCoverage(string coverage) { DARABONBA_PTR_SET_VALUE(coverage_, coverage) };
 
 
+    // overagePolicy Field Functions 
+    bool hasOveragePolicy() const { return this->overagePolicy_ != nullptr;};
+    void deleteOveragePolicy() { this->overagePolicy_ = nullptr;};
+    inline string getOveragePolicy() const { DARABONBA_PTR_GET_DEFAULT(overagePolicy_, "") };
+    inline PurchaseRatePlanRequest& setOveragePolicy(string overagePolicy) { DARABONBA_PTR_SET_VALUE(overagePolicy_, overagePolicy) };
+
+
     // period Field Functions 
     bool hasPeriod() const { return this->period_ != nullptr;};
     void deletePeriod() { this->period_ = nullptr;};
@@ -132,18 +142,18 @@ namespace Models
   protected:
     // The number of plans to purchase.
     shared_ptr<int32_t> amount_ {};
-    // Specifies whether to enable automatic payment.
-    // Set this parameter to true when you directly call this operation.
+    // Specifies whether to enable automatic payment. Set this parameter to true when you directly call this operation.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // - true: Auto-renewal is enabled.
-    // - false: Auto-renewal is disabled.
+    // - false: Auto-renewal is not enabled.
     shared_ptr<bool> autoRenew_ {};
     // The channel field.
     shared_ptr<string> channel_ {};
     // The billing method. Valid values:
     // - PREPAY: subscription.
     // - POSTPAY: pay-as-you-go.
+    // 
     // Set this parameter to PREPAY when you directly call this operation.
     shared_ptr<string> chargeType_ {};
     // The acceleration region. Valid values:
@@ -151,32 +161,32 @@ namespace Models
     // - global: global.
     // - overseas: global (excluding the Chinese mainland).
     shared_ptr<string> coverage_ {};
-    // The purchase period, in months.
-    // This parameter is required when you directly call this operation.
+    shared_ptr<string> overagePolicy_ {};
+    // The purchase period, in months. This parameter is required when you directly call this operation.
     shared_ptr<int32_t> period_ {};
     // The plan code.
     // 
-    // China site
+    // Chinese site
     // 
     // - Free Edition: entranceplan
     // - Basic: basicplan
     // - Standard: standardplan
-    // - Premium: advancedplan
+    // - Advanced: advancedplan
     // 
     // International site
     // 
     // - Entrance: entranceplan
     // - Pro: standardplan
-    // - Premium: advancedpla.
+    // - Premium: advancedpla
     shared_ptr<string> planCode_ {};
     // The plan name.
     // 
-    // China site
+    // Chinese site
     // 
     // - Free Edition: entranceplan
     // - Basic: basic
     // - Standard: medium
-    // - Premium: high
+    // - Advanced: high
     // 
     // International site
     // 
@@ -184,7 +194,7 @@ namespace Models
     // - Pro: basicplan_intl
     // - Premium: vipplan_intl
     // 
-    // > Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
+    // Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
     shared_ptr<string> planName_ {};
     // The site name.
     shared_ptr<string> siteName_ {};

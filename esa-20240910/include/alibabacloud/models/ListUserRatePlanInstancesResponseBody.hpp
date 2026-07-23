@@ -59,11 +59,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(Layer4Traffic, layer4Traffic_);
         DARABONBA_PTR_TO_JSON(Layer4TrafficIntl, layer4TrafficIntl_);
+        DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
         DARABONBA_PTR_TO_JSON(PlanName, planName_);
         DARABONBA_PTR_TO_JSON(PlanTraffic, planTraffic_);
         DARABONBA_PTR_TO_JSON(PlanType, planType_);
         DARABONBA_PTR_TO_JSON(RenewalDuration, renewalDuration_);
         DARABONBA_PTR_TO_JSON(RenewalStatus, renewalStatus_);
+        DARABONBA_PTR_TO_JSON(ResourceOwner, resourceOwner_);
+        DARABONBA_PTR_TO_JSON(ShareType, shareType_);
         DARABONBA_PTR_TO_JSON(SiteQuota, siteQuota_);
         DARABONBA_PTR_TO_JSON(Sites, sites_);
         DARABONBA_PTR_TO_JSON(SmartRoutingRequest, smartRoutingRequest_);
@@ -88,11 +91,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(Layer4Traffic, layer4Traffic_);
         DARABONBA_PTR_FROM_JSON(Layer4TrafficIntl, layer4TrafficIntl_);
+        DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
         DARABONBA_PTR_FROM_JSON(PlanName, planName_);
         DARABONBA_PTR_FROM_JSON(PlanTraffic, planTraffic_);
         DARABONBA_PTR_FROM_JSON(PlanType, planType_);
         DARABONBA_PTR_FROM_JSON(RenewalDuration, renewalDuration_);
         DARABONBA_PTR_FROM_JSON(RenewalStatus, renewalStatus_);
+        DARABONBA_PTR_FROM_JSON(ResourceOwner, resourceOwner_);
+        DARABONBA_PTR_FROM_JSON(ShareType, shareType_);
         DARABONBA_PTR_FROM_JSON(SiteQuota, siteQuota_);
         DARABONBA_PTR_FROM_JSON(Sites, sites_);
         DARABONBA_PTR_FROM_JSON(SmartRoutingRequest, smartRoutingRequest_);
@@ -175,9 +181,9 @@ namespace Models
         && this->botInstanceLevel_ == nullptr && this->botRequest_ == nullptr && this->coverages_ == nullptr && this->createTime_ == nullptr && this->crossborderTraffic_ == nullptr
         && this->ddosBurstableDomesticProtection_ == nullptr && this->ddosBurstableOverseasProtection_ == nullptr && this->ddosInstanceLevel_ == nullptr && this->duration_ == nullptr && this->edgeRoutineRquest_ == nullptr
         && this->edgeWafRequest_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->layer4Traffic_ == nullptr && this->layer4TrafficIntl_ == nullptr
-        && this->planName_ == nullptr && this->planTraffic_ == nullptr && this->planType_ == nullptr && this->renewalDuration_ == nullptr && this->renewalStatus_ == nullptr
-        && this->siteQuota_ == nullptr && this->sites_ == nullptr && this->smartRoutingRequest_ == nullptr && this->staticRequest_ == nullptr && this->status_ == nullptr
-        && this->subscribeType_ == nullptr; };
+        && this->ownerId_ == nullptr && this->planName_ == nullptr && this->planTraffic_ == nullptr && this->planType_ == nullptr && this->renewalDuration_ == nullptr
+        && this->renewalStatus_ == nullptr && this->resourceOwner_ == nullptr && this->shareType_ == nullptr && this->siteQuota_ == nullptr && this->sites_ == nullptr
+        && this->smartRoutingRequest_ == nullptr && this->staticRequest_ == nullptr && this->status_ == nullptr && this->subscribeType_ == nullptr; };
       // billingMode Field Functions 
       bool hasBillingMode() const { return this->billingMode_ != nullptr;};
       void deleteBillingMode() { this->billingMode_ = nullptr;};
@@ -290,6 +296,13 @@ namespace Models
       inline InstanceInfo& setLayer4TrafficIntl(string layer4TrafficIntl) { DARABONBA_PTR_SET_VALUE(layer4TrafficIntl_, layer4TrafficIntl) };
 
 
+      // ownerId Field Functions 
+      bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+      void deleteOwnerId() { this->ownerId_ = nullptr;};
+      inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+      inline InstanceInfo& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
       // planName Field Functions 
       bool hasPlanName() const { return this->planName_ != nullptr;};
       void deletePlanName() { this->planName_ = nullptr;};
@@ -323,6 +336,20 @@ namespace Models
       void deleteRenewalStatus() { this->renewalStatus_ = nullptr;};
       inline string getRenewalStatus() const { DARABONBA_PTR_GET_DEFAULT(renewalStatus_, "") };
       inline InstanceInfo& setRenewalStatus(string renewalStatus) { DARABONBA_PTR_SET_VALUE(renewalStatus_, renewalStatus) };
+
+
+      // resourceOwner Field Functions 
+      bool hasResourceOwner() const { return this->resourceOwner_ != nullptr;};
+      void deleteResourceOwner() { this->resourceOwner_ = nullptr;};
+      inline int64_t getResourceOwner() const { DARABONBA_PTR_GET_DEFAULT(resourceOwner_, 0L) };
+      inline InstanceInfo& setResourceOwner(int64_t resourceOwner) { DARABONBA_PTR_SET_VALUE(resourceOwner_, resourceOwner) };
+
+
+      // shareType Field Functions 
+      bool hasShareType() const { return this->shareType_ != nullptr;};
+      void deleteShareType() { this->shareType_ = nullptr;};
+      inline string getShareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
+      inline InstanceInfo& setShareType(string shareType) { DARABONBA_PTR_SET_VALUE(shareType_, shareType) };
 
 
       // siteQuota Field Functions 
@@ -372,18 +399,18 @@ namespace Models
     protected:
       // The billing method. Valid values:
       // 
-      // - **PREPAY**: subscription.
-      // - **POSTPAY**: pay-as-you-go.
+      // - **PREPAY**: Subscription.
+      // - **POSTPAY**: Pay-as-you-go.
       shared_ptr<string> billingMode_ {};
-      // If this field is empty, the plan does not include a bot protection instance. If a value is returned, the plan includes a bot protection instance. Valid values:
+      // If empty, the plan does not include a bot protection instance. If a value is returned, the plan includes a bot protection instance. Valid values:
       // 
-      // - enterprise_bot: Web Edition
+      // - enterprise_bot: Web edition.
       // 
-      // - enterprise_bot_with_app: App Edition.
+      // - enterprise_bot_with_app: App edition.
       shared_ptr<string> botInstanceLevel_ {};
-      // The prepaid bot protection requests included in the plan, in units of 10,000.
+      // The prepaid bot protection requests included in the plan (in units of 10,000).
       shared_ptr<string> botRequest_ {};
-      // The acceleration regions to which sites can be bound under this plan instance. Multiple values are separated by commas (,). Valid values:
+      // The acceleration coverage areas for sites that can be bound to this plan instance. Multiple values are separated by commas (,). Valid values:
       // 
       // - **domestic**: China or the Chinese mainland.
       // - **overseas**: Global (excluding China or the Chinese mainland).
@@ -391,65 +418,68 @@ namespace Models
       shared_ptr<string> coverages_ {};
       // The purchase time of the plan instance. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // The prepaid China network acceleration traffic included in the plan, in GB.
+      // The prepaid China network acceleration traffic (GB) included in the plan.
       shared_ptr<string> crossborderTraffic_ {};
       // The Anti-DDoS instance specification for the Chinese mainland included in the plan.
       shared_ptr<string> ddosBurstableDomesticProtection_ {};
       // The Anti-DDoS instance specification outside the Chinese mainland included in the plan.
       shared_ptr<string> ddosBurstableOverseasProtection_ {};
-      // If this field is empty, the plan does not include an Anti-DDoS instance. If a value is returned, the plan includes an Anti-DDoS instance. The value is `esa_ddos_instance`.
+      // If empty, the plan does not include an Anti-DDoS instance. If a value is returned, the plan includes an Anti-DDoS instance. The value is `esa_ddos_instance`.
       shared_ptr<string> ddosInstanceLevel_ {};
       // The subscription duration of the plan instance. Unit: months.
       shared_ptr<int32_t> duration_ {};
-      // The prepaid Edge Routine (ER) requests included in the plan, in units of 10,000.
+      // The prepaid Edge Routine (ER) requests included in the plan (in units of 10,000).
       shared_ptr<string> edgeRoutineRquest_ {};
-      // The prepaid WAF requests included in the plan, in units of 10,000.
+      // The prepaid WAF requests included in the plan (in units of 10,000).
       shared_ptr<string> edgeWafRequest_ {};
       // The expiration time of the plan instance. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> expireTime_ {};
       // The plan instance ID.
       shared_ptr<string> instanceId_ {};
-      // The prepaid Layer 4 proxy traffic included in the plan, in GB, for the Chinese mainland.
+      // The prepaid Layer 4 proxy traffic (GB) included in the plan - Chinese mainland.
       shared_ptr<string> layer4Traffic_ {};
-      // The prepaid Layer 4 proxy traffic included in the plan, in GB, outside the Chinese mainland.
+      // The prepaid Layer 4 proxy traffic (GB) included in the plan - outside the Chinese mainland.
       shared_ptr<string> layer4TrafficIntl_ {};
+      shared_ptr<string> ownerId_ {};
       // The plan name associated with the plan instance.
       shared_ptr<string> planName_ {};
-      // The prepaid Layer 7 acceleration traffic included in the plan, in GB.
+      // The prepaid Layer 7 acceleration traffic (GB) included in the plan.
       shared_ptr<string> planTraffic_ {};
       // The plan type associated with the plan instance. Valid values:
-      // - **normal**: fixed-version plan.
-      // - **enterprise**: Enterprise Edition plan.
+      // - **normal**: Fixed edition plan.
+      // - **enterprise**: Enterprise edition plan.
       shared_ptr<string> planType_ {};
       // The auto-renewal cycle. Unit: months.
       shared_ptr<int64_t> renewalDuration_ {};
       // The auto-renewal status. Valid values:
       // 
-      // - nomal: normal
-      // - auto_renewal: auto-renewal enabled
-      // - not_renewal: auto-renewal disabled.
+      // - nomal: Normal.
+      // - auto_renewal: Auto-renewal enabled.
+      // - not_renewal: Auto-renewal disabled.
       shared_ptr<string> renewalStatus_ {};
+      shared_ptr<int64_t> resourceOwner_ {};
+      shared_ptr<string> shareType_ {};
       // The site quota for the plan instance.
       shared_ptr<string> siteQuota_ {};
       // The list of sites bound to the current plan instance.
       shared_ptr<vector<InstanceInfo::Sites>> sites_ {};
-      // The prepaid smart routing requests included in the plan, in units of 10,000.
+      // The prepaid smart routing requests included in the plan (in units of 10,000).
       shared_ptr<string> smartRoutingRequest_ {};
-      // The prepaid HTTP requests included in the plan, in units of 10,000.
+      // The prepaid HTTP requests included in the plan (in units of 10,000).
       shared_ptr<string> staticRequest_ {};
       // The instance status. Valid values:
-      // - **online**: The plan instance is in normal service.
-      // - **offline**: The plan instance has expired but has not exceeded the grace period and is not active.
-      // - **disable**: The plan instance has been released.
+      // - **online**: Normal service status.
+      // - **offline**: Expired but not overdue, in an inactive state.
+      // - **disable**: Released.
       shared_ptr<string> status_ {};
       // The plan subscription type. Valid values:
       // 
-      // - entranceplan: Free Edition (Chinese mainland)
-      // - entranceplan_intl: Free Edition (International)
-      // - basicplan: Basic Edition
-      // - standardplan: Standard Edition
-      // - advancedplan: Premium Edition
-      // - enterpriseplan: Enterprise Edition.
+      // - Free Edition (Chinese mainland): entranceplan
+      // - Free Edition (International): entranceplan_intl
+      // - Basic Edition: basicplan
+      // - Standard Edition: standardplan
+      // - Premium Edition: advancedplan
+      // - Enterprise Edition: enterpriseplan
       shared_ptr<string> subscribeType_ {};
     };
 
@@ -502,7 +532,7 @@ namespace Models
   protected:
     // The plan instances that match the specified conditions under the user.
     shared_ptr<vector<ListUserRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
-    // The current page number, which is the same as the PageNumber request parameter.
+    // The current page number, same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

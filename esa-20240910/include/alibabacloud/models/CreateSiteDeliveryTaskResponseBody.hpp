@@ -67,14 +67,12 @@ namespace Models
 
   protected:
     // The data center. Valid values:
-    // 
-    // - **cn**: Chinese mainland.
-    // 
-    // - **Overseas**: regions outside the Chinese mainland.
+    // - **cn**: The Chinese mainland.
+    // - **oversea**: Outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to obtain this ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
     shared_ptr<int64_t> siteId_ {};
     // The name of the task.
     shared_ptr<string> taskName_ {};

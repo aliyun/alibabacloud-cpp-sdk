@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of site WAF configuration.
+    // The site WAF configuration details.
     shared_ptr<WafSiteSettings> settings_ {};
   };
 

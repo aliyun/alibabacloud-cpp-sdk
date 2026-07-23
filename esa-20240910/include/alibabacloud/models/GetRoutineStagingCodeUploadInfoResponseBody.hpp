@@ -59,9 +59,9 @@ namespace Models
 
 
   protected:
-    // The code version.
+    // The code version number.
     shared_ptr<string> codeVersion_ {};
-    // The configuration information that can be used to upload to OSS.
+    // The configuration information for uploading a JavaScript file to OSS. When uploading to OSS, you must include the OSSAccessKeyId and x-oss-security-token parameters.
     Darabonba::Json ossPostConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -1108,6 +1108,23 @@ namespace ESA20240910
       Models::CreateRoutineResponse createRoutine(const Models::CreateRoutineRequest &request);
 
       /**
+       * @summary Creates an Edge Routine (ER) build configuration.
+       *
+       * @param tmpReq CreateRoutineBuildConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRoutineBuildConfigurationResponse
+       */
+      Models::CreateRoutineBuildConfigurationResponse createRoutineBuildConfigurationWithOptions(const Models::CreateRoutineBuildConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an Edge Routine (ER) build configuration.
+       *
+       * @param request CreateRoutineBuildConfigurationRequest
+       * @return CreateRoutineBuildConfigurationResponse
+       */
+      Models::CreateRoutineBuildConfigurationResponse createRoutineBuildConfiguration(const Models::CreateRoutineBuildConfigurationRequest &request);
+
+      /**
        * @summary Creates a percentage-based canary deployment for a Routine code version in a specified environment.
        *
        * @description ## Usage notes
@@ -1221,7 +1238,7 @@ namespace ESA20240910
        * @summary Creates a site.
        *
        * @description - Before creating a site, you must have an active plan instance.
-       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
        * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateSiteRequest
@@ -1234,7 +1251,7 @@ namespace ESA20240910
        * @summary Creates a site.
        *
        * @description - Before creating a site, you must have an active plan instance.
-       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
        * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateSiteRequest
@@ -1268,7 +1285,7 @@ namespace ESA20240910
       Models::CreateSiteCustomLogResponse createSiteCustomLog(const Models::CreateSiteCustomLogRequest &request);
 
       /**
-       * @summary Create a real-time log shipping task.
+       * @summary Creates a real-time log delivery task.
        *
        * @param tmpReq CreateSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1277,7 +1294,7 @@ namespace ESA20240910
       Models::CreateSiteDeliveryTaskResponse createSiteDeliveryTaskWithOptions(const Models::CreateSiteDeliveryTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a real-time log shipping task.
+       * @summary Creates a real-time log delivery task.
        *
        * @param request CreateSiteDeliveryTaskRequest
        * @return CreateSiteDeliveryTaskResponse
@@ -1338,17 +1355,17 @@ namespace ESA20240910
       Models::CreateUrlObservationResponse createUrlObservation(const Models::CreateUrlObservationRequest &request);
 
       /**
-       * @summary Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+       * @summary Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
        *
-       * @description Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
-       * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
-       * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
-       * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
-       * ## Notes
-       * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
-       * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
-       * - Verify that the `FilterRules` syntax is correct.
-       * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+       * @description This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+       * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+       * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+       * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+       * ## Usage notes
+       * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+       * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+       * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+       * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
        *
        * @param tmpReq CreateUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1357,17 +1374,17 @@ namespace ESA20240910
       Models::CreateUserDeliveryTaskResponse createUserDeliveryTaskWithOptions(const Models::CreateUserDeliveryTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+       * @summary Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
        *
-       * @description Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
-       * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
-       * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
-       * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
-       * ## Notes
-       * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
-       * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
-       * - Verify that the `FilterRules` syntax is correct.
-       * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+       * @description This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+       * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+       * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+       * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+       * ## Usage notes
+       * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+       * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+       * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+       * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
        *
        * @param request CreateUserDeliveryTaskRequest
        * @return CreateUserDeliveryTaskResponse
@@ -2182,6 +2199,23 @@ namespace ESA20240910
       Models::DeleteRoutineResponse deleteRoutine(const Models::DeleteRoutineRequest &request);
 
       /**
+       * @summary Deletes the ER build configuration.
+       *
+       * @param request DeleteRoutineBuildConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRoutineBuildConfigurationResponse
+       */
+      Models::DeleteRoutineBuildConfigurationResponse deleteRoutineBuildConfigurationWithOptions(const Models::DeleteRoutineBuildConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the ER build configuration.
+       *
+       * @param request DeleteRoutineBuildConfigurationRequest
+       * @return DeleteRoutineBuildConfigurationResponse
+       */
+      Models::DeleteRoutineBuildConfigurationResponse deleteRoutineBuildConfiguration(const Models::DeleteRoutineBuildConfigurationRequest &request);
+
+      /**
        * @summary Deletes a code version of a routine.
        *
        * @param request DeleteRoutineCodeVersionRequest
@@ -2284,7 +2318,7 @@ namespace ESA20240910
       Models::DeleteSiteResponse deleteSite(const Models::DeleteSiteRequest &request);
 
       /**
-       * @summary Deletes a real-time log delivery task.
+       * @summary Deletes an ongoing log delivery task.
        *
        * @param request DeleteSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2293,7 +2327,7 @@ namespace ESA20240910
       Models::DeleteSiteDeliveryTaskResponse deleteSiteDeliveryTaskWithOptions(const Models::DeleteSiteDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a real-time log delivery task.
+       * @summary Deletes an ongoing log delivery task.
        *
        * @param request DeleteSiteDeliveryTaskRequest
        * @return DeleteSiteDeliveryTaskResponse
@@ -2352,12 +2386,13 @@ namespace ESA20240910
       Models::DeleteUrlObservationResponse deleteUrlObservation(const Models::DeleteUrlObservationRequest &request);
 
       /**
-       * @summary Deletes a log delivery task from your Alibaba Cloud account.
+       * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
        *
-       * @description ******> 
-       * *   Deleted tasks cannot be restored. Proceed with caution.
-       * *   To call this operation, you must have an account that has the required permissions.
-       * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+       * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+       * **Note:**
+       * - The deletion operation is irreversible. Proceed with caution.
+       * - Only accounts with the required permissions can call this operation.
+       * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
        *
        * @param request DeleteUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2366,12 +2401,13 @@ namespace ESA20240910
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTaskWithOptions(const Models::DeleteUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a log delivery task from your Alibaba Cloud account.
+       * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
        *
-       * @description ******> 
-       * *   Deleted tasks cannot be restored. Proceed with caution.
-       * *   To call this operation, you must have an account that has the required permissions.
-       * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+       * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+       * **Note:**
+       * - The deletion operation is irreversible. Proceed with caution.
+       * - Only accounts with the required permissions can call this operation.
+       * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
        *
        * @param request DeleteUserDeliveryTaskRequest
        * @return DeleteUserDeliveryTaskResponse
@@ -2876,9 +2912,9 @@ namespace ESA20240910
       Models::DescribePurgeTasksResponse describePurgeTasks(const Models::DescribePurgeTasksRequest &request);
 
       /**
-       * @summary Queries the status of an instance that uses a plan.
+       * @summary Queries the status of a plan instance.
        *
-       * @description You can query the status of an instance after you purchase a plan for the instance.
+       * @description You can query the status of a plan instance only after you purchase and create the instance.
        *
        * @param request DescribeRatePlanInstanceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2887,9 +2923,9 @@ namespace ESA20240910
       Models::DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatusWithOptions(const Models::DescribeRatePlanInstanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of an instance that uses a plan.
+       * @summary Queries the status of a plan instance.
        *
-       * @description You can query the status of an instance after you purchase a plan for the instance.
+       * @description You can query the status of a plan instance only after you purchase and create the instance.
        *
        * @param request DescribeRatePlanInstanceStatusRequest
        * @return DescribeRatePlanInstanceStatusResponse
@@ -3185,7 +3221,7 @@ namespace ESA20240910
       Models::DisableCustomScenePolicyResponse disableCustomScenePolicy(const Models::DisableCustomScenePolicyRequest &request);
 
       /**
-       * @summary Edit WAF Configuration for a Site
+       * @summary Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
        *
        * @param tmpReq EditSiteWafSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3194,7 +3230,7 @@ namespace ESA20240910
       Models::EditSiteWafSettingsResponse editSiteWafSettingsWithOptions(const Models::EditSiteWafSettingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit WAF Configuration for a Site
+       * @summary Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
        *
        * @param request EditSiteWafSettingsRequest
        * @return EditSiteWafSettingsResponse
@@ -4434,6 +4470,40 @@ namespace ESA20240910
       Models::GetRoutineAccessTokenResponse getRoutineAccessToken(const Models::GetRoutineAccessTokenRequest &request);
 
       /**
+       * @summary Queries a single ER build task.
+       *
+       * @param request GetRoutineBuildRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRoutineBuildResponse
+       */
+      Models::GetRoutineBuildResponse getRoutineBuildWithOptions(const Models::GetRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a single ER build task.
+       *
+       * @param request GetRoutineBuildRequest
+       * @return GetRoutineBuildResponse
+       */
+      Models::GetRoutineBuildResponse getRoutineBuild(const Models::GetRoutineBuildRequest &request);
+
+      /**
+       * @summary Retrieves the build configuration.
+       *
+       * @param request GetRoutineBuildConfigurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRoutineBuildConfigurationResponse
+       */
+      Models::GetRoutineBuildConfigurationResponse getRoutineBuildConfigurationWithOptions(const Models::GetRoutineBuildConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the build configuration.
+       *
+       * @param request GetRoutineBuildConfigurationRequest
+       * @return GetRoutineBuildConfigurationResponse
+       */
+      Models::GetRoutineBuildConfigurationResponse getRoutineBuildConfiguration(const Models::GetRoutineBuildConfigurationRequest &request);
+
+      /**
        * @summary Queries the code information of a specific version of an Edge Routine.
        *
        * @param request GetRoutineCodeVersionRequest
@@ -4491,10 +4561,10 @@ namespace ESA20240910
       Models::GetRoutineRouteResponse getRoutineRoute(const Models::GetRoutineRouteRequest &request);
 
       /**
-       * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+       * @summary Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
        *
-       * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-       * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+       * @description - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+       * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
        *
        * @param request GetRoutineStagingCodeUploadInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4503,10 +4573,10 @@ namespace ESA20240910
       Models::GetRoutineStagingCodeUploadInfoResponse getRoutineStagingCodeUploadInfoWithOptions(const Models::GetRoutineStagingCodeUploadInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+       * @summary Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
        *
-       * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-       * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+       * @description - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+       * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
        *
        * @param request GetRoutineStagingCodeUploadInfoRequest
        * @return GetRoutineStagingCodeUploadInfoResponse
@@ -4654,15 +4724,14 @@ namespace ESA20240910
       Models::GetSiteDeliveryTaskResponse getSiteDeliveryTask(const Models::GetSiteDeliveryTaskRequest &request);
 
       /**
-       * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+       * @summary Queries the remaining real-time log delivery quota for a specified site and business type.
        *
-       * @description Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-       * **Take note of the following parameters:**
-       * - \\`\\`
-       * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-       * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+       * @description You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+       * **Parameter notes:**
+       * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+       * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
        * **Response:**
-       * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+       * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
        *
        * @param request GetSiteLogDeliveryQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4671,15 +4740,14 @@ namespace ESA20240910
       Models::GetSiteLogDeliveryQuotaResponse getSiteLogDeliveryQuotaWithOptions(const Models::GetSiteLogDeliveryQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+       * @summary Queries the remaining real-time log delivery quota for a specified site and business type.
        *
-       * @description Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-       * **Take note of the following parameters:**
-       * - \\`\\`
-       * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-       * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+       * @description You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+       * **Parameter notes:**
+       * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+       * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
        * **Response:**
-       * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+       * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
        *
        * @param request GetSiteLogDeliveryQuotaRequest
        * @return GetSiteLogDeliveryQuotaResponse
@@ -4759,7 +4827,7 @@ namespace ESA20240910
       Models::GetSiteTrafficSequenceResponse getSiteTrafficSequence(const Models::GetSiteTrafficSequenceRequest &request);
 
       /**
-       * @summary Get WAF Configuration for a Site
+       * @summary Retrieves the WAF configuration of a site.
        *
        * @param request GetSiteWafSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4768,7 +4836,7 @@ namespace ESA20240910
       Models::GetSiteWafSettingsResponse getSiteWafSettingsWithOptions(const Models::GetSiteWafSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get WAF Configuration for a Site
+       * @summary Retrieves the WAF configuration of a site.
        *
        * @param request GetSiteWafSettingsRequest
        * @return GetSiteWafSettingsResponse
@@ -5836,7 +5904,7 @@ namespace ESA20240910
       Models::ListOriginRulesResponse listOriginRules(const Models::ListOriginRulesRequest &request);
 
       /**
-       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
        *
        * @param tmpReq ListPagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5845,7 +5913,7 @@ namespace ESA20240910
       Models::ListPagesResponse listPagesWithOptions(const Models::ListPagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+       * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
        *
        * @param request ListPagesRequest
        * @return ListPagesResponse
@@ -5855,7 +5923,7 @@ namespace ESA20240910
       /**
        * @summary Queries the list of pay-as-you-go plan instances.
        *
-       * @description Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+       * @description This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
        *
        * @param request ListPostpaidRatePlanInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5866,7 +5934,7 @@ namespace ESA20240910
       /**
        * @summary Queries the list of pay-as-you-go plan instances.
        *
-       * @description Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+       * @description This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
        *
        * @param request ListPostpaidRatePlanInstancesRequest
        * @return ListPostpaidRatePlanInstancesResponse
@@ -5965,6 +6033,40 @@ namespace ESA20240910
        * @return ListRewriteUrlRulesResponse
        */
       Models::ListRewriteUrlRulesResponse listRewriteUrlRules(const Models::ListRewriteUrlRulesRequest &request);
+
+      /**
+       * @summary Lists the build configurations for multiple routines by name.
+       *
+       * @param request ListRoutineBuildConfigurationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRoutineBuildConfigurationsResponse
+       */
+      Models::ListRoutineBuildConfigurationsResponse listRoutineBuildConfigurationsWithOptions(const Models::ListRoutineBuildConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists the build configurations for multiple routines by name.
+       *
+       * @param request ListRoutineBuildConfigurationsRequest
+       * @return ListRoutineBuildConfigurationsResponse
+       */
+      Models::ListRoutineBuildConfigurationsResponse listRoutineBuildConfigurations(const Models::ListRoutineBuildConfigurationsRequest &request);
+
+      /**
+       * @summary Retrieves the list of ER build tasks.
+       *
+       * @param request ListRoutineBuildsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRoutineBuildsResponse
+       */
+      Models::ListRoutineBuildsResponse listRoutineBuildsWithOptions(const Models::ListRoutineBuildsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of ER build tasks.
+       *
+       * @param request ListRoutineBuildsRequest
+       * @return ListRoutineBuildsResponse
+       */
+      Models::ListRoutineBuildsResponse listRoutineBuilds(const Models::ListRoutineBuildsRequest &request);
 
       /**
        * @summary 查询Routine灰度环境列表
@@ -6689,10 +6791,27 @@ namespace ESA20240910
       Models::PurchaseCacheReserveResponse purchaseCacheReserve(const Models::PurchaseCacheReserveRequest &request);
 
       /**
-       * @summary Purchases a plan by calling PurchaseRatePlan.
+       * @summary 新购DDoS实例
        *
-       * @description 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-       * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+       * @param request PurchaseDDoSInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PurchaseDDoSInstanceResponse
+       */
+      Models::PurchaseDDoSInstanceResponse purchaseDDoSInstanceWithOptions(const Models::PurchaseDDoSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新购DDoS实例
+       *
+       * @param request PurchaseDDoSInstanceRequest
+       * @return PurchaseDDoSInstanceResponse
+       */
+      Models::PurchaseDDoSInstanceResponse purchaseDDoSInstance(const Models::PurchaseDDoSInstanceRequest &request);
+
+      /**
+       * @summary Calls the PurchaseRatePlan operation to purchase a plan.
+       *
+       * @description 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+       * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
        *
        * @param request PurchaseRatePlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6701,10 +6820,10 @@ namespace ESA20240910
       Models::PurchaseRatePlanResponse purchaseRatePlanWithOptions(const Models::PurchaseRatePlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases a plan by calling PurchaseRatePlan.
+       * @summary Calls the PurchaseRatePlan operation to purchase a plan.
        *
-       * @description 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-       * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+       * @description 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+       * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
        *
        * @param request PurchaseRatePlanRequest
        * @return PurchaseRatePlanResponse
@@ -6839,6 +6958,23 @@ namespace ESA20240910
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacity(const Models::PutKvWithHighCapacityRequest &request);
 
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacityAdvance(const Models::PutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retries a task replication.
+       *
+       * @param request ReDoRoutineBuildRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReDoRoutineBuildResponse
+       */
+      Models::ReDoRoutineBuildResponse reDoRoutineBuildWithOptions(const Models::ReDoRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retries a task replication.
+       *
+       * @param request ReDoRoutineBuildRequest
+       * @return ReDoRoutineBuildResponse
+       */
+      Models::ReDoRoutineBuildResponse reDoRoutineBuild(const Models::ReDoRoutineBuildRequest &request);
 
       /**
        * @summary Rebuild the staging environment of an edge container application.
@@ -7164,6 +7300,23 @@ namespace ESA20240910
        * @return StartScheduledPreloadExecutionResponse
        */
       Models::StartScheduledPreloadExecutionResponse startScheduledPreloadExecution(const Models::StartScheduledPreloadExecutionRequest &request);
+
+      /**
+       * @summary Stops a task.
+       *
+       * @param request StopRoutineBuildRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopRoutineBuildResponse
+       */
+      Models::StopRoutineBuildResponse stopRoutineBuildWithOptions(const Models::StopRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops a task.
+       *
+       * @param request StopRoutineBuildRequest
+       * @return StopRoutineBuildResponse
+       */
+      Models::StopRoutineBuildResponse stopRoutineBuild(const Models::StopRoutineBuildRequest &request);
 
       /**
        * @summary Stops a single scheduled preload execution plan based on the preload plan ID.
@@ -7927,7 +8080,7 @@ namespace ESA20240910
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRule(const Models::UpdateRewriteUrlRuleRequest &request);
 
       /**
-       * @summary Modifies the build configuration of an EdgeRoutine (ER).
+       * @summary Modifies the ER build configuration.
        *
        * @param tmpReq UpdateRoutineBuildConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7936,7 +8089,7 @@ namespace ESA20240910
       Models::UpdateRoutineBuildConfigurationResponse updateRoutineBuildConfigurationWithOptions(const Models::UpdateRoutineBuildConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the build configuration of an EdgeRoutine (ER).
+       * @summary Modifies the ER build configuration.
        *
        * @param request UpdateRoutineBuildConfigurationRequest
        * @return UpdateRoutineBuildConfigurationResponse
@@ -8103,6 +8256,23 @@ namespace ESA20240910
        * @return UpdateSiteDeliveryTaskStatusResponse
        */
       Models::UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatus(const Models::UpdateSiteDeliveryTaskStatusRequest &request);
+
+      /**
+       * @summary Changes the plan instance associated with a site.
+       *
+       * @param request UpdateSiteInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSiteInstanceResponse
+       */
+      Models::UpdateSiteInstanceResponse updateSiteInstanceWithOptions(const Models::UpdateSiteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the plan instance associated with a site.
+       *
+       * @param request UpdateSiteInstanceRequest
+       * @return UpdateSiteInstanceResponse
+       */
+      Models::UpdateSiteInstanceResponse updateSiteInstance(const Models::UpdateSiteInstanceRequest &request);
 
       /**
        * @summary Modifies the exclusive site name configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.

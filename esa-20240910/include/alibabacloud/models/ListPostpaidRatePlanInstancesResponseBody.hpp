@@ -49,9 +49,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(ExpectedUpdateTime, expectedUpdateTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
         DARABONBA_PTR_TO_JSON(PlanName, planName_);
         DARABONBA_PTR_TO_JSON(PlanNameCn, planNameCn_);
         DARABONBA_PTR_TO_JSON(PlanType, planType_);
+        DARABONBA_PTR_TO_JSON(ShareType, shareType_);
         DARABONBA_PTR_TO_JSON(SiteQuota, siteQuota_);
         DARABONBA_PTR_TO_JSON(Sites, sites_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -63,9 +65,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(ExpectedUpdateTime, expectedUpdateTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
         DARABONBA_PTR_FROM_JSON(PlanName, planName_);
         DARABONBA_PTR_FROM_JSON(PlanNameCn, planNameCn_);
         DARABONBA_PTR_FROM_JSON(PlanType, planType_);
+        DARABONBA_PTR_FROM_JSON(ShareType, shareType_);
         DARABONBA_PTR_FROM_JSON(SiteQuota, siteQuota_);
         DARABONBA_PTR_FROM_JSON(Sites, sites_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -137,14 +141,14 @@ namespace Models
         // - pending: The site is pending configuration.
         // - active: The site is activated.
         // - offline: The site is offline.
-        // - moved: The site has been replaced.
+        // - moved: The site has been superseded.
         shared_ptr<string> siteStatus_ {};
       };
 
       virtual bool empty() const override { return this->billingMethod_ == nullptr
         && this->billingMode_ == nullptr && this->coverages_ == nullptr && this->createTime_ == nullptr && this->expectedUpdateTime_ == nullptr && this->instanceId_ == nullptr
-        && this->planName_ == nullptr && this->planNameCn_ == nullptr && this->planType_ == nullptr && this->siteQuota_ == nullptr && this->sites_ == nullptr
-        && this->status_ == nullptr; };
+        && this->ownerId_ == nullptr && this->planName_ == nullptr && this->planNameCn_ == nullptr && this->planType_ == nullptr && this->shareType_ == nullptr
+        && this->siteQuota_ == nullptr && this->sites_ == nullptr && this->status_ == nullptr; };
       // billingMethod Field Functions 
       bool hasBillingMethod() const { return this->billingMethod_ != nullptr;};
       void deleteBillingMethod() { this->billingMethod_ = nullptr;};
@@ -187,6 +191,13 @@ namespace Models
       inline InstanceInfo& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+      // ownerId Field Functions 
+      bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+      void deleteOwnerId() { this->ownerId_ = nullptr;};
+      inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+      inline InstanceInfo& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+
+
       // planName Field Functions 
       bool hasPlanName() const { return this->planName_ != nullptr;};
       void deletePlanName() { this->planName_ = nullptr;};
@@ -206,6 +217,13 @@ namespace Models
       void deletePlanType() { this->planType_ = nullptr;};
       inline string getPlanType() const { DARABONBA_PTR_GET_DEFAULT(planType_, "") };
       inline InstanceInfo& setPlanType(string planType) { DARABONBA_PTR_SET_VALUE(planType_, planType) };
+
+
+      // shareType Field Functions 
+      bool hasShareType() const { return this->shareType_ != nullptr;};
+      void deleteShareType() { this->shareType_ = nullptr;};
+      inline string getShareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
+      inline InstanceInfo& setShareType(string shareType) { DARABONBA_PTR_SET_VALUE(shareType_, shareType) };
 
 
       // siteQuota Field Functions 
@@ -237,28 +255,30 @@ namespace Models
       shared_ptr<string> billingMethod_ {};
       // The billing mode. Valid values:
       // 
-      //  * POSTPAY: pay-as-you-go.
+      //  * POSTPAY: Pay-as-you-go.
       shared_ptr<string> billingMode_ {};
-      // The acceleration regions to which sites can be associated with this instance. Multiple values are separated by commas (,). Valid values:
+      // The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
       // 
-      // - domestic: the Chinese mainland.
-      // - overseas: global (excluding the Chinese mainland).
-      // - global: global (including the Chinese mainland).
+      // - domestic: The Chinese mainland.
+      // - overseas: Global (excluding the Chinese mainland).
+      // - global: Global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the instance was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The scheduled specification change time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The scheduled specification change time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> expectedUpdateTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The plan name in English.
+      shared_ptr<string> ownerId_ {};
+      // The English name of the plan.
       shared_ptr<string> planName_ {};
-      // The plan name in Chinese.
+      // The Chinese name of the plan.
       shared_ptr<string> planNameCn_ {};
       // The plan type of the instance. Valid values:
       // - normal: Fixed edition plan.
       // - enterprise: Enterprise edition plan.
       shared_ptr<string> planType_ {};
+      shared_ptr<string> shareType_ {};
       // The site quota.
       shared_ptr<string> siteQuota_ {};
       // The list of sites.

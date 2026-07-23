@@ -3866,6 +3866,110 @@ CreateRoutineResponse Client::createRoutine(const CreateRoutineRequest &request)
 }
 
 /**
+ * @summary Creates an Edge Routine (ER) build configuration.
+ *
+ * @param tmpReq CreateRoutineBuildConfigurationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRoutineBuildConfigurationResponse
+ */
+CreateRoutineBuildConfigurationResponse Client::createRoutineBuildConfigurationWithOptions(const CreateRoutineBuildConfigurationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateRoutineBuildConfigurationShrinkRequest request = CreateRoutineBuildConfigurationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEnvironmentVariables()) {
+    request.setEnvironmentVariablesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEnvironmentVariables(), "EnvironmentVariables", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAssetsDirectory()) {
+    query["AssetsDirectory"] = request.getAssetsDirectory();
+  }
+
+  if (!!request.hasBuildBranches()) {
+    query["BuildBranches"] = request.getBuildBranches();
+  }
+
+  if (!!request.hasBuildCommand()) {
+    query["BuildCommand"] = request.getBuildCommand();
+  }
+
+  if (!!request.hasEnvironmentVariablesShrink()) {
+    query["EnvironmentVariables"] = request.getEnvironmentVariablesShrink();
+  }
+
+  if (!!request.hasGitAccountId()) {
+    query["GitAccountId"] = request.getGitAccountId();
+  }
+
+  if (!!request.hasGitPlatform()) {
+    query["GitPlatform"] = request.getGitPlatform();
+  }
+
+  if (!!request.hasInstallCommand()) {
+    query["InstallCommand"] = request.getInstallCommand();
+  }
+
+  if (!!request.hasIsPrivate()) {
+    query["IsPrivate"] = request.getIsPrivate();
+  }
+
+  if (!!request.hasNodeVersion()) {
+    query["NodeVersion"] = request.getNodeVersion();
+  }
+
+  if (!!request.hasProductionBranch()) {
+    query["ProductionBranch"] = request.getProductionBranch();
+  }
+
+  if (!!request.hasRepository()) {
+    query["Repository"] = request.getRepository();
+  }
+
+  if (!!request.hasRootDirectory()) {
+    query["RootDirectory"] = request.getRootDirectory();
+  }
+
+  if (!!request.hasRoutineEntry()) {
+    query["RoutineEntry"] = request.getRoutineEntry();
+  }
+
+  if (!!request.hasRoutineName()) {
+    query["RoutineName"] = request.getRoutineName();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRoutineBuildConfiguration"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRoutineBuildConfigurationResponse>();
+}
+
+/**
+ * @summary Creates an Edge Routine (ER) build configuration.
+ *
+ * @param request CreateRoutineBuildConfigurationRequest
+ * @return CreateRoutineBuildConfigurationResponse
+ */
+CreateRoutineBuildConfigurationResponse Client::createRoutineBuildConfiguration(const CreateRoutineBuildConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRoutineBuildConfigurationWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a percentage-based canary deployment for a Routine code version in a specified environment.
  *
  * @description ## Usage notes
@@ -4241,7 +4345,7 @@ CreateScheduledPreloadJobResponse Client::createScheduledPreloadJob(const Create
  * @summary Creates a site.
  *
  * @description - Before creating a site, you must have an active plan instance.
- * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+ * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
  * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateSiteRequest
@@ -4265,6 +4369,10 @@ CreateSiteResponse Client::createSiteWithOptions(const CreateSiteRequest &reques
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwner()) {
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   if (!!request.hasSiteName()) {
@@ -4292,7 +4400,7 @@ CreateSiteResponse Client::createSiteWithOptions(const CreateSiteRequest &reques
  * @summary Creates a site.
  *
  * @description - Before creating a site, you must have an active plan instance.
- * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+ * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
  * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateSiteRequest
@@ -4380,7 +4488,7 @@ CreateSiteCustomLogResponse Client::createSiteCustomLog(const CreateSiteCustomLo
 }
 
 /**
- * @summary Create a real-time log shipping task.
+ * @summary Creates a real-time log delivery task.
  *
  * @param tmpReq CreateSiteDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4481,7 +4589,7 @@ CreateSiteDeliveryTaskResponse Client::createSiteDeliveryTaskWithOptions(const C
 }
 
 /**
- * @summary Create a real-time log shipping task.
+ * @summary Creates a real-time log delivery task.
  *
  * @param request CreateSiteDeliveryTaskRequest
  * @return CreateSiteDeliveryTaskResponse
@@ -4654,17 +4762,17 @@ CreateUrlObservationResponse Client::createUrlObservation(const CreateUrlObserva
 }
 
 /**
- * @summary Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+ * @summary Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
  *
- * @description Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
- * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
- * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
- * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
- * ## Notes
- * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
- * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
- * - Verify that the `FilterRules` syntax is correct.
- * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+ * @description This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+ * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+ * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+ * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+ * ## Usage notes
+ * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+ * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+ * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+ * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
  *
  * @param tmpReq CreateUserDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4765,17 +4873,17 @@ CreateUserDeliveryTaskResponse Client::createUserDeliveryTaskWithOptions(const C
 }
 
 /**
- * @summary Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+ * @summary Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
  *
- * @description Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
- * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
- * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
- * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
- * ## Notes
- * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
- * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
- * - Verify that the `FilterRules` syntax is correct.
- * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+ * @description This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+ * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+ * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+ * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+ * ## Usage notes
+ * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+ * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+ * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+ * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
  *
  * @param request CreateUserDeliveryTaskRequest
  * @return CreateUserDeliveryTaskResponse
@@ -7078,6 +7186,48 @@ DeleteRoutineResponse Client::deleteRoutine(const DeleteRoutineRequest &request)
 }
 
 /**
+ * @summary Deletes the ER build configuration.
+ *
+ * @param request DeleteRoutineBuildConfigurationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRoutineBuildConfigurationResponse
+ */
+DeleteRoutineBuildConfigurationResponse Client::deleteRoutineBuildConfigurationWithOptions(const DeleteRoutineBuildConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoutineName()) {
+    query["RoutineName"] = request.getRoutineName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRoutineBuildConfiguration"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRoutineBuildConfigurationResponse>();
+}
+
+/**
+ * @summary Deletes the ER build configuration.
+ *
+ * @param request DeleteRoutineBuildConfigurationRequest
+ * @return DeleteRoutineBuildConfigurationResponse
+ */
+DeleteRoutineBuildConfigurationResponse Client::deleteRoutineBuildConfiguration(const DeleteRoutineBuildConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteRoutineBuildConfigurationWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a code version of a routine.
  *
  * @param request DeleteRoutineCodeVersionRequest
@@ -7356,7 +7506,7 @@ DeleteSiteResponse Client::deleteSite(const DeleteSiteRequest &request) {
 }
 
 /**
- * @summary Deletes a real-time log delivery task.
+ * @summary Deletes an ongoing log delivery task.
  *
  * @param request DeleteSiteDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7391,7 +7541,7 @@ DeleteSiteDeliveryTaskResponse Client::deleteSiteDeliveryTaskWithOptions(const D
 }
 
 /**
- * @summary Deletes a real-time log delivery task.
+ * @summary Deletes an ongoing log delivery task.
  *
  * @param request DeleteSiteDeliveryTaskRequest
  * @return DeleteSiteDeliveryTaskResponse
@@ -7532,12 +7682,13 @@ DeleteUrlObservationResponse Client::deleteUrlObservation(const DeleteUrlObserva
 }
 
 /**
- * @summary Deletes a log delivery task from your Alibaba Cloud account.
+ * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
  *
- * @description ******> 
- * *   Deleted tasks cannot be restored. Proceed with caution.
- * *   To call this operation, you must have an account that has the required permissions.
- * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+ * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+ * **Note:**
+ * - The deletion operation is irreversible. Proceed with caution.
+ * - Only accounts with the required permissions can call this operation.
+ * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
  *
  * @param request DeleteUserDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7568,12 +7719,13 @@ DeleteUserDeliveryTaskResponse Client::deleteUserDeliveryTaskWithOptions(const D
 }
 
 /**
- * @summary Deletes a log delivery task from your Alibaba Cloud account.
+ * @summary Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
  *
- * @description ******> 
- * *   Deleted tasks cannot be restored. Proceed with caution.
- * *   To call this operation, you must have an account that has the required permissions.
- * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+ * @description This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+ * **Note:**
+ * - The deletion operation is irreversible. Proceed with caution.
+ * - Only accounts with the required permissions can call this operation.
+ * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
  *
  * @param request DeleteUserDeliveryTaskRequest
  * @return DeleteUserDeliveryTaskResponse
@@ -8908,9 +9060,9 @@ DescribePurgeTasksResponse Client::describePurgeTasks(const DescribePurgeTasksRe
 }
 
 /**
- * @summary Queries the status of an instance that uses a plan.
+ * @summary Queries the status of a plan instance.
  *
- * @description You can query the status of an instance after you purchase a plan for the instance.
+ * @description You can query the status of a plan instance only after you purchase and create the instance.
  *
  * @param request DescribeRatePlanInstanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8921,6 +9073,10 @@ DescribeRatePlanInstanceStatusResponse Client::describeRatePlanInstanceStatusWit
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasResourceOwner()) {
+    query["ResourceOwner"] = request.getResourceOwner();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8941,9 +9097,9 @@ DescribeRatePlanInstanceStatusResponse Client::describeRatePlanInstanceStatusWit
 }
 
 /**
- * @summary Queries the status of an instance that uses a plan.
+ * @summary Queries the status of a plan instance.
  *
- * @description You can query the status of an instance after you purchase a plan for the instance.
+ * @description You can query the status of a plan instance only after you purchase and create the instance.
  *
  * @param request DescribeRatePlanInstanceStatusRequest
  * @return DescribeRatePlanInstanceStatusResponse
@@ -9714,7 +9870,7 @@ DisableCustomScenePolicyResponse Client::disableCustomScenePolicy(const DisableC
 }
 
 /**
- * @summary Edit WAF Configuration for a Site
+ * @summary Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
  *
  * @param tmpReq EditSiteWafSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9761,7 +9917,7 @@ EditSiteWafSettingsResponse Client::editSiteWafSettingsWithOptions(const EditSit
 }
 
 /**
- * @summary Edit WAF Configuration for a Site
+ * @summary Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
  *
  * @param request EditSiteWafSettingsRequest
  * @return EditSiteWafSettingsResponse
@@ -12648,6 +12804,90 @@ GetRoutineAccessTokenResponse Client::getRoutineAccessToken(const GetRoutineAcce
 }
 
 /**
+ * @summary Queries a single ER build task.
+ *
+ * @param request GetRoutineBuildRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRoutineBuildResponse
+ */
+GetRoutineBuildResponse Client::getRoutineBuildWithOptions(const GetRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoutineBuildId()) {
+    query["RoutineBuildId"] = request.getRoutineBuildId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRoutineBuild"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRoutineBuildResponse>();
+}
+
+/**
+ * @summary Queries a single ER build task.
+ *
+ * @param request GetRoutineBuildRequest
+ * @return GetRoutineBuildResponse
+ */
+GetRoutineBuildResponse Client::getRoutineBuild(const GetRoutineBuildRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRoutineBuildWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the build configuration.
+ *
+ * @param request GetRoutineBuildConfigurationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRoutineBuildConfigurationResponse
+ */
+GetRoutineBuildConfigurationResponse Client::getRoutineBuildConfigurationWithOptions(const GetRoutineBuildConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoutineName()) {
+    query["RoutineName"] = request.getRoutineName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRoutineBuildConfiguration"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRoutineBuildConfigurationResponse>();
+}
+
+/**
+ * @summary Retrieves the build configuration.
+ *
+ * @param request GetRoutineBuildConfigurationRequest
+ * @return GetRoutineBuildConfigurationResponse
+ */
+GetRoutineBuildConfigurationResponse Client::getRoutineBuildConfiguration(const GetRoutineBuildConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRoutineBuildConfigurationWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the code information of a specific version of an Edge Routine.
  *
  * @param request GetRoutineCodeVersionRequest
@@ -12792,10 +13032,10 @@ GetRoutineRouteResponse Client::getRoutineRoute(const GetRoutineRouteRequest &re
 }
 
 /**
- * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+ * @summary Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
  *
- * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
- * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+ * @description - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+ * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
  *
  * @param request GetRoutineStagingCodeUploadInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12830,10 +13070,10 @@ GetRoutineStagingCodeUploadInfoResponse Client::getRoutineStagingCodeUploadInfoW
 }
 
 /**
- * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+ * @summary Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
  *
- * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
- * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+ * @description - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+ * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
  *
  * @param request GetRoutineStagingCodeUploadInfoRequest
  * @return GetRoutineStagingCodeUploadInfoResponse
@@ -13144,15 +13384,14 @@ GetSiteDeliveryTaskResponse Client::getSiteDeliveryTask(const GetSiteDeliveryTas
 }
 
 /**
- * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+ * @summary Queries the remaining real-time log delivery quota for a specified site and business type.
  *
- * @description Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
- * **Take note of the following parameters:**
- * - \\`\\`
- * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
- * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+ * @description You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+ * **Parameter notes:**
+ * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+ * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
  * **Response:**
- * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+ * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
  *
  * @param request GetSiteLogDeliveryQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13179,15 +13418,14 @@ GetSiteLogDeliveryQuotaResponse Client::getSiteLogDeliveryQuotaWithOptions(const
 }
 
 /**
- * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+ * @summary Queries the remaining real-time log delivery quota for a specified site and business type.
  *
- * @description Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
- * **Take note of the following parameters:**
- * - \\`\\`
- * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
- * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+ * @description You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+ * **Parameter notes:**
+ * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+ * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
  * **Response:**
- * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+ * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
  *
  * @param request GetSiteLogDeliveryQuotaRequest
  * @return GetSiteLogDeliveryQuotaResponse
@@ -13354,7 +13592,7 @@ GetSiteTrafficSequenceResponse Client::getSiteTrafficSequence(const GetSiteTraff
 }
 
 /**
- * @summary Get WAF Configuration for a Site
+ * @summary Retrieves the WAF configuration of a site.
  *
  * @param request GetSiteWafSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13393,7 +13631,7 @@ GetSiteWafSettingsResponse Client::getSiteWafSettingsWithOptions(const GetSiteWa
 }
 
 /**
- * @summary Get WAF Configuration for a Site
+ * @summary Retrieves the WAF configuration of a site.
  *
  * @param request GetSiteWafSettingsRequest
  * @return GetSiteWafSettingsResponse
@@ -16012,7 +16250,7 @@ ListOriginRulesResponse Client::listOriginRules(const ListOriginRulesRequest &re
 }
 
 /**
- * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+ * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
  *
  * @param tmpReq ListPagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16057,7 +16295,7 @@ ListPagesResponse Client::listPagesWithOptions(const ListPagesRequest &tmpReq, c
 }
 
 /**
- * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+ * @summary Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
  *
  * @param request ListPagesRequest
  * @return ListPagesResponse
@@ -16070,7 +16308,7 @@ ListPagesResponse Client::listPages(const ListPagesRequest &request) {
 /**
  * @summary Queries the list of pay-as-you-go plan instances.
  *
- * @description Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+ * @description This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
  *
  * @param request ListPostpaidRatePlanInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16099,7 +16337,7 @@ ListPostpaidRatePlanInstancesResponse Client::listPostpaidRatePlanInstancesWithO
 /**
  * @summary Queries the list of pay-as-you-go plan instances.
  *
- * @description Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+ * @description This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
  *
  * @param request ListPostpaidRatePlanInstancesRequest
  * @return ListPostpaidRatePlanInstancesResponse
@@ -16302,6 +16540,110 @@ ListRewriteUrlRulesResponse Client::listRewriteUrlRulesWithOptions(const ListRew
 ListRewriteUrlRulesResponse Client::listRewriteUrlRules(const ListRewriteUrlRulesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listRewriteUrlRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the build configurations for multiple routines by name.
+ *
+ * @param request ListRoutineBuildConfigurationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRoutineBuildConfigurationsResponse
+ */
+ListRoutineBuildConfigurationsResponse Client::listRoutineBuildConfigurationsWithOptions(const ListRoutineBuildConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoutineNames()) {
+    query["RoutineNames"] = request.getRoutineNames();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRoutineBuildConfigurations"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRoutineBuildConfigurationsResponse>();
+}
+
+/**
+ * @summary Lists the build configurations for multiple routines by name.
+ *
+ * @param request ListRoutineBuildConfigurationsRequest
+ * @return ListRoutineBuildConfigurationsResponse
+ */
+ListRoutineBuildConfigurationsResponse Client::listRoutineBuildConfigurations(const ListRoutineBuildConfigurationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRoutineBuildConfigurationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of ER build tasks.
+ *
+ * @param request ListRoutineBuildsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRoutineBuildsResponse
+ */
+ListRoutineBuildsResponse Client::listRoutineBuildsWithOptions(const ListRoutineBuildsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageIndex()) {
+    query["PageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRoutineName()) {
+    query["RoutineName"] = request.getRoutineName();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRoutineBuilds"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRoutineBuildsResponse>();
+}
+
+/**
+ * @summary Retrieves the list of ER build tasks.
+ *
+ * @param request ListRoutineBuildsRequest
+ * @return ListRoutineBuildsResponse
+ */
+ListRoutineBuildsResponse Client::listRoutineBuilds(const ListRoutineBuildsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRoutineBuildsWithOptions(request, runtime);
 }
 
 /**
@@ -18383,10 +18725,64 @@ PurchaseCacheReserveResponse Client::purchaseCacheReserve(const PurchaseCacheRes
 }
 
 /**
- * @summary Purchases a plan by calling PurchaseRatePlan.
+ * @summary 新购DDoS实例
  *
- * @description 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
- * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+ * @param request PurchaseDDoSInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PurchaseDDoSInstanceResponse
+ */
+PurchaseDDoSInstanceResponse Client::purchaseDDoSInstanceWithOptions(const PurchaseDDoSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDDoSBillingMode()) {
+    query["DDoSBillingMode"] = request.getDDoSBillingMode();
+  }
+
+  if (!!request.hasDDoSBurstableDomesticProtection()) {
+    query["DDoSBurstableDomesticProtection"] = request.getDDoSBurstableDomesticProtection();
+  }
+
+  if (!!request.hasDDoSBurstableOverseasProtection()) {
+    query["DDoSBurstableOverseasProtection"] = request.getDDoSBurstableOverseasProtection();
+  }
+
+  if (!!request.hasSiteInstanceId()) {
+    query["SiteInstanceId"] = request.getSiteInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PurchaseDDoSInstance"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PurchaseDDoSInstanceResponse>();
+}
+
+/**
+ * @summary 新购DDoS实例
+ *
+ * @param request PurchaseDDoSInstanceRequest
+ * @return PurchaseDDoSInstanceResponse
+ */
+PurchaseDDoSInstanceResponse Client::purchaseDDoSInstance(const PurchaseDDoSInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return purchaseDDoSInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Calls the PurchaseRatePlan operation to purchase a plan.
+ *
+ * @description 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+ * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
  *
  * @param request PurchaseRatePlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18417,6 +18813,10 @@ PurchaseRatePlanResponse Client::purchaseRatePlanWithOptions(const PurchaseRateP
 
   if (!!request.hasCoverage()) {
     query["Coverage"] = request.getCoverage();
+  }
+
+  if (!!request.hasOveragePolicy()) {
+    query["OveragePolicy"] = request.getOveragePolicy();
   }
 
   if (!!request.hasPeriod()) {
@@ -18457,10 +18857,10 @@ PurchaseRatePlanResponse Client::purchaseRatePlanWithOptions(const PurchaseRateP
 }
 
 /**
- * @summary Purchases a plan by calling PurchaseRatePlan.
+ * @summary Calls the PurchaseRatePlan operation to purchase a plan.
  *
- * @description 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
- * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+ * @description 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+ * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
  *
  * @param request PurchaseRatePlanRequest
  * @return PurchaseRatePlanResponse
@@ -18808,6 +19208,48 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityAdvance(const PutKvWi
 
   PutKvWithHighCapacityResponse putKvWithHighCapacityResp = putKvWithHighCapacityWithOptions(putKvWithHighCapacityReq, runtime);
   return putKvWithHighCapacityResp;
+}
+
+/**
+ * @summary Retries a task replication.
+ *
+ * @param request ReDoRoutineBuildRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReDoRoutineBuildResponse
+ */
+ReDoRoutineBuildResponse Client::reDoRoutineBuildWithOptions(const ReDoRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoutineBuildId()) {
+    query["RoutineBuildId"] = request.getRoutineBuildId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReDoRoutineBuild"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReDoRoutineBuildResponse>();
+}
+
+/**
+ * @summary Retries a task replication.
+ *
+ * @param request ReDoRoutineBuildRequest
+ * @return ReDoRoutineBuildResponse
+ */
+ReDoRoutineBuildResponse Client::reDoRoutineBuild(const ReDoRoutineBuildRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return reDoRoutineBuildWithOptions(request, runtime);
 }
 
 /**
@@ -19792,6 +20234,48 @@ StartScheduledPreloadExecutionResponse Client::startScheduledPreloadExecutionWit
 StartScheduledPreloadExecutionResponse Client::startScheduledPreloadExecution(const StartScheduledPreloadExecutionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startScheduledPreloadExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops a task.
+ *
+ * @param request StopRoutineBuildRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopRoutineBuildResponse
+ */
+StopRoutineBuildResponse Client::stopRoutineBuildWithOptions(const StopRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRoutineBuildId()) {
+    query["RoutineBuildId"] = request.getRoutineBuildId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopRoutineBuild"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopRoutineBuildResponse>();
+}
+
+/**
+ * @summary Stops a task.
+ *
+ * @param request StopRoutineBuildRequest
+ * @return StopRoutineBuildResponse
+ */
+StopRoutineBuildResponse Client::stopRoutineBuild(const StopRoutineBuildRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopRoutineBuildWithOptions(request, runtime);
 }
 
 /**
@@ -22731,7 +23215,7 @@ UpdateRewriteUrlRuleResponse Client::updateRewriteUrlRule(const UpdateRewriteUrl
 }
 
 /**
- * @summary Modifies the build configuration of an EdgeRoutine (ER).
+ * @summary Modifies the ER build configuration.
  *
  * @param tmpReq UpdateRoutineBuildConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22764,6 +23248,10 @@ UpdateRoutineBuildConfigurationResponse Client::updateRoutineBuildConfigurationW
 
   if (!!request.hasGitAccountId()) {
     query["GitAccountId"] = request.getGitAccountId();
+  }
+
+  if (!!request.hasGitPlatform()) {
+    query["GitPlatform"] = request.getGitPlatform();
   }
 
   if (!!request.hasInstallCommand()) {
@@ -22816,7 +23304,7 @@ UpdateRoutineBuildConfigurationResponse Client::updateRoutineBuildConfigurationW
 }
 
 /**
- * @summary Modifies the build configuration of an EdgeRoutine (ER).
+ * @summary Modifies the ER build configuration.
  *
  * @param request UpdateRoutineBuildConfigurationRequest
  * @return UpdateRoutineBuildConfigurationResponse
@@ -23322,6 +23810,56 @@ UpdateSiteDeliveryTaskStatusResponse Client::updateSiteDeliveryTaskStatusWithOpt
 UpdateSiteDeliveryTaskStatusResponse Client::updateSiteDeliveryTaskStatus(const UpdateSiteDeliveryTaskStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSiteDeliveryTaskStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Changes the plan instance associated with a site.
+ *
+ * @param request UpdateSiteInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSiteInstanceResponse
+ */
+UpdateSiteInstanceResponse Client::updateSiteInstanceWithOptions(const UpdateSiteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNewInstanceId()) {
+    query["NewInstanceId"] = request.getNewInstanceId();
+  }
+
+  if (!!request.hasResourceOwner()) {
+    query["ResourceOwner"] = request.getResourceOwner();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateSiteInstance"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSiteInstanceResponse>();
+}
+
+/**
+ * @summary Changes the plan instance associated with a site.
+ *
+ * @param request UpdateSiteInstanceRequest
+ * @return UpdateSiteInstanceResponse
+ */
+UpdateSiteInstanceResponse Client::updateSiteInstance(const UpdateSiteInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSiteInstanceWithOptions(request, runtime);
 }
 
 /**

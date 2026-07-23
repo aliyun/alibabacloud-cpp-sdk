@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BuildCommand, buildCommand_);
       DARABONBA_PTR_TO_JSON(EnvironmentVariables, environmentVariablesShrink_);
       DARABONBA_PTR_TO_JSON(GitAccountId, gitAccountId_);
+      DARABONBA_PTR_TO_JSON(GitPlatform, gitPlatform_);
       DARABONBA_PTR_TO_JSON(InstallCommand, installCommand_);
       DARABONBA_PTR_TO_JSON(IsPrivate, isPrivate_);
       DARABONBA_PTR_TO_JSON(NodeVersion, nodeVersion_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BuildCommand, buildCommand_);
       DARABONBA_PTR_FROM_JSON(EnvironmentVariables, environmentVariablesShrink_);
       DARABONBA_PTR_FROM_JSON(GitAccountId, gitAccountId_);
+      DARABONBA_PTR_FROM_JSON(GitPlatform, gitPlatform_);
       DARABONBA_PTR_FROM_JSON(InstallCommand, installCommand_);
       DARABONBA_PTR_FROM_JSON(IsPrivate, isPrivate_);
       DARABONBA_PTR_FROM_JSON(NodeVersion, nodeVersion_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetsDirectory_ == nullptr
-        && this->buildBranches_ == nullptr && this->buildCommand_ == nullptr && this->environmentVariablesShrink_ == nullptr && this->gitAccountId_ == nullptr && this->installCommand_ == nullptr
-        && this->isPrivate_ == nullptr && this->nodeVersion_ == nullptr && this->productionBranch_ == nullptr && this->repository_ == nullptr && this->rootDirectory_ == nullptr
-        && this->routineEntry_ == nullptr && this->routineName_ == nullptr; };
+        && this->buildBranches_ == nullptr && this->buildCommand_ == nullptr && this->environmentVariablesShrink_ == nullptr && this->gitAccountId_ == nullptr && this->gitPlatform_ == nullptr
+        && this->installCommand_ == nullptr && this->isPrivate_ == nullptr && this->nodeVersion_ == nullptr && this->productionBranch_ == nullptr && this->repository_ == nullptr
+        && this->rootDirectory_ == nullptr && this->routineEntry_ == nullptr && this->routineName_ == nullptr; };
     // assetsDirectory Field Functions 
     bool hasAssetsDirectory() const { return this->assetsDirectory_ != nullptr;};
     void deleteAssetsDirectory() { this->assetsDirectory_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     void deleteGitAccountId() { this->gitAccountId_ = nullptr;};
     inline int64_t getGitAccountId() const { DARABONBA_PTR_GET_DEFAULT(gitAccountId_, 0L) };
     inline UpdateRoutineBuildConfigurationShrinkRequest& setGitAccountId(int64_t gitAccountId) { DARABONBA_PTR_SET_VALUE(gitAccountId_, gitAccountId) };
+
+
+    // gitPlatform Field Functions 
+    bool hasGitPlatform() const { return this->gitPlatform_ != nullptr;};
+    void deleteGitPlatform() { this->gitPlatform_ = nullptr;};
+    inline string getGitPlatform() const { DARABONBA_PTR_GET_DEFAULT(gitPlatform_, "") };
+    inline UpdateRoutineBuildConfigurationShrinkRequest& setGitPlatform(string gitPlatform) { DARABONBA_PTR_SET_VALUE(gitPlatform_, gitPlatform) };
 
 
     // installCommand Field Functions 
@@ -151,7 +160,7 @@ namespace Models
   protected:
     // The static resource directory.
     shared_ptr<string> assetsDirectory_ {};
-    // The branches that trigger a build. Set this parameter to * for all branches. To specify multiple branches, separate branch names with commas.
+    // The branches that trigger a build. Set this to * for all branches. To specify multiple branches, separate branch names with commas.
     shared_ptr<string> buildBranches_ {};
     // The build command.
     shared_ptr<string> buildCommand_ {};
@@ -159,13 +168,15 @@ namespace Models
     shared_ptr<string> environmentVariablesShrink_ {};
     // The Git account ID.
     shared_ptr<int64_t> gitAccountId_ {};
+    // The Git platform. Valid values: github, gitee, and upload.
+    shared_ptr<string> gitPlatform_ {};
     // The install command.
     shared_ptr<string> installCommand_ {};
     // Specifies whether the repository is private. Valid values:
     // - `true`: The repository is private.
     // - `false`: The repository is not private.
     shared_ptr<bool> isPrivate_ {};
-    // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
+    // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
     shared_ptr<string> nodeVersion_ {};
     // The production branch name.
     shared_ptr<string> productionBranch_ {};
@@ -173,7 +184,7 @@ namespace Models
     shared_ptr<string> repository_ {};
     // The root directory.
     shared_ptr<string> rootDirectory_ {};
-    // The path of the ER entry file.
+    // The ER entry file path.
     shared_ptr<string> routineEntry_ {};
     // The ER name.
     // 

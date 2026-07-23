@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListUserRatePlanInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckRemainingSiteQuota, checkRemainingSiteQuota_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IsShared, isShared_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PlanNameEn, planNameEn_);
       DARABONBA_PTR_TO_JSON(PlanType, planType_);
       DARABONBA_PTR_TO_JSON(RemainingExpireDays, remainingExpireDays_);
+      DARABONBA_PTR_TO_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(SortOrder, sortOrder_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -28,11 +30,13 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListUserRatePlanInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckRemainingSiteQuota, checkRemainingSiteQuota_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IsShared, isShared_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PlanNameEn, planNameEn_);
       DARABONBA_PTR_FROM_JSON(PlanType, planType_);
       DARABONBA_PTR_FROM_JSON(RemainingExpireDays, remainingExpireDays_);
+      DARABONBA_PTR_FROM_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(SortOrder, sortOrder_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkRemainingSiteQuota_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->planNameEn_ == nullptr && this->planType_ == nullptr
-        && this->remainingExpireDays_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr && this->status_ == nullptr && this->subscribeType_ == nullptr; };
+        && this->instanceId_ == nullptr && this->isShared_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->planNameEn_ == nullptr
+        && this->planType_ == nullptr && this->remainingExpireDays_ == nullptr && this->resourceOwner_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr
+        && this->status_ == nullptr && this->subscribeType_ == nullptr; };
     // checkRemainingSiteQuota Field Functions 
     bool hasCheckRemainingSiteQuota() const { return this->checkRemainingSiteQuota_ != nullptr;};
     void deleteCheckRemainingSiteQuota() { this->checkRemainingSiteQuota_ = nullptr;};
@@ -64,6 +69,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListUserRatePlanInstancesRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // isShared Field Functions 
+    bool hasIsShared() const { return this->isShared_ != nullptr;};
+    void deleteIsShared() { this->isShared_ = nullptr;};
+    inline bool getIsShared() const { DARABONBA_PTR_GET_DEFAULT(isShared_, false) };
+    inline ListUserRatePlanInstancesRequest& setIsShared(bool isShared) { DARABONBA_PTR_SET_VALUE(isShared_, isShared) };
 
 
     // pageNumber Field Functions 
@@ -101,6 +113,13 @@ namespace Models
     inline ListUserRatePlanInstancesRequest& setRemainingExpireDays(int32_t remainingExpireDays) { DARABONBA_PTR_SET_VALUE(remainingExpireDays_, remainingExpireDays) };
 
 
+    // resourceOwner Field Functions 
+    bool hasResourceOwner() const { return this->resourceOwner_ != nullptr;};
+    void deleteResourceOwner() { this->resourceOwner_ = nullptr;};
+    inline int64_t getResourceOwner() const { DARABONBA_PTR_GET_DEFAULT(resourceOwner_, 0L) };
+    inline ListUserRatePlanInstancesRequest& setResourceOwner(int64_t resourceOwner) { DARABONBA_PTR_SET_VALUE(resourceOwner_, resourceOwner) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -135,45 +154,47 @@ namespace Models
     // - **true**: Filters plan instances that have remaining site quota.
     // - **false**: Queries all plan instances under the user.
     shared_ptr<string> checkRemainingSiteQuota_ {};
-    // The plan instance ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The plan instance ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<string> instanceId_ {};
-    // The page number to return in a paged query. Default value: **1**. Valid values: **1** to **100000**. Settings for paging take effect only when this parameter is specified.
+    shared_ptr<bool> isShared_ {};
+    // The page number settings for paging. Default value: **1**. Valid values: **1 to 100000**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Valid values: 1 to 500. This parameter is used for paging.
+    // The number of entries per page for paging. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The plan name in English.
+    // The plan name (English).
     shared_ptr<string> planNameEn_ {};
     // The plan type. Valid values:
     // 
-    // - normal: fixed-version plan
-    // - enterprise: Enterprise Edition plan.
+    // - normal: fixed edition plan
+    // - enterprise: enterprise edition plan
     shared_ptr<string> planType_ {};
     // Queries plan instances whose remaining validity period is within the specified number of days. The value must be a positive integer. Unit: days.
     shared_ptr<int32_t> remainingExpireDays_ {};
-    // The field by which to sort the results. By default, results are sorted by purchase time. Valid values:
+    shared_ptr<int64_t> resourceOwner_ {};
+    // The sort field. By default, results are sorted by purchase time. Valid values:
     // 
-    // - **CreateTime**: purchase time.
-    // - **ExpireTime**: expiration time.
+    // - **CreateTime**: Purchase time.
+    // - **ExpireTime**: Expiration time.
     shared_ptr<string> sortBy_ {};
     // The sort order. Default value: desc. Valid values:
     // 
-    // - **asc**: ascending order.
-    // - **desc**: descending order.
+    // - **asc**: Ascending order.
+    // - **desc**: Descending order.
     shared_ptr<string> sortOrder_ {};
     // The instance status. Valid values:
-    // - **online**: The plan instance is in normal service.
-    // - **offline**: The plan instance has expired but has not exceeded the grace period and is not active.
-    // - **disable**: The plan instance has been released.
-    // - **overdue**: The plan instance has an overdue payment.
+    // - **online**: Normal service status.
+    // - **offline**: Expired but not overdue, in an inactive state.
+    // - **disable**: Released.
+    // - **overdue**: Overdue payment.
     shared_ptr<string> status_ {};
     // The plan subscription type. Valid values:
     // 
-    // - entranceplan: Free Edition (Chinese mainland)
-    // - entranceplan_intl: Free Edition (International)
-    // - basicplan: Basic Edition
-    // - standardplan: Standard Edition
-    // - advancedplan: Premium Edition
-    // - enterpriseplan: Enterprise Edition.
+    // - Free Edition (Chinese mainland): entranceplan
+    // - Free Edition (International): entranceplan_intl
+    // - Basic Edition: basicplan
+    // - Standard Edition: standardplan
+    // - Premium Edition: advancedplan
+    // - Enterprise Edition: enterpriseplan
     shared_ptr<string> subscribeType_ {};
   };
 

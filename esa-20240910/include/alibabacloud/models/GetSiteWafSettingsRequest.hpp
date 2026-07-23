@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Specifies the configuration path. If not provided, all configurations will be retrieved.
+    // The configuration path. If this parameter is not specified, all configurations are retrieved.
     shared_ptr<string> path_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
+    // The site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 
