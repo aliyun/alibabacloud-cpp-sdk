@@ -625,6 +625,174 @@ CreateEvaluatorSkillResponse Client::createEvaluatorSkill(const string &name, co
 }
 
 /**
+ * @summary Creates an experiment plan.
+ *
+ * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+ *
+ * @param request CreateExperimentPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateExperimentPlanResponse
+ */
+CreateExperimentPlanResponse Client::createExperimentPlanWithOptions(const string &agentSpace, const CreateExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetId()) {
+    body["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasEvaluators()) {
+    body["evaluators"] = request.getEvaluators();
+  }
+
+  if (!!request.hasExperimentType()) {
+    body["experimentType"] = request.getExperimentType();
+  }
+
+  if (!!request.hasExperiments()) {
+    body["experiments"] = request.getExperiments();
+  }
+
+  if (!!request.hasInput()) {
+    body["input"] = request.getInput();
+  }
+
+  if (!!request.hasPlanName()) {
+    body["planName"] = request.getPlanName();
+  }
+
+  if (!!request.hasQuerySql()) {
+    body["querySql"] = request.getQuerySql();
+  }
+
+  if (!!request.hasSelectedItemIds()) {
+    body["selectedItemIds"] = request.getSelectedItemIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateExperimentPlan"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/plans")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateExperimentPlanResponse>();
+}
+
+/**
+ * @summary Creates an experiment plan.
+ *
+ * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+ *
+ * @param request CreateExperimentPlanRequest
+ * @return CreateExperimentPlanResponse
+ */
+CreateExperimentPlanResponse Client::createExperimentPlan(const string &agentSpace, const CreateExperimentPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createExperimentPlanWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
+ * @summary Executes an experiment.
+ *
+ * @description Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+ *
+ * @param request CreateExperimentRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateExperimentRunResponse
+ */
+CreateExperimentRunResponse Client::createExperimentRunWithOptions(const string &agentSpace, const CreateExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasCompletedAt()) {
+    body["completedAt"] = request.getCompletedAt();
+  }
+
+  if (!!request.hasCompletedTasks()) {
+    body["completedTasks"] = request.getCompletedTasks();
+  }
+
+  if (!!request.hasExecutedAt()) {
+    body["executedAt"] = request.getExecutedAt();
+  }
+
+  if (!!request.hasExperimentPlanId()) {
+    body["experimentPlanId"] = request.getExperimentPlanId();
+  }
+
+  if (!!request.hasFailedTasks()) {
+    body["failedTasks"] = request.getFailedTasks();
+  }
+
+  if (!!request.hasOfflineExperiments()) {
+    body["offlineExperiments"] = request.getOfflineExperiments();
+  }
+
+  if (!!request.hasRecordName()) {
+    body["recordName"] = request.getRecordName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTotalTasks()) {
+    body["totalTasks"] = request.getTotalTasks();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateExperimentRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentruns/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/execute")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateExperimentRunResponse>();
+}
+
+/**
+ * @summary Executes an experiment.
+ *
+ * @description Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+ *
+ * @param request CreateExperimentRunRequest
+ * @return CreateExperimentRunResponse
+ */
+CreateExperimentRunResponse Client::createExperimentRun(const string &agentSpace, const CreateExperimentRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createExperimentRunWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
  * @summary Creates a pipeline.
  *
  * @param request CreatePipelineRequest
@@ -1031,6 +1199,92 @@ DeleteEvaluatorSkillResponse Client::deleteEvaluatorSkill(const string &name, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an experiment plan.
+ *
+ * @description Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+ *
+ * @param request DeleteExperimentPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteExperimentPlanResponse
+ */
+DeleteExperimentPlanResponse Client::deleteExperimentPlanWithOptions(const string &agentSpace, const string &planId, const DeleteExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteExperimentPlan"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/plans/" , Darabonba::Encode::Encoder::percentEncode(planId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteExperimentPlanResponse>();
+}
+
+/**
+ * @summary Deletes an experiment plan.
+ *
+ * @description Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+ *
+ * @param request DeleteExperimentPlanRequest
+ * @return DeleteExperimentPlanResponse
+ */
+DeleteExperimentPlanResponse Client::deleteExperimentPlan(const string &agentSpace, const string &planId, const DeleteExperimentPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteExperimentPlanWithOptions(agentSpace, planId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an experiment record.
+ *
+ * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+ *
+ * @param request DeleteExperimentRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteExperimentRunResponse
+ */
+DeleteExperimentRunResponse Client::deleteExperimentRunWithOptions(const string &agentSpace, const string &recordId, const DeleteExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteExperimentRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentruns/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/records/" , Darabonba::Encode::Encoder::percentEncode(recordId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteExperimentRunResponse>();
+}
+
+/**
+ * @summary Deletes an experiment record.
+ *
+ * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+ *
+ * @param request DeleteExperimentRunRequest
+ * @return DeleteExperimentRunResponse
+ */
+DeleteExperimentRunResponse Client::deleteExperimentRun(const string &agentSpace, const string &recordId, const DeleteExperimentRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
 }
 
 /**
@@ -1524,6 +1778,92 @@ GetEvaluatorSkillResponse Client::getEvaluatorSkill(const string &name, const st
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Query an experiment plan
+ *
+ * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+ *
+ * @param request GetExperimentPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetExperimentPlanResponse
+ */
+GetExperimentPlanResponse Client::getExperimentPlanWithOptions(const string &agentSpace, const string &planId, const GetExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetExperimentPlan"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/plans/" , Darabonba::Encode::Encoder::percentEncode(planId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetExperimentPlanResponse>();
+}
+
+/**
+ * @summary Query an experiment plan
+ *
+ * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+ *
+ * @param request GetExperimentPlanRequest
+ * @return GetExperimentPlanResponse
+ */
+GetExperimentPlanResponse Client::getExperimentPlan(const string &agentSpace, const string &planId, const GetExperimentPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getExperimentPlanWithOptions(agentSpace, planId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of an experiment run record.
+ *
+ * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+ *
+ * @param request GetExperimentRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetExperimentRunResponse
+ */
+GetExperimentRunResponse Client::getExperimentRunWithOptions(const string &agentSpace, const string &recordId, const GetExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetExperimentRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentruns/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/records/" , Darabonba::Encode::Encoder::percentEncode(recordId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetExperimentRunResponse>();
+}
+
+/**
+ * @summary Queries the details of an experiment run record.
+ *
+ * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+ *
+ * @param request GetExperimentRunRequest
+ * @return GetExperimentRunResponse
+ */
+GetExperimentRunResponse Client::getExperimentRun(const string &agentSpace, const string &recordId, const GetExperimentRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
 }
 
 /**
@@ -2119,6 +2459,152 @@ ListEvaluatorsResponse Client::listEvaluators(const ListEvaluatorsRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listEvaluatorsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of experiment plans.
+ *
+ * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+ *
+ * @param request ListExperimentPlansRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListExperimentPlansResponse
+ */
+ListExperimentPlansResponse Client::listExperimentPlansWithOptions(const string &agentSpace, const ListExperimentPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLimit()) {
+    query["limit"] = request.getLimit();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOffset()) {
+    query["offset"] = request.getOffset();
+  }
+
+  if (!!request.hasPlanName()) {
+    query["planName"] = request.getPlanName();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListExperimentPlans"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/plans")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListExperimentPlansResponse>();
+}
+
+/**
+ * @summary Queries the list of experiment plans.
+ *
+ * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+ *
+ * @param request ListExperimentPlansRequest
+ * @return ListExperimentPlansResponse
+ */
+ListExperimentPlansResponse Client::listExperimentPlans(const string &agentSpace, const ListExperimentPlansRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listExperimentPlansWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of experiment run records.
+ *
+ * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+ *
+ * @param request ListExperimentRunsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListExperimentRunsResponse
+ */
+ListExperimentRunsResponse Client::listExperimentRunsWithOptions(const string &agentSpace, const ListExperimentRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatasetId()) {
+    query["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasExperimentName()) {
+    query["experimentName"] = request.getExperimentName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPlanName()) {
+    query["planName"] = request.getPlanName();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListExperimentRuns"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentruns/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/records")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListExperimentRunsResponse>();
+}
+
+/**
+ * @summary Queries the list of experiment run records.
+ *
+ * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+ *
+ * @param request ListExperimentRunsRequest
+ * @return ListExperimentRunsResponse
+ */
+ListExperimentRunsResponse Client::listExperimentRuns(const string &agentSpace, const ListExperimentRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listExperimentRunsWithOptions(agentSpace, request, headers, runtime);
 }
 
 /**
@@ -2998,6 +3484,170 @@ UpdateEvaluatorSkillResponse Client::updateEvaluatorSkill(const string &name, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateEvaluatorSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an experiment plan.
+ *
+ * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+ *
+ * @param request UpdateExperimentPlanRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateExperimentPlanResponse
+ */
+UpdateExperimentPlanResponse Client::updateExperimentPlanWithOptions(const string &agentSpace, const string &planId, const UpdateExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetId()) {
+    body["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasDatasetProject()) {
+    body["datasetProject"] = request.getDatasetProject();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasEvaluators()) {
+    body["evaluators"] = request.getEvaluators();
+  }
+
+  if (!!request.hasExperimentType()) {
+    body["experimentType"] = request.getExperimentType();
+  }
+
+  if (!!request.hasExperiments()) {
+    body["experiments"] = request.getExperiments();
+  }
+
+  if (!!request.hasInput()) {
+    body["input"] = request.getInput();
+  }
+
+  if (!!request.hasPlanName()) {
+    body["planName"] = request.getPlanName();
+  }
+
+  if (!!request.hasQuerySql()) {
+    body["querySql"] = request.getQuerySql();
+  }
+
+  if (!!request.hasSelectedItemIds()) {
+    body["selectedItemIds"] = request.getSelectedItemIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateExperimentPlan"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experiments/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/plans/" , Darabonba::Encode::Encoder::percentEncode(planId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateExperimentPlanResponse>();
+}
+
+/**
+ * @summary Updates an experiment plan.
+ *
+ * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+ *
+ * @param request UpdateExperimentPlanRequest
+ * @return UpdateExperimentPlanResponse
+ */
+UpdateExperimentPlanResponse Client::updateExperimentPlan(const string &agentSpace, const string &planId, const UpdateExperimentPlanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateExperimentPlanWithOptions(agentSpace, planId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an experiment run.
+ *
+ * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+ *
+ * @param request UpdateExperimentRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateExperimentRunResponse
+ */
+UpdateExperimentRunResponse Client::updateExperimentRunWithOptions(const string &agentSpace, const string &recordId, const UpdateExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasCompletedAt()) {
+    body["completedAt"] = request.getCompletedAt();
+  }
+
+  if (!!request.hasCompletedTasks()) {
+    body["completedTasks"] = request.getCompletedTasks();
+  }
+
+  if (!!request.hasExecutedAt()) {
+    body["executedAt"] = request.getExecutedAt();
+  }
+
+  if (!!request.hasFailedTasks()) {
+    body["failedTasks"] = request.getFailedTasks();
+  }
+
+  if (!!request.hasRecordName()) {
+    body["recordName"] = request.getRecordName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTotalTasks()) {
+    body["totalTasks"] = request.getTotalTasks();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateExperimentRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/experimentruns/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/records/" , Darabonba::Encode::Encoder::percentEncode(recordId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateExperimentRunResponse>();
+}
+
+/**
+ * @summary Updates an experiment run.
+ *
+ * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+ *
+ * @param request UpdateExperimentRunRequest
+ * @return UpdateExperimentRunResponse
+ */
+UpdateExperimentRunResponse Client::updateExperimentRun(const string &agentSpace, const string &recordId, const UpdateExperimentRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
 }
 
 /**

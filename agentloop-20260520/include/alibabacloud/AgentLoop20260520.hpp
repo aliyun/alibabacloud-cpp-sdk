@@ -189,6 +189,50 @@ namespace AgentLoop20260520
       Models::CreateEvaluatorSkillResponse createEvaluatorSkill(const string &name, const Models::CreateEvaluatorSkillRequest &request);
 
       /**
+       * @summary Creates an experiment plan.
+       *
+       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+       *
+       * @param request CreateExperimentPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateExperimentPlanResponse
+       */
+      Models::CreateExperimentPlanResponse createExperimentPlanWithOptions(const string &agentSpace, const Models::CreateExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an experiment plan.
+       *
+       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+       *
+       * @param request CreateExperimentPlanRequest
+       * @return CreateExperimentPlanResponse
+       */
+      Models::CreateExperimentPlanResponse createExperimentPlan(const string &agentSpace, const Models::CreateExperimentPlanRequest &request);
+
+      /**
+       * @summary Executes an experiment.
+       *
+       * @description Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+       *
+       * @param request CreateExperimentRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateExperimentRunResponse
+       */
+      Models::CreateExperimentRunResponse createExperimentRunWithOptions(const string &agentSpace, const Models::CreateExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes an experiment.
+       *
+       * @description Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+       *
+       * @param request CreateExperimentRunRequest
+       * @return CreateExperimentRunResponse
+       */
+      Models::CreateExperimentRunResponse createExperimentRun(const string &agentSpace, const Models::CreateExperimentRunRequest &request);
+
+      /**
        * @summary Creates a pipeline.
        *
        * @param request CreatePipelineRequest
@@ -349,6 +393,50 @@ namespace AgentLoop20260520
        * @return DeleteEvaluatorSkillResponse
        */
       Models::DeleteEvaluatorSkillResponse deleteEvaluatorSkill(const string &name, const string &skillName, const Models::DeleteEvaluatorSkillRequest &request);
+
+      /**
+       * @summary Deletes an experiment plan.
+       *
+       * @description Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+       *
+       * @param request DeleteExperimentPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteExperimentPlanResponse
+       */
+      Models::DeleteExperimentPlanResponse deleteExperimentPlanWithOptions(const string &agentSpace, const string &planId, const Models::DeleteExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an experiment plan.
+       *
+       * @description Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+       *
+       * @param request DeleteExperimentPlanRequest
+       * @return DeleteExperimentPlanResponse
+       */
+      Models::DeleteExperimentPlanResponse deleteExperimentPlan(const string &agentSpace, const string &planId, const Models::DeleteExperimentPlanRequest &request);
+
+      /**
+       * @summary Deletes an experiment record.
+       *
+       * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+       *
+       * @param request DeleteExperimentRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteExperimentRunResponse
+       */
+      Models::DeleteExperimentRunResponse deleteExperimentRunWithOptions(const string &agentSpace, const string &recordId, const Models::DeleteExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an experiment record.
+       *
+       * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+       *
+       * @param request DeleteExperimentRunRequest
+       * @return DeleteExperimentRunResponse
+       */
+      Models::DeleteExperimentRunResponse deleteExperimentRun(const string &agentSpace, const string &recordId, const Models::DeleteExperimentRunRequest &request);
 
       /**
        * @summary Deletes a pipeline.
@@ -549,6 +637,50 @@ namespace AgentLoop20260520
       Models::GetEvaluatorSkillResponse getEvaluatorSkill(const string &name, const string &skillName, const Models::GetEvaluatorSkillRequest &request);
 
       /**
+       * @summary Query an experiment plan
+       *
+       * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+       *
+       * @param request GetExperimentPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetExperimentPlanResponse
+       */
+      Models::GetExperimentPlanResponse getExperimentPlanWithOptions(const string &agentSpace, const string &planId, const Models::GetExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query an experiment plan
+       *
+       * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+       *
+       * @param request GetExperimentPlanRequest
+       * @return GetExperimentPlanResponse
+       */
+      Models::GetExperimentPlanResponse getExperimentPlan(const string &agentSpace, const string &planId, const Models::GetExperimentPlanRequest &request);
+
+      /**
+       * @summary Queries the details of an experiment run record.
+       *
+       * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+       *
+       * @param request GetExperimentRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetExperimentRunResponse
+       */
+      Models::GetExperimentRunResponse getExperimentRunWithOptions(const string &agentSpace, const string &recordId, const Models::GetExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an experiment run record.
+       *
+       * @description Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+       *
+       * @param request GetExperimentRunRequest
+       * @return GetExperimentRunResponse
+       */
+      Models::GetExperimentRunResponse getExperimentRun(const string &agentSpace, const string &recordId, const Models::GetExperimentRunRequest &request);
+
+      /**
        * @summary Queries a CI/CD pipeline.
        *
        * @param request GetPipelineRequest
@@ -745,6 +877,50 @@ namespace AgentLoop20260520
        * @return ListEvaluatorsResponse
        */
       Models::ListEvaluatorsResponse listEvaluators(const Models::ListEvaluatorsRequest &request);
+
+      /**
+       * @summary Queries the list of experiment plans.
+       *
+       * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+       *
+       * @param request ListExperimentPlansRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListExperimentPlansResponse
+       */
+      Models::ListExperimentPlansResponse listExperimentPlansWithOptions(const string &agentSpace, const Models::ListExperimentPlansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of experiment plans.
+       *
+       * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+       *
+       * @param request ListExperimentPlansRequest
+       * @return ListExperimentPlansResponse
+       */
+      Models::ListExperimentPlansResponse listExperimentPlans(const string &agentSpace, const Models::ListExperimentPlansRequest &request);
+
+      /**
+       * @summary Queries the list of experiment run records.
+       *
+       * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+       *
+       * @param request ListExperimentRunsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListExperimentRunsResponse
+       */
+      Models::ListExperimentRunsResponse listExperimentRunsWithOptions(const string &agentSpace, const Models::ListExperimentRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of experiment run records.
+       *
+       * @description Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+       *
+       * @param request ListExperimentRunsRequest
+       * @return ListExperimentRunsResponse
+       */
+      Models::ListExperimentRunsResponse listExperimentRuns(const string &agentSpace, const Models::ListExperimentRunsRequest &request);
 
       /**
        * @summary Queries the execution history list of a pipeline.
@@ -1029,6 +1205,50 @@ namespace AgentLoop20260520
        * @return UpdateEvaluatorSkillResponse
        */
       Models::UpdateEvaluatorSkillResponse updateEvaluatorSkill(const string &name, const string &skillName, const Models::UpdateEvaluatorSkillRequest &request);
+
+      /**
+       * @summary Updates an experiment plan.
+       *
+       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+       *
+       * @param request UpdateExperimentPlanRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateExperimentPlanResponse
+       */
+      Models::UpdateExperimentPlanResponse updateExperimentPlanWithOptions(const string &agentSpace, const string &planId, const Models::UpdateExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an experiment plan.
+       *
+       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+       *
+       * @param request UpdateExperimentPlanRequest
+       * @return UpdateExperimentPlanResponse
+       */
+      Models::UpdateExperimentPlanResponse updateExperimentPlan(const string &agentSpace, const string &planId, const Models::UpdateExperimentPlanRequest &request);
+
+      /**
+       * @summary Updates an experiment run.
+       *
+       * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+       *
+       * @param request UpdateExperimentRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateExperimentRunResponse
+       */
+      Models::UpdateExperimentRunResponse updateExperimentRunWithOptions(const string &agentSpace, const string &recordId, const Models::UpdateExperimentRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an experiment run.
+       *
+       * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+       *
+       * @param request UpdateExperimentRunRequest
+       * @return UpdateExperimentRunResponse
+       */
+      Models::UpdateExperimentRunResponse updateExperimentRun(const string &agentSpace, const string &recordId, const Models::UpdateExperimentRunRequest &request);
 
       /**
        * @summary Updates a pipeline.
