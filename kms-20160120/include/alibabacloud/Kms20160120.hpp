@@ -1276,6 +1276,31 @@ namespace Kms20160120
       Models::GetKmsInstanceQuotaInfosResponse getKmsInstanceQuotaInfos(const Models::GetKmsInstanceQuotaInfosRequest &request);
 
       /**
+       * @summary Retrieves the plaintext of a managed data key (DK).
+       *
+       * @description For information about the access policy that must be granted to a RAM user or RAM role to call this operation, refer to access control.
+       * This operation can be called through a shared gateway. For more information, refer to Alibaba Cloud SDK.
+       * - Shared gateway: Access KMS through public or VPC endpoints.
+       *
+       * @param request GetManagedDataKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetManagedDataKeyResponse
+       */
+      Models::GetManagedDataKeyResponse getManagedDataKeyWithOptions(const Models::GetManagedDataKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the plaintext of a managed data key (DK).
+       *
+       * @description For information about the access policy that must be granted to a RAM user or RAM role to call this operation, refer to access control.
+       * This operation can be called through a shared gateway. For more information, refer to Alibaba Cloud SDK.
+       * - Shared gateway: Access KMS through public or VPC endpoints.
+       *
+       * @param request GetManagedDataKeyRequest
+       * @return GetManagedDataKeyResponse
+       */
+      Models::GetManagedDataKeyResponse getManagedDataKey(const Models::GetManagedDataKeyRequest &request);
+
+      /**
        * @summary Queries the parameters that are used to import key material for a customer master key (CMK).
        *
        * @description The returned parameters can be used to call the [ImportKeyMaterial](https://www.alibabacloud.com/help/en/key-management-service/latest/importkeymaterial) operation.
@@ -1605,6 +1630,31 @@ namespace Kms20160120
        * @return ListKmsInstancesResponse
        */
       Models::ListKmsInstancesResponse listKmsInstances(const Models::ListKmsInstancesRequest &request);
+
+      /**
+       * @summary Lists the key versions of a specified managed data key (DK).
+       *
+       * @description For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+       * This operation can be invoked through the shared gateway. For more information, refer to Alibaba Cloud SDK.
+       * - Shared gateway: Access KMS through public or VPC endpoints.
+       *
+       * @param request ListManagedDataKeyVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListManagedDataKeyVersionsResponse
+       */
+      Models::ListManagedDataKeyVersionsResponse listManagedDataKeyVersionsWithOptions(const Models::ListManagedDataKeyVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists the key versions of a specified managed data key (DK).
+       *
+       * @description For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+       * This operation can be invoked through the shared gateway. For more information, refer to Alibaba Cloud SDK.
+       * - Shared gateway: Access KMS through public or VPC endpoints.
+       *
+       * @param request ListManagedDataKeyVersionsRequest
+       * @return ListManagedDataKeyVersionsResponse
+       */
+      Models::ListManagedDataKeyVersionsResponse listManagedDataKeyVersions(const Models::ListManagedDataKeyVersionsRequest &request);
 
       /**
        * @summary Queries all network access rules in the current region.
@@ -1954,9 +2004,9 @@ namespace Kms20160120
       /**
        * @summary Enables or disables deletion protection for a customer master key (CMK).
        *
-       * @description - For more information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-       * - After you enable deletion protection for a CMK, you cannot delete it. To delete the CMK, you must first disable deletion protection.
-       * - Before you call the SetDeletionProtection operation, ensure that the CMK is not in the PendingDeletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK.
+       * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - After you enable deletion protection for a CMK, you cannot delete the CMK. To delete the CMK, disable deletion protection first.  
+       * - Before you invoke the SetDeletionProtection operation, make sure that the CMK is not in the PendingDeletion state. You can invoke the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status (KeyState) of the CMK.
        *
        * @param request SetDeletionProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1967,9 +2017,9 @@ namespace Kms20160120
       /**
        * @summary Enables or disables deletion protection for a customer master key (CMK).
        *
-       * @description - For more information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-       * - After you enable deletion protection for a CMK, you cannot delete it. To delete the CMK, you must first disable deletion protection.
-       * - Before you call the SetDeletionProtection operation, ensure that the CMK is not in the PendingDeletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK.
+       * @description - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - After you enable deletion protection for a CMK, you cannot delete the CMK. To delete the CMK, disable deletion protection first.  
+       * - Before you invoke the SetDeletionProtection operation, make sure that the CMK is not in the PendingDeletion state. You can invoke the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status (KeyState) of the CMK.
        *
        * @param request SetDeletionProtectionRequest
        * @return SetDeletionProtectionResponse

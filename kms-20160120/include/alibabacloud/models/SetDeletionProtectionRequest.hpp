@@ -75,23 +75,23 @@ namespace Models
 
 
   protected:
-    // The description of deletion protection.
+    // The description of deletion protection.  
     // 
-    // > This parameter is available only when EnableDeletionProtection is set to true.
+    // > This parameter is valid only when EnableDeletionProtection is set to true.
     shared_ptr<string> deletionProtectionDescription_ {};
     // Specifies whether to enable deletion protection. Valid values:
     // 
     // - true: enables deletion protection.
     // 
-    // - false: disables deletion protection. This is the default value.
+    // - false (default): disables deletion protection.
     // 
     // This parameter is required.
     shared_ptr<bool> enableDeletionProtection_ {};
     // The ID of the key.
     shared_ptr<string> keyId_ {};
     shared_ptr<string> kmsInstanceId_ {};
-    // The ARN of the CMK for which you want to configure deletion protection.<br>
-    // You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the ARN of the CMK.<br><br>
+    // The ARN of the CMK for which you want to set deletion protection.  
+    // You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the CMK ARN (Arn).
     shared_ptr<string> protectedResourceArn_ {};
   };
 

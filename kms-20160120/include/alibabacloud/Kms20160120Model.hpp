@@ -135,6 +135,9 @@
 #include <alibabacloud/models/GetKmsInstanceQuotaInfosRequest.hpp>
 #include <alibabacloud/models/GetKmsInstanceQuotaInfosResponseBody.hpp>
 #include <alibabacloud/models/GetKmsInstanceQuotaInfosResponse.hpp>
+#include <alibabacloud/models/GetManagedDataKeyRequest.hpp>
+#include <alibabacloud/models/GetManagedDataKeyResponseBody.hpp>
+#include <alibabacloud/models/GetManagedDataKeyResponse.hpp>
 #include <alibabacloud/models/GetParametersForImportRequest.hpp>
 #include <alibabacloud/models/GetParametersForImportResponseBody.hpp>
 #include <alibabacloud/models/GetParametersForImportResponse.hpp>
@@ -174,6 +177,9 @@
 #include <alibabacloud/models/ListKmsInstancesRequest.hpp>
 #include <alibabacloud/models/ListKmsInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListKmsInstancesResponse.hpp>
+#include <alibabacloud/models/ListManagedDataKeyVersionsRequest.hpp>
+#include <alibabacloud/models/ListManagedDataKeyVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListManagedDataKeyVersionsResponse.hpp>
 #include <alibabacloud/models/ListNetworkRulesRequest.hpp>
 #include <alibabacloud/models/ListNetworkRulesResponseBody.hpp>
 #include <alibabacloud/models/ListNetworkRulesResponse.hpp>
