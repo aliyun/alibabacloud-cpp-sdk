@@ -1470,6 +1470,23 @@ namespace MPaaS20201028
       Models::QueryMgsTestreqbodyautogenResponse queryMgsTestreqbodyautogen(const Models::QueryMgsTestreqbodyautogenRequest &request);
 
       /**
+       * @summary 查询小游戏信息(含资质)
+       *
+       * @param request QueryMiniGameInfoByAppRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMiniGameInfoByAppResponse
+       */
+      Models::QueryMiniGameInfoByAppResponse queryMiniGameInfoByAppWithOptions(const Models::QueryMiniGameInfoByAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询小游戏信息(含资质)
+       *
+       * @param request QueryMiniGameInfoByAppRequest
+       * @return QueryMiniGameInfoByAppResponse
+       */
+      Models::QueryMiniGameInfoByAppResponse queryMiniGameInfoByApp(const Models::QueryMiniGameInfoByAppRequest &request);
+
+      /**
        * @param request QueryMpsSchedulerListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryMpsSchedulerListResponse

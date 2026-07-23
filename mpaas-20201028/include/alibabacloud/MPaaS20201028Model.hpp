@@ -320,6 +320,9 @@
 #include <alibabacloud/models/QueryMgsTestreqbodyautogenRequest.hpp>
 #include <alibabacloud/models/QueryMgsTestreqbodyautogenResponseBody.hpp>
 #include <alibabacloud/models/QueryMgsTestreqbodyautogenResponse.hpp>
+#include <alibabacloud/models/QueryMiniGameInfoByAppRequest.hpp>
+#include <alibabacloud/models/QueryMiniGameInfoByAppResponseBody.hpp>
+#include <alibabacloud/models/QueryMiniGameInfoByAppResponse.hpp>
 #include <alibabacloud/models/QueryMpsSchedulerListRequest.hpp>
 #include <alibabacloud/models/QueryMpsSchedulerListResponseBody.hpp>
 #include <alibabacloud/models/QueryMpsSchedulerListResponse.hpp>

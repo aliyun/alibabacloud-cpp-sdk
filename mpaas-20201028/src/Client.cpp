@@ -6933,6 +6933,60 @@ QueryMgsTestreqbodyautogenResponse Client::queryMgsTestreqbodyautogen(const Quer
 }
 
 /**
+ * @summary 查询小游戏信息(含资质)
+ *
+ * @param request QueryMiniGameInfoByAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMiniGameInfoByAppResponse
+ */
+QueryMiniGameInfoByAppResponse Client::queryMiniGameInfoByAppWithOptions(const QueryMiniGameInfoByAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasMiniProgramCode()) {
+    body["MiniProgramCode"] = request.getMiniProgramCode();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryMiniGameInfoByApp"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMiniGameInfoByAppResponse>();
+}
+
+/**
+ * @summary 查询小游戏信息(含资质)
+ *
+ * @param request QueryMiniGameInfoByAppRequest
+ * @return QueryMiniGameInfoByAppResponse
+ */
+QueryMiniGameInfoByAppResponse Client::queryMiniGameInfoByApp(const QueryMiniGameInfoByAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMiniGameInfoByAppWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryMpsSchedulerListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryMpsSchedulerListResponse
