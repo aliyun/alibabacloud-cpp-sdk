@@ -13,6 +13,7 @@ namespace Models
   class OpenClawInstanceVO : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const OpenClawInstanceVO& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(AliyunAccountUid, aliyunAccountUid_);
       DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(BasicAuthPassword, basicAuthPassword_);
@@ -29,6 +30,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LastActiveTime, lastActiveTime_);
       DARABONBA_PTR_TO_JSON(LockTime, lockTime_);
       DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
+      DARABONBA_PTR_TO_JSON(ModelCallQuota, modelCallQuota_);
+      DARABONBA_PTR_TO_JSON(ModelCallUsed, modelCallUsed_);
       DARABONBA_PTR_TO_JSON(OpenclawToken, openclawToken_);
       DARABONBA_PTR_TO_JSON(OwnerUid, ownerUid_);
       DARABONBA_PTR_TO_JSON(PublicDomain, publicDomain_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Variables, variables_);
     };
     friend void from_json(const Darabonba::Json& j, OpenClawInstanceVO& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(AliyunAccountUid, aliyunAccountUid_);
       DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(BasicAuthPassword, basicAuthPassword_);
@@ -55,6 +59,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LastActiveTime, lastActiveTime_);
       DARABONBA_PTR_FROM_JSON(LockTime, lockTime_);
       DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
+      DARABONBA_PTR_FROM_JSON(ModelCallQuota, modelCallQuota_);
+      DARABONBA_PTR_FROM_JSON(ModelCallUsed, modelCallUsed_);
       DARABONBA_PTR_FROM_JSON(OpenclawToken, openclawToken_);
       DARABONBA_PTR_FROM_JSON(OwnerUid, ownerUid_);
       DARABONBA_PTR_FROM_JSON(PublicDomain, publicDomain_);
@@ -147,12 +153,20 @@ namespace Models
       shared_ptr<string> versionDesc_ {};
     };
 
-    virtual bool empty() const override { return this->aliyunAccountUid_ == nullptr
-        && this->authType_ == nullptr && this->basicAuthPassword_ == nullptr && this->basicAuthUsername_ == nullptr && this->chargeType_ == nullptr && this->cpu_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->imageInfo_ == nullptr && this->instanceDesc_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->instanceRegion_ == nullptr && this->lastActiveTime_ == nullptr && this->lockTime_ == nullptr && this->memorySize_ == nullptr
-        && this->openclawToken_ == nullptr && this->ownerUid_ == nullptr && this->publicDomain_ == nullptr && this->status_ == nullptr && this->statusDesc_ == nullptr
-        && this->statusMessage_ == nullptr && this->trialExpireTime_ == nullptr && this->variables_ == nullptr; };
+    virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->aliyunAccountUid_ == nullptr && this->authType_ == nullptr && this->basicAuthPassword_ == nullptr && this->basicAuthUsername_ == nullptr && this->chargeType_ == nullptr
+        && this->cpu_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->imageInfo_ == nullptr && this->instanceDesc_ == nullptr
+        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceRegion_ == nullptr && this->lastActiveTime_ == nullptr && this->lockTime_ == nullptr
+        && this->memorySize_ == nullptr && this->modelCallQuota_ == nullptr && this->modelCallUsed_ == nullptr && this->openclawToken_ == nullptr && this->ownerUid_ == nullptr
+        && this->publicDomain_ == nullptr && this->status_ == nullptr && this->statusDesc_ == nullptr && this->statusMessage_ == nullptr && this->trialExpireTime_ == nullptr
+        && this->variables_ == nullptr; };
+    // agentType Field Functions 
+    bool hasAgentType() const { return this->agentType_ != nullptr;};
+    void deleteAgentType() { this->agentType_ = nullptr;};
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline OpenClawInstanceVO& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
     // aliyunAccountUid Field Functions 
     bool hasAliyunAccountUid() const { return this->aliyunAccountUid_ != nullptr;};
     void deleteAliyunAccountUid() { this->aliyunAccountUid_ = nullptr;};
@@ -267,6 +281,20 @@ namespace Models
     inline OpenClawInstanceVO& setMemorySize(int32_t memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
+    // modelCallQuota Field Functions 
+    bool hasModelCallQuota() const { return this->modelCallQuota_ != nullptr;};
+    void deleteModelCallQuota() { this->modelCallQuota_ = nullptr;};
+    inline int64_t getModelCallQuota() const { DARABONBA_PTR_GET_DEFAULT(modelCallQuota_, 0L) };
+    inline OpenClawInstanceVO& setModelCallQuota(int64_t modelCallQuota) { DARABONBA_PTR_SET_VALUE(modelCallQuota_, modelCallQuota) };
+
+
+    // modelCallUsed Field Functions 
+    bool hasModelCallUsed() const { return this->modelCallUsed_ != nullptr;};
+    void deleteModelCallUsed() { this->modelCallUsed_ = nullptr;};
+    inline int64_t getModelCallUsed() const { DARABONBA_PTR_GET_DEFAULT(modelCallUsed_, 0L) };
+    inline OpenClawInstanceVO& setModelCallUsed(int64_t modelCallUsed) { DARABONBA_PTR_SET_VALUE(modelCallUsed_, modelCallUsed) };
+
+
     // openclawToken Field Functions 
     bool hasOpenclawToken() const { return this->openclawToken_ != nullptr;};
     void deleteOpenclawToken() { this->openclawToken_ = nullptr;};
@@ -324,6 +352,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> agentType_ {};
     shared_ptr<string> aliyunAccountUid_ {};
     shared_ptr<string> authType_ {};
     shared_ptr<string> basicAuthPassword_ {};
@@ -340,6 +369,8 @@ namespace Models
     shared_ptr<string> lastActiveTime_ {};
     shared_ptr<string> lockTime_ {};
     shared_ptr<int32_t> memorySize_ {};
+    shared_ptr<int64_t> modelCallQuota_ {};
+    shared_ptr<int64_t> modelCallUsed_ {};
     shared_ptr<string> openclawToken_ {};
     shared_ptr<string> ownerUid_ {};
     shared_ptr<string> publicDomain_ {};

@@ -49,8 +49,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccuracyTestTaskId, accuracyTestTaskId_);
         DARABONBA_PTR_TO_JSON(Content, content_);
         DARABONBA_PTR_TO_JSON(CorrectCount, correctCount_);
+        DARABONBA_PTR_TO_JSON(FailedCount, failedCount_);
         DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(PendingCount, pendingCount_);
         DARABONBA_PTR_TO_JSON(TotalElements, totalElements_);
         DARABONBA_PTR_TO_JSON(TotalPages, totalPages_);
       };
@@ -59,8 +61,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AccuracyTestTaskId, accuracyTestTaskId_);
         DARABONBA_PTR_FROM_JSON(Content, content_);
         DARABONBA_PTR_FROM_JSON(CorrectCount, correctCount_);
+        DARABONBA_PTR_FROM_JSON(FailedCount, failedCount_);
         DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(PendingCount, pendingCount_);
         DARABONBA_PTR_FROM_JSON(TotalElements, totalElements_);
         DARABONBA_PTR_FROM_JSON(TotalPages, totalPages_);
       };
@@ -80,6 +84,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
           DARABONBA_PTR_TO_JSON(AccuracyTestTaskId, accuracyTestTaskId_);
           DARABONBA_PTR_TO_JSON(AgentResult, agentResult_);
+          DARABONBA_PTR_TO_JSON(AgentSql, agentSql_);
           DARABONBA_PTR_TO_JSON(AnswerResult, answerResult_);
           DARABONBA_PTR_TO_JSON(AnswerSql, answerSql_);
           DARABONBA_PTR_TO_JSON(IsTrue, isTrue_);
@@ -87,11 +92,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Reason, reason_);
           DARABONBA_PTR_TO_JSON(Recommendation, recommendation_);
           DARABONBA_PTR_TO_JSON(ResultId, resultId_);
+          DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
           DARABONBA_PTR_TO_JSON(SubtaskId, subtaskId_);
         };
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
           DARABONBA_PTR_FROM_JSON(AccuracyTestTaskId, accuracyTestTaskId_);
           DARABONBA_PTR_FROM_JSON(AgentResult, agentResult_);
+          DARABONBA_PTR_FROM_JSON(AgentSql, agentSql_);
           DARABONBA_PTR_FROM_JSON(AnswerResult, answerResult_);
           DARABONBA_PTR_FROM_JSON(AnswerSql, answerSql_);
           DARABONBA_PTR_FROM_JSON(IsTrue, isTrue_);
@@ -99,6 +106,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Reason, reason_);
           DARABONBA_PTR_FROM_JSON(Recommendation, recommendation_);
           DARABONBA_PTR_FROM_JSON(ResultId, resultId_);
+          DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
           DARABONBA_PTR_FROM_JSON(SubtaskId, subtaskId_);
         };
         Content() = default ;
@@ -113,8 +121,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->accuracyTestTaskId_ == nullptr
-        && this->agentResult_ == nullptr && this->answerResult_ == nullptr && this->answerSql_ == nullptr && this->isTrue_ == nullptr && this->question_ == nullptr
-        && this->reason_ == nullptr && this->recommendation_ == nullptr && this->resultId_ == nullptr && this->subtaskId_ == nullptr; };
+        && this->agentResult_ == nullptr && this->agentSql_ == nullptr && this->answerResult_ == nullptr && this->answerSql_ == nullptr && this->isTrue_ == nullptr
+        && this->question_ == nullptr && this->reason_ == nullptr && this->recommendation_ == nullptr && this->resultId_ == nullptr && this->sessionId_ == nullptr
+        && this->subtaskId_ == nullptr; };
         // accuracyTestTaskId Field Functions 
         bool hasAccuracyTestTaskId() const { return this->accuracyTestTaskId_ != nullptr;};
         void deleteAccuracyTestTaskId() { this->accuracyTestTaskId_ = nullptr;};
@@ -127,6 +136,13 @@ namespace Models
         void deleteAgentResult() { this->agentResult_ = nullptr;};
         inline string getAgentResult() const { DARABONBA_PTR_GET_DEFAULT(agentResult_, "") };
         inline Content& setAgentResult(string agentResult) { DARABONBA_PTR_SET_VALUE(agentResult_, agentResult) };
+
+
+        // agentSql Field Functions 
+        bool hasAgentSql() const { return this->agentSql_ != nullptr;};
+        void deleteAgentSql() { this->agentSql_ = nullptr;};
+        inline string getAgentSql() const { DARABONBA_PTR_GET_DEFAULT(agentSql_, "") };
+        inline Content& setAgentSql(string agentSql) { DARABONBA_PTR_SET_VALUE(agentSql_, agentSql) };
 
 
         // answerResult Field Functions 
@@ -178,6 +194,13 @@ namespace Models
         inline Content& setResultId(string resultId) { DARABONBA_PTR_SET_VALUE(resultId_, resultId) };
 
 
+        // sessionId Field Functions 
+        bool hasSessionId() const { return this->sessionId_ != nullptr;};
+        void deleteSessionId() { this->sessionId_ = nullptr;};
+        inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+        inline Content& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
         // subtaskId Field Functions 
         bool hasSubtaskId() const { return this->subtaskId_ != nullptr;};
         void deleteSubtaskId() { this->subtaskId_ = nullptr;};
@@ -188,11 +211,12 @@ namespace Models
       protected:
         // The ID of the accuracy test task.
         shared_ptr<string> accuracyTestTaskId_ {};
-        // The actual answer returned by the agent.
+        // The actual answer from the agent.
         shared_ptr<string> agentResult_ {};
+        shared_ptr<string> agentSql_ {};
         // The expected answer.
         shared_ptr<string> answerResult_ {};
-        // The expected SQL statement.
+        // The expected SQL.
         shared_ptr<string> answerSql_ {};
         // The AI evaluation result.
         shared_ptr<bool> isTrue_ {};
@@ -204,13 +228,14 @@ namespace Models
         shared_ptr<string> recommendation_ {};
         // The result ID.
         shared_ptr<string> resultId_ {};
+        shared_ptr<string> sessionId_ {};
         // The subtask ID.
         shared_ptr<string> subtaskId_ {};
       };
 
       virtual bool empty() const override { return this->accuracyRate_ == nullptr
-        && this->accuracyTestTaskId_ == nullptr && this->content_ == nullptr && this->correctCount_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->totalElements_ == nullptr && this->totalPages_ == nullptr; };
+        && this->accuracyTestTaskId_ == nullptr && this->content_ == nullptr && this->correctCount_ == nullptr && this->failedCount_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->pendingCount_ == nullptr && this->totalElements_ == nullptr && this->totalPages_ == nullptr; };
       // accuracyRate Field Functions 
       bool hasAccuracyRate() const { return this->accuracyRate_ != nullptr;};
       void deleteAccuracyRate() { this->accuracyRate_ = nullptr;};
@@ -241,6 +266,13 @@ namespace Models
       inline Data& setCorrectCount(int64_t correctCount) { DARABONBA_PTR_SET_VALUE(correctCount_, correctCount) };
 
 
+      // failedCount Field Functions 
+      bool hasFailedCount() const { return this->failedCount_ != nullptr;};
+      void deleteFailedCount() { this->failedCount_ = nullptr;};
+      inline string getFailedCount() const { DARABONBA_PTR_GET_DEFAULT(failedCount_, "") };
+      inline Data& setFailedCount(string failedCount) { DARABONBA_PTR_SET_VALUE(failedCount_, failedCount) };
+
+
       // pageNumber Field Functions 
       bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
       void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -253,6 +285,13 @@ namespace Models
       void deletePageSize() { this->pageSize_ = nullptr;};
       inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
       inline Data& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+      // pendingCount Field Functions 
+      bool hasPendingCount() const { return this->pendingCount_ != nullptr;};
+      void deletePendingCount() { this->pendingCount_ = nullptr;};
+      inline string getPendingCount() const { DARABONBA_PTR_GET_DEFAULT(pendingCount_, "") };
+      inline Data& setPendingCount(string pendingCount) { DARABONBA_PTR_SET_VALUE(pendingCount_, pendingCount) };
 
 
       // totalElements Field Functions 
@@ -278,10 +317,12 @@ namespace Models
       shared_ptr<vector<Data::Content>> content_ {};
       // The number of test cases that passed evaluation.
       shared_ptr<int64_t> correctCount_ {};
+      shared_ptr<string> failedCount_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      shared_ptr<string> pendingCount_ {};
       // The total number of results.
       shared_ptr<int32_t> totalElements_ {};
       // The total number of pages.

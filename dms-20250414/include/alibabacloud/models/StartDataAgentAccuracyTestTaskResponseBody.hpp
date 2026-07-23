@@ -111,16 +111,16 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<StartDataAgentAccuracyTestTaskResponseBody::Data> data_ {};
-    // The error code returned if the request fails.
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - True: The request is successful.                                 
-    // - False: The request fails.
+    // - True: The request was successful.                                 
+    // - False: The request failed.
     shared_ptr<string> success_ {};
   };
 

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AliyunAccountUid, aliyunAccountUid_);
       DARABONBA_PTR_TO_JSON(DeepResearchCallQuota, deepResearchCallQuota_);
       DARABONBA_PTR_TO_JSON(DeepResearchCallUsed, deepResearchCallUsed_);
+      DARABONBA_PTR_TO_JSON(InstanceDesc, instanceDesc_);
       DARABONBA_PTR_TO_JSON(InstanceGmtCreate, instanceGmtCreate_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -25,11 +26,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RefreshDay, refreshDay_);
       DARABONBA_PTR_TO_JSON(SkillPlanCallQuota, skillPlanCallQuota_);
       DARABONBA_PTR_TO_JSON(SkillPlanCallUsed, skillPlanCallUsed_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, OpenClawInstanceQuotaVO& obj) { 
       DARABONBA_PTR_FROM_JSON(AliyunAccountUid, aliyunAccountUid_);
       DARABONBA_PTR_FROM_JSON(DeepResearchCallQuota, deepResearchCallQuota_);
       DARABONBA_PTR_FROM_JSON(DeepResearchCallUsed, deepResearchCallUsed_);
+      DARABONBA_PTR_FROM_JSON(InstanceDesc, instanceDesc_);
       DARABONBA_PTR_FROM_JSON(InstanceGmtCreate, instanceGmtCreate_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RefreshDay, refreshDay_);
       DARABONBA_PTR_FROM_JSON(SkillPlanCallQuota, skillPlanCallQuota_);
       DARABONBA_PTR_FROM_JSON(SkillPlanCallUsed, skillPlanCallUsed_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     OpenClawInstanceQuotaVO() = default ;
     OpenClawInstanceQuotaVO(const OpenClawInstanceQuotaVO &) = default ;
@@ -52,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunAccountUid_ == nullptr
-        && this->deepResearchCallQuota_ == nullptr && this->deepResearchCallUsed_ == nullptr && this->instanceGmtCreate_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->lastMeteringTime_ == nullptr && this->modelCallQuota_ == nullptr && this->modelCallUsed_ == nullptr && this->refreshDay_ == nullptr && this->skillPlanCallQuota_ == nullptr
-        && this->skillPlanCallUsed_ == nullptr; };
+        && this->deepResearchCallQuota_ == nullptr && this->deepResearchCallUsed_ == nullptr && this->instanceDesc_ == nullptr && this->instanceGmtCreate_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->lastMeteringTime_ == nullptr && this->modelCallQuota_ == nullptr && this->modelCallUsed_ == nullptr && this->refreshDay_ == nullptr
+        && this->skillPlanCallQuota_ == nullptr && this->skillPlanCallUsed_ == nullptr && this->status_ == nullptr; };
     // aliyunAccountUid Field Functions 
     bool hasAliyunAccountUid() const { return this->aliyunAccountUid_ != nullptr;};
     void deleteAliyunAccountUid() { this->aliyunAccountUid_ = nullptr;};
@@ -74,6 +78,13 @@ namespace Models
     void deleteDeepResearchCallUsed() { this->deepResearchCallUsed_ = nullptr;};
     inline string getDeepResearchCallUsed() const { DARABONBA_PTR_GET_DEFAULT(deepResearchCallUsed_, "") };
     inline OpenClawInstanceQuotaVO& setDeepResearchCallUsed(string deepResearchCallUsed) { DARABONBA_PTR_SET_VALUE(deepResearchCallUsed_, deepResearchCallUsed) };
+
+
+    // instanceDesc Field Functions 
+    bool hasInstanceDesc() const { return this->instanceDesc_ != nullptr;};
+    void deleteInstanceDesc() { this->instanceDesc_ = nullptr;};
+    inline string getInstanceDesc() const { DARABONBA_PTR_GET_DEFAULT(instanceDesc_, "") };
+    inline OpenClawInstanceQuotaVO& setInstanceDesc(string instanceDesc) { DARABONBA_PTR_SET_VALUE(instanceDesc_, instanceDesc) };
 
 
     // instanceGmtCreate Field Functions 
@@ -139,31 +150,28 @@ namespace Models
     inline OpenClawInstanceQuotaVO& setSkillPlanCallUsed(string skillPlanCallUsed) { DARABONBA_PTR_SET_VALUE(skillPlanCallUsed_, skillPlanCallUsed) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline OpenClawInstanceQuotaVO& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
-    // The Alibaba Cloud account UID.
     shared_ptr<string> aliyunAccountUid_ {};
-    // The total quota for deep research calls.
     shared_ptr<string> deepResearchCallQuota_ {};
-    // The number of deep research calls used.
     shared_ptr<string> deepResearchCallUsed_ {};
-    // The instance creation time.
+    shared_ptr<string> instanceDesc_ {};
     shared_ptr<string> instanceGmtCreate_ {};
-    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The timestamp of the last metering event.
     shared_ptr<string> lastMeteringTime_ {};
-    // The total quota for model calls.
     shared_ptr<string> modelCallQuota_ {};
-    // The number of model calls used.
     shared_ptr<string> modelCallUsed_ {};
-    // The day of the month on which the quota refreshes.
     shared_ptr<string> refreshDay_ {};
-    // The total quota for skill plan calls.
     shared_ptr<string> skillPlanCallQuota_ {};
-    // The number of skill plan calls used.
     shared_ptr<string> skillPlanCallUsed_ {};
+    shared_ptr<int32_t> status_ {};
   };
 
   } // namespace Models

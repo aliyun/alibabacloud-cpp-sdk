@@ -130,21 +130,21 @@ namespace Models
 
 
     protected:
-      // Parameter set that specifies the derived key
+      // The parameter set that specifies the derived key.
       shared_ptr<string> ossCredential_ {};
-      // Time of the request, formatted according to the ISO 8601 date and time standard
+      // The time of the request. The format follows the ISO 8601 date and time standard.
       shared_ptr<string> ossDate_ {};
-      // STS token used for uploading to OSS, valid for 1 hour
+      // The STS token used to upload files to OSS. The token is valid for 1 hour.
       shared_ptr<string> ossSecurityToken_ {};
-      // Description information used for signature authentication
+      // The description information used for signature authentication.
       shared_ptr<string> ossSignature_ {};
-      // Specifies the version and algorithm of the signature
+      // The version and algorithm of the signature.
       shared_ptr<string> ossSignatureVersion_ {};
-      // Permission constraints and conditions for file upload
+      // The permission restrictions and constraints for file uploads.
       shared_ptr<string> policy_ {};
-      // Path for file upload
+      // The path for file uploads.
       shared_ptr<string> uploadDir_ {};
-      // Target address for file upload
+      // The destination address for file uploads.
       shared_ptr<string> uploadHost_ {};
     };
 
@@ -188,18 +188,18 @@ namespace Models
 
 
   protected:
-    // Return struct
+    // The response struct.
     shared_ptr<DescribeFileUploadSignatureResponseBody::Data> data_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // Error message returned when the invocation fails
+    // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. The return value is as follows:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request succeeded.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

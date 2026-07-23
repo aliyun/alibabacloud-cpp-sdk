@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateDataAgentAccuracyTestRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_TO_JSON(Dataset, dataset_);
+      DARABONBA_PTR_TO_JSON(Datasource, datasource_);
       DARABONBA_PTR_TO_JSON(Desc, desc_);
       DARABONBA_PTR_TO_JSON(DmsUnit, dmsUnit_);
       DARABONBA_PTR_TO_JSON(EvaluationPrompt, evaluationPrompt_);
@@ -30,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateDataAgentAccuracyTestRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_FROM_JSON(Dataset, dataset_);
+      DARABONBA_PTR_FROM_JSON(Datasource, datasource_);
       DARABONBA_PTR_FROM_JSON(Desc, desc_);
       DARABONBA_PTR_FROM_JSON(DmsUnit, dmsUnit_);
       DARABONBA_PTR_FROM_JSON(EvaluationPrompt, evaluationPrompt_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->dataset_ == nullptr && this->desc_ == nullptr && this->dmsUnit_ == nullptr && this->evaluationPrompt_ == nullptr && this->fileId_ == nullptr
-        && this->language_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr && this->needDelete_ == nullptr
-        && this->regionId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->dataset_ == nullptr && this->datasource_ == nullptr && this->desc_ == nullptr && this->dmsUnit_ == nullptr && this->evaluationPrompt_ == nullptr
+        && this->fileId_ == nullptr && this->language_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr
+        && this->needDelete_ == nullptr && this->regionId_ == nullptr && this->workspaceId_ == nullptr; };
     // customAgentId Field Functions 
     bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
     void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteDataset() { this->dataset_ = nullptr;};
     inline string getDataset() const { DARABONBA_PTR_GET_DEFAULT(dataset_, "") };
     inline CreateDataAgentAccuracyTestRequest& setDataset(string dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+
+
+    // datasource Field Functions 
+    bool hasDatasource() const { return this->datasource_ != nullptr;};
+    void deleteDatasource() { this->datasource_ = nullptr;};
+    inline string getDatasource() const { DARABONBA_PTR_GET_DEFAULT(datasource_, "") };
+    inline CreateDataAgentAccuracyTestRequest& setDatasource(string datasource) { DARABONBA_PTR_SET_VALUE(datasource_, datasource) };
 
 
     // desc Field Functions 
@@ -149,10 +158,11 @@ namespace Models
 
 
   protected:
-    // The ID of the custom agent for which you want to run the accuracy test.
+    // The ID of the custom agent to be tested for accuracy.
     shared_ptr<string> customAgentId_ {};
     // The data source. We recommend that you configure this in the custom agent.
     shared_ptr<string> dataset_ {};
+    shared_ptr<string> datasource_ {};
     // The description.
     shared_ptr<string> desc_ {};
     // The DMS unit used to create the resource.
@@ -169,7 +179,7 @@ namespace Models
     shared_ptr<int32_t> mode_ {};
     // The name of the test item.
     shared_ptr<string> name_ {};
-    // Specifies whether sessions are displayed after the analysis. This parameter is not supported.
+    // Specifies whether sessions are displayed after analysis. This parameter is not supported.
     shared_ptr<bool> needDelete_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

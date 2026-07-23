@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The instance ID of the accuracy test.
+      // The accuracy test instance ID.
       shared_ptr<string> accuracyTestInsId_ {};
     };
 
@@ -113,7 +113,7 @@ namespace Models
     shared_ptr<CreateDataAgentAccuracyTestResponseBody::Data> data_ {};
     // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

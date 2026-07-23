@@ -674,6 +674,10 @@ CreateDataAgentAccuracyTestResponse Client::createDataAgentAccuracyTestWithOptio
     query["Dataset"] = request.getDataset();
   }
 
+  if (!!request.hasDatasource()) {
+    query["Datasource"] = request.getDatasource();
+  }
+
   if (!!request.hasDesc()) {
     query["Desc"] = request.getDesc();
   }
@@ -869,7 +873,7 @@ CreateDataAgentSessionResponse Client::createDataAgentSession(const CreateDataAg
 }
 
 /**
- * @summary Creates a DataAgent collaborative workspace.
+ * @summary Creates a DataAgent workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -912,7 +916,7 @@ CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspaceWithOptions(con
 }
 
 /**
- * @summary Creates a DataAgent collaborative workspace.
+ * @summary Creates a DataAgent workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
  * @return CreateDataAgentWorkspaceResponse
@@ -1298,6 +1302,48 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Releases a DataAgent seat.
+ *
+ * @param request DeleteDataAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentResponse
+ */
+DeleteDataAgentResponse Client::deleteDataAgentWithOptions(const DeleteDataAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentResponse>();
+}
+
+/**
+ * @summary Releases a DataAgent seat.
+ *
+ * @param request DeleteDataAgentRequest
+ * @return DeleteDataAgentResponse
+ */
+DeleteDataAgentResponse Client::deleteDataAgent(const DeleteDataAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentWithOptions(request, runtime);
 }
 
 /**
@@ -1953,6 +1999,60 @@ DescribeCustomAgentResponse Client::describeCustomAgent(const DescribeCustomAgen
 }
 
 /**
+ * @summary Queries DataAgent metrics.
+ *
+ * @param request DescribeDataAgentMetricsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataAgentMetricsResponse
+ */
+DescribeDataAgentMetricsResponse Client::describeDataAgentMetricsWithOptions(const DescribeDataAgentMetricsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMetricNames()) {
+    query["MetricNames"] = request.getMetricNames();
+  }
+
+  if (!!request.hasMetricType()) {
+    query["MetricType"] = request.getMetricType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataAgentMetrics"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataAgentMetricsResponse>();
+}
+
+/**
+ * @summary Queries DataAgent metrics.
+ *
+ * @param request DescribeDataAgentMetricsRequest
+ * @return DescribeDataAgentMetricsResponse
+ */
+DescribeDataAgentMetricsResponse Client::describeDataAgentMetrics(const DescribeDataAgentMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataAgentMetricsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the description of a DataAgent session.
  *
  * @param request DescribeDataAgentSessionRequest
@@ -2049,7 +2149,7 @@ DescribeDocumentResponse Client::describeDocument(const DescribeDocumentRequest 
 }
 
 /**
- * @summary DescribeFileUploadSignature
+ * @summary Retrieves the signature information for file uploads.
  *
  * @param request DescribeFileUploadSignatureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2064,6 +2164,10 @@ DescribeFileUploadSignatureResponse Client::describeFileUploadSignatureWithOptio
 
   if (!!request.hasDmsUnit()) {
     query["DmsUnit"] = request.getDmsUnit();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2084,7 +2188,7 @@ DescribeFileUploadSignatureResponse Client::describeFileUploadSignatureWithOptio
 }
 
 /**
- * @summary DescribeFileUploadSignature
+ * @summary Retrieves the signature information for file uploads.
  *
  * @param request DescribeFileUploadSignatureRequest
  * @return DescribeFileUploadSignatureResponse
@@ -2179,7 +2283,7 @@ DescribeKnowledgeBaseUploadSignatureResponse Client::describeKnowledgeBaseUpload
 }
 
 /**
- * @summary FileUploadCallback
+ * @summary Calls back after a file is uploaded.
  *
  * @param request FileUploadCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2212,6 +2316,10 @@ FileUploadCallbackResponse Client::fileUploadCallbackWithOptions(const FileUploa
     query["UploadLocation"] = request.getUploadLocation();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2230,7 +2338,7 @@ FileUploadCallbackResponse Client::fileUploadCallbackWithOptions(const FileUploa
 }
 
 /**
- * @summary FileUploadCallback
+ * @summary Calls back after a file is uploaded.
  *
  * @param request FileUploadCallbackRequest
  * @return FileUploadCallbackResponse
@@ -2238,6 +2346,48 @@ FileUploadCallbackResponse Client::fileUploadCallbackWithOptions(const FileUploa
 FileUploadCallbackResponse Client::fileUploadCallback(const FileUploadCallbackRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return fileUploadCallbackWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries agent information by install token.
+ *
+ * @param request GetAgenticAgentByInstallTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgenticAgentByInstallTokenResponse
+ */
+GetAgenticAgentByInstallTokenResponse Client::getAgenticAgentByInstallTokenWithOptions(const GetAgenticAgentByInstallTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstallToken()) {
+    query["InstallToken"] = request.getInstallToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgenticAgentByInstallToken"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgenticAgentByInstallTokenResponse>();
+}
+
+/**
+ * @summary Queries agent information by install token.
+ *
+ * @param request GetAgenticAgentByInstallTokenRequest
+ * @return GetAgenticAgentByInstallTokenResponse
+ */
+GetAgenticAgentByInstallTokenResponse Client::getAgenticAgentByInstallToken(const GetAgenticAgentByInstallTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgenticAgentByInstallTokenWithOptions(request, runtime);
 }
 
 /**
@@ -3430,10 +3580,9 @@ ListDataAgentAccuracyTestResultsResponse Client::listDataAgentAccuracyTestResult
 }
 
 /**
- * @summary Queries the running status of self-test tasks by paging.
+ * @summary Queries the running status of accuracy test nodes by using paging.
  *
- * @description Queries the running status of self-test tasks by paging.
- * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+ * @description Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
  *
  * @param request ListDataAgentAccuracyTestTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3488,10 +3637,9 @@ ListDataAgentAccuracyTestTasksResponse Client::listDataAgentAccuracyTestTasksWit
 }
 
 /**
- * @summary Queries the running status of self-test tasks by paging.
+ * @summary Queries the running status of accuracy test nodes by using paging.
  *
- * @description Queries the running status of self-test tasks by paging.
- * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+ * @description Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
  *
  * @param request ListDataAgentAccuracyTestTasksRequest
  * @return ListDataAgentAccuracyTestTasksResponse
@@ -3736,7 +3884,7 @@ ListDataAgentWorkspaceMemberResponse Client::listDataAgentWorkspaceMember(const 
 }
 
 /**
- * @summary Lists user-uploaded files in a data center, excluding databases.
+ * @summary Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
  *
  * @param request ListDataCenterDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3765,6 +3913,10 @@ ListDataCenterDatabaseResponse Client::listDataCenterDatabaseWithOptions(const L
     query["SearchKey"] = request.getSearchKey();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3783,7 +3935,7 @@ ListDataCenterDatabaseResponse Client::listDataCenterDatabaseWithOptions(const L
 }
 
 /**
- * @summary Lists user-uploaded files in a data center, excluding databases.
+ * @summary Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
  *
  * @param request ListDataCenterDatabaseRequest
  * @return ListDataCenterDatabaseResponse
@@ -5289,10 +5441,10 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
  * @description ## Request description
  * - `agent_id` and `session_id` are required fields.
  * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
- * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+ * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
- * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+ * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5402,10 +5554,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  * @description ## Request description
  * - `agent_id` and `session_id` are required fields.
  * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
- * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+ * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
- * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+ * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -5767,6 +5919,10 @@ UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTestWithOptio
 
   if (!!request.hasDataset()) {
     query["Dataset"] = request.getDataset();
+  }
+
+  if (!!request.hasDatasource()) {
+    query["Datasource"] = request.getDatasource();
   }
 
   if (!!request.hasDesc()) {

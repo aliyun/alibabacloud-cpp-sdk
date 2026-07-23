@@ -21,7 +21,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(QualifiedName, qualifiedName_);
       DARABONBA_PTR_TO_JSON(TableType, tableType_);
-      DARABONBA_PTR_TO_JSON(TableUuid, tableUuid_);
     };
     friend void from_json(const Darabonba::Json& j, AgenticTableBaseInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(CatalogType, catalogType_);
@@ -31,7 +30,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(QualifiedName, qualifiedName_);
       DARABONBA_PTR_FROM_JSON(TableType, tableType_);
-      DARABONBA_PTR_FROM_JSON(TableUuid, tableUuid_);
     };
     AgenticTableBaseInfo() = default ;
     AgenticTableBaseInfo(const AgenticTableBaseInfo &) = default ;
@@ -46,7 +44,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogType_ == nullptr
         && this->databaseUuid_ == nullptr && this->description_ == nullptr && this->engineMeta_ == nullptr && this->name_ == nullptr && this->qualifiedName_ == nullptr
-        && this->tableType_ == nullptr && this->tableUuid_ == nullptr; };
+        && this->tableType_ == nullptr; };
     // catalogType Field Functions 
     bool hasCatalogType() const { return this->catalogType_ != nullptr;};
     void deleteCatalogType() { this->catalogType_ = nullptr;};
@@ -98,30 +96,14 @@ namespace Models
     inline AgenticTableBaseInfo& setTableType(string tableType) { DARABONBA_PTR_SET_VALUE(tableType_, tableType) };
 
 
-    // tableUuid Field Functions 
-    bool hasTableUuid() const { return this->tableUuid_ != nullptr;};
-    void deleteTableUuid() { this->tableUuid_ = nullptr;};
-    inline string getTableUuid() const { DARABONBA_PTR_GET_DEFAULT(tableUuid_, "") };
-    inline AgenticTableBaseInfo& setTableUuid(string tableUuid) { DARABONBA_PTR_SET_VALUE(tableUuid_, tableUuid) };
-
-
   protected:
-    // The catalog type.
     shared_ptr<string> catalogType_ {};
-    // The database\\"s unique identifier.
     shared_ptr<string> databaseUuid_ {};
-    // The table description.
     shared_ptr<string> description_ {};
-    // The engine metadata.
     shared_ptr<AgenticTableEngineMeta> engineMeta_ {};
-    // The table name.
     shared_ptr<string> name_ {};
-    // The table\\"s qualified name.
     shared_ptr<string> qualifiedName_ {};
-    // The table type.
     shared_ptr<string> tableType_ {};
-    // The table\\"s unique identifier.
-    shared_ptr<string> tableUuid_ {};
   };
 
   } // namespace Models

@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+      DARABONBA_PTR_TO_JSON(FreeOrder, freeOrder_);
+      DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
@@ -29,6 +31,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+      DARABONBA_PTR_FROM_JSON(FreeOrder, freeOrder_);
+      DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizType_ == nullptr
-        && this->chargeType_ == nullptr && this->commodityCode_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr
-        && this->orderId_ == nullptr && this->payNum_ == nullptr && this->region_ == nullptr && this->state_ == nullptr; };
+        && this->chargeType_ == nullptr && this->commodityCode_ == nullptr && this->expireTime_ == nullptr && this->freeOrder_ == nullptr && this->gmtCreate_ == nullptr
+        && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->orderId_ == nullptr && this->payNum_ == nullptr && this->region_ == nullptr
+        && this->state_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -76,6 +81,20 @@ namespace Models
     void deleteExpireTime() { this->expireTime_ = nullptr;};
     inline string getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
     inline DmsGatewayOrder& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+    // freeOrder Field Functions 
+    bool hasFreeOrder() const { return this->freeOrder_ != nullptr;};
+    void deleteFreeOrder() { this->freeOrder_ = nullptr;};
+    inline bool getFreeOrder() const { DARABONBA_PTR_GET_DEFAULT(freeOrder_, false) };
+    inline DmsGatewayOrder& setFreeOrder(bool freeOrder) { DARABONBA_PTR_SET_VALUE(freeOrder_, freeOrder) };
+
+
+    // gmtCreate Field Functions 
+    bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
+    void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
+    inline string getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, "") };
+    inline DmsGatewayOrder& setGmtCreate(string gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
 
 
     // instanceId Field Functions 
@@ -125,6 +144,8 @@ namespace Models
     shared_ptr<string> chargeType_ {};
     shared_ptr<string> commodityCode_ {};
     shared_ptr<string> expireTime_ {};
+    shared_ptr<bool> freeOrder_ {};
+    shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> instanceType_ {};
     shared_ptr<int64_t> orderId_ {};

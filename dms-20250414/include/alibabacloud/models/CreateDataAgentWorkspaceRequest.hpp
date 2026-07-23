@@ -68,10 +68,11 @@ namespace Models
   protected:
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // Specifies whether session sharing is enabled within the workspace.
     shared_ptr<bool> isSessionShareEnabled_ {};
-    // The description of the collaborative workspace.
+    // The description of the workspace.
     shared_ptr<string> workspaceDesc_ {};
-    // The name of the collaborative workspace.
+    // The name of the workspace.
     shared_ptr<string> workspaceName_ {};
   };
 

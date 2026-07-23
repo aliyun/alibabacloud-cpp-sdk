@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeFileUploadSignatureRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CallFrom, callFrom_);
       DARABONBA_PTR_TO_JSON(DmsUnit, dmsUnit_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeFileUploadSignatureRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallFrom, callFrom_);
       DARABONBA_PTR_FROM_JSON(DmsUnit, dmsUnit_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     DescribeFileUploadSignatureRequest() = default ;
     DescribeFileUploadSignatureRequest(const DescribeFileUploadSignatureRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callFrom_ == nullptr
-        && this->dmsUnit_ == nullptr; };
+        && this->dmsUnit_ == nullptr && this->workspaceId_ == nullptr; };
     // callFrom Field Functions 
     bool hasCallFrom() const { return this->callFrom_ != nullptr;};
     void deleteCallFrom() { this->callFrom_ = nullptr;};
@@ -47,11 +49,19 @@ namespace Models
     inline DescribeFileUploadSignatureRequest& setDmsUnit(string dmsUnit) { DARABONBA_PTR_SET_VALUE(dmsUnit_, dmsUnit) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline DescribeFileUploadSignatureRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // Used by the frontend only
+    // The parameter used only by the frontend.
     shared_ptr<string> callFrom_ {};
-    // Current DMS unit
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

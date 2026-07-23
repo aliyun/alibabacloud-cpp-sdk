@@ -216,7 +216,7 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
 
       /**
-       * @summary Creates a DataAgent collaborative workspace.
+       * @summary Creates a DataAgent workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -225,7 +225,7 @@ namespace Dms20250414
       Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspaceWithOptions(const Models::CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a DataAgent collaborative workspace.
+       * @summary Creates a DataAgent workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @return CreateDataAgentWorkspaceResponse
@@ -333,6 +333,23 @@ namespace Dms20250414
        * @return DeleteCustomAgentResponse
        */
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
+
+      /**
+       * @summary Releases a DataAgent seat.
+       *
+       * @param request DeleteDataAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentResponse
+       */
+      Models::DeleteDataAgentResponse deleteDataAgentWithOptions(const Models::DeleteDataAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases a DataAgent seat.
+       *
+       * @param request DeleteDataAgentRequest
+       * @return DeleteDataAgentResponse
+       */
+      Models::DeleteDataAgentResponse deleteDataAgent(const Models::DeleteDataAgentRequest &request);
 
       /**
        * @summary Deletes an accuracy test configuration item.
@@ -547,6 +564,23 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgent(const Models::DescribeCustomAgentRequest &request);
 
       /**
+       * @summary Queries DataAgent metrics.
+       *
+       * @param request DescribeDataAgentMetricsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDataAgentMetricsResponse
+       */
+      Models::DescribeDataAgentMetricsResponse describeDataAgentMetricsWithOptions(const Models::DescribeDataAgentMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries DataAgent metrics.
+       *
+       * @param request DescribeDataAgentMetricsRequest
+       * @return DescribeDataAgentMetricsResponse
+       */
+      Models::DescribeDataAgentMetricsResponse describeDataAgentMetrics(const Models::DescribeDataAgentMetricsRequest &request);
+
+      /**
        * @summary Retrieves the description of a DataAgent session.
        *
        * @param request DescribeDataAgentSessionRequest
@@ -581,7 +615,7 @@ namespace Dms20250414
       Models::DescribeDocumentResponse describeDocument(const Models::DescribeDocumentRequest &request);
 
       /**
-       * @summary DescribeFileUploadSignature
+       * @summary Retrieves the signature information for file uploads.
        *
        * @param request DescribeFileUploadSignatureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -590,7 +624,7 @@ namespace Dms20250414
       Models::DescribeFileUploadSignatureResponse describeFileUploadSignatureWithOptions(const Models::DescribeFileUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeFileUploadSignature
+       * @summary Retrieves the signature information for file uploads.
        *
        * @param request DescribeFileUploadSignatureRequest
        * @return DescribeFileUploadSignatureResponse
@@ -632,7 +666,7 @@ namespace Dms20250414
       Models::DescribeKnowledgeBaseUploadSignatureResponse describeKnowledgeBaseUploadSignature(const Models::DescribeKnowledgeBaseUploadSignatureRequest &request);
 
       /**
-       * @summary FileUploadCallback
+       * @summary Calls back after a file is uploaded.
        *
        * @param request FileUploadCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -641,12 +675,29 @@ namespace Dms20250414
       Models::FileUploadCallbackResponse fileUploadCallbackWithOptions(const Models::FileUploadCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary FileUploadCallback
+       * @summary Calls back after a file is uploaded.
        *
        * @param request FileUploadCallbackRequest
        * @return FileUploadCallbackResponse
        */
       Models::FileUploadCallbackResponse fileUploadCallback(const Models::FileUploadCallbackRequest &request);
+
+      /**
+       * @summary Queries agent information by install token.
+       *
+       * @param request GetAgenticAgentByInstallTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgenticAgentByInstallTokenResponse
+       */
+      Models::GetAgenticAgentByInstallTokenResponse getAgenticAgentByInstallTokenWithOptions(const Models::GetAgenticAgentByInstallTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries agent information by install token.
+       *
+       * @param request GetAgenticAgentByInstallTokenRequest
+       * @return GetAgenticAgentByInstallTokenResponse
+       */
+      Models::GetAgenticAgentByInstallTokenResponse getAgenticAgentByInstallToken(const Models::GetAgenticAgentByInstallTokenRequest &request);
 
       /**
        * @summary Queries the configuration and status of an Airflow instance.
@@ -1034,10 +1085,9 @@ namespace Dms20250414
       Models::ListDataAgentAccuracyTestResultsResponse listDataAgentAccuracyTestResults(const Models::ListDataAgentAccuracyTestResultsRequest &request);
 
       /**
-       * @summary Queries the running status of self-test tasks by paging.
+       * @summary Queries the running status of accuracy test nodes by using paging.
        *
-       * @description Queries the running status of self-test tasks by paging.
-       * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+       * @description Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
        *
        * @param request ListDataAgentAccuracyTestTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,10 +1096,9 @@ namespace Dms20250414
       Models::ListDataAgentAccuracyTestTasksResponse listDataAgentAccuracyTestTasksWithOptions(const Models::ListDataAgentAccuracyTestTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the running status of self-test tasks by paging.
+       * @summary Queries the running status of accuracy test nodes by using paging.
        *
-       * @description Queries the running status of self-test tasks by paging.
-       * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+       * @description Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
        *
        * @param request ListDataAgentAccuracyTestTasksRequest
        * @return ListDataAgentAccuracyTestTasksResponse
@@ -1108,7 +1157,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceMemberResponse listDataAgentWorkspaceMember(const Models::ListDataAgentWorkspaceMemberRequest &request);
 
       /**
-       * @summary Lists user-uploaded files in a data center, excluding databases.
+       * @summary Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
        *
        * @param request ListDataCenterDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1117,7 +1166,7 @@ namespace Dms20250414
       Models::ListDataCenterDatabaseResponse listDataCenterDatabaseWithOptions(const Models::ListDataCenterDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists user-uploaded files in a data center, excluding databases.
+       * @summary Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
        *
        * @param request ListDataCenterDatabaseRequest
        * @return ListDataCenterDatabaseResponse
@@ -1516,10 +1565,10 @@ namespace Dms20250414
        * @description ## Request description
        * - `agent_id` and `session_id` are required fields.
        * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-       * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+       * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
-       * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1533,10 +1582,10 @@ namespace Dms20250414
        * @description ## Request description
        * - `agent_id` and `session_id` are required fields.
        * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-       * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+       * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
-       * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse

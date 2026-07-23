@@ -157,17 +157,22 @@ namespace Models
 
 
     protected:
-      // The time when the workspace was created. The value is a UNIX timestamp in seconds.
+      // The creation time of the workspace. This value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createTime_ {};
       // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
+      // Indicates whether session sharing is enabled within the workspace.
       shared_ptr<bool> isSessionShareEnabled_ {};
-      // The time when the workspace was last modified. The value is a UNIX timestamp in seconds.
+      // The most recent modification time of the workspace. This value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> modifyTime_ {};
       // The role name of the user in the workspace.
       shared_ptr<string> roleName_ {};
-      // The number of members in the workspace.
+      // The total number of members in the workspace.
       shared_ptr<int64_t> totalMember_ {};
+      // The workspace type. Valid values:
+      // 
+      // - personal: personal workspace.
+      // - common/null: multi-user collaborative workspace.
       shared_ptr<string> type_ {};
       // The description of the workspace.
       shared_ptr<string> workspaceDesc_ {};

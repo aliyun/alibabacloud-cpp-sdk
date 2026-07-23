@@ -16,8 +16,8 @@ namespace Models
       DARABONBA_ANY_TO_JSON(CatalogBizAttrs, catalogBizAttrs_);
       DARABONBA_PTR_TO_JSON(CatalogType, catalogType_);
       DARABONBA_PTR_TO_JSON(CatalogUuid, catalogUuid_);
-      DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_TO_JSON(DataSourceUuid, dataSourceUuid_);
+      DARABONBA_PTR_TO_JSON(DbType, dbType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_ANY_TO_JSON(Properties, properties_);
@@ -29,8 +29,8 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(CatalogBizAttrs, catalogBizAttrs_);
       DARABONBA_PTR_FROM_JSON(CatalogType, catalogType_);
       DARABONBA_PTR_FROM_JSON(CatalogUuid, catalogUuid_);
-      DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
       DARABONBA_PTR_FROM_JSON(DataSourceUuid, dataSourceUuid_);
+      DARABONBA_PTR_FROM_JSON(DbType, dbType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_ANY_FROM_JSON(Properties, properties_);
@@ -50,7 +50,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogBizAttrs_ == nullptr
-        && this->catalogType_ == nullptr && this->catalogUuid_ == nullptr && this->dataSourceType_ == nullptr && this->dataSourceUuid_ == nullptr && this->description_ == nullptr
+        && this->catalogType_ == nullptr && this->catalogUuid_ == nullptr && this->dataSourceUuid_ == nullptr && this->dbType_ == nullptr && this->description_ == nullptr
         && this->name_ == nullptr && this->properties_ == nullptr && this->regionId_ == nullptr && this->state_ == nullptr && this->storageLocation_ == nullptr; };
     // catalogBizAttrs Field Functions 
     bool hasCatalogBizAttrs() const { return this->catalogBizAttrs_ != nullptr;};
@@ -75,18 +75,18 @@ namespace Models
     inline AgenticCatalog& setCatalogUuid(string catalogUuid) { DARABONBA_PTR_SET_VALUE(catalogUuid_, catalogUuid) };
 
 
-    // dataSourceType Field Functions 
-    bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
-    void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
-    inline AgenticCatalog& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
-
-
     // dataSourceUuid Field Functions 
     bool hasDataSourceUuid() const { return this->dataSourceUuid_ != nullptr;};
     void deleteDataSourceUuid() { this->dataSourceUuid_ = nullptr;};
     inline string getDataSourceUuid() const { DARABONBA_PTR_GET_DEFAULT(dataSourceUuid_, "") };
     inline AgenticCatalog& setDataSourceUuid(string dataSourceUuid) { DARABONBA_PTR_SET_VALUE(dataSourceUuid_, dataSourceUuid) };
+
+
+    // dbType Field Functions 
+    bool hasDbType() const { return this->dbType_ != nullptr;};
+    void deleteDbType() { this->dbType_ = nullptr;};
+    inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+    inline AgenticCatalog& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
 
 
     // description Field Functions 
@@ -134,27 +134,16 @@ namespace Models
 
 
   protected:
-    // A collection of key-value pairs that represents business attributes for the catalog, such as the data owner or department.
     Darabonba::Json catalogBizAttrs_ {};
-    // The type of the catalog. For example, `INTERNAL_METADATA` or `THIRD_PARTY`.
     shared_ptr<string> catalogType_ {};
-    // The unique identifier (UUID) of the catalog. This parameter is system-generated and output-only.
     shared_ptr<string> catalogUuid_ {};
-    // The type of the data source associated with the catalog. For example, `MySQL`, `PostgreSQL`, or `OSS`.
-    shared_ptr<string> dataSourceType_ {};
-    // The unique identifier (UUID) of the associated data source.
     shared_ptr<string> dataSourceUuid_ {};
-    // The description of the catalog. It can be up to 2,048 characters long.
+    shared_ptr<string> dbType_ {};
     shared_ptr<string> description_ {};
-    // The display name of the catalog. The name can be up to 256 characters long.
     shared_ptr<string> name_ {};
-    // A collection of key-value pairs that represents additional technical properties for the catalog.
     Darabonba::Json properties_ {};
-    // The ID of the region where the catalog is located. For example, `cn-hangzhou`.
     shared_ptr<string> regionId_ {};
-    // The current state of the catalog. Valid values are: `0` (Creating), `1` (Active), `2` (Deleting), and `3` (Error).
     shared_ptr<int32_t> state_ {};
-    // The storage location for the catalog\\"s metadata, such as a database name or a file path.
     shared_ptr<string> storageLocation_ {};
   };
 

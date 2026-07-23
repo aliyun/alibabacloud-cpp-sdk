@@ -167,23 +167,23 @@ namespace Models
 
 
   protected:
-    // The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
+    // The agent ID. This parameter is required. You can obtain the current agent ID from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the agent ID that you specify in each request may change.
     shared_ptr<string> agentId_ {};
-    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can view your current Data Management unit in the Data Management console. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to cn-hangzhou.
+    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of the Alibaba Cloud China Website, set this parameter to ap-southeast-1.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. This parameter is optional. Only one data source can be specified for this parameter. Use the DataSources parameter instead.
+    // The data source information. This parameter is optional. You can pass only one data source in this parameter. Use the DataSources parameter instead.
     shared_ptr<string> dataSourceShrink_ {};
     // The detailed data source information. This parameter is optional.
     shared_ptr<string> dataSourcesShrink_ {};
-    // The message content to send to the Agent.
+    // The message content to send to the agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
     // The message type. Default value: `[primary]`.  
     // 
-    // - For regular interactions with the Agent, set the message type to `[primary]`.
+    // - In normal cases, set the message type to `[primary]` when interacting with the agent.
     // 
-    // - When the message is a response to the Agent\\"s Human-in-Loop question, set the type to `[additional]`.
+    // - When the message is a response to a human-in-the-loop question from the agent, set the type to `[additional]`.
     // 
     // - When the message is intended to trigger report generation, set the type to `[report]`.
     // 
@@ -191,23 +191,25 @@ namespace Models
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // The specific question that the Agent asks the user through Human-in-Loop. This parameter is required when the message type is `additional`.
+    // The specific question that the agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
     shared_ptr<string> question_ {};
-    // The quoted content. This parameter is typically used during interactions with the Agent.
+    // The quoted content. This parameter is typically used when interacting with the agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
     // 
-    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried by that Agent message. If this message is not a targeted reply, for example, requesting the Agent to perform further in-depth analysis after analysis is complete, leave reply_to empty or set it to "0".  
+    // When this message is a reply to an agent message (for example, the agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that agent message. If this message is not a targeted reply, such as requesting the agent to perform further in-depth analysis after analysis is complete, you can leave reply_to empty or set it to "0".  
     // 
-    // This field affects how the Agent decides to process the message. Passing an incorrect value may lead to analysis results that do not meet expectations.
+    // This field affects how the agent decides to process the message. Passing an incorrect value may cause the analysis results to be less effective than expected.
     shared_ptr<string> replyTo_ {};
-    // The special configuration for this session. Only the configuration sent with the first SendMessage call in the same session takes effect.
+    // The special configuration for this session. Only the configuration passed in the first SendMessage call within the same session takes effect.
     shared_ptr<string> sessionConfigShrink_ {};
-    // The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
+    // The session ID. This parameter is required. You can call the CreateAgentSession operation to obtain the session ID.
     shared_ptr<string> sessionId_ {};
     // The configuration items that affect only the current task.
     shared_ptr<string> taskConfigShrink_ {};
+    // The OSS bucket of the user. If this parameter is not specified, the analysis process is securely stored in built-in storage.
     shared_ptr<string> userOssBucket_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

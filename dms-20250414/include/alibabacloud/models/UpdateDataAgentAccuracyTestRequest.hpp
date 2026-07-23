@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccuracyTestInsId, accuracyTestInsId_);
       DARABONBA_PTR_TO_JSON(CustomerAgentId, customerAgentId_);
       DARABONBA_PTR_TO_JSON(Dataset, dataset_);
+      DARABONBA_PTR_TO_JSON(Datasource, datasource_);
       DARABONBA_PTR_TO_JSON(Desc, desc_);
       DARABONBA_PTR_TO_JSON(DmsUnit, dmsUnit_);
       DARABONBA_PTR_TO_JSON(EvaluationPrompt, evaluationPrompt_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccuracyTestInsId, accuracyTestInsId_);
       DARABONBA_PTR_FROM_JSON(CustomerAgentId, customerAgentId_);
       DARABONBA_PTR_FROM_JSON(Dataset, dataset_);
+      DARABONBA_PTR_FROM_JSON(Datasource, datasource_);
       DARABONBA_PTR_FROM_JSON(Desc, desc_);
       DARABONBA_PTR_FROM_JSON(DmsUnit, dmsUnit_);
       DARABONBA_PTR_FROM_JSON(EvaluationPrompt, evaluationPrompt_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accuracyTestInsId_ == nullptr
-        && this->customerAgentId_ == nullptr && this->dataset_ == nullptr && this->desc_ == nullptr && this->dmsUnit_ == nullptr && this->evaluationPrompt_ == nullptr
-        && this->fileId_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr && this->needDelete_ == nullptr
-        && this->regionId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->customerAgentId_ == nullptr && this->dataset_ == nullptr && this->datasource_ == nullptr && this->desc_ == nullptr && this->dmsUnit_ == nullptr
+        && this->evaluationPrompt_ == nullptr && this->fileId_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr
+        && this->needDelete_ == nullptr && this->regionId_ == nullptr && this->workspaceId_ == nullptr; };
     // accuracyTestInsId Field Functions 
     bool hasAccuracyTestInsId() const { return this->accuracyTestInsId_ != nullptr;};
     void deleteAccuracyTestInsId() { this->accuracyTestInsId_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteDataset() { this->dataset_ = nullptr;};
     inline string getDataset() const { DARABONBA_PTR_GET_DEFAULT(dataset_, "") };
     inline UpdateDataAgentAccuracyTestRequest& setDataset(string dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
+
+
+    // datasource Field Functions 
+    bool hasDatasource() const { return this->datasource_ != nullptr;};
+    void deleteDatasource() { this->datasource_ = nullptr;};
+    inline string getDatasource() const { DARABONBA_PTR_GET_DEFAULT(datasource_, "") };
+    inline UpdateDataAgentAccuracyTestRequest& setDatasource(string datasource) { DARABONBA_PTR_SET_VALUE(datasource_, datasource) };
 
 
     // desc Field Functions 
@@ -155,9 +164,10 @@ namespace Models
     shared_ptr<string> customerAgentId_ {};
     // The data source.
     shared_ptr<string> dataset_ {};
+    shared_ptr<string> datasource_ {};
     // The description.
     shared_ptr<string> desc_ {};
-    // The current DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> dmsUnit_ {};
     // The accuracy evaluation criteria. An empty value indicates the default criteria.
     shared_ptr<string> evaluationPrompt_ {};

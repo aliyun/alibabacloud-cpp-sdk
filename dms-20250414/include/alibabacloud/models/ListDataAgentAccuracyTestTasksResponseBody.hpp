@@ -159,7 +159,7 @@ namespace Models
 
 
     protected:
-      // The instance ID of the accuracy test to which the task belongs.
+      // The accuracy test instance ID to which the task belongs.
       shared_ptr<string> accuracyTestInsId_ {};
       // The accuracy test task ID.
       shared_ptr<string> accuracyTestTaskId_ {};

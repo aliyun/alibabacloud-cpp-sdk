@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Filename, filename_);
       DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(UploadLocation, uploadLocation_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, FileUploadCallbackRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallFrom, callFrom_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Filename, filename_);
       DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(UploadLocation, uploadLocation_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     FileUploadCallbackRequest() = default ;
     FileUploadCallbackRequest(const FileUploadCallbackRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callFrom_ == nullptr
-        && this->dmsUnit_ == nullptr && this->fileSize_ == nullptr && this->filename_ == nullptr && this->ossBucket_ == nullptr && this->uploadLocation_ == nullptr; };
+        && this->dmsUnit_ == nullptr && this->fileSize_ == nullptr && this->filename_ == nullptr && this->ossBucket_ == nullptr && this->uploadLocation_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // callFrom Field Functions 
     bool hasCallFrom() const { return this->callFrom_ != nullptr;};
     void deleteCallFrom() { this->callFrom_ = nullptr;};
@@ -83,26 +86,32 @@ namespace Models
     inline FileUploadCallbackRequest& setUploadLocation(string uploadLocation) { DARABONBA_PTR_SET_VALUE(uploadLocation_, uploadLocation) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline FileUploadCallbackRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // For frontend use only.
+    // Used only by the frontend.
     shared_ptr<string> callFrom_ {};
-    // The current DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> dmsUnit_ {};
-    // The file size in bytes.
+    // The file size, in bytes.
     shared_ptr<int64_t> fileSize_ {};
     // The file name.
     // 
     // This parameter is required.
     shared_ptr<string> filename_ {};
     shared_ptr<string> ossBucket_ {};
-    // The full path for the file upload.
-    // 
-    // - Format: This path is formed by appending the file name to the UploadDir value returned by the DescribeFileUploadSignature operation.
-    // 
+    // The full path of the uploaded file.
+    // - Format: The UploadDir field returned by the DescribeFileUploadSignature operation concatenated with the file name.
     // - Example: ${UploadDir}/${Filename}
     // 
     // This parameter is required.
     shared_ptr<string> uploadLocation_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(FreeAgentSeats, freeAgentSeats_);
+      DARABONBA_PTR_TO_JSON(FreeLLM, freeLLM_);
       DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(FreeAgentSeats, freeAgentSeats_);
+      DARABONBA_PTR_FROM_JSON(FreeLLM, freeLLM_);
       DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
@@ -60,8 +62,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentSeats_ == nullptr
         && this->billingInstanceId_ == nullptr && this->boundWorkspaceIds_ == nullptr && this->chargeType_ == nullptr && this->commodityCode_ == nullptr && this->expireTime_ == nullptr
-        && this->freeAgentSeats_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->isDefault_ == nullptr && this->LLM_ == nullptr
-        && this->payLevel_ == nullptr && this->sessionAvailableDurationQuota_ == nullptr && this->sessionSeats_ == nullptr && this->tokenLimit_ == nullptr; };
+        && this->freeAgentSeats_ == nullptr && this->freeLLM_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->isDefault_ == nullptr
+        && this->LLM_ == nullptr && this->payLevel_ == nullptr && this->sessionAvailableDurationQuota_ == nullptr && this->sessionSeats_ == nullptr && this->tokenLimit_ == nullptr; };
     // agentSeats Field Functions 
     bool hasAgentSeats() const { return this->agentSeats_ != nullptr;};
     void deleteAgentSeats() { this->agentSeats_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     void deleteFreeAgentSeats() { this->freeAgentSeats_ = nullptr;};
     inline int32_t getFreeAgentSeats() const { DARABONBA_PTR_GET_DEFAULT(freeAgentSeats_, 0) };
     inline DataAgentBillingInstance& setFreeAgentSeats(int32_t freeAgentSeats) { DARABONBA_PTR_SET_VALUE(freeAgentSeats_, freeAgentSeats) };
+
+
+    // freeLLM Field Functions 
+    bool hasFreeLLM() const { return this->freeLLM_ != nullptr;};
+    void deleteFreeLLM() { this->freeLLM_ = nullptr;};
+    inline int32_t getFreeLLM() const { DARABONBA_PTR_GET_DEFAULT(freeLLM_, 0) };
+    inline DataAgentBillingInstance& setFreeLLM(int32_t freeLLM) { DARABONBA_PTR_SET_VALUE(freeLLM_, freeLLM) };
 
 
     // gmtCreated Field Functions 
@@ -177,6 +186,7 @@ namespace Models
     shared_ptr<string> commodityCode_ {};
     shared_ptr<int64_t> expireTime_ {};
     shared_ptr<int32_t> freeAgentSeats_ {};
+    shared_ptr<int32_t> freeLLM_ {};
     shared_ptr<int64_t> gmtCreated_ {};
     shared_ptr<int64_t> gmtModified_ {};
     shared_ptr<bool> isDefault_ {};

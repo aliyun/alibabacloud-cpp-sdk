@@ -204,58 +204,45 @@ namespace Models
 
 
     protected:
-      // The description of the database.
+      // The database description.
       shared_ptr<string> databaseDesc_ {};
-      // The name of the database.
-      // 
-      // - If `ImportType` is `FILE`, this is the file name.
+      // The database name.
+      // - When ImportType is FILE, this parameter indicates the file name.
       shared_ptr<string> databaseName_ {};
-      // The ID of the database.
+      // The database ID.
       shared_ptr<string> dbId_ {};
-      // - If `ImportType` is `FILE`:
-      // 
-      //   - The file format, such as `csv`, `xlsx`, or `xls`.
+      // - When ImportType is FILE:
+      //   - File type: dbType indicates the file format, such as csv, xlsx, or xls.
       shared_ptr<string> dbType_ {};
-      // The time the database description was last updated.
+      // The time when the database description was last updated.
       shared_ptr<string> descUpdateTime_ {};
-      // The ID of the database in DMS.
-      // 
-      // - This parameter is not returned if `ImportType` is `FILE`.
+      // The ID of the Data Management database that hosts the instance.
+      //   - This parameter is not returned when ImportType is FILE.
       shared_ptr<int64_t> dmsDbId_ {};
-      // The ID of the DMS instance that manages the database.
-      // 
-      // - This parameter is not returned if `ImportType` is `FILE`.
+      // The ID of the Data Management instance that hosts the instance.
+      //   - This parameter is not returned when ImportType is FILE.
       shared_ptr<int64_t> dmsInstanceId_ {};
       shared_ptr<string> downloadLink_ {};
-      // The time the entry was created.
+      // The time when the file was created.
       shared_ptr<string> gmtCreated_ {};
-      // The import type. Valid values:
-      // 
-      // - FILE
-      // 
-      // - RDS
-      // 
-      // - ADB
-      // 
-      // - PolarDB
-      // 
-      // - Hologres
-      // 
-      // - DMS
+      // The import type.
+      //   - FILE
+      //   - RDS
+      //   - ADB
+      //   - PolarDB
+      //   - Hologres
+      //   - DMS
       shared_ptr<string> importType_ {};
-      // The name of the instance.
-      // 
-      // - If `ImportType` is `FILE`, this parameter specifies the file ID in the data center.
+      // The instance name.
+      // - When ImportType is FILE, this parameter indicates the file ID in the data center.
       shared_ptr<string> instanceName_ {};
       shared_ptr<string> intranetDownloadLink_ {};
       // Indicates whether the dataset is built-in. Valid values:
-      // 
       // - Y: The dataset is built-in.
-      // 
       // - N: The dataset is not built-in.
       shared_ptr<string> isInternal_ {};
       shared_ptr<string> ossBucket_ {};
-      // The size of the file, in bytes.
+      // The file size, in bytes.
       shared_ptr<int64_t> size_ {};
       shared_ptr<bool> useUserOssBucket_ {};
     };
@@ -300,18 +287,17 @@ namespace Models
 
 
   protected:
-    // The list of databases.
+    // The response struct.
     shared_ptr<vector<ListDataCenterDatabaseResponseBody::Data>> data_ {};
-    // The error code returned if the request fails.
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
+    // - **true**: The request was successful.                                 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

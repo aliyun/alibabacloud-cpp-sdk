@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccuracyTestInsId, accuracyTestInsId_);
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
+        DARABONBA_PTR_TO_JSON(Datasource, datasource_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
@@ -70,6 +71,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AccuracyTestInsId, accuracyTestInsId_);
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
+        DARABONBA_PTR_FROM_JSON(Datasource, datasource_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
@@ -92,9 +94,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accuracyTestInsId_ == nullptr
-        && this->agentId_ == nullptr && this->creator_ == nullptr && this->fileId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->language_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr && this->needDelete_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->agentId_ == nullptr && this->creator_ == nullptr && this->datasource_ == nullptr && this->fileId_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->language_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr
+        && this->needDelete_ == nullptr && this->workspaceId_ == nullptr; };
       // accuracyTestInsId Field Functions 
       bool hasAccuracyTestInsId() const { return this->accuracyTestInsId_ != nullptr;};
       void deleteAccuracyTestInsId() { this->accuracyTestInsId_ = nullptr;};
@@ -114,6 +116,13 @@ namespace Models
       void deleteCreator() { this->creator_ = nullptr;};
       inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
       inline Data& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+      // datasource Field Functions 
+      bool hasDatasource() const { return this->datasource_ != nullptr;};
+      void deleteDatasource() { this->datasource_ = nullptr;};
+      inline string getDatasource() const { DARABONBA_PTR_GET_DEFAULT(datasource_, "") };
+      inline Data& setDatasource(string datasource) { DARABONBA_PTR_SET_VALUE(datasource_, datasource) };
 
 
       // fileId Field Functions 
@@ -186,7 +195,8 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
-      // The test set file ID.
+      shared_ptr<string> datasource_ {};
+      // The ID of the test set file.
       shared_ptr<string> fileId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -194,13 +204,13 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The language used for the analysis task.
       shared_ptr<string> language_ {};
-      // The maximum number of concurrent sessions during testing.
+      // The maximum number of concurrent sessions during the test.
       shared_ptr<string> maxConcurrent_ {};
       // The analysis mode to be tested.
       shared_ptr<int32_t> mode_ {};
       // The custom agent name.
       shared_ptr<string> name_ {};
-      // Specifies whether sessions are displayed after analysis. This feature is not currently supported.
+      // Specifies whether sessions are displayed after analysis. This parameter is not supported.
       shared_ptr<string> needDelete_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

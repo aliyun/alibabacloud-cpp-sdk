@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The accuracy test instance ID.
     shared_ptr<string> accuracyTestInsId_ {};
-    // The accuracy test sample.
+    // The accuracy test sample file.
     shared_ptr<string> csvFile_ {};
     // The DMS unit used to create the resource.
     shared_ptr<string> dmsUnit_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -17,9 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CatalogName, catalogName_);
       DARABONBA_PTR_TO_JSON(CatalogType, catalogType_);
       DARABONBA_PTR_TO_JSON(CatalogUuid, catalogUuid_);
-      DARABONBA_PTR_TO_JSON(DataSourceType, dataSourceType_);
       DARABONBA_ANY_TO_JSON(DatabaseBizAttrs, databaseBizAttrs_);
       DARABONBA_PTR_TO_JSON(DatabaseUuid, databaseUuid_);
+      DARABONBA_PTR_TO_JSON(DbType, dbType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EngineMeta, engineMeta_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -34,9 +34,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CatalogName, catalogName_);
       DARABONBA_PTR_FROM_JSON(CatalogType, catalogType_);
       DARABONBA_PTR_FROM_JSON(CatalogUuid, catalogUuid_);
-      DARABONBA_PTR_FROM_JSON(DataSourceType, dataSourceType_);
       DARABONBA_ANY_FROM_JSON(DatabaseBizAttrs, databaseBizAttrs_);
       DARABONBA_PTR_FROM_JSON(DatabaseUuid, databaseUuid_);
+      DARABONBA_PTR_FROM_JSON(DbType, dbType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EngineMeta, engineMeta_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -59,7 +59,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogName_ == nullptr
-        && this->catalogType_ == nullptr && this->catalogUuid_ == nullptr && this->dataSourceType_ == nullptr && this->databaseBizAttrs_ == nullptr && this->databaseUuid_ == nullptr
+        && this->catalogType_ == nullptr && this->catalogUuid_ == nullptr && this->databaseBizAttrs_ == nullptr && this->databaseUuid_ == nullptr && this->dbType_ == nullptr
         && this->description_ == nullptr && this->engineMeta_ == nullptr && this->name_ == nullptr && this->properties_ == nullptr && this->qualifiedName_ == nullptr
         && this->regionId_ == nullptr && this->searchName_ == nullptr && this->state_ == nullptr && this->storageLocation_ == nullptr; };
     // catalogName Field Functions 
@@ -83,13 +83,6 @@ namespace Models
     inline AgenticDatabase& setCatalogUuid(string catalogUuid) { DARABONBA_PTR_SET_VALUE(catalogUuid_, catalogUuid) };
 
 
-    // dataSourceType Field Functions 
-    bool hasDataSourceType() const { return this->dataSourceType_ != nullptr;};
-    void deleteDataSourceType() { this->dataSourceType_ = nullptr;};
-    inline string getDataSourceType() const { DARABONBA_PTR_GET_DEFAULT(dataSourceType_, "") };
-    inline AgenticDatabase& setDataSourceType(string dataSourceType) { DARABONBA_PTR_SET_VALUE(dataSourceType_, dataSourceType) };
-
-
     // databaseBizAttrs Field Functions 
     bool hasDatabaseBizAttrs() const { return this->databaseBizAttrs_ != nullptr;};
     void deleteDatabaseBizAttrs() { this->databaseBizAttrs_ = nullptr;};
@@ -104,6 +97,13 @@ namespace Models
     void deleteDatabaseUuid() { this->databaseUuid_ = nullptr;};
     inline string getDatabaseUuid() const { DARABONBA_PTR_GET_DEFAULT(databaseUuid_, "") };
     inline AgenticDatabase& setDatabaseUuid(string databaseUuid) { DARABONBA_PTR_SET_VALUE(databaseUuid_, databaseUuid) };
+
+
+    // dbType Field Functions 
+    bool hasDbType() const { return this->dbType_ != nullptr;};
+    void deleteDbType() { this->dbType_ = nullptr;};
+    inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
+    inline AgenticDatabase& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
 
 
     // description Field Functions 
@@ -180,12 +180,11 @@ namespace Models
     shared_ptr<string> catalogType_ {};
     // The unique identifier of the catalog.
     shared_ptr<string> catalogUuid_ {};
-    // The data source type, such as `MySQL` or `PostgreSQL`.
-    shared_ptr<string> dataSourceType_ {};
     // The database\\"s business attributes.
     Darabonba::Json databaseBizAttrs_ {};
     // The unique identifier of the database.
     shared_ptr<string> databaseUuid_ {};
+    shared_ptr<string> dbType_ {};
     // The database description.
     shared_ptr<string> description_ {};
     // The metadata for the database engine.

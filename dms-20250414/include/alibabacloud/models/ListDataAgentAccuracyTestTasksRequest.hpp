@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The accuracy test instance ID.
     shared_ptr<string> accuracyTestInsId_ {};
-    // The task ID used for exact filtering.
+    // Filters by the exact task ID.
     shared_ptr<string> accuracyTestTaskId_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};

@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the accuracy test to which the task belongs.
+    // The instance ID of the accuracy test.
     shared_ptr<string> accuracyTestInsId_ {};
     // The result ID used to retrieve a single record.
     shared_ptr<string> accuracyTestResultId_ {};

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImportType, importType_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(SearchKey, searchKey_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDataCenterDatabaseRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallFrom, callFrom_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImportType, importType_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(SearchKey, searchKey_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListDataCenterDatabaseRequest() = default ;
     ListDataCenterDatabaseRequest(const ListDataCenterDatabaseRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callFrom_ == nullptr
-        && this->dmsUnit_ == nullptr && this->importType_ == nullptr && this->language_ == nullptr && this->searchKey_ == nullptr; };
+        && this->dmsUnit_ == nullptr && this->importType_ == nullptr && this->language_ == nullptr && this->searchKey_ == nullptr && this->workspaceId_ == nullptr; };
     // callFrom Field Functions 
     bool hasCallFrom() const { return this->callFrom_ != nullptr;};
     void deleteCallFrom() { this->callFrom_ = nullptr;};
@@ -74,19 +76,26 @@ namespace Models
     inline ListDataCenterDatabaseRequest& setSearchKey(string searchKey) { DARABONBA_PTR_SET_VALUE(searchKey_, searchKey) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListDataCenterDatabaseRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // This parameter is for internal use.
+    // Used only by the frontend.
     shared_ptr<string> callFrom_ {};
-    // The DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> dmsUnit_ {};
     // The import type.
-    // 
-    // - FILE
+    //   - FILE
     shared_ptr<string> importType_ {};
-    // This parameter is for internal use.
+    // Used only by the frontend.
     shared_ptr<string> language_ {};
-    // The keyword for a fuzzy search for databases.
+    // The keyword for fuzzy match of databases.
     shared_ptr<string> searchKey_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

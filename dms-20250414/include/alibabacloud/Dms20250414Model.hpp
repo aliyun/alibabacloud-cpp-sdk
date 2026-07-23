@@ -8,6 +8,8 @@
 #include <alibabacloud/models/AgenticDatabaseEngineMeta.hpp>
 #include <alibabacloud/models/AgenticDatabase.hpp>
 #include <alibabacloud/models/AgenticDatabaseObject.hpp>
+#include <alibabacloud/models/AgenticDmsInstanceSyncTask.hpp>
+#include <alibabacloud/models/AgenticDmsInstanceSyncTaskInstance.hpp>
 #include <alibabacloud/models/AgenticTableEngineMeta.hpp>
 #include <alibabacloud/models/AgenticTableBaseInfo.hpp>
 #include <alibabacloud/models/AgenticTableColumnEngineMeta.hpp>
@@ -34,6 +36,8 @@
 #include <alibabacloud/models/DmsKnowledgeSearchOrderInfoDO.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>
+#include <alibabacloud/models/ManagedDaOrderSummaryVO.hpp>
+#include <alibabacloud/models/ManagedDaOrderVO.hpp>
 #include <alibabacloud/models/MdbAgentInstanceVo.hpp>
 #include <alibabacloud/models/OneMetaDatabaseEngineMeta.hpp>
 #include <alibabacloud/models/OneMetaDatabase.hpp>
@@ -114,6 +118,9 @@
 #include <alibabacloud/models/DeleteCustomAgentRequest.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponse.hpp>
+#include <alibabacloud/models/DeleteDataAgentRequest.hpp>
+#include <alibabacloud/models/DeleteDataAgentResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataAgentResponse.hpp>
 #include <alibabacloud/models/DeleteDataAgentAccuracyTestRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentAccuracyTestResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentAccuracyTestResponse.hpp>
@@ -152,6 +159,9 @@
 #include <alibabacloud/models/DescribeCustomAgentRequest.hpp>
 #include <alibabacloud/models/DescribeCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomAgentResponse.hpp>
+#include <alibabacloud/models/DescribeDataAgentMetricsRequest.hpp>
+#include <alibabacloud/models/DescribeDataAgentMetricsResponseBody.hpp>
+#include <alibabacloud/models/DescribeDataAgentMetricsResponse.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataAgentSessionResponse.hpp>
@@ -170,6 +180,9 @@
 #include <alibabacloud/models/FileUploadCallbackRequest.hpp>
 #include <alibabacloud/models/FileUploadCallbackResponseBody.hpp>
 #include <alibabacloud/models/FileUploadCallbackResponse.hpp>
+#include <alibabacloud/models/GetAgenticAgentByInstallTokenRequest.hpp>
+#include <alibabacloud/models/GetAgenticAgentByInstallTokenResponseBody.hpp>
+#include <alibabacloud/models/GetAgenticAgentByInstallTokenResponse.hpp>
 #include <alibabacloud/models/GetAirflowRequest.hpp>
 #include <alibabacloud/models/GetAirflowResponseBody.hpp>
 #include <alibabacloud/models/GetAirflowResponse.hpp>
