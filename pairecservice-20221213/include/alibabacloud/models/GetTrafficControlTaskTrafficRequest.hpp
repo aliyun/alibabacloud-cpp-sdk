@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The environment. Valid values:
+    // 
+    // - `Daily`: The daily environment.
+    // 
+    // - `Pre`: The staging environment.
+    // 
+    // - `Prod`: The production environment.
     shared_ptr<string> environment_ {};
+    // The instance ID. For more information, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     shared_ptr<string> instanceId_ {};
   };
 

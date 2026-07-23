@@ -164,9 +164,13 @@ namespace Models
 
 
         protected:
+          // The name of the field.
           shared_ptr<string> field_ {};
+          // Number of fields limit.
           shared_ptr<int32_t> fieldQuantityLimit_ {};
+          // Whether to sort randomly.
           shared_ptr<bool> isRandSort_ {};
+          // Sort field.
           shared_ptr<string> sortField_ {};
         };
 
@@ -219,8 +223,11 @@ namespace Models
 
 
         protected:
+          // Join field.
           shared_ptr<string> field_ {};
+          // Return field.
           shared_ptr<vector<string>> outputFields_ {};
+          // Join table ID.
           shared_ptr<string> recallManagementTableId_ {};
         };
 
@@ -252,6 +259,7 @@ namespace Models
 
 
         protected:
+          // Filter expression.
           shared_ptr<string> experession_ {};
         };
 
@@ -302,8 +310,11 @@ namespace Models
 
 
         protected:
+          // **Feature expression.**
           shared_ptr<string> expression_ {};
+          // **Feature name.**
           shared_ptr<string> name_ {};
+          // **Feature type.**
           shared_ptr<string> type_ {};
         };
 
@@ -353,10 +364,15 @@ namespace Models
 
 
       protected:
+        // **Feature operator configuration.**
         shared_ptr<Operators::FeatureConfig> featureConfig_ {};
+        // Filter operator configuration.
         shared_ptr<Operators::FilterConfig> filterConfig_ {};
+        // **Join operator configuration.**
         shared_ptr<Operators::JoinConfig> joinConfig_ {};
+        // Operator type. Enumeration value: FilterFeatureTriggerFeature
         shared_ptr<string> operatorType_ {};
+        // Trigger operator configuration.
         shared_ptr<Operators::TriggerConfig> triggerConfig_ {};
       };
 
@@ -465,19 +481,33 @@ namespace Models
 
 
     protected:
+      // Recall description.
       shared_ptr<string> description_ {};
+      // Additional configuration for future feature expansion.
       shared_ptr<string> extendedConfig_ {};
+      // Item condition, setting array-formatted conditions
       shared_ptr<string> itemConditionArray_ {};
+      // Item condition expression.
       shared_ptr<string> itemConditionExpression_ {};
+      // Item vector field.
       shared_ptr<string> itemVectorField_ {};
+      // The ID of the item vector recall table.
       shared_ptr<string> itemVectorRecallManagementTableId_ {};
+      // Recall name.
       shared_ptr<string> name_ {};
+      // Operator list.
       shared_ptr<vector<RecallConfig::Operators>> operators_ {};
+      // Priority. The smaller the number, the higher the priority.
       shared_ptr<int64_t> priority_ {};
+      // Recall management table ID.
       shared_ptr<string> recallManagementTableId_ {};
+      // Recall type.
       shared_ptr<string> recallType_ {};
+      // Sort field.
       shared_ptr<string> sortFields_ {};
+      // User vector field.
       shared_ptr<string> userVectorField_ {};
+      // User vector recall table ID.
       shared_ptr<string> userVectorRecallManagementTableId_ {};
     };
 
@@ -569,12 +599,19 @@ namespace Models
 
 
     protected:
+      // Additional configurations for the merge configuration are provided to facilitate future feature extensions.
       shared_ptr<string> extendedConfig_ {};
+      // Filter expression.
       shared_ptr<string> filterExpression_ {};
+      // Filter table ID.
       shared_ptr<vector<string>> filterRecallManagementTableIds_ {};
+      // Item table ID.
       shared_ptr<string> itemRecallManagementTableId_ {};
+      // Item table output fields.
       shared_ptr<vector<string>> itemTableFields_ {};
+      // Merge type. Enumerated values: `Weight` and `Alternate`.
       shared_ptr<string> mergeType_ {};
+      // recall management service version configuration ID.
       shared_ptr<string> recallManagementServiceVersionConfigId_ {};
     };
 
@@ -613,9 +650,13 @@ namespace Models
 
 
   protected:
+    // The configuration type for the recall management version, which can be `Recall` for a recall config or `Merge` for a merge config.
     shared_ptr<string> configType_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Merge configuration.
     shared_ptr<CreateRecallManagementServiceVersionConfigRequest::MergeConfig> mergeConfig_ {};
+    // Recall configuration.
     shared_ptr<CreateRecallManagementServiceVersionConfigRequest::RecallConfig> recallConfig_ {};
   };
 

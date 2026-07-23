@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The description of the layer.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The ID of the instance. Call the `ListInstances` operation to obtain this value.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the laboratory. Call the `ListLaboratories` operation to obtain this value.
+    // 
     // This parameter is required.
     shared_ptr<string> laboratoryId_ {};
+    // The name of the layer.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

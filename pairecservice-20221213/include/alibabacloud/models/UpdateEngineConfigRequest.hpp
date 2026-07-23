@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // The content of the engine configuration.
     shared_ptr<string> configValue_ {};
     shared_ptr<string> description_ {};
+    // The environment.
+    // 
+    // - Daily: Daily environment.
+    // 
+    // - Pre: Pre-production environment.
+    // 
+    // - Prod: Production environment.
     shared_ptr<string> environment_ {};
+    // The instance ID. To get the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     shared_ptr<string> instanceId_ {};
+    // The name of the engine configuration.
     shared_ptr<string> name_ {};
   };
 

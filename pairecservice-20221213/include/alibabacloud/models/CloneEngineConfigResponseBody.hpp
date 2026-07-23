@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The engine configuration ID.
     shared_ptr<string> engineConfigId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

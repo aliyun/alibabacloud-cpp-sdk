@@ -84,12 +84,37 @@ namespace Models
 
 
   protected:
+    // The instance ID. To obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The sort order. Valid values:
+    // 
+    // - `ASC`: Ascending order.
+    // 
+    // - `DESC`: Descending order.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The page size.
     shared_ptr<string> pageSize_ {};
+    // The field to sort the results by. Valid values:
+    // 
+    // - `GmtCreateTime`: Sorts by creation time.
+    // 
+    // - `GmtModifiedTime`: Sorts by modification time.
     shared_ptr<string> sortBy_ {};
+    // The status of the job. Valid values:
+    // 
+    // - `ToRun`: Waiting to run.
+    // 
+    // - `Running`: In progress.
+    // 
+    // - `Success`: Successful.
+    // 
+    // - `Failure`: Failed.
+    // 
+    // - `Stopped`: Stopped or canceled.
     shared_ptr<string> status_ {};
   };
 

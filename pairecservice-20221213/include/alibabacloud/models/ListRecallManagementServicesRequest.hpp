@@ -94,12 +94,27 @@ namespace Models
 
 
   protected:
+    // **The ID of the instance.**
     shared_ptr<string> instanceId_ {};
+    // This parameter is not yet available.
     shared_ptr<int32_t> maxResults_ {};
+    // This parameter is not yet available.
     shared_ptr<string> nextToken_ {};
+    // **The sort order.** Valid values:
+    // 
+    // - ASC: ascending order.
+    // 
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
+    // **The number of the page to return.**
     shared_ptr<int64_t> pageNumber_ {};
+    // **The number of entries to return on each page.**
     shared_ptr<int64_t> pageSize_ {};
+    // **The field to sort by.** Valid values:
+    // 
+    // - GmtCreateTime: Sort by creation time.
+    // 
+    // - GmtModifiedTime: Sort by modification time.
     shared_ptr<string> sortBy_ {};
   };
 

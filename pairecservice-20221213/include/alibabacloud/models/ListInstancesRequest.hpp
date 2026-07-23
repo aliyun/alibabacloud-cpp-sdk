@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The ID of the instance. You can use this parameter to perform a fuzzy search for instances.
     shared_ptr<string> instanceId_ {};
+    // The sort order. Valid values: `Asc` (ascending) and `Desc` (descending).
     shared_ptr<string> order_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page number.
     shared_ptr<int32_t> pageSize_ {};
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
+    // The instance type. Valid values:
+    // 
+    // - `basic`: Basic edition
+    // 
+    // - `high-level`: High-level edition
+    // 
+    // - `advanced`: Advanced edition
+    // 
+    // - `standard`: Standard edition
     shared_ptr<string> type_ {};
   };
 

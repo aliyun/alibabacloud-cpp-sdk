@@ -195,30 +195,72 @@ namespace Models
 
 
   protected:
+    // Specifies whether to aggregate by user dimension when calculating significance. Two aggregation methods are supported: by user and by sample.
     shared_ptr<bool> aggregationByUser_ {};
+    // The metric definition.
+    // 
     // This parameter is required.
     shared_ptr<string> definition_ {};
+    // The denominator used in significance calculation.
     shared_ptr<string> denominator_ {};
+    // The metric description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The instance ID. You can obtain it by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether the current metric follows a binomial distribution when the metric type is a derived metric. If set to true, the mean and variance of the metric are calculated based on the binomial distribution.
     shared_ptr<bool> isBinomialDistribution_ {};
+    // The left metric ID of the derived metric.
     shared_ptr<string> leftMetricId_ {};
+    // The metric name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Specifies whether to calculate significance.
     shared_ptr<bool> needSignificance_ {};
+    // The numerator used in significance calculation.
     shared_ptr<string> numerator_ {};
+    // The operator for derived metric calculation. Valid values:
+    // 
+    // - Plus: addition
+    // 
+    // - Minus: subtraction
+    // 
+    // - Multiplication: multiplication
+    // 
+    // - Division: division
     shared_ptr<string> operator_ {};
+    // Specifies whether the metric is a real-time metric. Valid values:
+    // 
+    // - true
+    // 
+    // - false
+    // 
     // This parameter is required.
     shared_ptr<bool> realtime_ {};
+    // The ID of the data source for the write-back data table. You can obtain it by calling the ListInstanceResources operation.
     shared_ptr<string> resultResourceId_ {};
+    // The right metric ID of the derived metric.
     shared_ptr<string> rightMetricId_ {};
+    // The scene ID. You can obtain it by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};
+    // The statistical period.
     shared_ptr<int32_t> statisticsCycle_ {};
+    // The data table ID. You can obtain it by calling the ListTableMetas operation.
+    // 
     // This parameter is required.
     shared_ptr<string> tableMetaId_ {};
+    // The metric type. Valid values:
+    // 
+    // - Single: single metric.
+    // 
+    // - Derived: derived metric.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

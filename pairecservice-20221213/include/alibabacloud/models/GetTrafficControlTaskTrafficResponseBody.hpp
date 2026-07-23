@@ -96,7 +96,9 @@ namespace Models
 
 
       protected:
+        // The detailed data reported for this traffic control target.
         shared_ptr<map<string, TrafficControlTaskTrafficInfoTargetTrafficsDataValue>> data_ {};
+        // The traffic control target ID.
         shared_ptr<string> trafficContorlTargetId_ {};
       };
 
@@ -121,7 +123,9 @@ namespace Models
 
 
     protected:
+      // The traffic data for each traffic control target.
       shared_ptr<vector<TrafficControlTaskTrafficInfo::TargetTraffics>> targetTraffics_ {};
+      // The reported traffic data for the traffic control task.
       shared_ptr<map<string, TrafficControlTaskTrafficInfoTaskTrafficsValue>> taskTraffics_ {};
     };
 
@@ -144,7 +148,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Details of the reported traffic data.
     shared_ptr<GetTrafficControlTaskTrafficResponseBody::TrafficControlTaskTrafficInfo> trafficControlTaskTrafficInfo_ {};
   };
 

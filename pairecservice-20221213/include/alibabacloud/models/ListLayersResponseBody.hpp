@@ -118,12 +118,19 @@ namespace Models
 
 
     protected:
+      // The layer description.
       shared_ptr<string> description_ {};
+      // The time when the layer was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The laboratory ID.
       shared_ptr<string> laboratoryId_ {};
+      // The layer ID.
       shared_ptr<string> layerId_ {};
+      // The layer name.
       shared_ptr<string> name_ {};
+      // The remaining traffic for the layer.
       shared_ptr<int64_t> residualFlow_ {};
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
     };
 
@@ -153,9 +160,11 @@ namespace Models
 
 
   protected:
+    // An array of layers.
     shared_ptr<vector<ListLayersResponseBody::Layers>> layers_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of layers.
     shared_ptr<int64_t> totalCount_ {};
   };
 

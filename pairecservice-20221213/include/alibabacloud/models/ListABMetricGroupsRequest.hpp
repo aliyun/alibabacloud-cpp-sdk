@@ -94,13 +94,29 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The sort order. Valid values:
+    // 
+    // - ASC: ascending.
+    // 
+    // - DESC: descending.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether to return only real-time A/B metric groups.
     shared_ptr<bool> realtime_ {};
+    // The scene ID. You can call the [ListScenes](\\(~~2402581~~\\)) operation to obtain this ID.
     shared_ptr<string> sceneId_ {};
+    // The field to sort the results by. Valid values:
+    // 
+    // - GmtCreateTime: creation time.
+    // 
+    // - GmtModifiedTime: modification time.
     shared_ptr<string> sortBy_ {};
   };
 

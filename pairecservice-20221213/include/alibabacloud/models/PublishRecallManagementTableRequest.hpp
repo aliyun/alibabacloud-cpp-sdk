@@ -80,11 +80,19 @@ namespace Models
 
 
   protected:
+    // **The instance ID.**
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // **The synchronization mode.** Valid values:
+    // 
+    // - `Merge`: Adds new data and updates existing data.
     shared_ptr<string> mode_ {};
+    // The table partitions to publish.
     shared_ptr<map<string, string>> partition_ {};
+    // The table partitions to publish.
     shared_ptr<map<string, string>> partitions_ {};
+    // **Specifies whether to skip the threshold check during table synchronization.**
     shared_ptr<bool> skipThresholdCheck_ {};
   };
 

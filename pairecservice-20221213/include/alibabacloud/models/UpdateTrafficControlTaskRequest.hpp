@@ -227,18 +227,31 @@ namespace Models
 
 
     protected:
+      // The end time of the traffic control target.
       shared_ptr<string> endTime_ {};
+      // The event for the traffic control target.
       shared_ptr<string> event_ {};
+      // The item conditions, specified in an array format.
       shared_ptr<string> itemConditionArray_ {};
+      // The item conditions, specified as an expression.
       shared_ptr<string> itemConditionExpress_ {};
+      // The item condition type.
       shared_ptr<string> itemConditionType_ {};
+      // The name of the traffic control target.
       shared_ptr<string> name_ {};
+      // Indicates whether this is a new item recall.
       shared_ptr<bool> newProductRegulation_ {};
+      // The recall policy name.
       shared_ptr<string> recallName_ {};
+      // The start time of the traffic control target.
       shared_ptr<string> startTime_ {};
+      // The statistical period.
       shared_ptr<string> statisPeriod_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The tolerance range for the traffic control target.
       shared_ptr<int64_t> toleranceValue_ {};
+      // The value of the traffic control target.
       shared_ptr<float> value_ {};
     };
 
@@ -466,35 +479,65 @@ namespace Models
 
 
   protected:
+    // The behavior table ID.
     shared_ptr<string> behaviorTableMetaId_ {};
+    // The control granularity.
     shared_ptr<string> controlGranularity_ {};
+    // The control logic.
     shared_ptr<string> controlLogic_ {};
+    // The control type.
     shared_ptr<string> controlType_ {};
+    // The description of the traffic control plan.
     shared_ptr<string> description_ {};
+    // A list of effective scene IDs.
     shared_ptr<vector<int32_t>> effectiveSceneIds_ {};
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The execution time. Valid values: `Permanent` (runs indefinitely) and `TimeRange` (runs within a specified period). If you select `TimeRange`, you must also specify `StartTime` and `EndTime`.
     shared_ptr<string> executionTime_ {};
+    // The Flink resource ID.
     shared_ptr<string> flinkResourceId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The item conditions, specified in an array format.
     shared_ptr<string> itemConditionArray_ {};
+    // The item conditions, specified as an expression.
     shared_ptr<string> itemConditionExpress_ {};
+    // The item condition type.
     shared_ptr<string> itemConditionType_ {};
+    // The item table ID.
     shared_ptr<string> itemTableMetaId_ {};
+    // The name of the traffic control plan.
     shared_ptr<string> name_ {};
+    // A comma-separated list of pre-release experiment IDs.
     shared_ptr<string> preExperimentIds_ {};
+    // A comma-separated list of production experiment IDs.
     shared_ptr<string> prodExperimentIds_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
+    // The engine service ID.
     shared_ptr<string> serviceId_ {};
+    // A list of associated engine service IDs.
     shared_ptr<vector<int32_t>> serviceIds_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The conditions for behavior statistics, specified in an array format.
     shared_ptr<string> statisBaeaviorConditionArray_ {};
+    // The conditions for behavior statistics, specified in an array format.
     shared_ptr<string> statisBehaviorConditionArray_ {};
+    // The conditions for behavior statistics, specified as an expression.
     shared_ptr<string> statisBehaviorConditionExpress_ {};
+    // The condition type for behavior statistics.
     shared_ptr<string> statisBehaviorConditionType_ {};
+    // A list of traffic control targets.
     shared_ptr<vector<UpdateTrafficControlTaskRequest::TrafficControlTargets>> trafficControlTargets_ {};
+    // The conditions for the target user group, specified in an array format.
     shared_ptr<string> userConditionArray_ {};
+    // The conditions for the target user group, specified as an expression.
     shared_ptr<string> userConditionExpress_ {};
+    // The condition type for the target user group.
     shared_ptr<string> userConditionType_ {};
+    // The user table ID.
     shared_ptr<string> userTableMetaId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The traffic control target ID.
     shared_ptr<string> trafficControlTargetId_ {};
   };
 

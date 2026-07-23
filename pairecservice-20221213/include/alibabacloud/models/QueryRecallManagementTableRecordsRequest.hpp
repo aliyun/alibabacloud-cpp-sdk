@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The primary keys of the records to retrieve.
     Darabonba::Bytes primaryKeys_ {};
+    // The recall management table version ID. If you omit this parameter, the API uses the currently published version.
     shared_ptr<string> recallManagementTableVersionId_ {};
   };
 

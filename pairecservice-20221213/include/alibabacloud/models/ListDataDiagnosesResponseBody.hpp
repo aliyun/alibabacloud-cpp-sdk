@@ -191,20 +191,45 @@ namespace Models
 
 
     protected:
+      // The configuration for the data diagnosis task, in JSON format. The required fields depend on the `Type` value:<br>
       shared_ptr<string> config_ {};
+      // The time at which the task is scheduled to run periodically. If this parameter is empty, the task runs only once.
       shared_ptr<string> cycleTime_ {};
+      // The data diagnosis ID.
       shared_ptr<string> dataDiagnosisId_ {};
+      // The time when the task was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the task was last updated.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The ID of the left data table.
       shared_ptr<string> leftTableMetaId_ {};
+      // The partition field of the left table.
       shared_ptr<string> leftTablePartitionField_ {};
+      // The name of the data diagnosis.
       shared_ptr<string> name_ {};
+      // The partition field.
       shared_ptr<string> partitionField_ {};
+      // The ID of the right data table.
       shared_ptr<string> rightTableMetaId_ {};
+      // The partition field of the right table.
       shared_ptr<string> rightTablePartitionField_ {};
+      // The data table ID.
       shared_ptr<string> tableMetaId_ {};
+      // The name of the data table.
       shared_ptr<string> tableMetaName_ {};
+      // The number of top results to return.
       shared_ptr<int64_t> topNQuantity_ {};
+      // The type of data diagnosis. Valid values:
+      // 
+      // - `ChangeRate`: Change Rate Analysis.
+      // 
+      // - `PreferenceStatisticsCycle`: Preference Statistics Cycle Analysis.
+      // 
+      // - `JoinTables`: Join Tables Analysis.
+      // 
+      // - `BaseStatistics`: Base Statistics Analysis.
+      // 
+      // - `AbnormalBehavior`: Abnormal Behavior Analysis.
       shared_ptr<string> type_ {};
     };
 
@@ -234,8 +259,11 @@ namespace Models
 
 
   protected:
+    // The list of data diagnoses.
     shared_ptr<vector<ListDataDiagnosesResponseBody::DataDiagnoses>> dataDiagnoses_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

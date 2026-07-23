@@ -213,25 +213,61 @@ namespace Models
 
 
   protected:
+    // Specifies whether to aggregate metrics by user.
     shared_ptr<bool> aggregationByUser_ {};
+    // The metric definition.
     shared_ptr<string> definition_ {};
+    // The denominator of the derived metric formula.
     shared_ptr<string> denominator_ {};
+    // The metric description.
     shared_ptr<string> description_ {};
+    // Specifies whether the metric follows a binomial distribution. This affects how significance is calculated.
     shared_ptr<bool> isBinomialDistribution_ {};
+    // The ID of the left operand metric for a derived metric.
     shared_ptr<string> leftMetricId_ {};
+    // The metric name.
     shared_ptr<string> name_ {};
+    // Specifies whether significance testing is required for this metric.
     shared_ptr<bool> needSignificance_ {};
+    // The numerator of the derived metric formula.
     shared_ptr<string> numerator_ {};
+    // The operator for the derived metric. Valid values:
+    // 
+    // - `Plus`: addition
+    // 
+    // - `Minus`: subtraction
+    // 
+    // - `Multiplication`: multiplication
+    // 
+    // - `Division`: division
     shared_ptr<string> operator_ {};
+    // Specifies whether the metric is real-time. Valid values:
+    // 
+    // - `true`: The metric is real-time.
+    // 
+    // - `false`: The metric is not real-time.
     shared_ptr<string> realtime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the data source for the results table.
     shared_ptr<string> resultResourceId_ {};
+    // The ID of the results table.
     shared_ptr<string> resultTableMetaId_ {};
+    // The ID of the right operand metric for a derived metric.
     shared_ptr<string> rightMetricId_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
+    // The scene name.
     shared_ptr<string> sceneName_ {};
+    // The statistics cycle.
     shared_ptr<int32_t> statisticsCycle_ {};
+    // The ID of the source table.
     shared_ptr<string> tableMetaId_ {};
+    // The type of the metric. Valid values:
+    // 
+    // - `Single`: a single metric.
+    // 
+    // - `Derived`: a derived metric.
     shared_ptr<string> type_ {};
   };
 

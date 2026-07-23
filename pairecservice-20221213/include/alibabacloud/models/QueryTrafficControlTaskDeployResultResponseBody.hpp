@@ -22,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(StartMessage, startMessage_);
       DARABONBA_PTR_TO_JSON(StartStatus, startStatus_);
+      DARABONBA_PTR_TO_JSON(StopMessage, stopMessage_);
+      DARABONBA_PTR_TO_JSON(StopStatus, stopStatus_);
       DARABONBA_PTR_TO_JSON(TrafficControlTaskId, trafficControlTaskId_);
     };
     friend void from_json(const Darabonba::Json& j, QueryTrafficControlTaskDeployResultResponseBody& obj) { 
@@ -34,6 +36,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(StartMessage, startMessage_);
       DARABONBA_PTR_FROM_JSON(StartStatus, startStatus_);
+      DARABONBA_PTR_FROM_JSON(StopMessage, stopMessage_);
+      DARABONBA_PTR_FROM_JSON(StopStatus, stopStatus_);
       DARABONBA_PTR_FROM_JSON(TrafficControlTaskId, trafficControlTaskId_);
     };
     QueryTrafficControlTaskDeployResultResponseBody() = default ;
@@ -49,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deployMessage_ == nullptr
         && this->deployStatus_ == nullptr && this->draftMessage_ == nullptr && this->draftStatus_ == nullptr && this->prepareMessage_ == nullptr && this->prepareStatus_ == nullptr
-        && this->requestId_ == nullptr && this->startMessage_ == nullptr && this->startStatus_ == nullptr && this->trafficControlTaskId_ == nullptr; };
+        && this->requestId_ == nullptr && this->startMessage_ == nullptr && this->startStatus_ == nullptr && this->stopMessage_ == nullptr && this->stopStatus_ == nullptr
+        && this->trafficControlTaskId_ == nullptr; };
     // deployMessage Field Functions 
     bool hasDeployMessage() const { return this->deployMessage_ != nullptr;};
     void deleteDeployMessage() { this->deployMessage_ = nullptr;};
@@ -113,6 +118,20 @@ namespace Models
     inline QueryTrafficControlTaskDeployResultResponseBody& setStartStatus(string startStatus) { DARABONBA_PTR_SET_VALUE(startStatus_, startStatus) };
 
 
+    // stopMessage Field Functions 
+    bool hasStopMessage() const { return this->stopMessage_ != nullptr;};
+    void deleteStopMessage() { this->stopMessage_ = nullptr;};
+    inline string getStopMessage() const { DARABONBA_PTR_GET_DEFAULT(stopMessage_, "") };
+    inline QueryTrafficControlTaskDeployResultResponseBody& setStopMessage(string stopMessage) { DARABONBA_PTR_SET_VALUE(stopMessage_, stopMessage) };
+
+
+    // stopStatus Field Functions 
+    bool hasStopStatus() const { return this->stopStatus_ != nullptr;};
+    void deleteStopStatus() { this->stopStatus_ = nullptr;};
+    inline string getStopStatus() const { DARABONBA_PTR_GET_DEFAULT(stopStatus_, "") };
+    inline QueryTrafficControlTaskDeployResultResponseBody& setStopStatus(string stopStatus) { DARABONBA_PTR_SET_VALUE(stopStatus_, stopStatus) };
+
+
     // trafficControlTaskId Field Functions 
     bool hasTrafficControlTaskId() const { return this->trafficControlTaskId_ != nullptr;};
     void deleteTrafficControlTaskId() { this->trafficControlTaskId_ = nullptr;};
@@ -121,15 +140,41 @@ namespace Models
 
 
   protected:
+    // The message returned for the Flink platform deployment operation.
     shared_ptr<string> deployMessage_ {};
+    // The status of deploying the draft. Valid values:
+    // - Failed: failed.
+    // - Running: running.
+    // - Success: succeeded.
     shared_ptr<string> deployStatus_ {};
+    // The message returned for pushing the draft to Flink.
     shared_ptr<string> draftMessage_ {};
+    // The status of pushing the draft to Flink. Valid values:
+    // - Failed: failed.
+    // - Running: running.
+    // - Success: succeeded.
     shared_ptr<string> draftStatus_ {};
+    // The message returned for the preparation phase.
     shared_ptr<string> prepareMessage_ {};
+    // The status of the preparation phase. Valid values:
+    // - Failed: failed.
+    // - Running: running.
+    // - Success: succeeded.
     shared_ptr<string> prepareStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The message returned for starting the Flink task.
     shared_ptr<string> startMessage_ {};
+    // The status of starting the Flink task. Valid values:
+    // - Failed: failed.
+    // - Running: running.
+    // - Success: succeeded.
     shared_ptr<string> startStatus_ {};
+    // The stop details.
+    shared_ptr<string> stopMessage_ {};
+    // The stop status.
+    shared_ptr<string> stopStatus_ {};
+    // The traffic control task ID.
     shared_ptr<string> trafficControlTaskId_ {};
   };
 

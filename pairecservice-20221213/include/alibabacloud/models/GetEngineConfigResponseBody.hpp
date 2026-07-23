@@ -112,14 +112,33 @@ namespace Models
 
 
   protected:
+    // The content of the engine configuration.
     shared_ptr<string> configValue_ {};
+    // The description of the engine configuration.
     shared_ptr<string> description_ {};
+    // The environment. Valid values:
+    // 
+    // - Daily: The daily environment.
+    // 
+    // - Pre: The pre-production environment.
+    // 
+    // - Prod: The production environment.
     shared_ptr<string> environment_ {};
+    // The time the engine configuration was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time the engine configuration was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The time the engine configuration was published.
     shared_ptr<string> gmtReleasedTime_ {};
+    // The engine configuration name.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status. Valid values:
+    // 
+    // - Released: Published
+    // 
+    // - UnReleased: Unpublished
     shared_ptr<string> status_ {};
   };
 

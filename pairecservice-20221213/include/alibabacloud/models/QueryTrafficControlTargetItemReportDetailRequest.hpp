@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The report date.
     shared_ptr<string> date_ {};
+    // The deployment environment. Valid values are Daily (daily environment), Pre (staging environment), and Prod (production environment).
+    // 
     // This parameter is required.
     shared_ptr<string> environment_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

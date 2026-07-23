@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The description of the crowd.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The instance ID. To get this ID, call the ListInstances operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The crowd label.
     shared_ptr<string> label_ {};
+    // The crowd name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The source of the user data. Valid values: ● ManualInput: Users are provided in the Users parameter. ● UploadFile: Users are provided from an uploaded file.
     shared_ptr<string> source_ {};
+    // The users to include in the crowd. Separate multiple users with commas (,).
     shared_ptr<string> users_ {};
   };
 

@@ -237,25 +237,61 @@ namespace Models
 
 
     protected:
+      // The AB metric ID.
       shared_ptr<string> ABMetricId_ {};
+      // Indicates whether to aggregate data by user.
       shared_ptr<bool> aggregationByUser_ {};
+      // The metric definition.
       shared_ptr<string> definition_ {};
+      // The denominator of the derived metric.
       shared_ptr<string> denominator_ {};
+      // The metric description.
       shared_ptr<string> description_ {};
+      // Indicates whether the metric follows a binomial distribution.
       shared_ptr<bool> isBinomialDistribution_ {};
+      // The ID of the left-hand metric in the formula for the derived metric.
       shared_ptr<string> leftMetricId_ {};
+      // The metric name.
       shared_ptr<string> name_ {};
+      // Indicates whether significance calculation is required.
       shared_ptr<bool> needSignificance_ {};
+      // The numerator of the derived metric.
       shared_ptr<string> numerator_ {};
+      // The operator used to calculate the derived metric. Valid values:
+      // 
+      // - `Plus`: addition
+      // 
+      // - `Minus`: subtraction
+      // 
+      // - `Multiplication`: multiplication
+      // 
+      // - `Division`: division
       shared_ptr<string> operator_ {};
+      // Indicates whether the metric is a real-time metric.
+      // 
+      // - `true`: The metric is calculated in real time.
+      // 
+      // - `false`: The metric is not calculated in real time.
       shared_ptr<string> realtime_ {};
+      // The ID of the data source for the data table to which the results are written.
       shared_ptr<string> resultResourceId_ {};
+      // The ID of the data table to which the results are written.
       shared_ptr<string> resultTableMetaId_ {};
+      // The ID of the right-hand metric in the formula for the derived metric.
       shared_ptr<string> rightMetricId_ {};
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
+      // The scene name.
       shared_ptr<string> sceneName_ {};
+      // The statistical period.
       shared_ptr<int32_t> statisticsCycle_ {};
+      // The data table ID.
       shared_ptr<string> tableMetaId_ {};
+      // The metric type. Valid values:
+      // 
+      // - `Single`: a single metric.
+      // 
+      // - `Derived`: a derived metric.
       shared_ptr<string> type_ {};
     };
 
@@ -285,8 +321,11 @@ namespace Models
 
 
   protected:
+    // The list of AB metrics.
     shared_ptr<vector<ListABMetricsResponseBody::ABMetrics>> ABMetrics_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of AB metrics returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

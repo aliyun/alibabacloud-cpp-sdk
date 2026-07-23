@@ -99,9 +99,13 @@ namespace Models
 
 
     protected:
+      // The data version.
       shared_ptr<string> dataVersion_ {};
+      // The recall management table version ID.
       shared_ptr<string> recallManagerTableVersionId_ {};
+      // The data size of the source table.
       shared_ptr<string> sourceTableDataSize_ {};
+      // The number of rows in the source table.
       shared_ptr<string> sourceTableRowCount_ {};
     };
 
@@ -161,9 +165,13 @@ namespace Models
 
 
     protected:
+      // The data version.
       shared_ptr<string> dataVersion_ {};
+      // The recall management table version ID.
       shared_ptr<string> recallManagementTableVersionId_ {};
+      // The data size of the source table.
       shared_ptr<string> sourceTableDataSize_ {};
+      // The number of rows in the source table.
       shared_ptr<string> sourceTableRowCount_ {};
     };
 
@@ -231,13 +239,29 @@ namespace Models
 
 
   protected:
+    // The time when the job ended.
     shared_ptr<string> endTime_ {};
+    // The log of the job.
     shared_ptr<string> log_ {};
+    // The recall management job ID.
     shared_ptr<string> recallManagementJobId_ {};
+    // Details of the recall management table.
     shared_ptr<GetRecallManagementJobResponseBody::RecallManagementTableInfo> recallManagementTableInfo_ {};
+    // Details of the recall management table.
     shared_ptr<GetRecallManagementJobResponseBody::RecallManagerTableInfo> recallManagerTableInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The time when the job started.
     shared_ptr<string> startTime_ {};
+    // The status of the job. Valid values are:
+    // 
+    // - `Init`: Initializing.
+    // 
+    // - `Running`: Running.
+    // 
+    // - `Success`: Successful.
+    // 
+    // - `Failed`: Failed.
     shared_ptr<string> status_ {};
   };
 

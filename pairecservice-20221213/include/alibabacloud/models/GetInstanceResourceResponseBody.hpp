@@ -112,14 +112,91 @@ namespace Models
 
 
   protected:
+    // The resource category. Valid values:
+    // 
+    // - DataManagement
+    // 
+    // - Engine
+    // 
+    // - Monitor
     shared_ptr<string> category_ {};
+    // The resource configuration.
     shared_ptr<string> config_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The last modification time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The resource group.
+    // 
+    // If `Category` is `DataManagement`, the valid values are:
+    // 
+    // - storage
+    // 
+    // - modelpipeline
+    // 
+    // - datastorage
+    // 
+    // - modeltrain
+    // 
+    // If `Category` is `Engine`, the valid values are:
+    // 
+    // - feature
+    // 
+    // - predict
+    // 
+    // - recall
+    // 
+    // - recengine
+    // 
+    // If `Category` is `Monitor`, the valid values are:
+    // 
+    // - logs
+    // 
+    // - logsback
+    // 
+    // - coldstart
+    // 
+    // - deploy
     shared_ptr<string> group_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource type. Valid values:
+    // 
+    // - Hologres
+    // 
+    // - EAS
+    // 
+    // - BE
+    // 
+    // - Rec
+    // 
+    // - Platform
+    // 
+    // - SLS
+    // 
+    // - DataHub
+    // 
+    // - ApsaraMQ for Kafka
+    // 
+    // - Realtime Compute for Apache Flink
+    // 
+    // - ACR
+    // 
+    // - OSS
+    // 
+    // - DataWorks
+    // 
+    // - PAI
+    // 
+    // - MaxCompute
+    // 
+    // - Graph Compute Service
+    // 
+    // - ApsaraDB for Redis
     shared_ptr<string> type_ {};
+    // The resource URI.
     shared_ptr<string> uri_ {};
   };
 

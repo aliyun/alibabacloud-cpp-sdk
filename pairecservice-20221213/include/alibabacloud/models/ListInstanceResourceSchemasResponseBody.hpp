@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The schema name.
       shared_ptr<string> schemaName_ {};
     };
 
@@ -91,8 +92,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of schemas.
     shared_ptr<vector<ListInstanceResourceSchemasResponseBody::Schemas>> schemas_ {};
+    // The total count of schemas.
     shared_ptr<int64_t> totalCount_ {};
   };
 

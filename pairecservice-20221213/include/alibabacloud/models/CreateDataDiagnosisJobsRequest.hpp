@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The data diagnosis ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dataDiagnosisId_ {};
+    // The end date for the job.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The start date for the job.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
   };

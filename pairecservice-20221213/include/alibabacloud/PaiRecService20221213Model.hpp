@@ -469,6 +469,9 @@
 #include <alibabacloud/models/ReportSampleConsistencyJobRequest.hpp>
 #include <alibabacloud/models/ReportSampleConsistencyJobResponseBody.hpp>
 #include <alibabacloud/models/ReportSampleConsistencyJobResponse.hpp>
+#include <alibabacloud/models/ShoppingAssistantRequest.hpp>
+#include <alibabacloud/models/ShoppingAssistantResponseBody.hpp>
+#include <alibabacloud/models/ShoppingAssistantResponse.hpp>
 #include <alibabacloud/models/SplitTrafficControlTargetRequest.hpp>
 #include <alibabacloud/models/SplitTrafficControlTargetResponseBody.hpp>
 #include <alibabacloud/models/SplitTrafficControlTargetResponse.hpp>
@@ -481,6 +484,9 @@
 #include <alibabacloud/models/StopSampleConsistencyJobRequest.hpp>
 #include <alibabacloud/models/StopSampleConsistencyJobResponseBody.hpp>
 #include <alibabacloud/models/StopSampleConsistencyJobResponse.hpp>
+#include <alibabacloud/models/StopTrafficControlFlinkTaskRequest.hpp>
+#include <alibabacloud/models/StopTrafficControlFlinkTaskResponseBody.hpp>
+#include <alibabacloud/models/StopTrafficControlFlinkTaskResponse.hpp>
 #include <alibabacloud/models/StopTrafficControlTargetRequest.hpp>
 #include <alibabacloud/models/StopTrafficControlTargetResponseBody.hpp>
 #include <alibabacloud/models/StopTrafficControlTargetResponse.hpp>

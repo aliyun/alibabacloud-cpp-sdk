@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The reported traffic for this target within the experiment.
     shared_ptr<double> traffic_ {};
+    // The timestamp indicating when the data was reported.
     shared_ptr<int64_t> recordTime_ {};
   };
 

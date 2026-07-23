@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of data diagnosis job IDs.
     shared_ptr<vector<string>> dataDiagnosisJobIds_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

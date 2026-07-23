@@ -110,11 +110,17 @@ namespace Models
 
 
     protected:
+      // The feature name.
       shared_ptr<string> featureName_ {};
+      // The item ID.
       shared_ptr<string> logItemId_ {};
+      // The request ID.
       shared_ptr<string> logRequestId_ {};
+      // The user ID.
       shared_ptr<string> logUserId_ {};
+      // The offline value.
       shared_ptr<string> offlineValue_ {};
+      // The online value.
       shared_ptr<string> onlineValue_ {};
     };
 
@@ -151,9 +157,13 @@ namespace Models
 
 
   protected:
+    // The data path.
     shared_ptr<string> dataPath_ {};
+    // The OSS path.
     shared_ptr<string> ossPath_ {};
+    // The feature comparison reports.
     shared_ptr<vector<ListFeatureConsistencyCheckJobFeatureReportsResponseBody::ReportsOfFeatureDiff>> reportsOfFeatureDiff_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

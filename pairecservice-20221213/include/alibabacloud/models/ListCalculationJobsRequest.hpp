@@ -75,12 +75,27 @@ namespace Models
 
 
   protected:
+    // The instance ID. To obtain this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The scene ID. To obtain this ID, call the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};
+    // The status of the calculation job. Valid values:
+    // 
+    // - Success
+    // 
+    // - Failure
+    // 
+    // - Initializing
+    // 
+    // - Running
     shared_ptr<string> status_ {};
   };
 

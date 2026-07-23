@@ -87,12 +87,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The MaxCompute project name.
     shared_ptr<string> maxcomputeProjectName_ {};
-    // maxcompute schema。
+    // The MaxCompute project schema.
     shared_ptr<string> maxcomputeSchema_ {};
+    // The name of the destination table in MaxCompute.
     shared_ptr<string> maxcomputeTableName_ {};
+    // The table partitions to export. The value must be a JSON object where each key is a partition field and its value is the corresponding partition value.
     shared_ptr<map<string, string>> partitions_ {};
+    // The version ID of the recall management table. This parameter defaults to the current published version.
     shared_ptr<string> recallManagementTableVersionId_ {};
   };
 

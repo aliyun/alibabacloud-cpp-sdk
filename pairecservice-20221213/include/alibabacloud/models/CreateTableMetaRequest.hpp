@@ -116,15 +116,26 @@ namespace Models
 
 
     protected:
+      // The logical data type of the field.
       shared_ptr<string> dataType_ {};
+      // Indicates whether the field is a dimension field.
+      // 
       // This parameter is required.
       shared_ptr<bool> isDimensionField_ {};
+      // Indicates whether the field is a partition field.
+      // 
       // This parameter is required.
       shared_ptr<string> isPartitionField_ {};
+      // The business definition of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> meaning_ {};
+      // The name of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The data type of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -184,18 +195,38 @@ namespace Models
 
 
   protected:
+    // The description of the data table.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The list of fields.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateTableMetaRequest::Fields>> fields_ {};
+    // The instance ID. To get this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The module to which the data table belongs.
+    // 
+    // - ABTest: The data table for A/B testing.
+    // 
+    // - ExperimentTool: The data table for the experiment tool.
+    // 
+    // - DataDiagnosis: The data table for data diagnosis.
+    // 
     // This parameter is required.
     shared_ptr<string> module_ {};
+    // The name of the data table.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The resource ID. To get this ID, call the ListInstanceResources operation.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The name of the table in the database.
+    // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
   };

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Filters schemas by a name prefix.
     shared_ptr<string> schemaName_ {};
   };
 

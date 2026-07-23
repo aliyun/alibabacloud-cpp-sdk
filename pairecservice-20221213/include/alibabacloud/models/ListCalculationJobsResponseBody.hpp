@@ -129,13 +129,33 @@ namespace Models
 
 
     protected:
+      // The name of the A/B metric.
       shared_ptr<string> ABMetricName_ {};
+      // The business date.
       shared_ptr<string> bizDate_ {};
+      // The calculation job ID.
       shared_ptr<string> calculationJobId_ {};
+      // The job configuration.
       shared_ptr<string> config_ {};
+      // The time when the job was run.
       shared_ptr<string> gmtRanTime_ {};
+      // The job messages.
       shared_ptr<vector<string>> jobMessage_ {};
+      // The source of the job. Valid values:
+      // 
+      // - CronOffline: The job is an offline scheduled task.
+      // 
+      // - DataRerun: The job is a data rerun task.
       shared_ptr<string> jobSource_ {};
+      // The status of the job. Valid values:
+      // 
+      // - Success
+      // 
+      // - Failure
+      // 
+      // - Initializing
+      // 
+      // - Running
       shared_ptr<string> status_ {};
     };
 
@@ -165,8 +185,11 @@ namespace Models
 
 
   protected:
+    // A list of calculation jobs.
     shared_ptr<vector<ListCalculationJobsResponseBody::CalculationJobs>> calculationJobs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The resource configuration.
     shared_ptr<string> config_ {};
+    // The resource address.
     shared_ptr<string> uri_ {};
   };
 

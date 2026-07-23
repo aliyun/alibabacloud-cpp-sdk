@@ -112,18 +112,32 @@ namespace Models
 
 
   protected:
+    // The experiment configuration.
     shared_ptr<string> config_ {};
+    // The ID of the debug crowd. Call the ListCrowds operation to obtain this ID.
     shared_ptr<string> debugCrowdId_ {};
+    // The UIDs of Alibaba Cloud accounts or RAM users for debugging. Separate multiple UIDs with a comma.
     shared_ptr<string> debugUsers_ {};
+    // The experiment description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The ID of the experiment group. Call the ListExperimentGroups operation to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> experimentGroupId_ {};
+    // The traffic distribution percentage.
     shared_ptr<int32_t> flowPercent_ {};
+    // The instance ID. Call the ListInstances operation to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The experiment name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The experiment type. Valid values:<br>● `Baseline`: Indicates a baseline experiment.<br>● `Normal`: Indicates a normal experiment.<br><br>
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

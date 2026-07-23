@@ -143,15 +143,25 @@ namespace Models
 
 
     protected:
+      // The actual number of controlled items.
       shared_ptr<int64_t> actualItemControlNum_ {};
+      // The actual traffic of controlled items.
       shared_ptr<int64_t> actualItemControlTraffic_ {};
+      // The number of items that reached the control target.
       shared_ptr<int64_t> doneItemControlNum_ {};
+      // The number of items that reached the control target, as a percentage of the expected number of controlled items.
       shared_ptr<string> doneItemControlPercentage_ {};
+      // The actual number of controlled items as a percentage of the expected number.
       shared_ptr<string> itemControlNumPercentage_ {};
+      // The actual traffic from controlled items as a percentage of the expected traffic.
       shared_ptr<string> itemControlTrafficPercentage_ {};
+      // The expected number of controlled items.
       shared_ptr<int64_t> oughtItemControlNum_ {};
+      // The expected traffic of controlled items.
       shared_ptr<int64_t> oughtItemControlTraffic_ {};
+      // The ID of the traffic control target.
       shared_ptr<string> trafficControlTargetId_ {};
+      // The name of the traffic control target.
       shared_ptr<string> trafficControlTargetName_ {};
     };
 
@@ -174,7 +184,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // An array of item control reports.
     shared_ptr<vector<QueryTrafficControlTaskItemReportResponseBody::TrafficControlTaskItemReports>> trafficControlTaskItemReports_ {};
   };
 

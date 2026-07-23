@@ -131,13 +131,25 @@ namespace Models
 
 
     protected:
+      // The ID of the current recall management service version.
       shared_ptr<string> currentRecallManagementServiceVersionId_ {};
+      // The name of the current recall management service version.
       shared_ptr<string> currentRecallManagementServiceVersionName_ {};
+      // The recall management service description.
       shared_ptr<string> description_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The modification time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The recall management service name.
       shared_ptr<string> name_ {};
+      // The recall management service ID.
       shared_ptr<string> recallManagementServiceId_ {};
+      // The status. Valid values:
+      // 
+      // - Online: online.
+      // 
+      // - Offline: offline.
       shared_ptr<string> status_ {};
     };
 
@@ -181,10 +193,15 @@ namespace Models
 
 
   protected:
+    // This parameter is not yet available.
     shared_ptr<int32_t> maxResults_ {};
+    // This parameter is not yet available.
     shared_ptr<string> nextToken_ {};
+    // The list of recall management services.
     shared_ptr<vector<ListRecallManagementServicesResponseBody::RecallManagementServices>> recallManagementServices_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<string> totalCount_ {};
   };
 

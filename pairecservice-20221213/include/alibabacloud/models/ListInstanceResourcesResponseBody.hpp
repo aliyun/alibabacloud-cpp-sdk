@@ -127,13 +127,89 @@ namespace Models
 
 
     protected:
+      // The category of the resource. Valid values:
+      // 
+      // - DataManagement
+      // 
+      // - Engine
+      // 
+      // - Monitor
       shared_ptr<string> category_ {};
+      // The configuration of the resource.
       shared_ptr<string> config_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateAt_ {};
+      // The update time.
       shared_ptr<string> gmtModifiedAt_ {};
+      // The group of the resource.
+      // 
+      // If `Category` is `DataManagement`, valid values are:
+      // 
+      // - storage
+      // 
+      // - modelpipeline
+      // 
+      // - datastorage
+      // 
+      // - modeltrain
+      // 
+      // If `Category` is `Engine`, valid values are:
+      // 
+      // - feature
+      // 
+      // - predict
+      // 
+      // - recall
+      // 
+      // - recengine
+      // 
+      // If `Category` is `Monitor`, valid values are:
+      // 
+      // - logs
+      // 
+      // - logsback
+      // 
+      // - coldstart
+      // 
+      // - deploy
       shared_ptr<string> group_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The type of the resource.
+      // 
+      // - Hologres
+      // 
+      // - EAS
+      // 
+      // - BE
+      // 
+      // - Rec
+      // 
+      // - Platform
+      // 
+      // - SLS
+      // 
+      // - DataHub
+      // 
+      // - ApsaraMQ for Kafka
+      // 
+      // - Realtime Compute for Apache Flink
+      // 
+      // - ACR
+      // 
+      // - OSS
+      // 
+      // - DataWorks
+      // 
+      // - PAI
+      // 
+      // - MaxCompute
+      // 
+      // - Graph Compute Service
+      // 
+      // - ApsaraDB for Redis
       shared_ptr<string> type_ {};
+      // The resource URI.
       shared_ptr<string> uri_ {};
     };
 
@@ -163,8 +239,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of resource objects.
     shared_ptr<vector<ListInstanceResourcesResponseBody::Resources>> resources_ {};
+    // The total number of resources.
     shared_ptr<int64_t> totalCount_ {};
   };
 

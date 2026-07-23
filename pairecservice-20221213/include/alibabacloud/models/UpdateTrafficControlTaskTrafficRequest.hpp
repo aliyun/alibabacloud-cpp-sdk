@@ -110,11 +110,17 @@ namespace Models
 
 
     protected:
+      // The identifier for the traffic object. This can be an item ID, such as `item1`, an experiment ID, a global identifier (`ER_ALL`), or a value in `L1_EG1_E1` format.
       shared_ptr<string> itemOrExperimentId_ {};
+      // The timestamp from the behavior log. This indicates that the log data is current as of this timestamp.
       shared_ptr<string> recordTime_ {};
+      // The configured target traffic for the traffic control target.
       shared_ptr<double> trafficControlTargetAimTraffic_ {};
+      // The traffic control target ID.
       shared_ptr<string> trafficControlTargetId_ {};
+      // The actual traffic volume observed for the traffic control target.
       shared_ptr<int64_t> trafficControlTargetTraffic_ {};
+      // The total traffic for the traffic control task.
       shared_ptr<int64_t> trafficControlTaskTraffic_ {};
     };
 
@@ -151,9 +157,13 @@ namespace Models
 
 
   protected:
+    // The environment. Valid values: `Daily` (daily environment), `Pre` (pre-release environment), and `Prod` (production environment).
     shared_ptr<string> environment_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // A list of traffic objects to report.
     shared_ptr<vector<UpdateTrafficControlTaskTrafficRequest::Traffics>> traffics_ {};
+    // This parameter is invalid and should be ignored.
     shared_ptr<string> newParam3_ {};
   };
 

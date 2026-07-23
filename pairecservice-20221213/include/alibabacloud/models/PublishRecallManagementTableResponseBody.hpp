@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The recall management job ID.
     shared_ptr<string> recallManagementJobId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

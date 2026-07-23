@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The export job ID. Use this ID to track the job\\"s status.
     shared_ptr<string> recallManagementJobId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

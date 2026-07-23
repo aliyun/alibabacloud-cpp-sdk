@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // A comma-separated list of A/B metric IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> ABMetricIds_ {};
+    // The end date.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The instance ID. Call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation to get this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The start date.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
   };

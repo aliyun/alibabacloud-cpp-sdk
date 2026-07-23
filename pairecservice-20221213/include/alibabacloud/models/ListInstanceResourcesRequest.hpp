@@ -57,8 +57,79 @@ namespace Models
 
 
   protected:
+    // The category of the resource. Valid values:
+    // 
+    // - DataManagement
+    // 
+    // - Engine
+    // 
+    // - Monitor
     shared_ptr<string> category_ {};
+    // The group of the resource.
+    // 
+    // If `Category` is `DataManagement`, valid values are:
+    // 
+    // - storage
+    // 
+    // - modelpipeline
+    // 
+    // - datastorage
+    // 
+    // - modeltrain
+    // 
+    // If `Category` is `Engine`, valid values are:
+    // 
+    // - feature
+    // 
+    // - predict
+    // 
+    // - recall
+    // 
+    // - recengine
+    // 
+    // If `Category` is `Monitor`, valid values are:
+    // 
+    // - logs
+    // 
+    // - logsback
+    // 
+    // - coldstart
+    // 
+    // - deploy
     shared_ptr<string> group_ {};
+    // The type of the resource. If specified, only resources of this type are returned.
+    // 
+    // - Hologres
+    // 
+    // - EAS
+    // 
+    // - BE
+    // 
+    // - Rec
+    // 
+    // - Platform
+    // 
+    // - SLS
+    // 
+    // - DataHub
+    // 
+    // - ApsaraMQ for Kafka
+    // 
+    // - Realtime Compute for Apache Flink
+    // 
+    // - ACR
+    // 
+    // - OSS
+    // 
+    // - DataWorks
+    // 
+    // - PAI
+    // 
+    // - MaxCompute
+    // 
+    // - Graph Compute Service
+    // 
+    // - ApsaraDB for Redis
     shared_ptr<string> type_ {};
   };
 

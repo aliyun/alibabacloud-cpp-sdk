@@ -140,20 +140,46 @@ namespace Models
 
 
   protected:
+    // The configuration of the data diagnosis task, provided as a JSON string. The required fields vary based on the `Type` parameter. For `ChangeRate`, specify `AnalysisField` and `PartitionFieldFormat`. For `PreferenceStatisticsCycle`, specify `UserIdField`, `RemainDays`, `EverAppearedDays`, `RemainRatePeriods`, and `PartitionFieldFormat`. For `JoinTables`, specify `LeftTableAnalysisField`, `RightTableAnalysisField`, `LeftJoinField`, `RightJoinField`, `SampleQuantity`, `LeftTablePartitionFieldFormat`, and `RightTablePartitionFieldFormat`. For `BaseStatistics`, specify `TagField`, `TagFieldSeparator`, `KVField`, `KVFieldSeparator`, `KVPairSeparator`, `TextField`, `Quantiles`, `DefaultValueOfString`, `NullStringField`, and `PartitionFieldFormat`. For `AbnormalBehavior`, specify `UserId`, `ItemId`, `EventField`, `UpStreamBehavior`, `DownstreamBehavior`, `NumericHistogramBins`, and `PartitionFieldFormat`.
+    // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // The execution time for periodic runs. If this field is omitted, the task does not run periodically.
     shared_ptr<string> cycleTime_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the left data table.
     shared_ptr<string> leftTableMetaId_ {};
+    // The partition field of the left table.
     shared_ptr<string> leftTablePartitionField_ {};
+    // The name of the data diagnosis task.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The partition field.
     shared_ptr<string> partitionField_ {};
+    // The ID of the right data table.
     shared_ptr<string> rightTableMetaId_ {};
+    // The partition field of the right table.
     shared_ptr<string> rightTablePartitionField_ {};
+    // The ID of the data table.
     shared_ptr<string> tableMetaId_ {};
+    // The number of top-ranked results to return.
     shared_ptr<int64_t> topNQuantity_ {};
+    // The type of the data diagnosis task. Valid values:
+    // 
+    // - `ChangeRate`: item/user change rate analysis.
+    // 
+    // - `PreferenceStatisticsCycle`: user preference statistics cycle analysis.
+    // 
+    // - `JoinTables`: two-table join analysis.
+    // 
+    // - `BaseStatistics`: basic statistical analysis.
+    // 
+    // - `AbnormalBehavior`: abnormal behavior analysis.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

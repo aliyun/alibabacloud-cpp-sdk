@@ -225,18 +225,43 @@ namespace Models
 
 
     protected:
+      // The end time of the traffic control target.
       shared_ptr<string> endTime_ {};
+      // The event for the traffic control target.
       shared_ptr<string> event_ {};
+      // The item condition in array format.
       shared_ptr<string> itemConditionArray_ {};
+      // The item condition in expression format.
       shared_ptr<string> itemConditionExpress_ {};
+      // The condition type for item control.
+      // 
+      // - Array: Specifies the array format.
+      // 
+      // - Expression: Specifies the expression format.
       shared_ptr<string> itemConditionType_ {};
+      // The name of the traffic control target.
       shared_ptr<string> name_ {};
+      // Specifies whether to enable new product regulation.
       shared_ptr<bool> newProductRegulation_ {};
+      // The name of the recall strategy.
       shared_ptr<string> recallName_ {};
+      // The start time of the traffic control target.
       shared_ptr<string> startTime_ {};
+      // The statistics period.
+      // 
+      // - Daily: Statistics are aggregated daily.
+      // 
+      // - Hour: Statistics are aggregated hourly.
       shared_ptr<string> statisPeriod_ {};
+      // The status of the traffic control target.
+      // 
+      // - Opened: The traffic control target is enabled.
+      // 
+      // - Closed: The traffic control target is disabled.
       shared_ptr<string> status_ {};
+      // The tolerance value for the traffic control target.
       shared_ptr<int64_t> toleranceValue_ {};
+      // The value of the traffic control target.
       shared_ptr<float> value_ {};
     };
 
@@ -457,35 +482,89 @@ namespace Models
 
 
   protected:
+    // The behavior table ID.
     shared_ptr<string> behaviorTableMetaId_ {};
+    // The control granularity. Valid values: Global (applies globally) and Single (applies to a specific item).
     shared_ptr<string> controlGranularity_ {};
+    // The control logic.
+    // 
+    // - Guaranteed: The system strictly enforces the control target.
+    // 
+    // - Approach: The system attempts to meet the control target, but enforcement is not strict.
     shared_ptr<string> controlLogic_ {};
+    // The control type.
+    // 
+    // - Percent: Controls traffic by percentage.
+    // 
+    // - Quantity: Controls traffic by quantity.
     shared_ptr<string> controlType_ {};
+    // The description of the traffic control task.
     shared_ptr<string> description_ {};
+    // A list of effective scene IDs.
     shared_ptr<vector<int32_t>> effectiveSceneIds_ {};
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The execution time.
+    // 
+    // - Permanent: The task runs permanently.
+    // 
+    // - TimeRange: The task runs within a specified time range. This option requires you to also specify the StartTime and EndTime parameters.
     shared_ptr<string> executionTime_ {};
+    // The Flink data source ID.
     shared_ptr<string> flinkResourceId_ {};
+    // The instance ID. You can get this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
     shared_ptr<string> instanceId_ {};
+    // The item condition in array format.
     shared_ptr<string> itemConditionArray_ {};
+    // The item condition in expression format.
     shared_ptr<string> itemConditionExpress_ {};
+    // The item condition type.
+    // 
+    // - Array: Specifies the array format.
+    // 
+    // - Expression: Specifies the expression format.
     shared_ptr<string> itemConditionType_ {};
+    // The item table ID.
     shared_ptr<string> itemTableMetaId_ {};
+    // The name of the traffic control task.
     shared_ptr<string> name_ {};
+    // The experiment IDs for the staging environment. Separate multiple IDs with a comma (,).
     shared_ptr<string> preExperimentIds_ {};
+    // The experiment IDs for the production environment. Separate multiple IDs with a comma (,).
     shared_ptr<string> prodExperimentIds_ {};
+    // The scene ID. You can get this ID by calling the [ListScenes](https://help.aliyun.com/document_detail/2402581.html) operation.
     shared_ptr<string> sceneId_ {};
+    // The service ID.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
+    // A list of bound engine service IDs.
     shared_ptr<vector<int32_t>> serviceIds_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The statistical behavior condition in array format.
     shared_ptr<string> statisBehaviorConditionArray_ {};
+    // The statistical behavior condition in expression format.
     shared_ptr<string> statisBehaviorConditionExpress_ {};
+    // The condition type for the statistical behavior.
+    // 
+    // - Array: Specifies the array format.
+    // 
+    // - Expression: Specifies the expression format.
     shared_ptr<string> statisBehaviorConditionType_ {};
+    // A list of traffic control targets.
     shared_ptr<vector<CreateTrafficControlTaskRequest::TrafficControlTargets>> trafficControlTargets_ {};
+    // The intervention user group condition in array format.
     shared_ptr<string> userConditionArray_ {};
+    // The intervention user group condition in expression format.
     shared_ptr<string> userConditionExpress_ {};
+    // The condition type for the intervention user group.
+    // 
+    // - Array: Specifies the array format.
+    // 
+    // - Expression: Specifies the expression format.
     shared_ptr<string> userConditionType_ {};
+    // The user table ID.
     shared_ptr<string> userTableMetaId_ {};
   };
 

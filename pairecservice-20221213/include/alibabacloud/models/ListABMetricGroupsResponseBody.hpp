@@ -127,13 +127,21 @@ namespace Models
 
 
     protected:
+      // The A/B metric group ID.
       shared_ptr<string> ABMetricGroupId_ {};
+      // The comma-separated IDs of the A/B metrics in the group.
       shared_ptr<string> ABMetricIds_ {};
+      // The comma-separated names of the A/B metrics in the group.
       shared_ptr<string> ABMetricNames_ {};
+      // The description of the A/B metric group.
       shared_ptr<string> description_ {};
+      // The A/B metric group name.
       shared_ptr<string> name_ {};
+      // The owner.
       shared_ptr<string> owner_ {};
+      // Indicates whether the A/B metric group is a real-time group.
       shared_ptr<bool> realtime_ {};
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
     };
 
@@ -163,8 +171,11 @@ namespace Models
 
 
   protected:
+    // The A/B metric groups.
     shared_ptr<vector<ListABMetricGroupsResponseBody::ABMetricGroups>> ABMetricGroups_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of A/B metric groups.
     shared_ptr<int64_t> totalCount_ {};
   };
 

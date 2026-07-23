@@ -78,11 +78,25 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number.
     shared_ptr<string> pageNumber_ {};
+    // The page size.
     shared_ptr<string> pageSize_ {};
+    // The task status. Valid values:
+    // 
+    // - Initializing: The job is being initialized.
+    // 
+    // - Running: The job is in progress.
+    // 
+    // - Success: The job succeeded.
+    // 
+    // - Failure: The job failed to complete.
     shared_ptr<string> status_ {};
+    // A list of data diagnosis types.
     shared_ptr<vector<string>> types_ {};
   };
 

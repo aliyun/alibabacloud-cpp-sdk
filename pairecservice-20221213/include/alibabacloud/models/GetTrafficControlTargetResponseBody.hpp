@@ -117,8 +117,11 @@ namespace Models
 
 
     protected:
+      // The set points.
       shared_ptr<vector<int64_t>> setPoints_ {};
+      // The set values.
       shared_ptr<vector<int64_t>> setValues_ {};
+      // The time points.
       shared_ptr<vector<int64_t>> timePoints_ {};
     };
 
@@ -256,23 +259,41 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The event of the control target.
     shared_ptr<string> event_ {};
+    // The time when the traffic control target was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The item condition, specified in an array format.
     shared_ptr<string> itemConditionArray_ {};
+    // The item condition, specified in an expression format.
     shared_ptr<string> itemConditionExpress_ {};
+    // The item condition type.
     shared_ptr<string> itemConditionType_ {};
+    // The name of the traffic control target.
     shared_ptr<string> name_ {};
+    // Indicates whether new product regulation is enabled.
     shared_ptr<bool> newProductRegulation_ {};
+    // The name of the recall strategy.
     shared_ptr<string> recallName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The piecewise control settings.
     shared_ptr<GetTrafficControlTargetResponseBody::SplitParts> splitParts_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The statistics period.
     shared_ptr<string> statisPeriod_ {};
+    // The status of the traffic control target.
     shared_ptr<string> status_ {};
+    // The tolerance value.
     shared_ptr<int64_t> toleranceValue_ {};
+    // The ID of the traffic control target.
     shared_ptr<string> trafficControlTargetId_ {};
+    // The ID of the traffic control task.
     shared_ptr<string> trafficControlTaskId_ {};
+    // The value of the control target.
     shared_ptr<float> value_ {};
   };
 

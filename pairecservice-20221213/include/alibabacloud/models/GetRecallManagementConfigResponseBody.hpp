@@ -111,11 +111,27 @@ namespace Models
 
 
     protected:
+      // The private endpoint.
       shared_ptr<string> privateLinkAddress_ {};
+      // The public endpoint.
       shared_ptr<string> publicEndpoint_ {};
+      // The network connectivity status. Valid values:
+      // 
+      // - Connecting: connecting.
+      // 
+      // - Connected: connected.
+      // 
+      // - ConnectionFailed: connection failed.
+      // 
+      // - Updating: updating.
+      // 
+      // - UpdateFailed: update failed.
       shared_ptr<string> status_ {};
+      // The public network connection token.
       shared_ptr<string> token_ {};
+      // The virtual private cloud (VPC) ID.
       shared_ptr<string> vpcId_ {};
+      // The zones.
       shared_ptr<map<string, string>> vswitchIds_ {};
     };
 
@@ -145,9 +161,11 @@ namespace Models
 
 
   protected:
+    // The network configuration information.
     shared_ptr<vector<GetRecallManagementConfigResponseBody::NetworkConfigs>> networkConfigs_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

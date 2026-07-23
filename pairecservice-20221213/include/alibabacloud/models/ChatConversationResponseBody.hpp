@@ -14,23 +14,29 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChatConversationResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Answer, answer_);
+      DARABONBA_PTR_TO_JSON(CallId, callId_);
       DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_TO_JSON(Event, event_);
+      DARABONBA_PTR_TO_JSON(Func, func_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SkillName, skillName_);
     };
     friend void from_json(const Darabonba::Json& j, ChatConversationResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Answer, answer_);
+      DARABONBA_PTR_FROM_JSON(CallId, callId_);
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_FROM_JSON(Event, event_);
+      DARABONBA_PTR_FROM_JSON(Func, func_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SkillName, skillName_);
     };
     ChatConversationResponseBody() = default ;
     ChatConversationResponseBody(const ChatConversationResponseBody &) = default ;
@@ -44,13 +50,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->answer_ == nullptr
-        && this->conversationId_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->event_ == nullptr && this->gmtCreateTime_ == nullptr
-        && this->messageId_ == nullptr && this->requestId_ == nullptr; };
+        && this->callId_ == nullptr && this->conversationId_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->event_ == nullptr
+        && this->func_ == nullptr && this->gmtCreateTime_ == nullptr && this->messageId_ == nullptr && this->requestId_ == nullptr && this->skillName_ == nullptr; };
     // answer Field Functions 
     bool hasAnswer() const { return this->answer_ != nullptr;};
     void deleteAnswer() { this->answer_ = nullptr;};
     inline string getAnswer() const { DARABONBA_PTR_GET_DEFAULT(answer_, "") };
     inline ChatConversationResponseBody& setAnswer(string answer) { DARABONBA_PTR_SET_VALUE(answer_, answer) };
+
+
+    // callId Field Functions 
+    bool hasCallId() const { return this->callId_ != nullptr;};
+    void deleteCallId() { this->callId_ = nullptr;};
+    inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+    inline ChatConversationResponseBody& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
 
 
     // conversationId Field Functions 
@@ -81,6 +94,13 @@ namespace Models
     inline ChatConversationResponseBody& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
+    // func Field Functions 
+    bool hasFunc() const { return this->func_ != nullptr;};
+    void deleteFunc() { this->func_ = nullptr;};
+    inline string getFunc() const { DARABONBA_PTR_GET_DEFAULT(func_, "") };
+    inline ChatConversationResponseBody& setFunc(string func) { DARABONBA_PTR_SET_VALUE(func_, func) };
+
+
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
@@ -102,15 +122,36 @@ namespace Models
     inline ChatConversationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // skillName Field Functions 
+    bool hasSkillName() const { return this->skillName_ != nullptr;};
+    void deleteSkillName() { this->skillName_ = nullptr;};
+    inline string getSkillName() const { DARABONBA_PTR_GET_DEFAULT(skillName_, "") };
+    inline ChatConversationResponseBody& setSkillName(string skillName) { DARABONBA_PTR_SET_VALUE(skillName_, skillName) };
+
+
   protected:
+    // The reply content.
     shared_ptr<string> answer_ {};
+    // The call ID.
+    shared_ptr<string> callId_ {};
+    // The session ID.
     shared_ptr<string> conversationId_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The event.
     shared_ptr<string> event_ {};
+    // The function name.
+    shared_ptr<string> func_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The message ID.
     shared_ptr<string> messageId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The skill name.
+    shared_ptr<string> skillName_ {};
   };
 
   } // namespace Models

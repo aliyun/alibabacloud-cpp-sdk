@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can get this ID by calling the ListInstances operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The layer ID. You can get this ID by calling the ListLayers operation.
     shared_ptr<string> layerId_ {};
+    // The status of the experiment group. Valid values: Offline, Online, and Pushed.
     shared_ptr<string> status_ {};
+    // The end time for filtering experiment groups.
     shared_ptr<string> timeRangeEnd_ {};
+    // The start time for filtering experiment groups.
     shared_ptr<string> timeRangeStart_ {};
   };
 

@@ -113,10 +113,25 @@ namespace Models
 
 
     protected:
+      // Specifies the role of the field. Valid values:
+      // 
+      // - `Primary`: The primary key field.
+      // 
+      // - `Item`: The item field.
+      // 
+      // - `Score`: The recall score field.
+      // 
+      // - `Vector`: The vector field.
+      // 
+      // - `Index`: The index field.
       shared_ptr<vector<string>> attributes_ {};
+      // The field name.
       shared_ptr<string> name_ {};
+      // The data type of the field.
       shared_ptr<string> type_ {};
+      // The vector dimension.
       shared_ptr<int32_t> vectorDimension_ {};
+      // The vector metric type.
       shared_ptr<string> vectorMetricType_ {};
     };
 
@@ -189,15 +204,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the data size fluctuation threshold.
     shared_ptr<bool> enableDataSizeFluctuationThreshold_ {};
+    // Specifies whether to enable the row count fluctuation threshold.
     shared_ptr<bool> enableRowCountFluctuationThreshold_ {};
+    // A list of fields.
     shared_ptr<UpdateRecallManagementTableRequest::Fields> fields_ {};
+    // The version ID of the table.
     shared_ptr<string> indexVersionId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum value for the data size fluctuation threshold.
     shared_ptr<int32_t> maxDataSizeFluctuationThreshold_ {};
+    // The maximum value for the row count fluctuation threshold.
     shared_ptr<int32_t> maxRowCountFluctuationThreshold_ {};
+    // The minimum value for the data size fluctuation threshold.
     shared_ptr<int32_t> minDataSizeFluctuationThreshold_ {};
+    // The minimum value for the row count fluctuation threshold.
     shared_ptr<int32_t> minRowCountFluctuationThreshold_ {};
   };
 

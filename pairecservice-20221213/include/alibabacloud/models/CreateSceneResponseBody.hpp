@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
   };
 

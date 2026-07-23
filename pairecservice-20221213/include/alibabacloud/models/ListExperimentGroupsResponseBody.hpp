@@ -237,25 +237,53 @@ namespace Models
 
 
     protected:
+      // The configuration for the experiment group, in JSON format.
       shared_ptr<string> config_ {};
+      // The crowd ID.
       shared_ptr<string> crowdId_ {};
+      // The traffic targeting method for the experiment group. Valid values:
+      // 
+      // - `All`: All traffic.
+      // 
+      // - `Filter`: Traffic that matches the filter.
+      // 
+      // - `CrowdId`: Traffic from a specified crowd.
+      // 
+      // - `Random`: A random percentage of traffic.
       shared_ptr<string> crowdTargetType_ {};
+      // The debug crowd ID.
       shared_ptr<string> debugCrowdId_ {};
+      // The IDs of debug users, separated by commas.
       shared_ptr<string> debugUsers_ {};
+      // The experiment group description.
       shared_ptr<string> description_ {};
+      // The distribution duration. This parameter is required only when `DistributionType` is `TimeDuration`.
       shared_ptr<int32_t> distributionTimeDuration_ {};
+      // The traffic distribution method.<br>● `UserId`: by user ID<br>● `TimeDuration`: by time duration<br><br>
       shared_ptr<string> distributionType_ {};
+      // The experiment group ID.
       shared_ptr<string> experimentGroupId_ {};
+      // The filter condition.
       shared_ptr<string> filter_ {};
+      // If `CrowdTargetType` is set to `Random`, this parameter returns the comma-separated IDs of buckets allocated based on the `RandomFlow` value.
       shared_ptr<string> holdingBuckets_ {};
+      // The laboratory ID.
       shared_ptr<string> laboratoryId_ {};
+      // The layer ID.
       shared_ptr<string> layerId_ {};
+      // The experiment group name.
       shared_ptr<string> name_ {};
+      // Specifies whether to enable A/B testing for the experiment group.
       shared_ptr<bool> needAA_ {};
+      // The owner of the experiment group.
       shared_ptr<string> owner_ {};
+      // If `CrowdTargetType` is set to `Random`, this parameter specifies the percentage of traffic (an integer from 0 to 100) randomly allocated to the experiment group.
       shared_ptr<int64_t> randomFlow_ {};
+      // The IDs of reserved buckets, separated by commas.
       shared_ptr<string> reservedBuckets_ {};
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
+      // The status of the experiment group. Valid values:<br>● `Offline`: The experiment group is inactive.<br>● `Online`: The experiment group is active.<br>● `Pushed`: The experiment group is fully rolled out.<br><br><br>
       shared_ptr<string> status_ {};
     };
 
@@ -285,9 +313,11 @@ namespace Models
 
 
   protected:
+    // The list of experiment groups.
     shared_ptr<vector<ListExperimentGroupsResponseBody::ExperimentGroups>> experimentGroups_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

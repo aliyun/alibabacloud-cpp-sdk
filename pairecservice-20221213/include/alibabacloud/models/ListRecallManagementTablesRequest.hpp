@@ -112,15 +112,25 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // This parameter is reserved for future use.
     shared_ptr<int32_t> maxResults_ {};
+    // The table name.
     shared_ptr<string> name_ {};
+    // This parameter is reserved for future use.
     shared_ptr<string> nextToken_ {};
+    // The sort order for the results. Valid values: `ASC` (ascending) and `DESC` (descending).
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The field to sort the results by. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
     shared_ptr<string> sortBy_ {};
+    // The table type. Valid values: `X2I` (U2I recall or I2I recall), `Vector` (vector recall), and `Random` (random recall).
     shared_ptr<string> type_ {};
   };
 

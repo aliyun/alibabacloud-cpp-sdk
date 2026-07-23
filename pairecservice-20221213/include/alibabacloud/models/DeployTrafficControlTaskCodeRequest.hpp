@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The deployment environment. Valid values: Daily (daily environment), Pre (pre-production environment), and Prod (production environment).
     shared_ptr<string> environment_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to automatically retry a failed deployment.
     shared_ptr<bool> retryDeploy_ {};
   };
 

@@ -544,6 +544,7 @@ namespace Models
 
 
   protected:
+    // Whether to enable feature comparison.
     shared_ptr<bool> compareFeature_ {};
     shared_ptr<string> datasetId_ {};
     shared_ptr<string> datasetMountPath_ {};
@@ -551,53 +552,110 @@ namespace Models
     shared_ptr<string> datasetType_ {};
     shared_ptr<string> datasetUri_ {};
     shared_ptr<string> defaultRoute_ {};
+    // The EAS service name.
     shared_ptr<string> easServiceName_ {};
+    // The path of the EasyRec package.
     shared_ptr<string> easyRecPackagePath_ {};
+    // The EasyRec version.
     shared_ptr<string> easyRecVersion_ {};
+    // A comma-separated list of features to exclude from the display.
     shared_ptr<string> featureDisplayExclude_ {};
+    // The ID of the data source for feature fallback.
     shared_ptr<string> featureLandingResourceId_ {};
+    // The URI of the data source for feature fallback.
     shared_ptr<string> featureLandingResourceUri_ {};
+    // A comma-separated list of features, ordered by priority.
     shared_ptr<string> featurePriority_ {};
+    // The primary key for items in the Feature Store.
     shared_ptr<string> featureStoreItemId_ {};
+    // The Feature Store model ID.
     shared_ptr<string> featureStoreModelId_ {};
+    // The Feature Store project ID.
     shared_ptr<string> featureStoreProjectId_ {};
+    // The Feature Store project name.
     shared_ptr<string> featureStoreProjectName_ {};
+    // The name of the feature view that contains item features within sequence features.
     shared_ptr<string> featureStoreSeqFeatureView_ {};
+    // The primary key for users in the Feature Store.
     shared_ptr<string> featureStoreUserId_ {};
+    // The version of the `fg_jar` file.
     shared_ptr<string> fgJarVersion_ {};
+    // The name of the `fg_json` file.
     shared_ptr<string> fgJsonFileName_ {};
+    // Whether to generate a ZIP package.
     shared_ptr<bool> generateZip_ {};
+    // The time the configuration was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time the configuration was last updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The name of the `item_id` field.
     shared_ptr<string> itemIdField_ {};
+    // The item table name.
     shared_ptr<string> itemTable_ {};
+    // The partition field of the item table.
     shared_ptr<string> itemTablePartitionField_ {};
+    // The format of the partition field in the item table. Valid values:
+    // 
+    // - `yyyymmdd`
+    // 
+    // - `yyyy-mm-dd`
     shared_ptr<string> itemTablePartitionFieldFormat_ {};
+    // The end time of the most recent job.
     shared_ptr<string> latestJobGmtSamplingEndTime_ {};
+    // The start time of the most recent job.
     shared_ptr<string> latestJobGmtSamplingStartTime_ {};
+    // The ID of the most recent job created from this configuration.
     shared_ptr<string> latestJobId_ {};
+    // The name of the feature consistency check configuration.
     shared_ptr<string> name_ {};
+    // The OSS bucket name.
     shared_ptr<string> ossBucket_ {};
+    // The ID of the OSS data source.
     shared_ptr<string> ossResourceId_ {};
     shared_ptr<int32_t> predictWorkerCount_ {};
     shared_ptr<int32_t> predictWorkerCpu_ {};
     shared_ptr<int32_t> predictWorkerMemory_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> resourceConfig_ {};
+    // The sample rate. The value must be between 0 and 1.
     shared_ptr<string> sampleRate_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
+    // The scene name.
     shared_ptr<string> sceneName_ {};
     shared_ptr<string> securityGroupId_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The service name.
     shared_ptr<string> serviceName_ {};
+    // The status of the configuration. Valid values:
+    // 
+    // - `Editable`: The configuration can be edited.
+    // 
+    // - `Uneditable`: The configuration cannot be edited.
     shared_ptr<string> status_ {};
     shared_ptr<string> switchId_ {};
+    // Whether to use a Feature Store. Valid values:
+    // 
+    // - `true`: A Feature Store is used. In this case, the response also returns `FeatureStoreProjectId`, `FeatureStoreProjectName`, `FeatureStoreModelId`, `FeatureStoreUserId`, and `FeatureStoreItemId`.
+    // 
+    // - `false`: A Feature Store is not used. In this case, the `UserTable`, `UserIdField`, `UserTablePartitionField`, `UserTablePartitionFieldFormat`, `ItemTable`, `ItemIdField`, `ItemTablePartitionField`, and `ItemTablePartitionFieldFormat` parameters are returned.
     shared_ptr<bool> useFeatureStore_ {};
+    // The name of the `user_id` field.
     shared_ptr<string> userIdField_ {};
+    // The user table name.
     shared_ptr<string> userTable_ {};
+    // The partition field of the user table.
     shared_ptr<string> userTablePartitionField_ {};
+    // The format of the partition field in the user table. Valid values:
+    // 
+    // - `yyyymmdd`
+    // 
+    // - `yyyy-mm-dd`
     shared_ptr<string> userTablePartitionFieldFormat_ {};
     shared_ptr<string> vpcId_ {};
+    // The workflow name.
     shared_ptr<string> workflowName_ {};
     shared_ptr<string> workspaceId_ {};
   };

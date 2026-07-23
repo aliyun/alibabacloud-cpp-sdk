@@ -75,11 +75,25 @@ namespace Models
 
 
   protected:
+    // The instance ID. To obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The sort order.
+    // 
+    // - `ASC`: Ascending order.
+    // 
+    // - `DESC`: Descending order.
     shared_ptr<string> order_ {};
+    // The page number. The value starts at 1. The default value is 1.
     shared_ptr<string> pageNumber_ {};
+    // The page size.
     shared_ptr<string> pageSize_ {};
+    // The field to sort by.
+    // 
+    // - `GmtCreateTime`: Creation time.
+    // 
+    // - `GmtModifiedTime`: Modified time.
     shared_ptr<string> sortBy_ {};
   };
 

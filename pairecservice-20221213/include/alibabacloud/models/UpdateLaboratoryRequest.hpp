@@ -130,19 +130,34 @@ namespace Models
 
 
   protected:
+    // The number of buckets.
     shared_ptr<int32_t> bucketCount_ {};
+    // The bucketing method. Valid values: ● Uid: Bucketing by UID (default). ● UidHash: Bucketing by UID hash. ● Filter: Bucketing by a filter condition.
+    // 
     // This parameter is required.
     shared_ptr<string> bucketType_ {};
+    // The assigned bucket numbers.
     shared_ptr<string> buckets_ {};
+    // The debug crowd ID.
     shared_ptr<string> debugCrowdId_ {};
+    // The UIDs of debugging users. These UIDs must belong to an Alibaba Cloud main account or a sub-account. Separate multiple UIDs with a comma (,).
     shared_ptr<string> debugUsers_ {};
+    // The laboratory description.
     shared_ptr<string> description_ {};
+    // The environment. Valid values: ● Daily: The daily environment. ● Pre: The staging environment. ● Prod: The production environment.
     shared_ptr<string> environment_ {};
+    // The filter condition.
     shared_ptr<string> filter_ {};
+    // The instance ID. Call the ListInstances operation to obtain the ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The laboratory name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The laboratory type. Valid values: ● Base ● NonBase
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The reported traffic for this experiment.
     shared_ptr<double> traffic_ {};
   };
 

@@ -156,16 +156,33 @@ namespace Models
 
 
     protected:
+      // The business date.
       shared_ptr<string> bizDate_ {};
+      // The job configuration.
       shared_ptr<string> config_ {};
+      // The data diagnosis configuration ID.
       shared_ptr<string> dataDiagnosisConfigId_ {};
+      // The data diagnosis configuration name.
       shared_ptr<string> dataDiagnosisConfigName_ {};
+      // The data diagnosis job ID.
       shared_ptr<string> dataDiagnosisJobId_ {};
+      // The time when the job was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the job started.
       shared_ptr<string> gmtStartTime_ {};
+      // The job source. Valid values:
+      // 
+      // - Rerun: A manual rerun.
+      // 
+      // - Cycle: A periodic run.
+      // 
+      // - ByInitializing: Generated during initialization.
       shared_ptr<string> jobSource_ {};
+      // The log messages.
       shared_ptr<vector<string>> logs_ {};
+      // The task status.
       shared_ptr<string> status_ {};
+      // The data diagnosis type.
       shared_ptr<string> type_ {};
     };
 
@@ -195,8 +212,11 @@ namespace Models
 
 
   protected:
+    // The returned data diagnosis jobs.
     shared_ptr<vector<ListDataDiagnosisJobsResponseBody::DataDiagnosisJobs>> dataDiagnosisJobs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

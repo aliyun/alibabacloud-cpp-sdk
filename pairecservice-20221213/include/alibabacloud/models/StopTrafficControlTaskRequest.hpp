@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The environment. Valid values: `Daily` (daily environment), `Pre` (pre-production environment), and `Prod` (production environment).
     shared_ptr<string> environment_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether the data is from the baseline experiment.
     shared_ptr<bool> baseline_ {};
+    // The metric results.
     shared_ptr<map<string, Darabonba::Json>> metricResults_ {};
   };
 

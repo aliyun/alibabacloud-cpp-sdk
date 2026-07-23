@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The parameter ID.
     shared_ptr<int64_t> paramId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

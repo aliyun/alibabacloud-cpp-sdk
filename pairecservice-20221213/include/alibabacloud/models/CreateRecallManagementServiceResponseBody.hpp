@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The recall management service ID.
     shared_ptr<string> recallManagementServiceId_ {};
+    // The recall management service version ID.
     shared_ptr<string> recallManagementServiceVersionId_ {};
+    // **The request ID.**
     shared_ptr<string> requestId_ {};
   };
 

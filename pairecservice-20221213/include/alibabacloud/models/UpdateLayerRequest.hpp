@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The layer description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The instance ID. You can obtain this ID by calling the ListInstances operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The layer name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

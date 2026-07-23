@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The MaxCompute schema.
     shared_ptr<string> maxcomputeSchema_ {};
   };
 

@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // A map of availability zones to VSwitch IDs.
       shared_ptr<map<string, string>> vswitchIds_ {};
     };
 
@@ -105,8 +107,11 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The network configuration.
     shared_ptr<vector<UpdateRecallManagementConfigRequest::NetworkConfigs>> networkConfigs_ {};
+    // The password.
     shared_ptr<string> password_ {};
   };
 

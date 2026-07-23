@@ -167,20 +167,35 @@ namespace Models
 
 
   protected:
+    // The configuration of the data diagnosis task.
     shared_ptr<string> config_ {};
+    // The time for periodic execution. If this field is empty, the task does not execute periodically.
     shared_ptr<string> cycleTime_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The modification time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The ID of the left data table.
     shared_ptr<string> leftTableMetaId_ {};
+    // The partition field of the left data table.
     shared_ptr<string> leftTablePartitionField_ {};
+    // The name of the data diagnosis task.
     shared_ptr<string> name_ {};
+    // The partition field.
     shared_ptr<string> partitionField_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the right data table.
     shared_ptr<string> rightTableMetaId_ {};
+    // The partition field of the right data table.
     shared_ptr<string> rightTablePartitionField_ {};
+    // The ID of the data table.
     shared_ptr<string> tableMetaId_ {};
+    // The name of the data table.
     shared_ptr<string> tableMetaName_ {};
+    // The Top-N quantity.
     shared_ptr<int64_t> topNQuantity_ {};
+    // The type of the data diagnosis task.
     shared_ptr<string> type_ {};
   };
 

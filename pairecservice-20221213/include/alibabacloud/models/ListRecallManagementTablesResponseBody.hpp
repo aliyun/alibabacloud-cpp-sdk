@@ -195,21 +195,35 @@ namespace Models
 
 
     protected:
+      // Indicates whether the table can be deleted.
       shared_ptr<bool> canDelete_ {};
+      // The data source.
       shared_ptr<string> dataSource_ {};
+      // The description of the recall management table.
       shared_ptr<string> description_ {};
+      // The time when the table was created. The time is in the ISO 8601 format.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the table was last modified. The time is in the ISO 8601 format.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The time when the index takes effect. The time is in the ISO 8601 format.
       shared_ptr<string> indexEffectiveTime_ {};
+      // The ID of the index version.
       shared_ptr<string> indexVersionId_ {};
+      // The name of the MaxCompute project.
       shared_ptr<string> maxcomputeProjectName_ {};
-      // maxcompute schema。
+      // The schema of the MaxCompute table.
       shared_ptr<string> maxcomputeSchema_ {};
+      // The name of the table in MaxCompute.
       shared_ptr<string> maxcomputeTableName_ {};
+      // The name of the recall management table.
       shared_ptr<string> name_ {};
+      // The partition fields of the table.
       shared_ptr<string> partitionFields_ {};
+      // The ID of the recall management table.
       shared_ptr<string> recallManagementTableId_ {};
+      // The recall type of the table.
       shared_ptr<string> recallType_ {};
+      // The type of the table.
       shared_ptr<string> type_ {};
     };
 
@@ -253,10 +267,15 @@ namespace Models
 
 
   protected:
+    // This parameter is reserved for future use.
     shared_ptr<int32_t> maxResults_ {};
+    // This parameter is reserved for future use.
     shared_ptr<string> nextToken_ {};
+    // A list of recall management tables.
     shared_ptr<vector<ListRecallManagementTablesResponseBody::RecallManagementTables>> recallManagementTables_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of recall management tables.
     shared_ptr<string> totalCount_ {};
   };
 

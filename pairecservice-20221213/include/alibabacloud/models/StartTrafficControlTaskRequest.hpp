@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The target environment. Valid values:
     shared_ptr<string> environment_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -129,13 +129,31 @@ namespace Models
 
 
     protected:
+      // The configuration of the job.
       shared_ptr<string> config_ {};
+      // The ID of the feature consistency check configuration.
       shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
+      // The name of the feature consistency check job configuration.
       shared_ptr<string> featureConsistencyCheckJobConfigName_ {};
+      // The ID of the feature consistency check job.
       shared_ptr<string> featureConsistencyCheckJobId_ {};
+      // The end time of the job.
       shared_ptr<string> gmtEndTime_ {};
+      // The start time of the job.
       shared_ptr<string> gmtStartTime_ {};
+      // A list of log entries.
       shared_ptr<vector<string>> logs_ {};
+      // The status of the job. Valid values:
+      // 
+      // - `ToRun`: Waiting to run.
+      // 
+      // - `Running`: In progress.
+      // 
+      // - `Success`: Successful.
+      // 
+      // - `Failure`: Failed.
+      // 
+      // - `Stopped`: Stopped or canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -165,8 +183,11 @@ namespace Models
 
 
   protected:
+    // The list of feature consistency check jobs.
     shared_ptr<vector<ListFeatureConsistencyCheckJobsResponseBody::FeatureConsistencyCheckJobs>> featureConsistencyCheckJobs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of jobs.
     shared_ptr<string> totalCount_ {};
   };
 

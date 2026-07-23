@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The flow code.
       shared_ptr<string> flowCode_ {};
+      // The flow name.
       shared_ptr<string> flowName_ {};
     };
 
@@ -111,10 +113,13 @@ namespace Models
 
 
   protected:
+    // The scene description.
     shared_ptr<string> description_ {};
+    // A list of flows.
     shared_ptr<vector<GetSceneResponseBody::Flows>> flows_ {};
+    // The scene name.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

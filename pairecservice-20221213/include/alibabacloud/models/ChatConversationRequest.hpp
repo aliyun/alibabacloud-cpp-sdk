@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The additional information input in JSON format.
     shared_ptr<string> config_ {};
+    // The message content.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The session ID. If this parameter is not specified, a new session is created. If this parameter is specified, the conversation continues in the context of the existing session.
     shared_ptr<string> conversationId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

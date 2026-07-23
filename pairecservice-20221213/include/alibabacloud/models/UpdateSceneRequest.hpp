@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The flow code.
       shared_ptr<string> flowCode_ {};
+      // The flow name.
       shared_ptr<string> flowName_ {};
     };
 
@@ -111,9 +113,13 @@ namespace Models
 
 
   protected:
+    // The scene description.
     shared_ptr<string> description_ {};
+    // The flows.
     shared_ptr<vector<UpdateSceneRequest::Flows>> flows_ {};
+    // The instance ID. To obtain the ID, call the `ListInstances` API.
     shared_ptr<string> instanceId_ {};
+    // The scene name.
     shared_ptr<string> name_ {};
   };
 

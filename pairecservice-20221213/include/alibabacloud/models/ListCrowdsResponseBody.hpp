@@ -127,13 +127,25 @@ namespace Models
 
 
     protected:
+      // The Crowd ID.
       shared_ptr<string> crowdId_ {};
+      // The Crowd description.
       shared_ptr<string> description_ {};
+      // The time when the Crowd was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The label of the Crowd.
       shared_ptr<string> label_ {};
+      // The Crowd name.
       shared_ptr<string> name_ {};
+      // The number of users in the Crowd.
       shared_ptr<string> quantity_ {};
+      // The source of the Crowd. Valid values:
+      // 
+      // - `ManualInput`: The Crowd is created from a manual entry of users.
+      // 
+      // - `UploadFile`: The Crowd is created from an uploaded file.
       shared_ptr<string> source_ {};
+      // The user IDs in the Crowd, separated by commas.
       shared_ptr<string> users_ {};
     };
 
@@ -163,9 +175,11 @@ namespace Models
 
 
   protected:
+    // The list of Crowds.
     shared_ptr<vector<ListCrowdsResponseBody::Crowds>> crowds_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of Crowds.
     shared_ptr<int64_t> totalCount_ {};
   };
 

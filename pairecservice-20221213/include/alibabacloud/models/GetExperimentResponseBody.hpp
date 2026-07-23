@@ -186,23 +186,39 @@ namespace Models
 
 
   protected:
+    // The alias of the experiment.
     shared_ptr<string> aliasExperimentId_ {};
+    // A comma-separated list of bucket numbers.
     shared_ptr<string> buckets_ {};
+    // The experiment configuration, in JSON format.
     shared_ptr<string> config_ {};
+    // The debug crowd ID.
     shared_ptr<string> debugCrowdId_ {};
+    // The UIDs of debug users, which can be the UIDs of an Alibaba Cloud main account or a RAM user. Separate multiple UIDs with a comma (,).
     shared_ptr<string> debugUsers_ {};
+    // The experiment description.
     shared_ptr<string> description_ {};
+    // The experiment group ID.
     shared_ptr<string> experimentGroupId_ {};
+    // The traffic percentage.
     shared_ptr<int32_t> flowPercent_ {};
+    // The creation time, in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
+    // The modification time, in ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The laboratory ID.
     shared_ptr<string> laboratoryId_ {};
+    // The layer ID.
     shared_ptr<string> layerId_ {};
+    // The experiment name.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
+    // The status of the experiment. Valid values:<br>● Offline<br>● Online<br><br>
     shared_ptr<string> status_ {};
+    // The type of the experiment. Valid values:<br>● Baseline: a baseline experiment.<br>● Normal: a normal experiment.<br><br>
     shared_ptr<string> type_ {};
   };
 

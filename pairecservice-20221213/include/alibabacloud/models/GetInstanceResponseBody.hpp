@@ -80,6 +80,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether the operating tool is enabled for the instance. Valid values:
+      // 
+      // - True: Enabled
+      // 
+      // - False: Disabled
       shared_ptr<bool> isEnable_ {};
     };
 
@@ -155,8 +160,11 @@ namespace Models
 
 
       protected:
+        // The component code.
         shared_ptr<string> componentCode_ {};
+        // The metadata.
         Darabonba::Json meta_ {};
+        // The component type.
         shared_ptr<string> type_ {};
       };
 
@@ -209,8 +217,11 @@ namespace Models
 
 
       protected:
+        // The component code.
         shared_ptr<string> componentCode_ {};
+        // The metadata.
         Darabonba::Json meta_ {};
+        // The component type.
         shared_ptr<string> type_ {};
       };
 
@@ -263,8 +274,11 @@ namespace Models
 
 
       protected:
+        // The component code.
         shared_ptr<string> componentCode_ {};
+        // The metadata.
         Darabonba::Json meta_ {};
+        // The component type.
         shared_ptr<string> type_ {};
       };
 
@@ -298,8 +312,11 @@ namespace Models
 
 
     protected:
+      // The list of modeling environments.
       shared_ptr<vector<Config::DataManagements>> dataManagements_ {};
+      // The list of service engines.
       shared_ptr<vector<Config::Engines>> engines_ {};
+      // The list of monitoring components.
       shared_ptr<vector<Config::Monitors>> monitors_ {};
     };
 
@@ -396,17 +413,29 @@ namespace Models
 
 
   protected:
+    // The billing method of the instance. The value is fixed as Subscription.
     shared_ptr<string> chargeType_ {};
+    // The commodity code of the instance.
     shared_ptr<string> commodityCode_ {};
+    // The instance configurations.
     shared_ptr<GetInstanceResponseBody::Config> config_ {};
+    // The time when the instance expires.
     shared_ptr<string> expiredTime_ {};
+    // The time when the instance was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the instance was last updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The operating tool configurations.
     shared_ptr<GetInstanceResponseBody::OperatingTool> operatingTool_ {};
+    // The region ID. Valid values:<br>● cn-shenzhen: Shenzhen<br>● cn-hangzhou: Hangzhou<br>● cn-beijing: Beijing<br>● cn-shanghai: Shanghai<br><br><br><br>
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The instance status. Valid values:<br>● Initializing<br>● Stopped<br>● Running<br><br><br>
     shared_ptr<string> status_ {};
+    // The instance type. Valid values:<br>● basic: Basic<br>● highlevel: High-level<br>● advanced: Advanced<br>● standard: Standard<br><br><br><br>
     shared_ptr<string> type_ {};
   };
 

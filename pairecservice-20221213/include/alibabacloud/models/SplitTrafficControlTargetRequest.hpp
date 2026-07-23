@@ -82,10 +82,19 @@ namespace Models
 
 
   protected:
+    // The environment. Valid values:
+    // 
+    // - `Pre`: pre-production environment.
+    // 
+    // - `Prod`: production environment.
     shared_ptr<string> environment_ {};
+    // The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     shared_ptr<string> instanceId_ {};
+    // This parameter is deprecated.
     shared_ptr<vector<int64_t>> setPoints_ {};
+    // The target values that correspond to the time intervals defined by the `TimePoints` parameter.
     shared_ptr<vector<int64_t>> setValues_ {};
+    // The time points that define the traffic-splitting intervals.
     shared_ptr<vector<int64_t>> timePoints_ {};
   };
 

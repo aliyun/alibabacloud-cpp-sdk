@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // **The description for the recall management service.**
     shared_ptr<string> description_ {};
+    // **The instance ID.**
     shared_ptr<string> instanceId_ {};
+    // **The name of the recall management service.**
     shared_ptr<string> name_ {};
   };
 

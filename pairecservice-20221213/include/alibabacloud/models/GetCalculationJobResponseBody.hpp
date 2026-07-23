@@ -115,14 +115,35 @@ namespace Models
 
 
   protected:
+    // The ID of the AB metric.
     shared_ptr<string> ABMetricId_ {};
+    // The name of the AB metric.
     shared_ptr<string> ABMetricName_ {};
+    // The business date.
     shared_ptr<string> bizDate_ {};
+    // The job configuration.
     shared_ptr<string> config_ {};
+    // The runtime of the job.
     shared_ptr<string> gmtRanTime_ {};
+    // The job messages.
     shared_ptr<vector<string>> jobMessage_ {};
+    // The job source. Valid values:
+    // 
+    // - CronOffline: An offline cron job.
+    // 
+    // - DataRerun: A data rerun task.
     shared_ptr<string> jobSource_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the calculation job. Valid values:
+    // 
+    // - Success: The job completed successfully.
+    // 
+    // - Failure: The job failed.
+    // 
+    // - Initializing: The job is initializing.
+    // 
+    // - Running: The job is running.
     shared_ptr<string> status_ {};
   };
 

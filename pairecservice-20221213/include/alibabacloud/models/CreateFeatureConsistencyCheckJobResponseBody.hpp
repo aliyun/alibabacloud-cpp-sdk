@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The feature consistency check job ID.
     shared_ptr<string> featureConsistencyCheckJobId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

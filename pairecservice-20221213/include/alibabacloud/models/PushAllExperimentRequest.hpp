@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance ID. Call the ListInstances API to obtain this ID.
     shared_ptr<string> instanceId_ {};
   };
 

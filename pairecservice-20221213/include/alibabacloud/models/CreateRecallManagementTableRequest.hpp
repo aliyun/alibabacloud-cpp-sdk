@@ -129,10 +129,25 @@ namespace Models
 
 
     protected:
+      // The attributes of the field. Valid values:
+      // 
+      // - `Primary`: The primary key field.
+      // 
+      // - `Item`: The item field.
+      // 
+      // - `Score`: The recall score field.
+      // 
+      // - `Vector`: The vector field.
+      // 
+      // - `Index`: The index field.
       shared_ptr<vector<string>> attributes_ {};
+      // The name of the field.
       shared_ptr<string> name_ {};
+      // The data type of the field.
       shared_ptr<string> type_ {};
+      // The vector dimension.
       shared_ptr<int32_t> vectorDimension_ {};
+      // The vector metric type.
       shared_ptr<string> vectorMetricType_ {};
     };
 
@@ -263,23 +278,41 @@ namespace Models
 
 
   protected:
+    // Additional settings for the table.
     shared_ptr<string> config_ {};
+    // The data source.
     shared_ptr<string> dataSource_ {};
+    // **The description of the table.**
     shared_ptr<string> description_ {};
+    // Whether to enable the data size fluctuation threshold.
     shared_ptr<bool> enableDataSizeFluctuationThreshold_ {};
+    // Whether to enable the row count fluctuation threshold.
     shared_ptr<bool> enableRowCountFluctuationThreshold_ {};
+    // The list of fields.
     shared_ptr<vector<CreateRecallManagementTableRequest::Fields>> fields_ {};
+    // **The instance ID.**
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maximum data size fluctuation threshold.
     shared_ptr<int64_t> maxDataSizeFluctuationThreshold_ {};
+    // The maximum row count fluctuation threshold.
     shared_ptr<int64_t> maxRowCountFluctuationThreshold_ {};
+    // The MaxCompute project.
     shared_ptr<string> maxcomputeProjectName_ {};
+    // **The schema in MaxCompute.**
     shared_ptr<string> maxcomputeSchema_ {};
+    // The name of the table in MaxCompute.
     shared_ptr<string> maxcomputeTableName_ {};
+    // The minimum data size fluctuation threshold.
     shared_ptr<int64_t> minDataSizeFluctuationThreshold_ {};
+    // The minimum row count fluctuation threshold.
     shared_ptr<int64_t> minRowCountFluctuationThreshold_ {};
+    // **The name of the table.**
     shared_ptr<string> name_ {};
+    // The recall type of the table.
     shared_ptr<string> recallType_ {};
+    // **The table type.**
     shared_ptr<string> type_ {};
   };
 

@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // The time when the subcrowd was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The number of users in the subcrowd.
       shared_ptr<int32_t> quantity_ {};
+      // The source of the subcrowd.<br>● ManualInput: Users were added manually.<br>● UploadFile: Users were added by uploading a file.<br><br>
       shared_ptr<string> source_ {};
+      // The subcrowd ID.
       shared_ptr<string> subCrowdId_ {};
+      // The users in the subcrowd.
       shared_ptr<string> users_ {};
     };
 
@@ -132,9 +137,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of subcrowds.
     shared_ptr<vector<ListSubCrowdsResponseBody::SubCrowds>> subCrowds_ {};
+    // The total number of subcrowds.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
     shared_ptr<string> environment_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

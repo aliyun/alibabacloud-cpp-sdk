@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The table name.
       shared_ptr<string> tableName_ {};
     };
 
@@ -91,9 +92,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of data tables.
     shared_ptr<vector<ListInstanceResourceTablesResponseBody::Tables>> tables_ {};
+    // The total count of data tables.
     shared_ptr<string> totalCount_ {};
   };
 

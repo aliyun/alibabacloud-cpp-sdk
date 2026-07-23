@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // The description of the layer.
     shared_ptr<string> description_ {};
+    // The time when the experiment layer was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The ID of the laboratory.
     shared_ptr<string> laboratoryId_ {};
+    // The name of the layer.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The residual traffic in the experiment layer.
     shared_ptr<int64_t> residualFlow_ {};
+    // The ID of the scene.
     shared_ptr<string> sceneId_ {};
   };
 

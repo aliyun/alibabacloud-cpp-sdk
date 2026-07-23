@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The modification time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // Indicates whether the version is effective.
       shared_ptr<bool> isEffective_ {};
+      // The version name.
       shared_ptr<string> name_ {};
+      // The version ID of the Recall Management Service.
       shared_ptr<string> recallManagementServiceVersionId_ {};
     };
 
@@ -132,8 +137,11 @@ namespace Models
 
 
   protected:
+    // A list of Recall Management Service versions.
     shared_ptr<vector<ListRecallManagementServiceVersionsResponseBody::RecallManagementServiceVersions>> recallManagementServiceVersions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

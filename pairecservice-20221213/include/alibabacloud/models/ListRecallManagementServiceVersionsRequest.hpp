@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The sort order. Valid values: `ASC` for ascending order and `DESC` for descending order.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The field to sort the results by. Valid values: `GmtCreateTime` for creation time and `GmtModifiedTime` for modification time.
     shared_ptr<string> sortBy_ {};
   };
 

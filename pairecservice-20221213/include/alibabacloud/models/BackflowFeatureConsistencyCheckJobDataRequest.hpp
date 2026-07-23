@@ -130,25 +130,45 @@ namespace Models
 
 
   protected:
+    // The feature consistency check job configuration ID. To obtain the configuration ID, call the [ListFeatureConsistencyCheckJobConfigs](https://help.aliyun.com/document_detail/2557567.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
+    // The instance ID. To obtain the instance ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The item features.
+    // 
     // This parameter is required.
     shared_ptr<string> itemFeatures_ {};
+    // The item ID in the log.
+    // 
     // This parameter is required.
     shared_ptr<string> logItemId_ {};
+    // The log request ID.
+    // 
     // This parameter is required.
     shared_ptr<string> logRequestId_ {};
+    // The log request time (UNIX epoch timestamp).
+    // 
     // This parameter is required.
     shared_ptr<int64_t> logRequestTime_ {};
+    // The user ID in the log.
+    // 
     // This parameter is required.
     shared_ptr<string> logUserId_ {};
+    // The scene name.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneName_ {};
+    // The scores.
+    // 
     // This parameter is required.
     shared_ptr<string> scores_ {};
     shared_ptr<string> serviceName_ {};
+    // The user features.
+    // 
     // This parameter is required.
     shared_ptr<string> userFeatures_ {};
   };

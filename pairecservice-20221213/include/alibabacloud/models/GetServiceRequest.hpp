@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call [ListInstances](https://help.aliyun.com/document_detail/2411819.html) to obtain the instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -114,14 +114,23 @@ namespace Models
 
 
   protected:
+    // The filter condition. Filtering is supported only for the `Table` type. For example: `{"RecallManagementTableId":"1"}`
     Darabonba::Json condition_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // This parameter is not used.
     shared_ptr<int32_t> maxResults_ {};
+    // This parameter is not used.
     shared_ptr<string> nextToken_ {};
+    // The sort order. Valid values: `ASC` (ascending) and `DESC` (descending).
     shared_ptr<string> order_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The sorting basis. Valid values: `GmtCreateTime` (creation time) and `GmtModifiedTime` (update time).
     shared_ptr<string> sortBy_ {};
+    // The task type.
     shared_ptr<string> type_ {};
   };
 

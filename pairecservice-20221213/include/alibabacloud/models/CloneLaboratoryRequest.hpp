@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to clone the experiment groups.
+    // 
     // This parameter is required.
     shared_ptr<bool> cloneExperimentGroup_ {};
+    // The destination environment. Valid values: Daily, Pre (pre-release), and Prod (production).
+    // 
     // This parameter is required.
     shared_ptr<string> environment_ {};
+    // The instance ID. To obtain this ID, call the `ListInstances` operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

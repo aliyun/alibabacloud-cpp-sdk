@@ -60,9 +60,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
+    // The list of users.
     shared_ptr<vector<string>> users_ {};
   };
 

@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the instance. To obtain the ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The item ID used for feature comparison.
+    // 
     // This parameter is required.
     shared_ptr<string> logItemId_ {};
+    // The request ID used for feature comparison.
+    // 
     // This parameter is required.
     shared_ptr<string> logRequestId_ {};
+    // The user ID used for feature comparison.
+    // 
     // This parameter is required.
     shared_ptr<string> logUserId_ {};
   };

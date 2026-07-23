@@ -118,9 +118,13 @@ namespace Models
 
 
     protected:
+      // Whether the field is a dimension field.
       shared_ptr<bool> isDimensionField_ {};
+      // The field meaning.
       shared_ptr<string> meaning_ {};
+      // The field name.
       shared_ptr<string> name_ {};
+      // The field type.
       shared_ptr<string> type_ {};
     };
 
@@ -251,22 +255,47 @@ namespace Models
 
 
   protected:
+    // Indicates whether the table can be deleted. The value is `false` if other resources reference the table.
     shared_ptr<bool> canDelete_ {};
+    // Additional configurations for the table, provided as a JSON string.
     shared_ptr<string> config_ {};
+    // The table description.
     shared_ptr<string> description_ {};
+    // The fields in the table.
     shared_ptr<vector<GetTableMetaResponseBody::Fields>> fields_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The import time.
     shared_ptr<string> gmtImportedTime_ {};
+    // The modification time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The table module. Valid values:
+    // 
+    // - `ABTest`: An A/B testing data table.
+    // 
+    // - `ExperimentTool`: An experiment tool table.
+    // 
+    // - `DataDiagnosis`: A table for data diagnosis.
     shared_ptr<string> module_ {};
+    // The table name.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> resourceUri_ {};
+    // The table ID.
     shared_ptr<string> tableMetaId_ {};
+    // The name of the table in the database.
     shared_ptr<string> tableName_ {};
+    // The table type. Valid values:
+    // 
+    // - `MaxCompute`
+    // 
+    // - `Hologres`
     shared_ptr<string> type_ {};
+    // The URL of the table in Data Map. This parameter is returned only for MaxCompute tables.
     shared_ptr<string> url_ {};
   };
 

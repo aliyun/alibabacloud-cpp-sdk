@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The filter for traffic control targets.
     shared_ptr<string> controlTargetFilter_ {};
+    // The environment to which the parameter belongs. Valid values:
+    // - Daily: daily environment
+    // - Pre: staging environment
+    // - Prod: production environment.
     shared_ptr<string> environment_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The version.
     shared_ptr<string> version_ {};
   };
 

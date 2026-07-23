@@ -84,14 +84,25 @@ namespace Models
 
 
   protected:
+    // The end date.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The feature name.
     shared_ptr<string> featureName_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The retention rate report type.
+    // 
+    // - Period: A report for the specified time period.
     shared_ptr<string> remainRateType_ {};
+    // The start date.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
+    // The number of top results to return.
     shared_ptr<int64_t> topN_ {};
   };
 

@@ -79,8 +79,47 @@ namespace Models
 
 
     protected:
+      // The access status. Valid values:
+      // 
+      // - Success
+      // 
+      // - Failure
       shared_ptr<string> status_ {};
+      // The resource type. Valid values:
+      // 
+      // - Hologres
+      // 
+      // - EAS
+      // 
+      // - BE
+      // 
+      // - Rec
+      // 
+      // - Platform
+      // 
+      // - SLS
+      // 
+      // - DataHub
+      // 
+      // - Kafka
+      // 
+      // - Flinkvvp
+      // 
+      // - ACR
+      // 
+      // - OSS
+      // 
+      // - DataWorks
+      // 
+      // - PAI
+      // 
+      // - MaxCompute
+      // 
+      // - GraphCompute
+      // 
+      // - Redis
       shared_ptr<string> type_ {};
+      // The resource URI.
       shared_ptr<string> uri_ {};
     };
 
@@ -103,7 +142,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of resources.
     shared_ptr<vector<CheckInstanceResourcesResponseBody::Resources>> resources_ {};
   };
 

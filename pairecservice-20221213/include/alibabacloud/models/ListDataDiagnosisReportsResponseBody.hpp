@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The exception group.
       shared_ptr<string> group_ {};
+      // The exception message.
       shared_ptr<string> message_ {};
+      // The type or level of the exception.
       shared_ptr<string> type_ {};
     };
 
@@ -168,13 +171,31 @@ namespace Models
 
 
   protected:
+    // The exception report list.
     shared_ptr<vector<ListDataDiagnosisReportsResponseBody::ExceptionRate>> exceptionRate_ {};
+    // Reports for the abnormal behavior analysis task.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfAbnormalBehavior>>> reportsOfAbnormalBehavior_ {};
+    // Reports for the basic statistical analysis task.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfBaseStatistics>>> reportsOfBaseStatistics_ {};
+    // Reports for the item/user change rate analysis task.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfChangeRateData>>> reportsOfChangeRateData_ {};
+    // Reports for the table join analysis task.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfJoinTables>>> reportsOfJoinTables_ {};
+    // Reports for the user preference statistics cycle analysis task.
     shared_ptr<vector<vector<ListDataDiagnosisReportsResponseBody::ReportsOfPreferenceStatisticsCycle>>> reportsOfPreferenceStatisticsCycle_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The data diagnosis task type. Valid values:
+    // 
+    // - `ChangeRate`: item/user change rate analysis.
+    // 
+    // - `PreferenceStatisticsCycle`: user preference statistics cycle analysis.
+    // 
+    // - `JoinTables`: table join analysis.
+    // 
+    // - `BaseStatistics`: basic statistical analysis.
+    // 
+    // - `AbnormalBehavior`: abnormal behavior analysis.
     shared_ptr<string> type_ {};
   };
 

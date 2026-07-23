@@ -84,11 +84,24 @@ namespace Models
 
 
   protected:
+    // The environment to which the parameter belongs. Valid values:
+    // - Daily: daily environment.
+    // - Pre: staging environment.
+    // - Prod: production environment.
     shared_ptr<string> environment_ {};
+    // The instance ID. You can call the ListInstances operation to obtain the instance ID.
     shared_ptr<string> instanceId_ {};
+    // The parameter name.
     shared_ptr<string> name_ {};
+    // The scene ID. You can call the ListScenes operation to obtain the scene ID.
     shared_ptr<string> sceneId_ {};
+    // The parameter type. Valid values:
+    // 
+    // - Normal: common parameter.
+    // 
+    // - Encryption: encrypted parameter.
     shared_ptr<string> type_ {};
+    // The parameter value.
     shared_ptr<string> value_ {};
   };
 

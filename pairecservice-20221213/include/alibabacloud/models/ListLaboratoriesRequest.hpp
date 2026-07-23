@@ -66,11 +66,27 @@ namespace Models
 
 
   protected:
+    // The laboratory environment.
+    // 
+    // - `Daily`: the daily environment
+    // 
+    // - `Pre`: the pre-production environment
+    // 
+    // - `Prod`: the production environment
     shared_ptr<string> environment_ {};
+    // The ID of the instance. You can obtain this ID by calling the `ListInstances` API.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the scene. You can obtain this ID by calling the `ListScenes` API.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};
+    // The laboratory status.
+    // 
+    // - `Offline`: The laboratory is offline.
+    // 
+    // - `Online`: The laboratory is online.
     shared_ptr<string> status_ {};
   };
 

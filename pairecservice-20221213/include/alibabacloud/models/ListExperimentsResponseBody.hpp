@@ -210,22 +210,47 @@ namespace Models
 
 
     protected:
+      // The alias for the experiment ID.
       shared_ptr<string> aliasExperimentId_ {};
+      // The allocated bucket numbers.
       shared_ptr<string> buckets_ {};
+      // The configuration of the experiment.
       shared_ptr<string> config_ {};
+      // The ID of the debug crowd.
       shared_ptr<string> debugCrowdId_ {};
+      // A comma-separated list of user IDs for debugging.
       shared_ptr<string> debugUsers_ {};
+      // The description of the experiment.
       shared_ptr<string> description_ {};
+      // The ID of the experiment group.
       shared_ptr<string> experimentGroupId_ {};
+      // The ID of the experiment.
       shared_ptr<string> experimentId_ {};
+      // The percentage of flow allocated to the experiment.
       shared_ptr<int32_t> flowPercent_ {};
+      // The timestamp indicating when the experiment was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The timestamp indicating when the experiment was last modified.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The ID of the laboratory.
       shared_ptr<string> laboratoryId_ {};
+      // The ID of the layer.
       shared_ptr<string> layerId_ {};
+      // The name of the experiment.
       shared_ptr<string> name_ {};
+      // The ID of the scene.
       shared_ptr<string> sceneId_ {};
+      // The status of the experiment. Valid values:
+      // 
+      // - `Offline`: The experiment is inactive and does not receive flow.
+      // 
+      // - `Online`: The experiment is active and can receive flow.
       shared_ptr<string> status_ {};
+      // The type of the experiment. Valid values:
+      // 
+      // - `Baseline`: The control experiment.
+      // 
+      // - `Normal`: A variant experiment.
       shared_ptr<string> type_ {};
     };
 
@@ -255,9 +280,11 @@ namespace Models
 
 
   protected:
+    // The list of experiments.
     shared_ptr<vector<ListExperimentsResponseBody::Experiments>> experiments_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of experiments returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

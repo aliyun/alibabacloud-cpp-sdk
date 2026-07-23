@@ -41,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ItemTable, itemTable_);
       DARABONBA_PTR_TO_JSON(ItemTablePartitionField, itemTablePartitionField_);
       DARABONBA_PTR_TO_JSON(ItemTablePartitionFieldFormat, itemTablePartitionFieldFormat_);
+      DARABONBA_PTR_TO_JSON(MaxcomputeSchema, maxcomputeSchema_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OssResourceId, ossResourceId_);
       DARABONBA_PTR_TO_JSON(PredictWorkerCount, predictWorkerCount_);
@@ -89,6 +90,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ItemTable, itemTable_);
       DARABONBA_PTR_FROM_JSON(ItemTablePartitionField, itemTablePartitionField_);
       DARABONBA_PTR_FROM_JSON(ItemTablePartitionFieldFormat, itemTablePartitionFieldFormat_);
+      DARABONBA_PTR_FROM_JSON(MaxcomputeSchema, maxcomputeSchema_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OssResourceId, ossResourceId_);
       DARABONBA_PTR_FROM_JSON(PredictWorkerCount, predictWorkerCount_);
@@ -125,10 +127,11 @@ namespace Models
         && this->featureLandingResourceId_ == nullptr && this->featurePriority_ == nullptr && this->featureStoreItemId_ == nullptr && this->featureStoreModelId_ == nullptr && this->featureStoreProjectId_ == nullptr
         && this->featureStoreProjectName_ == nullptr && this->featureStoreSeqFeatureView_ == nullptr && this->featureStoreUserId_ == nullptr && this->fgJarVersion_ == nullptr && this->fgJsonFileName_ == nullptr
         && this->generateZip_ == nullptr && this->instanceId_ == nullptr && this->isUseFeatureStore_ == nullptr && this->itemIdField_ == nullptr && this->itemTable_ == nullptr
-        && this->itemTablePartitionField_ == nullptr && this->itemTablePartitionFieldFormat_ == nullptr && this->name_ == nullptr && this->ossResourceId_ == nullptr && this->predictWorkerCount_ == nullptr
-        && this->predictWorkerCpu_ == nullptr && this->predictWorkerMemory_ == nullptr && this->resourceConfig_ == nullptr && this->sampleRate_ == nullptr && this->sceneId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->serviceId_ == nullptr && this->switchId_ == nullptr && this->userIdField_ == nullptr && this->userTable_ == nullptr
-        && this->userTablePartitionField_ == nullptr && this->userTablePartitionFieldFormat_ == nullptr && this->vpcId_ == nullptr && this->workflowName_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->itemTablePartitionField_ == nullptr && this->itemTablePartitionFieldFormat_ == nullptr && this->maxcomputeSchema_ == nullptr && this->name_ == nullptr && this->ossResourceId_ == nullptr
+        && this->predictWorkerCount_ == nullptr && this->predictWorkerCpu_ == nullptr && this->predictWorkerMemory_ == nullptr && this->resourceConfig_ == nullptr && this->sampleRate_ == nullptr
+        && this->sceneId_ == nullptr && this->securityGroupId_ == nullptr && this->serviceId_ == nullptr && this->switchId_ == nullptr && this->userIdField_ == nullptr
+        && this->userTable_ == nullptr && this->userTablePartitionField_ == nullptr && this->userTablePartitionFieldFormat_ == nullptr && this->vpcId_ == nullptr && this->workflowName_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // compareFeature Field Functions 
     bool hasCompareFeature() const { return this->compareFeature_ != nullptr;};
     void deleteCompareFeature() { this->compareFeature_ = nullptr;};
@@ -325,6 +328,13 @@ namespace Models
     inline UpdateFeatureConsistencyCheckJobConfigRequest& setItemTablePartitionFieldFormat(string itemTablePartitionFieldFormat) { DARABONBA_PTR_SET_VALUE(itemTablePartitionFieldFormat_, itemTablePartitionFieldFormat) };
 
 
+    // maxcomputeSchema Field Functions 
+    bool hasMaxcomputeSchema() const { return this->maxcomputeSchema_ != nullptr;};
+    void deleteMaxcomputeSchema() { this->maxcomputeSchema_ = nullptr;};
+    inline string getMaxcomputeSchema() const { DARABONBA_PTR_GET_DEFAULT(maxcomputeSchema_, "") };
+    inline UpdateFeatureConsistencyCheckJobConfigRequest& setMaxcomputeSchema(string maxcomputeSchema) { DARABONBA_PTR_SET_VALUE(maxcomputeSchema_, maxcomputeSchema) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -452,68 +462,139 @@ namespace Models
 
 
   protected:
+    // Specifies whether feature comparison is required.
+    // 
     // This parameter is required.
     shared_ptr<bool> compareFeature_ {};
+    // The dataset ID.
     shared_ptr<string> datasetId_ {};
+    // The mount path of the dataset.
     shared_ptr<string> datasetMountPath_ {};
+    // The dataset name.
     shared_ptr<string> datasetName_ {};
+    // The dataset type.
     shared_ptr<string> datasetType_ {};
+    // The URI of the dataset.
     shared_ptr<string> datasetUri_ {};
+    // The default gateway. Valid values:
+    // - Eth0: public gateway.
+    // - Eth1: dedicated gateway.
     shared_ptr<string> defaultRoute_ {};
+    // The PAI-EAS service name.
+    // 
     // This parameter is required.
     shared_ptr<string> easServiceName_ {};
+    // The EasyRec package path.
     shared_ptr<string> easyRecPackagePath_ {};
+    // The EasyRec version.
     shared_ptr<string> easyRecVersion_ {};
+    // The features to exclude from display. Separate multiple features with commas (,).
     shared_ptr<string> featureDisplayExclude_ {};
+    // The data fallback data source ID.
+    // 
     // This parameter is required.
     shared_ptr<string> featureLandingResourceId_ {};
+    // The feature priority. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
     shared_ptr<string> featurePriority_ {};
+    // The Feature Store item-side primary key.
     shared_ptr<string> featureStoreItemId_ {};
+    // feature store model id
     shared_ptr<string> featureStoreModelId_ {};
+    // The Feature Store project ID.
     shared_ptr<string> featureStoreProjectId_ {};
+    // The Feature Store project name.
     shared_ptr<string> featureStoreProjectName_ {};
+    // The name of the feature view that contains the item features in the sequence feature.
     shared_ptr<string> featureStoreSeqFeatureView_ {};
+    // The Feature Store user-side primary key.
     shared_ptr<string> featureStoreUserId_ {};
+    // The fg_jar version.
     shared_ptr<string> fgJarVersion_ {};
+    // The fg_json file name.
+    // 
     // This parameter is required.
     shared_ptr<string> fgJsonFileName_ {};
+    // Specifies whether to generate a ZIP package.
+    // 
     // This parameter is required.
     shared_ptr<bool> generateZip_ {};
+    // The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to use Feature Store.
     shared_ptr<bool> isUseFeatureStore_ {};
+    // The item_id field name.
+    // 
     // This parameter is required.
     shared_ptr<string> itemIdField_ {};
+    // The item table name.
+    // 
     // This parameter is required.
     shared_ptr<string> itemTable_ {};
+    // The item table partition field.
+    // 
     // This parameter is required.
     shared_ptr<string> itemTablePartitionField_ {};
+    // The item table partition field format. Valid values:
+    // - yyyymmdd
+    // - yyyy-mm-dd
+    // 
     // This parameter is required.
     shared_ptr<string> itemTablePartitionFieldFormat_ {};
+    // maxcompute schema
+    shared_ptr<string> maxcomputeSchema_ {};
+    // The feature consistency check name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The OSS data source ID.
     shared_ptr<string> ossResourceId_ {};
+    // The number of workers for running the prediction script.
     shared_ptr<int32_t> predictWorkerCount_ {};
+    // The CPU specification of workers for running the prediction script.
     shared_ptr<int32_t> predictWorkerCpu_ {};
+    // The memory specification of workers for running the prediction script.
     shared_ptr<int32_t> predictWorkerMemory_ {};
+    // The resource configuration.
     shared_ptr<string> resourceConfig_ {};
+    // The sampling ratio (0-1).
+    // 
     // This parameter is required.
     shared_ptr<double> sampleRate_ {};
+    // The scene ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The vSwitch ID.
     shared_ptr<string> switchId_ {};
+    // The user_id field name.
+    // 
     // This parameter is required.
     shared_ptr<string> userIdField_ {};
+    // The user table name.
+    // 
     // This parameter is required.
     shared_ptr<string> userTable_ {};
+    // The user table partition field.
+    // 
     // This parameter is required.
     shared_ptr<string> userTablePartitionField_ {};
+    // The user table partition field format. Valid values:
+    // - yyyymmdd
+    // - yyyy-mm-dd
+    // 
     // This parameter is required.
     shared_ptr<string> userTablePartitionFieldFormat_ {};
+    // VpcID。
     shared_ptr<string> vpcId_ {};
+    // The workflow name.
     shared_ptr<string> workflowName_ {};
+    // The PAI workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

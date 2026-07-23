@@ -145,15 +145,35 @@ namespace Models
 
 
     protected:
+      // The content of the engine configuration.
       shared_ptr<string> configValue_ {};
+      // The description of the engine configuration.
       shared_ptr<string> description_ {};
+      // The ID of the engine configuration.
       shared_ptr<string> engineConfigId_ {};
+      // The environment. Valid values:
+      // 
+      // - **Daily**: the development and test environment.
+      // 
+      // - **Pre**: the pre-production environment.
+      // 
+      // - **Prod**: the production environment.
       shared_ptr<string> environment_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The modification time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The release time.
       shared_ptr<string> gmtReleasedTime_ {};
+      // The name of the engine configuration.
       shared_ptr<string> name_ {};
+      // The status of the engine configuration. Valid values:
+      // 
+      // - **Released**: The configuration has been released.
+      // 
+      // - **Unreleased**: The configuration has not been released.
       shared_ptr<string> status_ {};
+      // The version of the currently released or most recently updated engine configuration.
       shared_ptr<string> version_ {};
     };
 
@@ -183,8 +203,11 @@ namespace Models
 
 
   protected:
+    // A list of engine configurations.
     shared_ptr<vector<ListEngineConfigsResponseBody::EngineConfigs>> engineConfigs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

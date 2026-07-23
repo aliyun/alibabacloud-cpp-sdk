@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The environment type. Valid values: `Daily` (daily environment), `Pre` (pre-release environment), and `Prod` (production environment).
     shared_ptr<string> environment_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

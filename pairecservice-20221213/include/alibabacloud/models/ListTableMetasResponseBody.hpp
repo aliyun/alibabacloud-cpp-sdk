@@ -139,9 +139,13 @@ namespace Models
 
 
       protected:
+        // Indicates whether the field is a dimension field.
         shared_ptr<bool> isDimensionField_ {};
+        // The business meaning of the field.
         shared_ptr<string> meaning_ {};
+        // The name of the field.
         shared_ptr<string> name_ {};
+        // The data type of the field.
         shared_ptr<string> type_ {};
       };
 
@@ -264,21 +268,45 @@ namespace Models
 
 
     protected:
+      // Indicates whether the data table can be deleted. A value of `false` indicates that the table is in use by other resources.
       shared_ptr<bool> canDelete_ {};
+      // The additional configurations for the data table.
       shared_ptr<string> config_ {};
+      // The description of the data table.
       shared_ptr<string> description_ {};
+      // The fields in the data table.
       shared_ptr<vector<TableMetas::Fields>> fields_ {};
+      // The time when the data table was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the fields were imported.
       shared_ptr<string> gmtImportedTime_ {};
+      // The time when the data table was last modified.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The module of the data table. Valid values:
+      // 
+      // - ABTest: A/B testing
+      // 
+      // - ExperimentTool: Experiment tool
+      // 
+      // - DataDiagnosis: data diagnosis
       shared_ptr<string> module_ {};
+      // The name of the data table.
       shared_ptr<string> name_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
       shared_ptr<string> resourceType_ {};
       shared_ptr<string> resourceUri_ {};
+      // The ID of the data table.
       shared_ptr<string> tableMetaId_ {};
+      // The name of the table in the database.
       shared_ptr<string> tableName_ {};
+      // The type of the data table. Valid values:
+      // 
+      // - MaxCompute
+      // 
+      // - Hologres
       shared_ptr<string> type_ {};
+      // The URL of the table in Data Map. This parameter is returned only for MaxCompute data tables.
       shared_ptr<string> url_ {};
     };
 
@@ -308,8 +336,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of data tables.
     shared_ptr<vector<ListTableMetasResponseBody::TableMetas>> tableMetas_ {};
+    // The total number of data tables.
     shared_ptr<int64_t> totalCount_ {};
   };
 

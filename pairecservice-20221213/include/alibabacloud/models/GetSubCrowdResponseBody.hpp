@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // The time when the sub-crowd was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The number of users in the sub-crowd.
     shared_ptr<string> quantity_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The source of the sub-crowd. Valid values:
     shared_ptr<string> source_ {};
+    // The users in the sub-crowd.
     shared_ptr<string> users_ {};
   };
 

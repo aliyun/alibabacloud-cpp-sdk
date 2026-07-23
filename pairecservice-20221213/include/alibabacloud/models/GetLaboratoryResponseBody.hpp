@@ -158,20 +158,33 @@ namespace Models
 
 
   protected:
+    // The number of buckets.
     shared_ptr<int32_t> bucketCount_ {};
+    // The bucketing method. Valid values:
     shared_ptr<string> bucketType_ {};
+    // The assigned buckets.
     shared_ptr<string> buckets_ {};
+    // The crowd ID.
     shared_ptr<string> crowdId_ {};
+    // The debug crowd ID.
     shared_ptr<string> debugCrowdId_ {};
+    // The debug users.
     shared_ptr<string> debugUsers_ {};
+    // The laboratory description.
     shared_ptr<string> description_ {};
+    // The environment. Valid values:
     shared_ptr<string> environment_ {};
+    // The filter.
     shared_ptr<string> filter_ {};
+    // The laboratory name.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scene ID.
     shared_ptr<string> sceneId_ {};
+    // The status of the laboratory. Valid values:
     shared_ptr<string> status_ {};
+    // The laboratory type. Valid values:
     shared_ptr<string> type_ {};
   };
 

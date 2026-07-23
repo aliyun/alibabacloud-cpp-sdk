@@ -84,13 +84,31 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can get this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The module of the data table. Valid values:
+    // 
+    // - ABTest: A/B testing data tables
+    // 
+    // - ExperimentTool: experiment tool tables
+    // 
+    // - DataDiagnosis: data diagnosis tables
+    // 
     // This parameter is required.
     shared_ptr<string> module_ {};
+    // The table name to filter on.
     shared_ptr<string> name_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The type of the data table. Valid values:
+    // 
+    // - MaxCompute
+    // 
+    // - Hologres
     shared_ptr<string> type_ {};
   };
 

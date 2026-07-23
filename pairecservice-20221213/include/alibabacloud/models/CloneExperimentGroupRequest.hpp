@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The target environment for the experiment group. ● Daily: Daily environment ● Pre: pre-release environment ● Prod: production environment
+    // 
     // This parameter is required.
     shared_ptr<string> environment_ {};
+    // The instance ID. You can get this ID by calling the ListInstances operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The layer ID. You can get this ID by calling the ListLayers operation.
+    // 
     // This parameter is required.
     shared_ptr<string> layerId_ {};
   };

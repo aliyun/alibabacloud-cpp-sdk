@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The crowd description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The instance ID. To obtain this ID, call the ListInstances operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The crowd name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the layer.
     shared_ptr<string> layerId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

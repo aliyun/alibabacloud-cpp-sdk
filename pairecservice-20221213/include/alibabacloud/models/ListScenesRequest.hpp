@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the instance. You can obtain this ID by calling the `ListInstances` operation.
     shared_ptr<string> instanceId_ {};
+    // The name of the scene to use as a filter.
     shared_ptr<string> name_ {};
   };
 

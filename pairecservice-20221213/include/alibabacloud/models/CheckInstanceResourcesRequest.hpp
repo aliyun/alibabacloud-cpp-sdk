@@ -58,8 +58,43 @@ namespace Models
 
   protected:
     shared_ptr<string> resourceId_ {};
+    // The resource type. Valid values:
+    // 
+    // - Hologres
+    // 
+    // - EAS
+    // 
+    // - BE
+    // 
+    // - Rec
+    // 
+    // - Platform
+    // 
+    // - SLS
+    // 
+    // - DataHub
+    // 
+    // - Kafka
+    // 
+    // - Flinkvvp
+    // 
+    // - ACR
+    // 
+    // - OSS
+    // 
+    // - DataWorks
+    // 
+    // - PAI
+    // 
+    // - MaxCompute
+    // 
+    // - GraphCompute
+    // 
+    // - Redis
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The resource URI.
     shared_ptr<string> uri_ {};
   };
 

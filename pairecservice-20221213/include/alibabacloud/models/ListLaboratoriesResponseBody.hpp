@@ -182,19 +182,53 @@ namespace Models
 
 
     protected:
+      // The bucket count.
       shared_ptr<int32_t> bucketCount_ {};
+      // The bucketing method.
+      // 
+      // - `Uid-UID`: Bucketing by UID (default)
+      // 
+      // - `UidHash`: Bucketing by UID hash
+      // 
+      // - `Filter`: Bucketing by a filter condition
       shared_ptr<string> bucketType_ {};
+      // The assigned buckets, specified as numbers or ranges separated by commas.
       shared_ptr<string> buckets_ {};
+      // The crowd ID.
       shared_ptr<string> crowdId_ {};
+      // The debug crowd ID.
       shared_ptr<string> debugCrowdId_ {};
+      // The debug users, separated by commas.
       shared_ptr<string> debugUsers_ {};
+      // The laboratory description.
       shared_ptr<string> description_ {};
+      // The laboratory environment.
+      // 
+      // - `Daily`: the daily environment
+      // 
+      // - `Pre`: the pre-production environment
+      // 
+      // - `Prod`: the production environment
       shared_ptr<string> environment_ {};
+      // The filter condition.
       shared_ptr<string> filter_ {};
+      // The laboratory ID.
       shared_ptr<string> laboratoryId_ {};
+      // The laboratory name.
       shared_ptr<string> name_ {};
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
+      // The laboratory status.
+      // 
+      // - `Offline`: The laboratory is offline.
+      // 
+      // - `Online`: The laboratory is online.
       shared_ptr<string> status_ {};
+      // The laboratory type.
+      // 
+      // - `Base`: A base laboratory.
+      // 
+      // - `NonBase`: A non-base laboratory.
       shared_ptr<string> type_ {};
     };
 
@@ -224,9 +258,11 @@ namespace Models
 
 
   protected:
+    // A list of laboratories.
     shared_ptr<vector<ListLaboratoriesResponseBody::Laboratories>> laboratories_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of laboratories.
     shared_ptr<int64_t> totalCount_ {};
   };
 

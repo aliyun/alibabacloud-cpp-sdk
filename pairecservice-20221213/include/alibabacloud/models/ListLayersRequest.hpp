@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can obtain this ID by calling the ListInstances API.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The laboratory ID. You can obtain this ID by calling the ListLaboratories API.
+    // 
     // This parameter is required.
     shared_ptr<string> laboratoryId_ {};
   };

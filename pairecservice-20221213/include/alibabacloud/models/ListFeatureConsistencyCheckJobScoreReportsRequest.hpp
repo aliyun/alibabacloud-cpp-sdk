@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // A list of request IDs to exclude from the feature comparison.
     shared_ptr<vector<string>> excludeRequestIds_ {};
+    // The ID of the instance. To obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     shared_ptr<string> instanceId_ {};
   };
 

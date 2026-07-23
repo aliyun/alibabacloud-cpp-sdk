@@ -111,9 +111,13 @@ namespace Models
 
 
       protected:
+        // Key-value pairs for the traffic control target.
         Darabonba::Json features_ {};
+        // The item ID.
         shared_ptr<string> itemId_ {};
+        // The progress toward the target.
         shared_ptr<string> targetProgress_ {};
+        // The target traffic.
         shared_ptr<int64_t> targetTraffic_ {};
       };
 
@@ -175,9 +179,13 @@ namespace Models
 
 
       protected:
+        // Key-value pairs for the traffic control target.
         Darabonba::Json features_ {};
+        // The item ID.
         shared_ptr<string> itemId_ {};
+        // The progress toward the target.
         shared_ptr<string> targetProgress_ {};
+        // The target traffic.
         shared_ptr<int64_t> targetTraffic_ {};
       };
 
@@ -202,7 +210,9 @@ namespace Models
 
 
     protected:
+      // Report details for the tail 100 controlled items.
       shared_ptr<vector<TrafficControlTargetItemReportDetail::ItemControlTailReportDetails>> itemControlTailReportDetails_ {};
+      // Report details for the top 100 controlled items.
       shared_ptr<vector<TrafficControlTargetItemReportDetail::ItemControlTopReportDetails>> itemControlTopReportDetails_ {};
     };
 
@@ -225,7 +235,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // Traffic control details for an item.
     shared_ptr<QueryTrafficControlTargetItemReportDetailResponseBody::TrafficControlTargetItemReportDetail> trafficControlTargetItemReportDetail_ {};
   };
 
