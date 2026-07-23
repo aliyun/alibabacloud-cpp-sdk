@@ -225,6 +225,23 @@ namespace SfmMultiModalApp20250909
       Models::DeviceUpdateResponse deviceUpdate(const Models::DeviceUpdateRequest &request);
 
       /**
+       * @summary 并行仲裁的仲裁结果上传
+       *
+       * @param tmpReq InterruptForArbitrationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InterruptForArbitrationResponse
+       */
+      Models::InterruptForArbitrationResponse interruptForArbitrationWithOptions(const Models::InterruptForArbitrationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 并行仲裁的仲裁结果上传
+       *
+       * @param request InterruptForArbitrationRequest
+       * @return InterruptForArbitrationResponse
+       */
+      Models::InterruptForArbitrationResponse interruptForArbitration(const Models::InterruptForArbitrationRequest &request);
+
+      /**
        * @summary 指令列表
        *
        * @param request ListCommandRequest

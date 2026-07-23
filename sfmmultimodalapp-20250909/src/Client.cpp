@@ -760,6 +760,70 @@ DeviceUpdateResponse Client::deviceUpdate(const DeviceUpdateRequest &request) {
 }
 
 /**
+ * @summary 并行仲裁的仲裁结果上传
+ *
+ * @param tmpReq InterruptForArbitrationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InterruptForArbitrationResponse
+ */
+InterruptForArbitrationResponse Client::interruptForArbitrationWithOptions(const InterruptForArbitrationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  InterruptForArbitrationShrinkRequest request = InterruptForArbitrationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInterrupt()) {
+    request.setInterruptShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInterrupt(), "Interrupt", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasChatId()) {
+    query["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasHubRequestId()) {
+    query["HubRequestId"] = request.getHubRequestId();
+  }
+
+  if (!!request.hasInterruptShrink()) {
+    query["Interrupt"] = request.getInterruptShrink();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InterruptForArbitration"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InterruptForArbitrationResponse>();
+}
+
+/**
+ * @summary 并行仲裁的仲裁结果上传
+ *
+ * @param request InterruptForArbitrationRequest
+ * @return InterruptForArbitrationResponse
+ */
+InterruptForArbitrationResponse Client::interruptForArbitration(const InterruptForArbitrationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return interruptForArbitrationWithOptions(request, runtime);
+}
+
+/**
  * @summary 指令列表
  *
  * @param request ListCommandRequest

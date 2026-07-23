@@ -42,6 +42,10 @@
 #include <alibabacloud/models/DeviceUpdateRequest.hpp>
 #include <alibabacloud/models/DeviceUpdateResponseBody.hpp>
 #include <alibabacloud/models/DeviceUpdateResponse.hpp>
+#include <alibabacloud/models/InterruptForArbitrationRequest.hpp>
+#include <alibabacloud/models/InterruptForArbitrationShrinkRequest.hpp>
+#include <alibabacloud/models/InterruptForArbitrationResponseBody.hpp>
+#include <alibabacloud/models/InterruptForArbitrationResponse.hpp>
 #include <alibabacloud/models/ListCommandRequest.hpp>
 #include <alibabacloud/models/ListCommandResponseBody.hpp>
 #include <alibabacloud/models/ListCommandResponse.hpp>
