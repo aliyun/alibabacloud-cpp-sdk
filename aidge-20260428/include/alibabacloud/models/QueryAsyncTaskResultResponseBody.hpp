@@ -98,9 +98,9 @@ namespace Models
     protected:
       // The task result.
       shared_ptr<string> result_ {};
-      // The task status.
+      // The status of the task.
       shared_ptr<string> status_ {};
-      // The downstream task ID.
+      // The ID of the downstream task.
       shared_ptr<string> taskId_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -148,7 +148,7 @@ namespace Models
   protected:
     // The error code. This parameter is not returned if the call is successful.
     shared_ptr<string> code_ {};
-    // The asynchronous task result.
+    // The asynchronous node result.
     shared_ptr<QueryAsyncTaskResultResponseBody::Data> data_ {};
     // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};

@@ -139,7 +139,6 @@ namespace Models
               DARABONBA_PTR_TO_JSON(ImageRect, imageRect_);
               DARABONBA_PTR_TO_JSON(Language, language_);
               DARABONBA_PTR_TO_JSON(LineCount, lineCount_);
-              DARABONBA_PTR_TO_JSON(OvisErrMsg, ovisErrMsg_);
               DARABONBA_PTR_TO_JSON(TextRect, textRect_);
               DARABONBA_PTR_TO_JSON(Valid, valid_);
               DARABONBA_PTR_TO_JSON(Value, value_);
@@ -152,7 +151,6 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(ImageRect, imageRect_);
               DARABONBA_PTR_FROM_JSON(Language, language_);
               DARABONBA_PTR_FROM_JSON(LineCount, lineCount_);
-              DARABONBA_PTR_FROM_JSON(OvisErrMsg, ovisErrMsg_);
               DARABONBA_PTR_FROM_JSON(TextRect, textRect_);
               DARABONBA_PTR_FROM_JSON(Valid, valid_);
               DARABONBA_PTR_FROM_JSON(Value, value_);
@@ -325,7 +323,7 @@ namespace Models
 
             virtual bool empty() const override { return this->color_ == nullptr
         && this->fontsize_ == nullptr && this->horizontalLayout_ == nullptr && this->imageRect_ == nullptr && this->language_ == nullptr && this->lineCount_ == nullptr
-        && this->ovisErrMsg_ == nullptr && this->textRect_ == nullptr && this->valid_ == nullptr && this->value_ == nullptr && this->verticalLayout_ == nullptr; };
+        && this->textRect_ == nullptr && this->valid_ == nullptr && this->value_ == nullptr && this->verticalLayout_ == nullptr; };
             // color Field Functions 
             bool hasColor() const { return this->color_ != nullptr;};
             void deleteColor() { this->color_ = nullptr;};
@@ -368,13 +366,6 @@ namespace Models
             void deleteLineCount() { this->lineCount_ = nullptr;};
             inline int32_t getLineCount() const { DARABONBA_PTR_GET_DEFAULT(lineCount_, 0) };
             inline Texts& setLineCount(int32_t lineCount) { DARABONBA_PTR_SET_VALUE(lineCount_, lineCount) };
-
-
-            // ovisErrMsg Field Functions 
-            bool hasOvisErrMsg() const { return this->ovisErrMsg_ != nullptr;};
-            void deleteOvisErrMsg() { this->ovisErrMsg_ = nullptr;};
-            inline string getOvisErrMsg() const { DARABONBA_PTR_GET_DEFAULT(ovisErrMsg_, "") };
-            inline Texts& setOvisErrMsg(string ovisErrMsg) { DARABONBA_PTR_SET_VALUE(ovisErrMsg_, ovisErrMsg) };
 
 
             // textRect Field Functions 
@@ -420,8 +411,6 @@ namespace Models
             shared_ptr<string> language_ {};
             // The line count.
             shared_ptr<int32_t> lineCount_ {};
-            // The OVIS error message.
-            shared_ptr<string> ovisErrMsg_ {};
             // The text area.
             shared_ptr<Texts::TextRect> textRect_ {};
             // Indicates whether the text is valid.
@@ -670,7 +659,7 @@ namespace Models
       protected:
         // The list of fonts used.
         shared_ptr<vector<string>> font_ {};
-        // The product area rectangle.
+        // The product area rectangles.
         shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
         // The product image URL.
         shared_ptr<string> goodsUrl_ {};
@@ -722,7 +711,7 @@ namespace Models
       shared_ptr<Data::EditInfo> editInfo_ {};
       // The URL of the image generated after image translation.
       shared_ptr<string> imageUrl_ {};
-      // The usage information, including the number of processed images.
+      // The usage information, including the number of images processed.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -770,11 +759,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The translation result data, including the translated image URL and usage information.
     shared_ptr<ImageTranslationStandardResponseBody::Data> data_ {};
-    // The error message. Returns "Success" for successful calls and specific error information for exceptions.
+    // The error message. Returns "Success" for successful calls, and returns specific error information for failed calls.
     shared_ptr<string> message_ {};
-    // The request ID, used to identify a unique request call.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

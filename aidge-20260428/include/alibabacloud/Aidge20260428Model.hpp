@@ -48,6 +48,9 @@
 #include <alibabacloud/models/MaterialInspectionRequest.hpp>
 #include <alibabacloud/models/MaterialInspectionResponseBody.hpp>
 #include <alibabacloud/models/MaterialInspectionResponse.hpp>
+#include <alibabacloud/models/MerchandisePlacementDetectionRequest.hpp>
+#include <alibabacloud/models/MerchandisePlacementDetectionResponseBody.hpp>
+#include <alibabacloud/models/MerchandisePlacementDetectionResponse.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckRequest.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponseBody.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponse.hpp>

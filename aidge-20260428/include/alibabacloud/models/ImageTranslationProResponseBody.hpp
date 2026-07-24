@@ -104,7 +104,7 @@ namespace Models
       protected:
         // The URL of the image translation result.
         shared_ptr<string> fileUrl_ {};
-        // The target language of the image translation.
+        // The target language for image translation.
         shared_ptr<string> language_ {};
       };
 
@@ -171,7 +171,7 @@ namespace Models
         protected:
           // The URL of the translated image file.
           shared_ptr<string> fileUrl_ {};
-          // The translation target language.
+          // The target language for translation.
           shared_ptr<string> language_ {};
         };
 
@@ -244,7 +244,6 @@ namespace Models
                 DARABONBA_PTR_TO_JSON(ImageRect, imageRect_);
                 DARABONBA_PTR_TO_JSON(Language, language_);
                 DARABONBA_PTR_TO_JSON(LineCount, lineCount_);
-                DARABONBA_PTR_TO_JSON(OvisErrMsg, ovisErrMsg_);
                 DARABONBA_PTR_TO_JSON(TextRect, textRect_);
                 DARABONBA_PTR_TO_JSON(Valid, valid_);
                 DARABONBA_PTR_TO_JSON(Value, value_);
@@ -257,7 +256,6 @@ namespace Models
                 DARABONBA_PTR_FROM_JSON(ImageRect, imageRect_);
                 DARABONBA_PTR_FROM_JSON(Language, language_);
                 DARABONBA_PTR_FROM_JSON(LineCount, lineCount_);
-                DARABONBA_PTR_FROM_JSON(OvisErrMsg, ovisErrMsg_);
                 DARABONBA_PTR_FROM_JSON(TextRect, textRect_);
                 DARABONBA_PTR_FROM_JSON(Valid, valid_);
                 DARABONBA_PTR_FROM_JSON(Value, value_);
@@ -430,7 +428,7 @@ namespace Models
 
               virtual bool empty() const override { return this->color_ == nullptr
         && this->fontsize_ == nullptr && this->horizontalLayout_ == nullptr && this->imageRect_ == nullptr && this->language_ == nullptr && this->lineCount_ == nullptr
-        && this->ovisErrMsg_ == nullptr && this->textRect_ == nullptr && this->valid_ == nullptr && this->value_ == nullptr && this->verticalLayout_ == nullptr; };
+        && this->textRect_ == nullptr && this->valid_ == nullptr && this->value_ == nullptr && this->verticalLayout_ == nullptr; };
               // color Field Functions 
               bool hasColor() const { return this->color_ != nullptr;};
               void deleteColor() { this->color_ = nullptr;};
@@ -475,13 +473,6 @@ namespace Models
               inline Texts& setLineCount(int32_t lineCount) { DARABONBA_PTR_SET_VALUE(lineCount_, lineCount) };
 
 
-              // ovisErrMsg Field Functions 
-              bool hasOvisErrMsg() const { return this->ovisErrMsg_ != nullptr;};
-              void deleteOvisErrMsg() { this->ovisErrMsg_ = nullptr;};
-              inline string getOvisErrMsg() const { DARABONBA_PTR_GET_DEFAULT(ovisErrMsg_, "") };
-              inline Texts& setOvisErrMsg(string ovisErrMsg) { DARABONBA_PTR_SET_VALUE(ovisErrMsg_, ovisErrMsg) };
-
-
               // textRect Field Functions 
               bool hasTextRect() const { return this->textRect_ != nullptr;};
               void deleteTextRect() { this->textRect_ = nullptr;};
@@ -513,7 +504,7 @@ namespace Models
 
 
             protected:
-              // The color of the translated text.
+              // The text color after translation.
               shared_ptr<string> color_ {};
               // The font size of the translated text.
               shared_ptr<int32_t> fontsize_ {};
@@ -525,8 +516,6 @@ namespace Models
               shared_ptr<string> language_ {};
               // The number of lines in the text box.
               shared_ptr<int32_t> lineCount_ {};
-              // The Ovis model error message and execution time.
-              shared_ptr<string> ovisErrMsg_ {};
               // The coordinates of the text box area.
               shared_ptr<Texts::TextRect> textRect_ {};
               // Indicates whether the TextItem is valid. The item is invalid when this value does not exist or is false.
@@ -602,7 +591,7 @@ namespace Models
             shared_ptr<string> horizontalLayout_ {};
             // The number of lines in the text box.
             shared_ptr<int32_t> lineCount_ {};
-            // The list of translated texts. Each element corresponds to the translation result for one target language.
+            // The list of translated texts. Each element corresponds to the translation result for a target language.
             shared_ptr<vector<TextAreas::Texts>> texts_ {};
             // The vertical layout mode. Valid values: center, top, down.
             shared_ptr<string> verticalLayout_ {};
@@ -744,13 +733,13 @@ namespace Models
           shared_ptr<vector<string>> font_ {};
           // The coordinate information of the product bounding box area.
           shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
-          // The list of translation target languages.
+          // The list of target languages for translation.
           shared_ptr<vector<string>> languages_ {};
-          // The URL of the image with all text removed.
+          // The URL of the image after all text has been erased.
           shared_ptr<string> repairedUrl_ {};
           // The collection of global IDs of translated images.
           shared_ptr<vector<string>> resultImageIds_ {};
-          // The list of text boxes, including all recognized text area information.
+          // The list of text boxes, which contains information about all recognized text areas.
           shared_ptr<vector<EditInfo::TextAreas>> textAreas_ {};
         };
 
@@ -782,7 +771,7 @@ namespace Models
 
 
       protected:
-        // The editor information, including recognized text areas, product areas, fonts, and other information.
+        // The editor information, which contains recognition information such as text areas, product areas, and fonts.
         shared_ptr<GenFiles::EditInfo> editInfo_ {};
         // The collection of translation results.
         shared_ptr<vector<GenFiles::ResultList>> resultList_ {};
@@ -827,13 +816,13 @@ namespace Models
 
 
     protected:
-      // The editor protocol, including translation result files and editing information.
+      // The editor protocol, which contains translation result files and editing information.
       shared_ptr<vector<Data::GenFiles>> genFiles_ {};
       // The list of image translation results.
       shared_ptr<vector<Data::ResultList>> resultList_ {};
-      // The asynchronous task ID. Not returned for synchronous calls.
+      // The asynchronous task ID. This parameter is not returned for synchronous calls.
       shared_ptr<string> taskId_ {};
-      // The usage information, including the number of processed images.
+      // The usage information, which contains the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -877,15 +866,15 @@ namespace Models
 
 
   protected:
-    // The response code. 200 indicates a successful call. For other response codes, see the error code information.
+    // The response code. 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The translation result data. ResultList contains the URL of the translation result. GenFiles contains EditInfo with the recognized text information.
+    // The translation result data. ResultList contains the URLs of translation results, and GenFiles contains EditInfo with the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // The error message. Returns "Success" for successful calls. Returns specific error information for exceptions, such as "The content contains sensitive data. Try other input."
+    // The error message. "Success" is returned for successful calls. Specific error information is returned for failed calls, such as "The content contains sensitive data. Try other input."
     shared_ptr<string> message_ {};
     // The request ID, used to identify a unique request call.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. true indicates success. false indicates failure.
+    // Indicates whether the call is successful. true indicates success, and false indicates failure.
     shared_ptr<bool> success_ {};
   };
 
