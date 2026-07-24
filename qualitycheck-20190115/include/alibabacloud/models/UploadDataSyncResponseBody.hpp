@@ -109,6 +109,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_TO_JSON(Hit, hit_);
               DARABONBA_PTR_TO_JSON(LlmResponse, llmResponse_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
               DARABONBA_PTR_TO_JSON(Rid, rid_);
               DARABONBA_PTR_TO_JSON(Tid, tid_);
             };
@@ -116,6 +117,7 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_FROM_JSON(Hit, hit_);
               DARABONBA_PTR_FROM_JSON(LlmResponse, llmResponse_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
               DARABONBA_PTR_FROM_JSON(Rid, rid_);
               DARABONBA_PTR_FROM_JSON(Tid, tid_);
             };
@@ -527,7 +529,7 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->conditionInfo_ == nullptr
-        && this->hit_ == nullptr && this->llmResponse_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
+        && this->hit_ == nullptr && this->llmResponse_ == nullptr && this->name_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
             // conditionInfo Field Functions 
             bool hasConditionInfo() const { return this->conditionInfo_ != nullptr;};
             void deleteConditionInfo() { this->conditionInfo_ = nullptr;};
@@ -553,6 +555,13 @@ namespace Models
             inline RuleHitInfo& setLlmResponse(string llmResponse) { DARABONBA_PTR_SET_VALUE(llmResponse_, llmResponse) };
 
 
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline RuleHitInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
             // rid Field Functions 
             bool hasRid() const { return this->rid_ != nullptr;};
             void deleteRid() { this->rid_ = nullptr;};
@@ -571,6 +580,7 @@ namespace Models
             shared_ptr<RuleHitInfo::ConditionInfo> conditionInfo_ {};
             shared_ptr<RuleHitInfo::Hit> hit_ {};
             shared_ptr<string> llmResponse_ {};
+            shared_ptr<string> name_ {};
             shared_ptr<string> rid_ {};
             shared_ptr<string> tid_ {};
           };
@@ -725,14 +735,14 @@ namespace Models
 
 
   protected:
-    // The result `code`. A value of **200** indicates that the request was successful. Other values indicate failure. Use this field to identify the cause of the failure.
+    // The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
     shared_ptr<UploadDataSyncResponseBody::Data> data_ {};
-    // The response message. If the request succeeds, the value is **successful**. Otherwise, this parameter provides error details.
+    // The error details when an error occurs. The value is **successful** when the request succeeds.
     shared_ptr<string> message_ {};
-    // The `request ID`.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the request succeeded. `true` indicates success; `false` or `null` indicates failure.
+    // Indicates whether the request was successful. Valid values: true and false/null.
     shared_ptr<bool> success_ {};
   };
 

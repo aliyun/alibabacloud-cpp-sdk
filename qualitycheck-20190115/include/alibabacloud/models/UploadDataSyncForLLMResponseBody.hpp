@@ -106,12 +106,14 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const RuleHitInfo& obj) { 
               DARABONBA_PTR_TO_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_TO_JSON(Hit, hit_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
               DARABONBA_PTR_TO_JSON(Rid, rid_);
               DARABONBA_PTR_TO_JSON(Tid, tid_);
             };
             friend void from_json(const Darabonba::Json& j, RuleHitInfo& obj) { 
               DARABONBA_PTR_FROM_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_FROM_JSON(Hit, hit_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
               DARABONBA_PTR_FROM_JSON(Rid, rid_);
               DARABONBA_PTR_FROM_JSON(Tid, tid_);
             };
@@ -523,7 +525,7 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->conditionInfo_ == nullptr
-        && this->hit_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
+        && this->hit_ == nullptr && this->name_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
             // conditionInfo Field Functions 
             bool hasConditionInfo() const { return this->conditionInfo_ != nullptr;};
             void deleteConditionInfo() { this->conditionInfo_ = nullptr;};
@@ -540,6 +542,13 @@ namespace Models
             inline RuleHitInfo::Hit getHit() { DARABONBA_PTR_GET(hit_, RuleHitInfo::Hit) };
             inline RuleHitInfo& setHit(const RuleHitInfo::Hit & hit) { DARABONBA_PTR_SET_VALUE(hit_, hit) };
             inline RuleHitInfo& setHit(RuleHitInfo::Hit && hit) { DARABONBA_PTR_SET_RVALUE(hit_, hit) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline RuleHitInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
             // rid Field Functions 
@@ -559,6 +568,7 @@ namespace Models
           protected:
             shared_ptr<RuleHitInfo::ConditionInfo> conditionInfo_ {};
             shared_ptr<RuleHitInfo::Hit> hit_ {};
+            shared_ptr<string> name_ {};
             shared_ptr<string> rid_ {};
             shared_ptr<string> tid_ {};
           };
@@ -670,10 +680,14 @@ namespace Models
 
 
   protected:
+    // The result code. A value of 200 indicates success. Other values indicate failure. You can use this field to determine the cause of failure.
     shared_ptr<string> code_ {};
     shared_ptr<UploadDataSyncForLLMResponseBody::Data> data_ {};
+    // The error message if the request fails. The value is **successful** if the request succeeds.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: true: The request was successful. false/null: The request failed.
     shared_ptr<bool> success_ {};
   };
 

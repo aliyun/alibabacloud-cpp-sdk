@@ -41,6 +41,8 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Dialogues, dialogues_);
+        DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
         DARABONBA_PTR_TO_JSON(InputTokens, inputTokens_);
         DARABONBA_PTR_TO_JSON(LlmRequestId, llmRequestId_);
         DARABONBA_PTR_TO_JSON(OutputTokens, outputTokens_);
@@ -53,6 +55,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Vid, vid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Dialogues, dialogues_);
+        DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
         DARABONBA_PTR_FROM_JSON(InputTokens, inputTokens_);
         DARABONBA_PTR_FROM_JSON(LlmRequestId, llmRequestId_);
         DARABONBA_PTR_FROM_JSON(OutputTokens, outputTokens_);
@@ -188,9 +192,9 @@ namespace Models
 
 
           protected:
-            // The label dimension.
+            // The tag dimension.
             shared_ptr<string> dimension_ {};
-            // Indicates whether a match is found.
+            // Indicates whether the tag is matched.
             shared_ptr<bool> isMatch_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<string>> originalUtterances_ {};
@@ -211,7 +215,7 @@ namespace Models
 
 
         protected:
-          // The list of labels.
+          // The list of tags.
           shared_ptr<vector<TagCategoryResponse::TagCategoryVoList>> tagCategoryVoList_ {};
         };
 
@@ -294,7 +298,7 @@ namespace Models
           protected:
             // The inspection dimension.
             shared_ptr<string> dimension_ {};
-            // Indicates whether a match is found.
+            // Indicates whether the tag is matched.
             shared_ptr<bool> isMatch_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<string>> originalUtterances_ {};
@@ -394,13 +398,13 @@ namespace Models
 
 
           protected:
-            // The property name.
+            // The field name.
             shared_ptr<string> name_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<int32_t>> originalUtterances_ {};
             // The reasoning for the judgment.
             shared_ptr<string> remarks_ {};
-            // The property value.
+            // The field value.
             shared_ptr<string> value_ {};
           };
 
@@ -415,7 +419,7 @@ namespace Models
 
 
         protected:
-          // The list of properties.
+          // The list of fields.
           shared_ptr<vector<FieldResponse::FieldVoList>> fieldVoList_ {};
         };
 
@@ -492,7 +496,7 @@ namespace Models
       protected:
         // The result of the custom prompt.
         shared_ptr<Response::CustomerPromptResponse> customerPromptResponse_ {};
-        // The property extraction result.
+        // The field extraction result.
         shared_ptr<Response::FieldResponse> fieldResponse_ {};
         // The service quality inspection result.
         shared_ptr<Response::ServiceInspectionResponse> serviceInspectionResponse_ {};
@@ -500,9 +504,119 @@ namespace Models
         shared_ptr<Response::TagCategoryResponse> tagCategoryResponse_ {};
       };
 
-      virtual bool empty() const override { return this->inputTokens_ == nullptr
-        && this->llmRequestId_ == nullptr && this->outputTokens_ == nullptr && this->response_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
-        && this->totalTokens_ == nullptr && this->tyxmPlusCount_ == nullptr && this->tyxmTurboCount_ == nullptr && this->vid_ == nullptr; };
+      class Dialogues : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Dialogues& obj) { 
+          DARABONBA_PTR_TO_JSON(Begin, begin_);
+          DARABONBA_PTR_TO_JSON(EmotionValue, emotionValue_);
+          DARABONBA_PTR_TO_JSON(End, end_);
+          DARABONBA_PTR_TO_JSON(HourMinSec, hourMinSec_);
+          DARABONBA_PTR_TO_JSON(Role, role_);
+          DARABONBA_PTR_TO_JSON(SpeechRate, speechRate_);
+          DARABONBA_PTR_TO_JSON(Words, words_);
+        };
+        friend void from_json(const Darabonba::Json& j, Dialogues& obj) { 
+          DARABONBA_PTR_FROM_JSON(Begin, begin_);
+          DARABONBA_PTR_FROM_JSON(EmotionValue, emotionValue_);
+          DARABONBA_PTR_FROM_JSON(End, end_);
+          DARABONBA_PTR_FROM_JSON(HourMinSec, hourMinSec_);
+          DARABONBA_PTR_FROM_JSON(Role, role_);
+          DARABONBA_PTR_FROM_JSON(SpeechRate, speechRate_);
+          DARABONBA_PTR_FROM_JSON(Words, words_);
+        };
+        Dialogues() = default ;
+        Dialogues(const Dialogues &) = default ;
+        Dialogues(Dialogues &&) = default ;
+        Dialogues(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Dialogues() = default ;
+        Dialogues& operator=(const Dialogues &) = default ;
+        Dialogues& operator=(Dialogues &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->begin_ == nullptr
+        && this->emotionValue_ == nullptr && this->end_ == nullptr && this->hourMinSec_ == nullptr && this->role_ == nullptr && this->speechRate_ == nullptr
+        && this->words_ == nullptr; };
+        // begin Field Functions 
+        bool hasBegin() const { return this->begin_ != nullptr;};
+        void deleteBegin() { this->begin_ = nullptr;};
+        inline int64_t getBegin() const { DARABONBA_PTR_GET_DEFAULT(begin_, 0L) };
+        inline Dialogues& setBegin(int64_t begin) { DARABONBA_PTR_SET_VALUE(begin_, begin) };
+
+
+        // emotionValue Field Functions 
+        bool hasEmotionValue() const { return this->emotionValue_ != nullptr;};
+        void deleteEmotionValue() { this->emotionValue_ = nullptr;};
+        inline int32_t getEmotionValue() const { DARABONBA_PTR_GET_DEFAULT(emotionValue_, 0) };
+        inline Dialogues& setEmotionValue(int32_t emotionValue) { DARABONBA_PTR_SET_VALUE(emotionValue_, emotionValue) };
+
+
+        // end Field Functions 
+        bool hasEnd() const { return this->end_ != nullptr;};
+        void deleteEnd() { this->end_ = nullptr;};
+        inline int64_t getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0L) };
+        inline Dialogues& setEnd(int64_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+
+
+        // hourMinSec Field Functions 
+        bool hasHourMinSec() const { return this->hourMinSec_ != nullptr;};
+        void deleteHourMinSec() { this->hourMinSec_ = nullptr;};
+        inline string getHourMinSec() const { DARABONBA_PTR_GET_DEFAULT(hourMinSec_, "") };
+        inline Dialogues& setHourMinSec(string hourMinSec) { DARABONBA_PTR_SET_VALUE(hourMinSec_, hourMinSec) };
+
+
+        // role Field Functions 
+        bool hasRole() const { return this->role_ != nullptr;};
+        void deleteRole() { this->role_ = nullptr;};
+        inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+        inline Dialogues& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
+
+
+        // speechRate Field Functions 
+        bool hasSpeechRate() const { return this->speechRate_ != nullptr;};
+        void deleteSpeechRate() { this->speechRate_ = nullptr;};
+        inline int32_t getSpeechRate() const { DARABONBA_PTR_GET_DEFAULT(speechRate_, 0) };
+        inline Dialogues& setSpeechRate(int32_t speechRate) { DARABONBA_PTR_SET_VALUE(speechRate_, speechRate) };
+
+
+        // words Field Functions 
+        bool hasWords() const { return this->words_ != nullptr;};
+        void deleteWords() { this->words_ = nullptr;};
+        inline string getWords() const { DARABONBA_PTR_GET_DEFAULT(words_, "") };
+        inline Dialogues& setWords(string words) { DARABONBA_PTR_SET_VALUE(words_, words) };
+
+
+      protected:
+        shared_ptr<int64_t> begin_ {};
+        shared_ptr<int32_t> emotionValue_ {};
+        shared_ptr<int64_t> end_ {};
+        shared_ptr<string> hourMinSec_ {};
+        shared_ptr<string> role_ {};
+        shared_ptr<int32_t> speechRate_ {};
+        shared_ptr<string> words_ {};
+      };
+
+      virtual bool empty() const override { return this->dialogues_ == nullptr
+        && this->errorMessage_ == nullptr && this->inputTokens_ == nullptr && this->llmRequestId_ == nullptr && this->outputTokens_ == nullptr && this->response_ == nullptr
+        && this->status_ == nullptr && this->taskId_ == nullptr && this->totalTokens_ == nullptr && this->tyxmPlusCount_ == nullptr && this->tyxmTurboCount_ == nullptr
+        && this->vid_ == nullptr; };
+      // dialogues Field Functions 
+      bool hasDialogues() const { return this->dialogues_ != nullptr;};
+      void deleteDialogues() { this->dialogues_ = nullptr;};
+      inline const vector<Data::Dialogues> & getDialogues() const { DARABONBA_PTR_GET_CONST(dialogues_, vector<Data::Dialogues>) };
+      inline vector<Data::Dialogues> getDialogues() { DARABONBA_PTR_GET(dialogues_, vector<Data::Dialogues>) };
+      inline Data& setDialogues(const vector<Data::Dialogues> & dialogues) { DARABONBA_PTR_SET_VALUE(dialogues_, dialogues) };
+      inline Data& setDialogues(vector<Data::Dialogues> && dialogues) { DARABONBA_PTR_SET_RVALUE(dialogues_, dialogues) };
+
+
+      // errorMessage Field Functions 
+      bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+      void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+      inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+      inline Data& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
       // inputTokens Field Functions 
       bool hasInputTokens() const { return this->inputTokens_ != nullptr;};
       void deleteInputTokens() { this->inputTokens_ = nullptr;};
@@ -576,13 +690,15 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<Data::Dialogues>> dialogues_ {};
+      shared_ptr<string> errorMessage_ {};
       // The number of input tokens.
       shared_ptr<string> inputTokens_ {};
       // The request ID returned by the large language model service.
       shared_ptr<string> llmRequestId_ {};
       // The number of output tokens.
       shared_ptr<string> outputTokens_ {};
-      // The result of the computing task.
+      // The result of the computation task.
       shared_ptr<Data::Response> response_ {};
       // The task status. Valid values:
       // 
@@ -651,7 +767,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. You can use this field to determine whether the request was successful:
+    // Indicates whether the request was successful. You can use this field to determine whether the request succeeded:
     // 
     // - **true**: The request was successful.
     // - **false/null**: The request failed.
