@@ -48,6 +48,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PackageSpec, packageSpec_);
         DARABONBA_PTR_TO_JSON(PackageSpecName, packageSpecName_);
         DARABONBA_PTR_TO_JSON(PackageStatus, packageStatus_);
+        DARABONBA_PTR_TO_JSON(PeriodEndTime, periodEndTime_);
+        DARABONBA_PTR_TO_JSON(PeriodStartTime, periodStartTime_);
         DARABONBA_PTR_TO_JSON(UsedCredit, usedCredit_);
       };
       friend void from_json(const Darabonba::Json& j, PackageList& obj) { 
@@ -58,6 +60,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PackageSpec, packageSpec_);
         DARABONBA_PTR_FROM_JSON(PackageSpecName, packageSpecName_);
         DARABONBA_PTR_FROM_JSON(PackageStatus, packageStatus_);
+        DARABONBA_PTR_FROM_JSON(PeriodEndTime, periodEndTime_);
+        DARABONBA_PTR_FROM_JSON(PeriodStartTime, periodStartTime_);
         DARABONBA_PTR_FROM_JSON(UsedCredit, usedCredit_);
       };
       PackageList() = default ;
@@ -73,7 +77,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->expiredAt_ == nullptr
         && this->instanceIds_ == nullptr && this->packageCredit_ == nullptr && this->packageId_ == nullptr && this->packageSpec_ == nullptr && this->packageSpecName_ == nullptr
-        && this->packageStatus_ == nullptr && this->usedCredit_ == nullptr; };
+        && this->packageStatus_ == nullptr && this->periodEndTime_ == nullptr && this->periodStartTime_ == nullptr && this->usedCredit_ == nullptr; };
       // expiredAt Field Functions 
       bool hasExpiredAt() const { return this->expiredAt_ != nullptr;};
       void deleteExpiredAt() { this->expiredAt_ = nullptr;};
@@ -125,6 +129,20 @@ namespace Models
       inline PackageList& setPackageStatus(string packageStatus) { DARABONBA_PTR_SET_VALUE(packageStatus_, packageStatus) };
 
 
+      // periodEndTime Field Functions 
+      bool hasPeriodEndTime() const { return this->periodEndTime_ != nullptr;};
+      void deletePeriodEndTime() { this->periodEndTime_ = nullptr;};
+      inline string getPeriodEndTime() const { DARABONBA_PTR_GET_DEFAULT(periodEndTime_, "") };
+      inline PackageList& setPeriodEndTime(string periodEndTime) { DARABONBA_PTR_SET_VALUE(periodEndTime_, periodEndTime) };
+
+
+      // periodStartTime Field Functions 
+      bool hasPeriodStartTime() const { return this->periodStartTime_ != nullptr;};
+      void deletePeriodStartTime() { this->periodStartTime_ = nullptr;};
+      inline string getPeriodStartTime() const { DARABONBA_PTR_GET_DEFAULT(periodStartTime_, "") };
+      inline PackageList& setPeriodStartTime(string periodStartTime) { DARABONBA_PTR_SET_VALUE(periodStartTime_, periodStartTime) };
+
+
       // usedCredit Field Functions 
       bool hasUsedCredit() const { return this->usedCredit_ != nullptr;};
       void deleteUsedCredit() { this->usedCredit_ = nullptr;};
@@ -137,7 +155,7 @@ namespace Models
       shared_ptr<string> expiredAt_ {};
       // The list of node instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The total package credit.
+      // The credit quota of the package.
       shared_ptr<string> packageCredit_ {};
       // The package ID.
       shared_ptr<string> packageId_ {};
@@ -146,7 +164,9 @@ namespace Models
       shared_ptr<string> packageSpecName_ {};
       // The package status.
       shared_ptr<string> packageStatus_ {};
-      // The amount of credit used.
+      shared_ptr<string> periodEndTime_ {};
+      shared_ptr<string> periodStartTime_ {};
+      // The number of credits that have been used.
       shared_ptr<string> usedCredit_ {};
     };
 
@@ -190,11 +210,11 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // A list of packages.
+    // The list of package information.
     shared_ptr<vector<DescribeMobileAgentPackageResponseBody::PackageList>> packageList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

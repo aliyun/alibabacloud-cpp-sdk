@@ -16,6 +16,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeCreditDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PackageIds, packageIds_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -24,6 +26,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeCreditDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PackageIds, packageIds_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -41,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->instanceIds_ == nullptr && this->packageIds_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->packageIds_ == nullptr && this->pageNum_ == nullptr
+        && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -56,6 +61,20 @@ namespace Models
     inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline DescribeCreditDetailRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DescribeCreditDetailRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline DescribeCreditDetailRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribeCreditDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // packageIds Field Functions 
@@ -93,7 +112,9 @@ namespace Models
     shared_ptr<int64_t> endTime_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The list of resource plan or credit booster pack IDs.
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    // The list of plan packages or credit top-up packages.
     shared_ptr<vector<string>> packageIds_ {};
     // The page number. Default value: 1.
     shared_ptr<string> pageNum_ {};

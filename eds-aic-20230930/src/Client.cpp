@@ -676,6 +676,88 @@ CheckResourceStockResponse Client::checkResourceStock(const CheckResourceStockRe
 }
 
 /**
+ * @summary Creates an AI cloud phone.
+ *
+ * @param request CreateAICloudPhoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAICloudPhoneResponse
+ */
+CreateAICloudPhoneResponse Client::createAICloudPhoneWithOptions(const CreateAICloudPhoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAmount()) {
+    query["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasBandwidthPackageId()) {
+    query["BandwidthPackageId"] = request.getBandwidthPackageId();
+  }
+
+  if (!!request.hasBizRegionId()) {
+    query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasInstanceGroupName()) {
+    query["InstanceGroupName"] = request.getInstanceGroupName();
+  }
+
+  if (!!request.hasInstanceGroupSpec()) {
+    query["InstanceGroupSpec"] = request.getInstanceGroupSpec();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasPolicyGroupId()) {
+    query["PolicyGroupId"] = request.getPolicyGroupId();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAICloudPhone"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAICloudPhoneResponse>();
+}
+
+/**
+ * @summary Creates an AI cloud phone.
+ *
+ * @param request CreateAICloudPhoneRequest
+ * @return CreateAICloudPhoneResponse
+ */
+CreateAICloudPhoneResponse Client::createAICloudPhone(const CreateAICloudPhoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAICloudPhoneWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
  *
  * @description <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
@@ -2819,6 +2901,14 @@ DescribeCreditDetailResponse Client::describeCreditDetailWithOptions(const Descr
     query["InstanceIds"] = request.getInstanceIds();
   }
 
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
   if (!!request.hasPackageIds()) {
     query["PackageIds"] = request.getPackageIds();
   }
@@ -3464,7 +3554,7 @@ DescribeMetricTopResponse Client::describeMetricTop(const DescribeMetricTopReque
 }
 
 /**
- * @summary Retrieves the details of one or more node packages.
+ * @summary Queries the details of node packages.
  *
  * @param request DescribeMobileAgentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3515,7 +3605,7 @@ DescribeMobileAgentPackageResponse Client::describeMobileAgentPackageWithOptions
 }
 
 /**
- * @summary Retrieves the details of one or more node packages.
+ * @summary Queries the details of node packages.
  *
  * @param request DescribeMobileAgentPackageRequest
  * @return DescribeMobileAgentPackageResponse
@@ -5339,6 +5429,10 @@ ModifyJVSInstanceResponse Client::modifyJVSInstanceWithOptions(const ModifyJVSIn
 
   if (!!request.hasCreditConfig()) {
     query["CreditConfig"] = request.getCreditConfig();
+  }
+
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
   }
 
   if (!!request.hasInstanceIds()) {

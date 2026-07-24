@@ -89,9 +89,9 @@ namespace Models
 
 
   protected:
-    // An array of node instance IDs.
+    // The list of node instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // An array of package IDs.
+    // The list of package IDs.
     shared_ptr<vector<string>> packageIds_ {};
     // The package specification.
     shared_ptr<string> packageSpec_ {};

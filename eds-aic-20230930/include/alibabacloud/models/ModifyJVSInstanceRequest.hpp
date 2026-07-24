@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyJVSInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplyToAll, applyToAll_);
       DARABONBA_PTR_TO_JSON(CreditConfig, creditConfig_);
+      DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyJVSInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplyToAll, applyToAll_);
       DARABONBA_PTR_FROM_JSON(CreditConfig, creditConfig_);
+      DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
     };
@@ -76,12 +78,16 @@ namespace Models
     protected:
       // The credit limit.
       shared_ptr<int64_t> creditLimit_ {};
-      // The credit limit period.
+      // The dimension of the current credit. Valid values:
+      // 
+      // - total: total usage limit.
+      // - month: monthly. The limit resets based on the resource activation time cycle.
+      // - day: daily. The limit resets at 00:00.
       shared_ptr<string> limitPeriod_ {};
     };
 
     virtual bool empty() const override { return this->applyToAll_ == nullptr
-        && this->creditConfig_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr; };
+        && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr; };
     // applyToAll Field Functions 
     bool hasApplyToAll() const { return this->applyToAll_ != nullptr;};
     void deleteApplyToAll() { this->applyToAll_ = nullptr;};
@@ -96,6 +102,13 @@ namespace Models
     inline vector<ModifyJVSInstanceRequest::CreditConfig> getCreditConfig() { DARABONBA_PTR_GET(creditConfig_, vector<ModifyJVSInstanceRequest::CreditConfig>) };
     inline ModifyJVSInstanceRequest& setCreditConfig(const vector<ModifyJVSInstanceRequest::CreditConfig> & creditConfig) { DARABONBA_PTR_SET_VALUE(creditConfig_, creditConfig) };
     inline ModifyJVSInstanceRequest& setCreditConfig(vector<ModifyJVSInstanceRequest::CreditConfig> && creditConfig) { DARABONBA_PTR_SET_RVALUE(creditConfig_, creditConfig) };
+
+
+    // imageId Field Functions 
+    bool hasImageId() const { return this->imageId_ != nullptr;};
+    void deleteImageId() { this->imageId_ = nullptr;};
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline ModifyJVSInstanceRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
 
 
     // instanceIds Field Functions 
@@ -117,11 +130,12 @@ namespace Models
   protected:
     // Specifies whether to apply the configuration to all instances.
     shared_ptr<bool> applyToAll_ {};
-    // The credit limit configuration. New configurations overwrite existing ones.
+    // The credit limit configuration. Subsequent configurations overwrite previous ones.
     shared_ptr<vector<ModifyJVSInstanceRequest::CreditConfig>> creditConfig_ {};
-    // A list of instance IDs.
+    shared_ptr<string> imageId_ {};
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The new instance name.
+    // The instance name.
     shared_ptr<string> instanceName_ {};
   };
 

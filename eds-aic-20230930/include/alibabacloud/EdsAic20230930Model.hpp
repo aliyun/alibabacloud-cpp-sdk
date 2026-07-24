@@ -33,6 +33,9 @@
 #include <alibabacloud/models/CheckResourceStockRequest.hpp>
 #include <alibabacloud/models/CheckResourceStockResponseBody.hpp>
 #include <alibabacloud/models/CheckResourceStockResponse.hpp>
+#include <alibabacloud/models/CreateAICloudPhoneRequest.hpp>
+#include <alibabacloud/models/CreateAICloudPhoneResponseBody.hpp>
+#include <alibabacloud/models/CreateAICloudPhoneResponse.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupRequest.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupResponseBody.hpp>

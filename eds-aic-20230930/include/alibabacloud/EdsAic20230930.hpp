@@ -235,6 +235,23 @@ namespace EdsAic20230930
       Models::CheckResourceStockResponse checkResourceStock(const Models::CheckResourceStockRequest &request);
 
       /**
+       * @summary Creates an AI cloud phone.
+       *
+       * @param request CreateAICloudPhoneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAICloudPhoneResponse
+       */
+      Models::CreateAICloudPhoneResponse createAICloudPhoneWithOptions(const Models::CreateAICloudPhoneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an AI cloud phone.
+       *
+       * @param request CreateAICloudPhoneRequest
+       * @return CreateAICloudPhoneResponse
+       */
+      Models::CreateAICloudPhoneResponse createAICloudPhone(const Models::CreateAICloudPhoneRequest &request);
+
+      /**
        * @summary Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
        *
        * @description <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
@@ -1015,7 +1032,7 @@ namespace EdsAic20230930
       Models::DescribeMetricTopResponse describeMetricTop(const Models::DescribeMetricTopRequest &request);
 
       /**
-       * @summary Retrieves the details of one or more node packages.
+       * @summary Queries the details of node packages.
        *
        * @param request DescribeMobileAgentPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1024,7 +1041,7 @@ namespace EdsAic20230930
       Models::DescribeMobileAgentPackageResponse describeMobileAgentPackageWithOptions(const Models::DescribeMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of one or more node packages.
+       * @summary Queries the details of node packages.
        *
        * @param request DescribeMobileAgentPackageRequest
        * @return DescribeMobileAgentPackageResponse
