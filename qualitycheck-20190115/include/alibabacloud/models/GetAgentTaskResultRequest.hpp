@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the business space.
+    // The ID of the business workspace.
     shared_ptr<string> baseMeAgentId_ {};
     // The complete JSON string. For more information, see the following details.
     shared_ptr<string> jsonStr_ {};

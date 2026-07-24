@@ -86,12 +86,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FieldResponse, fieldResponse_);
           DARABONBA_PTR_TO_JSON(ServiceInspectionResponse, serviceInspectionResponse_);
           DARABONBA_PTR_TO_JSON(TagCategoryResponse, tagCategoryResponse_);
+          DARABONBA_PTR_TO_JSON(VoiceprintResponse, voiceprintResponse_);
         };
         friend void from_json(const Darabonba::Json& j, Response& obj) { 
           DARABONBA_PTR_FROM_JSON(CustomerPromptResponse, customerPromptResponse_);
           DARABONBA_PTR_FROM_JSON(FieldResponse, fieldResponse_);
           DARABONBA_PTR_FROM_JSON(ServiceInspectionResponse, serviceInspectionResponse_);
           DARABONBA_PTR_FROM_JSON(TagCategoryResponse, tagCategoryResponse_);
+          DARABONBA_PTR_FROM_JSON(VoiceprintResponse, voiceprintResponse_);
         };
         Response() = default ;
         Response(const Response &) = default ;
@@ -104,6 +106,281 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VoiceprintResponse : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VoiceprintResponse& obj) { 
+            DARABONBA_PTR_TO_JSON(Dialogue, dialogue_);
+            DARABONBA_PTR_TO_JSON(Errors, errors_);
+          };
+          friend void from_json(const Darabonba::Json& j, VoiceprintResponse& obj) { 
+            DARABONBA_PTR_FROM_JSON(Dialogue, dialogue_);
+            DARABONBA_PTR_FROM_JSON(Errors, errors_);
+          };
+          VoiceprintResponse() = default ;
+          VoiceprintResponse(const VoiceprintResponse &) = default ;
+          VoiceprintResponse(VoiceprintResponse &&) = default ;
+          VoiceprintResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VoiceprintResponse() = default ;
+          VoiceprintResponse& operator=(const VoiceprintResponse &) = default ;
+          VoiceprintResponse& operator=(VoiceprintResponse &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Errors : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Errors& obj) { 
+              DARABONBA_PTR_TO_JSON(Code, code_);
+              DARABONBA_PTR_TO_JSON(Message, message_);
+            };
+            friend void from_json(const Darabonba::Json& j, Errors& obj) { 
+              DARABONBA_PTR_FROM_JSON(Code, code_);
+              DARABONBA_PTR_FROM_JSON(Message, message_);
+            };
+            Errors() = default ;
+            Errors(const Errors &) = default ;
+            Errors(Errors &&) = default ;
+            Errors(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Errors() = default ;
+            Errors& operator=(const Errors &) = default ;
+            Errors& operator=(Errors &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr; };
+            // code Field Functions 
+            bool hasCode() const { return this->code_ != nullptr;};
+            void deleteCode() { this->code_ = nullptr;};
+            inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+            inline Errors& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+            // message Field Functions 
+            bool hasMessage() const { return this->message_ != nullptr;};
+            void deleteMessage() { this->message_ = nullptr;};
+            inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+            inline Errors& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+          protected:
+            shared_ptr<string> code_ {};
+            shared_ptr<string> message_ {};
+          };
+
+          class Dialogue : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Dialogue& obj) { 
+              DARABONBA_PTR_TO_JSON(Additions, additions_);
+              DARABONBA_PTR_TO_JSON(Begin, begin_);
+              DARABONBA_PTR_TO_JSON(End, end_);
+              DARABONBA_PTR_TO_JSON(Words, words_);
+            };
+            friend void from_json(const Darabonba::Json& j, Dialogue& obj) { 
+              DARABONBA_PTR_FROM_JSON(Additions, additions_);
+              DARABONBA_PTR_FROM_JSON(Begin, begin_);
+              DARABONBA_PTR_FROM_JSON(End, end_);
+              DARABONBA_PTR_FROM_JSON(Words, words_);
+            };
+            Dialogue() = default ;
+            Dialogue(const Dialogue &) = default ;
+            Dialogue(Dialogue &&) = default ;
+            Dialogue(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Dialogue() = default ;
+            Dialogue& operator=(const Dialogue &) = default ;
+            Dialogue& operator=(Dialogue &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Additions : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Additions& obj) { 
+                DARABONBA_PTR_TO_JSON(Age, age_);
+                DARABONBA_PTR_TO_JSON(AgeGroup, ageGroup_);
+                DARABONBA_PTR_TO_JSON(AgeScore, ageScore_);
+                DARABONBA_PTR_TO_JSON(BestVoiceprintScore, bestVoiceprintScore_);
+                DARABONBA_PTR_TO_JSON(Emotion, emotion_);
+                DARABONBA_PTR_TO_JSON(EmotionScore, emotionScore_);
+                DARABONBA_PTR_TO_JSON(Gender, gender_);
+                DARABONBA_PTR_TO_JSON(GenderScore, genderScore_);
+                DARABONBA_PTR_TO_JSON(IsKnownVoiceprint, isKnownVoiceprint_);
+                DARABONBA_PTR_TO_JSON(Speaker, speaker_);
+              };
+              friend void from_json(const Darabonba::Json& j, Additions& obj) { 
+                DARABONBA_PTR_FROM_JSON(Age, age_);
+                DARABONBA_PTR_FROM_JSON(AgeGroup, ageGroup_);
+                DARABONBA_PTR_FROM_JSON(AgeScore, ageScore_);
+                DARABONBA_PTR_FROM_JSON(BestVoiceprintScore, bestVoiceprintScore_);
+                DARABONBA_PTR_FROM_JSON(Emotion, emotion_);
+                DARABONBA_PTR_FROM_JSON(EmotionScore, emotionScore_);
+                DARABONBA_PTR_FROM_JSON(Gender, gender_);
+                DARABONBA_PTR_FROM_JSON(GenderScore, genderScore_);
+                DARABONBA_PTR_FROM_JSON(IsKnownVoiceprint, isKnownVoiceprint_);
+                DARABONBA_PTR_FROM_JSON(Speaker, speaker_);
+              };
+              Additions() = default ;
+              Additions(const Additions &) = default ;
+              Additions(Additions &&) = default ;
+              Additions(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Additions() = default ;
+              Additions& operator=(const Additions &) = default ;
+              Additions& operator=(Additions &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->age_ == nullptr
+        && this->ageGroup_ == nullptr && this->ageScore_ == nullptr && this->bestVoiceprintScore_ == nullptr && this->emotion_ == nullptr && this->emotionScore_ == nullptr
+        && this->gender_ == nullptr && this->genderScore_ == nullptr && this->isKnownVoiceprint_ == nullptr && this->speaker_ == nullptr; };
+              // age Field Functions 
+              bool hasAge() const { return this->age_ != nullptr;};
+              void deleteAge() { this->age_ = nullptr;};
+              inline string getAge() const { DARABONBA_PTR_GET_DEFAULT(age_, "") };
+              inline Additions& setAge(string age) { DARABONBA_PTR_SET_VALUE(age_, age) };
+
+
+              // ageGroup Field Functions 
+              bool hasAgeGroup() const { return this->ageGroup_ != nullptr;};
+              void deleteAgeGroup() { this->ageGroup_ = nullptr;};
+              inline string getAgeGroup() const { DARABONBA_PTR_GET_DEFAULT(ageGroup_, "") };
+              inline Additions& setAgeGroup(string ageGroup) { DARABONBA_PTR_SET_VALUE(ageGroup_, ageGroup) };
+
+
+              // ageScore Field Functions 
+              bool hasAgeScore() const { return this->ageScore_ != nullptr;};
+              void deleteAgeScore() { this->ageScore_ = nullptr;};
+              inline float getAgeScore() const { DARABONBA_PTR_GET_DEFAULT(ageScore_, 0.0) };
+              inline Additions& setAgeScore(float ageScore) { DARABONBA_PTR_SET_VALUE(ageScore_, ageScore) };
+
+
+              // bestVoiceprintScore Field Functions 
+              bool hasBestVoiceprintScore() const { return this->bestVoiceprintScore_ != nullptr;};
+              void deleteBestVoiceprintScore() { this->bestVoiceprintScore_ = nullptr;};
+              inline float getBestVoiceprintScore() const { DARABONBA_PTR_GET_DEFAULT(bestVoiceprintScore_, 0.0) };
+              inline Additions& setBestVoiceprintScore(float bestVoiceprintScore) { DARABONBA_PTR_SET_VALUE(bestVoiceprintScore_, bestVoiceprintScore) };
+
+
+              // emotion Field Functions 
+              bool hasEmotion() const { return this->emotion_ != nullptr;};
+              void deleteEmotion() { this->emotion_ = nullptr;};
+              inline string getEmotion() const { DARABONBA_PTR_GET_DEFAULT(emotion_, "") };
+              inline Additions& setEmotion(string emotion) { DARABONBA_PTR_SET_VALUE(emotion_, emotion) };
+
+
+              // emotionScore Field Functions 
+              bool hasEmotionScore() const { return this->emotionScore_ != nullptr;};
+              void deleteEmotionScore() { this->emotionScore_ = nullptr;};
+              inline float getEmotionScore() const { DARABONBA_PTR_GET_DEFAULT(emotionScore_, 0.0) };
+              inline Additions& setEmotionScore(float emotionScore) { DARABONBA_PTR_SET_VALUE(emotionScore_, emotionScore) };
+
+
+              // gender Field Functions 
+              bool hasGender() const { return this->gender_ != nullptr;};
+              void deleteGender() { this->gender_ = nullptr;};
+              inline string getGender() const { DARABONBA_PTR_GET_DEFAULT(gender_, "") };
+              inline Additions& setGender(string gender) { DARABONBA_PTR_SET_VALUE(gender_, gender) };
+
+
+              // genderScore Field Functions 
+              bool hasGenderScore() const { return this->genderScore_ != nullptr;};
+              void deleteGenderScore() { this->genderScore_ = nullptr;};
+              inline float getGenderScore() const { DARABONBA_PTR_GET_DEFAULT(genderScore_, 0.0) };
+              inline Additions& setGenderScore(float genderScore) { DARABONBA_PTR_SET_VALUE(genderScore_, genderScore) };
+
+
+              // isKnownVoiceprint Field Functions 
+              bool hasIsKnownVoiceprint() const { return this->isKnownVoiceprint_ != nullptr;};
+              void deleteIsKnownVoiceprint() { this->isKnownVoiceprint_ = nullptr;};
+              inline bool getIsKnownVoiceprint() const { DARABONBA_PTR_GET_DEFAULT(isKnownVoiceprint_, false) };
+              inline Additions& setIsKnownVoiceprint(bool isKnownVoiceprint) { DARABONBA_PTR_SET_VALUE(isKnownVoiceprint_, isKnownVoiceprint) };
+
+
+              // speaker Field Functions 
+              bool hasSpeaker() const { return this->speaker_ != nullptr;};
+              void deleteSpeaker() { this->speaker_ = nullptr;};
+              inline string getSpeaker() const { DARABONBA_PTR_GET_DEFAULT(speaker_, "") };
+              inline Additions& setSpeaker(string speaker) { DARABONBA_PTR_SET_VALUE(speaker_, speaker) };
+
+
+            protected:
+              shared_ptr<string> age_ {};
+              shared_ptr<string> ageGroup_ {};
+              shared_ptr<float> ageScore_ {};
+              shared_ptr<float> bestVoiceprintScore_ {};
+              shared_ptr<string> emotion_ {};
+              shared_ptr<float> emotionScore_ {};
+              shared_ptr<string> gender_ {};
+              shared_ptr<float> genderScore_ {};
+              shared_ptr<bool> isKnownVoiceprint_ {};
+              shared_ptr<string> speaker_ {};
+            };
+
+            virtual bool empty() const override { return this->additions_ == nullptr
+        && this->begin_ == nullptr && this->end_ == nullptr && this->words_ == nullptr; };
+            // additions Field Functions 
+            bool hasAdditions() const { return this->additions_ != nullptr;};
+            void deleteAdditions() { this->additions_ = nullptr;};
+            inline const Dialogue::Additions & getAdditions() const { DARABONBA_PTR_GET_CONST(additions_, Dialogue::Additions) };
+            inline Dialogue::Additions getAdditions() { DARABONBA_PTR_GET(additions_, Dialogue::Additions) };
+            inline Dialogue& setAdditions(const Dialogue::Additions & additions) { DARABONBA_PTR_SET_VALUE(additions_, additions) };
+            inline Dialogue& setAdditions(Dialogue::Additions && additions) { DARABONBA_PTR_SET_RVALUE(additions_, additions) };
+
+
+            // begin Field Functions 
+            bool hasBegin() const { return this->begin_ != nullptr;};
+            void deleteBegin() { this->begin_ = nullptr;};
+            inline int64_t getBegin() const { DARABONBA_PTR_GET_DEFAULT(begin_, 0L) };
+            inline Dialogue& setBegin(int64_t begin) { DARABONBA_PTR_SET_VALUE(begin_, begin) };
+
+
+            // end Field Functions 
+            bool hasEnd() const { return this->end_ != nullptr;};
+            void deleteEnd() { this->end_ = nullptr;};
+            inline int64_t getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0L) };
+            inline Dialogue& setEnd(int64_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+
+
+            // words Field Functions 
+            bool hasWords() const { return this->words_ != nullptr;};
+            void deleteWords() { this->words_ = nullptr;};
+            inline string getWords() const { DARABONBA_PTR_GET_DEFAULT(words_, "") };
+            inline Dialogue& setWords(string words) { DARABONBA_PTR_SET_VALUE(words_, words) };
+
+
+          protected:
+            shared_ptr<Dialogue::Additions> additions_ {};
+            shared_ptr<int64_t> begin_ {};
+            shared_ptr<int64_t> end_ {};
+            shared_ptr<string> words_ {};
+          };
+
+          virtual bool empty() const override { return this->dialogue_ == nullptr
+        && this->errors_ == nullptr; };
+          // dialogue Field Functions 
+          bool hasDialogue() const { return this->dialogue_ != nullptr;};
+          void deleteDialogue() { this->dialogue_ = nullptr;};
+          inline const vector<VoiceprintResponse::Dialogue> & getDialogue() const { DARABONBA_PTR_GET_CONST(dialogue_, vector<VoiceprintResponse::Dialogue>) };
+          inline vector<VoiceprintResponse::Dialogue> getDialogue() { DARABONBA_PTR_GET(dialogue_, vector<VoiceprintResponse::Dialogue>) };
+          inline VoiceprintResponse& setDialogue(const vector<VoiceprintResponse::Dialogue> & dialogue) { DARABONBA_PTR_SET_VALUE(dialogue_, dialogue) };
+          inline VoiceprintResponse& setDialogue(vector<VoiceprintResponse::Dialogue> && dialogue) { DARABONBA_PTR_SET_RVALUE(dialogue_, dialogue) };
+
+
+          // errors Field Functions 
+          bool hasErrors() const { return this->errors_ != nullptr;};
+          void deleteErrors() { this->errors_ = nullptr;};
+          inline const vector<VoiceprintResponse::Errors> & getErrors() const { DARABONBA_PTR_GET_CONST(errors_, vector<VoiceprintResponse::Errors>) };
+          inline vector<VoiceprintResponse::Errors> getErrors() { DARABONBA_PTR_GET(errors_, vector<VoiceprintResponse::Errors>) };
+          inline VoiceprintResponse& setErrors(const vector<VoiceprintResponse::Errors> & errors) { DARABONBA_PTR_SET_VALUE(errors_, errors) };
+          inline VoiceprintResponse& setErrors(vector<VoiceprintResponse::Errors> && errors) { DARABONBA_PTR_SET_RVALUE(errors_, errors) };
+
+
+        protected:
+          shared_ptr<vector<VoiceprintResponse::Dialogue>> dialogue_ {};
+          shared_ptr<vector<VoiceprintResponse::Errors>> errors_ {};
+        };
+
         class TagCategoryResponse : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const TagCategoryResponse& obj) { 
@@ -456,7 +733,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->customerPromptResponse_ == nullptr
-        && this->fieldResponse_ == nullptr && this->serviceInspectionResponse_ == nullptr && this->tagCategoryResponse_ == nullptr; };
+        && this->fieldResponse_ == nullptr && this->serviceInspectionResponse_ == nullptr && this->tagCategoryResponse_ == nullptr && this->voiceprintResponse_ == nullptr; };
         // customerPromptResponse Field Functions 
         bool hasCustomerPromptResponse() const { return this->customerPromptResponse_ != nullptr;};
         void deleteCustomerPromptResponse() { this->customerPromptResponse_ = nullptr;};
@@ -493,6 +770,15 @@ namespace Models
         inline Response& setTagCategoryResponse(Response::TagCategoryResponse && tagCategoryResponse) { DARABONBA_PTR_SET_RVALUE(tagCategoryResponse_, tagCategoryResponse) };
 
 
+        // voiceprintResponse Field Functions 
+        bool hasVoiceprintResponse() const { return this->voiceprintResponse_ != nullptr;};
+        void deleteVoiceprintResponse() { this->voiceprintResponse_ = nullptr;};
+        inline const Response::VoiceprintResponse & getVoiceprintResponse() const { DARABONBA_PTR_GET_CONST(voiceprintResponse_, Response::VoiceprintResponse) };
+        inline Response::VoiceprintResponse getVoiceprintResponse() { DARABONBA_PTR_GET(voiceprintResponse_, Response::VoiceprintResponse) };
+        inline Response& setVoiceprintResponse(const Response::VoiceprintResponse & voiceprintResponse) { DARABONBA_PTR_SET_VALUE(voiceprintResponse_, voiceprintResponse) };
+        inline Response& setVoiceprintResponse(Response::VoiceprintResponse && voiceprintResponse) { DARABONBA_PTR_SET_RVALUE(voiceprintResponse_, voiceprintResponse) };
+
+
       protected:
         // The result of the custom prompt.
         shared_ptr<Response::CustomerPromptResponse> customerPromptResponse_ {};
@@ -502,6 +788,7 @@ namespace Models
         shared_ptr<Response::ServiceInspectionResponse> serviceInspectionResponse_ {};
         // The tag categorization result.
         shared_ptr<Response::TagCategoryResponse> tagCategoryResponse_ {};
+        shared_ptr<Response::VoiceprintResponse> voiceprintResponse_ {};
       };
 
       class Dialogues : public Darabonba::Model {
@@ -769,7 +1056,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. You can use this field to determine whether the request succeeded:
     // 
-    // - **true**: The request was successful.
+    // - **true**: The request succeeded.
     // - **false/null**: The request failed.
     shared_ptr<string> success_ {};
   };
