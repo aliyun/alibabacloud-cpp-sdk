@@ -167,6 +167,10 @@
 #include <alibabacloud/models/CreateSessionClusterRequest.hpp>
 #include <alibabacloud/models/CreateSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateSessionClusterResponse.hpp>
+#include <alibabacloud/models/CreateSqlFileHeaders.hpp>
+#include <alibabacloud/models/CreateSqlFileRequest.hpp>
+#include <alibabacloud/models/CreateSqlFileResponseBody.hpp>
+#include <alibabacloud/models/CreateSqlFileResponse.hpp>
 #include <alibabacloud/models/CreateUdfArtifactHeaders.hpp>
 #include <alibabacloud/models/CreateUdfArtifactRequest.hpp>
 #include <alibabacloud/models/CreateUdfArtifactResponseBody.hpp>
@@ -181,6 +185,10 @@
 #include <alibabacloud/models/DeleteDeploymentHeaders.hpp>
 #include <alibabacloud/models/DeleteDeploymentResponseBody.hpp>
 #include <alibabacloud/models/DeleteDeploymentResponse.hpp>
+#include <alibabacloud/models/DeleteDeploymentByNameHeaders.hpp>
+#include <alibabacloud/models/DeleteDeploymentByNameRequest.hpp>
+#include <alibabacloud/models/DeleteDeploymentByNameResponseBody.hpp>
+#include <alibabacloud/models/DeleteDeploymentByNameResponse.hpp>
 #include <alibabacloud/models/DeleteDeploymentDraftHeaders.hpp>
 #include <alibabacloud/models/DeleteDeploymentDraftResponseBody.hpp>
 #include <alibabacloud/models/DeleteDeploymentDraftResponse.hpp>
@@ -205,6 +213,10 @@
 #include <alibabacloud/models/DeleteSessionClusterHeaders.hpp>
 #include <alibabacloud/models/DeleteSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteSessionClusterResponse.hpp>
+#include <alibabacloud/models/DeleteSqlFileHeaders.hpp>
+#include <alibabacloud/models/DeleteSqlFileRequest.hpp>
+#include <alibabacloud/models/DeleteSqlFileResponseBody.hpp>
+#include <alibabacloud/models/DeleteSqlFileResponse.hpp>
 #include <alibabacloud/models/DeleteUdfArtifactHeaders.hpp>
 #include <alibabacloud/models/DeleteUdfArtifactResponseBody.hpp>
 #include <alibabacloud/models/DeleteUdfArtifactResponse.hpp>
@@ -223,6 +235,10 @@
 #include <alibabacloud/models/ExecuteSqlStatementRequest.hpp>
 #include <alibabacloud/models/ExecuteSqlStatementResponseBody.hpp>
 #include <alibabacloud/models/ExecuteSqlStatementResponse.hpp>
+#include <alibabacloud/models/FetchSqlExecutionResultHeaders.hpp>
+#include <alibabacloud/models/FetchSqlExecutionResultRequest.hpp>
+#include <alibabacloud/models/FetchSqlExecutionResultResponseBody.hpp>
+#include <alibabacloud/models/FetchSqlExecutionResultResponse.hpp>
 #include <alibabacloud/models/FetchSqlPreviewResultsHeaders.hpp>
 #include <alibabacloud/models/FetchSqlPreviewResultsRequest.hpp>
 #include <alibabacloud/models/FetchSqlPreviewResultsResponseBody.hpp>
@@ -312,6 +328,10 @@
 #include <alibabacloud/models/GetSessionClusterHeaders.hpp>
 #include <alibabacloud/models/GetSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/GetSessionClusterResponse.hpp>
+#include <alibabacloud/models/GetSqlFileHeaders.hpp>
+#include <alibabacloud/models/GetSqlFileRequest.hpp>
+#include <alibabacloud/models/GetSqlFileResponseBody.hpp>
+#include <alibabacloud/models/GetSqlFileResponse.hpp>
 #include <alibabacloud/models/GetTablesHeaders.hpp>
 #include <alibabacloud/models/GetTablesRequest.hpp>
 #include <alibabacloud/models/GetTablesResponseBody.hpp>
@@ -407,6 +427,10 @@
 #include <alibabacloud/models/StopSessionClusterHeaders.hpp>
 #include <alibabacloud/models/StopSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/StopSessionClusterResponse.hpp>
+#include <alibabacloud/models/StopSqlExecutionHeaders.hpp>
+#include <alibabacloud/models/StopSqlExecutionRequest.hpp>
+#include <alibabacloud/models/StopSqlExecutionResponseBody.hpp>
+#include <alibabacloud/models/StopSqlExecutionResponse.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewHeaders.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewRequest.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewResponseBody.hpp>
@@ -415,6 +439,10 @@
 #include <alibabacloud/models/UpdateDeploymentRequest.hpp>
 #include <alibabacloud/models/UpdateDeploymentResponseBody.hpp>
 #include <alibabacloud/models/UpdateDeploymentResponse.hpp>
+#include <alibabacloud/models/UpdateDeploymentByNameHeaders.hpp>
+#include <alibabacloud/models/UpdateDeploymentByNameRequest.hpp>
+#include <alibabacloud/models/UpdateDeploymentByNameResponseBody.hpp>
+#include <alibabacloud/models/UpdateDeploymentByNameResponse.hpp>
 #include <alibabacloud/models/UpdateDeploymentDraftHeaders.hpp>
 #include <alibabacloud/models/UpdateDeploymentDraftRequest.hpp>
 #include <alibabacloud/models/UpdateDeploymentDraftResponseBody.hpp>
@@ -443,6 +471,10 @@
 #include <alibabacloud/models/UpdateSessionClusterRequest.hpp>
 #include <alibabacloud/models/UpdateSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/UpdateSessionClusterResponse.hpp>
+#include <alibabacloud/models/UpdateSqlFileHeaders.hpp>
+#include <alibabacloud/models/UpdateSqlFileRequest.hpp>
+#include <alibabacloud/models/UpdateSqlFileResponseBody.hpp>
+#include <alibabacloud/models/UpdateSqlFileResponse.hpp>
 #include <alibabacloud/models/UpdateUdfArtifactHeaders.hpp>
 #include <alibabacloud/models/UpdateUdfArtifactRequest.hpp>
 #include <alibabacloud/models/UpdateUdfArtifactResponseBody.hpp>

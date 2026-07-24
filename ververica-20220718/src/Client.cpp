@@ -635,6 +635,59 @@ CreateSessionClusterResponse Client::createSessionCluster(const string &_namespa
 }
 
 /**
+ * @summary Creates a SQL query script job file.
+ *
+ * @description The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+ *
+ * @param request CreateSqlFileRequest
+ * @param headers CreateSqlFileHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSqlFileResponse
+ */
+CreateSqlFileResponse Client::createSqlFileWithOptions(const string &_namespace, const CreateSqlFileRequest &request, const CreateSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSqlFile"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-file")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSqlFileResponse>();
+}
+
+/**
+ * @summary Creates a SQL query script job file.
+ *
+ * @description The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+ *
+ * @param request CreateSqlFileRequest
+ * @return CreateSqlFileResponse
+ */
+CreateSqlFileResponse Client::createSqlFile(const string &_namespace, const CreateSqlFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  CreateSqlFileHeaders headers = CreateSqlFileHeaders();
+  return createSqlFileWithOptions(namespace, request, headers, runtime);
+}
+
+/**
  * @summary Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
  *
  * @param request CreateUdfArtifactRequest
@@ -820,6 +873,64 @@ DeleteDeploymentResponse Client::deleteDeployment(const string &_namespace, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   DeleteDeploymentHeaders headers = DeleteDeploymentHeaders();
   return deleteDeploymentWithOptions(namespace, deploymentId, headers, runtime);
+}
+
+/**
+ * @summary Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+ *
+ * @description Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+ *
+ * @param request DeleteDeploymentByNameRequest
+ * @param headers DeleteDeploymentByNameHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDeploymentByNameResponse
+ */
+DeleteDeploymentByNameResponse Client::deleteDeploymentByNameWithOptions(const string &_namespace, const DeleteDeploymentByNameRequest &request, const DeleteDeploymentByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeploymentName()) {
+    query["deploymentName"] = request.getDeploymentName();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDeploymentByName"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/deleteDeployment/byName")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDeploymentByNameResponse>();
+}
+
+/**
+ * @summary Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+ *
+ * @description Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+ *
+ * @param request DeleteDeploymentByNameRequest
+ * @return DeleteDeploymentByNameResponse
+ */
+DeleteDeploymentByNameResponse Client::deleteDeploymentByName(const string &_namespace, const DeleteDeploymentByNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  DeleteDeploymentByNameHeaders headers = DeleteDeploymentByNameHeaders();
+  return deleteDeploymentByNameWithOptions(namespace, request, headers, runtime);
 }
 
 /**
@@ -1183,6 +1294,58 @@ DeleteSessionClusterResponse Client::deleteSessionCluster(const string &_namespa
 }
 
 /**
+ * @summary Deletes a created SQL query script file.
+ *
+ * @description Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+ *
+ * @param request DeleteSqlFileRequest
+ * @param headers DeleteSqlFileHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSqlFileResponse
+ */
+DeleteSqlFileResponse Client::deleteSqlFileWithOptions(const string &_namespace, const string &sqlFileId, const DeleteSqlFileRequest &request, const DeleteSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSqlFile"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-file/" , Darabonba::Encode::Encoder::percentEncode(sqlFileId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSqlFileResponse>();
+}
+
+/**
+ * @summary Deletes a created SQL query script file.
+ *
+ * @description Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+ *
+ * @param request DeleteSqlFileRequest
+ * @return DeleteSqlFileResponse
+ */
+DeleteSqlFileResponse Client::deleteSqlFile(const string &_namespace, const string &sqlFileId, const DeleteSqlFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  DeleteSqlFileHeaders headers = DeleteSqlFileHeaders();
+  return deleteSqlFileWithOptions(namespace, sqlFileId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
  *
  * @param headers DeleteUdfArtifactHeaders
@@ -1426,6 +1589,54 @@ ExecuteSqlStatementResponse Client::executeSqlStatement(const string &_namespace
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   ExecuteSqlStatementHeaders headers = ExecuteSqlStatementHeaders();
   return executeSqlStatementWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the execution result of an SQL data query submitted through the platform.
+ *
+ * @param request FetchSqlExecutionResultRequest
+ * @param headers FetchSqlExecutionResultHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FetchSqlExecutionResultResponse
+ */
+FetchSqlExecutionResultResponse Client::fetchSqlExecutionResultWithOptions(const string &_namespace, const string &sqlExecutionId, const FetchSqlExecutionResultRequest &request, const FetchSqlExecutionResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "FetchSqlExecutionResult"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-execution/" , Darabonba::Encode::Encoder::percentEncode(sqlExecutionId) , "%3AfetchSqlExecutionResult")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FetchSqlExecutionResultResponse>();
+}
+
+/**
+ * @summary Retrieves the execution result of an SQL data query submitted through the platform.
+ *
+ * @param request FetchSqlExecutionResultRequest
+ * @return FetchSqlExecutionResultResponse
+ */
+FetchSqlExecutionResultResponse Client::fetchSqlExecutionResult(const string &_namespace, const string &sqlExecutionId, const FetchSqlExecutionResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  FetchSqlExecutionResultHeaders headers = FetchSqlExecutionResultHeaders();
+  return fetchSqlExecutionResultWithOptions(namespace, sqlExecutionId, request, headers, runtime);
 }
 
 /**
@@ -2747,6 +2958,54 @@ GetSessionClusterResponse Client::getSessionCluster(const string &_namespace, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetSessionClusterHeaders headers = GetSessionClusterHeaders();
   return getSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a created SQL query script.
+ *
+ * @param request GetSqlFileRequest
+ * @param headers GetSqlFileHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSqlFileResponse
+ */
+GetSqlFileResponse Client::getSqlFileWithOptions(const string &_namespace, const string &sqlFileId, const GetSqlFileRequest &request, const GetSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSqlFile"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-file/" , Darabonba::Encode::Encoder::percentEncode(sqlFileId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSqlFileResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a created SQL query script.
+ *
+ * @param request GetSqlFileRequest
+ * @return GetSqlFileResponse
+ */
+GetSqlFileResponse Client::getSqlFile(const string &_namespace, const string &sqlFileId, const GetSqlFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetSqlFileHeaders headers = GetSqlFileHeaders();
+  return getSqlFileWithOptions(namespace, sqlFileId, request, headers, runtime);
 }
 
 /**
@@ -4173,6 +4432,54 @@ StopSessionClusterResponse Client::stopSessionCluster(const string &_namespace, 
 }
 
 /**
+ * @summary Executes an SQL query script task.
+ *
+ * @param request StopSqlExecutionRequest
+ * @param headers StopSqlExecutionHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopSqlExecutionResponse
+ */
+StopSqlExecutionResponse Client::stopSqlExecutionWithOptions(const string &_namespace, const string &sqlExecutionId, const StopSqlExecutionRequest &request, const StopSqlExecutionHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopSqlExecution"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-execution/" , Darabonba::Encode::Encoder::percentEncode(sqlExecutionId) , "%3Astop")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopSqlExecutionResponse>();
+}
+
+/**
+ * @summary Executes an SQL query script task.
+ *
+ * @param request StopSqlExecutionRequest
+ * @return StopSqlExecutionResponse
+ */
+StopSqlExecutionResponse Client::stopSqlExecution(const string &_namespace, const string &sqlExecutionId, const StopSqlExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  StopSqlExecutionHeaders headers = StopSqlExecutionHeaders();
+  return stopSqlExecutionWithOptions(namespace, sqlExecutionId, request, headers, runtime);
+}
+
+/**
  * @summary 提交sql调试
  *
  * @param request SubmitSqlPreviewRequest
@@ -4274,6 +4581,61 @@ UpdateDeploymentResponse Client::updateDeployment(const string &_namespace, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   UpdateDeploymentHeaders headers = UpdateDeploymentHeaders();
   return updateDeploymentWithOptions(namespace, deploymentId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the details and configuration parameters of a deployment job by its name.
+ *
+ * @param request UpdateDeploymentByNameRequest
+ * @param headers UpdateDeploymentByNameHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDeploymentByNameResponse
+ */
+UpdateDeploymentByNameResponse Client::updateDeploymentByNameWithOptions(const string &_namespace, const UpdateDeploymentByNameRequest &request, const UpdateDeploymentByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeploymentName()) {
+    query["deploymentName"] = request.getDeploymentName();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDeploymentByName"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/updateDeployment/byName")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDeploymentByNameResponse>();
+}
+
+/**
+ * @summary Updates the details and configuration parameters of a deployment job by its name.
+ *
+ * @param request UpdateDeploymentByNameRequest
+ * @return UpdateDeploymentByNameResponse
+ */
+UpdateDeploymentByNameResponse Client::updateDeploymentByName(const string &_namespace, const UpdateDeploymentByNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  UpdateDeploymentByNameHeaders headers = UpdateDeploymentByNameHeaders();
+  return updateDeploymentByNameWithOptions(namespace, request, headers, runtime);
 }
 
 /**
@@ -4621,6 +4983,55 @@ UpdateSessionClusterResponse Client::updateSessionCluster(const string &_namespa
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   UpdateSessionClusterHeaders headers = UpdateSessionClusterHeaders();
   return updateSessionClusterWithOptions(namespace, sessionClusterName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a created SQL query script.
+ *
+ * @param request UpdateSqlFileRequest
+ * @param headers UpdateSqlFileHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSqlFileResponse
+ */
+UpdateSqlFileResponse Client::updateSqlFileWithOptions(const string &_namespace, const string &sqlFileId, const UpdateSqlFileRequest &request, const UpdateSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSqlFile"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/sql-file/" , Darabonba::Encode::Encoder::percentEncode(sqlFileId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSqlFileResponse>();
+}
+
+/**
+ * @summary Updates a created SQL query script.
+ *
+ * @param request UpdateSqlFileRequest
+ * @return UpdateSqlFileResponse
+ */
+UpdateSqlFileResponse Client::updateSqlFile(const string &_namespace, const string &sqlFileId, const UpdateSqlFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  UpdateSqlFileHeaders headers = UpdateSqlFileHeaders();
+  return updateSqlFileWithOptions(namespace, sqlFileId, request, headers, runtime);
 }
 
 /**

@@ -221,6 +221,28 @@ namespace Ververica20220718
       Models::CreateSessionClusterResponse createSessionCluster(const string &_namespace, const Models::CreateSessionClusterRequest &request);
 
       /**
+       * @summary Creates a SQL query script job file.
+       *
+       * @description The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+       *
+       * @param request CreateSqlFileRequest
+       * @param headers CreateSqlFileHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSqlFileResponse
+       */
+      Models::CreateSqlFileResponse createSqlFileWithOptions(const string &_namespace, const Models::CreateSqlFileRequest &request, const Models::CreateSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a SQL query script job file.
+       *
+       * @description The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+       *
+       * @param request CreateSqlFileRequest
+       * @return CreateSqlFileResponse
+       */
+      Models::CreateSqlFileResponse createSqlFile(const string &_namespace, const Models::CreateSqlFileRequest &request);
+
+      /**
        * @summary Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
        *
        * @param request CreateUdfArtifactRequest
@@ -287,6 +309,28 @@ namespace Ververica20220718
        * @return DeleteDeploymentResponse
        */
       Models::DeleteDeploymentResponse deleteDeployment(const string &_namespace, const string &deploymentId);
+
+      /**
+       * @summary Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+       *
+       * @description Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+       *
+       * @param request DeleteDeploymentByNameRequest
+       * @param headers DeleteDeploymentByNameHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDeploymentByNameResponse
+       */
+      Models::DeleteDeploymentByNameResponse deleteDeploymentByNameWithOptions(const string &_namespace, const Models::DeleteDeploymentByNameRequest &request, const Models::DeleteDeploymentByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+       *
+       * @description Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+       *
+       * @param request DeleteDeploymentByNameRequest
+       * @return DeleteDeploymentByNameResponse
+       */
+      Models::DeleteDeploymentByNameResponse deleteDeploymentByName(const string &_namespace, const Models::DeleteDeploymentByNameRequest &request);
 
       /**
        * @summary Deletes a draft of an SQL or data ingestion job. The draft cannot be deleted if it has any published or running deployment.
@@ -417,6 +461,28 @@ namespace Ververica20220718
       Models::DeleteSessionClusterResponse deleteSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
+       * @summary Deletes a created SQL query script file.
+       *
+       * @description Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+       *
+       * @param request DeleteSqlFileRequest
+       * @param headers DeleteSqlFileHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSqlFileResponse
+       */
+      Models::DeleteSqlFileResponse deleteSqlFileWithOptions(const string &_namespace, const string &sqlFileId, const Models::DeleteSqlFileRequest &request, const Models::DeleteSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a created SQL query script file.
+       *
+       * @description Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+       *
+       * @param request DeleteSqlFileRequest
+       * @return DeleteSqlFileResponse
+       */
+      Models::DeleteSqlFileResponse deleteSqlFile(const string &_namespace, const string &sqlFileId, const Models::DeleteSqlFileRequest &request);
+
+      /**
        * @summary Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
        *
        * @param headers DeleteUdfArtifactHeaders
@@ -501,6 +567,24 @@ namespace Ververica20220718
        * @return ExecuteSqlStatementResponse
        */
       Models::ExecuteSqlStatementResponse executeSqlStatement(const string &_namespace, const Models::ExecuteSqlStatementRequest &request);
+
+      /**
+       * @summary Retrieves the execution result of an SQL data query submitted through the platform.
+       *
+       * @param request FetchSqlExecutionResultRequest
+       * @param headers FetchSqlExecutionResultHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FetchSqlExecutionResultResponse
+       */
+      Models::FetchSqlExecutionResultResponse fetchSqlExecutionResultWithOptions(const string &_namespace, const string &sqlExecutionId, const Models::FetchSqlExecutionResultRequest &request, const Models::FetchSqlExecutionResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the execution result of an SQL data query submitted through the platform.
+       *
+       * @param request FetchSqlExecutionResultRequest
+       * @return FetchSqlExecutionResultResponse
+       */
+      Models::FetchSqlExecutionResultResponse fetchSqlExecutionResult(const string &_namespace, const string &sqlExecutionId, const Models::FetchSqlExecutionResultRequest &request);
 
       /**
        * @summary 获取调试结果
@@ -937,6 +1021,24 @@ namespace Ververica20220718
        * @return GetSessionClusterResponse
        */
       Models::GetSessionClusterResponse getSessionCluster(const string &_namespace, const string &sessionClusterName);
+
+      /**
+       * @summary Retrieves the details of a created SQL query script.
+       *
+       * @param request GetSqlFileRequest
+       * @param headers GetSqlFileHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSqlFileResponse
+       */
+      Models::GetSqlFileResponse getSqlFileWithOptions(const string &_namespace, const string &sqlFileId, const Models::GetSqlFileRequest &request, const Models::GetSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a created SQL query script.
+       *
+       * @param request GetSqlFileRequest
+       * @return GetSqlFileResponse
+       */
+      Models::GetSqlFileResponse getSqlFile(const string &_namespace, const string &sqlFileId, const Models::GetSqlFileRequest &request);
 
       /**
        * @summary Retrieves the details of a specific table or all tables in a database within a specified catalog.
@@ -1395,6 +1497,24 @@ namespace Ververica20220718
       Models::StopSessionClusterResponse stopSessionCluster(const string &_namespace, const string &sessionClusterName);
 
       /**
+       * @summary Executes an SQL query script task.
+       *
+       * @param request StopSqlExecutionRequest
+       * @param headers StopSqlExecutionHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopSqlExecutionResponse
+       */
+      Models::StopSqlExecutionResponse stopSqlExecutionWithOptions(const string &_namespace, const string &sqlExecutionId, const Models::StopSqlExecutionRequest &request, const Models::StopSqlExecutionHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes an SQL query script task.
+       *
+       * @param request StopSqlExecutionRequest
+       * @return StopSqlExecutionResponse
+       */
+      Models::StopSqlExecutionResponse stopSqlExecution(const string &_namespace, const string &sqlExecutionId, const Models::StopSqlExecutionRequest &request);
+
+      /**
        * @summary 提交sql调试
        *
        * @param request SubmitSqlPreviewRequest
@@ -1429,6 +1549,24 @@ namespace Ververica20220718
        * @return UpdateDeploymentResponse
        */
       Models::UpdateDeploymentResponse updateDeployment(const string &_namespace, const string &deploymentId, const Models::UpdateDeploymentRequest &request);
+
+      /**
+       * @summary Updates the details and configuration parameters of a deployment job by its name.
+       *
+       * @param request UpdateDeploymentByNameRequest
+       * @param headers UpdateDeploymentByNameHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDeploymentByNameResponse
+       */
+      Models::UpdateDeploymentByNameResponse updateDeploymentByNameWithOptions(const string &_namespace, const Models::UpdateDeploymentByNameRequest &request, const Models::UpdateDeploymentByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the details and configuration parameters of a deployment job by its name.
+       *
+       * @param request UpdateDeploymentByNameRequest
+       * @return UpdateDeploymentByNameResponse
+       */
+      Models::UpdateDeploymentByNameResponse updateDeploymentByName(const string &_namespace, const Models::UpdateDeploymentByNameRequest &request);
 
       /**
        * @summary Updates the draft of an SQL or data ingestion job.
@@ -1559,6 +1697,24 @@ namespace Ververica20220718
        * @return UpdateSessionClusterResponse
        */
       Models::UpdateSessionClusterResponse updateSessionCluster(const string &_namespace, const string &sessionClusterName, const Models::UpdateSessionClusterRequest &request);
+
+      /**
+       * @summary Updates a created SQL query script.
+       *
+       * @param request UpdateSqlFileRequest
+       * @param headers UpdateSqlFileHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSqlFileResponse
+       */
+      Models::UpdateSqlFileResponse updateSqlFileWithOptions(const string &_namespace, const string &sqlFileId, const Models::UpdateSqlFileRequest &request, const Models::UpdateSqlFileHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a created SQL query script.
+       *
+       * @param request UpdateSqlFileRequest
+       * @return UpdateSqlFileResponse
+       */
+      Models::UpdateSqlFileResponse updateSqlFile(const string &_namespace, const string &sqlFileId, const Models::UpdateSqlFileRequest &request);
 
       /**
        * @summary Updates the JAR file of the user-defined function (UDF) that you create.

@@ -75,15 +75,10 @@ namespace Models
 
 
   protected:
-    // The index of the SQL statement.
     shared_ptr<int32_t> index_ {};
-    // The message returned for the SQL statement.
     shared_ptr<string> message_ {};
-    // The SQL script content.
     shared_ptr<string> sqlScript_ {};
-    // The status of the SQL statement.
     shared_ptr<string> statusState_ {};
-    // The type of the SQL statement.
     shared_ptr<string> type_ {};
   };
 

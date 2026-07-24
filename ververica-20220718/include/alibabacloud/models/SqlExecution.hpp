@@ -144,28 +144,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable batch mode.
     shared_ptr<bool> batchMode_ {};
-    // The description of the SQL execution.
     shared_ptr<string> description_ {};
-    // The message returned for the SQL execution.
     shared_ptr<string> message_ {};
-    // The name of the SQL execution.
     shared_ptr<string> name_ {};
-    // The namespace.
     shared_ptr<string> namespace_ {};
-    // The name of the session cluster.
     shared_ptr<string> sessionClusterName_ {};
-    // The SQL execution ID.
     shared_ptr<string> sqlExecutionId_ {};
-    // The SQL file ID.
     shared_ptr<string> sqlFileId_ {};
-    // The SQL script content.
     shared_ptr<string> sqlScript_ {};
-    // The state of the SQL execution.
     shared_ptr<string> state_ {};
     shared_ptr<vector<SqlStatement>> statements_ {};
-    // The workspace ID.
     shared_ptr<string> workspace_ {};
   };
 
