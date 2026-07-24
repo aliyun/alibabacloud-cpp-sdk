@@ -309,11 +309,11 @@ namespace Models
       shared_ptr<string> duplicateFace_ {};
       // The additional face result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The predicted reference age of the face. Prediction may fail and the value may not be returned.
+      // The estimated age of the face. This value may not be returned if the prediction fails.
       shared_ptr<int64_t> faceAge_ {};
       // Indicates whether the captured face involves a liveness attack. Valid values:
-      // - Y: attack detected.
-      // - N: no attack detected.
+      // - Y: Attack detected.
+      // - N: No attack detected.
       // 
       // This field is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttack_ {};
@@ -321,19 +321,19 @@ namespace Models
       shared_ptr<double> faceAttackScore_ {};
       // The comparison score between the face image submitted during verification and the reference face image. Value range: 0 to 100.
       shared_ptr<double> faceComparisonScore_ {};
-      // The predicted gender of the face image. Prediction may fail and the value may not be returned. Valid values:
-      // - M: male.
-      // - F: female.
+      // The predicted gender of the face image. This value may not be returned if the prediction fails. Valid values:
+      // - M: Male.
+      // - F: Female.
       shared_ptr<string> faceGender_ {};
       // The final verification result. Valid values:
-      // - Y: passed.
-      // - N: not passed.
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> facePassed_ {};
-      // The corresponding face ID returned only when the customer has enabled automatic registration and the face is registered successfully.
+      // The face ID returned only when the customer has enabled automatic registration and the face is registered successfully.
       shared_ptr<string> faceRegistrationId_ {};
       // The face registration result. Valid values: 
-      // - 0: failed. 
-      // - 1: succeeded.
+      // - 0: Failed. 
+      // - 1: Succeeded.
       shared_ptr<int64_t> faceRegistrationResult_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
@@ -374,9 +374,9 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

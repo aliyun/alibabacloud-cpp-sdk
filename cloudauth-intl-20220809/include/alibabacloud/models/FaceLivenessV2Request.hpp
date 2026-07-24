@@ -13,6 +13,7 @@ namespace Models
   class FaceLivenessV2Request : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const FaceLivenessV2Request& obj) { 
+      DARABONBA_PTR_TO_JSON(FaceAttributeCheck, faceAttributeCheck_);
       DARABONBA_PTR_TO_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_TO_JSON(FacePictureFile, facePictureFile_);
       DARABONBA_PTR_TO_JSON(FacePictureUrl, facePictureUrl_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
     };
     friend void from_json(const Darabonba::Json& j, FaceLivenessV2Request& obj) { 
+      DARABONBA_PTR_FROM_JSON(FaceAttributeCheck, faceAttributeCheck_);
       DARABONBA_PTR_FROM_JSON(FacePictureBase64, facePictureBase64_);
       DARABONBA_PTR_FROM_JSON(FacePictureFile, facePictureFile_);
       DARABONBA_PTR_FROM_JSON(FacePictureUrl, facePictureUrl_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->facePictureBase64_ == nullptr
-        && this->facePictureFile_ == nullptr && this->facePictureUrl_ == nullptr && this->faceQualityCheck_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr
-        && this->productCode_ == nullptr; };
+    virtual bool empty() const override { return this->faceAttributeCheck_ == nullptr
+        && this->facePictureBase64_ == nullptr && this->facePictureFile_ == nullptr && this->facePictureUrl_ == nullptr && this->faceQualityCheck_ == nullptr && this->merchantBizId_ == nullptr
+        && this->merchantUserId_ == nullptr && this->productCode_ == nullptr; };
+    // faceAttributeCheck Field Functions 
+    bool hasFaceAttributeCheck() const { return this->faceAttributeCheck_ != nullptr;};
+    void deleteFaceAttributeCheck() { this->faceAttributeCheck_ = nullptr;};
+    inline string getFaceAttributeCheck() const { DARABONBA_PTR_GET_DEFAULT(faceAttributeCheck_, "") };
+    inline FaceLivenessV2Request& setFaceAttributeCheck(string faceAttributeCheck) { DARABONBA_PTR_SET_VALUE(faceAttributeCheck_, faceAttributeCheck) };
+
+
     // facePictureBase64 Field Functions 
     bool hasFacePictureBase64() const { return this->facePictureBase64_ != nullptr;};
     void deleteFacePictureBase64() { this->facePictureBase64_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> faceAttributeCheck_ {};
     // The Base64-encoded face image.
     // 
     // > **Note**

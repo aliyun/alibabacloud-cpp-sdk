@@ -183,15 +183,15 @@ namespace Models
         shared_ptr<string> faceGender_ {};
         // The quality score of the liveness face. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> faceQualityScore_ {};
-        // The algorithm score for illumination as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+        // The algorithm score for illumination, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> illuminationScore_ {};
-        // The algorithm score for key area occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+        // The algorithm score for key area occlusion, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> kaOcclusionScore_ {};
         // Indicates whether facial occlusion is detected. A value of Y indicates occlusion is detected. A value of N indicates no occlusion is detected.
         shared_ptr<string> occlusionResult_ {};
-        // The algorithm score for occlusion as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+        // The algorithm score for occlusion, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> occlusionScore_ {};
-        // The algorithm score for image sharpness as a quality sub-dimension. Valid values: 0 to 100. A higher value indicates better quality.
+        // The image sharpness score, which is a sub-dimension of quality assessment. Valid values: 0 to 100. A higher value indicates better quality.
         shared_ptr<double> sharpnessScore_ {};
       };
 
@@ -232,8 +232,8 @@ namespace Models
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
       // Indicates whether the authentication is passed. Valid values:
       // 
-      // - Y: passed.
-      // - N: not passed.
+      // - Y: Passed.
+      // - N: Not passed.
       shared_ptr<string> passed_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
@@ -274,9 +274,9 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The return message.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

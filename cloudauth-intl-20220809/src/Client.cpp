@@ -2746,7 +2746,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntl(const FaceCrossCompare
 }
 
 /**
- * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+ * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2762,6 +2762,10 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
   json body = {};
   if (!!request.hasAutoRegistration()) {
     body["AutoRegistration"] = request.getAutoRegistration();
+  }
+
+  if (!!request.hasFaceAttributeCheck()) {
+    body["FaceAttributeCheck"] = request.getFaceAttributeCheck();
   }
 
   if (!!request.hasFaceGroupCodes()) {
@@ -2843,7 +2847,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
 }
 
 /**
- * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+ * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @return FaceDuplicationCheckIntlResponse
@@ -2912,7 +2916,7 @@ FaceGuardRiskResponse Client::faceGuardRisk(const FaceGuardRiskRequest &request)
 }
 
 /**
- * @summary Provides the server-side passive liveness detection API.
+ * @summary Provides the server-side API for passive liveness detection.
  *
  * @param request FaceLivenessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2923,6 +2927,10 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
   json query = {};
   if (!!request.hasCrop()) {
     query["Crop"] = request.getCrop();
+  }
+
+  if (!!request.hasFaceAttributeCheck()) {
+    query["FaceAttributeCheck"] = request.getFaceAttributeCheck();
   }
 
   if (!!request.hasFacePictureUrl()) {
@@ -2977,7 +2985,7 @@ FaceLivenessResponse Client::faceLivenessWithOptions(const FaceLivenessRequest &
 }
 
 /**
- * @summary Provides the server-side passive liveness detection API.
+ * @summary Provides the server-side API for passive liveness detection.
  *
  * @param request FaceLivenessRequest
  * @return FaceLivenessResponse
@@ -2988,7 +2996,7 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 }
 
 /**
- * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+ * @summary Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
  *
  * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
  *
@@ -2999,6 +3007,10 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 FaceLivenessV2Response Client::faceLivenessV2WithOptions(const FaceLivenessV2Request &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFaceAttributeCheck()) {
+    query["FaceAttributeCheck"] = request.getFaceAttributeCheck();
+  }
+
   if (!!request.hasFacePictureFile()) {
     query["FacePictureFile"] = request.getFacePictureFile();
   }
@@ -3047,7 +3059,7 @@ FaceLivenessV2Response Client::faceLivenessV2WithOptions(const FaceLivenessV2Req
 }
 
 /**
- * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+ * @summary Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
  *
  * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
  *
@@ -3146,7 +3158,7 @@ FaceLivenessV2Response Client::faceLivenessV2Advance(const FaceLivenessV2Advance
 }
 
 /**
- * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+ * @summary Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
  *
  * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
  *
@@ -3159,6 +3171,10 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
   json query = {};
   if (!!request.hasAutoRegistration()) {
     query["AutoRegistration"] = request.getAutoRegistration();
+  }
+
+  if (!!request.hasFaceAttributeCheck()) {
+    query["FaceAttributeCheck"] = request.getFaceAttributeCheck();
   }
 
   if (!!request.hasFaceGroupCodes()) {
@@ -3237,7 +3253,7 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
 }
 
 /**
- * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+ * @summary Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
  *
  * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
  *
@@ -3746,6 +3762,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["Authorize"] = request.getAuthorize();
   }
 
+  if (!!request.hasAutoDocPageConfig()) {
+    query["AutoDocPageConfig"] = request.getAutoDocPageConfig();
+  }
+
   if (!!request.hasAutoRegistration()) {
     query["AutoRegistration"] = request.getAutoRegistration();
   }
@@ -3812,6 +3832,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 
   if (!!request.hasExperienceCode()) {
     query["ExperienceCode"] = request.getExperienceCode();
+  }
+
+  if (!!request.hasFaceAttributeCheck()) {
+    query["FaceAttributeCheck"] = request.getFaceAttributeCheck();
   }
 
   if (!!request.hasFaceGroupCodes()) {
@@ -4016,6 +4040,10 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
     query["Authorize"] = request.getAuthorize();
   }
 
+  if (!!request.hasAutoDocPageConfig()) {
+    query["AutoDocPageConfig"] = request.getAutoDocPageConfig();
+  }
+
   if (!!request.hasAutoRegistration()) {
     query["AutoRegistration"] = request.getAutoRegistration();
   }
@@ -4082,6 +4110,10 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
 
   if (!!request.hasExperienceCode()) {
     query["ExperienceCode"] = request.getExperienceCode();
+  }
+
+  if (!!request.hasFaceAttributeCheck()) {
+    query["FaceAttributeCheck"] = request.getFaceAttributeCheck();
   }
 
   if (!!request.hasFaceGroupCodes()) {

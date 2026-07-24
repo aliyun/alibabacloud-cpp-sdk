@@ -309,29 +309,33 @@ namespace Models
       shared_ptr<string> duplicateFace_ {};
       // The related result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // The estimated age of the face. The prediction may fail and no value is returned in some cases.
+      // The estimated age of the face. This value may not be returned if the prediction fails.
       shared_ptr<string> faceAge_ {};
-      // Indicates whether the captured face involves a liveness attack. Valid values: Y (attack detected) and N (no attack detected). This field is returned when passive liveness detection is enabled.
+      // Indicates whether the captured face involves a liveness attack. Valid values:
+      // - Y: Attack detected.
+      // - N: No attack detected.
+      // 
+      // This field is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttack_ {};
-      // The probability of a passive liveness detection attack. The value ranges from 0 to 100. This field is returned when passive liveness detection is enabled.
+      // The probability of a passive liveness detection attack on the face. The value ranges from 0 to 100. This field is returned only when passive liveness detection is enabled.
       shared_ptr<string> faceAttackScore_ {};
       // The 1:1 face comparison score returned when the verification mode is 1 or 2. The value ranges from 0 to 100.
       shared_ptr<string> faceComparisonScore_ {};
-      // The predicted gender of the face image. The prediction may fail and no value is returned in some cases. Valid values:
-      // - M: Male.
-      // - F: Female.
+      // The predicted gender of the face. This value may not be returned if the prediction fails. Valid values:
+      // - M: male
+      // - F: female
       shared_ptr<string> faceGender_ {};
       // The final verification result. Valid values:
       // - Y: Passed.
       // - N: Not passed.
       shared_ptr<string> facePassed_ {};
-      // The FACEID returned only when the customer has enabled automatic registration and the face is registered.
+      // The FACEID returned only when automatic registration is enabled and the face is successfully registered.
       shared_ptr<string> faceRegistrationId_ {};
       // The face registration result. Valid values: 
       // - 0: Failed. 
       // - 1: Succeeded.
       shared_ptr<int32_t> faceRegistrationResult_ {};
-      // The verification result description. For more information, refer to the ResultObject.SubCode error code description.
+      // The verification result description. For more information, see the ResultObject.SubCode error code description.
       shared_ptr<string> subCode_ {};
       // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};

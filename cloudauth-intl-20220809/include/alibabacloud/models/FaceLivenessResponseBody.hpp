@@ -171,23 +171,23 @@ namespace Models
 
 
       protected:
-        // The predicted reference age of the face. The prediction may fail and return no value.
+        // The predicted reference age based on the face image. The prediction may fail, in which case no value is returned.
         shared_ptr<int32_t> faceAge_ {};
         // The liveness detection result. Valid values: Y (attack detected) and N (normal).
         shared_ptr<string> faceAttack_ {};
         shared_ptr<string> faceAttributeInfo_ {};
-        // The predicted gender of the face in the photo. The prediction may fail and return no value. Valid values:
+        // The predicted gender based on the face image. The prediction may fail, in which case no value is returned. Valid values:
         // 
-        // - M: Male.
-        // - F: Female.
+        // - M: male.
+        // - F: female.
         shared_ptr<string> faceGender_ {};
-        // The face quality score (0 to 100). This parameter is returned only when the face quality score switch is enabled.
+        // The face quality score (0 to 100). This value is returned only when the face quality score switch is enabled in the request parameters.
         shared_ptr<double> faceQualityScore_ {};
         // The illumination score.
         shared_ptr<double> illuminationScore_ {};
         // The key area occlusion score.
         shared_ptr<double> kaOcclusionScore_ {};
-        // The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This parameter is returned only when the occlusion detection switch is enabled.
+        // The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This value is returned only when the occlusion detection switch is enabled in the request parameters.
         shared_ptr<string> occlusionResult_ {};
         // The occlusion score.
         shared_ptr<double> occlusionScore_ {};
@@ -230,10 +230,10 @@ namespace Models
     protected:
       // The face result information.
       shared_ptr<Result::ExtFaceInfo> extFaceInfo_ {};
-      // Indicates whether the authentication is passed. Valid values:
+      // Indicates whether the authentication passed. Valid values:
       // 
-      // - Y: Passed.
-      // - N: Not passed.
+      // - Y: passed.
+      // - N: not passed.
       shared_ptr<string> passed_ {};
       // The sub-result code.
       shared_ptr<string> subCode_ {};
@@ -276,7 +276,7 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The message returned with the result.
+    // The description of the return result.
     shared_ptr<string> message_ {};
     // The unique ID that Alibaba Cloud generates for the request.
     shared_ptr<string> requestId_ {};

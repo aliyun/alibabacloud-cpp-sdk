@@ -557,7 +557,7 @@ namespace CloudauthIntl20220809
       Models::FaceCrossCompareIntlResponse faceCrossCompareIntl(const Models::FaceCrossCompareIntlRequest &request);
 
       /**
-       * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+       * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
        *
        * @param request FaceDuplicationCheckIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -566,7 +566,7 @@ namespace CloudauthIntl20220809
       Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntlWithOptions(const Models::FaceDuplicationCheckIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+       * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
        *
        * @param request FaceDuplicationCheckIntlRequest
        * @return FaceDuplicationCheckIntlResponse
@@ -591,7 +591,7 @@ namespace CloudauthIntl20220809
       Models::FaceGuardRiskResponse faceGuardRisk(const Models::FaceGuardRiskRequest &request);
 
       /**
-       * @summary Provides the server-side passive liveness detection API.
+       * @summary Provides the server-side API for passive liveness detection.
        *
        * @param request FaceLivenessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -600,7 +600,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLivenessWithOptions(const Models::FaceLivenessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Provides the server-side passive liveness detection API.
+       * @summary Provides the server-side API for passive liveness detection.
        *
        * @param request FaceLivenessRequest
        * @return FaceLivenessResponse
@@ -608,7 +608,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLiveness(const Models::FaceLivenessRequest &request);
 
       /**
-       * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+       * @summary Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
        *
        * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
        *
@@ -619,7 +619,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessV2Response faceLivenessV2WithOptions(const Models::FaceLivenessV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+       * @summary Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
        *
        * @description Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
        *
@@ -631,7 +631,7 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessV2Response faceLivenessV2Advance(const Models::FaceLivenessV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+       * @summary Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
        *
        * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
        *
@@ -642,7 +642,7 @@ namespace CloudauthIntl20220809
       Models::FaceVerifyIntlResponse faceVerifyIntlWithOptions(const Models::FaceVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+       * @summary Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
        *
        * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
        *
