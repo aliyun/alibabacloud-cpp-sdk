@@ -246,7 +246,7 @@ namespace Models
   protected:
     // The static resource directory.
     shared_ptr<string> assetsDirectory_ {};
-    // The build branch.
+    // The branch used for the build.
     shared_ptr<string> branch_ {};
     // The build command.
     shared_ptr<string> buildCommand_ {};
@@ -271,9 +271,9 @@ namespace Models
     shared_ptr<bool> isPrivate_ {};
     // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
     shared_ptr<string> nodeVersion_ {};
-    // The pipeline ID.
+    // The pipeline ID in Yunxiao.
     shared_ptr<int64_t> pipelineId_ {};
-    // The pipeline run ID.
+    // The build task ID in Yunxiao.
     shared_ptr<int64_t> pipelineRunId_ {};
     // The production branch name.
     shared_ptr<string> productionBranch_ {};

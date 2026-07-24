@@ -1108,6 +1108,23 @@ namespace ESA20240910
       Models::CreateRoutineResponse createRoutine(const Models::CreateRoutineRequest &request);
 
       /**
+       * @summary Creates an ER build task.
+       *
+       * @param request CreateRoutineBuildRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRoutineBuildResponse
+       */
+      Models::CreateRoutineBuildResponse createRoutineBuildWithOptions(const Models::CreateRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an ER build task.
+       *
+       * @param request CreateRoutineBuildRequest
+       * @return CreateRoutineBuildResponse
+       */
+      Models::CreateRoutineBuildResponse createRoutineBuild(const Models::CreateRoutineBuildRequest &request);
+
+      /**
        * @summary Creates an Edge Routine (ER) build configuration.
        *
        * @param tmpReq CreateRoutineBuildConfigurationRequest
@@ -2742,6 +2759,23 @@ namespace ESA20240910
        * @return DescribeDDoSOverseasAttackCountResponse
        */
       Models::DescribeDDoSOverseasAttackCountResponse describeDDoSOverseasAttackCount(const Models::DescribeDDoSOverseasAttackCountRequest &request);
+
+      /**
+       * @summary Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       *
+       * @param request DescribeDDoSPriceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDDoSPriceResponse
+       */
+      Models::DescribeDDoSPriceResponse describeDDoSPriceWithOptions(const Models::DescribeDDoSPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       *
+       * @param request DescribeDDoSPriceRequest
+       * @return DescribeDDoSPriceResponse
+       */
+      Models::DescribeDDoSPriceResponse describeDDoSPrice(const Models::DescribeDDoSPriceRequest &request);
 
       /**
        * @summary Queries the maximum burst bandwidth for a DDoS instance in mainland China.
@@ -6960,7 +6994,7 @@ namespace ESA20240910
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacityAdvance(const Models::PutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retries a task replication.
+       * @summary Retries a routine replication task.
        *
        * @param request ReDoRoutineBuildRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6969,7 +7003,7 @@ namespace ESA20240910
       Models::ReDoRoutineBuildResponse reDoRoutineBuildWithOptions(const Models::ReDoRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retries a task replication.
+       * @summary Retries a routine replication task.
        *
        * @param request ReDoRoutineBuildRequest
        * @return ReDoRoutineBuildResponse

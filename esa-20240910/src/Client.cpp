@@ -3866,6 +3866,56 @@ CreateRoutineResponse Client::createRoutine(const CreateRoutineRequest &request)
 }
 
 /**
+ * @summary Creates an ER build task.
+ *
+ * @param request CreateRoutineBuildRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRoutineBuildResponse
+ */
+CreateRoutineBuildResponse Client::createRoutineBuildWithOptions(const CreateRoutineBuildRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArtifactUrl()) {
+    query["ArtifactUrl"] = request.getArtifactUrl();
+  }
+
+  if (!!request.hasBranch()) {
+    query["Branch"] = request.getBranch();
+  }
+
+  if (!!request.hasRoutineName()) {
+    query["RoutineName"] = request.getRoutineName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateRoutineBuild"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRoutineBuildResponse>();
+}
+
+/**
+ * @summary Creates an ER build task.
+ *
+ * @param request CreateRoutineBuildRequest
+ * @return CreateRoutineBuildResponse
+ */
+CreateRoutineBuildResponse Client::createRoutineBuild(const CreateRoutineBuildRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createRoutineBuildWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an Edge Routine (ER) build configuration.
  *
  * @param tmpReq CreateRoutineBuildConfigurationRequest
@@ -8631,6 +8681,56 @@ DescribeDDoSOverseasAttackCountResponse Client::describeDDoSOverseasAttackCountW
 DescribeDDoSOverseasAttackCountResponse Client::describeDDoSOverseasAttackCount(const DescribeDDoSOverseasAttackCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDDoSOverseasAttackCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ *
+ * @param request DescribeDDoSPriceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDDoSPriceResponse
+ */
+DescribeDDoSPriceResponse Client::describeDDoSPriceWithOptions(const DescribeDDoSPriceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDDoSBillingMode()) {
+    query["DDoSBillingMode"] = request.getDDoSBillingMode();
+  }
+
+  if (!!request.hasDDoSBurstableDomesticProtection()) {
+    query["DDoSBurstableDomesticProtection"] = request.getDDoSBurstableDomesticProtection();
+  }
+
+  if (!!request.hasDDoSBurstableOverseasProtection()) {
+    query["DDoSBurstableOverseasProtection"] = request.getDDoSBurstableOverseasProtection();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDDoSPrice"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDDoSPriceResponse>();
+}
+
+/**
+ * @summary Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ *
+ * @param request DescribeDDoSPriceRequest
+ * @return DescribeDDoSPriceResponse
+ */
+DescribeDDoSPriceResponse Client::describeDDoSPrice(const DescribeDDoSPriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDDoSPriceWithOptions(request, runtime);
 }
 
 /**
@@ -19211,7 +19311,7 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityAdvance(const PutKvWi
 }
 
 /**
- * @summary Retries a task replication.
+ * @summary Retries a routine replication task.
  *
  * @param request ReDoRoutineBuildRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19242,7 +19342,7 @@ ReDoRoutineBuildResponse Client::reDoRoutineBuildWithOptions(const ReDoRoutineBu
 }
 
 /**
- * @summary Retries a task replication.
+ * @summary Retries a routine replication task.
  *
  * @param request ReDoRoutineBuildRequest
  * @return ReDoRoutineBuildResponse

@@ -293,7 +293,7 @@ namespace Models
       shared_ptr<string> commitId_ {};
       // The commit message.
       shared_ptr<string> commitMessage_ {};
-      // The creation time, in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time, in the ISO 8601 format in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The environment variables.
       shared_ptr<map<string, string>> environmentVariables_ {};
@@ -308,11 +308,11 @@ namespace Models
       // - true: The repository is private.
       // - false: The repository is not private.
       shared_ptr<bool> isPrivate_ {};
-      // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
+      // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
       shared_ptr<string> nodeVersion_ {};
-      // The pipeline ID.
+      // The Yunxiao pipeline ID.
       shared_ptr<int64_t> pipelineId_ {};
-      // The pipeline execution ID.
+      // The Yunxiao build task ID.
       shared_ptr<int64_t> pipelineRunId_ {};
       // The production branch name.
       shared_ptr<string> productionBranch_ {};
@@ -337,7 +337,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The modification time, in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The modification time, in the ISO 8601 format in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> updateTime_ {};
       // The user ID.
       shared_ptr<int64_t> userId_ {};
@@ -392,7 +392,7 @@ namespace Models
   protected:
     // The list of ER build tasks.
     shared_ptr<vector<ListRoutineBuildsResponseBody::Data>> data_ {};
-    // The page number, same as the PageIndex request parameter.
+    // The page number, which is the same as the PageIndex request parameter.
     shared_ptr<int64_t> pageIndex_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};

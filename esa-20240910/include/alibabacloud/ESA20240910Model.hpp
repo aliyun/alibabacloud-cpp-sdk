@@ -187,6 +187,9 @@
 #include <alibabacloud/models/CreateRoutineRequest.hpp>
 #include <alibabacloud/models/CreateRoutineResponseBody.hpp>
 #include <alibabacloud/models/CreateRoutineResponse.hpp>
+#include <alibabacloud/models/CreateRoutineBuildRequest.hpp>
+#include <alibabacloud/models/CreateRoutineBuildResponseBody.hpp>
+#include <alibabacloud/models/CreateRoutineBuildResponse.hpp>
 #include <alibabacloud/models/CreateRoutineBuildConfigurationRequest.hpp>
 #include <alibabacloud/models/CreateRoutineBuildConfigurationShrinkRequest.hpp>
 #include <alibabacloud/models/CreateRoutineBuildConfigurationResponseBody.hpp>
@@ -467,6 +470,9 @@
 #include <alibabacloud/models/DescribeDDoSOverseasAttackCountRequest.hpp>
 #include <alibabacloud/models/DescribeDDoSOverseasAttackCountResponseBody.hpp>
 #include <alibabacloud/models/DescribeDDoSOverseasAttackCountResponse.hpp>
+#include <alibabacloud/models/DescribeDDoSPriceRequest.hpp>
+#include <alibabacloud/models/DescribeDDoSPriceResponseBody.hpp>
+#include <alibabacloud/models/DescribeDDoSPriceResponse.hpp>
 #include <alibabacloud/models/DescribeDdosMaxBurstGbpsRequest.hpp>
 #include <alibabacloud/models/DescribeDdosMaxBurstGbpsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDdosMaxBurstGbpsResponse.hpp>
