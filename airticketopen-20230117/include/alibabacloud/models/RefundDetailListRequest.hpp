@@ -38,57 +38,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderNum_ == nullptr
-        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->refundCreateBeginTime_ == nullptr && return this->refundCreateEndTime_ == nullptr; };
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->refundCreateBeginTime_ == nullptr && this->refundCreateEndTime_ == nullptr; };
     // orderNum Field Functions 
     bool hasOrderNum() const { return this->orderNum_ != nullptr;};
     void deleteOrderNum() { this->orderNum_ = nullptr;};
-    inline int64_t orderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
+    inline int64_t getOrderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
     inline RefundDetailListRequest& setOrderNum(int64_t orderNum) { DARABONBA_PTR_SET_VALUE(orderNum_, orderNum) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline RefundDetailListRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline RefundDetailListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // refundCreateBeginTime Field Functions 
     bool hasRefundCreateBeginTime() const { return this->refundCreateBeginTime_ != nullptr;};
     void deleteRefundCreateBeginTime() { this->refundCreateBeginTime_ = nullptr;};
-    inline int64_t refundCreateBeginTime() const { DARABONBA_PTR_GET_DEFAULT(refundCreateBeginTime_, 0L) };
+    inline int64_t getRefundCreateBeginTime() const { DARABONBA_PTR_GET_DEFAULT(refundCreateBeginTime_, 0L) };
     inline RefundDetailListRequest& setRefundCreateBeginTime(int64_t refundCreateBeginTime) { DARABONBA_PTR_SET_VALUE(refundCreateBeginTime_, refundCreateBeginTime) };
 
 
     // refundCreateEndTime Field Functions 
     bool hasRefundCreateEndTime() const { return this->refundCreateEndTime_ != nullptr;};
     void deleteRefundCreateEndTime() { this->refundCreateEndTime_ = nullptr;};
-    inline int64_t refundCreateEndTime() const { DARABONBA_PTR_GET_DEFAULT(refundCreateEndTime_, 0L) };
+    inline int64_t getRefundCreateEndTime() const { DARABONBA_PTR_GET_DEFAULT(refundCreateEndTime_, 0L) };
     inline RefundDetailListRequest& setRefundCreateEndTime(int64_t refundCreateEndTime) { DARABONBA_PTR_SET_VALUE(refundCreateEndTime_, refundCreateEndTime) };
 
 
   protected:
-    // Order number
-    std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // Page index
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
-    // Page size
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // Refund order creation start time, UTC timestamp
+    // The order number.
+    shared_ptr<int64_t> orderNum_ {};
+    // The page index.
+    shared_ptr<int32_t> pageIndex_ {};
+    // The page size.
+    shared_ptr<int32_t> pageSize_ {};
+    // The start time for refund order creation. The value is a UTC timestamp.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> refundCreateBeginTime_ = nullptr;
-    // Refund order creation end time, UTC timestamp
+    shared_ptr<int64_t> refundCreateBeginTime_ {};
+    // The end time for refund order creation. The value is a UTC timestamp.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> refundCreateEndTime_ = nullptr;
+    shared_ptr<int64_t> refundCreateEndTime_ {};
   };
 
   } // namespace Models

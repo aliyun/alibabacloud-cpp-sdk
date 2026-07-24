@@ -33,15 +33,15 @@ namespace Models
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
-    inline string solutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, "") };
+    inline string getSolutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, "") };
     inline PricingRequest& setSolutionId(string solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
   protected:
-    // solution_id returned by Enrich
+    // solution_id.
     // 
     // This parameter is required.
-    std::shared_ptr<string> solutionId_ = nullptr;
+    shared_ptr<string> solutionId_ {};
   };
 
   } // namespace Models

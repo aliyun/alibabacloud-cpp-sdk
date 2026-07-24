@@ -18,7 +18,7 @@ namespace AirticketOpen20230117
 {
 
 AlibabaCloud::AirticketOpen20230117::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("airticketopen", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 账号资金流水
+ * @summary Queries the account fund flow list.
  *
  * @param request AccountFlowListRequest
  * @param headers AccountFlowListHeaders
@@ -48,32 +48,32 @@ AccountFlowListResponse Client::accountFlowListWithOptions(const AccountFlowList
   request.validate();
   json query = {};
   if (!!request.hasDayNum()) {
-    query["day_num"] = request.dayNum();
+    query["day_num"] = request.getDayNum();
   }
 
   if (!!request.hasPageIndex()) {
-    query["page_index"] = request.pageIndex();
+    query["page_index"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasUtcBeginTime()) {
-    query["utc_begin_time"] = request.utcBeginTime();
+    query["utc_begin_time"] = request.getUtcBeginTime();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -95,7 +95,7 @@ AccountFlowListResponse Client::accountFlowListWithOptions(const AccountFlowList
 }
 
 /**
- * @summary 账号资金流水
+ * @summary Queries the account fund flow list.
  *
  * @param request AccountFlowListRequest
  * @return AccountFlowListResponse
@@ -107,9 +107,7 @@ AccountFlowListResponse Client::accountFlowList(const AccountFlowListRequest &re
 }
 
 /**
- * @summary Ancillary - Suggestion
- *
- * @description search ancillary for selected solution, you should enter the solution_id returned by enrich.
+ * @summary Recommends ancillary products.
  *
  * @param request AncillarySuggestRequest
  * @param headers AncillarySuggestHeaders
@@ -120,20 +118,20 @@ AncillarySuggestResponse Client::ancillarySuggestWithOptions(const AncillarySugg
   request.validate();
   json body = {};
   if (!!request.hasSolutionId()) {
-    body["solution_id"] = request.solutionId();
+    body["solution_id"] = request.getSolutionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -155,9 +153,7 @@ AncillarySuggestResponse Client::ancillarySuggestWithOptions(const AncillarySugg
 }
 
 /**
- * @summary Ancillary - Suggestion
- *
- * @description search ancillary for selected solution, you should enter the solution_id returned by enrich.
+ * @summary Recommends ancillary products.
  *
  * @param request AncillarySuggestRequest
  * @return AncillarySuggestResponse
@@ -169,12 +165,7 @@ AncillarySuggestResponse Client::ancillarySuggest(const AncillarySuggestRequest 
 }
 
 /**
- * @summary Transaction-Reservation
- *
- * @description Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
- * There are two issues should be noticed:
- * 1. the solution_id must be processed by pricing.
- * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
+ * @summary Creates a booking order.
  *
  * @param tmpReq BookRequest
  * @param headers BookHeaders
@@ -186,49 +177,49 @@ BookResponse Client::bookWithOptions(const BookRequest &tmpReq, const BookHeader
   BookShrinkRequest request = BookShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasContact()) {
-    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contact(), "contact", "json"));
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "contact", "json"));
   }
 
   if (!!tmpReq.hasPassengerAncillaryPurchaseMapList()) {
-    request.setPassengerAncillaryPurchaseMapListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerAncillaryPurchaseMapList(), "passenger_ancillary_purchase_map_list", "json"));
+    request.setPassengerAncillaryPurchaseMapListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerAncillaryPurchaseMapList(), "passenger_ancillary_purchase_map_list", "json"));
   }
 
   if (!!tmpReq.hasPassengerList()) {
-    request.setPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.passengerList(), "passenger_list", "json"));
+    request.setPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPassengerList(), "passenger_list", "json"));
   }
 
   json body = {};
   if (!!request.hasContactShrink()) {
-    body["contact"] = request.contactShrink();
+    body["contact"] = request.getContactShrink();
   }
 
   if (!!request.hasOutOrderNum()) {
-    body["out_order_num"] = request.outOrderNum();
+    body["out_order_num"] = request.getOutOrderNum();
   }
 
   if (!!request.hasPassengerAncillaryPurchaseMapListShrink()) {
-    body["passenger_ancillary_purchase_map_list"] = request.passengerAncillaryPurchaseMapListShrink();
+    body["passenger_ancillary_purchase_map_list"] = request.getPassengerAncillaryPurchaseMapListShrink();
   }
 
   if (!!request.hasPassengerListShrink()) {
-    body["passenger_list"] = request.passengerListShrink();
+    body["passenger_list"] = request.getPassengerListShrink();
   }
 
   if (!!request.hasSolutionId()) {
-    body["solution_id"] = request.solutionId();
+    body["solution_id"] = request.getSolutionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -250,12 +241,7 @@ BookResponse Client::bookWithOptions(const BookRequest &tmpReq, const BookHeader
 }
 
 /**
- * @summary Transaction-Reservation
- *
- * @description Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
- * There are two issues should be noticed:
- * 1. the solution_id must be processed by pricing.
- * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
+ * @summary Creates a booking order.
  *
  * @param request BookRequest
  * @return BookResponse
@@ -267,9 +253,7 @@ BookResponse Client::book(const BookRequest &request) {
 }
 
 /**
- * @summary Transaction - Unpaid Cancellation
- *
- * @description close an unpaid order
+ * @summary Cancels an unpaid order.
  *
  * @param request CancelRequest
  * @param headers CancelHeaders
@@ -280,20 +264,20 @@ CancelResponse Client::cancelWithOptions(const CancelRequest &request, const Can
   request.validate();
   json body = {};
   if (!!request.hasOrderNum()) {
-    body["order_num"] = request.orderNum();
+    body["order_num"] = request.getOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -315,9 +299,7 @@ CancelResponse Client::cancelWithOptions(const CancelRequest &request, const Can
 }
 
 /**
- * @summary Transaction - Unpaid Cancellation
- *
- * @description close an unpaid order
+ * @summary Cancels an unpaid order.
  *
  * @param request CancelRequest
  * @return CancelResponse
@@ -329,7 +311,7 @@ CancelResponse Client::cancel(const CancelRequest &request) {
 }
 
 /**
- * @summary 改签-Apply
+ * @summary Submits a change application.
  *
  * @param tmpReq ChangeApplyRequest
  * @param headers ChangeApplyHeaders
@@ -341,53 +323,53 @@ ChangeApplyResponse Client::changeApplyWithOptions(const ChangeApplyRequest &tmp
   ChangeApplyShrinkRequest request = ChangeApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasChangePassengerList()) {
-    request.setChangePassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.changePassengerList(), "change_passenger_list", "json"));
+    request.setChangePassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChangePassengerList(), "change_passenger_list", "json"));
   }
 
   if (!!tmpReq.hasChangedJourneys()) {
-    request.setChangedJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.changedJourneys(), "changed_journeys", "json"));
+    request.setChangedJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChangedJourneys(), "changed_journeys", "json"));
   }
 
   if (!!tmpReq.hasContact()) {
-    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.contact(), "contact", "json"));
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "contact", "json"));
   }
 
   json body = {};
   if (!!request.hasChangePassengerListShrink()) {
-    body["change_passenger_list"] = request.changePassengerListShrink();
+    body["change_passenger_list"] = request.getChangePassengerListShrink();
   }
 
   if (!!request.hasChangedJourneysShrink()) {
-    body["changed_journeys"] = request.changedJourneysShrink();
+    body["changed_journeys"] = request.getChangedJourneysShrink();
   }
 
   if (!!request.hasContactShrink()) {
-    body["contact"] = request.contactShrink();
+    body["contact"] = request.getContactShrink();
   }
 
   if (!!request.hasOrderNum()) {
-    body["order_num"] = request.orderNum();
+    body["order_num"] = request.getOrderNum();
   }
 
   if (!!request.hasRemark()) {
-    body["remark"] = request.remark();
+    body["remark"] = request.getRemark();
   }
 
   if (!!request.hasType()) {
-    body["type"] = request.type();
+    body["type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -409,7 +391,7 @@ ChangeApplyResponse Client::changeApplyWithOptions(const ChangeApplyRequest &tmp
 }
 
 /**
- * @summary 改签-Apply
+ * @summary Submits a change application.
  *
  * @param request ChangeApplyRequest
  * @return ChangeApplyResponse
@@ -421,7 +403,7 @@ ChangeApplyResponse Client::changeApply(const ChangeApplyRequest &request) {
 }
 
 /**
- * @summary 改签-取消
+ * @summary Cancel the change order.
  *
  * @param request ChangeCancelRequest
  * @param headers ChangeCancelHeaders
@@ -432,20 +414,20 @@ ChangeCancelResponse Client::changeCancelWithOptions(const ChangeCancelRequest &
   request.validate();
   json body = {};
   if (!!request.hasChangeOrderNum()) {
-    body["change_order_num"] = request.changeOrderNum();
+    body["change_order_num"] = request.getChangeOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -467,7 +449,7 @@ ChangeCancelResponse Client::changeCancelWithOptions(const ChangeCancelRequest &
 }
 
 /**
- * @summary 改签-取消
+ * @summary Cancel the change order.
  *
  * @param request ChangeCancelRequest
  * @return ChangeCancelResponse
@@ -479,7 +461,7 @@ ChangeCancelResponse Client::changeCancel(const ChangeCancelRequest &request) {
 }
 
 /**
- * @summary 改签-确认
+ * @summary Confirms a flight change order.
  *
  * @param request ChangeConfirmRequest
  * @param headers ChangeConfirmHeaders
@@ -490,20 +472,20 @@ ChangeConfirmResponse Client::changeConfirmWithOptions(const ChangeConfirmReques
   request.validate();
   json body = {};
   if (!!request.hasChangeOrderNum()) {
-    body["change_order_num"] = request.changeOrderNum();
+    body["change_order_num"] = request.getChangeOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -525,7 +507,7 @@ ChangeConfirmResponse Client::changeConfirmWithOptions(const ChangeConfirmReques
 }
 
 /**
- * @summary 改签-确认
+ * @summary Confirms a flight change order.
  *
  * @param request ChangeConfirmRequest
  * @return ChangeConfirmResponse
@@ -537,7 +519,7 @@ ChangeConfirmResponse Client::changeConfirm(const ChangeConfirmRequest &request)
 }
 
 /**
- * @summary Change-Detail
+ * @summary Retrieves the details of a flight change order.
  *
  * @param request ChangeDetailRequest
  * @param headers ChangeDetailHeaders
@@ -548,20 +530,20 @@ ChangeDetailResponse Client::changeDetailWithOptions(const ChangeDetailRequest &
   request.validate();
   json query = {};
   if (!!request.hasChangeOrderNum()) {
-    query["change_order_num"] = request.changeOrderNum();
+    query["change_order_num"] = request.getChangeOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -583,7 +565,7 @@ ChangeDetailResponse Client::changeDetailWithOptions(const ChangeDetailRequest &
 }
 
 /**
- * @summary Change-Detail
+ * @summary Retrieves the details of a flight change order.
  *
  * @param request ChangeDetailRequest
  * @return ChangeDetailResponse
@@ -595,7 +577,7 @@ ChangeDetailResponse Client::changeDetail(const ChangeDetailRequest &request) {
 }
 
 /**
- * @summary 改签单列表-关于买家账号
+ * @summary Queries a paging list of change order summaries by buyer account.
  *
  * @param request ChangeDetailListOfBuyerRequest
  * @param headers ChangeDetailListOfBuyerHeaders
@@ -606,32 +588,32 @@ ChangeDetailListOfBuyerResponse Client::changeDetailListOfBuyerWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasPageIndex()) {
-    query["page_index"] = request.pageIndex();
+    query["page_index"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasUtcCreateBegin()) {
-    query["utc_create_begin"] = request.utcCreateBegin();
+    query["utc_create_begin"] = request.getUtcCreateBegin();
   }
 
   if (!!request.hasUtcCreateEnd()) {
-    query["utc_create_end"] = request.utcCreateEnd();
+    query["utc_create_end"] = request.getUtcCreateEnd();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -653,7 +635,7 @@ ChangeDetailListOfBuyerResponse Client::changeDetailListOfBuyerWithOptions(const
 }
 
 /**
- * @summary 改签单列表-关于买家账号
+ * @summary Queries a paging list of change order summaries by buyer account.
  *
  * @param request ChangeDetailListOfBuyerRequest
  * @return ChangeDetailListOfBuyerResponse
@@ -665,7 +647,7 @@ ChangeDetailListOfBuyerResponse Client::changeDetailListOfBuyer(const ChangeDeta
 }
 
 /**
- * @summary 改签单列表-关于正向订单
+ * @summary Queries the list of change orders by the original order number.
  *
  * @param request ChangeDetailListOfOrderNumRequest
  * @param headers ChangeDetailListOfOrderNumHeaders
@@ -676,28 +658,28 @@ ChangeDetailListOfOrderNumResponse Client::changeDetailListOfOrderNumWithOptions
   request.validate();
   json query = {};
   if (!!request.hasOrderNum()) {
-    query["order_num"] = request.orderNum();
+    query["order_num"] = request.getOrderNum();
   }
 
   if (!!request.hasPageIndex()) {
-    query["page_index"] = request.pageIndex();
+    query["page_index"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -719,7 +701,7 @@ ChangeDetailListOfOrderNumResponse Client::changeDetailListOfOrderNumWithOptions
 }
 
 /**
- * @summary 改签单列表-关于正向订单
+ * @summary Queries the list of change orders by the original order number.
  *
  * @param request ChangeDetailListOfOrderNumRequest
  * @return ChangeDetailListOfOrderNumResponse
@@ -731,7 +713,9 @@ ChangeDetailListOfOrderNumResponse Client::changeDetailListOfOrderNum(const Chan
 }
 
 /**
- * @summary 数据收集-低价航班信息
+ * @summary Collects lowest-price flight information.
+ *
+ * @description Collects lowest-price flight information.
  *
  * @param tmpReq CollectFlightLowestPriceRequest
  * @param headers CollectFlightLowestPriceHeaders
@@ -743,25 +727,25 @@ CollectFlightLowestPriceResponse Client::collectFlightLowestPriceWithOptions(con
   CollectFlightLowestPriceShrinkRequest request = CollectFlightLowestPriceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasLowestPriceFlightInfoList()) {
-    request.setLowestPriceFlightInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.lowestPriceFlightInfoList(), "lowest_price_flight_info_list", "json"));
+    request.setLowestPriceFlightInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLowestPriceFlightInfoList(), "lowest_price_flight_info_list", "json"));
   }
 
   json body = {};
   if (!!request.hasLowestPriceFlightInfoListShrink()) {
-    body["lowest_price_flight_info_list"] = request.lowestPriceFlightInfoListShrink();
+    body["lowest_price_flight_info_list"] = request.getLowestPriceFlightInfoListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -783,7 +767,9 @@ CollectFlightLowestPriceResponse Client::collectFlightLowestPriceWithOptions(con
 }
 
 /**
- * @summary 数据收集-低价航班信息
+ * @summary Collects lowest-price flight information.
+ *
+ * @description Collects lowest-price flight information.
  *
  * @param request CollectFlightLowestPriceRequest
  * @return CollectFlightLowestPriceResponse
@@ -795,9 +781,9 @@ CollectFlightLowestPriceResponse Client::collectFlightLowestPrice(const CollectF
 }
 
 /**
- * @summary Search-Enrich
+ * @summary Find richer quote information for the itinerary, including free baggage allowance, refund and change rules, and baggage through-check rules.
  *
- * @description Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
+ * @description In the input parameters, choose either solution_id or journey_param_list. solution_id must be obtained from the Search API.
  *
  * @param tmpReq EnrichRequest
  * @param headers EnrichHeaders
@@ -809,45 +795,45 @@ EnrichResponse Client::enrichWithOptions(const EnrichRequest &tmpReq, const Enri
   EnrichShrinkRequest request = EnrichShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasJourneyParamList()) {
-    request.setJourneyParamListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.journeyParamList(), "journey_param_list", "json"));
+    request.setJourneyParamListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getJourneyParamList(), "journey_param_list", "json"));
   }
 
   json body = {};
   if (!!request.hasAdults()) {
-    body["adults"] = request.adults();
+    body["adults"] = request.getAdults();
   }
 
   if (!!request.hasCabinClass()) {
-    body["cabin_class"] = request.cabinClass();
+    body["cabin_class"] = request.getCabinClass();
   }
 
   if (!!request.hasChildren()) {
-    body["children"] = request.children();
+    body["children"] = request.getChildren();
   }
 
   if (!!request.hasInfants()) {
-    body["infants"] = request.infants();
+    body["infants"] = request.getInfants();
   }
 
   if (!!request.hasJourneyParamListShrink()) {
-    body["journey_param_list"] = request.journeyParamListShrink();
+    body["journey_param_list"] = request.getJourneyParamListShrink();
   }
 
   if (!!request.hasSolutionId()) {
-    body["solution_id"] = request.solutionId();
+    body["solution_id"] = request.getSolutionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -869,9 +855,9 @@ EnrichResponse Client::enrichWithOptions(const EnrichRequest &tmpReq, const Enri
 }
 
 /**
- * @summary Search-Enrich
+ * @summary Find richer quote information for the itinerary, including free baggage allowance, refund and change rules, and baggage through-check rules.
  *
- * @description Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
+ * @description In the input parameters, choose either solution_id or journey_param_list. solution_id must be obtained from the Search API.
  *
  * @param request EnrichRequest
  * @return EnrichResponse
@@ -883,7 +869,7 @@ EnrichResponse Client::enrich(const EnrichRequest &request) {
 }
 
 /**
- * @summary 附件上传
+ * @summary Uploads a file as an attachment image. The file size is limited to 300 KB or less.
  *
  * @param request FileUploadRequest
  * @param headers FileUploadHeaders
@@ -894,24 +880,24 @@ FileUploadResponse Client::fileUploadWithOptions(const FileUploadRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasFileContent()) {
-    body["file_content"] = request.fileContent();
+    body["file_content"] = request.getFileContent();
   }
 
   if (!!request.hasOrderNum()) {
-    body["order_num"] = request.orderNum();
+    body["order_num"] = request.getOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -933,7 +919,7 @@ FileUploadResponse Client::fileUploadWithOptions(const FileUploadRequest &reques
 }
 
 /**
- * @summary 附件上传
+ * @summary Uploads a file as an attachment image. The file size is limited to 300 KB or less.
  *
  * @param request FileUploadRequest
  * @return FileUploadResponse
@@ -945,7 +931,7 @@ FileUploadResponse Client::fileUpload(const FileUploadRequest &request) {
 }
 
 /**
- * @summary 航变信息-关于订单
+ * @summary Queries flight change information by order number.
  *
  * @param request FlightChangeOfOrderRequest
  * @param headers FlightChangeOfOrderHeaders
@@ -956,20 +942,20 @@ FlightChangeOfOrderResponse Client::flightChangeOfOrderWithOptions(const FlightC
   request.validate();
   json query = {};
   if (!!request.hasOrderNum()) {
-    query["order_num"] = request.orderNum();
+    query["order_num"] = request.getOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -991,7 +977,7 @@ FlightChangeOfOrderResponse Client::flightChangeOfOrderWithOptions(const FlightC
 }
 
 /**
- * @summary 航变信息-关于订单
+ * @summary Queries flight change information by order number.
  *
  * @param request FlightChangeOfOrderRequest
  * @return FlightChangeOfOrderResponse
@@ -1003,7 +989,7 @@ FlightChangeOfOrderResponse Client::flightChangeOfOrder(const FlightChangeOfOrde
 }
 
 /**
- * @summary Get Token
+ * @summary Obtains a token for API calls. The token is valid for 2 hours.
  *
  * @param request GetTokenRequest
  * @param headers map
@@ -1014,11 +1000,11 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasAppKey()) {
-    query["app_key"] = request.appKey();
+    query["app_key"] = request.getAppKey();
   }
 
   if (!!request.hasAppSecret()) {
-    query["app_secret"] = request.appSecret();
+    query["app_secret"] = request.getAppSecret();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1040,7 +1026,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
 }
 
 /**
- * @summary Get Token
+ * @summary Obtains a token for API calls. The token is valid for 2 hours.
  *
  * @param request GetTokenRequest
  * @return GetTokenResponse
@@ -1052,7 +1038,9 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 }
 
 /**
- * @summary 航程行李直挂
+ * @summary Queries luggage through-check information for an itinerary.
+ *
+ * @description Queries luggage through-check information for an itinerary. Provide itinerary information as input, and the API returns whether luggage through-check is supported for the itinerary. Luggage through-check applies to transfer and stopover scenarios.
  *
  * @param tmpReq LuggageDirectRequest
  * @param headers LuggageDirectHeaders
@@ -1064,25 +1052,25 @@ LuggageDirectResponse Client::luggageDirectWithOptions(const LuggageDirectReques
   LuggageDirectShrinkRequest request = LuggageDirectShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFlightSegmentParamList()) {
-    request.setFlightSegmentParamListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.flightSegmentParamList(), "flight_segment_param_list", "json"));
+    request.setFlightSegmentParamListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFlightSegmentParamList(), "flight_segment_param_list", "json"));
   }
 
   json query = {};
   if (!!request.hasFlightSegmentParamListShrink()) {
-    query["flight_segment_param_list"] = request.flightSegmentParamListShrink();
+    query["flight_segment_param_list"] = request.getFlightSegmentParamListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1104,7 +1092,9 @@ LuggageDirectResponse Client::luggageDirectWithOptions(const LuggageDirectReques
 }
 
 /**
- * @summary 航程行李直挂
+ * @summary Queries luggage through-check information for an itinerary.
+ *
+ * @description Queries luggage through-check information for an itinerary. Provide itinerary information as input, and the API returns whether luggage through-check is supported for the itinerary. Luggage through-check applies to transfer and stopover scenarios.
  *
  * @param request LuggageDirectRequest
  * @return LuggageDirectResponse
@@ -1116,9 +1106,7 @@ LuggageDirectResponse Client::luggageDirect(const LuggageDirectRequest &request)
 }
 
 /**
- * @summary Trade-Order Details
- *
- * @description query order detail
+ * @summary Queries order details.
  *
  * @param request OrderDetailRequest
  * @param headers OrderDetailHeaders
@@ -1129,24 +1117,24 @@ OrderDetailResponse Client::orderDetailWithOptions(const OrderDetailRequest &req
   request.validate();
   json query = {};
   if (!!request.hasOrderNum()) {
-    query["order_num"] = request.orderNum();
+    query["order_num"] = request.getOrderNum();
   }
 
   if (!!request.hasOutOrderNum()) {
-    query["out_order_num"] = request.outOrderNum();
+    query["out_order_num"] = request.getOutOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1168,9 +1156,7 @@ OrderDetailResponse Client::orderDetailWithOptions(const OrderDetailRequest &req
 }
 
 /**
- * @summary Trade-Order Details
- *
- * @description query order detail
+ * @summary Queries order details.
  *
  * @param request OrderDetailRequest
  * @return OrderDetailResponse
@@ -1182,9 +1168,7 @@ OrderDetailResponse Client::orderDetail(const OrderDetailRequest &request) {
 }
 
 /**
- * @summary Trade - Order List
- *
- * @description query order list
+ * @summary Queries the order list.
  *
  * @param request OrderListRequest
  * @param headers OrderListHeaders
@@ -1195,36 +1179,36 @@ OrderListResponse Client::orderListWithOptions(const OrderListRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasBookTimeEnd()) {
-    query["book_time_end"] = request.bookTimeEnd();
+    query["book_time_end"] = request.getBookTimeEnd();
   }
 
   if (!!request.hasBookTimeStart()) {
-    query["book_time_start"] = request.bookTimeStart();
+    query["book_time_start"] = request.getBookTimeStart();
   }
 
   if (!!request.hasPageIndex()) {
-    query["page_index"] = request.pageIndex();
+    query["page_index"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["status"] = request.status();
+    query["status"] = request.getStatus();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1246,9 +1230,7 @@ OrderListResponse Client::orderListWithOptions(const OrderListRequest &request, 
 }
 
 /**
- * @summary Trade - Order List
- *
- * @description query order list
+ * @summary Queries the order list.
  *
  * @param request OrderListRequest
  * @return OrderListResponse
@@ -1260,9 +1242,7 @@ OrderListResponse Client::orderList(const OrderListRequest &request) {
 }
 
 /**
- * @summary Transaction - Seat and Price Verification
- *
- * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
+ * @summary Verifies seat availability and pricing. If the price has changed, the developer can proceed with Book at the updated price. If the price has not changed, the order is placed at the original price.
  *
  * @param request PricingRequest
  * @param headers PricingHeaders
@@ -1273,20 +1253,20 @@ PricingResponse Client::pricingWithOptions(const PricingRequest &request, const 
   request.validate();
   json body = {};
   if (!!request.hasSolutionId()) {
-    body["solution_id"] = request.solutionId();
+    body["solution_id"] = request.getSolutionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1308,9 +1288,7 @@ PricingResponse Client::pricingWithOptions(const PricingRequest &request, const 
 }
 
 /**
- * @summary Transaction - Seat and Price Verification
- *
- * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
+ * @summary Verifies seat availability and pricing. If the price has changed, the developer can proceed with Book at the updated price. If the price has not changed, the order is placed at the original price.
  *
  * @param request PricingRequest
  * @return PricingResponse
@@ -1322,7 +1300,7 @@ PricingResponse Client::pricing(const PricingRequest &request) {
 }
 
 /**
- * @summary Ticket Refund - Application
+ * @summary Submits a refund application for an air ticket.
  *
  * @param tmpReq RefundApplyRequest
  * @param headers RefundApplyHeaders
@@ -1334,45 +1312,45 @@ RefundApplyResponse Client::refundApplyWithOptions(const RefundApplyRequest &tmp
   RefundApplyShrinkRequest request = RefundApplyShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRefundJourneys()) {
-    request.setRefundJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundJourneys(), "refund_journeys", "json"));
+    request.setRefundJourneysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundJourneys(), "refund_journeys", "json"));
   }
 
   if (!!tmpReq.hasRefundPassengerList()) {
-    request.setRefundPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundPassengerList(), "refund_passenger_list", "json"));
+    request.setRefundPassengerListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundPassengerList(), "refund_passenger_list", "json"));
   }
 
   if (!!tmpReq.hasRefundType()) {
-    request.setRefundTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.refundType(), "refund_type", "json"));
+    request.setRefundTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRefundType(), "refund_type", "json"));
   }
 
   json body = {};
   if (!!request.hasOrderNum()) {
-    body["order_num"] = request.orderNum();
+    body["order_num"] = request.getOrderNum();
   }
 
   if (!!request.hasRefundJourneysShrink()) {
-    body["refund_journeys"] = request.refundJourneysShrink();
+    body["refund_journeys"] = request.getRefundJourneysShrink();
   }
 
   if (!!request.hasRefundPassengerListShrink()) {
-    body["refund_passenger_list"] = request.refundPassengerListShrink();
+    body["refund_passenger_list"] = request.getRefundPassengerListShrink();
   }
 
   if (!!request.hasRefundTypeShrink()) {
-    body["refund_type"] = request.refundTypeShrink();
+    body["refund_type"] = request.getRefundTypeShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1394,7 +1372,7 @@ RefundApplyResponse Client::refundApplyWithOptions(const RefundApplyRequest &tmp
 }
 
 /**
- * @summary Ticket Refund - Application
+ * @summary Submits a refund application for an air ticket.
  *
  * @param request RefundApplyRequest
  * @return RefundApplyResponse
@@ -1406,7 +1384,7 @@ RefundApplyResponse Client::refundApply(const RefundApplyRequest &request) {
 }
 
 /**
- * @summary Refund - Detail
+ * @summary Retrieves the details of a refund order.
  *
  * @param request RefundDetailRequest
  * @param headers RefundDetailHeaders
@@ -1417,20 +1395,20 @@ RefundDetailResponse Client::refundDetailWithOptions(const RefundDetailRequest &
   request.validate();
   json query = {};
   if (!!request.hasRefundOrderNum()) {
-    query["refund_order_num"] = request.refundOrderNum();
+    query["refund_order_num"] = request.getRefundOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1452,7 +1430,7 @@ RefundDetailResponse Client::refundDetailWithOptions(const RefundDetailRequest &
 }
 
 /**
- * @summary Refund - Detail
+ * @summary Retrieves the details of a refund order.
  *
  * @param request RefundDetailRequest
  * @return RefundDetailResponse
@@ -1464,7 +1442,7 @@ RefundDetailResponse Client::refundDetail(const RefundDetailRequest &request) {
 }
 
 /**
- * @summary Refund - Detail List
+ * @summary Queries the details of refund orders.
  *
  * @param request RefundDetailListRequest
  * @param headers RefundDetailListHeaders
@@ -1475,36 +1453,36 @@ RefundDetailListResponse Client::refundDetailListWithOptions(const RefundDetailL
   request.validate();
   json query = {};
   if (!!request.hasOrderNum()) {
-    query["order_num"] = request.orderNum();
+    query["order_num"] = request.getOrderNum();
   }
 
   if (!!request.hasPageIndex()) {
-    query["page_index"] = request.pageIndex();
+    query["page_index"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["page_size"] = request.pageSize();
+    query["page_size"] = request.getPageSize();
   }
 
   if (!!request.hasRefundCreateBeginTime()) {
-    query["refund_create_begin_time"] = request.refundCreateBeginTime();
+    query["refund_create_begin_time"] = request.getRefundCreateBeginTime();
   }
 
   if (!!request.hasRefundCreateEndTime()) {
-    query["refund_create_end_time"] = request.refundCreateEndTime();
+    query["refund_create_end_time"] = request.getRefundCreateEndTime();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1526,7 +1504,7 @@ RefundDetailListResponse Client::refundDetailListWithOptions(const RefundDetailL
 }
 
 /**
- * @summary Refund - Detail List
+ * @summary Queries the details of refund orders.
  *
  * @param request RefundDetailListRequest
  * @return RefundDetailListResponse
@@ -1538,9 +1516,7 @@ RefundDetailListResponse Client::refundDetailList(const RefundDetailListRequest 
 }
 
 /**
- * @summary Search
- *
- * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
+ * @summary Searches for flight quotes and returns the lowest price across multiple flights. Note that the response of this operation does not include refund and change rules, free baggage allowance, or baggage through-check rules.
  *
  * @param tmpReq SearchRequest
  * @param headers SearchHeaders
@@ -1552,49 +1528,49 @@ SearchResponse Client::searchWithOptions(const SearchRequest &tmpReq, const Sear
   SearchShrinkRequest request = SearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAirLegs()) {
-    request.setAirLegsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.airLegs(), "air_legs", "json"));
+    request.setAirLegsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAirLegs(), "air_legs", "json"));
   }
 
   if (!!tmpReq.hasSearchControlOptions()) {
-    request.setSearchControlOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchControlOptions(), "search_control_options", "json"));
+    request.setSearchControlOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchControlOptions(), "search_control_options", "json"));
   }
 
   json body = {};
   if (!!request.hasAdults()) {
-    body["adults"] = request.adults();
+    body["adults"] = request.getAdults();
   }
 
   if (!!request.hasAirLegsShrink()) {
-    body["air_legs"] = request.airLegsShrink();
+    body["air_legs"] = request.getAirLegsShrink();
   }
 
   if (!!request.hasCabinClass()) {
-    body["cabin_class"] = request.cabinClass();
+    body["cabin_class"] = request.getCabinClass();
   }
 
   if (!!request.hasChildren()) {
-    body["children"] = request.children();
+    body["children"] = request.getChildren();
   }
 
   if (!!request.hasInfants()) {
-    body["infants"] = request.infants();
+    body["infants"] = request.getInfants();
   }
 
   if (!!request.hasSearchControlOptionsShrink()) {
-    body["search_control_options"] = request.searchControlOptionsShrink();
+    body["search_control_options"] = request.getSearchControlOptionsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1616,9 +1592,7 @@ SearchResponse Client::searchWithOptions(const SearchRequest &tmpReq, const Sear
 }
 
 /**
- * @summary Search
- *
- * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
+ * @summary Searches for flight quotes and returns the lowest price across multiple flights. Note that the response of this operation does not include refund and change rules, free baggage allowance, or baggage through-check rules.
  *
  * @param request SearchRequest
  * @return SearchResponse
@@ -1630,7 +1604,7 @@ SearchResponse Client::search(const SearchRequest &request) {
 }
 
 /**
- * @summary 标准搜索
+ * @summary Search and quote prices, currently providing the lowest price across multiple flights. Note that this API response includes refund/change rules, free baggage allowance, and baggage through-check rules.
  *
  * @param tmpReq StandardSearchRequest
  * @param headers StandardSearchHeaders
@@ -1642,49 +1616,49 @@ StandardSearchResponse Client::standardSearchWithOptions(const StandardSearchReq
   StandardSearchShrinkRequest request = StandardSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAirLegs()) {
-    request.setAirLegsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.airLegs(), "air_legs", "json"));
+    request.setAirLegsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAirLegs(), "air_legs", "json"));
   }
 
   if (!!tmpReq.hasSearchControlOptions()) {
-    request.setSearchControlOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchControlOptions(), "search_control_options", "json"));
+    request.setSearchControlOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchControlOptions(), "search_control_options", "json"));
   }
 
   json body = {};
   if (!!request.hasAdults()) {
-    body["adults"] = request.adults();
+    body["adults"] = request.getAdults();
   }
 
   if (!!request.hasAirLegsShrink()) {
-    body["air_legs"] = request.airLegsShrink();
+    body["air_legs"] = request.getAirLegsShrink();
   }
 
   if (!!request.hasCabinClass()) {
-    body["cabin_class"] = request.cabinClass();
+    body["cabin_class"] = request.getCabinClass();
   }
 
   if (!!request.hasChildren()) {
-    body["children"] = request.children();
+    body["children"] = request.getChildren();
   }
 
   if (!!request.hasInfants()) {
-    body["infants"] = request.infants();
+    body["infants"] = request.getInfants();
   }
 
   if (!!request.hasSearchControlOptionsShrink()) {
-    body["search_control_options"] = request.searchControlOptionsShrink();
+    body["search_control_options"] = request.getSearchControlOptionsShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1706,7 +1680,7 @@ StandardSearchResponse Client::standardSearchWithOptions(const StandardSearchReq
 }
 
 /**
- * @summary 标准搜索
+ * @summary Search and quote prices, currently providing the lowest price across multiple flights. Note that this API response includes refund/change rules, free baggage allowance, and baggage through-check rules.
  *
  * @param request StandardSearchRequest
  * @return StandardSearchResponse
@@ -1718,7 +1692,7 @@ StandardSearchResponse Client::standardSearch(const StandardSearchRequest &reque
 }
 
 /**
- * @summary Transaction - Payment and Ticket Issuance
+ * @summary Pays for and issues a ticket.
  *
  * @param request TicketingRequest
  * @param headers TicketingHeaders
@@ -1729,20 +1703,20 @@ TicketingResponse Client::ticketingWithOptions(const TicketingRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasOrderNum()) {
-    body["order_num"] = request.orderNum();
+    body["order_num"] = request.getOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1764,7 +1738,7 @@ TicketingResponse Client::ticketingWithOptions(const TicketingRequest &request, 
 }
 
 /**
- * @summary Transaction - Payment and Ticket Issuance
+ * @summary Pays for and issues a ticket.
  *
  * @param request TicketingRequest
  * @return TicketingResponse
@@ -1776,9 +1750,9 @@ TicketingResponse Client::ticketing(const TicketingRequest &request) {
 }
 
 /**
- * @summary Transaction - Pre-payment verification
+ * @summary Performs a pre-ticketing check. This operation is optional.
  *
- * @description Pre-check for Ticketing, this interface is optional to use.
+ * @description Performs a pre-ticketing check. This operation is optional.
  *
  * @param request TicketingCheckRequest
  * @param headers TicketingCheckHeaders
@@ -1789,20 +1763,20 @@ TicketingCheckResponse Client::ticketingCheckWithOptions(const TicketingCheckReq
   request.validate();
   json body = {};
   if (!!request.hasOrderNum()) {
-    body["order_num"] = request.orderNum();
+    body["order_num"] = request.getOrderNum();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1824,9 +1798,9 @@ TicketingCheckResponse Client::ticketingCheckWithOptions(const TicketingCheckReq
 }
 
 /**
- * @summary Transaction - Pre-payment verification
+ * @summary Performs a pre-ticketing check. This operation is optional.
  *
- * @description Pre-check for Ticketing, this interface is optional to use.
+ * @description Performs a pre-ticketing check. This operation is optional.
  *
  * @param request TicketingCheckRequest
  * @return TicketingCheckResponse
@@ -1838,7 +1812,9 @@ TicketingCheckResponse Client::ticketingCheck(const TicketingCheckRequest &reque
 }
 
 /**
- * @summary 航程过境签
+ * @summary Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
+ *
+ * @description Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
  *
  * @param tmpReq TransitVisaRequest
  * @param headers TransitVisaHeaders
@@ -1850,25 +1826,25 @@ TransitVisaResponse Client::transitVisaWithOptions(const TransitVisaRequest &tmp
   TransitVisaShrinkRequest request = TransitVisaShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFlightSegmentParamList()) {
-    request.setFlightSegmentParamListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.flightSegmentParamList(), "flight_segment_param_list", "json"));
+    request.setFlightSegmentParamListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFlightSegmentParamList(), "flight_segment_param_list", "json"));
   }
 
   json query = {};
   if (!!request.hasFlightSegmentParamListShrink()) {
-    query["flight_segment_param_list"] = request.flightSegmentParamListShrink();
+    query["flight_segment_param_list"] = request.getFlightSegmentParamListShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAirticketAccessToken()) {
-    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketAccessToken());
   }
 
   if (!!headers.hasXAcsAirticketLanguage()) {
-    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.getXAcsAirticketLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1890,7 +1866,9 @@ TransitVisaResponse Client::transitVisaWithOptions(const TransitVisaRequest &tmp
 }
 
 /**
- * @summary 航程过境签
+ * @summary Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
+ *
+ * @description Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
  *
  * @param request TransitVisaRequest
  * @return TransitVisaResponse

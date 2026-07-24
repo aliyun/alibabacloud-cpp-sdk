@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderNum_ == nullptr
-        && return this->outOrderNum_ == nullptr; };
+        && this->outOrderNum_ == nullptr; };
     // orderNum Field Functions 
     bool hasOrderNum() const { return this->orderNum_ != nullptr;};
     void deleteOrderNum() { this->orderNum_ = nullptr;};
-    inline int64_t orderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
+    inline int64_t getOrderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
     inline OrderDetailRequest& setOrderNum(int64_t orderNum) { DARABONBA_PTR_SET_VALUE(orderNum_, orderNum) };
 
 
     // outOrderNum Field Functions 
     bool hasOutOrderNum() const { return this->outOrderNum_ != nullptr;};
     void deleteOutOrderNum() { this->outOrderNum_ = nullptr;};
-    inline string outOrderNum() const { DARABONBA_PTR_GET_DEFAULT(outOrderNum_, "") };
+    inline string getOutOrderNum() const { DARABONBA_PTR_GET_DEFAULT(outOrderNum_, "") };
     inline OrderDetailRequest& setOutOrderNum(string outOrderNum) { DARABONBA_PTR_SET_VALUE(outOrderNum_, outOrderNum) };
 
 
   protected:
-    // order number created by book
-    std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // external order number(customized by buyer when book)
-    std::shared_ptr<string> outOrderNum_ = nullptr;
+    // The order number.
+    shared_ptr<int64_t> orderNum_ {};
+    // The external order number.
+    shared_ptr<string> outOrderNum_ {};
   };
 
   } // namespace Models

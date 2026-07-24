@@ -32,30 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
-        && return this->appSecret_ == nullptr; };
+        && this->appSecret_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline string appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
+    inline string getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, "") };
     inline GetTokenRequest& setAppKey(string appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // appSecret Field Functions 
     bool hasAppSecret() const { return this->appSecret_ != nullptr;};
     void deleteAppSecret() { this->appSecret_ = nullptr;};
-    inline string appSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
+    inline string getAppSecret() const { DARABONBA_PTR_GET_DEFAULT(appSecret_, "") };
     inline GetTokenRequest& setAppSecret(string appSecret) { DARABONBA_PTR_SET_VALUE(appSecret_, appSecret) };
 
 
   protected:
-    // appKey
+    // The appKey.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appKey_ = nullptr;
-    // appSecret
+    shared_ptr<string> appKey_ {};
+    // The appSecret.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appSecret_ = nullptr;
+    shared_ptr<string> appSecret_ {};
   };
 
   } // namespace Models

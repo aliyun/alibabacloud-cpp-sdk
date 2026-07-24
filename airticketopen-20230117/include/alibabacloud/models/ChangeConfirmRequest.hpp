@@ -33,13 +33,15 @@ namespace Models
     // changeOrderNum Field Functions 
     bool hasChangeOrderNum() const { return this->changeOrderNum_ != nullptr;};
     void deleteChangeOrderNum() { this->changeOrderNum_ = nullptr;};
-    inline int64_t changeOrderNum() const { DARABONBA_PTR_GET_DEFAULT(changeOrderNum_, 0L) };
+    inline int64_t getChangeOrderNum() const { DARABONBA_PTR_GET_DEFAULT(changeOrderNum_, 0L) };
     inline ChangeConfirmRequest& setChangeOrderNum(int64_t changeOrderNum) { DARABONBA_PTR_SET_VALUE(changeOrderNum_, changeOrderNum) };
 
 
   protected:
+    // The change order number.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> changeOrderNum_ = nullptr;
+    shared_ptr<int64_t> changeOrderNum_ {};
   };
 
   } // namespace Models

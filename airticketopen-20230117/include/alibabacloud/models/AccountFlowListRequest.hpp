@@ -36,42 +36,48 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dayNum_ == nullptr
-        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->utcBeginTime_ == nullptr; };
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->utcBeginTime_ == nullptr; };
     // dayNum Field Functions 
     bool hasDayNum() const { return this->dayNum_ != nullptr;};
     void deleteDayNum() { this->dayNum_ = nullptr;};
-    inline int32_t dayNum() const { DARABONBA_PTR_GET_DEFAULT(dayNum_, 0) };
+    inline int32_t getDayNum() const { DARABONBA_PTR_GET_DEFAULT(dayNum_, 0) };
     inline AccountFlowListRequest& setDayNum(int32_t dayNum) { DARABONBA_PTR_SET_VALUE(dayNum_, dayNum) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline AccountFlowListRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline AccountFlowListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // utcBeginTime Field Functions 
     bool hasUtcBeginTime() const { return this->utcBeginTime_ != nullptr;};
     void deleteUtcBeginTime() { this->utcBeginTime_ = nullptr;};
-    inline int64_t utcBeginTime() const { DARABONBA_PTR_GET_DEFAULT(utcBeginTime_, 0L) };
+    inline int64_t getUtcBeginTime() const { DARABONBA_PTR_GET_DEFAULT(utcBeginTime_, 0L) };
     inline AccountFlowListRequest& setUtcBeginTime(int64_t utcBeginTime) { DARABONBA_PTR_SET_VALUE(utcBeginTime_, utcBeginTime) };
 
 
   protected:
+    // The number of days to search. Maximum value: 30. Valid values: 0 to 30.
+    // 
     // This parameter is required.
-    std::shared_ptr<int32_t> dayNum_ = nullptr;
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> dayNum_ {};
+    // The page index.
+    shared_ptr<int32_t> pageIndex_ {};
+    // The page size.
+    shared_ptr<int32_t> pageSize_ {};
+    // The start search timestamp, effective to the day. Specify a 13-digit UTC timestamp.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> utcBeginTime_ = nullptr;
+    shared_ptr<int64_t> utcBeginTime_ {};
   };
 
   } // namespace Models

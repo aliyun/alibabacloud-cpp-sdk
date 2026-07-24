@@ -33,15 +33,15 @@ namespace Models
     // orderNum Field Functions 
     bool hasOrderNum() const { return this->orderNum_ != nullptr;};
     void deleteOrderNum() { this->orderNum_ = nullptr;};
-    inline int64_t orderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
+    inline int64_t getOrderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
     inline CancelRequest& setOrderNum(int64_t orderNum) { DARABONBA_PTR_SET_VALUE(orderNum_, orderNum) };
 
 
   protected:
-    // order number
+    // The order number.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderNum_ = nullptr;
+    shared_ptr<int64_t> orderNum_ {};
   };
 
   } // namespace Models

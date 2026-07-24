@@ -38,61 +38,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactShrink_ == nullptr
-        && return this->outOrderNum_ == nullptr && return this->passengerAncillaryPurchaseMapListShrink_ == nullptr && return this->passengerListShrink_ == nullptr && return this->solutionId_ == nullptr; };
+        && this->outOrderNum_ == nullptr && this->passengerAncillaryPurchaseMapListShrink_ == nullptr && this->passengerListShrink_ == nullptr && this->solutionId_ == nullptr; };
     // contactShrink Field Functions 
     bool hasContactShrink() const { return this->contactShrink_ != nullptr;};
     void deleteContactShrink() { this->contactShrink_ = nullptr;};
-    inline string contactShrink() const { DARABONBA_PTR_GET_DEFAULT(contactShrink_, "") };
+    inline string getContactShrink() const { DARABONBA_PTR_GET_DEFAULT(contactShrink_, "") };
     inline BookShrinkRequest& setContactShrink(string contactShrink) { DARABONBA_PTR_SET_VALUE(contactShrink_, contactShrink) };
 
 
     // outOrderNum Field Functions 
     bool hasOutOrderNum() const { return this->outOrderNum_ != nullptr;};
     void deleteOutOrderNum() { this->outOrderNum_ = nullptr;};
-    inline string outOrderNum() const { DARABONBA_PTR_GET_DEFAULT(outOrderNum_, "") };
+    inline string getOutOrderNum() const { DARABONBA_PTR_GET_DEFAULT(outOrderNum_, "") };
     inline BookShrinkRequest& setOutOrderNum(string outOrderNum) { DARABONBA_PTR_SET_VALUE(outOrderNum_, outOrderNum) };
 
 
     // passengerAncillaryPurchaseMapListShrink Field Functions 
     bool hasPassengerAncillaryPurchaseMapListShrink() const { return this->passengerAncillaryPurchaseMapListShrink_ != nullptr;};
     void deletePassengerAncillaryPurchaseMapListShrink() { this->passengerAncillaryPurchaseMapListShrink_ = nullptr;};
-    inline string passengerAncillaryPurchaseMapListShrink() const { DARABONBA_PTR_GET_DEFAULT(passengerAncillaryPurchaseMapListShrink_, "") };
+    inline string getPassengerAncillaryPurchaseMapListShrink() const { DARABONBA_PTR_GET_DEFAULT(passengerAncillaryPurchaseMapListShrink_, "") };
     inline BookShrinkRequest& setPassengerAncillaryPurchaseMapListShrink(string passengerAncillaryPurchaseMapListShrink) { DARABONBA_PTR_SET_VALUE(passengerAncillaryPurchaseMapListShrink_, passengerAncillaryPurchaseMapListShrink) };
 
 
     // passengerListShrink Field Functions 
     bool hasPassengerListShrink() const { return this->passengerListShrink_ != nullptr;};
     void deletePassengerListShrink() { this->passengerListShrink_ = nullptr;};
-    inline string passengerListShrink() const { DARABONBA_PTR_GET_DEFAULT(passengerListShrink_, "") };
+    inline string getPassengerListShrink() const { DARABONBA_PTR_GET_DEFAULT(passengerListShrink_, "") };
     inline BookShrinkRequest& setPassengerListShrink(string passengerListShrink) { DARABONBA_PTR_SET_VALUE(passengerListShrink_, passengerListShrink) };
 
 
     // solutionId Field Functions 
     bool hasSolutionId() const { return this->solutionId_ != nullptr;};
     void deleteSolutionId() { this->solutionId_ = nullptr;};
-    inline string solutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, "") };
+    inline string getSolutionId() const { DARABONBA_PTR_GET_DEFAULT(solutionId_, "") };
     inline BookShrinkRequest& setSolutionId(string solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
   protected:
-    // contact information
+    // The contact information.
     // 
     // This parameter is required.
-    std::shared_ptr<string> contactShrink_ = nullptr;
-    // external order number(buyer customization)
+    shared_ptr<string> contactShrink_ {};
+    // The external order number.
     // 
     // This parameter is required.
-    std::shared_ptr<string> outOrderNum_ = nullptr;
-    // passenger-ancillary purchase relationship
-    std::shared_ptr<string> passengerAncillaryPurchaseMapListShrink_ = nullptr;
-    // passenger list
+    shared_ptr<string> outOrderNum_ {};
+    // The mapping between passengers and ancillary purchases.
+    shared_ptr<string> passengerAncillaryPurchaseMapListShrink_ {};
+    // The list of passengers.
     // 
     // This parameter is required.
-    std::shared_ptr<string> passengerListShrink_ = nullptr;
-    // solution_id returned by Enrich
+    shared_ptr<string> passengerListShrink_ {};
+    // solution_id.
     // 
     // This parameter is required.
-    std::shared_ptr<string> solutionId_ = nullptr;
+    shared_ptr<string> solutionId_ {};
   };
 
   } // namespace Models

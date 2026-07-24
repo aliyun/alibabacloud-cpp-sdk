@@ -32,26 +32,30 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileContent_ == nullptr
-        && return this->orderNum_ == nullptr; };
+        && this->orderNum_ == nullptr; };
     // fileContent Field Functions 
     bool hasFileContent() const { return this->fileContent_ != nullptr;};
     void deleteFileContent() { this->fileContent_ = nullptr;};
-    inline string fileContent() const { DARABONBA_PTR_GET_DEFAULT(fileContent_, "") };
+    inline string getFileContent() const { DARABONBA_PTR_GET_DEFAULT(fileContent_, "") };
     inline FileUploadRequest& setFileContent(string fileContent) { DARABONBA_PTR_SET_VALUE(fileContent_, fileContent) };
 
 
     // orderNum Field Functions 
     bool hasOrderNum() const { return this->orderNum_ != nullptr;};
     void deleteOrderNum() { this->orderNum_ = nullptr;};
-    inline int64_t orderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
+    inline int64_t getOrderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
     inline FileUploadRequest& setOrderNum(int64_t orderNum) { DARABONBA_PTR_SET_VALUE(orderNum_, orderNum) };
 
 
   protected:
+    // The Base64-encoded string of the attachment image file. Supported image types: .jpg, .png, and .jpeg.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> fileContent_ = nullptr;
+    shared_ptr<string> fileContent_ {};
+    // The forward order number.
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderNum_ = nullptr;
+    shared_ptr<int64_t> orderNum_ {};
   };
 
   } // namespace Models

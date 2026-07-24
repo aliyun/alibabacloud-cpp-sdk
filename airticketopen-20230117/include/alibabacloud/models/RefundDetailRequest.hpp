@@ -33,15 +33,15 @@ namespace Models
     // refundOrderNum Field Functions 
     bool hasRefundOrderNum() const { return this->refundOrderNum_ != nullptr;};
     void deleteRefundOrderNum() { this->refundOrderNum_ = nullptr;};
-    inline int64_t refundOrderNum() const { DARABONBA_PTR_GET_DEFAULT(refundOrderNum_, 0L) };
+    inline int64_t getRefundOrderNum() const { DARABONBA_PTR_GET_DEFAULT(refundOrderNum_, 0L) };
     inline RefundDetailRequest& setRefundOrderNum(int64_t refundOrderNum) { DARABONBA_PTR_SET_VALUE(refundOrderNum_, refundOrderNum) };
 
 
   protected:
-    // Refund order number
+    // The refund order number.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> refundOrderNum_ = nullptr;
+    shared_ptr<int64_t> refundOrderNum_ {};
   };
 
   } // namespace Models

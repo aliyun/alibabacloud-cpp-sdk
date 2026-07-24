@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CHANGEDETAILLISTOFBUYERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CHANGEDETAILLISTOFBUYERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ChangeDetailListOfBuyerResponseBodyData.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,70 +42,289 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(list, list_);
+        DARABONBA_PTR_TO_JSON(pagination, pagination_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(list, list_);
+        DARABONBA_PTR_FROM_JSON(pagination, pagination_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Pagination : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Pagination& obj) { 
+          DARABONBA_PTR_TO_JSON(current_page, currentPage_);
+          DARABONBA_PTR_TO_JSON(page_size, pageSize_);
+          DARABONBA_PTR_TO_JSON(total_count, totalCount_);
+          DARABONBA_PTR_TO_JSON(total_page, totalPage_);
+        };
+        friend void from_json(const Darabonba::Json& j, Pagination& obj) { 
+          DARABONBA_PTR_FROM_JSON(current_page, currentPage_);
+          DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
+          DARABONBA_PTR_FROM_JSON(total_count, totalCount_);
+          DARABONBA_PTR_FROM_JSON(total_page, totalPage_);
+        };
+        Pagination() = default ;
+        Pagination(const Pagination &) = default ;
+        Pagination(Pagination &&) = default ;
+        Pagination(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Pagination() = default ;
+        Pagination& operator=(const Pagination &) = default ;
+        Pagination& operator=(Pagination &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->currentPage_ == nullptr
+        && this->pageSize_ == nullptr && this->totalCount_ == nullptr && this->totalPage_ == nullptr; };
+        // currentPage Field Functions 
+        bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
+        void deleteCurrentPage() { this->currentPage_ = nullptr;};
+        inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+        inline Pagination& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+        // pageSize Field Functions 
+        bool hasPageSize() const { return this->pageSize_ != nullptr;};
+        void deletePageSize() { this->pageSize_ = nullptr;};
+        inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+        inline Pagination& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+        // totalCount Field Functions 
+        bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+        void deleteTotalCount() { this->totalCount_ = nullptr;};
+        inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+        inline Pagination& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+        // totalPage Field Functions 
+        bool hasTotalPage() const { return this->totalPage_ != nullptr;};
+        void deleteTotalPage() { this->totalPage_ = nullptr;};
+        inline int32_t getTotalPage() const { DARABONBA_PTR_GET_DEFAULT(totalPage_, 0) };
+        inline Pagination& setTotalPage(int32_t totalPage) { DARABONBA_PTR_SET_VALUE(totalPage_, totalPage) };
+
+
+      protected:
+        // The current page number.
+        shared_ptr<int32_t> currentPage_ {};
+        // The number of records per page.
+        shared_ptr<int32_t> pageSize_ {};
+        // The total number of records.
+        shared_ptr<int32_t> totalCount_ {};
+        // The total number of pages.
+        shared_ptr<int32_t> totalPage_ {};
+      };
+
+      class List : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const List& obj) { 
+          DARABONBA_PTR_TO_JSON(change_order_num, changeOrderNum_);
+          DARABONBA_PTR_TO_JSON(order_num, orderNum_);
+          DARABONBA_PTR_TO_JSON(order_status, orderStatus_);
+          DARABONBA_PTR_TO_JSON(pay_status, payStatus_);
+          DARABONBA_PTR_TO_JSON(transaction_no, transactionNo_);
+          DARABONBA_PTR_TO_JSON(utc_create_time, utcCreateTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, List& obj) { 
+          DARABONBA_PTR_FROM_JSON(change_order_num, changeOrderNum_);
+          DARABONBA_PTR_FROM_JSON(order_num, orderNum_);
+          DARABONBA_PTR_FROM_JSON(order_status, orderStatus_);
+          DARABONBA_PTR_FROM_JSON(pay_status, payStatus_);
+          DARABONBA_PTR_FROM_JSON(transaction_no, transactionNo_);
+          DARABONBA_PTR_FROM_JSON(utc_create_time, utcCreateTime_);
+        };
+        List() = default ;
+        List(const List &) = default ;
+        List(List &&) = default ;
+        List(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~List() = default ;
+        List& operator=(const List &) = default ;
+        List& operator=(List &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->changeOrderNum_ == nullptr
+        && this->orderNum_ == nullptr && this->orderStatus_ == nullptr && this->payStatus_ == nullptr && this->transactionNo_ == nullptr && this->utcCreateTime_ == nullptr; };
+        // changeOrderNum Field Functions 
+        bool hasChangeOrderNum() const { return this->changeOrderNum_ != nullptr;};
+        void deleteChangeOrderNum() { this->changeOrderNum_ = nullptr;};
+        inline int64_t getChangeOrderNum() const { DARABONBA_PTR_GET_DEFAULT(changeOrderNum_, 0L) };
+        inline List& setChangeOrderNum(int64_t changeOrderNum) { DARABONBA_PTR_SET_VALUE(changeOrderNum_, changeOrderNum) };
+
+
+        // orderNum Field Functions 
+        bool hasOrderNum() const { return this->orderNum_ != nullptr;};
+        void deleteOrderNum() { this->orderNum_ = nullptr;};
+        inline int64_t getOrderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
+        inline List& setOrderNum(int64_t orderNum) { DARABONBA_PTR_SET_VALUE(orderNum_, orderNum) };
+
+
+        // orderStatus Field Functions 
+        bool hasOrderStatus() const { return this->orderStatus_ != nullptr;};
+        void deleteOrderStatus() { this->orderStatus_ = nullptr;};
+        inline int32_t getOrderStatus() const { DARABONBA_PTR_GET_DEFAULT(orderStatus_, 0) };
+        inline List& setOrderStatus(int32_t orderStatus) { DARABONBA_PTR_SET_VALUE(orderStatus_, orderStatus) };
+
+
+        // payStatus Field Functions 
+        bool hasPayStatus() const { return this->payStatus_ != nullptr;};
+        void deletePayStatus() { this->payStatus_ = nullptr;};
+        inline int32_t getPayStatus() const { DARABONBA_PTR_GET_DEFAULT(payStatus_, 0) };
+        inline List& setPayStatus(int32_t payStatus) { DARABONBA_PTR_SET_VALUE(payStatus_, payStatus) };
+
+
+        // transactionNo Field Functions 
+        bool hasTransactionNo() const { return this->transactionNo_ != nullptr;};
+        void deleteTransactionNo() { this->transactionNo_ = nullptr;};
+        inline string getTransactionNo() const { DARABONBA_PTR_GET_DEFAULT(transactionNo_, "") };
+        inline List& setTransactionNo(string transactionNo) { DARABONBA_PTR_SET_VALUE(transactionNo_, transactionNo) };
+
+
+        // utcCreateTime Field Functions 
+        bool hasUtcCreateTime() const { return this->utcCreateTime_ != nullptr;};
+        void deleteUtcCreateTime() { this->utcCreateTime_ = nullptr;};
+        inline int64_t getUtcCreateTime() const { DARABONBA_PTR_GET_DEFAULT(utcCreateTime_, 0L) };
+        inline List& setUtcCreateTime(int64_t utcCreateTime) { DARABONBA_PTR_SET_VALUE(utcCreateTime_, utcCreateTime) };
+
+
+      protected:
+        // The change order number.
+        shared_ptr<int64_t> changeOrderNum_ {};
+        // The order number.
+        shared_ptr<int64_t> orderNum_ {};
+        // The application order status. Valid values:
+        // - 0: initial state
+        // - 1: pending payment
+        // - 2: payment successful
+        // - 3: change successful
+        // - 4: change closed.
+        shared_ptr<int32_t> orderStatus_ {};
+        // The payment status. Valid values:
+        // - 0: initial state
+        // - 1: pending payment
+        // - 2: payment successful
+        // - 3: transaction successful
+        // - 4: paid order closed successfully
+        // - 5: unpaid order closed successfully.
+        shared_ptr<int32_t> payStatus_ {};
+        // The transaction number.
+        shared_ptr<string> transactionNo_ {};
+        // The order creation time. The value is a UTC timestamp.
+        shared_ptr<int64_t> utcCreateTime_ {};
+      };
+
+      virtual bool empty() const override { return this->list_ == nullptr
+        && this->pagination_ == nullptr; };
+      // list Field Functions 
+      bool hasList() const { return this->list_ != nullptr;};
+      void deleteList() { this->list_ = nullptr;};
+      inline const vector<Data::List> & getList() const { DARABONBA_PTR_GET_CONST(list_, vector<Data::List>) };
+      inline vector<Data::List> getList() { DARABONBA_PTR_GET(list_, vector<Data::List>) };
+      inline Data& setList(const vector<Data::List> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
+      inline Data& setList(vector<Data::List> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
+
+
+      // pagination Field Functions 
+      bool hasPagination() const { return this->pagination_ != nullptr;};
+      void deletePagination() { this->pagination_ = nullptr;};
+      inline const Data::Pagination & getPagination() const { DARABONBA_PTR_GET_CONST(pagination_, Data::Pagination) };
+      inline Data::Pagination getPagination() { DARABONBA_PTR_GET(pagination_, Data::Pagination) };
+      inline Data& setPagination(const Data::Pagination & pagination) { DARABONBA_PTR_SET_VALUE(pagination_, pagination) };
+      inline Data& setPagination(Data::Pagination && pagination) { DARABONBA_PTR_SET_RVALUE(pagination_, pagination) };
+
+
+    protected:
+      // The data list.
+      shared_ptr<vector<Data::List>> list_ {};
+      // The pagination information.
+      shared_ptr<Data::Pagination> pagination_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->data_ == nullptr && return this->errorCode_ == nullptr && return this->errorData_ == nullptr && return this->errorMsg_ == nullptr && return this->status_ == nullptr
-        && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->errorCode_ == nullptr && this->errorData_ == nullptr && this->errorMsg_ == nullptr && this->status_ == nullptr
+        && this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ChangeDetailListOfBuyerResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ChangeDetailListOfBuyerResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ChangeDetailListOfBuyerResponseBodyData) };
-    inline ChangeDetailListOfBuyerResponseBodyData data() { DARABONBA_PTR_GET(data_, ChangeDetailListOfBuyerResponseBodyData) };
-    inline ChangeDetailListOfBuyerResponseBody& setData(const ChangeDetailListOfBuyerResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ChangeDetailListOfBuyerResponseBody& setData(ChangeDetailListOfBuyerResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ChangeDetailListOfBuyerResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ChangeDetailListOfBuyerResponseBody::Data) };
+    inline ChangeDetailListOfBuyerResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ChangeDetailListOfBuyerResponseBody::Data) };
+    inline ChangeDetailListOfBuyerResponseBody& setData(const ChangeDetailListOfBuyerResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ChangeDetailListOfBuyerResponseBody& setData(ChangeDetailListOfBuyerResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string errorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline ChangeDetailListOfBuyerResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
     // errorData Field Functions 
     bool hasErrorData() const { return this->errorData_ != nullptr;};
     void deleteErrorData() { this->errorData_ = nullptr;};
-    inline     const Darabonba::Json & errorData() const { DARABONBA_GET(errorData_) };
-    Darabonba::Json & errorData() { DARABONBA_GET(errorData_) };
+    inline     const Darabonba::Json & getErrorData() const { DARABONBA_GET(errorData_) };
+    Darabonba::Json & getErrorData() { DARABONBA_GET(errorData_) };
     inline ChangeDetailListOfBuyerResponseBody& setErrorData(const Darabonba::Json & errorData) { DARABONBA_SET_VALUE(errorData_, errorData) };
-    inline ChangeDetailListOfBuyerResponseBody& setErrorData(Darabonba::Json & errorData) { DARABONBA_SET_RVALUE(errorData_, errorData) };
+    inline ChangeDetailListOfBuyerResponseBody& setErrorData(Darabonba::Json && errorData) { DARABONBA_SET_RVALUE(errorData_, errorData) };
 
 
     // errorMsg Field Functions 
     bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
     void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
     inline ChangeDetailListOfBuyerResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline ChangeDetailListOfBuyerResponseBody& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ChangeDetailListOfBuyerResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<ChangeDetailListOfBuyerResponseBodyData> data_ = nullptr;
-    std::shared_ptr<string> errorCode_ = nullptr;
-    Darabonba::Json errorData_ = nullptr;
-    std::shared_ptr<string> errorMsg_ = nullptr;
-    std::shared_ptr<int32_t> status_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    // The data returned for a successful request.
+    shared_ptr<ChangeDetailListOfBuyerResponseBody::Data> data_ {};
+    // The business error code.
+    shared_ptr<string> errorCode_ {};
+    // The data returned with the error.
+    Darabonba::Json errorData_ {};
+    // The error message.
+    shared_ptr<string> errorMsg_ {};
+    // The HTTP status code. The value is always 200 for successful HTTP requests.
+    shared_ptr<int32_t> status_ {};
+    // Indicates whether the request is successful.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -33,13 +33,15 @@ namespace Models
     // lowestPriceFlightInfoListShrink Field Functions 
     bool hasLowestPriceFlightInfoListShrink() const { return this->lowestPriceFlightInfoListShrink_ != nullptr;};
     void deleteLowestPriceFlightInfoListShrink() { this->lowestPriceFlightInfoListShrink_ = nullptr;};
-    inline string lowestPriceFlightInfoListShrink() const { DARABONBA_PTR_GET_DEFAULT(lowestPriceFlightInfoListShrink_, "") };
+    inline string getLowestPriceFlightInfoListShrink() const { DARABONBA_PTR_GET_DEFAULT(lowestPriceFlightInfoListShrink_, "") };
     inline CollectFlightLowestPriceShrinkRequest& setLowestPriceFlightInfoListShrink(string lowestPriceFlightInfoListShrink) { DARABONBA_PTR_SET_VALUE(lowestPriceFlightInfoListShrink_, lowestPriceFlightInfoListShrink) };
 
 
   protected:
+    // The lowest-price flight information.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> lowestPriceFlightInfoListShrink_ = nullptr;
+    shared_ptr<string> lowestPriceFlightInfoListShrink_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,13 @@ namespace Models
     // flightSegmentParamListShrink Field Functions 
     bool hasFlightSegmentParamListShrink() const { return this->flightSegmentParamListShrink_ != nullptr;};
     void deleteFlightSegmentParamListShrink() { this->flightSegmentParamListShrink_ = nullptr;};
-    inline string flightSegmentParamListShrink() const { DARABONBA_PTR_GET_DEFAULT(flightSegmentParamListShrink_, "") };
+    inline string getFlightSegmentParamListShrink() const { DARABONBA_PTR_GET_DEFAULT(flightSegmentParamListShrink_, "") };
     inline TransitVisaShrinkRequest& setFlightSegmentParamListShrink(string flightSegmentParamListShrink) { DARABONBA_PTR_SET_VALUE(flightSegmentParamListShrink_, flightSegmentParamListShrink) };
 
 
   protected:
-    std::shared_ptr<string> flightSegmentParamListShrink_ = nullptr;
+    // The list of flight segments that constitute an itinerary. Maximum size: 2.
+    shared_ptr<string> flightSegmentParamListShrink_ {};
   };
 
   } // namespace Models

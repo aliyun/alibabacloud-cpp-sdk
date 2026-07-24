@@ -36,53 +36,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderNum_ == nullptr
-        && return this->refundJourneysShrink_ == nullptr && return this->refundPassengerListShrink_ == nullptr && return this->refundTypeShrink_ == nullptr; };
+        && this->refundJourneysShrink_ == nullptr && this->refundPassengerListShrink_ == nullptr && this->refundTypeShrink_ == nullptr; };
     // orderNum Field Functions 
     bool hasOrderNum() const { return this->orderNum_ != nullptr;};
     void deleteOrderNum() { this->orderNum_ = nullptr;};
-    inline int64_t orderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
+    inline int64_t getOrderNum() const { DARABONBA_PTR_GET_DEFAULT(orderNum_, 0L) };
     inline RefundApplyShrinkRequest& setOrderNum(int64_t orderNum) { DARABONBA_PTR_SET_VALUE(orderNum_, orderNum) };
 
 
     // refundJourneysShrink Field Functions 
     bool hasRefundJourneysShrink() const { return this->refundJourneysShrink_ != nullptr;};
     void deleteRefundJourneysShrink() { this->refundJourneysShrink_ = nullptr;};
-    inline string refundJourneysShrink() const { DARABONBA_PTR_GET_DEFAULT(refundJourneysShrink_, "") };
+    inline string getRefundJourneysShrink() const { DARABONBA_PTR_GET_DEFAULT(refundJourneysShrink_, "") };
     inline RefundApplyShrinkRequest& setRefundJourneysShrink(string refundJourneysShrink) { DARABONBA_PTR_SET_VALUE(refundJourneysShrink_, refundJourneysShrink) };
 
 
     // refundPassengerListShrink Field Functions 
     bool hasRefundPassengerListShrink() const { return this->refundPassengerListShrink_ != nullptr;};
     void deleteRefundPassengerListShrink() { this->refundPassengerListShrink_ = nullptr;};
-    inline string refundPassengerListShrink() const { DARABONBA_PTR_GET_DEFAULT(refundPassengerListShrink_, "") };
+    inline string getRefundPassengerListShrink() const { DARABONBA_PTR_GET_DEFAULT(refundPassengerListShrink_, "") };
     inline RefundApplyShrinkRequest& setRefundPassengerListShrink(string refundPassengerListShrink) { DARABONBA_PTR_SET_VALUE(refundPassengerListShrink_, refundPassengerListShrink) };
 
 
     // refundTypeShrink Field Functions 
     bool hasRefundTypeShrink() const { return this->refundTypeShrink_ != nullptr;};
     void deleteRefundTypeShrink() { this->refundTypeShrink_ = nullptr;};
-    inline string refundTypeShrink() const { DARABONBA_PTR_GET_DEFAULT(refundTypeShrink_, "") };
+    inline string getRefundTypeShrink() const { DARABONBA_PTR_GET_DEFAULT(refundTypeShrink_, "") };
     inline RefundApplyShrinkRequest& setRefundTypeShrink(string refundTypeShrink) { DARABONBA_PTR_SET_VALUE(refundTypeShrink_, refundTypeShrink) };
 
 
   protected:
-    // Order number
+    // The order number.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // Itinerary for which a refund is being requested
+    shared_ptr<int64_t> orderNum_ {};
+    // The journeys for the refund application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> refundJourneysShrink_ = nullptr;
-    // List of passengers applying for a refund
+    shared_ptr<string> refundJourneysShrink_ {};
+    // The list of passengers for the refund application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> refundPassengerListShrink_ = nullptr;
-    // Refund type - involuntary or voluntary. 
-    // attachments are required for involuntary refund application.
+    shared_ptr<string> refundPassengerListShrink_ {};
+    // The refund type. Attachments are required for involuntary refund applications.
     // 
     // This parameter is required.
-    std::shared_ptr<string> refundTypeShrink_ = nullptr;
+    shared_ptr<string> refundTypeShrink_ {};
   };
 
   } // namespace Models
