@@ -36,6 +36,64 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 发起实时外呼
+ *
+ * @param request CreateCallOutboundInstantRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCallOutboundInstantResponse
+ */
+CreateCallOutboundInstantResponse Client::createCallOutboundInstantWithOptions(const CreateCallOutboundInstantRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalledNumber()) {
+    body["CalledNumber"] = request.getCalledNumber();
+  }
+
+  if (!!request.hasCustomerName()) {
+    body["CustomerName"] = request.getCustomerName();
+  }
+
+  if (!!request.hasEncryptCall()) {
+    body["EncryptCall"] = request.getEncryptCall();
+  }
+
+  if (!!request.hasPromptVariables()) {
+    body["PromptVariables"] = request.getPromptVariables();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCallOutboundInstant"},
+    {"version" , "2025-11-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCallOutboundInstantResponse>();
+}
+
+/**
+ * @summary 发起实时外呼
+ *
+ * @param request CreateCallOutboundInstantRequest
+ * @return CreateCallOutboundInstantResponse
+ */
+CreateCallOutboundInstantResponse Client::createCallOutboundInstant(const CreateCallOutboundInstantRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCallOutboundInstantWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询当前任务的并发数
  *
  * @param request QueryTaskConcurrencyRequest

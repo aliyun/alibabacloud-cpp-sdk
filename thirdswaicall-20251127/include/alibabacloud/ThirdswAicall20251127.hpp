@@ -21,6 +21,23 @@ namespace ThirdswAicall20251127
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 发起实时外呼
+       *
+       * @param request CreateCallOutboundInstantRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCallOutboundInstantResponse
+       */
+      Models::CreateCallOutboundInstantResponse createCallOutboundInstantWithOptions(const Models::CreateCallOutboundInstantRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发起实时外呼
+       *
+       * @param request CreateCallOutboundInstantRequest
+       * @return CreateCallOutboundInstantResponse
+       */
+      Models::CreateCallOutboundInstantResponse createCallOutboundInstant(const Models::CreateCallOutboundInstantRequest &request);
+
+      /**
        * @summary 查询当前任务的并发数
        *
        * @param request QueryTaskConcurrencyRequest
