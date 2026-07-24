@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

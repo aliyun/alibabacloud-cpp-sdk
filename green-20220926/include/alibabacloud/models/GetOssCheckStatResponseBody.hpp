@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // Data.
+        // The data.
         shared_ptr<vector<int64_t>> data_ {};
-        // Name.
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -120,9 +120,9 @@ namespace Models
 
 
     protected:
-      // X values of the coordinates.
+      // The X value of the coordinate point.
       shared_ptr<vector<string>> x_ {};
-      // Y values of the coordinates.
+      // The Y value of the coordinate point.
       shared_ptr<vector<BarChart::Y>> y_ {};
     };
 
@@ -145,9 +145,9 @@ namespace Models
 
 
   protected:
-    // Bar chart
+    // The bar chart data.
     shared_ptr<GetOssCheckStatResponseBody::BarChart> barChart_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

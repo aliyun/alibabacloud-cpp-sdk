@@ -76,9 +76,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ApiTaskId, apiTaskId_);
           DARABONBA_PTR_TO_JSON(AppId, appId_);
           DARABONBA_PTR_TO_JSON(AttackLevel, attackLevel_);
+          DARABONBA_PTR_TO_JSON(BailianRequestId, bailianRequestId_);
           DARABONBA_PTR_TO_JSON(Content, content_);
           DARABONBA_PTR_TO_JSON(DataId, dataId_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+          DARABONBA_PTR_TO_JSON(Ext, ext_);
           DARABONBA_PTR_TO_JSON(ExtFeedback, extFeedback_);
           DARABONBA_ANY_TO_JSON(Extra, extra_);
           DARABONBA_PTR_TO_JSON(FrameCount, frameCount_);
@@ -134,9 +136,11 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ApiTaskId, apiTaskId_);
           DARABONBA_PTR_FROM_JSON(AppId, appId_);
           DARABONBA_PTR_FROM_JSON(AttackLevel, attackLevel_);
+          DARABONBA_PTR_FROM_JSON(BailianRequestId, bailianRequestId_);
           DARABONBA_PTR_FROM_JSON(Content, content_);
           DARABONBA_PTR_FROM_JSON(DataId, dataId_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+          DARABONBA_PTR_FROM_JSON(Ext, ext_);
           DARABONBA_PTR_FROM_JSON(ExtFeedback, extFeedback_);
           DARABONBA_ANY_FROM_JSON(Extra, extra_);
           DARABONBA_PTR_FROM_JSON(FrameCount, frameCount_);
@@ -241,26 +245,27 @@ namespace Models
 
 
         protected:
-          // Confidence score, ranging from 0 to 100, with two decimal places.
+          // The confidence score, ranging from 0 to 100, rounded to two decimal places.
           shared_ptr<string> confidence_ {};
-          // Description of the Label field.
+          // The description of the Label field.
           shared_ptr<string> description_ {};
-          // Label.
+          // The labels.
           shared_ptr<string> label_ {};
         };
 
         virtual bool empty() const override { return this->accountId_ == nullptr
         && this->apiLabels_ == nullptr && this->apiRequestTime_ == nullptr && this->apiRiskLevel_ == nullptr && this->apiService_ == nullptr && this->apiTaskId_ == nullptr
-        && this->appId_ == nullptr && this->attackLevel_ == nullptr && this->content_ == nullptr && this->dataId_ == nullptr && this->endTime_ == nullptr
-        && this->extFeedback_ == nullptr && this->extra_ == nullptr && this->frameCount_ == nullptr && this->gmtCreate_ == nullptr && this->guardFileUrls_ == nullptr
-        && this->guardImageUrls_ == nullptr && this->imageLabels_ == nullptr && this->imageService_ == nullptr && this->imageUrl_ == nullptr && this->imageUrls_ == nullptr
-        && this->labels_ == nullptr && this->liveId_ == nullptr && this->maliciousFileLevel_ == nullptr && this->maliciousUrlLevel_ == nullptr && this->manualOnly_ == nullptr
-        && this->noLabels_ == nullptr && this->offset_ == nullptr && this->pageNum_ == nullptr && this->requestFrom_ == nullptr && this->requestId_ == nullptr
-        && this->requestTime_ == nullptr && this->resourceType_ == nullptr && this->result_ == nullptr && this->reviewLabels_ == nullptr && this->reviewRiskLevel_ == nullptr
-        && this->reviewTime_ == nullptr && this->reviewUid_ == nullptr && this->reviewed_ == nullptr && this->riskLevel_ == nullptr && this->riskTips_ == nullptr
-        && this->riskWords_ == nullptr && this->scanResult_ == nullptr && this->score_ == nullptr && this->sensitiveLevel_ == nullptr && this->serviceCode_ == nullptr
-        && this->startTime_ == nullptr && this->suggestion_ == nullptr && this->taskId_ == nullptr && this->textLabels_ == nullptr && this->thumbnail_ == nullptr
-        && this->timeStamp_ == nullptr && this->url_ == nullptr && this->voiceLabels_ == nullptr && this->voiceScanOpened_ == nullptr && this->voiceService_ == nullptr; };
+        && this->appId_ == nullptr && this->attackLevel_ == nullptr && this->bailianRequestId_ == nullptr && this->content_ == nullptr && this->dataId_ == nullptr
+        && this->endTime_ == nullptr && this->ext_ == nullptr && this->extFeedback_ == nullptr && this->extra_ == nullptr && this->frameCount_ == nullptr
+        && this->gmtCreate_ == nullptr && this->guardFileUrls_ == nullptr && this->guardImageUrls_ == nullptr && this->imageLabels_ == nullptr && this->imageService_ == nullptr
+        && this->imageUrl_ == nullptr && this->imageUrls_ == nullptr && this->labels_ == nullptr && this->liveId_ == nullptr && this->maliciousFileLevel_ == nullptr
+        && this->maliciousUrlLevel_ == nullptr && this->manualOnly_ == nullptr && this->noLabels_ == nullptr && this->offset_ == nullptr && this->pageNum_ == nullptr
+        && this->requestFrom_ == nullptr && this->requestId_ == nullptr && this->requestTime_ == nullptr && this->resourceType_ == nullptr && this->result_ == nullptr
+        && this->reviewLabels_ == nullptr && this->reviewRiskLevel_ == nullptr && this->reviewTime_ == nullptr && this->reviewUid_ == nullptr && this->reviewed_ == nullptr
+        && this->riskLevel_ == nullptr && this->riskTips_ == nullptr && this->riskWords_ == nullptr && this->scanResult_ == nullptr && this->score_ == nullptr
+        && this->sensitiveLevel_ == nullptr && this->serviceCode_ == nullptr && this->startTime_ == nullptr && this->suggestion_ == nullptr && this->taskId_ == nullptr
+        && this->textLabels_ == nullptr && this->thumbnail_ == nullptr && this->timeStamp_ == nullptr && this->url_ == nullptr && this->voiceLabels_ == nullptr
+        && this->voiceScanOpened_ == nullptr && this->voiceService_ == nullptr; };
         // accountId Field Functions 
         bool hasAccountId() const { return this->accountId_ != nullptr;};
         void deleteAccountId() { this->accountId_ = nullptr;};
@@ -317,6 +322,13 @@ namespace Models
         inline Items& setAttackLevel(string attackLevel) { DARABONBA_PTR_SET_VALUE(attackLevel_, attackLevel) };
 
 
+        // bailianRequestId Field Functions 
+        bool hasBailianRequestId() const { return this->bailianRequestId_ != nullptr;};
+        void deleteBailianRequestId() { this->bailianRequestId_ = nullptr;};
+        inline string getBailianRequestId() const { DARABONBA_PTR_GET_DEFAULT(bailianRequestId_, "") };
+        inline Items& setBailianRequestId(string bailianRequestId) { DARABONBA_PTR_SET_VALUE(bailianRequestId_, bailianRequestId) };
+
+
         // content Field Functions 
         bool hasContent() const { return this->content_ != nullptr;};
         void deleteContent() { this->content_ = nullptr;};
@@ -336,6 +348,13 @@ namespace Models
         void deleteEndTime() { this->endTime_ = nullptr;};
         inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
         inline Items& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+        // ext Field Functions 
+        bool hasExt() const { return this->ext_ != nullptr;};
+        void deleteExt() { this->ext_ = nullptr;};
+        inline string getExt() const { DARABONBA_PTR_GET_DEFAULT(ext_, "") };
+        inline Items& setExt(string ext) { DARABONBA_PTR_SET_VALUE(ext_, ext) };
 
 
         // extFeedback Field Functions 
@@ -672,134 +691,142 @@ namespace Models
 
 
       protected:
+        // The AccountId input parameter from the customer.
         shared_ptr<string> accountId_ {};
-        // Automated review labels.
+        // The machine-assisted moderation labels.
         shared_ptr<string> apiLabels_ {};
-        // Machine review time.
+        // The machine-assisted moderation time. The value is a Unix/POSIX timestamp in milliseconds.
         shared_ptr<string> apiRequestTime_ {};
-        // Automated review risk level.
+        // The machine-assisted moderation risk level.
         shared_ptr<string> apiRiskLevel_ {};
-        // Automated review service
+        // The machine-assisted moderation service.
         shared_ptr<string> apiService_ {};
-        // Automated review task ID.
+        // The machine-assisted moderation task ID.
         shared_ptr<string> apiTaskId_ {};
+        // appId
         shared_ptr<string> appId_ {};
-        // Attack level, returned based on the set high and low risk scores. The return values include:
+        // The attack level, returned based on the configured risk score thresholds. Valid values:
         // 
-        // - high: High risk
+        // - high: high risk.
         // 
-        // - medium: Medium risk
+        // - medium: medium risk.
+        //  
+        // - low: low risk.
         // 
-        // - low: Low risk
-        // 
-        // - none: No risk detected
+        // - none: no risk detected.
         shared_ptr<string> attackLevel_ {};
-        // Content.
+        // The Bailian request ID.
+        shared_ptr<string> bailianRequestId_ {};
+        // The content.
         shared_ptr<string> content_ {};
-        // Data Id
+        // dataId
         shared_ptr<string> dataId_ {};
-        // Segment end time (in seconds).
+        // The segment end time, in seconds.
         shared_ptr<string> endTime_ {};
-        // Feedback information.
+        // The extended information.
+        shared_ptr<string> ext_ {};
+        // The feedback information.
         shared_ptr<string> extFeedback_ {};
-        // Additional parameters.
+        // The reserved parameter.
         Darabonba::Json extra_ {};
-        // Frame count.
+        // The frame count.
         shared_ptr<int64_t> frameCount_ {};
-        // Creation time.
+        // The creation time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
-        // Multimodal file URLs.
+        // The multimodal file URLs.
         shared_ptr<vector<string>> guardFileUrls_ {};
-        // Multimodal image URLs.
+        // The multimodal image URLs.
         shared_ptr<vector<string>> guardImageUrls_ {};
-        // Image labels.
+        // The image labels.
         shared_ptr<vector<Darabonba::Json>> imageLabels_ {};
-        // Image service.
+        // The image service.
         shared_ptr<string> imageService_ {};
-        // URL
+        // url
         shared_ptr<string> imageUrl_ {};
+        // imageUrls
         shared_ptr<vector<string>> imageUrls_ {};
-        // Labels.
+        // The labels.
         shared_ptr<string> labels_ {};
+        // The LiveId input parameter from the customer.
         shared_ptr<string> liveId_ {};
-        // Malicious file risk level.
+        // The risk level of the malicious file.
         shared_ptr<string> maliciousFileLevel_ {};
-        // Malicious URL risk level.
+        // The risk level of the malicious URL.
         shared_ptr<string> maliciousUrlLevel_ {};
-        // Whether it is a pure manual review.
+        // Indicates whether only manual review is used.
         shared_ptr<bool> manualOnly_ {};
-        // No labels
+        // No labels.
         shared_ptr<vector<string>> noLabels_ {};
-        // Frame offset value.
+        // The frame capture offset value.
         shared_ptr<int64_t> offset_ {};
-        // Page number.
+        // The page number.
         shared_ptr<int64_t> pageNum_ {};
-        // Request source.
+        // The request source.
         shared_ptr<string> requestFrom_ {};
-        // Request ID.
+        // The request ID.
         shared_ptr<string> requestId_ {};
-        // Request time.
+        // The request time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> requestTime_ {};
-        // Resource type.
+        // The resource type.
         shared_ptr<string> resourceType_ {};
-        // Return collection.
+        // The result set.
         shared_ptr<vector<Items::Result>> result_ {};
-        // Review labels.
+        // The review labels.
         shared_ptr<string> reviewLabels_ {};
-        // Review status.
+        // The review status.
         shared_ptr<string> reviewRiskLevel_ {};
-        // Review time.
+        // The review time. The value is a Unix/POSIX timestamp in milliseconds.
         shared_ptr<string> reviewTime_ {};
-        // Reviewer.
+        // The reviewer.
         shared_ptr<string> reviewUid_ {};
-        // Whether it has been reviewed.
+        // Indicates whether the content has been reviewed.
         shared_ptr<bool> reviewed_ {};
-        // Risk level, returned based on the set high and low risk scores. The return values include:
+        // The risk level, returned based on the configured risk score thresholds. Valid values:
         // 
-        // - high: High risk
+        // - high: high risk.
         // 
-        // - medium: Medium risk
+        // - medium: medium risk.
+        //  
+        // - low: low risk.
         // 
-        // - low: Low risk
-        // 
-        // - none: No risk detected
+        // - none: no risk detected.
         shared_ptr<string> riskLevel_ {};
-        // Details of the detected risk.
+        // The details of the matched risk.
         shared_ptr<string> riskTips_ {};
-        // Keywords of the detected risk.
+        // The matched risk keywords.
         shared_ptr<string> riskWords_ {};
-        // Details of the result.
+        // The result details.
         shared_ptr<string> scanResult_ {};
-        // Score.
+        // The score.
         shared_ptr<float> score_ {};
-        // Sensitive level, returned based on the set high and low risk scores. The return values include:
-        // - **S1**: Indicates low sensitivity.
-        // - **S2**: Indicates medium sensitivity.
-        // - **S3**: Indicates high sensitivity.
-        // - **S4**: Indicates very high sensitivity.
-        // - **S0**: Indicates no sensitivity.
+        // The sensitivity level, returned based on the configured risk score thresholds. Valid values:
+        // - **S1**: Low sensitivity.
+        // - **S2**: Medium sensitivity.
+        // - **S3**: Moderately high sensitivity.
+        // - **S4**: High sensitivity.
+        // - **S0**: Not sensitive.
         shared_ptr<string> sensitiveLevel_ {};
-        // Service code.
+        // The service code.
         shared_ptr<string> serviceCode_ {};
-        // Segment start time (in seconds).
+        // The segment start time, in seconds.
         shared_ptr<string> startTime_ {};
-        // Suggestion.
+        // The suggestion.
         shared_ptr<string> suggestion_ {};
-        // Task ID.
+        // The task ID.
         shared_ptr<string> taskId_ {};
-        // Text labels.
+        // The text labels.
         shared_ptr<vector<Darabonba::Json>> textLabels_ {};
-        // Thumbnail URL.
+        // The thumbnail URL.
         shared_ptr<string> thumbnail_ {};
-        // Timestamp.
+        // The timestamp.
         shared_ptr<string> timeStamp_ {};
-        // Task URL
+        // The task URL.
         shared_ptr<string> url_ {};
-        // Voice labels.
+        // The audio labels.
         shared_ptr<vector<Darabonba::Json>> voiceLabels_ {};
-        // Whether audio detection is enabled.
+        // Indicates whether audio detection is enabled.
         shared_ptr<bool> voiceScanOpened_ {};
-        // Voice service.
+        // The audio service.
         shared_ptr<string> voiceService_ {};
       };
 
@@ -836,13 +863,13 @@ namespace Models
 
 
     protected:
-      // Current page.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // Data for the current page.
+      // The data on the current page.
       shared_ptr<vector<Data::Items>> items_ {};
-      // Number of items per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -893,17 +920,17 @@ namespace Models
 
 
   protected:
-    // Error code, consistent with HTTP status.
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<GetScanResultResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Further description of the error code.
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend that uniquely identifies a request. You can use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Success indicator
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

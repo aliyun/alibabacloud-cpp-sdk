@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Evidence backup configuration.
+    // The evidence transfer configuration.
     shared_ptr<string> backupConfig_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service code.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
   };
 

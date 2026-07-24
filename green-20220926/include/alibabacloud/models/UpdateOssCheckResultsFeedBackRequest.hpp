@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Feedback.
     shared_ptr<string> feedback_ {};
+    // The request ID to query.
     shared_ptr<string> queryRequestId_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
+    // Service code.
     shared_ptr<string> serviceCode_ {};
+    // Job ID.
     shared_ptr<string> taskId_ {};
   };
 

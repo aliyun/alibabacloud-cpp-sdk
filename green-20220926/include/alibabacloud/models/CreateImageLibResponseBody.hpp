@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The ID of the custom image library.
       shared_ptr<string> libId_ {};
     };
 
@@ -117,11 +118,17 @@ namespace Models
 
 
   protected:
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
+    // The returned data.
     shared_ptr<CreateImageLibResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

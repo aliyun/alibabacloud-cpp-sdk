@@ -162,11 +162,11 @@ namespace Models
 
 
       protected:
-        // Confidence.
+        // The confidence level.
         shared_ptr<float> confidence_ {};
-        // Label description.
+        // The label description.
         shared_ptr<string> description_ {};
-        // Label.
+        // The label details.
         shared_ptr<string> label_ {};
       };
 
@@ -394,65 +394,74 @@ namespace Models
 
 
     protected:
-      // Storage space.
+      // The OSS bucket.
       shared_ptr<string> bucket_ {};
-      // Error code, consistent with HTTP status.
+      // The error code, which is consistent with the HTTP status code.
       shared_ptr<string> code_ {};
-      // Audio and video detection type.
+      // The audio or video scan type.
       shared_ptr<string> contentType_ {};
-      // Primary service.
+      // The primary service.
       shared_ptr<string> copyFrom_ {};
-      // Feedback.
+      // The feedback. Valid values:
+      // - misreport: False positive (not a violation).
+      // - missOut: Missed violation.
       shared_ptr<string> feedback_ {};
-      // Whether frozen.
+      // Indicates whether the object is frozen.
       shared_ptr<bool> freeze_ {};
-      // Freeze status.
+      // The freeze status.
       shared_ptr<string> freezeStatus_ {};
-      // Freeze type.
+      // The freeze type.
       shared_ptr<string> freezeType_ {};
-      // Image URL address.
+      // The URL of the image.
       shared_ptr<string> imageUrl_ {};
-      // Whether to copy.
+      // Indicates whether the task is copied.
       shared_ptr<bool> isCopy_ {};
-      // Job name.
+      // The task name.
       shared_ptr<string> jobName_ {};
-      // Labels.
+      // The label details.
       shared_ptr<vector<Items::LabelDetails>> labelDetails_ {};
-      // Image labels.
+      // The image labels.
       shared_ptr<vector<string>> labels_ {};
-      // Text labels.
+      // The text labels.
       shared_ptr<vector<string>> labels2_ {};
-      // Manual disposal status.
+      // The manual action status. Valid values:
+      // - FREEZE: Frozen.
+      // - UNFREEZE: Unfrozen.
       shared_ptr<string> manualFreezeAction_ {};
-      // Disposal time.
+      // The action time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> manualOperateTime_ {};
-      // Operator.
+      // The operator who performed the action.
       shared_ptr<string> manualOperator_ {};
-      // File\\"s MD5.
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // Further description of the error code.
+      // The detailed description of the error code.
       shared_ptr<string> msg_ {};
-      // Object name.
+      // The object name.
       shared_ptr<string> object_ {};
-      // Request ID.
+      // The request ID.
       shared_ptr<string> requestId_ {};
-      // Image risk level.
+      // The image risk level.
       shared_ptr<string> riskLevel_ {};
-      // Overall risk level.
+      // The overall risk level.
       shared_ptr<string> riskLevel0_ {};
-      // Text risk level.
+      // The text risk level.
       shared_ptr<string> riskLevel2_ {};
-      // Details of the result.
+      // The scan result details.
       shared_ptr<string> scanResult_ {};
-      // Service code.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Service name.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // System disposal status.
+      // The system action status. Valid values:
+      // - FREEZING: Freezing in progress.
+      // - FREEZED: Frozen.
+      // - UNFREEZED: Unfrozen.
+      // - NONE: No action taken.
+      // - UNFREEZING: Unfreezing in progress.
       shared_ptr<string> sysDisposalStatus_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Task URL.
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -496,15 +505,15 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Data of the current page.
+    // The data on the current page.
     shared_ptr<vector<GetOssCheckFreezeResultResponseBody::Items>> items_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Total count.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

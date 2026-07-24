@@ -140,23 +140,23 @@ namespace Models
 
 
     protected:
-      // Encryption algorithm.
+      // The encryption algorithm.
       shared_ptr<string> cryptType_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Primary key ID.
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Name.
+      // The name.
       shared_ptr<string> name_ {};
-      // Result scope.
+      // The result scope.
       shared_ptr<string> scope_ {};
-      // Seed.
+      // Seed。
       shared_ptr<string> seed_ {};
-      // UID.
+      // UID。
       shared_ptr<string> uid_ {};
-      // Callback URL.
+      // The callback URL.
       shared_ptr<string> url_ {};
     };
 
@@ -200,15 +200,15 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Data of the current page.
+    // The data on the current page.
     shared_ptr<vector<QueryCallbackByPageResponseBody::Items>> items_ {};
-    // Page size.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

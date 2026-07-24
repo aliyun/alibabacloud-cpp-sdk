@@ -97,9 +97,13 @@ namespace Models
 
 
     protected:
+      // The number of proxy answers.
       shared_ptr<int32_t> answerCount_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The ID of the proxy answer library.
       shared_ptr<string> libId_ {};
+      // The name of the library.
       shared_ptr<string> libName_ {};
       // UID。
       shared_ptr<string> uid_ {};
@@ -124,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<ListAnswerLibResponseBody::Data>> data_ {};
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

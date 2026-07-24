@@ -57,10 +57,13 @@ namespace Models
 
 
   protected:
-    // Keyword library ID.
+    // The keyword library ID.
     shared_ptr<string> libId_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The library code.
+    // 
+    // - desensitize: masking library
     shared_ptr<string> tenantCode_ {};
   };
 

@@ -94,18 +94,21 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Library ID.
+    // The keyword library ID.
     shared_ptr<string> libId_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Sort field.
+    // The sort field.
     shared_ptr<string> sortShrink_ {};
+    // The keyword library code. Valid values:
+    // 
+    // - desensitize: desensitization keyword library.
     shared_ptr<string> tenantCode_ {};
-    // Keyword.
+    // The keyword.
     shared_ptr<string> word_ {};
   };
 

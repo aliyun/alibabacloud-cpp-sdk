@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // Encryption algorithm.
+    // The encryption algorithm.
     shared_ptr<string> cryptType_ {};
-    // Whether there is an OSS detection task.
+    // Indicates whether an OSS detection task exists.
     shared_ptr<bool> existsOssCheckTask_ {};
-    // Creation time.
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
-    // Modification time.
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
-    // Primary key ID.
+    // The primary key ID.
     shared_ptr<int64_t> id_ {};
-    // Name.
+    // The name.
     shared_ptr<string> name_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Result scope.
+    // The result scope.
     shared_ptr<string> scope_ {};
-    // Seed.
+    // Seed。
     shared_ptr<string> seed_ {};
-    // UID.
+    // UID。
     shared_ptr<string> uid_ {};
-    // Callback URL.
+    // The callback URL.
     shared_ptr<string> url_ {};
   };
 

@@ -103,9 +103,13 @@ namespace Models
 
 
     protected:
+      // The answer.
       shared_ptr<string> answer_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
+      // The ID of the proxy answer library.
       shared_ptr<string> libId_ {};
       // UID。
       shared_ptr<string> uid_ {};
@@ -151,10 +155,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The data on the current page.
     shared_ptr<vector<QueryAnswerSampleByPageResponseBody::Items>> items_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

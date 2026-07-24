@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // Query default configuration
+    // Queries the default configuration.
     shared_ptr<bool> byDefault_ {};
     // Region ID.
     shared_ptr<string> regionId_ {};
     // Resource type.
     shared_ptr<string> resourceType_ {};
-    // Audit scenario.
+    // Moderation scenario.
     shared_ptr<string> scene_ {};
     // Service code.
     shared_ptr<string> serviceCode_ {};

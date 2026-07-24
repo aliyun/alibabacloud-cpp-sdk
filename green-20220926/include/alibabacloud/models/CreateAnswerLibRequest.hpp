@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The name of the proxy answer library.
     shared_ptr<string> libName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The name of the storage space.
     shared_ptr<string> sampleBucket_ {};
+    // The file name of the proxy answer sample to be added.
     shared_ptr<string> sampleObject_ {};
+    // The samples to be added.
     shared_ptr<string> samples_ {};
   };
 

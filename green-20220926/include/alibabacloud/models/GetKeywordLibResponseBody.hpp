@@ -102,15 +102,15 @@ namespace Models
 
 
     protected:
-      // Last modified time.
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // Number of keywords.
+      // The number of keywords.
       shared_ptr<string> keywordCount_ {};
-      // Keyword library ID.
+      // The keyword library ID.
       shared_ptr<string> libId_ {};
-      // Library name
+      // The library name.
       shared_ptr<string> libName_ {};
-      // Primary account ID
+      // The Alibaba Cloud account ID.
       shared_ptr<string> uid_ {};
     };
 
@@ -154,15 +154,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data content.
+    // The returned data.
     shared_ptr<GetKeywordLibResponseBody::Data> data_ {};
-    // Further description of the error code.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -146,9 +146,9 @@ namespace Models
   protected:
     // Classification.
     shared_ptr<string> classify_ {};
-    // Error code, consistent with HTTP status.
+    // Error code, consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // Service details
+    // Service details.
     Darabonba::Json customServiceConf_ {};
     // Modification time.
     shared_ptr<string> gmtModified_ {};
@@ -156,7 +156,7 @@ namespace Models
     shared_ptr<string> msg_ {};
     // Options.
     Darabonba::Json option_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // Resource type.
     shared_ptr<string> resourceType_ {};
@@ -164,7 +164,7 @@ namespace Models
     shared_ptr<string> serviceCode_ {};
     // Service type.
     shared_ptr<string> serviceType_ {};
-    // Success indicator
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // UID.
     shared_ptr<string> uid_ {};

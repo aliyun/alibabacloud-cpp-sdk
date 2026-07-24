@@ -75,14 +75,17 @@ namespace Models
 
 
   protected:
-    // The ids\\" list of keywords.
+    // The IDs of the keywords to delete.
     shared_ptr<string> keywordIdList_ {};
-    // The ids of keywords.
+    // The IDs of the keywords to delete.
     shared_ptr<string> keywordIds_ {};
-    // Library id
+    // The ID of the keyword library.
     shared_ptr<string> libId_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The code of the keyword library.
+    // 
+    // - desensitize: masking keyword library.
     shared_ptr<string> tenantCode_ {};
   };
 

@@ -187,27 +187,27 @@ namespace Models
 
 
       protected:
-        // Internationalization key.
+        // The internationalization key.
         shared_ptr<string> i18nKey_ {};
-        // List of keywords that are too long or too short.
+        // The list of keywords with excessive or insufficient length.
         shared_ptr<vector<string>> illegalLengthKeywords_ {};
-        // Invalid keyword count
+        // The number of invalid keywords.
         shared_ptr<int32_t> invalidCount_ {};
-        // List of invalid keywords
+        // The list of invalid keywords.
         shared_ptr<vector<string>> invalidKeywords_ {};
         // The keyword library ID.
         shared_ptr<string> libId_ {};
-        // The progress percentage of the task.
+        // The task progress percentage.
         shared_ptr<int32_t> progress_ {};
-        // Duplicate keyword count
+        // The number of duplicate keywords.
         shared_ptr<int32_t> repeatCount_ {};
-        // List of duplicate keywords
+        // The list of duplicate keywords.
         shared_ptr<vector<string>> repeatKeywords_ {};
-        // The success count of the keywords.
+        // The number of successful additions.
         shared_ptr<int32_t> successCount_ {};
-        // The tips.
+        // The prompt information.
         shared_ptr<string> tips_ {};
-        // The total count of the keywords.
+        // The total count.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -237,9 +237,9 @@ namespace Models
 
 
     protected:
-      // Result.
+      // The result.
       shared_ptr<Data::KeywordsResult> keywordsResult_ {};
-      // The ID of the keyword library.
+      // The keyword library ID.
       shared_ptr<string> libId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -285,15 +285,15 @@ namespace Models
 
 
   protected:
-    // Return code. A return of 200 represents success.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<AddKeywordsResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // URL of the image to be uploaded.
+    // The image URL.
     shared_ptr<string> imgUrl_ {};
-    // The ID of image library.
+    // The image library ID.
     shared_ptr<string> libId_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

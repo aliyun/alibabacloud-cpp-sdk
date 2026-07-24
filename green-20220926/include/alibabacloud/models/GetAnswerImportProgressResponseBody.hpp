@@ -145,17 +145,29 @@ namespace Models
 
 
   protected:
+    // The internationalization key.
     shared_ptr<string> i18nKey_ {};
+    // The list of invalid proxy answers.
     shared_ptr<vector<string>> illegalLengthSamples_ {};
+    // The number of invalid entries.
     shared_ptr<int32_t> invalidCount_ {};
+    // The proxy answer library ID.
     shared_ptr<string> libId_ {};
+    // The task progress percentage.
     shared_ptr<int32_t> progress_ {};
+    // The number of duplicate entries.
     shared_ptr<int32_t> repeatCount_ {};
+    // The list of duplicate proxy answers.
     shared_ptr<vector<string>> repeatSamples_ {};
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The number of successful imports.
     shared_ptr<int32_t> successCount_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
+    // The prompt message.
     shared_ptr<string> tips_ {};
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

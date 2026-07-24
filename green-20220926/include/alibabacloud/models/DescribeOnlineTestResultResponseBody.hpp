@@ -107,9 +107,13 @@ namespace Models
 
 
     protected:
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
+      // The risk level summary.
       shared_ptr<map<string, int64_t>> riskLevelSummary_ {};
+      // The number of shards.
       shared_ptr<int32_t> sliceCount_ {};
     };
 
@@ -151,7 +155,9 @@ namespace Models
 
 
     protected:
+      // The timestamp.
       shared_ptr<string> timeStamp_ {};
+      // The detection URL.
       shared_ptr<string> url_ {};
     };
 
@@ -183,6 +189,7 @@ namespace Models
 
 
     protected:
+      // The timestamp.
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -266,15 +273,25 @@ namespace Models
 
 
   protected:
+    // The audio data.
     shared_ptr<DescribeOnlineTestResultResponseBody::AudioData> audioData_ {};
+    // The video frame data.
     shared_ptr<DescribeOnlineTestResultResponseBody::FrameData> frameData_ {};
+    // The detection time, represented as a UNIX timestamp in milliseconds.
     shared_ptr<string> moderationTime_ {};
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The risk level.
     shared_ptr<string> riskLevel_ {};
+    // The service code.
     shared_ptr<string> serviceCode_ {};
+    // The list of detection results.
     shared_ptr<vector<DescribeOnlineTestResultResponseBody::SummaryList>> summaryList_ {};
+    // The ID of the detection task.
     shared_ptr<string> taskId_ {};
+    // The detection status.
     shared_ptr<string> taskStatus_ {};
+    // The detection URL.
     shared_ptr<string> url_ {};
   };
 

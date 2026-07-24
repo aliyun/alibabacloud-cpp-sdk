@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // query
+    // The configuration in JSON format.
     shared_ptr<string> config_ {};
-    // query
+    // The description of the label.
     shared_ptr<string> description_ {};
-    // query
+    // The label value. This value is user-defined.
     shared_ptr<string> field_ {};
-    // query
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // query
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // System-defined parameter. Value: **ModifyFeatureConfig**.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // query
+    // The type.
     shared_ptr<string> type_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Backend-assigned ID used as the UUID of a Request. It can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Service encoding
     shared_ptr<string> serviceCode_ {};
+    // Detection Job ID
     shared_ptr<string> taskId_ {};
+    // Detection Status
     shared_ptr<string> taskStatus_ {};
+    // Detection URL
     shared_ptr<string> url_ {};
   };
 

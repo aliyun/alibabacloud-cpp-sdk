@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The configuration item.
     shared_ptr<string> config_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The service code.
     shared_ptr<string> serviceCode_ {};
+    // The text content.
     shared_ptr<string> text_ {};
+    // The business type.
     shared_ptr<string> type_ {};
   };
 

@@ -178,25 +178,25 @@ namespace Models
 
 
       protected:
-        // Internationalization key.
+        // The internationalization key.
         shared_ptr<string> i18nKey_ {};
-        // List of keywords that are too long or too short.
+        // The list of keywords with invalid length.
         shared_ptr<vector<string>> illegalLengthKeywords_ {};
-        // Invalid keyword count
+        // The number of invalid keywords.
         shared_ptr<int32_t> invalidCount_ {};
-        // List of invalid keywords
+        // The list of invalid keywords.
         shared_ptr<vector<string>> invalidKeywords_ {};
-        // The id of the keyword library.
+        // The ID of the keyword library.
         shared_ptr<string> libId_ {};
-        // Duplicate keyword count
+        // The number of duplicate keywords.
         shared_ptr<int32_t> repeatCount_ {};
-        // List of duplicate keywords
+        // The list of duplicate keywords.
         shared_ptr<vector<string>> repeatKeywords_ {};
-        // Successful keyword count
+        // The number of successful keywords.
         shared_ptr<int32_t> successCount_ {};
-        // The tips.
+        // The prompt information.
         shared_ptr<string> tips_ {};
-        // The total number of keywords.
+        // The total count.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -226,9 +226,9 @@ namespace Models
 
 
     protected:
-      // Result.
+      // The result.
       shared_ptr<Data::KeywordsResult> keywordsResult_ {};
-      // The id of the keyword library.
+      // The ID of the keyword library.
       shared_ptr<string> libId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -274,15 +274,15 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<AddKeywordLibResponseBody::Data> data_ {};
-    // The message that is returned in response to the request.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // The request ID.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

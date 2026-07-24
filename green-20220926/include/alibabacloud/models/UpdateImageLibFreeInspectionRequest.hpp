@@ -60,10 +60,11 @@ namespace Models
 
 
   protected:
-    // Configuration.
+    // The configuration.
     shared_ptr<map<string, int32_t>> config_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The selected service identifier.
     shared_ptr<string> serviceCode_ {};
   };
 

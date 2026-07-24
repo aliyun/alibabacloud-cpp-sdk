@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Policy, policy_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_TO_JSON(Signature, signature_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Policy, policy_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_FROM_JSON(Signature, signature_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->accessId_ == nullptr
         && this->code_ == nullptr && this->expire_ == nullptr && this->folder_ == nullptr && this->host_ == nullptr && this->httpStatusCode_ == nullptr
         && this->key_ == nullptr && this->msg_ == nullptr && this->name_ == nullptr && this->policy_ == nullptr && this->requestId_ == nullptr
-        && this->signature_ == nullptr && this->success_ == nullptr; };
+        && this->securityToken_ == nullptr && this->signature_ == nullptr && this->success_ == nullptr; };
     // accessId Field Functions 
     bool hasAccessId() const { return this->accessId_ != nullptr;};
     void deleteAccessId() { this->accessId_ = nullptr;};
@@ -134,6 +136,13 @@ namespace Models
     inline GetUploadInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // securityToken Field Functions 
+    bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
+    void deleteSecurityToken() { this->securityToken_ = nullptr;};
+    inline string getSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline GetUploadInfoResponseBody& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+
+
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
@@ -149,31 +158,32 @@ namespace Models
 
 
   protected:
-    // Upload authorization ID.
+    // The upload authorization ID.
     shared_ptr<string> accessId_ {};
-    // Error code, consistent with HTTP status.
+    // The error code, consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // In seconds.
+    // Unit: seconds.
     shared_ptr<int64_t> expire_ {};
-    // Folder name.
+    // The file name.
     shared_ptr<string> folder_ {};
-    // Upload host.
+    // The upload host.
     shared_ptr<string> host_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Key used for uploading files.
+    // The key used for file upload.
     shared_ptr<string> key_ {};
-    // Further description of the error code.
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // Used for front-end image upload.
+    // Used for frontend image upload.
     shared_ptr<string> name_ {};
-    // OSS upload file Policy.
+    // The OSS file upload policy.
     shared_ptr<string> policy_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Upload signature information.
+    shared_ptr<string> securityToken_ {};
+    // The upload signature information.
     shared_ptr<string> signature_ {};
-    // Success indicator.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

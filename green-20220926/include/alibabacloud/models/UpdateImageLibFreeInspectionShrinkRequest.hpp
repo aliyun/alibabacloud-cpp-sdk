@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // Configuration.
+    // The configuration.
     shared_ptr<string> configShrink_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The selected service identifier.
     shared_ptr<string> serviceCode_ {};
   };
 

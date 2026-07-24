@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The prefix filter type.
     shared_ptr<string> prefixFilterType_ {};
+    // The prefix list.
     shared_ptr<vector<string>> prefixFilters_ {};
   };
 

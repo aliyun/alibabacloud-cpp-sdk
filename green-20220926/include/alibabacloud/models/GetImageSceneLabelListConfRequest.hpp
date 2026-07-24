@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Service code.
+    // The service code.
     shared_ptr<string> imageServiceCode_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

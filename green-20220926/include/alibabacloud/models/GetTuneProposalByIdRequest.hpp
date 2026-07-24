@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The primary key ID.
     shared_ptr<string> id_ {};
   };
 

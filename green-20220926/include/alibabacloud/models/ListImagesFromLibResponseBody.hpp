@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // Creation time.
+      // The creation time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> gmtCreate_ {};
-      // Image ID.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // Image URL.
+      // The URL of the image.
       shared_ptr<string> imageUrl_ {};
-      // Thumbnail URL.
+      // The URL of the thumbnail.
       shared_ptr<string> thumbnailUrl_ {};
     };
 
@@ -181,23 +181,23 @@ namespace Models
 
 
   protected:
-    // Error code, consistent with HTTP status.
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // Current page.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Data of the current page.
+    // The data on the current page.
     shared_ptr<vector<ListImagesFromLibResponseBody::Items>> items_ {};
-    // Further description of the error code.
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // The success flag.
     shared_ptr<bool> success_ {};
-    // Total number of images.
+    // The total number of images.
     shared_ptr<int32_t> totalCount_ {};
   };
 

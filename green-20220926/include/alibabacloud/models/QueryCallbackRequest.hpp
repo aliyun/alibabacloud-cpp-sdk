@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Query data under the OSS detection task.
+    // Queries data under the OSS detection task.
     shared_ptr<bool> checkForOss_ {};
-    // Primary key ID.
+    // The primary key ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

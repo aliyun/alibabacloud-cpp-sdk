@@ -160,17 +160,17 @@ namespace Models
   protected:
     // Backup scope.
     shared_ptr<int32_t> backupMode_ {};
-    // File server OSS Bucket.
+    // File server OSS bucket.
     shared_ptr<string> bucket_ {};
-    // Whether it is enabled. Values:
-    // - **true**: Enabled
-    // - **false**: Disabled
+    // Indicates whether the feature is enabled. Valid values:
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> enable_ {};
-    // Whether to enable backup.
+    // Indicates whether backup is enabled.
     shared_ptr<bool> enableBackup_ {};
-    // Whether to enable audio backup.
+    // Indicates whether audio backup is enabled.
     shared_ptr<bool> enableBackupVoice_ {};
-    // Expiration time in seconds.
+    // Expiration time, in seconds.
     shared_ptr<int32_t> expireSeconds_ {};
     // Modification time.
     shared_ptr<string> gmtModified_ {};
@@ -180,7 +180,7 @@ namespace Models
     shared_ptr<string> pathVoice_ {};
     // Region ID.
     shared_ptr<string> region_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // Resource type.
     shared_ptr<string> resourceType_ {};

@@ -167,13 +167,13 @@ namespace Models
 
 
       protected:
-        // Main service.
+        // The primary service.
         shared_ptr<string> copyFrom_ {};
-        // Whether to copy.
+        // Indicates whether the content is copied.
         shared_ptr<bool> isCopy_ {};
-        // Service code.
+        // The service code.
         shared_ptr<string> serviceCode_ {};
-        // Service name.
+        // The service name.
         shared_ptr<string> serviceName_ {};
       };
 
@@ -224,11 +224,11 @@ namespace Models
 
 
       protected:
-        // Confidence score, 0 to 100, retained to two decimal places.
+        // The confidence score, ranging from 0 to 100, rounded to two decimal places.
         shared_ptr<float> confidence_ {};
-        // Label description.
+        // The label description.
         shared_ptr<string> description_ {};
-        // Label.
+        // The labels.
         shared_ptr<string> label_ {};
       };
 
@@ -279,11 +279,11 @@ namespace Models
 
 
       protected:
-        // Confidence score, 0 to 100, retained to two decimal places.
+        // The confidence score, ranging from 0 to 100, rounded to two decimal places.
         shared_ptr<float> confidence_ {};
-        // Label description.
+        // The label description.
         shared_ptr<string> description_ {};
-        // Label.
+        // The labels.
         shared_ptr<string> label_ {};
       };
 
@@ -501,61 +501,61 @@ namespace Models
 
 
     protected:
-      // Bucket name.
+      // The storage bucket.
       shared_ptr<string> bucket_ {};
-      // Error code, consistent with HTTP status.
+      // The error code, which is consistent with the HTTP status code.
       shared_ptr<string> code_ {};
-      // Audio and video detection type.
+      // The audio and video detection type.
       shared_ptr<string> contentType_ {};
-      // Primary service.
+      // The primary service.
       shared_ptr<string> copyFrom_ {};
-      // Freeze status.
+      // The freeze status.
       shared_ptr<string> freezeStatus_ {};
-      // Freeze type.
+      // The freeze type.
       shared_ptr<string> freezeType_ {};
-      // Image URL.
+      // The image URL.
       shared_ptr<string> imageUrl_ {};
-      // Whether to copy.
+      // Indicates whether the content is copied.
       shared_ptr<bool> isCopy_ {};
-      // Job name.
+      // The task name.
       shared_ptr<string> jobName_ {};
-      // Labels.
+      // The labels.
       shared_ptr<vector<Data::LabelDetails>> labelDetails_ {};
-      // Labels.
+      // The labels.
       shared_ptr<vector<Data::LabelDetails2>> labelDetails2_ {};
-      // Image labels.
+      // The image labels.
       shared_ptr<vector<string>> labels_ {};
-      // Text labels.
+      // The text labels.
       shared_ptr<vector<string>> labels2_ {};
-      // Manual handling status.
+      // The manual disposition status.
       shared_ptr<string> manualFreezeAction_ {};
-      // Handling time.
+      // The disposition time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> manualOperateTime_ {};
-      // Handler.
+      // The operator who performed the disposition.
       shared_ptr<string> manualOperator_ {};
-      // File MD5.
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // Further description of the error code.
+      // The further description of the error code.
       shared_ptr<string> msg_ {};
-      // Object name.
+      // The object name.
       shared_ptr<string> object_ {};
-      // Image risk level
+      // The image risk level.
       shared_ptr<string> riskLevel_ {};
-      // Overall risk level.
+      // The overall risk level.
       shared_ptr<string> riskLevel0_ {};
-      // Text risk level
+      // The text risk level.
       shared_ptr<string> riskLevel2_ {};
-      // Detailed scan results.
+      // The result details.
       shared_ptr<string> scanResult_ {};
-      // Detection service information
+      // The detection service information.
       shared_ptr<vector<Data::ScanServiceInfos>> scanServiceInfos_ {};
-      // Service code.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Service name.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Task URL.
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -599,15 +599,15 @@ namespace Models
 
 
   protected:
-    // Error code, consistent with HTTP status.
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // Detailed data.
+    // The details data.
     shared_ptr<GetOssCheckResultDetailResponseBody::Data> data_ {};
-    // Further description of the error code.
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // Backend-assigned ID used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

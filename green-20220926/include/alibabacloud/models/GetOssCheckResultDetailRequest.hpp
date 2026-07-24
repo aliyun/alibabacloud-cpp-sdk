@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // Bucket name.
+    // The storage bucket.
     shared_ptr<string> bucket_ {};
-    // Media type.
+    // The media asset type.
     shared_ptr<int32_t> mediaType_ {};
-    // Object name.
+    // The object name.
     shared_ptr<string> object_ {};
-    // Parent task ID.
+    // The parent task ID.
     shared_ptr<string> parentTaskId_ {};
-    // Query request ID.
+    // The request ID of the query.
     shared_ptr<string> queryRequestId_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Service code.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
   };
 

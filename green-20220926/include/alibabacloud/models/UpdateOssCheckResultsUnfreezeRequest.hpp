@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
+    // The frozen items.
     shared_ptr<string> freezeItems_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

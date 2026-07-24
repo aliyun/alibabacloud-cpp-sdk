@@ -75,15 +75,17 @@ namespace Models
 
 
   protected:
-    // Whether to support monthly indexing. Values: -true: supported. -false: not supported.
+    // Specifies whether monthly indexing is supported. Valid values:
+    // - true: Supported.
+    // - false: Not supported.
     shared_ptr<bool> byMonth_ {};
-    // End time of the query, in the format yyyy-MM-dd HH:mm:ss.
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // OSS detection task ID.
+    // The ID of the OSS scan task.
     shared_ptr<string> parentTaskId_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

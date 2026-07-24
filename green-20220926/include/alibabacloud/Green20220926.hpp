@@ -21,7 +21,7 @@ namespace Green20220926
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加代答样本
+       * @summary Adds a proxy answer.
        *
        * @param request AddAnswerSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Green20220926
       Models::AddAnswerSampleResponse addAnswerSampleWithOptions(const Models::AddAnswerSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加代答样本
+       * @summary Adds a proxy answer.
        *
        * @param request AddAnswerSampleRequest
        * @return AddAnswerSampleResponse
@@ -38,7 +38,7 @@ namespace Green20220926
       Models::AddAnswerSampleResponse addAnswerSample(const Models::AddAnswerSampleRequest &request);
 
       /**
-       * @summary Create Image Library
+       * @summary Creates an image library.
        *
        * @param request AddImageLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Green20220926
       Models::AddImageLibResponse addImageLibWithOptions(const Models::AddImageLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Image Library
+       * @summary Creates an image library.
        *
        * @param request AddImageLibRequest
        * @return AddImageLibResponse
@@ -55,7 +55,7 @@ namespace Green20220926
       Models::AddImageLibResponse addImageLib(const Models::AddImageLibRequest &request);
 
       /**
-       * @summary Add image to image lib
+       * @summary Adds images in batches.
        *
        * @param request AddImages2LibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Green20220926
       Models::AddImages2LibResponse addImages2LibWithOptions(const Models::AddImages2LibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add image to image lib
+       * @summary Adds images in batches.
        *
        * @param request AddImages2LibRequest
        * @return AddImages2LibResponse
@@ -72,7 +72,7 @@ namespace Green20220926
       Models::AddImages2LibResponse addImages2Lib(const Models::AddImages2LibRequest &request);
 
       /**
-       * @summary Create keyword library
+       * @summary Creates a keyword library.
        *
        * @param request AddKeywordLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Green20220926
       Models::AddKeywordLibResponse addKeywordLibWithOptions(const Models::AddKeywordLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create keyword library
+       * @summary Creates a keyword library.
        *
        * @param request AddKeywordLibRequest
        * @return AddKeywordLibResponse
@@ -89,7 +89,7 @@ namespace Green20220926
       Models::AddKeywordLibResponse addKeywordLib(const Models::AddKeywordLibRequest &request);
 
       /**
-       * @summary Add keywords
+       * @summary Adds keywords.
        *
        * @param request AddKeywordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace Green20220926
       Models::AddKeywordsResponse addKeywordsWithOptions(const Models::AddKeywordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add keywords
+       * @summary Adds keywords.
        *
        * @param request AddKeywordsRequest
        * @return AddKeywordsResponse
@@ -106,7 +106,7 @@ namespace Green20220926
       Models::AddKeywordsResponse addKeywords(const Models::AddKeywordsRequest &request);
 
       /**
-       * @summary Add keywords to keyword library.
+       * @summary Adds keywords.
        *
        * @param request AddKeywordsToLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Green20220926
       Models::AddKeywordsToLibResponse addKeywordsToLibWithOptions(const Models::AddKeywordsToLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add keywords to keyword library.
+       * @summary Adds keywords.
        *
        * @param request AddKeywordsToLibRequest
        * @return AddKeywordsToLibResponse
@@ -123,7 +123,7 @@ namespace Green20220926
       Models::AddKeywordsToLibResponse addKeywordsToLib(const Models::AddKeywordsToLibRequest &request);
 
       /**
-       * @summary Cancel OSS detection task
+       * @summary Cancels an OSS scan task.
        *
        * @param request CancelStockOssCheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace Green20220926
       Models::CancelStockOssCheckTaskResponse cancelStockOssCheckTaskWithOptions(const Models::CancelStockOssCheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancel OSS detection task
+       * @summary Cancels an OSS scan task.
        *
        * @param request CancelStockOssCheckTaskRequest
        * @return CancelStockOssCheckTaskResponse
@@ -140,7 +140,24 @@ namespace Green20220926
       Models::CancelStockOssCheckTaskResponse cancelStockOssCheckTask(const Models::CancelStockOssCheckTaskRequest &request);
 
       /**
-       * @summary copy service config
+       * @summary Confirms the activation of AI application protection.
+       *
+       * @param request ConfirmAiAppScanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfirmAiAppScanResponse
+       */
+      Models::ConfirmAiAppScanResponse confirmAiAppScanWithOptions(const Models::ConfirmAiAppScanRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Confirms the activation of AI application protection.
+       *
+       * @param request ConfirmAiAppScanRequest
+       * @return ConfirmAiAppScanResponse
+       */
+      Models::ConfirmAiAppScanResponse confirmAiAppScan(const Models::ConfirmAiAppScanRequest &request);
+
+      /**
+       * @summary Copies a service.
        *
        * @param request CopyServiceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +166,7 @@ namespace Green20220926
       Models::CopyServiceConfigResponse copyServiceConfigWithOptions(const Models::CopyServiceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary copy service config
+       * @summary Copies a service.
        *
        * @param request CopyServiceConfigRequest
        * @return CopyServiceConfigResponse
@@ -157,7 +174,7 @@ namespace Green20220926
       Models::CopyServiceConfigResponse copyServiceConfig(const Models::CopyServiceConfigRequest &request);
 
       /**
-       * @summary Create stock oss check task
+       * @summary Creates an OSS scan task.
        *
        * @param request CreatStockOssCheckTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +183,7 @@ namespace Green20220926
       Models::CreatStockOssCheckTaskResponse creatStockOssCheckTaskWithOptions(const Models::CreatStockOssCheckTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create stock oss check task
+       * @summary Creates an OSS scan task.
        *
        * @param request CreatStockOssCheckTaskRequest
        * @return CreatStockOssCheckTaskResponse
@@ -174,7 +191,7 @@ namespace Green20220926
       Models::CreatStockOssCheckTaskResponse creatStockOssCheckTask(const Models::CreatStockOssCheckTaskRequest &request);
 
       /**
-       * @summary 创建代答库
+       * @summary Creates a proxy answer library.
        *
        * @param request CreateAnswerLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +200,7 @@ namespace Green20220926
       Models::CreateAnswerLibResponse createAnswerLibWithOptions(const Models::CreateAnswerLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建代答库
+       * @summary Creates a proxy answer library.
        *
        * @param request CreateAnswerLibRequest
        * @return CreateAnswerLibResponse
@@ -191,7 +208,7 @@ namespace Green20220926
       Models::CreateAnswerLibResponse createAnswerLib(const Models::CreateAnswerLibRequest &request);
 
       /**
-       * @summary Create a new message notification
+       * @summary Creates a message notification.
        *
        * @param request CreateCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +217,7 @@ namespace Green20220926
       Models::CreateCallbackResponse createCallbackWithOptions(const Models::CreateCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a new message notification
+       * @summary Creates a message notification.
        *
        * @param request CreateCallbackRequest
        * @return CreateCallbackResponse
@@ -208,7 +225,12 @@ namespace Green20220926
       Models::CreateCallbackResponse createCallback(const Models::CreateCallbackRequest &request);
 
       /**
-       * @summary 创建图库
+       * @summary Creates an image library.
+       *
+       * @description Before using this operation, complete the following steps:
+       * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+       * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+       * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
        *
        * @param request CreateImageLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +239,12 @@ namespace Green20220926
       Models::CreateImageLibResponse createImageLibWithOptions(const Models::CreateImageLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建图库
+       * @summary Creates an image library.
+       *
+       * @description Before using this operation, complete the following steps:
+       * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+       * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+       * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
        *
        * @param request CreateImageLibRequest
        * @return CreateImageLibResponse
@@ -242,7 +269,7 @@ namespace Green20220926
       Models::CreateOnlineTestResponse createOnlineTest(const Models::CreateOnlineTestRequest &request);
 
       /**
-       * @summary Check before creating an OSS scan task
+       * @summary Performs a pre-check before creating an OSS scan task.
        *
        * @param request CreatePreCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +278,7 @@ namespace Green20220926
       Models::CreatePreCheckResponse createPreCheckWithOptions(const Models::CreatePreCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Check before creating an OSS scan task
+       * @summary Performs a pre-check before creating an OSS scan task.
        *
        * @param request CreatePreCheckRequest
        * @return CreatePreCheckResponse
@@ -259,7 +286,7 @@ namespace Green20220926
       Models::CreatePreCheckResponse createPreCheck(const Models::CreatePreCheckRequest &request);
 
       /**
-       * @summary 删除代答库
+       * @summary Deletes a proxy answer library.
        *
        * @param request DeleteAnswerLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +295,7 @@ namespace Green20220926
       Models::DeleteAnswerLibResponse deleteAnswerLibWithOptions(const Models::DeleteAnswerLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除代答库
+       * @summary Deletes a proxy answer library.
        *
        * @param request DeleteAnswerLibRequest
        * @return DeleteAnswerLibResponse
@@ -276,7 +303,7 @@ namespace Green20220926
       Models::DeleteAnswerLibResponse deleteAnswerLib(const Models::DeleteAnswerLibRequest &request);
 
       /**
-       * @summary 删除代答答案
+       * @summary Deletes proxy answers.
        *
        * @param request DeleteAnswerSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +312,7 @@ namespace Green20220926
       Models::DeleteAnswerSampleResponse deleteAnswerSampleWithOptions(const Models::DeleteAnswerSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除代答答案
+       * @summary Deletes proxy answers.
        *
        * @param request DeleteAnswerSampleRequest
        * @return DeleteAnswerSampleResponse
@@ -293,7 +320,7 @@ namespace Green20220926
       Models::DeleteAnswerSampleResponse deleteAnswerSample(const Models::DeleteAnswerSampleRequest &request);
 
       /**
-       * @summary delete callback
+       * @summary Deletes a message notification.
        *
        * @param request DeleteCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +329,7 @@ namespace Green20220926
       Models::DeleteCallbackResponse deleteCallbackWithOptions(const Models::DeleteCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary delete callback
+       * @summary Deletes a message notification.
        *
        * @param request DeleteCallbackRequest
        * @return DeleteCallbackResponse
@@ -327,7 +354,7 @@ namespace Green20220926
       Models::DeleteFeatureConfigResponse deleteFeatureConfig(const Models::DeleteFeatureConfigRequest &request);
 
       /**
-       * @summary Delete images from library.
+       * @summary Deletes images in batches.
        *
        * @param request DeleteImagesFromLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +363,7 @@ namespace Green20220926
       Models::DeleteImagesFromLibResponse deleteImagesFromLibWithOptions(const Models::DeleteImagesFromLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete images from library.
+       * @summary Deletes images in batches.
        *
        * @param request DeleteImagesFromLibRequest
        * @return DeleteImagesFromLibResponse
@@ -344,7 +371,7 @@ namespace Green20220926
       Models::DeleteImagesFromLibResponse deleteImagesFromLib(const Models::DeleteImagesFromLibRequest &request);
 
       /**
-       * @summary Delete keyword
+       * @summary Deletes keywords.
        *
        * @param request DeleteKeywordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +380,7 @@ namespace Green20220926
       Models::DeleteKeywordResponse deleteKeywordWithOptions(const Models::DeleteKeywordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete keyword
+       * @summary Deletes keywords.
        *
        * @param request DeleteKeywordRequest
        * @return DeleteKeywordResponse
@@ -361,7 +388,7 @@ namespace Green20220926
       Models::DeleteKeywordResponse deleteKeyword(const Models::DeleteKeywordRequest &request);
 
       /**
-       * @summary Delete Keyword Library
+       * @summary Deletes a keyword library.
        *
        * @param request DeleteKeywordLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +397,7 @@ namespace Green20220926
       Models::DeleteKeywordLibResponse deleteKeywordLibWithOptions(const Models::DeleteKeywordLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Keyword Library
+       * @summary Deletes a keyword library.
        *
        * @param request DeleteKeywordLibRequest
        * @return DeleteKeywordLibResponse
@@ -395,7 +422,7 @@ namespace Green20220926
       Models::DeleteOnlineTestResponse deleteOnlineTest(const Models::DeleteOnlineTestRequest &request);
 
       /**
-       * @summary 查询在线测试结果
+       * @summary Queries the detection results of online moderation.
        *
        * @param request DescribeOnlineTestResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +431,7 @@ namespace Green20220926
       Models::DescribeOnlineTestResultResponse describeOnlineTestResultWithOptions(const Models::DescribeOnlineTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询在线测试结果
+       * @summary Queries the detection results of online moderation.
        *
        * @param request DescribeOnlineTestResultRequest
        * @return DescribeOnlineTestResultResponse
@@ -429,7 +456,7 @@ namespace Green20220926
       Models::DescribeOssV2ResultResponse describeOssV2Result(const Models::DescribeOssV2ResultRequest &request);
 
       /**
-       * @summary 导出代答答案
+       * @summary Exports proxy answer responses.
        *
        * @param request ExportAnswerSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +465,7 @@ namespace Green20220926
       Models::ExportAnswerSampleResponse exportAnswerSampleWithOptions(const Models::ExportAnswerSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出代答答案
+       * @summary Exports proxy answer responses.
        *
        * @param request ExportAnswerSampleRequest
        * @return ExportAnswerSampleResponse
@@ -446,7 +473,7 @@ namespace Green20220926
       Models::ExportAnswerSampleResponse exportAnswerSample(const Models::ExportAnswerSampleRequest &request);
 
       /**
-       * @summary Export Call Volume
+       * @summary Exports call usage statistics.
        *
        * @param request ExportCipStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +482,7 @@ namespace Green20220926
       Models::ExportCipStatsResponse exportCipStatsWithOptions(const Models::ExportCipStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export Call Volume
+       * @summary Exports call usage statistics.
        *
        * @param request ExportCipStatsRequest
        * @return ExportCipStatsResponse
@@ -463,7 +490,7 @@ namespace Green20220926
       Models::ExportCipStatsResponse exportCipStats(const Models::ExportCipStatsRequest &request);
 
       /**
-       * @summary Export Keywords
+       * @summary Exports keywords.
        *
        * @param request ExportKeywordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +499,7 @@ namespace Green20220926
       Models::ExportKeywordResponse exportKeywordWithOptions(const Models::ExportKeywordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export Keywords
+       * @summary Exports keywords.
        *
        * @param request ExportKeywordRequest
        * @return ExportKeywordResponse
@@ -480,7 +507,7 @@ namespace Green20220926
       Models::ExportKeywordResponse exportKeyword(const Models::ExportKeywordRequest &request);
 
       /**
-       * @summary OSS Usage Statistics Export
+       * @summary Exports OSS usage statistics.
        *
        * @param request ExportOssCheckStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +516,7 @@ namespace Green20220926
       Models::ExportOssCheckStatResponse exportOssCheckStatWithOptions(const Models::ExportOssCheckStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OSS Usage Statistics Export
+       * @summary Exports OSS usage statistics.
        *
        * @param request ExportOssCheckStatRequest
        * @return ExportOssCheckStatResponse
@@ -497,7 +524,7 @@ namespace Green20220926
       Models::ExportOssCheckStatResponse exportOssCheckStat(const Models::ExportOssCheckStatRequest &request);
 
       /**
-       * @summary Export OSS scan results
+       * @summary Exports OSS scan results.
        *
        * @param tmpReq ExportResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +533,7 @@ namespace Green20220926
       Models::ExportResultResponse exportResultWithOptions(const Models::ExportResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export OSS scan results
+       * @summary Exports OSS scan results.
        *
        * @param request ExportResultRequest
        * @return ExportResultResponse
@@ -514,7 +541,7 @@ namespace Green20220926
       Models::ExportResultResponse exportResult(const Models::ExportResultRequest &request);
 
       /**
-       * @summary Export scan results, Excel file
+       * @summary Exports call results as an Excel file.
        *
        * @param tmpReq ExportScanResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +550,7 @@ namespace Green20220926
       Models::ExportScanResultResponse exportScanResultWithOptions(const Models::ExportScanResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export scan results, Excel file
+       * @summary Exports call results as an Excel file.
        *
        * @param request ExportScanResultRequest
        * @return ExportScanResultResponse
@@ -531,7 +558,7 @@ namespace Green20220926
       Models::ExportScanResultResponse exportScanResult(const Models::ExportScanResultRequest &request);
 
       /**
-       * @summary Export text scan results, Excel file
+       * @summary Exports call results as an Excel file.
        *
        * @param tmpReq ExportTextScanResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +567,7 @@ namespace Green20220926
       Models::ExportTextScanResultResponse exportTextScanResultWithOptions(const Models::ExportTextScanResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Export text scan results, Excel file
+       * @summary Exports call results as an Excel file.
        *
        * @param request ExportTextScanResultRequest
        * @return ExportTextScanResultResponse
@@ -548,7 +575,7 @@ namespace Green20220926
       Models::ExportTextScanResultResponse exportTextScanResult(const Models::ExportTextScanResultRequest &request);
 
       /**
-       * @summary 获取代答样本导入进度
+       * @summary Retrieves the import progress of proxy answer samples.
        *
        * @param request GetAnswerImportProgressRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +584,7 @@ namespace Green20220926
       Models::GetAnswerImportProgressResponse getAnswerImportProgressWithOptions(const Models::GetAnswerImportProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取代答样本导入进度
+       * @summary Retrieves the import progress of proxy answer samples.
        *
        * @param request GetAnswerImportProgressRequest
        * @return GetAnswerImportProgressResponse
@@ -565,7 +592,7 @@ namespace Green20220926
       Models::GetAnswerImportProgressResponse getAnswerImportProgress(const Models::GetAnswerImportProgressRequest &request);
 
       /**
-       * @summary Evidence Transfer to Get User\\"s Bucket List
+       * @summary Retrieves the list of user buckets for evidence dumping.
        *
        * @param request GetBackupBucketsListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +601,7 @@ namespace Green20220926
       Models::GetBackupBucketsListResponse getBackupBucketsListWithOptions(const Models::GetBackupBucketsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Evidence Transfer to Get User\\"s Bucket List
+       * @summary Retrieves the list of user buckets for evidence dumping.
        *
        * @param request GetBackupBucketsListRequest
        * @return GetBackupBucketsListResponse
@@ -599,7 +626,7 @@ namespace Green20220926
       Models::GetBackupConfigResponse getBackupConfig(const Models::GetBackupConfigRequest &request);
 
       /**
-       * @summary User Backup Authorization Verification
+       * @summary Verifies user authorization.
        *
        * @param request GetBackupStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +635,7 @@ namespace Green20220926
       Models::GetBackupStatusResponse getBackupStatusWithOptions(const Models::GetBackupStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary User Backup Authorization Verification
+       * @summary Verifies user authorization.
        *
        * @param request GetBackupStatusRequest
        * @return GetBackupStatusResponse
@@ -616,7 +643,7 @@ namespace Green20220926
       Models::GetBackupStatusResponse getBackupStatus(const Models::GetBackupStatusRequest &request);
 
       /**
-       * @summary Get User OSS Scan Bucket List
+       * @summary Lists buckets.
        *
        * @param request GetBucketsListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +652,7 @@ namespace Green20220926
       Models::GetBucketsListResponse getBucketsListWithOptions(const Models::GetBucketsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get User OSS Scan Bucket List
+       * @summary Lists buckets.
        *
        * @param request GetBucketsListRequest
        * @return GetBucketsListResponse
@@ -633,7 +660,7 @@ namespace Green20220926
       Models::GetBucketsListResponse getBucketsList(const Models::GetBucketsListRequest &request);
 
       /**
-       * @summary Query Call Volume
+       * @summary Queries the call volume.
        *
        * @param request GetCipStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +669,7 @@ namespace Green20220926
       Models::GetCipStatsResponse getCipStatsWithOptions(const Models::GetCipStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Call Volume
+       * @summary Queries the call volume.
        *
        * @param request GetCipStatsRequest
        * @return GetCipStatsResponse
@@ -650,7 +677,7 @@ namespace Green20220926
       Models::GetCipStatsResponse getCipStats(const Models::GetCipStatsRequest &request);
 
       /**
-       * @summary Get Scheduled  OSS Scan  Task Estimated Execution Time
+       * @summary Retrieves the estimated execution time of a scheduled task.
        *
        * @param request GetExecuteTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +686,7 @@ namespace Green20220926
       Models::GetExecuteTimeResponse getExecuteTimeWithOptions(const Models::GetExecuteTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Scheduled  OSS Scan  Task Estimated Execution Time
+       * @summary Retrieves the estimated execution time of a scheduled task.
        *
        * @param request GetExecuteTimeRequest
        * @return GetExecuteTimeResponse
@@ -667,7 +694,7 @@ namespace Green20220926
       Models::GetExecuteTimeResponse getExecuteTime(const Models::GetExecuteTimeRequest &request);
 
       /**
-       * @summary Get Feature Configuration
+       * @summary Retrieves feature configurations.
        *
        * @param request GetFeatureConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +703,7 @@ namespace Green20220926
       Models::GetFeatureConfigResponse getFeatureConfigWithOptions(const Models::GetFeatureConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Feature Configuration
+       * @summary Retrieves feature configurations.
        *
        * @param request GetFeatureConfigRequest
        * @return GetFeatureConfigResponse
@@ -684,7 +711,7 @@ namespace Green20220926
       Models::GetFeatureConfigResponse getFeatureConfig(const Models::GetFeatureConfigRequest &request);
 
       /**
-       * @summary Get Image Rule Label Information
+       * @summary Retrieves image rule tag information.
        *
        * @param request GetImageSceneLabelConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +720,7 @@ namespace Green20220926
       Models::GetImageSceneLabelConfResponse getImageSceneLabelConfWithOptions(const Models::GetImageSceneLabelConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Image Rule Label Information
+       * @summary Retrieves image rule tag information.
        *
        * @param request GetImageSceneLabelConfRequest
        * @return GetImageSceneLabelConfResponse
@@ -701,7 +728,7 @@ namespace Green20220926
       Models::GetImageSceneLabelConfResponse getImageSceneLabelConf(const Models::GetImageSceneLabelConfRequest &request);
 
       /**
-       * @summary Get Image Rule Label Information
+       * @summary Retrieves image rule tag information.
        *
        * @param request GetImageSceneLabelListConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +737,7 @@ namespace Green20220926
       Models::GetImageSceneLabelListConfResponse getImageSceneLabelListConfWithOptions(const Models::GetImageSceneLabelListConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Image Rule Label Information
+       * @summary Retrieves image rule tag information.
        *
        * @param request GetImageSceneLabelListConfRequest
        * @return GetImageSceneLabelListConfResponse
@@ -718,7 +745,7 @@ namespace Green20220926
       Models::GetImageSceneLabelListConfResponse getImageSceneLabelListConf(const Models::GetImageSceneLabelListConfRequest &request);
 
       /**
-       * @summary OSS scheduled scan detection cycle query
+       * @summary Queries the scheduled scan detection cycle for OSS.
        *
        * @param tmpReq GetJobNameListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +754,7 @@ namespace Green20220926
       Models::GetJobNameListResponse getJobNameListWithOptions(const Models::GetJobNameListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OSS scheduled scan detection cycle query
+       * @summary Queries the scheduled scan detection cycle for OSS.
        *
        * @param request GetJobNameListRequest
        * @return GetJobNameListResponse
@@ -735,7 +762,7 @@ namespace Green20220926
       Models::GetJobNameListResponse getJobNameList(const Models::GetJobNameListRequest &request);
 
       /**
-       * @summary Query the result of keyword import
+       * @summary Queries the result of a keyword import task.
        *
        * @param request GetKeywordImportResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +771,7 @@ namespace Green20220926
       Models::GetKeywordImportResultResponse getKeywordImportResultWithOptions(const Models::GetKeywordImportResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the result of keyword import
+       * @summary Queries the result of a keyword import task.
        *
        * @param request GetKeywordImportResultRequest
        * @return GetKeywordImportResultResponse
@@ -752,7 +779,7 @@ namespace Green20220926
       Models::GetKeywordImportResultResponse getKeywordImportResult(const Models::GetKeywordImportResultRequest &request);
 
       /**
-       * @summary Keyword Library Information
+       * @summary Retrieves keyword library information.
        *
        * @param request GetKeywordLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +788,7 @@ namespace Green20220926
       Models::GetKeywordLibResponse getKeywordLibWithOptions(const Models::GetKeywordLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Keyword Library Information
+       * @summary Retrieves keyword library information.
        *
        * @param request GetKeywordLibRequest
        * @return GetKeywordLibResponse
@@ -769,7 +796,7 @@ namespace Green20220926
       Models::GetKeywordLibResponse getKeywordLib(const Models::GetKeywordLibRequest &request);
 
       /**
-       * @summary Query OSS freeze result
+       * @summary Queries the results of OSS scan and freeze operations.
        *
        * @param tmpReq GetOssCheckFreezeResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +805,7 @@ namespace Green20220926
       Models::GetOssCheckFreezeResultResponse getOssCheckFreezeResultWithOptions(const Models::GetOssCheckFreezeResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query OSS freeze result
+       * @summary Queries the results of OSS scan and freeze operations.
        *
        * @param request GetOssCheckFreezeResultRequest
        * @return GetOssCheckFreezeResultResponse
@@ -786,7 +813,7 @@ namespace Green20220926
       Models::GetOssCheckFreezeResultResponse getOssCheckFreezeResult(const Models::GetOssCheckFreezeResultRequest &request);
 
       /**
-       * @summary OSS result details
+       * @summary Retrieves the detailed information of OSS check results.
        *
        * @param request GetOssCheckResultDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +822,7 @@ namespace Green20220926
       Models::GetOssCheckResultDetailResponse getOssCheckResultDetailWithOptions(const Models::GetOssCheckResultDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OSS result details
+       * @summary Retrieves the detailed information of OSS check results.
        *
        * @param request GetOssCheckResultDetailRequest
        * @return GetOssCheckResultDetailResponse
@@ -803,7 +830,7 @@ namespace Green20220926
       Models::GetOssCheckResultDetailResponse getOssCheckResultDetail(const Models::GetOssCheckResultDetailRequest &request);
 
       /**
-       * @summary OSS Check Usage Statistics
+       * @summary Queries OSS usage statistics.
        *
        * @param request GetOssCheckStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +839,7 @@ namespace Green20220926
       Models::GetOssCheckStatResponse getOssCheckStatWithOptions(const Models::GetOssCheckStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OSS Check Usage Statistics
+       * @summary Queries OSS usage statistics.
        *
        * @param request GetOssCheckStatRequest
        * @return GetOssCheckStatResponse
@@ -820,7 +847,7 @@ namespace Green20220926
       Models::GetOssCheckStatResponse getOssCheckStat(const Models::GetOssCheckStatRequest &request);
 
       /**
-       * @summary Get User OSS check user status
+       * @summary Queries the OSS detection status of a user.
        *
        * @param request GetOssCheckStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +856,7 @@ namespace Green20220926
       Models::GetOssCheckStatusResponse getOssCheckStatusWithOptions(const Models::GetOssCheckStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get User OSS check user status
+       * @summary Queries the OSS detection status of a user.
        *
        * @param request GetOssCheckStatusRequest
        * @return GetOssCheckStatusResponse
@@ -837,7 +864,7 @@ namespace Green20220926
       Models::GetOssCheckStatusResponse getOssCheckStatus(const Models::GetOssCheckStatusRequest &request);
 
       /**
-       * @summary 查询oss扫描任务详情
+       * @summary Queries the details of an OSS scan task.
        *
        * @param request GetOssCheckTaskInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +873,7 @@ namespace Green20220926
       Models::GetOssCheckTaskInfoResponse getOssCheckTaskInfoWithOptions(const Models::GetOssCheckTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询oss扫描任务详情
+       * @summary Queries the details of an OSS scan task.
        *
        * @param request GetOssCheckTaskInfoRequest
        * @return GetOssCheckTaskInfoResponse
@@ -854,7 +881,7 @@ namespace Green20220926
       Models::GetOssCheckTaskInfoResponse getOssCheckTaskInfo(const Models::GetOssCheckTaskInfoRequest &request);
 
       /**
-       * @summary 测试特性配置
+       * @summary Tests the attribute configuration.
        *
        * @param request GetPromptTestResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +890,7 @@ namespace Green20220926
       Models::GetPromptTestResultResponse getPromptTestResultWithOptions(const Models::GetPromptTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 测试特性配置
+       * @summary Tests the attribute configuration.
        *
        * @param request GetPromptTestResultRequest
        * @return GetPromptTestResultResponse
@@ -871,7 +898,7 @@ namespace Green20220926
       Models::GetPromptTestResultResponse getPromptTestResult(const Models::GetPromptTestResultRequest &request);
 
       /**
-       * @summary User OSS Check Task Pending Inspection Information
+       * @summary Queries the information about files pending detection for a user.
        *
        * @param request GetScanNumRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +907,7 @@ namespace Green20220926
       Models::GetScanNumResponse getScanNumWithOptions(const Models::GetScanNumRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary User OSS Check Task Pending Inspection Information
+       * @summary Queries the information about files pending detection for a user.
        *
        * @param request GetScanNumRequest
        * @return GetScanNumResponse
@@ -888,7 +915,7 @@ namespace Green20220926
       Models::GetScanNumResponse getScanNum(const Models::GetScanNumRequest &request);
 
       /**
-       * @summary Query the Scan results
+       * @summary Queries the detection results.
        *
        * @param tmpReq GetScanResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +924,7 @@ namespace Green20220926
       Models::GetScanResultResponse getScanResultWithOptions(const Models::GetScanResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the Scan results
+       * @summary Queries the detection results.
        *
        * @param request GetScanResultRequest
        * @return GetScanResultResponse
@@ -905,7 +932,7 @@ namespace Green20220926
       Models::GetScanResultResponse getScanResult(const Models::GetScanResultRequest &request);
 
       /**
-       * @summary Get a Single Service Configuration
+       * @summary Get a Single Service
        *
        * @param request GetServiceConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -914,7 +941,7 @@ namespace Green20220926
       Models::GetServiceConfResponse getServiceConfWithOptions(const Models::GetServiceConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get a Single Service Configuration
+       * @summary Get a Single Service
        *
        * @param request GetServiceConfRequest
        * @return GetServiceConfResponse
@@ -922,7 +949,7 @@ namespace Green20220926
       Models::GetServiceConfResponse getServiceConf(const Models::GetServiceConfRequest &request);
 
       /**
-       * @summary Get a Single Service Configuration
+       * @summary Retrieves a single service.
        *
        * @param request GetServiceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +958,7 @@ namespace Green20220926
       Models::GetServiceConfigResponse getServiceConfigWithOptions(const Models::GetServiceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get a Single Service Configuration
+       * @summary Retrieves a single service.
        *
        * @param request GetServiceConfigRequest
        * @return GetServiceConfigResponse
@@ -939,7 +966,7 @@ namespace Green20220926
       Models::GetServiceConfigResponse getServiceConfig(const Models::GetServiceConfigRequest &request);
 
       /**
-       * @summary Get the label configuration of a single service
+       * @summary Retrieves the tag configuration of a single service.
        *
        * @param request GetServiceLabelConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -948,7 +975,7 @@ namespace Green20220926
       Models::GetServiceLabelConfigResponse getServiceLabelConfigWithOptions(const Models::GetServiceLabelConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the label configuration of a single service
+       * @summary Retrieves the tag configuration of a single service.
        *
        * @param request GetServiceLabelConfigRequest
        * @return GetServiceLabelConfigResponse
@@ -956,7 +983,7 @@ namespace Green20220926
       Models::GetServiceLabelConfigResponse getServiceLabelConfig(const Models::GetServiceLabelConfigRequest &request);
 
       /**
-       * @summary Query OSS Scan Task List
+       * @summary Queries the list of OSS scan tasks.
        *
        * @param tmpReq GetStockOssCheckTasksListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +992,7 @@ namespace Green20220926
       Models::GetStockOssCheckTasksListResponse getStockOssCheckTasksListWithOptions(const Models::GetStockOssCheckTasksListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query OSS Scan Task List
+       * @summary Queries the list of OSS scan tasks.
        *
        * @param request GetStockOssCheckTasksListRequest
        * @return GetStockOssCheckTasksListResponse
@@ -973,7 +1000,7 @@ namespace Green20220926
       Models::GetStockOssCheckTasksListResponse getStockOssCheckTasksList(const Models::GetStockOssCheckTasksListRequest &request);
 
       /**
-       * @summary Query the invocation result
+       * @summary Queries the call results.
        *
        * @param tmpReq GetTextScanResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -982,7 +1009,7 @@ namespace Green20220926
       Models::GetTextScanResultResponse getTextScanResultWithOptions(const Models::GetTextScanResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the invocation result
+       * @summary Queries the call results.
        *
        * @param request GetTextScanResultRequest
        * @return GetTextScanResultResponse
@@ -990,7 +1017,9 @@ namespace Green20220926
       Models::GetTextScanResultResponse getTextScanResult(const Models::GetTextScanResultRequest &request);
 
       /**
-       * @summary 获取开关配置调优意见
+       * @summary Retrieves tuning suggestions for switch configurations.
+       *
+       * @description API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
        *
        * @param request GetTuneProposalByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1028,9 @@ namespace Green20220926
       Models::GetTuneProposalByIdResponse getTuneProposalByIdWithOptions(const Models::GetTuneProposalByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取开关配置调优意见
+       * @summary Retrieves tuning suggestions for switch configurations.
+       *
+       * @description API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
        *
        * @param request GetTuneProposalByIdRequest
        * @return GetTuneProposalByIdResponse
@@ -1007,7 +1038,7 @@ namespace Green20220926
       Models::GetTuneProposalByIdResponse getTuneProposalById(const Models::GetTuneProposalByIdRequest &request);
 
       /**
-       * @summary Get the corresponding information for file upload
+       * @summary Retrieves the relevant information for file upload.
        *
        * @param request GetUploadInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1016,7 +1047,7 @@ namespace Green20220926
       Models::GetUploadInfoResponse getUploadInfoWithOptions(const Models::GetUploadInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the corresponding information for file upload
+       * @summary Retrieves the relevant information for file upload.
        *
        * @param request GetUploadInfoRequest
        * @return GetUploadInfoResponse
@@ -1024,7 +1055,7 @@ namespace Green20220926
       Models::GetUploadInfoResponse getUploadInfo(const Models::GetUploadInfoRequest &request);
 
       /**
-       * @summary 获取上传链接
+       * @summary Obtain an upload link
        *
        * @param request GetUploadLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1064,7 @@ namespace Green20220926
       Models::GetUploadLinkResponse getUploadLinkWithOptions(const Models::GetUploadLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取上传链接
+       * @summary Obtain an upload link
        *
        * @param request GetUploadLinkRequest
        * @return GetUploadLinkResponse
@@ -1041,7 +1072,7 @@ namespace Green20220926
       Models::GetUploadLinkResponse getUploadLink(const Models::GetUploadLinkRequest &request);
 
       /**
-       * @summary Get User Purchase Status
+       * @summary Retrieves the purchase status of a user.
        *
        * @param request GetUserBuyStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1081,7 @@ namespace Green20220926
       Models::GetUserBuyStatusResponse getUserBuyStatusWithOptions(const Models::GetUserBuyStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get User Purchase Status
+       * @summary Retrieves the purchase status of a user.
        *
        * @param request GetUserBuyStatusRequest
        * @return GetUserBuyStatusResponse
@@ -1058,7 +1089,7 @@ namespace Green20220926
       Models::GetUserBuyStatusResponse getUserBuyStatus(const Models::GetUserBuyStatusRequest &request);
 
       /**
-       * @summary 代答库列表
+       * @summary Queries the list of proxy answer libraries.
        *
        * @param request ListAnswerLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1098,7 @@ namespace Green20220926
       Models::ListAnswerLibResponse listAnswerLibWithOptions(const Models::ListAnswerLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 代答库列表
+       * @summary Queries the list of proxy answer libraries.
        *
        * @param request ListAnswerLibRequest
        * @return ListAnswerLibResponse
@@ -1075,7 +1106,7 @@ namespace Green20220926
       Models::ListAnswerLibResponse listAnswerLib(const Models::ListAnswerLibRequest &request);
 
       /**
-       * @summary Get Callback List
+       * @summary Queries the list of message notifications.
        *
        * @param request ListCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1115,7 @@ namespace Green20220926
       Models::ListCallbackResponse listCallbackWithOptions(const Models::ListCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Callback List
+       * @summary Queries the list of message notifications.
        *
        * @param request ListCallbackRequest
        * @return ListCallbackResponse
@@ -1092,7 +1123,7 @@ namespace Green20220926
       Models::ListCallbackResponse listCallback(const Models::ListCallbackRequest &request);
 
       /**
-       * @summary Image Library List
+       * @summary Queries the list of image libraries.
        *
        * @param request ListImageLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1132,7 @@ namespace Green20220926
       Models::ListImageLibResponse listImageLibWithOptions(const Models::ListImageLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Image Library List
+       * @summary Queries the list of image libraries.
        *
        * @param request ListImageLibRequest
        * @return ListImageLibResponse
@@ -1109,7 +1140,7 @@ namespace Green20220926
       Models::ListImageLibResponse listImageLib(const Models::ListImageLibRequest &request);
 
       /**
-       * @summary Paged Image List
+       * @summary Queries a paginated list of images.
        *
        * @param tmpReq ListImagesFromLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1149,7 @@ namespace Green20220926
       Models::ListImagesFromLibResponse listImagesFromLibWithOptions(const Models::ListImagesFromLibRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paged Image List
+       * @summary Queries a paginated list of images.
        *
        * @param request ListImagesFromLibRequest
        * @return ListImagesFromLibResponse
@@ -1126,7 +1157,7 @@ namespace Green20220926
       Models::ListImagesFromLibResponse listImagesFromLib(const Models::ListImagesFromLibRequest &request);
 
       /**
-       * @summary Keyword Library List
+       * @summary Queries the list of keyword libraries.
        *
        * @param request ListKeywordLibsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1166,7 @@ namespace Green20220926
       Models::ListKeywordLibsResponse listKeywordLibsWithOptions(const Models::ListKeywordLibsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Keyword Library List
+       * @summary Queries the list of keyword libraries.
        *
        * @param request ListKeywordLibsRequest
        * @return ListKeywordLibsResponse
@@ -1143,7 +1174,7 @@ namespace Green20220926
       Models::ListKeywordLibsResponse listKeywordLibs(const Models::ListKeywordLibsRequest &request);
 
       /**
-       * @summary Query Keyword List
+       * @summary Queries a list of keywords.
        *
        * @param tmpReq ListKeywordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1183,7 @@ namespace Green20220926
       Models::ListKeywordsResponse listKeywordsWithOptions(const Models::ListKeywordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Keyword List
+       * @summary Queries a list of keywords.
        *
        * @param request ListKeywordsRequest
        * @return ListKeywordsResponse
@@ -1160,7 +1191,7 @@ namespace Green20220926
       Models::ListKeywordsResponse listKeywords(const Models::ListKeywordsRequest &request);
 
       /**
-       * @summary query OSS scan result list
+       * @summary Queries OSS scan results.
        *
        * @param tmpReq ListOssCheckResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1200,7 @@ namespace Green20220926
       Models::ListOssCheckResultResponse listOssCheckResultWithOptions(const Models::ListOssCheckResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary query OSS scan result list
+       * @summary Queries OSS scan results.
        *
        * @param request ListOssCheckResultRequest
        * @return ListOssCheckResultResponse
@@ -1177,7 +1208,7 @@ namespace Green20220926
       Models::ListOssCheckResultResponse listOssCheckResult(const Models::ListOssCheckResultRequest &request);
 
       /**
-       * @summary Get Service List
+       * @summary Retrieves the service list.
        *
        * @param request ListServiceConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1217,7 @@ namespace Green20220926
       Models::ListServiceConfigsResponse listServiceConfigsWithOptions(const Models::ListServiceConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Service List
+       * @summary Retrieves the service list.
        *
        * @param request ListServiceConfigsRequest
        * @return ListServiceConfigsResponse
@@ -1237,7 +1268,7 @@ namespace Green20220926
       Models::MarkOssV2ResultResponse markOssV2Result(const Models::MarkOssV2ResultRequest &request);
 
       /**
-       * @summary 更新代答库
+       * @summary Updates a proxy response library.
        *
        * @param request ModifyAnswerLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1277,7 @@ namespace Green20220926
       Models::ModifyAnswerLibResponse modifyAnswerLibWithOptions(const Models::ModifyAnswerLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新代答库
+       * @summary Updates a proxy response library.
        *
        * @param request ModifyAnswerLibRequest
        * @return ModifyAnswerLibResponse
@@ -1254,7 +1285,7 @@ namespace Green20220926
       Models::ModifyAnswerLibResponse modifyAnswerLib(const Models::ModifyAnswerLibRequest &request);
 
       /**
-       * @summary Modify Message Notification
+       * @summary Modifies a message notification.
        *
        * @param request ModifyCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1294,7 @@ namespace Green20220926
       Models::ModifyCallbackResponse modifyCallbackWithOptions(const Models::ModifyCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify Message Notification
+       * @summary Modifies a message notification.
        *
        * @param request ModifyCallbackRequest
        * @return ModifyCallbackResponse
@@ -1271,7 +1302,7 @@ namespace Green20220926
       Models::ModifyCallbackResponse modifyCallback(const Models::ModifyCallbackRequest &request);
 
       /**
-       * @summary Save Feature Configuration
+       * @summary Saves an attribute configuration.
        *
        * @param request ModifyFeatureConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1280,7 +1311,7 @@ namespace Green20220926
       Models::ModifyFeatureConfigResponse modifyFeatureConfigWithOptions(const Models::ModifyFeatureConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Save Feature Configuration
+       * @summary Saves an attribute configuration.
        *
        * @param request ModifyFeatureConfigRequest
        * @return ModifyFeatureConfigResponse
@@ -1288,7 +1319,7 @@ namespace Green20220926
       Models::ModifyFeatureConfigResponse modifyFeatureConfig(const Models::ModifyFeatureConfigRequest &request);
 
       /**
-       * @summary Edit Service
+       * @summary Edits a service.
        *
        * @param request ModifyServiceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1297,7 +1328,7 @@ namespace Green20220926
       Models::ModifyServiceInfoResponse modifyServiceInfoWithOptions(const Models::ModifyServiceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit Service
+       * @summary Edits a service.
        *
        * @param request ModifyServiceInfoRequest
        * @return ModifyServiceInfoResponse
@@ -1305,7 +1336,7 @@ namespace Green20220926
       Models::ModifyServiceInfoResponse modifyServiceInfo(const Models::ModifyServiceInfoRequest &request);
 
       /**
-       * @summary OSS scan result query
+       * @summary Retrieves the list of OSS detection results.
        *
        * @param tmpReq OssCheckResultListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1314,7 +1345,7 @@ namespace Green20220926
       Models::OssCheckResultListResponse ossCheckResultListWithOptions(const Models::OssCheckResultListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OSS scan result query
+       * @summary Retrieves the list of OSS detection results.
        *
        * @param request OssCheckResultListRequest
        * @return OssCheckResultListResponse
@@ -1322,7 +1353,7 @@ namespace Green20220926
       Models::OssCheckResultListResponse ossCheckResultList(const Models::OssCheckResultListRequest &request);
 
       /**
-       * @summary 分页查询代答样本
+       * @summary Queries proxy answer samples by paging.
        *
        * @param tmpReq QueryAnswerSampleByPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1331,7 +1362,7 @@ namespace Green20220926
       Models::QueryAnswerSampleByPageResponse queryAnswerSampleByPageWithOptions(const Models::QueryAnswerSampleByPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询代答样本
+       * @summary Queries proxy answer samples by paging.
        *
        * @param request QueryAnswerSampleByPageRequest
        * @return QueryAnswerSampleByPageResponse
@@ -1339,7 +1370,7 @@ namespace Green20220926
       Models::QueryAnswerSampleByPageResponse queryAnswerSampleByPage(const Models::QueryAnswerSampleByPageRequest &request);
 
       /**
-       * @summary Query a Single Callback Configuration
+       * @summary Queries a single callback configuration.
        *
        * @param request QueryCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1348,7 +1379,7 @@ namespace Green20220926
       Models::QueryCallbackResponse queryCallbackWithOptions(const Models::QueryCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query a Single Callback Configuration
+       * @summary Queries a single callback configuration.
        *
        * @param request QueryCallbackRequest
        * @return QueryCallbackResponse
@@ -1356,7 +1387,7 @@ namespace Green20220926
       Models::QueryCallbackResponse queryCallback(const Models::QueryCallbackRequest &request);
 
       /**
-       * @summary Paginated Query of Message Notification List
+       * @summary Message notification.
        *
        * @param request QueryCallbackByPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1365,7 +1396,7 @@ namespace Green20220926
       Models::QueryCallbackByPageResponse queryCallbackByPageWithOptions(const Models::QueryCallbackByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paginated Query of Message Notification List
+       * @summary Message notification.
        *
        * @param request QueryCallbackByPageRequest
        * @return QueryCallbackByPageResponse
@@ -1373,7 +1404,7 @@ namespace Green20220926
       Models::QueryCallbackByPageResponse queryCallbackByPage(const Models::QueryCallbackByPageRequest &request);
 
       /**
-       * @summary 停止在线测试
+       * @summary Abort an online Detection Job
        *
        * @param request StopOnlineTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1382,7 +1413,7 @@ namespace Green20220926
       Models::StopOnlineTestResponse stopOnlineTestWithOptions(const Models::StopOnlineTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止在线测试
+       * @summary Abort an online Detection Job
        *
        * @param request StopOnlineTestRequest
        * @return StopOnlineTestResponse
@@ -1390,7 +1421,7 @@ namespace Green20220926
       Models::StopOnlineTestResponse stopOnlineTest(const Models::StopOnlineTestRequest &request);
 
       /**
-       * @summary Update Evidence Backup Configuration
+       * @summary Updates the evidence transfer configuration.
        *
        * @param request UpdateBackupConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1399,7 +1430,7 @@ namespace Green20220926
       Models::UpdateBackupConfigResponse updateBackupConfigWithOptions(const Models::UpdateBackupConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Evidence Backup Configuration
+       * @summary Updates the evidence transfer configuration.
        *
        * @param request UpdateBackupConfigRequest
        * @return UpdateBackupConfigResponse
@@ -1407,7 +1438,7 @@ namespace Green20220926
       Models::UpdateBackupConfigResponse updateBackupConfig(const Models::UpdateBackupConfigRequest &request);
 
       /**
-       * @summary Edit Image Library
+       * @summary Edits an image library.
        *
        * @param request UpdateImageLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1416,7 +1447,7 @@ namespace Green20220926
       Models::UpdateImageLibResponse updateImageLibWithOptions(const Models::UpdateImageLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit Image Library
+       * @summary Edits an image library.
        *
        * @param request UpdateImageLibRequest
        * @return UpdateImageLibResponse
@@ -1424,7 +1455,7 @@ namespace Green20220926
       Models::UpdateImageLibResponse updateImageLib(const Models::UpdateImageLibRequest &request);
 
       /**
-       * @summary Edit Image Library Free Inspection Configuration
+       * @summary Edits the inspection-exempt configuration of an image library.
        *
        * @param tmpReq UpdateImageLibFreeInspectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1433,7 +1464,7 @@ namespace Green20220926
       Models::UpdateImageLibFreeInspectionResponse updateImageLibFreeInspectionWithOptions(const Models::UpdateImageLibFreeInspectionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit Image Library Free Inspection Configuration
+       * @summary Edits the inspection-exempt configuration of an image library.
        *
        * @param request UpdateImageLibFreeInspectionRequest
        * @return UpdateImageLibFreeInspectionResponse
@@ -1441,7 +1472,7 @@ namespace Green20220926
       Models::UpdateImageLibFreeInspectionResponse updateImageLibFreeInspection(const Models::UpdateImageLibFreeInspectionRequest &request);
 
       /**
-       * @summary Edit Keyword Library
+       * @summary Edits a keyword library.
        *
        * @param request UpdateKeywordLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1450,7 +1481,7 @@ namespace Green20220926
       Models::UpdateKeywordLibResponse updateKeywordLibWithOptions(const Models::UpdateKeywordLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit Keyword Library
+       * @summary Edits a keyword library.
        *
        * @param request UpdateKeywordLibRequest
        * @return UpdateKeywordLibResponse
@@ -1458,7 +1489,7 @@ namespace Green20220926
       Models::UpdateKeywordLibResponse updateKeywordLib(const Models::UpdateKeywordLibRequest &request);
 
       /**
-       * @summary 批量反馈任务
+       * @summary Batch update OSS detection result feedback
        *
        * @param request UpdateOssCheckResultsBatchFeedbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1467,7 +1498,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsBatchFeedbackResponse updateOssCheckResultsBatchFeedbackWithOptions(const Models::UpdateOssCheckResultsBatchFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量反馈任务
+       * @summary Batch update OSS detection result feedback
        *
        * @param request UpdateOssCheckResultsBatchFeedbackRequest
        * @return UpdateOssCheckResultsBatchFeedbackResponse
@@ -1475,7 +1506,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsBatchFeedbackResponse updateOssCheckResultsBatchFeedback(const Models::UpdateOssCheckResultsBatchFeedbackRequest &request);
 
       /**
-       * @summary oss结果反馈
+       * @summary Update OSS detection result feedback
        *
        * @param request UpdateOssCheckResultsFeedBackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1484,7 +1515,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsFeedBackResponse updateOssCheckResultsFeedBackWithOptions(const Models::UpdateOssCheckResultsFeedBackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary oss结果反馈
+       * @summary Update OSS detection result feedback
        *
        * @param request UpdateOssCheckResultsFeedBackRequest
        * @return UpdateOssCheckResultsFeedBackResponse
@@ -1492,7 +1523,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsFeedBackResponse updateOssCheckResultsFeedBack(const Models::UpdateOssCheckResultsFeedBackRequest &request);
 
       /**
-       * @summary 批量冻结任务
+       * @summary Freezes OSS scan results in batches.
        *
        * @param request UpdateOssCheckResultsFreezeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1501,7 +1532,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsFreezeResponse updateOssCheckResultsFreezeWithOptions(const Models::UpdateOssCheckResultsFreezeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量冻结任务
+       * @summary Freezes OSS scan results in batches.
        *
        * @param request UpdateOssCheckResultsFreezeRequest
        * @return UpdateOssCheckResultsFreezeResponse
@@ -1509,7 +1540,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsFreezeResponse updateOssCheckResultsFreeze(const Models::UpdateOssCheckResultsFreezeRequest &request);
 
       /**
-       * @summary 批量解冻任务
+       * @summary Unfreezes OSS detection results in batches.
        *
        * @param request UpdateOssCheckResultsUnfreezeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1518,7 +1549,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsUnfreezeResponse updateOssCheckResultsUnfreezeWithOptions(const Models::UpdateOssCheckResultsUnfreezeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量解冻任务
+       * @summary Unfreezes OSS detection results in batches.
        *
        * @param request UpdateOssCheckResultsUnfreezeRequest
        * @return UpdateOssCheckResultsUnfreezeResponse
@@ -1526,7 +1557,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsUnfreezeResponse updateOssCheckResultsUnfreeze(const Models::UpdateOssCheckResultsUnfreezeRequest &request);
 
       /**
-       * @summary Feedback on Scan Results
+       * @summary Submits feedback on detection results.
        *
        * @param request UpdateScanResultFeedbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1535,7 +1566,7 @@ namespace Green20220926
       Models::UpdateScanResultFeedbackResponse updateScanResultFeedbackWithOptions(const Models::UpdateScanResultFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Feedback on Scan Results
+       * @summary Submits feedback on detection results.
        *
        * @param request UpdateScanResultFeedbackRequest
        * @return UpdateScanResultFeedbackResponse
@@ -1543,7 +1574,7 @@ namespace Green20220926
       Models::UpdateScanResultFeedbackResponse updateScanResultFeedback(const Models::UpdateScanResultFeedbackRequest &request);
 
       /**
-       * @summary 更新服务
+       * @summary Updates a service.
        *
        * @param request UpdateServiceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1552,7 +1583,7 @@ namespace Green20220926
       Models::UpdateServiceConfigResponse updateServiceConfigWithOptions(const Models::UpdateServiceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新服务
+       * @summary Updates a service.
        *
        * @param request UpdateServiceConfigRequest
        * @return UpdateServiceConfigResponse

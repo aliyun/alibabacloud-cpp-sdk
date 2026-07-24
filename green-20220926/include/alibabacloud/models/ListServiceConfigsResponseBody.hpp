@@ -163,7 +163,7 @@ namespace Models
 
 
           protected:
-            // Text services.
+            // The text services.
             shared_ptr<vector<string>> services_ {};
           };
 
@@ -197,7 +197,7 @@ namespace Models
 
 
           protected:
-            // Image services.
+            // The image service.
             shared_ptr<vector<string>> services_ {};
           };
 
@@ -229,11 +229,11 @@ namespace Models
 
 
         protected:
-          // Image review rule.
+          // The image moderation rule.
           shared_ptr<Rules::ImageScanRule> imageScanRule_ {};
-          // Index.
+          // The ordinal number.
           shared_ptr<int32_t> index_ {};
-          // Text review rule.
+          // The text moderation rule.
           shared_ptr<Rules::TextScanRule> textScanRule_ {};
         };
 
@@ -292,17 +292,17 @@ namespace Models
 
 
       protected:
-        // Audio service.
+        // The audio service.
         shared_ptr<string> audioService_ {};
-        // Image services.
+        // The image service.
         shared_ptr<vector<string>> imageService_ {};
-        // Ignored word libraries.
+        // The ignored keyword library.
         shared_ptr<vector<string>> keywordFilterLibs_ {};
-        // Hit word libraries.
+        // The hit keyword library.
         shared_ptr<vector<string>> keywordHitLibs_ {};
-        // Service rules
+        // The service rules.
         shared_ptr<vector<CustomServiceConf::Rules>> rules_ {};
-        // Hit similar text libraries.
+        // The hit similar text library.
         shared_ptr<vector<string>> similarTextHitLibs_ {};
       };
 
@@ -406,30 +406,35 @@ namespace Models
 
 
     protected:
-      // Category.
+      // The classification.
       shared_ptr<string> classify_ {};
-      // Main service.
+      // The primary service.
       shared_ptr<string> copyFrom_ {};
-      // Service configuration.
+      // The service configuration.
       shared_ptr<Data::CustomServiceConf> customServiceConf_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Options.
+      // The options.
       Darabonba::Json option_ {};
-      // Resource type.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The scene type. Valid values:
+      // 
+      // - recommended_scene: recommended scenario.
+      // 
+      // - all_scene: all scenarios.
       shared_ptr<string> sceneType_ {};
-      // Service code.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Service description.
+      // The service description.
       shared_ptr<string> serviceDesc_ {};
-      // Service name.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // Service type.
+      // The service type.
       shared_ptr<string> serviceType_ {};
-      // UID.
+      // UID。
       shared_ptr<string> uid_ {};
-      // Usage status
+      // The usage status.
       shared_ptr<string> useStatus_ {};
     };
 
@@ -473,15 +478,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<ListServiceConfigsResponseBody::Data>> data_ {};
-    // Further description of the error code.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

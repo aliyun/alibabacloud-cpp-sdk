@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the proxy response library.
     shared_ptr<string> libId_ {};
+    // The name of the library.
     shared_ptr<string> libName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

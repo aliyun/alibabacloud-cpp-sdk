@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATESCANRESULTFEEDBACKRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_UPDATESCANRESULTFEEDBACKRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CONFIRMAIAPPSCANRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CONFIRMAIAPPSCANRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Green20220926
 {
 namespace Models
 {
-  class UpdateScanResultFeedbackResponseBody : public Darabonba::Model {
+  class ConfirmAiAppScanResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateScanResultFeedbackResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ConfirmAiAppScanResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateScanResultFeedbackResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ConfirmAiAppScanResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    UpdateScanResultFeedbackResponseBody() = default ;
-    UpdateScanResultFeedbackResponseBody(const UpdateScanResultFeedbackResponseBody &) = default ;
-    UpdateScanResultFeedbackResponseBody(UpdateScanResultFeedbackResponseBody &&) = default ;
-    UpdateScanResultFeedbackResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateScanResultFeedbackResponseBody() = default ;
-    UpdateScanResultFeedbackResponseBody& operator=(const UpdateScanResultFeedbackResponseBody &) = default ;
-    UpdateScanResultFeedbackResponseBody& operator=(UpdateScanResultFeedbackResponseBody &&) = default ;
+    ConfirmAiAppScanResponseBody() = default ;
+    ConfirmAiAppScanResponseBody(const ConfirmAiAppScanResponseBody &) = default ;
+    ConfirmAiAppScanResponseBody(ConfirmAiAppScanResponseBody &&) = default ;
+    ConfirmAiAppScanResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ConfirmAiAppScanResponseBody() = default ;
+    ConfirmAiAppScanResponseBody& operator=(const ConfirmAiAppScanResponseBody &) = default ;
+    ConfirmAiAppScanResponseBody& operator=(ConfirmAiAppScanResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,18 +37,18 @@ namespace Models
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
     inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
-    inline UpdateScanResultFeedbackResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ConfirmAiAppScanResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline UpdateScanResultFeedbackResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ConfirmAiAppScanResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<bool> data_ {};
     // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};

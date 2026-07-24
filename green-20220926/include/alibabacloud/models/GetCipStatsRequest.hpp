@@ -121,15 +121,32 @@ namespace Models
 
 
   protected:
+    // Specifies whether monthly indexing is supported. Valid values:
+    // - true: Supported.
+    // - false: Not supported.
     shared_ptr<bool> byMonth_ {};
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
+    // The label.
     shared_ptr<string> label_ {};
+    // The query condition.
     shared_ptr<string> query_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The service code.
     shared_ptr<string> serviceCode_ {};
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
+    // The UID of the RAM user.
     shared_ptr<string> subUid_ {};
+    // The type. Valid values:
+    // - **cip**: Content Moderation invocation usage statistics.
+    // - **risk_level**: Content Moderation risk level statistics.
+    // - **content_moderation**: AI safety guardrail content compliance risk level and tag statistics.
+    // - **sensitive_data**: AI safety guardrail sensitive data risk level and tag statistics.
+    // - **prompt_attack**: AI safety guardrail prompt risk level and tag statistics.
     shared_ptr<string> type_ {};
   };
 

@@ -24,6 +24,9 @@
 #include <alibabacloud/models/CancelStockOssCheckTaskRequest.hpp>
 #include <alibabacloud/models/CancelStockOssCheckTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelStockOssCheckTaskResponse.hpp>
+#include <alibabacloud/models/ConfirmAiAppScanRequest.hpp>
+#include <alibabacloud/models/ConfirmAiAppScanResponseBody.hpp>
+#include <alibabacloud/models/ConfirmAiAppScanResponse.hpp>
 #include <alibabacloud/models/CopyServiceConfigRequest.hpp>
 #include <alibabacloud/models/CopyServiceConfigResponseBody.hpp>
 #include <alibabacloud/models/CopyServiceConfigResponse.hpp>

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Storage space.
+    // The storage space.
     shared_ptr<string> buckets_ {};
-    // Media type.
+    // The media asset type.
     shared_ptr<int32_t> mediaType_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

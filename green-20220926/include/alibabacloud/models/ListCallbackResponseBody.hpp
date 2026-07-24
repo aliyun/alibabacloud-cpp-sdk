@@ -134,23 +134,23 @@ namespace Models
 
 
     protected:
-      // Encryption algorithm.
+      // The encryption algorithm.
       shared_ptr<string> cryptType_ {};
-      // Creation time.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Primary key ID.
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
-      // Name.
+      // The name.
       shared_ptr<string> name_ {};
-      // Result scope.
+      // The result scope.
       shared_ptr<string> scope_ {};
-      // Seed.
+      // Seed。
       shared_ptr<string> seed_ {};
-      // UID.
+      // UID。
       shared_ptr<string> uid_ {};
-      // Callback URL.
+      // The callback URL.
       shared_ptr<string> url_ {};
     };
 
@@ -173,9 +173,9 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<ListCallbackResponseBody::Data>> data_ {};
-    // Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

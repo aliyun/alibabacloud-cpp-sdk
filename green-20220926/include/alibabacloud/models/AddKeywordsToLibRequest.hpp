@@ -84,15 +84,20 @@ namespace Models
 
 
   protected:
-    // The keyword to be added.
+    // The keywords. Separate multiple keywords with 
+    // .
     shared_ptr<string> keywords_ {};
-    // The name of the keyword file.
+    // The keyword file name.
     shared_ptr<string> keywordsObject_ {};
-    // The id of the keyword library.
+    // The keyword library ID.
     shared_ptr<string> libId_ {};
+    // The properties.
     shared_ptr<string> properties_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The library code.
+    // 
+    // - desensitize: masking library
     shared_ptr<string> tenantCode_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service code.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // Service description.
+    // The service description.
     shared_ptr<string> serviceDesc_ {};
-    // Service name.
+    // The service name.
     shared_ptr<string> serviceName_ {};
   };
 

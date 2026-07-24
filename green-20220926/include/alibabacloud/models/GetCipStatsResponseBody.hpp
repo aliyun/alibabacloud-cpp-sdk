@@ -110,7 +110,9 @@ namespace Models
 
 
       protected:
+        // The count.
         shared_ptr<vector<int64_t>> data_ {};
+        // The service code.
         shared_ptr<string> name_ {};
       };
 
@@ -154,7 +156,9 @@ namespace Models
 
 
       protected:
+        // The returned data.
         shared_ptr<vector<int64_t>> data_ {};
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -231,7 +235,9 @@ namespace Models
 
 
         protected:
+          // The returned data.
           shared_ptr<vector<int64_t>> data_ {};
+          // The name.
           shared_ptr<string> name_ {};
         };
 
@@ -282,8 +288,11 @@ namespace Models
 
 
         protected:
+          // The label description.
           shared_ptr<string> description_ {};
+          // The label.
           shared_ptr<string> name_ {};
+          // The score.
           shared_ptr<string> value_ {};
         };
 
@@ -334,8 +343,11 @@ namespace Models
 
 
         protected:
+          // The label description.
           shared_ptr<string> description_ {};
+          // The label.
           shared_ptr<string> name_ {};
+          // The score.
           shared_ptr<string> value_ {};
         };
 
@@ -386,8 +398,11 @@ namespace Models
 
 
         protected:
+          // The description.
           shared_ptr<string> description_ {};
+          // The label.
           shared_ptr<string> name_ {};
+          // The proportion.
           shared_ptr<string> value_ {};
         };
 
@@ -438,8 +453,11 @@ namespace Models
 
 
         protected:
+          // The description.
           shared_ptr<string> description_ {};
+          // The label.
           shared_ptr<string> name_ {};
+          // The label proportion.
           shared_ptr<string> value_ {};
         };
 
@@ -515,13 +533,21 @@ namespace Models
 
 
       protected:
+        // The image label statistics.
         shared_ptr<vector<LabelStatChart::ImageTreeChar>> imageTreeChar_ {};
+        // The service code.
         shared_ptr<string> serviceCode_ {};
+        // The text label statistics.
         shared_ptr<vector<LabelStatChart::TextTreeChart>> textTreeChart_ {};
+        // The total count.
         shared_ptr<int64_t> totalCount_ {};
+        // The tree view.
         shared_ptr<vector<LabelStatChart::TreeChart>> treeChart_ {};
+        // The audio tree view.
         shared_ptr<vector<LabelStatChart::VoiceTreeChart>> voiceTreeChart_ {};
+        // The X value of the coordinate point.
         shared_ptr<vector<string>> x_ {};
+        // The Y value of the coordinate point.
         shared_ptr<vector<LabelStatChart::Y>> y_ {};
       };
 
@@ -582,11 +608,17 @@ namespace Models
 
 
     protected:
+      // The label usage chart.
       shared_ptr<vector<Data::LabelStatChart>> labelStatChart_ {};
+      // The total count by category.
       shared_ptr<map<string, Darabonba::Json>> totalStat_ {};
+      // The list of UIDs.
       shared_ptr<vector<string>> uids_ {};
+      // The X value of the coordinate point.
       shared_ptr<vector<string>> x_ {};
+      // The Y value of the coordinate point.
       shared_ptr<vector<Data::Y>> y_ {};
+      // The hit data.
       shared_ptr<vector<Data::Z>> z_ {};
     };
 
@@ -637,11 +669,17 @@ namespace Models
 
 
   protected:
+    // The error code, which is the same as the HTTP status code.
     shared_ptr<int32_t> code_ {};
+    // The returned data.
     shared_ptr<GetCipStatsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
+    // The request ID assigned by the backend. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

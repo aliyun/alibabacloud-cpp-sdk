@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // End time of the query, in the format yyyy-MM-dd HH:mm:ss.
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // Query conditions.
+    // The query condition.
     shared_ptr<string> queryShrink_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

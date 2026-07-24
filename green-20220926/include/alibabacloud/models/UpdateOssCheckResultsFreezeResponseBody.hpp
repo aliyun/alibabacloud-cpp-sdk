@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The number of invalid records.
       shared_ptr<int32_t> invalidCount_ {};
+      // The number of duplicate records.
       shared_ptr<int32_t> repeatCount_ {};
+      // The number of successful operations.
       shared_ptr<int32_t> successCount_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<UpdateOssCheckResultsFreezeResponseBody::Data> data_ {};
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

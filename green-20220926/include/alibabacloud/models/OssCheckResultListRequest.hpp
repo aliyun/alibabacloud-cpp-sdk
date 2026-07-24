@@ -115,23 +115,23 @@ namespace Models
 
 
   protected:
-    // Page size.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Start date.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // Region ID.
+    // The number of completed items.
     shared_ptr<int64_t> finishNum_ {};
-    // Query condition.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // End date.
+    // The query condition.
     shared_ptr<string> query_ {};
-    // Sort field.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Current page number.
+    // The sort field.
     shared_ptr<map<string, string>> sort_ {};
-    // System-defined parameter. Value: **OssCheckResultList**.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
-    // Number of completed items.
+    // The task status.
     shared_ptr<int32_t> status_ {};
   };
 

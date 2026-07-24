@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The answer.
     shared_ptr<string> answer_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The ID of the proxy answer library.
     shared_ptr<string> libId_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The sort field.
     shared_ptr<string> sortShrink_ {};
   };
 

@@ -121,25 +121,34 @@ namespace Models
 
 
   protected:
-    // Whether to support monthly indexing. Values: -**true**: Supported. -**false**: Not supported.
+    // Specifies whether monthly indexing is supported. Valid values:
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> byMonth_ {};
-    // The end time of the query, in the format yyyy-MM-dd HH:mm:ss.
+    // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // Export type. Values: -**level**: Export by risk level. -**label**: Export by label.
+    // The export type. Valid values:
+    // - **level**: export by risk level.
+    // - **label**: export by label.
     shared_ptr<string> exportType_ {};
-    // The label of the task to be exported.
+    // The task label to export.
     shared_ptr<string> label_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service code.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // The start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+    // The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
-    // Sub-account UID.
+    // The UID of the RAM user.
     shared_ptr<string> subUid_ {};
-    // Type, values: -**cip**: Content Security Invocation Count Statistics. -**risk_level**: Content Security Risk Level Statistics. -**content_moderation**: AI Safety Guardrail Content Compliance Risk Level and Label Statistics. -**sensitive_data**: AI Safety Guardrail Sensitive Data Risk Level and Label Statistics. -**prompt_attack**: AI Safety Guardrail Prompt Word Risk Level and Label Statistics.
+    // The type. Valid values:
+    // - **cip**: Content Moderation invocation volume statistics.
+    // - **risk_level**: Content Moderation risk level statistics.
+    // - **content_moderation**: AI safety guardrail content compliance risk level and tag statistics.
+    // - **sensitive_data**: AI safety guardrail sensitive data risk level and tag statistics.
+    // - **prompt_attack**: AI safety guardrail prompt risk level and tag statistics.
     shared_ptr<string> type_ {};
   };
 

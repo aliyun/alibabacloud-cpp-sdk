@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The IDs of the proxy answers to delete.
     shared_ptr<string> ids_ {};
+    // The ID of the proxy answer library.
     shared_ptr<string> libId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

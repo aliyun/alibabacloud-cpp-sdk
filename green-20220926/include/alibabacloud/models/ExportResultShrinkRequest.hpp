@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // Page number of the query result. Default is 1.
+    // The page number of the paginated query results. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // End date.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // Number of items per page in the query result.
+    // The number of entries per page in the paginated query results.
     shared_ptr<int32_t> pageSize_ {};
-    // Query condition.
+    // The query condition.
     shared_ptr<string> query_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Sort field.
+    // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // Operation source.
+    // The operation source.
     shared_ptr<string> source_ {};
-    // Start date.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

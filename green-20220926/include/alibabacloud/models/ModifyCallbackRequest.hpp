@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // Encryption algorithm.
+    // The encryption algorithm.
     shared_ptr<string> cryptType_ {};
-    // Primary key ID.
+    // The primary key ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Name.
+    // The name.
     shared_ptr<string> name_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Result scope.
+    // The result scope.
     shared_ptr<string> scope_ {};
-    // Callback URL.
+    // The callback URL.
     shared_ptr<string> url_ {};
   };
 

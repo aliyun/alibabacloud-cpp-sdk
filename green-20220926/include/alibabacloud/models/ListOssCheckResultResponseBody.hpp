@@ -50,6 +50,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
         DARABONBA_PTR_TO_JSON(IsCopy, isCopy_);
         DARABONBA_PTR_TO_JSON(JobName, jobName_);
+        DARABONBA_PTR_TO_JSON(LabelDetails, labelDetails_);
+        DARABONBA_PTR_TO_JSON(LabelDetails2, labelDetails2_);
         DARABONBA_PTR_TO_JSON(Labels, labels_);
         DARABONBA_PTR_TO_JSON(Labels2, labels2_);
         DARABONBA_PTR_TO_JSON(Md5, md5_);
@@ -74,6 +76,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
         DARABONBA_PTR_FROM_JSON(IsCopy, isCopy_);
         DARABONBA_PTR_FROM_JSON(JobName, jobName_);
+        DARABONBA_PTR_FROM_JSON(LabelDetails, labelDetails_);
+        DARABONBA_PTR_FROM_JSON(LabelDetails2, labelDetails2_);
         DARABONBA_PTR_FROM_JSON(Labels, labels_);
         DARABONBA_PTR_FROM_JSON(Labels2, labels2_);
         DARABONBA_PTR_FROM_JSON(Md5, md5_);
@@ -99,12 +103,100 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class LabelDetails2 : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const LabelDetails2& obj) { 
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Label, label_);
+        };
+        friend void from_json(const Darabonba::Json& j, LabelDetails2& obj) { 
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Label, label_);
+        };
+        LabelDetails2() = default ;
+        LabelDetails2(const LabelDetails2 &) = default ;
+        LabelDetails2(LabelDetails2 &&) = default ;
+        LabelDetails2(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LabelDetails2() = default ;
+        LabelDetails2& operator=(const LabelDetails2 &) = default ;
+        LabelDetails2& operator=(LabelDetails2 &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->description_ == nullptr
+        && this->label_ == nullptr; };
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline LabelDetails2& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // label Field Functions 
+        bool hasLabel() const { return this->label_ != nullptr;};
+        void deleteLabel() { this->label_ = nullptr;};
+        inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+        inline LabelDetails2& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+      protected:
+        // The description of the label.
+        shared_ptr<string> description_ {};
+        // The label hit by the audio.
+        shared_ptr<string> label_ {};
+      };
+
+      class LabelDetails : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const LabelDetails& obj) { 
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Label, label_);
+        };
+        friend void from_json(const Darabonba::Json& j, LabelDetails& obj) { 
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Label, label_);
+        };
+        LabelDetails() = default ;
+        LabelDetails(const LabelDetails &) = default ;
+        LabelDetails(LabelDetails &&) = default ;
+        LabelDetails(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LabelDetails() = default ;
+        LabelDetails& operator=(const LabelDetails &) = default ;
+        LabelDetails& operator=(LabelDetails &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->description_ == nullptr
+        && this->label_ == nullptr; };
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline LabelDetails& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // label Field Functions 
+        bool hasLabel() const { return this->label_ != nullptr;};
+        void deleteLabel() { this->label_ = nullptr;};
+        inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+        inline LabelDetails& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+      protected:
+        // The description of the label.
+        shared_ptr<string> description_ {};
+        // The label hit by the video frame.
+        shared_ptr<string> label_ {};
+      };
+
       virtual bool empty() const override { return this->bucket_ == nullptr
         && this->code_ == nullptr && this->contentType_ == nullptr && this->copyFrom_ == nullptr && this->freezeStatus_ == nullptr && this->freezeType_ == nullptr
-        && this->imageUrl_ == nullptr && this->isCopy_ == nullptr && this->jobName_ == nullptr && this->labels_ == nullptr && this->labels2_ == nullptr
-        && this->md5_ == nullptr && this->msg_ == nullptr && this->object_ == nullptr && this->riskLevel_ == nullptr && this->riskLevel0_ == nullptr
-        && this->riskLevel2_ == nullptr && this->scanResult_ == nullptr && this->serviceCode_ == nullptr && this->serviceName_ == nullptr && this->taskId_ == nullptr
-        && this->url_ == nullptr; };
+        && this->imageUrl_ == nullptr && this->isCopy_ == nullptr && this->jobName_ == nullptr && this->labelDetails_ == nullptr && this->labelDetails2_ == nullptr
+        && this->labels_ == nullptr && this->labels2_ == nullptr && this->md5_ == nullptr && this->msg_ == nullptr && this->object_ == nullptr
+        && this->riskLevel_ == nullptr && this->riskLevel0_ == nullptr && this->riskLevel2_ == nullptr && this->scanResult_ == nullptr && this->serviceCode_ == nullptr
+        && this->serviceName_ == nullptr && this->taskId_ == nullptr && this->url_ == nullptr; };
       // bucket Field Functions 
       bool hasBucket() const { return this->bucket_ != nullptr;};
       void deleteBucket() { this->bucket_ = nullptr;};
@@ -166,6 +258,24 @@ namespace Models
       void deleteJobName() { this->jobName_ = nullptr;};
       inline string getJobName() const { DARABONBA_PTR_GET_DEFAULT(jobName_, "") };
       inline Items& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
+
+
+      // labelDetails Field Functions 
+      bool hasLabelDetails() const { return this->labelDetails_ != nullptr;};
+      void deleteLabelDetails() { this->labelDetails_ = nullptr;};
+      inline const vector<Items::LabelDetails> & getLabelDetails() const { DARABONBA_PTR_GET_CONST(labelDetails_, vector<Items::LabelDetails>) };
+      inline vector<Items::LabelDetails> getLabelDetails() { DARABONBA_PTR_GET(labelDetails_, vector<Items::LabelDetails>) };
+      inline Items& setLabelDetails(const vector<Items::LabelDetails> & labelDetails) { DARABONBA_PTR_SET_VALUE(labelDetails_, labelDetails) };
+      inline Items& setLabelDetails(vector<Items::LabelDetails> && labelDetails) { DARABONBA_PTR_SET_RVALUE(labelDetails_, labelDetails) };
+
+
+      // labelDetails2 Field Functions 
+      bool hasLabelDetails2() const { return this->labelDetails2_ != nullptr;};
+      void deleteLabelDetails2() { this->labelDetails2_ = nullptr;};
+      inline const vector<Items::LabelDetails2> & getLabelDetails2() const { DARABONBA_PTR_GET_CONST(labelDetails2_, vector<Items::LabelDetails2>) };
+      inline vector<Items::LabelDetails2> getLabelDetails2() { DARABONBA_PTR_GET(labelDetails2_, vector<Items::LabelDetails2>) };
+      inline Items& setLabelDetails2(const vector<Items::LabelDetails2> & labelDetails2) { DARABONBA_PTR_SET_VALUE(labelDetails2_, labelDetails2) };
+      inline Items& setLabelDetails2(vector<Items::LabelDetails2> && labelDetails2) { DARABONBA_PTR_SET_RVALUE(labelDetails2_, labelDetails2) };
 
 
       // labels Field Functions 
@@ -264,49 +374,53 @@ namespace Models
 
 
     protected:
-      // Storage space.
+      // The OSS bucket.
       shared_ptr<string> bucket_ {};
-      // Error code, consistent with HTTP status.
+      // The error code, which is consistent with the HTTP status code.
       shared_ptr<string> code_ {};
-      // Audio and video detection type.
+      // The audio and video detection type.
       shared_ptr<string> contentType_ {};
-      // Primary service.
+      // The primary service.
       shared_ptr<string> copyFrom_ {};
-      // Freeze status.
+      // The freeze status.
       shared_ptr<string> freezeStatus_ {};
-      // Freeze type.
+      // The freeze type.
       shared_ptr<string> freezeType_ {};
-      // Image URL address.
+      // The URL of the image.
       shared_ptr<string> imageUrl_ {};
-      // Whether to copy.
+      // Indicates whether the task is copied.
       shared_ptr<bool> isCopy_ {};
-      // Job name.
+      // The task name.
       shared_ptr<string> jobName_ {};
-      // Image labels.
+      // The list of labels hit by video frames.
+      shared_ptr<vector<Items::LabelDetails>> labelDetails_ {};
+      // The list of labels hit by video audio.
+      shared_ptr<vector<Items::LabelDetails2>> labelDetails2_ {};
+      // The image labels.
       shared_ptr<vector<string>> labels_ {};
-      // Text labels.
+      // The text labels.
       shared_ptr<vector<string>> labels2_ {};
-      // File MD5.
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // Further description of the error code.
+      // The description of the error code.
       shared_ptr<string> msg_ {};
-      // Object name.
+      // The object name.
       shared_ptr<string> object_ {};
-      // Image risk level
+      // The image risk level.
       shared_ptr<string> riskLevel_ {};
-      // Overall risk level
+      // The overall risk level.
       shared_ptr<string> riskLevel0_ {};
-      // Text risk level
+      // The text risk level.
       shared_ptr<string> riskLevel2_ {};
-      // Details of the result.
+      // The scan result details.
       shared_ptr<string> scanResult_ {};
-      // Service code.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Service name.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Task URL.
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -350,15 +464,15 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Data of the current page.
+    // The data on the current page.
     shared_ptr<vector<ListOssCheckResultResponseBody::Items>> items_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

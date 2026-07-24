@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // callback id.
+    // The ID of the message notification data.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -164,27 +164,27 @@ namespace Models
 
 
     protected:
-      // Internationalization key.
+      // The internationalization key.
       shared_ptr<string> i18nKey_ {};
-      // List of keywords with illegal length (too long or too short).
+      // The list of keywords that are too long or too short.
       shared_ptr<vector<string>> illegalLengthKeywords_ {};
-      // Invalid count.
+      // The number of invalid keywords.
       shared_ptr<int32_t> invalidCount_ {};
-      // List of invalid keywords.
+      // The list of invalid keywords.
       shared_ptr<vector<string>> invalidKeywords_ {};
-      // Keyword library ID.
+      // The keyword library ID.
       shared_ptr<string> libId_ {};
-      // Task progress percentage.
+      // The task progress percentage.
       shared_ptr<int32_t> progress_ {};
-      // Repeat count.
+      // The number of duplicate keywords.
       shared_ptr<int32_t> repeatCount_ {};
-      // List of repeated keywords.
+      // The list of duplicate keywords.
       shared_ptr<vector<string>> repeatKeywords_ {};
-      // Success count.
+      // The number of successfully imported keywords.
       shared_ptr<int32_t> successCount_ {};
-      // Tips message.
+      // The prompt information.
       shared_ptr<string> tips_ {};
-      // Total count.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -228,15 +228,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<GetKeywordImportResultResponseBody::Data> data_ {};
-    // Further description of the error code.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend to uniquely identify a request, which can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

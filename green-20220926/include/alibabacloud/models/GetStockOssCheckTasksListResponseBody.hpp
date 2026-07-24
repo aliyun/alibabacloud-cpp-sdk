@@ -188,9 +188,9 @@ namespace Models
 
 
         protected:
-          // Storage path for transfer
+          // The transfer path.
           shared_ptr<string> freezeRestorePath_ {};
-          // Freeze type
+          // The freeze type.
           shared_ptr<string> freezeType_ {};
         };
 
@@ -250,13 +250,13 @@ namespace Models
 
 
         protected:
-          // Primary service.
+          // The primary service.
           shared_ptr<string> copyFrom_ {};
-          // Whether to copy.
+          // Indicates whether the service is a copy.
           shared_ptr<bool> isCopy_ {};
-          // Service code.
+          // The service code.
           shared_ptr<string> serviceCode_ {};
-          // Service name.
+          // The service name.
           shared_ptr<string> serviceName_ {};
         };
 
@@ -443,53 +443,53 @@ namespace Models
 
 
       protected:
-        // Callback notification ID
+        // The callback notification ID.
         shared_ptr<int64_t> callbackId_ {};
-        // Whether to deduplicate historical detected tasks.
+        // Specifies whether to deduplicate historically scanned tasks.
         shared_ptr<bool> distinctHistoryTasks_ {};
-        // End time.
+        // The end time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // Scheduled task execution date.
+        // The execution date of the scheduled task.
         shared_ptr<int32_t> executeDate_ {};
-        // Scheduled task expected execution time.
+        // The expected execution time of the scheduled task. Format: HH:mm:ss.
         shared_ptr<string> executeTime_ {};
-        // Whether to freeze
+        // Specifies whether to freeze files.
         shared_ptr<bool> freeze_ {};
-        // Freeze high-risk images
+        // Specifies whether to freeze high-risk images.
         shared_ptr<bool> freezeHighRisk1_ {};
-        // Freeze high-risk audio and text
+        // Specifies whether to freeze high-risk audio and text.
         shared_ptr<bool> freezeHighRisk2_ {};
-        // Freeze medium-risk images
+        // Specifies whether to freeze medium-risk images.
         shared_ptr<bool> freezeMediumRisk1_ {};
-        // Freeze medium-risk audio and text
+        // Specifies whether to freeze medium-risk audio and text.
         shared_ptr<bool> freezeMediumRisk2_ {};
-        // Storage path for transfer
+        // The transfer path.
         shared_ptr<string> freezeRestorePath_ {};
-        // Freeze type
+        // The freeze type.
         shared_ptr<string> freezeType_ {};
-        // Prefix filter type.
+        // The prefix filter type.
         shared_ptr<string> prefixFilterType_ {};
-        // Prefixes.
+        // The prefix.
         shared_ptr<vector<string>> prefixFilters_ {};
-        // Priority.
+        // The priority.
         shared_ptr<int32_t> priority_ {};
-        // Referer
+        // Referer。
         shared_ptr<string> referer_ {};
-        // Scan limit quantity.
+        // The maximum number of files to scan.
         shared_ptr<int64_t> scanLimit_ {};
-        // Whether to scan images without file extensions.
+        // Specifies whether to scan images without file name extensions.
         shared_ptr<bool> scanNoFileType_ {};
-        // Scanned file type.
+        // The type of files to scan.
         shared_ptr<int32_t> scanResourceType_ {};
-        // Scan service code
+        // The scan service code.
         shared_ptr<vector<string>> scanService_ {};
-        // Scan service information
+        // The scan service information.
         shared_ptr<vector<Config::ScanServiceInfos>> scanServiceInfos_ {};
-        // Start time.
+        // The start time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // Scheduling date.
+        // The scheduling date.
         shared_ptr<int32_t> taskCycle_ {};
-        // Manual freeze configuration
+        // The manual freeze configuration.
         shared_ptr<Config::UserFreezeConfig> userFreezeConfig_ {};
       };
 
@@ -605,35 +605,35 @@ namespace Models
 
 
     protected:
-      // Storage space.
+      // The OSS bucket.
       shared_ptr<string> buckets_ {};
-      // Configuration items.
+      // The configuration item.
       shared_ptr<Items::Config> config_ {};
-      // End time.
+      // The end time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // Number of completed tasks.
+      // The number of completed tasks.
       shared_ptr<int64_t> finishNum_ {};
-      // Whether it is a scheduled scan task
+      // Indicates whether the task is a scheduled scan task.
       shared_ptr<bool> isInc_ {};
-      // Next execution time of the scheduled task
+      // The next execution time of the scheduled task. Format: HH:mm:ss.
       shared_ptr<string> lastExecuteDate_ {};
-      // Media type.
+      // The media asset type.
       shared_ptr<int32_t> mediaType_ {};
-      // Last execution time of the scheduled task
+      // The last execution time of the scheduled task. Format: HH:mm:ss.
       shared_ptr<string> nextExecuteDate_ {};
-      // Total number of files in the bucket
+      // The total number of files in the bucket.
       shared_ptr<int64_t> objectNum_ {};
-      // Number of scan tasks.
+      // The number of scan tasks.
       shared_ptr<int64_t> searchNum_ {};
-      // Start time.
+      // The start time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // Task status.
+      // The task status.
       shared_ptr<int32_t> status_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Task name.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // Task type
+      // The task type.
       shared_ptr<string> taskType_ {};
     };
 
@@ -677,15 +677,15 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Data of the current page.
+    // The data on the current page.
     shared_ptr<vector<GetStockOssCheckTasksListResponseBody::Items>> items_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Backend-assigned ID used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Total number of records.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

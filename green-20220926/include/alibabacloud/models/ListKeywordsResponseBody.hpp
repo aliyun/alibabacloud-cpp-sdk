@@ -122,6 +122,7 @@ namespace Models
 
 
         protected:
+          // The properties.
           shared_ptr<string> attribute_ {};
         };
 
@@ -180,18 +181,19 @@ namespace Models
 
 
       protected:
-        // Creation time.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Modification time.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Primary key ID.
+        // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Keyword library ID.
+        // The keyword library ID.
         shared_ptr<string> keywordLibId_ {};
-        // Keyword data ID.
+        // The keyword data ID.
         shared_ptr<int64_t> keywordMd5Id_ {};
+        // The properties.
         shared_ptr<Items::Properties> properties_ {};
-        // Keyword.
+        // The keyword.
         shared_ptr<string> word_ {};
       };
 
@@ -228,13 +230,13 @@ namespace Models
 
 
     protected:
-      // Current page number.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // Data of the current page.
+      // The data on the current page.
       shared_ptr<vector<Data::Items>> items_ {};
-      // Page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total count.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -278,15 +280,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<ListKeywordsResponseBody::Data> data_ {};
-    // Further description of the error code.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success flag.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

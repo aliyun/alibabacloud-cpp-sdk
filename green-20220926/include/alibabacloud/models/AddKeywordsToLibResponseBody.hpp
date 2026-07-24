@@ -172,25 +172,25 @@ namespace Models
 
 
       protected:
-        // Internationalization key.
+        // The internationalization key.
         shared_ptr<string> i18nKey_ {};
-        // List of keywords that are too long or too short.
+        // The list of keywords with illegal length (too long or too short).
         shared_ptr<vector<string>> illegalLengthKeywords_ {};
-        // Invalid keyword count.
+        // The number of invalid keywords.
         shared_ptr<int32_t> invalidCount_ {};
-        // List of invalid keywords
+        // The list of invalid keywords.
         shared_ptr<vector<string>> invalidKeywords_ {};
-        // The id of the keyword library.
+        // The keyword library ID.
         shared_ptr<string> libId_ {};
-        // The progress percentage of the task.
+        // The task progress percentage.
         shared_ptr<int32_t> progress_ {};
-        // Duplicate keyword count
+        // The number of duplicate keywords.
         shared_ptr<int32_t> repeatCount_ {};
-        // List of duplicate keywords
+        // The list of duplicate keywords.
         shared_ptr<vector<string>> repeatKeywords_ {};
-        // The success count of keywords.
+        // The number of successful keywords.
         shared_ptr<int32_t> successCount_ {};
-        // The total count of keywords.
+        // The total count.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -220,9 +220,9 @@ namespace Models
 
 
     protected:
-      // Result.
+      // The result.
       shared_ptr<Data::KeywordsResult> keywordsResult_ {};
-      // The id of the keyword library.
+      // The keyword library ID.
       shared_ptr<string> libId_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -247,9 +247,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<AddKeywordsToLibResponseBody::Data> data_ {};
-    // The request ID.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

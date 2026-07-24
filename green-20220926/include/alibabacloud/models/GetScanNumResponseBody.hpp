@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Upper limit of the quantity.
+    // The upper limit on the number.
     shared_ptr<int64_t> limitNumber_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Total number of files pending inspection.
+    // The total number of files pending detection.
     shared_ptr<int64_t> scanNumber_ {};
-    // Total number of files.
+    // The total number of files.
     shared_ptr<int64_t> sumNumber_ {};
-    // Whether it is a whitelist user.
+    // Indicates whether the user is a whitelisted user.
     shared_ptr<bool> tag_ {};
   };
 

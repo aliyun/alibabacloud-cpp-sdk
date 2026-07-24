@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The document configuration.
     shared_ptr<string> fileConfig_ {};
+    // The keyword filter libraries.
     shared_ptr<string> keywordFilterLibs_ {};
+    // The keyword hit libraries.
     shared_ptr<string> keywordHitLibs_ {};
+    // The machine-assisted moderation configuration.
     shared_ptr<string> manualMachineConfig_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The moderation scenario.
     shared_ptr<string> scene_ {};
+    // The scenario configuration.
     shared_ptr<string> sceneConfig_ {};
+    // The service code.
     shared_ptr<string> serviceCode_ {};
+    // The service configuration.
     shared_ptr<string> serviceConfig_ {};
+    // The video configuration.
     shared_ptr<string> videoConfig_ {};
   };
 

@@ -84,15 +84,20 @@ namespace Models
 
 
   protected:
-    // Keywords, with multiple keywords separated by \\n.
+    // The keywords. Separate multiple keywords with 
+    // .
     shared_ptr<string> keywords_ {};
-    // The name of the keywords file.
+    // The name of the keyword file.
     shared_ptr<string> keywordsObject_ {};
     // The name of the keyword library.
     shared_ptr<string> libName_ {};
+    // The properties.
     shared_ptr<string> properties_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The library code.
+    // 
+    // - desensitize: desensitization library
     shared_ptr<string> tenantCode_ {};
   };
 

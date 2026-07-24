@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Success indicator.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // query
+    // The returned data.
     shared_ptr<bool> data_ {};
-    // Status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+    // The response message.
     shared_ptr<string> msg_ {};
-    // Returned data
+    // The request ID. You can use this ID to locate issues.
     shared_ptr<string> requestId_ {};
-    // Response message of this request.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

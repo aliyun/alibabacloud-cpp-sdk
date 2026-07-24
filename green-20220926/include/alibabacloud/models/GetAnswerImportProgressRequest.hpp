@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

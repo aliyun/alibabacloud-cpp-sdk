@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // End date.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // Number of completed tasks.
+    // The number of completed tasks.
     shared_ptr<int64_t> finishNum_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Search condition.
+    // The search condition.
     shared_ptr<string> query_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Sort field.
+    // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // Start date.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
-    // Task status.
+    // The task status.
     shared_ptr<int32_t> status_ {};
   };
 

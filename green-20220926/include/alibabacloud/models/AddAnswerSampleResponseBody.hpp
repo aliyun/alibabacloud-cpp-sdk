@@ -151,15 +151,25 @@ namespace Models
 
 
     protected:
+      // The internationalization key.
       shared_ptr<string> i18nKey_ {};
+      // The collection of samples whose length is too long or too short.
       shared_ptr<vector<string>> illegalLengthSamples_ {};
+      // The number of invalid records.
       shared_ptr<int32_t> invalidCount_ {};
+      // The ID of the proxy answer library.
       shared_ptr<string> libId_ {};
+      // The progress. For example, 90 indicates 90%.
       shared_ptr<int32_t> progress_ {};
+      // The number of duplicate records.
       shared_ptr<int32_t> repeatCount_ {};
+      // The collection of duplicate samples.
       shared_ptr<vector<string>> repeatSamples_ {};
+      // The number of successful records.
       shared_ptr<int32_t> successCount_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -196,9 +206,13 @@ namespace Models
 
 
   protected:
+    // The ID of the proxy answer library.
     shared_ptr<string> libId_ {};
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The result.
     shared_ptr<AddAnswerSampleResponseBody::Result> result_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

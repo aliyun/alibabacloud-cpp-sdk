@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Export result.
+    // The export result.
     shared_ptr<string> data_ {};
-    // ID assigned by the backend, used to uniquely identify a request. It can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

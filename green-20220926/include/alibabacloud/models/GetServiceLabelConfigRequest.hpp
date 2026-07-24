@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service code.
+    // The service code.
     shared_ptr<string> serviceCode_ {};
   };
 

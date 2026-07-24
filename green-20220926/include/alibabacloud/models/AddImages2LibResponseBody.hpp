@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The id of the uploaded image.
+      // The image ID.
       shared_ptr<string> imgId_ {};
     };
 
@@ -118,17 +118,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<AddImages2LibResponseBody::Data> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message that is returned in response to the request.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

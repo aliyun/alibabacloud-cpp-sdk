@@ -77,6 +77,7 @@ namespace Models
 
 
   protected:
+    // channel
     shared_ptr<string> channel_ {};
     // Conversation information
     Darabonba::Json messages_ {};

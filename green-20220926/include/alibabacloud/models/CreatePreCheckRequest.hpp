@@ -167,34 +167,35 @@ namespace Models
 
 
   protected:
+    // The filter configuration for each bucket. The value can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and a list of filter strings.
     shared_ptr<string> bucketPrefixFilterConfig_ {};
-    // Buckets.
+    // The OSS buckets.
     shared_ptr<string> buckets_ {};
-    // Whether to deduplicate historical detected tasks.
+    // Specifies whether to deduplicate against historically scanned tasks.
     shared_ptr<bool> distinctHistoryTasks_ {};
-    // Task end time.
+    // The task end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
-    // Whether it is a scheduled scan task.
+    // Specifies whether the task is a scheduled scan task.
     shared_ptr<bool> isInc_ {};
-    // Media type.
+    // The media asset type.
     shared_ptr<int32_t> mediaType_ {};
-    // Prefix filter type.
+    // The prefix filter type.
     shared_ptr<string> prefixFilterType_ {};
-    // Prefixes.
+    // The prefixes.
     shared_ptr<string> prefixFilters_ {};
-    // Priority.
+    // The priority.
     shared_ptr<int32_t> priority_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Scan limit count.
+    // The maximum number of items to scan.
     shared_ptr<int64_t> scanLimit_ {};
-    // Whether to scan images without file extensions.
+    // Specifies whether to scan images without file extensions.
     shared_ptr<bool> scanNoFileType_ {};
-    // Scan service code.
+    // The scan service code.
     shared_ptr<string> scanService_ {};
-    // Task start time.
+    // The task start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
-    // Task name.
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Audit result data.
+    // The audit result data.
     shared_ptr<bool> data_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

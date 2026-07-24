@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Feedback
+    // The feedback.
     shared_ptr<string> feedback_ {};
-    // Labels.
+    // The labels.
     shared_ptr<string> labels_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> queryRequestId_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource Type
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Risk Level
+    // The risk level.
     shared_ptr<string> riskLevel_ {};
   };
 

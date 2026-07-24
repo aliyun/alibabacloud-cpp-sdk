@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // OSS file storage bucket name.
+      // The name of the OSS bucket where files are stored.
       shared_ptr<string> bucket_ {};
-      // Region.
+      // The region.
       shared_ptr<string> region_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<GetBackupBucketsListResponseBody::Data>> data_ {};
-    // Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

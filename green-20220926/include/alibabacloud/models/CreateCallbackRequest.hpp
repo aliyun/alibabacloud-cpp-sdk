@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Encryption algorithm.
+    // The encryption algorithm.
     shared_ptr<string> cryptType_ {};
-    // Plan name.
+    // The name of the scheme.
     shared_ptr<string> name_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Review result.
+    // The moderation result.
     shared_ptr<string> scope_ {};
-    // Callback URL.
+    // The callback URL.
     shared_ptr<string> url_ {};
   };
 

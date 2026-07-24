@@ -220,39 +220,39 @@ namespace Models
 
 
     protected:
-      // Data of the current page.
+      // The name of the OSS bucket.
       shared_ptr<string> bucket_ {};
-      // Service code.
+      // The status code. A value of 200 indicates success.
       shared_ptr<string> code_ {};
-      // Primary service.
+      // The audio and video detection type.
       shared_ptr<string> contentType_ {};
-      // Whether to copy.
+      // The primary service.
       shared_ptr<string> copyFrom_ {};
-      // Details of the result.
+      // The URL of the image.
       shared_ptr<string> imageUrl_ {};
-      // Service name.
+      // Indicates whether the task is copied.
       shared_ptr<bool> isCopy_ {};
-      // Image URL.
+      // The task name.
       shared_ptr<string> jobName_ {};
-      // Further description of the error code.
+      // The image labels.
       shared_ptr<vector<string>> labels_ {};
-      // Job name.
+      // The text labels.
       shared_ptr<vector<string>> labels2_ {};
-      // Object name.
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // Status code. 200 indicates success.
+      // The description of the error code.
       shared_ptr<string> msg_ {};
-      // OSS Bucket name.
+      // The object name.
       shared_ptr<string> object_ {};
-      // Image labels.
+      // The result details.
       shared_ptr<string> scanResult_ {};
-      // File MD5.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Task ID.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // Task URL.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Text labels.
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -303,17 +303,17 @@ namespace Models
 
 
   protected:
-    // Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+    // The authorization status.
     shared_ptr<string> authStatus_ {};
-    // Page size.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Current page number.
+    // The data on the current page.
     shared_ptr<vector<OssCheckResultListResponseBody::Items>> items_ {};
-    // Total number of records.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Task status.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Authorization status.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

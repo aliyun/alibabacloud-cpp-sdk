@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Quantity of invalid items.
     shared_ptr<int32_t> invalidCount_ {};
+    // Quantity of duplicates.
     shared_ptr<int32_t> repeatCount_ {};
+    // The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Number of succeeded items.
     shared_ptr<int32_t> successCount_ {};
+    // Tips message.
     shared_ptr<string> tips_ {};
+    // Total quantity.
     shared_ptr<int32_t> totalCount_ {};
   };
 

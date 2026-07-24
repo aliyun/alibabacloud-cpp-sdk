@@ -107,15 +107,15 @@ namespace Models
 
 
     protected:
-      // List of feature configurations
+      // The list of feature configurations.
       shared_ptr<vector<Darabonba::Json>> featureConf_ {};
-      // Resource type.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // Service code.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // Type
+      // The type.
       shared_ptr<string> type_ {};
-      // UID.
+      // UID。
       shared_ptr<string> uid_ {};
     };
 
@@ -166,17 +166,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<GetFeatureConfigResponseBody::Data> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message for this request.
+    // The response message for this request.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

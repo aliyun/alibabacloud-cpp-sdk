@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // The label description.
         shared_ptr<string> description_ {};
+        // The labels.
         shared_ptr<string> label_ {};
+        // The reason why the model determined this risk level for the text.
         shared_ptr<string> reason_ {};
       };
 
@@ -133,8 +136,19 @@ namespace Models
 
 
     protected:
+      // The content.
       shared_ptr<string> content_ {};
+      // The labels.
       shared_ptr<vector<Result::LabelDetails>> labelDetails_ {};
+      // The risk level, which is returned based on the configured high and low risk scores. Valid values:
+      // 
+      // - high: High risk.
+      // 
+      // - medium: Medium risk.
+      //  
+      // - low: Low risk.
+      // 
+      //  - none: No risk detected.
       shared_ptr<string> riskLevel_ {};
     };
 
@@ -157,7 +171,9 @@ namespace Models
 
 
   protected:
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The result.
     shared_ptr<vector<GetPromptTestResultResponseBody::Result>> result_ {};
   };
 

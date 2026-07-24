@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Comment information for the library.
+    // The remarks of the image library.
     shared_ptr<string> comment_ {};
-    // Exemption from review configuration.
+    // The review-free configuration.
     shared_ptr<int32_t> freeInspection_ {};
-    // Library ID.
+    // The ID of the image library.
     shared_ptr<string> libId_ {};
-    // Library name.
+    // The name of the image library.
     shared_ptr<string> libName_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

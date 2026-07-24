@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The selected service identifier.
     shared_ptr<string> serviceCode_ {};
   };
 

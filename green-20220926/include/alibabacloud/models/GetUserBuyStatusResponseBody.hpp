@@ -102,14 +102,15 @@ namespace Models
 
 
     protected:
-      // Bid.
+      // Bid。
       shared_ptr<int64_t> bid_ {};
-      // Indicates whether the product has been activated on Alibaba Cloud.
+      // Indicates whether the commodity is activated on Alibaba Cloud.
       shared_ptr<bool> buy_ {};
-      // Indicates whether there is an outstanding payment.
+      // Indicates whether there is an overdue payment.
       shared_ptr<bool> indebt_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Tag.
+      // The label.
       shared_ptr<string> tag_ {};
     };
 
@@ -153,15 +154,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<GetUserBuyStatusResponseBody::Data> data_ {};
-    // Further description of the error code.
+    // The description of the error code.
     shared_ptr<string> msg_ {};
-    // ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify the request. This ID can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

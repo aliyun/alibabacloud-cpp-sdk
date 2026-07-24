@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // End date.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // Image ID.
+    // The image ID.
     shared_ptr<string> imgId_ {};
-    // Gallery ID.
+    // The image library ID.
     shared_ptr<string> libId_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Sort field.
+    // The sort field.
     shared_ptr<string> sortShrink_ {};
-    // Start date.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

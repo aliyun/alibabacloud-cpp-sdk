@@ -75,14 +75,21 @@ namespace Models
 
 
   protected:
-    // Category.
+    // The classification.
     shared_ptr<string> classify_ {};
+    // The protection type. Valid values:
+    // 
+    // - modelProtection: model protection.
+    // 
+    // - agentRealtimeProtection: agent real-time protection.
+    // 
+    // - agentBehaviorAudit: agent behavior audit.
     shared_ptr<string> protectionType_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Usage status.
+    // The usage status.
     shared_ptr<string> useStatus_ {};
   };
 

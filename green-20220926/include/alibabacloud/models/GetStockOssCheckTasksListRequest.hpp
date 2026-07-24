@@ -115,23 +115,23 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // End time.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
-    // Whether it is a scheduled scan task.
+    // Specifies whether the task is a scheduled scan task.
     shared_ptr<bool> isInc_ {};
-    // Media type.
+    // The media asset type.
     shared_ptr<int32_t> mediaType_ {};
-    // Page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Sort field.
+    // The sort field.
     shared_ptr<map<string, string>> sort_ {};
-    // Start time.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
-    // Task type.
+    // The task type.
     shared_ptr<string> taskType_ {};
   };
 

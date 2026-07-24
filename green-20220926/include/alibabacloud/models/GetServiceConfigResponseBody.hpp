@@ -148,15 +148,16 @@ namespace Models
 
 
         protected:
-          // Risk levels.
+          // The risk levels.
           shared_ptr<vector<string>> auditRiskLevels_ {};
-          // Callback notification ID
+          // The callback notification ID.
           shared_ptr<int64_t> callbackId_ {};
-          // Whether to enable. Values:
-          // - **true**: Enabled
-          // - **false**: Disabled
+          // Specifies whether to enable the feature. Valid values:
+          // 
+          // - **true**: Enabled.
+          // - **false**: Disabled.
           shared_ptr<bool> enable_ {};
-          // Manual review service
+          // The manual review service.
           shared_ptr<string> manualService_ {};
         };
 
@@ -199,13 +200,13 @@ namespace Models
 
 
       protected:
-        // Ignore word libraries.
+        // The ignored keyword libraries.
         shared_ptr<vector<string>> keywordFilterLibs_ {};
-        // Hit word libraries.
+        // The hit keyword libraries.
         shared_ptr<vector<string>> keywordHitLibs_ {};
-        // Human-machine review configuration.
+        // The machine-assisted moderation configuration.
         shared_ptr<CustomServiceConf::ManualMachineConfig> manualMachineConfig_ {};
-        // Hit similar text libraries.
+        // The hit similar text libraries.
         shared_ptr<vector<string>> similarTextHitLibs_ {};
       };
 
@@ -249,15 +250,15 @@ namespace Models
 
 
     protected:
-      // Custom service details
+      // The custom service details.
       shared_ptr<Data::CustomServiceConf> customServiceConf_ {};
-      // Modification time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // Resource type.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // Service code.
+      // The service code.
       shared_ptr<string> serviceCode_ {};
-      // UID.
+      // UID。
       shared_ptr<string> uid_ {};
     };
 
@@ -301,15 +302,15 @@ namespace Models
 
 
   protected:
-    // Error code.
+    // The error code.
     shared_ptr<int32_t> code_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<GetServiceConfigResponseBody::Data> data_ {};
-    // Further description of the error code.
+    // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Success indicator.
+    // The success flag.
     shared_ptr<bool> success_ {};
   };
 

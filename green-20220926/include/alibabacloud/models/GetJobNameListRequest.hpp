@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // End date.
+    // The end time. Format: `YYYY-MM-DD HH:mm:ss`.
     shared_ptr<string> endDate_ {};
-    // Query condition.
+    // The query condition.
     shared_ptr<string> query_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Sort field.
+    // The sort field.
     shared_ptr<map<string, string>> sort_ {};
-    // Start date.
+    // The start time. Format: `YYYY-MM-DD HH:mm:ss`.
     shared_ptr<string> startDate_ {};
   };
 

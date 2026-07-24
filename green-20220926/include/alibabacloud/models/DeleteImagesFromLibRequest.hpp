@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the images.
+    // The IDs of the images to delete.
     shared_ptr<string> imageIds_ {};
-    // Library ID.
+    // The ID of the image library.
     shared_ptr<string> libId_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 
