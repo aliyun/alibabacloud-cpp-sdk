@@ -106,7 +106,7 @@ namespace Yike20260319
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
-       * @summary 创建一刻云剪辑工程
+       * @summary Creates a cloud editing project.
        *
        * @param request CreateYikeEditingProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Yike20260319
       Models::CreateYikeEditingProjectResponse createYikeEditingProjectWithOptions(const Models::CreateYikeEditingProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一刻云剪辑工程
+       * @summary Creates a cloud editing project.
        *
        * @param request CreateYikeEditingProjectRequest
        * @return CreateYikeEditingProjectResponse
@@ -193,8 +193,7 @@ namespace Yike20260319
       /**
        * @summary Queries an image generation task.
        *
-       * @description ## Request description
-       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
        *
        * @param request GetImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -205,8 +204,7 @@ namespace Yike20260319
       /**
        * @summary Queries an image generation task.
        *
-       * @description ## Request description
-       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
        *
        * @param request GetImageGenerationJobRequest
        * @return GetImageGenerationJobResponse
@@ -214,7 +212,9 @@ namespace Yike20260319
       Models::GetImageGenerationJobResponse getImageGenerationJob(const Models::GetImageGenerationJobRequest &request);
 
       /**
-       * @summary Queries a video generation task.
+       * @summary Queries an AI video generation task.
+       *
+       * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
        *
        * @param request GetVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +223,9 @@ namespace Yike20260319
       Models::GetVideoGenerationJobResponse getVideoGenerationJobWithOptions(const Models::GetVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a video generation task.
+       * @summary Queries an AI video generation task.
+       *
+       * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
        *
        * @param request GetVideoGenerationJobRequest
        * @return GetVideoGenerationJobResponse
@@ -282,6 +284,23 @@ namespace Yike20260319
       Models::GetYikeAgentJobResponse getYikeAgentJob(const Models::GetYikeAgentJobRequest &request);
 
       /**
+       * @summary 查询一刻口播任务预估积分
+       *
+       * @param request GetYikeAgentJobEstimatedCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAgentJobEstimatedCreditResponse
+       */
+      Models::GetYikeAgentJobEstimatedCreditResponse getYikeAgentJobEstimatedCreditWithOptions(const Models::GetYikeAgentJobEstimatedCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻口播任务预估积分
+       *
+       * @param request GetYikeAgentJobEstimatedCreditRequest
+       * @return GetYikeAgentJobEstimatedCreditResponse
+       */
+      Models::GetYikeAgentJobEstimatedCreditResponse getYikeAgentJobEstimatedCredit(const Models::GetYikeAgentJobEstimatedCreditRequest &request);
+
+      /**
        * @summary Retrieves the content information of a media asset.
        *
        * @param request GetYikeAssetMediaInfoRequest
@@ -297,6 +316,23 @@ namespace Yike20260319
        * @return GetYikeAssetMediaInfoResponse
        */
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
+
+      /**
+       * @summary 查询一刻任务实际消耗积分
+       *
+       * @param request GetYikeJobCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeJobCreditResponse
+       */
+      Models::GetYikeJobCreditResponse getYikeJobCreditWithOptions(const Models::GetYikeJobCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻任务实际消耗积分
+       *
+       * @param request GetYikeJobCreditRequest
+       * @return GetYikeJobCreditResponse
+       */
+      Models::GetYikeJobCreditResponse getYikeJobCredit(const Models::GetYikeJobCreditRequest &request);
 
       /**
        * @summary Queries the information and results of an editing project export task.
@@ -486,7 +522,7 @@ namespace Yike20260319
       Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfo(const Models::RegisterYikeAssetMediaInfoRequest &request);
 
       /**
-       * @summary Resumes the execution of a storyboard task.
+       * @summary Resumes the execution of a storyboard job.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -495,7 +531,7 @@ namespace Yike20260319
       Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJobWithOptions(const Models::ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes the execution of a storyboard task.
+       * @summary Resumes the execution of a storyboard job.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @return ResumeYikeStoryboardJobResponse
@@ -556,8 +592,7 @@ namespace Yike20260319
       /**
        * @summary Submits an image generation task.
        *
-       * @description ## Request description
-       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
        *
        * @param request SubmitImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -568,8 +603,7 @@ namespace Yike20260319
       /**
        * @summary Submits an image generation task.
        *
-       * @description ## Request description
-       * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
        *
        * @param request SubmitImageGenerationJobRequest
        * @return SubmitImageGenerationJobResponse
@@ -577,10 +611,9 @@ namespace Yike20260319
       Models::SubmitImageGenerationJobResponse submitImageGenerationJob(const Models::SubmitImageGenerationJobRequest &request);
 
       /**
-       * @summary Submits a video generation task.
+       * @summary Submits an AI video generation task.
        *
-       * @description ## Request description
-       * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
        *
        * @param request SubmitVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -589,10 +622,9 @@ namespace Yike20260319
       Models::SubmitVideoGenerationJobResponse submitVideoGenerationJobWithOptions(const Models::SubmitVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video generation task.
+       * @summary Submits an AI video generation task.
        *
-       * @description ## Request description
-       * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+       * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
        *
        * @param request SubmitVideoGenerationJobRequest
        * @return SubmitVideoGenerationJobResponse
@@ -731,7 +763,7 @@ namespace Yike20260319
       Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJob(const Models::SubmitYikeVoiceNarratorJobRequest &request);
 
       /**
-       * @summary Update a Yike project
+       * @summary Updates a China Short Video (Yike) project.
        *
        * @param request UpdateYikeProductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -740,7 +772,7 @@ namespace Yike20260319
       Models::UpdateYikeProductionResponse updateYikeProductionWithOptions(const Models::UpdateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a Yike project
+       * @summary Updates a China Short Video (Yike) project.
        *
        * @param request UpdateYikeProductionRequest
        * @return UpdateYikeProductionResponse

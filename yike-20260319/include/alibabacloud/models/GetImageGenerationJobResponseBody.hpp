@@ -170,15 +170,15 @@ namespace Models
 
 
     protected:
-      // The video aspect ratio.
+      // The aspect ratio of the video.
       shared_ptr<string> aspectRatio_ {};
-      // The error message. This parameter is returned only when the task is in the Failed state.
+      // The error message. The value is of the String type. This parameter is returned when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The task input.
       shared_ptr<string> input_ {};
       // The task ID.
       shared_ptr<string> jobId_ {};
-      // The task feature configuration. No configuration is required at this time.
+      // The task feature configuration. You do not need to set this parameter.
       shared_ptr<string> jobParameters_ {};
       // The task type.
       shared_ptr<string> jobType_ {};
@@ -186,14 +186,14 @@ namespace Models
       shared_ptr<string> model_ {};
       // The number of generated images.
       shared_ptr<string> n_ {};
-      // The generation result in JSON string format. Fields:
-      // - Medias: a list of media information (Media objects). Fields of a Media object:
-      //   - MediaId: String. The media asset ID.
-      //   - OutputUrl: String. The media URL (with authentication string).
+      // The generation result. The value is a JSON string that contains the following fields:
+      // - Medias: a list of media information (Media objects). A Media object contains the following fields:
+      //   - MediaId: the media asset ID. The value is of the String type.
+      //   - OutputUrl: the media URL (with an authentication string). The value is of the String type.
       shared_ptr<string> output_ {};
       // The resolution of the generated video.
       shared_ptr<string> resolution_ {};
-      // The scenario type. Currently, only `general` is supported.
+      // The scene type. Currently, only `general` is supported.
       shared_ptr<string> scene_ {};
       // The task status. Valid values:
       // - Created: The task is created.
@@ -202,7 +202,7 @@ namespace Models
       // - Finished: The task is completed.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The custom business information.
+      // The user business information.
       shared_ptr<string> userData_ {};
     };
 

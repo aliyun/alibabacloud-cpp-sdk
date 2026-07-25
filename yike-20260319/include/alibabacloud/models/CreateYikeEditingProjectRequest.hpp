@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The cover URL of the cloud editing project.
     shared_ptr<string> coverURL_ {};
+    // The materials associated with the project. Separate multiple materials with commas (,). A maximum of 10 material IDs are supported for each type.
     shared_ptr<string> materialMaps_ {};
+    // The timeline of the cloud editing project in JSON format.
     shared_ptr<string> timeline_ {};
+    // The title of the cloud editing project.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

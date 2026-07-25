@@ -183,13 +183,13 @@ namespace Models
       shared_ptr<string> aspectRatio_ {};
       // The video duration. Unit: seconds.
       shared_ptr<string> duration_ {};
-      // The error message. This parameter is returned only when the task is in the Failed state.
+      // The error message. This parameter is returned when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The task input.
       shared_ptr<string> input_ {};
       // The task ID.
       shared_ptr<string> jobId_ {};
-      // The task feature configuration. This parameter does not need to be set.
+      // The task feature configuration. You do not need to set this parameter.
       shared_ptr<string> jobParameters_ {};
       // The task type.
       shared_ptr<string> jobType_ {};
@@ -199,9 +199,9 @@ namespace Models
       shared_ptr<int32_t> n_ {};
       // The generation result. The value is a JSON string that contains the following fields:
       // 
-      // Medias: a list of Media objects. Each Media object contains the following fields:
+      // Medias: a list of media information (Media objects). A Media object contains the following fields:
       // MediaId: String. The media asset ID.
-      // OutputUrl: String. The media URL (with the authentication string).
+      // OutputUrl: String. The media URL (with an authentication string).
       shared_ptr<string> output_ {};
       // The resolution.
       shared_ptr<string> resolution_ {};
@@ -214,7 +214,7 @@ namespace Models
       // - Finished: The task is completed.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The user business information.
+      // The custom business information.
       shared_ptr<string> userData_ {};
     };
 

@@ -48,9 +48,15 @@
 #include <alibabacloud/models/GetYikeAgentJobRequest.hpp>
 #include <alibabacloud/models/GetYikeAgentJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAgentJobResponse.hpp>
+#include <alibabacloud/models/GetYikeAgentJobEstimatedCreditRequest.hpp>
+#include <alibabacloud/models/GetYikeAgentJobEstimatedCreditResponseBody.hpp>
+#include <alibabacloud/models/GetYikeAgentJobEstimatedCreditResponse.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoRequest.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponse.hpp>
+#include <alibabacloud/models/GetYikeJobCreditRequest.hpp>
+#include <alibabacloud/models/GetYikeJobCreditResponseBody.hpp>
+#include <alibabacloud/models/GetYikeJobCreditResponse.hpp>
 #include <alibabacloud/models/GetYikeProjectExportJobRequest.hpp>
 #include <alibabacloud/models/GetYikeProjectExportJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeProjectExportJobResponse.hpp>

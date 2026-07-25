@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The task ID. You can obtain this value from the response parameters of the [Submit a packaging task](https://help.aliyun.com/document_detail/461964.html) operation.
+    // The job ID. You can obtain this value from the response parameters of [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html).
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -262,7 +262,7 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUpload(const CreateYikeAsse
 }
 
 /**
- * @summary 创建一刻云剪辑工程
+ * @summary Creates a cloud editing project.
  *
  * @param request CreateYikeEditingProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -307,7 +307,7 @@ CreateYikeEditingProjectResponse Client::createYikeEditingProjectWithOptions(con
 }
 
 /**
- * @summary 创建一刻云剪辑工程
+ * @summary Creates a cloud editing project.
  *
  * @param request CreateYikeEditingProjectRequest
  * @return CreateYikeEditingProjectResponse
@@ -516,8 +516,7 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const Delete
 /**
  * @summary Queries an image generation task.
  *
- * @description ## Request description
- * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
  *
  * @param request GetImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -550,8 +549,7 @@ GetImageGenerationJobResponse Client::getImageGenerationJobWithOptions(const Get
 /**
  * @summary Queries an image generation task.
  *
- * @description ## Request description
- * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
  *
  * @param request GetImageGenerationJobRequest
  * @return GetImageGenerationJobResponse
@@ -562,7 +560,9 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 }
 
 /**
- * @summary Queries a video generation task.
+ * @summary Queries an AI video generation task.
+ *
+ * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +593,9 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary Queries a video generation task.
+ * @summary Queries an AI video generation task.
+ *
+ * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -723,6 +725,52 @@ GetYikeAgentJobResponse Client::getYikeAgentJob(const GetYikeAgentJobRequest &re
 }
 
 /**
+ * @summary 查询一刻口播任务预估积分
+ *
+ * @param request GetYikeAgentJobEstimatedCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeAgentJobEstimatedCreditResponse
+ */
+GetYikeAgentJobEstimatedCreditResponse Client::getYikeAgentJobEstimatedCreditWithOptions(const GetYikeAgentJobEstimatedCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobAction()) {
+    body["JobAction"] = request.getJobAction();
+  }
+
+  if (!!request.hasJobParams()) {
+    body["JobParams"] = request.getJobParams();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetYikeAgentJobEstimatedCredit"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeAgentJobEstimatedCreditResponse>();
+}
+
+/**
+ * @summary 查询一刻口播任务预估积分
+ *
+ * @param request GetYikeAgentJobEstimatedCreditRequest
+ * @return GetYikeAgentJobEstimatedCreditResponse
+ */
+GetYikeAgentJobEstimatedCreditResponse Client::getYikeAgentJobEstimatedCredit(const GetYikeAgentJobEstimatedCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeAgentJobEstimatedCreditWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the content information of a media asset.
  *
  * @param request GetYikeAssetMediaInfoRequest
@@ -762,6 +810,48 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfoWithOptions(const Get
 GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMediaInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getYikeAssetMediaInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询一刻任务实际消耗积分
+ *
+ * @param request GetYikeJobCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeJobCreditResponse
+ */
+GetYikeJobCreditResponse Client::getYikeJobCreditWithOptions(const GetYikeJobCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetYikeJobCredit"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeJobCreditResponse>();
+}
+
+/**
+ * @summary 查询一刻任务实际消耗积分
+ *
+ * @param request GetYikeJobCreditRequest
+ * @return GetYikeJobCreditResponse
+ */
+GetYikeJobCreditResponse Client::getYikeJobCredit(const GetYikeJobCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeJobCreditWithOptions(request, runtime);
 }
 
 /**
@@ -1271,7 +1361,7 @@ RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfo(const Regi
 }
 
 /**
- * @summary Resumes the execution of a storyboard task.
+ * @summary Resumes the execution of a storyboard job.
  *
  * @param request ResumeYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1302,7 +1392,7 @@ ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJobWithOptions(const
 }
 
 /**
- * @summary Resumes the execution of a storyboard task.
+ * @summary Resumes the execution of a storyboard job.
  *
  * @param request ResumeYikeStoryboardJobRequest
  * @return ResumeYikeStoryboardJobResponse
@@ -1453,8 +1543,7 @@ SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditReque
 /**
  * @summary Submits an image generation task.
  *
- * @description ## Request description
- * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1523,8 +1612,7 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 /**
  * @summary Submits an image generation task.
  *
- * @description ## Request description
- * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -1535,10 +1623,9 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 }
 
 /**
- * @summary Submits a video generation task.
+ * @summary Submits an AI video generation task.
  *
- * @description ## Request description
- * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
  *
  * @param request SubmitVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1609,10 +1696,9 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
 }
 
 /**
- * @summary Submits a video generation task.
+ * @summary Submits an AI video generation task.
  *
- * @description ## Request description
- * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+ * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
  *
  * @param request SubmitVideoGenerationJobRequest
  * @return SubmitVideoGenerationJobResponse
@@ -2031,7 +2117,7 @@ SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJob(const Subm
 }
 
 /**
- * @summary Update a Yike project
+ * @summary Updates a China Short Video (Yike) project.
  *
  * @param request UpdateYikeProductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2066,7 +2152,7 @@ UpdateYikeProductionResponse Client::updateYikeProductionWithOptions(const Updat
 }
 
 /**
- * @summary Update a Yike project
+ * @summary Updates a China Short Video (Yike) project.
  *
  * @param request UpdateYikeProductionRequest
  * @return UpdateYikeProductionResponse

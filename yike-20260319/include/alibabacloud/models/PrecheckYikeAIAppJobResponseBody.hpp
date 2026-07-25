@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The cause of the parameter check failure.
+      // The cause of the parameter check exception.
       shared_ptr<string> errorCode_ {};
       // The application parameter name.
       shared_ptr<string> key_ {};
@@ -106,7 +106,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The parameters that failed the pre-check. This parameter is returned only when the pre-check fails.
+    // The check results returned when the pre-check fails. Only the parameters that failed the check are returned.
     shared_ptr<vector<PrecheckYikeAIAppJobResponseBody::Result>> result_ {};
     // The pre-check result. Valid values:
     // 
