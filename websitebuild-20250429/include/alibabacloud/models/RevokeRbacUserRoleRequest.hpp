@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
+    // The user role information.
     shared_ptr<string> userRoleData_ {};
   };
 

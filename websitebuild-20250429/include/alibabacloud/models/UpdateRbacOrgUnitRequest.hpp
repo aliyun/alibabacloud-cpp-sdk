@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The organization parameters.
     shared_ptr<string> orgUnitData_ {};
+    // The organization ID.
     shared_ptr<string> orgUnitId_ {};
   };
 

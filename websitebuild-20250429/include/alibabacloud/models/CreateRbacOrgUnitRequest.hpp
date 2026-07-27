@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The site ID.
     shared_ptr<string> bizId_ {};
+    // The organization parameters.
     shared_ptr<string> orgUnitData_ {};
   };
 

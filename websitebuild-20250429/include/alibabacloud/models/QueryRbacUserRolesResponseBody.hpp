@@ -150,10 +150,15 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createdAt_ {};
+        // The primary key.
         shared_ptr<string> id_ {};
+        // The enterprise organization ID.
         shared_ptr<string> orgId_ {};
+        // The role ID. The system automatically generates a unique identifier.
         shared_ptr<string> roleId_ {};
+        // The site end-user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -222,10 +227,19 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createdAt_ {};
+        // The primary key.
         shared_ptr<string> id_ {};
+        // The enterprise identifier, also known as the enterprise ID, in string format. You can obtain it from the Yunxiao access URL, such as https://devops.aliyun.com/organization/【OrgId】.
         shared_ptr<string> orgId_ {};
+        // The preset workspace role ID. The existing role is overwritten. Valid values:
+        // - 25: workspace administrator
+        // - 26: workspace developer
+        // - 27: workspace analyst
+        // - 30: workspace viewer
         shared_ptr<string> roleId_ {};
+        // The site end-user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -300,14 +314,23 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // The next feature ID.
       shared_ptr<Module::Next> next_ {};
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
+      // In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -396,16 +419,27 @@ namespace Models
 
 
   protected:
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message. This parameter is not in use. Ignore it.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The response data.
     shared_ptr<QueryRbacUserRolesResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

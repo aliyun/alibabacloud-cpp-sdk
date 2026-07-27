@@ -84,11 +84,22 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The organization role ID, including predefined roles and custom roles:
+    // 
+    // - Organization administrator (predefined role): 111111111
+    // - Permission management administrator (predefined role): 111111112
+    // - Regular user (predefined role): 111111113
+    // - Custom role: the role ID of the custom role
     shared_ptr<string> roleId_ {};
   };
 

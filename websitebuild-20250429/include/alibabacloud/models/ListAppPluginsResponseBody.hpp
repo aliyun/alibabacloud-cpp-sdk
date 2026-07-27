@@ -219,8 +219,8 @@ namespace Models
       shared_ptr<string> desc_ {};
       // The image display mode. Valid values:
       // 
-      // - **0** (None): Not displayed.
-      // - **1** (Always): Always displayed.
+      // - **0** (None): not displayed.
+      // - **1** (Always): always displayed.
       shared_ptr<int32_t> display_ {};
       // Specifies whether scheduled delivery of resource snapshots is enabled.
       // 
@@ -244,7 +244,7 @@ namespace Models
       shared_ptr<string> icon_ {};
       // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the entry is deleted. Valid values: 0 (no) and 1 (yes).
+      // Indicates whether the item is deleted. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> isDeleted_ {};
       // The plug-in name.
       shared_ptr<string> name_ {};
@@ -354,7 +354,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -362,10 +362,10 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the DtsJobId request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error arguments.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The number of entries per query.
     // 
@@ -373,7 +373,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response object.
     shared_ptr<vector<ListAppPluginsResponseBody::Module>> module_ {};
-    // The token for the next query. This parameter is empty if no more results are available.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The business instance ID.
     shared_ptr<string> bizId_ {};
+    // The permission ID.
     shared_ptr<string> permissionId_ {};
   };
 

@@ -20,8 +20,8 @@ namespace WebsiteBuild20250429
 AlibabaCloud::WebsiteBuild20250429::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"public" , "websitebuild.aliyuncs.com"},
-    {"cn-zhangjiakou" , "websitebuild.aliyuncs.com"}
+    {"cn-zhangjiakou" , "websitebuild.aliyuncs.com"},
+    {"ap-southeast-1" , "websitebuild-intl.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("websitebuild", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -111,7 +111,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 }
 
 /**
- * @summary 授予用户角色
+ * @summary Grants a role to a user.
+ *
+ * @description Queries application instance information.
  *
  * @param request AssignRbacUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -146,7 +148,9 @@ AssignRbacUserRoleResponse Client::assignRbacUserRoleWithOptions(const AssignRba
 }
 
 /**
- * @summary 授予用户角色
+ * @summary Grants a role to a user.
+ *
+ * @description Queries application instance information.
  *
  * @param request AssignRbacUserRoleRequest
  * @return AssignRbacUserRoleResponse
@@ -1304,6 +1308,92 @@ CreateAppNotificationSceneResponse Client::createAppNotificationScene(const Crea
 }
 
 /**
+ * @summary Creates an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request CreateAppPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppPluginResponse
+ */
+CreateAppPluginResponse Client::createAppPluginWithOptions(const CreateAppPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDownloadUrl()) {
+    query["DownloadUrl"] = request.getDownloadUrl();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasIcon()) {
+    query["Icon"] = request.getIcon();
+  }
+
+  if (!!request.hasOssKey()) {
+    query["OssKey"] = request.getOssKey();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginName()) {
+    query["PluginName"] = request.getPluginName();
+  }
+
+  if (!!request.hasPluginVersion()) {
+    query["PluginVersion"] = request.getPluginVersion();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasVisibility()) {
+    query["Visibility"] = request.getVisibility();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppPlugin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppPluginResponse>();
+}
+
+/**
+ * @summary Creates an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request CreateAppPluginRequest
+ * @return CreateAppPluginResponse
+ */
+CreateAppPluginResponse Client::createAppPlugin(const CreateAppPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary Activates the Wanxiaozhi inspiration value service.
  *
  * @description Retrieves the configuration information of the code generation plugin.
@@ -1520,7 +1610,9 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectory(const CreateMate
 }
 
 /**
- * @summary 创建组织单元
+ * @summary Creates an organizational unit.
+ *
+ * @description Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateRbacOrgUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1555,7 +1647,9 @@ CreateRbacOrgUnitResponse Client::createRbacOrgUnitWithOptions(const CreateRbacO
 }
 
 /**
- * @summary 创建组织单元
+ * @summary Creates an organizational unit.
+ *
+ * @description Wanxiaozhi 2.0 AI conversation.
  *
  * @param request CreateRbacOrgUnitRequest
  * @return CreateRbacOrgUnitResponse
@@ -1566,7 +1660,9 @@ CreateRbacOrgUnitResponse Client::createRbacOrgUnit(const CreateRbacOrgUnitReque
 }
 
 /**
- * @summary 创建RBAC权限
+ * @summary Creates an RBAC permission.
+ *
+ * @description Creates an AI conversation session through Wanxiaozhi 2.0.
  *
  * @param request CreateRbacPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1697,9 @@ CreateRbacPermissionResponse Client::createRbacPermissionWithOptions(const Creat
 }
 
 /**
- * @summary 创建RBAC权限
+ * @summary Creates an RBAC permission.
+ *
+ * @description Creates an AI conversation session through Wanxiaozhi 2.0.
  *
  * @param request CreateRbacPermissionRequest
  * @return CreateRbacPermissionResponse
@@ -1904,6 +2002,48 @@ DeleteAppNotificationSceneResponse Client::deleteAppNotificationScene(const Dele
 }
 
 /**
+ * @summary Deletes an application plug-in.
+ *
+ * @param request DeleteAppPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppPluginResponse
+ */
+DeleteAppPluginResponse Client::deleteAppPluginWithOptions(const DeleteAppPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppPlugin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppPluginResponse>();
+}
+
+/**
+ * @summary Deletes an application plug-in.
+ *
+ * @param request DeleteAppPluginRequest
+ * @return DeleteAppPluginResponse
+ */
+DeleteAppPluginResponse Client::deleteAppPlugin(const DeleteAppPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a Supabase key.
  *
  * @description The Supabase instance information corresponding to the operated resource.
@@ -2048,7 +2188,9 @@ DeleteMaterialTaskResponse Client::deleteMaterialTask(const DeleteMaterialTaskRe
 }
 
 /**
- * @summary 删除组织单元
+ * @summary Deletes an organizational unit.
+ *
+ * @description Queries application instance information.
  *
  * @param request DeleteRbacOrgUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2083,7 +2225,9 @@ DeleteRbacOrgUnitResponse Client::deleteRbacOrgUnitWithOptions(const DeleteRbacO
 }
 
 /**
- * @summary 删除组织单元
+ * @summary Deletes an organizational unit.
+ *
+ * @description Queries application instance information.
  *
  * @param request DeleteRbacOrgUnitRequest
  * @return DeleteRbacOrgUnitResponse
@@ -2094,7 +2238,9 @@ DeleteRbacOrgUnitResponse Client::deleteRbacOrgUnit(const DeleteRbacOrgUnitReque
 }
 
 /**
- * @summary 删除RBAC权限
+ * @summary Deletes an RBAC permission.
+ *
+ * @description Creates an AI conversation session for WanXiaoZhi 2.0.
  *
  * @param request DeleteRbacPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2129,7 +2275,9 @@ DeleteRbacPermissionResponse Client::deleteRbacPermissionWithOptions(const Delet
 }
 
 /**
- * @summary 删除RBAC权限
+ * @summary Deletes an RBAC permission.
+ *
+ * @description Creates an AI conversation session for WanXiaoZhi 2.0.
  *
  * @param request DeleteRbacPermissionRequest
  * @return DeleteRbacPermissionResponse
@@ -2973,6 +3121,52 @@ GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrlWithOptions
 GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrl(const GetAppInstanceTempShortUrlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppInstanceTempShortUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request GetAppPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppPluginResponse
+ */
+GetAppPluginResponse Client::getAppPluginWithOptions(const GetAppPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppPlugin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppPluginResponse>();
+}
+
+/**
+ * @summary Queries the details of an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request GetAppPluginRequest
+ * @return GetAppPluginResponse
+ */
+GetAppPluginResponse Client::getAppPlugin(const GetAppPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppPluginWithOptions(request, runtime);
 }
 
 /**
@@ -4288,6 +4482,56 @@ GrantPromotionOfferForPartnerResponse Client::grantPromotionOfferForPartner(cons
 }
 
 /**
+ * @summary Installs an application plug-in to the current user account.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request InstallAppPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallAppPluginResponse
+ */
+InstallAppPluginResponse Client::installAppPluginWithOptions(const InstallAppPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginVersion()) {
+    query["PluginVersion"] = request.getPluginVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstallAppPlugin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallAppPluginResponse>();
+}
+
+/**
+ * @summary Installs an application plug-in to the current user account.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request InstallAppPluginRequest
+ * @return InstallAppPluginResponse
+ */
+InstallAppPluginResponse Client::installAppPlugin(const InstallAppPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return installAppPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary Introspection analysis of免登 accessToken
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
@@ -5070,6 +5314,110 @@ ListAppPluginConfigsResponse Client::listAppPluginConfigs(const ListAppPluginCon
 }
 
 /**
+ * @summary Queries the list of application plug-in files.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request ListAppPluginFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppPluginFilesResponse
+ */
+ListAppPluginFilesResponse Client::listAppPluginFilesWithOptions(const ListAppPluginFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginVersion()) {
+    query["PluginVersion"] = request.getPluginVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppPluginFiles"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppPluginFilesResponse>();
+}
+
+/**
+ * @summary Queries the list of application plug-in files.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request ListAppPluginFilesRequest
+ * @return ListAppPluginFilesResponse
+ */
+ListAppPluginFilesResponse Client::listAppPluginFiles(const ListAppPluginFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppPluginFilesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of application plug-in versions.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request ListAppPluginVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppPluginVersionsResponse
+ */
+ListAppPluginVersionsResponse Client::listAppPluginVersionsWithOptions(const ListAppPluginVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppPluginVersions"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppPluginVersionsResponse>();
+}
+
+/**
+ * @summary Queries the list of application plug-in versions.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request ListAppPluginVersionsRequest
+ * @return ListAppPluginVersionsResponse
+ */
+ListAppPluginVersionsResponse Client::listAppPluginVersions(const ListAppPluginVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppPluginVersionsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of code generation plug-ins.
  *
  * @description Retrieves the configuration information of code generation plug-ins.
@@ -5409,6 +5757,188 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigsWithOptio
 ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigs(const ListIsvPaymentPluginConfigsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listIsvPaymentPluginConfigsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of application plugins in the marketplace.
+ *
+ * @description Retrieves the configuration information of code generation plugins.
+ *
+ * @param request ListMarketplaceAppPluginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMarketplaceAppPluginsResponse
+ */
+ListMarketplaceAppPluginsResponse Client::listMarketplaceAppPluginsWithOptions(const ListMarketplaceAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMarketplaceAppPlugins"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMarketplaceAppPluginsResponse>();
+}
+
+/**
+ * @summary Queries the list of application plugins in the marketplace.
+ *
+ * @description Retrieves the configuration information of code generation plugins.
+ *
+ * @param request ListMarketplaceAppPluginsRequest
+ * @return ListMarketplaceAppPluginsResponse
+ */
+ListMarketplaceAppPluginsResponse Client::listMarketplaceAppPlugins(const ListMarketplaceAppPluginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMarketplaceAppPluginsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of my application plug-ins.
+ *
+ * @description Retrieves the configuration information of code generation plug-ins.
+ *
+ * @param request ListMyAppPluginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMyAppPluginsResponse
+ */
+ListMyAppPluginsResponse Client::listMyAppPluginsWithOptions(const ListMyAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMyAppPlugins"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMyAppPluginsResponse>();
+}
+
+/**
+ * @summary Queries the list of my application plug-ins.
+ *
+ * @description Retrieves the configuration information of code generation plug-ins.
+ *
+ * @param request ListMyAppPluginsRequest
+ * @return ListMyAppPluginsResponse
+ */
+ListMyAppPluginsResponse Client::listMyAppPlugins(const ListMyAppPluginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMyAppPluginsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of application plug-ins that you have installed.
+ *
+ * @description Retrieves the configuration information of code generation plug-ins.
+ *
+ * @param request ListMyInstalledAppPluginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMyInstalledAppPluginsResponse
+ */
+ListMyInstalledAppPluginsResponse Client::listMyInstalledAppPluginsWithOptions(const ListMyInstalledAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMyInstalledAppPlugins"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMyInstalledAppPluginsResponse>();
+}
+
+/**
+ * @summary Queries the list of application plug-ins that you have installed.
+ *
+ * @description Retrieves the configuration information of code generation plug-ins.
+ *
+ * @param request ListMyInstalledAppPluginsRequest
+ * @return ListMyInstalledAppPluginsResponse
+ */
+ListMyInstalledAppPluginsResponse Client::listMyInstalledAppPlugins(const ListMyInstalledAppPluginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMyInstalledAppPluginsWithOptions(request, runtime);
 }
 
 /**
@@ -7268,7 +7798,9 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 }
 
 /**
- * @summary 查询单个RBAC角色
+ * @summary Queries a single RBAC role.
+ *
+ * @description Queries application instance information.
  *
  * @param request QueryRbacRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7303,7 +7835,9 @@ QueryRbacRoleResponse Client::queryRbacRoleWithOptions(const QueryRbacRoleReques
 }
 
 /**
- * @summary 查询单个RBAC角色
+ * @summary Queries a single RBAC role.
+ *
+ * @description Queries application instance information.
  *
  * @param request QueryRbacRoleRequest
  * @return QueryRbacRoleResponse
@@ -7314,7 +7848,9 @@ QueryRbacRoleResponse Client::queryRbacRole(const QueryRbacRoleRequest &request)
 }
 
 /**
- * @summary 查询角色权限列表
+ * @summary Queries the list of role permissions.
+ *
+ * @description Creates an AI conversation session for Wan Xiaozhi 2.0.
  *
  * @param request QueryRbacRolePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7365,7 +7901,9 @@ QueryRbacRolePermissionsResponse Client::queryRbacRolePermissionsWithOptions(con
 }
 
 /**
- * @summary 查询角色权限列表
+ * @summary Queries the list of role permissions.
+ *
+ * @description Creates an AI conversation session for Wan Xiaozhi 2.0.
  *
  * @param request QueryRbacRolePermissionsRequest
  * @return QueryRbacRolePermissionsResponse
@@ -7376,7 +7914,9 @@ QueryRbacRolePermissionsResponse Client::queryRbacRolePermissions(const QueryRba
 }
 
 /**
- * @summary 查询用户角色绑定
+ * @summary Queries user role bindings.
+ *
+ * @description Queries application instance information.
  *
  * @param request QueryRbacUserRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7427,7 +7967,9 @@ QueryRbacUserRolesResponse Client::queryRbacUserRolesWithOptions(const QueryRbac
 }
 
 /**
- * @summary 查询用户角色绑定
+ * @summary Queries user role bindings.
+ *
+ * @description Queries application instance information.
  *
  * @param request QueryRbacUserRolesRequest
  * @return QueryRbacUserRolesResponse
@@ -8027,7 +8569,9 @@ RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &re
 }
 
 /**
- * @summary 撤销用户角色
+ * @summary Revokes a user role.
+ *
+ * @description Wanxiaozhi 2.0 AI conversation.
  *
  * @param request RevokeRbacUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8062,7 +8606,9 @@ RevokeRbacUserRoleResponse Client::revokeRbacUserRoleWithOptions(const RevokeRba
 }
 
 /**
- * @summary 撤销用户角色
+ * @summary Revokes a user role.
+ *
+ * @description Wanxiaozhi 2.0 AI conversation.
  *
  * @param request RevokeRbacUserRoleRequest
  * @return RevokeRbacUserRoleResponse
@@ -8178,6 +8724,56 @@ RollbackAppInstancePublishResponse Client::rollbackAppInstancePublishWithOptions
 RollbackAppInstancePublishResponse Client::rollbackAppInstancePublish(const RollbackAppInstancePublishRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return rollbackAppInstancePublishWithOptions(request, runtime);
+}
+
+/**
+ * @summary Rolls back the version of an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request RollbackAppPluginVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackAppPluginVersionResponse
+ */
+RollbackAppPluginVersionResponse Client::rollbackAppPluginVersionWithOptions(const RollbackAppPluginVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginVersion()) {
+    query["PluginVersion"] = request.getPluginVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RollbackAppPluginVersion"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackAppPluginVersionResponse>();
+}
+
+/**
+ * @summary Rolls back the version of an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request RollbackAppPluginVersionRequest
+ * @return RollbackAppPluginVersionResponse
+ */
+RollbackAppPluginVersionResponse Client::rollbackAppPluginVersion(const RollbackAppPluginVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rollbackAppPluginVersionWithOptions(request, runtime);
 }
 
 /**
@@ -8771,6 +9367,52 @@ UnbindAppDomainResponse Client::unbindAppDomain(const UnbindAppDomainRequest &re
 }
 
 /**
+ * @summary Uninstalls an application plugin from the current user account.
+ *
+ * @description Retrieves the configuration information of a code generation plugin.
+ *
+ * @param request UninstallAppPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallAppPluginResponse
+ */
+UninstallAppPluginResponse Client::uninstallAppPluginWithOptions(const UninstallAppPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UninstallAppPlugin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallAppPluginResponse>();
+}
+
+/**
+ * @summary Uninstalls an application plugin from the current user account.
+ *
+ * @description Retrieves the configuration information of a code generation plugin.
+ *
+ * @param request UninstallAppPluginRequest
+ * @return UninstallAppPluginResponse
+ */
+UninstallAppPluginResponse Client::uninstallAppPlugin(const UninstallAppPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uninstallAppPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates message content.
  *
  * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
@@ -9035,6 +9677,96 @@ UpdateAppInstanceResponse Client::updateAppInstance(const UpdateAppInstanceReque
 }
 
 /**
+ * @summary Updates an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request UpdateAppPluginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppPluginResponse
+ */
+UpdateAppPluginResponse Client::updateAppPluginWithOptions(const UpdateAppPluginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategory()) {
+    query["Category"] = request.getCategory();
+  }
+
+  if (!!request.hasConfigItems()) {
+    query["ConfigItems"] = request.getConfigItems();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasHooks()) {
+    query["Hooks"] = request.getHooks();
+  }
+
+  if (!!request.hasIcon()) {
+    query["Icon"] = request.getIcon();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginName()) {
+    query["PluginName"] = request.getPluginName();
+  }
+
+  if (!!request.hasPluginVersion()) {
+    query["PluginVersion"] = request.getPluginVersion();
+  }
+
+  if (!!request.hasSkillHeader()) {
+    query["SkillHeader"] = request.getSkillHeader();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasVisibility()) {
+    query["Visibility"] = request.getVisibility();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppPlugin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppPluginResponse>();
+}
+
+/**
+ * @summary Updates an application plug-in.
+ *
+ * @description Retrieves the configuration information of a code generation plug-in.
+ *
+ * @param request UpdateAppPluginRequest
+ * @return UpdateAppPluginResponse
+ */
+UpdateAppPluginResponse Client::updateAppPlugin(const UpdateAppPluginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppPluginWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the SEO index status.
  *
  * @description Wanxiaozhi 2.0 AI conversation.
@@ -9263,7 +9995,9 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBinding(const UpdateMiniAppBin
 }
 
 /**
- * @summary 更新组织单元
+ * @summary Updates an organizational unit.
+ *
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateRbacOrgUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9302,7 +10036,9 @@ UpdateRbacOrgUnitResponse Client::updateRbacOrgUnitWithOptions(const UpdateRbacO
 }
 
 /**
- * @summary 更新组织单元
+ * @summary Updates an organizational unit.
+ *
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request UpdateRbacOrgUnitRequest
  * @return UpdateRbacOrgUnitResponse
@@ -9364,6 +10100,76 @@ UpdateRbacRoleResponse Client::updateRbacRoleWithOptions(const UpdateRbacRoleReq
 UpdateRbacRoleResponse Client::updateRbacRole(const UpdateRbacRoleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRbacRoleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Uploads a new version of an application plug-in.
+ *
+ * @description Retrieves the code generation plug-in configuration information.
+ *
+ * @param request UploadAppPluginVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadAppPluginVersionResponse
+ */
+UploadAppPluginVersionResponse Client::uploadAppPluginVersionWithOptions(const UploadAppPluginVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChangelog()) {
+    query["Changelog"] = request.getChangelog();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDownloadUrl()) {
+    query["DownloadUrl"] = request.getDownloadUrl();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasOssKey()) {
+    query["OssKey"] = request.getOssKey();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasPluginVersion()) {
+    query["PluginVersion"] = request.getPluginVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadAppPluginVersion"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadAppPluginVersionResponse>();
+}
+
+/**
+ * @summary Uploads a new version of an application plug-in.
+ *
+ * @description Retrieves the code generation plug-in configuration information.
+ *
+ * @param request UploadAppPluginVersionRequest
+ * @return UploadAppPluginVersionResponse
+ */
+UploadAppPluginVersionResponse Client::uploadAppPluginVersion(const UploadAppPluginVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadAppPluginVersionWithOptions(request, runtime);
 }
 
 /**

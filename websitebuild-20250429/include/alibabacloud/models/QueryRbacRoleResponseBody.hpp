@@ -124,11 +124,21 @@ namespace Models
 
 
     protected:
+      // The time when the task was created, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
       shared_ptr<string> createdAt_ {};
+      // The scenario ID.
       shared_ptr<string> id_ {};
+      // The default status. Valid values:
+      // - 0: not default.
+      // - 1: default.
       shared_ptr<bool> isDefault_ {};
+      // Indicates whether the approval template is system-defined. Valid values:
+      // - 1: Yes.
+      // - 0: No.
       shared_ptr<bool> isSystem_ {};
+      // The name.
       shared_ptr<string> label_ {};
+      // The file name.
       shared_ptr<string> name_ {};
     };
 
@@ -217,16 +227,29 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The response data.
     shared_ptr<QueryRbacRoleResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 
