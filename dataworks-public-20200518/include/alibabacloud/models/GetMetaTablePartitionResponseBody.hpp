@@ -185,27 +185,27 @@ namespace Models
 
 
       protected:
-        // The comment.
+        // The remarks.
         shared_ptr<string> comment_ {};
-        // The time when the partition was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+        // The creation time. Unit: milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The size of the partition. Unit: bytes.
+        // The partition size. Unit: bytes.
         shared_ptr<int64_t> dataSize_ {};
-        // The time when the partition was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+        // The modification time. Unit: milliseconds.
         shared_ptr<int64_t> modifiedTime_ {};
-        // The GUID of the partition.
+        // The unique identifier of the partition.
         shared_ptr<string> partitionGuid_ {};
         // The location of the Hive partition.
         shared_ptr<string> partitionLocation_ {};
         // The name of the partition.
         shared_ptr<string> partitionName_ {};
-        // The path of the partition.
+        // The directory of the partition.
         shared_ptr<string> partitionPath_ {};
         // The type of the partition.
         shared_ptr<string> partitionType_ {};
-        // The number of entries in the partition.
+        // The record count.
         shared_ptr<int64_t> recordCount_ {};
-        // The unique identifier of the metatable.
+        // The unique identifier of the table.
         shared_ptr<string> tableGuid_ {};
       };
 
@@ -299,13 +299,13 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The returned data.
     shared_ptr<GetMetaTablePartitionResponseBody::Data> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

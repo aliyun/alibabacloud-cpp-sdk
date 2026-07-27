@@ -353,7 +353,7 @@ namespace Models
         shared_ptr<int32_t> dqcType_ {};
         // The file ID. You can call the ListFiles operation to query the ID.
         // 
-        // **
+        // \\*\\*
         // 
         // **Warning** This field is deprecated.
         shared_ptr<int64_t> fileId_ {};

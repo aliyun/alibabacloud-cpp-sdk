@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The sensitive field type.
+      // The Sensitive Data Type.
       shared_ptr<string> dataType_ {};
-      // The supported data masking methods and parameter descriptions.
+      // A list of supported Desensitization Methods and their parameter descriptions.
       shared_ptr<map<string, vector<DataDesensPlanTemplateValue>>> desensPlanTemplate_ {};
     };
 
@@ -137,18 +137,19 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<vector<DsgQueryDefaultTemplatesResponseBody::Data>> data_ {};
-    // The error code.
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message.
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code.
+    // The HTTP status code returned.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the ID to locate logs and troubleshoot issues.
+    // The Request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

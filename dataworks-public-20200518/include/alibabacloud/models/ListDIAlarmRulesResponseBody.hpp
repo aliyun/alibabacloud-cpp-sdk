@@ -139,14 +139,17 @@ namespace Models
           shared_ptr<int64_t> duration_ {};
           // The severity level. Valid values:
           // 
-          // *   Warning
-          // *   Critical
+          // - Warning
+          // 
+          // - Critical
           shared_ptr<string> severity_ {};
           // The alert threshold.
           // 
-          // *   If the alert rule is for task status, no threshold is used.
-          // *   If the alert rule is for failovers, the threshold is the number of failovers.
-          // *   If the alert rule is for latency, the threshold is the latency duration, in seconds.
+          // - If the alert rule is for task status, no threshold is used.
+          // 
+          // - If the alert rule is for failovers, the threshold is the number of failovers.
+          // 
+          // - If the alert rule is for latency, the threshold is the latency duration, in seconds.
           shared_ptr<int64_t> threshold_ {};
         };
 
@@ -215,8 +218,9 @@ namespace Models
           protected:
             // The recipient type. Valid values: AliyunUid and DingToken.
             // 
-            // *   If the alert notification method is Mail, Phone, or Sms, the value of this parameter is **AliyunUid**, which indicates the Alibaba Cloud account ID.
-            // *   If the alert notification method is Ding, the value of this parameter is **DingToken**, which indicates the DingTalk chatbot token.
+            // - If the alert notification method is Mail, Phone, or Sms, the value of this parameter is **AliyunUid**, which indicates the Alibaba Cloud account ID.
+            // 
+            // - If the alert notification method is Ding, the value of this parameter is **DingToken**, which indicates the DingTalk chatbot token.
             shared_ptr<string> receiverType_ {};
             // The recipients.
             shared_ptr<vector<string>> receiverValues_ {};
@@ -266,8 +270,9 @@ namespace Models
             shared_ptr<vector<string>> channels_ {};
             // The severity level. Valid values:
             // 
-            // *   Warning
-            // *   Critical
+            // - Warning
+            // 
+            // - Critical
             shared_ptr<string> severity_ {};
           };
 
@@ -374,9 +379,11 @@ namespace Models
         shared_ptr<bool> enabled_ {};
         // The metric type in the alert rule. Valid values:
         // 
-        // *   Heartbeat
-        // *   FailoverCount
-        // *   Delay
+        // - Heartbeat
+        // 
+        // - FailoverCount
+        // 
+        // - Delay
         shared_ptr<string> metricType_ {};
         // The alert notification settings.
         shared_ptr<DIJobAlarmRules::NotificationSettings> notificationSettings_ {};

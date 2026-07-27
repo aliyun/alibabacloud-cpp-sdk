@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the custom alert rule.
+    // The ID of the custom monitoring alert rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> remindId_ {};

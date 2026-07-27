@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the partition filter expression.
+    // The ID of the partition expression.
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};

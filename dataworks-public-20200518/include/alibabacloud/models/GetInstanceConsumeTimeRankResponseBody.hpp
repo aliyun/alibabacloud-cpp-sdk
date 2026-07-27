@@ -137,19 +137,19 @@ namespace Models
 
 
       protected:
-        // The data timestamp of the instance.
+        // The data timestamp on which the instance was run.
         shared_ptr<int64_t> bizdate_ {};
         // The running duration of the instance. Unit: seconds.
         shared_ptr<int64_t> consumed_ {};
-        // The instance ID.
+        // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
-        // The node ID.
+        // The ID of the task node.
         shared_ptr<int64_t> nodeId_ {};
         // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The ID of the Alibaba Cloud account used by the node owner.
+        // The Alibaba Cloud UID of the node owner.
         shared_ptr<string> owner_ {};
-        // The type of the node.
+        // The type of the task.
         shared_ptr<int32_t> prgType_ {};
       };
 
@@ -172,7 +172,7 @@ namespace Models
 
 
     protected:
-      // The ranking data of the running durations of instances.
+      // The ranking data of instance running durations.
       shared_ptr<vector<InstanceConsumeTimeRank::ConsumeTimeRank>> consumeTimeRank_ {};
       // The timestamp when the ranking was updated.
       shared_ptr<int64_t> updateTime_ {};
@@ -197,9 +197,9 @@ namespace Models
 
 
   protected:
-    // The ranking record of the running durations of instances.
+    // The ranking records of instance running durations.
     shared_ptr<GetInstanceConsumeTimeRankResponseBody::InstanceConsumeTimeRank> instanceConsumeTimeRank_ {};
-    // The request ID.
+    // The unique ID generated for each request.
     shared_ptr<string> requestId_ {};
   };
 

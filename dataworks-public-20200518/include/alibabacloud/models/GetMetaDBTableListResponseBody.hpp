@@ -104,11 +104,11 @@ namespace Models
 
 
       protected:
-        // The name of the metadatabase.
+        // The name of the database.
         shared_ptr<string> databaseName_ {};
-        // The GUID of the metatable.
+        // The unique identifier of the table.
         shared_ptr<string> tableGuid_ {};
-        // The name of the metatable.
+        // The name of the table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -147,11 +147,11 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page. Default value: 10. Maximum value: 100.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of metatables in the compute engine instance.
+      // A list of table details.
       shared_ptr<vector<Data::TableEntityList>> tableEntityList_ {};
-      // The total number of compute engine instances returned.
+      // The total number of tables.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -174,9 +174,9 @@ namespace Models
 
 
   protected:
-    // The metatable information in a compute engine instance.
+    // Information about the tables in the engine instance.
     shared_ptr<GetMetaDBTableListResponseBody::Data> data_ {};
-    // The request ID.
+    // The unique ID for this request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,8 +84,9 @@ namespace Models
       shared_ptr<string> message_ {};
       // Indicates whether the parameters are obtained. Valid values:
       // 
-      // *   success: The parameters are obtained.
-      // *   fail: The parameters fail to be obtained. You can view the reason for the failure and troubleshoot the issue based on the reason.
+      // - success: The parameters are obtained.
+      // 
+      // - fail: The parameters fail to be obtained. You can view the reason for the failure and troubleshoot the issue based on the reason.
       shared_ptr<string> status_ {};
       // The parameters that are obtained. The parameters are used as the request parameters of the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) or [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to create or update a real-time synchronization task in Data Integration.
       shared_ptr<string> taskContent_ {};
@@ -123,8 +124,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<int64_t> clusterId_ {};
     // The configuration type of the cluster. Valid values:
     // 
-    // *   SPARK_CONF: SPARK parameters
+    // - SPARK_CONF: SPARK parameters
     // 
     // This parameter is required.
     shared_ptr<string> configType_ {};

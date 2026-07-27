@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The baseline ID.
+    // The ID of the baseline.
     // 
     // This parameter is required.
     shared_ptr<int64_t> baselineId_ {};

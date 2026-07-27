@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The execution result of adding or modifying a data masking rule.
+    // Indicates whether the add or update operation was successful.
     shared_ptr<bool> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The request ID. You can use the ID to trace logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true false
+    // Indicates whether the request was successful. A value of `true` indicates that the request was successful. A value of `false` indicates that the request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // Query keyword
     shared_ptr<string> keyword_ {};
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Primary scene code
+    // 
     // This parameter is required.
     shared_ptr<string> sceneCode_ {};
+    // Scene ID. Only required when querying project workspace switch data.
     shared_ptr<string> sceneId_ {};
   };
 

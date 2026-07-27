@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // Indicates whether the partition expression was successfully deleted.
     shared_ptr<bool> data_ {};
-    // The error code.
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message.
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -86,8 +86,9 @@ namespace Models
   protected:
     // Indicates whether the update was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -99,8 +100,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

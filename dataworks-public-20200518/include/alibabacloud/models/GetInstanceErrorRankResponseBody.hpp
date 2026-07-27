@@ -127,17 +127,17 @@ namespace Models
 
 
       protected:
-        // The number of errors that occurred on the node.
+        // The number of errors of the node.
         shared_ptr<int32_t> count_ {};
-        // The node ID.
+        // The ID of the node.
         shared_ptr<int64_t> nodeId_ {};
         // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The ID of the Alibaba Cloud account used by the node owner.
+        // The Alibaba Cloud UID of the node owner.
         shared_ptr<string> owner_ {};
-        // The type of the node.
+        // The type of the node task.
         shared_ptr<int32_t> prgType_ {};
-        // The DataWorks workspace ID.
+        // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
       };
 
@@ -160,9 +160,9 @@ namespace Models
 
 
     protected:
-      // The ranking data of nodes on which errors occurred within the last month.
+      // The error ranking data of nodes in the last month.
       shared_ptr<vector<InstanceErrorRank::ErrorRank>> errorRank_ {};
-      // The timestamp at which the rankings were updated.
+      // The timestamp when the error ranking was updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
   protected:
-    // The ranking data of nodes on which errors occurred.
+    // The error ranking data of nodes.
     shared_ptr<GetInstanceErrorRankResponseBody::InstanceErrorRank> instanceErrorRank_ {};
-    // The request ID.
+    // The unique ID generated for each request.
     shared_ptr<string> requestId_ {};
   };
 

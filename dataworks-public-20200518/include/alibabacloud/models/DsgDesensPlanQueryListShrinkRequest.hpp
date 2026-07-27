@@ -112,26 +112,27 @@ namespace Models
 
 
   protected:
-    // The owner of the data masking rule.
+    // The owner of the desensitization rule.
     shared_ptr<string> owner_ {};
     // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The number of entries to return on each page. The maximum value is 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the sensitive field.
+    // The name of the desensitization rule.
     shared_ptr<string> ruleName_ {};
-    // The ID of the level-2 data masking scenario. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to query the list of IDs.
+    // The ID of the Level-2 data desensitization scene. You can call the [DsgSceneQuerySceneListByName](https://help.aliyun.com/document_detail/2786322.html) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sceneId_ {};
-    // The status of the data masking rule. Valid values:
+    // The status of the desensitization rule. Valid values:
     // 
-    // *   0: expired
-    // *   1: effective
+    // - 0: Inactive
+    // 
+    // - 1: Active
     shared_ptr<int32_t> status_ {};
     shared_ptr<string> columnsShrink_ {};
     shared_ptr<string> dataType_ {};

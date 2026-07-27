@@ -75,8 +75,9 @@ namespace Models
       shared_ptr<string> message_ {};
       // Indicates whether the synchronization task is deleted. Valid values:
       // 
-      // *   success: The synchronization task is deleted.
-      // *   fail: The synchronization task fails to be deleted. You can troubleshoot the issue based on the failure reason.
+      // - success: The synchronization task is deleted.
+      // 
+      // - fail: The synchronization task fails to be deleted. You can troubleshoot the issue based on the failure reason.
       shared_ptr<string> status_ {};
     };
 
@@ -112,8 +113,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

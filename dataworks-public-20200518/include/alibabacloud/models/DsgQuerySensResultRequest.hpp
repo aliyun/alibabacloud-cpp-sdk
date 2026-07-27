@@ -186,50 +186,50 @@ namespace Models
 
 
   protected:
-    // The name of the field.
+    // The field name.
     shared_ptr<string> col_ {};
-    // The type of the database. Valid values:
-    // 
-    // *   **ODPS.ODPS**
-    // *   **HOLO.POSTGRES**
-    // *   **EMR**
+    // The database type. Valid values:
+    // - **ODPS.ODPS**
+    // - **HOLO.POSTGRES**
+    // - **EMR**
     shared_ptr<string> dbType_ {};
     // The sensitivity level of the field.
     shared_ptr<string> level_ {};
-    // The name of a data category.
+    // The classification node name.
     shared_ptr<string> nodeName_ {};
-    // The sorting method. Valid values:
-    // 
-    // *   DESC
-    // *   ASC
+    // The sort order. Valid values:
+    // - DESC: descending.
+    // - ASC: ascending.
     shared_ptr<string> order_ {};
-    // The field used for sorting.
-    // 
-    // *   gmt_create
-    // *   gmt_modified
+    // The field used for sorting. Valid values:
+    // - gmt_create
+    // - gmt_modified
     shared_ptr<string> orderField_ {};
-    // The page number. Pages start from page 1.
+    // The page number. Minimum value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10. Maximum value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace name.
+    // The name of the DataWorks workspace. Log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace name.
     shared_ptr<string> projectName_ {};
-    // The name of the schema.
+    // The schema name.
     shared_ptr<string> schemaName_ {};
-    // The sensitivity status of the field.
+    // The sensitivity status of the field. Valid values:
     // 
-    // *   1: indicates sensitive.
-    // *   \\-1: indicates non-sensitive.
+    // - sensitive: sensitive.
+    // - noIdentify: not identified.
+    // - noResult: no result.
     shared_ptr<string> sensStatus_ {};
-    // The sensitive field ID.
+    // The ID of the sensitive field.
     shared_ptr<string> sensitiveId_ {};
     // The name of the sensitive field.
     shared_ptr<string> sensitiveName_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> table_ {};
-    // The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
+    // The tenant ID. Log on to the [DataWorks console](https://workbench.data.aliyun.com/console), go to the DataStudio page, click the username in the upper-right corner, and choose Menu > User Info to obtain the tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The query end time in the format of yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
+    // The query start time in the format of yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
   };
 

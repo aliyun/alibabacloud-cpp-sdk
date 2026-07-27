@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the permission request order is processed.
+    // Indicates whether the approval is successful.
     shared_ptr<bool> approveSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

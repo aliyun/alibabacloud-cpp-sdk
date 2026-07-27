@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InputList, inputList_);
       DARABONBA_PTR_TO_JSON(InputParameters, inputParameters_);
+      DARABONBA_PTR_TO_JSON(OutputList, outputList_);
       DARABONBA_PTR_TO_JSON(OutputParameters, outputParameters_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(ParaValue, paraValue_);
@@ -70,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InputList, inputList_);
       DARABONBA_PTR_FROM_JSON(InputParameters, inputParameters_);
+      DARABONBA_PTR_FROM_JSON(OutputList, outputList_);
       DARABONBA_PTR_FROM_JSON(OutputParameters, outputParameters_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(ParaValue, paraValue_);
@@ -100,9 +102,9 @@ namespace Models
         && this->content_ == nullptr && this->createFolderIfNotExists_ == nullptr && this->cronExpress_ == nullptr && this->cycleType_ == nullptr && this->dependentNodeIdList_ == nullptr
         && this->dependentType_ == nullptr && this->endEffectDate_ == nullptr && this->fileDescription_ == nullptr && this->fileFolderPath_ == nullptr && this->fileName_ == nullptr
         && this->fileType_ == nullptr && this->ignoreParentSkipRunningProperty_ == nullptr && this->imageId_ == nullptr && this->inputList_ == nullptr && this->inputParameters_ == nullptr
-        && this->outputParameters_ == nullptr && this->owner_ == nullptr && this->paraValue_ == nullptr && this->projectId_ == nullptr && this->projectIdentifier_ == nullptr
-        && this->rerunMode_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdentifier_ == nullptr && this->schedulerType_ == nullptr && this->startEffectDate_ == nullptr
-        && this->startImmediately_ == nullptr && this->stop_ == nullptr && this->timeout_ == nullptr; };
+        && this->outputList_ == nullptr && this->outputParameters_ == nullptr && this->owner_ == nullptr && this->paraValue_ == nullptr && this->projectId_ == nullptr
+        && this->projectIdentifier_ == nullptr && this->rerunMode_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdentifier_ == nullptr && this->schedulerType_ == nullptr
+        && this->startEffectDate_ == nullptr && this->startImmediately_ == nullptr && this->stop_ == nullptr && this->timeout_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -250,6 +252,13 @@ namespace Models
     inline CreateFileRequest& setInputParameters(string inputParameters) { DARABONBA_PTR_SET_VALUE(inputParameters_, inputParameters) };
 
 
+    // outputList Field Functions 
+    bool hasOutputList() const { return this->outputList_ != nullptr;};
+    void deleteOutputList() { this->outputList_ = nullptr;};
+    inline string getOutputList() const { DARABONBA_PTR_GET_DEFAULT(outputList_, "") };
+    inline CreateFileRequest& setOutputList(string outputList) { DARABONBA_PTR_SET_VALUE(outputList_, outputList) };
+
+
     // outputParameters Field Functions 
     bool hasOutputParameters() const { return this->outputParameters_ != nullptr;};
     void deleteOutputParameters() { this->outputParameters_ = nullptr;};
@@ -342,75 +351,77 @@ namespace Models
 
 
   protected:
-    // The advanced configurations of the node.
+    // The advanced settings of the node.
     // 
-    // This parameter is valid only for an EMR Spark Streaming node or an EMR Streaming SQL node. This parameter corresponds to the Advanced Settings tab of the node in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Advanced Settings** in the right-side navigation pane of the editing page for EMR Spark Streaming and EMR Streaming SQL DataStudio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
-    // The value of this parameter must be in the JSON format.
+    // Currently, only EMR Spark Streaming and EMR Streaming SQL tasks support this parameter, and the parameter value must be in JSON format.
     shared_ptr<string> advancedSettings_ {};
-    // Specifies whether scheduling configurations immediately take effect after the node is deployed.
+    // Specifies whether the scheduling configuration takes effect immediately after the file is published.
     shared_ptr<bool> applyScheduleImmediately_ {};
-    // Specifies whether to enable the automatic parsing feature for the file. Valid values:
+    // Specifies whether to enable automatic parsing for the file. Valid values:
+    // - true: The file automatically parses code.
+    // - false: The file does not automatically parse code.
     // 
-    // *   true
-    // *   false
-    // 
-    // This parameter corresponds to the Analyze Code parameter that is displayed after Same Cycle is selected in the Dependencies section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Code Parsing** setting when **Same Cycle** is selected under **Scheduling Configuration > Scheduling Dependency** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> autoParsing_ {};
-    // The interval between automatic reruns after an error occurs. Unit: milliseconds. Maximum value: 1800000 (30 minutes).
+    // The interval between automatic reruns upon an error, in milliseconds. The maximum value is 1800000 milliseconds (30 minutes).
     // 
-    // This parameter corresponds to the Rerun Interval parameter that is displayed after the Auto Rerun upon Error check box is selected in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
-    // 
-    // The interval that you specify in the DataWorks console is measured in minutes. Pay attention to the conversion between the units of time when you call the operation.
+    // This parameter corresponds to the **Rerun Interval** setting under **Scheduling Configuration > Time Properties > Auto Rerun upon Error** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // The **Rerun Interval** in the console is in minutes. Make sure to convert the time unit when calling this operation.
     shared_ptr<int32_t> autoRerunIntervalMillis_ {};
-    // The number of automatic reruns that are allowed after an error occurs. Maximum value: 10.
+    // The number of automatic reruns allowed upon an error. The maximum value is 10.
     shared_ptr<int32_t> autoRerunTimes_ {};
-    // The name of the data source for which the node is run.
-    // 
-    // You can call the [UpdateDataSource](https://help.aliyun.com/document_detail/211432.html) operation to query the available data sources in the workspace.
+    // The data source that the node connects to when the file is published as a node and executed.
+    // You can call the [UpdateDataSource](https://help.aliyun.com/document_detail/211432.html) operation to obtain the list of available data sources for the workspace.
     shared_ptr<string> connectionName_ {};
-    // The code for the file. The code format varies based on the file type. To view the code format for a specific file type, go to Operation Center, right-click a node of the file type, and then select View Code.
+    // The code content of the file. Different code types (fileType) have different code formats. You can find the corresponding type of node in Operation Center, right-click the node, and then click View Code to view the specific code format.
     shared_ptr<string> content_ {};
-    // Specifies whether to automatically create the directory that is specified by the FileFolderPath parameter if the directory does not exist. Valid values:
+    // Specifies whether to automatically create the folder if the specified folder path (FileFolderPath) does not exist in the system. Valid values:
     // 
-    // *   true: The system automatically creates the directory if the directory does not exist.
-    // *   false: The system does not automatically create the directory if the directory does not exist. In this case, the call fails.
+    // - true: The folder is automatically created if it does not exist.
+    // - false: The invocation fails if the folder does not exist.
     shared_ptr<bool> createFolderIfNotExists_ {};
-    // The CRON expression that represents the periodic scheduling policy of the node. This parameter corresponds to the Cron Expression parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the Scheduling Cycle and Scheduled time parameters in the DataWorks console, DataWorks generates the value of the Cron Expression parameter.
+    // The cron expression for periodic scheduling. This parameter corresponds to the **cron Expression** setting under **Scheduling Configuration > Time Property > cron Expression** of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the **Scheduling Cycle** and **Timed Scheduling Time**, DataWorks automatically generates the corresponding cron expression.
     // 
     // Examples:
+    // - Timed scheduling at 05:30 every day: `00 30 05 * * ?`
     // 
-    // *   CRON expression for a node that is scheduled to run at 05:30 every day: `00 30 05 * * ?`
-    // *   CRON expression for a node that is scheduled to run at the fifteenth minute of each hour: `00 15 00-23/1 * * ?`
-    // *   CRON expression for a node that is scheduled to run every 10 minutes: `00 00/10 * * * ?`
-    // *   CRON expression for a node that is scheduled to run every 10 minutes from 08:00 to 17:00 every day: `00 00-59/10 8-17 * * * ?`
-    // *   CRON expression for a node that is scheduled to run at 00:20 on the first day of each month: `00 20 00 1 * ?`
-    // *   CRON expression for a node that is scheduled to run every three months from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
-    // *   CRON expression for a node that is scheduled to run at 00:05 every Tuesday and Friday: `00 05 00 * * 2,5`
+    // - Timed scheduling at the 15th minute of every hour: `00 15 00-23/1 * * ?`
     // 
-    // The scheduling system of DataWorks imposes the following limits on CRON expressions:
+    // - Schedule every 10 minutes: `00 00/10 * * * ?`
     // 
-    // *   The minimum interval specified in a CRON expression to schedule a node is 5 minutes.
-    // *   The earliest time specified in a CRON expression to schedule a node every day is 00:05.
+    // - Schedule every 10 minutes from 08:00 to 17:00 every day: `00 00-59/10 8-17 * * * ?`
+    // 
+    // - Timed scheduling at 00:20 on the 1st of every month: `00 20 00 1 * ?`
+    // 
+    // - Schedule every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
+    // 
+    // - Timed scheduling at 00:05 every Tuesday and Friday: `00 05 00 * * 2,5`
+    // 
+    // Due to the rules of the DataWorks scheduling system, the cron expression has the following limits:
+    // 
+    // - The minimum scheduling interval is 5 minutes.
+    // 
+    // - The earliest scheduling time each day is 00:05.
     shared_ptr<string> cronExpress_ {};
-    // The type of the scheduling cycle of the node that corresponds to the file. Valid values: NOT_DAY and DAY. The value NOT_DAY indicates that the node is scheduled to run by minute or hour. The value DAY indicates that the node is scheduled to run by day, week, or month.
+    // The type of the scheduling cycle. Valid values: NOT_DAY (minute or hour) and DAY (day, week, or month).
     // 
-    // This parameter corresponds to the Scheduling Cycle parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Scheduling Cycle** setting under **Scheduling Configuration > Time Properties** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> cycleType_ {};
-    // The IDs of the nodes that generate instances in the previous cycle on which the current node depends.
+    // The list of nodes that the current node depends on from the previous cycle.
     shared_ptr<string> dependentNodeIdList_ {};
-    // The type of the cross-cycle scheduling dependency of the node. Valid values:
-    // 
-    // *   SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
-    // *   CHILD: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle.
-    // *   USER_DEFINE: The instance generated for the node in the current cycle depends on the instances generated for one or more specified nodes in the previous cycle.
-    // *   NONE: No cross-cycle scheduling dependency type is selected for the node.
-    // *   USER_DEFINE_AND_SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle and the instances generated for one or more specified nodes in the previous cycle.
-    // *   CHILD_AND_SELF: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle and the instance generated for the node in the previous cycle.
+    // The mode of cross-cycle dependency. Valid values:
+    // - SELF: The dependency is set to the current node.
+    // - CHILD: The dependency is set to first-level child nodes.
+    // - USER_DEFINE: The dependency is set to other nodes.
+    // - NONE: No dependency is selected, which means the node does not depend on the previous cycle.   
+    // - USER_DEFINE_AND_SELF: The dependency is set to a combination of the current node and other nodes across cycles.
+    // - CHILD_AND_SELF: The dependency is set to a combination of first-level child nodes and the current node across cycles.
     shared_ptr<string> dependentType_ {};
-    // The end time of automatic scheduling. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp in milliseconds when automatic scheduling stops.
     // 
-    // This parameter corresponds to the Validity Period parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the end time (in milliseconds) of the **Effective Date** setting under **Scheduling Configuration > Time Properties** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<int64_t> endEffectDate_ {};
     // The description of the file.
     shared_ptr<string> fileDescription_ {};
@@ -420,85 +431,87 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The type of the code for the file. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+    // The code type of the file.
+    // Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
     // 
-    // You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the type of the code for the file.
+    // You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the code types of files.
     // 
     // This parameter is required.
     shared_ptr<int32_t> fileType_ {};
-    // Whether to use the last cycle empty run attribute. The values are as follows:
-    // - true: The empty run attribute of the previous cycle is used.
-    // - false: The empty run attribute of the previous cycle is not used.
+    // Specifies whether to inherit the dry-run property from the previous cycle. Valid values:
+    // 
+    // - true: Inherit the dry-run property from the previous cycle.
+    // 
+    // - false: Do not inherit the dry-run property from the previous cycle.
     shared_ptr<bool> ignoreParentSkipRunningProperty_ {};
     // The ID of the custom image.
     shared_ptr<string> imageId_ {};
-    // The output name of the parent file on which the current file depends. If you specify multiple output names, separate them with commas (,).
+    // The output names of the upstream files that the file depends on. Separate multiple output names with commas (,).
     // 
-    // This parameter corresponds to the Output Name parameter under Parent Nodes in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Parent Node Output Name** setting when **Same Cycle** is selected under **Scheduling Configuration > Scheduling Dependency** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> inputList_ {};
-    // The input parameters of the node. The value of this parameter must be in the JSON format. For more information about the input parameters, see the InputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
+    // The context input parameters of the node. The parameter value is in JSON format. For the fields included, see the InputContextParameterList parameter structure in the response of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
     // 
-    // This parameter corresponds to the Input Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Input Parameters of This Node** setting under **Scheduling Configuration > Node Context** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> inputParameters_ {};
-    // The output parameters of the node. The value of this parameter must be in the JSON format. For more information about the output parameters, see the OutputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
+    shared_ptr<string> outputList_ {};
+    // The context output parameters of the node. The parameter value is in JSON format. For the fields included, see the OutputContextParameterList parameter structure in the response of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
     // 
-    // This parameter corresponds to the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Output Parameters of This Node** setting under **Scheduling Configuration > Node Context** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> outputParameters_ {};
-    // The ID of the Alibaba Cloud account used by the file owner. If this parameter is not configured, the ID of the Alibaba Cloud account of the user who calls the operation is used.
+    // The Alibaba Cloud user ID of the file owner. If this parameter is left empty, the Alibaba Cloud user ID of the caller is used by default.
     shared_ptr<string> owner_ {};
-    // The scheduling parameters of the node. Separate multiple parameters with spaces.
+    // The scheduling parameters. Separate multiple parameters with spaces. 
     // 
-    // This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+    // This parameter corresponds to the **Parameters** setting under **Scheduling Configuration** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
     shared_ptr<string> paraValue_ {};
-    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Settings page to obtain the workspace ID.
     // 
-    // You must configure this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+    // You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace for this API call.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace name.
+    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Settings page to obtain the workspace name.
     // 
-    // You must configure this parameter or the ProjectId parameter to determine the DataWorks workspace to which the operation is applied.
+    // You must specify either this parameter or ProjectId to determine the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
-    // Specifies whether the node that corresponds to the file can be rerun. Valid values:
+    // The rerun property. Valid values:
+    // - ALL_ALLOWED: The node can be rerun regardless of whether it runs successfully or fails.
+    // - FAILURE_ALLOWED: The node can be rerun only after it fails.
+    // - ALL_DENIED: The node cannot be rerun regardless of whether it runs successfully or fails.
     // 
-    // *   ALL_ALLOWED: The node can be rerun regardless of whether it is successfully run or fails to run.
-    // *   FAILURE_ALLOWED: The node can be rerun only after it fails to run.
-    // *   ALL_DENIED: The node cannot be rerun regardless of whether it is successfully run or fails to run.
-    // 
-    // This parameter corresponds to the Rerun parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Rerun Property** setting under **Scheduling Configuration > Time Properties > Rerun Property** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> rerunMode_ {};
-    // This parameter is deprecated. Do not use this parameter.
+    // This parameter is deprecated. Do not use it.
     // 
-    // The identifier of the resource group that is used to run the node. This parameter corresponds to the Resource Group parameter in the Resource Group section of the Properties tab in the DataWorks console. You must configure one of the ResourceGroupId and ResourceGroupIdentifier parameters to determine the resource group that is used to run the node.
+    // The schedule resource used when the file is published as a node and executed. This parameter corresponds to the **Scheduling Configuration > Resource Properties > Scheduling Resource Group** setting on the page. You can specify either this parameter or ResourceGroupIdentifier.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace. When you call the operation, set the ResourceGroupType parameter to 1. The response parameter Id indicates the ID of an available resource group.
+    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to obtain the list of available resource groups for the workspace. Set ResourceGroupType to 1 and use the ID field from the response.
     shared_ptr<int64_t> resourceGroupId_ {};
-    // The identifier of the resource group that is used to run the node. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace. The **Identifier** parameter in the response of the operation indicates the identifier of an available resource group.
+    // The schedule resource used when the file is published as a node and executed. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation and use the **identifier** field to obtain the list of available resource groups for the workspace.
     // 
-    // >  You must make sure that the available resource groups in the response of the ListResourceGroups operation are associated with the workspace for which you want to create a file by calling the CreateFile operation.
+    // 
+    // > Make sure that the resource group returned by the ListResourceGroups operation is bound to the workspace used to create the file. The resource group can be used in CreateFile only after it is bound.
     shared_ptr<string> resourceGroupIdentifier_ {};
-    // The scheduling type of the node. Valid values:
-    // 
-    // *   NORMAL: The node is an auto triggered node.
-    // *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
-    // *   PAUSE: The node is a paused node.
-    // *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them
+    // The type of scheduling. Valid values:
+    // - NORMAL: The node is a normal scheduled node.
+    // - MANUAL: The node is a manual node that is not included in daily scheduling. This corresponds to nodes under manual workflows.
+    // - PAUSE: The node is a paused node.
+    // - SKIP: The node is a dry-run node that is included in daily scheduling but is immediately set to successful when triggered.
     shared_ptr<string> schedulerType_ {};
-    // The start time of automatic scheduling. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp in milliseconds when automatic scheduling starts.
     // 
-    // Configuring this parameter is equivalent to specifying a start time for the Validity Period parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the start time (in milliseconds) of the **Effective Date** setting under **Scheduling Configuration > Time Properties** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<int64_t> startEffectDate_ {};
-    // Specifies whether to immediately run a node after the node is deployed.
+    // Specifies whether to start the node immediately after it is published.
     // 
-    // This parameter is valid only for an EMR Spark Streaming node or an EMR Streaming SQL node. This parameter corresponds to the Start Method parameter in the Schedule section of the Configure tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the **Start Mode** setting under **Configuration > Time Properties** in the right-side navigation pane of the editing page for EMR Spark Streaming and EMR Streaming SQL DataStudio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> startImmediately_ {};
-    // Specifies whether to suspend the scheduling of the node. Valid values:
+    // Specifies whether to suspend scheduling. Valid values:
+    // - true: Suspend scheduling.
+    // - false: Do not suspend scheduling.
     // 
-    // *   true
-    // *   false
-    // 
-    // This parameter corresponds to the Recurrence parameter in the Schedule section of the Properties tab on the DataStudio page in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to setting the **Scheduling Type** to **Suspend Scheduling** under **Scheduling Configuration > Time Properties** of a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> stop_ {};
-    // The timeout period.
+    // The timeout period defined in the scheduling configuration.
     shared_ptr<int32_t> timeout_ {};
   };
 

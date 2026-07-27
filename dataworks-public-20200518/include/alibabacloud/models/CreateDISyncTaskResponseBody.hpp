@@ -86,8 +86,9 @@ namespace Models
       shared_ptr<string> message_ {};
       // The creation status of the data synchronization task. Valid values:
       // 
-      // *   success
-      // *   fail
+      // - success
+      // 
+      // - fail
       shared_ptr<string> status_ {};
     };
 

@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // DeleteFolder
+    // The ID of the folder. For more information about how to obtain the folder ID, see [ListFolders](https://help.aliyun.com/document_detail/173955.html).
     // 
     // This parameter is required.
     shared_ptr<string> folderId_ {};
-    // Indicates whether the request is successful.
+    // The ID of the DataWorks workspace. To obtain the workspace ID, log on to the DataWorks console and go to the Workspace Management page. You must set this parameter or ProjectIdentifier to specify the DataWorks workspace for the API call.
     shared_ptr<int64_t> projectId_ {};
-    // http://100.67.165.184/business/api/folders/delete
+    // The name of the DataWorks workspace. To obtain the workspace name, log on to the DataWorks console and go to the Workspace Management page. You must set this parameter or ProjectId to specify the DataWorks workspace for the API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

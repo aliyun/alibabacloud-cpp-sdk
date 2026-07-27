@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The list of workflow IDs.
     shared_ptr<vector<int64_t>> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID. The ID is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

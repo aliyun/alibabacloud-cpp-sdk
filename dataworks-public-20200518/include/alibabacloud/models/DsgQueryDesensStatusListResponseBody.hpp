@@ -130,10 +130,17 @@ namespace Models
 
 
       protected:
+        // Switch status
+        // 1: Enabled
+        // 0: Disabled
         shared_ptr<int32_t> desensStatus_ {};
+        // Represents project space name or workspace ID depending on the scenario
         shared_ptr<string> handleSpace_ {};
+        // Switch ID
         shared_ptr<int64_t> id_ {};
+        // Workspace unique identifier
         shared_ptr<string> workspaceIdentifier_ {};
+        // Workspace name
         shared_ptr<string> workspaceName_ {};
       };
 
@@ -170,9 +177,14 @@ namespace Models
 
 
     protected:
+      // Data masking rule type.
       shared_ptr<vector<Data::PageData>> pageData_ {};
+      // Page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // Number of records displayed per page
+      // .
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -223,11 +235,18 @@ namespace Models
 
 
   protected:
+    // Response data details.
     shared_ptr<DsgQueryDesensStatusListResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
+    // Error message
+    // .
     shared_ptr<string> errorMessage_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

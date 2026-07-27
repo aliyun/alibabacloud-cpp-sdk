@@ -122,15 +122,17 @@ namespace Models
 
 
       protected:
-        // The ID of the EMR cluster. This parameter is returned only when the data scope that takes effect in the data masking scenario is an EMR compute engine.
+        // The ID of the E-MapReduce (EMR) cluster. This parameter is returned only if the `DbType` is `EMR`.
         shared_ptr<string> clusterId_ {};
-        // The type of the compute engine. Valid values:
+        // The engine type. Valid values:
         // 
-        // *   ODPS: ODPS.ODPS
-        // *   HOLO: HOLO.POSTGRES
-        // *   EMR: EMR
+        // - MaxCompute: `ODPS.ODPS`
+        // 
+        // - Hologres: `HOLO.POSTGRES`
+        // 
+        // - E-MapReduce (EMR): `EMR`
         shared_ptr<string> dbType_ {};
-        // The name of the compute engine.
+        // The name of the engine instance.
         shared_ptr<string> projectName_ {};
       };
 
@@ -205,31 +207,37 @@ namespace Models
 
 
     protected:
-      // The information about multiple levels of data masking scenarios.
+      // The nested data masking scenarios.
       shared_ptr<vector<Darabonba::Json>> children_ {};
       // The description of the data masking scenario.
       shared_ptr<string> desc_ {};
       // The ID of the data masking scenario.
       shared_ptr<int64_t> id_ {};
-      // The information about the compute engine for which the data masking scenario takes effect.
+      // The engine instances to which the data masking scenario applies.
       shared_ptr<vector<Data::Projects>> projects_ {};
-      // The code of the level-1 data masking scenario. Valid values:
+      // The code for the level-1 scenario. Valid values:
       // 
-      // *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
-      // *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
-      // *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
-      // *   hologres_display_desense_code: data masking at the Hologres compute engine layer
-      // *   dataworks_data_integration_desense_code: static data masking in Data Integration
-      // *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+      // - Data masking in Data Map and DataStudio: `dataworks_display_desense_code`
+      // 
+      // - Data masking at the MaxCompute engine layer: `maxcompute_desense_code`
+      // 
+      // - Data masking at the MaxCompute engine layer (new): `maxcompute_new_desense_code`
+      // 
+      // - Data masking at the Hologres engine layer: `hologres_display_desense_code`
+      // 
+      // - Static data masking in Data Integration: `dataworks_data_integration_desense_code`
+      // 
+      // - Data masking in Data Analysis: `dataworks_analysis_desense_code`
       shared_ptr<string> sceneCode_ {};
       // The level of the data masking scenario. Valid values:
       // 
-      // *   0: level-1 data masking scenario
-      // *   1: level-2 data masking scenario
+      // - `0`: level-1 scenario
+      // 
+      // - `1`: level-2 scenario
       shared_ptr<int32_t> sceneLevel_ {};
       // The name of the data masking scenario.
       shared_ptr<string> sceneName_ {};
-      // The list of user groups in the data masking scenario. Separate user groups with commas (,).
+      // The user groups to which the data masking scenario applies. Multiple user group names are separated by a comma (,).
       shared_ptr<string> userGroups_ {};
       shared_ptr<string> scenceDbType_ {};
     };
@@ -281,7 +289,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The list of data masking scenarios.
     shared_ptr<vector<DsgSceneQuerySceneListByNameResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -289,12 +297,13 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

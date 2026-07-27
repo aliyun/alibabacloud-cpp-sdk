@@ -114,7 +114,8 @@ namespace Models
   protected:
     // The ID of the collection administrator.
     shared_ptr<string> administrator_ {};
-    // - ALBUM: data album 
+    // - ALBUM: data album
+    // 
     // - ALBUM_CATEGORY: category in a data album
     // 
     // This parameter is required.

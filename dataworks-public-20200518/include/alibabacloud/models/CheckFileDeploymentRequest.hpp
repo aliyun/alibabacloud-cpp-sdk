@@ -65,9 +65,11 @@ namespace Models
     shared_ptr<string> checkerInstanceId_ {};
     // The check status of the file that you want to deploy. Valid values:
     // 
-    // *   OK: The file passes the check.
-    // *   WARN: The file passes the check, but an alert is reported.
-    // *   FAIL: The file fails the check.
+    // - OK: The file passes the check.
+    // 
+    // - WARN: The file passes the check, but an alert is reported.
+    // 
+    // - FAIL: The file fails the check.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

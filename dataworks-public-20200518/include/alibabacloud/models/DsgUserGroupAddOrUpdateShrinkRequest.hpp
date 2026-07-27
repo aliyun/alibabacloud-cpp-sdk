@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The information about the user group.
+    // The user groups.
     // 
     // This parameter is required.
     shared_ptr<string> userGroupsShrink_ {};

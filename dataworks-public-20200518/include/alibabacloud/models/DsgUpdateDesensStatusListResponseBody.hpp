@@ -84,11 +84,22 @@ namespace Models
 
 
   protected:
+    // The processing result.
     shared_ptr<bool> data_ {};
+    // The error code. Valid values:
+    // 
+    // - If the request is successful, the **ErrorCode** field is not returned.
+    // - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section of this topic.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The keyword of the user group name. A fuzzy match is performed based on the keyword to search for the user group.
+    // A keyword for the user group name. The service performs a fuzzy search to find matching user groups.
     shared_ptr<string> name_ {};
     // The owner of the user group.
     shared_ptr<string> owner_ {};
-    // The page number.
+    // The number of the page to return.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
@@ -96,7 +96,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the compute engine. If you want to query the information about a MaxCompute user group, you need to configure this parameter.
+    // The name of the MaxCompute project to query for user groups.
     shared_ptr<string> projectName_ {};
     shared_ptr<int32_t> userGroupType_ {};
   };

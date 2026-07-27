@@ -151,13 +151,13 @@ namespace Models
 
 
       protected:
-        // The usernames in the user group.
+        // A list of usernames in the user group.
         shared_ptr<vector<string>> accounts_ {};
         // The time when the user group was created.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the user group was modified.
+        // The time when the user group was last modified.
         shared_ptr<string> gmtModified_ {};
-        // The user group ID.
+        // The ID of the user group.
         shared_ptr<int64_t> id_ {};
         // The name of the user group.
         shared_ptr<string> name_ {};
@@ -199,13 +199,13 @@ namespace Models
 
 
     protected:
-      // The user groups.
+      // A list of user groups.
       shared_ptr<vector<PageData::Data>> data_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of user groups returned.
+      // The total number of user groups.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -262,14 +262,15 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The pagination information.
+    // The paginated query results.
     shared_ptr<DsgUserGroupQueryListResponseBody::PageData> pageData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the subscription relationship.
+    // The subscription ID.
     shared_ptr<int32_t> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

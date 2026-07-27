@@ -253,6 +253,12 @@
 #include <alibabacloud/models/DsgDesensPlanUpdateStatusShrinkRequest.hpp>
 #include <alibabacloud/models/DsgDesensPlanUpdateStatusResponseBody.hpp>
 #include <alibabacloud/models/DsgDesensPlanUpdateStatusResponse.hpp>
+#include <alibabacloud/models/DsgGetVisitDetailRequest.hpp>
+#include <alibabacloud/models/DsgGetVisitDetailResponseBody.hpp>
+#include <alibabacloud/models/DsgGetVisitDetailResponse.hpp>
+#include <alibabacloud/models/DsgGetVisitStatRequest.hpp>
+#include <alibabacloud/models/DsgGetVisitStatResponseBody.hpp>
+#include <alibabacloud/models/DsgGetVisitStatResponse.hpp>
 #include <alibabacloud/models/DsgPlatformQueryProjectsAndSchemaFromMetaRequest.hpp>
 #include <alibabacloud/models/DsgPlatformQueryProjectsAndSchemaFromMetaResponseBody.hpp>
 #include <alibabacloud/models/DsgPlatformQueryProjectsAndSchemaFromMetaResponse.hpp>
@@ -262,6 +268,12 @@
 #include <alibabacloud/models/DsgQueryDesensStatusListRequest.hpp>
 #include <alibabacloud/models/DsgQueryDesensStatusListResponseBody.hpp>
 #include <alibabacloud/models/DsgQueryDesensStatusListResponse.hpp>
+#include <alibabacloud/models/DsgQueryDetailsRequest.hpp>
+#include <alibabacloud/models/DsgQueryDetailsResponseBody.hpp>
+#include <alibabacloud/models/DsgQueryDetailsResponse.hpp>
+#include <alibabacloud/models/DsgQueryRowDetailRequest.hpp>
+#include <alibabacloud/models/DsgQueryRowDetailResponseBody.hpp>
+#include <alibabacloud/models/DsgQueryRowDetailResponse.hpp>
 #include <alibabacloud/models/DsgQuerySensResultRequest.hpp>
 #include <alibabacloud/models/DsgQuerySensResultResponseBody.hpp>
 #include <alibabacloud/models/DsgQuerySensResultResponse.hpp>

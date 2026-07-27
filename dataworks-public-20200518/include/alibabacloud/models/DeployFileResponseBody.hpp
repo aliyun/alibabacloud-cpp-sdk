@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the deployment task. The ID is used as the value of a specific request parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment task.
+    // The ID of the deployment package. You can then use this ID as a parameter when calling the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) API to obtain the details of the deployment.
     shared_ptr<int64_t> data_ {};
-    // The error code returned.
+    // Error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned.
+    // Error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request. You can troubleshoot issues based on the ID.
+    // The request ID is used to troubleshoot issues when an error occurs.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

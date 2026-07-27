@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The ID of the partition filter expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to query the ID.
+    // The ID of the partition expression. Call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to get this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
@@ -83,13 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 20.
+    // The number of entries to return per page. Default: 10. Maximum: 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the compute engine or data source. You can obtain the name from data source configurations.
+    // The name of the engine or data source. You can find this name on the Data Source Configuration page.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

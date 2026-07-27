@@ -107,19 +107,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> envType_ {};
-    // The partition filter expression.
+    // The partition expression.
     // 
     // This parameter is required.
     shared_ptr<string> matchExpression_ {};
-    // The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+    // The ID of the scheduling node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) API to obtain the node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> nodeId_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the compute engine or data source.
+    // The name of the compute engine instance or data source.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
@@ -127,11 +127,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
-    // The ID of the workspace to which the node belongs.
+    // The ID of the project to which the node belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> targetNodeProjectId_ {};
-    // The name of the workspace to which the node to be associated with the partition filter expression belongs.
+    // The name of the project to which the scheduling node belongs.
     // 
     // This parameter is required.
     shared_ptr<string> targetNodeProjectName_ {};

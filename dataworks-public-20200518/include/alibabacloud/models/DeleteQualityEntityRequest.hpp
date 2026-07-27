@@ -66,26 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the partition filter expression.
+    // The ID of the partition expression.
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
-    // The type of the compute engine or data source. The following types are supported: E-MapReduce (EMR), Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka, and DataHub.
-    // 
-    // Valid values:
-    // 
-    // *   odps
-    // *   emr
-    // *   hadoop
-    // *   cdh
-    // *   hybriddb_for_postgresql
-    // *   holodb
+    // The type of the engine or data source. Valid values: E-MapReduce (EMR), Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka, and DataHub.
     // 
     // This parameter is required.
     shared_ptr<string> envType_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the compute engine or data source.
+    // The name of the engine or data source.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

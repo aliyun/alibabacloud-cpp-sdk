@@ -217,18 +217,29 @@ namespace Models
             shared_ptr<string> exampleValue_ {};
             // The data type of the parameter. Valid values:
             // 
-            // *   0: String
-            // *   1: Int
-            // *   2: Long
-            // *   3: Float
-            // *   4: Double
-            // *   5: Boolean
-            // *   6: StringList
-            // *   7: IntList
-            // *   8: LongList
-            // *   9: FloatList
-            // *   10: DoubleList
-            // *   11: BooleanList
+            // - 0: String
+            // 
+            // - 1: Int
+            // 
+            // - 2: Long
+            // 
+            // - 3: Float
+            // 
+            // - 4: Double
+            // 
+            // - 5: Boolean
+            // 
+            // - 6: StringList
+            // 
+            // - 7: IntList
+            // 
+            // - 8: LongList
+            // 
+            // - 9: FloatList
+            // 
+            // - 10: DoubleList
+            // 
+            // - 11: BooleanList
             shared_ptr<int32_t> parameterDataType_ {};
             // The description.
             shared_ptr<string> parameterDescription_ {};
@@ -337,18 +348,29 @@ namespace Models
             shared_ptr<bool> isRequiredParameter_ {};
             // The data type of the parameter. Valid values:
             // 
-            // *   0: String
-            // *   1: Int
-            // *   2: Long
-            // *   3: Float
-            // *   4: Double
-            // *   5: Boolean
-            // *   6: StringList
-            // *   7: IntList
-            // *   8: LongList
-            // *   9: FloatList
-            // *   10: DoubleList
-            // *   11: BooleanList
+            // - 0: String
+            // 
+            // - 1: Int
+            // 
+            // - 2: Long
+            // 
+            // - 3: Float
+            // 
+            // - 4: Double
+            // 
+            // - 5: Boolean
+            // 
+            // - 6: StringList
+            // 
+            // - 7: IntList
+            // 
+            // - 8: LongList
+            // 
+            // - 9: FloatList
+            // 
+            // - 10: DoubleList
+            // 
+            // - 11: BooleanList
             shared_ptr<int32_t> parameterDataType_ {};
             // The description.
             shared_ptr<string> parameterDescription_ {};
@@ -629,18 +651,29 @@ namespace Models
             shared_ptr<string> exampleValue_ {};
             // The data type of the parameter. Valid values:
             // 
-            // *   0: String
-            // *   1: Int
-            // *   2: Long
-            // *   3: Float
-            // *   4: Double
-            // *   5: Boolean
-            // *   6: StringList
-            // *   7: IntList
-            // *   8: LongList
-            // *   9: FloatList
-            // *   10: DoubleList
-            // *   11: BooleanList
+            // - 0: String
+            // 
+            // - 1: Int
+            // 
+            // - 2: Long
+            // 
+            // - 3: Float
+            // 
+            // - 4: Double
+            // 
+            // - 5: Boolean
+            // 
+            // - 6: StringList
+            // 
+            // - 7: IntList
+            // 
+            // - 8: LongList
+            // 
+            // - 9: FloatList
+            // 
+            // - 10: DoubleList
+            // 
+            // - 11: BooleanList
             shared_ptr<int32_t> parameterDataType_ {};
             // The description.
             shared_ptr<string> parameterDescription_ {};
@@ -749,21 +782,31 @@ namespace Models
             shared_ptr<bool> isRequiredParameter_ {};
             // The data type of the parameter. Valid values:
             // 
-            // *   0: String
-            // *   1: Int
-            // *   2: Long
-            // *   3: Float
-            // *   4: Double
-            // *   5: Boolean
+            // - 0: String
+            // 
+            // - 1: Int
+            // 
+            // - 2: Long
+            // 
+            // - 3: Float
+            // 
+            // - 4: Double
+            // 
+            // - 5: Boolean
             // 
             // Advanced scripts also support the following data types:
             // 
-            // *   6: StringList
-            // *   7: IntList
-            // *   8: LongList
-            // *   9: FloatList
-            // *   10: DoubleList
-            // *   11: BooleanList
+            // - 6: StringList
+            // 
+            // - 7: IntList
+            // 
+            // - 8: LongList
+            // 
+            // - 9: FloatList
+            // 
+            // - 10: DoubleList
+            // 
+            // - 11: BooleanList
             shared_ptr<int32_t> parameterDataType_ {};
             // The description.
             shared_ptr<string> parameterDescription_ {};
@@ -771,19 +814,25 @@ namespace Models
             shared_ptr<string> parameterName_ {};
             // The operator used for the value of the parameter. Valid values:
             // 
-            // *   0: Equal
-            // *   1: Like
-            // *   2: Const
-            // *   3: In
+            // - 0: Equal
+            // 
+            // - 1: Like
+            // 
+            // - 2: Const
+            // 
+            // - 3: In
             // 
             // APIs generated in wizard mode support the Equal, Like, and In operators. APIs generated in script mode support the Equal operator. APIs generated by registration support the Equal and Const operators.
             shared_ptr<int32_t> parameterOperator_ {};
             // The position of the parameter. Valid values:
             // 
-            // *   0: indicates that the parameter is in the URL path of the request.
-            // *   1: indicates that the parameter is in the Query parameter of the request URL.
-            // *   2: indicates that the parameter is in the request header.
-            // *   3: indicates that the parameter is in the request body.
+            // - 0: indicates that the parameter is in the URL path of the request.
+            // 
+            // - 1: indicates that the parameter is in the Query parameter of the request URL.
+            // 
+            // - 2: indicates that the parameter is in the request header.
+            // 
+            // - 3: indicates that the parameter is in the request body.
             // 
             // APIs generated in wizard or script mode support only the Query position. APIs generated by registration whose request method is GET or DELETE support the Query and Head positions. APIs generated by registration whose request method is PUT or POST support the Query, Head, and Body positions.
             shared_ptr<int32_t> parameterPosition_ {};
@@ -1108,18 +1157,29 @@ namespace Models
             shared_ptr<bool> isRequiredParameter_ {};
             // The data type of the parameter. Valid values:
             // 
-            // *   0: String
-            // *   1: Int
-            // *   2: Long
-            // *   3: Float
-            // *   4: Double
-            // *   5: Boolean
-            // *   6: StringList
-            // *   7: IntList
-            // *   8: LongList
-            // *   9: FloatList
-            // *   10: DoubleList
-            // *   11: BooleanList
+            // - 0: String
+            // 
+            // - 1: Int
+            // 
+            // - 2: Long
+            // 
+            // - 3: Float
+            // 
+            // - 4: Double
+            // 
+            // - 5: Boolean
+            // 
+            // - 6: StringList
+            // 
+            // - 7: IntList
+            // 
+            // - 8: LongList
+            // 
+            // - 9: FloatList
+            // 
+            // - 10: DoubleList
+            // 
+            // - 11: BooleanList
             shared_ptr<int32_t> parameterDataType_ {};
             // The description.
             shared_ptr<string> parameterDescription_ {};
@@ -1127,19 +1187,25 @@ namespace Models
             shared_ptr<string> parameterName_ {};
             // The operator used for the value of the parameter. Valid values:
             // 
-            // *   0: Equal
-            // *   1: Like
-            // *   2: Const
-            // *   3: In
+            // - 0: Equal
+            // 
+            // - 1: Like
+            // 
+            // - 2: Const
+            // 
+            // - 3: In
             // 
             // APIs generated in wizard mode support the Equal, Like, and In operators. APIs generated in script mode support the Equal operator. APIs generated by registration support the Equal and Const operators.
             shared_ptr<int32_t> parameterOperator_ {};
             // The position of the parameter. Valid values:
             // 
-            // *   0: indicates that the parameter is in the URL path of the request.
-            // *   1: indicates that the parameter is in the Query parameter of the request URL.
-            // *   2: indicates that the parameter is in the request header.
-            // *   3: indicates that the parameter is in the request body.
+            // - 0: indicates that the parameter is in the URL path of the request.
+            // 
+            // - 1: indicates that the parameter is in the Query parameter of the request URL.
+            // 
+            // - 2: indicates that the parameter is in the request header.
+            // 
+            // - 3: indicates that the parameter is in the request body.
             // 
             // APIs generated in wizard or script mode support only the Query position. APIs generated by registration whose request method is GET or DELETE support the Query and Head positions. APIs generated by registration whose request method is PUT or POST support the Query, Head, and Body positions.
             shared_ptr<int32_t> parameterPosition_ {};

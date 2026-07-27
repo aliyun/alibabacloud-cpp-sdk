@@ -222,17 +222,23 @@ namespace Models
         shared_ptr<int64_t> startTime_ {};
         // The status of the DAG. Valid values:
         // 
-        // *   CREATED
-        // *   RUNNING
-        // *   FAILURE
-        // *   SUCCESS
+        // - CREATED
+        // 
+        // - RUNNING
+        // 
+        // - FAILURE
+        // 
+        // - SUCCESS
         shared_ptr<string> status_ {};
         // The type of the DAG. Valid values:
         // 
-        // *   MANUAL: DAG for a manually triggered workflow
-        // *   SMOKE_TEST: DAG for a smoke testing workflow
-        // *   SUPPLY_DATA: DAG for a data backfill instance
-        // *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+        // - MANUAL: DAG for a manually triggered workflow
+        // 
+        // - SMOKE_TEST: DAG for a smoke testing workflow
+        // 
+        // - SUPPLY_DATA: DAG for a data backfill instance
+        // 
+        // - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
         shared_ptr<string> type_ {};
       };
 

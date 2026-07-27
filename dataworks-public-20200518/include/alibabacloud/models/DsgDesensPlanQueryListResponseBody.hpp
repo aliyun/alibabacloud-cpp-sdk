@@ -216,9 +216,9 @@ namespace Models
 
 
         protected:
-          // The type of the data masking rule.
+          // The type of the desensitization plan.
           shared_ptr<string> desensPlanType_ {};
-          // The parameters for the data masking rule. For more information about the parameters, see the [DsgDesensPlanAddOrUpdate](https://help.aliyun.com/document_detail/2786295.html) API reference.
+          // The parameters for the desensitization rule. For details, see the [DsgDesensPlanAddOrUpdate](https://help.aliyun.com/document_detail/2786295.html) operation.
           Darabonba::Json extParam_ {};
         };
 
@@ -343,46 +343,53 @@ namespace Models
 
 
       protected:
-        // Indicates whether a watermark is added. Valid values:
+        // Indicates whether to add a watermark. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: A watermark is added.
+        // 
+        // - false: No watermark is added.
         shared_ptr<bool> checkWatermark_ {};
-        // The sensitive field type.
+        // The sensitive data type.
         shared_ptr<string> dataType_ {};
-        // The type of the data masking method.
+        // The desensitization method.
         shared_ptr<string> desenMode_ {};
-        // The details of the data masking rule.
+        // The details of the desensitization plan.
         shared_ptr<Data::DesensPlan> desensPlan_ {};
-        // The data masking rule.
+        // The desensitization rule.
         shared_ptr<string> desensRule_ {};
-        // The data masking method.
+        // The desensitization method.
         shared_ptr<string> desensWay_ {};
-        // The time when the data masking rule was created.
+        // The time when the rule was created.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the data masking rule was modified.
+        // The time when the rule was last modified.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the data masking rule.
+        // The ID of the desensitization rule.
         shared_ptr<int64_t> id_ {};
-        // The owner of the data masking rule.
+        // The owner of the desensitization rule.
         shared_ptr<string> owner_ {};
-        // The name of the data masking rule.
+        // The name of the desensitization rule.
         shared_ptr<string> ruleName_ {};
-        // The code of the level-1 data masking scenario to which the rule belongs. Valid values:
+        // The level-1 desensitization scene code. Valid values:
         // 
-        // *   dataworks_display_desense_code: masking of displayed data in DataStudio and Data Map
-        // *   maxcompute_desense_code: data masking at the MaxCompute compute engine layer
-        // *   maxcompute_new_desense_code: data masking at the MaxCompute compute engine layer (new)
-        // *   hologres_display_desense_code: data masking at the Hologres compute engine layer
-        // *   dataworks_data_integration_desense_code: static data masking in Data Integration
-        // *   dataworks_analysis_desense_code: masking of displayed data in DataAnalysis
+        // - Desensitization for display in Data Development and Data Map: dataworks_display_desense_code
+        // 
+        // - Desensitization at the MaxCompute engine layer: maxcompute_desense_code
+        // 
+        // - Desensitization at the MaxCompute engine layer (New): maxcompute_new_desense_code
+        // 
+        // - Desensitization at the Hologres engine layer: hologres_display_desense_code
+        // 
+        // - Static desensitization in Data Integration: dataworks_data_integration_desense_code
+        // 
+        // - Desensitization for display in Data Analysis: dataworks_analysis_desense_code
         shared_ptr<string> sceneCode_ {};
-        // The name of the level-2 data masking scenario to which the data masking rule belongs.
+        // The name of the level-2 desensitization scene.
         shared_ptr<string> sceneName_ {};
-        // The status of the data masking rule. Valid values:
+        // The status of the rule. Valid values:
         // 
-        // *   0: expired
-        // *   1: effective
+        // - 0: Inactive.
+        // 
+        // - 1: Active.
         shared_ptr<int32_t> status_ {};
         shared_ptr<vector<Data::Columns>> columns_ {};
         shared_ptr<bool> emptyNotDesesn_ {};
@@ -421,13 +428,13 @@ namespace Models
 
 
     protected:
-      // The information about the data masking rule.
+      // The details of the desensitization rules.
       shared_ptr<vector<PageData::Data>> data_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The number of data masking rules.
+      // The total number of matching desensitization rules.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -484,14 +491,15 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The pagination information.
+    // The paginated data.
     shared_ptr<DsgDesensPlanQueryListResponseBody::PageData> pageData_ {};
-    // The request ID. You can use the ID to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

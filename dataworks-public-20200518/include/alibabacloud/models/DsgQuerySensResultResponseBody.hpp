@@ -105,11 +105,11 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     Darabonba::Json data_ {};
-    // The error code. The value is the same as that of ErrorCode.
+    // The error code. The value is the same as ErrorCode.
     shared_ptr<string> dynamicErrorCode_ {};
-    // The error message. The value is the same as that of ErrorMessage.
+    // The error message. The value is the same as ErrorMessage.
     shared_ptr<string> dynamicErrorMessage_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -117,12 +117,11 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID. It is a unique identifier for the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: successful.
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

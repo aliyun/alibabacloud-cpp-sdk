@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the monitoring rule that you created.
+    // The ID of the new rule.
     shared_ptr<string> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

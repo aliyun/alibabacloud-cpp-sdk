@@ -86,7 +86,9 @@ AlibabaCloud::DataworksPublic20200518::Client::Client(AlibabaCloud::OpenApi::Uti
     {"me-east-1" , "dataworks.me-east-1.aliyuncs.com"},
     {"rus-west-1-pop" , "dataworks.aliyuncs.com"},
     {"us-east-1" , "dataworks.us-east-1.aliyuncs.com"},
-    {"us-west-1" , "dataworks.us-west-1.aliyuncs.com"}
+    {"us-west-1" , "dataworks.us-west-1.aliyuncs.com"},
+    {"me-central-1" , "dataworks.me-central-1.aliyuncs.com"},
+    {"ap-northeast-2" , "dataworks.ap-northeast-2.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dataworks-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -289,8 +291,8 @@ AddMetaCollectionEntityResponse Client::addMetaCollectionEntity(const AddMetaCol
 /**
  * @summary Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
  *
- * @description *   For information about how to add an account to a DataWorks workspace as a member, see [Add workspace members and assign roles to them](https://help.aliyun.com/document_detail/136941.html).
- * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
+ * @description - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+ * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
  *
  * @param request AddProjectMemberToRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -335,8 +337,8 @@ AddProjectMemberToRoleResponse Client::addProjectMemberToRoleWithOptions(const A
 /**
  * @summary Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
  *
- * @description *   For information about how to add an account to a DataWorks workspace as a member, see [Add workspace members and assign roles to them](https://help.aliyun.com/document_detail/136941.html).
- * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
+ * @description - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+ * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
  *
  * @param request AddProjectMemberToRoleRequest
  * @return AddProjectMemberToRoleResponse
@@ -503,7 +505,10 @@ AddToMetaCategoryResponse Client::addToMetaCategory(const AddToMetaCategoryReque
 }
 
 /**
- * @summary Processes a permission request order.
+ * @summary Approves a permission request order.
+ * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+ *
+ * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
  *
  * @param request ApprovePermissionApplyOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -542,7 +547,10 @@ ApprovePermissionApplyOrderResponse Client::approvePermissionApplyOrderWithOptio
 }
 
 /**
- * @summary Processes a permission request order.
+ * @summary Approves a permission request order.
+ * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+ *
+ * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
  *
  * @param request ApprovePermissionApplyOrderRequest
  * @return ApprovePermissionApplyOrderResponse
@@ -607,7 +615,7 @@ CallbackExtensionResponse Client::callbackExtension(const CallbackExtensionReque
 }
 
 /**
- * @summary Changes the resource group to which a resource belongs.
+ * @summary Changes the resource group of a resource.
  *
  * @param request ChangeResourceManagerResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -646,7 +654,7 @@ ChangeResourceManagerResourceGroupResponse Client::changeResourceManagerResource
 }
 
 /**
- * @summary Changes the resource group to which a resource belongs.
+ * @summary Changes the resource group of a resource.
  *
  * @param request ChangeResourceManagerResourceGroupRequest
  * @return ChangeResourceManagerResourceGroupResponse
@@ -657,7 +665,7 @@ ChangeResourceManagerResourceGroupResponse Client::changeResourceManagerResource
 }
 
 /**
- * @summary Returns the check events of a file. After you commit your file that is created on the DataStudio page, the system checks the file and returns check events before the system deploys the file. You must determine whether the check can be continued based on the events. You can call this operation to return the check events for the file that you want to deploy to DataWorks.
+ * @summary Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
  *
  * @param request CheckFileDeploymentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -696,7 +704,7 @@ CheckFileDeploymentResponse Client::checkFileDeploymentWithOptions(const CheckFi
 }
 
 /**
- * @summary Returns the check events of a file. After you commit your file that is created on the DataStudio page, the system checks the file and returns check events before the system deploys the file. You must determine whether the check can be continued based on the events. You can call this operation to return the check events for the file that you want to deploy to DataWorks.
+ * @summary Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
  *
  * @param request CheckFileDeploymentRequest
  * @return CheckFileDeploymentResponse
@@ -1029,9 +1037,9 @@ CreateConnectionResponse Client::createConnection(const CreateConnectionRequest 
 }
 
 /**
- * @summary Creates an alert rule for a Data Integration task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Creates an alert rule for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
  *
  * @param tmpReq CreateDIAlarmRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1092,9 +1100,9 @@ CreateDIAlarmRuleResponse Client::createDIAlarmRuleWithOptions(const CreateDIAla
 }
 
 /**
- * @summary Creates an alert rule for a Data Integration task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Creates an alert rule for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
  *
  * @param request CreateDIAlarmRuleRequest
  * @return CreateDIAlarmRuleResponse
@@ -1293,6 +1301,8 @@ CreateDISyncTaskResponse Client::createDISyncTask(const CreateDISyncTaskRequest 
 /**
  * @deprecated OpenAPI CreateDagComplement is deprecated
  *
+ * @summary Calls CreateDagComplement to create a data backfill workflow.
+ *
  * @param request CreateDagComplementRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDagComplementResponse
@@ -1364,6 +1374,8 @@ CreateDagComplementResponse Client::createDagComplementWithOptions(const CreateD
 /**
  * @deprecated OpenAPI CreateDagComplement is deprecated
  *
+ * @summary Calls CreateDagComplement to create a data backfill workflow.
+ *
  * @param request CreateDagComplementRequest
  * @return CreateDagComplementResponse
  */
@@ -1374,6 +1386,8 @@ CreateDagComplementResponse Client::createDagComplement(const CreateDagComplemen
 
 /**
  * @deprecated OpenAPI CreateDagTest is deprecated
+ *
+ * @summary Creates a smoke test workflow by calling CreateDagTest.
  *
  * @param request CreateDagTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1421,6 +1435,8 @@ CreateDagTestResponse Client::createDagTestWithOptions(const CreateDagTestReques
 
 /**
  * @deprecated OpenAPI CreateDagTest is deprecated
+ *
+ * @summary Creates a smoke test workflow by calling CreateDagTest.
  *
  * @param request CreateDagTestRequest
  * @return CreateDagTestResponse
@@ -1847,7 +1863,7 @@ CreateExportMigrationResponse Client::createExportMigration(const CreateExportMi
 }
 
 /**
- * @summary Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
+ * @summary Creates a file in DataStudio. This operation does not support creating Data Integration node tasks.
  *
  * @param request CreateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1940,6 +1956,10 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
     body["InputParameters"] = request.getInputParameters();
   }
 
+  if (!!request.hasOutputList()) {
+    body["OutputList"] = request.getOutputList();
+  }
+
   if (!!request.hasOutputParameters()) {
     body["OutputParameters"] = request.getOutputParameters();
   }
@@ -2010,7 +2030,7 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
 }
 
 /**
- * @summary Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
+ * @summary Creates a file in DataStudio. This operation does not support creating Data Integration node tasks.
  *
  * @param request CreateFileRequest
  * @return CreateFileResponse
@@ -2267,7 +2287,7 @@ CreateImportMigrationResponse Client::createImportMigrationAdvance(const CreateI
 /**
  * @deprecated OpenAPI CreateManualDag is deprecated
  *
- * @summary Triggers a manually triggered workflow to run. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find the manually triggered workflow on the Operation Center page only after the manually triggered workflow is committed and deployed.
+ * @summary The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
  *
  * @param request CreateManualDagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2328,7 +2348,7 @@ CreateManualDagResponse Client::createManualDagWithOptions(const CreateManualDag
 /**
  * @deprecated OpenAPI CreateManualDag is deprecated
  *
- * @summary Triggers a manually triggered workflow to run. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find the manually triggered workflow on the Operation Center page only after the manually triggered workflow is committed and deployed.
+ * @summary The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
  *
  * @param request CreateManualDagRequest
  * @return CreateManualDagResponse
@@ -2448,6 +2468,9 @@ CreateMetaCollectionResponse Client::createMetaCollection(const CreateMetaCollec
 
 /**
  * @summary Creates a permission request order.
+ * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+ *
+ * @description **Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
  *
  * @param request CreatePermissionApplyOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2515,6 +2538,9 @@ CreatePermissionApplyOrderResponse Client::createPermissionApplyOrderWithOptions
 
 /**
  * @summary Creates a permission request order.
+ * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+ *
+ * @description **Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
  *
  * @param request CreatePermissionApplyOrderRequest
  * @return CreatePermissionApplyOrderResponse
@@ -2661,7 +2687,7 @@ CreateProjectMemberResponse Client::createProjectMember(const CreateProjectMembe
 /**
  * @deprecated OpenAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
  *
- * @summary Creates a partition filter expression.
+ * @summary Creates a partition expression for data quality.
  *
  * @param request CreateQualityEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2714,7 +2740,7 @@ CreateQualityEntityResponse Client::createQualityEntityWithOptions(const CreateQ
 /**
  * @deprecated OpenAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
  *
- * @summary Creates a partition filter expression.
+ * @summary Creates a partition expression for data quality.
  *
  * @param request CreateQualityEntityRequest
  * @return CreateQualityEntityResponse
@@ -2727,7 +2753,7 @@ CreateQualityEntityResponse Client::createQualityEntity(const CreateQualityEntit
 /**
  * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
  *
- * @summary Creates a subscriber for a partition filter expression.
+ * @summary Adds a follower to a partition expression to receive data quality alerts.
  *
  * @param request CreateQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2776,7 +2802,7 @@ CreateQualityFollowerResponse Client::createQualityFollowerWithOptions(const Cre
 /**
  * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
  *
- * @summary Creates a subscriber for a partition filter expression.
+ * @summary Adds a follower to a partition expression to receive data quality alerts.
  *
  * @param request CreateQualityFollowerRequest
  * @return CreateQualityFollowerResponse
@@ -2789,7 +2815,7 @@ CreateQualityFollowerResponse Client::createQualityFollower(const CreateQualityF
 /**
  * @deprecated OpenAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Associates a node with a partition filter expression.
+ * @summary Creates a Partition Expression Association.
  *
  * @param request CreateQualityRelativeNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2850,7 +2876,7 @@ CreateQualityRelativeNodeResponse Client::createQualityRelativeNodeWithOptions(c
 /**
  * @deprecated OpenAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Associates a node with a partition filter expression.
+ * @summary Creates a Partition Expression Association.
  *
  * @param request CreateQualityRelativeNodeRequest
  * @return CreateQualityRelativeNodeResponse
@@ -2863,7 +2889,7 @@ CreateQualityRelativeNodeResponse Client::createQualityRelativeNode(const Create
 /**
  * @deprecated OpenAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
  *
- * @summary Creates a monitoring rule.
+ * @summary Call CreateQualityRule to create a Quality Rule.
  *
  * @param request CreateQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2972,7 +2998,7 @@ CreateQualityRuleResponse Client::createQualityRuleWithOptions(const CreateQuali
 /**
  * @deprecated OpenAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
  *
- * @summary Creates a monitoring rule.
+ * @summary Call CreateQualityRule to create a Quality Rule.
  *
  * @param request CreateQualityRuleRequest
  * @return CreateQualityRuleResponse
@@ -3259,7 +3285,7 @@ CreateResourceFileResponse Client::createResourceFileAdvance(const CreateResourc
 /**
  * @deprecated OpenAPI CreateTable is deprecated
  *
- * @summary Creates a MaxCompute table or view.
+ * @summary Creates a MaxCompute table.
  *
  * @param request CreateTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3370,7 +3396,7 @@ CreateTableResponse Client::createTableWithOptions(const CreateTableRequest &req
 /**
  * @deprecated OpenAPI CreateTable is deprecated
  *
- * @summary Creates a MaxCompute table or view.
+ * @summary Creates a MaxCompute table.
  *
  * @param request CreateTableRequest
  * @return CreateTableResponse
@@ -3809,7 +3835,7 @@ DeleteDIJobResponse Client::deleteDIJob(const DeleteDIJobRequest &request) {
 }
 
 /**
- * @summary Deletes a synchronization task. You can call this operation to delete only a real-time synchronization task.
+ * @summary Deletes a real-time synchronization task.
  *
  * @description If you want to delete a batch synchronization task, call the DeleteFile operation. For more information, see [Delete a synchronization task](https://help.aliyun.com/document_detail/321443.html).
  *
@@ -3850,7 +3876,7 @@ DeleteDISyncTaskResponse Client::deleteDISyncTaskWithOptions(const DeleteDISyncT
 }
 
 /**
- * @summary Deletes a synchronization task. You can call this operation to delete only a real-time synchronization task.
+ * @summary Deletes a real-time synchronization task.
  *
  * @description If you want to delete a batch synchronization task, call the DeleteFile operation. For more information, see [Delete a synchronization task](https://help.aliyun.com/document_detail/321443.html).
  *
@@ -4059,7 +4085,7 @@ DeleteFileResponse Client::deleteFile(const DeleteFileRequest &request) {
 }
 
 /**
- * @summary Deletes a folder from DataStudio.
+ * @summary Deletes a folder from the Data Development page.
  *
  * @param request DeleteFolderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4098,7 +4124,7 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
 }
 
 /**
- * @summary Deletes a folder from DataStudio.
+ * @summary Deletes a folder from the Data Development page.
  *
  * @param request DeleteFolderRequest
  * @return DeleteFolderResponse
@@ -4387,7 +4413,7 @@ DeleteProjectMemberResponse Client::deleteProjectMember(const DeleteProjectMembe
 /**
  * @deprecated OpenAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
  *
- * @summary Deletes a partition filter expression.
+ * @summary Deletes a partition expression.
  *
  * @param request DeleteQualityEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4432,7 +4458,7 @@ DeleteQualityEntityResponse Client::deleteQualityEntityWithOptions(const DeleteQ
 /**
  * @deprecated OpenAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
  *
- * @summary Deletes a partition filter expression.
+ * @summary Deletes a partition expression.
  *
  * @param request DeleteQualityEntityRequest
  * @return DeleteQualityEntityResponse
@@ -4445,9 +4471,9 @@ DeleteQualityEntityResponse Client::deleteQualityEntity(const DeleteQualityEntit
 /**
  * @deprecated OpenAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead.
  *
- * @summary Calls DeleteQualityFollower to delete the subscribers of a partition expression.
+ * @summary Deletes a Follower from a partition expression.
  *
- * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
+ * @description Data Quality uses partition expressions to determine which monitoring rules to configure. These rules help you immediately detect changes in a data source and identify dirty data generated during ETL processes. These rules can automatically block tasks to prevent dirty data from propagating downstream. This practice prevents tasks from producing unexpected data that could affect normal operations. You can add Followers to a partition expression. When a monitoring rule for that partition expression is triggered, the specified Followers receive a notification, which helps them quickly identify and resolve the issue. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
  *
  * @param request DeleteQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4488,9 +4514,9 @@ DeleteQualityFollowerResponse Client::deleteQualityFollowerWithOptions(const Del
 /**
  * @deprecated OpenAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead.
  *
- * @summary Calls DeleteQualityFollower to delete the subscribers of a partition expression.
+ * @summary Deletes a Follower from a partition expression.
  *
- * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
+ * @description Data Quality uses partition expressions to determine which monitoring rules to configure. These rules help you immediately detect changes in a data source and identify dirty data generated during ETL processes. These rules can automatically block tasks to prevent dirty data from propagating downstream. This practice prevents tasks from producing unexpected data that could affect normal operations. You can add Followers to a partition expression. When a monitoring rule for that partition expression is triggered, the specified Followers receive a notification, which helps them quickly identify and resolve the issue. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
  *
  * @param request DeleteQualityFollowerRequest
  * @return DeleteQualityFollowerResponse
@@ -4503,7 +4529,7 @@ DeleteQualityFollowerResponse Client::deleteQualityFollower(const DeleteQualityF
 /**
  * @deprecated OpenAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Disassociates a node from a partition filter expression.
+ * @summary DeleteQualityRelativeNode deletes a scheduling association.
  *
  * @param request DeleteQualityRelativeNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4564,7 +4590,7 @@ DeleteQualityRelativeNodeResponse Client::deleteQualityRelativeNodeWithOptions(c
 /**
  * @deprecated OpenAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Disassociates a node from a partition filter expression.
+ * @summary DeleteQualityRelativeNode deletes a scheduling association.
  *
  * @param request DeleteQualityRelativeNodeRequest
  * @return DeleteQualityRelativeNodeResponse
@@ -4577,7 +4603,7 @@ DeleteQualityRelativeNodeResponse Client::deleteQualityRelativeNode(const Delete
 /**
  * @deprecated OpenAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Deletes a monitoring rule.
+ * @summary Deletes a data quality rule.
  *
  * @param request DeleteQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4618,7 +4644,7 @@ DeleteQualityRuleResponse Client::deleteQualityRuleWithOptions(const DeleteQuali
 /**
  * @deprecated OpenAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Deletes a monitoring rule.
+ * @summary Deletes a data quality rule.
  *
  * @param request DeleteQualityRuleRequest
  * @return DeleteQualityRuleResponse
@@ -4675,7 +4701,7 @@ DeleteRecognizeRuleResponse Client::deleteRecognizeRule(const DeleteRecognizeRul
 }
 
 /**
- * @summary Deletes a custom alert rule.
+ * @summary Deletes a custom monitoring alert rule.
  *
  * @param request DeleteRemindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4706,7 +4732,7 @@ DeleteRemindResponse Client::deleteRemindWithOptions(const DeleteRemindRequest &
 }
 
 /**
- * @summary Deletes a custom alert rule.
+ * @summary Deletes a custom monitoring alert rule.
  *
  * @param request DeleteRemindRequest
  * @return DeleteRemindResponse
@@ -4923,6 +4949,8 @@ DeployDISyncTaskResponse Client::deployDISyncTask(const DeployDISyncTaskRequest 
 /**
  * @summary Deploys a file to the production environment.
  *
+ * @description This is an asynchronous operation. A successful call returns a deployment ID. Use this ID with the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the execution status and final result of the deployment task.
+ *
  * @param request DeployFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeployFileResponse
@@ -4969,6 +4997,8 @@ DeployFileResponse Client::deployFileWithOptions(const DeployFileRequest &reques
 
 /**
  * @summary Deploys a file to the production environment.
+ *
+ * @description This is an asynchronous operation. A successful call returns a deployment ID. Use this ID with the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the execution status and final result of the deployment task.
  *
  * @param request DeployFileRequest
  * @return DeployFileResponse
@@ -5017,7 +5047,7 @@ DesensitizeDataResponse Client::desensitizeData(const DesensitizeDataRequest &re
 }
 
 /**
- * @summary Adds or modifies a data masking rule.
+ * @summary Call the `DsgDesensPlanAddOrUpdate` API to create or edit a data desensitization rule.
  *
  * @param tmpReq DsgDesensPlanAddOrUpdateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5054,7 +5084,7 @@ DsgDesensPlanAddOrUpdateResponse Client::dsgDesensPlanAddOrUpdateWithOptions(con
 }
 
 /**
- * @summary Adds or modifies a data masking rule.
+ * @summary Call the `DsgDesensPlanAddOrUpdate` API to create or edit a data desensitization rule.
  *
  * @param request DsgDesensPlanAddOrUpdateRequest
  * @return DsgDesensPlanAddOrUpdateResponse
@@ -5117,7 +5147,7 @@ DsgDesensPlanDeleteResponse Client::dsgDesensPlanDelete(const DsgDesensPlanDelet
 }
 
 /**
- * @summary Queries a list of data masking rules.
+ * @summary Call the `DsgDesensPlanQueryList` API to query Data Security Guard\\"s (DSG) data masking rules.
  *
  * @param tmpReq DsgDesensPlanQueryListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5150,7 +5180,7 @@ DsgDesensPlanQueryListResponse Client::dsgDesensPlanQueryListWithOptions(const D
 }
 
 /**
- * @summary Queries a list of data masking rules.
+ * @summary Call the `DsgDesensPlanQueryList` API to query Data Security Guard\\"s (DSG) data masking rules.
  *
  * @param request DsgDesensPlanQueryListRequest
  * @return DsgDesensPlanQueryListResponse
@@ -5217,6 +5247,166 @@ DsgDesensPlanUpdateStatusResponse Client::dsgDesensPlanUpdateStatus(const DsgDes
 }
 
 /**
+ * @summary Queries access behavior details.
+ *
+ * @param request DsgGetVisitDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DsgGetVisitDetailResponse
+ */
+DsgGetVisitDetailResponse Client::dsgGetVisitDetailWithOptions(const DsgGetVisitDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBeginTime()) {
+    body["BeginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEngineName()) {
+    body["EngineName"] = request.getEngineName();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRuleName()) {
+    body["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSensLevel()) {
+    body["SensLevel"] = request.getSensLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DsgGetVisitDetail"},
+    {"version" , "2020-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DsgGetVisitDetailResponse>();
+}
+
+/**
+ * @summary Queries access behavior details.
+ *
+ * @param request DsgGetVisitDetailRequest
+ * @return DsgGetVisitDetailResponse
+ */
+DsgGetVisitDetailResponse Client::dsgGetVisitDetail(const DsgGetVisitDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dsgGetVisitDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries access records for data access.
+ *
+ * @description ## Operation description
+ * - This API operation retrieves all configuration information of a specific security policy by specifying the security policy ID.
+ * - Ensure that the value of the `Id` parameter is valid and exists. Otherwise, an error message is returned.
+ * - The returned data structure includes basic policy information (such as name and description) and detailed policy content (such as control items and their settings).
+ * - Note: Some fields of system default policies may not be modified or deleted.
+ *
+ * @param request DsgGetVisitStatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DsgGetVisitStatResponse
+ */
+DsgGetVisitStatResponse Client::dsgGetVisitStatWithOptions(const DsgGetVisitStatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBeginTime()) {
+    body["BeginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEngineName()) {
+    body["EngineName"] = request.getEngineName();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRuleName()) {
+    body["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSensLevel()) {
+    body["SensLevel"] = request.getSensLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DsgGetVisitStat"},
+    {"version" , "2020-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DsgGetVisitStatResponse>();
+}
+
+/**
+ * @summary Queries access records for data access.
+ *
+ * @description ## Operation description
+ * - This API operation retrieves all configuration information of a specific security policy by specifying the security policy ID.
+ * - Ensure that the value of the `Id` parameter is valid and exists. Otherwise, an error message is returned.
+ * - The returned data structure includes basic policy information (such as name and description) and detailed policy content (such as control items and their settings).
+ * - Note: Some fields of system default policies may not be modified or deleted.
+ *
+ * @param request DsgGetVisitStatRequest
+ * @return DsgGetVisitStatResponse
+ */
+DsgGetVisitStatResponse Client::dsgGetVisitStat(const DsgGetVisitStatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dsgGetVisitStatWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of compute engines of different types in the current tenant.
  *
  * @param request DsgPlatformQueryProjectsAndSchemaFromMetaRequest
@@ -5255,7 +5445,7 @@ DsgPlatformQueryProjectsAndSchemaFromMetaResponse Client::dsgPlatformQueryProjec
 }
 
 /**
- * @summary Queries a list of available sensitive field type templates and the data masking rules supported by the templates. You can refer to the response parameters of this operation to configure a data masking rule.
+ * @summary Retrieves available Sensitive Data Type Templates and the Desensitization Rules they support. Use the response from this API to configure your Desensitization Rules.
  *
  * @param request DsgQueryDefaultTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5282,7 +5472,7 @@ DsgQueryDefaultTemplatesResponse Client::dsgQueryDefaultTemplatesWithOptions(con
 }
 
 /**
- * @summary Queries a list of available sensitive field type templates and the data masking rules supported by the templates. You can refer to the response parameters of this operation to configure a data masking rule.
+ * @summary Retrieves available Sensitive Data Type Templates and the Desensitization Rules they support. Use the response from this API to configure your Desensitization Rules.
  *
  * @param request DsgQueryDefaultTemplatesRequest
  * @return DsgQueryDefaultTemplatesResponse
@@ -5293,7 +5483,7 @@ DsgQueryDefaultTemplatesResponse Client::dsgQueryDefaultTemplates(const DsgQuery
 }
 
 /**
- * @summary Query the status of the masking switch.
+ * @summary Query data masking switch status
  *
  * @param request DsgQueryDesensStatusListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5320,7 +5510,7 @@ DsgQueryDesensStatusListResponse Client::dsgQueryDesensStatusListWithOptions(con
 }
 
 /**
- * @summary Query the status of the masking switch.
+ * @summary Query data masking switch status
  *
  * @param request DsgQueryDesensStatusListRequest
  * @return DsgQueryDesensStatusListResponse
@@ -5331,12 +5521,178 @@ DsgQueryDesensStatusListResponse Client::dsgQueryDesensStatusList(const DsgQuery
 }
 
 /**
- * @summary Queries the identification results of sensitive data.
+ * @summary Exports detailed query results.
  *
- * @description The query capability of the API operation is similar to the query feature in Data Security Guard in the DataWorks console. The API operation can be used to query the identification results of sensitive data of a tenant based on the association with the tenant ID.
- * *   You can search for a specific identification result based on filter conditions such as data source type and workspace.
- * *   You can sort the identification results of sensitive data of a tenant based on the values of a field in ascending or descending order.
- * *   This operation supports paged query.
+ * @description This API corresponds to the query feature on the Data Security Guard console interface. It retrieves sensitive data identification results for a specified tenant by associating with the tenant ID.
+ * - Supports filtering by dimensions such as data source type and project workspace.
+ * - Supports ascending or descending sorting on a specific field.
+ * - Supports paging.
+ *
+ * @param request DsgQueryDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DsgQueryDetailsResponse
+ */
+DsgQueryDetailsResponse Client::dsgQueryDetailsWithOptions(const DsgQueryDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIpAare()) {
+    query["IpAare"] = request.getIpAare();
+  }
+
+  if (!!request.hasRows()) {
+    query["Rows"] = request.getRows();
+  }
+
+  if (!!request.hasUser()) {
+    query["User"] = request.getUser();
+  }
+
+  json body = {};
+  if (!!request.hasBeginTime()) {
+    body["BeginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEngineName()) {
+    body["EngineName"] = request.getEngineName();
+  }
+
+  if (!!request.hasIp()) {
+    body["Ip"] = request.getIp();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRuleType()) {
+    body["RuleType"] = request.getRuleType();
+  }
+
+  if (!!request.hasSensLevel()) {
+    body["SensLevel"] = request.getSensLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DsgQueryDetails"},
+    {"version" , "2020-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DsgQueryDetailsResponse>();
+}
+
+/**
+ * @summary Exports detailed query results.
+ *
+ * @description This API corresponds to the query feature on the Data Security Guard console interface. It retrieves sensitive data identification results for a specified tenant by associating with the tenant ID.
+ * - Supports filtering by dimensions such as data source type and project workspace.
+ * - Supports ascending or descending sorting on a specific field.
+ * - Supports paging.
+ *
+ * @param request DsgQueryDetailsRequest
+ * @return DsgQueryDetailsResponse
+ */
+DsgQueryDetailsResponse Client::dsgQueryDetails(const DsgQueryDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dsgQueryDetailsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Exports a row-level detailed list query.
+ *
+ * @description This API corresponds to the query feature on the Data Protection Umbrella console interface. It retrieves sensitive data identification results for a specified tenant by associating with the tenant ID.
+ * - Supports filtering by dimensions such as data source type and project workspace.
+ * - Supports ascending or descending sorting on a specific field.
+ * - Supports paging query.
+ *
+ * @param request DsgQueryRowDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DsgQueryRowDetailResponse
+ */
+DsgQueryRowDetailResponse Client::dsgQueryRowDetailWithOptions(const DsgQueryRowDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEngineName()) {
+    body["EngineName"] = request.getEngineName();
+  }
+
+  if (!!request.hasInstId()) {
+    body["InstId"] = request.getInstId();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DsgQueryRowDetail"},
+    {"version" , "2020-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DsgQueryRowDetailResponse>();
+}
+
+/**
+ * @summary Exports a row-level detailed list query.
+ *
+ * @description This API corresponds to the query feature on the Data Protection Umbrella console interface. It retrieves sensitive data identification results for a specified tenant by associating with the tenant ID.
+ * - Supports filtering by dimensions such as data source type and project workspace.
+ * - Supports ascending or descending sorting on a specific field.
+ * - Supports paging query.
+ *
+ * @param request DsgQueryRowDetailRequest
+ * @return DsgQueryRowDetailResponse
+ */
+DsgQueryRowDetailResponse Client::dsgQueryRowDetail(const DsgQueryRowDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dsgQueryRowDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the sensitive data identification results from Data Security Guard.
+ *
+ * @description This API operation corresponds to the query feature on the Data Security Guard console interface. It retrieves the sensitive data identification results for a specified tenant by associating with the tenant ID.
+ * - Supports filtering by data source type, project workspace, and other dimensions.
+ * - Supports ascending or descending sorting on a specific field.
+ * - Supports paged query.
  *
  * @param request DsgQuerySensResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5431,12 +5787,12 @@ DsgQuerySensResultResponse Client::dsgQuerySensResultWithOptions(const DsgQueryS
 }
 
 /**
- * @summary Queries the identification results of sensitive data.
+ * @summary Retrieves the sensitive data identification results from Data Security Guard.
  *
- * @description The query capability of the API operation is similar to the query feature in Data Security Guard in the DataWorks console. The API operation can be used to query the identification results of sensitive data of a tenant based on the association with the tenant ID.
- * *   You can search for a specific identification result based on filter conditions such as data source type and workspace.
- * *   You can sort the identification results of sensitive data of a tenant based on the values of a field in ascending or descending order.
- * *   This operation supports paged query.
+ * @description This API operation corresponds to the query feature on the Data Security Guard console interface. It retrieves the sensitive data identification results for a specified tenant by associating with the tenant ID.
+ * - Supports filtering by data source type, project workspace, and other dimensions.
+ * - Supports ascending or descending sorting on a specific field.
+ * - Supports paged query.
  *
  * @param request DsgQuerySensResultRequest
  * @return DsgQuerySensResultResponse
@@ -5547,7 +5903,7 @@ DsgSceneAddOrUpdateSceneResponse Client::dsgSceneAddOrUpdateScene(const DsgScene
 }
 
 /**
- * @summary Queries a list of data masking scenarios.
+ * @summary Call the `DsgSceneQuerySceneListByName` API to retrieve a list of data masking scenarios.
  *
  * @param request DsgSceneQuerySceneListByNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5574,7 +5930,7 @@ DsgSceneQuerySceneListByNameResponse Client::dsgSceneQuerySceneListByNameWithOpt
 }
 
 /**
- * @summary Queries a list of data masking scenarios.
+ * @summary Call the `DsgSceneQuerySceneListByName` API to retrieve a list of data masking scenarios.
  *
  * @param request DsgSceneQuerySceneListByNameRequest
  * @return DsgSceneQuerySceneListByNameResponse
@@ -5679,7 +6035,7 @@ DsgStopSensIdentifyResponse Client::dsgStopSensIdentify(const DsgStopSensIdentif
 }
 
 /**
- * @summary Updates the status of the masking switch.
+ * @summary Update the status of data masking switches
  *
  * @param tmpReq DsgUpdateDesensStatusListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5720,7 +6076,7 @@ DsgUpdateDesensStatusListResponse Client::dsgUpdateDesensStatusListWithOptions(c
 }
 
 /**
- * @summary Updates the status of the masking switch.
+ * @summary Update the status of data masking switches
  *
  * @param request DsgUpdateDesensStatusListRequest
  * @return DsgUpdateDesensStatusListResponse
@@ -5731,7 +6087,7 @@ DsgUpdateDesensStatusListResponse Client::dsgUpdateDesensStatusList(const DsgUpd
 }
 
 /**
- * @summary Adds or modifies a user group.
+ * @summary Creates or updates a user group in Data Security Guard.
  *
  * @param tmpReq DsgUserGroupAddOrUpdateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5768,7 +6124,7 @@ DsgUserGroupAddOrUpdateResponse Client::dsgUserGroupAddOrUpdateWithOptions(const
 }
 
 /**
- * @summary Adds or modifies a user group.
+ * @summary Creates or updates a user group in Data Security Guard.
  *
  * @param request DsgUserGroupAddOrUpdateRequest
  * @return DsgUserGroupAddOrUpdateResponse
@@ -5865,7 +6221,7 @@ DsgUserGroupGetOdpsRoleGroupsResponse Client::dsgUserGroupGetOdpsRoleGroups(cons
 }
 
 /**
- * @summary Queries a list of user groups in Data Security Guard.
+ * @summary Call `DsgUserGroupQueryList` to query user groups in Data Security Guard (DSG).
  *
  * @param request DsgUserGroupQueryListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5892,7 +6248,7 @@ DsgUserGroupQueryListResponse Client::dsgUserGroupQueryListWithOptions(const Dsg
 }
 
 /**
- * @summary Queries a list of user groups in Data Security Guard.
+ * @summary Call `DsgUserGroupQueryList` to query user groups in Data Security Guard (DSG).
  *
  * @param request DsgUserGroupQueryListRequest
  * @return DsgUserGroupQueryListResponse
@@ -6337,9 +6693,9 @@ GenerateDISyncTaskConfigForCreatingResponse Client::generateDISyncTaskConfigForC
 }
 
 /**
- * @summary Generates the JSON for an asynchronous thread that is used to update a real-time synchronization task in Data Integration.
+ * @summary Generates the configuration for updating a real-time synchronization task in Data Integration.
  *
- * @description DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization task in Data Integration. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
+ * @description DataWorks allows you to directly call the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update batch synchronization tasks in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating and [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operations to asynchronously generate the required parameters, and then pass the parameters to the UpdateDISyncTask operation. Only asynchronous updates are supported for real-time synchronization tasks in Data Integration.
  *
  * @param request GenerateDISyncTaskConfigForUpdatingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6386,9 +6742,9 @@ GenerateDISyncTaskConfigForUpdatingResponse Client::generateDISyncTaskConfigForU
 }
 
 /**
- * @summary Generates the JSON for an asynchronous thread that is used to update a real-time synchronization task in Data Integration.
+ * @summary Generates the configuration for updating a real-time synchronization task in Data Integration.
  *
- * @description DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization task in Data Integration. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
+ * @description DataWorks allows you to directly call the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update batch synchronization tasks in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating and [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operations to asynchronously generate the required parameters, and then pass the parameters to the UpdateDISyncTask operation. Only asynchronous updates are supported for real-time synchronization tasks in Data Integration.
  *
  * @param request GenerateDISyncTaskConfigForUpdatingRequest
  * @return GenerateDISyncTaskConfigForUpdatingResponse
@@ -6579,7 +6935,7 @@ GetBaselineKeyPathResponse Client::getBaselineKeyPath(const GetBaselineKeyPathRe
 }
 
 /**
- * @summary Queries the details of a baseline instance.
+ * @summary Retrieves the status of a baseline instance.
  *
  * @param request GetBaselineStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6618,7 +6974,7 @@ GetBaselineStatusResponse Client::getBaselineStatusWithOptions(const GetBaseline
 }
 
 /**
- * @summary Queries the details of a baseline instance.
+ * @summary Retrieves the status of a baseline instance.
  *
  * @param request GetBaselineStatusRequest
  * @return GetBaselineStatusResponse
@@ -6721,9 +7077,9 @@ GetDDLJobStatusResponse Client::getDDLJobStatus(const GetDDLJobStatusRequest &re
 }
 
 /**
- * @summary Queries the details of an alert rule configured for a new-version synchronization task. Only the following types of tasks are supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Retrieves the details of an alert rule configured for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
  *
  * @param request GetDIAlarmRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6754,9 +7110,9 @@ GetDIAlarmRuleResponse Client::getDIAlarmRuleWithOptions(const GetDIAlarmRuleReq
 }
 
 /**
- * @summary Queries the details of an alert rule configured for a new-version synchronization task. Only the following types of tasks are supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Retrieves the details of an alert rule configured for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
  *
  * @param request GetDIAlarmRuleRequest
  * @return GetDIAlarmRuleResponse
@@ -6863,7 +7219,7 @@ GetDISyncInstanceInfoResponse Client::getDISyncInstanceInfo(const GetDISyncInsta
 }
 
 /**
- * @summary Queries the details of a real-time synchronization task or a data synchronization solution.
+ * @summary Retrieves the details of a synchronization task or a data synchronization solution.
  *
  * @param request GetDISyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6902,7 +7258,7 @@ GetDISyncTaskResponse Client::getDISyncTaskWithOptions(const GetDISyncTaskReques
 }
 
 /**
- * @summary Queries the details of a real-time synchronization task or a data synchronization solution.
+ * @summary Retrieves the details of a synchronization task or a data synchronization solution.
  *
  * @param request GetDISyncTaskRequest
  * @return GetDISyncTaskResponse
@@ -6916,15 +7272,15 @@ GetDISyncTaskResponse Client::getDISyncTask(const GetDISyncTaskRequest &request)
  * @summary Queries the information about a directed acyclic graph (DAG). You can call the GetDag operation to query the information about the DAG for a manually triggered workflow, a manually triggered node, or a data backfill instance. However, you cannot query the information about the DAG for an auto triggered node or an auto triggered workflow.
  *
  * @description Supported DAG types:
- * *   MANUAL: DAG for a manually triggered workflow
- * *   SMOKE_TEST: DAG for a smoke testing workflow
- * *   SUPPLY_DATA: DAG for a data backfill instance
- * *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+ * - MANUAL: DAG for a manually triggered workflow
+ * - SMOKE_TEST: DAG for a smoke testing workflow
+ * - SUPPLY_DATA: DAG for a data backfill instance
+ * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
  * Supported DAG states:
- * *   CREATED
- * *   RUNNING
- * *   FAILURE
- * *   SUCCESS
+ * - CREATED: The DAG is created.
+ * - RUNNING: The DAG is running.
+ * - FAILURE: The DAG fails to run.
+ * - SUCCESS: The DAG is successfully run.
  *
  * @param request GetDagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6962,15 +7318,15 @@ GetDagResponse Client::getDagWithOptions(const GetDagRequest &request, const Dar
  * @summary Queries the information about a directed acyclic graph (DAG). You can call the GetDag operation to query the information about the DAG for a manually triggered workflow, a manually triggered node, or a data backfill instance. However, you cannot query the information about the DAG for an auto triggered node or an auto triggered workflow.
  *
  * @description Supported DAG types:
- * *   MANUAL: DAG for a manually triggered workflow
- * *   SMOKE_TEST: DAG for a smoke testing workflow
- * *   SUPPLY_DATA: DAG for a data backfill instance
- * *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+ * - MANUAL: DAG for a manually triggered workflow
+ * - SMOKE_TEST: DAG for a smoke testing workflow
+ * - SUPPLY_DATA: DAG for a data backfill instance
+ * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
  * Supported DAG states:
- * *   CREATED
- * *   RUNNING
- * *   FAILURE
- * *   SUCCESS
+ * - CREATED: The DAG is created.
+ * - RUNNING: The DAG is running.
+ * - FAILURE: The DAG fails to run.
+ * - SUCCESS: The DAG is successfully run.
  *
  * @param request GetDagRequest
  * @return GetDagResponse
@@ -6981,7 +7337,7 @@ GetDagResponse Client::getDag(const GetDagRequest &request) {
 }
 
 /**
- * @summary Queries the details of a DataService Studio API in the development state.
+ * @summary Retrieves the details of a DataService Studio API in the development state.
  *
  * @param request GetDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7020,7 +7376,7 @@ GetDataServiceApiResponse Client::getDataServiceApiWithOptions(const GetDataServ
 }
 
 /**
- * @summary Queries the details of a DataService Studio API in the development state.
+ * @summary Retrieves the details of a DataService Studio API in the development state.
  *
  * @param request GetDataServiceApiRequest
  * @return GetDataServiceApiResponse
@@ -7069,7 +7425,7 @@ GetDataServiceApiTestResponse Client::getDataServiceApiTest(const GetDataService
 }
 
 /**
- * @summary Queries the details of an application.
+ * @summary Retrieves the details of an application.
  *
  * @param request GetDataServiceApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7108,7 +7464,7 @@ GetDataServiceApplicationResponse Client::getDataServiceApplicationWithOptions(c
 }
 
 /**
- * @summary Queries the details of an application.
+ * @summary Retrieves the details of an application.
  *
  * @param request GetDataServiceApplicationRequest
  * @return GetDataServiceApplicationResponse
@@ -7169,7 +7525,7 @@ GetDataServiceFolderResponse Client::getDataServiceFolder(const GetDataServiceFo
 }
 
 /**
- * @summary Queries a business process.
+ * @summary Retrieves the details of a business process.
  *
  * @param request GetDataServiceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7208,7 +7564,7 @@ GetDataServiceGroupResponse Client::getDataServiceGroupWithOptions(const GetData
 }
 
 /**
- * @summary Queries a business process.
+ * @summary Retrieves the details of a business process.
  *
  * @param request GetDataServiceGroupRequest
  * @return GetDataServiceGroupResponse
@@ -7219,7 +7575,7 @@ GetDataServiceGroupResponse Client::getDataServiceGroup(const GetDataServiceGrou
 }
 
 /**
- * @summary Queries the information about a DataService Studio API in the published state.
+ * @summary Retrieves the details of a published DataService Studio API.
  *
  * @param request GetDataServicePublishedApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7258,7 +7614,7 @@ GetDataServicePublishedApiResponse Client::getDataServicePublishedApiWithOptions
 }
 
 /**
- * @summary Queries the information about a DataService Studio API in the published state.
+ * @summary Retrieves the details of a published DataService Studio API.
  *
  * @param request GetDataServicePublishedApiRequest
  * @return GetDataServicePublishedApiResponse
@@ -7377,7 +7733,7 @@ GetDeploymentResponse Client::getDeployment(const GetDeploymentRequest &request)
 }
 
 /**
- * @summary Queries the details of an extension.
+ * @summary Retrieves the details of an extension.
  *
  * @param request GetExtensionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7408,7 +7764,7 @@ GetExtensionResponse Client::getExtensionWithOptions(const GetExtensionRequest &
 }
 
 /**
- * @summary Queries the details of an extension.
+ * @summary Retrieves the details of an extension.
  *
  * @param request GetExtensionRequest
  * @return GetExtensionResponse
@@ -7573,7 +7929,7 @@ GetFileVersionResponse Client::getFileVersion(const GetFileVersionRequest &reque
 }
 
 /**
- * @summary Queries the information about a folder.
+ * @summary You can call GetFolder to retrieve the details of a folder.
  *
  * @param request GetFolderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7616,7 +7972,7 @@ GetFolderResponse Client::getFolderWithOptions(const GetFolderRequest &request, 
 }
 
 /**
- * @summary Queries the information about a folder.
+ * @summary You can call GetFolder to retrieve the details of a folder.
  *
  * @param request GetFolderRequest
  * @return GetFolderResponse
@@ -7721,7 +8077,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 /**
  * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
  *
- * @summary Queries the ranking of the running durations of instances.
+ * @summary Queries the ranking of instances by running duration.
  *
  * @param request GetInstanceConsumeTimeRankRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7758,7 +8114,7 @@ GetInstanceConsumeTimeRankResponse Client::getInstanceConsumeTimeRankWithOptions
 /**
  * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
  *
- * @summary Queries the ranking of the running durations of instances.
+ * @summary Queries the ranking of instances by running duration.
  *
  * @param request GetInstanceConsumeTimeRankRequest
  * @return GetInstanceConsumeTimeRankResponse
@@ -7825,7 +8181,7 @@ GetInstanceCountTrendResponse Client::getInstanceCountTrend(const GetInstanceCou
 /**
  * @deprecated OpenAPI GetInstanceErrorRank is deprecated
  *
- * @summary Queries the ranking of nodes on which errors occur within the last month.
+ * @summary Calls GetInstanceErrorRank to obtain the error ranking of nodes in the last month.
  *
  * @param request GetInstanceErrorRankRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7858,7 +8214,7 @@ GetInstanceErrorRankResponse Client::getInstanceErrorRankWithOptions(const GetIn
 /**
  * @deprecated OpenAPI GetInstanceErrorRank is deprecated
  *
- * @summary Queries the ranking of nodes on which errors occur within the last month.
+ * @summary Calls GetInstanceErrorRank to obtain the error ranking of nodes in the last month.
  *
  * @param request GetInstanceErrorRankRequest
  * @return GetInstanceErrorRankResponse
@@ -8261,9 +8617,6 @@ GetMetaColumnLineageResponse Client::getMetaColumnLineage(const GetMetaColumnLin
 /**
  * @summary Queries the basic metadata information about a compute engine instance.
  *
- * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
- * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
- *
  * @param request GetMetaDBInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMetaDBInfoResponse
@@ -8291,9 +8644,6 @@ GetMetaDBInfoResponse Client::getMetaDBInfoWithOptions(const GetMetaDBInfoReques
 /**
  * @summary Queries the basic metadata information about a compute engine instance.
  *
- * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
- * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
- *
  * @param request GetMetaDBInfoRequest
  * @return GetMetaDBInfoResponse
  */
@@ -8303,7 +8653,7 @@ GetMetaDBInfoResponse Client::getMetaDBInfo(const GetMetaDBInfoRequest &request)
 }
 
 /**
- * @summary Queries metatables in a compute engine instance.
+ * @summary Retrieves all tables in the specified Engine Instance.
  *
  * @param request GetMetaDBTableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8354,7 +8704,7 @@ GetMetaDBTableListResponse Client::getMetaDBTableListWithOptions(const GetMetaDB
 }
 
 /**
- * @summary Queries metatables in a compute engine instance.
+ * @summary Retrieves all tables in the specified Engine Instance.
  *
  * @param request GetMetaDBTableListRequest
  * @return GetMetaDBTableListResponse
@@ -8405,7 +8755,7 @@ GetMetaTableBasicInfoResponse Client::getMetaTableBasicInfo(const GetMetaTableBa
 /**
  * @summary Queries the change logs of a metatable.
  *
- * @description > This operation will be replaced soon. We recommend that you do not call this operation.
+ * @description > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
  *
  * @param request GetMetaTableChangeLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8462,7 +8812,7 @@ GetMetaTableChangeLogResponse Client::getMetaTableChangeLogWithOptions(const Get
 /**
  * @summary Queries the change logs of a metatable.
  *
- * @description > This operation will be replaced soon. We recommend that you do not call this operation.
+ * @description > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
  *
  * @param request GetMetaTableChangeLogRequest
  * @return GetMetaTableChangeLogResponse
@@ -8513,7 +8863,7 @@ GetMetaTableColumnResponse Client::getMetaTableColumn(const GetMetaTableColumnRe
 /**
  * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
  *
- * @summary Queries the complete information about a table, including information about fields in the table.
+ * @summary Retrieves complete metadata for a table, including field details.
  *
  * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
  *
@@ -8544,7 +8894,7 @@ GetMetaTableFullInfoResponse Client::getMetaTableFullInfoWithOptions(const GetMe
 /**
  * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
  *
- * @summary Queries the complete information about a table, including information about fields in the table.
+ * @summary Retrieves complete metadata for a table, including field details.
  *
  * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
  *
@@ -8773,9 +9123,9 @@ GetMetaTableOutputResponse Client::getMetaTableOutput(const GetMetaTableOutputRe
 }
 
 /**
- * @summary Obtains a list of partitions in a metatable.
+ * @summary Retrieves a list of partitions for a table.
  *
- * @description You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine. If you query partitions of a metatable in an EMR compute engine, only DataLake clusters that use Data Lake Formation (DLF) to manage metadata and Hadoop clusters whose cluster version is earlier than 3.41.0 or 5.7.0 are supported.
+ * @description This operation supports only MaxCompute and E-MapReduce (EMR) tables. For EMR, supported cluster types include new data lake clusters that use Data Lake Formation (DLF) for metadata management, and Hadoop clusters with versions earlier than V3.41.0 or V5.7.0.
  *
  * @param tmpReq GetMetaTablePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8840,9 +9190,9 @@ GetMetaTablePartitionResponse Client::getMetaTablePartitionWithOptions(const Get
 }
 
 /**
- * @summary Obtains a list of partitions in a metatable.
+ * @summary Retrieves a list of partitions for a table.
  *
- * @description You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine. If you query partitions of a metatable in an EMR compute engine, only DataLake clusters that use Data Lake Formation (DLF) to manage metadata and Hadoop clusters whose cluster version is earlier than 3.41.0 or 5.7.0 are supported.
+ * @description This operation supports only MaxCompute and E-MapReduce (EMR) tables. For EMR, supported cluster types include new data lake clusters that use Data Lake Formation (DLF) for metadata management, and Hadoop clusters with versions earlier than V3.41.0 or V5.7.0.
  *
  * @param request GetMetaTablePartitionRequest
  * @return GetMetaTablePartitionResponse
@@ -8853,7 +9203,7 @@ GetMetaTablePartitionResponse Client::getMetaTablePartition(const GetMetaTablePa
 }
 
 /**
- * @summary Queries the output tasks of a metatable.
+ * @summary 获取Table的产出任务列表
  *
  * @param request GetMetaTableProducingTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8904,7 +9254,7 @@ GetMetaTableProducingTasksResponse Client::getMetaTableProducingTasksWithOptions
 }
 
 /**
- * @summary Queries the output tasks of a metatable.
+ * @summary 获取Table的产出任务列表
  *
  * @param request GetMetaTableProducingTasksRequest
  * @return GetMetaTableProducingTasksResponse
@@ -9185,7 +9535,7 @@ GetNodeCodeResponse Client::getNodeCode(const GetNodeCodeRequest &request) {
 /**
  * @deprecated OpenAPI GetNodeOnBaseline is deprecated
  *
- * @summary Queries the nodes associated with a baseline.
+ * @summary Calls the GetNodeOnBaseline operation to query the nodes on a baseline.
  *
  * @param request GetNodeOnBaselineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9218,7 +9568,7 @@ GetNodeOnBaselineResponse Client::getNodeOnBaselineWithOptions(const GetNodeOnBa
 /**
  * @deprecated OpenAPI GetNodeOnBaseline is deprecated
  *
- * @summary Queries the nodes associated with a baseline.
+ * @summary Calls the GetNodeOnBaseline operation to query the nodes on a baseline.
  *
  * @param request GetNodeOnBaselineRequest
  * @return GetNodeOnBaselineResponse
@@ -9464,6 +9814,9 @@ GetOptionValueForProjectResponse Client::getOptionValueForProject(const GetOptio
 
 /**
  * @summary Queries the details of a permission request order.
+ * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+ *
+ * @description **Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
  *
  * @param request GetPermissionApplyOrderDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9495,6 +9848,9 @@ GetPermissionApplyOrderDetailResponse Client::getPermissionApplyOrderDetailWithO
 
 /**
  * @summary Queries the details of a permission request order.
+ * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+ *
+ * @description **Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
  *
  * @param request GetPermissionApplyOrderDetailRequest
  * @return GetPermissionApplyOrderDetailResponse
@@ -9599,7 +9955,7 @@ GetProjectDetailResponse Client::getProjectDetail(const GetProjectDetailRequest 
 /**
  * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Queries the information about a partition filter expression.
+ * @summary Call `GetQualityEntity` to retrieve the partition expression.
  *
  * @param request GetQualityEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9648,7 +10004,7 @@ GetQualityEntityResponse Client::getQualityEntityWithOptions(const GetQualityEnt
 /**
  * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Queries the information about a partition filter expression.
+ * @summary Call `GetQualityEntity` to retrieve the partition expression.
  *
  * @param request GetQualityEntityRequest
  * @return GetQualityEntityResponse
@@ -9661,7 +10017,7 @@ GetQualityEntityResponse Client::getQualityEntity(const GetQualityEntityRequest 
 /**
  * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
  *
- * @summary Queries the subscribers of a partition filter expression.
+ * @summary Retrieves the followers of a Partition Expression.
  *
  * @param request GetQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9702,7 +10058,7 @@ GetQualityFollowerResponse Client::getQualityFollowerWithOptions(const GetQualit
 /**
  * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
  *
- * @summary Queries the subscribers of a partition filter expression.
+ * @summary Retrieves the followers of a Partition Expression.
  *
  * @param request GetQualityFollowerRequest
  * @return GetQualityFollowerResponse
@@ -9715,7 +10071,7 @@ GetQualityFollowerResponse Client::getQualityFollower(const GetQualityFollowerRe
 /**
  * @deprecated OpenAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Queries the information about a monitoring rule.
+ * @summary Gets information about a quality rule.
  *
  * @param request GetQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9756,7 +10112,7 @@ GetQualityRuleResponse Client::getQualityRuleWithOptions(const GetQualityRuleReq
 /**
  * @deprecated OpenAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Queries the information about a monitoring rule.
+ * @summary Gets information about a quality rule.
  *
  * @param request GetQualityRuleRequest
  * @return GetQualityRuleResponse
@@ -9768,9 +10124,6 @@ GetQualityRuleResponse Client::getQualityRule(const GetQualityRuleRequest &reque
 
 /**
  * @summary Queries the information about a custom alert rule.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
  *
  * @param request GetRemindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9802,9 +10155,6 @@ GetRemindResponse Client::getRemindWithOptions(const GetRemindRequest &request, 
 
 /**
  * @summary Queries the information about a custom alert rule.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
  *
  * @param request GetRemindRequest
  * @return GetRemindResponse
@@ -9947,9 +10297,6 @@ GetTopicResponse Client::getTopic(const GetTopicRequest &request) {
 /**
  * @summary Queries baseline instances affected by an event.
  *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
- *
  * @param request GetTopicInfluenceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTopicInfluenceResponse
@@ -9980,9 +10327,6 @@ GetTopicInfluenceResponse Client::getTopicInfluenceWithOptions(const GetTopicInf
 
 /**
  * @summary Queries baseline instances affected by an event.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
  *
  * @param request GetTopicInfluenceRequest
  * @return GetTopicInfluenceResponse
@@ -10643,9 +10987,9 @@ ListConnectionsResponse Client::listConnections(const ListConnectionsRequest &re
 }
 
 /**
- * @summary Queries a list of alert rules configured for a new-version synchronization task. The following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Retrieves a list of alert rules configured for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
  *
  * @param request ListDIAlarmRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10684,9 +11028,9 @@ ListDIAlarmRulesResponse Client::listDIAlarmRulesWithOptions(const ListDIAlarmRu
 }
 
 /**
- * @summary Queries a list of alert rules configured for a new-version synchronization task. The following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Retrieves a list of alert rules configured for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
  *
  * @param request ListDIAlarmRulesRequest
  * @return ListDIAlarmRulesResponse
@@ -10697,7 +11041,7 @@ ListDIAlarmRulesResponse Client::listDIAlarmRules(const ListDIAlarmRulesRequest 
 }
 
 /**
- * @summary Queries a list of new-version synchronization tasks. The following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Retrieves a list of synchronization tasks.
  *
  * @description You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
  *
@@ -10750,7 +11094,7 @@ ListDIJobsResponse Client::listDIJobsWithOptions(const ListDIJobsRequest &reques
 }
 
 /**
- * @summary Queries a list of new-version synchronization tasks. The following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
+ * @summary Retrieves a list of synchronization tasks.
  *
  * @description You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
  *
@@ -10817,18 +11161,18 @@ ListDIProjectConfigResponse Client::listDIProjectConfig(const ListDIProjectConfi
 }
 
 /**
- * @summary Queries the details of directed acyclic graphs (DAGs) for a single data backfill instance based on OpSeq.
+ * @summary Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
  *
  * @description Supported DAG types:
- * *   MANUAL: DAG for a manually triggered workflow
- * *   SMOKE_TEST: DAG for a smoke testing workflow
- * *   SUPPLY_DATA: DAG for a data backfill instance
- * *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+ * - MANUAL: DAG for a manually triggered workflow
+ * - SMOKE_TEST: DAG for a smoke testing workflow
+ * - SUPPLY_DATA: DAG for a data backfill instance
+ * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
  * Supported DAG states:
- * *   CREATED: The DAG is created.
- * *   RUNNING: The DAG is running.
- * *   FAILURE: The DAG fails to run.
- * *   SUCCESS: The DAG is successfully run.
+ * - CREATED: The DAG is created.
+ * - RUNNING: The DAG is running.
+ * - FAILURE: The DAG fails to run.
+ * - SUCCESS: The DAG is successfully run.
  *
  * @param request ListDagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10863,18 +11207,18 @@ ListDagsResponse Client::listDagsWithOptions(const ListDagsRequest &request, con
 }
 
 /**
- * @summary Queries the details of directed acyclic graphs (DAGs) for a single data backfill instance based on OpSeq.
+ * @summary Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
  *
  * @description Supported DAG types:
- * *   MANUAL: DAG for a manually triggered workflow
- * *   SMOKE_TEST: DAG for a smoke testing workflow
- * *   SUPPLY_DATA: DAG for a data backfill instance
- * *   BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+ * - MANUAL: DAG for a manually triggered workflow
+ * - SMOKE_TEST: DAG for a smoke testing workflow
+ * - SUPPLY_DATA: DAG for a data backfill instance
+ * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
  * Supported DAG states:
- * *   CREATED: The DAG is created.
- * *   RUNNING: The DAG is running.
- * *   FAILURE: The DAG fails to run.
- * *   SUCCESS: The DAG is successfully run.
+ * - CREATED: The DAG is created.
+ * - RUNNING: The DAG is running.
+ * - FAILURE: The DAG fails to run.
+ * - SUCCESS: The DAG is successfully run.
  *
  * @param request ListDagsRequest
  * @return ListDagsResponse
@@ -10885,7 +11229,7 @@ ListDagsResponse Client::listDags(const ListDagsRequest &request) {
 }
 
 /**
- * @summary Queries the APIs on which other users are granted the access permissions.
+ * @summary Retrieves a list of APIs on which other users are granted access permissions.
  *
  * @param request ListDataServiceApiAuthoritiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10934,7 +11278,7 @@ ListDataServiceApiAuthoritiesResponse Client::listDataServiceApiAuthoritiesWithO
 }
 
 /**
- * @summary Queries the APIs on which other users are granted the access permissions.
+ * @summary Retrieves a list of APIs on which other users are granted access permissions.
  *
  * @param request ListDataServiceApiAuthoritiesRequest
  * @return ListDataServiceApiAuthoritiesResponse
@@ -11049,7 +11393,7 @@ ListDataServiceApisResponse Client::listDataServiceApis(const ListDataServiceApi
 }
 
 /**
- * @summary Queries the basic information of applications.
+ * @summary Retrieves a list of applications.
  *
  * @param request ListDataServiceApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11092,7 +11436,7 @@ ListDataServiceApplicationsResponse Client::listDataServiceApplicationsWithOptio
 }
 
 /**
- * @summary Queries the basic information of applications.
+ * @summary Retrieves a list of applications.
  *
  * @param request ListDataServiceApplicationsRequest
  * @return ListDataServiceApplicationsResponse
@@ -11103,7 +11447,7 @@ ListDataServiceApplicationsResponse Client::listDataServiceApplications(const Li
 }
 
 /**
- * @summary Queries the APIs that you are authorized to access.
+ * @summary Retrieves a list of APIs that you are authorized to access.
  *
  * @param request ListDataServiceAuthorizedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11152,7 +11496,7 @@ ListDataServiceAuthorizedApisResponse Client::listDataServiceAuthorizedApisWithO
 }
 
 /**
- * @summary Queries the APIs that you are authorized to access.
+ * @summary Retrieves a list of APIs that you are authorized to access.
  *
  * @param request ListDataServiceAuthorizedApisRequest
  * @return ListDataServiceAuthorizedApisResponse
@@ -11163,7 +11507,7 @@ ListDataServiceAuthorizedApisResponse Client::listDataServiceAuthorizedApis(cons
 }
 
 /**
- * @summary Queries folders.
+ * @summary Retrieves a list of folders.
  *
  * @param request ListDataServiceFoldersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11214,7 +11558,7 @@ ListDataServiceFoldersResponse Client::listDataServiceFoldersWithOptions(const L
 }
 
 /**
- * @summary Queries folders.
+ * @summary Retrieves a list of folders.
  *
  * @param request ListDataServiceFoldersRequest
  * @return ListDataServiceFoldersResponse
@@ -11225,7 +11569,7 @@ ListDataServiceFoldersResponse Client::listDataServiceFolders(const ListDataServ
 }
 
 /**
- * @summary Queries business processes.
+ * @summary Retrieves a list of business processes.
  *
  * @param request ListDataServiceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11272,7 +11616,7 @@ ListDataServiceGroupsResponse Client::listDataServiceGroupsWithOptions(const Lis
 }
 
 /**
- * @summary Queries business processes.
+ * @summary Retrieves a list of business processes.
  *
  * @param request ListDataServiceGroupsRequest
  * @return ListDataServiceGroupsResponse
@@ -11283,7 +11627,7 @@ ListDataServiceGroupsResponse Client::listDataServiceGroups(const ListDataServic
 }
 
 /**
- * @summary Queries a list of APIs in the published state.
+ * @summary Retrieves a list of published APIs.
  *
  * @param request ListDataServicePublishedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11338,7 +11682,7 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApisWithOpt
 }
 
 /**
- * @summary Queries a list of APIs in the published state.
+ * @summary Retrieves a list of published APIs.
  *
  * @param request ListDataServicePublishedApisRequest
  * @return ListDataServicePublishedApisResponse
@@ -11865,7 +12209,7 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
- * @summary Queries a list of folders.
+ * @summary Call the ListFolders operation to query for folders.
  *
  * @param request ListFoldersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11912,7 +12256,7 @@ ListFoldersResponse Client::listFoldersWithOptions(const ListFoldersRequest &req
 }
 
 /**
- * @summary Queries a list of folders.
+ * @summary Call the ListFolders operation to query for folders.
  *
  * @param request ListFoldersRequest
  * @return ListFoldersResponse
@@ -11923,7 +12267,7 @@ ListFoldersResponse Client::listFolders(const ListFoldersRequest &request) {
 }
 
 /**
- * @summary Queries information about inner nodes. For example, you can call this operation to query the inner nodes of a node group or a do-while node. You cannot call this operation to query the inner nodes of a PAI node.
+ * @summary Retrieves a list of inner nodes within a node group or do-while node. This operation does not support querying the inner nodes of a PAI node.
  *
  * @param request ListInnerNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11978,7 +12322,7 @@ ListInnerNodesResponse Client::listInnerNodesWithOptions(const ListInnerNodesReq
 }
 
 /**
- * @summary Queries information about inner nodes. For example, you can call this operation to query the inner nodes of a node group or a do-while node. You cannot call this operation to query the inner nodes of a PAI node.
+ * @summary Retrieves a list of inner nodes within a node group or do-while node. This operation does not support querying the inner nodes of a PAI node.
  *
  * @param request ListInnerNodesRequest
  * @return ListInnerNodesResponse
@@ -12039,7 +12383,7 @@ ListInstanceAmountResponse Client::listInstanceAmount(const ListInstanceAmountRe
 }
 
 /**
- * @summary Queries information about the historical records of all instances. One historical record is generated if an instance is rerun once.
+ * @summary Retrieves the run history of an instance. Each rerun generates a new historical record.
  *
  * @param request ListInstanceHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12074,7 +12418,7 @@ ListInstanceHistoryResponse Client::listInstanceHistoryWithOptions(const ListIns
 }
 
 /**
- * @summary Queries information about the historical records of all instances. One historical record is generated if an instance is rerun once.
+ * @summary Retrieves the run history of an instance. Each rerun generates a new historical record.
  *
  * @param request ListInstanceHistoryRequest
  * @return ListInstanceHistoryResponse
@@ -12403,9 +12747,9 @@ ListMetaCollectionEntitiesResponse Client::listMetaCollectionEntities(const List
 }
 
 /**
- * @summary Queries information about collections. Collections include data albums that are displayed on the Data Map page and categories that are created in the data albums. You can call this API operation to query collections by type.
+ * @summary Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
  *
- * @description The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+ * @description Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
  *
  * @param request ListMetaCollectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12468,9 +12812,9 @@ ListMetaCollectionsResponse Client::listMetaCollectionsWithOptions(const ListMet
 }
 
 /**
- * @summary Queries information about collections. Collections include data albums that are displayed on the Data Map page and categories that are created in the data albums. You can call this API operation to query collections by type.
+ * @summary Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
  *
- * @description The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+ * @description Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
  *
  * @param request ListMetaCollectionsRequest
  * @return ListMetaCollectionsResponse
@@ -12843,7 +13187,10 @@ ListNodesByOutputResponse Client::listNodesByOutput(const ListNodesByOutputReque
 }
 
 /**
- * @summary Queries a list of permission requests.
+ * @summary Queries a list of permission application orders.
+ * Note: The 2020 version of OpenAPI will be discontinued at a scheduled time. Please migrate to the 2024 version of OpenAPI as soon as possible — ListMyApplications/ListPendingApprovals/ListMyRelatedApprovals.
+ *
+ * @description **Note: The 2020 version of OpenAPI will be discontinued at a scheduled time. Please migrate to the 2024 version of OpenAPI as soon as possible — [ListMyApplications](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listmyapplications?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_7.1c237afdFAePBC&scm=20140722.H_3040929._.OR_help-T_cn~zh-V_1)/[ListPendingApprovals](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listpendingapprovals?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_5.644e11b8FqtyZe&scm=20140722.H_3040932._.OR_help-T_cn~zh-V_1)/[ListMyRelatedApprovals](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listmyrelatedapprovals?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_6.62893177dwvvfp&scm=20140722.H_3040931._.OR_help-T_cn~zh-V_1).**
  *
  * @param request ListPermissionApplyOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12922,7 +13269,10 @@ ListPermissionApplyOrdersResponse Client::listPermissionApplyOrdersWithOptions(c
 }
 
 /**
- * @summary Queries a list of permission requests.
+ * @summary Queries a list of permission application orders.
+ * Note: The 2020 version of OpenAPI will be discontinued at a scheduled time. Please migrate to the 2024 version of OpenAPI as soon as possible — ListMyApplications/ListPendingApprovals/ListMyRelatedApprovals.
+ *
+ * @description **Note: The 2020 version of OpenAPI will be discontinued at a scheduled time. Please migrate to the 2024 version of OpenAPI as soon as possible — [ListMyApplications](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listmyapplications?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_7.1c237afdFAePBC&scm=20140722.H_3040929._.OR_help-T_cn~zh-V_1)/[ListPendingApprovals](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listpendingapprovals?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_5.644e11b8FqtyZe&scm=20140722.H_3040932._.OR_help-T_cn~zh-V_1)/[ListMyRelatedApprovals](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listmyrelatedapprovals?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_6.62893177dwvvfp&scm=20140722.H_3040931._.OR_help-T_cn~zh-V_1).**
  *
  * @param request ListPermissionApplyOrdersRequest
  * @return ListPermissionApplyOrdersResponse
@@ -12985,7 +13335,7 @@ ListProgramTypeCountResponse Client::listProgramTypeCount(const ListProgramTypeC
 /**
  * @summary Queries the IDs of the workspaces on which a specific Alibaba Cloud account or RAM user has permissions in a specific region.
  *
- * @description An Alibaba Cloud account can assume a role such as the developer, O\\&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+ * @description Your Alibaba Cloud account can have different role permissions such as Developer, O\\&M, and Workspace Administrator in a DataWorks workspace. For more information about workspace role permissions, see [DataWorks role management](https://help.aliyun.com/document_detail/136941.html).
  *
  * @param request ListProjectIdsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13018,7 +13368,7 @@ ListProjectIdsResponse Client::listProjectIdsWithOptions(const ListProjectIdsReq
 /**
  * @summary Queries the IDs of the workspaces on which a specific Alibaba Cloud account or RAM user has permissions in a specific region.
  *
- * @description An Alibaba Cloud account can assume a role such as the developer, O\\&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+ * @description Your Alibaba Cloud account can have different role permissions such as Developer, O\\&M, and Workspace Administrator in a DataWorks workspace. For more information about workspace role permissions, see [DataWorks role management](https://help.aliyun.com/document_detail/136941.html).
  *
  * @param request ListProjectIdsRequest
  * @return ListProjectIdsResponse
@@ -13081,9 +13431,6 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 /**
  * @summary Queries a list of roles in a DataWorks workspace.
  *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
- *
  * @param request ListProjectRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListProjectRolesResponse
@@ -13114,9 +13461,6 @@ ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRo
 
 /**
  * @summary Queries a list of roles in a DataWorks workspace.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
  *
  * @param request ListProjectRolesRequest
  * @return ListProjectRolesResponse
@@ -13189,9 +13533,9 @@ ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
 /**
  * @deprecated OpenAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
  *
- * @summary Queries a list of historical check results based on a partition filter expression.
+ * @summary Use `ListQualityResultsByEntity` to retrieve validation results based on a partition expression.
  *
- * @description ****
+ * @description ***
  *
  * @param request ListQualityResultsByEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13248,9 +13592,9 @@ ListQualityResultsByEntityResponse Client::listQualityResultsByEntityWithOptions
 /**
  * @deprecated OpenAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
  *
- * @summary Queries a list of historical check results based on a partition filter expression.
+ * @summary Use `ListQualityResultsByEntity` to retrieve validation results based on a partition expression.
  *
- * @description ****
+ * @description ***
  *
  * @param request ListQualityResultsByEntityRequest
  * @return ListQualityResultsByEntityResponse
@@ -13263,7 +13607,7 @@ ListQualityResultsByEntityResponse Client::listQualityResultsByEntity(const List
 /**
  * @deprecated OpenAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
  *
- * @summary Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
+ * @summary Validates the quality of a Data Source against Validation Rules and returns the Validation Results.
  *
  * @param request ListQualityResultsByRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13320,7 +13664,7 @@ ListQualityResultsByRuleResponse Client::listQualityResultsByRuleWithOptions(con
 /**
  * @deprecated OpenAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
  *
- * @summary Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
+ * @summary Validates the quality of a Data Source against Validation Rules and returns the Validation Results.
  *
  * @param request ListQualityResultsByRuleRequest
  * @return ListQualityResultsByRuleResponse
@@ -13333,7 +13677,7 @@ ListQualityResultsByRuleResponse Client::listQualityResultsByRule(const ListQual
 /**
  * @deprecated OpenAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Queries monitoring rules based on a partition filter expression.
+ * @summary Call ListQualityRules to retrieve quality rules that match a partition expression.
  *
  * @param request ListQualityRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13382,7 +13726,7 @@ ListQualityRulesResponse Client::listQualityRulesWithOptions(const ListQualityRu
 /**
  * @deprecated OpenAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Queries monitoring rules based on a partition filter expression.
+ * @summary Call ListQualityRules to retrieve quality rules that match a partition expression.
  *
  * @param request ListQualityRulesRequest
  * @return ListQualityRulesResponse
@@ -14035,9 +14379,10 @@ PublishDataServiceApiResponse Client::publishDataServiceApi(const PublishDataSer
 }
 
 /**
- * @summary Queries the execution results of an asynchronous task.
+ * @summary Queries the result of an asynchronous task for generating synchronization task configurations.
  *
- * @description DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization task or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) or [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html) operation to obtain the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization task. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
+ * @description DataWorks allows you to directly call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update batch synchronization tasks in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html), [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html), and [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operations to asynchronously generate the required parameters, and then pass the parameters to the CreateDISyncTask or UpdateDISyncTask operation.
+ * Only asynchronous creation or update is supported for real-time synchronization tasks in Data Integration.
  *
  * @param request QueryDISyncTaskConfigProcessResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14076,9 +14421,10 @@ QueryDISyncTaskConfigProcessResultResponse Client::queryDISyncTaskConfigProcessR
 }
 
 /**
- * @summary Queries the execution results of an asynchronous task.
+ * @summary Queries the result of an asynchronous task for generating synchronization task configurations.
  *
- * @description DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization task or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) or [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html) operation to obtain the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization task. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
+ * @description DataWorks allows you to directly call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update batch synchronization tasks in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html), [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html), and [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operations to asynchronously generate the required parameters, and then pass the parameters to the CreateDISyncTask or UpdateDISyncTask operation.
+ * Only asynchronous creation or update is supported for real-time synchronization tasks in Data Integration.
  *
  * @param request QueryDISyncTaskConfigProcessResultRequest
  * @return QueryDISyncTaskConfigProcessResultResponse
@@ -14131,11 +14477,11 @@ QueryDefaultTemplateResponse Client::queryDefaultTemplate(const QueryDefaultTemp
 }
 
 /**
- * @summary Queries information about objects that are created in Data Modeling by using fast modeling language (FML) statements.
+ * @summary Retrieves information about Data Modeling objects created by using fast modeling language (FML) statements.
  *
- * @description *   Each time you call this API operation, you must use FML statements to query information about objects that are created in Data Modeling.
- * *   The information about the objects can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement. The num LIMIT num statement specifies the offset when the information about the objects is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
- * *   A maximum of 1,000 entries can be returned each time you call this API operation.
+ * @description - Each time you call this API operation, you must use FML statements to query information about objects that are created in Data Modeling.
+ * - The information about the objects can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement. The num LIMIT num statement specifies the offset when the information about the objects is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
+ * - A maximum of 1,000 entries can be returned each time you call this API operation.
  *
  * @param request QueryPublicModelEngineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14170,11 +14516,11 @@ QueryPublicModelEngineResponse Client::queryPublicModelEngineWithOptions(const Q
 }
 
 /**
- * @summary Queries information about objects that are created in Data Modeling by using fast modeling language (FML) statements.
+ * @summary Retrieves information about Data Modeling objects created by using fast modeling language (FML) statements.
  *
- * @description *   Each time you call this API operation, you must use FML statements to query information about objects that are created in Data Modeling.
- * *   The information about the objects can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement. The num LIMIT num statement specifies the offset when the information about the objects is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
- * *   A maximum of 1,000 entries can be returned each time you call this API operation.
+ * @description - Each time you call this API operation, you must use FML statements to query information about objects that are created in Data Modeling.
+ * - The information about the objects can be queried by page, except for data layers, business processes, and data domains. You can add an offset to the end of an FML statement. The num LIMIT num statement specifies the offset when the information about the objects is queried, and the number of pages to return each time. The offset value must be a multiple of the number of pages.
+ * - A maximum of 1,000 entries can be returned each time you call this API operation.
  *
  * @param request QueryPublicModelEngineRequest
  * @return QueryPublicModelEngineResponse
@@ -14231,7 +14577,7 @@ QueryRecognizeDataByRuleTypeResponse Client::queryRecognizeDataByRuleType(const 
 }
 
 /**
- * @summary Queries the details of a specified sensitive field in Data Security Guard.
+ * @summary Retrieves the details of a specified sensitive field in Data Security Guard.
  *
  * @param request QueryRecognizeRuleDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14266,7 +14612,7 @@ QueryRecognizeRuleDetailResponse Client::queryRecognizeRuleDetailWithOptions(con
 }
 
 /**
- * @summary Queries the details of a specified sensitive field in Data Security Guard.
+ * @summary Retrieves the details of a specified sensitive field in Data Security Guard.
  *
  * @param request QueryRecognizeRuleDetailRequest
  * @return QueryRecognizeRuleDetailResponse
@@ -14469,7 +14815,7 @@ QuerySensNodeInfoResponse Client::querySensNodeInfo(const QuerySensNodeInfoReque
 /**
  * @summary Registers the lineage between self-managed entities to DataWorks.
  *
- * @description This operation is in the trial phase. Users who need to call this operation can apply for it. The users can call this operation after the administrator adds the users to the trial list.
+ * @description This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
  *
  * @param tmpReq RegisterLineageRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14508,7 +14854,7 @@ RegisterLineageRelationResponse Client::registerLineageRelationWithOptions(const
 /**
  * @summary Registers the lineage between self-managed entities to DataWorks.
  *
- * @description This operation is in the trial phase. Users who need to call this operation can apply for it. The users can call this operation after the administrator adds the users to the trial list.
+ * @description This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
  *
  * @param request RegisterLineageRelationRequest
  * @return RegisterLineageRelationResponse
@@ -14669,7 +15015,7 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary Calls the ResumeInstance operation to resume a suspended instance.
+ * @summary Resumes a suspended instance.
  *
  * @param request ResumeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14704,7 +15050,7 @@ ResumeInstanceResponse Client::resumeInstanceWithOptions(const ResumeInstanceReq
 }
 
 /**
- * @summary Calls the ResumeInstance operation to resume a suspended instance.
+ * @summary Resumes a suspended instance.
  *
  * @param request ResumeInstanceRequest
  * @return ResumeInstanceResponse
@@ -15171,7 +15517,7 @@ ScanSensitiveDataResponse Client::scanSensitiveData(const ScanSensitiveDataReque
 /**
  * @summary Queries metatables based on specific conditions.
  *
- * @description You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine.
+ * @description Only MaxCompute and EMR engine tables are supported for search.
  *
  * @param request SearchMetaTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15232,7 +15578,7 @@ SearchMetaTablesResponse Client::searchMetaTablesWithOptions(const SearchMetaTab
 /**
  * @summary Queries metatables based on specific conditions.
  *
- * @description You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine.
+ * @description Only MaxCompute and EMR engine tables are supported for search.
  *
  * @param request SearchMetaTablesRequest
  * @return SearchMetaTablesResponse
@@ -15799,7 +16145,9 @@ SubmitDataServiceApiResponse Client::submitDataServiceApi(const SubmitDataServic
 }
 
 /**
- * @summary Commits a file to the development environment of the scheduling system to generate a task.
+ * @summary Submits a file to the development environment to create a corresponding task.
+ *
+ * @description This operation is asynchronous. After a successful submission, the system returns a DeploymentId. Call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation with this ID to query the status and final result of the deployment task.
  *
  * @param request SubmitFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15846,7 +16194,9 @@ SubmitFileResponse Client::submitFileWithOptions(const SubmitFileRequest &reques
 }
 
 /**
- * @summary Commits a file to the development environment of the scheduling system to generate a task.
+ * @summary Submits a file to the development environment to create a corresponding task.
+ *
+ * @description This operation is asynchronous. After a successful submission, the system returns a DeploymentId. Call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation with this ID to query the status and final result of the deployment task.
  *
  * @param request SubmitFileRequest
  * @return SubmitFileResponse
@@ -16317,7 +16667,7 @@ UpdateBusinessResponse Client::updateBusiness(const UpdateBusinessRequest &reque
 }
 
 /**
- * @summary Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
+ * @summary Updates the submodule configurations of a cluster in a workspace. Currently, only Spark parameters are supported.
  *
  * @param tmpReq UpdateClusterConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16368,7 +16718,7 @@ UpdateClusterConfigsResponse Client::updateClusterConfigsWithOptions(const Updat
 }
 
 /**
- * @summary Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
+ * @summary Updates the submodule configurations of a cluster in a workspace. Currently, only Spark parameters are supported.
  *
  * @param request UpdateClusterConfigsRequest
  * @return UpdateClusterConfigsResponse
@@ -16441,9 +16791,10 @@ UpdateConnectionResponse Client::updateConnection(const UpdateConnectionRequest 
 }
 
 /**
- * @summary Updates an alert rule for a new-version synchronization task. The following type of task is supported: real-time synchronization of all data in a MySQL database to Hologres.
+ * @summary Updates an alert rule for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization. You must update all fields in the alert rule.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
+ * The alert rule is updated as a full-field update. Partial field updates are not supported.
  *
  * @param tmpReq UpdateDIAlarmRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16504,9 +16855,10 @@ UpdateDIAlarmRuleResponse Client::updateDIAlarmRuleWithOptions(const UpdateDIAla
 }
 
 /**
- * @summary Updates an alert rule for a new-version synchronization task. The following type of task is supported: real-time synchronization of all data in a MySQL database to Hologres.
+ * @summary Updates an alert rule for a synchronization task.
  *
- * @description You can configure alert rules only for tasks that can be used for real-time data synchronization. You must update all fields in the alert rule.
+ * @description Alert rules can be configured when your task includes real-time synchronization.
+ * The alert rule is updated as a full-field update. Partial field updates are not supported.
  *
  * @param request UpdateDIAlarmRuleRequest
  * @return UpdateDIAlarmRuleResponse
@@ -17199,7 +17551,7 @@ UpdateMetaCategoryResponse Client::updateMetaCategory(const UpdateMetaCategoryRe
 /**
  * @summary Updates the name and comment of a collection.
  *
- * @description Only the name and comment of a collection can be updated.
+ * @description Only the Name and Comment fields can be updated.
  *
  * @param request UpdateMetaCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17240,7 +17592,7 @@ UpdateMetaCollectionResponse Client::updateMetaCollectionWithOptions(const Updat
 /**
  * @summary Updates the name and comment of a collection.
  *
- * @description Only the name and comment of a collection can be updated.
+ * @description Only the Name and Comment fields can be updated.
  *
  * @param request UpdateMetaCollectionRequest
  * @return UpdateMetaCollectionResponse
@@ -17253,7 +17605,7 @@ UpdateMetaCollectionResponse Client::updateMetaCollection(const UpdateMetaCollec
 /**
  * @summary This operation updates the metadata of a table.
  *
- * @description This operation supports MaxCompute tables only.
+ * @description This operation supports only MaxCompute tables.
  *
  * @param request UpdateMetaTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17328,7 +17680,7 @@ UpdateMetaTableResponse Client::updateMetaTableWithOptions(const UpdateMetaTable
 /**
  * @summary This operation updates the metadata of a table.
  *
- * @description This operation supports MaxCompute tables only.
+ * @description This operation supports only MaxCompute tables.
  *
  * @param request UpdateMetaTableRequest
  * @return UpdateMetaTableResponse
@@ -17489,7 +17841,7 @@ UpdateNodeRunModeResponse Client::updateNodeRunMode(const UpdateNodeRunModeReque
 /**
  * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
  *
- * @summary Updates a subscription relationship.
+ * @summary Updates a subscription.
  *
  * @param request UpdateQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17538,7 +17890,7 @@ UpdateQualityFollowerResponse Client::updateQualityFollowerWithOptions(const Upd
 /**
  * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
  *
- * @summary Updates a subscription relationship.
+ * @summary Updates a subscription.
  *
  * @param request UpdateQualityFollowerRequest
  * @return UpdateQualityFollowerResponse
@@ -17551,7 +17903,7 @@ UpdateQualityFollowerResponse Client::updateQualityFollower(const UpdateQualityF
 /**
  * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Updates a monitoring rule.
+ * @summary Updates a specified quality rule.
  *
  * @param request UpdateQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17668,7 +18020,7 @@ UpdateQualityRuleResponse Client::updateQualityRuleWithOptions(const UpdateQuali
 /**
  * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Updates a monitoring rule.
+ * @summary Updates a specified quality rule.
  *
  * @param request UpdateQualityRuleRequest
  * @return UpdateQualityRuleResponse

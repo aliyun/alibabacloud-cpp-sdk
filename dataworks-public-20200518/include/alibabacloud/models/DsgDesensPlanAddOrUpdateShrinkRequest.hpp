@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // A collection of data masking rules that you want to add or modify.
+    // The collection of data masking rules to add or update.
     // 
     // This parameter is required.
     shared_ptr<string> desensRulesShrink_ {};

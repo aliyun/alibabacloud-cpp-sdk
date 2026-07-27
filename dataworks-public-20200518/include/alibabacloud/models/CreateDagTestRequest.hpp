@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The business date.
+    // 
     // This parameter is required.
     shared_ptr<string> bizdate_ {};
+    // The name of the workflow.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The ID of the node.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> nodeId_ {};
+    // The parameters of the node.
     shared_ptr<string> nodeParams_ {};
+    // The environment of the workspace. Valid values: PROD and DEV.
+    // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};
   };

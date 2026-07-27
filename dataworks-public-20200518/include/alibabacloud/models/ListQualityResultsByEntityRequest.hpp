@@ -94,29 +94,29 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+    // The end of the business date range. The value must be in the `yyyy-MM-dd HH:mm:ss` format.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // The ID of the partition filter expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to query the ID.
+    // The ID of the partition expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/174003.html) operation to obtain this ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
-    // The page number.
+    // The page number to return.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 20.
+    // The number of entries to return per page. The default is 10, and the maximum is 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the compute engine or data source. You can obtain the name from data source configurations.
+    // The name of the engine or data source. You can find this name on the Data Source Configuration page.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+    // The start of the business date range. The value must be in the `yyyy-MM-dd HH:mm:ss` format.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};

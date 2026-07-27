@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The switch status. Valid values:
+    // 1: enabled
+    // 0: disabled
+    // 
     // This parameter is required.
     shared_ptr<int32_t> desensStatus_ {};
+    // The list of switch IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> idsShrink_ {};
   };

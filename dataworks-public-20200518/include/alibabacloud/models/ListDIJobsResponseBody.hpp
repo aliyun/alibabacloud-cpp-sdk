@@ -149,18 +149,25 @@ namespace Models
         shared_ptr<string> jobName_ {};
         // The task status. Valid values:
         // 
-        // *   Finished
-        // *   Initialized
-        // *   Stopped
-        // *   Failed
-        // *   Running
-        // *   Stopping
+        // - Finished
+        // 
+        // - Initialized
+        // 
+        // - Stopped
+        // 
+        // - Failed
+        // 
+        // - Running
+        // 
+        // - Stopping
         shared_ptr<string> jobStatus_ {};
         // The synchronization type. Valid values:
         // 
-        // *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-        // *   RealtimeIncremental: real-time incremental synchronization
-        // *   Full: one-time full synchronization
+        // - FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+        // 
+        // - RealtimeIncremental: real-time incremental synchronization
+        // 
+        // - Full: one-time full synchronization
         shared_ptr<string> migrationType_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};

@@ -327,7 +327,7 @@ namespace Models
       shared_ptr<int32_t> dqcType_ {};
       // The file ID.
       // 
-      // **
+      // \\*\\*
       // 
       // **Warning** The field is deprecated.
       shared_ptr<int64_t> fileId_ {};
@@ -341,10 +341,13 @@ namespace Models
       shared_ptr<int64_t> nodeId_ {};
       // The scheduling type of the node. Valid values:
       // 
-      // *   NORMAL: The node is an auto triggered node.
-      // *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
-      // *   PAUSE: The node is a paused node.
-      // *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+      // - NORMAL: The node is an auto triggered node.
+      // 
+      // - MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
+      // 
+      // - PAUSE: The node is a paused node.
+      // 
+      // - SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
       shared_ptr<string> nodeName_ {};
       // The ID of the node.
       shared_ptr<string> ownerId_ {};

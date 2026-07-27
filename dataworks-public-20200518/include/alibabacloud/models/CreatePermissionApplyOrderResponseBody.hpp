@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The request order ID.
+    // The list of flow IDs.
     shared_ptr<vector<string>> flowId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

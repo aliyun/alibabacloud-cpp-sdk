@@ -325,34 +325,36 @@ namespace Models
       protected:
         // The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
         // 
-        // *   1: The monitoring rule is a strong rule.
-        // *   0: The monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+        // - `1`: The monitoring rule is a strong rule.
+        // 
+        // - `0`: The monitoring rule is a weak rule.
+        //   You can specify a monitoring rule as a strong rule based on your business requirements. If a strong rule is triggered, a critical alert is reported and the scheduling of the task is blocked.
         shared_ptr<int32_t> blockType_ {};
         // The checker ID.
         shared_ptr<int32_t> checkerId_ {};
         // The description of the monitoring rule.
         shared_ptr<string> comment_ {};
-        // The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+        // The threshold for a critical alert. The threshold specifies the deviation of a monitoring result from the expected value. You can customize the threshold based on your business requirements. If a strong rule is used and a critical alert is triggered, the scheduling of the task is blocked.
         shared_ptr<string> criticalThreshold_ {};
         // The ID of the partition filter expression.
         shared_ptr<int64_t> entityId_ {};
         // The expected value.
         shared_ptr<string> expectValue_ {};
-        // Indicates whether the monitoring is performed based on a fixed value.
+        // Indicates whether a fixed value is used for the check.
         shared_ptr<bool> fixCheck_ {};
         // The historical threshold for a critical alert.
         shared_ptr<string> historyCriticalThreshold_ {};
         // The historical threshold for a warning alert.
         shared_ptr<string> historyWarningThreshold_ {};
-        // The monitoring rule ID.
+        // The ID of the monitoring rule.
         shared_ptr<int64_t> id_ {};
         // The partition filter expression.
         shared_ptr<string> matchExpression_ {};
-        // The ID of the task that is associated with the partition filter expression.
+        // The ID of the method used to collect sample data.
         shared_ptr<int32_t> methodId_ {};
-        // The method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+        // The name of the method used to collect sample data, such as `avg`, `count`, `sum`, `min`, `max`, `count_distinct`, `user_defined`, `table_count`, `table_size`, `table_dt_load_count`, `table_dt_refuseload_count`, `null_value`, `null_value/table_count`, `(table_count-count_distinct)/table_count`, or `table_count-count_distinct`.
         shared_ptr<string> methodName_ {};
-        // The name of the Alibaba Cloud account that is used to configure the monitoring rule.
+        // The ID of the Alibaba Cloud account that is used to configure the monitoring rule.
         shared_ptr<string> onDuty_ {};
         // The name of the Alibaba Cloud account that is used to configure the monitoring rule.
         shared_ptr<string> onDutyAccountName_ {};
@@ -360,17 +362,19 @@ namespace Models
         shared_ptr<string> projectName_ {};
         // The name of the field.
         shared_ptr<string> property_ {};
-        // The field that is used to associate with monitoring rules at the frontend. This parameter can be ignored.
+        // This parameter is not used. You can ignore this parameter.
         shared_ptr<string> propertyKey_ {};
-        // The ID of the task that is associated with the partition filter expression.
+        // The internal association ID for the rule details.
         shared_ptr<int64_t> ruleCheckerRelationId_ {};
         // The name of the monitoring rule.
         shared_ptr<string> ruleName_ {};
-        // Rule type:
+        // The type of the monitoring rule. Valid values:
         // 
-        // *   0: System template rule
-        // *   1: Custom SQL rule
-        // *   1: Custom template rule
+        // - `0`: The monitoring rule is created by the system.
+        // 
+        // - `1`: The monitoring rule is created by a user.
+        // 
+        // - `2`: The monitoring rule is a workspace-level rule.
         shared_ptr<int32_t> ruleType_ {};
         // The name of the table.
         shared_ptr<string> tableName_ {};
@@ -380,7 +384,7 @@ namespace Models
         shared_ptr<string> templateName_ {};
         // The trend of the monitoring result.
         shared_ptr<string> trend_ {};
-        // The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
+        // The threshold for a warning alert. The threshold specifies the deviation of a monitoring result from the expected value. You can customize the threshold based on your business requirements.
         shared_ptr<string> warningThreshold_ {};
       };
 
@@ -419,9 +423,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page. Default value: 10. Maximum value: 100.
+      // The number of entries per page. A valid value is 1 to 100. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
-      // The details of the validation rule.
+      // The details of the quality rule.
       shared_ptr<vector<Data::Rules>> rules_ {};
       // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
@@ -474,7 +478,7 @@ namespace Models
 
 
   protected:
-    // The list of retrieved rules.
+    // The paginated list of quality rules.
     shared_ptr<ListQualityRulesResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -482,12 +486,13 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can troubleshoot errors based on the ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

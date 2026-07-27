@@ -86,8 +86,9 @@ namespace Models
       shared_ptr<int64_t> processId_ {};
       // Indicates whether the ID of the asynchronous thread is generated. Valid values:
       // 
-      // *   success: indicates that the ID of the asynchronous thread is generated.
-      // *   fail: indicates that the ID of the asynchronous thread fails to be generated. You can view the reason for the failure and troubleshoot the issue based on the reason.
+      // - success: indicates that the ID of the asynchronous thread is generated.
+      // 
+      // - fail: indicates that the ID of the asynchronous thread fails to be generated. You can view the reason for the failure and troubleshoot the issue based on the reason.
       shared_ptr<string> status_ {};
     };
 
@@ -123,8 +124,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Additional attributes.
     shared_ptr<map<string, string>> attributes_ {};
+    // The unique identifier for the relationship.
     shared_ptr<string> relationshipGuid_ {};
+    // The type of the relationship.
     shared_ptr<string> relationshipType_ {};
   };
 

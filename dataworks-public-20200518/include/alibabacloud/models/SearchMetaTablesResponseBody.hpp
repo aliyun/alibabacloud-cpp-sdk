@@ -191,13 +191,15 @@ namespace Models
         shared_ptr<string> databaseName_ {};
         // The type of the metatable. Valid values:
         // 
-        // *   0: table
-        // *   1: view
+        // - 0: table
+        // 
+        // - 1: view
         shared_ptr<int32_t> entityType_ {};
         // The type of the environment. Valid values:
         // 
-        // *   1: production environment
-        // *   0: development environment
+        // - 1: production environment
+        // 
+        // - 0: development environment
         shared_ptr<int32_t> envType_ {};
         // The ID of the Alibaba Cloud account used by the workspace owner.
         shared_ptr<string> ownerId_ {};

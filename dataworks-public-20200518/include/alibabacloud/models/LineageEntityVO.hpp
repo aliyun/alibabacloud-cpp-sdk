@@ -97,16 +97,19 @@ namespace Models
 
 
   protected:
+    // A map of additional key-value attributes for the entity.
     shared_ptr<map<string, string>> attributes_ {};
-    // Detail url of entity
+    // A URL for more details about the entity.
     shared_ptr<string> detailUrl_ {};
+    // The type of the entity.
     shared_ptr<string> entityType_ {};
-    // Name of entity
+    // The human-readable name of the entity.
     shared_ptr<string> name_ {};
+    // The owner of the entity.
     shared_ptr<string> owner_ {};
-    // Parent name of entity
+    // The name of the entity\\"s parent container, such as a database.
     shared_ptr<string> parentName_ {};
-    // Unique identifier of entity
+    // The unique, fully qualified name of the entity.
     shared_ptr<string> qualifiedName_ {};
   };
 

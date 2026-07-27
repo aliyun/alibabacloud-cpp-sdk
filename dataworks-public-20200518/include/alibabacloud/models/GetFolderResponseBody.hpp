@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The ID of the folder.
       shared_ptr<string> folderId_ {};
+      // The path of the folder.
       shared_ptr<string> folderPath_ {};
     };
 
@@ -128,15 +130,17 @@ namespace Models
 
 
   protected:
+    // The details of the folder.
     shared_ptr<GetFolderResponseBody::Data> data_ {};
-    // GetFolder
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The folder ID.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The path of the folder.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // http://100.67.165.184/business/api/folders/detail
+    // The ID of the request. Use this ID to troubleshoot issues if an error occurs.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

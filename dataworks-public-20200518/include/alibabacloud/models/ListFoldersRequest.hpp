@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The number of the page to return. This parameter is used for pagination.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Indicates whether the request was successful.
+    // The number of entries per page. The default value is 10. The maximum value is 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // 0000-ABCD-EFG****
+    // The path of the parent folder.
     // 
     // This parameter is required.
     shared_ptr<string> parentFolderPath_ {};
-    // The error message.
+    // The ID of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must set either this parameter or ProjectIdentifier to specify the DataWorks workspace for this API call.
     shared_ptr<int64_t> projectId_ {};
-    // The request ID. You can troubleshoot issues based on the ID.
+    // The name of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must set either this parameter or ProjectId to specify the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Indicates whether the node is disassociated from the partition filter expression.
+    // Indicates whether the scheduling association was successfully deleted.
     shared_ptr<bool> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

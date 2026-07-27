@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The ID of the folder.
         shared_ptr<string> folderId_ {};
+        // The path of the folder.
         shared_ptr<string> folderPath_ {};
       };
 
@@ -140,12 +142,13 @@ namespace Models
 
 
     protected:
+      // A list of folders.
       shared_ptr<vector<Data::Folders>> folders_ {};
-      // The folder ID.
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
-      // http://100.67.165.184/business/api/folders/list
+      // The number of entries on the returned page.
       shared_ptr<int32_t> pageSize_ {};
-      // ListFolders
+      // The total number of entries that meet the filter criteria.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -196,17 +199,17 @@ namespace Models
 
 
   protected:
-    // The path of the folder.
+    // A list of folders that meet the specified criteria.
     shared_ptr<ListFoldersResponseBody::Data> data_ {};
-    // The total number of entries returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The page number.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The information about the folders.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The number of entries per page.
+    // The ID of the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The list of folders.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

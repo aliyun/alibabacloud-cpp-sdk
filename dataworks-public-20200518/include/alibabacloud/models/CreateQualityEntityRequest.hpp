@@ -85,33 +85,18 @@ namespace Models
 
   protected:
     // This parameter is deprecated.
-    // 
-    // The value 0 indicates that the partition filter expression is at the SQL level, and the system checks data quality after each SQL statement is executed.
-    // 
-    // * 0
-    // * 1
     shared_ptr<int32_t> entityLevel_ {};
-    // The type of the compute engine or data source.
-    // 
-    // Valid values:
-    // 
-    // *   odps
-    // *   emr
-    // *   hadoop
-    // *   cdh
-    // *   analyticdb_for_mysql
-    // *   hybriddb_for_postgresql
-    // *   holodb
+    // The type of the engine or data source. Valid values: ODPS, EMR, CDH, and HOLO.
     // 
     // This parameter is required.
     shared_ptr<string> envType_ {};
-    // The partition filter expression.
+    // The partition expression.
     // 
     // This parameter is required.
     shared_ptr<string> matchExpression_ {};
-    // The DataWorks workspace ID. You can log on to the DataWorks console to query the ID.
+    // The ID of the DataWorks workspace. You can go to the DataWorks console to obtain the workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the compute engine or data source.
+    // The name of the engine or data source.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

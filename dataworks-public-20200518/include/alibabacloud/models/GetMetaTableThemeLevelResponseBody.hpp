@@ -119,8 +119,9 @@ namespace Models
       protected:
         // The level of the theme. Valid values:
         // 
-        // *   1
-        // *   2
+        // - 1
+        // 
+        // - 2
         shared_ptr<int32_t> level_ {};
         // The name of the theme.
         shared_ptr<string> name_ {};
@@ -194,8 +195,9 @@ namespace Models
         shared_ptr<string> name_ {};
         // The type of the level. Valid values:
         // 
-        // *   1: indicates the logical level.
-        // *   2: indicates the physical level.
+        // - 1: indicates the logical level.
+        // 
+        // - 2: indicates the physical level.
         shared_ptr<int32_t> type_ {};
       };
 

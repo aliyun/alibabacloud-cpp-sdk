@@ -123,12 +123,20 @@ namespace Models
 
 
       protected:
+        // The column name.
+        // 
         // This parameter is required.
         shared_ptr<string> column_ {};
+        // The data source type.
+        // 
         // This parameter is required.
         shared_ptr<string> dbType_ {};
+        // The name of the DataWorks workspace.
+        // 
         // This parameter is required.
         shared_ptr<string> project_ {};
+        // The table name.
+        // 
         // This parameter is required.
         shared_ptr<string> table_ {};
       };
@@ -173,19 +181,25 @@ namespace Models
 
 
       protected:
-        // The masking method configured in the data masking rule. Valid values:
+        // The data masking method. Valid values:
         // 
-        // *   hash
-        // *   mapping
-        // *   mask
-        // *   charreplacement
-        // *   intervalselect
-        // *   decimalpoint
-        // *   emptydesens
+        // - hash: hashing
+        // 
+        // - mapping: pseudonymization
+        // 
+        // - mask: masking
+        // 
+        // - charreplacement: character replacement
+        // 
+        // - intervalselect: interval transformation
+        // 
+        // - decimalpoint: rounding
+        // 
+        // - emptydesens: nullification
         // 
         // This parameter is required.
         shared_ptr<string> desensPlanType_ {};
-        // The parameters for the data masking rule.
+        // The parameters for the data masking method.
         Darabonba::Json extParam_ {};
       };
 
@@ -271,16 +285,17 @@ namespace Models
     protected:
       // Specifies whether to add a watermark. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Adds a watermark.
+      // 
+      // - false: Does not add a watermark.
       shared_ptr<bool> checkWatermark_ {};
-      // The sensitive field type.
+      // The sensitive data type.
       shared_ptr<string> dataType_ {};
-      // The data masking rule.
+      // The configuration of the data masking method.
       // 
       // This parameter is required.
       shared_ptr<DesensRules::DesensPlan> desensPlan_ {};
-      // The ID of the data masking rule. You can call the [DsgDesensPlanQueryList](https://help.aliyun.com/document_detail/2786578.html) operation to query the ID of the data masking rule.
+      // The data masking rule ID. You can call the [DsgDesensPlanQueryList](https://help.aliyun.com/document_detail/2786578.html) operation to obtain it.
       shared_ptr<int64_t> id_ {};
       // The owner of the data masking rule.
       // 
@@ -290,15 +305,17 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> ruleName_ {};
-      // The level-2 data masking scenario.
+      // The secondary data masking scenes.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> sceneIds_ {};
       // The status of the data masking rule. Valid values:
       // 
-      // *   0: expired
-      // *   1: effective
+      // - 0: Disabled
+      // 
+      // - 1: Enabled
       shared_ptr<int32_t> status_ {};
+      // The associated columns for masking.
       shared_ptr<vector<DesensRules::Columns>> columns_ {};
       shared_ptr<bool> emptyNotDesens_ {};
     };
@@ -314,7 +331,7 @@ namespace Models
 
 
   protected:
-    // A collection of data masking rules that you want to add or modify.
+    // The collection of data masking rules to add or update.
     // 
     // This parameter is required.
     shared_ptr<vector<DsgDesensPlanAddOrUpdateRequest::DesensRules>> desensRules_ {};

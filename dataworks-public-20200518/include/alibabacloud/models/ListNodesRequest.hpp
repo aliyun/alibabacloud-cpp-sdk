@@ -134,9 +134,11 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The scheduling type. Valid values:
     // 
-    // *   NORMAL: Nodes are scheduled as expected.
-    // *   PAUSE: Nodes are paused.
-    // *   SKIP: Nodes are dry-run. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
+    // - NORMAL: Nodes are scheduled as expected.
+    // 
+    // - PAUSE: Nodes are paused.
+    // 
+    // - SKIP: Nodes are dry-run. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
     shared_ptr<string> schedulerType_ {};
   };
 

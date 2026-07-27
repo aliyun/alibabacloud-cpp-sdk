@@ -199,16 +199,25 @@ namespace Models
         shared_ptr<string> startTime_ {};
         // The status of the data synchronization solution. Valid values:
         // 
-        // *   0: successful
-        // *   1: not running
-        // *   2: running
-        // *   3: failed
-        // *   4: committed
-        // *   5: pending manual confirmation
-        // *   6: manually confirmed
-        // *   7: others
-        // *   8: waiting
-        // *   9: deleted
+        // - 0: successful
+        // 
+        // - 1: not running
+        // 
+        // - 2: running
+        // 
+        // - 3: failed
+        // 
+        // - 4: committed
+        // 
+        // - 5: pending manual confirmation
+        // 
+        // - 6: manually confirmed
+        // 
+        // - 7: others
+        // 
+        // - 8: waiting
+        // 
+        // - 9: deleted
         shared_ptr<string> status_ {};
         // The time when the data synchronization solution was committed.
         shared_ptr<string> submitTime_ {};
@@ -373,19 +382,23 @@ namespace Models
         protected:
           // The calculation method of a metric. Valid values:
           // 
-          // *   avg
-          // *   max
+          // - avg
+          // 
+          // - max
           shared_ptr<string> aggregator_ {};
           // The comparison operator, which indicates the method used to compare a metric with the alert rule.
           // 
-          // *   \\"=\\"
-          // *   \\"<\\"
-          // *   \\">\\"
+          // - \\"=\\"
+          // 
+          // - \\"<\\"
+          // 
+          // - \\">\\"
           shared_ptr<string> comparator_ {};
           // The duration that a condition is met before an alert is triggered. Unit: minutes.
           shared_ptr<int64_t> duration_ {};
-          // *   WARNING
-          // *   CRITICAL
+          // - WARNING
+          // 
+          // - CRITICAL
           shared_ptr<string> level_ {};
           // The threshold for the comparison between a metric and the alert rule.
           shared_ptr<int64_t> threshold_ {};
@@ -458,12 +471,17 @@ namespace Models
         shared_ptr<int64_t> id_ {};
         // The alert type. Valid values:
         // 
-        // *   taskStatus
-        // *   bizDelay
-        // *   taskFailoverCount
-        // *   ddlUnsupport
-        // *   ddlReport
-        // *   totalDirtyRecordWriteInLines
+        // - taskStatus
+        // 
+        // - bizDelay
+        // 
+        // - taskFailoverCount
+        // 
+        // - ddlUnsupport
+        // 
+        // - ddlReport
+        // 
+        // - totalDirtyRecordWriteInLines
         shared_ptr<string> metric_ {};
         // The settings for alert notification rules. The value of this parameter is an array.
         shared_ptr<AlarmList::NotifyRule> notifyRule_ {};
@@ -515,15 +533,17 @@ namespace Models
     protected:
       // The alert rules that are associated with the real-time synchronization task. The value of this parameter is an array.
       shared_ptr<vector<Data::AlarmList>> alarmList_ {};
-      // *   If the TaskType parameter is set to DI_REALTIME, the details of the real-time synchronization task are returned.
-      // *   If the TaskType parameter is set to DI_SOLUTION, the value null is returned.
+      // - If the TaskType parameter is set to DI_REALTIME, the details of the real-time synchronization task are returned.
+      // 
+      // - If the TaskType parameter is set to DI_SOLUTION, the value null is returned.
       shared_ptr<string> code_ {};
       // The cause of the failure to obtain the details of the real-time synchronization task or data synchronization solution.
       // 
       // If the details of the real-time synchronization task or data synchronization solution are obtained, the value null is returned.
       shared_ptr<string> message_ {};
-      // *   If the TaskType parameter is set to DI_REALTIME, the value null is returned.
-      // *   If the TaskType parameter is set to DI_SOLUTION, the details of the data synchronization solution are returned.
+      // - If the TaskType parameter is set to DI_REALTIME, the value null is returned.
+      // 
+      // - If the TaskType parameter is set to DI_SOLUTION, the details of the data synchronization solution are returned.
       shared_ptr<Data::SolutionDetail> solutionDetail_ {};
       // Indicates whether the details of the real-time synchronization task or data synchronization solution are obtained. Valid values:
       // 
@@ -563,8 +583,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   True
-    // *   False
+    // - True
+    // 
+    // - False
     shared_ptr<bool> success_ {};
   };
 

@@ -150,8 +150,9 @@ namespace Models
           shared_ptr<string> projectRoleName_ {};
           // The type of the role. Valid values:
           // 
-          // *   0: SYSTEM, which indicates that the role is a built-in role.
-          // *   2: USER_CUSTOM, which indicates that the role is a custom role.
+          // - 0: SYSTEM, which indicates that the role is a built-in role.
+          // 
+          // - 2: USER_CUSTOM, which indicates that the role is a custom role.
           shared_ptr<string> projectRoleType_ {};
         };
 
@@ -210,17 +211,21 @@ namespace Models
         shared_ptr<string> projectMemberName_ {};
         // The type of the member. Valid values:
         // 
-        // *   1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
-        // *   5: USER_UBACCOUNT, which indicates that the member is a RAM user.
-        // *   6: USER_STS_ROLE, which indicates that the member is a RAM role.
+        // - 1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
+        // 
+        // - 5: USER_UBACCOUNT, which indicates that the member is a RAM user.
+        // 
+        // - 6: USER_STS_ROLE, which indicates that the member is a RAM role.
         shared_ptr<string> projectMemberType_ {};
         // The roles that are assigned to the member.
         shared_ptr<vector<ProjectMemberList::ProjectRoleList>> projectRoleList_ {};
         // The status of the member. Valid values:
         // 
-        // *   0: NORMAL, which indicates that the member is in a normal state.
-        // *   1: FORBIDDEN, which indicates that the member is disabled.
-        // *   2: DELETED, which indicates that the member is deleted.
+        // - 0: NORMAL, which indicates that the member is in a normal state.
+        // 
+        // - 1: FORBIDDEN, which indicates that the member is disabled.
+        // 
+        // - 2: DELETED, which indicates that the member is deleted.
         shared_ptr<string> status_ {};
       };
 

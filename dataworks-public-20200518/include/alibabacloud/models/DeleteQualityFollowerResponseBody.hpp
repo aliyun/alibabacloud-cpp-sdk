@@ -84,23 +84,25 @@ namespace Models
 
 
   protected:
-    // Indicates whether the subscriber was successfully deleted. Valid values:
+    // Indicates whether the follower of the partition filter expression was deleted. Valid values:
     // 
-    // *   true: The subscriber was successfully deleted.
-    // *   false: The subscriber failed to be deleted. You can troubleshoot errors based on the error message returned.
+    // - `true`: The follower was deleted.
+    // 
+    // - `false`: The follower failed to be deleted. You can troubleshoot the issue based on the error message.
     shared_ptr<bool> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the subscriber failed to be deleted.
+    // The error message returned if the follower of the partition filter expression fails to be deleted.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can troubleshoot errors based on the ID.
+    // The request ID. This parameter is used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -215,18 +215,21 @@ namespace Models
         shared_ptr<string> comment_ {};
         // Indicates whether the field is a foreign key. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> isForeignKey_ {};
         // Indicates whether the field is a partition field. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> isPartitionColumn_ {};
         // Indicates whether the field is a primary key. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true
+        // 
+        // - false
         shared_ptr<bool> isPrimaryKey_ {};
         // The sequence number of the field.
         shared_ptr<int32_t> position_ {};
@@ -409,15 +412,19 @@ namespace Models
       shared_ptr<string> databaseName_ {};
       // The type of the environment. Valid values:
       // 
-      // *   0: indicates that the table resides in the development environment.
-      // *   1: indicates that the table resides in the production environment.
+      // - 0: indicates that the table resides in the development environment.
+      // 
+      // - 1: indicates that the table resides in the production environment.
       shared_ptr<int32_t> envType_ {};
       // The scope in which the table is visible. Valid values:
       // 
-      // *   0: indicates that the table is visible to workspace members.
-      // *   1: indicates that the table is visible to users within a tenant.
-      // *   2: indicates that the table is visible to all tenants.
-      // *   3: indicates that the table is visible only to the table owner.
+      // - 0: indicates that the table is visible to workspace members.
+      // 
+      // - 1: indicates that the table is visible to users within a tenant.
+      // 
+      // - 2: indicates that the table is visible to all tenants.
+      // 
+      // - 3: indicates that the table is visible only to the table owner.
       shared_ptr<int32_t> isVisible_ {};
       // The time when the table was last accessed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
       shared_ptr<int64_t> lastAccessTime_ {};

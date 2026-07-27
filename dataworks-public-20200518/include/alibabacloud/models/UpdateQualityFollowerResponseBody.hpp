@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the update is successful.
+    // Indicates whether the update was successful.
     shared_ptr<bool> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

@@ -213,9 +213,9 @@ namespace Models
 
 
         protected:
-          // The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+          // The business date. For an offline table, this is typically the day before the check is performed.
           shared_ptr<string> bizDate_ {};
-          // The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of DiscreteProperty are Male, Female, and null.
+          // The value of the sample column after being grouped by the `GROUP BY` clause. For example, if you group by a gender column, the values of this parameter can be \\"male\\", \\"female\\", or \\"null\\".
           shared_ptr<string> discreteProperty_ {};
           // The sample value.
           shared_ptr<float> value_ {};
@@ -286,11 +286,11 @@ namespace Models
 
 
         protected:
-          // The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+          // The business date. For an offline table, this is typically the day before the check is performed.
           shared_ptr<string> bizDate_ {};
-          // The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of DiscreteProperty are Male, Female, and null.
+          // The value of the sample column after being grouped by the `GROUP BY` clause. For example, if you group by a gender column, the values of this parameter can be \\"male\\", \\"female\\", or \\"null\\".
           shared_ptr<string> discreteProperty_ {};
-          // The string of the monitoring result.
+          // The result of a single check.
           shared_ptr<int32_t> singleCheckResult_ {};
           // The threshold.
           shared_ptr<float> threshold_ {};
@@ -607,22 +607,23 @@ namespace Models
 
 
       protected:
-        // The partition in the monitored data source table.
+        // The actual data partition that was checked.
         shared_ptr<string> actualExpression_ {};
-        // The time when the monitoring started.
+        // The start time of the check.
         shared_ptr<int64_t> beginTime_ {};
-        // The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+        // The business date. For an offline table, this is typically the day before the check is performed.
         shared_ptr<int64_t> bizDate_ {};
-        // The strength of the monitoring rule. The strength of a monitoring rule indicates the importance of the rule. Valid values:
+        // The strength of the monitoring rule. A strong rule can block a downstream scheduling task if a critical alert is triggered. Valid values:
         // 
-        // *   1: indicates that the monitoring rule is a strong rule.
-        // *   0: indicates that the monitoring rule is a weak rule. You can specify the strength of a monitoring rule based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+        // - `1`: Strong rule.
+        // 
+        // - `0`: Weak rule.
         shared_ptr<int32_t> blockType_ {};
-        // The monitoring result.
+        // The check result.
         shared_ptr<int32_t> checkResult_ {};
-        // The status of the monitoring result.
+        // The status of the check result.
         shared_ptr<int32_t> checkResultStatus_ {};
-        // The checker ID.
+        // The ID of the checker.
         shared_ptr<int32_t> checkerId_ {};
         // The name of the checker.
         shared_ptr<string> checkerName_ {};
@@ -630,78 +631,81 @@ namespace Models
         shared_ptr<int32_t> checkerType_ {};
         // The description of the monitoring rule.
         shared_ptr<string> comment_ {};
-        // The threshold for a critical alert. The threshold indicates the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements. If a monitoring rule is a strong rule and the critical threshold is exceeded, a critical alert is reported and tasks that are associated with the rule are blocked from running.
+        // The threshold for a critical alert. For a strong rule, exceeding this threshold blocks the downstream scheduling task.
         shared_ptr<float> criticalThreshold_ {};
-        // The scheduling frequency. In most cases, the value of this parameter is YMD. This value indicates year, month, and day.
+        // The scheduling cycle. For example, `YMD` can represent yearly, monthly, and daily tasks.
         shared_ptr<string> dateType_ {};
-        // Indicates whether the monitoring is discrete monitoring. Valid values:
+        // Indicates whether a discrete value check is used. Valid values:
         // 
-        // *   true
-        // *   false
+        // - `true`: A discrete value check is used.
+        // 
+        // - `false`: A discrete value check is not used.
         shared_ptr<bool> discreteCheck_ {};
-        // The time when the monitoring ended.
+        // The end time of the check.
         shared_ptr<int64_t> endTime_ {};
         // The ID of the partition filter expression.
         shared_ptr<int64_t> entityId_ {};
         // The expected value.
         shared_ptr<float> expectValue_ {};
-        // The node ID.
+        // The node ID of the scheduling task.
         shared_ptr<string> externalId_ {};
-        // The type of the scheduling system. Only CWF scheduling systems are supported.
+        // The type of the scheduling system. Currently, only CWF is supported.
         shared_ptr<string> externalType_ {};
-        // Indicates whether the monitoring is performed based on a fixed value. Valid values:
+        // Indicates whether a fixed-value check is used. Valid values:
         // 
-        // *   true
-        // *   false
+        // - `true`: A fixed-value check is used.
+        // 
+        // - `false`: A fixed-value check is not used.
         shared_ptr<bool> fixedCheck_ {};
         // The primary key ID.
         shared_ptr<int64_t> id_ {};
-        // Indicates whether the monitoring result is the same as the predicted result. Valid values:
+        // Indicates whether the result is a prediction. Valid values:
         // 
-        // *   true
-        // *   false
+        // - `true`: The result is a prediction.
+        // 
+        // - `false`: The result is not a prediction.
         shared_ptr<bool> isPrediction_ {};
-        // The lower limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
+        // The predicted lower limit, which is automatically generated based on the configured threshold.
         shared_ptr<float> lowerValue_ {};
         // The partition filter expression.
         shared_ptr<string> matchExpression_ {};
-        // The method used to collect sample data, such as such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
+        // The method used to collect sample data. Examples: `avg`, `count`, `sum`, `min`, `max`, `count_distinct`, `user_defined`, `table_count`, `table_size`, `table_dt_load_count`, `table_dt_refuseload_count`, `null_value`, `null_value/table_count`, `(table_count-count_distinct)/table_count`, and `table_count-count_distinct`.
         shared_ptr<string> methodName_ {};
         // The comparison operator.
         shared_ptr<string> op_ {};
-        // Indicates whether the monitoring rule is enabled.
+        // Indicates whether the rule is enabled.
         shared_ptr<bool> open_ {};
-        // The name of the compute engine or data source for which data quality is monitored.
+        // The name of the engine or data source used for the quality check.
         shared_ptr<string> projectName_ {};
-        // The field whose data quality is checked based on the monitoring rule. This field is a column in the data source table that is monitored.
+        // The column in the source data table that the rule checks.
         shared_ptr<string> property_ {};
         // The historical sample values.
         shared_ptr<vector<RuleChecks::ReferenceValue>> referenceValue_ {};
-        // The string of the monitoring result.
+        // The string representation of the check result.
         shared_ptr<string> resultString_ {};
-        // The ID of the monitoring rule.
+        // The rule ID.
         shared_ptr<int64_t> ruleId_ {};
-        // The name of the monitoring rule.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
         // The current sample values.
         shared_ptr<vector<RuleChecks::SampleValue>> sampleValue_ {};
-        // The name of the table that is monitored.
+        // The name of the table being checked.
         shared_ptr<string> tableName_ {};
-        // The monitoring task ID.
+        // The ID of the check task.
         shared_ptr<string> taskId_ {};
-        // The ID of the monitoring template.
+        // The ID of the rule template.
         shared_ptr<int32_t> templateId_ {};
-        // The name of the monitoring template.
+        // The name of the rule template.
         shared_ptr<string> templateName_ {};
-        // The time that was taken to run the monitoring task.
+        // The duration of the check.
         shared_ptr<string> timeCost_ {};
-        // The trend of the monitoring result.
+        // The trend of the check result.
         shared_ptr<string> trend_ {};
-        // The upper limit of the predicted result. The value of this parameter is automatically generated based on the threshold that you specify.
+        // The predicted upper limit, which is automatically generated based on the configured threshold.
         shared_ptr<float> upperValue_ {};
-        // The threshold for a warning alert. The threshold specifies the deviation of the monitoring result from the expected value. You can specify a custom value for the threshold based on your business requirements.
+        // The custom threshold for a warning alert. An alert is triggered if the deviation from the expected value exceeds this threshold.
         shared_ptr<float> warningThreshold_ {};
-        // The filter condition of the monitoring task.
+        // The filter condition for the check.
         shared_ptr<string> whereCondition_ {};
       };
 
@@ -742,9 +746,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The returned monitoring results.
+      // A list of check results.
       shared_ptr<vector<Data::RuleChecks>> ruleChecks_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -795,7 +799,7 @@ namespace Models
 
 
   protected:
-    // The data structure of the monitoring results returned.
+    // The top-level object of the check result.
     shared_ptr<ListQualityResultsByRuleResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

@@ -172,9 +172,9 @@ namespace Models
 
 
             protected:
-              // The operation type.
+              // The action types.
               shared_ptr<vector<string>> actions_ {};
-              // The name of the requested table.
+              // The name of the applied table.
               shared_ptr<string> objectName_ {};
             };
 
@@ -197,9 +197,9 @@ namespace Models
 
 
           protected:
-            // The information about the requested object.
+            // The information about the applied objects.
             shared_ptr<vector<ProjectMeta::ObjectMetaList>> objectMetaList_ {};
-            // The name of the DataWorks workspace that contains the MaxCompute project for which permissions are requested.
+            // The name of the DataWorks workspace to which the MaxCompute project with the requested permissions belongs.
             shared_ptr<string> workspaceName_ {};
           };
 
@@ -229,11 +229,11 @@ namespace Models
 
 
         protected:
-          // The reason for the permission request, which is used by administrators for evaluation and approval.
+          // The reason for the application, used by the administrator for evaluation and approval.
           shared_ptr<string> applyReason_ {};
-          // The type of permission request. Only the value 1 is supported, which indicates an ACL permission request for objects.
+          // The application order type. Currently, only the value 1 is supported, indicating an object ACL permission application.
           shared_ptr<int32_t> orderType_ {};
-          // The content of the requested object.
+          // The content of the applied object.
           shared_ptr<ApproveContent::ProjectMeta> projectMeta_ {};
         };
 
@@ -292,24 +292,24 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud account ID of the user who submitted the permission request.
+        // The Alibaba Cloud user UID that submitted the application order.
         shared_ptr<string> applyBaseId_ {};
-        // The time when the permission request was submitted, in Unix timestamp format.
+        // The submission time of the application order, displayed as a UNIX timestamp.
         shared_ptr<int64_t> applyTimestamp_ {};
-        // The content of the permission request.
+        // The content of the application order.
         shared_ptr<ApplyOrder::ApproveContent> approveContent_ {};
         // The final approval comment.
         shared_ptr<string> finishApprovalComment_ {};
-        // The final approval timestamp. Displayed as a Unix timestamp.
+        // The final approval completion time, displayed as a UNIX timestamp.
         shared_ptr<int64_t> finishApprovalTimestamp_ {};
-        // The permission request ID.
+        // The application order ID.
         shared_ptr<string> flowId_ {};
-        // The status of the permission request. Valid values:
-        // 
-        // *   1: Pending approval
-        // *   2: Approved and authorization succeeded
-        // *   3: Approved but authorization failed
-        // *   4: Rejected
+        // The status of the application order. Valid values:
+        // - 1: Pending approval.
+        // - 2: Approved, authorization succeeded.
+        // - 3: Approved, authorization failed.
+        // - 4: Rejected.
+        // - 5: Withdrawn.
         shared_ptr<int32_t> flowStatus_ {};
       };
 
@@ -346,13 +346,13 @@ namespace Models
 
 
     protected:
-      // The list of permission requests.
+      // The list of permission application orders.
       shared_ptr<vector<ApplyOrders::ApplyOrder>> applyOrder_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of permission requests returned.
+      // The total number of permission application orders returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -375,7 +375,7 @@ namespace Models
 
 
   protected:
-    // The paginated query results of permission requests.
+    // The paginated query results of permission application orders.
     shared_ptr<ListPermissionApplyOrdersResponseBody::ApplyOrders> applyOrders_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

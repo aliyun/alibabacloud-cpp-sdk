@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request was successful.
+    // The ID of the folder. You must set either this parameter or FolderPath. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to obtain the folder ID.
     shared_ptr<string> folderId_ {};
-    // The details of the folder.
+    // The path of the folder. You must set either this parameter or FolderId. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to obtain the folder path.
     shared_ptr<string> folderPath_ {};
-    // The request ID.
+    // The ID of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID. You must set either this parameter or ProjectIdentifier to specify the DataWorks workspace for the API call.
     shared_ptr<int64_t> projectId_ {};
-    // The error code.
+    // The name of the DataWorks workspace. Log on to the DataWorks console and go to the Workspace Management page to obtain the workspace name. You must set either this parameter or ProjectId to specify the DataWorks workspace for the API call.
     shared_ptr<string> projectIdentifier_ {};
   };
 

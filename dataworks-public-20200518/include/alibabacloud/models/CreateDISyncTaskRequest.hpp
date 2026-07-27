@@ -98,9 +98,11 @@ namespace Models
     shared_ptr<string> taskName_ {};
     // The configuration parameters of the data synchronization task. The following parameters are supported:
     // 
-    // *   FileFolderPath: the storage path of the data synchronization task.
-    // *   ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
-    // *   Cu: the specifications occupied by the data synchronization task in the serverless resource group. The value of this parameter must be a multiple of 0.5.
+    // - FileFolderPath: the storage path of the data synchronization task.
+    // 
+    // - ResourceGroup: the identifier of the resource group for Data Integration that is used by the data synchronization task. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+    // 
+    // - Cu: the specifications occupied by the data synchronization task in the serverless resource group. The value of this parameter must be a multiple of 0.5.
     shared_ptr<string> taskParam_ {};
     // The type of the data synchronization task. Valid values: DI_OFFLINE, DI_REALTIME, and DI_SOLUTION.
     // 

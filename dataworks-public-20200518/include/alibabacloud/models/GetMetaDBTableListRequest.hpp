@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The GUID of the MaxCompute project. Specify the GUID in the `odps.{projectName}` format. You must configure this parameter only if you set the DataSourceType parameter to odps.
+    // The unique identifier for the project, in the format `odps.{projectName}`. This parameter is required only if the `DataSourceType` is set to `odps`.
     shared_ptr<string> appGuid_ {};
-    // The E-MapReduce (EMR) cluster ID. You must configure this parameter only if you set the DataSourceType parameter to emr.
+    // The ID of the E-MapReduce (EMR) cluster. This parameter is required only if the `DataSourceType` is set to `emr`.
     shared_ptr<string> clusterId_ {};
-    // The type of the data source. Valid values: odps and emr.
+    // The type of the data source. Valid values: `odps` and `emr`.
     shared_ptr<string> dataSourceType_ {};
-    // The name of the metadatabase.
+    // The name of the database.
     shared_ptr<string> databaseName_ {};
-    // The page number.
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 1,000.
     shared_ptr<int32_t> pageSize_ {};
   };
 

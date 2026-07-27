@@ -376,8 +376,9 @@ namespace Models
     shared_ptr<string> comment_ {};
     // Specifies whether the table exists. Valid values:
     // 
-    // *   true: The table exists.
-    // *   false: The table does not exist.
+    // - true: The table exists.
+    // 
+    // - false: The table does not exist.
     // 
     // This parameter is deprecated. Do not use this parameter.
     shared_ptr<bool> createIfNotExists_ {};

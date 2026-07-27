@@ -78,9 +78,7 @@ namespace Models
 
 
     protected:
-      // The ID of the output task.
       shared_ptr<string> taskId_ {};
-      // The name of the output task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -131,17 +129,11 @@ namespace Models
 
 
   protected:
-    // The output tasks of the metatable.
     shared_ptr<vector<GetMetaTableProducingTasksResponseBody::Data>> data_ {};
-    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false. The value true indicates that the request was successful. The value false indicates that the request failed.
     shared_ptr<bool> success_ {};
   };
 

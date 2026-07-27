@@ -130,22 +130,40 @@ namespace Models
 
 
   protected:
+    // An optional parameter. The start time of the task. This parameter is required for hour-level scheduled tasks.
     shared_ptr<string> bizBeginTime_ {};
+    // An optional parameter. The end time of the task. This parameter is required for hour-level scheduled tasks.
     shared_ptr<string> bizEndTime_ {};
+    // The end business date of data backfill.
+    // 
     // This parameter is required.
     shared_ptr<string> endBizDate_ {};
+    // An optional parameter. The list of node IDs to exclude from data backfill.
     shared_ptr<string> excludeNodeIds_ {};
+    // The list of node IDs to include. If you backfill data for only one node, that node must be included in includeNodeIds.
+    // 
     // This parameter is required.
     shared_ptr<string> includeNodeIds_ {};
+    // The name of the workflow.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // A JSON string. The key is the node ID, and the value is the actual parameter value.
     shared_ptr<string> nodeParams_ {};
+    // Specifies whether the task can be executed concurrently.
+    // 
     // This parameter is required.
     shared_ptr<bool> parallelism_ {};
+    // The environment of the workspace, including PROD and DEV.
+    // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};
+    // The ID of the start node for data backfill.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> rootNodeId_ {};
+    // The start business date of data backfill.
+    // 
     // This parameter is required.
     shared_ptr<string> startBizDate_ {};
   };

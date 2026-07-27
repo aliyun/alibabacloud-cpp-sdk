@@ -60,14 +60,15 @@ namespace Models
 
 
   protected:
-    // The name of the data masking method.
+    // The name of the Desensitization Method.
     shared_ptr<string> name_ {};
-    // Indicates whether a watermark is added. Valid values:
+    // Indicates whether watermarking is supported. Valid values:
     // 
-    // *   true: allow
-    // *   false: disallow
+    // - true: Watermarking is supported.
+    // 
+    // - false: Watermarking is not supported.
     shared_ptr<bool> supportWaterMark_ {};
-    // The data masking parameters and their descriptions.
+    // A list of Desensitization Parameters and their descriptions.
     shared_ptr<vector<Darabonba::Json>> extParamTemplate_ {};
   };
 

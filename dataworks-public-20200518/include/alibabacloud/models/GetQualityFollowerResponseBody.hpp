@@ -142,24 +142,27 @@ namespace Models
 
 
     protected:
-      // The alert mode. The value is as follows:
+      // The alarm notification method. Valid values:
       // 
-      // - 1 (Mail)
-      // - 2 (email and SMS)
-      // - 4 (DingTalk groups of robots or hook)
-      // - 5 (DingTalk groups of robots @ ALL)
+      // - 1: by email
+      // 
+      // - 2: by email and SMS
+      // 
+      // - 4: by DingTalk chatbot or webhook
+      // 
+      // - 5: by DingTalk chatbot with the @all keyword
       shared_ptr<int32_t> alarmMode_ {};
-      // The time when the data quality rule subscription configuration was created.
+      // The time when the subscription was created. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The ID of the partition expression.
       shared_ptr<string> entityId_ {};
-      // The subscriber to receive alert information.
+      // The follower who receives alarm notifications.
       shared_ptr<string> follower_ {};
-      // The Alibaba Cloud account name of the subscriber.
+      // The Alibaba Cloud account name of the follower.
       shared_ptr<string> followerAccountName_ {};
-      // The ID of the subscription relationship.
+      // The subscription ID.
       shared_ptr<int64_t> id_ {};
-      // The update time of the data quality rule subscription configuration.
+      // The time when the subscription was last updated. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifyTime_ {};
       // The name of the engine or data source.
       shared_ptr<string> projectName_ {};
@@ -214,17 +217,17 @@ namespace Models
 
 
   protected:
-    // The information about the subscription relationship.
+    // An array of follower objects.
     shared_ptr<vector<GetQualityFollowerResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP return code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the call is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

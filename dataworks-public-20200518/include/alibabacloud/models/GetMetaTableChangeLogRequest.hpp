@@ -98,8 +98,9 @@ namespace Models
     shared_ptr<string> changeType_ {};
     // The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     // 
-    // *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-    // *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+    // - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+    // 
+    // - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
     shared_ptr<string> endDate_ {};
     // The entity on which the change is made. Valid values: TABLE and PARTITION.
     shared_ptr<string> objectType_ {};
@@ -109,8 +110,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
     // 
-    // *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-    // *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+    // - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+    // 
+    // - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
     shared_ptr<string> startDate_ {};
     // The GUID of the table. Specify the GUID in the odps.projectName.tableName format. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the GUID.
     // 

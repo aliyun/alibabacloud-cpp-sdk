@@ -57,8 +57,9 @@ namespace Models
 
 
   protected:
-    // *   If you set TaskType to DI_REALTIME, set this parameter to the ID of the real-time synchronization task that you want to deploy.
-    // *   If you set TaskType to DI_SOLUTION, set this parameter to the ID of the data synchronization solution that you want to deploy.
+    // - If you set TaskType to DI_REALTIME, set this parameter to the ID of the real-time synchronization task that you want to deploy.
+    // 
+    // - If you set TaskType to DI_SOLUTION, set this parameter to the ID of the data synchronization solution that you want to deploy.
     // 
     // You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID of the real-time synchronization task or data synchronization solution.
     // 
@@ -72,8 +73,9 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The type of the object that you want to query. Valid values:
     // 
-    // *   DI_REALTIME: real-time synchronization task
-    // *   DI_SOLUTION: data synchronization solution
+    // - DI_REALTIME: real-time synchronization task
+    // 
+    // - DI_SOLUTION: data synchronization solution
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

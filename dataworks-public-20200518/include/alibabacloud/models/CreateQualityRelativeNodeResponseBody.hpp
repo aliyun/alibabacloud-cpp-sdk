@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the node is associated with the partition filter expression.
+    // Indicates whether the association was created successfully.
     shared_ptr<bool> data_ {};
-    // The error code.
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message.
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

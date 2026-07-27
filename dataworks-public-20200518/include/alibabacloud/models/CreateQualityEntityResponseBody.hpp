@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The partition filter expression ID.
+    // The ID of the created partition expression.
     shared_ptr<int32_t> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};

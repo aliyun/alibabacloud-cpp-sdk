@@ -84,19 +84,12 @@ namespace Models
 
 
   protected:
-    // The ID of the EMR cluster. This parameter takes effect only if the DataSourceType parameter is set to emr.
     shared_ptr<string> clusterId_ {};
-    // The type of the metatable. Valid values: odps and emr. The value odps indicates that the metatable is a MaxCompute metatable. The value emr indicates that the metatable is an E-MapReduce (EMR) metatable.
     shared_ptr<string> dataSourceType_ {};
-    // The name of the database.
     shared_ptr<string> dbName_ {};
-    // The name of the schema.
     shared_ptr<string> schemaName_ {};
-    // The GUID of the MaxCompute metatable.
-    // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};
-    // The name of the metatable.
     shared_ptr<string> tableName_ {};
   };
 

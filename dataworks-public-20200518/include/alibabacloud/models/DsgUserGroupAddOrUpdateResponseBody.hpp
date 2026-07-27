@@ -84,23 +84,25 @@ namespace Models
 
 
   protected:
-    // The operation result. Valid values:
+    // The result of the operation. Valid values:
     // 
-    // *   true: The operation is successful.
-    // *   false: The operation fails.
+    // - `true`: The operation succeeded.
+    // 
+    // - `false`: The operation failed.
     shared_ptr<bool> data_ {};
-    // The error code.
+    // The error code that is returned if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message.
+    // The error message that is returned if the request fails.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the ID to locate logs and troubleshoot issues.
+    // The ID of the request. This is a common parameter. We recommend that you save this ID. If an issue occurs, you can use the ID to locate logs for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request succeeded. Valid values:
     // 
-    // *   true
-    // *   false
+    // - `true`: The request succeeded.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 
