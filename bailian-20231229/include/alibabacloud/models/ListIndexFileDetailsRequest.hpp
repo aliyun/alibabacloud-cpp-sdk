@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // Filters the returned file details list by file name. Default value: empty, which means no filtering by file name.
+    // Filters the returned file details list by file name. Default value: empty, which means the results are not filtered by file name.
     shared_ptr<string> documentName_ {};
     // Filters the returned file list by file import status. Valid values:
     // 
-    // - INSERT_ERROR: Failed to import to the index.
+    // - INSERT_ERROR: Import to index failed.
     // - RUNNING: Index building in progress.
     // - DELETED: Deleted.
     // - FINISH: Index building succeeded.
     // - PARSE_FAILED: Parsing failed.
     // - DOC_PARSING: Parsing in progress.
     // 
-    // Default value: empty, which means no filtering by file import status.
+    // Default value: empty, which means the results are not filtered by file import status.
     shared_ptr<string> documentStatus_ {};
     // Specifies whether to enable fuzzy matching for file names. This parameter is used together with the `DocumentName` parameter. Valid values:
     // 
@@ -108,7 +108,7 @@ namespace Models
     shared_ptr<string> indexId_ {};
     // The page number to query. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of files to display per page for paging. Maximum value: 10.
+    // The number of files to display per page in a paginated query. Maximum value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

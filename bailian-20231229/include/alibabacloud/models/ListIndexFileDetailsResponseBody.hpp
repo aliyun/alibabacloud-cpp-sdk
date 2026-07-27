@@ -78,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Message, message_);
+          DARABONBA_PTR_TO_JSON(MetaExtractInfo, metaExtractInfo_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(OverlapSize, overlapSize_);
           DARABONBA_PTR_TO_JSON(Size, size_);
@@ -94,6 +95,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Message, message_);
+          DARABONBA_PTR_FROM_JSON(MetaExtractInfo, metaExtractInfo_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(OverlapSize, overlapSize_);
           DARABONBA_PTR_FROM_JSON(Size, size_);
@@ -114,8 +116,8 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->chunkMode_ == nullptr
         && this->chunkSize_ == nullptr && this->code_ == nullptr && this->documentType_ == nullptr && this->enableHeaders_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->message_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->size_ == nullptr
-        && this->sourceId_ == nullptr && this->status_ == nullptr && this->separator_ == nullptr; };
+        && this->id_ == nullptr && this->message_ == nullptr && this->metaExtractInfo_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr
+        && this->size_ == nullptr && this->sourceId_ == nullptr && this->status_ == nullptr && this->separator_ == nullptr; };
         // chunkMode Field Functions 
         bool hasChunkMode() const { return this->chunkMode_ != nullptr;};
         void deleteChunkMode() { this->chunkMode_ = nullptr;};
@@ -172,6 +174,13 @@ namespace Models
         inline Documents& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
+        // metaExtractInfo Field Functions 
+        bool hasMetaExtractInfo() const { return this->metaExtractInfo_ != nullptr;};
+        void deleteMetaExtractInfo() { this->metaExtractInfo_ = nullptr;};
+        inline string getMetaExtractInfo() const { DARABONBA_PTR_GET_DEFAULT(metaExtractInfo_, "") };
+        inline Documents& setMetaExtractInfo(string metaExtractInfo) { DARABONBA_PTR_SET_VALUE(metaExtractInfo_, metaExtractInfo) };
+
+
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
@@ -217,23 +226,24 @@ namespace Models
       protected:
         // The custom chunking mode.
         shared_ptr<string> chunkMode_ {};
-        // The segment length, which is the number of characters in each text chunk.
+        // The chunk length, which is the number of characters in a text chunk.
         shared_ptr<string> chunkSize_ {};
-        // The error status code for file import.
+        // The file import error status code.
         shared_ptr<string> code_ {};
-        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
+        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, EXCEL.
         shared_ptr<string> documentType_ {};
         // Indicates whether Excel file headers support concatenation.
         shared_ptr<string> enableHeaders_ {};
-        // The time when the file was imported to the knowledge base, in UNIX timestamp format.
+        // The time when the file was imported to the knowledge base, in Unix timestamp format.
         shared_ptr<int64_t> gmtModified_ {};
         // The file ID.
         shared_ptr<string> id_ {};
-        // The error message for file import.
+        // The file import error message.
         shared_ptr<string> message_ {};
+        shared_ptr<string> metaExtractInfo_ {};
         // The file name.
         shared_ptr<string> name_ {};
-        // The overlap length between segments.
+        // The chunk overlap length.
         shared_ptr<string> overlapSize_ {};
         // The file size, in bytes.
         shared_ptr<int32_t> size_ {};
@@ -294,9 +304,9 @@ namespace Models
       shared_ptr<vector<Data::Documents>> documents_ {};
       // The knowledge base ID.
       shared_ptr<string> indexId_ {};
-      // The returned page number.
+      // The specified page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The returned number of entries per page.
+      // The specified number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
@@ -351,7 +361,7 @@ namespace Models
   protected:
     // The error status code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field of the operation.
     shared_ptr<ListIndexFileDetailsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
