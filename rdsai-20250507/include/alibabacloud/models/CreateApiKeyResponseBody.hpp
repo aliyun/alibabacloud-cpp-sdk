@@ -133,22 +133,22 @@ namespace Models
 
 
       protected:
-        // The API key.
+        // Api Key
         shared_ptr<string> apiKey_ {};
         shared_ptr<int64_t> dailyTokenQuota_ {};
-        // The API key name.
+        // The name of the API key.
         shared_ptr<string> keyName_ {};
-        // The quota ratio. This parameter takes effect only when **LimitType** is set to **ratio**.
+        // The quota percentage.
         shared_ptr<float> limitRate_ {};
-        // The quota allocation method. Valid values:
+        // The quota type. Valid values:
         // 
-        // - **fixed**: The quota is a fixed value.
+        // - **fixed**: by fixed value.
         // 
-        // - **ratio**: The quota is specified as a ratio of the total available resources.
+        // - **ratio**: by percentage.
         // 
-        // - **auto**: The quota is automatically allocated.
+        // - **auto**: automatic allocation.
         shared_ptr<string> limitType_ {};
-        // The token quota for the API key.
+        // The quota for the current key.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
@@ -178,11 +178,11 @@ namespace Models
 
 
     protected:
-      // The endpoint for model invocation.
+      // The URL for model invocation.
       shared_ptr<string> baseUrl_ {};
       // The list of custom API keys.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
-      // The system-generated API key.
+      // The system-generated key.
       shared_ptr<string> systemApiKey_ {};
     };
 
@@ -219,13 +219,13 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<CreateApiKeyResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

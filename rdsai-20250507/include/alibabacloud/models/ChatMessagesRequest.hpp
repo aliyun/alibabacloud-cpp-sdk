@@ -111,12 +111,12 @@ namespace Models
 
 
     protected:
-      // The custom agent ID.
+      // The user-specific agent ID.
       shared_ptr<string> customAgentId_ {};
       shared_ptr<string> enableThinking_ {};
-      // The language of the conversation.
+      // The conversation language.
       shared_ptr<string> language_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> thinkEffort_ {};
       // The time zone. Default value: **Asia/Shanghai**.
@@ -163,14 +163,14 @@ namespace Models
 
 
   protected:
-    // The ID of the conversation.
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The inputs for the task.
+    // The task inputs.
     shared_ptr<ChatMessagesRequest::Inputs> inputs_ {};
-    // The ID of the parent message.
+    // The parent message ID.
     shared_ptr<string> parentMessageId_ {};
-    // The content of the query.
+    // The query content.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

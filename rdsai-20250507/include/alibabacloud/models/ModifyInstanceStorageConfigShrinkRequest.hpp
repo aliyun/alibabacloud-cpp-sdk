@@ -13,12 +13,14 @@ namespace Models
   class ModifyInstanceStorageConfigShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyInstanceStorageConfigShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ConfigList, configListShrink_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInstanceStorageConfigShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configListShrink_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->configListShrink_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->clientToken_ == nullptr && this->configListShrink_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyInstanceStorageConfigShrinkRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -66,15 +75,16 @@ namespace Models
 
 
   protected:
-    // The value of the configuration item.
+    shared_ptr<string> branchName_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which ensures that the request is not repeated.
     shared_ptr<string> clientToken_ {};
-    // The ID of the RDS Supabase instance.
+    // The list of storage configurations.
     shared_ptr<string> configListShrink_ {};
-    // The region ID.
+    // The instance ID of the AI application.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The operation that you want to perform. Set the value to **ModifyInstanceStorageConfig**.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

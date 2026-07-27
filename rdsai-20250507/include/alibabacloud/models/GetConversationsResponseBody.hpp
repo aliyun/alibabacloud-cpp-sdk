@@ -42,13 +42,17 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Introduction, introduction_);
+        DARABONBA_PTR_TO_JSON(IsRunning, isRunning_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Introduction, introduction_);
+        DARABONBA_PTR_FROM_JSON(IsRunning, isRunning_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -62,7 +66,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->id_ == nullptr && this->introduction_ == nullptr && this->name_ == nullptr; };
+        && this->id_ == nullptr && this->introduction_ == nullptr && this->isRunning_ == nullptr && this->name_ == nullptr && this->updatedAt_ == nullptr; };
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -84,6 +88,13 @@ namespace Models
       inline Data& setIntroduction(string introduction) { DARABONBA_PTR_SET_VALUE(introduction_, introduction) };
 
 
+      // isRunning Field Functions 
+      bool hasIsRunning() const { return this->isRunning_ != nullptr;};
+      void deleteIsRunning() { this->isRunning_ = nullptr;};
+      inline bool getIsRunning() const { DARABONBA_PTR_GET_DEFAULT(isRunning_, false) };
+      inline Data& setIsRunning(bool isRunning) { DARABONBA_PTR_SET_VALUE(isRunning_, isRunning) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -91,15 +102,24 @@ namespace Models
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // updatedAt Field Functions 
+      bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
+      void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
+      inline string getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, "") };
+      inline Data& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
+
+
     protected:
-      // The creation time of the conversation.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The ID of the history conversation.
+      // The ID of the historical conversation.
       shared_ptr<string> id_ {};
-      // The introduction to the conversation.
+      // The conversation introduction.
       shared_ptr<string> introduction_ {};
-      // The name of the history conversation.
+      shared_ptr<bool> isRunning_ {};
+      // The name of the historical conversation.
       shared_ptr<string> name_ {};
+      shared_ptr<string> updatedAt_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
@@ -135,11 +155,11 @@ namespace Models
 
 
   protected:
-    // The returned results.
+    // The request result.
     shared_ptr<vector<GetConversationsResponseBody::Data>> data_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether there is a next page.
     shared_ptr<string> hasMore_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 100.
+    // The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> limit_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

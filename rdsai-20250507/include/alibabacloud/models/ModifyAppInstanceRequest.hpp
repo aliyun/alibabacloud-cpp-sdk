@@ -14,14 +14,20 @@ namespace Models
   class ModifyAppInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAppInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Components, components_);
+      DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Components, components_);
+      DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -78,8 +84,16 @@ namespace Models
       shared_ptr<string> type_ {};
     };
 
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->components_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->clientToken_ == nullptr && this->components_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceClass_ == nullptr && this->instanceName_ == nullptr
+        && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyAppInstanceRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -94,6 +108,20 @@ namespace Models
     inline vector<ModifyAppInstanceRequest::Components> getComponents() { DARABONBA_PTR_GET(components_, vector<ModifyAppInstanceRequest::Components>) };
     inline ModifyAppInstanceRequest& setComponents(const vector<ModifyAppInstanceRequest::Components> & components) { DARABONBA_PTR_SET_VALUE(components_, components) };
     inline ModifyAppInstanceRequest& setComponents(vector<ModifyAppInstanceRequest::Components> && components) { DARABONBA_PTR_SET_RVALUE(components_, components) };
+
+
+    // DBInstanceName Field Functions 
+    bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
+    void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline ModifyAppInstanceRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
+
+
+    // instanceClass Field Functions 
+    bool hasInstanceClass() const { return this->instanceClass_ != nullptr;};
+    void deleteInstanceClass() { this->instanceClass_ = nullptr;};
+    inline string getInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(instanceClass_, "") };
+    inline ModifyAppInstanceRequest& setInstanceClass(string instanceClass) { DARABONBA_PTR_SET_VALUE(instanceClass_, instanceClass) };
 
 
     // instanceName Field Functions 
@@ -111,8 +139,11 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> branchName_ {};
     shared_ptr<string> clientToken_ {};
     shared_ptr<vector<ModifyAppInstanceRequest::Components>> components_ {};
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> instanceClass_ {};
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> regionId_ {};
   };

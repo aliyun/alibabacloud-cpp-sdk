@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

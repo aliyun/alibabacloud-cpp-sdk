@@ -14,11 +14,13 @@ namespace Models
   class ModifyAppInstanceResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAppInstanceResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(Components, components_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppInstanceResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(Components, components_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -76,8 +78,15 @@ namespace Models
       shared_ptr<string> type_ {};
     };
 
-    virtual bool empty() const override { return this->components_ == nullptr
-        && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->components_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyAppInstanceResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // components Field Functions 
     bool hasComponents() const { return this->components_ != nullptr;};
     void deleteComponents() { this->components_ = nullptr;};
@@ -102,6 +111,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> branchName_ {};
     shared_ptr<vector<ModifyAppInstanceResponseBody::Components>> components_ {};
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> requestId_ {};

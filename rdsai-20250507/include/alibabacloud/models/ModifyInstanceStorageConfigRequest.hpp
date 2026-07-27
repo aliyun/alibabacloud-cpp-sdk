@@ -14,12 +14,14 @@ namespace Models
   class ModifyInstanceStorageConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyInstanceStorageConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ConfigList, configList_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInstanceStorageConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -76,20 +78,27 @@ namespace Models
     protected:
       // The name of the configuration item. Valid values:
       // 
-      // - **AWS_SESSION_TOKEN** (optional): The temporary session token for OSS. If this parameter is not provided, validation is performed using the AccessKey ID and AccessKey secret.
-      // - **AWS_ACCESS_KEY_ID**: The AccessKey ID for OSS.
-      // - **AWS_SECRET_ACCESS_KEY**: The AccessKey secret for OSS.
-      // - **GLOBAL_S3_BUCKET**: The bucket name in OSS.
-      // - **TENANT_ID**: The folder name in OSS. No manual creation is required.
-      // - **GLOBAL_S3_ENDPOINT**: The endpoint (access domain name) for OSS.
-      // - **REGION**: The region of OSS.
+      // - **AWS_SESSION_TOKEN** (optional): the temporary access token (Session Token) for OSS. If this parameter is not specified, AccessKey ID and AccessKey Secret are used for authentication.
+      // - **AWS_ACCESS_KEY_ID**: the AccessKey ID for OSS.
+      // - **AWS_SECRET_ACCESS_KEY**: the AccessKey Secret for OSS.
+      // - **GLOBAL_S3_BUCKET**: the bucket name of OSS.
+      // - **TENANT_ID**: the OSS directory name. You do not need to create it in advance.
+      // - **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
+      // - **REGION**: the region of OSS.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->configList_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->clientToken_ == nullptr && this->configList_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyInstanceStorageConfigRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -121,15 +130,16 @@ namespace Models
 
 
   protected:
-    // The value of the configuration item.
+    shared_ptr<string> branchName_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which ensures that the request is not repeated.
     shared_ptr<string> clientToken_ {};
-    // The ID of the RDS Supabase instance.
+    // The list of storage configurations.
     shared_ptr<vector<ModifyInstanceStorageConfigRequest::ConfigList>> configList_ {};
-    // The region ID.
+    // The instance ID of the AI application.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The operation that you want to perform. Set the value to **ModifyInstanceStorageConfig**.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -13,11 +13,13 @@ namespace Models
   class ModifyInstanceAuthConfigShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyInstanceAuthConfigShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ConfigList, configListShrink_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInstanceAuthConfigShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configListShrink_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->configListShrink_ == nullptr
-        && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->configListShrink_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyInstanceAuthConfigShrinkRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // configListShrink Field Functions 
     bool hasConfigListShrink() const { return this->configListShrink_ != nullptr;};
     void deleteConfigListShrink() { this->configListShrink_ = nullptr;};
@@ -57,11 +66,12 @@ namespace Models
 
 
   protected:
-    // The ID of the RDS Supabase instance.
+    shared_ptr<string> branchName_ {};
+    // The list of authentication configurations.
     shared_ptr<string> configListShrink_ {};
-    // The region ID.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The operation that you want to perform. Set the value to **ModifyInstanceAuthConfig**.
+    // The region.
     shared_ptr<string> regionId_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **GetConversations**.
+    // The ID of the last conversation record.
     shared_ptr<string> lastId_ {};
-    // The ID of the last conversation.
+    // The number of entries per page for a paged query. Valid values: 1 to 100.
     shared_ptr<string> limit_ {};
-    // The number of entries per page. Valid values: 1 to 100.
+    // The favorite pinning flag for the application.
     shared_ptr<string> pinned_ {};
-    // Specifies whether to pin the application.
+    // The sorting criterion.
     shared_ptr<string> sortBy_ {};
   };
 

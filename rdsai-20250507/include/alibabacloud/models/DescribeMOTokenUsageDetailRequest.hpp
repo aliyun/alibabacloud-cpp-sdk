@@ -134,7 +134,7 @@ namespace Models
     shared_ptr<string> apiKey_ {};
     // The consumer associated with the API key.
     shared_ptr<string> consumerName_ {};
-    // The cursor-based pagination token. This parameter takes priority over Page. Leave this parameter empty for the first call. For subsequent calls, use the NextCursor value returned in the previous response.
+    // The cursor-based pagination token. This parameter takes priority over Page. Leave this parameter empty for the first request. For subsequent requests, use the NextCursor value returned in the previous response.
     shared_ptr<string> cursor_ {};
     // The end time in ISO 8601 format (UTC).
     shared_ptr<string> endTime_ {};

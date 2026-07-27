@@ -13,11 +13,13 @@ namespace Models
   class DisableAgentRuntimeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DisableAgentRuntimeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DisableAgentRuntimeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->clientToken_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DisableAgentRuntimeRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -57,13 +66,14 @@ namespace Models
 
 
   protected:
-    // An idempotent parameter.
+    shared_ptr<string> branchName_ {};
+    // The idempotence parameter.
     shared_ptr<string> clientToken_ {};
-    // The ID of the AI application instance.
+    // The instance ID of the AI application.
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The ID of the region where the instance is located.
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
   };
 

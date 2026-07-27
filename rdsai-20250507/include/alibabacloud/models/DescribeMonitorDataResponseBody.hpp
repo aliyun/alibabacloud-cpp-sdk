@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The timestamp of the data point.
+        // The point in time.
         shared_ptr<string> time_ {};
-        // The value of the metric at the specified timestamp.
+        // The returned value.
         shared_ptr<double> value_ {};
       };
 
@@ -122,7 +122,7 @@ namespace Models
     protected:
       // The metric name.
       shared_ptr<string> name_ {};
-      // An array of data points for the metric.
+      // The metric details.
       shared_ptr<vector<Data::Value>> value_ {};
     };
 
@@ -159,13 +159,13 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The result.
     shared_ptr<vector<DescribeMonitorDataResponseBody::Data>> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

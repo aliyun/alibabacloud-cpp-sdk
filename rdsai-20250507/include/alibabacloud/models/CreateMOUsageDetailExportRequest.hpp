@@ -1,0 +1,105 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEMOUSAGEDETAILEXPORTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEMOUSAGEDETAILEXPORTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace RdsAi20250507
+{
+namespace Models
+{
+  class CreateMOUsageDetailExportRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateMOUsageDetailExportRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(UsageType, usageType_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateMOUsageDetailExportRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(UsageType, usageType_);
+    };
+    CreateMOUsageDetailExportRequest() = default ;
+    CreateMOUsageDetailExportRequest(const CreateMOUsageDetailExportRequest &) = default ;
+    CreateMOUsageDetailExportRequest(CreateMOUsageDetailExportRequest &&) = default ;
+    CreateMOUsageDetailExportRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateMOUsageDetailExportRequest() = default ;
+    CreateMOUsageDetailExportRequest& operator=(const CreateMOUsageDetailExportRequest &) = default ;
+    CreateMOUsageDetailExportRequest& operator=(CreateMOUsageDetailExportRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->apiKey_ == nullptr
+        && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr && this->startTime_ == nullptr && this->usageType_ == nullptr; };
+    // apiKey Field Functions 
+    bool hasApiKey() const { return this->apiKey_ != nullptr;};
+    void deleteApiKey() { this->apiKey_ = nullptr;};
+    inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+    inline CreateMOUsageDetailExportRequest& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline CreateMOUsageDetailExportRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline CreateMOUsageDetailExportRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+    inline CreateMOUsageDetailExportRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline CreateMOUsageDetailExportRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // usageType Field Functions 
+    bool hasUsageType() const { return this->usageType_ != nullptr;};
+    void deleteUsageType() { this->usageType_ = nullptr;};
+    inline string getUsageType() const { DARABONBA_PTR_GET_DEFAULT(usageType_, "") };
+    inline CreateMOUsageDetailExportRequest& setUsageType(string usageType) { DARABONBA_PTR_SET_VALUE(usageType_, usageType) };
+
+
+  protected:
+    shared_ptr<string> apiKey_ {};
+    // 结束时间，UTC 0 时区 ISO8601 字符串，格式 yyyy-MM-ddTHH:mm:ssZ；与 StartTime 跨度不超过 30 天
+    // 
+    // This parameter is required.
+    shared_ptr<string> endTime_ {};
+    // This parameter is required.
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> model_ {};
+    // 起始时间，UTC 0 时区 ISO8601 字符串，格式 yyyy-MM-ddTHH:mm:ssZ
+    // 
+    // This parameter is required.
+    shared_ptr<string> startTime_ {};
+    shared_ptr<string> usageType_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace RdsAi20250507
+#endif

@@ -45,6 +45,7 @@ namespace Models
     class Records : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Records& obj) { 
+        DARABONBA_PTR_TO_JSON(CacheTokens, cacheTokens_);
         DARABONBA_PTR_TO_JSON(ConsumerName, consumerName_);
         DARABONBA_PTR_TO_JSON(ExtraInfo, extraInfo_);
         DARABONBA_PTR_TO_JSON(InputTokens, inputTokens_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TotalTokens, totalTokens_);
       };
       friend void from_json(const Darabonba::Json& j, Records& obj) { 
+        DARABONBA_PTR_FROM_JSON(CacheTokens, cacheTokens_);
         DARABONBA_PTR_FROM_JSON(ConsumerName, consumerName_);
         DARABONBA_PTR_FROM_JSON(ExtraInfo, extraInfo_);
         DARABONBA_PTR_FROM_JSON(InputTokens, inputTokens_);
@@ -77,9 +79,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->consumerName_ == nullptr
-        && this->extraInfo_ == nullptr && this->inputTokens_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr && this->outputTokens_ == nullptr
-        && this->region_ == nullptr && this->requestTime_ == nullptr && this->totalTokens_ == nullptr; };
+      virtual bool empty() const override { return this->cacheTokens_ == nullptr
+        && this->consumerName_ == nullptr && this->extraInfo_ == nullptr && this->inputTokens_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr
+        && this->outputTokens_ == nullptr && this->region_ == nullptr && this->requestTime_ == nullptr && this->totalTokens_ == nullptr; };
+      // cacheTokens Field Functions 
+      bool hasCacheTokens() const { return this->cacheTokens_ != nullptr;};
+      void deleteCacheTokens() { this->cacheTokens_ = nullptr;};
+      inline double getCacheTokens() const { DARABONBA_PTR_GET_DEFAULT(cacheTokens_, 0.0) };
+      inline Records& setCacheTokens(double cacheTokens) { DARABONBA_PTR_SET_VALUE(cacheTokens_, cacheTokens) };
+
+
       // consumerName Field Functions 
       bool hasConsumerName() const { return this->consumerName_ != nullptr;};
       void deleteConsumerName() { this->consumerName_ = nullptr;};
@@ -144,6 +153,8 @@ namespace Models
 
 
     protected:
+      // The number of input tokens that hit the cache.
+      shared_ptr<double> cacheTokens_ {};
       // The consumer associated with the API key.
       shared_ptr<string> consumerName_ {};
       // The additional information passed by the user in the extra_info field during the request. The value is a JSON string.
@@ -219,17 +230,17 @@ namespace Models
 
 
   protected:
-    // The cursor for the next page. An empty value indicates the last page.
+    // The cursor for the next page. An empty value indicates that the current page is the last page.
     shared_ptr<string> nextCursor_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
     // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of records returned.
+    // The list of records in the response.
     shared_ptr<vector<DescribeMOTokenUsageDetailResponseBody::Records>> records_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the query conditions.
+    // The total number of records that match the query conditions. This parameter is optional and may not be returned by default.
     shared_ptr<int32_t> totalCount_ {};
     // The usage type.
     shared_ptr<string> usageType_ {};

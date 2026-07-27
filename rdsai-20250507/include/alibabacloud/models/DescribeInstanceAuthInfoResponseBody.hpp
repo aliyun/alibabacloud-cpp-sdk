@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceAuthInfoResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ApiKeys, apiKeys_);
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ConfigList, configList_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(JwtSecret, jwtSecret_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceAuthInfoResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKeys, apiKeys_);
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(JwtSecret, jwtSecret_);
@@ -78,17 +80,17 @@ namespace Models
     protected:
       // The name of the configuration item. Valid values:
       // 
-      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether to allow external email addresses.
-      // - **GOTRUE_SITE_URL**: The website URL displayed when the AI application sends emails.
-      // - **GOTRUE_SMTP_PORT**: The port of the SMTP provider.
-      // - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
-      // - **GOTRUE_SMTP_USER**: The username of the SMTP provider.
-      // - **GOTRUE_SMTP_PASS**: The secret key of the SMTP provider.
-      // - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP provider.
-      // - **GOTRUE_SMTP_HOST**: The host address of the SMTP provider.
-      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether to enable automatic confirmation.
-      // - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
-      // - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
+      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: external email enabled.
+      // - **GOTRUE_SITE_URL**: the website URL displayed when the AI application sends emails.
+      // - **GOTRUE_SMTP_PORT**: the port of the SMTP provider.
+      // - **GOTRUE_SMTP_SENDER_NAME**: the name of the email sender.
+      // - **GOTRUE_SMTP_USER**: the username of the SMTP provider.
+      // - **GOTRUE_SMTP_PASS**: the secret of the SMTP provider.
+      // - **GOTRUE_SMTP_ADMIN_EMAIL**: the email address of the SMTP provider.
+      // - **GOTRUE_SMTP_HOST**: the host address of the SMTP provider.
+      // - **GOTRUE_MAILER_AUTOCONFIRM**: specifies whether to enable autoconfirm.
+      // - **GOTRUE_MAILER_OTP_EXP**: the validity period of the one-time password (OTP). Unit: seconds.
+      // - **GOTRUE_MAILER_OTP_LENGTH**: the length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
@@ -149,7 +151,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->apiKeys_ == nullptr
-        && this->configList_ == nullptr && this->instanceName_ == nullptr && this->jwtSecret_ == nullptr && this->requestId_ == nullptr; };
+        && this->branchName_ == nullptr && this->configList_ == nullptr && this->instanceName_ == nullptr && this->jwtSecret_ == nullptr && this->requestId_ == nullptr; };
     // apiKeys Field Functions 
     bool hasApiKeys() const { return this->apiKeys_ != nullptr;};
     void deleteApiKeys() { this->apiKeys_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
     inline DescribeInstanceAuthInfoResponseBody::ApiKeys getApiKeys() { DARABONBA_PTR_GET(apiKeys_, DescribeInstanceAuthInfoResponseBody::ApiKeys) };
     inline DescribeInstanceAuthInfoResponseBody& setApiKeys(const DescribeInstanceAuthInfoResponseBody::ApiKeys & apiKeys) { DARABONBA_PTR_SET_VALUE(apiKeys_, apiKeys) };
     inline DescribeInstanceAuthInfoResponseBody& setApiKeys(DescribeInstanceAuthInfoResponseBody::ApiKeys && apiKeys) { DARABONBA_PTR_SET_RVALUE(apiKeys_, apiKeys) };
+
+
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DescribeInstanceAuthInfoResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
 
 
     // configList Field Functions 
@@ -192,6 +201,7 @@ namespace Models
   protected:
     // API Keys。
     shared_ptr<DescribeInstanceAuthInfoResponseBody::ApiKeys> apiKeys_ {};
+    shared_ptr<string> branchName_ {};
     // The list of authentication configurations.
     shared_ptr<vector<DescribeInstanceAuthInfoResponseBody::ConfigList>> configList_ {};
     // The instance ID of the AI application.

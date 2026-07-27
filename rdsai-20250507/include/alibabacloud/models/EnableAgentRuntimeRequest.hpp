@@ -13,6 +13,7 @@ namespace Models
   class EnableAgentRuntimeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const EnableAgentRuntimeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, EnableAgentRuntimeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->vSwitchId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->clientToken_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->vSwitchId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline EnableAgentRuntimeRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -75,7 +84,8 @@ namespace Models
 
 
   protected:
-    // The idempotence parameter.
+    shared_ptr<string> branchName_ {};
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
     // The instance ID of the AI application.
     // 
@@ -85,13 +95,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The security group ID used to create an endpoint.
     // 
-    // **If not specified**: The system automatically creates a security group named **sg-aliyun-rds-created-supabase-sandbox** in the VPC where the instance resides. No manual operation is required.
+    // **If not specified**: The system performs automatic creation of a security group named **sg-aliyun-rds-created-supabase-sandbox** in the VPC where the instance resides. No manual operation is required.
     // 
-    // **If specified**: Ensure that the specified security group allows the CIDR block of the VPC where the Supabase instance resides (both inbound and outbound directions must be allowed). Otherwise, network connectivity issues may occur.
-    // >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine capabilities, the system automatically creates the endpoint. When subsequent Supabase instances in the same VPC enable this capability, the existing endpoint is reused and no new endpoint is created.
+    // **If specified**: Make sure that the specified security group allows the CIDR block of the VPC where the Supabase instance resides (both inbound and outbound directions must be allowed). Otherwise, network connectivity issues may occur.
+    // >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine function, the system performs automatic creation of the endpoint. When other Supabase instances in the same VPC enable this capability later, the existing endpoint is reused and no new endpoint is created.
     shared_ptr<string> securityGroupId_ {};
     // The vSwitch ID used to create an endpoint. If this parameter is not specified, the vSwitch of the Supabase instance is used by default.
-    // >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine capabilities, the system automatically creates the endpoint. When subsequent Supabase instances in the same VPC enable this capability, the existing endpoint is reused and no new endpoint is created.
+    // >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine function, the system performs automatic creation of the endpoint. When other Supabase instances in the same VPC enable this capability later, the existing endpoint is reused and no new endpoint is created.
     shared_ptr<string> vSwitchId_ {};
   };
 

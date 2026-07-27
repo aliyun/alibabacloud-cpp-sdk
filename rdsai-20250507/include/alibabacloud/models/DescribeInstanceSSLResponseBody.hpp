@@ -13,6 +13,7 @@ namespace Models
   class DescribeInstanceSSLResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceSSLResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(CAType, CAType_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerKey, serverKey_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceSSLResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(CAType, CAType_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->CAType_ == nullptr
-        && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->SSLEnabled_ == nullptr && this->serverCert_ == nullptr && this->serverKey_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->CAType_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->SSLEnabled_ == nullptr && this->serverCert_ == nullptr
+        && this->serverKey_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DescribeInstanceSSLResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // CAType Field Functions 
     bool hasCAType() const { return this->CAType_ != nullptr;};
     void deleteCAType() { this->CAType_ = nullptr;};
@@ -84,18 +94,18 @@ namespace Models
 
 
   protected:
-    // The type of the certificate. Set the value to **custom**, which indicates that a custom certificate is used.
+    shared_ptr<string> branchName_ {};
+    // The certificate type. The value is **custom**, which indicates that a custom certificate is used.
     shared_ptr<string> CAType_ {};
-    // The ID of the RDS Supabase instance.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether to enable SSL encryption. Valid values:
-    // 
-    // *   **1**: enables SSL encryption.
-    // *   **0**: disables SSL encryption.
+    // Indicates whether SSL is enabled. Valid values:
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     shared_ptr<string> SSLEnabled_ {};
-    // The content of the custom certificate.
+    // The custom certificate content.
     shared_ptr<string> serverCert_ {};
     // The private key of the certificate.
     shared_ptr<string> serverKey_ {};

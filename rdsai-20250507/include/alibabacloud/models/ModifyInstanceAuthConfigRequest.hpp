@@ -14,11 +14,13 @@ namespace Models
   class ModifyInstanceAuthConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyInstanceAuthConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ConfigList, configList_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInstanceAuthConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -72,26 +74,33 @@ namespace Models
 
 
     protected:
-      // The name of the configuration item. Valid values:
+      // The configuration item name. Valid values:
       // 
-      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Enables external email addresses.
-      // - **GOTRUE_SITE_URL**: The website URL displayed in emails sent by the AI application.
-      // - **GOTRUE_SMTP_PORT**: The port of the SMTP service provider.
-      // - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
-      // - **GOTRUE_SMTP_USER**: The username of the SMTP service provider.
-      // - **GOTRUE_SMTP_PASS**: The key of the SMTP service provider.
-      // - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP service provider.
-      // - **GOTRUE_SMTP_HOST**: The host address of the SMTP service provider.
-      // - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether automatic confirmation is enabled.
-      // - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP), in seconds.
-      // - **GOTRUE_MAILER_OTP_LENGTH**: The length of the verification code for the one-time password (OTP). The value must be an integer greater than or equal to 6.
+      // - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: specifies whether to allow external email addresses.
+      // - **GOTRUE_SITE_URL**: the website URL displayed when the AI application sends emails.
+      // - **GOTRUE_SMTP_PORT**: the port of the SMTP provider.
+      // - **GOTRUE_SMTP_SENDER_NAME**: the name of the email sender.
+      // - **GOTRUE_SMTP_USER**: the username of the SMTP provider.
+      // - **GOTRUE_SMTP_PASS**: the secret key of the SMTP provider.
+      // - **GOTRUE_SMTP_ADMIN_EMAIL**: the email address of the SMTP provider.
+      // - **GOTRUE_SMTP_HOST**: the host address of the SMTP provider.
+      // - **GOTRUE_MAILER_AUTOCONFIRM**: specifies whether to enable automatic confirmation.
+      // - **GOTRUE_MAILER_OTP_EXP**: the validity period of the one-time password (OTP). Unit: seconds.
+      // - **GOTRUE_MAILER_OTP_LENGTH**: the length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->configList_ == nullptr
-        && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->configList_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyInstanceAuthConfigRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // configList Field Functions 
     bool hasConfigList() const { return this->configList_ != nullptr;};
     void deleteConfigList() { this->configList_ = nullptr;};
@@ -116,11 +125,12 @@ namespace Models
 
 
   protected:
-    // The ID of the RDS Supabase instance.
+    shared_ptr<string> branchName_ {};
+    // The list of authentication configurations.
     shared_ptr<vector<ModifyInstanceAuthConfigRequest::ConfigList>> configList_ {};
-    // The region ID.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The operation that you want to perform. Set the value to **ModifyInstanceAuthConfig**.
+    // The region.
     shared_ptr<string> regionId_ {};
   };
 

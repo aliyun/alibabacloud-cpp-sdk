@@ -14,11 +14,13 @@ namespace Models
   class DescribeInstanceStorageConfigResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceStorageConfigResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ConfigList, configList_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceStorageConfigResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -72,22 +74,29 @@ namespace Models
 
 
     protected:
-      // The configuration item name. Valid values:
+      // The name of the configuration item. Valid values:
       // 
-      // *   **AWS_SESSION_TOKEN**: temporary OSS access token (session token).
-      // *   **AWS_ACCESS_KEY_ID**: the AccessKey ID of OSS.
-      // *   **AWS_SECRET_ACCESS_KEY**: the AccessKey secret of OSS.
-      // *   **GLOBAL_S3_BUCKET**: the name of the OSS bucket.
-      // *   **TENANT_ID**: the tenant ID of the OSS Prefix (prefix or directory).
-      // *   **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
-      // *   **REGION**: the region of OSS.
+      // - **AWS_SESSION_TOKEN**: the temporary access token (Session Token) of OSS.
+      // - **AWS_ACCESS_KEY_ID**: the AccessKey ID of OSS.
+      // - **AWS_SECRET_ACCESS_KEY**: the AccessKey Secret of OSS.
+      // - **GLOBAL_S3_BUCKET**: the bucket name of OSS.
+      // - **TENANT_ID**: the tenant ID of the OSS prefix (prefix or directory).
+      // - **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
+      // - **REGION**: the region of OSS.
       shared_ptr<string> name_ {};
       // The value of the configuration item.
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->configList_ == nullptr
-        && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->configList_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DescribeInstanceStorageConfigResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // configList Field Functions 
     bool hasConfigList() const { return this->configList_ != nullptr;};
     void deleteConfigList() { this->configList_ = nullptr;};
@@ -112,9 +121,10 @@ namespace Models
 
 
   protected:
-    // The storage configurations.
+    shared_ptr<string> branchName_ {};
+    // The list of storage configurations.
     shared_ptr<vector<DescribeInstanceStorageConfigResponseBody::ConfigList>> configList_ {};
-    // The ID of the RDS Supabase instance.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -164,26 +164,23 @@ namespace Models
 
 
       protected:
-        // The API key.
+        // API Key
         shared_ptr<string> apiKey_ {};
         shared_ptr<int64_t> dailyTokenQuota_ {};
-        // Specifies if the API key is rate-limited.
+        // Indicates whether the key is throttled.
         shared_ptr<bool> isRateLimited_ {};
-        // The key name.
+        // The name of the API key.
         shared_ptr<string> keyName_ {};
-        // The limit, specified as a ratio in decimal format. This parameter is used when LimitType is ratio.
+        // The quota ratio.
         shared_ptr<float> limitRate_ {};
-        // The limit type. Valid values:
-        // 
-        // - **fixed**: A fixed value.
-        // 
-        // - **ratio**: A percentage of the total quota.
-        // 
-        // - **auto**: The quota is allocated automatically.
+        // The quota type. Valid values:
+        // - **fixed**: fixed value.
+        // - **ratio**: percentage.
+        // - **auto**: automatic allocation.
         shared_ptr<string> limitType_ {};
-        // The alarm threshold percentage. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
+        // The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
         shared_ptr<int32_t> thresholdPercent_ {};
-        // The token quota.
+        // The quota of the current key.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
@@ -256,22 +253,22 @@ namespace Models
 
 
     protected:
-      // The base URL for model calls.
+      // The URL for model invocation.
       shared_ptr<string> baseUrl_ {};
-      // The custom API key list.
+      // The list of custom API keys.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
       shared_ptr<int64_t> dailyTokenQuota_ {};
-      // Specifies if the system-generated key is rate-limited.
+      // Indicates whether the key is throttled.
       shared_ptr<bool> isRateLimited_ {};
       // The page number.
       shared_ptr<int32_t> page_ {};
-      // The number of entries per page.
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
       // The system-generated key.
       shared_ptr<string> systemApiKey_ {};
-      // The alarm threshold percentage for the SystemApiKey. For example, a value of 80 indicates that an alarm is triggered when usage reaches 80% of the quota. The alarm clears when usage falls below this threshold.
+      // The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
       shared_ptr<int32_t> thresholdPercent_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -308,13 +305,13 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The query result.
     shared_ptr<ListApiKeysResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The unique request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates if the request succeeded.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

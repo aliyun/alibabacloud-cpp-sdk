@@ -21,7 +21,7 @@ namespace RdsAi20250507
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Sends chat messages.
+       * @summary Sends a conversation message.
        *
        * @param tmpReq ChatMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace RdsAi20250507
       FutureGenerator<Models::ChatMessagesResponse> chatMessagesWithSSE(const Models::ChatMessagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends chat messages.
+       * @summary Sends a conversation message.
        *
        * @param tmpReq ChatMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -39,7 +39,7 @@ namespace RdsAi20250507
       Models::ChatMessagesResponse chatMessagesWithOptions(const Models::ChatMessagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends chat messages.
+       * @summary Sends a conversation message.
        *
        * @param request ChatMessagesRequest
        * @return ChatMessagesResponse
@@ -64,10 +64,10 @@ namespace RdsAi20250507
       Models::ChatMessagesTaskStopResponse chatMessagesTaskStop(const Models::ChatMessagesTaskStopRequest &request);
 
       /**
-       * @summary Create a custom API key.
+       * @summary Creates a custom API key.
        *
-       * @description ### Supported engines
-       * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request CreateApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -76,10 +76,10 @@ namespace RdsAi20250507
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a custom API key.
+       * @summary Creates a custom API key.
        *
-       * @description ### Supported engines
-       * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -146,6 +146,29 @@ namespace RdsAi20250507
        * @return CreateInspectionTaskResponse
        */
       Models::CreateInspectionTaskResponse createInspectionTask(const Models::CreateInspectionTaskRequest &request);
+
+      /**
+       * @summary 触发 MO 用量明细 CSV 异步导出任务
+       *
+       * @description ### 适用引擎
+       * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       *
+       * @param request CreateMOUsageDetailExportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMOUsageDetailExportResponse
+       */
+      Models::CreateMOUsageDetailExportResponse createMOUsageDetailExportWithOptions(const Models::CreateMOUsageDetailExportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 触发 MO 用量明细 CSV 异步导出任务
+       *
+       * @description ### 适用引擎
+       * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       *
+       * @param request CreateMOUsageDetailExportRequest
+       * @return CreateMOUsageDetailExportResponse
+       */
+      Models::CreateMOUsageDetailExportResponse createMOUsageDetailExport(const Models::CreateMOUsageDetailExportRequest &request);
 
       /**
        * @summary 创建沙箱模板
@@ -244,14 +267,14 @@ namespace RdsAi20250507
       Models::DeleteApiKeyResponse deleteApiKey(const Models::DeleteApiKeyRequest &request);
 
       /**
-       * @summary Deletes an RDS Supabase instance.
+       * @summary Deletes an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable DPI engine
        * RDS PostgreSQL
-       * ### 相关功能文档
-       * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
+       * ### Related feature documentation
+       * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-       * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
+       * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
        *
        * @param request DeleteAppInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,14 +283,14 @@ namespace RdsAi20250507
       Models::DeleteAppInstanceResponse deleteAppInstanceWithOptions(const Models::DeleteAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an RDS Supabase instance.
+       * @summary Deletes an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable DPI engine
        * RDS PostgreSQL
-       * ### 相关功能文档
-       * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
+       * ### Related feature documentation
+       * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-       * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
+       * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
        *
        * @param request DeleteAppInstanceRequest
        * @return DeleteAppInstanceResponse
@@ -478,11 +501,11 @@ namespace RdsAi20250507
       Models::DescribeInstanceAuthInfoResponse describeInstanceAuthInfo(const Models::DescribeInstanceAuthInfoRequest &request);
 
       /**
-       * @summary Queries the endpoint of an RDS Supabase instance.
+       * @summary Queries the endpoint information of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeInstanceEndpointsRequest
@@ -492,11 +515,11 @@ namespace RdsAi20250507
       Models::DescribeInstanceEndpointsResponse describeInstanceEndpointsWithOptions(const Models::DescribeInstanceEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the endpoint of an RDS Supabase instance.
+       * @summary Queries the endpoint information of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeInstanceEndpointsRequest
@@ -505,11 +528,11 @@ namespace RdsAi20250507
       Models::DescribeInstanceEndpointsResponse describeInstanceEndpoints(const Models::DescribeInstanceEndpointsRequest &request);
 
       /**
-       * @summary Queries the IP address whitelists of an RDS Supabase instance.
+       * @summary Queries the IP whitelist of an ApsaraDB RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeInstanceIpWhitelistRequest
@@ -519,11 +542,11 @@ namespace RdsAi20250507
       Models::DescribeInstanceIpWhitelistResponse describeInstanceIpWhitelistWithOptions(const Models::DescribeInstanceIpWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP address whitelists of an RDS Supabase instance.
+       * @summary Queries the IP whitelist of an ApsaraDB RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeInstanceIpWhitelistRequest
@@ -532,7 +555,7 @@ namespace RdsAi20250507
       Models::DescribeInstanceIpWhitelistResponse describeInstanceIpWhitelist(const Models::DescribeInstanceIpWhitelistRequest &request);
 
       /**
-       * @summary Queries the RAG agent configurations of an RDS Supabase instance.
+       * @summary Queries the RAG Agent configuration of an RDS AI application instance.
        *
        * @param request DescribeInstanceRAGConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -541,7 +564,7 @@ namespace RdsAi20250507
       Models::DescribeInstanceRAGConfigResponse describeInstanceRAGConfigWithOptions(const Models::DescribeInstanceRAGConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the RAG agent configurations of an RDS Supabase instance.
+       * @summary Queries the RAG Agent configuration of an RDS AI application instance.
        *
        * @param request DescribeInstanceRAGConfigRequest
        * @return DescribeInstanceRAGConfigResponse
@@ -549,11 +572,11 @@ namespace RdsAi20250507
       Models::DescribeInstanceRAGConfigResponse describeInstanceRAGConfig(const Models::DescribeInstanceRAGConfigRequest &request);
 
       /**
-       * @summary Queries the SSL settings of an RDS Supabase instance.
+       * @summary Queries the SSL configuration of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeInstanceSSLRequest
@@ -563,11 +586,11 @@ namespace RdsAi20250507
       Models::DescribeInstanceSSLResponse describeInstanceSSLWithOptions(const Models::DescribeInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the SSL settings of an RDS Supabase instance.
+       * @summary Queries the SSL configuration of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeInstanceSSLRequest
@@ -576,13 +599,13 @@ namespace RdsAi20250507
       Models::DescribeInstanceSSLResponse describeInstanceSSL(const Models::DescribeInstanceSSLRequest &request);
 
       /**
-       * @summary Queries the storage configurations of an RDS Supabase instance.
+       * @summary Queries the storage configuration of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-       * > 当前仅支持对象存储OSS。
+       * > Currently, only Object Storage Service (OSS) is supported.
        *
        * @param request DescribeInstanceStorageConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,13 +614,13 @@ namespace RdsAi20250507
       Models::DescribeInstanceStorageConfigResponse describeInstanceStorageConfigWithOptions(const Models::DescribeInstanceStorageConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the storage configurations of an RDS Supabase instance.
+       * @summary Queries the storage configuration of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-       * > 当前仅支持对象存储OSS。
+       * > Currently, only Object Storage Service (OSS) is supported.
        *
        * @param request DescribeInstanceStorageConfigRequest
        * @return DescribeInstanceStorageConfigResponse
@@ -608,7 +631,7 @@ namespace RdsAi20250507
        * @summary Queries the token usage records of RDS AI Assistant Ultimate Edition.
        *
        * @description ### Applicable engine
-       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DescribeMOTokenUsageDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -620,12 +643,35 @@ namespace RdsAi20250507
        * @summary Queries the token usage records of RDS AI Assistant Ultimate Edition.
        *
        * @description ### Applicable engine
-       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DescribeMOTokenUsageDetailRequest
        * @return DescribeMOTokenUsageDetailResponse
        */
       Models::DescribeMOTokenUsageDetailResponse describeMOTokenUsageDetail(const Models::DescribeMOTokenUsageDetailRequest &request);
+
+      /**
+       * @summary 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+       *
+       * @description ### 适用引擎
+       * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       *
+       * @param request DescribeMOUsageDetailExportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMOUsageDetailExportResponse
+       */
+      Models::DescribeMOUsageDetailExportResponse describeMOUsageDetailExportWithOptions(const Models::DescribeMOUsageDetailExportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+       *
+       * @description ### 适用引擎
+       * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       *
+       * @param request DescribeMOUsageDetailExportRequest
+       * @return DescribeMOUsageDetailExportResponse
+       */
+      Models::DescribeMOUsageDetailExportResponse describeMOUsageDetailExport(const Models::DescribeMOUsageDetailExportRequest &request);
 
       /**
        * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
@@ -651,10 +697,10 @@ namespace RdsAi20250507
       Models::DescribeModelOperatorResponse describeModelOperator(const Models::DescribeModelOperatorRequest &request);
 
       /**
-       * @summary Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+       * @summary Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
        *
-       * @description ### Supported engines
-       * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param tmpReq DescribeMonitorDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -663,10 +709,10 @@ namespace RdsAi20250507
       Models::DescribeMonitorDataResponse describeMonitorDataWithOptions(const Models::DescribeMonitorDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+       * @summary Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
        *
-       * @description ### Supported engines
-       * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DescribeMonitorDataRequest
        * @return DescribeMonitorDataResponse
@@ -674,11 +720,11 @@ namespace RdsAi20250507
       Models::DescribeMonitorDataResponse describeMonitorData(const Models::DescribeMonitorDataRequest &request);
 
       /**
-       * @summary Lists the sandbox templates you can use to create Supabase sandboxes.
+       * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
        *
        * @description ### Applicable engine
        * RDS Supabase
-       * ### Related documents
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeSandboxTemplatesRequest
@@ -688,11 +734,11 @@ namespace RdsAi20250507
       Models::DescribeSandboxTemplatesResponse describeSandboxTemplatesWithOptions(const Models::DescribeSandboxTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the sandbox templates you can use to create Supabase sandboxes.
+       * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
        *
        * @description ### Applicable engine
        * RDS Supabase
-       * ### Related documents
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeSandboxTemplatesRequest
@@ -724,10 +770,10 @@ namespace RdsAi20250507
       Models::DescribeWhitelistIpsResponse describeWhitelistIps(const Models::DescribeWhitelistIpsRequest &request);
 
       /**
-       * @summary Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+       * @summary Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
        *
-       * @description Disables the sandbox and edge function capabilities for a Supabase instance.
-       * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
+       * @description Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
+       * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
        *
        * @param request DisableAgentRuntimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -736,10 +782,10 @@ namespace RdsAi20250507
       Models::DisableAgentRuntimeResponse disableAgentRuntimeWithOptions(const Models::DisableAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+       * @summary Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
        *
-       * @description Disables the sandbox and edge function capabilities for a Supabase instance.
-       * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
+       * @description Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
+       * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
        *
        * @param request DisableAgentRuntimeRequest
        * @return DisableAgentRuntimeResponse
@@ -795,7 +841,7 @@ namespace RdsAi20250507
       Models::GetAvailableLLMModelsResponse getAvailableLLMModels(const Models::GetAvailableLLMModelsRequest &request);
 
       /**
-       * @summary Queries the history conversations of a user.
+       * @summary Queries the historical conversations of a user.
        *
        * @param request GetConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -804,7 +850,7 @@ namespace RdsAi20250507
       Models::GetConversationsResponse getConversationsWithOptions(const Models::GetConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the history conversations of a user.
+       * @summary Queries the historical conversations of a user.
        *
        * @param request GetConversationsRequest
        * @return GetConversationsResponse
@@ -952,10 +998,10 @@ namespace RdsAi20250507
       Models::GetStandAloneReportsResponse getStandAloneReports(const Models::GetStandAloneReportsRequest &request);
 
       /**
-       * @summary View Custom API Key
+       * @summary Queries custom API keys.
        *
-       * @description ### Supported engines
-       * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request ListApiKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -964,10 +1010,10 @@ namespace RdsAi20250507
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View Custom API Key
+       * @summary Queries custom API keys.
        *
-       * @description ### Supported engines
-       * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse
@@ -1091,11 +1137,12 @@ namespace RdsAi20250507
       Models::ModifyAppInstanceResponse modifyAppInstance(const Models::ModifyAppInstanceRequest &request);
 
       /**
-       * @summary Modifies the authentication configurations of an RDS Supabase instance.
+       * @summary Modifies the authentication configuration of an RDS AI application instance.
        *
-       * @description ### Applicable Engine
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### Related Function Documentation
+       * ### Related documentation
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param tmpReq ModifyInstanceAuthConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1104,11 +1151,12 @@ namespace RdsAi20250507
       Models::ModifyInstanceAuthConfigResponse modifyInstanceAuthConfigWithOptions(const Models::ModifyInstanceAuthConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the authentication configurations of an RDS Supabase instance.
+       * @summary Modifies the authentication configuration of an RDS AI application instance.
        *
-       * @description ### Applicable Engine
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### Related Function Documentation
+       * ### Related documentation
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyInstanceAuthConfigRequest
        * @return ModifyInstanceAuthConfigResponse
@@ -1116,7 +1164,7 @@ namespace RdsAi20250507
       Models::ModifyInstanceAuthConfigResponse modifyInstanceAuthConfig(const Models::ModifyInstanceAuthConfigRequest &request);
 
       /**
-       * @summary Modifies the general configurations of an instance, such as the EIP and NAT settings.
+       * @summary Modifies the general configurations of an instance, such as network EIP and NAT configurations.
        *
        * @param request ModifyInstanceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1125,7 +1173,7 @@ namespace RdsAi20250507
       Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the general configurations of an instance, such as the EIP and NAT settings.
+       * @summary Modifies the general configurations of an instance, such as network EIP and NAT configurations.
        *
        * @param request ModifyInstanceConfigRequest
        * @return ModifyInstanceConfigResponse
@@ -1133,11 +1181,11 @@ namespace RdsAi20250507
       Models::ModifyInstanceConfigResponse modifyInstanceConfig(const Models::ModifyInstanceConfigRequest &request);
 
       /**
-       * @summary Modifies the IP address whitelist of an RDS Supabase instance.
+       * @summary Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyInstanceIpWhitelistRequest
@@ -1147,11 +1195,11 @@ namespace RdsAi20250507
       Models::ModifyInstanceIpWhitelistResponse modifyInstanceIpWhitelistWithOptions(const Models::ModifyInstanceIpWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP address whitelist of an RDS Supabase instance.
+       * @summary Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyInstanceIpWhitelistRequest
@@ -1160,7 +1208,7 @@ namespace RdsAi20250507
       Models::ModifyInstanceIpWhitelistResponse modifyInstanceIpWhitelist(const Models::ModifyInstanceIpWhitelistRequest &request);
 
       /**
-       * @summary Modifies the RAG agent configurations of an RDS Supabase instance.
+       * @summary Modifies the RAG Agent configuration of an RDS AI application instance.
        *
        * @param tmpReq ModifyInstanceRAGConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1217,7 @@ namespace RdsAi20250507
       Models::ModifyInstanceRAGConfigResponse modifyInstanceRAGConfigWithOptions(const Models::ModifyInstanceRAGConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the RAG agent configurations of an RDS Supabase instance.
+       * @summary Modifies the RAG Agent configuration of an RDS AI application instance.
        *
        * @param request ModifyInstanceRAGConfigRequest
        * @return ModifyInstanceRAGConfigResponse
@@ -1177,11 +1225,11 @@ namespace RdsAi20250507
       Models::ModifyInstanceRAGConfigResponse modifyInstanceRAGConfig(const Models::ModifyInstanceRAGConfigRequest &request);
 
       /**
-       * @summary Modifies the SSL settings of an RDS Supabase instance.
+       * @summary Modifies the SSL configuration of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyInstanceSSLRequest
@@ -1191,11 +1239,11 @@ namespace RdsAi20250507
       Models::ModifyInstanceSSLResponse modifyInstanceSSLWithOptions(const Models::ModifyInstanceSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the SSL settings of an RDS Supabase instance.
+       * @summary Modifies the SSL configuration of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyInstanceSSLRequest
@@ -1204,11 +1252,13 @@ namespace RdsAi20250507
       Models::ModifyInstanceSSLResponse modifyInstanceSSL(const Models::ModifyInstanceSSLRequest &request);
 
       /**
-       * @summary Modifies the storage configurations of an RDS Supabase instance.
+       * @summary Modifies the storage configuration of an RDS AI application instance.
        *
-       * @description ### Supported Engine
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### Related Function Documentation
+       * ### Related documentation
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+       * > Currently, only Object Storage Service (OSS) is supported.
        *
        * @param tmpReq ModifyInstanceStorageConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1217,11 +1267,13 @@ namespace RdsAi20250507
       Models::ModifyInstanceStorageConfigResponse modifyInstanceStorageConfigWithOptions(const Models::ModifyInstanceStorageConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the storage configurations of an RDS Supabase instance.
+       * @summary Modifies the storage configuration of an RDS AI application instance.
        *
-       * @description ### Supported Engine
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### Related Function Documentation
+       * ### Related documentation
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+       * > Currently, only Object Storage Service (OSS) is supported.
        *
        * @param request ModifyInstanceStorageConfigRequest
        * @return ModifyInstanceStorageConfigResponse
@@ -1386,13 +1438,40 @@ namespace RdsAi20250507
       Models::ResetApiKeyResponse resetApiKey(const Models::ResetApiKeyRequest &request);
 
       /**
-       * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
+       * @summary 重置RDS AI实例的Keys
        *
        * @description ### 适用引擎
        * RDS PostgreSQL
        * ### 相关功能文档
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-       * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
+       *
+       * @param request ResetInstanceKeysRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetInstanceKeysResponse
+       */
+      Models::ResetInstanceKeysResponse resetInstanceKeysWithOptions(const Models::ResetInstanceKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置RDS AI实例的Keys
+       *
+       * @description ### 适用引擎
+       * RDS PostgreSQL
+       * ### 相关功能文档
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+       *
+       * @param request ResetInstanceKeysRequest
+       * @return ResetInstanceKeysResponse
+       */
+      Models::ResetInstanceKeysResponse resetInstanceKeys(const Models::ResetInstanceKeysRequest &request);
+
+      /**
+       * @summary Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+       *
+       * @description ### Applicable engine
+       * RDS PostgreSQL
+       * ### Related documentation
+       * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+       * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
        *
        * @param request ResetInstancePasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1401,13 +1480,13 @@ namespace RdsAi20250507
       Models::ResetInstancePasswordResponse resetInstancePasswordWithOptions(const Models::ResetInstancePasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the logon password of the RDS Supabase instance and the access password of the database.
+       * @summary Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-       * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
+       * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
        *
        * @param request ResetInstancePasswordRequest
        * @return ResetInstancePasswordResponse
@@ -1415,11 +1494,11 @@ namespace RdsAi20250507
       Models::ResetInstancePasswordResponse resetInstancePassword(const Models::ResetInstancePasswordRequest &request);
 
       /**
-       * @summary Restarts an RDS Supabase instance that is in the Running state.
+       * @summary Restarts an ApsaraDB RDS AI application instance that is in the Running state.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request RestartInstanceRequest
@@ -1429,11 +1508,11 @@ namespace RdsAi20250507
       Models::RestartInstanceResponse restartInstanceWithOptions(const Models::RestartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts an RDS Supabase instance that is in the Running state.
+       * @summary Restarts an ApsaraDB RDS AI application instance that is in the Running state.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request RestartInstanceRequest
@@ -1442,11 +1521,11 @@ namespace RdsAi20250507
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary Starts a stopped RDS Supabase instance.
+       * @summary Starts an RDS AI application instance that is in the Stopped state.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related feature documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request StartInstanceRequest
@@ -1456,11 +1535,11 @@ namespace RdsAi20250507
       Models::StartInstanceResponse startInstanceWithOptions(const Models::StartInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a stopped RDS Supabase instance.
+       * @summary Starts an RDS AI application instance that is in the Stopped state.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related feature documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request StartInstanceRequest
@@ -1469,11 +1548,11 @@ namespace RdsAi20250507
       Models::StartInstanceResponse startInstance(const Models::StartInstanceRequest &request);
 
       /**
-       * @summary Stops a running RDS Supabase instance.
+       * @summary Pauses an RDS AI application instance that is in the Running state.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request StopInstanceRequest
@@ -1483,11 +1562,11 @@ namespace RdsAi20250507
       Models::StopInstanceResponse stopInstanceWithOptions(const Models::StopInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a running RDS Supabase instance.
+       * @summary Pauses an RDS AI application instance that is in the Running state.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request StopInstanceRequest

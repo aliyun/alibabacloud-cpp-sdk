@@ -23,6 +23,9 @@
 #include <alibabacloud/models/CreateInspectionTaskRequest.hpp>
 #include <alibabacloud/models/CreateInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateInspectionTaskResponse.hpp>
+#include <alibabacloud/models/CreateMOUsageDetailExportRequest.hpp>
+#include <alibabacloud/models/CreateMOUsageDetailExportResponseBody.hpp>
+#include <alibabacloud/models/CreateMOUsageDetailExportResponse.hpp>
 #include <alibabacloud/models/CreateSandboxTemplateRequest.hpp>
 #include <alibabacloud/models/CreateSandboxTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateSandboxTemplateResponse.hpp>
@@ -84,6 +87,9 @@
 #include <alibabacloud/models/DescribeMOTokenUsageDetailRequest.hpp>
 #include <alibabacloud/models/DescribeMOTokenUsageDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeMOTokenUsageDetailResponse.hpp>
+#include <alibabacloud/models/DescribeMOUsageDetailExportRequest.hpp>
+#include <alibabacloud/models/DescribeMOUsageDetailExportResponseBody.hpp>
+#include <alibabacloud/models/DescribeMOUsageDetailExportResponse.hpp>
 #include <alibabacloud/models/DescribeModelOperatorRequest.hpp>
 #include <alibabacloud/models/DescribeModelOperatorResponseBody.hpp>
 #include <alibabacloud/models/DescribeModelOperatorResponse.hpp>
@@ -197,6 +203,9 @@
 #include <alibabacloud/models/ResetApiKeyRequest.hpp>
 #include <alibabacloud/models/ResetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ResetApiKeyResponse.hpp>
+#include <alibabacloud/models/ResetInstanceKeysRequest.hpp>
+#include <alibabacloud/models/ResetInstanceKeysResponseBody.hpp>
+#include <alibabacloud/models/ResetInstanceKeysResponse.hpp>
 #include <alibabacloud/models/ResetInstancePasswordRequest.hpp>
 #include <alibabacloud/models/ResetInstancePasswordResponseBody.hpp>
 #include <alibabacloud/models/ResetInstancePasswordResponse.hpp>

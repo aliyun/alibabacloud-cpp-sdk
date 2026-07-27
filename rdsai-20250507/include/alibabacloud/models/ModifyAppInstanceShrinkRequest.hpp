@@ -13,14 +13,20 @@ namespace Models
   class ModifyAppInstanceShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAppInstanceShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Components, componentsShrink_);
+      DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppInstanceShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Components, componentsShrink_);
+      DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -35,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->componentsShrink_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->clientToken_ == nullptr && this->componentsShrink_ == nullptr && this->DBInstanceName_ == nullptr && this->instanceClass_ == nullptr && this->instanceName_ == nullptr
+        && this->regionId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline ModifyAppInstanceShrinkRequest& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -49,6 +63,20 @@ namespace Models
     void deleteComponentsShrink() { this->componentsShrink_ = nullptr;};
     inline string getComponentsShrink() const { DARABONBA_PTR_GET_DEFAULT(componentsShrink_, "") };
     inline ModifyAppInstanceShrinkRequest& setComponentsShrink(string componentsShrink) { DARABONBA_PTR_SET_VALUE(componentsShrink_, componentsShrink) };
+
+
+    // DBInstanceName Field Functions 
+    bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
+    void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
+    inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
+    inline ModifyAppInstanceShrinkRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
+
+
+    // instanceClass Field Functions 
+    bool hasInstanceClass() const { return this->instanceClass_ != nullptr;};
+    void deleteInstanceClass() { this->instanceClass_ = nullptr;};
+    inline string getInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(instanceClass_, "") };
+    inline ModifyAppInstanceShrinkRequest& setInstanceClass(string instanceClass) { DARABONBA_PTR_SET_VALUE(instanceClass_, instanceClass) };
 
 
     // instanceName Field Functions 
@@ -66,8 +94,11 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> branchName_ {};
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> componentsShrink_ {};
+    shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> instanceClass_ {};
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> regionId_ {};
   };

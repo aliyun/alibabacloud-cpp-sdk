@@ -14,12 +14,14 @@ namespace Models
   class DescribeInstanceRAGConfigResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceRAGConfigResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(ConfigList, configList_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceRAGConfigResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(ConfigList, configList_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -80,8 +82,15 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->configList_ == nullptr
-        && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->configList_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DescribeInstanceRAGConfigResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // configList Field Functions 
     bool hasConfigList() const { return this->configList_ != nullptr;};
     void deleteConfigList() { this->configList_ = nullptr;};
@@ -113,16 +122,16 @@ namespace Models
 
 
   protected:
-    // The RAG agent configurations.
+    shared_ptr<string> branchName_ {};
+    // The list of RAG Agent configurations.
     shared_ptr<vector<DescribeInstanceRAGConfigResponseBody::ConfigList>> configList_ {};
-    // The ID of the RDS Supabase instance.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the RAG agent.
-    // 
-    // *   **true**: RAG agent is enabled.
-    // *   **false**: RAG agent is disabled.
+    // The RAG Agent status. Valid values:
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> status_ {};
   };
 

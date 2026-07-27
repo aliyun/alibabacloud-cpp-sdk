@@ -16,6 +16,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeAppInstanceAttributeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppType, appType_);
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
+      DARABONBA_PTR_TO_JSON(BranchingEnabled, branchingEnabled_);
       DARABONBA_PTR_TO_JSON(Components, components_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_TO_JSON(EipId, eipId_);
@@ -42,6 +44,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeAppInstanceAttributeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppType, appType_);
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
+      DARABONBA_PTR_FROM_JSON(BranchingEnabled, branchingEnabled_);
       DARABONBA_PTR_FROM_JSON(Components, components_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
       DARABONBA_PTR_FROM_JSON(EipId, eipId_);
@@ -191,11 +195,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->appName_ == nullptr
-        && this->appType_ == nullptr && this->components_ == nullptr && this->DBInstanceName_ == nullptr && this->eipId_ == nullptr && this->eipStatus_ == nullptr
-        && this->instanceClass_ == nullptr && this->instanceMinorVersion_ == nullptr && this->instanceName_ == nullptr && this->loginToken_ == nullptr && this->natCreatedBy_ == nullptr
-        && this->natGatewayId_ == nullptr && this->natStatus_ == nullptr && this->publicConnectionString_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
-        && this->retentionHours_ == nullptr && this->sqlExtendMoInstanceId_ == nullptr && this->status_ == nullptr && this->uploadKey_ == nullptr && this->uploadKeyList_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcConnectionString_ == nullptr && this->zoneId_ == nullptr; };
+        && this->appType_ == nullptr && this->branchName_ == nullptr && this->branchingEnabled_ == nullptr && this->components_ == nullptr && this->DBInstanceName_ == nullptr
+        && this->eipId_ == nullptr && this->eipStatus_ == nullptr && this->instanceClass_ == nullptr && this->instanceMinorVersion_ == nullptr && this->instanceName_ == nullptr
+        && this->loginToken_ == nullptr && this->natCreatedBy_ == nullptr && this->natGatewayId_ == nullptr && this->natStatus_ == nullptr && this->publicConnectionString_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->retentionHours_ == nullptr && this->sqlExtendMoInstanceId_ == nullptr && this->status_ == nullptr
+        && this->uploadKey_ == nullptr && this->uploadKeyList_ == nullptr && this->vSwitchId_ == nullptr && this->vpcConnectionString_ == nullptr && this->zoneId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -208,6 +212,20 @@ namespace Models
     void deleteAppType() { this->appType_ = nullptr;};
     inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
     inline DescribeAppInstanceAttributeResponseBody& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
+
+
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DescribeAppInstanceAttributeResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
+    // branchingEnabled Field Functions 
+    bool hasBranchingEnabled() const { return this->branchingEnabled_ != nullptr;};
+    void deleteBranchingEnabled() { this->branchingEnabled_ = nullptr;};
+    inline string getBranchingEnabled() const { DARABONBA_PTR_GET_DEFAULT(branchingEnabled_, "") };
+    inline DescribeAppInstanceAttributeResponseBody& setBranchingEnabled(string branchingEnabled) { DARABONBA_PTR_SET_VALUE(branchingEnabled_, branchingEnabled) };
 
 
     // components Field Functions 
@@ -373,8 +391,10 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
     shared_ptr<string> appType_ {};
+    shared_ptr<string> branchName_ {};
+    shared_ptr<string> branchingEnabled_ {};
     shared_ptr<vector<DescribeAppInstanceAttributeResponseBody::Components>> components_ {};
-    // The instance ID of the ApsaraDB RDS for PostgreSQL database to which the AI application is connected.
+    // The instance ID of the RDS PostgreSQL database to which the AI application is connected.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<string> eipId_ {};
     shared_ptr<string> eipStatus_ {};

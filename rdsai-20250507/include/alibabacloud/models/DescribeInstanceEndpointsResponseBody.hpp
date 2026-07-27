@@ -14,12 +14,14 @@ namespace Models
   class DescribeInstanceEndpointsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceEndpointsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(DBInstanceEndpoints, DBInstanceEndpoints_);
       DARABONBA_PTR_TO_JSON(InstanceEndpoints, instanceEndpoints_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceEndpointsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(DBInstanceEndpoints, DBInstanceEndpoints_);
       DARABONBA_PTR_FROM_JSON(InstanceEndpoints, instanceEndpoints_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -92,16 +94,16 @@ namespace Models
 
 
     protected:
-      // The endpoint of the RDS Supabase instance.
+      // The endpoint.
       shared_ptr<string> connectionString_ {};
-      // The IP address used to access the RDS Supabase instance.
+      // The IP address.
       shared_ptr<string> IP_ {};
-      // The network type of the RDS Supabase instance. Valid values:
+      // The network type. Valid values:
       // 
-      // *   **public**: Internet
-      // *   **vpc**: VPC
+      // - **public**: Internet.
+      // - **vpc**: private network.
       shared_ptr<string> ipType_ {};
-      // The port used to access the RDS Supabase instance.
+      // The connection port.
       shared_ptr<string> port_ {};
     };
 
@@ -152,19 +154,26 @@ namespace Models
 
 
     protected:
-      // The endpoint of the RDS instance.
+      // The endpoint.
       shared_ptr<string> connectionString_ {};
-      // The network type of the RDS instance. Valid values:
+      // The network type. Valid values:
       // 
-      // *   **public**: Internet
-      // *   **vpc**: VPC
+      // - **public**: Internet.
+      // - **vpc**: private network.
       shared_ptr<string> ipType_ {};
-      // The port used to access the RDS instance.
+      // The connection port.
       shared_ptr<string> port_ {};
     };
 
-    virtual bool empty() const override { return this->DBInstanceEndpoints_ == nullptr
-        && this->instanceEndpoints_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->branchName_ == nullptr
+        && this->DBInstanceEndpoints_ == nullptr && this->instanceEndpoints_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+    // branchName Field Functions 
+    bool hasBranchName() const { return this->branchName_ != nullptr;};
+    void deleteBranchName() { this->branchName_ = nullptr;};
+    inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+    inline DescribeInstanceEndpointsResponseBody& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
+
+
     // DBInstanceEndpoints Field Functions 
     bool hasDBInstanceEndpoints() const { return this->DBInstanceEndpoints_ != nullptr;};
     void deleteDBInstanceEndpoints() { this->DBInstanceEndpoints_ = nullptr;};
@@ -198,11 +207,12 @@ namespace Models
 
 
   protected:
-    // The information about the endpoints of the RDS instance.
+    shared_ptr<string> branchName_ {};
+    // The endpoints of the database instance.
     shared_ptr<vector<DescribeInstanceEndpointsResponseBody::DBInstanceEndpoints>> DBInstanceEndpoints_ {};
-    // The information about the endpoints of the RDS Supabase instance.
+    // The endpoints of the AI application instance.
     shared_ptr<vector<DescribeInstanceEndpointsResponseBody::InstanceEndpoints>> instanceEndpoints_ {};
-    // The ID of the RDS Supabase instance.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

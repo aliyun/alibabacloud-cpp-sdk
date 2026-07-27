@@ -136,18 +136,18 @@ namespace Models
 
     protected:
       shared_ptr<string> createdBy_ {};
-      // The default number of CPUs for a sandbox created from this template.
+      // The number of CPUs for the sandbox created by using this template.
       shared_ptr<string> defaultCpu_ {};
-      // The default memory size for a sandbox created from this template.
+      // The memory size of the sandbox created by using this template.
       shared_ptr<string> defaultMemory_ {};
-      // The description of the sandbox template.
+      // The sandbox template description.
       shared_ptr<string> description_ {};
-      // Specifies whether sandboxes created from this template can access resources in the VPC of the parent RDS Supabase instance.
+      // Indicates whether the sandbox created by using this template can access resources within the VPC where Supabase resides.
       shared_ptr<string> enableVpcAccess_ {};
-      // The name of the sandbox template.
+      // The sandbox template name.
       shared_ptr<string> name_ {};
       shared_ptr<int64_t> replicas_ {};
-      // The ID of the sandbox template. Use this ID when you create a sandbox.
+      // The sandbox template ID. Specify this ID when you create a sandbox by using this template.
       shared_ptr<string> templateId_ {};
     };
 
@@ -206,19 +206,19 @@ namespace Models
 
 
   protected:
-    // This parameter is reserved.
+    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
+    // The position from which to start the current read. An empty value indicates that the read starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of sandbox templates.
+    // The list of sandbox templates.
     shared_ptr<vector<DescribeSandboxTemplatesResponseBody::SandboxTemplates>> sandboxTemplates_ {};
-    // The total number of entries that match the query.
+    // The total number of records that match the query conditions. This is an optional response element and may not be returned by default.
     shared_ptr<int64_t> totalCount_ {};
   };
 
