@@ -77,8 +77,6 @@ namespace Models
       // This parameter is required.
       shared_ptr<int64_t> rowPermissionId_ {};
       // The row-level permission rule IDs.
-      // 
-      // This parameter is required.
       shared_ptr<vector<int64_t>> ruleIds_ {};
     };
 

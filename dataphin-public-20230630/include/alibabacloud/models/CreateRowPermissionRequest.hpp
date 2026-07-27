@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // The column of the table.
+        // The field of the table.
         // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
-        // The name of the mapping column.
+        // The name of the mapping field.
         // 
         // This parameter is required.
         shared_ptr<string> mappingColumnName_ {};
@@ -302,7 +302,7 @@ namespace Models
 
 
         protected:
-          // The name of the mapping column.
+          // The name of the mapping field.
           // 
           // This parameter is required.
           shared_ptr<string> mappingColumnName_ {};
@@ -318,9 +318,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
-          // The expression operation values.
-          // 
-          // This parameter is required.
+          // The operation values of the expression.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -377,7 +375,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<vector<Rules::Expressions>> expressions_ {};
-        // Specifies whether to delete the rule.
+        // Specifies whether the rule is deleted.
         shared_ptr<bool> isDelete_ {};
         // The name of the rule.
         // 
@@ -388,8 +386,6 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> scopeType_ {};
         // The status of the rule.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> status_ {};
         // The accounts bound to the rule.
         shared_ptr<vector<Rules::UserMappingList>> userMappingList_ {};
@@ -442,13 +438,13 @@ namespace Models
 
 
       protected:
-        // The description of the mapping column.
+        // The description of the mapping field.
         shared_ptr<string> columnDesc_ {};
-        // The name of the mapping column.
+        // The name of the mapping field.
         // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
-        // The type of the mapping column.
+        // The type of the mapping field.
         // 
         // This parameter is required.
         shared_ptr<string> columnType_ {};
@@ -498,7 +494,7 @@ namespace Models
 
 
     protected:
-      // The mapping columns.
+      // The mapping fields.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateRowPermissionCommand::MappingColumns>> mappingColumns_ {};
@@ -533,11 +529,11 @@ namespace Models
 
 
   protected:
-    // Request command.
+    // The request command.
     // 
     // This parameter is required.
     shared_ptr<CreateRowPermissionRequest::CreateRowPermissionCommand> createRowPermissionCommand_ {};
-    // Tenant ID.
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};

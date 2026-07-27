@@ -120,9 +120,9 @@ namespace Models
 
 
         protected:
-          // The ID of the account associated with the rule.
+          // The ID of the account bound to the rule.
           shared_ptr<string> accountId_ {};
-          // The name of the account associated with the rule.
+          // The name of the account bound to the rule.
           shared_ptr<string> accountName_ {};
         };
 
@@ -145,9 +145,9 @@ namespace Models
 
 
       protected:
-        // The type of the account associated with the rule.
+        // The type of the account bound to the rule.
         shared_ptr<string> accountType_ {};
-        // The accounts associated with the rule.
+        // The accounts bound to the rule.
         shared_ptr<vector<UserMappingList::Accounts>> accounts_ {};
       };
 
@@ -172,7 +172,7 @@ namespace Models
     protected:
       // The row-level permission rule IDs.
       shared_ptr<int64_t> id_ {};
-      // The accounts associated with the rule.
+      // The accounts bound to the rule.
       shared_ptr<vector<Data::UserMappingList>> userMappingList_ {};
     };
 
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<vector<GetAccountByRowPermissionIdResponseBody::Data>> data_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

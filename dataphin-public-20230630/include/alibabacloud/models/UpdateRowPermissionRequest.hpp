@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The table field.
+        // The table column.
         // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
-        // The name of the mapping field.
+        // The mapping column name.
         // 
         // This parameter is required.
         shared_ptr<string> mappingColumnName_ {};
@@ -200,7 +200,7 @@ namespace Models
 
 
           protected:
-            // The ID of the account associated with the rule.
+            // The ID of the account bound to the rule.
             // 
             // This parameter is required.
             shared_ptr<string> accountId_ {};
@@ -225,11 +225,11 @@ namespace Models
 
 
         protected:
-          // The type of the account associated with the rule.
+          // The type of the account bound to the rule.
           // 
           // This parameter is required.
           shared_ptr<string> accountType_ {};
-          // The accounts associated with the rule.
+          // The accounts bound to the rule.
           // 
           // This parameter is required.
           shared_ptr<vector<UserMappingList::Accounts>> accounts_ {};
@@ -304,7 +304,7 @@ namespace Models
 
 
         protected:
-          // The name of the mapping field.
+          // The mapping column name.
           // 
           // This parameter is required.
           shared_ptr<string> mappingColumnName_ {};
@@ -320,9 +320,7 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
-          // The operation values of the expression.
-          // 
-          // This parameter is required.
+          // The expression operation values.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -385,15 +383,13 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> ruleName_ {};
-        // The scope type of the rule.
+        // The rule scope type.
         // 
         // This parameter is required.
         shared_ptr<string> scopeType_ {};
         // The rule status.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> status_ {};
-        // The accounts associated with the rule.
+        // The accounts bound to the rule.
         shared_ptr<vector<Rules::UserMappingList>> userMappingList_ {};
       };
 
@@ -444,13 +440,13 @@ namespace Models
 
 
       protected:
-        // The description of the mapping field.
+        // The mapping column description.
         shared_ptr<string> columnDesc_ {};
-        // The name of the mapping field.
+        // The mapping column name.
         // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
-        // The type of the mapping field.
+        // The mapping column type.
         // 
         // This parameter is required.
         shared_ptr<string> columnType_ {};
@@ -507,7 +503,7 @@ namespace Models
 
 
     protected:
-      // The mapping fields.
+      // The mapping columns.
       // 
       // This parameter is required.
       shared_ptr<vector<UpdateRowPermissionCommand::MappingColumns>> mappingColumns_ {};

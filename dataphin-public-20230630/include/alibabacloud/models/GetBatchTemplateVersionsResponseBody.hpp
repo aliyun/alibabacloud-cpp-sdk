@@ -225,21 +225,44 @@ namespace Models
 
 
       protected:
+        // The template submit comment.
         shared_ptr<string> comment_ {};
+        // The template content.
         shared_ptr<string> content_ {};
+        // The template description.
         shared_ptr<string> description_ {};
+        // The version of the compute engine. Currently supported Python versions: Python 2.7 and Python 3.7.
         shared_ptr<string> engine_ {};
+        // The template creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtCreate_ {};
+        // The template modification time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> gmtModified_ {};
+        // The template ID, which is the same as the menu tree node ID.
         shared_ptr<int64_t> id_ {};
+        // The last modifier of the template.
         shared_ptr<string> modifier_ {};
+        // The ID of the last modifier of the template.
         shared_ptr<string> modifierId_ {};
+        // The template name.
         shared_ptr<string> name_ {};
+        // The template operator type. Valid values:
+        // 
+        // - 10: Shell.
+        // - 21: Python.
         shared_ptr<int32_t> operatorType_ {};
+        // The template owner.
         shared_ptr<string> owner_ {};
+        // The template owner ID.
         shared_ptr<string> ownerId_ {};
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
+        // The template status. Valid values:
+        // 
+        // - 0: draft.
+        // - 2: submitted.
+        // - 100: in development.
         shared_ptr<string> status_ {};
+        // The version number.
         shared_ptr<int64_t> version_ {};
       };
 
@@ -254,6 +277,7 @@ namespace Models
 
 
     protected:
+      // The template version list.
       shared_ptr<vector<Data::TemplateVersionList>> templateVersionList_ {};
     };
 
@@ -304,11 +328,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetBatchTemplateVersionsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

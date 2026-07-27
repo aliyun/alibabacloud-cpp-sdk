@@ -603,6 +603,122 @@ AssignQualityRuleOfAllRuleScopeSchedulesResponse Client::assignQualityRuleOfAllR
 }
 
 /**
+ * @summary Creates knowledge graph entity records in batches. Online version: v6.1.1.
+ *
+ * @param tmpReq BatchCreateKgEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCreateKgEntityResponse
+ */
+BatchCreateKgEntityResponse Client::batchCreateKgEntityWithOptions(const BatchCreateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCreateKgEntityShrinkRequest request = BatchCreateKgEntityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchCreateKgEntity"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCreateKgEntityResponse>();
+}
+
+/**
+ * @summary Creates knowledge graph entity records in batches. Online version: v6.1.1.
+ *
+ * @param request BatchCreateKgEntityRequest
+ * @return BatchCreateKgEntityResponse
+ */
+BatchCreateKgEntityResponse Client::batchCreateKgEntity(const BatchCreateKgEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCreateKgEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+ *
+ * @param tmpReq BatchCreateKgRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCreateKgRelationResponse
+ */
+BatchCreateKgRelationResponse Client::batchCreateKgRelationWithOptions(const BatchCreateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCreateKgRelationShrinkRequest request = BatchCreateKgRelationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchCreateKgRelation"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCreateKgRelationResponse>();
+}
+
+/**
+ * @summary Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+ *
+ * @param request BatchCreateKgRelationRequest
+ * @return BatchCreateKgRelationResponse
+ */
+BatchCreateKgRelationResponse Client::batchCreateKgRelation(const BatchCreateKgRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCreateKgRelationWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks the connectivity of a compute source.
  *
  * @param tmpReq CheckComputeSourceConnectivityRequest
@@ -954,6 +1070,60 @@ CreateAdHocFileResponse Client::createAdHocFileWithOptions(const CreateAdHocFile
 CreateAdHocFileResponse Client::createAdHocFile(const CreateAdHocFileRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createAdHocFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a Basic (single-environment) project.
+ *
+ * @param tmpReq CreateBasicProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBasicProjectResponse
+ */
+CreateBasicProjectResponse Client::createBasicProjectWithOptions(const CreateBasicProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateBasicProjectShrinkRequest request = CreateBasicProjectShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBasicProject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBasicProjectResponse>();
+}
+
+/**
+ * @summary Creates a Basic (single-environment) project.
+ *
+ * @param request CreateBasicProjectRequest
+ * @return CreateBasicProjectResponse
+ */
+CreateBasicProjectResponse Client::createBasicProject(const CreateBasicProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBasicProjectWithOptions(request, runtime);
 }
 
 /**
@@ -1571,6 +1741,60 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
+ * @summary Creates a Dev-Prod (dual-environment) project.
+ *
+ * @param tmpReq CreateDevProdProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDevProdProjectResponse
+ */
+CreateDevProdProjectResponse Client::createDevProdProjectWithOptions(const CreateDevProdProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDevProdProjectShrinkRequest request = CreateDevProdProjectShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDevProdProject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDevProdProjectResponse>();
+}
+
+/**
+ * @summary Creates a Dev-Prod (dual-environment) project.
+ *
+ * @param request CreateDevProdProjectRequest
+ * @return CreateDevProdProjectResponse
+ */
+CreateDevProdProjectResponse Client::createDevProdProject(const CreateDevProdProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDevProdProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
  *
  * @param tmpReq CreateDirectoryRequest
@@ -1622,6 +1846,122 @@ CreateDirectoryResponse Client::createDirectoryWithOptions(const CreateDirectory
 CreateDirectoryResponse Client::createDirectory(const CreateDirectoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDirectoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a knowledge graph entity record. Online version: v6.1.1.
+ *
+ * @param tmpReq CreateKgEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKgEntityResponse
+ */
+CreateKgEntityResponse Client::createKgEntityWithOptions(const CreateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateKgEntityShrinkRequest request = CreateKgEntityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateKgEntity"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKgEntityResponse>();
+}
+
+/**
+ * @summary Creates a knowledge graph entity record. Online version: v6.1.1.
+ *
+ * @param request CreateKgEntityRequest
+ * @return CreateKgEntityResponse
+ */
+CreateKgEntityResponse Client::createKgEntity(const CreateKgEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createKgEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a knowledge graph relationship record. Online version: v6.1.1.
+ *
+ * @param tmpReq CreateKgRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKgRelationResponse
+ */
+CreateKgRelationResponse Client::createKgRelationWithOptions(const CreateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateKgRelationShrinkRequest request = CreateKgRelationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.getCreateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateKgRelation"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKgRelationResponse>();
+}
+
+/**
+ * @summary Creates a knowledge graph relationship record. Online version: v6.1.1.
+ *
+ * @param request CreateKgRelationRequest
+ * @return CreateKgRelationResponse
+ */
+CreateKgRelationResponse Client::createKgRelation(const CreateKgRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createKgRelationWithOptions(request, runtime);
 }
 
 /**
@@ -1921,7 +2261,7 @@ CreateResourceResponse Client::createResource(const CreateResourceRequest &reque
 /**
  * @summary Creates a row-level permission.
  *
- * @description You can query detailed information about published APIs based on the appKey.
+ * @description Queries the details of published APIs by appKey.
  *
  * @param tmpReq CreateRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1966,7 +2306,7 @@ CreateRowPermissionResponse Client::createRowPermissionWithOptions(const CreateR
 /**
  * @summary Creates a row-level permission.
  *
- * @description You can query detailed information about published APIs based on the appKey.
+ * @description Queries the details of published APIs by appKey.
  *
  * @param request CreateRowPermissionRequest
  * @return CreateRowPermissionResponse
@@ -3415,6 +3755,160 @@ DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &re
 }
 
 /**
+ * @summary Deletes an entity record. Online version: v6.1.1.
+ *
+ * @param request DeleteKgEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKgEntityResponse
+ */
+DeleteKgEntityResponse Client::deleteKgEntityWithOptions(const DeleteKgEntityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEntityId()) {
+    query["EntityId"] = request.getEntityId();
+  }
+
+  if (!!request.hasEntityType()) {
+    query["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKgEntity"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKgEntityResponse>();
+}
+
+/**
+ * @summary Deletes an entity record. Online version: v6.1.1.
+ *
+ * @param request DeleteKgEntityRequest
+ * @return DeleteKgEntityResponse
+ */
+DeleteKgEntityResponse Client::deleteKgEntity(const DeleteKgEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKgEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a relationship record. Online version: v6.1.1.
+ *
+ * @param request DeleteKgRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKgRelationResponse
+ */
+DeleteKgRelationResponse Client::deleteKgRelationWithOptions(const DeleteKgRelationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasRelationId()) {
+    query["RelationId"] = request.getRelationId();
+  }
+
+  if (!!request.hasRelationType()) {
+    query["RelationType"] = request.getRelationType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKgRelation"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKgRelationResponse>();
+}
+
+/**
+ * @summary Deletes a relationship record. Online version: v6.1.1.
+ *
+ * @param request DeleteKgRelationRequest
+ * @return DeleteKgRelationResponse
+ */
+DeleteKgRelationResponse Client::deleteKgRelation(const DeleteKgRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKgRelationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a project (applicable to both Basic and Dev-Prod projects).
+ *
+ * @param request DeleteProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProjectWithOptions(const DeleteProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProjectResponse>();
+}
+
+/**
+ * @summary Deletes a project (applicable to both Basic and Dev-Prod projects).
+ *
+ * @param request DeleteProjectRequest
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProject(const DeleteProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes quality rule objects in batches.
  * Release version: v5.4.2.
  *
@@ -4483,6 +4977,64 @@ DeleteUserGroupResponse Client::deleteUserGroup(const DeleteUserGroupRequest &re
 }
 
 /**
+ * @summary Executes a custom Cypher query. Online version: v6.2.0.
+ *
+ * @param tmpReq ExecKgCypherRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecKgCypherResponse
+ */
+ExecKgCypherResponse Client::execKgCypherWithOptions(const ExecKgCypherRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExecKgCypherShrinkRequest request = ExecKgCypherShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExecCommand()) {
+    request.setExecCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExecCommand(), "ExecCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasExecCommandShrink()) {
+    body["ExecCommand"] = request.getExecCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecKgCypher"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecKgCypherResponse>();
+}
+
+/**
+ * @summary Executes a custom Cypher query. Online version: v6.2.0.
+ *
+ * @param request ExecKgCypherRequest
+ * @return ExecKgCypherResponse
+ */
+ExecKgCypherResponse Client::execKgCypher(const ExecKgCypherRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return execKgCypherWithOptions(request, runtime);
+}
+
+/**
  * @summary Executes an ad hoc query task.
  *
  * @param tmpReq ExecuteAdHocTaskRequest
@@ -4654,6 +5206,60 @@ ExecuteTriggerNodeResponse Client::executeTriggerNodeWithOptions(const ExecuteTr
 ExecuteTriggerNodeResponse Client::executeTriggerNode(const ExecuteTriggerNodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeTriggerNodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 导出知识图谱定义。
+ *
+ * @param request ExportKgSchemaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportKgSchemaResponse
+ */
+ExportKgSchemaResponse Client::exportKgSchemaWithOptions(const ExportKgSchemaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOutputFormat()) {
+    query["OutputFormat"] = request.getOutputFormat();
+  }
+
+  if (!!request.hasVersionId()) {
+    query["VersionId"] = request.getVersionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ExportKgSchema"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportKgSchemaResponse>();
+}
+
+/**
+ * @summary 导出知识图谱定义。
+ *
+ * @param request ExportKgSchemaRequest
+ * @return ExportKgSchemaResponse
+ */
+ExportKgSchemaResponse Client::exportKgSchema(const ExportKgSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportKgSchemaWithOptions(request, runtime);
 }
 
 /**
@@ -5245,7 +5851,7 @@ GetBatchTaskVersionsResponse Client::getBatchTaskVersions(const GetBatchTaskVers
 }
 
 /**
- * @summary 获取指定离线模板ID版本列表。
+ * @summary Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
  *
  * @param request GetBatchTemplateVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5288,7 +5894,7 @@ GetBatchTemplateVersionsResponse Client::getBatchTemplateVersionsWithOptions(con
 }
 
 /**
- * @summary 获取指定离线模板ID版本列表。
+ * @summary Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
  *
  * @param request GetBatchTemplateVersionsRequest
  * @return GetBatchTemplateVersionsResponse
@@ -6891,6 +7497,230 @@ GetInstanceUpDownStreamResponse Client::getInstanceUpDownStream(const GetInstanc
 }
 
 /**
+ * @summary 获取知识图谱实体记录。
+ *
+ * @param request GetKgEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKgEntityResponse
+ */
+GetKgEntityResponse Client::getKgEntityWithOptions(const GetKgEntityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEntityId()) {
+    query["EntityId"] = request.getEntityId();
+  }
+
+  if (!!request.hasEntityType()) {
+    query["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKgEntity"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKgEntityResponse>();
+}
+
+/**
+ * @summary 获取知识图谱实体记录。
+ *
+ * @param request GetKgEntityRequest
+ * @return GetKgEntityResponse
+ */
+GetKgEntityResponse Client::getKgEntity(const GetKgEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKgEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取图谱模型邻居节点。
+ *
+ * @param tmpReq GetKgNeighborRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKgNeighborResponse
+ */
+GetKgNeighborResponse Client::getKgNeighborWithOptions(const GetKgNeighborRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetKgNeighborShrinkRequest request = GetKgNeighborShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNeighborsQuery()) {
+    request.setNeighborsQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNeighborsQuery(), "NeighborsQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEntityDataId()) {
+    query["EntityDataId"] = request.getEntityDataId();
+  }
+
+  if (!!request.hasEntityType()) {
+    query["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasNeighborsQueryShrink()) {
+    body["NeighborsQuery"] = request.getNeighborsQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetKgNeighbor"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKgNeighborResponse>();
+}
+
+/**
+ * @summary 获取图谱模型邻居节点。
+ *
+ * @param request GetKgNeighborRequest
+ * @return GetKgNeighborResponse
+ */
+GetKgNeighborResponse Client::getKgNeighbor(const GetKgNeighborRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKgNeighborWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取知识图谱关系记录。
+ *
+ * @param request GetKgRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKgRelationResponse
+ */
+GetKgRelationResponse Client::getKgRelationWithOptions(const GetKgRelationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasRelationId()) {
+    query["RelationId"] = request.getRelationId();
+  }
+
+  if (!!request.hasRelationType()) {
+    query["RelationType"] = request.getRelationType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKgRelation"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKgRelationResponse>();
+}
+
+/**
+ * @summary 获取知识图谱关系记录。
+ *
+ * @param request GetKgRelationRequest
+ * @return GetKgRelationResponse
+ */
+GetKgRelationResponse Client::getKgRelation(const GetKgRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKgRelationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取图谱模型发布结果。
+ *
+ * @param request GetKgSchemaPublishResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKgSchemaPublishResultResponse
+ */
+GetKgSchemaPublishResultResponse Client::getKgSchemaPublishResultWithOptions(const GetKgSchemaPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasVersionId()) {
+    query["VersionId"] = request.getVersionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKgSchemaPublishResult"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKgSchemaPublishResultResponse>();
+}
+
+/**
+ * @summary 获取图谱模型发布结果。
+ *
+ * @param request GetKgSchemaPublishResultRequest
+ * @return GetKgSchemaPublishResultResponse
+ */
+GetKgSchemaPublishResultResponse Client::getKgSchemaPublishResult(const GetKgSchemaPublishResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKgSchemaPublishResultWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of the latest pending submit record.
  *
  * @param tmpReq GetLatestSubmitDetailRequest
@@ -7111,7 +7941,7 @@ GetNodeUpDownStreamResponse Client::getNodeUpDownStream(const GetNodeUpDownStrea
 }
 
 /**
- * @summary 根据Id查询运行记录
+ * @summary Queries an operation log by ID. Available since v6.2.0.
  *
  * @param tmpReq GetOperationRecordByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7154,7 +7984,7 @@ GetOperationRecordByIdResponse Client::getOperationRecordByIdWithOptions(const G
 }
 
 /**
- * @summary 根据Id查询运行记录
+ * @summary Queries an operation log by ID. Available since v6.2.0.
  *
  * @param request GetOperationRecordByIdRequest
  * @return GetOperationRecordByIdResponse
@@ -8633,7 +9463,7 @@ GetResourceByVersionResponse Client::getResourceByVersion(const GetResourceByVer
 }
 
 /**
- * @summary Release version: v5.4.2.
+ * @summary Retrieves row permissions by table GUIDs. Online version: v5.4.2.
  *
  * @param tmpReq GetRowPermissionByTableGuidsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8676,7 +9506,7 @@ GetRowPermissionByTableGuidsResponse Client::getRowPermissionByTableGuidsWithOpt
 }
 
 /**
- * @summary Release version: v5.4.2.
+ * @summary Retrieves row permissions by table GUIDs. Online version: v5.4.2.
  *
  * @param request GetRowPermissionByTableGuidsRequest
  * @return GetRowPermissionByTableGuidsResponse
@@ -10093,6 +10923,64 @@ GrantResourcePermissionResponse Client::grantResourcePermission(const GrantResou
 }
 
 /**
+ * @summary 导入知识图谱定义。
+ *
+ * @param tmpReq ImportKgSchemaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportKgSchemaResponse
+ */
+ImportKgSchemaResponse Client::importKgSchemaWithOptions(const ImportKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ImportKgSchemaShrinkRequest request = ImportKgSchemaShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasImportCommand()) {
+    request.setImportCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImportCommand(), "ImportCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasImportCommandShrink()) {
+    body["ImportCommand"] = request.getImportCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ImportKgSchema"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportKgSchemaResponse>();
+}
+
+/**
+ * @summary 导入知识图谱定义。
+ *
+ * @param request ImportKgSchemaRequest
+ * @return ImportKgSchemaResponse
+ */
+ImportKgSchemaResponse Client::importKgSchema(const ImportKgSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importKgSchemaWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
  *
  * @param request ListAddableRolesRequest
@@ -10355,7 +11243,10 @@ ListApiByAppResponse Client::listApiByApp(const ListApiByAppRequest &request) {
 }
 
 /**
- * @summary Queries the list of specific fields for APIs that an application has requested.
+ * @summary Queries the specific field list of APIs that an application has requested.
+ *
+ * @description ## 请求说明
+ * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
  *
  * @param tmpReq ListAuthorizedDataServiceApiDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10398,7 +11289,10 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
 }
 
 /**
- * @summary Queries the list of specific fields for APIs that an application has requested.
+ * @summary Queries the specific field list of APIs that an application has requested.
+ *
+ * @description ## 请求说明
+ * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
  *
  * @param request ListAuthorizedDataServiceApiDetailsRequest
  * @return ListAuthorizedDataServiceApiDetailsResponse
@@ -11414,6 +12308,130 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 ListInstancesResponse Client::listInstances(const ListInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
+ *
+ * @param tmpReq ListKgEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKgEntityResponse
+ */
+ListKgEntityResponse Client::listKgEntityWithOptions(const ListKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListKgEntityShrinkRequest request = ListKgEntityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEntityType()) {
+    query["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListKgEntity"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKgEntityResponse>();
+}
+
+/**
+ * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
+ *
+ * @param request ListKgEntityRequest
+ * @return ListKgEntityResponse
+ */
+ListKgEntityResponse Client::listKgEntity(const ListKgEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKgEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询知识图谱关系记录。
+ *
+ * @param tmpReq ListKgRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKgRelationResponse
+ */
+ListKgRelationResponse Client::listKgRelationWithOptions(const ListKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListKgRelationShrinkRequest request = ListKgRelationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasRelationType()) {
+    query["RelationType"] = request.getRelationType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListKgRelation"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKgRelationResponse>();
+}
+
+/**
+ * @summary 分页查询知识图谱关系记录。
+ *
+ * @param request ListKgRelationRequest
+ * @return ListKgRelationResponse
+ */
+ListKgRelationResponse Client::listKgRelation(const ListKgRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKgRelationWithOptions(request, runtime);
 }
 
 /**
@@ -13255,6 +14273,64 @@ PublishDataServiceApiResponse Client::publishDataServiceApi(const PublishDataSer
 }
 
 /**
+ * @summary Publishes a knowledge graph model. Online version: v6.2.0.
+ *
+ * @param tmpReq PublishKgSchemaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishKgSchemaResponse
+ */
+PublishKgSchemaResponse Client::publishKgSchemaWithOptions(const PublishKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PublishKgSchemaShrinkRequest request = PublishKgSchemaShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPublishCommand()) {
+    request.setPublishCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPublishCommand(), "PublishCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasPublishCommandShrink()) {
+    body["PublishCommand"] = request.getPublishCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PublishKgSchema"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishKgSchemaResponse>();
+}
+
+/**
+ * @summary Publishes a knowledge graph model. Online version: v6.2.0.
+ *
+ * @param request PublishKgSchemaRequest
+ * @return PublishKgSchemaResponse
+ */
+PublishKgSchemaResponse Client::publishKgSchema(const PublishKgSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return publishKgSchemaWithOptions(request, runtime);
+}
+
+/**
  * @summary Publishes objects in batches.
  *
  * @param tmpReq PublishObjectListRequest
@@ -14417,6 +15493,60 @@ UpdateAdHocFileResponse Client::updateAdHocFile(const UpdateAdHocFileRequest &re
 }
 
 /**
+ * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+ *
+ * @param tmpReq UpdateBasicProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateBasicProjectResponse
+ */
+UpdateBasicProjectResponse Client::updateBasicProjectWithOptions(const UpdateBasicProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateBasicProjectShrinkRequest request = UpdateBasicProjectShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateBasicProject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateBasicProjectResponse>();
+}
+
+/**
+ * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+ *
+ * @param request UpdateBasicProjectRequest
+ * @return UpdateBasicProjectResponse
+ */
+UpdateBasicProjectResponse Client::updateBasicProject(const UpdateBasicProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateBasicProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates an offline compute node.
  *
  * @param tmpReq UpdateBatchTaskRequest
@@ -15147,6 +16277,60 @@ UpdateDatasetResponse Client::updateDataset(const UpdateDatasetRequest &request)
 }
 
 /**
+ * @summary Edits a Dev-Prod (dual-environment) project.
+ *
+ * @param tmpReq UpdateDevProdProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDevProdProjectResponse
+ */
+UpdateDevProdProjectResponse Client::updateDevProdProjectWithOptions(const UpdateDevProdProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDevProdProjectShrinkRequest request = UpdateDevProdProjectShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDevProdProject"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDevProdProjectResponse>();
+}
+
+/**
+ * @summary Edits a Dev-Prod (dual-environment) project.
+ *
+ * @param request UpdateDevProdProjectRequest
+ * @return UpdateDevProdProjectResponse
+ */
+UpdateDevProdProjectResponse Client::updateDevProdProject(const UpdateDevProdProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDevProdProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Moves the file position in the menu tree.
  *
  * @param request UpdateFileDirectoryRequest
@@ -15252,6 +16436,122 @@ UpdateFileNameResponse Client::updateFileNameWithOptions(const UpdateFileNameReq
 UpdateFileNameResponse Client::updateFileName(const UpdateFileNameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateFileNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary Edits a knowledge graph entity record. Online version: v6.1.1.
+ *
+ * @param tmpReq UpdateKgEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKgEntityResponse
+ */
+UpdateKgEntityResponse Client::updateKgEntityWithOptions(const UpdateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateKgEntityShrinkRequest request = UpdateKgEntityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateKgEntity"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKgEntityResponse>();
+}
+
+/**
+ * @summary Edits a knowledge graph entity record. Online version: v6.1.1.
+ *
+ * @param request UpdateKgEntityRequest
+ * @return UpdateKgEntityResponse
+ */
+UpdateKgEntityResponse Client::updateKgEntity(const UpdateKgEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKgEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary Edits a knowledge graph relationship record. Online version: v6.1.1.
+ *
+ * @param tmpReq UpdateKgRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKgRelationResponse
+ */
+UpdateKgRelationResponse Client::updateKgRelationWithOptions(const UpdateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateKgRelationShrinkRequest request = UpdateKgRelationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.getUpdateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateKgRelation"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKgRelationResponse>();
+}
+
+/**
+ * @summary Edits a knowledge graph relationship record. Online version: v6.1.1.
+ *
+ * @param request UpdateKgRelationRequest
+ * @return UpdateKgRelationResponse
+ */
+UpdateKgRelationResponse Client::updateKgRelation(const UpdateKgRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKgRelationWithOptions(request, runtime);
 }
 
 /**
@@ -15603,7 +16903,7 @@ UpdateResourceResponse Client::updateResource(const UpdateResourceRequest &reque
 }
 
 /**
- * @summary Updates a row-level permission.
+ * @summary Updates row-level permissions.
  *
  * @param tmpReq UpdateRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15646,7 +16946,7 @@ UpdateRowPermissionResponse Client::updateRowPermissionWithOptions(const UpdateR
 }
 
 /**
- * @summary Updates a row-level permission.
+ * @summary Updates row-level permissions.
  *
  * @param request UpdateRowPermissionRequest
  * @return UpdateRowPermissionResponse

@@ -69,8 +69,12 @@ namespace Models
 
 
     protected:
+      // The operation log ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> operationId_ {};
+      // The project ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -94,8 +98,12 @@ namespace Models
 
 
   protected:
+    // The query command.
+    // 
     // This parameter is required.
     shared_ptr<GetOperationRecordByIdRequest::DetailCommand> detailCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
   };

@@ -195,6 +195,40 @@ namespace DataphinPublic20230630
       Models::AssignQualityRuleOfAllRuleScopeSchedulesResponse assignQualityRuleOfAllRuleScopeSchedules(const Models::AssignQualityRuleOfAllRuleScopeSchedulesRequest &request);
 
       /**
+       * @summary Creates knowledge graph entity records in batches. Online version: v6.1.1.
+       *
+       * @param tmpReq BatchCreateKgEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCreateKgEntityResponse
+       */
+      Models::BatchCreateKgEntityResponse batchCreateKgEntityWithOptions(const Models::BatchCreateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates knowledge graph entity records in batches. Online version: v6.1.1.
+       *
+       * @param request BatchCreateKgEntityRequest
+       * @return BatchCreateKgEntityResponse
+       */
+      Models::BatchCreateKgEntityResponse batchCreateKgEntity(const Models::BatchCreateKgEntityRequest &request);
+
+      /**
+       * @summary Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+       *
+       * @param tmpReq BatchCreateKgRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCreateKgRelationResponse
+       */
+      Models::BatchCreateKgRelationResponse batchCreateKgRelationWithOptions(const Models::BatchCreateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+       *
+       * @param request BatchCreateKgRelationRequest
+       * @return BatchCreateKgRelationResponse
+       */
+      Models::BatchCreateKgRelationResponse batchCreateKgRelation(const Models::BatchCreateKgRelationRequest &request);
+
+      /**
        * @summary Checks the connectivity of a compute source.
        *
        * @param tmpReq CheckComputeSourceConnectivityRequest
@@ -312,6 +346,23 @@ namespace DataphinPublic20230630
        * @return CreateAdHocFileResponse
        */
       Models::CreateAdHocFileResponse createAdHocFile(const Models::CreateAdHocFileRequest &request);
+
+      /**
+       * @summary Creates a Basic (single-environment) project.
+       *
+       * @param tmpReq CreateBasicProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBasicProjectResponse
+       */
+      Models::CreateBasicProjectResponse createBasicProjectWithOptions(const Models::CreateBasicProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Basic (single-environment) project.
+       *
+       * @param request CreateBasicProjectRequest
+       * @return CreateBasicProjectResponse
+       */
+      Models::CreateBasicProjectResponse createBasicProject(const Models::CreateBasicProjectRequest &request);
 
       /**
        * @summary Creates a batch task.
@@ -525,6 +576,23 @@ namespace DataphinPublic20230630
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
+       * @summary Creates a Dev-Prod (dual-environment) project.
+       *
+       * @param tmpReq CreateDevProdProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDevProdProjectResponse
+       */
+      Models::CreateDevProdProjectResponse createDevProdProjectWithOptions(const Models::CreateDevProdProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a Dev-Prod (dual-environment) project.
+       *
+       * @param request CreateDevProdProjectRequest
+       * @return CreateDevProdProjectResponse
+       */
+      Models::CreateDevProdProjectResponse createDevProdProject(const Models::CreateDevProdProjectRequest &request);
+
+      /**
        * @summary Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
        *
        * @param tmpReq CreateDirectoryRequest
@@ -540,6 +608,40 @@ namespace DataphinPublic20230630
        * @return CreateDirectoryResponse
        */
       Models::CreateDirectoryResponse createDirectory(const Models::CreateDirectoryRequest &request);
+
+      /**
+       * @summary Creates a knowledge graph entity record. Online version: v6.1.1.
+       *
+       * @param tmpReq CreateKgEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKgEntityResponse
+       */
+      Models::CreateKgEntityResponse createKgEntityWithOptions(const Models::CreateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a knowledge graph entity record. Online version: v6.1.1.
+       *
+       * @param request CreateKgEntityRequest
+       * @return CreateKgEntityResponse
+       */
+      Models::CreateKgEntityResponse createKgEntity(const Models::CreateKgEntityRequest &request);
+
+      /**
+       * @summary Creates a knowledge graph relationship record. Online version: v6.1.1.
+       *
+       * @param tmpReq CreateKgRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKgRelationResponse
+       */
+      Models::CreateKgRelationResponse createKgRelationWithOptions(const Models::CreateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a knowledge graph relationship record. Online version: v6.1.1.
+       *
+       * @param request CreateKgRelationRequest
+       * @return CreateKgRelationResponse
+       */
+      Models::CreateKgRelationResponse createKgRelation(const Models::CreateKgRelationRequest &request);
 
       /**
        * @summary General-purpose backfill API that supports both list-mode and bulk-mode backfill:
@@ -633,7 +735,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Creates a row-level permission.
        *
-       * @description You can query detailed information about published APIs based on the appKey.
+       * @description Queries the details of published APIs by appKey.
        *
        * @param tmpReq CreateRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -644,7 +746,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Creates a row-level permission.
        *
-       * @description You can query detailed information about published APIs based on the appKey.
+       * @description Queries the details of published APIs by appKey.
        *
        * @param request CreateRowPermissionRequest
        * @return CreateRowPermissionResponse
@@ -1131,6 +1233,57 @@ namespace DataphinPublic20230630
       Models::DeleteDirectoryResponse deleteDirectory(const Models::DeleteDirectoryRequest &request);
 
       /**
+       * @summary Deletes an entity record. Online version: v6.1.1.
+       *
+       * @param request DeleteKgEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKgEntityResponse
+       */
+      Models::DeleteKgEntityResponse deleteKgEntityWithOptions(const Models::DeleteKgEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an entity record. Online version: v6.1.1.
+       *
+       * @param request DeleteKgEntityRequest
+       * @return DeleteKgEntityResponse
+       */
+      Models::DeleteKgEntityResponse deleteKgEntity(const Models::DeleteKgEntityRequest &request);
+
+      /**
+       * @summary Deletes a relationship record. Online version: v6.1.1.
+       *
+       * @param request DeleteKgRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKgRelationResponse
+       */
+      Models::DeleteKgRelationResponse deleteKgRelationWithOptions(const Models::DeleteKgRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a relationship record. Online version: v6.1.1.
+       *
+       * @param request DeleteKgRelationRequest
+       * @return DeleteKgRelationResponse
+       */
+      Models::DeleteKgRelationResponse deleteKgRelation(const Models::DeleteKgRelationRequest &request);
+
+      /**
+       * @summary Deletes a project (applicable to both Basic and Dev-Prod projects).
+       *
+       * @param request DeleteProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectResponse
+       */
+      Models::DeleteProjectResponse deleteProjectWithOptions(const Models::DeleteProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a project (applicable to both Basic and Dev-Prod projects).
+       *
+       * @param request DeleteProjectRequest
+       * @return DeleteProjectResponse
+       */
+      Models::DeleteProjectResponse deleteProject(const Models::DeleteProjectRequest &request);
+
+      /**
        * @summary Deletes quality rule objects in batches.
        * Release version: v5.4.2.
        *
@@ -1491,6 +1644,23 @@ namespace DataphinPublic20230630
       Models::DeleteUserGroupResponse deleteUserGroup(const Models::DeleteUserGroupRequest &request);
 
       /**
+       * @summary Executes a custom Cypher query. Online version: v6.2.0.
+       *
+       * @param tmpReq ExecKgCypherRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecKgCypherResponse
+       */
+      Models::ExecKgCypherResponse execKgCypherWithOptions(const Models::ExecKgCypherRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes a custom Cypher query. Online version: v6.2.0.
+       *
+       * @param request ExecKgCypherRequest
+       * @return ExecKgCypherResponse
+       */
+      Models::ExecKgCypherResponse execKgCypher(const Models::ExecKgCypherRequest &request);
+
+      /**
        * @summary Executes an ad hoc query task.
        *
        * @param tmpReq ExecuteAdHocTaskRequest
@@ -1540,6 +1710,23 @@ namespace DataphinPublic20230630
        * @return ExecuteTriggerNodeResponse
        */
       Models::ExecuteTriggerNodeResponse executeTriggerNode(const Models::ExecuteTriggerNodeRequest &request);
+
+      /**
+       * @summary 导出知识图谱定义。
+       *
+       * @param request ExportKgSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportKgSchemaResponse
+       */
+      Models::ExportKgSchemaResponse exportKgSchemaWithOptions(const Models::ExportKgSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导出知识图谱定义。
+       *
+       * @param request ExportKgSchemaRequest
+       * @return ExportKgSchemaResponse
+       */
+      Models::ExportKgSchemaResponse exportKgSchema(const Models::ExportKgSchemaRequest &request);
 
       /**
        * @summary Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
@@ -1731,7 +1918,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTaskVersionsResponse getBatchTaskVersions(const Models::GetBatchTaskVersionsRequest &request);
 
       /**
-       * @summary 获取指定离线模板ID版本列表。
+       * @summary Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
        *
        * @param request GetBatchTemplateVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1740,7 +1927,7 @@ namespace DataphinPublic20230630
       Models::GetBatchTemplateVersionsResponse getBatchTemplateVersionsWithOptions(const Models::GetBatchTemplateVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定离线模板ID版本列表。
+       * @summary Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
        *
        * @param request GetBatchTemplateVersionsRequest
        * @return GetBatchTemplateVersionsResponse
@@ -2293,6 +2480,74 @@ namespace DataphinPublic20230630
       Models::GetInstanceUpDownStreamResponse getInstanceUpDownStream(const Models::GetInstanceUpDownStreamRequest &request);
 
       /**
+       * @summary 获取知识图谱实体记录。
+       *
+       * @param request GetKgEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKgEntityResponse
+       */
+      Models::GetKgEntityResponse getKgEntityWithOptions(const Models::GetKgEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取知识图谱实体记录。
+       *
+       * @param request GetKgEntityRequest
+       * @return GetKgEntityResponse
+       */
+      Models::GetKgEntityResponse getKgEntity(const Models::GetKgEntityRequest &request);
+
+      /**
+       * @summary 获取图谱模型邻居节点。
+       *
+       * @param tmpReq GetKgNeighborRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKgNeighborResponse
+       */
+      Models::GetKgNeighborResponse getKgNeighborWithOptions(const Models::GetKgNeighborRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取图谱模型邻居节点。
+       *
+       * @param request GetKgNeighborRequest
+       * @return GetKgNeighborResponse
+       */
+      Models::GetKgNeighborResponse getKgNeighbor(const Models::GetKgNeighborRequest &request);
+
+      /**
+       * @summary 获取知识图谱关系记录。
+       *
+       * @param request GetKgRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKgRelationResponse
+       */
+      Models::GetKgRelationResponse getKgRelationWithOptions(const Models::GetKgRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取知识图谱关系记录。
+       *
+       * @param request GetKgRelationRequest
+       * @return GetKgRelationResponse
+       */
+      Models::GetKgRelationResponse getKgRelation(const Models::GetKgRelationRequest &request);
+
+      /**
+       * @summary 获取图谱模型发布结果。
+       *
+       * @param request GetKgSchemaPublishResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKgSchemaPublishResultResponse
+       */
+      Models::GetKgSchemaPublishResultResponse getKgSchemaPublishResultWithOptions(const Models::GetKgSchemaPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取图谱模型发布结果。
+       *
+       * @param request GetKgSchemaPublishResultRequest
+       * @return GetKgSchemaPublishResultResponse
+       */
+      Models::GetKgSchemaPublishResultResponse getKgSchemaPublishResult(const Models::GetKgSchemaPublishResultRequest &request);
+
+      /**
        * @summary Retrieves the details of the latest pending submit record.
        *
        * @param tmpReq GetLatestSubmitDetailRequest
@@ -2361,7 +2616,7 @@ namespace DataphinPublic20230630
       Models::GetNodeUpDownStreamResponse getNodeUpDownStream(const Models::GetNodeUpDownStreamRequest &request);
 
       /**
-       * @summary 根据Id查询运行记录
+       * @summary Queries an operation log by ID. Available since v6.2.0.
        *
        * @param tmpReq GetOperationRecordByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2370,7 +2625,7 @@ namespace DataphinPublic20230630
       Models::GetOperationRecordByIdResponse getOperationRecordByIdWithOptions(const Models::GetOperationRecordByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据Id查询运行记录
+       * @summary Queries an operation log by ID. Available since v6.2.0.
        *
        * @param request GetOperationRecordByIdRequest
        * @return GetOperationRecordByIdResponse
@@ -2889,7 +3144,7 @@ namespace DataphinPublic20230630
       Models::GetResourceByVersionResponse getResourceByVersion(const Models::GetResourceByVersionRequest &request);
 
       /**
-       * @summary Release version: v5.4.2.
+       * @summary Retrieves row permissions by table GUIDs. Online version: v5.4.2.
        *
        * @param tmpReq GetRowPermissionByTableGuidsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2898,7 +3153,7 @@ namespace DataphinPublic20230630
       Models::GetRowPermissionByTableGuidsResponse getRowPermissionByTableGuidsWithOptions(const Models::GetRowPermissionByTableGuidsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Release version: v5.4.2.
+       * @summary Retrieves row permissions by table GUIDs. Online version: v5.4.2.
        *
        * @param request GetRowPermissionByTableGuidsRequest
        * @return GetRowPermissionByTableGuidsResponse
@@ -3385,6 +3640,23 @@ namespace DataphinPublic20230630
       Models::GrantResourcePermissionResponse grantResourcePermission(const Models::GrantResourcePermissionRequest &request);
 
       /**
+       * @summary 导入知识图谱定义。
+       *
+       * @param tmpReq ImportKgSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportKgSchemaResponse
+       */
+      Models::ImportKgSchemaResponse importKgSchemaWithOptions(const Models::ImportKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入知识图谱定义。
+       *
+       * @param request ImportKgSchemaRequest
+       * @return ImportKgSchemaResponse
+       */
+      Models::ImportKgSchemaResponse importKgSchema(const Models::ImportKgSchemaRequest &request);
+
+      /**
        * @summary Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
        *
        * @param request ListAddableRolesRequest
@@ -3474,7 +3746,10 @@ namespace DataphinPublic20230630
       Models::ListApiByAppResponse listApiByApp(const Models::ListApiByAppRequest &request);
 
       /**
-       * @summary Queries the list of specific fields for APIs that an application has requested.
+       * @summary Queries the specific field list of APIs that an application has requested.
+       *
+       * @description ## 请求说明
+       * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
        *
        * @param tmpReq ListAuthorizedDataServiceApiDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3483,7 +3758,10 @@ namespace DataphinPublic20230630
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetailsWithOptions(const Models::ListAuthorizedDataServiceApiDetailsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of specific fields for APIs that an application has requested.
+       * @summary Queries the specific field list of APIs that an application has requested.
+       *
+       * @description ## 请求说明
+       * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
        *
        * @param request ListAuthorizedDataServiceApiDetailsRequest
        * @return ListAuthorizedDataServiceApiDetailsResponse
@@ -3803,6 +4081,40 @@ namespace DataphinPublic20230630
        * @return ListInstancesResponse
        */
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
+
+      /**
+       * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
+       *
+       * @param tmpReq ListKgEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKgEntityResponse
+       */
+      Models::ListKgEntityResponse listKgEntityWithOptions(const Models::ListKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries knowledge graph entity records with paging. Online version: v6.1.1.
+       *
+       * @param request ListKgEntityRequest
+       * @return ListKgEntityResponse
+       */
+      Models::ListKgEntityResponse listKgEntity(const Models::ListKgEntityRequest &request);
+
+      /**
+       * @summary 分页查询知识图谱关系记录。
+       *
+       * @param tmpReq ListKgRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKgRelationResponse
+       */
+      Models::ListKgRelationResponse listKgRelationWithOptions(const Models::ListKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询知识图谱关系记录。
+       *
+       * @param request ListKgRelationRequest
+       * @return ListKgRelationResponse
+       */
+      Models::ListKgRelationResponse listKgRelation(const Models::ListKgRelationRequest &request);
 
       /**
        * @summary Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
@@ -4386,6 +4698,23 @@ namespace DataphinPublic20230630
       Models::PublishDataServiceApiResponse publishDataServiceApi(const Models::PublishDataServiceApiRequest &request);
 
       /**
+       * @summary Publishes a knowledge graph model. Online version: v6.2.0.
+       *
+       * @param tmpReq PublishKgSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishKgSchemaResponse
+       */
+      Models::PublishKgSchemaResponse publishKgSchemaWithOptions(const Models::PublishKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Publishes a knowledge graph model. Online version: v6.2.0.
+       *
+       * @param request PublishKgSchemaRequest
+       * @return PublishKgSchemaResponse
+       */
+      Models::PublishKgSchemaResponse publishKgSchema(const Models::PublishKgSchemaRequest &request);
+
+      /**
        * @summary Publishes objects in batches.
        *
        * @param tmpReq PublishObjectListRequest
@@ -4759,6 +5088,23 @@ namespace DataphinPublic20230630
       Models::UpdateAdHocFileResponse updateAdHocFile(const Models::UpdateAdHocFileRequest &request);
 
       /**
+       * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+       *
+       * @param tmpReq UpdateBasicProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBasicProjectResponse
+       */
+      Models::UpdateBasicProjectResponse updateBasicProjectWithOptions(const Models::UpdateBasicProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+       *
+       * @param request UpdateBasicProjectRequest
+       * @return UpdateBasicProjectResponse
+       */
+      Models::UpdateBasicProjectResponse updateBasicProject(const Models::UpdateBasicProjectRequest &request);
+
+      /**
        * @summary Updates an offline compute node.
        *
        * @param tmpReq UpdateBatchTaskRequest
@@ -5004,6 +5350,23 @@ namespace DataphinPublic20230630
       Models::UpdateDatasetResponse updateDataset(const Models::UpdateDatasetRequest &request);
 
       /**
+       * @summary Edits a Dev-Prod (dual-environment) project.
+       *
+       * @param tmpReq UpdateDevProdProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDevProdProjectResponse
+       */
+      Models::UpdateDevProdProjectResponse updateDevProdProjectWithOptions(const Models::UpdateDevProdProjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Edits a Dev-Prod (dual-environment) project.
+       *
+       * @param request UpdateDevProdProjectRequest
+       * @return UpdateDevProdProjectResponse
+       */
+      Models::UpdateDevProdProjectResponse updateDevProdProject(const Models::UpdateDevProdProjectRequest &request);
+
+      /**
        * @summary Moves the file position in the menu tree.
        *
        * @param request UpdateFileDirectoryRequest
@@ -5036,6 +5399,40 @@ namespace DataphinPublic20230630
        * @return UpdateFileNameResponse
        */
       Models::UpdateFileNameResponse updateFileName(const Models::UpdateFileNameRequest &request);
+
+      /**
+       * @summary Edits a knowledge graph entity record. Online version: v6.1.1.
+       *
+       * @param tmpReq UpdateKgEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKgEntityResponse
+       */
+      Models::UpdateKgEntityResponse updateKgEntityWithOptions(const Models::UpdateKgEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Edits a knowledge graph entity record. Online version: v6.1.1.
+       *
+       * @param request UpdateKgEntityRequest
+       * @return UpdateKgEntityResponse
+       */
+      Models::UpdateKgEntityResponse updateKgEntity(const Models::UpdateKgEntityRequest &request);
+
+      /**
+       * @summary Edits a knowledge graph relationship record. Online version: v6.1.1.
+       *
+       * @param tmpReq UpdateKgRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKgRelationResponse
+       */
+      Models::UpdateKgRelationResponse updateKgRelationWithOptions(const Models::UpdateKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Edits a knowledge graph relationship record. Online version: v6.1.1.
+       *
+       * @param request UpdateKgRelationRequest
+       * @return UpdateKgRelationResponse
+       */
+      Models::UpdateKgRelationResponse updateKgRelation(const Models::UpdateKgRelationRequest &request);
 
       /**
        * @summary Updates an integration pipeline or unstructured workflow node.
@@ -5144,7 +5541,7 @@ namespace DataphinPublic20230630
       Models::UpdateResourceResponse updateResource(const Models::UpdateResourceRequest &request);
 
       /**
-       * @summary Updates a row-level permission.
+       * @summary Updates row-level permissions.
        *
        * @param tmpReq UpdateRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5153,7 +5550,7 @@ namespace DataphinPublic20230630
       Models::UpdateRowPermissionResponse updateRowPermissionWithOptions(const Models::UpdateRowPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a row-level permission.
+       * @summary Updates row-level permissions.
        *
        * @param request UpdateRowPermissionRequest
        * @return UpdateRowPermissionResponse

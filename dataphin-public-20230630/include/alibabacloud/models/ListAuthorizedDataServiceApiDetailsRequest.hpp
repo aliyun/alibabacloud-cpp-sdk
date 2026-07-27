@@ -88,7 +88,6 @@ namespace Models
 
     protected:
       // The application key.
-      // >Notice: Deprecated. Use AppKeyStr instead.</notice>.
       shared_ptr<int64_t> appKey_ {};
       // The application key.
       shared_ptr<string> appKeyStr_ {};

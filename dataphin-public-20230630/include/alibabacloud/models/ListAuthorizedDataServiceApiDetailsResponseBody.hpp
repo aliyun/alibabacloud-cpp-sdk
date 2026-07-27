@@ -167,7 +167,7 @@ namespace Models
           shared_ptr<string> exampleValue_ {};
           // The field authorization status.
           shared_ptr<int32_t> isAuthorized_ {};
-          // The parameter type.
+          // The parameter data type.
           shared_ptr<int32_t> parameterDataType_ {};
           // The description.
           shared_ptr<string> parameterDescription_ {};
@@ -244,7 +244,7 @@ namespace Models
           shared_ptr<string> exampleValue_ {};
           // The field authorization status.
           shared_ptr<int32_t> isAuthorized_ {};
-          // The parameter type.
+          // The parameter data type.
           shared_ptr<int32_t> parameterDataType_ {};
           // The description.
           shared_ptr<string> parameterDescription_ {};
@@ -338,9 +338,9 @@ namespace Models
         shared_ptr<int64_t> appId_ {};
         // The permission type.
         shared_ptr<string> authType_ {};
-        // The list of fields authorized for the API in the development environment.
+        // The list of authorized fields for the API in the development environment.
         shared_ptr<vector<Data::AuthorizedDevReturnParameters>> authorizedDevReturnParameters_ {};
-        // The list of fields authorized for the API in the production environment.
+        // The list of authorized fields for the API in the production environment.
         shared_ptr<vector<Data::AuthorizedProdReturnParameters>> authorizedProdReturnParameters_ {};
         // The API description.
         shared_ptr<string> description_ {};
@@ -430,7 +430,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID. It is a unique identifier for the request.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
     // The query result.
     shared_ptr<ListAuthorizedDataServiceApiDetailsResponseBody::Result> result_ {};

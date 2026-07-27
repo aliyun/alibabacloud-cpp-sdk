@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // List of table GUIDs
+      // The list of table GUIDs.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> tableGuids_ {};
@@ -87,11 +87,11 @@ namespace Models
 
 
   protected:
-    // Request command
+    // The request command.
     // 
     // This parameter is required.
     shared_ptr<GetRowPermissionByTableGuidsRequest::GetRowPermissionByTableGuidsQuery> getRowPermissionByTableGuidsQuery_ {};
-    // Tenant ID
+    // The tenant ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};

@@ -181,18 +181,39 @@ namespace Models
 
 
     protected:
+      // The start time.
       shared_ptr<string> beginTime_ {};
+      // The code type. Valid values:
+      // - SQL0: SQL
+      // - shell1: Shell
+      // - Python2: Python
+      // - MR3: MR
+      // - Spark4: Spark
       shared_ptr<int32_t> codeType_ {};
+      // The execution duration, in milliseconds.
       shared_ptr<int64_t> duration_ {};
+      // The record ID.
       shared_ptr<int64_t> id_ {};
+      // The name.
       shared_ptr<string> name_ {};
+      // The object type.
       shared_ptr<string> objectType_ {};
+      // The operation log ID.
       shared_ptr<int64_t> operationId_ {};
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
+      // The list of related tables.
       shared_ptr<vector<string>> relationTables_ {};
+      // The ID of the runner.
       shared_ptr<string> runner_ {};
+      // The name of the runner.
       shared_ptr<string> runnerName_ {};
+      // The node status. Valid values:
+      // - 4: Running.
+      // - 5: Succeeded.
+      // - 6: Failed.
       shared_ptr<int32_t> status_ {};
+      // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
     };
 
@@ -243,11 +264,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // The operation log details.
     shared_ptr<GetOperationRecordByIdResponseBody::OperationLogDTO> operationLogDTO_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 
