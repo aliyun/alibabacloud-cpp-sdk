@@ -10291,5 +10291,63 @@ UploadMaterialFileResponse Client::uploadMaterialFile(const UploadMaterialFileRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadMaterialFileWithOptions(request, runtime);
 }
+
+/**
+ * @summary Uploads a material file as an administrator (AI-generated).
+ *
+ * @description The Supabase instance information corresponding to the operation resource.
+ *
+ * @param request UploadMaterialFileForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadMaterialFileForAdminResponse
+ */
+UploadMaterialFileForAdminResponse Client::uploadMaterialFileForAdminWithOptions(const UploadMaterialFileForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBelongId()) {
+    query["BelongId"] = request.getBelongId();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasFileUrl()) {
+    query["FileUrl"] = request.getFileUrl();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadMaterialFileForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadMaterialFileForAdminResponse>();
+}
+
+/**
+ * @summary Uploads a material file as an administrator (AI-generated).
+ *
+ * @description The Supabase instance information corresponding to the operation resource.
+ *
+ * @param request UploadMaterialFileForAdminRequest
+ * @return UploadMaterialFileForAdminResponse
+ */
+UploadMaterialFileForAdminResponse Client::uploadMaterialFileForAdmin(const UploadMaterialFileForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadMaterialFileForAdminWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace WebsiteBuild20250429

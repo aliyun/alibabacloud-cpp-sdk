@@ -567,5 +567,8 @@
 #include <alibabacloud/models/UploadMaterialFileRequest.hpp>
 #include <alibabacloud/models/UploadMaterialFileResponseBody.hpp>
 #include <alibabacloud/models/UploadMaterialFileResponse.hpp>
+#include <alibabacloud/models/UploadMaterialFileForAdminRequest.hpp>
+#include <alibabacloud/models/UploadMaterialFileForAdminResponseBody.hpp>
+#include <alibabacloud/models/UploadMaterialFileForAdminResponse.hpp>
 
 #endif

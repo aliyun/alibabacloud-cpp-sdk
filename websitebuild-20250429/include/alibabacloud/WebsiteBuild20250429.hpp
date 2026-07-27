@@ -3534,6 +3534,27 @@ namespace WebsiteBuild20250429
        * @return UploadMaterialFileResponse
        */
       Models::UploadMaterialFileResponse uploadMaterialFile(const Models::UploadMaterialFileRequest &request);
+
+      /**
+       * @summary Uploads a material file as an administrator (AI-generated).
+       *
+       * @description The Supabase instance information corresponding to the operation resource.
+       *
+       * @param request UploadMaterialFileForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadMaterialFileForAdminResponse
+       */
+      Models::UploadMaterialFileForAdminResponse uploadMaterialFileForAdminWithOptions(const Models::UploadMaterialFileForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Uploads a material file as an administrator (AI-generated).
+       *
+       * @description The Supabase instance information corresponding to the operation resource.
+       *
+       * @param request UploadMaterialFileForAdminRequest
+       * @return UploadMaterialFileForAdminResponse
+       */
+      Models::UploadMaterialFileForAdminResponse uploadMaterialFileForAdmin(const Models::UploadMaterialFileForAdminRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace WebsiteBuild20250429
