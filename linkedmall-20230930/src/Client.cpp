@@ -899,9 +899,9 @@ QueryChildDivisionCodeResponse Client::queryChildDivisionCode(const QueryChildDi
 }
 
 /**
- * @summary Queries a list of orders.
+ * @summary Lists orders.
  *
- * @description Queries a list of orders.
+ * @description Lists orders.
  *
  * @param request QueryOrdersRequest
  * @param headers map
@@ -929,9 +929,9 @@ QueryOrdersResponse Client::queryOrdersWithOptions(const QueryOrdersRequest &req
 }
 
 /**
- * @summary Queries a list of orders.
+ * @summary Lists orders.
  *
- * @description Queries a list of orders.
+ * @description Lists orders.
  *
  * @param request QueryOrdersRequest
  * @return QueryOrdersResponse

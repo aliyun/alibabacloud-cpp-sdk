@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Contains the query parameters to retrieve a list of main orders.
+    // Queries the list of main orders.
     // 
     // This parameter is required.
     shared_ptr<OrderPageQuery> body_ {};

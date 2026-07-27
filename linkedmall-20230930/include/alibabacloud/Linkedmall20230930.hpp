@@ -403,9 +403,9 @@ namespace Linkedmall20230930
       Models::QueryChildDivisionCodeResponse queryChildDivisionCode(const Models::QueryChildDivisionCodeRequest &request);
 
       /**
-       * @summary Queries a list of orders.
+       * @summary Lists orders.
        *
-       * @description Queries a list of orders.
+       * @description Lists orders.
        *
        * @param request QueryOrdersRequest
        * @param headers map
@@ -415,9 +415,9 @@ namespace Linkedmall20230930
       Models::QueryOrdersResponse queryOrdersWithOptions(const Models::QueryOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of orders.
+       * @summary Lists orders.
        *
-       * @description Queries a list of orders.
+       * @description Lists orders.
        *
        * @param request QueryOrdersRequest
        * @return QueryOrdersResponse

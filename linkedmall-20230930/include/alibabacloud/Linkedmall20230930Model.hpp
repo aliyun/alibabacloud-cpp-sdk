@@ -9,6 +9,7 @@
 #include <alibabacloud/models/CategoryListResult.hpp>
 #include <alibabacloud/models/ConfirmDisburseCmd.hpp>
 #include <alibabacloud/models/ConfirmDisburseResult.hpp>
+#include <alibabacloud/models/ConfirmReceiptCmd.hpp>
 #include <alibabacloud/models/CooperationShop.hpp>
 #include <alibabacloud/models/CreateAliPayUrlRequest.hpp>
 #include <alibabacloud/models/CreateAliPayUrlResult.hpp>

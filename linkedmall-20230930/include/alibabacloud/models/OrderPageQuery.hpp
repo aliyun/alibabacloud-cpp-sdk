@@ -15,12 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const OrderPageQuery& obj) { 
       DARABONBA_PTR_TO_JSON(orderIdList, orderIdList_);
+      DARABONBA_PTR_TO_JSON(outPurchaseOrderId, outPurchaseOrderId_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(purchaseOrderId, purchaseOrderId_);
     };
     friend void from_json(const Darabonba::Json& j, OrderPageQuery& obj) { 
       DARABONBA_PTR_FROM_JSON(orderIdList, orderIdList_);
+      DARABONBA_PTR_FROM_JSON(outPurchaseOrderId, outPurchaseOrderId_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(purchaseOrderId, purchaseOrderId_);
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->orderIdList_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->purchaseOrderId_ == nullptr; };
+        && this->outPurchaseOrderId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->purchaseOrderId_ == nullptr; };
     // orderIdList Field Functions 
     bool hasOrderIdList() const { return this->orderIdList_ != nullptr;};
     void deleteOrderIdList() { this->orderIdList_ = nullptr;};
@@ -45,6 +47,13 @@ namespace Models
     inline vector<string> getOrderIdList() { DARABONBA_PTR_GET(orderIdList_, vector<string>) };
     inline OrderPageQuery& setOrderIdList(const vector<string> & orderIdList) { DARABONBA_PTR_SET_VALUE(orderIdList_, orderIdList) };
     inline OrderPageQuery& setOrderIdList(vector<string> && orderIdList) { DARABONBA_PTR_SET_RVALUE(orderIdList_, orderIdList) };
+
+
+    // outPurchaseOrderId Field Functions 
+    bool hasOutPurchaseOrderId() const { return this->outPurchaseOrderId_ != nullptr;};
+    void deleteOutPurchaseOrderId() { this->outPurchaseOrderId_ = nullptr;};
+    inline string getOutPurchaseOrderId() const { DARABONBA_PTR_GET_DEFAULT(outPurchaseOrderId_, "") };
+    inline OrderPageQuery& setOutPurchaseOrderId(string outPurchaseOrderId) { DARABONBA_PTR_SET_VALUE(outPurchaseOrderId_, outPurchaseOrderId) };
 
 
     // pageNumber Field Functions 
@@ -69,17 +78,19 @@ namespace Models
 
 
   protected:
-    // Collection of primary order IDs
+    // The collection of primary order IDs.
     shared_ptr<vector<string>> orderIdList_ {};
-    // Page number
+    // The external purchase order ID.
+    shared_ptr<string> outPurchaseOrderId_ {};
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Quantity per page
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Purchase order ID
+    // The purchase order ID.
     shared_ptr<string> purchaseOrderId_ {};
   };
 

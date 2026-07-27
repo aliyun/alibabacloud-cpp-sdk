@@ -112,37 +112,28 @@ namespace Models
 
 
   protected:
-    // The number of available units.
+    // The number of unredeemed voucher electronic credentials.
     shared_ptr<int64_t> availableNum_ {};
-    // The unique code for the e-ticket.
+    // The code of the voucher electronic credential.
     shared_ptr<string> code_ {};
-    // The status of the e-ticket.
-    // 
-    // > Valid enum values:
-    // >
+    // The status of the voucher electronic credential.
+    // > Valid values:
     // > - 1: valid
-    // >
     // > - -1: redeemed
-    // >
     // > - -2: expired
-    // >
-    // > - -5: expired
-    // >
-    // > - -8: expired
+    // > - 100: locked
     shared_ptr<int64_t> codeStatus_ {};
-    // The end time of the e-ticket validity period.
+    // The end time of the validity period for the voucher electronic credential.
     shared_ptr<string> endTime_ {};
-    // The number of locked units.
+    // The number of voucher electronic credentials in locked status.
     shared_ptr<int64_t> lockNum_ {};
-    // The URL of the QR code image for the e-ticket.
-    // 
-    // > This field is not currently populated. Distributors must generate the QR code using the `code` field.
+    // The URL of the QR code image for the voucher electronic credential.
     shared_ptr<string> qrcodeUrl_ {};
-    // The start time of the e-ticket validity period.
+    // The start time of the validity period for the voucher electronic credential.
     shared_ptr<string> startTime_ {};
-    // The time the e-ticket was redeemed.
+    // The redemption time of the voucher electronic credential.
     shared_ptr<string> useTime_ {};
-    // The number of redeemed units.
+    // The number of redeemed voucher electronic credentials.
     shared_ptr<int64_t> usedNum_ {};
   };
 
