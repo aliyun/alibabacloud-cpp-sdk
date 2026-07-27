@@ -8,7 +8,9 @@
 #include <alibabacloud/models/ConditionConfigUnified.hpp>
 #include <alibabacloud/models/DatasourceConfigUnified.hpp>
 #include <alibabacloud/models/NotifyConfigUnified.hpp>
+#include <alibabacloud/models/ObserveResourceConfig.hpp>
 #include <alibabacloud/models/QueryConfigUnified.hpp>
+#include <alibabacloud/models/AlertRuleRcaConfig.hpp>
 #include <alibabacloud/models/ScheduleConfigUnified.hpp>
 #include <vector>
 using namespace std;
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(actionIntegrationConfig, actionIntegrationConfig_);
       DARABONBA_PTR_TO_JSON(annotations, annotations_);
       DARABONBA_PTR_TO_JSON(armsIntegrationConfig, armsIntegrationConfig_);
+      DARABONBA_PTR_TO_JSON(bizSource, bizSource_);
       DARABONBA_PTR_TO_JSON(conditionConfig, conditionConfig_);
       DARABONBA_PTR_TO_JSON(contentTemplate, contentTemplate_);
       DARABONBA_PTR_TO_JSON(datasourceConfig, datasourceConfig_);
@@ -33,9 +36,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(notifyConfig, notifyConfig_);
+      DARABONBA_PTR_TO_JSON(observeResourceConfig, observeResourceConfig_);
       DARABONBA_PTR_TO_JSON(observeResourceInstanceId, observeResourceInstanceId_);
       DARABONBA_PTR_TO_JSON(observeResourceType, observeResourceType_);
       DARABONBA_PTR_TO_JSON(queryConfig, queryConfig_);
+      DARABONBA_PTR_TO_JSON(rcaConfig, rcaConfig_);
+      DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(scheduleConfig, scheduleConfig_);
       DARABONBA_PTR_TO_JSON(uuid, uuid_);
       DARABONBA_PTR_TO_JSON(uuidList, uuidList_);
@@ -46,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(actionIntegrationConfig, actionIntegrationConfig_);
       DARABONBA_PTR_FROM_JSON(annotations, annotations_);
       DARABONBA_PTR_FROM_JSON(armsIntegrationConfig, armsIntegrationConfig_);
+      DARABONBA_PTR_FROM_JSON(bizSource, bizSource_);
       DARABONBA_PTR_FROM_JSON(conditionConfig, conditionConfig_);
       DARABONBA_PTR_FROM_JSON(contentTemplate, contentTemplate_);
       DARABONBA_PTR_FROM_JSON(datasourceConfig, datasourceConfig_);
@@ -53,9 +60,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(notifyConfig, notifyConfig_);
+      DARABONBA_PTR_FROM_JSON(observeResourceConfig, observeResourceConfig_);
       DARABONBA_PTR_FROM_JSON(observeResourceInstanceId, observeResourceInstanceId_);
       DARABONBA_PTR_FROM_JSON(observeResourceType, observeResourceType_);
       DARABONBA_PTR_FROM_JSON(queryConfig, queryConfig_);
+      DARABONBA_PTR_FROM_JSON(rcaConfig, rcaConfig_);
+      DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(scheduleConfig, scheduleConfig_);
       DARABONBA_PTR_FROM_JSON(uuid, uuid_);
       DARABONBA_PTR_FROM_JSON(uuidList, uuidList_);
@@ -73,10 +83,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && this->actionIntegrationConfig_ == nullptr && this->annotations_ == nullptr && this->armsIntegrationConfig_ == nullptr && this->conditionConfig_ == nullptr && this->contentTemplate_ == nullptr
-        && this->datasourceConfig_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->notifyConfig_ == nullptr
-        && this->observeResourceInstanceId_ == nullptr && this->observeResourceType_ == nullptr && this->queryConfig_ == nullptr && this->scheduleConfig_ == nullptr && this->uuid_ == nullptr
-        && this->uuidList_ == nullptr && this->workspace_ == nullptr; };
+        && this->actionIntegrationConfig_ == nullptr && this->annotations_ == nullptr && this->armsIntegrationConfig_ == nullptr && this->bizSource_ == nullptr && this->conditionConfig_ == nullptr
+        && this->contentTemplate_ == nullptr && this->datasourceConfig_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr
+        && this->notifyConfig_ == nullptr && this->observeResourceConfig_ == nullptr && this->observeResourceInstanceId_ == nullptr && this->observeResourceType_ == nullptr && this->queryConfig_ == nullptr
+        && this->rcaConfig_ == nullptr && this->regionId_ == nullptr && this->scheduleConfig_ == nullptr && this->uuid_ == nullptr && this->uuidList_ == nullptr
+        && this->workspace_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -109,6 +120,13 @@ namespace Models
     inline ArmsIntegrationConfig getArmsIntegrationConfig() { DARABONBA_PTR_GET(armsIntegrationConfig_, ArmsIntegrationConfig) };
     inline ManageAlertRulesUnifiedActionInput& setArmsIntegrationConfig(const ArmsIntegrationConfig & armsIntegrationConfig) { DARABONBA_PTR_SET_VALUE(armsIntegrationConfig_, armsIntegrationConfig) };
     inline ManageAlertRulesUnifiedActionInput& setArmsIntegrationConfig(ArmsIntegrationConfig && armsIntegrationConfig) { DARABONBA_PTR_SET_RVALUE(armsIntegrationConfig_, armsIntegrationConfig) };
+
+
+    // bizSource Field Functions 
+    bool hasBizSource() const { return this->bizSource_ != nullptr;};
+    void deleteBizSource() { this->bizSource_ = nullptr;};
+    inline string getBizSource() const { DARABONBA_PTR_GET_DEFAULT(bizSource_, "") };
+    inline ManageAlertRulesUnifiedActionInput& setBizSource(string bizSource) { DARABONBA_PTR_SET_VALUE(bizSource_, bizSource) };
 
 
     // conditionConfig Field Functions 
@@ -168,6 +186,15 @@ namespace Models
     inline ManageAlertRulesUnifiedActionInput& setNotifyConfig(NotifyConfigUnified && notifyConfig) { DARABONBA_PTR_SET_RVALUE(notifyConfig_, notifyConfig) };
 
 
+    // observeResourceConfig Field Functions 
+    bool hasObserveResourceConfig() const { return this->observeResourceConfig_ != nullptr;};
+    void deleteObserveResourceConfig() { this->observeResourceConfig_ = nullptr;};
+    inline const ObserveResourceConfig & getObserveResourceConfig() const { DARABONBA_PTR_GET_CONST(observeResourceConfig_, ObserveResourceConfig) };
+    inline ObserveResourceConfig getObserveResourceConfig() { DARABONBA_PTR_GET(observeResourceConfig_, ObserveResourceConfig) };
+    inline ManageAlertRulesUnifiedActionInput& setObserveResourceConfig(const ObserveResourceConfig & observeResourceConfig) { DARABONBA_PTR_SET_VALUE(observeResourceConfig_, observeResourceConfig) };
+    inline ManageAlertRulesUnifiedActionInput& setObserveResourceConfig(ObserveResourceConfig && observeResourceConfig) { DARABONBA_PTR_SET_RVALUE(observeResourceConfig_, observeResourceConfig) };
+
+
     // observeResourceInstanceId Field Functions 
     bool hasObserveResourceInstanceId() const { return this->observeResourceInstanceId_ != nullptr;};
     void deleteObserveResourceInstanceId() { this->observeResourceInstanceId_ = nullptr;};
@@ -189,6 +216,22 @@ namespace Models
     inline QueryConfigUnified getQueryConfig() { DARABONBA_PTR_GET(queryConfig_, QueryConfigUnified) };
     inline ManageAlertRulesUnifiedActionInput& setQueryConfig(const QueryConfigUnified & queryConfig) { DARABONBA_PTR_SET_VALUE(queryConfig_, queryConfig) };
     inline ManageAlertRulesUnifiedActionInput& setQueryConfig(QueryConfigUnified && queryConfig) { DARABONBA_PTR_SET_RVALUE(queryConfig_, queryConfig) };
+
+
+    // rcaConfig Field Functions 
+    bool hasRcaConfig() const { return this->rcaConfig_ != nullptr;};
+    void deleteRcaConfig() { this->rcaConfig_ = nullptr;};
+    inline const AlertRuleRcaConfig & getRcaConfig() const { DARABONBA_PTR_GET_CONST(rcaConfig_, AlertRuleRcaConfig) };
+    inline AlertRuleRcaConfig getRcaConfig() { DARABONBA_PTR_GET(rcaConfig_, AlertRuleRcaConfig) };
+    inline ManageAlertRulesUnifiedActionInput& setRcaConfig(const AlertRuleRcaConfig & rcaConfig) { DARABONBA_PTR_SET_VALUE(rcaConfig_, rcaConfig) };
+    inline ManageAlertRulesUnifiedActionInput& setRcaConfig(AlertRuleRcaConfig && rcaConfig) { DARABONBA_PTR_SET_RVALUE(rcaConfig_, rcaConfig) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline ManageAlertRulesUnifiedActionInput& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // scheduleConfig Field Functions 
@@ -229,6 +272,7 @@ namespace Models
     shared_ptr<ActionIntegrationConfig> actionIntegrationConfig_ {};
     shared_ptr<map<string, string>> annotations_ {};
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
+    shared_ptr<string> bizSource_ {};
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
     shared_ptr<string> contentTemplate_ {};
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
@@ -236,9 +280,12 @@ namespace Models
     shared_ptr<bool> enabled_ {};
     shared_ptr<map<string, string>> labels_ {};
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
+    shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
     shared_ptr<string> observeResourceInstanceId_ {};
     shared_ptr<string> observeResourceType_ {};
     shared_ptr<QueryConfigUnified> queryConfig_ {};
+    shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
+    shared_ptr<string> regionId_ {};
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
     shared_ptr<string> uuid_ {};
     shared_ptr<vector<string>> uuidList_ {};

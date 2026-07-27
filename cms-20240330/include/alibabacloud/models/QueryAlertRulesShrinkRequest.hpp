@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(queryJson, queryJson_);
     };
     friend void from_json(const Darabonba::Json& j, QueryAlertRulesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(body, bodyShrink_);
       DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(queryJson, queryJson_);
     };
     QueryAlertRulesShrinkRequest() = default ;
     QueryAlertRulesShrinkRequest(const QueryAlertRulesShrinkRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bodyShrink_ == nullptr
-        && this->clientToken_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
+        && this->clientToken_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->queryJson_ == nullptr; };
     // bodyShrink Field Functions 
     bool hasBodyShrink() const { return this->bodyShrink_ != nullptr;};
     void deleteBodyShrink() { this->bodyShrink_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline QueryAlertRulesShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // queryJson Field Functions 
+    bool hasQueryJson() const { return this->queryJson_ != nullptr;};
+    void deleteQueryJson() { this->queryJson_ = nullptr;};
+    inline string getQueryJson() const { DARABONBA_PTR_GET_DEFAULT(queryJson_, "") };
+    inline QueryAlertRulesShrinkRequest& setQueryJson(string queryJson) { DARABONBA_PTR_SET_VALUE(queryJson_, queryJson) };
+
+
   protected:
     // The request body for querying alert rules.
     shared_ptr<string> bodyShrink_ {};
@@ -72,8 +81,9 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The maximum number of data records to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which you want to start reading data. If you leave this parameter empty, data is read from the beginning.
+    // The token that marks the position from which you want to start reading. If this parameter is left empty, data is read from the beginning.
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> queryJson_ {};
   };
 
   } // namespace Models

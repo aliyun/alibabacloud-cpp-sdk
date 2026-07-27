@@ -1995,8 +1995,6 @@ namespace Cms20240330
       /**
        * @summary Retrieves the list of data delivery tasks.
        *
-       * @description Deletes a specified site monitoring task.
-       *
        * @param tmpReq ListDeliveryTasksRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2006,8 +2004,6 @@ namespace Cms20240330
 
       /**
        * @summary Retrieves the list of data delivery tasks.
-       *
-       * @description Deletes a specified site monitoring task.
        *
        * @param request ListDeliveryTasksRequest
        * @return ListDeliveryTasksResponse
@@ -2455,7 +2451,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert rules.
        *
-       * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param tmpReq QueryAlertRulesRequest
        * @param headers map
@@ -2467,7 +2463,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert rules.
        *
-       * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param request QueryAlertRulesRequest
        * @return QueryAlertRulesResponse
@@ -2703,9 +2699,7 @@ namespace Cms20240330
       Models::UpdateDatasetResponse updateDataset(const string &workspace, const string &datasetName, const Models::UpdateDatasetRequest &request);
 
       /**
-       * @summary Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
-       *
-       * @description Deletes a specified site monitoring task.
+       * @summary Updates a data delivery task.
        *
        * @param request UpdateDeliveryTaskRequest
        * @param headers map
@@ -2715,9 +2709,7 @@ namespace Cms20240330
       Models::UpdateDeliveryTaskResponse updateDeliveryTaskWithOptions(const string &taskId, const Models::UpdateDeliveryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
-       *
-       * @description Deletes a specified site monitoring task.
+       * @summary Updates a data delivery task.
        *
        * @param request UpdateDeliveryTaskRequest
        * @return UpdateDeliveryTaskResponse

@@ -2,11 +2,14 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYALERTRULESFILTER_HPP_
 #define ALIBABACLOUD_MODELS_QUERYALERTRULESFILTER_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/BizSourceFilter.hpp>
 #include <alibabacloud/models/DatasourceTypeFilter.hpp>
 #include <alibabacloud/models/DisplayNameFilter.hpp>
 #include <alibabacloud/models/EnabledFilter.hpp>
 #include <alibabacloud/models/LabelsFilter.hpp>
+#include <alibabacloud/models/NotificationChannelsFilter.hpp>
 #include <alibabacloud/models/NotifyStrategyIdFilter.hpp>
+#include <alibabacloud/models/ObserveResourceConfigFilter.hpp>
 #include <alibabacloud/models/ObserveResourceGlobalScopeFilter.hpp>
 #include <alibabacloud/models/ObserveResourceListFilter.hpp>
 #include <alibabacloud/models/ObserveResourceTypeFilter.hpp>
@@ -25,11 +28,14 @@ namespace Models
   class QueryAlertRulesFilter : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryAlertRulesFilter& obj) { 
+      DARABONBA_PTR_TO_JSON(bizSource, bizSource_);
       DARABONBA_PTR_TO_JSON(datasourceType, datasourceType_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
+      DARABONBA_PTR_TO_JSON(notificationChannels, notificationChannels_);
       DARABONBA_PTR_TO_JSON(notifyStrategyId, notifyStrategyId_);
+      DARABONBA_PTR_TO_JSON(observeResourceConfig, observeResourceConfig_);
       DARABONBA_PTR_TO_JSON(observeResourceGlobalScope, observeResourceGlobalScope_);
       DARABONBA_PTR_TO_JSON(observeResourceInstanceId, observeResourceInstanceId_);
       DARABONBA_PTR_TO_JSON(observeResourceList, observeResourceList_);
@@ -40,11 +46,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, QueryAlertRulesFilter& obj) { 
+      DARABONBA_PTR_FROM_JSON(bizSource, bizSource_);
       DARABONBA_PTR_FROM_JSON(datasourceType, datasourceType_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
+      DARABONBA_PTR_FROM_JSON(notificationChannels, notificationChannels_);
       DARABONBA_PTR_FROM_JSON(notifyStrategyId, notifyStrategyId_);
+      DARABONBA_PTR_FROM_JSON(observeResourceConfig, observeResourceConfig_);
       DARABONBA_PTR_FROM_JSON(observeResourceGlobalScope, observeResourceGlobalScope_);
       DARABONBA_PTR_FROM_JSON(observeResourceInstanceId, observeResourceInstanceId_);
       DARABONBA_PTR_FROM_JSON(observeResourceList, observeResourceList_);
@@ -65,10 +74,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->datasourceType_ == nullptr
-        && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->notifyStrategyId_ == nullptr && this->observeResourceGlobalScope_ == nullptr
-        && this->observeResourceInstanceId_ == nullptr && this->observeResourceList_ == nullptr && this->observeResourceType_ == nullptr && this->partitionKey_ == nullptr && this->severityLevels_ == nullptr
-        && this->status_ == nullptr && this->uuid_ == nullptr; };
+    virtual bool empty() const override { return this->bizSource_ == nullptr
+        && this->datasourceType_ == nullptr && this->displayName_ == nullptr && this->enabled_ == nullptr && this->labels_ == nullptr && this->notificationChannels_ == nullptr
+        && this->notifyStrategyId_ == nullptr && this->observeResourceConfig_ == nullptr && this->observeResourceGlobalScope_ == nullptr && this->observeResourceInstanceId_ == nullptr && this->observeResourceList_ == nullptr
+        && this->observeResourceType_ == nullptr && this->partitionKey_ == nullptr && this->severityLevels_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
+    // bizSource Field Functions 
+    bool hasBizSource() const { return this->bizSource_ != nullptr;};
+    void deleteBizSource() { this->bizSource_ = nullptr;};
+    inline const BizSourceFilter & getBizSource() const { DARABONBA_PTR_GET_CONST(bizSource_, BizSourceFilter) };
+    inline BizSourceFilter getBizSource() { DARABONBA_PTR_GET(bizSource_, BizSourceFilter) };
+    inline QueryAlertRulesFilter& setBizSource(const BizSourceFilter & bizSource) { DARABONBA_PTR_SET_VALUE(bizSource_, bizSource) };
+    inline QueryAlertRulesFilter& setBizSource(BizSourceFilter && bizSource) { DARABONBA_PTR_SET_RVALUE(bizSource_, bizSource) };
+
+
     // datasourceType Field Functions 
     bool hasDatasourceType() const { return this->datasourceType_ != nullptr;};
     void deleteDatasourceType() { this->datasourceType_ = nullptr;};
@@ -105,6 +123,15 @@ namespace Models
     inline QueryAlertRulesFilter& setLabels(LabelsFilter && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
+    // notificationChannels Field Functions 
+    bool hasNotificationChannels() const { return this->notificationChannels_ != nullptr;};
+    void deleteNotificationChannels() { this->notificationChannels_ = nullptr;};
+    inline const NotificationChannelsFilter & getNotificationChannels() const { DARABONBA_PTR_GET_CONST(notificationChannels_, NotificationChannelsFilter) };
+    inline NotificationChannelsFilter getNotificationChannels() { DARABONBA_PTR_GET(notificationChannels_, NotificationChannelsFilter) };
+    inline QueryAlertRulesFilter& setNotificationChannels(const NotificationChannelsFilter & notificationChannels) { DARABONBA_PTR_SET_VALUE(notificationChannels_, notificationChannels) };
+    inline QueryAlertRulesFilter& setNotificationChannels(NotificationChannelsFilter && notificationChannels) { DARABONBA_PTR_SET_RVALUE(notificationChannels_, notificationChannels) };
+
+
     // notifyStrategyId Field Functions 
     bool hasNotifyStrategyId() const { return this->notifyStrategyId_ != nullptr;};
     void deleteNotifyStrategyId() { this->notifyStrategyId_ = nullptr;};
@@ -112,6 +139,15 @@ namespace Models
     inline NotifyStrategyIdFilter getNotifyStrategyId() { DARABONBA_PTR_GET(notifyStrategyId_, NotifyStrategyIdFilter) };
     inline QueryAlertRulesFilter& setNotifyStrategyId(const NotifyStrategyIdFilter & notifyStrategyId) { DARABONBA_PTR_SET_VALUE(notifyStrategyId_, notifyStrategyId) };
     inline QueryAlertRulesFilter& setNotifyStrategyId(NotifyStrategyIdFilter && notifyStrategyId) { DARABONBA_PTR_SET_RVALUE(notifyStrategyId_, notifyStrategyId) };
+
+
+    // observeResourceConfig Field Functions 
+    bool hasObserveResourceConfig() const { return this->observeResourceConfig_ != nullptr;};
+    void deleteObserveResourceConfig() { this->observeResourceConfig_ = nullptr;};
+    inline const ObserveResourceConfigFilter & getObserveResourceConfig() const { DARABONBA_PTR_GET_CONST(observeResourceConfig_, ObserveResourceConfigFilter) };
+    inline ObserveResourceConfigFilter getObserveResourceConfig() { DARABONBA_PTR_GET(observeResourceConfig_, ObserveResourceConfigFilter) };
+    inline QueryAlertRulesFilter& setObserveResourceConfig(const ObserveResourceConfigFilter & observeResourceConfig) { DARABONBA_PTR_SET_VALUE(observeResourceConfig_, observeResourceConfig) };
+    inline QueryAlertRulesFilter& setObserveResourceConfig(ObserveResourceConfigFilter && observeResourceConfig) { DARABONBA_PTR_SET_RVALUE(observeResourceConfig_, observeResourceConfig) };
 
 
     // observeResourceGlobalScope Field Functions 
@@ -185,23 +221,21 @@ namespace Models
 
 
   protected:
+    shared_ptr<BizSourceFilter> bizSource_ {};
     shared_ptr<DatasourceTypeFilter> datasourceType_ {};
-    // Filters alert rules by display name.
     shared_ptr<DisplayNameFilter> displayName_ {};
-    // Filters alert rules by enabled status.
     shared_ptr<EnabledFilter> enabled_ {};
-    // Filters alert rules by label.
     shared_ptr<LabelsFilter> labels_ {};
+    shared_ptr<NotificationChannelsFilter> notificationChannels_ {};
     shared_ptr<NotifyStrategyIdFilter> notifyStrategyId_ {};
+    shared_ptr<ObserveResourceConfigFilter> observeResourceConfig_ {};
     shared_ptr<ObserveResourceGlobalScopeFilter> observeResourceGlobalScope_ {};
     shared_ptr<string> observeResourceInstanceId_ {};
     shared_ptr<ObserveResourceListFilter> observeResourceList_ {};
     shared_ptr<ObserveResourceTypeFilter> observeResourceType_ {};
     shared_ptr<PartitionKeyFilter> partitionKey_ {};
     shared_ptr<SeverityLevelsFilter> severityLevels_ {};
-    // Filters alert rules by status.
     shared_ptr<StatusFilter> status_ {};
-    // Filters alert rules by UUID.
     shared_ptr<UuidFilter> uuid_ {};
   };
 

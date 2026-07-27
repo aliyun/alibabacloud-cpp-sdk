@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_METRICSETNAMEDQUERYENTRY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UmodelLabelFilter.hpp>
+#include <alibabacloud/models/LabelFilters.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -42,10 +42,10 @@ namespace Models
     // labelFilters Field Functions 
     bool hasLabelFilters() const { return this->labelFilters_ != nullptr;};
     void deleteLabelFilters() { this->labelFilters_ = nullptr;};
-    inline const vector<UmodelLabelFilter> & getLabelFilters() const { DARABONBA_PTR_GET_CONST(labelFilters_, vector<UmodelLabelFilter>) };
-    inline vector<UmodelLabelFilter> getLabelFilters() { DARABONBA_PTR_GET(labelFilters_, vector<UmodelLabelFilter>) };
-    inline MetricSetNamedQueryEntry& setLabelFilters(const vector<UmodelLabelFilter> & labelFilters) { DARABONBA_PTR_SET_VALUE(labelFilters_, labelFilters) };
-    inline MetricSetNamedQueryEntry& setLabelFilters(vector<UmodelLabelFilter> && labelFilters) { DARABONBA_PTR_SET_RVALUE(labelFilters_, labelFilters) };
+    inline const vector<LabelFilters> & getLabelFilters() const { DARABONBA_PTR_GET_CONST(labelFilters_, vector<LabelFilters>) };
+    inline vector<LabelFilters> getLabelFilters() { DARABONBA_PTR_GET(labelFilters_, vector<LabelFilters>) };
+    inline MetricSetNamedQueryEntry& setLabelFilters(const vector<LabelFilters> & labelFilters) { DARABONBA_PTR_SET_VALUE(labelFilters_, labelFilters) };
+    inline MetricSetNamedQueryEntry& setLabelFilters(vector<LabelFilters> && labelFilters) { DARABONBA_PTR_SET_RVALUE(labelFilters_, labelFilters) };
 
 
     // metric Field Functions 
@@ -70,7 +70,7 @@ namespace Models
 
 
   protected:
-    shared_ptr<vector<UmodelLabelFilter>> labelFilters_ {};
+    shared_ptr<vector<LabelFilters>> labelFilters_ {};
     shared_ptr<string> metric_ {};
     shared_ptr<string> metricSet_ {};
     shared_ptr<string> name_ {};

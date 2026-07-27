@@ -59,7 +59,6 @@ AlibabaCloud::Cms20240330::Client::Client(Config &config): OpenApiClient(config)
     {"ap-southeast-6" , "metrics.ap-southeast-6.aliyuncs.com"},
     {"ap-southeast-5" , "metrics.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-3" , "metrics.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-2" , "metrics.ap-southeast-2.aliyuncs.com"},
     {"ap-southeast-1" , "metrics.ap-southeast-1.aliyuncs.com"},
     {"ap-south-1" , "metrics.ap-south-1.aliyuncs.com"},
     {"ap-northeast-2" , "metrics.ap-northeast-2.aliyuncs.com"},
@@ -5416,8 +5415,6 @@ ListDatasetsResponse Client::listDatasets(const string &workspace, const ListDat
 /**
  * @summary Retrieves the list of data delivery tasks.
  *
- * @description Deletes a specified site monitoring task.
- *
  * @param tmpReq ListDeliveryTasksRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5472,8 +5469,6 @@ ListDeliveryTasksResponse Client::listDeliveryTasksWithOptions(const ListDeliver
 
 /**
  * @summary Retrieves the list of data delivery tasks.
- *
- * @description Deletes a specified site monitoring task.
  *
  * @param request ListDeliveryTasksRequest
  * @return ListDeliveryTasksResponse
@@ -6719,6 +6714,11 @@ ManageAlertRulesResponse Client::manageAlertRulesWithOptions(const ManageAlertRu
     request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
   }
 
+  json query = {};
+  if (!!request.hasCallSource()) {
+    query["callSource"] = request.getCallSource();
+  }
+
   json body = {};
   if (!!request.hasBodyShrink()) {
     body["body"] = request.getBodyShrink();
@@ -6726,6 +6726,7 @@ ManageAlertRulesResponse Client::manageAlertRulesWithOptions(const ManageAlertRu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -6849,7 +6850,7 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param tmpReq QueryAlertRulesRequest
  * @param headers map
@@ -6875,6 +6876,10 @@ QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRules
 
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasQueryJson()) {
+    query["queryJson"] = request.getQueryJson();
   }
 
   json body = {};
@@ -6904,7 +6909,7 @@ QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRules
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request QueryAlertRulesRequest
  * @return QueryAlertRulesResponse
@@ -7690,9 +7695,7 @@ UpdateDatasetResponse Client::updateDataset(const string &workspace, const strin
 }
 
 /**
- * @summary Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
- *
- * @description Deletes a specified site monitoring task.
+ * @summary Updates a data delivery task.
  *
  * @param request UpdateDeliveryTaskRequest
  * @param headers map
@@ -7757,9 +7760,7 @@ UpdateDeliveryTaskResponse Client::updateDeliveryTaskWithOptions(const string &t
 }
 
 /**
- * @summary Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
- *
- * @description Deletes a specified site monitoring task.
+ * @summary Updates a data delivery task.
  *
  * @param request UpdateDeliveryTaskRequest
  * @return UpdateDeliveryTaskResponse

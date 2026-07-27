@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(isSystem, isSystem_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
+      DARABONBA_PTR_TO_JSON(namespace, namespace_);
+      DARABONBA_PTR_TO_JSON(productCategory, productCategory_);
       DARABONBA_PTR_TO_JSON(ruleConfigs, ruleConfigs_);
       DARABONBA_PTR_TO_JSON(scenes, scenes_);
       DARABONBA_PTR_TO_JSON(schemaVersion, schemaVersion_);
@@ -44,6 +46,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(isSystem, isSystem_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
+      DARABONBA_PTR_FROM_JSON(namespace, namespace_);
+      DARABONBA_PTR_FROM_JSON(productCategory, productCategory_);
       DARABONBA_PTR_FROM_JSON(ruleConfigs, ruleConfigs_);
       DARABONBA_PTR_FROM_JSON(scenes, scenes_);
       DARABONBA_PTR_FROM_JSON(schemaVersion, schemaVersion_);
@@ -67,9 +71,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertType_ == nullptr
         && this->applyCount_ == nullptr && this->bizType_ == nullptr && this->datasource_ == nullptr && this->description_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->isSystem_ == nullptr && this->labels_ == nullptr && this->ruleConfigs_ == nullptr
-        && this->scenes_ == nullptr && this->schemaVersion_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr && this->subType_ == nullptr
-        && this->templateName_ == nullptr && this->userId_ == nullptr && this->uuid_ == nullptr; };
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->isSystem_ == nullptr && this->labels_ == nullptr && this->namespace_ == nullptr
+        && this->productCategory_ == nullptr && this->ruleConfigs_ == nullptr && this->scenes_ == nullptr && this->schemaVersion_ == nullptr && this->sourceType_ == nullptr
+        && this->status_ == nullptr && this->subType_ == nullptr && this->templateName_ == nullptr && this->userId_ == nullptr && this->uuid_ == nullptr; };
     // alertType Field Functions 
     bool hasAlertType() const { return this->alertType_ != nullptr;};
     void deleteAlertType() { this->alertType_ = nullptr;};
@@ -138,6 +142,20 @@ namespace Models
     void deleteLabels() { this->labels_ = nullptr;};
     inline string getLabels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
     inline AlertRuleTemplate& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+
+
+    // namespace Field Functions 
+    bool hasNamespace() const { return this->namespace_ != nullptr;};
+    void deleteNamespace() { this->namespace_ = nullptr;};
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline AlertRuleTemplate& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
+
+
+    // productCategory Field Functions 
+    bool hasProductCategory() const { return this->productCategory_ != nullptr;};
+    void deleteProductCategory() { this->productCategory_ = nullptr;};
+    inline string getProductCategory() const { DARABONBA_PTR_GET_DEFAULT(productCategory_, "") };
+    inline AlertRuleTemplate& setProductCategory(string productCategory) { DARABONBA_PTR_SET_VALUE(productCategory_, productCategory) };
 
 
     // ruleConfigs Field Functions 
@@ -214,6 +232,8 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     shared_ptr<int32_t> isSystem_ {};
     shared_ptr<string> labels_ {};
+    shared_ptr<string> namespace_ {};
+    shared_ptr<string> productCategory_ {};
     shared_ptr<string> ruleConfigs_ {};
     shared_ptr<string> scenes_ {};
     shared_ptr<string> schemaVersion_ {};

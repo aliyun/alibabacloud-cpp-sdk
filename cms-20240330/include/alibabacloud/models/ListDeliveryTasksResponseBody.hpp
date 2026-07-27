@@ -170,7 +170,7 @@ namespace Models
       protected:
         // The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
         shared_ptr<map<string, string>> sinkConfigs_ {};
-        // The type of the delivery target.
+        // The delivery target type.
         shared_ptr<string> sinkType_ {};
       };
 
@@ -323,6 +323,8 @@ namespace Models
     protected:
       // The creation time.
       // 
+      // The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
       // The data source ID (Prometheus instance ID).
@@ -350,6 +352,8 @@ namespace Models
       // The task name.
       shared_ptr<string> taskName_ {};
       // The update time.
+      // 
+      // The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};

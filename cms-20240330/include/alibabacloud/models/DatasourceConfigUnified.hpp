@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DATASOURCECONFIGUNIFIED_HPP_
 #define ALIBABACLOUD_MODELS_DATASOURCECONFIGUNIFIED_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/Stores.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,7 +19,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(legacyRaw, legacyRaw_);
       DARABONBA_PTR_TO_JSON(legacyType, legacyType_);
       DARABONBA_PTR_TO_JSON(productCategory, productCategory_);
+      DARABONBA_PTR_TO_JSON(project, project_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(stores, stores_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, DatasourceConfigUnified& obj) { 
@@ -25,7 +29,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(legacyRaw, legacyRaw_);
       DARABONBA_PTR_FROM_JSON(legacyType, legacyType_);
       DARABONBA_PTR_FROM_JSON(productCategory, productCategory_);
+      DARABONBA_PTR_FROM_JSON(project, project_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(stores, stores_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
     DatasourceConfigUnified() = default ;
@@ -40,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->legacyRaw_ == nullptr && this->legacyType_ == nullptr && this->productCategory_ == nullptr && this->regionId_ == nullptr && this->type_ == nullptr; };
+        && this->legacyRaw_ == nullptr && this->legacyType_ == nullptr && this->productCategory_ == nullptr && this->project_ == nullptr && this->regionId_ == nullptr
+        && this->stores_ == nullptr && this->type_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -69,11 +76,27 @@ namespace Models
     inline DatasourceConfigUnified& setProductCategory(string productCategory) { DARABONBA_PTR_SET_VALUE(productCategory_, productCategory) };
 
 
+    // project Field Functions 
+    bool hasProject() const { return this->project_ != nullptr;};
+    void deleteProject() { this->project_ = nullptr;};
+    inline string getProject() const { DARABONBA_PTR_GET_DEFAULT(project_, "") };
+    inline DatasourceConfigUnified& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DatasourceConfigUnified& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // stores Field Functions 
+    bool hasStores() const { return this->stores_ != nullptr;};
+    void deleteStores() { this->stores_ = nullptr;};
+    inline const vector<Stores> & getStores() const { DARABONBA_PTR_GET_CONST(stores_, vector<Stores>) };
+    inline vector<Stores> getStores() { DARABONBA_PTR_GET(stores_, vector<Stores>) };
+    inline DatasourceConfigUnified& setStores(const vector<Stores> & stores) { DARABONBA_PTR_SET_VALUE(stores_, stores) };
+    inline DatasourceConfigUnified& setStores(vector<Stores> && stores) { DARABONBA_PTR_SET_RVALUE(stores_, stores) };
 
 
     // type Field Functions 
@@ -88,7 +111,9 @@ namespace Models
     shared_ptr<string> legacyRaw_ {};
     shared_ptr<string> legacyType_ {};
     shared_ptr<string> productCategory_ {};
+    shared_ptr<string> project_ {};
     shared_ptr<string> regionId_ {};
+    shared_ptr<vector<Stores>> stores_ {};
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

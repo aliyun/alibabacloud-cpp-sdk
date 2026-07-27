@@ -3,13 +3,13 @@
 #define ALIBABACLOUD_MODELS_CONDITIONCONFIGUNIFIED_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ApmCompositeCompareConfig.hpp>
+#include <alibabacloud/models/CompareList.hpp>
 #include <alibabacloud/models/CloudMonitoringCompositeEscalation.hpp>
 #include <alibabacloud/models/CloudMonitoringExpressEscalation.hpp>
 #include <alibabacloud/models/CloudMonitoringPrometheusEscalation.hpp>
 #include <alibabacloud/models/CloudMonitoringSimpleEscalation.hpp>
-#include <alibabacloud/models/ApmThresholdConfig.hpp>
-#include <alibabacloud/models/MetricSetMultiTrigger.hpp>
+#include <alibabacloud/models/ThresholdList.hpp>
+#include <alibabacloud/models/Triggers.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +22,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ConditionConfigUnified& obj) { 
       DARABONBA_PTR_TO_JSON(aggregate, aggregate_);
+      DARABONBA_PTR_TO_JSON(alertCount, alertCount_);
       DARABONBA_PTR_TO_JSON(compareList, compareList_);
       DARABONBA_PTR_TO_JSON(compositeEscalation, compositeEscalation_);
       DARABONBA_PTR_TO_JSON(countOperator, countOperator_);
@@ -37,6 +38,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(matchValue, matchValue_);
       DARABONBA_PTR_TO_JSON(max, max_);
       DARABONBA_PTR_TO_JSON(min, min_);
+      DARABONBA_PTR_TO_JSON(noDataAlertLevel, noDataAlertLevel_);
+      DARABONBA_PTR_TO_JSON(noDataAlertSeverity, noDataAlertSeverity_);
+      DARABONBA_PTR_TO_JSON(noDataAppendValue, noDataAppendValue_);
       DARABONBA_PTR_TO_JSON(noDataPolicy, noDataPolicy_);
       DARABONBA_PTR_TO_JSON(operator, operator_);
       DARABONBA_PTR_TO_JSON(prometheus, prometheus_);
@@ -52,6 +56,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ConditionConfigUnified& obj) { 
       DARABONBA_PTR_FROM_JSON(aggregate, aggregate_);
+      DARABONBA_PTR_FROM_JSON(alertCount, alertCount_);
       DARABONBA_PTR_FROM_JSON(compareList, compareList_);
       DARABONBA_PTR_FROM_JSON(compositeEscalation, compositeEscalation_);
       DARABONBA_PTR_FROM_JSON(countOperator, countOperator_);
@@ -67,6 +72,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(matchValue, matchValue_);
       DARABONBA_PTR_FROM_JSON(max, max_);
       DARABONBA_PTR_FROM_JSON(min, min_);
+      DARABONBA_PTR_FROM_JSON(noDataAlertLevel, noDataAlertLevel_);
+      DARABONBA_PTR_FROM_JSON(noDataAlertSeverity, noDataAlertSeverity_);
+      DARABONBA_PTR_FROM_JSON(noDataAppendValue, noDataAppendValue_);
       DARABONBA_PTR_FROM_JSON(noDataPolicy, noDataPolicy_);
       DARABONBA_PTR_FROM_JSON(operator, operator_);
       DARABONBA_PTR_FROM_JSON(prometheus, prometheus_);
@@ -92,12 +100,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregate_ == nullptr
-        && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->countOperator_ == nullptr && this->countThreshold_ == nullptr && this->durationSecs_ == nullptr
-        && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr && this->expressEscalation_ == nullptr && this->legacyRaw_ == nullptr && this->legacyType_ == nullptr
-        && this->matchField_ == nullptr && this->matchOperator_ == nullptr && this->matchValue_ == nullptr && this->max_ == nullptr && this->min_ == nullptr
-        && this->noDataPolicy_ == nullptr && this->operator_ == nullptr && this->prometheus_ == nullptr && this->relation_ == nullptr && this->severity_ == nullptr
-        && this->simpleEscalation_ == nullptr && this->threshold_ == nullptr && this->thresholdList_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr
-        && this->yoyTimeUnit_ == nullptr && this->yoyTimeValue_ == nullptr; };
+        && this->alertCount_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->countOperator_ == nullptr && this->countThreshold_ == nullptr
+        && this->durationSecs_ == nullptr && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr && this->expressEscalation_ == nullptr && this->legacyRaw_ == nullptr
+        && this->legacyType_ == nullptr && this->matchField_ == nullptr && this->matchOperator_ == nullptr && this->matchValue_ == nullptr && this->max_ == nullptr
+        && this->min_ == nullptr && this->noDataAlertLevel_ == nullptr && this->noDataAlertSeverity_ == nullptr && this->noDataAppendValue_ == nullptr && this->noDataPolicy_ == nullptr
+        && this->operator_ == nullptr && this->prometheus_ == nullptr && this->relation_ == nullptr && this->severity_ == nullptr && this->simpleEscalation_ == nullptr
+        && this->threshold_ == nullptr && this->thresholdList_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr && this->yoyTimeUnit_ == nullptr
+        && this->yoyTimeValue_ == nullptr; };
     // aggregate Field Functions 
     bool hasAggregate() const { return this->aggregate_ != nullptr;};
     void deleteAggregate() { this->aggregate_ = nullptr;};
@@ -105,13 +114,20 @@ namespace Models
     inline ConditionConfigUnified& setAggregate(string aggregate) { DARABONBA_PTR_SET_VALUE(aggregate_, aggregate) };
 
 
+    // alertCount Field Functions 
+    bool hasAlertCount() const { return this->alertCount_ != nullptr;};
+    void deleteAlertCount() { this->alertCount_ = nullptr;};
+    inline int32_t getAlertCount() const { DARABONBA_PTR_GET_DEFAULT(alertCount_, 0) };
+    inline ConditionConfigUnified& setAlertCount(int32_t alertCount) { DARABONBA_PTR_SET_VALUE(alertCount_, alertCount) };
+
+
     // compareList Field Functions 
     bool hasCompareList() const { return this->compareList_ != nullptr;};
     void deleteCompareList() { this->compareList_ = nullptr;};
-    inline const vector<ApmCompositeCompareConfig> & getCompareList() const { DARABONBA_PTR_GET_CONST(compareList_, vector<ApmCompositeCompareConfig>) };
-    inline vector<ApmCompositeCompareConfig> getCompareList() { DARABONBA_PTR_GET(compareList_, vector<ApmCompositeCompareConfig>) };
-    inline ConditionConfigUnified& setCompareList(const vector<ApmCompositeCompareConfig> & compareList) { DARABONBA_PTR_SET_VALUE(compareList_, compareList) };
-    inline ConditionConfigUnified& setCompareList(vector<ApmCompositeCompareConfig> && compareList) { DARABONBA_PTR_SET_RVALUE(compareList_, compareList) };
+    inline const vector<CompareList> & getCompareList() const { DARABONBA_PTR_GET_CONST(compareList_, vector<CompareList>) };
+    inline vector<CompareList> getCompareList() { DARABONBA_PTR_GET(compareList_, vector<CompareList>) };
+    inline ConditionConfigUnified& setCompareList(const vector<CompareList> & compareList) { DARABONBA_PTR_SET_VALUE(compareList_, compareList) };
+    inline ConditionConfigUnified& setCompareList(vector<CompareList> && compareList) { DARABONBA_PTR_SET_RVALUE(compareList_, compareList) };
 
 
     // compositeEscalation Field Functions 
@@ -216,6 +232,27 @@ namespace Models
     inline ConditionConfigUnified& setMin(double min) { DARABONBA_PTR_SET_VALUE(min_, min) };
 
 
+    // noDataAlertLevel Field Functions 
+    bool hasNoDataAlertLevel() const { return this->noDataAlertLevel_ != nullptr;};
+    void deleteNoDataAlertLevel() { this->noDataAlertLevel_ = nullptr;};
+    inline string getNoDataAlertLevel() const { DARABONBA_PTR_GET_DEFAULT(noDataAlertLevel_, "") };
+    inline ConditionConfigUnified& setNoDataAlertLevel(string noDataAlertLevel) { DARABONBA_PTR_SET_VALUE(noDataAlertLevel_, noDataAlertLevel) };
+
+
+    // noDataAlertSeverity Field Functions 
+    bool hasNoDataAlertSeverity() const { return this->noDataAlertSeverity_ != nullptr;};
+    void deleteNoDataAlertSeverity() { this->noDataAlertSeverity_ = nullptr;};
+    inline string getNoDataAlertSeverity() const { DARABONBA_PTR_GET_DEFAULT(noDataAlertSeverity_, "") };
+    inline ConditionConfigUnified& setNoDataAlertSeverity(string noDataAlertSeverity) { DARABONBA_PTR_SET_VALUE(noDataAlertSeverity_, noDataAlertSeverity) };
+
+
+    // noDataAppendValue Field Functions 
+    bool hasNoDataAppendValue() const { return this->noDataAppendValue_ != nullptr;};
+    void deleteNoDataAppendValue() { this->noDataAppendValue_ = nullptr;};
+    inline double getNoDataAppendValue() const { DARABONBA_PTR_GET_DEFAULT(noDataAppendValue_, 0.0) };
+    inline ConditionConfigUnified& setNoDataAppendValue(double noDataAppendValue) { DARABONBA_PTR_SET_VALUE(noDataAppendValue_, noDataAppendValue) };
+
+
     // noDataPolicy Field Functions 
     bool hasNoDataPolicy() const { return this->noDataPolicy_ != nullptr;};
     void deleteNoDataPolicy() { this->noDataPolicy_ = nullptr;};
@@ -272,19 +309,19 @@ namespace Models
     // thresholdList Field Functions 
     bool hasThresholdList() const { return this->thresholdList_ != nullptr;};
     void deleteThresholdList() { this->thresholdList_ = nullptr;};
-    inline const vector<ApmThresholdConfig> & getThresholdList() const { DARABONBA_PTR_GET_CONST(thresholdList_, vector<ApmThresholdConfig>) };
-    inline vector<ApmThresholdConfig> getThresholdList() { DARABONBA_PTR_GET(thresholdList_, vector<ApmThresholdConfig>) };
-    inline ConditionConfigUnified& setThresholdList(const vector<ApmThresholdConfig> & thresholdList) { DARABONBA_PTR_SET_VALUE(thresholdList_, thresholdList) };
-    inline ConditionConfigUnified& setThresholdList(vector<ApmThresholdConfig> && thresholdList) { DARABONBA_PTR_SET_RVALUE(thresholdList_, thresholdList) };
+    inline const vector<ThresholdList> & getThresholdList() const { DARABONBA_PTR_GET_CONST(thresholdList_, vector<ThresholdList>) };
+    inline vector<ThresholdList> getThresholdList() { DARABONBA_PTR_GET(thresholdList_, vector<ThresholdList>) };
+    inline ConditionConfigUnified& setThresholdList(const vector<ThresholdList> & thresholdList) { DARABONBA_PTR_SET_VALUE(thresholdList_, thresholdList) };
+    inline ConditionConfigUnified& setThresholdList(vector<ThresholdList> && thresholdList) { DARABONBA_PTR_SET_RVALUE(thresholdList_, thresholdList) };
 
 
     // triggers Field Functions 
     bool hasTriggers() const { return this->triggers_ != nullptr;};
     void deleteTriggers() { this->triggers_ = nullptr;};
-    inline const vector<MetricSetMultiTrigger> & getTriggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<MetricSetMultiTrigger>) };
-    inline vector<MetricSetMultiTrigger> getTriggers() { DARABONBA_PTR_GET(triggers_, vector<MetricSetMultiTrigger>) };
-    inline ConditionConfigUnified& setTriggers(const vector<MetricSetMultiTrigger> & triggers) { DARABONBA_PTR_SET_VALUE(triggers_, triggers) };
-    inline ConditionConfigUnified& setTriggers(vector<MetricSetMultiTrigger> && triggers) { DARABONBA_PTR_SET_RVALUE(triggers_, triggers) };
+    inline const vector<Triggers> & getTriggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<Triggers>) };
+    inline vector<Triggers> getTriggers() { DARABONBA_PTR_GET(triggers_, vector<Triggers>) };
+    inline ConditionConfigUnified& setTriggers(const vector<Triggers> & triggers) { DARABONBA_PTR_SET_VALUE(triggers_, triggers) };
+    inline ConditionConfigUnified& setTriggers(vector<Triggers> && triggers) { DARABONBA_PTR_SET_RVALUE(triggers_, triggers) };
 
 
     // type Field Functions 
@@ -310,7 +347,8 @@ namespace Models
 
   protected:
     shared_ptr<string> aggregate_ {};
-    shared_ptr<vector<ApmCompositeCompareConfig>> compareList_ {};
+    shared_ptr<int32_t> alertCount_ {};
+    shared_ptr<vector<CompareList>> compareList_ {};
     shared_ptr<CloudMonitoringCompositeEscalation> compositeEscalation_ {};
     shared_ptr<string> countOperator_ {};
     shared_ptr<int64_t> countThreshold_ {};
@@ -325,6 +363,9 @@ namespace Models
     shared_ptr<string> matchValue_ {};
     shared_ptr<double> max_ {};
     shared_ptr<double> min_ {};
+    shared_ptr<string> noDataAlertLevel_ {};
+    shared_ptr<string> noDataAlertSeverity_ {};
+    shared_ptr<double> noDataAppendValue_ {};
     shared_ptr<string> noDataPolicy_ {};
     shared_ptr<string> operator_ {};
     shared_ptr<CloudMonitoringPrometheusEscalation> prometheus_ {};
@@ -332,8 +373,8 @@ namespace Models
     shared_ptr<string> severity_ {};
     shared_ptr<CloudMonitoringSimpleEscalation> simpleEscalation_ {};
     shared_ptr<double> threshold_ {};
-    shared_ptr<vector<ApmThresholdConfig>> thresholdList_ {};
-    shared_ptr<vector<MetricSetMultiTrigger>> triggers_ {};
+    shared_ptr<vector<ThresholdList>> thresholdList_ {};
+    shared_ptr<vector<Triggers>> triggers_ {};
     // This parameter is required.
     shared_ptr<string> type_ {};
     shared_ptr<string> yoyTimeUnit_ {};

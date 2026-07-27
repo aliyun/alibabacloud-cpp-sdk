@@ -4,12 +4,15 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <map>
-#include <alibabacloud/models/UmodelEntityField.hpp>
-#include <alibabacloud/models/UmodelEntityFilter.hpp>
-#include <alibabacloud/models/ApmFilterConfig.hpp>
-#include <alibabacloud/models/UmodelLabelFilter.hpp>
-#include <alibabacloud/models/ApmMeasureConfig.hpp>
-#include <alibabacloud/models/MetricSetNamedQueryEntry.hpp>
+#include <alibabacloud/models/EntityFields.hpp>
+#include <alibabacloud/models/EntityFilters.hpp>
+#include <alibabacloud/models/FilterList.hpp>
+#include <alibabacloud/models/PrometheusMetricFilterValue.hpp>
+#include <alibabacloud/models/Joinings.hpp>
+#include <alibabacloud/models/LabelFilters.hpp>
+#include <alibabacloud/models/MeasureList.hpp>
+#include <alibabacloud/models/PrometheusMetricParamValue.hpp>
+#include <alibabacloud/models/Queries.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,7 +25,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryConfigUnified& obj) { 
       DARABONBA_PTR_TO_JSON(aggregate, aggregate_);
+      DARABONBA_PTR_TO_JSON(checkAfterDataComplete, checkAfterDataComplete_);
       DARABONBA_PTR_TO_JSON(dimensions, dimensions_);
+      DARABONBA_PTR_TO_JSON(durationSecs, durationSecs_);
       DARABONBA_PTR_TO_JSON(enableDataCompleteCheck, enableDataCompleteCheck_);
       DARABONBA_PTR_TO_JSON(entityDomain, entityDomain_);
       DARABONBA_PTR_TO_JSON(entityFields, entityFields_);
@@ -30,16 +35,25 @@ namespace Models
       DARABONBA_PTR_TO_JSON(entityType, entityType_);
       DARABONBA_PTR_TO_JSON(expr, expr_);
       DARABONBA_PTR_TO_JSON(filterList, filterList_);
+      DARABONBA_PTR_TO_JSON(filterValues, filterValues_);
+      DARABONBA_PTR_TO_JSON(groupFieldList, groupFieldList_);
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
+      DARABONBA_PTR_TO_JSON(groupType, groupType_);
+      DARABONBA_PTR_TO_JSON(joinings, joinings_);
       DARABONBA_PTR_TO_JSON(labelFilters, labelFilters_);
       DARABONBA_PTR_TO_JSON(legacyRaw, legacyRaw_);
       DARABONBA_PTR_TO_JSON(legacyType, legacyType_);
       DARABONBA_PTR_TO_JSON(logSet, logSet_);
+      DARABONBA_PTR_TO_JSON(measureGroupKey, measureGroupKey_);
       DARABONBA_PTR_TO_JSON(measureList, measureList_);
       DARABONBA_PTR_TO_JSON(metric, metric_);
+      DARABONBA_PTR_TO_JSON(metricGroupId, metricGroupId_);
+      DARABONBA_PTR_TO_JSON(metricId, metricId_);
+      DARABONBA_PTR_TO_JSON(metricIds, metricIds_);
       DARABONBA_PTR_TO_JSON(metricSet, metricSet_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
       DARABONBA_PTR_TO_JSON(offsetSecs, offsetSecs_);
+      DARABONBA_PTR_TO_JSON(paramValues, paramValues_);
       DARABONBA_PTR_TO_JSON(promQl, promQl_);
       DARABONBA_PTR_TO_JSON(queries, queries_);
       DARABONBA_PTR_TO_JSON(relationType, relationType_);
@@ -49,7 +63,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, QueryConfigUnified& obj) { 
       DARABONBA_PTR_FROM_JSON(aggregate, aggregate_);
+      DARABONBA_PTR_FROM_JSON(checkAfterDataComplete, checkAfterDataComplete_);
       DARABONBA_PTR_FROM_JSON(dimensions, dimensions_);
+      DARABONBA_PTR_FROM_JSON(durationSecs, durationSecs_);
       DARABONBA_PTR_FROM_JSON(enableDataCompleteCheck, enableDataCompleteCheck_);
       DARABONBA_PTR_FROM_JSON(entityDomain, entityDomain_);
       DARABONBA_PTR_FROM_JSON(entityFields, entityFields_);
@@ -57,16 +73,25 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(entityType, entityType_);
       DARABONBA_PTR_FROM_JSON(expr, expr_);
       DARABONBA_PTR_FROM_JSON(filterList, filterList_);
+      DARABONBA_PTR_FROM_JSON(filterValues, filterValues_);
+      DARABONBA_PTR_FROM_JSON(groupFieldList, groupFieldList_);
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
+      DARABONBA_PTR_FROM_JSON(groupType, groupType_);
+      DARABONBA_PTR_FROM_JSON(joinings, joinings_);
       DARABONBA_PTR_FROM_JSON(labelFilters, labelFilters_);
       DARABONBA_PTR_FROM_JSON(legacyRaw, legacyRaw_);
       DARABONBA_PTR_FROM_JSON(legacyType, legacyType_);
       DARABONBA_PTR_FROM_JSON(logSet, logSet_);
+      DARABONBA_PTR_FROM_JSON(measureGroupKey, measureGroupKey_);
       DARABONBA_PTR_FROM_JSON(measureList, measureList_);
       DARABONBA_PTR_FROM_JSON(metric, metric_);
+      DARABONBA_PTR_FROM_JSON(metricGroupId, metricGroupId_);
+      DARABONBA_PTR_FROM_JSON(metricId, metricId_);
+      DARABONBA_PTR_FROM_JSON(metricIds, metricIds_);
       DARABONBA_PTR_FROM_JSON(metricSet, metricSet_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(offsetSecs, offsetSecs_);
+      DARABONBA_PTR_FROM_JSON(paramValues, paramValues_);
       DARABONBA_PTR_FROM_JSON(promQl, promQl_);
       DARABONBA_PTR_FROM_JSON(queries, queries_);
       DARABONBA_PTR_FROM_JSON(relationType, relationType_);
@@ -86,16 +111,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregate_ == nullptr
-        && this->dimensions_ == nullptr && this->enableDataCompleteCheck_ == nullptr && this->entityDomain_ == nullptr && this->entityFields_ == nullptr && this->entityFilters_ == nullptr
-        && this->entityType_ == nullptr && this->expr_ == nullptr && this->filterList_ == nullptr && this->groupId_ == nullptr && this->labelFilters_ == nullptr
-        && this->legacyRaw_ == nullptr && this->legacyType_ == nullptr && this->logSet_ == nullptr && this->measureList_ == nullptr && this->metric_ == nullptr
-        && this->metricSet_ == nullptr && this->namespace_ == nullptr && this->offsetSecs_ == nullptr && this->promQl_ == nullptr && this->queries_ == nullptr
-        && this->relationType_ == nullptr && this->serviceIdList_ == nullptr && this->type_ == nullptr && this->windowSecs_ == nullptr; };
+        && this->checkAfterDataComplete_ == nullptr && this->dimensions_ == nullptr && this->durationSecs_ == nullptr && this->enableDataCompleteCheck_ == nullptr && this->entityDomain_ == nullptr
+        && this->entityFields_ == nullptr && this->entityFilters_ == nullptr && this->entityType_ == nullptr && this->expr_ == nullptr && this->filterList_ == nullptr
+        && this->filterValues_ == nullptr && this->groupFieldList_ == nullptr && this->groupId_ == nullptr && this->groupType_ == nullptr && this->joinings_ == nullptr
+        && this->labelFilters_ == nullptr && this->legacyRaw_ == nullptr && this->legacyType_ == nullptr && this->logSet_ == nullptr && this->measureGroupKey_ == nullptr
+        && this->measureList_ == nullptr && this->metric_ == nullptr && this->metricGroupId_ == nullptr && this->metricId_ == nullptr && this->metricIds_ == nullptr
+        && this->metricSet_ == nullptr && this->namespace_ == nullptr && this->offsetSecs_ == nullptr && this->paramValues_ == nullptr && this->promQl_ == nullptr
+        && this->queries_ == nullptr && this->relationType_ == nullptr && this->serviceIdList_ == nullptr && this->type_ == nullptr && this->windowSecs_ == nullptr; };
     // aggregate Field Functions 
     bool hasAggregate() const { return this->aggregate_ != nullptr;};
     void deleteAggregate() { this->aggregate_ = nullptr;};
     inline string getAggregate() const { DARABONBA_PTR_GET_DEFAULT(aggregate_, "") };
     inline QueryConfigUnified& setAggregate(string aggregate) { DARABONBA_PTR_SET_VALUE(aggregate_, aggregate) };
+
+
+    // checkAfterDataComplete Field Functions 
+    bool hasCheckAfterDataComplete() const { return this->checkAfterDataComplete_ != nullptr;};
+    void deleteCheckAfterDataComplete() { this->checkAfterDataComplete_ = nullptr;};
+    inline bool getCheckAfterDataComplete() const { DARABONBA_PTR_GET_DEFAULT(checkAfterDataComplete_, false) };
+    inline QueryConfigUnified& setCheckAfterDataComplete(bool checkAfterDataComplete) { DARABONBA_PTR_SET_VALUE(checkAfterDataComplete_, checkAfterDataComplete) };
 
 
     // dimensions Field Functions 
@@ -105,6 +139,13 @@ namespace Models
     inline vector<map<string, string>> getDimensions() { DARABONBA_PTR_GET(dimensions_, vector<map<string, string>>) };
     inline QueryConfigUnified& setDimensions(const vector<map<string, string>> & dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
     inline QueryConfigUnified& setDimensions(vector<map<string, string>> && dimensions) { DARABONBA_PTR_SET_RVALUE(dimensions_, dimensions) };
+
+
+    // durationSecs Field Functions 
+    bool hasDurationSecs() const { return this->durationSecs_ != nullptr;};
+    void deleteDurationSecs() { this->durationSecs_ = nullptr;};
+    inline int64_t getDurationSecs() const { DARABONBA_PTR_GET_DEFAULT(durationSecs_, 0L) };
+    inline QueryConfigUnified& setDurationSecs(int64_t durationSecs) { DARABONBA_PTR_SET_VALUE(durationSecs_, durationSecs) };
 
 
     // enableDataCompleteCheck Field Functions 
@@ -124,19 +165,19 @@ namespace Models
     // entityFields Field Functions 
     bool hasEntityFields() const { return this->entityFields_ != nullptr;};
     void deleteEntityFields() { this->entityFields_ = nullptr;};
-    inline const vector<UmodelEntityField> & getEntityFields() const { DARABONBA_PTR_GET_CONST(entityFields_, vector<UmodelEntityField>) };
-    inline vector<UmodelEntityField> getEntityFields() { DARABONBA_PTR_GET(entityFields_, vector<UmodelEntityField>) };
-    inline QueryConfigUnified& setEntityFields(const vector<UmodelEntityField> & entityFields) { DARABONBA_PTR_SET_VALUE(entityFields_, entityFields) };
-    inline QueryConfigUnified& setEntityFields(vector<UmodelEntityField> && entityFields) { DARABONBA_PTR_SET_RVALUE(entityFields_, entityFields) };
+    inline const vector<EntityFields> & getEntityFields() const { DARABONBA_PTR_GET_CONST(entityFields_, vector<EntityFields>) };
+    inline vector<EntityFields> getEntityFields() { DARABONBA_PTR_GET(entityFields_, vector<EntityFields>) };
+    inline QueryConfigUnified& setEntityFields(const vector<EntityFields> & entityFields) { DARABONBA_PTR_SET_VALUE(entityFields_, entityFields) };
+    inline QueryConfigUnified& setEntityFields(vector<EntityFields> && entityFields) { DARABONBA_PTR_SET_RVALUE(entityFields_, entityFields) };
 
 
     // entityFilters Field Functions 
     bool hasEntityFilters() const { return this->entityFilters_ != nullptr;};
     void deleteEntityFilters() { this->entityFilters_ = nullptr;};
-    inline const vector<UmodelEntityFilter> & getEntityFilters() const { DARABONBA_PTR_GET_CONST(entityFilters_, vector<UmodelEntityFilter>) };
-    inline vector<UmodelEntityFilter> getEntityFilters() { DARABONBA_PTR_GET(entityFilters_, vector<UmodelEntityFilter>) };
-    inline QueryConfigUnified& setEntityFilters(const vector<UmodelEntityFilter> & entityFilters) { DARABONBA_PTR_SET_VALUE(entityFilters_, entityFilters) };
-    inline QueryConfigUnified& setEntityFilters(vector<UmodelEntityFilter> && entityFilters) { DARABONBA_PTR_SET_RVALUE(entityFilters_, entityFilters) };
+    inline const vector<EntityFilters> & getEntityFilters() const { DARABONBA_PTR_GET_CONST(entityFilters_, vector<EntityFilters>) };
+    inline vector<EntityFilters> getEntityFilters() { DARABONBA_PTR_GET(entityFilters_, vector<EntityFilters>) };
+    inline QueryConfigUnified& setEntityFilters(const vector<EntityFilters> & entityFilters) { DARABONBA_PTR_SET_VALUE(entityFilters_, entityFilters) };
+    inline QueryConfigUnified& setEntityFilters(vector<EntityFilters> && entityFilters) { DARABONBA_PTR_SET_RVALUE(entityFilters_, entityFilters) };
 
 
     // entityType Field Functions 
@@ -156,10 +197,28 @@ namespace Models
     // filterList Field Functions 
     bool hasFilterList() const { return this->filterList_ != nullptr;};
     void deleteFilterList() { this->filterList_ = nullptr;};
-    inline const vector<ApmFilterConfig> & getFilterList() const { DARABONBA_PTR_GET_CONST(filterList_, vector<ApmFilterConfig>) };
-    inline vector<ApmFilterConfig> getFilterList() { DARABONBA_PTR_GET(filterList_, vector<ApmFilterConfig>) };
-    inline QueryConfigUnified& setFilterList(const vector<ApmFilterConfig> & filterList) { DARABONBA_PTR_SET_VALUE(filterList_, filterList) };
-    inline QueryConfigUnified& setFilterList(vector<ApmFilterConfig> && filterList) { DARABONBA_PTR_SET_RVALUE(filterList_, filterList) };
+    inline const vector<FilterList> & getFilterList() const { DARABONBA_PTR_GET_CONST(filterList_, vector<FilterList>) };
+    inline vector<FilterList> getFilterList() { DARABONBA_PTR_GET(filterList_, vector<FilterList>) };
+    inline QueryConfigUnified& setFilterList(const vector<FilterList> & filterList) { DARABONBA_PTR_SET_VALUE(filterList_, filterList) };
+    inline QueryConfigUnified& setFilterList(vector<FilterList> && filterList) { DARABONBA_PTR_SET_RVALUE(filterList_, filterList) };
+
+
+    // filterValues Field Functions 
+    bool hasFilterValues() const { return this->filterValues_ != nullptr;};
+    void deleteFilterValues() { this->filterValues_ = nullptr;};
+    inline const vector<PrometheusMetricFilterValue> & getFilterValues() const { DARABONBA_PTR_GET_CONST(filterValues_, vector<PrometheusMetricFilterValue>) };
+    inline vector<PrometheusMetricFilterValue> getFilterValues() { DARABONBA_PTR_GET(filterValues_, vector<PrometheusMetricFilterValue>) };
+    inline QueryConfigUnified& setFilterValues(const vector<PrometheusMetricFilterValue> & filterValues) { DARABONBA_PTR_SET_VALUE(filterValues_, filterValues) };
+    inline QueryConfigUnified& setFilterValues(vector<PrometheusMetricFilterValue> && filterValues) { DARABONBA_PTR_SET_RVALUE(filterValues_, filterValues) };
+
+
+    // groupFieldList Field Functions 
+    bool hasGroupFieldList() const { return this->groupFieldList_ != nullptr;};
+    void deleteGroupFieldList() { this->groupFieldList_ = nullptr;};
+    inline const vector<string> & getGroupFieldList() const { DARABONBA_PTR_GET_CONST(groupFieldList_, vector<string>) };
+    inline vector<string> getGroupFieldList() { DARABONBA_PTR_GET(groupFieldList_, vector<string>) };
+    inline QueryConfigUnified& setGroupFieldList(const vector<string> & groupFieldList) { DARABONBA_PTR_SET_VALUE(groupFieldList_, groupFieldList) };
+    inline QueryConfigUnified& setGroupFieldList(vector<string> && groupFieldList) { DARABONBA_PTR_SET_RVALUE(groupFieldList_, groupFieldList) };
 
 
     // groupId Field Functions 
@@ -169,13 +228,29 @@ namespace Models
     inline QueryConfigUnified& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
+    // groupType Field Functions 
+    bool hasGroupType() const { return this->groupType_ != nullptr;};
+    void deleteGroupType() { this->groupType_ = nullptr;};
+    inline string getGroupType() const { DARABONBA_PTR_GET_DEFAULT(groupType_, "") };
+    inline QueryConfigUnified& setGroupType(string groupType) { DARABONBA_PTR_SET_VALUE(groupType_, groupType) };
+
+
+    // joinings Field Functions 
+    bool hasJoinings() const { return this->joinings_ != nullptr;};
+    void deleteJoinings() { this->joinings_ = nullptr;};
+    inline const vector<Joinings> & getJoinings() const { DARABONBA_PTR_GET_CONST(joinings_, vector<Joinings>) };
+    inline vector<Joinings> getJoinings() { DARABONBA_PTR_GET(joinings_, vector<Joinings>) };
+    inline QueryConfigUnified& setJoinings(const vector<Joinings> & joinings) { DARABONBA_PTR_SET_VALUE(joinings_, joinings) };
+    inline QueryConfigUnified& setJoinings(vector<Joinings> && joinings) { DARABONBA_PTR_SET_RVALUE(joinings_, joinings) };
+
+
     // labelFilters Field Functions 
     bool hasLabelFilters() const { return this->labelFilters_ != nullptr;};
     void deleteLabelFilters() { this->labelFilters_ = nullptr;};
-    inline const vector<UmodelLabelFilter> & getLabelFilters() const { DARABONBA_PTR_GET_CONST(labelFilters_, vector<UmodelLabelFilter>) };
-    inline vector<UmodelLabelFilter> getLabelFilters() { DARABONBA_PTR_GET(labelFilters_, vector<UmodelLabelFilter>) };
-    inline QueryConfigUnified& setLabelFilters(const vector<UmodelLabelFilter> & labelFilters) { DARABONBA_PTR_SET_VALUE(labelFilters_, labelFilters) };
-    inline QueryConfigUnified& setLabelFilters(vector<UmodelLabelFilter> && labelFilters) { DARABONBA_PTR_SET_RVALUE(labelFilters_, labelFilters) };
+    inline const vector<LabelFilters> & getLabelFilters() const { DARABONBA_PTR_GET_CONST(labelFilters_, vector<LabelFilters>) };
+    inline vector<LabelFilters> getLabelFilters() { DARABONBA_PTR_GET(labelFilters_, vector<LabelFilters>) };
+    inline QueryConfigUnified& setLabelFilters(const vector<LabelFilters> & labelFilters) { DARABONBA_PTR_SET_VALUE(labelFilters_, labelFilters) };
+    inline QueryConfigUnified& setLabelFilters(vector<LabelFilters> && labelFilters) { DARABONBA_PTR_SET_RVALUE(labelFilters_, labelFilters) };
 
 
     // legacyRaw Field Functions 
@@ -199,13 +274,20 @@ namespace Models
     inline QueryConfigUnified& setLogSet(string logSet) { DARABONBA_PTR_SET_VALUE(logSet_, logSet) };
 
 
+    // measureGroupKey Field Functions 
+    bool hasMeasureGroupKey() const { return this->measureGroupKey_ != nullptr;};
+    void deleteMeasureGroupKey() { this->measureGroupKey_ = nullptr;};
+    inline string getMeasureGroupKey() const { DARABONBA_PTR_GET_DEFAULT(measureGroupKey_, "") };
+    inline QueryConfigUnified& setMeasureGroupKey(string measureGroupKey) { DARABONBA_PTR_SET_VALUE(measureGroupKey_, measureGroupKey) };
+
+
     // measureList Field Functions 
     bool hasMeasureList() const { return this->measureList_ != nullptr;};
     void deleteMeasureList() { this->measureList_ = nullptr;};
-    inline const vector<ApmMeasureConfig> & getMeasureList() const { DARABONBA_PTR_GET_CONST(measureList_, vector<ApmMeasureConfig>) };
-    inline vector<ApmMeasureConfig> getMeasureList() { DARABONBA_PTR_GET(measureList_, vector<ApmMeasureConfig>) };
-    inline QueryConfigUnified& setMeasureList(const vector<ApmMeasureConfig> & measureList) { DARABONBA_PTR_SET_VALUE(measureList_, measureList) };
-    inline QueryConfigUnified& setMeasureList(vector<ApmMeasureConfig> && measureList) { DARABONBA_PTR_SET_RVALUE(measureList_, measureList) };
+    inline const vector<MeasureList> & getMeasureList() const { DARABONBA_PTR_GET_CONST(measureList_, vector<MeasureList>) };
+    inline vector<MeasureList> getMeasureList() { DARABONBA_PTR_GET(measureList_, vector<MeasureList>) };
+    inline QueryConfigUnified& setMeasureList(const vector<MeasureList> & measureList) { DARABONBA_PTR_SET_VALUE(measureList_, measureList) };
+    inline QueryConfigUnified& setMeasureList(vector<MeasureList> && measureList) { DARABONBA_PTR_SET_RVALUE(measureList_, measureList) };
 
 
     // metric Field Functions 
@@ -213,6 +295,29 @@ namespace Models
     void deleteMetric() { this->metric_ = nullptr;};
     inline string getMetric() const { DARABONBA_PTR_GET_DEFAULT(metric_, "") };
     inline QueryConfigUnified& setMetric(string metric) { DARABONBA_PTR_SET_VALUE(metric_, metric) };
+
+
+    // metricGroupId Field Functions 
+    bool hasMetricGroupId() const { return this->metricGroupId_ != nullptr;};
+    void deleteMetricGroupId() { this->metricGroupId_ = nullptr;};
+    inline string getMetricGroupId() const { DARABONBA_PTR_GET_DEFAULT(metricGroupId_, "") };
+    inline QueryConfigUnified& setMetricGroupId(string metricGroupId) { DARABONBA_PTR_SET_VALUE(metricGroupId_, metricGroupId) };
+
+
+    // metricId Field Functions 
+    bool hasMetricId() const { return this->metricId_ != nullptr;};
+    void deleteMetricId() { this->metricId_ = nullptr;};
+    inline string getMetricId() const { DARABONBA_PTR_GET_DEFAULT(metricId_, "") };
+    inline QueryConfigUnified& setMetricId(string metricId) { DARABONBA_PTR_SET_VALUE(metricId_, metricId) };
+
+
+    // metricIds Field Functions 
+    bool hasMetricIds() const { return this->metricIds_ != nullptr;};
+    void deleteMetricIds() { this->metricIds_ = nullptr;};
+    inline const vector<string> & getMetricIds() const { DARABONBA_PTR_GET_CONST(metricIds_, vector<string>) };
+    inline vector<string> getMetricIds() { DARABONBA_PTR_GET(metricIds_, vector<string>) };
+    inline QueryConfigUnified& setMetricIds(const vector<string> & metricIds) { DARABONBA_PTR_SET_VALUE(metricIds_, metricIds) };
+    inline QueryConfigUnified& setMetricIds(vector<string> && metricIds) { DARABONBA_PTR_SET_RVALUE(metricIds_, metricIds) };
 
 
     // metricSet Field Functions 
@@ -236,6 +341,15 @@ namespace Models
     inline QueryConfigUnified& setOffsetSecs(int64_t offsetSecs) { DARABONBA_PTR_SET_VALUE(offsetSecs_, offsetSecs) };
 
 
+    // paramValues Field Functions 
+    bool hasParamValues() const { return this->paramValues_ != nullptr;};
+    void deleteParamValues() { this->paramValues_ = nullptr;};
+    inline const vector<PrometheusMetricParamValue> & getParamValues() const { DARABONBA_PTR_GET_CONST(paramValues_, vector<PrometheusMetricParamValue>) };
+    inline vector<PrometheusMetricParamValue> getParamValues() { DARABONBA_PTR_GET(paramValues_, vector<PrometheusMetricParamValue>) };
+    inline QueryConfigUnified& setParamValues(const vector<PrometheusMetricParamValue> & paramValues) { DARABONBA_PTR_SET_VALUE(paramValues_, paramValues) };
+    inline QueryConfigUnified& setParamValues(vector<PrometheusMetricParamValue> && paramValues) { DARABONBA_PTR_SET_RVALUE(paramValues_, paramValues) };
+
+
     // promQl Field Functions 
     bool hasPromQl() const { return this->promQl_ != nullptr;};
     void deletePromQl() { this->promQl_ = nullptr;};
@@ -246,10 +360,10 @@ namespace Models
     // queries Field Functions 
     bool hasQueries() const { return this->queries_ != nullptr;};
     void deleteQueries() { this->queries_ = nullptr;};
-    inline const vector<MetricSetNamedQueryEntry> & getQueries() const { DARABONBA_PTR_GET_CONST(queries_, vector<MetricSetNamedQueryEntry>) };
-    inline vector<MetricSetNamedQueryEntry> getQueries() { DARABONBA_PTR_GET(queries_, vector<MetricSetNamedQueryEntry>) };
-    inline QueryConfigUnified& setQueries(const vector<MetricSetNamedQueryEntry> & queries) { DARABONBA_PTR_SET_VALUE(queries_, queries) };
-    inline QueryConfigUnified& setQueries(vector<MetricSetNamedQueryEntry> && queries) { DARABONBA_PTR_SET_RVALUE(queries_, queries) };
+    inline const vector<Queries> & getQueries() const { DARABONBA_PTR_GET_CONST(queries_, vector<Queries>) };
+    inline vector<Queries> getQueries() { DARABONBA_PTR_GET(queries_, vector<Queries>) };
+    inline QueryConfigUnified& setQueries(const vector<Queries> & queries) { DARABONBA_PTR_SET_VALUE(queries_, queries) };
+    inline QueryConfigUnified& setQueries(vector<Queries> && queries) { DARABONBA_PTR_SET_RVALUE(queries_, queries) };
 
 
     // relationType Field Functions 
@@ -284,26 +398,37 @@ namespace Models
 
   protected:
     shared_ptr<string> aggregate_ {};
+    shared_ptr<bool> checkAfterDataComplete_ {};
     shared_ptr<vector<map<string, string>>> dimensions_ {};
+    shared_ptr<int64_t> durationSecs_ {};
     shared_ptr<bool> enableDataCompleteCheck_ {};
     shared_ptr<string> entityDomain_ {};
-    shared_ptr<vector<UmodelEntityField>> entityFields_ {};
-    shared_ptr<vector<UmodelEntityFilter>> entityFilters_ {};
+    shared_ptr<vector<EntityFields>> entityFields_ {};
+    shared_ptr<vector<EntityFilters>> entityFilters_ {};
     shared_ptr<string> entityType_ {};
     shared_ptr<string> expr_ {};
-    shared_ptr<vector<ApmFilterConfig>> filterList_ {};
+    shared_ptr<vector<FilterList>> filterList_ {};
+    shared_ptr<vector<PrometheusMetricFilterValue>> filterValues_ {};
+    shared_ptr<vector<string>> groupFieldList_ {};
     shared_ptr<string> groupId_ {};
-    shared_ptr<vector<UmodelLabelFilter>> labelFilters_ {};
+    shared_ptr<string> groupType_ {};
+    shared_ptr<vector<Joinings>> joinings_ {};
+    shared_ptr<vector<LabelFilters>> labelFilters_ {};
     shared_ptr<string> legacyRaw_ {};
     shared_ptr<string> legacyType_ {};
     shared_ptr<string> logSet_ {};
-    shared_ptr<vector<ApmMeasureConfig>> measureList_ {};
+    shared_ptr<string> measureGroupKey_ {};
+    shared_ptr<vector<MeasureList>> measureList_ {};
     shared_ptr<string> metric_ {};
+    shared_ptr<string> metricGroupId_ {};
+    shared_ptr<string> metricId_ {};
+    shared_ptr<vector<string>> metricIds_ {};
     shared_ptr<string> metricSet_ {};
     shared_ptr<string> namespace_ {};
     shared_ptr<int64_t> offsetSecs_ {};
+    shared_ptr<vector<PrometheusMetricParamValue>> paramValues_ {};
     shared_ptr<string> promQl_ {};
-    shared_ptr<vector<MetricSetNamedQueryEntry>> queries_ {};
+    shared_ptr<vector<Queries>> queries_ {};
     shared_ptr<string> relationType_ {};
     shared_ptr<vector<string>> serviceIdList_ {};
     // This parameter is required.

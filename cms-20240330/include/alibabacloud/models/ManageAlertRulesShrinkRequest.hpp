@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ManageAlertRulesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(body, bodyShrink_);
+      DARABONBA_PTR_TO_JSON(callSource, callSource_);
     };
     friend void from_json(const Darabonba::Json& j, ManageAlertRulesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(body, bodyShrink_);
+      DARABONBA_PTR_FROM_JSON(callSource, callSource_);
     };
     ManageAlertRulesShrinkRequest() = default ;
     ManageAlertRulesShrinkRequest(const ManageAlertRulesShrinkRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bodyShrink_ == nullptr; };
+    virtual bool empty() const override { return this->bodyShrink_ == nullptr
+        && this->callSource_ == nullptr; };
     // bodyShrink Field Functions 
     bool hasBodyShrink() const { return this->bodyShrink_ != nullptr;};
     void deleteBodyShrink() { this->bodyShrink_ = nullptr;};
@@ -37,9 +40,17 @@ namespace Models
     inline ManageAlertRulesShrinkRequest& setBodyShrink(string bodyShrink) { DARABONBA_PTR_SET_VALUE(bodyShrink_, bodyShrink) };
 
 
+    // callSource Field Functions 
+    bool hasCallSource() const { return this->callSource_ != nullptr;};
+    void deleteCallSource() { this->callSource_ = nullptr;};
+    inline string getCallSource() const { DARABONBA_PTR_GET_DEFAULT(callSource_, "") };
+    inline ManageAlertRulesShrinkRequest& setCallSource(string callSource) { DARABONBA_PTR_SET_VALUE(callSource_, callSource) };
+
+
   protected:
     // The request body for managing alert rules. This body is shared by CREATE, UPDATE, PATCH, and BATCH_DELETE operations. Specify fields based on the action.
     shared_ptr<string> bodyShrink_ {};
+    shared_ptr<string> callSource_ {};
   };
 
   } // namespace Models

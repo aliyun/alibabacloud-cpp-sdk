@@ -15,9 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ManageAlertRulesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(body, body_);
+      DARABONBA_PTR_TO_JSON(callSource, callSource_);
     };
     friend void from_json(const Darabonba::Json& j, ManageAlertRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(body, body_);
+      DARABONBA_PTR_FROM_JSON(callSource, callSource_);
     };
     ManageAlertRulesRequest() = default ;
     ManageAlertRulesRequest(const ManageAlertRulesRequest &) = default ;
@@ -30,7 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->body_ == nullptr; };
+    virtual bool empty() const override { return this->body_ == nullptr
+        && this->callSource_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
@@ -40,9 +43,17 @@ namespace Models
     inline ManageAlertRulesRequest& setBody(ManageAlertRulesUnifiedActionInput && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
+    // callSource Field Functions 
+    bool hasCallSource() const { return this->callSource_ != nullptr;};
+    void deleteCallSource() { this->callSource_ = nullptr;};
+    inline string getCallSource() const { DARABONBA_PTR_GET_DEFAULT(callSource_, "") };
+    inline ManageAlertRulesRequest& setCallSource(string callSource) { DARABONBA_PTR_SET_VALUE(callSource_, callSource) };
+
+
   protected:
     // The request body for managing alert rules. This body is shared by CREATE, UPDATE, PATCH, and BATCH_DELETE operations. Specify fields based on the action.
     shared_ptr<ManageAlertRulesUnifiedActionInput> body_ {};
+    shared_ptr<string> callSource_ {};
   };
 
   } // namespace Models
