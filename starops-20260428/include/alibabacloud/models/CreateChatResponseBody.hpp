@@ -183,18 +183,31 @@ namespace Models
 
 
     protected:
+      // A list of invoked agents.
       shared_ptr<vector<Darabonba::Json>> agents_ {};
+      // A list of generated artifacts.
       shared_ptr<vector<Darabonba::Json>> artifacts_ {};
+      // The ID of the current call.
       shared_ptr<string> callId_ {};
+      // A list of content objects.
       shared_ptr<vector<Darabonba::Json>> contents_ {};
+      // Message details.
       shared_ptr<string> detail_ {};
+      // A list of events.
       shared_ptr<vector<Darabonba::Json>> events_ {};
+      // The ID of the parent call.
       shared_ptr<string> parentCallId_ {};
+      // The role of the message sender.
       shared_ptr<string> role_ {};
+      // The message sequence number.
       shared_ptr<int32_t> seq_ {};
+      // The timestamp, in nanoseconds.
       shared_ptr<string> timestamp_ {};
+      // A list of tool calls.
       shared_ptr<vector<Darabonba::Json>> tools_ {};
+      // The message type.
       shared_ptr<string> type_ {};
+      // The message version.
       shared_ptr<string> version_ {};
     };
 
@@ -224,8 +237,11 @@ namespace Models
 
 
   protected:
+    // A list of message objects in the session.
     shared_ptr<vector<CreateChatResponseBody::Messages>> messages_ {};
+    // A unique identifier for the API request, useful for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Uniquely identifies the request chain for tracing.
     shared_ptr<string> traceId_ {};
   };
 

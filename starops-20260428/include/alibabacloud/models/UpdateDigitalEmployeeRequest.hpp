@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(knowledges, knowledges_);
       DARABONBA_PTR_TO_JSON(roleArn, roleArn_);
+      DARABONBA_PTR_TO_JSON(sandboxNetworkPolicy, sandboxNetworkPolicy_);
       DARABONBA_PTR_TO_JSON(toolPolicy, toolPolicy_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDigitalEmployeeRequest& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(knowledges, knowledges_);
       DARABONBA_PTR_FROM_JSON(roleArn, roleArn_);
+      DARABONBA_PTR_FROM_JSON(sandboxNetworkPolicy, sandboxNetworkPolicy_);
       DARABONBA_PTR_FROM_JSON(toolPolicy, toolPolicy_);
     };
     UpdateDigitalEmployeeRequest() = default ;
@@ -141,13 +143,13 @@ namespace Models
 
 
         protected:
-          // Aliyun OpenAPI Action 列表，格式为 product:ApiName、product:Prefix* 或 product:*。
+          // RAM action
           shared_ptr<vector<string>> actions_ {};
-          // 本条语句对应的 Aliyun OpenAPI API 版本。
+          // The API version. This parameter is deprecated.
           shared_ptr<string> apiVersion_ {};
-          // 命中该 API 后的执行策略。
+          // The execution policy.
           shared_ptr<string> decision_ {};
-          // 本条语句对应的 Aliyun OpenAPI 产品名。
+          // The cloud service code.
           shared_ptr<string> product_ {};
         };
 
@@ -170,9 +172,9 @@ namespace Models
 
 
       protected:
-        // 是否启用 Aliyun MCP 工具策略。
+        // Specifies whether to enable the policy.
         shared_ptr<bool> enable_ {};
-        // Aliyun OpenAPI 工具策略语句列表。
+        // The list of Aliyun CLI tool policy statements.
         shared_ptr<vector<Aliyun::Statements>> statements_ {};
       };
 
@@ -187,8 +189,67 @@ namespace Models
 
 
     protected:
-      // Aliyun MCP 工具调用安全策略配置。
+      // The security policy configuration for Aliyun CLI tool calling.
       shared_ptr<ToolPolicy::Aliyun> aliyun_ {};
+    };
+
+    class SandboxNetworkPolicy : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SandboxNetworkPolicy& obj) { 
+        DARABONBA_PTR_TO_JSON(allowCidrs, allowCidrs_);
+        DARABONBA_PTR_TO_JSON(allowFqdns, allowFqdns_);
+        DARABONBA_PTR_TO_JSON(enableAcl, enableAcl_);
+      };
+      friend void from_json(const Darabonba::Json& j, SandboxNetworkPolicy& obj) { 
+        DARABONBA_PTR_FROM_JSON(allowCidrs, allowCidrs_);
+        DARABONBA_PTR_FROM_JSON(allowFqdns, allowFqdns_);
+        DARABONBA_PTR_FROM_JSON(enableAcl, enableAcl_);
+      };
+      SandboxNetworkPolicy() = default ;
+      SandboxNetworkPolicy(const SandboxNetworkPolicy &) = default ;
+      SandboxNetworkPolicy(SandboxNetworkPolicy &&) = default ;
+      SandboxNetworkPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SandboxNetworkPolicy() = default ;
+      SandboxNetworkPolicy& operator=(const SandboxNetworkPolicy &) = default ;
+      SandboxNetworkPolicy& operator=(SandboxNetworkPolicy &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->allowCidrs_ == nullptr
+        && this->allowFqdns_ == nullptr && this->enableAcl_ == nullptr; };
+      // allowCidrs Field Functions 
+      bool hasAllowCidrs() const { return this->allowCidrs_ != nullptr;};
+      void deleteAllowCidrs() { this->allowCidrs_ = nullptr;};
+      inline const vector<string> & getAllowCidrs() const { DARABONBA_PTR_GET_CONST(allowCidrs_, vector<string>) };
+      inline vector<string> getAllowCidrs() { DARABONBA_PTR_GET(allowCidrs_, vector<string>) };
+      inline SandboxNetworkPolicy& setAllowCidrs(const vector<string> & allowCidrs) { DARABONBA_PTR_SET_VALUE(allowCidrs_, allowCidrs) };
+      inline SandboxNetworkPolicy& setAllowCidrs(vector<string> && allowCidrs) { DARABONBA_PTR_SET_RVALUE(allowCidrs_, allowCidrs) };
+
+
+      // allowFqdns Field Functions 
+      bool hasAllowFqdns() const { return this->allowFqdns_ != nullptr;};
+      void deleteAllowFqdns() { this->allowFqdns_ = nullptr;};
+      inline const vector<string> & getAllowFqdns() const { DARABONBA_PTR_GET_CONST(allowFqdns_, vector<string>) };
+      inline vector<string> getAllowFqdns() { DARABONBA_PTR_GET(allowFqdns_, vector<string>) };
+      inline SandboxNetworkPolicy& setAllowFqdns(const vector<string> & allowFqdns) { DARABONBA_PTR_SET_VALUE(allowFqdns_, allowFqdns) };
+      inline SandboxNetworkPolicy& setAllowFqdns(vector<string> && allowFqdns) { DARABONBA_PTR_SET_RVALUE(allowFqdns_, allowFqdns) };
+
+
+      // enableAcl Field Functions 
+      bool hasEnableAcl() const { return this->enableAcl_ != nullptr;};
+      void deleteEnableAcl() { this->enableAcl_ = nullptr;};
+      inline bool getEnableAcl() const { DARABONBA_PTR_GET_DEFAULT(enableAcl_, false) };
+      inline SandboxNetworkPolicy& setEnableAcl(bool enableAcl) { DARABONBA_PTR_SET_VALUE(enableAcl_, enableAcl) };
+
+
+    protected:
+      // The list of CIDRs or IP addresses that are allowed to be accessed.
+      shared_ptr<vector<string>> allowCidrs_ {};
+      // The list of FQDNs that are allowed to be accessed.
+      shared_ptr<vector<string>> allowFqdns_ {};
+      // Specifies whether to enable the sandbox network ACL.
+      shared_ptr<bool> enableAcl_ {};
     };
 
     class Knowledges : public Darabonba::Model {
@@ -268,9 +329,13 @@ namespace Models
 
 
       protected:
+        // The attributes of the knowledge base.
         shared_ptr<string> attributes_ {};
+        // The Bailian index ID.
         shared_ptr<string> indexId_ {};
+        // The region of the knowledge base.
         shared_ptr<string> region_ {};
+        // The Bailian workspace ID.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -295,13 +360,15 @@ namespace Models
 
 
     protected:
+      // The list of Bailian knowledge bases.
       shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
+      // The list of SOP knowledge bases.
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
     virtual bool empty() const override { return this->attributes_ == nullptr
         && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->knowledges_ == nullptr && this->roleArn_ == nullptr
-        && this->toolPolicy_ == nullptr; };
+        && this->sandboxNetworkPolicy_ == nullptr && this->toolPolicy_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -348,6 +415,15 @@ namespace Models
     inline UpdateDigitalEmployeeRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
 
 
+    // sandboxNetworkPolicy Field Functions 
+    bool hasSandboxNetworkPolicy() const { return this->sandboxNetworkPolicy_ != nullptr;};
+    void deleteSandboxNetworkPolicy() { this->sandboxNetworkPolicy_ = nullptr;};
+    inline const UpdateDigitalEmployeeRequest::SandboxNetworkPolicy & getSandboxNetworkPolicy() const { DARABONBA_PTR_GET_CONST(sandboxNetworkPolicy_, UpdateDigitalEmployeeRequest::SandboxNetworkPolicy) };
+    inline UpdateDigitalEmployeeRequest::SandboxNetworkPolicy getSandboxNetworkPolicy() { DARABONBA_PTR_GET(sandboxNetworkPolicy_, UpdateDigitalEmployeeRequest::SandboxNetworkPolicy) };
+    inline UpdateDigitalEmployeeRequest& setSandboxNetworkPolicy(const UpdateDigitalEmployeeRequest::SandboxNetworkPolicy & sandboxNetworkPolicy) { DARABONBA_PTR_SET_VALUE(sandboxNetworkPolicy_, sandboxNetworkPolicy) };
+    inline UpdateDigitalEmployeeRequest& setSandboxNetworkPolicy(UpdateDigitalEmployeeRequest::SandboxNetworkPolicy && sandboxNetworkPolicy) { DARABONBA_PTR_SET_RVALUE(sandboxNetworkPolicy_, sandboxNetworkPolicy) };
+
+
     // toolPolicy Field Functions 
     bool hasToolPolicy() const { return this->toolPolicy_ != nullptr;};
     void deleteToolPolicy() { this->toolPolicy_ = nullptr;};
@@ -358,13 +434,21 @@ namespace Models
 
 
   protected:
+    // The attributes.
     shared_ptr<map<string, string>> attributes_ {};
+    // The default rule of the digital employee.
     shared_ptr<string> defaultRule_ {};
+    // The description of the digital employee.
     shared_ptr<string> description_ {};
+    // The display name of the digital employee.
     shared_ptr<string> displayName_ {};
+    // The list of knowledge bases.
     shared_ptr<UpdateDigitalEmployeeRequest::Knowledges> knowledges_ {};
+    // The ARN of the RAM role.
     shared_ptr<string> roleArn_ {};
-    // 数字员工工具调用安全策略配置。
+    // The list of CIDRs or IP addresses that are allowed to be accessed.
+    shared_ptr<UpdateDigitalEmployeeRequest::SandboxNetworkPolicy> sandboxNetworkPolicy_ {};
+    // The security policy configuration for tool calling of the digital employee.
     shared_ptr<UpdateDigitalEmployeeRequest::ToolPolicy> toolPolicy_ {};
   };
 

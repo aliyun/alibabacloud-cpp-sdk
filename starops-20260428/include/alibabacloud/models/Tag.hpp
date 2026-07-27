@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key for the tag.
     shared_ptr<string> key_ {};
+    // The value for the tag.
     shared_ptr<string> value_ {};
   };
 

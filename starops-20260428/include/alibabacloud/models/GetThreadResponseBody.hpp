@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The name of the SLS project.
       shared_ptr<string> project_ {};
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -168,16 +170,25 @@ namespace Models
 
 
   protected:
+    // The thread\\"s attributes.
     shared_ptr<map<string, string>> attributes_ {};
+    // The thread\\"s creation time, in ISO 8601 format.
     shared_ptr<string> createTime_ {};
+    // The name of the digital employee.
     shared_ptr<string> digitalEmployeeName_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The thread\\"s status.
     shared_ptr<string> status_ {};
+    // The thread ID.
     shared_ptr<string> threadId_ {};
+    // The thread\\"s title.
     shared_ptr<string> title_ {};
+    // The thread\\"s last update time, in ISO 8601 format.
     shared_ptr<string> updateTime_ {};
+    // The thread\\"s variables.
     shared_ptr<GetThreadResponseBody::Variables> variables_ {};
+    // The thread\\"s version.
     shared_ptr<int64_t> version_ {};
   };
 

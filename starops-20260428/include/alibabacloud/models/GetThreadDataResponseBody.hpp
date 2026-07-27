@@ -212,18 +212,31 @@ namespace Models
 
 
       protected:
+        // A list of called agents.
         shared_ptr<vector<Darabonba::Json>> agents_ {};
+        // A list of generated artifacts.
         shared_ptr<vector<Darabonba::Json>> artifacts_ {};
+        // The current call ID.
         shared_ptr<string> callId_ {};
+        // The contents of the message.
         shared_ptr<vector<Darabonba::Json>> contents_ {};
+        // The message details.
         shared_ptr<string> detail_ {};
+        // A list of events.
         shared_ptr<vector<Darabonba::Json>> events_ {};
+        // The parent call ID.
         shared_ptr<string> parentCallId_ {};
+        // The role that initiates the message.
         shared_ptr<string> role_ {};
+        // The sequence number of the message.
         shared_ptr<int32_t> seq_ {};
+        // The message creation time in nanoseconds since the Unix epoch.
         shared_ptr<string> timestamp_ {};
+        // A list of tools used to generate the message.
         shared_ptr<vector<Darabonba::Json>> tools_ {};
+        // The message type.
         shared_ptr<string> type_ {};
+        // The message data version.
         shared_ptr<string> version_ {};
       };
 
@@ -253,8 +266,11 @@ namespace Models
 
 
     protected:
+      // A list of messages in the thread.
       shared_ptr<vector<Data::Messages>> messages_ {};
+      // The ID of the original request that generated this message.
       shared_ptr<string> requestId_ {};
+      // The unique ID that identifies the entire trace of a request.
       shared_ptr<string> traceId_ {};
     };
 
@@ -305,11 +321,17 @@ namespace Models
 
 
   protected:
+    // The message data.
     shared_ptr<vector<GetThreadDataResponseBody::Data>> data_ {};
+    // The name of the current digital employee.
     shared_ptr<string> digitalEmployeeName_ {};
+    // The maximum number of results to return.
     shared_ptr<int64_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this parameter is not returned, there are no more results.
     shared_ptr<string> nextToken_ {};
+    // The unique ID for this GetThreadData API request.
     shared_ptr<string> requestId_ {};
+    // The unique ID of the thread.
     shared_ptr<string> threadId_ {};
   };
 

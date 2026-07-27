@@ -125,15 +125,25 @@ namespace Models
 
 
     protected:
+      // The time when the skill version was created.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The display name.
       shared_ptr<string> displayName_ {};
+      // Indicates whether the skill version is enabled.
       shared_ptr<bool> enable_ {};
+      // The remark for the skill version.
       shared_ptr<string> remark_ {};
+      // The skill name.
       shared_ptr<string> skillName_ {};
+      // The time when the skill version was last updated.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -156,7 +166,9 @@ namespace Models
 
 
   protected:
+    // A list of previous skill versions.
     shared_ptr<vector<ListDigitalEmployeeSkillVersionsResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

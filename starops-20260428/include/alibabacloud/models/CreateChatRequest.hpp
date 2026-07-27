@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The content type.
         shared_ptr<string> type_ {};
+        // The value of the content.
         shared_ptr<string> value_ {};
       };
 
@@ -140,9 +142,13 @@ namespace Models
 
 
     protected:
+      // The multimodal content of the message.
       shared_ptr<vector<Messages::Contents>> contents_ {};
+      // A unique identifier for the message.
       shared_ptr<string> messageId_ {};
+      // The role of the message.
       shared_ptr<string> role_ {};
+      // The tool call list.
       shared_ptr<vector<Darabonba::Json>> tools_ {};
     };
 
@@ -188,10 +194,15 @@ namespace Models
 
 
   protected:
+    // The operation type. Valid values: `create` (default), `reconnect`, and `stop`.
     shared_ptr<string> action_ {};
+    // The name of the digital employee.
     shared_ptr<string> digitalEmployeeName_ {};
+    // The message list.
     shared_ptr<vector<CreateChatRequest::Messages>> messages_ {};
+    // The session thread ID.
     shared_ptr<string> threadId_ {};
+    // The set of variables.
     Darabonba::Json variables_ {};
   };
 

@@ -158,9 +158,13 @@ namespace Models
 
 
         protected:
+          // The attributes of the knowledge base.
           shared_ptr<string> attributes_ {};
+          // The ID of the Model Studio index.
           shared_ptr<string> indexId_ {};
+          // The region of the knowledge base.
           shared_ptr<string> region_ {};
+          // The ID of the Model Studio workspace.
           shared_ptr<string> workspaceId_ {};
         };
 
@@ -185,7 +189,9 @@ namespace Models
 
 
       protected:
+        // A list of Model Studio knowledge bases.
         shared_ptr<vector<Knowledges::Bailian>> bailian_ {};
+        // A list of SOP knowledge bases.
         shared_ptr<vector<Darabonba::Json>> sop_ {};
       };
 
@@ -284,18 +290,32 @@ namespace Models
 
 
     protected:
+      // The custom attributes of the digital employee.
       shared_ptr<map<string, string>> attributes_ {};
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The default rule of the digital employee.
       shared_ptr<string> defaultRule_ {};
+      // The description of the digital employee.
       shared_ptr<string> description_ {};
+      // The display name of the digital employee.
       shared_ptr<string> displayName_ {};
+      // The type of the digital employee.
       shared_ptr<string> employeeType_ {};
+      // A list of knowledge bases.
       shared_ptr<DigitalEmployees::Knowledges> knowledges_ {};
+      // The name of the digital employee.
       shared_ptr<string> name_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The RAM role ARN.
       shared_ptr<string> roleArn_ {};
+      // A list of tags.
       shared_ptr<vector<Tag>> tags_ {};
+      // The modification time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -340,10 +360,15 @@ namespace Models
 
 
   protected:
+    // A list of digital employees.
     shared_ptr<vector<ListDigitalEmployeesResponseBody::DigitalEmployees>> digitalEmployees_ {};
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<int32_t> total_ {};
   };
 

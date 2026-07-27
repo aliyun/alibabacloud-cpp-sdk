@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The artifact path from which to list artifacts. If this parameter is not specified, artifacts are listed from the root directory.
+    // 
     // This parameter is required.
     shared_ptr<string> artifactPath_ {};
+    // The maximum number of results to return. If more results are available, the response includes a `nextToken` to retrieve the next page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. You can obtain this token from the `nextToken` parameter of a previous response.
     shared_ptr<string> nextToken_ {};
   };
 

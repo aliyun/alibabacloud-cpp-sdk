@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The attributes of the thread.
     shared_ptr<map<string, string>> attributes_ {};
+    // The status of the thread.
     shared_ptr<string> status_ {};
+    // The title of the thread.
     shared_ptr<string> title_ {};
   };
 

@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // Specifies whether the item is a directory. A value of `true` indicates a directory and `false` indicates a file.
       shared_ptr<bool> isDirectory_ {};
+      // The time the artifact was last modified, in UTC.
       shared_ptr<string> lastModified_ {};
+      // The path of the artifact.
       shared_ptr<string> path_ {};
+      // The size of the artifact in bytes.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The list of artifacts.
     shared_ptr<vector<ListArtifactsResponseBody::Artifacts>> artifacts_ {};
+    // The maximum number of results returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. This parameter is returned only if more results are available. To retrieve the next page, use this token in the `nextToken` query parameter of your next request.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

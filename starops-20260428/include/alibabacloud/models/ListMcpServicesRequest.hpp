@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The name of the Log Service project.
       shared_ptr<string> project_ {};
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -104,8 +106,11 @@ namespace Models
 
 
   protected:
+    // Key-value pairs that you can attach to the thread.
     shared_ptr<map<string, string>> attributes_ {};
+    // The title of the thread.
     shared_ptr<string> title_ {};
+    // The variables for the thread. You can use them to pass custom data to the digital employee.
     shared_ptr<CreateThreadRequest::Variables> variables_ {};
   };
 

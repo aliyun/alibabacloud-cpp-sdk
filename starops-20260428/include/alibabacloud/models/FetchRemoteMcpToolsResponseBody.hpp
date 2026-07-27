@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The raw tools/list response returned by the remote MCP service.
     shared_ptr<string> tools_ {};
   };
 

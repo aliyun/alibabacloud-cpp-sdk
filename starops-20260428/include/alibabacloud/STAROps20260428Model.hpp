@@ -3,6 +3,9 @@
 #define ALIBABACLOUD_STAROPS20260428MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/Tag.hpp>
+#include <alibabacloud/models/CreateArtifactUploadTokenRequest.hpp>
+#include <alibabacloud/models/CreateArtifactUploadTokenResponseBody.hpp>
+#include <alibabacloud/models/CreateArtifactUploadTokenResponse.hpp>
 #include <alibabacloud/models/CreateChatRequest.hpp>
 #include <alibabacloud/models/CreateChatResponseBody.hpp>
 #include <alibabacloud/models/CreateChatResponse.hpp>
@@ -38,6 +41,9 @@
 #include <alibabacloud/models/FetchRemoteMcpToolsResponse.hpp>
 #include <alibabacloud/models/GetArtifactRequest.hpp>
 #include <alibabacloud/models/GetArtifactResponse.hpp>
+#include <alibabacloud/models/GetArtifactDownloadUrlRequest.hpp>
+#include <alibabacloud/models/GetArtifactDownloadUrlResponseBody.hpp>
+#include <alibabacloud/models/GetArtifactDownloadUrlResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponse.hpp>

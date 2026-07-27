@@ -173,18 +173,31 @@ namespace Models
 
 
     protected:
+      // The request body parameters.
       Darabonba::Json annotations_ {};
+      // Specifies whether user confirmation is required before calling the MCP tool.
       shared_ptr<bool> confirm_ {};
+      // The description of the MCP tool.
       shared_ptr<string> description_ {};
+      // The display name of the MCP tool.
       shared_ptr<string> displayName_ {};
+      // Specifies whether to enable the MCP tool.
       shared_ptr<bool> enable_ {};
+      // The request body parameters.
       Darabonba::Json execution_ {};
+      // The list of MCP tool icons.
       shared_ptr<vector<Darabonba::Json>> icons_ {};
+      // The request body parameters.
+      // 
       // This parameter is required.
       Darabonba::Json inputSchema_ {};
+      // The name of the MCP tool.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The request body parameters.
       Darabonba::Json outputSchema_ {};
+      // The title of the MCP tool.
       shared_ptr<string> title_ {};
     };
 
@@ -290,15 +303,25 @@ namespace Models
 
 
     protected:
+      // The IP address used to access the MCP service over the VPC network.
       shared_ptr<string> accessIp_ {};
+      // The port used to access the MCP service over the VPC network. Valid values: 1 to 65535.
       shared_ptr<int64_t> accessPort_ {};
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // The MCP Server instance ID.
       shared_ptr<string> mcpServerId_ {};
+      // The network access mode of the MCP service. Valid values: public and vpc.
+      // 
       // This parameter is required.
       shared_ptr<string> mode_ {};
+      // The region where the VPC network resides.
       shared_ptr<string> region_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The vSwitch ID.
       shared_ptr<string> vswId_ {};
     };
 
@@ -307,6 +330,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Connection& obj) { 
         DARABONBA_PTR_TO_JSON(auth, auth_);
         DARABONBA_PTR_TO_JSON(endpoint, endpoint_);
+        DARABONBA_PTR_TO_JSON(headers, headers_);
         DARABONBA_PTR_TO_JSON(platform, platform_);
         DARABONBA_PTR_TO_JSON(timeout, timeout_);
         DARABONBA_PTR_TO_JSON(transport, transport_);
@@ -314,6 +338,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Connection& obj) { 
         DARABONBA_PTR_FROM_JSON(auth, auth_);
         DARABONBA_PTR_FROM_JSON(endpoint, endpoint_);
+        DARABONBA_PTR_FROM_JSON(headers, headers_);
         DARABONBA_PTR_FROM_JSON(platform, platform_);
         DARABONBA_PTR_FROM_JSON(timeout, timeout_);
         DARABONBA_PTR_FROM_JSON(transport, transport_);
@@ -369,13 +394,14 @@ namespace Models
 
 
       protected:
-        // key
+        // The request body parameters.
         shared_ptr<map<string, string>> keyInfo_ {};
+        // The authentication type. Currently, only bearer is supported.
         shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->auth_ == nullptr
-        && this->endpoint_ == nullptr && this->platform_ == nullptr && this->timeout_ == nullptr && this->transport_ == nullptr; };
+        && this->endpoint_ == nullptr && this->headers_ == nullptr && this->platform_ == nullptr && this->timeout_ == nullptr && this->transport_ == nullptr; };
       // auth Field Functions 
       bool hasAuth() const { return this->auth_ != nullptr;};
       void deleteAuth() { this->auth_ = nullptr;};
@@ -390,6 +416,15 @@ namespace Models
       void deleteEndpoint() { this->endpoint_ = nullptr;};
       inline string getEndpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
       inline Connection& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
+
+
+      // headers Field Functions 
+      bool hasHeaders() const { return this->headers_ != nullptr;};
+      void deleteHeaders() { this->headers_ = nullptr;};
+      inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+      inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+      inline Connection& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+      inline Connection& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
       // platform Field Functions 
@@ -414,12 +449,21 @@ namespace Models
 
 
     protected:
+      // The request body parameters.
       shared_ptr<Connection::Auth> auth_ {};
+      // The access endpoint of the MCP service.
+      // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
+      shared_ptr<map<string, string>> headers_ {};
+      // The platform type of the MCP service. Valid values: AIGateway and Custom.
+      // 
       // This parameter is required.
       shared_ptr<string> platform_ {};
+      // The timeout period for requests to the MCP service. Unit: milliseconds.
       shared_ptr<int64_t> timeout_ {};
+      // The transport protocol of the MCP service. Valid values: http and sse.
+      // 
       // This parameter is required.
       shared_ptr<string> transport_ {};
     };
@@ -483,16 +527,28 @@ namespace Models
 
 
   protected:
+    // The request body parameters.
+    // 
     // This parameter is required.
     shared_ptr<CreateMcpServiceRequest::Connection> connection_ {};
+    // The description of the MCP service.
     shared_ptr<string> description_ {};
+    // The display name of the MCP service.
     shared_ptr<string> displayName_ {};
+    // Specifies whether to enable the MCP service.
+    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
+    // The service name of the MCP service.
+    // 
     // This parameter is required.
     shared_ptr<string> mcpServiceName_ {};
+    // The request body parameters.
+    // 
     // This parameter is required.
     shared_ptr<CreateMcpServiceRequest::Network> network_ {};
+    // The list of MCP tools.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateMcpServiceRequest::Tools>> tools_ {};
   };

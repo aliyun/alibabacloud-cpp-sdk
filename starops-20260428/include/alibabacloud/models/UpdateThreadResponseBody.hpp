@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the thread.
     shared_ptr<string> threadId_ {};
+    // The version number.
     shared_ptr<int64_t> version_ {};
   };
 

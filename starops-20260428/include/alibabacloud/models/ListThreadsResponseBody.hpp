@@ -114,8 +114,9 @@ namespace Models
 
 
       protected:
-        // SLS project。
+        // The project in SLS.
         shared_ptr<string> project_ {};
+        // The workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -190,14 +191,23 @@ namespace Models
 
 
     protected:
+      // A map of key-value pairs that you can attach to the thread.
       shared_ptr<map<string, string>> attributes_ {};
+      // The creation time of the thread, in ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The digital employee name.
       shared_ptr<string> digitalEmployeeName_ {};
+      // The thread status.
       shared_ptr<string> status_ {};
+      // The thread ID.
       shared_ptr<string> threadId_ {};
+      // The thread title.
       shared_ptr<string> title_ {};
+      // The last update time of the thread, in ISO 8601 format.
       shared_ptr<string> updateTime_ {};
+      // The thread variables.
       shared_ptr<Threads::Variables> variables_ {};
+      // The thread version.
       shared_ptr<int64_t> version_ {};
     };
 
@@ -248,12 +258,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return. The maximum value is 200.
     shared_ptr<int64_t> maxResults_ {};
+    // A token to retrieve the next page of results. If this parameter is absent, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The thread ID.
     shared_ptr<string> threadId_ {};
+    // A list of threads.
     shared_ptr<vector<ListThreadsResponseBody::Threads>> threads_ {};
+    // The total number of threads.
     shared_ptr<int64_t> total_ {};
   };
 

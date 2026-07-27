@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The version of the skill to retrieve. If this parameter is not specified, the latest version is returned.
     shared_ptr<string> version_ {};
   };
 

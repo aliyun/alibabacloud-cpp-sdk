@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The service name of the MCP service.
     shared_ptr<string> mcpServiceName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

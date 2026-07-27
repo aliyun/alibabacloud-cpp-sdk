@@ -21,7 +21,11 @@ namespace STAROps20260428
 {
 
 AlibabaCloud::STAROps20260428::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "starops.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "starops.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("starops", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -40,7 +44,58 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建对话
+ * @summary 创建产物上传凭证
+ *
+ * @description 获取上传内容所需链接，适用于大文件。
+ *
+ * @param request CreateArtifactUploadTokenRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateArtifactUploadTokenResponse
+ */
+CreateArtifactUploadTokenResponse Client::createArtifactUploadTokenWithOptions(const string &name, const CreateArtifactUploadTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArtifactPath()) {
+    query["artifactPath"] = request.getArtifactPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateArtifactUploadToken"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/artifacts/uploadToken")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateArtifactUploadTokenResponse>();
+}
+
+/**
+ * @summary 创建产物上传凭证
+ *
+ * @description 获取上传内容所需链接，适用于大文件。
+ *
+ * @param request CreateArtifactUploadTokenRequest
+ * @return CreateArtifactUploadTokenResponse
+ */
+CreateArtifactUploadTokenResponse Client::createArtifactUploadToken(const string &name, const CreateArtifactUploadTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createArtifactUploadTokenWithOptions(name, request, headers, runtime);
+}
+
+/**
+ * @summary New conversation
+ *
+ * @description Starts a session.
  *
  * @param request CreateChatRequest
  * @param headers map
@@ -103,7 +158,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 创建对话
+ * @summary New conversation
+ *
+ * @description Starts a session.
  *
  * @param request CreateChatRequest
  * @param headers map
@@ -152,7 +209,9 @@ CreateChatResponse Client::createChatWithOptions(const CreateChatRequest &reques
 }
 
 /**
- * @summary 创建对话
+ * @summary New conversation
+ *
+ * @description Starts a session.
  *
  * @param request CreateChatRequest
  * @return CreateChatResponse
@@ -164,7 +223,9 @@ CreateChatResponse Client::createChat(const CreateChatRequest &request) {
 }
 
 /**
- * @summary 创建DigitalEmployee
+ * @summary Creates a digital employee.
+ *
+ * @description Creates a digital employee.
  *
  * @param request CreateDigitalEmployeeRequest
  * @param headers map
@@ -206,6 +267,10 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
     body["roleArn"] = request.getRoleArn();
   }
 
+  if (!!request.hasSandboxNetworkPolicy()) {
+    body["sandboxNetworkPolicy"] = request.getSandboxNetworkPolicy();
+  }
+
   if (!!request.hasTags()) {
     body["tags"] = request.getTags();
   }
@@ -233,7 +298,9 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
 }
 
 /**
- * @summary 创建DigitalEmployee
+ * @summary Creates a digital employee.
+ *
+ * @description Creates a digital employee.
  *
  * @param request CreateDigitalEmployeeRequest
  * @return CreateDigitalEmployeeResponse
@@ -245,7 +312,9 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployee(const CreateDigitalE
 }
 
 /**
- * @summary 创建技能
+ * @summary Creates a skill for a digital employee.
+ *
+ * @description Creates a new skill for a specified digital employee.
  *
  * @param request CreateDigitalEmployeeSkillRequest
  * @param headers map
@@ -298,7 +367,9 @@ CreateDigitalEmployeeSkillResponse Client::createDigitalEmployeeSkillWithOptions
 }
 
 /**
- * @summary 创建技能
+ * @summary Creates a skill for a digital employee.
+ *
+ * @description Creates a new skill for a specified digital employee.
  *
  * @param request CreateDigitalEmployeeSkillRequest
  * @return CreateDigitalEmployeeSkillResponse
@@ -310,7 +381,9 @@ CreateDigitalEmployeeSkillResponse Client::createDigitalEmployeeSkill(const stri
 }
 
 /**
- * @summary 创建 MCP 服务
+ * @summary Creates an MCP service.
+ *
+ * @description Creates an MCP service.
  *
  * @param request CreateMcpServiceRequest
  * @param headers map
@@ -367,7 +440,9 @@ CreateMcpServiceResponse Client::createMcpServiceWithOptions(const string &name,
 }
 
 /**
- * @summary 创建 MCP 服务
+ * @summary Creates an MCP service.
+ *
+ * @description Creates an MCP service.
  *
  * @param request CreateMcpServiceRequest
  * @return CreateMcpServiceResponse
@@ -379,7 +454,9 @@ CreateMcpServiceResponse Client::createMcpService(const string &name, const Crea
 }
 
 /**
- * @summary 创建会话
+ * @summary Creates a thread.
+ *
+ * @description Creates a thread for a specified digital employee.
  *
  * @param request CreateThreadRequest
  * @param headers map
@@ -420,7 +497,9 @@ CreateThreadResponse Client::createThreadWithOptions(const string &name, const C
 }
 
 /**
- * @summary 创建会话
+ * @summary Creates a thread.
+ *
+ * @description Creates a thread for a specified digital employee.
  *
  * @param request CreateThreadRequest
  * @return CreateThreadResponse
@@ -432,7 +511,7 @@ CreateThreadResponse Client::createThread(const string &name, const CreateThread
 }
 
 /**
- * @summary 创建票据
+ * @summary Creates a ticket.
  *
  * @param request CreateTicketRequest
  * @param headers map
@@ -469,7 +548,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
 }
 
 /**
- * @summary 创建票据
+ * @summary Creates a ticket.
  *
  * @param request CreateTicketRequest
  * @return CreateTicketResponse
@@ -481,7 +560,9 @@ CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
 }
 
 /**
- * @summary 删除DigitalEmployee
+ * @summary Deletes a digital employee.
+ *
+ * @description Deletes a digital employee.
  *
  * @param request DeleteDigitalEmployeeRequest
  * @param headers map
@@ -508,7 +589,9 @@ DeleteDigitalEmployeeResponse Client::deleteDigitalEmployeeWithOptions(const str
 }
 
 /**
- * @summary 删除DigitalEmployee
+ * @summary Deletes a digital employee.
+ *
+ * @description Deletes a digital employee.
  *
  * @param request DeleteDigitalEmployeeRequest
  * @return DeleteDigitalEmployeeResponse
@@ -520,7 +603,9 @@ DeleteDigitalEmployeeResponse Client::deleteDigitalEmployee(const string &name, 
 }
 
 /**
- * @summary 删除技能
+ * @summary Deletes a skill from a digital employee.
+ *
+ * @description Deletes a skill from the specified digital employee.
  *
  * @param request DeleteDigitalEmployeeSkillRequest
  * @param headers map
@@ -547,7 +632,9 @@ DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkillWithOptions
 }
 
 /**
- * @summary 删除技能
+ * @summary Deletes a skill from a digital employee.
+ *
+ * @description Deletes a skill from the specified digital employee.
  *
  * @param request DeleteDigitalEmployeeSkillRequest
  * @return DeleteDigitalEmployeeSkillResponse
@@ -559,7 +646,7 @@ DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkill(const stri
 }
 
 /**
- * @summary 删除 MCP 服务
+ * @summary Deletes an MCP service.
  *
  * @param request DeleteMcpServiceRequest
  * @param headers map
@@ -586,7 +673,7 @@ DeleteMcpServiceResponse Client::deleteMcpServiceWithOptions(const string &name,
 }
 
 /**
- * @summary 删除 MCP 服务
+ * @summary Deletes an MCP service.
  *
  * @param request DeleteMcpServiceRequest
  * @return DeleteMcpServiceResponse
@@ -598,7 +685,9 @@ DeleteMcpServiceResponse Client::deleteMcpService(const string &name, const stri
 }
 
 /**
- * @summary 删除会话
+ * @summary This operation deletes a thread.
+ *
+ * @description This operation deletes a specified thread.
  *
  * @param request DeleteThreadRequest
  * @param headers map
@@ -625,7 +714,9 @@ DeleteThreadResponse Client::deleteThreadWithOptions(const string &name, const s
 }
 
 /**
- * @summary 删除会话
+ * @summary This operation deletes a thread.
+ *
+ * @description This operation deletes a specified thread.
  *
  * @param request DeleteThreadRequest
  * @return DeleteThreadResponse
@@ -637,7 +728,7 @@ DeleteThreadResponse Client::deleteThread(const string &name, const string &thre
 }
 
 /**
- * @summary 预览远端 MCP 工具列表
+ * @summary Retrieves the tool list from a remote MCP server.
  *
  * @param request FetchRemoteMcpToolsRequest
  * @param headers map
@@ -674,7 +765,7 @@ FetchRemoteMcpToolsResponse Client::fetchRemoteMcpToolsWithOptions(const FetchRe
 }
 
 /**
- * @summary 预览远端 MCP 工具列表
+ * @summary Retrieves the tool list from a remote MCP server.
  *
  * @param request FetchRemoteMcpToolsRequest
  * @return FetchRemoteMcpToolsResponse
@@ -686,7 +777,9 @@ FetchRemoteMcpToolsResponse Client::fetchRemoteMcpTools(const FetchRemoteMcpTool
 }
 
 /**
- * @summary 下载小型产物文件
+ * @summary Retrieves the content of an artifact.
+ *
+ * @description Retrieves the content of an artifact.
  *
  * @param request GetArtifactRequest
  * @param headers map
@@ -736,7 +829,9 @@ GetArtifactResponse Client::getArtifactWithOptions(const string &name, const Get
 }
 
 /**
- * @summary 下载小型产物文件
+ * @summary Retrieves the content of an artifact.
+ *
+ * @description Retrieves the content of an artifact.
  *
  * @param request GetArtifactRequest
  * @return GetArtifactResponse
@@ -748,7 +843,54 @@ GetArtifactResponse Client::getArtifact(const string &name, const GetArtifactReq
 }
 
 /**
- * @summary 查询 DigitalEmployee
+ * @summary 获取产物下载链接
+ *
+ * @param request GetArtifactDownloadUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetArtifactDownloadUrlResponse
+ */
+GetArtifactDownloadUrlResponse Client::getArtifactDownloadUrlWithOptions(const string &name, const GetArtifactDownloadUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArtifactPath()) {
+    query["artifactPath"] = request.getArtifactPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetArtifactDownloadUrl"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/artifacts/downloadUrl")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetArtifactDownloadUrlResponse>();
+}
+
+/**
+ * @summary 获取产物下载链接
+ *
+ * @param request GetArtifactDownloadUrlRequest
+ * @return GetArtifactDownloadUrlResponse
+ */
+GetArtifactDownloadUrlResponse Client::getArtifactDownloadUrl(const string &name, const GetArtifactDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getArtifactDownloadUrlWithOptions(name, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a digital employee.
+ *
+ * @description Retrieves a digital employee.
  *
  * @param request GetDigitalEmployeeRequest
  * @param headers map
@@ -775,7 +917,9 @@ GetDigitalEmployeeResponse Client::getDigitalEmployeeWithOptions(const string &n
 }
 
 /**
- * @summary 查询 DigitalEmployee
+ * @summary Retrieves a digital employee.
+ *
+ * @description Retrieves a digital employee.
  *
  * @param request GetDigitalEmployeeRequest
  * @return GetDigitalEmployeeResponse
@@ -787,7 +931,9 @@ GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name, const 
 }
 
 /**
- * @summary 获取技能详情
+ * @summary Retrieves the details of a specific skill.
+ *
+ * @description Retrieves the details of a specified skill for a digital employee.
  *
  * @param request GetDigitalEmployeeSkillRequest
  * @param headers map
@@ -820,7 +966,9 @@ GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkillWithOptions(const
 }
 
 /**
- * @summary 获取技能详情
+ * @summary Retrieves the details of a specific skill.
+ *
+ * @description Retrieves the details of a specified skill for a digital employee.
  *
  * @param request GetDigitalEmployeeSkillRequest
  * @return GetDigitalEmployeeSkillResponse
@@ -832,7 +980,7 @@ GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkill(const string &na
 }
 
 /**
- * @summary 查询 MCP 服务
+ * @summary Queries an MCP service.
  *
  * @param request GetMcpServiceRequest
  * @param headers map
@@ -859,7 +1007,7 @@ GetMcpServiceResponse Client::getMcpServiceWithOptions(const string &name, const
 }
 
 /**
- * @summary 查询 MCP 服务
+ * @summary Queries an MCP service.
  *
  * @param request GetMcpServiceRequest
  * @return GetMcpServiceResponse
@@ -871,7 +1019,9 @@ GetMcpServiceResponse Client::getMcpService(const string &name, const string &mc
 }
 
 /**
- * @summary 获取会话
+ * @summary Retrieves a thread.
+ *
+ * @description Retrieves the details of a thread.
  *
  * @param request GetThreadRequest
  * @param headers map
@@ -898,7 +1048,9 @@ GetThreadResponse Client::getThreadWithOptions(const string &name, const string 
 }
 
 /**
- * @summary 获取会话
+ * @summary Retrieves a thread.
+ *
+ * @description Retrieves the details of a thread.
  *
  * @param request GetThreadRequest
  * @return GetThreadResponse
@@ -910,7 +1062,9 @@ GetThreadResponse Client::getThread(const string &name, const string &threadId, 
 }
 
 /**
- * @summary 获取会话数据
+ * @summary Get session data
+ *
+ * @description Gets session data.
  *
  * @param request GetThreadDataRequest
  * @param headers map
@@ -947,7 +1101,9 @@ GetThreadDataResponse Client::getThreadDataWithOptions(const string &name, const
 }
 
 /**
- * @summary 获取会话数据
+ * @summary Get session data
+ *
+ * @description Gets session data.
  *
  * @param request GetThreadDataRequest
  * @return GetThreadDataResponse
@@ -959,7 +1115,9 @@ GetThreadDataResponse Client::getThreadData(const string &name, const string &th
 }
 
 /**
- * @summary 列出产物文件
+ * @summary Lists artifacts.
+ *
+ * @description Lists the artifacts for a specified digital employee.
  *
  * @param request ListArtifactsRequest
  * @param headers map
@@ -1000,7 +1158,9 @@ ListArtifactsResponse Client::listArtifactsWithOptions(const string &name, const
 }
 
 /**
- * @summary 列出产物文件
+ * @summary Lists artifacts.
+ *
+ * @description Lists the artifacts for a specified digital employee.
  *
  * @param request ListArtifactsRequest
  * @return ListArtifactsResponse
@@ -1012,7 +1172,9 @@ ListArtifactsResponse Client::listArtifacts(const string &name, const ListArtifa
 }
 
 /**
- * @summary 列出技能版本
+ * @summary Lists the versions of a skill.
+ *
+ * @description Lists the previous versions of a skill.
  *
  * @param request ListDigitalEmployeeSkillVersionsRequest
  * @param headers map
@@ -1039,7 +1201,9 @@ ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersion
 }
 
 /**
- * @summary 列出技能版本
+ * @summary Lists the versions of a skill.
+ *
+ * @description Lists the previous versions of a skill.
  *
  * @param request ListDigitalEmployeeSkillVersionsRequest
  * @return ListDigitalEmployeeSkillVersionsResponse
@@ -1051,7 +1215,9 @@ ListDigitalEmployeeSkillVersionsResponse Client::listDigitalEmployeeSkillVersion
 }
 
 /**
- * @summary 列出技能
+ * @summary Lists the skills of a digital employee.
+ *
+ * @description Lists the skills of a specified digital employee.
  *
  * @param request ListDigitalEmployeeSkillsRequest
  * @param headers map
@@ -1092,7 +1258,9 @@ ListDigitalEmployeeSkillsResponse Client::listDigitalEmployeeSkillsWithOptions(c
 }
 
 /**
- * @summary 列出技能
+ * @summary Lists the skills of a digital employee.
+ *
+ * @description Lists the skills of a specified digital employee.
  *
  * @param request ListDigitalEmployeeSkillsRequest
  * @return ListDigitalEmployeeSkillsResponse
@@ -1104,7 +1272,9 @@ ListDigitalEmployeeSkillsResponse Client::listDigitalEmployeeSkills(const string
 }
 
 /**
- * @summary 列出资源DigitalEmployee
+ * @summary Returns a list of digital employees.
+ *
+ * @description Lists digital employees.
  *
  * @param tmpReq ListDigitalEmployeesRequest
  * @param headers map
@@ -1167,7 +1337,9 @@ ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListD
 }
 
 /**
- * @summary 列出资源DigitalEmployee
+ * @summary Returns a list of digital employees.
+ *
+ * @description Lists digital employees.
  *
  * @param request ListDigitalEmployeesRequest
  * @return ListDigitalEmployeesResponse
@@ -1179,7 +1351,7 @@ ListDigitalEmployeesResponse Client::listDigitalEmployees(const ListDigitalEmplo
 }
 
 /**
- * @summary 查询数字员工下的 MCP 服务列表
+ * @summary Queries the list of MCP services.
  *
  * @param request ListMcpServicesRequest
  * @param headers map
@@ -1216,7 +1388,7 @@ ListMcpServicesResponse Client::listMcpServicesWithOptions(const string &name, c
 }
 
 /**
- * @summary 查询数字员工下的 MCP 服务列表
+ * @summary Queries the list of MCP services.
  *
  * @param request ListMcpServicesRequest
  * @return ListMcpServicesResponse
@@ -1228,7 +1400,9 @@ ListMcpServicesResponse Client::listMcpServices(const string &name, const ListMc
 }
 
 /**
- * @summary 列出会话
+ * @summary List sessions
+ *
+ * @description List sessions
  *
  * @param tmpReq ListThreadsRequest
  * @param headers map
@@ -1287,7 +1461,9 @@ ListThreadsResponse Client::listThreadsWithOptions(const string &name, const Lis
 }
 
 /**
- * @summary 列出会话
+ * @summary List sessions
+ *
+ * @description List sessions
  *
  * @param request ListThreadsRequest
  * @return ListThreadsResponse
@@ -1299,7 +1475,9 @@ ListThreadsResponse Client::listThreads(const string &name, const ListThreadsReq
 }
 
 /**
- * @summary 更新UpdateDigitalEmployee
+ * @summary Updates a digital employee.
+ *
+ * @description Updates a digital employee.
  *
  * @param request UpdateDigitalEmployeeRequest
  * @param headers map
@@ -1333,6 +1511,10 @@ UpdateDigitalEmployeeResponse Client::updateDigitalEmployeeWithOptions(const str
     body["roleArn"] = request.getRoleArn();
   }
 
+  if (!!request.hasSandboxNetworkPolicy()) {
+    body["sandboxNetworkPolicy"] = request.getSandboxNetworkPolicy();
+  }
+
   if (!!request.hasToolPolicy()) {
     body["toolPolicy"] = request.getToolPolicy();
   }
@@ -1356,7 +1538,9 @@ UpdateDigitalEmployeeResponse Client::updateDigitalEmployeeWithOptions(const str
 }
 
 /**
- * @summary 更新UpdateDigitalEmployee
+ * @summary Updates a digital employee.
+ *
+ * @description Updates a digital employee.
  *
  * @param request UpdateDigitalEmployeeRequest
  * @return UpdateDigitalEmployeeResponse
@@ -1368,7 +1552,9 @@ UpdateDigitalEmployeeResponse Client::updateDigitalEmployee(const string &name, 
 }
 
 /**
- * @summary 更新技能
+ * @summary Updates a skill for a digital employee.
+ *
+ * @description This operation updates a skill for a specified digital employee.
  *
  * @param request UpdateDigitalEmployeeSkillRequest
  * @param headers map
@@ -1417,7 +1603,9 @@ UpdateDigitalEmployeeSkillResponse Client::updateDigitalEmployeeSkillWithOptions
 }
 
 /**
- * @summary 更新技能
+ * @summary Updates a skill for a digital employee.
+ *
+ * @description This operation updates a skill for a specified digital employee.
  *
  * @param request UpdateDigitalEmployeeSkillRequest
  * @return UpdateDigitalEmployeeSkillResponse
@@ -1429,7 +1617,7 @@ UpdateDigitalEmployeeSkillResponse Client::updateDigitalEmployeeSkill(const stri
 }
 
 /**
- * @summary 更新 MCP 服务
+ * @summary Updates an MCP service.
  *
  * @param request UpdateMcpServiceRequest
  * @param headers map
@@ -1482,7 +1670,7 @@ UpdateMcpServiceResponse Client::updateMcpServiceWithOptions(const string &name,
 }
 
 /**
- * @summary 更新 MCP 服务
+ * @summary Updates an MCP service.
  *
  * @param request UpdateMcpServiceRequest
  * @return UpdateMcpServiceResponse
@@ -1494,7 +1682,9 @@ UpdateMcpServiceResponse Client::updateMcpService(const string &name, const stri
 }
 
 /**
- * @summary 更新会话
+ * @summary Updates a thread.
+ *
+ * @description Updates a thread.
  *
  * @param request UpdateThreadRequest
  * @param headers map
@@ -1535,7 +1725,9 @@ UpdateThreadResponse Client::updateThreadWithOptions(const string &name, const s
 }
 
 /**
- * @summary 更新会话
+ * @summary Updates a thread.
+ *
+ * @description Updates a thread.
  *
  * @param request UpdateThreadRequest
  * @return UpdateThreadResponse

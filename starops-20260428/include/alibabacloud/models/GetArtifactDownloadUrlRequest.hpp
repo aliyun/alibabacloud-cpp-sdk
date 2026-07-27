@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETARTIFACTREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_GETARTIFACTREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETARTIFACTDOWNLOADURLREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETARTIFACTDOWNLOADURLREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,21 +10,21 @@ namespace STAROps20260428
 {
 namespace Models
 {
-  class GetArtifactRequest : public Darabonba::Model {
+  class GetArtifactDownloadUrlRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetArtifactRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetArtifactDownloadUrlRequest& obj) { 
       DARABONBA_PTR_TO_JSON(artifactPath, artifactPath_);
     };
-    friend void from_json(const Darabonba::Json& j, GetArtifactRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetArtifactDownloadUrlRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(artifactPath, artifactPath_);
     };
-    GetArtifactRequest() = default ;
-    GetArtifactRequest(const GetArtifactRequest &) = default ;
-    GetArtifactRequest(GetArtifactRequest &&) = default ;
-    GetArtifactRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetArtifactRequest() = default ;
-    GetArtifactRequest& operator=(const GetArtifactRequest &) = default ;
-    GetArtifactRequest& operator=(GetArtifactRequest &&) = default ;
+    GetArtifactDownloadUrlRequest() = default ;
+    GetArtifactDownloadUrlRequest(const GetArtifactDownloadUrlRequest &) = default ;
+    GetArtifactDownloadUrlRequest(GetArtifactDownloadUrlRequest &&) = default ;
+    GetArtifactDownloadUrlRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetArtifactDownloadUrlRequest() = default ;
+    GetArtifactDownloadUrlRequest& operator=(const GetArtifactDownloadUrlRequest &) = default ;
+    GetArtifactDownloadUrlRequest& operator=(GetArtifactDownloadUrlRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,12 +34,10 @@ namespace Models
     bool hasArtifactPath() const { return this->artifactPath_ != nullptr;};
     void deleteArtifactPath() { this->artifactPath_ = nullptr;};
     inline string getArtifactPath() const { DARABONBA_PTR_GET_DEFAULT(artifactPath_, "") };
-    inline GetArtifactRequest& setArtifactPath(string artifactPath) { DARABONBA_PTR_SET_VALUE(artifactPath_, artifactPath) };
+    inline GetArtifactDownloadUrlRequest& setArtifactPath(string artifactPath) { DARABONBA_PTR_SET_VALUE(artifactPath_, artifactPath) };
 
 
   protected:
-    // The path to the artifact.
-    // 
     // This parameter is required.
     shared_ptr<string> artifactPath_ {};
   };

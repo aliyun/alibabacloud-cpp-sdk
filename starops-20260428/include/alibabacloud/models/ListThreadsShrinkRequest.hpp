@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Filters the results. If this parameter is omitted, the operation returns all threads in the instance.
     shared_ptr<string> filterShrink_ {};
+    // Specifies whether to include threads created by missions.
     shared_ptr<bool> includeMission_ {};
+    // The maximum number of results to return. Maximum value: 200.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The status of the thread.
     shared_ptr<string> status_ {};
+    // The thread ID.
     shared_ptr<string> threadId_ {};
   };
 
