@@ -119,6 +119,9 @@
 #include <alibabacloud/models/CreateApplicationShrinkRequest.hpp>
 #include <alibabacloud/models/CreateApplicationResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationResponse.hpp>
+#include <alibabacloud/models/CreateApplicationAgentRelationRequest.hpp>
+#include <alibabacloud/models/CreateApplicationAgentRelationResponseBody.hpp>
+#include <alibabacloud/models/CreateApplicationAgentRelationResponse.hpp>
 #include <alibabacloud/models/CreateApplicationEndpointAddressRequest.hpp>
 #include <alibabacloud/models/CreateApplicationEndpointAddressResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationEndpointAddressResponse.hpp>
@@ -902,6 +905,9 @@
 #include <alibabacloud/models/GenerateUpgradeReportForSyncCloneRequest.hpp>
 #include <alibabacloud/models/GenerateUpgradeReportForSyncCloneResponseBody.hpp>
 #include <alibabacloud/models/GenerateUpgradeReportForSyncCloneResponse.hpp>
+#include <alibabacloud/models/GetLakebaseTenantTokenRequest.hpp>
+#include <alibabacloud/models/GetLakebaseTenantTokenResponseBody.hpp>
+#include <alibabacloud/models/GetLakebaseTenantTokenResponse.hpp>
 #include <alibabacloud/models/GetPolarAgentRequest.hpp>
 #include <alibabacloud/models/GetPolarAgentResponseBody.hpp>
 #include <alibabacloud/models/GetPolarAgentResponse.hpp>
@@ -1205,6 +1211,9 @@
 #include <alibabacloud/models/ResetGlobalDatabaseNetworkRequest.hpp>
 #include <alibabacloud/models/ResetGlobalDatabaseNetworkResponseBody.hpp>
 #include <alibabacloud/models/ResetGlobalDatabaseNetworkResponse.hpp>
+#include <alibabacloud/models/RestartAIDBClusterRequest.hpp>
+#include <alibabacloud/models/RestartAIDBClusterResponseBody.hpp>
+#include <alibabacloud/models/RestartAIDBClusterResponse.hpp>
 #include <alibabacloud/models/RestartDBLinkRequest.hpp>
 #include <alibabacloud/models/RestartDBLinkResponseBody.hpp>
 #include <alibabacloud/models/RestartDBLinkResponse.hpp>

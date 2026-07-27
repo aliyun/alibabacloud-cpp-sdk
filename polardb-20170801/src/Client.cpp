@@ -2885,6 +2885,56 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
+ * @summary Binds an Agent to a Squad.
+ *
+ * @param request CreateApplicationAgentRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateApplicationAgentRelationResponse
+ */
+CreateApplicationAgentRelationResponse Client::createApplicationAgentRelationWithOptions(const CreateApplicationAgentRelationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateApplicationAgentRelation"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateApplicationAgentRelationResponse>();
+}
+
+/**
+ * @summary Binds an Agent to a Squad.
+ *
+ * @param request CreateApplicationAgentRelationRequest
+ * @return CreateApplicationAgentRelationResponse
+ */
+CreateApplicationAgentRelationResponse Client::createApplicationAgentRelation(const CreateApplicationAgentRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createApplicationAgentRelationWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a connection address for a specified application.
  *
  * @param request CreateApplicationEndpointAddressRequest
@@ -20613,6 +20663,60 @@ GenerateUpgradeReportForSyncCloneResponse Client::generateUpgradeReportForSyncCl
 }
 
 /**
+ * @summary Retrieves the Lakebase tenant token (SPG tenant mount URL).
+ *
+ * @param request GetLakebaseTenantTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLakebaseTenantTokenResponse
+ */
+GetLakebaseTenantTokenResponse Client::getLakebaseTenantTokenWithOptions(const GetLakebaseTenantTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasSubdir()) {
+    query["Subdir"] = request.getSubdir();
+  }
+
+  if (!!request.hasTenant()) {
+    query["Tenant"] = request.getTenant();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLakebaseTenantToken"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLakebaseTenantTokenResponse>();
+}
+
+/**
+ * @summary Retrieves the Lakebase tenant token (SPG tenant mount URL).
+ *
+ * @param request GetLakebaseTenantTokenRequest
+ * @return GetLakebaseTenantTokenResponse
+ */
+GetLakebaseTenantTokenResponse Client::getLakebaseTenantToken(const GetLakebaseTenantTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLakebaseTenantTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a chat record.
  *
  * @param request GetPolarAgentRequest
@@ -27645,6 +27749,48 @@ ResetGlobalDatabaseNetworkResponse Client::resetGlobalDatabaseNetworkWithOptions
 ResetGlobalDatabaseNetworkResponse Client::resetGlobalDatabaseNetwork(const ResetGlobalDatabaseNetworkRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetGlobalDatabaseNetworkWithOptions(request, runtime);
+}
+
+/**
+ * @summary Restarts an AI cluster.
+ *
+ * @param request RestartAIDBClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartAIDBClusterResponse
+ */
+RestartAIDBClusterResponse Client::restartAIDBClusterWithOptions(const RestartAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartAIDBCluster"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartAIDBClusterResponse>();
+}
+
+/**
+ * @summary Restarts an AI cluster.
+ *
+ * @param request RestartAIDBClusterRequest
+ * @return RestartAIDBClusterResponse
+ */
+RestartAIDBClusterResponse Client::restartAIDBCluster(const RestartAIDBClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartAIDBClusterWithOptions(request, runtime);
 }
 
 /**

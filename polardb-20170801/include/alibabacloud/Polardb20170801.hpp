@@ -755,6 +755,23 @@ namespace Polardb20170801
       Models::CreateApplicationResponse createApplication(const Models::CreateApplicationRequest &request);
 
       /**
+       * @summary Binds an Agent to a Squad.
+       *
+       * @param request CreateApplicationAgentRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateApplicationAgentRelationResponse
+       */
+      Models::CreateApplicationAgentRelationResponse createApplicationAgentRelationWithOptions(const Models::CreateApplicationAgentRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Binds an Agent to a Squad.
+       *
+       * @param request CreateApplicationAgentRelationRequest
+       * @return CreateApplicationAgentRelationResponse
+       */
+      Models::CreateApplicationAgentRelationResponse createApplicationAgentRelation(const Models::CreateApplicationAgentRelationRequest &request);
+
+      /**
        * @summary Creates a connection address for a specified application.
        *
        * @param request CreateApplicationEndpointAddressRequest
@@ -5537,6 +5554,23 @@ namespace Polardb20170801
       Models::GenerateUpgradeReportForSyncCloneResponse generateUpgradeReportForSyncClone(const Models::GenerateUpgradeReportForSyncCloneRequest &request);
 
       /**
+       * @summary Retrieves the Lakebase tenant token (SPG tenant mount URL).
+       *
+       * @param request GetLakebaseTenantTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLakebaseTenantTokenResponse
+       */
+      Models::GetLakebaseTenantTokenResponse getLakebaseTenantTokenWithOptions(const Models::GetLakebaseTenantTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the Lakebase tenant token (SPG tenant mount URL).
+       *
+       * @param request GetLakebaseTenantTokenRequest
+       * @return GetLakebaseTenantTokenResponse
+       */
+      Models::GetLakebaseTenantTokenResponse getLakebaseTenantToken(const Models::GetLakebaseTenantTokenRequest &request);
+
+      /**
        * @summary Creates a chat record.
        *
        * @param request GetPolarAgentRequest
@@ -7323,6 +7357,23 @@ namespace Polardb20170801
        * @return ResetGlobalDatabaseNetworkResponse
        */
       Models::ResetGlobalDatabaseNetworkResponse resetGlobalDatabaseNetwork(const Models::ResetGlobalDatabaseNetworkRequest &request);
+
+      /**
+       * @summary Restarts an AI cluster.
+       *
+       * @param request RestartAIDBClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartAIDBClusterResponse
+       */
+      Models::RestartAIDBClusterResponse restartAIDBClusterWithOptions(const Models::RestartAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Restarts an AI cluster.
+       *
+       * @param request RestartAIDBClusterRequest
+       * @return RestartAIDBClusterResponse
+       */
+      Models::RestartAIDBClusterResponse restartAIDBCluster(const Models::RestartAIDBClusterRequest &request);
 
       /**
        * @summary Restarts database links.
